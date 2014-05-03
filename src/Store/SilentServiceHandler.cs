@@ -15,25 +15,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
+using System.Diagnostics.CodeAnalysis;
+using NanoByte.Common.Tasks;
 
 namespace ZeroInstall.Store
 {
     /// <summary>
-    /// Contains extension methods for <see cref="IInteractionHandler"/>s.
+    /// Ignores progress reports and silently answer all questions with "No".
     /// </summary>
-    public static class HandlerExtensions
+    [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly", Justification = "Diamond inheritance structure leads to false positive.")]
+    public class SilentServiceHandler : SilentTaskHandler, IServiceHandler
     {
         /// <summary>
-        /// Calls <see cref="IInteractionHandler.Output"/> only when <see cref="IInteractionHandler.Batch"/> is <see langword="false"/>.
+        /// Always returns <see langword="true"/>.
         /// </summary>
-        public static void OutputLow(this IInteractionHandler handler, string title, string message)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException("handler");
-            #endregion
+        public virtual bool Batch { get { return true; } set { } }
 
-            if (!handler.Batch) handler.Output(title, message);
+        /// <inheritdoc/>
+        public virtual bool AskQuestion(string question, string batchInformation = null)
+        {
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public virtual void Output(string title, string information)
+        {
+            // No UI, so nothing to do
         }
     }
 }
