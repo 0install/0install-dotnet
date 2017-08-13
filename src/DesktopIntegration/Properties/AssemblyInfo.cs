@@ -4,12 +4,6 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Assembly info
-[assembly: AssemblyTitle("Zero Install Desktop Integration Library")]
-[assembly: AssemblyDescription("Provides methods for integrating applications with desktop environments (creating menu entries, monitoring system changes, etc.).")]
-[assembly: AssemblyConfiguration("")]
-[assembly: NeutralResourcesLanguage("en")]
-
 // Security settings
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

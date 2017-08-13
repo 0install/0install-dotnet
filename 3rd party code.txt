@@ -1,0 +1,54 @@
+Moq
+http://github.com/Moq/moq4
+New BSD license: http://opensource.org/licenses/BSD-3-Clause
+NuGet package: Moq
+
+Moq.Contrib
+http://code.google.com/p/moq-contrib/
+New BSD license: http://opensource.org/licenses/BSD-3-Clause
+NuGet package: Moq.Contrib
+
+ICSharpCode.SharpZipLib (patched)
+http://www.icsharpcode.net/OpenSource/SharpZipLib/ + https://github.com/nano-byte/SharpZipLib
+GNU GPL with GNU Classpath exception
+NuGet package: ICSharpCode.SharpZipLib.Patched
+
+Json.NET
+http://james.newtonking.com/json
+MIT license: http://opensource.org/licenses/MIT
+NuGet package: Newtonsoft.Json
+
+Bouncy Castle (OpenPGP-only version)
+http://www.bouncycastle.org/csharp
+Bouncy Castle license: http://www.bouncycastle.org/csharp/licence.html
+NuGet package: BouncyCastle.OpenPgp
+
+SevenZipSharp
+http://sevenzipsharp.codeplex.com/
+GNU LGPL 2.1: http://opensource.org/licenses/LGPL-2.1
+Self-compiled managed DLL: SevenZipSharp.dll
+
+7-Zip Extra files
+http://www.7-zip.org/
+GNU LGPL 2.1: http://opensource.org/licenses/LGPL-2.1
+Pre-compiled native DLLs: 7zxa.dll, 7zxa-x64.dll
+
+XZ.NET
+https://github.com/RomanBelkov/XZ.NET
+MIT license: http://opensource.org/licenses/MIT
+Self-compiled managed DLL: XZ.NET.dll
+
+liblzma (XZ Utils)
+http://tukaani.org/xz/
+Public domain
+Pre-compiled native DLLs: liblzma.dll, liblzma64.dll
+
+INI File Parser 2.0.4
+http://github.com/rickyah/ini-parser
+MIT license: http://opensource.org/licenses/MIT
+Pre-compiled managed DLL: INIFileParser.dll
+
+WiX Toolset 3.8
+http://wixtoolset.org/
+Microsoft Reciprocal License: http://opensource.org/licenses/MS-RL
+Pre-compiled managed DLLs: Microsoft.Deployment.*.dll

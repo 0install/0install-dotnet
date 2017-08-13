@@ -4,12 +4,6 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Assembly info
-[assembly: AssemblyTitle("Zero Install Store Library")]
-[assembly: AssemblyDescription("Methods for managing the Zero Install caches for interfaces, implementations, etc.")]
-[assembly: AssemblyConfiguration("")]
-[assembly: NeutralResourcesLanguage("en")]
-
 // Security settings
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

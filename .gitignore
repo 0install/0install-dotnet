@@ -1,0 +1,13 @@
+/build/
+/src/.vs/
+/src/_ReSharper*/
+obj/
+bin/
+*.bak
+*.cache
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.resources
+*.filtered.resx

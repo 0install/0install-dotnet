@@ -4,12 +4,6 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Assembly info
-[assembly: AssemblyTitle("Zero Install Backend Library")]
-[assembly: AssemblyDescription("Provides Zero Install's backend services.")]
-[assembly: AssemblyConfiguration("")]
-[assembly: NeutralResourcesLanguage("en")]
-
 // Security settings
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
