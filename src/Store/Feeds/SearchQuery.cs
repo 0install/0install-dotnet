@@ -22,9 +22,8 @@ using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
-using ZeroInstall.Store;
 
-namespace ZeroInstall.Services.Feeds
+namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
     /// Performs a feed search query and stores the response.

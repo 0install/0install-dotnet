@@ -24,10 +24,9 @@ using System.Xml.Serialization;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
-namespace ZeroInstall.Services.Feeds
+namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
     /// A single result of a feed search.
