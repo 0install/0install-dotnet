@@ -143,7 +143,7 @@ namespace ZeroInstall.Services.Fetchers
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {GetRetrievalMethod(archives)}};
 
             StoreMock.Setup(x => x.GetPath(digest)).Returns<string>(null);
-            StoreMock.Setup(x => x.AddArchives(archiveInfos.IsEqual(), digest, Handler)).Returns("");
+            StoreMock.Setup(x => x.AddArchives(archiveInfos, digest, Handler)).Returns("");
 
             Sut.Fetch(new[] {testImplementation});
         }
