@@ -18,6 +18,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
@@ -72,19 +73,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="description">A short human-readable description; can be <c>null</c>.</param>
         public static void Create([NotNull] string path, [NotNull] string targetPath, [CanBeNull] string arguments = null, [CanBeNull] string iconLocation = null, [CanBeNull] string description = null)
         {
-#if !__MonoCS__
             if (File.Exists(path)) File.Delete(path);
 
-            var wshShell = new IWshRuntimeLibrary.WshShell();
-            var shortcut = (IWshRuntimeLibrary.IWshShortcut)wshShell.CreateShortcut(path);
+            // ReSharper disable once SuspiciousTypeConversion.Global
+            var link = (IShellLink)new ShellLink();
 
-            shortcut.TargetPath = targetPath;
-            if (!string.IsNullOrEmpty(arguments)) shortcut.Arguments = arguments;
-            if (!string.IsNullOrEmpty(iconLocation)) shortcut.IconLocation = iconLocation;
-            if (!string.IsNullOrEmpty(description)) shortcut.Description = description.Substring(0, Math.Min(description.Length, 256));
+            link.SetPath(targetPath);
+            if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
+            if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
+            if (!string.IsNullOrEmpty(description)) link.SetDescription(description.Substring(0, Math.Min(description.Length, 256)));
 
-            shortcut.Save();
-#endif
+            // ReSharper disable once SuspiciousTypeConversion.Global
+            ((IPersistFile)link).Save(path, fRemember: false);
         }
 
         /// <summary>

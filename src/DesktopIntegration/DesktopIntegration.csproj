@@ -41,17 +41,6 @@ API documentation: http://0install.de/api/backend/
   </ItemGroup>
 
   <ItemGroup>
-    <COMReference Include="IWshRuntimeLibrary.dll">
-      <Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-    </COMReference>
-  </ItemGroup>
-
-  <ItemGroup>
     <!-- Include XML Serialization assembly in NuGet package -->
     <None Include="..\..\build\$(Configuration)\net20\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\build\$(Configuration)\net35\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net35" />
