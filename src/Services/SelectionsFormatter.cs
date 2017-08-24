@@ -111,5 +111,47 @@ namespace ZeroInstall.Services
                 ? "(" + implementation.ID + ")"
                 : store.GetPath(implementation.ManifestDigest);
         }
+
+        /// <summary>
+        /// Generates a human-readable list of differences between two selections.
+        /// </summary>
+        /// <param name="newSelections">The new selections to compare against.</param>
+        /// <param name="oldSelections">The old selections to base the comparison on.</param>
+        [NotNull]
+        public static string GetHumanReadableDiff([NotNull] this Selections newSelections, [NotNull] Selections oldSelections)
+        {
+            #region Sanity checks
+            if (newSelections == null) throw new ArgumentNullException(nameof(newSelections));
+            if (oldSelections == null) throw new ArgumentNullException(nameof(oldSelections));
+            #endregion
+
+            var builder = new StringBuilder();
+
+            foreach (var newImplementation in newSelections.Implementations)
+            {
+                var interfaceUri = newImplementation.InterfaceUri;
+                if (!oldSelections.ContainsImplementation(interfaceUri))
+                { // Implementation added
+                    builder.AppendLine(interfaceUri + ": new -> " + newImplementation.Version);
+                }
+            }
+
+            foreach (var oldImplementation in oldSelections.Implementations)
+            {
+                var interfaceUri = oldImplementation.InterfaceUri;
+
+                var newImplementation = newSelections.GetImplementation(interfaceUri);
+                if (newImplementation == null)
+                { // Implementation removed
+                    builder.AppendLine(interfaceUri + ": removed");
+                }
+                else if (oldImplementation.Version != newImplementation.Version)
+                { // Implementation updated
+                    builder.AppendLine(interfaceUri + ": " + oldImplementation.Version + " -> " + newImplementation.Version);
+                }
+            }
+
+            return builder.ToString();
+        }
     }
 }
