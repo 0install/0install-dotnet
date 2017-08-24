@@ -20,31 +20,12 @@ using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Model
 {
-
-    #region Enumerations
-    /// <see cref="VersionPart.Modifier"/>
-    internal enum VersionModifier
-    {
-        /// <summary>No modifier; empty string</summary>
-        None = 0,
-
-        /// <summary>Pre-release</summary>
-        Pre = -2,
-
-        /// <summary>Release candidate</summary>
-        RC = -1,
-
-        /// <summary>Post-release</summary>
-        Post = 1
-    }
-    #endregion
-
     /// <summary>
     /// Represents a part of a <see cref="ImplementationVersion"/> containing nothing, a <see cref="VersionModifier"/>, a <see cref="DottedList"/> or both.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    internal struct VersionPart : IEquatable<VersionPart>, IComparable<VersionPart>
+    public struct VersionPart : IEquatable<VersionPart>, IComparable<VersionPart>
     {
         #region Constants
         /// <summary>
@@ -162,6 +143,22 @@ namespace ZeroInstall.Store.Model
 
             return DottedList.CompareTo(other.DottedList);
         }
+
+        /// <inheritdoc/>
+        public static bool operator <(VersionPart left, VersionPart right)
+            => left.CompareTo(right) < 0;
+
+        /// <inheritdoc/>
+        public static bool operator >(VersionPart left, VersionPart right)
+            => left.CompareTo(right) > 0;
+
+        /// <inheritdoc/>
+        public static bool operator <=(VersionPart left, VersionPart right)
+            => left.CompareTo(right) <= 0;
+
+        /// <inheritdoc/>
+        public static bool operator >=(VersionPart left, VersionPart right)
+            => left.CompareTo(right) >= 0;
         #endregion
     }
 }

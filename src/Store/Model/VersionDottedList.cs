@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using NanoByte.Common.Collections;
@@ -17,10 +18,12 @@ namespace ZeroInstall.Store.Model
     /// </remarks>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    internal struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
+    public struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
     {
-        /// <summary>The individual decimals.</summary>
-        private readonly long[] _decimals;
+        /// <summary>
+        /// The individual decimals.
+        /// </summary>
+        public IList<long> Decimals { get; }
 
         /// <summary>
         /// Creates a new dotted-list from a a string.
@@ -34,13 +37,15 @@ namespace ZeroInstall.Store.Model
             #endregion
 
             string[] parts = value.Split('.');
-            _decimals = new long[parts.Length];
+            var decimals = new long[parts.Length];
 
             for (int i = 0; i < parts.Length; i++)
             {
-                if (!long.TryParse(parts[i], out _decimals[i]))
+                if (!long.TryParse(parts[i], out decimals[i]))
                     throw new FormatException(Resources.MustBeDottedList);
             }
+
+            Decimals = decimals;
         }
 
         private static readonly Regex _dottedListPattern = new Regex(@"^(\d+(\.\d+)*)$");
@@ -48,24 +53,21 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Checks whether a string represents a valid dotted-list.
         /// </summary>
-        public static bool IsValid(string value)
-        {
-            return _dottedListPattern.IsMatch(value);
-        }
+        public static bool IsValid(string value) => _dottedListPattern.IsMatch(value);
 
         #region Conversion
         /// <inheritdoc/>
         public override string ToString()
         {
-            if (_decimals == null) return "";
+            if (Decimals == null) return "";
 
             var output = new StringBuilder();
-            for (int i = 0; i < _decimals.Length; i++)
+            for (int i = 0; i < Decimals.Count; i++)
             {
-                output.Append(_decimals[i]);
+                output.Append(Decimals[i]);
 
                 // Separate parts with dots, no trailing dot
-                if (i < _decimals.Length - 1) output.Append(".");
+                if (i < Decimals.Count - 1) output.Append(".");
             }
 
             return output.ToString();
@@ -75,10 +77,10 @@ namespace ZeroInstall.Store.Model
         #region Equality
         public bool Equals(VersionDottedList other)
         {
-            if (_decimals == null || other._decimals == null)
-                return (_decimals == other._decimals);
+            if (Decimals == null || other.Decimals == null)
+                return (Decimals == other.Decimals);
 
-            return _decimals.SequencedEquals(other._decimals);
+            return Decimals.SequencedEquals(other.Decimals);
         }
 
         public override bool Equals(object obj)
@@ -99,7 +101,7 @@ namespace ZeroInstall.Store.Model
 
         public override int GetHashCode()
         {
-            return _decimals?.GetSequencedHashCode() ?? 0;
+            return Decimals?.GetSequencedHashCode() ?? 0;
         }
         #endregion
 
@@ -107,19 +109,35 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public int CompareTo(VersionDottedList other)
         {
-            var leftArray = _decimals ?? new long[0];
-            var rightArray = other._decimals ?? new long[0];
+            var leftArray = Decimals ?? new long[0];
+            var rightArray = other.Decimals ?? new long[0];
 
-            int upperBound = Math.Max(leftArray.Length, rightArray.Length);
+            int upperBound = Math.Max(leftArray.Count, rightArray.Count);
             for (var i = 0; i < upperBound; ++i)
             {
-                long left = i >= leftArray.Length ? -1 : leftArray[i];
-                long right = i >= rightArray.Length ? -1 : rightArray[i];
+                long left = i >= leftArray.Count ? -1 : leftArray[i];
+                long right = i >= rightArray.Count ? -1 : rightArray[i];
                 int comparisonResult = left.CompareTo(right);
                 if (comparisonResult != 0) return left.CompareTo(right);
             }
             return 0;
         }
+
+        /// <inheritdoc/>
+        public static bool operator <(VersionDottedList left, VersionDottedList right)
+            => left.CompareTo(right) < 0;
+
+        /// <inheritdoc/>
+        public static bool operator >(VersionDottedList left, VersionDottedList right)
+            => left.CompareTo(right) > 0;
+
+        /// <inheritdoc/>
+        public static bool operator <=(VersionDottedList left, VersionDottedList right)
+            => left.CompareTo(right) <= 0;
+
+        /// <inheritdoc/>
+        public static bool operator >=(VersionDottedList left, VersionDottedList right)
+            => left.CompareTo(right) >= 0;
         #endregion
     }
 }

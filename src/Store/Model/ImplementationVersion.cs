@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using JetBrains.Annotations;
@@ -44,13 +45,17 @@ namespace ZeroInstall.Store.Model
     [Serializable]
     public sealed class ImplementationVersion : IEquatable<ImplementationVersion>, IComparable<ImplementationVersion>
     {
-        /// <summary>The first part of the version number.</summary>
-        private readonly VersionDottedList _firstPart;
+        /// <summary>
+        /// The first part of the version number.
+        /// </summary>
+        public VersionDottedList FirstPart { get; }
 
-        /// <summary>All additional parts of the version number.</summary>
-        private readonly VersionPart[] _additionalParts;
+        /// <summary>
+        /// All additional parts of the version number.
+        /// </summary>
+        public IList<VersionPart> AdditionalParts { get; }
 
-        /// <summary>Used to store the unparsed input string (instead of <see cref="_firstPart"/> and <see cref="_additionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
+        /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
         private readonly string _verbatimString;
 
         /// <summary>
@@ -71,7 +76,7 @@ namespace ZeroInstall.Store.Model
             if (ModelUtils.ContainsTemplateVariables(value))
             {
                 _verbatimString = value;
-                _additionalParts = new VersionPart[0];
+                AdditionalParts = new VersionPart[0];
                 return;
             }
 
@@ -79,12 +84,12 @@ namespace ZeroInstall.Store.Model
 
             // Ensure the first part is a dotted list
             if (!VersionDottedList.IsValid(parts[0])) throw new FormatException(Resources.MustStartWithDottedList);
-            _firstPart = new VersionDottedList(parts[0]);
+            FirstPart = new VersionDottedList(parts[0]);
 
             // Iterate through all additional parts
-            _additionalParts = new VersionPart[parts.Length - 1];
+            AdditionalParts = new VersionPart[parts.Length - 1];
             for (int i = 1; i < parts.Length; i++)
-                _additionalParts[i - 1] = new VersionPart(parts[i]);
+                AdditionalParts[i - 1] = new VersionPart(parts[i]);
         }
 
         /// <summary>
@@ -97,8 +102,8 @@ namespace ZeroInstall.Store.Model
             if (version == null) throw new ArgumentNullException(nameof(version));
             #endregion
 
-            _firstPart = new VersionDottedList(version.ToString());
-            _additionalParts = new VersionPart[0];
+            FirstPart = new VersionDottedList(version.ToString());
+            AdditionalParts = new VersionPart[0];
         }
 
         /// <summary>
@@ -131,12 +136,12 @@ namespace ZeroInstall.Store.Model
             if (_verbatimString != null) return _verbatimString;
 
             var output = new StringBuilder();
-            output.Append(_firstPart);
+            output.Append(FirstPart);
 
             // Separate additional parts with hyphens
-            if (_additionalParts != null)
+            if (AdditionalParts != null)
             {
-                foreach (var part in _additionalParts)
+                foreach (var part in AdditionalParts)
                 {
                     output.Append('-');
                     output.Append(part);
@@ -153,7 +158,7 @@ namespace ZeroInstall.Store.Model
         {
             if (ReferenceEquals(null, other)) return false;
 
-            return _firstPart == other._firstPart && _additionalParts.SequencedEquals(other._additionalParts);
+            return FirstPart == other.FirstPart && AdditionalParts.SequencedEquals(other.AdditionalParts);
         }
 
         /// <inheritdoc/>
@@ -170,7 +175,7 @@ namespace ZeroInstall.Store.Model
         {
             unchecked
             {
-                return (_firstPart.GetHashCode() * 397) ^ _additionalParts.GetSequencedHashCode();
+                return (FirstPart.GetHashCode() * 397) ^ AdditionalParts.GetSequencedHashCode();
             }
         }
 
@@ -195,14 +200,14 @@ namespace ZeroInstall.Store.Model
             if (ReferenceEquals(null, other)) throw new ArgumentNullException(nameof(other));
             #endregion
 
-            int firstPartCompared = _firstPart.CompareTo(other._firstPart);
+            int firstPartCompared = FirstPart.CompareTo(other.FirstPart);
             if (firstPartCompared != 0) return firstPartCompared;
 
-            int leastNumberOfAdditionalParts = Math.Max(_additionalParts.Length, other._additionalParts.Length);
+            int leastNumberOfAdditionalParts = Math.Max(AdditionalParts.Count, other.AdditionalParts.Count);
             for (int i = 0; i < leastNumberOfAdditionalParts; ++i)
             {
-                var left = i >= _additionalParts.Length ? VersionPart.Default : _additionalParts[i];
-                var right = i >= other._additionalParts.Length ? VersionPart.Default : other._additionalParts[i];
+                var left = i >= AdditionalParts.Count ? VersionPart.Default : AdditionalParts[i];
+                var right = i >= other.AdditionalParts.Count ? VersionPart.Default : other.AdditionalParts[i];
                 int comparisonResult = left.CompareTo(right);
                 if (comparisonResult != 0)
                     return comparisonResult;
@@ -212,47 +217,19 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public static bool operator <(ImplementationVersion left, ImplementationVersion right)
-        {
-            #region Sanity checks
-            if (left == null) throw new ArgumentNullException(nameof(left));
-            if (right == null) throw new ArgumentNullException(nameof(right));
-            #endregion
-
-            return left.CompareTo(right) < 0;
-        }
+            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) < 0;
 
         /// <inheritdoc/>
         public static bool operator >(ImplementationVersion left, ImplementationVersion right)
-        {
-            #region Sanity checks
-            if (left == null) throw new ArgumentNullException(nameof(left));
-            if (right == null) throw new ArgumentNullException(nameof(right));
-            #endregion
-
-            return left.CompareTo(right) > 0;
-        }
+            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) > 0;
 
         /// <inheritdoc/>
         public static bool operator <=(ImplementationVersion left, ImplementationVersion right)
-        {
-            #region Sanity checks
-            if (left == null) throw new ArgumentNullException(nameof(left));
-            if (right == null) throw new ArgumentNullException(nameof(right));
-            #endregion
-
-            return left.CompareTo(right) <= 0;
-        }
+            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) <= 0;
 
         /// <inheritdoc/>
         public static bool operator >=(ImplementationVersion left, ImplementationVersion right)
-        {
-            #region Sanity checks
-            if (left == null) throw new ArgumentNullException(nameof(left));
-            if (right == null) throw new ArgumentNullException(nameof(right));
-            #endregion
-
-            return left.CompareTo(right) >= 0;
-        }
+            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) >= 0;
         #endregion
     }
 }
