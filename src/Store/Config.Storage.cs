@@ -42,10 +42,7 @@ namespace ZeroInstall.Store
         /// <param name="key">The key of the option to retrieve.</param>
         /// <returns>The string representation of the the option.</returns>
         /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
-        public string GetOption(string key)
-        {
-            return _metaData[key].Value;
-        }
+        public string GetOption(string key) => _metaData[key].Value;
 
         /// <summary>
         /// Sets an option identified by a key.
@@ -54,10 +51,7 @@ namespace ZeroInstall.Store
         /// <param name="value">A string representation of the option.</param>
         /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
         /// <exception cref="FormatException"><paramref name="value"/> is invalid.</exception>
-        public void SetOption(string key, string value)
-        {
-            _metaData[key].Value = value;
-        }
+        public void SetOption(string key, string value) => _metaData[key].Value = value;
 
         /// <summary>
         /// Resets an option identified by a key to its default value.
@@ -115,10 +109,7 @@ namespace ZeroInstall.Store
         /// <remarks>This method performs an atomic write operation when possible.</remarks>
         /// <exception cref="IOException">A problem occurs while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void Save()
-        {
-            Save(Locations.GetSaveConfigPath("0install.net", true, "injector", "global"));
-        }
+        public void Save() => Save(Locations.GetSaveConfigPath("0install.net", true, "injector", "global"));
 
         /// <summary>
         /// Saves the settings to an INI file.

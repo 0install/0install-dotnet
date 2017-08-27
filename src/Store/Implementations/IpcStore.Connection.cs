@@ -103,11 +103,8 @@ namespace ZeroInstall.Store.Implementations
                     {"name", IpcPortName + ".Callback"},
                     {"portName", IpcPortName + ".Callback." + Path.GetRandomFileName()} // Random port to allow multiple instances
                 },
-                new BinaryServerFormatterSinkProvider {TypeFilterLevel = TypeFilterLevel.Full} // Allow deserialization of custom types
-#if !__MonoCS__
-                , IpcAcl
-#endif
-                ), ensureSecurity: false);
+                new BinaryServerFormatterSinkProvider {TypeFilterLevel = TypeFilterLevel.Full}, // Allow deserialization of custom types
+                IpcAcl), ensureSecurity: false);
 
             // Create proxy object
             return (IStore)Activator.GetObject(typeof(IStore), "ipc://" + IpcPortName + "/" + IpcObjectUri);

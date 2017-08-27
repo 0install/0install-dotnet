@@ -37,13 +37,6 @@ API documentation: http://0install.de/api/backend/
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common" Version="2.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5" />
-    <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
@@ -52,6 +45,14 @@ API documentation: http://0install.de/api/backend/
     <Reference Include="Microsoft.Deployment.Compression.Cab" HintPath="..\..\lib\Microsoft.Deployment.Compression.Cab.dll" />
     <Reference Include="Microsoft.Deployment.WindowsInstaller" HintPath="..\..\lib\Microsoft.Deployment.WindowsInstaller.dll" />
     <Reference Include="XZ.NET" HintPath="..\..\lib\XZ.NET.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NanoByte.Common" Version="2.1.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="11.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5" />
+    <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1" />
   </ItemGroup>
 
   <ItemGroup>

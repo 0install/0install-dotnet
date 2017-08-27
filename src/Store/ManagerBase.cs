@@ -70,7 +70,10 @@ namespace ZeroInstall.Store
                 mutexSecurity.AddAccessRule(new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
                 _mutex = new Mutex(false, @"Global\" + MutexName, out bool createdNew, mutexSecurity);
             }
-            _mutex = new Mutex(false, MutexName);
+            else
+            {
+                _mutex = new Mutex(false, MutexName);
+            }
 
             try
             {
