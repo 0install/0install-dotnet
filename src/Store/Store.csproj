@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Store</AssemblyName>
     <RootNamespace>ZeroInstall.Store</RootNamespace>
-    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net40</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
