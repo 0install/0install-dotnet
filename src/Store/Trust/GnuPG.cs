@@ -208,9 +208,7 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <returns>A handle that can be used to wait for the process to finish.</returns>
         /// <exception cref="IOException">The OpenPGP implementation could not be launched.</exception>
-        public static Process GenerateKey()
-        {
-            return new CliControl().StartInteractive("--gen-key");
-        }
+        [PublicAPI]
+        public static Process GenerateKey() => new CliControl().StartInteractive("--gen-key");
     }
 }

@@ -75,8 +75,7 @@ namespace ZeroInstall.Services.Solvers
             {
                 if (!string.IsNullOrEmpty(implementation.LocalPath)) return true;
 
-                var externalImplementation = implementation as ExternalImplementation;
-                if (externalImplementation != null) return externalImplementation.IsInstalled;
+                if (implementation is ExternalImplementation externalImplementation) return externalImplementation.IsInstalled;
 
                 return storeContainsCache[implementation.ManifestDigest];
             };
@@ -193,8 +192,7 @@ namespace ZeroInstall.Services.Solvers
 
             foreach (var element in feed.Elements)
             {
-                var packageImplementation = element as PackageImplementation;
-                if (packageImplementation != null)
+                if (element is PackageImplementation packageImplementation)
                 { // Each <package-implementation> provides 0..n selection candidates
                     var externalImplementations = _packageManager.Query(packageImplementation, requirements.Distributions.ToArray());
                     foreach (var externalImplementation in externalImplementations)
@@ -205,8 +203,7 @@ namespace ZeroInstall.Services.Solvers
                 }
                 else if (requirements.Distributions.ContainsOrEmpty(Restriction.DistributionZeroInstall))
                 {
-                    var implementation = element as Implementation;
-                    if (implementation != null)
+                    if (element is Implementation implementation)
                     { // Each <implementation> provides 1 selection candidate
                         yield return new SelectionCandidate(feedUri, feedPreferences, implementation, requirements,
                             offlineUncached: (_config.NetworkUse == NetworkLevel.Offline) && !_isCached(implementation));

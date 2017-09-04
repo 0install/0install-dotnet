@@ -130,8 +130,7 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            var publicKey = ((SecretBundle.GetSecretKey(keyIDContainer.KeyID) != null) ? SecretBundle.GetSecretKey(keyIDContainer.KeyID).PublicKey : null)
-                            ?? PublicBundle.GetPublicKey(keyIDContainer.KeyID);
+            var publicKey = SecretBundle.GetSecretKey(keyIDContainer.KeyID)?.PublicKey ?? PublicBundle.GetPublicKey(keyIDContainer.KeyID);
             if (publicKey == null) throw new KeyNotFoundException("Specified OpenPGP key not found on system");
 
             var output = new MemoryStream();
@@ -180,11 +179,9 @@ namespace ZeroInstall.Store.Trust
             PgpObject obj;
             while ((obj = factory.NextPgpObject()) != null)
             {
-                var target = obj as T;
-                if (target != null) yield return target;
+                if (obj is T target) yield return target;
 
-                var compressed = obj as PgpCompressedData;
-                if (compressed != null)
+                if (obj is PgpCompressedData compressed)
                 {
                     foreach (var result in ParseObjects<T>(compressed.GetDataStream()))
                         yield return result;
