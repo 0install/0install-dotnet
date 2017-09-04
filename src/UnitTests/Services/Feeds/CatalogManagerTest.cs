@@ -17,8 +17,10 @@
 
 using System.IO;
 using FluentAssertions;
+using Moq;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -29,8 +31,17 @@ namespace ZeroInstall.Services.Feeds
     /// <summary>
     /// Contains test methods for <see cref="CatalogManager"/>.
     /// </summary>
-    public class CatalogManagerTest : TestWithContainer<CatalogManager>
+    public class CatalogManagerTest : TestWithMocksAndRedirect
     {
+        private readonly Mock<ITrustManager> _trustManagerMock;
+        private readonly ICatalogManager _sut;
+
+        public CatalogManagerTest()
+        {
+            _trustManagerMock = CreateMock<ITrustManager>();
+            _sut = new CatalogManager(_trustManagerMock.Object, new SilentTaskHandler());
+        }
+
         [Fact]
         public void TestGetOnline()
         {
@@ -46,9 +57,9 @@ namespace ZeroInstall.Services.Feeds
             {
                 var uri = new FeedUri(server.FileUri);
                 CatalogManager.SetSources(new[] {uri});
-                GetMock<ITrustManager>().Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
+                _trustManagerMock.Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
 
-                Sut.GetOnline().Should().Be(catalog);
+                _sut.GetOnline().Should().Be(catalog);
             }
         }
 
@@ -58,9 +69,9 @@ namespace ZeroInstall.Services.Feeds
             var catalog = CatalogTest.CreateTestCatalog();
             catalog.Normalize();
 
-            Sut.GetCached().Should().BeNull();
+            _sut.GetCached().Should().BeNull();
             TestGetOnline();
-            Sut.GetCached().Should().Be(catalog);
+            _sut.GetCached().Should().Be(catalog);
         }
 
         private static readonly FeedUri _testSource = new FeedUri("http://localhost/test/");
@@ -68,28 +79,28 @@ namespace ZeroInstall.Services.Feeds
         [Fact]
         public void TestAddSourceExisting()
         {
-            Sut.AddSource(CatalogManager.DefaultSource).Should().BeFalse();
+            _sut.AddSource(CatalogManager.DefaultSource).Should().BeFalse();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
         }
 
         [Fact]
         public void TestAddSourceNew()
         {
-            Sut.AddSource(_testSource).Should().BeTrue();
+            _sut.AddSource(_testSource).Should().BeTrue();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource, _testSource);
         }
 
         [Fact]
         public void TestRemoveSource()
         {
-            Sut.RemoveSource(CatalogManager.DefaultSource).Should().BeTrue();
+            _sut.RemoveSource(CatalogManager.DefaultSource).Should().BeTrue();
             CatalogManager.GetSources().Should().BeEmpty();
         }
 
         [Fact]
         public void TestRemoveSourceMissing()
         {
-            Sut.RemoveSource(_testSource).Should().BeFalse();
+            _sut.RemoveSource(_testSource).Should().BeFalse();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
         }
 

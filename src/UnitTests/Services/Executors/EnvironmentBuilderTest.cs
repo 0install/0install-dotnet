@@ -15,7 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using System.Diagnostics;
 using System.IO;
 using FluentAssertions;
@@ -35,14 +34,9 @@ namespace ZeroInstall.Services.Executors
     /// <summary>
     /// Contains test methods for <see cref="EnvironmentBuilder"/>.
     /// </summary>
-    [Collection("LocationsRedirect")]
-    public class EnvironmentBuilderTest : IDisposable
+    public class EnvironmentBuilderTest : TestWithMocksAndRedirect
     {
         private const string Test1Path = "test1 path", Test2Path = "test2 path";
-
-        // Don't store generated executables settings in real user profile
-        private readonly LocationsRedirect _redirect = new LocationsRedirect("0install-unit-tests");
-        public void Dispose() => _redirect.Dispose();
 
         [Fact]
         public void TestExceptions()

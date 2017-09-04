@@ -30,20 +30,18 @@ namespace ZeroInstall.Store.Trust
     /// <summary>
     /// Contains common code for testing specific <see cref="IOpenPgp"/> implementations.
     /// </summary>
-    public abstract class OpenPgpTest<T> : TestWithContainer<T> where T : class, IOpenPgp
+    public abstract class OpenPgpTest : IDisposable
     {
         private readonly TemporaryDirectory _homeDir = new TemporaryDirectory("0install-unit-test");
+        private readonly IOpenPgp _sut;
 
-        protected OpenPgpTest()
+        protected OpenPgpTest(IOpenPgp sut)
         {
-            Sut.HomeDir = _homeDir;
+            _sut = sut;
+            _sut.HomeDir = _homeDir;
         }
 
-        public override void Dispose()
-        {
-            base.Dispose();
-            _homeDir?.Dispose();
-        }
+        public void Dispose() => _homeDir?.Dispose();
 
         private readonly OpenPgpSecretKey _secretKey = new OpenPgpSecretKey(
             keyID: OpenPgpUtils.ParseKeyID("DEED44B49BE24661"),
@@ -52,13 +50,13 @@ namespace ZeroInstall.Store.Trust
 
         private readonly byte[] _referenceData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        private readonly byte[] _signatureData = typeof(OpenPgpTest<>).GetEmbeddedBytes("signature.dat");
+        private readonly byte[] _signatureData = typeof(OpenPgpTest).GetEmbeddedBytes("signature.dat");
 
         [Fact]
         public void TestVerifyValidSignature()
         {
             TestImportKey();
-            Sut.Verify(_referenceData, _signatureData).Should().Equal(
+            _sut.Verify(_referenceData, _signatureData).Should().Equal(
                 new ValidSignature(_secretKey.KeyID, _secretKey.GetFingerprint(), new DateTime(2015, 7, 16, 17, 20, 7, DateTimeKind.Utc)));
         }
 
@@ -66,56 +64,56 @@ namespace ZeroInstall.Store.Trust
         public void TestVerifyBadSignature()
         {
             TestImportKey();
-            Sut.Verify(new byte[] {1, 2, 3}, _signatureData).Should().Equal(new BadSignature(_secretKey.KeyID));
+            _sut.Verify(new byte[] {1, 2, 3}, _signatureData).Should().Equal(new BadSignature(_secretKey.KeyID));
         }
 
         [Fact]
         public void TestVerifyMissingKeySignature()
-            => Sut.Verify(_referenceData, _signatureData).Should().Equal(new MissingKeySignature(_secretKey.KeyID));
+            => _sut.Verify(_referenceData, _signatureData).Should().Equal(new MissingKeySignature(_secretKey.KeyID));
 
         [Fact]
         public void TestVerifyInvalidData()
-            => Assert.Throws<InvalidDataException>(() => Sut.Verify(new byte[] {1, 2, 3}, new byte[] {1, 2, 3}));
+            => Assert.Throws<InvalidDataException>(() => _sut.Verify(new byte[] {1, 2, 3}, new byte[] {1, 2, 3}));
 
         [Fact]
         public void TestSign()
         {
             DeployKeyRings();
 
-            var signatureData = Sut.Sign(_referenceData, _secretKey, "passphrase");
+            var signatureData = _sut.Sign(_referenceData, _secretKey, "passphrase");
             signatureData.Length.Should().BeGreaterThan(10);
 
             TestImportKey();
-            var signature = (ValidSignature)Sut.Verify(_referenceData, signatureData).Single();
+            var signature = (ValidSignature)_sut.Verify(_referenceData, signatureData).Single();
             signature.GetFingerprint().Should().Equal(_secretKey.GetFingerprint());
         }
 
         [Fact]
         public void TestSignMissingKey()
-            => Assert.Throws<KeyNotFoundException>(() => Sut.Sign(_referenceData, _secretKey));
+            => Assert.Throws<KeyNotFoundException>(() => _sut.Sign(_referenceData, _secretKey));
 
         [Fact]
         public void TestSignWrongPassphrase()
         {
             DeployKeyRings();
-            Assert.Throws<WrongPassphraseException>(() => Sut.Sign(_referenceData, _secretKey, "wrong-passphrase"));
+            Assert.Throws<WrongPassphraseException>(() => _sut.Sign(_referenceData, _secretKey, "wrong-passphrase"));
         }
 
         [Fact]
         public void TestImportKey()
-            => Sut.ImportKey(typeof(OpenPgpTest<>).GetEmbeddedBytes("pubkey.gpg"));
+            => _sut.ImportKey(typeof(OpenPgpTest).GetEmbeddedBytes("pubkey.gpg"));
 
         [Fact]
         public void TestImportKeyInvalidData()
-            => Assert.Throws<InvalidDataException>(() => Sut.ImportKey(new byte[] {1, 2, 3}));
+            => Assert.Throws<InvalidDataException>(() => _sut.ImportKey(new byte[] {1, 2, 3}));
 
         [Fact]
         public void TestExportKey()
         {
             DeployKeyRings();
 
-            string exportedKey = Sut.ExportKey(_secretKey);
-            string referenceKeyData = typeof(OpenPgpTest<>).GetEmbeddedString("pubkey.gpg")
+            string exportedKey = _sut.ExportKey(_secretKey);
+            string referenceKeyData = typeof(OpenPgpTest).GetEmbeddedString("pubkey.gpg")
                 .GetRightPartAtFirstOccurrence("\n\n").GetLeftPartAtLastOccurrence("+");
 
             exportedKey.Should().StartWith("-----BEGIN PGP PUBLIC KEY BLOCK-----\n");
@@ -125,13 +123,13 @@ namespace ZeroInstall.Store.Trust
 
         [Fact]
         public void TestExportKeyMissingKey()
-            => Assert.Throws<KeyNotFoundException>(() => Sut.ExportKey(_secretKey));
+            => Assert.Throws<KeyNotFoundException>(() => _sut.ExportKey(_secretKey));
 
         [Fact]
         public void TestListSecretKeys()
         {
             DeployKeyRings();
-            Sut.ListSecretKeys().Should().Equal(_secretKey);
+            _sut.ListSecretKeys().Should().Equal(_secretKey);
         }
 
         [Fact]
@@ -139,21 +137,21 @@ namespace ZeroInstall.Store.Trust
         {
             DeployKeyRings();
 
-            Sut.GetSecretKey(_secretKey).Should().Be(_secretKey, because: "Should get secret key using parsed id source");
+            _sut.GetSecretKey(_secretKey).Should().Be(_secretKey, because: "Should get secret key using parsed id source");
 
-            Sut.GetSecretKey(_secretKey.UserID).Should().Be(_secretKey, because: "Should get secret key using user id");
-            Sut.GetSecretKey(_secretKey.FormatKeyID()).Should().Be(_secretKey, because: "Should get secret key using key id string");
-            Sut.GetSecretKey(_secretKey.FormatFingerprint()).Should().Be(_secretKey, because: "Should get secret key using fingerprint string");
+            _sut.GetSecretKey(_secretKey.UserID).Should().Be(_secretKey, because: "Should get secret key using user id");
+            _sut.GetSecretKey(_secretKey.FormatKeyID()).Should().Be(_secretKey, because: "Should get secret key using key id string");
+            _sut.GetSecretKey(_secretKey.FormatFingerprint()).Should().Be(_secretKey, because: "Should get secret key using fingerprint string");
 
-            Sut.GetSecretKey().Should().Be(_secretKey, because: "Should get default secret key");
+            _sut.GetSecretKey().Should().Be(_secretKey, because: "Should get default secret key");
 
-            Assert.Throws<KeyNotFoundException>(() => Sut.GetSecretKey("unknown@user.com"));
+            Assert.Throws<KeyNotFoundException>(() => _sut.GetSecretKey("unknown@user.com"));
         }
 
         private void DeployKeyRings()
         {
-            typeof(OpenPgpTest<>).CopyEmbeddedToFile("pubring.gpg", Path.Combine(Sut.HomeDir, "pubring.gpg"));
-            typeof(OpenPgpTest<>).CopyEmbeddedToFile("secring.gpg", Path.Combine(Sut.HomeDir, "secring.gpg"));
+            typeof(OpenPgpTest).CopyEmbeddedToFile("pubring.gpg", Path.Combine(_sut.HomeDir, "pubring.gpg"));
+            typeof(OpenPgpTest).CopyEmbeddedToFile("secring.gpg", Path.Combine(_sut.HomeDir, "secring.gpg"));
         }
     }
 }

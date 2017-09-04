@@ -15,19 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using ZeroInstall.Store.Model;
+using Moq;
+using NanoByte.Common.Tasks;
+using ZeroInstall.Services.Feeds;
+using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Store;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
     /// Runs test methods for <see cref="BacktrackingSolver"/>.
     /// </summary>
-    public class BacktrackingSolverTest : SolverTest<BacktrackingSolver>
+    public class BacktrackingSolverTest : SolverTest
     {
-        public BacktrackingSolverTest()
-        {
-            // Mock Zero Install version
-            Container.Register(new ImplementationVersion("1.0"));
-        }
+        protected override ISolver BuildSolver(IFeedManager feedManager)
+            => new BacktrackingSolver(new Config(), feedManager, new Mock<IStore>(MockBehavior.Loose).Object, new StubPackageManager(), new SilentTaskHandler());
     }
 }

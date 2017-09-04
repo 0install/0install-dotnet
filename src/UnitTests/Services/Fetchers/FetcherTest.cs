@@ -26,6 +26,7 @@ using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Model;
@@ -35,13 +36,17 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Contains test methods for <see cref="IFetcher"/> implementations.
     /// </summary>
-    public abstract class FetcherTest<TFetcher> : TestWithContainer<TFetcher>
-        where TFetcher : class, IFetcher
+    public abstract class FetcherTest : TestWithMocks
     {
-        protected static readonly Stream ZipArchiveStream = typeof(FetcherTest<TFetcher>).GetEmbeddedStream("testArchive.zip");
+        protected static readonly Stream ZipArchiveStream = typeof(FetcherTest).GetEmbeddedStream("testArchive.zip");
         protected static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        protected Mock<IStore> StoreMock => GetMock<IStore>();
+        protected readonly Config Config = new Config();
+        protected readonly Mock<IStore> StoreMock;
+        protected FetcherTest() => StoreMock = CreateMock<IStore>();
+        protected readonly MockTaskHandler Handler = new MockTaskHandler();
+
+        protected abstract IFetcher BuildFetcher();
 
         [Fact]
         public void DownloadSingleArchive()
@@ -145,7 +150,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.GetPath(digest)).Returns<string>(null);
             StoreMock.Setup(x => x.AddArchives(archiveInfos, digest, Handler)).Returns("");
 
-            Sut.Fetch(new[] {testImplementation});
+            BuildFetcher().Fetch(new[] {testImplementation});
         }
 
         private static RetrievalMethod GetRetrievalMethod(Archive[] archives)
@@ -168,7 +173,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.GetPath(digest)).Returns<string>(null);
             StoreMock.Setup(x => x.AddDirectory(It.Is<string>(path => expected.Verify(path)), digest, Handler)).Returns("");
 
-            Sut.Fetch(new[] {testImplementation});
+            BuildFetcher().Fetch(new[] {testImplementation});
         }
         #endregion
 
@@ -177,7 +182,7 @@ namespace ZeroInstall.Services.Fetchers
         {
             bool installInvoked = false;
             Handler.AnswerQuestionWith = true;
-            Sut.Fetch(new[]
+            BuildFetcher().Fetch(new[]
             {
                 new Implementation
                 {
@@ -200,7 +205,7 @@ namespace ZeroInstall.Services.Fetchers
         {
             bool installInvoked = false;
             Handler.AnswerQuestionWith = false;
-            Assert.Throws<OperationCanceledException>(() => Sut.Fetch(new[]
+            Assert.Throws<OperationCanceledException>(() => BuildFetcher().Fetch(new[]
             {
                 new Implementation
                 {
@@ -226,7 +231,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.Flush());
             StoreMock.Setup(x => x.GetPath(digest)).Returns("dummy");
 
-            Sut.Fetch(new[] {testImplementation});
+            BuildFetcher().Fetch(new[] {testImplementation});
         }
 
         [Fact]
@@ -236,7 +241,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.Flush());
             StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
 
-            Assert.Throws<NotSupportedException>(() => Sut.Fetch(new[] {implementation}));
+            Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }
 
         [Fact]
@@ -251,7 +256,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.Flush());
             StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
 
-            Assert.Throws<NotSupportedException>(() => Sut.Fetch(new[] {implementation}));
+            Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }
 
         [Fact]
@@ -266,7 +271,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.Flush());
             StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
 
-            Assert.Throws<NotSupportedException>(() => Sut.Fetch(new[] {implementation}));
+            Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }
     }
 }

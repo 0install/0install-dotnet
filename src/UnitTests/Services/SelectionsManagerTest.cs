@@ -31,21 +31,30 @@ namespace ZeroInstall.Services
     /// <summary>
     /// Contains test methods for <see cref="SelectionsManager"/>.
     /// </summary>
-    public class SelectionsManagerTest : TestWithContainer<SelectionsManager>
+    public class SelectionsManagerTest : TestWithMocks
     {
-        private Mock<IFeedManager> FeedManagereMock => GetMock<IFeedManager>();
-        private Mock<IPackageManager> PackageManagerMock => GetMock<IPackageManager>();
-        private Mock<IStore> StoreMock => GetMock<IStore>();
+        private readonly Mock<IFeedManager> _feedManagereMock;
+        private readonly Mock<IStore> _storeMock;
+        private readonly Mock<IPackageManager> _packageManagerMock;
+        private readonly ISelectionsManager _selectionsManager;
+
+        public SelectionsManagerTest()
+        {
+            _feedManagereMock = CreateMock<IFeedManager>();
+            _storeMock = CreateMock<IStore>();
+            _packageManagerMock = CreateMock<IPackageManager>();
+            _selectionsManager = new SelectionsManager(_feedManagereMock.Object, _storeMock.Object, _packageManagerMock.Object);
+        }
 
         [Fact]
         public void TestGetUncachedSelections()
         {
             var selections = SelectionsTest.CreateTestSelections();
 
-            StoreMock.Setup(x => x.Contains(selections.Implementations[0].ManifestDigest)).Returns(false);
-            StoreMock.Setup(x => x.Contains(selections.Implementations[1].ManifestDigest)).Returns(true);
+            _storeMock.Setup(x => x.Contains(selections.Implementations[0].ManifestDigest)).Returns(false);
+            _storeMock.Setup(x => x.Contains(selections.Implementations[1].ManifestDigest)).Returns(true);
 
-            var implementationSelections = Sut.GetUncachedSelections(selections);
+            var implementationSelections = _selectionsManager.GetUncachedSelections(selections);
 
             implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
         }
@@ -71,10 +80,10 @@ namespace ZeroInstall.Services
                     }
                 };
 
-                PackageManagerMock.Setup(x => x.Lookup(selections.Implementations[0])).Returns(impl1);
-                PackageManagerMock.Setup(x => x.Lookup(selections.Implementations[1])).Returns(impl2);
+                _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[0])).Returns(impl1);
+                _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[1])).Returns(impl2);
 
-                var implementationSelections = Sut.GetUncachedSelections(selections);
+                var implementationSelections = _selectionsManager.GetUncachedSelections(selections);
 
                 // Only the first implementation should be listed as uncached
                 implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
@@ -97,11 +106,11 @@ namespace ZeroInstall.Services
                 new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
             };
 
-            FeedManagereMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
-            FeedManagereMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Elements = {impl2}});
-            PackageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
+            _feedManagereMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
+            _feedManagereMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Elements = {impl2}});
+            _packageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
 
-            Sut.GetImplementations(implementationSelections)
+            _selectionsManager.GetImplementations(implementationSelections)
                 .Should().BeEquivalentTo(impl1, impl2, impl3);
         }
     }

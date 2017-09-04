@@ -15,13 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Xunit;
-
 namespace ZeroInstall.Store.Trust
 {
     /// <summary>
     /// Runs test methods for <see cref="BouncyCastle"/>.
     /// </summary>
-    public class BouncyCastleTest : OpenPgpTest<BouncyCastle>
-    {}
+    public class BouncyCastleTest : OpenPgpTest
+    {
+        public BouncyCastleTest() : base(new BouncyCastle())
+        {}
+    }
 }

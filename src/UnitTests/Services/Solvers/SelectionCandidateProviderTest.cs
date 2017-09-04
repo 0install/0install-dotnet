@@ -24,6 +24,7 @@ using Xunit;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.PackageManagers;
 using ZeroInstall.Store;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Preferences;
 using ZeroInstall.Store.Model.Selection;
@@ -33,18 +34,17 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Runs test methods for <see cref="SelectionCandidateProvider"/>.
     /// </summary>
-    [Collection("LocationsRedirect")]
-    public class SelectionCandidateProviderTest : TestWithContainer<SelectionCandidateProvider>
+    public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
     {
-        private Mock<IFeedManager> FeedManagerMock => GetMock<IFeedManager>();
-        private Mock<IPackageManager> PackageManagerMock => GetMock<IPackageManager>();
+        private readonly Mock<IFeedManager> _feedManagerMock;
+        private readonly Mock<IPackageManager> _packageManagerMock;
+        private readonly SelectionCandidateProvider _provider;
 
         public SelectionCandidateProviderTest()
         {
-            // Mock Zero Install version
-            Container.Register(new ImplementationVersion("1.0"));
-
-            Container.Register(new LanguageSet());
+            _feedManagerMock = CreateMock<IFeedManager>();
+            _packageManagerMock = CreateMock<IPackageManager>();
+            _provider = new SelectionCandidateProvider(new Config(), _feedManagerMock.Object, new Mock<IStore>(MockBehavior.Loose).Object, _packageManagerMock.Object, new LanguageSet());
         }
 
         [Fact]
@@ -52,11 +52,11 @@ namespace ZeroInstall.Services.Solvers
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-            PackageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-            Sut.GetSortedCandidates(requirements).Should().Equal(
+            _provider.GetSortedCandidates(requirements).Should().Equal(
                 new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
 
@@ -64,16 +64,16 @@ namespace ZeroInstall.Services.Solvers
         public void TestFeedReferences()
         {
             var mainFeed = FeedTest.CreateTestFeed();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-            PackageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
 
             var subFeed = mainFeed.Clone();
             subFeed.Uri = FeedTest.Sub1Uri;
             subFeed.Elements[0].Version = new ImplementationVersion("2.0");
-            FeedManagerMock.Setup(x => x[FeedTest.Sub1Uri]).Returns(subFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Sub1Uri]).Returns(subFeed);
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-            Sut.GetSortedCandidates(requirements).Should().Equal(
+            _provider.GetSortedCandidates(requirements).Should().Equal(
                 new SelectionCandidate(FeedTest.Sub1Uri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
                 new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
@@ -84,17 +84,17 @@ namespace ZeroInstall.Services.Solvers
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Elements.RemoveAt(1);
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
             new InterfacePreferences {Feeds = {new FeedReference {Source = FeedTest.Sub1Uri}}}.SaveFor(mainFeed.Uri);
 
             var subFeed = mainFeed.Clone();
             subFeed.Uri = FeedTest.Sub1Uri;
             subFeed.Elements[0].Version = new ImplementationVersion("2.0");
-            FeedManagerMock.Setup(x => x[FeedTest.Sub1Uri]).Returns(subFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Sub1Uri]).Returns(subFeed);
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-            Sut.GetSortedCandidates(requirements).Should().Equal(
+            _provider.GetSortedCandidates(requirements).Should().Equal(
                 new SelectionCandidate(FeedTest.Sub1Uri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
                 new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
@@ -105,23 +105,20 @@ namespace ZeroInstall.Services.Solvers
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Elements.RemoveAt(1);
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
-            using (new LocationsRedirect("0install-unit-tests"))
-            {
-                var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", true, "native_feeds", mainFeed.Uri.PrettyEscape()));
+            var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", true, "native_feeds", mainFeed.Uri.PrettyEscape()));
 
-                var subFeed = mainFeed.Clone();
-                subFeed.Uri = FeedTest.Sub1Uri;
-                subFeed.Elements[0].Version = new ImplementationVersion("2.0");
-                subFeed.SaveXml(localUri.LocalPath);
-                FeedManagerMock.Setup(x => x[localUri]).Returns(subFeed);
+            var subFeed = mainFeed.Clone();
+            subFeed.Uri = FeedTest.Sub1Uri;
+            subFeed.Elements[0].Version = new ImplementationVersion("2.0");
+            subFeed.SaveXml(localUri.LocalPath);
+            _feedManagerMock.Setup(x => x[localUri]).Returns(subFeed);
 
-                var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-                Sut.GetSortedCandidates(requirements).Should().Equal(
-                    new SelectionCandidate(localUri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
-                    new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
-            }
+            var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
+            _provider.GetSortedCandidates(requirements).Should().Equal(
+                new SelectionCandidate(localUri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
+                new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
 
         [Fact]
@@ -129,27 +126,24 @@ namespace ZeroInstall.Services.Solvers
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
-            using (new LocationsRedirect("0install-unit-tests"))
-            {
-                var pathComponents = mainFeed.Uri.EscapeComponent()
-                    .Prepend("site-packages")
-                    .Concat(new[] {"xyz", "0install", "feed.xml"});
-                var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", isFile: true, resource: pathComponents.ToArray()));
+            var pathComponents = mainFeed.Uri.EscapeComponent()
+                .Prepend("site-packages")
+                .Concat(new[] { "xyz", "0install", "feed.xml" });
+            var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", isFile: true, resource: pathComponents.ToArray()));
 
-                var subFeed = mainFeed.Clone();
-                subFeed.Uri = FeedTest.Sub1Uri;
-                subFeed.Elements[0].Version = new ImplementationVersion("2.0");
-                subFeed.SaveXml(localUri.LocalPath);
-                FeedManagerMock.Setup(x => x[localUri]).Returns(subFeed);
-                PackageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+            var subFeed = mainFeed.Clone();
+            subFeed.Uri = FeedTest.Sub1Uri;
+            subFeed.Elements[0].Version = new ImplementationVersion("2.0");
+            subFeed.SaveXml(localUri.LocalPath);
+            _feedManagerMock.Setup(x => x[localUri]).Returns(subFeed);
+            _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
 
-                var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-                Sut.GetSortedCandidates(requirements).Should().Equal(
-                    new SelectionCandidate(localUri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
-                    new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
-            }
+            var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
+            _provider.GetSortedCandidates(requirements).Should().Equal(
+                new SelectionCandidate(localUri, new FeedPreferences(), (Implementation)subFeed.Elements[0], requirements),
+                new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
 
         [Fact]
@@ -157,14 +151,14 @@ namespace ZeroInstall.Services.Solvers
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
             var nativeImplementation = new ExternalImplementation("rpm", "firefox", new ImplementationVersion("1.0")) {Languages = {"en-US"}};
-            PackageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(new[] {nativeImplementation});
+            _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(new[] {nativeImplementation});
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
 
-            Sut.GetSortedCandidates(requirements).Should().Equal(
+            _provider.GetSortedCandidates(requirements).Should().Equal(
                 new SelectionCandidate(new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), new FeedPreferences(), nativeImplementation, requirements),
                 new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
         }
@@ -174,14 +168,14 @@ namespace ZeroInstall.Services.Solvers
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
-            FeedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-            PackageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+            _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
-            var candidates = Sut.GetSortedCandidates(requirements);
+            var candidates = _provider.GetSortedCandidates(requirements);
             var candidate = candidates.Single().ToSelection(candidates, requirements);
 
-            Sut.LookupOriginalImplementation(candidate)
+            _provider.LookupOriginalImplementation(candidate)
                 .Should().Be(mainFeed.Elements[0]);
         }
     }

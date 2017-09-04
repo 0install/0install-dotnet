@@ -34,7 +34,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Contains common code for testing specific <see cref="ISolver"/> implementations.
     /// </summary>
-    public abstract class SolverTest<T> : TestWithContainer<T> where T : class, ISolver
+    public abstract class SolverTest : TestWithMocksAndRedirect
     {
         /// <summary>
         /// Test cases loaded from an embedded XML file.
@@ -42,7 +42,7 @@ namespace ZeroInstall.Services.Solvers
         [UsedImplicitly]
         public static IEnumerable<object[]> LoadTestCases()
         {
-            using (var stream = typeof(SolverTest<>).GetEmbeddedStream("test-cases.xml"))
+            using (var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml"))
                 return XmlStorage.LoadXml<TestCaseSet>(stream).TestCases.Select(x => new object[] {x});
         }
 
@@ -123,9 +123,12 @@ namespace ZeroInstall.Services.Solvers
         private Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
         {
             var feedLookup = feeds.ToDictionary(x => x.Uri, x => x);
-            GetMock<IFeedManager>().Setup(x => x[It.IsAny<FeedUri>()]).Returns((FeedUri feedUri) => feedLookup[feedUri]);
+            var feedManagerMock = CreateMock<IFeedManager>();
+            feedManagerMock.Setup(x => x[It.IsAny<FeedUri>()]).Returns((FeedUri feedUri) => feedLookup[feedUri]);
 
-            return Sut.Solve(requirements);
+            return BuildSolver(feedManagerMock.Object).Solve(requirements);
         }
+
+        protected abstract ISolver BuildSolver(IFeedManager feedManager);
     }
 }

@@ -29,8 +29,7 @@ namespace ZeroInstall.Store
     /// <summary>
     /// Contains test methods for <see cref="Config"/>.
     /// </summary>
-    [Collection("LocationsRedirect")]
-    public class ConfigTest
+    public class ConfigTest : TestWithMocksAndRedirect
     {
         /// <summary>
         /// Creates test <see cref="Config"/>.
@@ -117,32 +116,29 @@ namespace ZeroInstall.Store
         [Fact]
         public void StressTest()
         {
-            using (new LocationsRedirect("0install-unit-tests"))
+            new Config().Save();
+
+            Exception exception = null;
+            var threads = new Thread[100];
+            for (int i = 0; i < threads.Length; i++)
             {
-                new Config().Save();
-
-                Exception exception = null;
-                var threads = new Thread[100];
-                for (int i = 0; i < threads.Length; i++)
+                threads[i] = new Thread(() =>
                 {
-                    threads[i] = new Thread(() =>
+                    try
                     {
-                        try
-                        {
-                            Config.Load();
-                        }
-                        catch (Exception ex)
-                        {
-                            exception = ex;
-                        }
-                    });
-                    threads[i].Start();
-                }
-
-                foreach (var thread in threads)
-                    thread.Join();
-                if (exception != null) throw exception.PreserveStack();
+                        Config.Load();
+                    }
+                    catch (Exception ex)
+                    {
+                        exception = ex;
+                    }
+                });
+                threads[i].Start();
             }
+
+            foreach (var thread in threads)
+                thread.Join();
+            if (exception != null) throw exception.PreserveStack();
         }
     }
 }

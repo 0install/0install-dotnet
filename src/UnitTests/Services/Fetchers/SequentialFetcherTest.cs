@@ -25,8 +25,10 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Runs test methods for <see cref="SequentialFetcher"/>
     /// </summary>
-    public class SequentialFetcherTest : FetcherTest<SequentialFetcher>
+    public class SequentialFetcherTest : FetcherTest
     {
+        protected override IFetcher BuildFetcher() => new SequentialFetcher(Config, StoreMock.Object, Handler);
+
         [Fact]
         public void DownloadSingleArchiveMirror()
         {
