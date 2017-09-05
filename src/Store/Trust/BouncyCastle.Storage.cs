@@ -26,7 +26,10 @@ namespace ZeroInstall.Store.Trust
 {
     partial class BouncyCastle
     {
-        private readonly string _publicBundlePath = Path.Combine(Locations.GetCacheDirPath("0install.net", machineWide: false), "pubring.gpg");
+        private string PublicBundlePath => Path.Combine(
+            // Avoid polluting user profile with auto-imported public keys
+            (HomeDir == GnuPG.DefaultHomeDir) ? Locations.GetCacheDirPath("0install.net", machineWide: false) : HomeDir,
+            "pubring.gpg");
 
         [CanBeNull]
         private PgpPublicKeyRingBundle _publicBundle;
@@ -46,7 +49,7 @@ namespace ZeroInstall.Store.Trust
 
                 try
                 {
-                    using (var stream = File.OpenRead(_publicBundlePath))
+                    using (var stream = File.OpenRead(PublicBundlePath))
                         return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
                     #region Error handling
@@ -69,7 +72,7 @@ namespace ZeroInstall.Store.Trust
             {
                 // Lost-write races are OK, since public keys are easily reacquired
                 _publicBundle = value;
-                using (var atomic = new AtomicWrite(_publicBundlePath))
+                using (var atomic = new AtomicWrite(PublicBundlePath))
                 {
                     using (var stream = File.Create(atomic.WritePath))
                         value.Encode(stream);
