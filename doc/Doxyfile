@@ -1,5 +1,5 @@
 ﻿PROJECT_NAME = "Zero Install .NET Backend API"
-PROJECT_NUMBER = "2.13.5"
+PROJECT_NUMBER = "2.13.6"
 
 INPUT = main.md ../src
 USE_MDFILE_AS_MAINPAGE = main.md
