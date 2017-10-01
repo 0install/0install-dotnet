@@ -121,7 +121,7 @@
     <value>Akış: {0}
 - {1} üzerinden geçerli imza
 - {2}
-&apos;{3}&apos; üzerindeki akışları imzalamak için bu imzaya güvenmek ister misiniz?
+'{3}' üzerindeki akışları imzalamak için bu imzaya güvenmek ister misiniz?
 </value>
   </data>
   <data name="BindingNotSupportedOnCurrentOS" xml:space="preserve">
@@ -131,34 +131,34 @@
     <value>Sonuç komut satırı boş.</value>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>&apos;{0}&apos; için komut belirtilmemiş.</value>
+    <value>'{0}' için komut belirtilmemiş.</value>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; bağlantılarında bir &apos;value&apos; değer ya da &apos;insert&apos; ekleme özniteliği bulunmalıdır.</value>
+    <value>&lt;environment&gt; bağlantılarında bir 'value' değer ya da 'insert' ekleme özniteliği bulunmalıdır.</value>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Dış çözümleyici çalışıyor</value>
   </data>
   <data name="FailedToLaunch" xml:space="preserve">
-    <value>&apos;{0}&apos; başlatılamadı.</value>
+    <value>'{0}' başlatılamadı.</value>
   </data>
   <data name="FeedDownloadError" xml:space="preserve">
-    <value>&apos;{0}&apos; akışı indirilirken sorun çıktı.</value>
+    <value>'{0}' akışı indirilirken sorun çıktı.</value>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>&apos;{0}&apos; akışı önbelleğe alınmadı ve Zero Install şu anda çevrimdışı kipte çalışıyor.</value>
+    <value>'{0}' akışı önbelleğe alınmadı ve Zero Install şu anda çevrimdışı kipte çalışıyor.</value>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>&apos;{0}&apos; akışı güvenilen anahtarlardan biriyle imzalanmamış.</value>
+    <value>'{0}' akışı güvenilen anahtarlardan biriyle imzalanmamış.</value>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>&apos;{0}&apos; yerel bir dosya. Oysa bir HTTP(S) akışı olmalı.</value>
+    <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) akışı olmalı.</value>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; İnternet adresi özniteliği (&apos;{0}&apos;) (&apos;{1}&apos;) üzerinden indirilen akışın İnternet adresi ile uyuşmuyor.</value>
+    <value>&lt;interface&gt; İnternet adresi özniteliği ('{0}') ('{1}') üzerinden indirilen akışın İnternet adresi ile uyuşmuyor.</value>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; İnternet adresi özniteliği eksik. &apos;{0}&apos; olmalı.</value>
+    <value>&lt;interface&gt; İnternet adresi özniteliği eksik. '{0}' olmalı.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Çözümleyici beklenmedik bir sorunla karşılaştı.</value>
@@ -185,13 +185,13 @@
     <value>Anahtar bilgileri sunucusu bu anahtarla ilgili ek bilgi sağlayamadı.</value>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulaması için bildirim özeti bulunamadı.</value>
+    <value>'{0}' uygulaması için bildirim özeti bulunamadı.</value>
   </data>
   <data name="NoPackageManagerSupport" xml:space="preserve">
     <value>Bu platformu destekleyen doğal bir paket yöneticisi bulunamadı.</value>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulaması için alma yöntemi bulunamadı.</value>
+    <value>'{0}' uygulaması için alma yöntemi bulunamadı.</value>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Sürüm seçilmemiş</value>
@@ -200,7 +200,7 @@
     <value>(önbelleğe alınmadı)</value>
   </data>
   <data name="NotInterfaceUri" xml:space="preserve">
-    <value>&apos;{0}&apos; arabirimi &apos;http:&apos; ile başlamıyor ve &apos;{1}&apos; dosyası olarak da bulunamadı.</value>
+    <value>'{0}' arabirimi 'http:' ile başlamıyor ve '{1}' dosyası olarak da bulunamadı.</value>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Olası bir yeniden oynatma saldırısı algılandı. Yeni akışın değişiklik zamanı eski sürümden önce.
@@ -218,16 +218,16 @@ Yeni zaman: {2}</value>
     <value>İndirilen uygulama kataloğu önbelleğe alınamadı.</value>
   </data>
   <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>&apos;{0}&apos; için GnuPG anahtar dosyası indirilemedi.</value>
+    <value>'{0}' için GnuPG anahtar dosyası indirilemedi.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>&apos;{0}&apos; için anahtar bilgileri işlenemedi.</value>
+    <value>'{0}' için anahtar bilgileri işlenemedi.</value>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>&apos;{0}&apos; için anahtar bilgileri alınamadı.</value>
+    <value>'{0}' için anahtar bilgileri alınamadı.</value>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>&apos;{0}&apos; {1} paket yöneticisi tarafından bilinmeyen bir kimlik içeriyor.</value>
+    <value>'{0}' {1} paket yöneticisi tarafından bilinmeyen bir kimlik içeriyor.</value>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
     <value>Akış güvenilmeyen anahtarlar ile imzalanmış!</value>

@@ -121,7 +121,7 @@
     <value>Τροφοδοσία: {0}
 - Ισχύει υπογραφή από {1}
 - {2}
-Θέλετε να εμπιστευόμαστε αυτό το κλειδί για να υπογράψει τροφοδοσίες από &apos;{3}&apos;;
+Θέλετε να εμπιστευόμαστε αυτό το κλειδί για να υπογράψει τροφοδοσίες από '{3}';
 
 
 </value>
@@ -133,7 +133,7 @@
     <value>Η προκύπτουσα γραμμή εντολών είναι κενή.</value>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Εντολή για &apos;{0}&apos; δεν έχει καθοριστεί.</value>
+    <value>Εντολή για '{0}' δεν έχει καθοριστεί.</value>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;περιβάλλον&gt; συνδέσεις πρέπει να περιέχουν είτε μια «αξία» ή ένα «ένθετο» χαρακτηριστικό.</value>
@@ -142,25 +142,25 @@
     <value>Εκτέλεση εξωτερικής επιλυτής</value>
   </data>
   <data name="FailedToLaunch" xml:space="preserve">
-    <value>Απέτυχε ξεκινήσει &apos;{0}&apos;.</value>
+    <value>Απέτυχε ξεκινήσει '{0}'.</value>
   </data>
   <data name="FeedDownloadError" xml:space="preserve">
-    <value>Σφάλμα κατά τη λήψη τροφοδοσίας &apos;{0}&apos;.</value>
+    <value>Σφάλμα κατά τη λήψη τροφοδοσίας '{0}'.</value>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Η τροφοδοσία &apos;{0}&apos; δεν αποθηκεύεται προσωρινά και το Zero Install είναι επί του παρόντος σε λειτουργία εκτός σύνδεσης.</value>
+    <value>Η τροφοδοσία '{0}' δεν αποθηκεύεται προσωρινά και το Zero Install είναι επί του παρόντος σε λειτουργία εκτός σύνδεσης.</value>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Η τροφοδοσία &apos;{0}&apos; δεν υπεγράφη με αξιόπιστα κλειδιά.</value>
+    <value>Η τροφοδοσία '{0}' δεν υπεγράφη με αξιόπιστα κλειδιά.</value>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>&apos;{0}&apos; είναι ένα τοπικό αρχείο. Θα πρέπει να είναι ένα HTTP (S) URL.</value>
+    <value>'{0}' είναι ένα τοπικό αρχείο. Θα πρέπει να είναι ένα HTTP (S) URL.</value>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Το &lt;interface&gt; uri χαρακτηριστικό (&apos;{0}&apos;) δεν ταιριάζει με τη διεύθυνση URL της τροφοδοσίας έχετε κατεβάσει από (&apos;{1}&apos;).</value>
+    <value>Το &lt;interface&gt; uri χαρακτηριστικό ('{0}') δεν ταιριάζει με τη διεύθυνση URL της τροφοδοσίας έχετε κατεβάσει από ('{1}').</value>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Οι &lt;interface&gt; uri ιδιότητες ειναι ελείπεις. Πρέπει να είναι &apos;{0}&apos;.</value>
+    <value>Οι &lt;interface&gt; uri ιδιότητες ειναι ελείπεις. Πρέπει να είναι '{0}'.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Ο επιλυτής αντιμετώπισε ένα μη αναμενόμενο πρόβλημα.</value>
@@ -187,13 +187,13 @@
     <value>Το κλειδί του διακομιστή πληροφοριών δεν ήταν σε θέση να παράσχει οποιαδήποτε επιπλέον πληροφορία σχετικά με αυτό το κλειδί.</value>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Δεν συντρέχει πρόδηλη αφομοιώση για την εφαρμογή &apos;{0}&apos; που βρέθηκε.</value>
+    <value>Δεν συντρέχει πρόδηλη αφομοιώση για την εφαρμογή '{0}' που βρέθηκε.</value>
   </data>
   <data name="NoPackageManagerSupport" xml:space="preserve">
     <value>Δεν υπάρχει διαχειριστής πακέτων υποστήριξης για αυτήν την πλατφόρμα.</value>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Καμία μέθοδος ανάκτησης για την εφαρμογή &apos;{0}&apos; δεν βρέθηκε.</value>
+    <value>Καμία μέθοδος ανάκτησης για την εφαρμογή '{0}' δεν βρέθηκε.</value>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Καμμια επιλεγμενη έκδοση</value>
@@ -202,7 +202,7 @@
     <value>(όχι προσωρινή αποθήκευση)</value>
   </data>
   <data name="NotInterfaceUri" xml:space="preserve">
-    <value>Η διεπαφή &apos;{0}&apos; δεν ξεκινά με &apos;http:&apos; και δεν υπάρχει ως αρχείο &apos;{1}&apos;.</value>
+    <value>Η διεπαφή '{0}' δεν ξεκινά με 'http:' και δεν υπάρχει ως αρχείο '{1}'.</value>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Μια πιθανή επίθεση αναπαραγωγής ανιχνεύθηκε. Χρόνος τροποποίησης της νέας τροφοδοσίας είναι πριν από την παλιά έκδοση.
@@ -217,16 +217,16 @@
     <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του κατάλογου της εφαρμογής.</value>
   </data>
   <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη του GnuPG αρχείου κλειδιών για &apos;{0}&apos;.</value>
+    <value>Δεν είναι δυνατή η λήψη του GnuPG αρχείου κλειδιών για '{0}'.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Αδυναμία αναλύσης βασικών πληροφοριών για &apos;{0}&apos;.</value>
+    <value>Αδυναμία αναλύσης βασικών πληροφοριών για '{0}'.</value>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Αδύνατη η ανάκτηση βασικών πληροφοριών για &apos;{0}&apos;.</value>
+    <value>Αδύνατη η ανάκτηση βασικών πληροφοριών για '{0}'.</value>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>&apos;{0}&apos; δεν είναι ένα γνωστό αναγνωριστικό στο {1} διαχειριστή πακέτων.</value>
+    <value>'{0}' δεν είναι ένα γνωστό αναγνωριστικό στο {1} διαχειριστή πακέτων.</value>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
     <value>Η τροφοδοσία έχει υπογραφεί με μη έμπιστα κλειδιά!</value>

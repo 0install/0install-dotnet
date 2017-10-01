@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Dizge formda &quot;os-cpu&quot; biçiminde olmalı.</value>
+    <value>Dizge formda "os-cpu" biçiminde olmalı.</value>
   </data>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>Arşiv dosyası geçersiz ya da bozuk.</value>
@@ -127,7 +127,7 @@
     <value>Arşiv geçersiz bir yol içeriyor (olası bir güvenlik açığı): {0}</value>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>&apos;{0}&apos; komutu tanınmıyor.</value>
+    <value>'{0}' komutu tanınmıyor.</value>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Dosyalar kopyalanıyor</value>
@@ -176,13 +176,13 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da önbellekleri y�
     <value>Beklenen özet: {0}</value>
   </data>
   <data name="DirectoryNotFound" xml:space="preserve">
-    <value>&apos;{0}&apos; dizini bulunamadı.</value>
+    <value>'{0}' dizini bulunamadı.</value>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>&apos;{0}&apos; için akış yükleme ayarları hatalı. Varsayılan ayarlara geri dönün.</value>
+    <value>'{0}' için akış yükleme ayarları hatalı. Varsayılan ayarlara geri dönün.</value>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>&apos;{0}&apos; için arabirim yükleme ayarları hatalı. Varsayılan ayarlara geri dönün.</value>
+    <value>'{0}' için arabirim yükleme ayarları hatalı. Varsayılan ayarlara geri dönün.</value>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Güvenli veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönün.</value>
@@ -194,13 +194,13 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da önbellekleri y�
     <value>Ayıklanan bu arşiv türü yalnız Windows üzerinde desteklenir.</value>
   </data>
   <data name="FailedToExtractArchive" xml:space="preserve">
-    <value>Arşiv &apos;{0}&apos; üzerinden ayıklanamadı.</value>
+    <value>Arşiv '{0}' üzerinden ayıklanamadı.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>&apos;{0}&apos; akış önbelleğinden alınamadı. Dosya için şuraya bakın: {1}</value>
+    <value>'{0}' akış önbelleğinden alınamadı. Dosya için şuraya bakın: {1}</value>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Katalogda &apos;{0}&apos; akışı bulunamadı.</value>
+    <value>Katalogda '{0}' akışı bulunamadı.</value>
   </data>
   <data name="FileMissingDest" xml:space="preserve">
     <value>Bir &lt;file&gt; etiketi eksik bir dizin özniteliğinde.</value>
@@ -215,47 +215,47 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da önbellekleri y�
     <value>Şu uygulamaların kapatılması gerekiyor:</value>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>&apos;{0}&apos; üzerinde ikili dosyalar bulunuyor</value>
+    <value>'{0}' üzerinde ikili dosyalar bulunuyor</value>
   </data>
   <data name="GeneratingManifest" xml:space="preserve">
     <value>{0} özeti oluşturuluyor</value>
   </data>
   <data name="HardlinkTargetMissing" xml:space="preserve">
-    <value>&apos;{0}&apos; sabit bağlantısı arşiv noktalarında bir &apos;{1}&apos; dosyası içermiyor.</value>
+    <value>'{0}' sabit bağlantısı arşiv noktalarında bir '{1}' dosyası içermiyor.</value>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>&apos;{0}&apos; dosyası bir sayısal bağlantı ya da normal bir dosya değil.</value>
+    <value>'{0}' dosyası bir sayısal bağlantı ya da normal bir dosya değil.</value>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulaması zaten bellekte var.</value>
+    <value>'{0}' uygulaması zaten bellekte var.</value>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulaması bozuk.</value>
+    <value>'{0}' uygulaması bozuk.</value>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Kaldırmak ister misiniz? Gerekirse daha sonra yeni bir kopya otomatik olarak indirilir.</value>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Kaldırmak için &apos;0install store remove {0}&apos; kullanın. Gerekirse daha sonra yeni bir kopya otomatik olarak indirilir.</value>
+    <value>Kaldırmak için '0install store remove {0}' kullanın. Gerekirse daha sonra yeni bir kopya otomatik olarak indirilir.</value>
   </data>
   <data name="ImplementationMissingID" xml:space="preserve">
-    <value>{1} &apos;{0}&apos; kimliği içermiyor.</value>
+    <value>{1} '{0}' kimliği içermiyor.</value>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulaması bulunamadı.</value>
+    <value>'{0}' uygulaması bulunamadı.</value>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Seçiminizde &apos;{0}&apos; arabirimi için uygulama bulunamıyor.</value>
+    <value>Seçiminizde '{0}' arabirimi için uygulama bulunamıyor.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Temel dosya sistemi bellek dosyasının değişiklik zamanını doğrulamak için yeterli değil.
-FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen dosya sistemini NTFS&apos;ye dönüştürün.</value>
+FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen dosya sistemini NTFS'ye dönüştürün.</value>
   </data>
   <data name="InvalidDigest" xml:space="preserve">
-    <value>&apos;{0}&apos; özeti &apos;algorithm=value&apos; formunda değil.</value>
+    <value>'{0}' özeti 'algorithm=value' formunda değil.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>&apos;{0}&apos; geçerli bir &apos;HTTP(S):&apos; ağ iletişim kuralı ya da geçerli bir yerel hedef değil.</value>
+    <value>'{0}' geçerli bir 'HTTP(S):' ağ iletişim kuralı ya da geçerli bir yerel hedef değil.</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyası geçersiz satırlar içeriyor.</value>
@@ -273,7 +273,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>{0} akışında &lt;name&gt; kod imi eksik.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>&lt;{1}&gt; kod iminde &apos;{0}&apos; özniteliği eksik.</value>
+    <value>&lt;{1}&gt; kod iminde '{0}' özniteliği eksik.</value>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Paylaşılan bir belleği yalnız yöneticiler iyileştirebilir.</value>
@@ -285,10 +285,10 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Nokta ile ayrılmış liste yalnız ondalık sayılar içerebilir.</value>
   </data>
   <data name="MustBeSpecificCPU" xml:space="preserve">
-    <value>Değer belirli bir işlemci olmalıdır (&quot;Tümü&quot; ya da &quot;Bilinmiyor&quot; olamaz).</value>
+    <value>Değer belirli bir işlemci olmalıdır ("Tümü" ya da "Bilinmiyor" olamaz).</value>
   </data>
   <data name="MustBeSpecificOS" xml:space="preserve">
-    <value>Değer belirli bir işletim sistemi olmalıdır (&quot;Tümü&quot; ya da &quot;Bilinmiyor&quot; olamaz).</value>
+    <value>Değer belirli bir işletim sistemi olmalıdır ("Tümü" ya da "Bilinmiyor" olamaz).</value>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
     <value>Sürüm numarası yalnız nokta ile ayrılmış ondalıkları ve değiştirici dizeleri içerebilir.</value>
@@ -303,8 +303,8 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Tanımlanmış bilinen özet yöntemi yok.</value>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>&apos;{0}&apos; yolu kesin bir yol değil. Bağıl yollar yalnız taşınabilir kipte kullanılabilir.
-&apos;{1}&apos; yapılandırma dosyasında belirtilmiştir.</value>
+    <value>'{0}' yolu kesin bir yol değil. Bağıl yollar yalnız taşınabilir kipte kullanılabilir.
+'{1}' yapılandırma dosyasında belirtilmiştir.</value>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kendisi bir uygulama önbelleğinden kaldıramaz.</value>
@@ -319,25 +319,25 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Yol bağıl olmalıdır.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulama mağazasına erişilirken bir sorun çıktı.</value>
+    <value>'{0}' uygulama mağazasına erişilirken bir sorun çıktı.</value>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>&apos;{0}&apos; uygulama mağazasına erişilirken bir sorun çıktı.
-&apos;{1}&apos; yapılandırma dosyasında belirtilmiştir.</value>
+    <value>'{0}' uygulama mağazasına erişilirken bir sorun çıktı.
+'{1}' yapılandırma dosyasında belirtilmiştir.</value>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Bir yapılandırma dosyasını yüklerken sorun çıktı. 
-sorunu gidermek için &apos;{0}&apos; dosyasını silebilirsiniz.</value>
+sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>&apos;{0}&apos; yapılandırma değeri yüklenirken bir sorun çıktı.
-&apos;{1}&apos; dosyasını silerek sorunu giderebilirsiniz. Diğer ayarlar da kaybolacak.</value>
+    <value>'{0}' yapılandırma değeri yüklenirken bir sorun çıktı.
+'{1}' dosyasını silerek sorunu giderebilirsiniz. Diğer ayarlar da kaybolacak.</value>
   </data>
   <data name="RecipeCopyFromDestinationMissing" xml:space="preserve">
-    <value>Kaynak bir klasör değil dosya olduğundan &apos;{0}&apos;. adım için hedef belirtilmelidir.</value>
+    <value>Kaynak bir klasör değil dosya olduğundan '{0}'. adım için hedef belirtilmelidir.</value>
   </data>
   <data name="RecipeCopyFromSourceMissing" xml:space="preserve">
-    <value> &apos;{0}&apos;. adımda belirtilen kaynak bulunamadı.</value>
+    <value> '{0}'. adımda belirtilen kaynak bulunamadı.</value>
   </data>
   <data name="RecipeFileNotDownloaded" xml:space="preserve">
     <value>&lt;recipe&gt; içinde belirtilen bir dosya indirilemedi.</value>
@@ -346,10 +346,10 @@ sorunu gidermek için &apos;{0}&apos; dosyasını silebilirsiniz.</value>
     <value>Bir tarif adımı geçersiz yol içeriyor (olası bir güvenlik açığı): {0}</value>
   </data>
   <data name="RelativePathInRemoteFeed" xml:space="preserve">
-    <value>Uzak akış için &apos;{0}&apos; bağıl yolu belirtilmiş. Bağıl yollar yalnız yerel akışlarda kullanılabilir.</value>
+    <value>Uzak akış için '{0}' bağıl yolu belirtilmiş. Bağıl yollar yalnız yerel akışlarda kullanılabilir.</value>
   </data>
   <data name="RelativeUriInRemoteFeed" xml:space="preserve">
-    <value>Uzak akış içinde &apos;{0}&apos; HREF belirtilmiş. Bağıl HREF yalnız yerel akışlarda kullanılabilir.</value>
+    <value>Uzak akış içinde '{0}' HREF belirtilmiş. Bağıl HREF yalnız yerel akışlarda kullanılabilir.</value>
   </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Tam belirtilmiş/köke göre yazılmış yol gereklidir.</value>
@@ -361,7 +361,7 @@ sorunu gidermek için &apos;{0}&apos; dosyasını silebilirsiniz.</value>
     <value>Uygulama hatalı</value>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>&apos;{0}&apos; komutu verilmedi.</value>
+    <value>'{0}' komutu verilmedi.</value>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
     <value>Uyumsuz işletim sistemi ya da CPU</value>
@@ -391,10 +391,10 @@ sorunu gidermek için &apos;{0}&apos; dosyasını silebilirsiniz.</value>
     <value>Belirtilen ad ile bir gizli anahtar bulunamıyor.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value> &apos;{0}&apos;. adımdaki  &apos;{1}&apos; uygulamasının uygulama referansı geçersiz.</value>
+    <value> '{0}'. adımdaki  '{1}' uygulamasının uygulama referansı geçersiz.</value>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>&apos;{0}&apos; için yazma koruması etkinleştirilemiyor.</value>
+    <value>'{0}' için yazma koruması etkinleştirilemiyor.</value>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
     <value>Arşiv türü bilinmiyor.</value>
@@ -412,13 +412,13 @@ sorunu gidermek için &apos;{0}&apos; dosyasını silebilirsiniz.</value>
     <value>Bilinmeyen işletim sistemi.</value>
   </data>
   <data name="UnknownRecipeStepType" xml:space="preserve">
-    <value>&apos;{0}&apos; olarak gösterilen yönerge türü bilinmiyor.</value>
+    <value>'{0}' olarak gösterilen yönerge türü bilinmiyor.</value>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>&apos;{0}&apos; arşiv MIME türü desteklenmiyor.</value>
+    <value>'{0}' arşiv MIME türü desteklenmiyor.</value>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sürüm aralığı sonu özel olmalıdır. &apos;..!{0}&apos; kullanın &apos;..{0}&apos; değil.</value>
+    <value>Sürüm aralığı sonu özel olmalıdır. '..!{0}' kullanın '..{0}' değil.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Girdiğiniz parola geçersiz.</value>
