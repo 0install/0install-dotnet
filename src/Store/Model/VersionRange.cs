@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using JetBrains.Annotations;
@@ -26,7 +27,7 @@ using NanoByte.Common.Values.Design;
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
-    /// Represents a (possibly disjoint) range of <see cref="ImplementationVersion"/>s.
+    /// Represents a (possibly disjoint) set of ranges of <see cref="ImplementationVersion"/>s.
     /// </summary>
     /// <remarks>
     /// <para>This class is immutable.</para>
@@ -41,53 +42,34 @@ namespace ZeroInstall.Store.Model
     [Serializable]
     public sealed class VersionRange : IEquatable<VersionRange>
     {
-        #region Constants
         /// <summary>
         /// An "impossible" range matching no versions.
         /// </summary>
-        public static readonly VersionRange None = new VersionRange(new VersionRangeRange(new ImplementationVersion("0"), new ImplementationVersion("0")));
-        #endregion
-
-        /// <summary>The individual non-disjoint range parts.</summary>
-        private readonly VersionRangePart[] _parts;
-
-        private VersionRange([NotNull] params VersionRangePart[] parts)
-            => _parts = parts ?? throw new ArgumentNullException(nameof(parts));
+        public static readonly VersionRange None = new VersionRange(new VersionRangePartRange(new ImplementationVersion("0"), new ImplementationVersion("0")));
 
         /// <summary>
-        /// Creates an empty version range (matches anything).
+        /// The individual non-disjoint range parts.
         /// </summary>
-        public VersionRange() => _parts = new VersionRangePart[0];
+        public IList<VersionRangePart> Parts { get; }
 
         /// <summary>
-        /// Creates a new version range from a a string.
+        /// Creates an empty version range (matches everything).
         /// </summary>
-        /// <param name="value">The string containing the version information.</param>
+        public VersionRange() => Parts = new VersionRangePart[0];
+
+        /// <summary>
+        /// Creates a new version range set.
+        /// </summary>
+        internal VersionRange([NotNull] params VersionRangePart[] parts) => Parts = parts;
+
+        /// <summary>
+        /// Creates a new version range set from a a string.
+        /// </summary>
+        /// <param name="value">The string containing the version ranges.</param>
         /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>
         public VersionRange([NotNull] string value)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
-            #endregion
-
-            // Iterate through all parts
-            _parts = Array.ConvertAll(value.Split('|'), part => VersionRangePart.FromString(part.Trim()));
-        }
-
-        /// <summary>
-        /// Creates a version range matching exactly one version.
-        /// </summary>
-        /// <param name="version">The exact version to match.</param>
-        public VersionRange([NotNull] ImplementationVersion version)
-            => _parts = new VersionRangePart[] {new VersionRangeExact(version ?? throw new ArgumentNullException(nameof(version))) };
-
-        /// <summary>
-        /// Creates a single interval version range.
-        /// </summary>
-        /// <param name="notBefore">The lower, inclusive border of the range; can be <c>null</c>.</param>
-        /// <param name="before">The upper, exclusive border of the range; can be <c>null</c>.</param>
-        public VersionRange([CanBeNull] ImplementationVersion notBefore, [CanBeNull] ImplementationVersion before)
-            => _parts = new VersionRangePart[] {new VersionRangeRange(notBefore, before)};
+            : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.FromString(part.Trim())))
+        {}
 
         /// <summary>
         /// Creates a new <see cref="VersionRange"/> using the specified string representation.
@@ -111,7 +93,7 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <summary>
-        /// Intersects a <see cref="Constraint"/> with this range and returns the result as a new range.
+        /// Intersects a <see cref="Constraint"/> with this range set and returns the result as a new range set.
         /// </summary>
         public VersionRange Intersect(Constraint constraint)
         {
@@ -119,14 +101,14 @@ namespace ZeroInstall.Store.Model
             if (constraint == null) throw new ArgumentNullException(nameof(constraint));
             #endregion
 
-            if (_parts.Length == 0) return new VersionRange(new VersionRangeRange(constraint.NotBefore, constraint.Before));
+            if (Parts.Count == 0) return new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
 
-            var parts = _parts.Select(part => part.Intersects(constraint)).WhereNotNull();
-            return parts.Any() ? new VersionRange(parts.ToArray()) : None;
+            var parts = Parts.Select(part => part.Intersects(constraint)).WhereNotNull().ToArray();
+            return parts.Any() ? new VersionRange(parts) : None;
         }
 
         /// <summary>
-        /// Determines whether a specific version lies within this range.
+        /// Determines whether a specific version lies within this range set.
         /// </summary>
         public bool Match(ImplementationVersion version)
         {
@@ -134,25 +116,14 @@ namespace ZeroInstall.Store.Model
             if (version == null) throw new ArgumentNullException(nameof(version));
             #endregion
 
-            if (_parts.Length == 0) return true;
-            return _parts.Any(part => part.Match(version));
+            if (Parts.Count == 0) return true;
+            return Parts.Any(part => part.Match(version));
         }
 
-        #region Conversion
         /// <summary>
-        /// Returns a string representation of the version range. Safe for parsing!
+        /// Returns a string representation of the version range set. Safe for parsing!
         /// </summary>
-        public override string ToString() => StringUtils.Join("|", _parts.Select(part => part.ToString()));
-
-        /// <summary>
-        /// Convenience cast for turning <see cref="ImplementationVersion"/>s into lower bounds for <see cref="VersionRange"/>s.
-        /// </summary>
-        public static explicit operator VersionRange(ImplementationVersion version)
-        {
-            if (version == null) return null;
-            return new VersionRange(new VersionRangeRange(version, null));
-        }
-        #endregion
+        public override string ToString() => StringUtils.Join("|", Parts.Select(part => part.ToString()));
 
         #region Equality
         /// <inheritdoc/>
@@ -161,13 +132,13 @@ namespace ZeroInstall.Store.Model
             if (ReferenceEquals(null, other)) return false;
 
             // Cancel if the number of parts don't match
-            if (_parts.Length != other._parts.Length)
+            if (Parts.Count != other.Parts.Count)
                 return false;
 
             // Cacnel if one of the parts does not match
-            for (int i = 0; i < _parts.Length; i++)
+            for (int i = 0; i < Parts.Count; i++)
             {
-                if (!_parts[i].Equals(other._parts[i]))
+                if (!Parts[i].Equals(other.Parts[i]))
                     return false;
             }
 
@@ -189,23 +160,17 @@ namespace ZeroInstall.Store.Model
             unchecked
             {
                 int result = 397;
-                foreach (VersionRangePart part in _parts)
+                foreach (VersionRangePart part in Parts)
                     result = (result * 397) ^ part.GetHashCode();
                 return result;
             }
         }
 
         /// <inheritdoc/>
-        public static bool operator ==(VersionRange left, VersionRange right)
-        {
-            return Equals(left, right);
-        }
+        public static bool operator ==(VersionRange left, VersionRange right) => Equals(left, right);
 
         /// <inheritdoc/>
-        public static bool operator !=(VersionRange left, VersionRange right)
-        {
-            return !Equals(left, right);
-        }
+        public static bool operator !=(VersionRange left, VersionRange right) => !Equals(left, right);
         #endregion
     }
 }

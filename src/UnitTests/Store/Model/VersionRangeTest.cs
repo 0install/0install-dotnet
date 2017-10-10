@@ -26,6 +26,39 @@ namespace ZeroInstall.Store.Model
     public class VersionRangeTest
     {
         /// <summary>
+        /// Ensures <see cref="VersionRange"/> are correctly parsed from strings.
+        /// </summary>
+        [Fact]
+        public void TestParse()
+        {
+            new VersionRange("2.6").Parts.Should().Equal(new VersionRangePartExact(new ImplementationVersion("2.6")));
+            new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(lowerInclusive: null, upperExclusive: new ImplementationVersion("3")));
+            new VersionRange("!3").Parts.Should().Equal(new VersionRangePartExclude(new ImplementationVersion("3")));
+            new VersionRange("2.6..!3 | 3.2.2..").Parts.Should().Equal(
+                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("2.6"), upperExclusive: new ImplementationVersion("3")),
+                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("3.2.2"), upperExclusive: null));
+            new VersionRange("..!3 | 3.2.2..").Parts.Should().Equal(
+                new VersionRangePartRange(lowerInclusive: null, upperExclusive: new ImplementationVersion("3")),
+                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("3.2.2"), upperExclusive: null));
+        }
+
+        /// <summary>
+        /// Ensures <see cref="VersionRange"/> objects are correctly compared.
+        /// </summary>
+        [Fact]
+        public void TestEquals()
+        {
+            new VersionRange("2.6").Should().Be(new VersionRange("2.6"));
+            new VersionRange("..!3").Should().Be(new VersionRange("..!3"));
+            new VersionRange("!3").Should().Be(new VersionRange("!3"));
+            new VersionRange("2.6..!3 | 3.2.2..").Should().Be(new VersionRange("2.6..!3|3.2.2.."));
+            new VersionRange("..!3 | 3.2.2..").Should().Be(new VersionRange("..!3|3.2.2.."));
+            new VersionRange("2.6..!3|3.2.2..!3.3").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
+            new VersionRange("2.6..|3.2.2..").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
+            new VersionRange("..!3|3.2.2..").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
+        }
+
+        /// <summary>
         /// Ensures <see cref="VersionRange.ToString"/> correctly serializes ranges.
         /// </summary>
         [Fact]
@@ -39,22 +72,6 @@ namespace ZeroInstall.Store.Model
             new VersionRange("2.6..!3|3.2.2..!3.3").ToString().Should().NotBe("2.6..!3|3.2.2..");
             new VersionRange("2.6..|3.2.2..").ToString().Should().NotBe("2.6..!3|3.2.2..");
             new VersionRange("..!3|3.2.2..").ToString().Should().NotBe("2.6..!3|3.2.2..");
-        }
-
-        /// <summary>
-        /// Ensures <see cref="VersionRange"/> objects are correctly compared.
-        /// </summary>
-        [Fact]
-        public void TestEquals()
-        {
-            new VersionRange("2.6").Should().Be(new VersionRange(new ImplementationVersion("2.6")));
-            new VersionRange("..!3").Should().Be(new VersionRange(null, new ImplementationVersion("3")));
-            new VersionRange("!3").Should().Be(new VersionRange("!3"));
-            new VersionRange("2.6..!3 | 3.2.2..").Should().Be(new VersionRange("2.6..!3|3.2.2.."));
-            new VersionRange("..!3 | 3.2.2..").Should().Be(new VersionRange("..!3|3.2.2.."));
-            new VersionRange("2.6..!3|3.2.2..!3.3").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
-            new VersionRange("2.6..|3.2.2..").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
-            new VersionRange("..!3|3.2.2..").Should().NotBe(new VersionRange("2.6..!3|3.2.2.."));
         }
 
         /// <summary>

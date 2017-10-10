@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2010-2016 Bastian Eicher
+ * Copyright 2010-2017 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser Public License as published by
@@ -27,9 +27,8 @@ namespace ZeroInstall.Store.Model
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    internal abstract class VersionRangePart
+    public abstract class VersionRangePart
     {
-        #region Factory
         /// <summary>
         /// Parses a string into a <see cref="VersionRange"/> part.
         /// </summary>
@@ -55,20 +54,19 @@ namespace ZeroInstall.Store.Model
                     endVersion = new ImplementationVersion(end.Substring(1));
                 }
 
-                return new VersionRangeRange(startVersion, endVersion);
+                return new VersionRangePartRange(startVersion, endVersion);
             }
             else if (value.StartsWith("!"))
             {
-                return new VersionRangeExclude(
+                return new VersionRangePartExclude(
                     new ImplementationVersion(value.Substring(1)));
             }
             else
             {
-                return new VersionRangeExact(
+                return new VersionRangePartExact(
                     new ImplementationVersion(value));
             }
         }
-        #endregion
 
         /// <summary>
         /// Intersects a <see cref="Constraint"/> with this range and returns the result as a new range.
@@ -81,191 +79,4 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         public abstract bool Match([NotNull] ImplementationVersion version);
     }
-
-    #region Specific types
-    [Serializable]
-    internal sealed class VersionRangeExact : VersionRangePart
-    {
-        private readonly ImplementationVersion _version;
-
-        public VersionRangeExact(ImplementationVersion version)
-        {
-            #region Sanity checks
-            if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            _version = version;
-        }
-
-        public override VersionRangePart Intersects(Constraint constraint)
-        {
-            #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
-            #endregion
-
-            // If the exact version lies within the constraint, the exact version remains
-            if (constraint.NotBefore != null && _version < constraint.NotBefore) return null;
-            if (constraint.Before != null && _version >= constraint.Before) return null;
-            return this;
-        }
-
-        public override bool Match(ImplementationVersion version)
-        {
-            #region Sanity checks
-            if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            return _version.Equals(version);
-        }
-
-        public override string ToString()
-        {
-            return _version.ToString();
-        }
-
-        #region Equality
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is VersionRangeExact && _version.Equals(((VersionRangeExact)obj)._version);
-        }
-
-        public override int GetHashCode()
-        {
-            return _version.GetHashCode();
-        }
-        #endregion
-    }
-
-    [Serializable]
-    internal sealed class VersionRangeExclude : VersionRangePart
-    {
-        private readonly ImplementationVersion _version;
-
-        public VersionRangeExclude(ImplementationVersion version)
-        {
-            #region Sanity checks
-            if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            _version = version;
-        }
-
-        public override VersionRangePart Intersects(Constraint constraint)
-        {
-            #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
-            #endregion
-
-            // If the exclude version lies outside the constraint, the constraint remains
-            if ((constraint.NotBefore == null || _version >= constraint.NotBefore) &&
-                (constraint.Before == null || _version < constraint.Before)) return null;
-            return new VersionRangeRange(constraint.NotBefore, constraint.Before);
-        }
-
-        public override bool Match(ImplementationVersion version)
-        {
-            #region Sanity checks
-            if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            return !_version.Equals(version);
-        }
-
-        public override string ToString()
-        {
-            return "!" + _version;
-        }
-
-        #region Equality
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is VersionRangeExclude && _version.Equals(((VersionRangeExclude)obj)._version);
-        }
-
-        public override int GetHashCode()
-        {
-            return _version.GetHashCode();
-        }
-        #endregion
-    }
-
-    [Serializable]
-    internal sealed class VersionRangeRange : VersionRangePart
-    {
-        [CanBeNull]
-        private readonly ImplementationVersion _startVersion;
-
-        [CanBeNull]
-        private readonly ImplementationVersion _endVersion;
-
-        public VersionRangeRange(ImplementationVersion startVersion, ImplementationVersion endVersion)
-        {
-            _startVersion = startVersion;
-            _endVersion = endVersion;
-        }
-
-        public override VersionRangePart Intersects(Constraint constraint)
-        {
-            #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
-            #endregion
-
-            // Keep the highest lower bound
-            ImplementationVersion startVersion;
-            if (_startVersion == null || (constraint.NotBefore != null && constraint.NotBefore > _startVersion)) startVersion = constraint.NotBefore;
-            else startVersion = _startVersion;
-
-            // Keep the lowest upper bound
-            ImplementationVersion endVersion;
-            if (_endVersion == null || (constraint.Before != null && constraint.Before < _endVersion)) endVersion = constraint.Before;
-            else endVersion = _endVersion;
-
-            // Exclude impossible ranges
-            if (startVersion != null && endVersion != null && startVersion >= endVersion) return null;
-            return new VersionRangeRange(startVersion, endVersion);
-        }
-
-        public override bool Match(ImplementationVersion version)
-        {
-            #region Sanity checks
-            if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            if (_startVersion != null && version < _startVersion) return false;
-            if (_endVersion != null && version >= _endVersion) return false;
-            return true;
-        }
-
-        public override string ToString()
-        {
-            string result = _startVersion + "..";
-            if (_endVersion != null) result += "!" + _endVersion;
-            return result;
-        }
-
-        #region Equality
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-
-            var other = obj as VersionRangeRange;
-            if (other == null) return false;
-            return Equals(_startVersion, other._startVersion) && Equals(_endVersion, other._endVersion);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((_startVersion?.GetHashCode() ?? 0) * 397) ^ (_endVersion?.GetHashCode() ?? 0);
-            }
-        }
-        #endregion
-    }
-    #endregion
 }
