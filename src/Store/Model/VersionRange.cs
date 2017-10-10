@@ -21,7 +21,6 @@ using System.ComponentModel;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Values.Design;
 
 namespace ZeroInstall.Store.Model
@@ -93,18 +92,18 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <summary>
-        /// Intersects a <see cref="Constraint"/> with this range set and returns the result as a new range set.
+        /// Intersects another version range set with this one and returns a new set as the result.
         /// </summary>
-        public VersionRange Intersect([NotNull] Constraint constraint)
+        public VersionRange Intersect([NotNull] VersionRange other)
         {
             #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
+            if (other == null) throw new ArgumentNullException(nameof(other));
             #endregion
 
-            if (Parts.Count == 0) return new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
+            if (Parts.Count == 0) return other;
 
-            var parts = Parts.Select(part => part.Intersects(constraint)).WhereNotNull().ToArray();
-            return parts.Any() ? new VersionRange(parts) : None;
+            var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToArray();
+            return parts.Length == 0 ? None : new VersionRange(parts);
         }
 
         /// <summary>

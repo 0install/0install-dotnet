@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace ZeroInstall.Store.Model
@@ -45,25 +46,36 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public override VersionRangePart Intersects(Constraint constraint)
+        public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)
         {
             #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
+            if (versions == null) throw new ArgumentNullException(nameof(versions));
             #endregion
 
-            // Keep the highest lower bound
-            ImplementationVersion startVersion;
-            if (LowerInclusive == null || (constraint.NotBefore != null && constraint.NotBefore > LowerInclusive)) startVersion = constraint.NotBefore;
-            else startVersion = LowerInclusive;
+            if (versions.Parts.Count == 0)
+                yield return this;
 
-            // Keep the lowest upper bound
-            ImplementationVersion endVersion;
-            if (UpperExclusive == null || (constraint.Before != null && constraint.Before < UpperExclusive)) endVersion = constraint.Before;
-            else endVersion = UpperExclusive;
+            foreach (var part in versions.Parts)
+            {
+                switch (part)
+                {
+                    case VersionRangePartRange range:
+                        var lowerInclusive = (LowerInclusive == null) || (range.LowerInclusive != null && range.LowerInclusive > LowerInclusive) ? range.LowerInclusive : LowerInclusive;
+                        var upperExclusive = (UpperExclusive == null) || (range.UpperExclusive != null && range.UpperExclusive < UpperExclusive) ? range.UpperExclusive : UpperExclusive;
+                        if (lowerInclusive == null || upperExclusive == null || lowerInclusive < upperExclusive)
+                            yield return new VersionRangePartRange(lowerInclusive, upperExclusive);
+                        break;
 
-            // Exclude impossible ranges
-            if (startVersion != null && endVersion != null && startVersion >= endVersion) return null;
-            return new VersionRangePartRange(startVersion, endVersion);
+                    case VersionRangePartExact exact:
+                        if (Match(exact.Version)) yield return exact;
+                        break;
+
+                    case VersionRangePartExclude exclude:
+                        if (!Match(exclude.Version)) yield return this;
+                        else throw new NotSupportedException($"Unable to intersect {this} with {exclude}.");
+                        break;
+                }
+            }
         }
 
         /// <inheritdoc/>

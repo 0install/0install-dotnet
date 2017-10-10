@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace ZeroInstall.Store.Model
 {
@@ -36,16 +37,13 @@ namespace ZeroInstall.Store.Model
             => Version = version ?? throw new ArgumentNullException(nameof(version));
 
         /// <inheritdoc/>
-        public override VersionRangePart Intersects(Constraint constraint)
+        public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)
         {
             #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
+            if (versions == null) throw new ArgumentNullException(nameof(versions));
             #endregion
 
-            // If the exact version lies within the constraint, the exact version remains
-            if (constraint.NotBefore != null && Version < constraint.NotBefore) return null;
-            if (constraint.Before != null && Version >= constraint.Before) return null;
-            return this;
+            if (versions.Match(Version)) yield return this;
         }
 
         /// <inheritdoc/>

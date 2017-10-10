@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using FluentAssertions;
 using Xunit;
 
@@ -75,6 +76,72 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <summary>
+        /// Ensures <see cref="VersionRange.Intersect"/> works correctly.
+        /// </summary>
+        [Fact]
+        public void TestIntersect()
+        {
+            TestIntersect(VersionRange.None, new VersionRange("..!2"), expected: VersionRange.None);
+            TestIntersect(VersionRange.None, new VersionRange("1.."), expected: VersionRange.None);
+            TestIntersect(VersionRange.None, new VersionRange("1..!2"), expected: VersionRange.None);
+
+            TestIntersect(new VersionRange(), new VersionRange("1"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange(), new VersionRange("!1"), expected: new VersionRange("!1"));
+            TestIntersect(new VersionRange(), new VersionRange("1.."), expected: new VersionRange("1.."));
+            TestIntersect(new VersionRange(), new VersionRange("..!2"), expected: new VersionRange("..!2"));
+            TestIntersect(new VersionRange(), new VersionRange("1..!2"), expected: new VersionRange("1..!2"));
+
+            TestIntersect(new VersionRange("1.."), new VersionRange("..!3"), expected: new VersionRange("1..!3"));
+            TestIntersect(new VersionRange("1.."), new VersionRange("2..!3"), expected: new VersionRange("2..!3"));
+            TestIntersect(new VersionRange("1.."), new VersionRange("1"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange("1.."), new VersionRange("0"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1.."), new VersionRange("!0"), expected: new VersionRange("1.."));
+            TestIntersectNotSupported(new VersionRange("1.."), new VersionRange("!1"));
+            TestIntersectNotSupported(new VersionRange("1.."), new VersionRange("!1.5"));
+
+            TestIntersect(new VersionRange("..!2"), new VersionRange("..!3"), expected: new VersionRange("..!2"));
+            TestIntersect(new VersionRange("..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("..!2"), new VersionRange("1"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange("..!2"), new VersionRange("3"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("..!2"), new VersionRange("2"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("..!2"), new VersionRange("!3"), expected: new VersionRange("..!2"));
+            TestIntersect(new VersionRange("..!2"), new VersionRange("!2"), expected: new VersionRange("..!2"));
+            TestIntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1"));
+            TestIntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1.5"));
+
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("..!3"), expected: new VersionRange("1..!2"));
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("1"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("3"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("2"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("0"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("!3"), expected: new VersionRange("1..!2"));
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("!2"), expected: new VersionRange("1..!2"));
+            TestIntersect(new VersionRange("1..!2"), new VersionRange("!0"), expected: new VersionRange("1..!2"));
+            TestIntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1"));
+            TestIntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1.5"));
+
+            TestIntersect(new VersionRange("1"), new VersionRange("!1"), expected: VersionRange.None);
+            TestIntersect(new VersionRange("1"), new VersionRange("!2"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange("1|2"), new VersionRange("2|3"), expected: new VersionRange("2"));
+            TestIntersect(new VersionRange("1|2"), new VersionRange("!2"), expected: new VersionRange("1"));
+            TestIntersect(new VersionRange("..!2|3.."), new VersionRange("..!2.5|3.5.."), expected: new VersionRange("..!2|3.5.."));
+            TestIntersect(new VersionRange("1..!2|3..!4"), new VersionRange("1.5..!2.5|3.5..!4.5"), expected: new VersionRange("1.5..!2|3.5..!4"));
+        }
+
+        private static void TestIntersect(VersionRange a, VersionRange b, VersionRange expected)
+        {
+            a.Intersect(b).Should().Be(expected);
+            b.Intersect(a).Should().Be(expected);
+        }
+
+        private static void TestIntersectNotSupported(VersionRange a, VersionRange b)
+        {
+            Assert.Throws<NotSupportedException>(() => a.Intersect(b));
+            Assert.Throws<NotSupportedException>(() => b.Intersect(a));
+        }
+
+        /// <summary>
         /// Ensures <see cref="VersionRange.Match"/> works correctly.
         /// </summary>
         [Fact]
@@ -92,46 +159,6 @@ namespace ZeroInstall.Store.Model
             new VersionRange("1.0..!1.2").Match(new ImplementationVersion("1.1")).Should().BeTrue();
             new VersionRange("1.0..!1.2").Match(new ImplementationVersion("0.9")).Should().BeFalse();
             new VersionRange("1.0..!1.2").Match(new ImplementationVersion("1.2")).Should().BeFalse();
-        }
-
-        /// <summary>
-        /// Ensures <see cref="VersionRange.Intersect"/> correctly handles <see cref="Constraint"/>s.
-        /// </summary>
-        [Fact]
-        public void TestIntersect()
-        {
-            var constraint = new Constraint {NotBefore = new ImplementationVersion("1"), Before = new ImplementationVersion("2")};
-            new VersionRange().Intersect(constraint).Should().Be(new VersionRange("1..!2"));
-            new VersionRange("..!3").Intersect(constraint).Should().Be(new VersionRange("1..!2"));
-            new VersionRange("2..!3").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("1").Intersect(constraint).Should().Be(new VersionRange("1"));
-            new VersionRange("3").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("2").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("0").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("!3").Intersect(constraint).Should().Be(new VersionRange("1..!2"));
-            new VersionRange("!2").Intersect(constraint).Should().Be(new VersionRange("1..!2"));
-            new VersionRange("!0").Intersect(constraint).Should().Be(new VersionRange("1..!2"));
-            new VersionRange("!1").Intersect(constraint).Should().Be(VersionRange.None);
-
-            constraint = new Constraint {Before = new ImplementationVersion("2")};
-            new VersionRange().Intersect(constraint).Should().Be(new VersionRange("..!2"));
-            new VersionRange("..!3").Intersect(constraint).Should().Be(new VersionRange("..!2"));
-            new VersionRange("2..!3").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("1").Intersect(constraint).Should().Be(new VersionRange("1"));
-            new VersionRange("3").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("2").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("!3").Intersect(constraint).Should().Be(new VersionRange("..!2"));
-            new VersionRange("!2").Intersect(constraint).Should().Be(new VersionRange("..!2"));
-            new VersionRange("!1").Intersect(constraint).Should().Be(VersionRange.None);
-
-            constraint = new Constraint {NotBefore = new ImplementationVersion("1")};
-            new VersionRange().Intersect(constraint).Should().Be(new VersionRange("1.."));
-            new VersionRange("..!3").Intersect(constraint).Should().Be(new VersionRange("1..!3"));
-            new VersionRange("2..!3").Intersect(constraint).Should().Be(new VersionRange("2..!3"));
-            new VersionRange("1").Intersect(constraint).Should().Be(new VersionRange("1"));
-            new VersionRange("0").Intersect(constraint).Should().Be(VersionRange.None);
-            new VersionRange("!0").Intersect(constraint).Should().Be(new VersionRange("1.."));
-            new VersionRange("!1").Intersect(constraint).Should().Be(VersionRange.None);
         }
     }
 }

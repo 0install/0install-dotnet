@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Properties;
@@ -69,10 +70,10 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <summary>
-        /// Intersects a <see cref="Constraint"/> with this range and returns the result as a new range.
+        /// Intersects a set of version ranges with this individual range and returns the surviving parts.
         /// </summary>
-        [CanBeNull]
-        public abstract VersionRangePart Intersects([NotNull] Constraint constraint);
+        [NotNull, ItemNotNull]
+        public abstract IEnumerable<VersionRangePart> Intersect([NotNull] VersionRange versions);
 
         /// <summary>
         /// Determines whether a specific version lies within this range.

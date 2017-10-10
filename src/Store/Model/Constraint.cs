@@ -61,6 +61,12 @@ namespace ZeroInstall.Store.Model
         /// Returns the constraint in the form "NotBefore =&lt; Ver %lt; Before". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"{NotBefore} =< Ver < {Before}";
+
+        /// <summary>
+        /// Convenience cast for turning <see cref="Constraint"/>s into <see cref="VersionRange"/>s.
+        /// </summary>
+        public static implicit operator VersionRange(Constraint constraint)
+            => (constraint == null) ? null : new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
         #endregion
 
         #region Clone

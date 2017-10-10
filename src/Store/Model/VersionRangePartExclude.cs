@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace ZeroInstall.Store.Model
@@ -38,16 +39,34 @@ namespace ZeroInstall.Store.Model
             => Version = version ?? throw new ArgumentNullException(nameof(version));
 
         /// <inheritdoc/>
-        public override VersionRangePart Intersects(Constraint constraint)
+        public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)
         {
             #region Sanity checks
-            if (constraint == null) throw new ArgumentNullException(nameof(constraint));
+            if (versions == null) throw new ArgumentNullException(nameof(versions));
             #endregion
 
-            // If the exclude version lies outside the constraint, the constraint remains
-            if ((constraint.NotBefore == null || Version >= constraint.NotBefore) &&
-                (constraint.Before == null || Version < constraint.Before)) return null;
-            return new VersionRangePartRange(constraint.NotBefore, constraint.Before);
+            if (versions.Parts.Count == 0)
+                yield return this;
+
+            foreach (var part in versions.Parts)
+            {
+                switch (part)
+                {
+                    case VersionRangePartRange range:
+                        if (!range.Match(Version)) yield return range;
+                        else throw new NotSupportedException($"Unable to intersect {this} with {range}.");
+                        break;
+
+                    case VersionRangePartExact exact:
+                        if (!exact.Match(Version)) yield return exact;
+                        break;
+
+                    case VersionRangePartExclude exclude:
+                        yield return this;
+                        if (!Equals(exclude)) yield return exclude;
+                        break;
+                }
+            }
         }
 
         /// <inheritdoc/>
