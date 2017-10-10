@@ -369,8 +369,7 @@ namespace ZeroInstall.Store.Model
                 // Flatten structure in groups, set missing default values in implementations
                 element.Normalize(feedUri);
 
-                var group = element as Group;
-                if (group != null)
+                if (element is Group group)
                 {
                     // Move implementations out of groups
                     collapsedElements.AddRange(group.Elements);
@@ -495,7 +494,7 @@ namespace ZeroInstall.Store.Model
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Feed && Equals((Feed)obj);
+            return obj is Feed feed && Equals(feed);
         }
 
         /// <inheritdoc/>

@@ -105,26 +105,17 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        public bool Equals(VersionPart other)
-        {
-            return Modifier == other.Modifier && DottedList == other.DottedList;
-        }
+        public bool Equals(VersionPart other) => Modifier == other.Modifier && DottedList == other.DottedList;
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
-            return obj is VersionPart && Equals((VersionPart)obj);
+            return obj is VersionPart part && Equals(part);
         }
 
-        public static bool operator ==(VersionPart left, VersionPart right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(VersionPart left, VersionPart right) => left.Equals(right);
 
-        public static bool operator !=(VersionPart left, VersionPart right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(VersionPart left, VersionPart right) => !left.Equals(right);
 
         public override int GetHashCode()
         {
@@ -145,20 +136,16 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public static bool operator <(VersionPart left, VersionPart right)
-            => left.CompareTo(right) < 0;
+        public static bool operator <(VersionPart left, VersionPart right) => left.CompareTo(right) < 0;
 
         /// <inheritdoc/>
-        public static bool operator >(VersionPart left, VersionPart right)
-            => left.CompareTo(right) > 0;
+        public static bool operator >(VersionPart left, VersionPart right) => left.CompareTo(right) > 0;
 
         /// <inheritdoc/>
-        public static bool operator <=(VersionPart left, VersionPart right)
-            => left.CompareTo(right) <= 0;
+        public static bool operator <=(VersionPart left, VersionPart right) => left.CompareTo(right) <= 0;
 
         /// <inheritdoc/>
-        public static bool operator >=(VersionPart left, VersionPart right)
-            => left.CompareTo(right) >= 0;
+        public static bool operator >=(VersionPart left, VersionPart right) => left.CompareTo(right) >= 0;
         #endregion
     }
 }

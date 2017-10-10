@@ -307,8 +307,7 @@ namespace ZeroInstall.Store
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            var config = obj as Config;
-            return config != null && Equals(config);
+            return obj is Config config && Equals(config);
         }
 
         /// <inheritdoc/>

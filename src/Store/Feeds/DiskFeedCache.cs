@@ -49,13 +49,8 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
         public DiskFeedCache([NotNull] string path, [NotNull] IOpenPgp openPgp)
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));
-            #endregion
-
-            DirectoryPath = path;
-            _openPgp = openPgp;
+            DirectoryPath = path ?? throw new ArgumentNullException(nameof(path));
+            _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
         }
         #endregion
 

@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Model
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is GenericBinding && Equals((GenericBinding)obj);
+            return obj is GenericBinding binding && Equals(binding);
         }
 
         /// <inheritdoc/>

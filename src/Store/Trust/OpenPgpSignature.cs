@@ -108,7 +108,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ValidSignature && Equals((ValidSignature)obj);
+            return obj is ValidSignature signature && Equals(signature);
         }
 
         /// <inheritdoc/>
@@ -137,7 +137,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
         public ErrorSignature(long keyID) : base(keyID)
         {}
-        
+
         /// <summary>
         /// Returns the signature information in the form "ErrorSignature: KeyID". Not safe for parsing!
         /// </summary>
@@ -149,7 +149,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ErrorSignature && Equals((ErrorSignature)obj);
+            return obj is ErrorSignature signature && Equals(signature);
         }
 
         /// <inheritdoc/>
@@ -169,7 +169,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
         public BadSignature(long keyID) : base(keyID)
         {}
-        
+
         /// <summary>
         /// Returns the signature information in the form "BadSignature: KeyID". Not safe for parsing!
         /// </summary>
@@ -181,7 +181,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is BadSignature && Equals((BadSignature)obj);
+            return obj is BadSignature signature && Equals(signature);
         }
 
         /// <inheritdoc/>
@@ -202,7 +202,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
         public MissingKeySignature(long keyID) : base(keyID)
         {}
-        
+
         /// <summary>
         /// Returns the signature information in the form "MissingKeySignature: KeyID". Not safe for parsing!
         /// </summary>
@@ -214,7 +214,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is MissingKeySignature && Equals((MissingKeySignature)obj);
+            return obj is MissingKeySignature signature && Equals(signature);
         }
 
         /// <inheritdoc/>

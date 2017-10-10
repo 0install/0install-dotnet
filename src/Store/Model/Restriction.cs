@@ -140,7 +140,9 @@ namespace ZeroInstall.Store.Model
 
             if (Constraints.Count != 0)
             {
-                Versions = Constraints.Aggregate(Versions ?? new VersionRange(), (current, constraint) => current.Intersect(constraint));
+                Versions = Constraints.Aggregate(
+                    seed: Versions ?? new VersionRange(),
+                    func: (current, constraint) => current.Intersect(constraint));
                 Constraints.Clear();
             }
         }

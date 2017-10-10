@@ -114,18 +114,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Icon other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
-        }
+        public bool Equals(Icon other) => other != null && base.Equals(other) &&
+            other.Href == Href && other.MimeType == MimeType;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Icon && Equals((Icon)obj);
+            return obj is Icon icon && Equals(icon);
         }
 
         /// <inheritdoc/>

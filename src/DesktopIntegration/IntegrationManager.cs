@@ -125,12 +125,7 @@ namespace ZeroInstall.DesktopIntegration
         public IntegrationManager([NotNull] string appListPath, [NotNull] ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(appListPath)) throw new ArgumentNullException(nameof(appListPath));
-            if (appListPath == null) throw new ArgumentNullException(nameof(appListPath));
-            #endregion
-
-            AppListPath = appListPath;
+            AppListPath = appListPath ?? throw new ArgumentNullException(nameof(appListPath));
             AppList = XmlStorage.LoadXml<AppList>(AppListPath);
         }
         #endregion

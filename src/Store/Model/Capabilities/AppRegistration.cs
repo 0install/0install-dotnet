@@ -70,7 +70,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is AppRegistration && Equals((AppRegistration)obj);
+            return obj is AppRegistration registration && Equals(registration);
         }
 
         /// <inheritdoc/>

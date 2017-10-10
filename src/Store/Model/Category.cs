@@ -67,18 +67,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Category other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Name == Name && other.TypeNamespace == TypeNamespace;
-        }
+        public bool Equals(Category other) => other != null && base.Equals(other) &&
+            other.Name == Name && other.TypeNamespace == TypeNamespace;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Category && Equals((Category)obj);
+            return obj is Category category && Equals(category);
         }
 
         /// <inheritdoc/>

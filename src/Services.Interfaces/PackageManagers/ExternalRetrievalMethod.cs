@@ -82,7 +82,7 @@ namespace ZeroInstall.Services.PackageManagers
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ExternalRetrievalMethod && Equals((ExternalRetrievalMethod)obj);
+            return obj is ExternalRetrievalMethod method && Equals(method);
         }
 
         /// <inheritdoc/>

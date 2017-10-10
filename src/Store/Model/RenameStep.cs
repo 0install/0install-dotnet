@@ -66,18 +66,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(RenameStep other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Source == Source && other.Destination == Destination;
-        }
+        public bool Equals(RenameStep other) => other != null && base.Equals(other) &&
+            other.Source == Source && other.Destination == Destination;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is RenameStep && Equals((RenameStep)obj);
+            return obj is RenameStep step && Equals(step);
         }
 
         /// <inheritdoc/>

@@ -86,23 +86,14 @@ namespace ZeroInstall.Store.Model
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
-            return obj is VersionDottedList && Equals((VersionDottedList)obj);
+            return obj is VersionDottedList list && Equals(list);
         }
 
-        public static bool operator ==(VersionDottedList left, VersionDottedList right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(VersionDottedList left, VersionDottedList right) => left.Equals(right);
 
-        public static bool operator !=(VersionDottedList left, VersionDottedList right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(VersionDottedList left, VersionDottedList right) => !left.Equals(right);
 
-        public override int GetHashCode()
-        {
-            return Decimals?.GetSequencedHashCode() ?? 0;
-        }
+        public override int GetHashCode() => Decimals?.GetSequencedHashCode() ?? 0;
         #endregion
 
         #region Comparison
@@ -124,20 +115,16 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public static bool operator <(VersionDottedList left, VersionDottedList right)
-            => left.CompareTo(right) < 0;
+        public static bool operator <(VersionDottedList left, VersionDottedList right) => left.CompareTo(right) < 0;
 
         /// <inheritdoc/>
-        public static bool operator >(VersionDottedList left, VersionDottedList right)
-            => left.CompareTo(right) > 0;
+        public static bool operator >(VersionDottedList left, VersionDottedList right) => left.CompareTo(right) > 0;
 
         /// <inheritdoc/>
-        public static bool operator <=(VersionDottedList left, VersionDottedList right)
-            => left.CompareTo(right) <= 0;
+        public static bool operator <=(VersionDottedList left, VersionDottedList right) => left.CompareTo(right) <= 0;
 
         /// <inheritdoc/>
-        public static bool operator >=(VersionDottedList left, VersionDottedList right)
-            => left.CompareTo(right) >= 0;
+        public static bool operator >=(VersionDottedList left, VersionDottedList right) => left.CompareTo(right) >= 0;
         #endregion
     }
 }

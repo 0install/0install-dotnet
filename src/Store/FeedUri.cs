@@ -417,7 +417,7 @@ namespace ZeroInstall.Store
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is FeedUri && Equals((FeedUri)obj);
+            return obj is FeedUri uri && Equals(uri);
         }
 
         /// <inheritdoc/>

@@ -130,18 +130,15 @@ namespace ZeroInstall.Store.Model.Selection
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationSelection other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && InterfaceUri == other.InterfaceUri && FromFeed == other.FromFeed && QuickTestFile == other.QuickTestFile;
-        }
+        public bool Equals(ImplementationSelection other) => other != null && base.Equals(other) &&
+            InterfaceUri == other.InterfaceUri && FromFeed == other.FromFeed && QuickTestFile == other.QuickTestFile;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ImplementationSelection && Equals((ImplementationSelection)obj);
+            return obj is ImplementationSelection selection && Equals(selection);
         }
 
         /// <inheritdoc/>

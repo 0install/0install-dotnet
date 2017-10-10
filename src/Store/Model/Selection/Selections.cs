@@ -205,7 +205,7 @@ namespace ZeroInstall.Store.Model.Selection
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Selections && Equals((Selections)obj);
+            return obj is Selections selections && Equals(selections);
         }
 
         /// <inheritdoc/>

@@ -225,8 +225,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            var other = obj as TrustDB;
-            return other != null && Equals(other);
+            return obj is TrustDB other && Equals(other);
         }
 
         /// <inheritdoc/>

@@ -95,8 +95,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     string tempPath = Randomize(destinationPath);
                     _pendingFileRenames.Push(new KeyValuePair<string, string>(tempPath, destinationPath));
 
-                    var file = pair.Value as ManifestFileBase;
-                    if (file != null)
+                    if (pair.Value is ManifestFileBase file)
                     {
                         File.Copy(sourcePath, tempPath);
                         File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
@@ -106,8 +105,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     }
                     else
                     {
-                        var symlink = pair.Value as ManifestSymlink;
-                        if (symlink != null)
+                        if (pair.Value is ManifestSymlink)
                         {
                             if (UnixUtils.IsUnix)
                             {

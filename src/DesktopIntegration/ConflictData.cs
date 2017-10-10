@@ -78,7 +78,7 @@ namespace ZeroInstall.DesktopIntegration
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            return obj is ConflictData && Equals((ConflictData)obj);
+            return obj is ConflictData data && Equals(data);
         }
 
         /// <inheritdoc/>

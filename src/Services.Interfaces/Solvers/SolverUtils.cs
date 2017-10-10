@@ -96,8 +96,8 @@ namespace ZeroInstall.Services.Solvers
             };
             if (candidate.FeedUri != requirements.InterfaceUri) selection.FromFeed = candidate.FeedUri;
 
-            var externalImplementation = implementation as ExternalImplementation;
-            if (externalImplementation != null) selection.QuickTestFile = externalImplementation.QuickTestFile;
+            if (implementation is ExternalImplementation externalImplementation)
+                selection.QuickTestFile = externalImplementation.QuickTestFile;
 
             selection.Bindings.AddRange(implementation.Bindings.CloneElements());
             selection.AddDependencies(requirements, from: candidate.Implementation);
@@ -117,7 +117,7 @@ namespace ZeroInstall.Services.Solvers
             #region Sanity checks
             if (target == null) throw new ArgumentNullException(nameof(target));
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-            if (from == null) throw new ArgumentNullException(nameof(@from));
+            if (from == null) throw new ArgumentNullException(nameof(from));
             #endregion
 
             target.Dependencies.AddRange(from.Dependencies.Where(x => x.IsApplicable(requirements)).CloneElements());
@@ -133,12 +133,12 @@ namespace ZeroInstall.Services.Solvers
         /// <returns>The <see cref="Command"/> that was added to <paramref name="selection"/>; <c>null</c> if none.</returns>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "This method explicitly transfers information from an Implementation to an ImplementationSelection.")]
         [CanBeNull]
-        public static Command AddCommand([NotNull] this ImplementationSelection selection, [NotNull] Requirements requirements, [NotNull] Implementation @from)
+        public static Command AddCommand([NotNull] this ImplementationSelection selection, [NotNull] Requirements requirements, [NotNull] Implementation from)
         {
             #region Sanity checks
             if (selection == null) throw new ArgumentNullException(nameof(selection));
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-            if (from == null) throw new ArgumentNullException(nameof(@from));
+            if (from == null) throw new ArgumentNullException(nameof(from));
             #endregion
 
             Debug.Assert(requirements.Command != null);

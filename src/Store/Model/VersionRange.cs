@@ -78,7 +78,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="result">Returns the created <see cref="VersionRange"/> if successfully; <c>null</c> otherwise.</param>
         /// <returns><c>true</c> if the <see cref="VersionRange"/> was successfully created; <c>false</c> otherwise.</returns>
         [ContractAnnotation("=>false,result:null; =>true,result:notnull")]
-        public static bool TryCreate(string value, out VersionRange result)
+        public static bool TryCreate([NotNull] string value, out VersionRange result)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Intersects a <see cref="Constraint"/> with this range set and returns the result as a new range set.
         /// </summary>
-        public VersionRange Intersect(Constraint constraint)
+        public VersionRange Intersect([NotNull] Constraint constraint)
         {
             #region Sanity checks
             if (constraint == null) throw new ArgumentNullException(nameof(constraint));
@@ -110,7 +110,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Determines whether a specific version lies within this range set.
         /// </summary>
-        public bool Match(ImplementationVersion version)
+        public bool Match([NotNull] ImplementationVersion version)
         {
             #region Sanity checks
             if (version == null) throw new ArgumentNullException(nameof(version));
@@ -151,7 +151,7 @@ namespace ZeroInstall.Store.Model
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is VersionRange && Equals((VersionRange)obj);
+            return obj is VersionRange range && Equals(range);
         }
 
         /// <inheritdoc/>

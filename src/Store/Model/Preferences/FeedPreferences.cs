@@ -190,18 +190,15 @@ namespace ZeroInstall.Store.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FeedPreferences other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && LastChecked == other.LastChecked && Implementations.SequencedEquals(other.Implementations);
-        }
+        public bool Equals(FeedPreferences other) => other != null && base.Equals(other) &&
+            LastChecked == other.LastChecked && Implementations.SequencedEquals(other.Implementations);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is FeedPreferences && Equals((FeedPreferences)obj);
+            return obj is FeedPreferences preferences && Equals(preferences);
         }
 
         /// <inheritdoc/>

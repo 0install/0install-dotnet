@@ -74,18 +74,15 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FileTypeExtension other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Value == Value && other.MimeType == MimeType && other.PerceivedType == PerceivedType;
-        }
+        public bool Equals(FileTypeExtension other) => other != null && base.Equals(other) &&
+            other.Value == Value && other.MimeType == MimeType && other.PerceivedType == PerceivedType;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is FileTypeExtension && Equals((FileTypeExtension)obj);
+            return obj is FileTypeExtension extension && Equals(extension);
         }
 
         /// <inheritdoc/>

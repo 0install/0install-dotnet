@@ -128,8 +128,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void Retrieve([NotNull] RetrievalMethod retrievalMethod, ManifestDigest manifestDigest)
         {
-            var externalRetrievalMethod = retrievalMethod as ExternalRetrievalMethod;
-            if (externalRetrievalMethod != null)
+            if (retrievalMethod is ExternalRetrievalMethod externalRetrievalMethod)
             {
                 RunNative(externalRetrievalMethod);
                 return;

@@ -224,23 +224,13 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public static bool operator ==(ManifestDigest left, ManifestDigest right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(ManifestDigest left, ManifestDigest right) => left.Equals(right);
 
         /// <inheritdoc/>
-        public static bool operator !=(ManifestDigest left, ManifestDigest right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(ManifestDigest left, ManifestDigest right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-            return obj is ManifestDigest && Equals((ManifestDigest)obj);
-        }
+        public override bool Equals(object obj) => obj is ManifestDigest digest && Equals(digest);
 
         /// <inheritdoc/>
         public override int GetHashCode()

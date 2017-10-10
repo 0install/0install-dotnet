@@ -362,7 +362,7 @@ namespace ZeroInstall.Store.Model
         protected static void CloneFromTo([NotNull] Element from, [NotNull] Element to)
         {
             #region Sanity checks
-            if (from == null) throw new ArgumentNullException(nameof(@from));
+            if (from == null) throw new ArgumentNullException(nameof(from));
             if (to == null) throw new ArgumentNullException(nameof(to));
             #endregion
 
@@ -385,13 +385,9 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        protected bool Equals(Element other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) &&
-                   other.Version == Version && other.VersionModifier == VersionModifier && other.Released == Released && other.ReleasedVerbatim == ReleasedVerbatim && other.License == License && other.Main == Main && other.SelfTest == SelfTest && other.DocDir == DocDir &&
-                   Commands.SequencedEquals(other.Commands) && Dependencies.SequencedEquals(other.Dependencies) && Restrictions.SequencedEquals(other.Restrictions) && Bindings.SequencedEquals(other.Bindings);
-        }
+        protected bool Equals(Element other) => other != null && base.Equals(other) &&
+            other.Version == Version && other.VersionModifier == VersionModifier && other.Released == Released && other.ReleasedVerbatim == ReleasedVerbatim && other.License == License && other.Main == Main && other.SelfTest == SelfTest && other.DocDir == DocDir &&
+            Commands.SequencedEquals(other.Commands) && Dependencies.SequencedEquals(other.Dependencies) && Restrictions.SequencedEquals(other.Restrictions) && Bindings.SequencedEquals(other.Bindings);
 
         /// <inheritdoc/>
         public override int GetHashCode()

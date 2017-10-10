@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.Model
         protected static void CloneFromTo([NotNull] TargetBase from, [NotNull] TargetBase to)
         {
             #region Sanity checks
-            if (from == null) throw new ArgumentNullException(nameof(@from));
+            if (from == null) throw new ArgumentNullException(nameof(from));
             if (to == null) throw new ArgumentNullException(nameof(to));
             #endregion
 

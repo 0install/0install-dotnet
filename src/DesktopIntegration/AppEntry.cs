@@ -196,7 +196,7 @@ namespace ZeroInstall.DesktopIntegration
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is AppEntry && Equals((AppEntry)obj);
+            return obj is AppEntry entry && Equals(entry);
         }
 
         /// <inheritdoc/>

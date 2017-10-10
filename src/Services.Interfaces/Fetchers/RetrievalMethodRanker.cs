@@ -38,19 +38,16 @@ namespace ZeroInstall.Services.Fetchers
         /// <inheritdoc/>
         public int Compare(RetrievalMethod x, RetrievalMethod y)
         {
-            if (x == y) return 0;
-
-            if (x is DownloadRetrievalMethod && y is Recipe) return -1;
-            if (x is Recipe && y is DownloadRetrievalMethod) return 1;
-
-            var downloadX = x as DownloadRetrievalMethod;
-            var downloadY = y as DownloadRetrievalMethod;
-            if (downloadX != null && downloadY != null) return downloadX.Size.CompareTo(downloadY.Size);
-
-            var recipeX = x as Recipe;
-            var recipeY = y as Recipe;
-            if (recipeX != null && recipeY != null) return recipeX.Steps.Count.CompareTo(recipeY.Steps.Count);
-
+            if (x == y)
+                return 0;
+            if (x is DownloadRetrievalMethod && y is Recipe)
+                return -1;
+            if (x is Recipe && y is DownloadRetrievalMethod)
+                return 1;
+            if (x is DownloadRetrievalMethod downloadX && y is DownloadRetrievalMethod downloadY)
+                return downloadX.Size.CompareTo(downloadY.Size);
+            if (x is Recipe recipeX && y is Recipe recipeY)
+                return recipeX.Steps.Count.CompareTo(recipeY.Steps.Count);
             return 0;
         }
     }

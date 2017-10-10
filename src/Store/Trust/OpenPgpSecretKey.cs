@@ -53,14 +53,9 @@ namespace ZeroInstall.Store.Trust
         /// <param name="userID">The user's name, e-mail address, etc. of the key owner.</param>
         public OpenPgpSecretKey(long keyID, [NotNull] byte[] fingerprint, [NotNull] string userID)
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(userID)) throw new ArgumentNullException(nameof(userID));
-            if (fingerprint == null) throw new ArgumentNullException(nameof(fingerprint));
-            #endregion
-
             KeyID = keyID;
-            _fingerprint = fingerprint;
-            UserID = userID;
+            _fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
+            UserID = userID ?? throw new ArgumentNullException(nameof(userID));
         }
 
         #region Conversion
@@ -85,7 +80,7 @@ namespace ZeroInstall.Store.Trust
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is OpenPgpSecretKey && Equals((OpenPgpSecretKey)obj);
+            return obj is OpenPgpSecretKey key && Equals(key);
         }
 
         public override int GetHashCode()

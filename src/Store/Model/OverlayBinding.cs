@@ -79,8 +79,7 @@ namespace ZeroInstall.Store.Model
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            var binding = obj as OverlayBinding;
-            return binding != null && Equals(binding);
+            return obj is OverlayBinding binding && Equals(binding);
         }
 
         /// <inheritdoc/>

@@ -114,18 +114,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(EnvironmentBinding other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Name == Name && other.Value == Value && other.Insert == Insert && other.Mode == Mode && other.Separator == Separator && other.Default == Default;
-        }
+        public bool Equals(EnvironmentBinding other) => other != null && (base.Equals(other) &&
+            other.Name == Name && other.Value == Value) && other.Insert == Insert && other.Mode == Mode && other.Separator == Separator && other.Default == Default;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is EnvironmentBinding && Equals((EnvironmentBinding)obj);
+            return obj is EnvironmentBinding binding && Equals(binding);
         }
 
         /// <inheritdoc/>

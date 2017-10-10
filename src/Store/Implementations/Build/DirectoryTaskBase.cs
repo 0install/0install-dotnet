@@ -119,8 +119,7 @@ namespace ZeroInstall.Store.Implementations.Build
             {
                 CancellationToken.ThrowIfCancellationRequested();
 
-                var file = entry as FileInfo;
-                if (file != null)
+                if (entry is FileInfo file)
                 {
                     if (file.Name == Manifest.ManifestFile || file.Name == FlagUtils.XbitFile || file.Name == FlagUtils.SymlinkFile) continue;
 
@@ -129,8 +128,7 @@ namespace ZeroInstall.Store.Implementations.Build
                 }
                 else
                 {
-                    var directory = entry as DirectoryInfo;
-                    if (directory != null) HandleEntry(directory);
+                    if (entry is DirectoryInfo directory) HandleEntry(directory);
                 }
             }
         }

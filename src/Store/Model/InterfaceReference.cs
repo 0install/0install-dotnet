@@ -88,8 +88,7 @@ namespace ZeroInstall.Store.Model
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            var reference = obj as InterfaceReference;
-            return reference != null && Equals(reference);
+            return obj is InterfaceReference reference && Equals(reference);
         }
 
         /// <inheritdoc/>

@@ -89,7 +89,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ManifestNormalFile && Equals((ManifestNormalFile)obj);
+            return obj is ManifestNormalFile file && Equals(file);
         }
 
         /// <inheritdoc/>

@@ -106,16 +106,14 @@ namespace ZeroInstall.Store.Implementations.Manifests
             string dirPath = "";
             foreach (var node in this)
             {
-                var dir = node as ManifestDirectory;
-                if (dir != null)
+                if (node is ManifestDirectory dir)
                 {
                     dirPath = FileUtils.UnifySlashes(dir.FullPath).Substring(1);
                     result.Add(new KeyValuePair<string, ManifestNode>(dirPath, dir));
                 }
                 else
                 {
-                    var element = node as ManifestDirectoryElement;
-                    if (element != null)
+                    if (node is ManifestDirectoryElement element)
                     {
                         string elementPath = Path.Combine(dirPath, element.Name);
                         result.Add(new KeyValuePair<string, ManifestNode>(elementPath, element));
@@ -299,7 +297,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Manifest && Equals((Manifest)obj);
+            return obj is Manifest manifest && Equals(manifest);
         }
 
         /// <inheritdoc/>

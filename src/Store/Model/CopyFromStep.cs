@@ -90,8 +90,7 @@ namespace ZeroInstall.Store.Model
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            var step = obj as CopyFromStep;
-            return step != null && Equals(step);
+            return obj is CopyFromStep step && Equals(step);
         }
 
         /// <inheritdoc/>

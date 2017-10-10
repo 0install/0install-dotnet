@@ -15,7 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -64,11 +63,8 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        protected bool Equals(Capability other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.ID == ID;
-        }
+        protected bool Equals(Capability other) => other != null && base.Equals(other) &&
+            other.ID == ID;
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -99,14 +99,10 @@ namespace ZeroInstall.DesktopIntegration
         public SyncIntegrationManager(SyncServer server, [CanBeNull] string cryptoKey, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
-            #region Sanity checks
             if (server.Uri == null) throw new ArgumentNullException(nameof(server));
-            if (feedRetriever == null) throw new ArgumentNullException(nameof(feedRetriever));
-            #endregion
-
             _server = server;
             _cryptoKey = cryptoKey;
-            _feedRetriever = feedRetriever;
+            _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
             if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
             else
@@ -130,13 +126,9 @@ namespace ZeroInstall.DesktopIntegration
         public SyncIntegrationManager([NotNull] string appListPath, SyncServer server, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
             : base(appListPath, handler, machineWide)
         {
-            #region Sanity checks
             if (server.Uri == null) throw new ArgumentNullException(nameof(server));
-            if (feedRetriever == null) throw new ArgumentNullException(nameof(feedRetriever));
-            #endregion
-
             _server = server;
-            _feedRetriever = feedRetriever;
+            _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
             if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
             else

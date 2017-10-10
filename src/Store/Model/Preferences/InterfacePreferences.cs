@@ -185,7 +185,7 @@ namespace ZeroInstall.Store.Model.Preferences
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is InterfacePreferences && Equals((InterfacePreferences)obj);
+            return obj is InterfacePreferences preferences && Equals(preferences);
         }
 
         /// <inheritdoc/>

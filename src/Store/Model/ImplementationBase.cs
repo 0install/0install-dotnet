@@ -107,12 +107,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         protected static void CloneFromTo([NotNull] ImplementationBase from, [NotNull] ImplementationBase to)
         {
-            #region Sanity checks
-            if (from == null) throw new ArgumentNullException(nameof(@from));
-            if (to == null) throw new ArgumentNullException(nameof(to));
-            #endregion
-
-            Element.CloneFromTo(from, to);
+            Element.CloneFromTo(from ?? throw new ArgumentNullException(nameof(from)), to ?? throw new ArgumentNullException(nameof(to)));
             to.ID = from.ID;
             to.LocalPath = from.LocalPath;
             to.ManifestDigest = from.ManifestDigest;

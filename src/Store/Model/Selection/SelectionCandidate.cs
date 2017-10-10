@@ -113,22 +113,15 @@ namespace ZeroInstall.Store.Model.Selection
         /// <exception cref="InvalidDataException"><paramref name="implementation"/>'s <see cref="ImplementationBase.ID"/> is empty.</exception>
         public SelectionCandidate([NotNull] FeedUri feedUri, [NotNull] FeedPreferences feedPreferences, [NotNull] Implementation implementation, [NotNull] Requirements requirements, bool offlineUncached = false)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            if (feedPreferences == null) throw new ArgumentNullException(nameof(feedPreferences));
-            if (implementation == null) throw new ArgumentNullException(nameof(implementation));
-            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-            #endregion
+            FeedUri = feedUri ?? throw new ArgumentNullException(nameof(feedUri));
+            FeedPreferences = feedPreferences ?? throw new ArgumentNullException(nameof(feedPreferences));
+            Implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
 
             if (string.IsNullOrEmpty(implementation.ID)) throw new InvalidDataException(string.Format(Resources.ImplementationMissingID, implementation, feedUri));
 
-            FeedUri = feedUri;
-            FeedPreferences = feedPreferences;
-            Implementation = implementation;
-
             _implementationPreferences = feedPreferences[implementation.ID];
 
-            CheckSuitabilty(requirements, offlineUncached);
+            CheckSuitabilty(requirements ?? throw new ArgumentNullException(nameof(requirements)), offlineUncached);
         }
 
         private void CheckSuitabilty(Requirements requirements, bool offlineUncached)
@@ -174,7 +167,7 @@ namespace ZeroInstall.Store.Model.Selection
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is SelectionCandidate && Equals((SelectionCandidate)obj);
+            return obj is SelectionCandidate candidate && Equals(candidate);
         }
 
         /// <inheritdoc/>

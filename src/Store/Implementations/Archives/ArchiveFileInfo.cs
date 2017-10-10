@@ -89,7 +89,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            return obj is ArchiveFileInfo && Equals((ArchiveFileInfo)obj);
+            return obj is ArchiveFileInfo info && Equals(info);
         }
 
         /// <inheritdoc/>

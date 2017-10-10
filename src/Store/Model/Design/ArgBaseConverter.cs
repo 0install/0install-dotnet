@@ -35,8 +35,7 @@ namespace ZeroInstall.Store.Model.Design
         /// <inheritdoc/>
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            var stringValue = value as string;
-            return stringValue != null
+            return value is string stringValue
                 ? new Arg {Value = stringValue}
                 : base.ConvertFrom(context, culture, value);
         }

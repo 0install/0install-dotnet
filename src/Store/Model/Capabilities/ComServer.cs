@@ -61,7 +61,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is ComServer && Equals((ComServer)obj);
+            return obj is ComServer server && Equals(server);
         }
 
         /// <inheritdoc/>

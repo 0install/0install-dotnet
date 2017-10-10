@@ -89,19 +89,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ForEachArgs other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.ItemFrom == ItemFrom && other.Separator == Separator &&
-                   Arguments.SequencedEquals(other.Arguments);
-        }
+        public bool Equals(ForEachArgs other) => other != null && base.Equals(other) &&
+            other.ItemFrom == ItemFrom && other.Separator == Separator && Arguments.SequencedEquals(other.Arguments);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Arg && Equals((Arg)obj);
+            return obj is Arg arg && Equals(arg);
         }
 
         /// <inheritdoc/>

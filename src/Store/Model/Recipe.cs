@@ -108,18 +108,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Recipe other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Steps.SequencedEquals(other.Steps);
-        }
+        public bool Equals(Recipe other) => other != null && base.Equals(other) &&
+            Steps.SequencedEquals(other.Steps);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Recipe && Equals((Recipe)obj);
+            return obj is Recipe recipe && Equals(recipe);
         }
 
         /// <inheritdoc/>

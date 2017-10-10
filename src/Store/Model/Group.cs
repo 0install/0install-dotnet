@@ -69,8 +69,7 @@ namespace ZeroInstall.Store.Model
                 // Flatten structure in sub-groups, set missing default values in implementations
                 element.Normalize(feedUri);
 
-                var group = element as Group;
-                if (group != null)
+                if (element is Group group)
                 {
                     // Move implementations out of sub-groups
                     collapsedElements.AddRange(group.Elements);
@@ -121,18 +120,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Group other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Elements.SequencedEquals(other.Elements);
-        }
+        public bool Equals(Group other) => other != null && base.Equals(other) &&
+            Elements.SequencedEquals(other.Elements);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is Group && Equals((Group)obj);
+            return obj is Group group && Equals(group);
         }
 
         /// <inheritdoc/>

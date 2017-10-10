@@ -65,15 +65,9 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
         protected DirectoryOperation([NotNull] string path, [NotNull] Manifest manifest, [NotNull] ITaskHandler handler)
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (manifest == null) throw new ArgumentNullException(nameof(manifest));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            Path = path;
-            Manifest = manifest;
-            Handler = handler;
+            Path = path ?? throw new ArgumentNullException(nameof(path));
+            Manifest = manifest ?? throw new ArgumentNullException(nameof(manifest));
+            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
 
             ElementPaths = Manifest.ListPaths();
         }
