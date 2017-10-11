@@ -70,6 +70,12 @@ namespace ZeroInstall.Store.Model
             : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.FromString(part.Trim())))
         {}
 
+        public static implicit operator VersionRange(ImplementationVersion version)
+            => (version == null) ? null : new VersionRange(new VersionRangePartExact(version));
+
+        public static implicit operator VersionRange(Constraint constraint)
+            => (constraint == null) ? null : new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
+
         /// <summary>
         /// Creates a new <see cref="VersionRange"/> using the specified string representation.
         /// </summary>
