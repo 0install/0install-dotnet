@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Net;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
@@ -56,7 +57,7 @@ namespace ZeroInstall.Services.Solvers
             {
                 return _primarySolver.Solve(requirements);
             }
-            catch (SolverException ex)
+            catch (NotSupportedException ex)
             {
                 Log.Info("Primary solver failed, falling back to secondary solver.");
                 Log.Info(ex);

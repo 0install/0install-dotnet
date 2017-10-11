@@ -85,7 +85,7 @@ namespace ZeroInstall.Services.Solvers
 
                 if (existingSelection == null) return TryToSelectCandidate(suitableCandidates, requirements, allCandidates);
                 else if (TryToUseExistingCandidate(requirements, suitableCandidates, existingSelection)) return true;
-                else throw new SolverException("Dependency graph too complex");
+                else throw new NotSupportedException("Dependency graph too complex");
             }
 
             /// <summary>
