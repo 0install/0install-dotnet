@@ -110,6 +110,16 @@ namespace ZeroInstall.Store.Model
         [XmlIgnore, JsonProperty("extra_restrictions"), NotNull]
         public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new Dictionary<FeedUri, VersionRange>();
 
+        /// <summary>
+        /// Adds version restriction for a specific feeds. Merges with any existing restrictions for that feed.
+        /// </summary>
+        /// <param name="feedUri">The feed URI to apply the restriction for.</param>
+        /// <param name="versions">The version range set to restrict to.</param>
+        public void AddRestriction(FeedUri feedUri, VersionRange versions)
+            => ExtraRestrictions[feedUri] = ExtraRestrictions.TryGetValue(feedUri, out var existingVersions)
+                ? existingVersions.Intersect(versions)
+                : versions;
+
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
 
         /// <summary>

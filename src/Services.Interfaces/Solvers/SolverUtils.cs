@@ -197,12 +197,14 @@ namespace ZeroInstall.Services.Solvers
 
         private static void CopyVersionRestrictions([NotNull] this Requirements requirements, [NotNull] Restriction from)
         {
-            if (from.Versions != null) requirements.ExtraRestrictions.Add(from.InterfaceUri, from.Versions);
+            if (from.Versions != null)
+                requirements.AddRestriction(from.InterfaceUri, from.Versions);
         }
 
         private static void CopyVersionRestrictions([NotNull] this Requirements requirements, [NotNull] Requirements from)
         {
-            requirements.ExtraRestrictions.AddRange(from.ExtraRestrictions);
+            foreach (var restriction in from.ExtraRestrictions)
+                requirements.AddRestriction(restriction.Key, restriction.Value);
         }
 
         /// <summary>
