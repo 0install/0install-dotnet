@@ -191,18 +191,22 @@ namespace ZeroInstall.Services.Feeds
         private static readonly TimeSpan _failedCheckDelay = new TimeSpan(1, 0, 0);
 
         /// <summary>
-        /// Determines the most recent point in time an attempt was made to download a particular feed.
+        /// Determines the most recent point in time an attempt was made to download <paramref name="feedUri"/>.
         /// </summary>
-        private static DateTime GetLastCheckAttempt(FeedUri feedUri)
+        public static DateTime GetLastCheckAttempt(FeedUri feedUri)
         {
-            // Determine timestamp file path
-            var file = new FileInfo(Path.Combine(
-                Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
-                feedUri.PrettyEscape()));
-
-            // Check last modification time
+            var file = new FileInfo(GetLastCheckAttemptPath(feedUri));
             return file.Exists ? file.LastWriteTimeUtc : new DateTime();
         }
+
+        /// <summary>
+        /// Notes the current time as an attempt to download <paramref name="feedUri"/>.
+        /// </summary>
+        public static void SetLastCheckAttempt(FeedUri feedUri) => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
+
+        private static string GetLastCheckAttemptPath(FeedUri feedUri) => Path.Combine(
+            Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
+            feedUri.PrettyEscape());
 
         /// <summary>
         /// Downloads a <see cref="Feed"/> into the <see cref="_feedCache"/> validating its signatures. Automatically falls back to the mirror server.
@@ -246,20 +250,6 @@ namespace ZeroInstall.Services.Feeds
                     throw ex.PreserveStack();
                 }
             }
-        }
-
-        /// <summary>
-        /// Notes the current time as an attempt to download a particular feed.
-        /// </summary>
-        private static void SetLastCheckAttempt(FeedUri feedUri)
-        {
-            // Determine timestamp file path
-            string path = Path.Combine(
-                Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
-                feedUri.PrettyEscape());
-
-            // Set modification time to now
-            FileUtils.Touch(path);
         }
 
         /// <inheritdoc/>
