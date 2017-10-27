@@ -139,7 +139,7 @@ namespace ZeroInstall.Services.Executors
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                 .Inject(selections)
-                .AddArguments("--custom")
+                .AddArguments("--custom$arg")
                 .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
@@ -151,7 +151,7 @@ namespace ZeroInstall.Services.Executors
                     selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
                     Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[0].Path)),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
-                    "--custom"
+                    "--custom$arg"
                 }.JoinEscapeArguments(),
                 because: "Should combine core and additional runner arguments with application implementation directory, command path and arguments");
 

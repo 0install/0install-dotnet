@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Services.Properties;
@@ -142,6 +143,8 @@ namespace ZeroInstall.Services.Executors
             return this;
         }
 
+        private readonly List<string> _userArguments = new List<string>();
+
         /// <inheritdoc/>
         public IEnvironmentBuilder AddArguments(params string[] arguments)
         {
@@ -150,7 +153,7 @@ namespace ZeroInstall.Services.Executors
             if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
             #endregion
 
-            _mainCommandLine.AddRange(Array.ConvertAll(arguments, x => new Arg {Value = x}));
+            _userArguments.AddRange(arguments);
 
             return this;
         }
@@ -166,7 +169,10 @@ namespace ZeroInstall.Services.Executors
             {
                 ProcessRunEnvBindings();
 
-                var split = SplitCommandLine(ExpandCommandLine(_mainCommandLine));
+                var args = ExpandCommandLine(_mainCommandLine);
+                args.AddRange(_userArguments);
+
+                var split = SplitCommandLine(args);
                 _startInfo.FileName = split.Path;
                 _startInfo.Arguments = split.Arguments;
             }
