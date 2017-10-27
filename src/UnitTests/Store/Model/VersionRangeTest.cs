@@ -81,61 +81,61 @@ namespace ZeroInstall.Store.Model
         [Fact]
         public void TestIntersect()
         {
-            TestIntersect(VersionRange.None, new VersionRange("..!2"), expected: VersionRange.None);
-            TestIntersect(VersionRange.None, new VersionRange("1.."), expected: VersionRange.None);
-            TestIntersect(VersionRange.None, new VersionRange("1..!2"), expected: VersionRange.None);
+            IntersectShouldBe(VersionRange.None, new VersionRange("..!2"), expected: VersionRange.None);
+            IntersectShouldBe(VersionRange.None, new VersionRange("1.."), expected: VersionRange.None);
+            IntersectShouldBe(VersionRange.None, new VersionRange("1..!2"), expected: VersionRange.None);
 
-            TestIntersect(new VersionRange(), new VersionRange("1"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange(), new VersionRange("!1"), expected: new VersionRange("!1"));
-            TestIntersect(new VersionRange(), new VersionRange("1.."), expected: new VersionRange("1.."));
-            TestIntersect(new VersionRange(), new VersionRange("..!2"), expected: new VersionRange("..!2"));
-            TestIntersect(new VersionRange(), new VersionRange("1..!2"), expected: new VersionRange("1..!2"));
+            IntersectShouldBe(new VersionRange(), new VersionRange("1"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange(), new VersionRange("!1"), expected: new VersionRange("!1"));
+            IntersectShouldBe(new VersionRange(), new VersionRange("1.."), expected: new VersionRange("1.."));
+            IntersectShouldBe(new VersionRange(), new VersionRange("..!2"), expected: new VersionRange("..!2"));
+            IntersectShouldBe(new VersionRange(), new VersionRange("1..!2"), expected: new VersionRange("1..!2"));
 
-            TestIntersect(new VersionRange("1.."), new VersionRange("..!3"), expected: new VersionRange("1..!3"));
-            TestIntersect(new VersionRange("1.."), new VersionRange("2..!3"), expected: new VersionRange("2..!3"));
-            TestIntersect(new VersionRange("1.."), new VersionRange("1"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange("1.."), new VersionRange("0"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1.."), new VersionRange("!0"), expected: new VersionRange("1.."));
-            TestIntersectNotSupported(new VersionRange("1.."), new VersionRange("!1"));
-            TestIntersectNotSupported(new VersionRange("1.."), new VersionRange("!1.5"));
+            IntersectShouldBe(new VersionRange("1.."), new VersionRange("..!3"), expected: new VersionRange("1..!3"));
+            IntersectShouldBe(new VersionRange("1.."), new VersionRange("2..!3"), expected: new VersionRange("2..!3"));
+            IntersectShouldBe(new VersionRange("1.."), new VersionRange("1"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange("1.."), new VersionRange("0"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1.."), new VersionRange("!0"), expected: new VersionRange("1.."));
+            IntersectNotSupported(new VersionRange("1.."), new VersionRange("!1"));
+            IntersectNotSupported(new VersionRange("1.."), new VersionRange("!1.5"));
 
-            TestIntersect(new VersionRange("..!2"), new VersionRange("..!3"), expected: new VersionRange("..!2"));
-            TestIntersect(new VersionRange("..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("..!2"), new VersionRange("1"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange("..!2"), new VersionRange("3"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("..!2"), new VersionRange("2"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("..!2"), new VersionRange("!3"), expected: new VersionRange("..!2"));
-            TestIntersect(new VersionRange("..!2"), new VersionRange("!2"), expected: new VersionRange("..!2"));
-            TestIntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1"));
-            TestIntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1.5"));
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("..!3"), expected: new VersionRange("..!2"));
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("1"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("3"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("2"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("!3"), expected: new VersionRange("..!2"));
+            IntersectShouldBe(new VersionRange("..!2"), new VersionRange("!2"), expected: new VersionRange("..!2"));
+            IntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1"));
+            IntersectNotSupported(new VersionRange("..!2"), new VersionRange("!1.5"));
 
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("..!3"), expected: new VersionRange("1..!2"));
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("1"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("3"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("2"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("0"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("!3"), expected: new VersionRange("1..!2"));
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("!2"), expected: new VersionRange("1..!2"));
-            TestIntersect(new VersionRange("1..!2"), new VersionRange("!0"), expected: new VersionRange("1..!2"));
-            TestIntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1"));
-            TestIntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1.5"));
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("..!3"), expected: new VersionRange("1..!2"));
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("2..!3"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("1"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("3"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("2"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("0"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("!3"), expected: new VersionRange("1..!2"));
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("!2"), expected: new VersionRange("1..!2"));
+            IntersectShouldBe(new VersionRange("1..!2"), new VersionRange("!0"), expected: new VersionRange("1..!2"));
+            IntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1"));
+            IntersectNotSupported(new VersionRange("1..!2"), new VersionRange("!1.5"));
 
-            TestIntersect(new VersionRange("1"), new VersionRange("!1"), expected: VersionRange.None);
-            TestIntersect(new VersionRange("1"), new VersionRange("!2"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange("1|2"), new VersionRange("2|3"), expected: new VersionRange("2"));
-            TestIntersect(new VersionRange("1|2"), new VersionRange("!2"), expected: new VersionRange("1"));
-            TestIntersect(new VersionRange("..!2|3.."), new VersionRange("..!2.5|3.5.."), expected: new VersionRange("..!2|3.5.."));
-            TestIntersect(new VersionRange("1..!2|3..!4"), new VersionRange("1.5..!2.5|3.5..!4.5"), expected: new VersionRange("1.5..!2|3.5..!4"));
+            IntersectShouldBe(new VersionRange("1"), new VersionRange("!1"), expected: VersionRange.None);
+            IntersectShouldBe(new VersionRange("1"), new VersionRange("!2"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange("1|2"), new VersionRange("2|3"), expected: new VersionRange("2"));
+            IntersectShouldBe(new VersionRange("1|2"), new VersionRange("!2"), expected: new VersionRange("1"));
+            IntersectShouldBe(new VersionRange("..!2|3.."), new VersionRange("..!2.5|3.5.."), expected: new VersionRange("..!2|3.5.."));
+            IntersectShouldBe(new VersionRange("1..!2|3..!4"), new VersionRange("1.5..!2.5|3.5..!4.5"), expected: new VersionRange("1.5..!2|3.5..!4"));
         }
 
-        private static void TestIntersect(VersionRange a, VersionRange b, VersionRange expected)
+        private static void IntersectShouldBe(VersionRange a, VersionRange b, VersionRange expected)
         {
             a.Intersect(b).Should().Be(expected);
             b.Intersect(a).Should().Be(expected);
         }
 
-        private static void TestIntersectNotSupported(VersionRange a, VersionRange b)
+        private static void IntersectNotSupported(VersionRange a, VersionRange b)
         {
             Assert.Throws<NotSupportedException>(() => a.Intersect(b));
             Assert.Throws<NotSupportedException>(() => b.Intersect(a));
