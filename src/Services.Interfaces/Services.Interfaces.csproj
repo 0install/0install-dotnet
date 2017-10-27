@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>2.13.7</Version>
+    <Version>2.13.8</Version>
     <Description>
 Zero Install service interfaces and extension methods
 This package only contains interfaces and not actual implementations. You will usually get this package indirectly as a dependency of ZeroInstall.Services.
