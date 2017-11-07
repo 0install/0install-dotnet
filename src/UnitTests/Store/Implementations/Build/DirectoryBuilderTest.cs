@@ -133,5 +133,21 @@ namespace ZeroInstall.Store.Implementations.Build
                 new TestSymlink("file", "target")
             }.Verify(_tempDir);
         }
+
+        [Fact]
+        public void OverwriteWithHardlink()
+        {
+            _builder.Initialize();
+            File.WriteAllText(_builder.NewFilePath("file1", TestFile.DefaultLastWrite), TestFile.DefaultContents);
+            File.WriteAllText(_builder.NewFilePath("file2", TestFile.DefaultLastWrite), "wrong content");
+            _builder.QueueHardlink(source: "file2", target: "file1", executable: true);
+            _builder.CompletePending();
+
+            new TestRoot
+            {
+                new TestFile("file1"),
+                new TestFile("file2") {IsExecutable = true}
+            }.Verify(_tempDir);
+        }
     }
 }

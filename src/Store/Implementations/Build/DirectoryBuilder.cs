@@ -201,6 +201,9 @@ namespace ZeroInstall.Store.Implementations.Build
             if (string.IsNullOrEmpty(target)) throw new ArgumentNullException(nameof(target));
             #endregion
 
+            // Delete any preexisting file to reset xbits, etc.
+            DeleteFile(source);
+
             _pendingHardlinks.Add(source, target);
             if (executable) _pendingExecutableFiles.Add(source);
         }
@@ -227,9 +230,6 @@ namespace ZeroInstall.Store.Implementations.Build
                 string sourceDirectory = Path.GetDirectoryName(sourceAbsolute);
                 if (sourceDirectory != null && !Directory.Exists(sourceDirectory)) Directory.CreateDirectory(sourceDirectory);
                 string targetAbsolute = GetFullPath(pair.Value);
-
-                // Delete any preexisting file to reset xbits, etc.
-                DeleteFile(pair.Key);
 
                 try
                 {
