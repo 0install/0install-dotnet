@@ -47,7 +47,7 @@ namespace ZeroInstall.Store.Model
         public static readonly VersionRange None = new VersionRange(new VersionRangePartRange(new ImplementationVersion("0"), new ImplementationVersion("0")));
 
         /// <summary>
-        /// The individual non-disjoint range parts.
+        /// The individual ranges.
         /// </summary>
         public IList<VersionRangePart> Parts { get; }
 
@@ -59,7 +59,8 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Creates a new version range set.
         /// </summary>
-        internal VersionRange([NotNull] params VersionRangePart[] parts) => Parts = parts;
+        /// <param name="parts">The individual ranges.</param>
+        public VersionRange([NotNull] params VersionRangePart[] parts) => Parts = parts.ToArray();
 
         /// <summary>
         /// Creates a new version range set from a a string.
