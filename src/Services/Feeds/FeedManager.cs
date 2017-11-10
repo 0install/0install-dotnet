@@ -185,6 +185,20 @@ namespace ZeroInstall.Services.Feeds
             return (lastChecked > _config.Freshness && lastCheckAttempt > _failedCheckDelay);
         }
 
+        /// <inheritdoc/>
+        public bool IsStaleOnce(FeedUri feedUri)
+        {
+            // Double-checked locking
+            if (!IsStale(feedUri)) return false;
+            using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.IsStaleOnce"))
+            {
+                if (!IsStale(feedUri)) return false;
+                SetLastCheckAttempt(feedUri);
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Minimum amount of time between stale feed update attempts.
         /// </summary>
@@ -193,7 +207,7 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Determines the most recent point in time an attempt was made to download <paramref name="feedUri"/>.
         /// </summary>
-        public static DateTime GetLastCheckAttempt(FeedUri feedUri)
+        private static DateTime GetLastCheckAttempt(FeedUri feedUri)
         {
             var file = new FileInfo(GetLastCheckAttemptPath(feedUri));
             return file.Exists ? file.LastWriteTimeUtc : new DateTime();
@@ -202,7 +216,7 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Notes the current time as an attempt to download <paramref name="feedUri"/>.
         /// </summary>
-        public static void SetLastCheckAttempt(FeedUri feedUri) => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
+        private static void SetLastCheckAttempt(FeedUri feedUri) => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
 
         private static string GetLastCheckAttemptPath(FeedUri feedUri) => Path.Combine(
             Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),

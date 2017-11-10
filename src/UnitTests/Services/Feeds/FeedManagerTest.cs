@@ -48,7 +48,6 @@ namespace ZeroInstall.Services.Feeds
 
         public FeedManagerTest()
         {
-
             _feedCacheMock = CreateMock<IFeedCache>();
             _trustManagerMock = CreateMock<ITrustManager>();
             _feedManager = new FeedManager(_config, _feedCacheMock.Object, _trustManagerMock.Object, new SilentTaskHandler());
@@ -233,6 +232,15 @@ namespace ZeroInstall.Services.Feeds
             _feedManager.IsStale(FeedTest.Test1Uri).Should().BeTrue();
             _feedManager[FeedTest.Test1Uri].Should().BeSameAs(feed);
             _feedManager.Stale.Should().BeTrue();
+        }
+
+        [Fact]
+        public void DetectStaleOnce()
+        {
+            new FeedPreferences {LastChecked = DateTime.UtcNow - _config.Freshness}.SaveFor(FeedTest.Test1Uri);
+
+            _feedManager.IsStaleOnce(FeedTest.Test1Uri).Should().BeTrue(because: "Feed is stale");
+            _feedManager.IsStaleOnce(FeedTest.Test1Uri).Should().BeFalse(because: "Feed has been marked");
         }
 
         [Fact] // Ensures valid feeds are correctly imported.
