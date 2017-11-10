@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#if !NETSTANDARD2_0
 using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
@@ -111,3 +112,4 @@ namespace ZeroInstall.Store.Implementations
         }
     }
 }
+#endif

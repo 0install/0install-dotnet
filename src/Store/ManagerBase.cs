@@ -64,6 +64,7 @@ namespace ZeroInstall.Store
         /// <exception cref="UnauthorizedAccessException">Another process is already holding the mutex.</exception>
         protected void AquireMutex()
         {
+#if !NETSTANDARD2_0
             if (MachineWide)
             {
                 var mutexSecurity = new MutexSecurity();
@@ -71,6 +72,7 @@ namespace ZeroInstall.Store
                 _mutex = new Mutex(false, @"Global\" + MutexName, out bool createdNew, mutexSecurity);
             }
             else
+#endif
             {
                 _mutex = new Mutex(false, MutexName);
             }

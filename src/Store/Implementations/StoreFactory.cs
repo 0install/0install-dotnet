@@ -71,8 +71,10 @@ namespace ZeroInstall.Store.Implementations
                 #endregion
             }
 
+#if !NETSTANDARD2_0
             if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
                 stores.Add(new IpcStore());
+#endif
 
             return stores;
         }

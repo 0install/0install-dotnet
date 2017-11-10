@@ -3,11 +3,11 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Services</AssemblyName>
     <RootNamespace>ZeroInstall.Services</RootNamespace>
-    <TargetFrameworks>net20;net35;net40</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net40;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+    <NoWarn>$(NoWarn);1591;NU1701</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
@@ -34,7 +34,7 @@ API documentation: http://0install.de/api/backend/
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
     <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
 

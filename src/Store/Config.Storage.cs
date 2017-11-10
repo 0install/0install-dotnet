@@ -17,7 +17,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,6 +30,10 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
+
+#if !NETSTANDARD2_0
+using System.Configuration;
+#endif
 
 namespace ZeroInstall.Store
 {
@@ -78,7 +81,9 @@ namespace ZeroInstall.Store
         {
             var config = new Config();
 
+#if !NETSTANDARD2_0
             config.ReadFromAppSettings();
+#endif
             config.ReadFromIniFiles();
             if (WindowsUtils.IsWindowsNT)
                 config.ReadFromRegistry();
@@ -219,6 +224,7 @@ namespace ZeroInstall.Store
             }
         }
 
+#if !NETSTANDARD2_0
         /// <summary>
         /// Reads settings from <see cref="ConfigurationManager.AppSettings"/> and transfers them to properties.
         /// </summary>
@@ -231,6 +237,7 @@ namespace ZeroInstall.Store
                     property.Value.Value = value;
             }
         }
+#endif
 
         /// <summary>
         /// Reads settings from Windows policy registry keys and transfers them to properties.

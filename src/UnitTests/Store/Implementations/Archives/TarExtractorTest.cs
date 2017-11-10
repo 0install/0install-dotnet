@@ -70,6 +70,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
         }
 
+#if !NETCOREAPP2_0
         [SkippableFact]
         public void TestXzCompressed()
         {
@@ -101,6 +102,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
         }
+#endif
 
         [Fact]
         public void TestRubyGem()

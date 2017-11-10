@@ -96,16 +96,20 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTar:
                 case Archive.MimeTypeTarGzip:
                 case Archive.MimeTypeTarBzip:
+#if !NETSTANDARD2_0
                 case Archive.MimeTypeTarLzma:
+#endif
                 case Archive.MimeTypeTarXz:
                 case Archive.MimeTypeRubyGem:
                     return;
 
+#if !NETSTANDARD2_0
                 case Archive.MimeType7Z:
                 case Archive.MimeTypeCab:
                 case Archive.MimeTypeMsi:
                     if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
                     return;
+#endif
 
                 default:
                     throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
@@ -138,18 +142,22 @@ namespace ZeroInstall.Store.Implementations.Archives
                     return new TarGzExtractor(stream, targetPath);
                 case Archive.MimeTypeTarBzip:
                     return new TarBz2Extractor(stream, targetPath);
+#if !NETSTANDARD2_0
                 case Archive.MimeTypeTarLzma:
                     return new TarLzmaExtractor(stream, targetPath);
                 case Archive.MimeTypeTarXz:
                     return new TarXzExtractor(stream, targetPath);
+#endif
                 case Archive.MimeTypeRubyGem:
                     return new RubyGemExtractor(stream, targetPath);
+#if !NETSTANDARD2_0
                 case Archive.MimeType7Z:
                     return new SevenZipExtractor(stream, targetPath);
                 case Archive.MimeTypeCab:
                     return new CabExtractor(stream, targetPath);
                 case Archive.MimeTypeMsi:
                     throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!");
+#endif
                 default:
                     throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
             }
@@ -175,8 +183,10 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             if (string.IsNullOrEmpty(mimeType)) mimeType = Archive.GuessMimeType(archivePath);
 
+#if !NETSTANDARD2_0
             // MSI Extractor does not support Stream-based access
             if (mimeType == Archive.MimeTypeMsi) return new MsiExtractor(archivePath, targetPath);
+#endif
 
             Stream stream = File.OpenRead(archivePath);
             if (startOffset != 0) stream = new OffsetStream(stream, startOffset);

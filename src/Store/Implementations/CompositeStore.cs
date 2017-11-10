@@ -20,13 +20,16 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Model;
+
+#if !NETSTANDARD2_0
+using System.Runtime.Remoting;
+#endif
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -154,10 +157,12 @@ namespace ZeroInstall.Store.Implementations
                 {
                     innerException = ex; // Remember the last error
                 }
+#if !NETSTANDARD2_0
                 catch (RemotingException ex)
                 {
                     innerException = ex; // Remember the last error
                 }
+#endif
                 #endregion
             }
 
@@ -198,10 +203,12 @@ namespace ZeroInstall.Store.Implementations
                 {
                     innerException = ex; // Remember the last error
                 }
+#if !NETSTANDARD2_0
                 catch (RemotingException ex)
                 {
                     innerException = ex; // Remember the last error
                 }
+#endif
                 #endregion
             }
 

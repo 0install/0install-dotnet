@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#if !NETCOREAPP2_0
 using System.IO;
 
 namespace ZeroInstall.Store.Implementations.Archives
@@ -29,3 +30,4 @@ namespace ZeroInstall.Store.Implementations.Archives
         protected override Stream BuildArchive(string sourcePath) => TarLzmaExtractor.GetDecompressionStream(base.BuildArchive(sourcePath));
     }
 }
+#endif

@@ -3,17 +3,20 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Store</AssemblyName>
     <RootNamespace>ZeroInstall.Store</RootNamespace>
-    <TargetFrameworks>net20;net35;net40</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net40;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+    <NoWarn>$(NoWarn);1591;NU1701</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\build\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
@@ -37,10 +40,13 @@ API documentation: http://0install.de/api/backend/
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="System.Configuration" Pack="False" />
-    <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
     <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+    <Reference Include="System.Configuration" Pack="False" />
+    <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="Microsoft.Deployment.Compression" HintPath="..\..\lib\Microsoft.Deployment.Compression.dll" />
     <Reference Include="Microsoft.Deployment.Compression.Cab" HintPath="..\..\lib\Microsoft.Deployment.Compression.Cab.dll" />
     <Reference Include="Microsoft.Deployment.WindowsInstaller" HintPath="..\..\lib\Microsoft.Deployment.WindowsInstaller.dll" />
@@ -54,11 +60,16 @@ API documentation: http://0install.de/api/backend/
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.4.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <!-- Bundle managed libs in NuGet package -->
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net35" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\lib\INIFileParser.*" Pack="true" PackagePath="lib/netstandard2.0" />
 
     <!-- Bundle native libs in NuGet package -->
     <None Include="ZeroInstall.Store.targets" Pack="true" PackagePath="build" />

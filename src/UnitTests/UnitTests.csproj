@@ -3,8 +3,9 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Backend.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
     <IsPackable>False</IsPackable>
+    <NoWarn>$(NoWarn);NU1701</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
@@ -22,9 +23,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" />
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.0'">
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +37,10 @@
     <EmbeddedResource Include="Store\Implementations\Archives\testArchive.*" />
     <EmbeddedResource Include="Store\Trust\*.gpg" />
     <EmbeddedResource Include="Store\Trust\signature.dat" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <Compile Remove="DesktopIntegration\**" />
   </ItemGroup>
 
   <ItemGroup>
