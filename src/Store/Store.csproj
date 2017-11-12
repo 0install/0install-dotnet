@@ -31,7 +31,7 @@ API documentation: http://0install.de/api/backend/
     <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
     <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
     <PackageIconUrl>https://0install.de/wp-content/uploads/icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/0install/dotnet-backend</RepositoryUrl>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Company>0install.de</Company>
