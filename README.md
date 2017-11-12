@@ -1,7 +1,11 @@
 Zero Install .NET Backend
 =========================
 
-The Zero Install .NET Backend implements the core features of Zero Install. It also allow developers to embed Zero Install functionality in their own .NET applications. [Zero Install for Windows](https://github.com/0install/0install-win) is built upon this backend.
+The Zero Install .NET Backend implements the core features of Zero Install. It also allow developers to embed Zero Install functionality in their own .NET applications.
+
+[![TeamCity Build status](https://0install.de/teamcity/app/rest/builds/buildType:(id:ZeroInstall_DotNetBackend_Build)/statusIcon)](https://0install.de/teamcity/viewType.html?buildTypeId=ZeroInstall_DotNetBackend_Build&guest=1)
+
+**[API documentation](http://0install.de/api/backend/)**
 
 NuGet packages:
 - **[ZeroInstall.Store](https://www.nuget.org/packages/ZeroInstall.Store/)** (data models and management functions for local file storage)
@@ -9,7 +13,7 @@ NuGet packages:
 - **[ZeroInstall.Services.Interfaces](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)** (interfaces and extension methods)
 - **[ZeroInstall.DesktopIntegration](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)** (methods for integrating applications with desktop environments, creating menu entries, etc.)
 
-**[API documentation](http://0install.de/api/backend/)**
+**[Zero Install for Windows](https://github.com/0install/0install-win)** is built upon this backend.
 
 Directory structure
 -------------------
