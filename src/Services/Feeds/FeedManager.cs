@@ -175,48 +175,35 @@ namespace ZeroInstall.Services.Feeds
         /// <inheritdoc/>
         public bool IsStale(FeedUri feedUri)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            #endregion
-
+            if (IsCheckAttemptDelayed(feedUri ?? throw new ArgumentNullException(nameof(feedUri)))) return false;
             var preferences = FeedPreferences.LoadForSafe(feedUri);
-            TimeSpan lastChecked = DateTime.UtcNow - preferences.LastChecked;
-            TimeSpan lastCheckAttempt = DateTime.UtcNow - GetLastCheckAttempt(feedUri);
-            return (lastChecked > _config.Freshness && lastCheckAttempt > _failedCheckDelay);
+            return (DateTime.UtcNow - preferences.LastChecked) > _config.Freshness;
         }
 
         /// <inheritdoc/>
-        public bool IsStaleOnce(FeedUri feedUri)
+        public bool RateLimit(FeedUri feedUri)
         {
             // Double-checked locking
-            if (!IsStale(feedUri)) return false;
+            if (IsCheckAttemptDelayed(feedUri)) return true;
             using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.IsStaleOnce"))
             {
-                if (!IsStale(feedUri)) return false;
+                if (IsCheckAttemptDelayed(feedUri)) return true;
                 SetLastCheckAttempt(feedUri);
             }
 
-            return true;
+            return false;
         }
 
-        /// <summary>
-        /// Minimum amount of time between stale feed update attempts.
-        /// </summary>
-        private static readonly TimeSpan _failedCheckDelay = new TimeSpan(1, 0, 0);
+        private static readonly TimeSpan _checkAttemptDelay = new TimeSpan(1, 0, 0);
 
-        /// <summary>
-        /// Determines the most recent point in time an attempt was made to download <paramref name="feedUri"/>.
-        /// </summary>
-        private static DateTime GetLastCheckAttempt(FeedUri feedUri)
+        private static void SetLastCheckAttempt(FeedUri feedUri)
+            => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
+
+        private static bool IsCheckAttemptDelayed(FeedUri feedUri)
         {
             var file = new FileInfo(GetLastCheckAttemptPath(feedUri));
-            return file.Exists ? file.LastWriteTimeUtc : new DateTime();
+            return file.Exists && ((DateTime.UtcNow - file.LastWriteTimeUtc) <= _checkAttemptDelay);
         }
-
-        /// <summary>
-        /// Notes the current time as an attempt to download <paramref name="feedUri"/>.
-        /// </summary>
-        private static void SetLastCheckAttempt(FeedUri feedUri) => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
 
         private static string GetLastCheckAttemptPath(FeedUri feedUri) => Path.Combine(
             Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),

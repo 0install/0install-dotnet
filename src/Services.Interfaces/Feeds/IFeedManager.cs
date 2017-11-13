@@ -70,11 +70,11 @@ namespace ZeroInstall.Services.Feeds
         bool IsStale([NotNull] FeedUri feedUri);
 
         /// <summary>
-        /// Like <see cref="IsStale"/>, but marks stale feeds as fresh so they only get checked once.
+        /// Ensures that operations regarding a specific feed do not happen to often in a row.
         /// </summary>
-        /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
-        /// <returns><c>true</c> if there is a stale copy in the cache or no copy at all; <c>false</c> if there is a fresh copy in the cache.</returns>
-        bool IsStaleOnce(FeedUri feedUri);
+        /// <param name="feedUri">The ID of the feed to apply rate limiting for.</param>
+        /// <returns><c>true</c> if the operation should be skipped due to rate limiting; <c>false</c> if the operation may proceed.</returns>
+        bool RateLimit(FeedUri feedUri);
 
         /// <summary>
         /// Imports a remote <see cref="Feed"/> into the <see cref="IFeedCache"/> after verifying its signature.

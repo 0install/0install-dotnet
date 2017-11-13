@@ -235,12 +235,10 @@ namespace ZeroInstall.Services.Feeds
         }
 
         [Fact]
-        public void DetectStaleOnce()
+        public void RateLimit()
         {
-            new FeedPreferences {LastChecked = DateTime.UtcNow - _config.Freshness}.SaveFor(FeedTest.Test1Uri);
-
-            _feedManager.IsStaleOnce(FeedTest.Test1Uri).Should().BeTrue(because: "Feed is stale");
-            _feedManager.IsStaleOnce(FeedTest.Test1Uri).Should().BeFalse(because: "Feed has been marked");
+            _feedManager.RateLimit(FeedTest.Test1Uri).Should().BeFalse();
+            _feedManager.RateLimit(FeedTest.Test1Uri).Should().BeTrue();
         }
 
         [Fact] // Ensures valid feeds are correctly imported.
