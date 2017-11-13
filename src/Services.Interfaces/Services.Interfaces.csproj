@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>2.13.9</Version>
+    <Version>2.14.0</Version>
     <Description>
 Zero Install service interfaces and extension methods
 This package only contains interfaces and not actual implementations. You will usually get this package indirectly as a dependency of ZeroInstall.Services.
@@ -30,7 +30,7 @@ API documentation: http://0install.de/api/backend/
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Company>0install.de</Company>
-    <Copyright>Copyright 2010-2016 Bastian Eicher et al</Copyright>
+    <Copyright>Copyright 2010-2017 Bastian Eicher et al</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
