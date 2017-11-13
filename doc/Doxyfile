@@ -5,7 +5,7 @@ INPUT = main.md ../src
 USE_MDFILE_AS_MAINPAGE = main.md
 STRIP_FROM_PATH = ../src
 RECURSIVE = YES
-EXCLUDE_PATTERNS = */UnitTests/* */Properties/* */obj/* */bin/*
+EXCLUDE_PATTERNS = */packages/* */UnitTests/* */Properties/* */obj/* */bin/*
 TAGFILES = nanobyte-common.tag=http://nano-byte.de/common/api/
 
 OUTPUT_DIRECTORY = ../build/Documentation
