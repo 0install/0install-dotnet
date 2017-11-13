@@ -23,6 +23,11 @@ http://www.bouncycastle.org/csharp
 Bouncy Castle license: http://www.bouncycastle.org/csharp/licence.html
 NuGet package: BouncyCastle.OpenPgp
 
+ELFSharp
+http://antmicro.com/projects/elfsharp/
+X11 license: ELFSharp.license.txt
+NuGet package: ELFSharp 
+
 SevenZipSharp
 http://sevenzipsharp.codeplex.com/
 GNU LGPL 2.1: http://opensource.org/licenses/LGPL-2.1

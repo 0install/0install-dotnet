@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopIntegration", "Deskt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{06237727-AEA0-4E42-85C0-C0886F425352}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish", "Publish\Publish.csproj", "{996B5E17-68C8-4901-990F-7D3660A78AA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{06237727-AEA0-4E42-85C0-C0886F425352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06237727-AEA0-4E42-85C0-C0886F425352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06237727-AEA0-4E42-85C0-C0886F425352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

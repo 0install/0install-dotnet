@@ -14,3 +14,4 @@ function upload($slug, $pathBase) {
 upload store "$ScriptDir\src\Store\Properties\Resources"
 upload services "$ScriptDir\src\Services\Properties\Resources"
 upload desktopintegration "$ScriptDir\src\DesktopIntegration\Properties\Resources"
+upload publish "$ScriptDir\src\Publish\Properties\Resources"

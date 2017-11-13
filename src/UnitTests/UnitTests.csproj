@@ -25,22 +25,29 @@
     <ProjectReference Include="..\Store\Store.csproj" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Publish\Publish.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.0'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Services\Fetchers\testArchive.*" />
-    <EmbeddedResource Include="Services\Solvers\test-cases.xml" />
-    <EmbeddedResource Include="Store\Implementations\Archives\testArchive.*" />
-    <EmbeddedResource Include="Store\Trust\*.gpg" />
-    <EmbeddedResource Include="Store\Trust\signature.dat" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <Compile Remove="DesktopIntegration\**" />
+    <Compile Remove="Publish\Capture\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\testArchive.*" />
+    <EmbeddedResource Include="Store\Trust\*.gpg" />
+    <EmbeddedResource Include="Store\Trust\signature.dat" />
+    <EmbeddedResource Include="Services\Solvers\test-cases.xml" />
+    <EmbeddedResource Include="Publish\EntryPoints\batch.cmd" />
+    <EmbeddedResource Include="Publish\EntryPoints\dotnet*.exe" />
+    <EmbeddedResource Include="Publish\EntryPoints\elf*" />
+    <EmbeddedResource Include="Publish\EntryPoints\python*" />
+    <EmbeddedResource Include="Publish\EntryPoints\sh" />
+    <EmbeddedResource Include="Publish\EntryPoints\windows*.exe" />
   </ItemGroup>
 
   <ItemGroup>

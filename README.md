@@ -12,6 +12,7 @@ NuGet packages:
 - **[ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services/)** (services such as dependency resolution and implementation downloading)
 - **[ZeroInstall.Services.Interfaces](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)** (interfaces and extension methods)
 - **[ZeroInstall.DesktopIntegration](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)** (methods for integrating applications with desktop environments, creating menu entries, etc.)
+- **[ZeroInstall.Publish](https://www.nuget.org/packages/ZeroInstall.Publish/)** (methods for creating and modifying feed files)
 
 **[Zero Install for Windows](https://github.com/0install/0install-win)** is built upon this backend.
 
