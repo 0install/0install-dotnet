@@ -60,7 +60,8 @@ namespace ZeroInstall.Store.Model
         /// Creates a new version range set.
         /// </summary>
         /// <param name="parts">The individual ranges.</param>
-        public VersionRange([NotNull] params VersionRangePart[] parts) => Parts = parts.ToArray();
+        public VersionRange([NotNull] params VersionRangePart[] parts)
+            => Parts = (parts ?? throw new ArgumentNullException(nameof(parts))).ToArray();
 
         /// <summary>
         /// Creates a new version range set from a a string.
