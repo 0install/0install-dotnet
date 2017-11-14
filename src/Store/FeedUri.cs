@@ -166,10 +166,7 @@ namespace ZeroInstall.Store
         /// Escapes the identifier using URL encoding.
         /// </summary>
         [NotNull]
-        public new string Escape()
-        {
-            return Escape(AbsoluteUri);
-        }
+        public new string Escape() => Escape(AbsoluteUri);
 
         /// <summary>
         /// Unescapes an identifier using URL encoding.
@@ -251,10 +248,7 @@ namespace ZeroInstall.Store
         /// Escapes the identifier using URL encoding except for slashes (encoded as #) and colons (left as-is on POSIX systems).
         /// </summary>
         [NotNull]
-        public string PrettyEscape()
-        {
-            return PrettyEscape(AbsoluteUri);
-        }
+        public string PrettyEscape() => PrettyEscape(AbsoluteUri);
 
         /// <summary>
         /// Unescapes an identifier using URL encoding except for slashes (encoded as #).
@@ -382,19 +376,13 @@ namespace ZeroInstall.Store
         /// Returns a string representation of the URI, not adhering to the escaping rules of RFC 2396.
         /// Not safe for parsing!
         /// </summary>
-        public override string ToString()
-        {
-            return PrependPrefix(IsFile ? LocalPath : base.ToString());
-        }
+        public override string ToString() => PrependPrefix(IsFile ? LocalPath : base.ToString());
 
         /// <summary>
         /// An alternate version of <see cref="ToString"/> that produces results escaped according to RFC 2396.
         /// Safe for parsing!
         /// </summary>
-        public string ToStringRfc()
-        {
-            return PrependPrefix(IsFile ? LocalPath : AbsoluteUri);
-        }
+        public string ToStringRfc() => PrependPrefix(IsFile ? LocalPath : AbsoluteUri);
         #endregion
 
         #region Equality
@@ -421,25 +409,16 @@ namespace ZeroInstall.Store
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return (WindowsUtils.IsWindows && IsFile)
-                // File names on Windows are case-insensitive
-                ? StringComparer.OrdinalIgnoreCase.GetHashCode(LocalPath)
-                : base.GetHashCode();
-        }
+        public override int GetHashCode() => (WindowsUtils.IsWindows && IsFile)
+            // File names on Windows are case-insensitive
+            ? StringComparer.OrdinalIgnoreCase.GetHashCode(LocalPath)
+            : base.GetHashCode();
 
         /// <inheritdoc/>
-        public static bool operator ==(FeedUri left, FeedUri right)
-        {
-            return Equals(left, right);
-        }
+        public static bool operator ==(FeedUri left, FeedUri right) => Equals(left, right);
 
         /// <inheritdoc/>
-        public static bool operator !=(FeedUri left, FeedUri right)
-        {
-            return !Equals(left, right);
-        }
+        public static bool operator !=(FeedUri left, FeedUri right) => !Equals(left, right);
         #endregion
     }
 }
