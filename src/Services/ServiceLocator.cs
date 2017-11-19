@@ -75,7 +75,7 @@ namespace ZeroInstall.Services
         /// Provides access to an encryption/signature system compatible with the OpenPGP standard.
         /// </summary>
         [NotNull]
-        public IOpenPgp OpenPgp { get => Get(ref _openPgp, OpenPgpFactory.CreateDefault); set => _openPgp = value; }
+        public IOpenPgp OpenPgp { get => Get(ref _openPgp, () => new BouncyCastle()); set => _openPgp = value; }
 
         private IFeedCache _feedCache;
 

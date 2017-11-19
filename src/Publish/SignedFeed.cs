@@ -70,7 +70,7 @@ namespace ZeroInstall.Publish
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
-            return new SignedFeed(XmlStorage.LoadXml<Feed>(path), FeedUtils.GetKey(path, OpenPgpFactory.CreateDefault()));
+            return new SignedFeed(XmlStorage.LoadXml<Feed>(path), FeedUtils.GetKey(path, new BouncyCastle()));
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace ZeroInstall.Publish
                 return;
             }
 
-            var openPgp = OpenPgpFactory.CreateDefault();
+            IOpenPgp openPgp = new BouncyCastle();
             using (var stream = new MemoryStream())
             {
                 Feed.SaveXml(stream, stylesheet: @"feed.xsl");

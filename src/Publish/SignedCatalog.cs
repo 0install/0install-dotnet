@@ -71,7 +71,7 @@ namespace ZeroInstall.Publish
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
-            return new SignedCatalog(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, OpenPgpFactory.CreateDefault()));
+            return new SignedCatalog(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, new BouncyCastle()));
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace ZeroInstall.Publish
                 return;
             }
 
-            var openPgp = OpenPgpFactory.CreateDefault();
+            IOpenPgp openPgp = new BouncyCastle();
             using (var stream = new MemoryStream())
             {
                 Catalog.SaveXml(stream, stylesheet: @"catalog.xsl");
