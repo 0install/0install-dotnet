@@ -1,4 +1,5 @@
-﻿/*
+﻿#if !NETSTANDARD2_0
+/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -180,3 +181,4 @@ namespace ZeroInstall.Services
         }
     }
 }
+#endif
