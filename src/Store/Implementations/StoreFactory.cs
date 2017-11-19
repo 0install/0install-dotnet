@@ -36,10 +36,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         [NotNull]
-        public static IStore CreateDefault()
-        {
-            return new CompositeStore(GetStores());
-        }
+        public static IStore CreateDefault() => new CompositeStore(GetStores());
 
         /// <summary>
         /// Returns a list of <see cref="IStore"/>s representing all local cache directories.

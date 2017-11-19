@@ -38,6 +38,7 @@ namespace ZeroInstall.Services
     /// Use exactly one instance of the service locator per user request to ensure consistent state during execution.
     /// </summary>
     /// <remarks>Use the property setters to override default service implementations, e.g. for mocking.</remarks>
+    [PublicAPI]
     public class ServiceLocator
     {
         /// <summary>
@@ -83,7 +84,7 @@ namespace ZeroInstall.Services
         /// Provides access to a cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
         /// </summary>
         [NotNull]
-        public IFeedCache FeedCache { get { return Get(ref _feedCache, () => FeedCacheFactory.CreateDefault(OpenPgp)); } set => _feedCache = value; }
+        public IFeedCache FeedCache { get => Get(ref _feedCache, () => FeedCacheFactory.CreateDefault(OpenPgp)); set => _feedCache = value; }
 
         private TrustDB _trustDB;
 
@@ -99,7 +100,7 @@ namespace ZeroInstall.Services
         /// Methods for verifying signatures and user trust.
         /// </summary>
         [NotNull]
-        public ITrustManager TrustManager { get { return Get(ref _trustManager, () => new TrustManager(Config, OpenPgp, TrustDB, FeedCache, Handler)); } set => _trustManager = value; }
+        public ITrustManager TrustManager { get => Get(ref _trustManager, () => new TrustManager(Config, OpenPgp, TrustDB, FeedCache, Handler)); set => _trustManager = value; }
 
         private IFeedManager _feedManager;
 
@@ -107,7 +108,7 @@ namespace ZeroInstall.Services
         /// Allows configuration of the source used to request <see cref="Feed"/>s.
         /// </summary>
         [NotNull]
-        public IFeedManager FeedManager { get { return Get(ref _feedManager, () => new FeedManager(Config, FeedCache, TrustManager, Handler)); } set => _feedManager = value; }
+        public IFeedManager FeedManager { get => Get(ref _feedManager, () => new FeedManager(Config, FeedCache, TrustManager, Handler)); set => _feedManager = value; }
 
         private ICatalogManager _catalogManager;
 
@@ -115,7 +116,7 @@ namespace ZeroInstall.Services
         /// Provides access to remote and local <see cref="Catalog"/>s. Handles downloading, signature verification and caching.
         /// </summary>
         [NotNull]
-        public ICatalogManager CatalogManager { get { return Get(ref _catalogManager, () => new CatalogManager(TrustManager, Handler)); } set => _catalogManager = value; }
+        public ICatalogManager CatalogManager { get => Get(ref _catalogManager, () => new CatalogManager(TrustManager, Handler)); set => _catalogManager = value; }
 
         private IPackageManager _packageManager;
 
@@ -133,16 +134,13 @@ namespace ZeroInstall.Services
         [NotNull]
         public ISolver Solver
         {
-            get
+            get => Get(ref _solver, () =>
             {
-                return Get(ref _solver, () =>
-                {
-                    ISolver
-                        backtrackingSolver = new BacktrackingSolver(Config, FeedManager, Store, PackageManager, Handler),
-                        externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config, FeedManager, Handler);
-                    return new FallbackSolver(backtrackingSolver, externalSolver);
-                });
-            }
+                ISolver
+                    backtrackingSolver = new BacktrackingSolver(Config, FeedManager, Store, PackageManager, Handler),
+                    externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config, FeedManager, Handler);
+                return new FallbackSolver(backtrackingSolver, externalSolver);
+            });
             set => _solver = value;
         }
 
@@ -152,7 +150,7 @@ namespace ZeroInstall.Services
         /// Used to download missing <see cref="Implementation"/>s.
         /// </summary>
         [NotNull]
-        public IFetcher Fetcher { get { return Get(ref _fetcher, () => new SequentialFetcher(Config, Store, Handler)); } set => _fetcher = value; }
+        public IFetcher Fetcher { get => Get(ref _fetcher, () => new SequentialFetcher(Config, Store, Handler)); set => _fetcher = value; }
 
         private IExecutor _executor;
 
@@ -160,7 +158,7 @@ namespace ZeroInstall.Services
         /// Executes a <see cref="Selections"/> document as a program using dependency injection.
         /// </summary>
         [NotNull]
-        public IExecutor Executor { get { return Get(ref _executor, () => new Executor(Store)); } set => _executor = value; }
+        public IExecutor Executor { get => Get(ref _executor, () => new Executor(Store)); set => _executor = value; }
 
         private ISelectionsManager _selectionsManager;
 
@@ -168,7 +166,7 @@ namespace ZeroInstall.Services
         /// Contains helper methods for filtering <see cref="Selections"/>.
         /// </summary>
         [NotNull]
-        public ISelectionsManager SelectionsManager { get { return Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, Store, PackageManager)); } set => _selectionsManager = value; }
+        public ISelectionsManager SelectionsManager { get => Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, Store, PackageManager)); set => _selectionsManager = value; }
 
         private static T Get<T>(ref T value, Func<T> build) where T : class
         {
