@@ -107,7 +107,16 @@ namespace ZeroInstall.Services.Feeds
             if (AskKeyApproval(uri, fingerprint, domain))
             {
                 _trustDB.TrustKey(fingerprint, domain);
-                _trustDB.Save();
+                try
+                {
+                    _trustDB.Save();
+                }
+                    #region Error handling
+                catch (Exception ex)
+                {
+                    Log.Error(ex);
+                }
+                #endregion
                 return true;
             }
             else return false;
