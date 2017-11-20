@@ -25,6 +25,10 @@ using NanoByte.Common.Values.Design;
 using ZeroInstall.Store.Model.Design;
 using ZeroInstall.Store.Properties;
 
+#if NETSTANDARD2_0
+using System.Runtime.InteropServices;
+#endif
+
 namespace ZeroInstall.Store.Model
 {
 
@@ -161,9 +165,35 @@ namespace ZeroInstall.Store.Model
 
         private static Architecture GetCurrentSystem()
         {
-            if (WindowsUtils.IsWindows) return new Architecture(OS.Windows, WindowsUtils.Is64BitOperatingSystem ? Cpu.X64 : Cpu.I586);
-            else if (UnixUtils.IsUnix) return new Architecture(UnixUtils.IsMacOSX ? OS.MacOSX : ParseOSString(UnixUtils.OSName), ParseCpuString(UnixUtils.CpuType));
-            else return new Architecture(OS.Unknown, Cpu.Unknown);
+            OS GetOS()
+            {
+                if (WindowsUtils.IsWindows) return OS.Windows;
+                if (UnixUtils.IsMacOSX) return OS.MacOSX;
+                if (UnixUtils.IsUnix) return ParseOSString(UnixUtils.OSName);
+                return OS.Unknown;
+            }
+
+            Cpu GetCpu()
+            {
+#if NETSTANDARD2_0
+                switch (RuntimeInformation.OSArchitecture)
+                {
+                    case System.Runtime.InteropServices.Architecture.Arm:
+                    case System.Runtime.InteropServices.Architecture.Arm64:
+                        return Cpu.ArmV7L;
+                    case System.Runtime.InteropServices.Architecture.X86:
+                        return Cpu.I686;
+                    case System.Runtime.InteropServices.Architecture.X64:
+                        return Cpu.X64;
+                }
+#else
+                if (WindowsUtils.IsWindows) return WindowsUtils.Is64BitOperatingSystem ? Cpu.X64 : Cpu.I686;
+                if (UnixUtils.IsUnix) return ParseCpuString(UnixUtils.CpuType);
+#endif
+                return Cpu.Unknown;
+            }
+
+            return new Architecture(GetOS(), GetCpu());
         }
 
         /// <summary>
