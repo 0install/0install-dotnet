@@ -342,8 +342,6 @@ namespace ZeroInstall.Store.Model
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            if (Name == null) throw new InvalidDataException(string.Format(Resources.MissingNameTagInFeed, feedUri));
-
             // Apply if-0install-version filter
             Elements.RemoveAll(FeedElement.FilterMismatch);
             Icons.RemoveAll(FeedElement.FilterMismatch);

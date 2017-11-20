@@ -15,10 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using FluentAssertions;
-using JetBrains.Annotations;
 using Moq;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -36,24 +37,29 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public abstract class SolverTest : TestWithMocksAndRedirect
     {
-        /// <summary>
-        /// Test cases loaded from an embedded XML file.
-        /// </summary>
-        [UsedImplicitly]
-        public static IEnumerable<object[]> LoadTestCases()
+        [Fact]
+        public void TestCases()
         {
-            using (var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml"))
-                return XmlStorage.LoadXml<TestCaseSet>(stream).TestCases.Select(x => new object[] {x});
-        }
+            TestCaseSet Load()
+            {
+                using (var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml"))
+                    return XmlStorage.LoadXml<TestCaseSet>(stream);
+            }
 
-        [Theory]
-        [MemberData(nameof(LoadTestCases))]
-        public void TestCase(TestCase testCase)
-        {
-            if (testCase.Problem == null)
-                Solve(testCase.Feeds, testCase.Requirements).Should().Be(testCase.Selections);
-            else
-                Assert.Throws<SolverException>(() => Solve(testCase.Feeds, testCase.Requirements));
+            foreach (var testCase in Load().TestCases)
+            {
+                if (testCase.Problem == null)
+                {
+                    this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements)
+                            .Should().Be(testCase.Selections, testCase.ToString()))
+                        .ShouldNotThrow(testCase.ToString());
+                }
+                else
+                {
+                    this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
+                        .ShouldThrow<Exception>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
+                }
+            }
         }
 
         [Fact]
@@ -122,9 +128,20 @@ namespace ZeroInstall.Services.Solvers
 
         private Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
         {
-            var feedLookup = feeds.ToDictionary(x => x.Uri, x => x);
+            var feedLookup = feeds.ToDictionary(
+                keySelector: feed => feed.Uri,
+                elementSelector: feed =>
+                {
+                    feed.Normalize(feed.Uri);
+                    return feed;
+                });
+
             var feedManagerMock = CreateMock<IFeedManager>();
-            feedManagerMock.Setup(x => x[It.IsAny<FeedUri>()]).Returns((FeedUri feedUri) => feedLookup[feedUri]);
+            feedManagerMock.Setup(x => x[It.IsAny<FeedUri>()]).Returns((FeedUri feedUri) =>
+            {
+                if (feedLookup.TryGetValue(feedUri, out var feed)) return feed;
+                else throw new WebException($"Unable to fetch {feedUri}.");
+            });
 
             return BuildSolver(feedManagerMock.Object).Solve(requirements);
         }

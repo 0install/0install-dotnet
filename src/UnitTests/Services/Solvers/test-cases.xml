@@ -944,7 +944,7 @@ http://example.com/lib1.xml: 2 to 1
   -->
 
   <!-- Not supported yet -->
-  <!-- No implementations -->
+  <!-- Network problem -->
   <!--
   <test name='no-impls'>
     <requirements interface='http://localhost/top.xml' fails='true'/>
@@ -1090,8 +1090,7 @@ Can't find all required implementations:
   </problem>
   </test>
 
-  <!-- Not supported yet -->
-  <!-- Parse error in version restriction -->
+  <!-- Version syntax errors are handled outside of the Solver in the .NET version of 0install. These tests are only here for reference because the OCaml solver uses them. -->
   <!--
   <test name='bad-version-expr'>
     <suppress-warnings/>

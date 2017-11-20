@@ -62,5 +62,8 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         [XmlElement("problem"), CanBeNull]
         public string Problem { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString() => $"Test Case '{Name}'";
     }
 }
