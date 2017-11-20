@@ -15,7 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -57,7 +56,7 @@ namespace ZeroInstall.Services.Solvers
                 else
                 {
                     this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
-                        .ShouldThrow<Exception>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
+                        .ShouldThrow<SolverException>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
                 }
             }
         }

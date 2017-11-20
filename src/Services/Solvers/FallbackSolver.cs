@@ -53,11 +53,7 @@ namespace ZeroInstall.Services.Solvers
         /// <inheritdoc/>
         public Selections Solve(Requirements requirements)
         {
-            try
-            {
-                return _primarySolver.Solve(requirements);
-            }
-            catch (NotSupportedException ex)
+            Selections Handle(Exception ex)
             {
                 Log.Info("Primary solver failed, falling back to secondary solver.");
                 Log.Info(ex);
@@ -68,12 +64,25 @@ namespace ZeroInstall.Services.Solvers
                 }
                 catch (WebException ex2)
                 {
-                    Log.Warn("External solver failed");
+                    Log.Warn("Unable to download secondary solver failed");
                     Log.Info(ex2);
 
-                    // Report the original problem instead of inability to launch external solver
+                    // Report the original problem instead of inability to launch secondary solver
                     throw ex.PreserveStack();
                 }
+            }
+
+            try
+            {
+                return _primarySolver.Solve(requirements);
+            }
+            catch (SolverException ex)
+            {
+                return Handle(ex);
+            }
+            catch (NotSupportedException ex)
+            {
+                return Handle(ex);
             }
         }
     }

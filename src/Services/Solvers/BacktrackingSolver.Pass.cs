@@ -63,7 +63,7 @@ namespace ZeroInstall.Services.Solvers
             /// The running selection as it is being constructed by the solver.
             /// </summary>
             [NotNull]
-            public Selections Selections { get; }
+            public Selections Selections { get; private set; }
 
             /// <summary>
             /// Try to satisfy the <see cref="_topLevelRequirements"/>. If successful the result can be retrieved from <see cref="Selections"/>.
@@ -82,9 +82,9 @@ namespace ZeroInstall.Services.Solvers
                 var suitableCandidates = FilterSuitableCandidates(allCandidates, requirements.InterfaceUri);
                 var existingSelection = Selections.GetImplementation(requirements.InterfaceUri);
 
-                if (existingSelection == null) return TryToSelectCandidate(suitableCandidates, requirements, allCandidates);
-                else if (TryToUseExistingCandidate(requirements, suitableCandidates, existingSelection)) return true;
-                else throw new NotSupportedException("Dependency graph too complex");
+                return (existingSelection == null)
+                    ? TryToSelectCandidate(suitableCandidates, requirements, allCandidates)
+                    : TryToUseExistingCandidate(requirements, suitableCandidates, existingSelection);
             }
 
             private IEnumerable<SelectionCandidate> FilterSuitableCandidates([NotNull, ItemNotNull] IEnumerable<SelectionCandidate> candidates, [NotNull] FeedUri interfaceUri)
@@ -157,8 +157,25 @@ namespace ZeroInstall.Services.Solvers
                     .Add(Importance.Recommended, recommendedDependencies)
                     .Run();
 
-                foreach (var dependency in essentialDependencies)
-                    if (!TryToSolveDependency(dependency)) return false;
+                if (essentialDependencies.Count != 0)
+                {
+                    // Prepare for backtracking
+                    var selectionsSnapshot = Selections.Clone();
+
+                    if (!essentialDependencies.Permutate().Any(deps =>
+                    {
+                        if (deps.All(TryToSolveDependency)) return true;
+                        else
+                        { // Backtrack
+                            Selections = selectionsSnapshot;
+                            return false;
+                        }
+                    }))
+                    { // No solution found
+                        return false;
+                    }
+                }
+
                 foreach (var dependency in recommendedDependencies)
                     TryToSolveDependency(dependency);
 

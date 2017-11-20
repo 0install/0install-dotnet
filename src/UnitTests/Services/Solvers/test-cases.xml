@@ -176,6 +176,40 @@
     </selections>
   </test>
 
+  <test name="dependency-backtracking" add-downloads="true">
+    <interface uri="http://example.com/app.xml">
+      <name>prog</name>
+      <implementation version="1.0" id="app">
+        <command name="run" path="test-app"/>
+        <requires interface="http://example.com/liba.xml"/>
+        <requires interface="http://example.com/libb.xml"/>
+      </implementation>
+    </interface>
+    <interface uri="http://example.com/liba.xml">
+      <name>liba</name>
+      <implementation version="1.0" id="liba-1.0"/>
+      <implementation version="2.0" id="liba-2.0"/>
+    </interface>
+    <interface uri="http://example.com/libb.xml">
+      <name>libb</name>
+      <implementation version="1.0" id="libb">
+        <requires interface="http://example.com/liba.xml" version="1.0"/>
+      </implementation>
+    </interface>
+    <requirements command="run" interface="http://example.com/app.xml"/>
+    <selections source="false" command="run" interface="http://example.com/app.xml">
+      <selection version="1.0" id="app" interface="http://example.com/app.xml">
+        <requires interface="http://example.com/liba.xml"/>
+        <requires interface="http://example.com/libb.xml"/>
+        <command name="run" path="test-app"/>
+      </selection>
+      <selection version="1.0" id="liba-1.0" interface="http://example.com/liba.xml"/>
+      <selection version="1.0" id="libb" interface="http://example.com/libb.xml">
+        <requires interface="http://example.com/liba.xml" version="1.0"/>
+      </selection>
+    </selections>
+  </test>
+
   <test name="runner-dependency" add-downloads="true">
     <interface uri="http://example.com/app.xml">
       <name>prog</name>
