@@ -943,9 +943,7 @@ http://example.com/lib1.xml: 2 to 1
   </test>
   -->
 
-  <!-- Not supported yet -->
   <!-- Network problem -->
-  <!--
   <test name='no-impls'>
     <requirements interface='http://localhost/top.xml' fails='true'/>
     <problem>
@@ -955,7 +953,6 @@ Can't find all required implementations:
     No known implementations at all
     </problem>
   </test>
-  -->
 
   <!-- No retrieval method -->
   <test name='no-retrieval-method'>

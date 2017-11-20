@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -170,19 +171,26 @@ namespace ZeroInstall.Services.Solvers
         {
             if (feedUri == null || dictionary.ContainsKey(feedUri)) return;
 
-            var feed = _feedManager[feedUri];
-            if (feed.MinInjectorVersion != null && FeedElement.ZeroInstallVersion < feed.MinInjectorVersion)
+            try
             {
-                Log.Warn($"The solver version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {FeedElement.ZeroInstallVersion}. Try updating Zero Install.");
-                return;
-            }
+                var feed = _feedManager[feedUri];
+                if (feed.MinInjectorVersion != null && FeedElement.ZeroInstallVersion < feed.MinInjectorVersion)
+                {
+                    Log.Warn($"The solver version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {FeedElement.ZeroInstallVersion}. Try updating Zero Install.");
+                    return;
+                }
 
-            dictionary.Add(feedUri, feed);
-            foreach (var reference in feed.Feeds)
+                dictionary.Add(feedUri, feed);
+                foreach (var reference in feed.Feeds)
+                {
+                    if (reference.Architecture.IsCompatible(requirements.Architecture) &&
+                        (reference.Languages.Count == 0 || reference.Languages.ContainsAny(requirements.Languages, ignoreCountry: true)))
+                        AddFeedToDict(dictionary, reference.Source, requirements);
+                }
+            }
+            catch (WebException ex)
             {
-                if (reference.Architecture.IsCompatible(requirements.Architecture) &&
-                    (reference.Languages.Count == 0 || reference.Languages.ContainsAny(requirements.Languages, ignoreCountry: true)))
-                    AddFeedToDict(dictionary, reference.Source, requirements);
+                Log.Warn(ex);
             }
         }
 
