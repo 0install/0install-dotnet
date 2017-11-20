@@ -160,7 +160,8 @@ namespace ZeroInstall.Services.Solvers
                 foreach (var dependency in essentialDependencies)
                     if (!TryToSolveDependency(dependency)) return false;
                 foreach (var dependency in recommendedDependencies)
-                    if (!TryToSolveDependency(dependency)) dependencies.Remove(dependency);
+                    TryToSolveDependency(dependency);
+
                 return true;
             }
 

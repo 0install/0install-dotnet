@@ -72,7 +72,7 @@
     <selections source="false" command="run" interface="http://example.com/app.xml">
       <selection version="1.0" id="app1" interface="http://example.com/app.xml">
         <command name="run" path="test-app"/>
-        <!--<requires interface="http://example.com/lib.xml" importance="recommended"/>-->
+        <requires interface="http://example.com/lib.xml" importance="recommended"/>
       </selection>
     </selections>
   </test>
@@ -886,7 +886,7 @@ Can't find all required implementations:
       <selection id='l2' interface='http://example.com/lib2.xml' version='1'/>
       <selection id='v1' interface='http://example.com/prog.xml' version='1'>
         <command name="run" path="main"/>
-	<!--<requires interface='http://example.com/lib1.xml' distribution='foo' importance='recommended'/>-->
+	<requires interface='http://example.com/lib1.xml' distribution='foo' importance='recommended'/>
 	<requires interface='http://example.com/lib2.xml' distribution='foo 0install' importance='recommended'/>
       </selection>
     </selections>
