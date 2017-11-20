@@ -414,10 +414,8 @@ namespace ZeroInstall.Store
             ? StringComparer.OrdinalIgnoreCase.GetHashCode(LocalPath)
             : base.GetHashCode();
 
-        /// <inheritdoc/>
         public static bool operator ==(FeedUri left, FeedUri right) => Equals(left, right);
 
-        /// <inheritdoc/>
         public static bool operator !=(FeedUri left, FeedUri right) => !Equals(left, right);
         #endregion
     }

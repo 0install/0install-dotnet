@@ -173,10 +173,8 @@ namespace ZeroInstall.Store.Model
             }
         }
 
-        /// <inheritdoc/>
         public static bool operator ==(VersionRange left, VersionRange right) => Equals(left, right);
 
-        /// <inheritdoc/>
         public static bool operator !=(VersionRange left, VersionRange right) => !Equals(left, right);
         #endregion
     }

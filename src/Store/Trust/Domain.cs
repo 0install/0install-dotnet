@@ -65,17 +65,9 @@ namespace ZeroInstall.Store.Trust
             return string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
         }
 
-        /// <inheritdoc/>
-        public static bool operator ==(Domain left, Domain right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(Domain left, Domain right) => left.Equals(right);
 
-        /// <inheritdoc/>
-        public static bool operator !=(Domain left, Domain right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(Domain left, Domain right) => !left.Equals(right);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -85,10 +77,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return (Value ?? "").GetHashCode();
-        }
+        public override int GetHashCode() => (Value ?? "").GetHashCode();
         #endregion
     }
 }

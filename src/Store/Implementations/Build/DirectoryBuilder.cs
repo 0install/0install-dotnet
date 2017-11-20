@@ -70,7 +70,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         private readonly bool _targetIsUnixFS;
 
-        /// <summary>Used to track exeuctable bits in <see cref="TargetPath"/> if <see cref="_targetIsUnixFS"/> is <c>false</c>.</summary>
+        /// <summary>Used to track executable bits in <see cref="TargetPath"/> if <see cref="_targetIsUnixFS"/> is <c>false</c>.</summary>
         private readonly string _targetXbitFile;
 
         /// <summary>Used to track symlinks if in <see cref="TargetPath"/> <see cref="_targetIsUnixFS"/> is <c>false</c>.</summary>

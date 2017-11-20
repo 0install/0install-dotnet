@@ -267,22 +267,11 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Architecture other)
-        {
-            return other.OS == OS && other.Cpu == Cpu;
-        }
+        public bool Equals(Architecture other) => other.OS == OS && other.Cpu == Cpu;
 
-        /// <inheritdoc/>
-        public static bool operator ==(Architecture left, Architecture right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
 
-        /// <inheritdoc/>
-        public static bool operator !=(Architecture left, Architecture right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

@@ -62,17 +62,9 @@ namespace ZeroInstall.DesktopIntegration
                 AppEntry.InterfaceUri == other.AppEntry.InterfaceUri;
         }
 
-        /// <inheritdoc/>
-        public static bool operator ==(ConflictData left, ConflictData right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(ConflictData left, ConflictData right) => left.Equals(right);
 
-        /// <inheritdoc/>
-        public static bool operator !=(ConflictData left, ConflictData right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(ConflictData left, ConflictData right) => !left.Equals(right);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

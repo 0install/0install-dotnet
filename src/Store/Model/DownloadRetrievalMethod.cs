@@ -59,7 +59,7 @@ namespace ZeroInstall.Store.Model
         public virtual long DownloadSize => Size;
 
         #region Normalize
-        /// <inheritdoc/>
+        /// <inheritdoc cref="RetrievalMethod.Normalize"/>
         public override void Normalize(FeedUri feedUri)
         {
             #region Sanity checks
@@ -77,10 +77,7 @@ namespace ZeroInstall.Store.Model
         /// Performs sanity checks.
         /// </summary>
         /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        public void Validate()
-        {
-            EnsureNotNull(Href, xmlAttribute: "href", xmlTag: XmlTagName);
-        }
+        public void Validate() => EnsureNotNull(Href, xmlAttribute: "href", xmlTag: XmlTagName);
         #endregion
 
         #region Clone

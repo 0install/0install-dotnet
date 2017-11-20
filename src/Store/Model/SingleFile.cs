@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Model
         public string Destination { get; set; }
 
         #region Normalize
-        protected override string XmlTagName => "archive";
+        protected override string XmlTagName => "file";
         #endregion
 
         #region Conversion

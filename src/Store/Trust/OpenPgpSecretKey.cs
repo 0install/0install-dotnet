@@ -94,15 +94,9 @@ namespace ZeroInstall.Store.Trust
             }
         }
 
-        public static bool operator ==(OpenPgpSecretKey left, OpenPgpSecretKey right)
-        {
-            return Equals(left, right);
-        }
+        public static bool operator ==(OpenPgpSecretKey left, OpenPgpSecretKey right) => Equals(left, right);
 
-        public static bool operator !=(OpenPgpSecretKey left, OpenPgpSecretKey right)
-        {
-            return !Equals(left, right);
-        }
+        public static bool operator !=(OpenPgpSecretKey left, OpenPgpSecretKey right) => !Equals(left, right);
         #endregion
     }
 }

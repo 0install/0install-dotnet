@@ -111,13 +111,11 @@ namespace ZeroInstall.Store.Implementations.Build
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            #region Path validation
             if (!string.IsNullOrEmpty(step.Destination))
             {
                 string destination = FileUtils.UnifySlashes(step.Destination);
                 if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
             }
-            #endregion
 
             if (string.IsNullOrEmpty(step.MimeType)) throw new IOException(Resources.UnknownArchiveType);
 
@@ -172,11 +170,9 @@ namespace ZeroInstall.Store.Implementations.Build
             if (workingDir == null) throw new ArgumentNullException(nameof(workingDir));
             #endregion
 
-            #region Path validation
             if (string.IsNullOrEmpty(step.Destination)) throw new IOException(Resources.FileMissingDest);
             string destination = FileUtils.UnifySlashes(step.Destination);
             if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
-            #endregion
 
             string destinationPath = Path.Combine(workingDir, destination);
             string parentDir = Path.GetDirectoryName(destinationPath);
@@ -202,11 +198,9 @@ namespace ZeroInstall.Store.Implementations.Build
             if (workingDir == null) throw new ArgumentNullException(nameof(workingDir));
             #endregion
 
-            #region Path validation
             if (string.IsNullOrEmpty(step.Path)) throw new IOException(string.Format(Resources.RecipeInvalidPath, "(empty)"));
             string path = FileUtils.UnifySlashes(step.Path);
             if (FileUtils.IsBreakoutPath(path)) throw new IOException(string.Format(Resources.RecipeInvalidPath, path));
-            #endregion
 
             string absolutePath = Path.Combine(workingDir, path);
             if (Directory.Exists(absolutePath)) Directory.Delete(absolutePath, recursive: true);
@@ -230,14 +224,12 @@ namespace ZeroInstall.Store.Implementations.Build
             if (workingDir == null) throw new ArgumentNullException(nameof(workingDir));
             #endregion
 
-            #region Path validation
             if (string.IsNullOrEmpty(step.Source)) throw new IOException(string.Format(Resources.RecipeInvalidPath, "(empty)"));
             if (string.IsNullOrEmpty(step.Destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, "(empty)"));
             string source = FileUtils.UnifySlashes(step.Source);
             string destination = FileUtils.UnifySlashes(step.Destination);
             if (FileUtils.IsBreakoutPath(source)) throw new IOException(string.Format(Resources.RecipeInvalidPath, source));
             if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
-            #endregion
 
             string sourcePath = Path.Combine(workingDir, source);
             string destinationPath = Path.Combine(workingDir, destination);
@@ -270,12 +262,10 @@ namespace ZeroInstall.Store.Implementations.Build
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            #region Path validation
             string source = FileUtils.UnifySlashes(step.Source ?? "");
             string destination = FileUtils.UnifySlashes(step.Destination ?? "");
             if (FileUtils.IsBreakoutPath(source)) throw new IOException(string.Format(Resources.RecipeInvalidPath, source));
             if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
-            #endregion
 
             if (step.Implementation == null) throw new ArgumentException(string.Format(Resources.UnableToResolveRecipeReference, step, ""));
 
