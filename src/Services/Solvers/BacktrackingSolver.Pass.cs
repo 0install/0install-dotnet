@@ -17,7 +17,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
@@ -37,9 +36,9 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         private class Pass
         {
-            #region Depdendencies
             private CancellationToken _cancellationToken;
             private readonly SelectionCandidateProvider _candidateProvider;
+            private readonly Requirements _topLevelRequirements;
 
             /// <summary>
             /// Creates a new backtracking solver run.
@@ -51,20 +50,20 @@ namespace ZeroInstall.Services.Solvers
             {
                 _cancellationToken = cancellationToken;
                 _candidateProvider = candidateProvider;
-
                 _topLevelRequirements = requirements ?? throw new ArgumentNullException(nameof(requirements));
-                Selections.InterfaceUri = requirements.InterfaceUri;
-                Selections.Command = requirements.Command;
-            }
-            #endregion
 
-            private readonly Requirements _topLevelRequirements;
+                Selections = new Selections
+                {
+                    InterfaceUri = requirements.InterfaceUri,
+                    Command = requirements.Command
+                };
+            }
 
             /// <summary>
-            /// The implementations selected by the solver run.
+            /// The running selection as it is being constructed by the solver.
             /// </summary>
             [NotNull]
-            public Selections Selections { get; } = new Selections();
+            public Selections Selections { get; }
 
             /// <summary>
             /// Try to satisfy the <see cref="_topLevelRequirements"/>. If successful the result can be retrieved from <see cref="Selections"/>.
@@ -88,11 +87,6 @@ namespace ZeroInstall.Services.Solvers
                 else throw new NotSupportedException("Dependency graph too complex");
             }
 
-            /// <summary>
-            /// A running list of <see cref="Restriction"/>s from all <see cref="SelectionCandidate"/>s added to <see cref="Selections"/> so far.
-            /// </summary>
-            private readonly List<Restriction> _restrictions = new List<Restriction>();
-
             private IEnumerable<SelectionCandidate> FilterSuitableCandidates([NotNull, ItemNotNull] IEnumerable<SelectionCandidate> candidates, [NotNull] FeedUri interfaceUri)
                 => candidates.Where(candidate =>
                     candidate.IsSuitable &&
@@ -103,7 +97,7 @@ namespace ZeroInstall.Services.Solvers
             {
                 var nativeImplementation = candidate.Implementation as ExternalImplementation;
 
-                foreach (var restriction in _restrictions.Where(x => x.InterfaceUri == interfaceUri))
+                foreach (var restriction in Selections.Implementations.SelectMany(x => x.Restrictions).Where(x => x.InterfaceUri == interfaceUri))
                 {
                     if (restriction.Versions != null && !restriction.Versions.Match(candidate.Version)) return true;
                     if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return true;
@@ -142,11 +136,9 @@ namespace ZeroInstall.Services.Solvers
                 foreach (var candidate in candidates)
                 {
                     var selection = AddToSelections(candidate, requirements, allCandidates);
-
-                    Debug.Assert(requirements.Command != null);
                     var command = selection[requirements.Command];
                     if (TryToSolveDependencies(selection) && TryToSolveCommand(command, requirements) && TryToSolveBindingRequirements(selection)) return true;
-                    else RemoveLastFromSelections();
+                    else Selections.Implementations.RemoveLast();
                 }
                 return false;
             }
@@ -179,7 +171,8 @@ namespace ZeroInstall.Services.Solvers
             {
                 if (command == null) return true;
 
-                if (command.Bindings.OfType<ExecutableInBinding>().Any()) throw new SolverException("<executable-in-*> not supported in <command>");
+                if (command.Bindings.OfType<ExecutableInBinding>().Any())
+                    throw new NotSupportedException("<executable-in-*> not supported in <command>");
 
                 if (command.Runner != null)
                     if (!TryToSolve(command.Runner.ToRequirements(_topLevelRequirements))) return false;
@@ -191,14 +184,7 @@ namespace ZeroInstall.Services.Solvers
             {
                 var selection = candidate.ToSelection(allCandidates, requirements);
                 Selections.Implementations.Add(selection);
-                _restrictions.AddRange(selection.Restrictions);
                 return selection;
-            }
-
-            private void RemoveLastFromSelections()
-            {
-                _restrictions.RemoveLast(Selections.Implementations.Last().Restrictions.Count);
-                Selections.Implementations.RemoveLast();
             }
         }
     }
