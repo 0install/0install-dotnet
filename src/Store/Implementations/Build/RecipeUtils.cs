@@ -171,18 +171,11 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             if (string.IsNullOrEmpty(step.Destination)) throw new IOException(Resources.FileMissingDest);
-            string destination = FileUtils.UnifySlashes(step.Destination);
-            if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
 
-            string destinationPath = Path.Combine(workingDir, destination);
-            string parentDir = Path.GetDirectoryName(destinationPath);
-            if (!string.IsNullOrEmpty(parentDir) && !Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
+            var builder = new DirectoryBuilder(workingDir);
+            string destinationPath = builder.NewFilePath(FileUtils.UnifySlashes(step.Destination), FileUtils.FromUnixTime(0));
             FileUtils.Replace(downloadedFile, destinationPath);
-            File.SetLastWriteTimeUtc(destinationPath, FileUtils.FromUnixTime(0));
-
-            // Update in flag files as well
-            FlagUtils.Remove(Path.Combine(workingDir, FlagUtils.XbitFile), destination);
-            FlagUtils.Remove(Path.Combine(workingDir, FlagUtils.SymlinkFile), destination);
+            builder.CompletePending();
         }
 
         /// <summary>
