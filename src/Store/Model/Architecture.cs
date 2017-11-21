@@ -187,7 +187,7 @@ namespace ZeroInstall.Store.Model
                         return Cpu.X64;
                 }
 #else
-                if (WindowsUtils.IsWindows) return WindowsUtils.Is64BitOperatingSystem ? Cpu.X64 : Cpu.I686;
+                if (WindowsUtils.IsWindows) return OSUtils.Is64BitOperatingSystem ? Cpu.X64 : Cpu.I686;
                 if (UnixUtils.IsUnix) return ParseCpuString(UnixUtils.CpuType);
 #endif
                 return Cpu.Unknown;

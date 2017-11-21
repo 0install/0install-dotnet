@@ -205,10 +205,10 @@ namespace ZeroInstall.Publish.Capture
         private void TakeFileSystem()
         {
             // Locate installation directories
-            string programFiles32Bit = WindowsUtils.Is64BitProcess
+            string programFiles32Bit = OSUtils.Is64BitProcess
                 ? Environment.GetEnvironmentVariable("ProgramFiles(x86)")
                 : Environment.GetEnvironmentVariable("ProgramFiles");
-            string programFiles64Bit = WindowsUtils.Is64BitProcess
+            string programFiles64Bit = OSUtils.Is64BitProcess
                 ? Environment.GetEnvironmentVariable("ProgramFiles")
                 : null;
 

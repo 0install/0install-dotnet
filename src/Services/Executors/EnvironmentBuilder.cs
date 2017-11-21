@@ -278,7 +278,7 @@ namespace ZeroInstall.Services.Executors
                 switch (part)
                 {
                     case Arg arg:
-                        result.Add(UnixUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables));
+                        result.Add(OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables));
                         break;
 
                     case ForEachArgs forEach:
@@ -290,7 +290,7 @@ namespace ZeroInstall.Services.Executors
                             foreach (string item in items)
                             {
                                 _startInfo.EnvironmentVariables["item"] = item;
-                                result.AddRange(forEach.Arguments.Select(arg => UnixUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
+                                result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
                             }
                             _startInfo.EnvironmentVariables.Remove("item");
                         }

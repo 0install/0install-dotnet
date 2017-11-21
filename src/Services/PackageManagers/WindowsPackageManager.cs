@@ -140,7 +140,7 @@ namespace ZeroInstall.Services.PackageManagers
                 yield return new KeyValuePair<Cpu, string>(Architecture.CurrentSystem.Cpu, path);
 
             // Check for 32-bit on a 64-bit system
-            if (WindowsUtils.Is64BitProcess)
+            if (OSUtils.Is64BitProcess)
             {
                 path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\" + registrySuffix, valueName);
                 if (!string.IsNullOrEmpty(path))
@@ -166,7 +166,7 @@ namespace ZeroInstall.Services.PackageManagers
             }
 
             // Check for 32-bit on a 64-bit system
-            if (WindowsUtils.Is64BitProcess)
+            if (OSUtils.Is64BitProcess)
             {
                 install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
                 release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
