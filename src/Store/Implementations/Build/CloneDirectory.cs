@@ -67,7 +67,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <inheritdoc/>
         protected override void HandleEntries(IEnumerable<FileSystemInfo> entries)
         {
-            DirectoryBuilder.Initialize();
+            DirectoryBuilder.EnsureDirectory();
 
             using (TryUnsealImplementation())
             {

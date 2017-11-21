@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Implementations.Build
         [Fact]
         public void Basic()
         {
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             _builder.CreateDirectory("dir", TestFile.DefaultLastWrite);
             File.WriteAllText(_builder.NewFilePath("dir/file", TestFile.DefaultLastWrite), TestFile.DefaultContents);
             _builder.QueueHardlink("dir/hardlink", "dir/file");
@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Build
         public void Suffix()
         {
             _builder.TargetSuffix = "suffix";
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             _builder.CreateDirectory("dir", TestFile.DefaultLastWrite);
             File.WriteAllText(_builder.NewFilePath("dir/file", TestFile.DefaultLastWrite), TestFile.DefaultContents);
             _builder.QueueHardlink("dir/hardlink", "dir/file");
@@ -94,7 +94,7 @@ namespace ZeroInstall.Store.Implementations.Build
         {
             new TestRoot {new TestFile("file") {LastWrite = new DateTime(2000, 2, 2), Contents = "wrong", IsExecutable = true}}.Build(_tempDir);
 
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             File.WriteAllText(_builder.NewFilePath("file", TestFile.DefaultLastWrite), TestFile.DefaultContents);
             _builder.CompletePending();
 
@@ -109,7 +109,7 @@ namespace ZeroInstall.Store.Implementations.Build
         {
             new TestRoot {new TestSymlink("file", "target")}.Build(_tempDir);
 
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             File.WriteAllText(_builder.NewFilePath("file", TestFile.DefaultLastWrite), TestFile.DefaultContents);
             _builder.CompletePending();
 
@@ -124,7 +124,7 @@ namespace ZeroInstall.Store.Implementations.Build
         {
             new TestRoot {new TestFile("file")}.Build(_tempDir);
 
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             _builder.CreateSymlink("file", "target");
             _builder.CompletePending();
 
@@ -137,7 +137,7 @@ namespace ZeroInstall.Store.Implementations.Build
         [Fact]
         public void OverwriteWithHardlink()
         {
-            _builder.Initialize();
+            _builder.EnsureDirectory();
             File.WriteAllText(_builder.NewFilePath("file1", TestFile.DefaultLastWrite), TestFile.DefaultContents);
             File.WriteAllText(_builder.NewFilePath("file2", TestFile.DefaultLastWrite), "wrong content");
             _builder.QueueHardlink(source: "file2", target: "file1", executable: true);

@@ -207,7 +207,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         protected override void Execute()
         {
             State = TaskState.Data;
-            DirectoryBuilder.Initialize();
+            DirectoryBuilder.EnsureDirectory();
 
             ExtractArchive();
 

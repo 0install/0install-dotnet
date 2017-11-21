@@ -94,11 +94,12 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         /// <summary>
-        /// Performs preparartion tasks, such as creating the empty directory if it does not exist yet.
+        /// Creates a directory at <see cref="EffectiveTargetPath"/> if it does not exist yet.
         /// </summary>
-        public void Initialize()
+        public void EnsureDirectory()
         {
-            if (!Directory.Exists(EffectiveTargetPath)) Directory.CreateDirectory(EffectiveTargetPath);
+            if (!Directory.Exists(EffectiveTargetPath))
+                Directory.CreateDirectory(EffectiveTargetPath);
         }
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for directory write times. Preserves the order.</summary>
@@ -141,12 +142,12 @@ namespace ZeroInstall.Store.Implementations.Build
             if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));
             #endregion
 
-            // Delete any preexisting file to reset xbits, etc.
-            DeleteFile(relativePath);
-
             string fullPath = GetFullPath(relativePath);
             string directoryPath = Path.GetDirectoryName(fullPath);
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+
+            // Delete any preexisting file to reset xbits, etc.
+            DeleteFile(relativePath);
 
             if (lastWriteTime.HasValue) _pendingFileWriteTimes[relativePath] = lastWriteTime.Value;
             if (executable) _pendingExecutableFiles.Add(relativePath);
