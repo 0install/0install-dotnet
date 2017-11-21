@@ -999,6 +999,13 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="executable" type="xsd:boolean">
+          <xsd:annotation>
+            <xsd:appinfo>
+              Set this to true to mark the file as executable.
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

@@ -36,6 +36,13 @@ namespace ZeroInstall.Store.Model
         [XmlAttribute("dest"), CanBeNull]
         public string Destination { get; set; }
 
+        /// <summary>
+        /// Set this to <c>true</c> to mark the file as executable.
+        /// </summary>
+        [Description("Set this to true to mark the file as executable.")]
+        [XmlAttribute("executable"), DefaultValue(false)]
+        public bool Executable { get; set; }
+
         #region Normalize
         protected override string XmlTagName => "file";
         #endregion
@@ -52,13 +59,13 @@ namespace ZeroInstall.Store.Model
         /// Creates a deep copy of this <see cref="SingleFile"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="SingleFile"/>.</returns>
-        public override RetrievalMethod Clone() => new SingleFile {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, Destination = Destination};
+        public override RetrievalMethod Clone() => new SingleFile {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, Destination = Destination, Executable = Executable};
         #endregion
 
         #region Equality
         /// <inheritdoc/>
         public bool Equals(SingleFile other) => other != null && base.Equals(other) &&
-            other.Destination == Destination;
+            other.Destination == Destination && other.Executable == Executable;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -75,6 +82,7 @@ namespace ZeroInstall.Store.Model
             {
                 int result = base.GetHashCode();
                 result = (result * 397) ^ Destination?.GetHashCode() ?? 0;
+                result = (result * 397) ^ Executable.GetHashCode();
                 return result;
             }
         }

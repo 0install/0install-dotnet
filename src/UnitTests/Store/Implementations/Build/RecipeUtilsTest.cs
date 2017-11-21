@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeSingleFile()
+        public void TestApplyRecipeSingleFileOverwrite()
         {
             using (var singleFile = new TemporaryFile("0install-unit-tests"))
             using (var archiveFile = new TemporaryFile("0install-unit-tests"))
@@ -88,6 +88,27 @@ namespace ZeroInstall.Store.Implementations.Build
                                 IsExecutable = false, // Executable file was overwritten by a non-executable one
                                 LastWrite = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
                             }
+                        }
+                    }.Verify(recipeDir);
+                }
+            }
+        }
+
+        [Fact]
+        public void TestApplyRecipeSingleFileExecuteable()
+        {
+            using (var singleFile = new TemporaryFile("0install-unit-tests"))
+            {
+                File.WriteAllText(singleFile, TestFile.DefaultContents);
+                var recipe = new Recipe {Steps = {new SingleFile {Destination = "executable", Executable = true}}};
+                using (var recipeDir = recipe.Apply(new[] {singleFile}, new SilentTaskHandler()))
+                {
+                    new TestRoot
+                    {
+                        new TestFile("executable")
+                        {
+                            IsExecutable = true,
+                            LastWrite = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
                         }
                     }.Verify(recipeDir);
                 }

@@ -33,7 +33,8 @@ namespace ZeroInstall.Store.Model
         {
             Href = new Uri("http://0install.de/files/test/test.exe"),
             Size = 128,
-            Destination = "dest"
+            Destination = "dest",
+            Executable = true
         };
 
         /// <summary>

@@ -173,7 +173,10 @@ namespace ZeroInstall.Store.Implementations.Build
             if (string.IsNullOrEmpty(step.Destination)) throw new IOException(Resources.FileMissingDest);
 
             var builder = new DirectoryBuilder(workingDir);
-            string destinationPath = builder.NewFilePath(FileUtils.UnifySlashes(step.Destination), FileUtils.FromUnixTime(0));
+            string destinationPath = builder.NewFilePath(
+                FileUtils.UnifySlashes(step.Destination),
+                FileUtils.FromUnixTime(0),
+                step.Executable);
             FileUtils.Replace(downloadedFile, destinationPath);
             builder.CompletePending();
         }
