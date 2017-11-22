@@ -30,19 +30,19 @@ namespace ZeroInstall.Services.Solvers
     public class SolverUtilsTest
     {
         [Fact]
-        public void GetEffectiveFillsInDefaultValues()
+        public void GetNormalizedAlternativesFillsInDefaultValues()
         {
-            new Requirements("http://test/feed.xml").GetEffective().First()
+            new Requirements("http://test/feed.xml").GetNormalizedAlternatives().First()
                 .Should().Be(new Requirements(new FeedUri("http://test/feed.xml"), Command.NameRun, Architecture.CurrentSystem) {Languages = {CultureInfo.CurrentUICulture}});
         }
 
         [Fact]
-        public void GetEffectiveHandlesX86OnX64()
+        public void GetNormalizedAlternativesHandlesX86OnX64()
         {
             Skip.IfNot(Architecture.CurrentSystem.Cpu == Cpu.X64, "Can only test on X64 systems");
 
             var requirements = new Requirements("http://test/feed.xml", Command.NameRun, new Architecture(OS.Linux, Cpu.X64)) {Languages = {"fr"}};
-            requirements.GetEffective().Should().Equal(
+            requirements.GetNormalizedAlternatives().Should().Equal(
                 new Requirements("http://test/feed.xml", Command.NameRun, new Architecture(OS.Linux, Cpu.X64)) {Languages = {"fr"}},
                 new Requirements("http://test/feed.xml", Command.NameRun, new Architecture(OS.Linux, Cpu.I686)) {Languages = {"fr"}});
         }

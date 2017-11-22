@@ -42,7 +42,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="requirements">The baseline <see cref="Requirements"/> to extend.</param>
         /// <returns>1 or more alternative <see cref="Requirements"/> ordered from most to least optimal.</returns>
         [NotNull, ItemNotNull]
-        public static IEnumerable<Requirements> GetEffective([NotNull] this Requirements requirements)
+        public static IEnumerable<Requirements> GetNormalizedAlternatives([NotNull] this Requirements requirements)
         {
             #region Sanity checks
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
