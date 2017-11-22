@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Model
         internal override IEnumerable<Implementation> Implementations => new[] {this};
 
         /// <summary>
-        /// A list of <see cref="Archive"/>s as <see cref="RetrievalMethod"/>s.
+        /// A list of <see cref="RetrievalMethod"/>s for downloading the implementation.
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(Recipe))]

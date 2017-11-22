@@ -87,6 +87,13 @@ namespace ZeroInstall.Store.Model.Selection
         public ImplementationSelection MainImplementation => this[InterfaceUri];
 
         /// <summary>
+        /// Gets a list of all <see cref="Restriction"/>s and <see cref="Dependency"/> that point to a specific <paramref name="interfaceUri"/>.
+        /// </summary>
+        [NotNull, ItemNotNull]
+        public IEnumerable<Restriction> RestrictionsFor(FeedUri interfaceUri)
+            => Implementations.SelectMany(x => x.EffectiveRestrictions).Where(x => x.InterfaceUri == interfaceUri);
+
+        /// <summary>
         /// Creates an empty selections document.
         /// </summary>
         public Selections()

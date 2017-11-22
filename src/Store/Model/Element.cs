@@ -212,6 +212,13 @@ namespace ZeroInstall.Store.Model
         public List<Restriction> Restrictions { get; } = new List<Restriction>();
 
         /// <summary>
+        /// A combination of <see cref="Restrictions"/> and <see cref="Dependencies"/>.
+        /// </summary>
+        [Browsable(false)]
+        [XmlIgnore]
+        public IEnumerable<Restriction> EffectiveRestrictions => Enumerable.Concat(Restrictions, Dependencies.Cast<Restriction>());
+
+        /// <summary>
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
         /// </summary>
         [Browsable(false)]
@@ -384,7 +391,6 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        /// <inheritdoc/>
         protected bool Equals(Element other) => other != null && base.Equals(other) &&
             other.Version == Version && other.VersionModifier == VersionModifier && other.Released == Released && other.ReleasedVerbatim == ReleasedVerbatim && other.License == License && other.Main == Main && other.SelfTest == SelfTest && other.DocDir == DocDir &&
             Commands.SequencedEquals(other.Commands) && Dependencies.SequencedEquals(other.Dependencies) && Restrictions.SequencedEquals(other.Restrictions) && Bindings.SequencedEquals(other.Bindings);
