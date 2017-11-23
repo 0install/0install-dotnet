@@ -161,7 +161,7 @@ namespace ZeroInstall.Services.Solvers
                 }
 
                 // Ensure the existing selections do not conflict with restrictions of the candidate
-                foreach (var restriction in candidate.Implementation.EffectiveRestrictions)
+                foreach (var restriction in candidate.Implementation.GetEffectiveRestrictions())
                 {
                     var existingSelection = _selections.GetImplementation(restriction.InterfaceUri);
                     if (existingSelection != null)

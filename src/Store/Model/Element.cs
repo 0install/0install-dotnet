@@ -212,13 +212,6 @@ namespace ZeroInstall.Store.Model
         public List<Restriction> Restrictions { get; } = new List<Restriction>();
 
         /// <summary>
-        /// A combination of <see cref="Restrictions"/> and <see cref="Dependencies"/>.
-        /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
-        public IEnumerable<Restriction> EffectiveRestrictions => Enumerable.Concat(Restrictions, Dependencies.Cast<Restriction>());
-
-        /// <summary>
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
         /// </summary>
         [Browsable(false)]

@@ -91,7 +91,24 @@ namespace ZeroInstall.Store.Model.Selection
         /// </summary>
         [NotNull, ItemNotNull]
         public IEnumerable<Restriction> RestrictionsFor(FeedUri interfaceUri)
-            => Implementations.SelectMany(x => x.EffectiveRestrictions).Where(x => x.InterfaceUri == interfaceUri);
+        {
+            foreach (var implementation in Implementations)
+            {
+                foreach (var restriction in implementation.GetEffectiveRestrictions())
+                {
+                    if (restriction.InterfaceUri == interfaceUri)
+                        yield return restriction;
+                }
+                foreach (var command in implementation.Commands)
+                {
+                    foreach (var restriction in command.GetEffectiveRestrictions())
+                    {
+                        if (restriction.InterfaceUri == interfaceUri)
+                            yield return restriction;
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Creates an empty selections document.
