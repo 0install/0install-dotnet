@@ -11,7 +11,8 @@ function SearchAndReplace($FilePath, $PatternLeft, $PatternRight)
 
 [System.IO.File]::WriteAllText("$ScriptDir\VERSION", $NewVersion)
 SearchAndReplace doc\Doxyfile -PatternLeft 'PROJECT_NUMBER = "' -PatternRight '"'
-SearchAndReplace src\DesktopIntegration\DesktopIntegration.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
-SearchAndReplace src\Services\Services.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
-SearchAndReplace src\Services.Interfaces\Services.Interfaces.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
 SearchAndReplace src\Store\Store.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
+SearchAndReplace src\Services.Interfaces\Services.Interfaces.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
+SearchAndReplace src\Services\Services.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
+SearchAndReplace src\DesktopIntegration\DesktopIntegration.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
+SearchAndReplace src\Publish\Publish.csproj -PatternLeft '<Version>' -PatternRight '</Version>'
