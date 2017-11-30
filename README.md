@@ -26,7 +26,7 @@ Directory structure
 
 Building
 --------
-- You need to install [Visual Studio 2017 Update 3](https://www.visualstudio.com/downloads/), [.NET Core 2.0 SDK](https://dot.net/core) and [Zero Install](http://0install.de/downloads/) to build this project.
+- You need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) and [Zero Install](http://0install.de/downloads/) to build this project.
 - The file `VERSION` contains the current version number of the project.
 - Run `.\Set-Version.ps1 "X.Y.Z"` in PowerShall to change the version number. This ensures that the version also gets set in other locations (e.g. `.csproj` files).
 - Run `.\build.ps1` in PowerShell to build everything.
