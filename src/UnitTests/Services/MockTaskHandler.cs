@@ -15,9 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NanoByte.Common;
+using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 
 namespace ZeroInstall.Services
@@ -25,10 +27,8 @@ namespace ZeroInstall.Services
     /// <summary>
     /// A minimalistic <see cref="ITaskHandler"/> that allows you to pre-record answers and retrieve output.
     /// </summary>
-    public class MockTaskHandler : SilentTaskHandler
+    public class MockTaskHandler : TaskHandlerBase
     {
-        public override Verbosity Verbosity { get; set; }
-
         /// <summary>
         /// The prerecorded result for <see cref="Ask"/>.
         /// </summary>
@@ -38,6 +38,11 @@ namespace ZeroInstall.Services
         /// Last question passed to <see cref="Ask"/>.
         /// </summary>
         public string LastQuestion { get; private set; }
+
+        protected override void LogHandler(LogSeverity severity, string message)
+        {}
+
+        public override void RunTask(ITask task) => task.Run();
 
         /// <summary>
         /// Fakes asking the user a question.
@@ -57,10 +62,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Fakes showing an information string output to the user.
         /// </summary>
-        public override void Output(string title, string message)
-        {
-            LastOutput = message;
-        }
+        public override void Output(string title, string message) => LastOutput = message;
 
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
@@ -70,9 +72,11 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Fakes showing tabular data to the user.
         /// </summary>
-        public override void Output<T>(string title, IEnumerable<T> data)
-        {
-            LastOutputObjects = data;
-        }
+        public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data;
+
+        public override void Error(Exception exception)
+        {}
+
+        public override ICredentialProvider CredentialProvider => null;
     }
 }

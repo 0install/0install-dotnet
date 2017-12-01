@@ -54,7 +54,7 @@ API documentation: http://0install.de/api/backend/
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common" Version="2.1.7" />
+    <PackageReference Include="NanoByte.Common" Version="2.1.8" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.1" />
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
