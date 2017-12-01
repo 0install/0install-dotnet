@@ -19,6 +19,8 @@
 using System;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
@@ -44,8 +46,12 @@ namespace ZeroInstall.Services
         /// <typeparam name="TTaskHandler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</typeparam>
         /// <param name="services">The service collection to add the services to.</param>
         /// <param name="autoRefresh"><c>true</c> to wrap the default <see cref="ISolver"/> in a <see cref="RefreshingSolver"/>.</param>
-        public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services, bool autoRefresh = false) where TTaskHandler : class, ITaskHandler
+        public static IServiceCollection AddZeroInstall<TTaskHandler>([NotNull] this IServiceCollection services, bool autoRefresh = false) where TTaskHandler : class, ITaskHandler
         {
+            #region Sanity checks
+            if (services == null) throw new ArgumentNullException(nameof(services));
+            #endregion
+
             services
                 .AddScoped<ITaskHandler, TTaskHandler>()
                 .AddScoped(x => Config.Load())
@@ -71,6 +77,16 @@ namespace ZeroInstall.Services
 
             return services;
         }
+
+        /// <summary>
+        /// Registers a set of scoped services for using Zero Install functionality.
+        /// Automatically uses <see cref="ILogger{TCategoryName}"/> and <see cref="ICredentialProvider"/> if registered in <paramref name="services"/>.
+        /// </summary>
+        /// <param name="services">The service collection to add the services to.</param>
+        /// <param name="autoRefresh"><c>true</c> to wrap the default <see cref="ISolver"/> in a <see cref="RefreshingSolver"/>.</param>
+        /// <seealso cref="ConfigurationCredentialProviderRegisration.ConfigureCredentials"/>
+        public static IServiceCollection AddZeroInstall([NotNull] this IServiceCollection services, bool autoRefresh = false)
+            => services.AddZeroInstall<ServiceTaskHandler>(autoRefresh);
     }
 }
 #endif
