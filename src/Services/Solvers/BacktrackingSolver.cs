@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2010-2016 Bastian Eicher
+ * Copyright 2010-2017 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser Public License as published by
@@ -47,7 +47,7 @@ namespace ZeroInstall.Services.Solvers
         private readonly ITaskHandler _handler;
 
         /// <summary>
-        /// Creates a new simple solver.
+        /// Creates a new backtracking solver.
         /// </summary>
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
         /// <param name="store">Used to check which <see cref="Implementation"/>s are already cached.</param>
@@ -72,89 +72,114 @@ namespace ZeroInstall.Services.Solvers
             if (requirements.InterfaceUri == null) throw new ArgumentException(Resources.MissingInterfaceUri, nameof(requirements));
             #endregion
 
-            Log.Info("Running Backtracking Solver for: " + requirements);
+            Log.Info($"Running Backtracking Solver for {requirements}");
 
             var candidateProvider = new SelectionCandidateProvider(_config, _feedManager, _store, _packageManager, requirements.Languages);
-            var selections = requirements
+            var successfulAttempt = requirements
                 .GetNormalizedAlternatives()
-                .Select(req => new State(req, _handler.CancellationToken, candidateProvider).Solve())
-                .WhereNotNull()
-                .FirstOrDefault();
-            if (selections == null) throw new SolverException("No solution found");
-            return selections;
+                .Select(req => new Attempt(req, _handler.CancellationToken, candidateProvider))
+                .FirstOrDefault(x => x.Successful);
+
+            if (successfulAttempt == null) throw new SolverException("No solution found");
+            return successfulAttempt.Selections;
         }
 
-        private class State
+        /// <summary>
+        /// Represents a single attempt to solve specific <see cref="Requirements"/>.
+        /// </summary>
+        private class Attempt
         {
             private readonly CancellationToken _cancellationToken;
             private readonly SelectionCandidateProvider _candidateProvider;
             private readonly Requirements _topLevelRequirements;
-            private Selections _selections;
 
-            public State([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] SelectionCandidateProvider candidateProvider)
+            public Selections Selections { private set; get; }
+            public bool Successful { get; }
+
+            public Attempt([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] SelectionCandidateProvider candidateProvider)
             {
                 _cancellationToken = cancellationToken;
                 _candidateProvider = candidateProvider;
                 _topLevelRequirements = requirements ?? throw new ArgumentNullException(nameof(requirements));
-                _selections = new Selections
+
+                Selections = new Selections
                 {
                     InterfaceUri = requirements.InterfaceUri,
                     Command = requirements.Command
                 };
+                Successful = TryToMeet(Demand(requirements));
+                Selections.PurgeRestrictions();
+                Selections.Implementations.Sort();
             }
 
-            /// <summary>
-            /// Attempts to satisfy the <see cref="_topLevelRequirements"/>.
-            /// </summary>
-            /// <returns>The resulting <see cref="Selections"/> if a solution was found; <c>null</c> otherwise.</returns>
-            [CanBeNull]
-            public Selections Solve()
+            private bool TryToMeet([NotNull, ItemNotNull] IEnumerable<SolverDemand> demands)
             {
-                if (!TryToSolve(_topLevelRequirements)) return null;
-                _selections.PurgeRestrictions();
-                _selections.Implementations.Sort();
-                return _selections;
-            }
+                var essential = new List<SolverDemand>();
+                var recommended = new List<SolverDemand>();
+                demands.Bucketize(x => x.Importance)
+                    .Add(Importance.Essential, essential)
+                    .Add(Importance.Recommended, recommended)
+                    .Run();
 
-            private bool TryToSolve([NotNull, ItemNotNull] IEnumerable<Requirements> requirementsSet)
-            {
-                var required = new List<Requirements>();
-                var optional = new List<Requirements>();
-                requirementsSet.Bucketize(x => x.Optional).Add(true, optional).Add(false, required).Run();
+                // Quickly reject impossible sets of demands
+                if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
 
-                var backtrackingSnapshot = _selections.Clone();
-                foreach (var premutation in required.Permutate())
+                var backtrackingSnapshot = Selections.Clone();
+                foreach (var premutation in essential.Permutate())
                 {
-                    if (premutation.All(TryToSolve))
+                    if (premutation.All(TryToMeet))
                     {
-                        optional.ForEach(x => TryToSolve(x));
+                        recommended.ForEach(x => TryToMeet(x));
                         return true;
                     }
-                    else _selections = backtrackingSnapshot.Clone();
+                    else Selections = backtrackingSnapshot.Clone();
                 }
                 return false;
             }
 
-            private bool TryToSolve([NotNull] Requirements requirements)
+            private bool TryToMeet([NotNull] SolverDemand demand)
             {
                 _cancellationToken.ThrowIfCancellationRequested();
 
-                var allCandidates = _candidateProvider.GetSortedCandidates(requirements);
-                var suitableCandidates = allCandidates.Where(candidate =>
-                    candidate.IsSuitable && IsCompatibleWithSelections(candidate, requirements.InterfaceUri));
+                var compatibleCandidates = GetCompatibleCandidates(demand);
 
-                var existingSelection = _selections.GetImplementation(requirements.InterfaceUri);
-                return (existingSelection == null)
-                    ? TryToSelectCandidate(suitableCandidates, requirements, allCandidates)
-                    : TryToUseExistingSelection(requirements, suitableCandidates, existingSelection);
+                var existingSelection = Selections.GetImplementation(demand.Requirements.InterfaceUri);
+                if (existingSelection == null)
+                { // Try to make new selection
+                    foreach (var selection in compatibleCandidates.Select(x => x.ToSelection(demand.Candidates, demand.Requirements)))
+                    {
+                        Selections.Implementations.Add(selection);
+                        if (TryToMeet(DemandsFor(selection, demand.Requirements))) return true;
+                        else
+                        {
+                            Selections.Implementations.RemoveLast();
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+                else
+                { // Try to use existing selection
+                    if (!compatibleCandidates.Contains(existingSelection)) return false;
+
+                    if (!existingSelection.ContainsCommand(demand.Requirements.Command))
+                    { // Add additional command to selection if needed
+                        var command = existingSelection.AddCommand(demand.Requirements, from: _candidateProvider.LookupOriginalImplementation(existingSelection));
+                        return (command == null) || TryToMeet(DemandsFor(command, demand.Requirements.InterfaceUri));
+                    }
+                    return true;
+                }
             }
 
-            private bool IsCompatibleWithSelections([NotNull] SelectionCandidate candidate, [NotNull] FeedUri interfaceUri)
+            [NotNull]
+            private IEnumerable<SelectionCandidate> GetCompatibleCandidates([NotNull] SolverDemand demand) => demand.Candidates.Where(candidate =>
             {
+                if (!candidate.IsSuitable) return false;
+
                 var nativeImplementation = candidate.Implementation as ExternalImplementation;
 
                 // Ensure the candidate does not conflict with restricions of existing selections
-                foreach (var restriction in _selections.RestrictionsFor(interfaceUri))
+                foreach (var restriction in Selections.RestrictionsFor(demand.Requirements.InterfaceUri))
                 {
                     if (restriction.Versions != null && !restriction.Versions.Match(candidate.Version)) return false;
                     if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
@@ -163,100 +188,73 @@ namespace ZeroInstall.Services.Solvers
                 // Ensure the existing selections do not conflict with restrictions of the candidate
                 foreach (var restriction in candidate.Implementation.GetEffectiveRestrictions())
                 {
-                    var existingSelection = _selections.GetImplementation(restriction.InterfaceUri);
-                    if (existingSelection != null)
+                    var selection = Selections.GetImplementation(restriction.InterfaceUri);
+                    if (selection != null)
                     {
-                        if (restriction.Versions != null && !restriction.Versions.Match(existingSelection.Version)) return false;
+                        if (restriction.Versions != null && !restriction.Versions.Match(selection.Version)) return false;
                         if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
                     }
                 }
 
                 return true;
-            }
-
-            private bool TryToSelectCandidate([NotNull, ItemNotNull] IEnumerable<SelectionCandidate> candidates, [NotNull] Requirements requirements, [NotNull, ItemNotNull] IList<SelectionCandidate> allCandidates)
-            {
-                foreach (var selection in candidates.Select(x => x.ToSelection(allCandidates, requirements)))
-                {
-                    var requirementsSet = RequirementsFor(selection, requirements.InterfaceUri, requirements.Command);
-
-                    _selections.Implementations.Add(selection);
-                    if (TryToSolve(requirementsSet)) return true;
-                    else
-                    {
-                        _selections.Implementations.RemoveLast();
-                        return false;
-                    }
-                }
-                return false;
-            }
-
-            private bool TryToUseExistingSelection([NotNull] Requirements requirements, [NotNull, ItemNotNull] IEnumerable<SelectionCandidate> suitableCandidates, [NotNull] ImplementationSelection selection)
-            {
-                if (!suitableCandidates.Contains(selection)) return false;
-
-                if (selection.ContainsCommand(requirements.Command)) return true;
-                else
-                {
-                    // Add additional command to selection if needed
-                    var command = selection.AddCommand(requirements, from: _candidateProvider.LookupOriginalImplementation(selection));
-                    return (command == null) || TryToSolve(RequirementsFor(command, requirements.InterfaceUri));
-                }
-            }
+            });
 
             [NotNull, ItemNotNull]
-            private IEnumerable<Requirements> RequirementsFor([NotNull] ImplementationSelection selection, [NotNull] FeedUri interfaceUri, [CanBeNull] string commandName)
+            private IEnumerable<SolverDemand> DemandsFor([NotNull] ImplementationSelection selection, [NotNull] Requirements requirements)
             {
-                foreach (var dependency in selection.Dependencies)
-                {
-                    foreach (var requirements in RequirementsFor(dependency))
-                        yield return requirements;
-                }
+                foreach (var demand in selection.Dependencies.SelectMany(DemandsFor))
+                    yield return demand;
 
-                foreach (var requirements in selection.ToBindingRequirements(selection.InterfaceUri))
-                    yield return requirements;
+                foreach (var demand in selection.ToBindingRequirements(selection.InterfaceUri).Select(x => Demand(x)))
+                    yield return demand;
 
-                var command = selection[commandName];
+                var command = selection[requirements.Command ?? Command.NameRun];
                 if (command != null)
                 {
-                    foreach (var requirements in RequirementsFor(command, interfaceUri))
-                        yield return requirements;
+                    foreach (var demand in DemandsFor(command, requirements.InterfaceUri))
+                        yield return demand;
                 }
             }
 
             [NotNull, ItemNotNull]
-            private IEnumerable<Requirements> RequirementsFor([NotNull] Dependency dependency)
+            private IEnumerable<SolverDemand> DemandsFor([NotNull] Dependency dependency)
             {
-                Requirements Mark(Requirements requirements)
                 {
-                    requirements.Optional = (dependency.Importance != Importance.Essential);
-                    return requirements;
+                    var requirements = new Requirements(dependency.InterfaceUri, "", _topLevelRequirements.Architecture);
+                    requirements.Distributions.AddRange(dependency.Distributions);
+                    requirements.AddRestriction(dependency);
+                    requirements.AddRestrictions(_topLevelRequirements);
+                    yield return Demand(requirements, dependency.Importance);
                 }
-
-                yield return Mark(dependency.ToRequirements(_topLevelRequirements));
 
                 foreach (var requirements in dependency.ToBindingRequirements(dependency.InterfaceUri))
-                    yield return Mark(requirements);
+                    yield return Demand(requirements, dependency.Importance);
             }
 
             [NotNull, ItemNotNull]
-            private IEnumerable<Requirements> RequirementsFor([NotNull] Command command, [NotNull] FeedUri interfaceUri)
+            private IEnumerable<SolverDemand> DemandsFor([NotNull] Command command, [NotNull] FeedUri interfaceUri)
             {
                 if (command.Bindings.OfType<ExecutableInBinding>().Any())
                     throw new NotSupportedException("<executable-in-*> not supported in <command>");
 
                 if (command.Runner != null)
-                    yield return command.Runner.ToRequirements(_topLevelRequirements);
-
-                foreach (var dependency in command.Dependencies)
                 {
-                    foreach (var requirements in RequirementsFor(dependency))
-                        yield return requirements;
+                    var requirements = new Requirements(command.Runner.InterfaceUri, command.Runner.Command ?? Command.NameRun, _topLevelRequirements.Architecture);
+                    requirements.AddRestriction(command.Runner);
+                    requirements.AddRestrictions(_topLevelRequirements);
+                    yield return Demand(requirements);
                 }
 
-                foreach (var requirements in command.ToBindingRequirements(interfaceUri))
+                foreach (var requirements in command.Dependencies.SelectMany(DemandsFor))
                     yield return requirements;
+
+                foreach (var requirements in command.ToBindingRequirements(interfaceUri))
+                    yield return Demand(requirements);
             }
+
+            [NotNull]
+            private SolverDemand Demand([NotNull] Requirements requirements, Importance importance = Importance.Essential)
+                => new SolverDemand(requirements, _candidateProvider, importance);
         }
     }
 }

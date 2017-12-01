@@ -157,53 +157,30 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <summary>
-        /// Creates <see cref="Requirements"/> for solving a <see cref="Dependency"/> or <see cref="Restriction"/>.
+        /// Adds the version restriction from <paramref name="source"/> to the <paramref name="requirements"/>.
         /// </summary>
-        /// <param name="dependency">The dependency or restriction to solve.</param>
-        /// <param name="topLevelRequirements">The top-level requirements specifying <see cref="Architecture"/> and custom restrictions.</param>
-        [NotNull]
-        public static Requirements ToRequirements([NotNull] this Restriction dependency, [NotNull] Requirements topLevelRequirements)
+        public static void AddRestriction([NotNull] this Requirements requirements, [NotNull] Restriction source)
         {
             #region Sanity checks
-            if (dependency == null) throw new ArgumentNullException(nameof(dependency));
-            if (topLevelRequirements == null) throw new ArgumentNullException(nameof(topLevelRequirements));
+            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
+            if (source == null) throw new ArgumentNullException(nameof(source));
             #endregion
 
-            var requirements = new Requirements(dependency.InterfaceUri, "", topLevelRequirements.Architecture);
-            requirements.Distributions.AddRange(dependency.Distributions);
-            requirements.CopyVersionRestrictions(from: dependency);
-            requirements.CopyVersionRestrictions(from: topLevelRequirements);
-            return requirements;
+            if (source.Versions != null)
+                requirements.AddRestriction(source.InterfaceUri, source.Versions);
         }
 
         /// <summary>
-        /// Creates <see cref="Requirements"/> for solving a <see cref="Runner"/> dependency.
+        /// Adds the version restrictions from <paramref name="source"/> to the <paramref name="requirements"/>.
         /// </summary>
-        /// <param name="runner">The dependency to solve.</param>
-        /// <param name="topLevelRequirements">The top-level requirements specifying <see cref="Architecture"/> and custom restrictions.</param>
-        [NotNull]
-        public static Requirements ToRequirements([NotNull] this Runner runner, [NotNull] Requirements topLevelRequirements)
+        public static void AddRestrictions([NotNull] this Requirements requirements, [NotNull] Requirements source)
         {
             #region Sanity checks
-            if (runner == null) throw new ArgumentNullException(nameof(runner));
-            if (topLevelRequirements == null) throw new ArgumentNullException(nameof(topLevelRequirements));
+            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
+            if (source == null) throw new ArgumentNullException(nameof(source));
             #endregion
 
-            var requirements = new Requirements(runner.InterfaceUri, runner.Command ?? Command.NameRun, topLevelRequirements.Architecture);
-            requirements.CopyVersionRestrictions(from: runner);
-            requirements.CopyVersionRestrictions(from: topLevelRequirements);
-            return requirements;
-        }
-
-        private static void CopyVersionRestrictions([NotNull] this Requirements requirements, [NotNull] Restriction from)
-        {
-            if (from.Versions != null)
-                requirements.AddRestriction(from.InterfaceUri, from.Versions);
-        }
-
-        private static void CopyVersionRestrictions([NotNull] this Requirements requirements, [NotNull] Requirements from)
-        {
-            foreach (var restriction in from.ExtraRestrictions)
+            foreach (var restriction in source.ExtraRestrictions)
                 requirements.AddRestriction(restriction.Key, restriction.Value);
         }
 

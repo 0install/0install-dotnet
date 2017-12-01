@@ -26,7 +26,6 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Values;
 using Newtonsoft.Json;
 using ZeroInstall.Store.Model.Design;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Store.Model
 {
@@ -131,12 +130,6 @@ namespace ZeroInstall.Store.Model
         [Browsable(false)]
         [XmlIgnore, JsonIgnore, NotNull]
         public ICollection<string> Distributions { get; } = new List<string>();
-
-        /// <summary>
-        /// Flag used by Solvers internally to track that this sub-requirement is not mandatory for the overall <see cref="Selections"/>.
-        /// </summary>
-        [XmlIgnore, JsonIgnore]
-        public bool Optional { get; set; }
 
         /// <summary>
         /// Cretes an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.
