@@ -144,21 +144,18 @@ namespace ZeroInstall.Store.Feeds
             }
         }
 
-        private readonly object _replaceLock = new object();
-
         /// <summary>
         /// Writes the entire content of a byte array to file atomically.
         /// </summary>
         /// <param name="data">The data to write.</param>
         /// <param name="path">The file to write to.</param>
-        private void WriteToFile(byte[] data, string path)
+        private static void WriteToFile(byte[] data, string path)
         {
-            lock (_replaceLock)
-                using (var atomic = new AtomicWrite(path))
-                {
-                    File.WriteAllBytes(atomic.WritePath, data);
-                    atomic.Commit();
-                }
+            using (var atomic = new AtomicWrite(path))
+            {
+                File.WriteAllBytes(atomic.WritePath, data);
+                atomic.Commit();
+            }
         }
 
         /// <inheritdoc/>

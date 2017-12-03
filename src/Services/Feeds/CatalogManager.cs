@@ -184,7 +184,13 @@ namespace ZeroInstall.Services.Feeds
             var path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
             if (string.IsNullOrEmpty(path)) return new[] {DefaultSource};
 
-            return File.ReadAllLines(path, Encoding.UTF8)
+            string[] ReadAllLines()
+            {
+                using (new AtomicRead(path))
+                    return File.ReadAllLines(path, Encoding.UTF8);
+            }
+
+            return ReadAllLines()
                 .Except(string.IsNullOrEmpty)
                 .Except(line => line.StartsWith("#"))
                 .Select(line => new FeedUri(line))

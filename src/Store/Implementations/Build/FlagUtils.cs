@@ -106,13 +106,16 @@ namespace ZeroInstall.Store.Implementations.Build
             string flagDir = FindRootDir(flagName, directoryPath);
             if (flagDir == null) return new string[0];
 
-            var externalFlags = new HashSet<string>();
-            using (StreamReader flagFile = File.OpenText(Path.Combine(flagDir, flagName)))
+            string path = Path.Combine(flagDir, flagName);
+            using (new AtomicRead(path))
+            using (var reader = File.OpenText(path))
             {
+                var externalFlags = new HashSet<string>();
+
                 // Each line in the file signals a flagged file
-                while (!flagFile.EndOfStream)
+                while (!reader.EndOfStream)
                 {
-                    string line = flagFile.ReadLine();
+                    string line = reader.ReadLine();
                     if (line != null && line.StartsWith("/"))
                     {
                         // Trim away the first slash and then replace Unix-style slashes
@@ -120,8 +123,9 @@ namespace ZeroInstall.Store.Implementations.Build
                         externalFlags.Add(Path.Combine(flagDir, relativePath));
                     }
                 }
+
+                return externalFlags;
             }
-            return externalFlags;
         }
 
         /// <summary>

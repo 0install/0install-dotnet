@@ -160,6 +160,7 @@ namespace ZeroInstall.Store
         {
             try
             {
+                using (new AtomicRead(path))
                 using (var reader = new StreamReader(path, Encoding.UTF8))
                     _iniData = new StreamIniDataParser().ReadData(reader);
             }

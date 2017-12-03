@@ -144,8 +144,14 @@ namespace ZeroInstall.Store.Implementations
 
             if (!File.Exists(configPath)) yield break;
 
+            string[] ReadAllLines()
+            {
+                using (new AtomicRead(configPath))
+                    return File.ReadAllLines(configPath, Encoding.UTF8);
+            }
+
             foreach (string path in
-                from line in File.ReadAllLines(configPath, Encoding.UTF8)
+                from line in ReadAllLines()
                 where !line.StartsWith("#") && !string.IsNullOrEmpty(line)
                 select Environment.ExpandEnvironmentVariables(line))
             {

@@ -49,6 +49,7 @@ namespace ZeroInstall.Store.Trust
 
                 try
                 {
+                    using (new AtomicRead(PublicBundlePath))
                     using (var stream = File.OpenRead(PublicBundlePath))
                         return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
