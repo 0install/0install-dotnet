@@ -129,9 +129,9 @@ namespace ZeroInstall.Store
             Log.Debug("Saving Config to: " + path);
 
             using (var atomic = new AtomicWrite(path))
-            using (var writer = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding))
             {
-                new StreamIniDataParser().WriteData(writer, _iniData);
+                using (var writer = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding))
+                    new StreamIniDataParser().WriteData(writer, _iniData);
                 atomic.Commit();
             }
         }
