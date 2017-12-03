@@ -61,7 +61,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Tries to aquire a mutex with the name <see cref="MutexName"/>. Call this at the end of your constructors.
         /// </summary>
-        /// <exception cref="UnauthorizedAccessException">Another process is already holding the mutex.</exception>
+        /// <exception cref="TimeoutException">Another process is already holding the mutex.</exception>
         protected void AquireMutex()
         {
 #if !NETSTANDARD2_0
@@ -77,25 +77,8 @@ namespace ZeroInstall.Store
                 _mutex = new Mutex(false, MutexName);
             }
 
-            try
-            {
-                switch (WaitHandle.WaitAny(new[] {_mutex, Handler.CancellationToken.WaitHandle},
-                    millisecondsTimeout: (Handler.Verbosity == Verbosity.Batch) ? 30000 : 1000, exitContext: false))
-                {
-                    case 0:
-                        return;
-                    case 1:
-                        throw new OperationCanceledException();
-                    default:
-                    case WaitHandle.WaitTimeout:
-                        throw new UnauthorizedAccessException("Another process is already holding the mutex " + MutexName + ".");
-                }
-            }
-            catch (AbandonedMutexException ex)
-            {
-                // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere
-                Log.Warn(ex.Message);
-            }
+            var timeout = TimeSpan.FromSeconds((Handler.Verbosity == Verbosity.Batch) ? 30 : 1);
+            _mutex.WaitOne(timeout, Handler.CancellationToken);
         }
 
         /// <inheritdoc/>

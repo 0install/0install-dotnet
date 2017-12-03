@@ -79,13 +79,10 @@ namespace ZeroInstall.DesktopIntegration
             {
                 AquireMutex();
             }
-                #region Error handling
-            catch (UnauthorizedAccessException)
+            catch (TimeoutException)
             {
-                // Replace exception to add more context
                 throw new UnauthorizedAccessException(Resources.IntegrationMutex);
             }
-            #endregion
 
             try
             {
