@@ -185,7 +185,7 @@ namespace ZeroInstall.Services.Feeds
         {
             // Double-checked locking
             if (IsCheckAttemptDelayed(feedUri)) return true;
-            using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.IsStaleOnce"))
+            using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.RateLimit"))
             {
                 if (IsCheckAttemptDelayed(feedUri)) return true;
                 SetLastCheckAttempt(feedUri);
