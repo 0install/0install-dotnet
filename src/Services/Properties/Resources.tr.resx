@@ -193,12 +193,6 @@
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>'{0}' uygulaması için alma yöntemi bulunamadı.</value>
   </data>
-  <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Sürüm seçilmemiş</value>
-  </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(önbelleğe alınmadı)</value>
-  </data>
   <data name="NotInterfaceUri" xml:space="preserve">
     <value>'{0}' arabirimi 'http:' ile başlamıyor ve '{1}' dosyası olarak da bulunamadı.</value>
   </data>

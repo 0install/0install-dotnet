@@ -193,12 +193,6 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Es wurden keine Downloadmethoden für die Implementierung '{0}' gefunden.</value>
   </data>
-  <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Keine ausgewählte Version</value>
-  </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(nicht gecacht)</value>
-  </data>
   <data name="NotInterfaceUri" xml:space="preserve">
     <value>Das Interface '{0}' fängt nicht mit 'http:' an und ist auch existiert auch nicht als Datei '{1}'.</value>
   </data>

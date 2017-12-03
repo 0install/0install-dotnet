@@ -306,11 +306,17 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>'{0}' yolu kesin bir yol değil. Bağıl yollar yalnız taşınabilir kipte kullanılabilir.
 '{1}' yapılandırma dosyasında belirtilmiştir.</value>
   </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>Sürüm seçilmemiş</value>
+  </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kendisi bir uygulama önbelleğinden kaldıramaz.</value>
   </data>
   <data name="NoSuitableIconFound" xml:space="preserve">
     <value>Uygun simge bulunamadı.</value>
+  </data>
+  <data name="NotCached" xml:space="preserve">
+    <value>(önbelleğe alınmadı)</value>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Numara değeri çok büyük.</value>

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Services
 {
@@ -31,5 +32,19 @@ namespace ZeroInstall.Services
         /// <param name="selections">The <see cref="ImplementationSelection"/>s to map back to <see cref="Implementation"/>s.</param>
         [NotNull, ItemNotNull]
         IEnumerable<Implementation> GetImplementations([NotNull] IEnumerable<ImplementationSelection> selections);
+
+        /// <summary>
+        /// Generates a tree representation of the dependencies within the selections.
+        /// </summary>
+        [NotNull]
+        IEnumerable<SelectionsTreeNode> GetTree([NotNull] Selections selections);
+
+        /// <summary>
+        /// Generates a list of differences between two selections.
+        /// </summary>
+        /// <param name="oldSelections">The old selections to base the comparison on.</param>
+        /// <param name="newSelections">The new selections to compare against.</param>
+        [NotNull]
+        IEnumerable<SelectionsDiffNode> GetDiff([NotNull] Selections oldSelections, [NotNull] Selections newSelections);
     }
 }

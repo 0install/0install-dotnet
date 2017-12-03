@@ -195,12 +195,6 @@
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Καμία μέθοδος ανάκτησης για την εφαρμογή '{0}' δεν βρέθηκε.</value>
   </data>
-  <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Καμμια επιλεγμενη έκδοση</value>
-  </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(όχι προσωρινή αποθήκευση)</value>
-  </data>
   <data name="NotInterfaceUri" xml:space="preserve">
     <value>Η διεπαφή '{0}' δεν ξεκινά με 'http:' και δεν υπάρχει ως αρχείο '{1}'.</value>
   </data>

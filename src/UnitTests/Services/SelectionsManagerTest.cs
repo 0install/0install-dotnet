@@ -25,6 +25,8 @@ using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Store.Properties;
+using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Services
 {
@@ -113,5 +115,75 @@ namespace ZeroInstall.Services
             _selectionsManager.GetImplementations(implementationSelections)
                 .Should().BeEquivalentTo(impl1, impl2, impl3);
         }
+
+        [Fact]
+        public void TestGetTree()
+        {
+            var digest1 = new ManifestDigest(sha256New: "a");
+            var digest2 = new ManifestDigest(sha256New: "b");
+
+            _storeMock.Setup(x => x.GetPath(digest1)).Returns("fake/path");
+            _storeMock.Setup(x => x.GetPath(digest2)).Returns<string>(null);
+
+            var tree = _selectionsManager.GetTree(new Selections
+            {
+                InterfaceUri = new FeedUri("http://root/"),
+                Implementations =
+                {
+                    new ImplementationSelection
+                    {
+                        InterfaceUri = new FeedUri("http://root/"),
+                        ID = "a",
+                        ManifestDigest = digest1,
+                        Version = new ImplementationVersion("1.0"),
+                        Dependencies =
+                        {
+                            new Dependency{InterfaceUri = new FeedUri("http://dependency/")},
+                            new Dependency{InterfaceUri = new FeedUri("http://missing/")}
+                        }
+                    },
+                    new ImplementationSelection
+                    {
+                        InterfaceUri = new FeedUri("http://dependency/"),
+                        ID = "b",
+                        ManifestDigest = digest2,
+                        Version = new ImplementationVersion("2.0"),
+                        Dependencies = {new Dependency{InterfaceUri = new FeedUri("http://root/")}} // Exercise cycle detection
+                    }
+                }
+            });
+
+            var node1 = new SelectionsTreeNode(new FeedUri("http://root/"), new ImplementationVersion("1.0"), "fake/path", parent: null);
+            node1.ToString().Should().Be("- URI: http://root/\n  Version: 1.0\n  Path: fake/path");
+
+            var node2 = new SelectionsTreeNode(new FeedUri("http://dependency/"), new ImplementationVersion("2.0"), path: null, parent: node1);
+            node2.ToString().Should().Be($"  - URI: http://dependency/\n    Version: 2.0\n    {Resources.NotCached}");
+
+            var node3 = new SelectionsTreeNode(new FeedUri("http://missing/"), version: null, path: null, parent: node1);
+            node3.ToString().Should().Be($"  - URI: http://missing/\n    {Resources.NoSelectedVersion}");
+
+            tree.Should().Equal(node1, node2, node3);
+        }
+
+        [Fact]
+        public void TestGetDiff() => _selectionsManager.GetDiff(
+            oldSelections: new Selections
+            {
+                Implementations =
+                {
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new ImplementationVersion("1.0")},
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed2"), Version = new ImplementationVersion("1.0")}
+                }
+            }, newSelections: new Selections
+            {
+                Implementations =
+                {
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new ImplementationVersion("2.0")},
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new ImplementationVersion("2.0")}
+                }
+            }).Should().BeEquivalentTo(
+                new SelectionsDiffNode(new FeedUri("http://feed1"), oldVersion: new ImplementationVersion("1.0"), newVersion: new ImplementationVersion("2.0")),
+                new SelectionsDiffNode(new FeedUri("http://feed2"), oldVersion: new ImplementationVersion("1.0")),
+                new SelectionsDiffNode(new FeedUri("http://feed3"), newVersion: new ImplementationVersion("2.0")));
     }
 }

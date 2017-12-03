@@ -281,24 +281,6 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No selected version.
-        /// </summary>
-        internal static string NoSelectedVersion {
-            get {
-                return ResourceManager.GetString("NoSelectedVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to (not cached).
-        /// </summary>
-        internal static string NotCached {
-            get {
-                return ResourceManager.GetString("NotCached", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The interface &apos;{0}&apos; doesn&apos;t start with &apos;http:&apos; and doesn&apos;t exist as a file &apos;{1}&apos; either..
         /// </summary>
         internal static string NotInterfaceUri {
