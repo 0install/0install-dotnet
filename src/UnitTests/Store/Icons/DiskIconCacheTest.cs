@@ -39,22 +39,9 @@ namespace ZeroInstall.Store.Icons
             // Create a temporary cache
             _tempDir = new TemporaryDirectory("0install-unit-tests");
             _cache = new DiskIconCache(_tempDir);
-
-            // Add some dummy icons to the cache
-            File.WriteAllText(Path.Combine(_tempDir, new FeedUri("http://0install.de/feeds/images/test1.png").Escape()), "");
-            File.WriteAllText(Path.Combine(_tempDir, new FeedUri("http://0install.de/feeds/images/test2.png").Escape()), "");
-            File.WriteAllText(Path.Combine(_tempDir, "http_invalid"), "");
         }
 
         public void Dispose() => _tempDir.Dispose();
-
-        [Fact]
-        public void TestContains()
-        {
-            _cache.Contains(new Uri("http://0install.de/feeds/images/test1.png")).Should().BeTrue();
-            _cache.Contains(new Uri("http://0install.de/feeds/images/test2.png")).Should().BeTrue();
-            _cache.Contains(new Uri("http://0install.de/feeds/test/test3.xml")).Should().BeFalse();
-        }
 
         /// <summary>
         /// Ensures <see cref="DiskIconCache.GetIcon"/> works correctly for icons that are already in the cache.
@@ -62,9 +49,10 @@ namespace ZeroInstall.Store.Icons
         [Fact]
         public void TestGetIconCached()
         {
-            const string icon1 = "http://0install.de/feeds/images/test1.png";
-            _cache.GetIcon(new Uri(icon1), new SilentTaskHandler())
-                .Should().Be(Path.Combine(_tempDir, new FeedUri(icon1).Escape()));
+            var icon1 = new FeedUri("http://0install.de/feeds/images/test1.png");
+            File.WriteAllText(Path.Combine(_tempDir, icon1.Escape()), "");
+            _cache.GetIcon(icon1, new SilentTaskHandler())
+                .Should().Be(Path.Combine(_tempDir, icon1.Escape()));
         }
 
         /// <summary>
@@ -98,17 +86,6 @@ namespace ZeroInstall.Store.Icons
                 string path = _cache.GetIcon(new Uri(server.FileUri + "-invalid"), new SilentTaskHandler());
                 File.ReadAllText(path).Should().Be(iconData);
             }
-        }
-
-        /// <summary>
-        /// Ensures <see cref="DiskIconCache.Remove"/> correctly removes an icon from the cache.
-        /// </summary>
-        [Fact]
-        public void TestRemove()
-        {
-            _cache.Remove(new Uri("http://0install.de/feeds/images/test1.png"));
-            _cache.Contains(new Uri("http://0install.de/feeds/images/test1.png")).Should().BeFalse();
-            _cache.Contains(new Uri("http://0install.de/feeds/images/test2.png")).Should().BeTrue();
         }
     }
 }

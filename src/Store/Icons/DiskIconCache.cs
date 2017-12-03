@@ -40,27 +40,7 @@ namespace ZeroInstall.Store.Icons
         /// </summary>
         /// <param name="path">A fully qualified directory path.</param>
         public DiskIconCache([NotNull] string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            DirectoryPath = path;
-        }
-        
-        private readonly object _lock = new object();
-
-        /// <inheritdoc/>
-        public bool Contains(Uri iconUrl)
-        {
-            #region Sanity checks
-            if (iconUrl == null) throw new ArgumentNullException(nameof(iconUrl));
-            #endregion
-
-            string path = Path.Combine(DirectoryPath, new FeedUri(iconUrl).Escape());
-
-            return File.Exists(path);
-        }
+            => DirectoryPath = path ?? throw new ArgumentNullException(nameof(path));
 
         /// <inheritdoc/>
         public string GetIcon(Uri iconUrl, ITaskHandler handler)
@@ -72,36 +52,16 @@ namespace ZeroInstall.Store.Icons
 
             string path = Path.Combine(DirectoryPath, new FeedUri(iconUrl).Escape());
 
-            // Prevent file-exists race conditions
-            lock (_lock)
+            if (!File.Exists(path))
             {
-                // Download missing icons
-                if (!File.Exists(path))
+                using (var atomic = new AtomicWrite(path))
                 {
-                    using (var atomic = new AtomicWrite(path))
-                    {
-                        handler.RunTask(new DownloadFile(iconUrl, atomic.WritePath));
-                        atomic.Commit();
-                    }
+                    handler.RunTask(new DownloadFile(iconUrl, atomic.WritePath));
+                    atomic.Commit();
                 }
             }
 
             return path;
-        }
-
-        /// <inheritdoc/>
-        public void Remove(Uri iconUrl)
-        {
-            #region Sanity checks
-            if (iconUrl == null) throw new ArgumentNullException(nameof(iconUrl));
-            #endregion
-
-            string path = Path.Combine(DirectoryPath, new FeedUri(iconUrl).Escape());
-
-            lock (_lock)
-            {
-                File.Delete(path);
-            }
         }
     }
 }

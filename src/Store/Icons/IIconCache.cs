@@ -13,16 +13,6 @@ namespace ZeroInstall.Store.Icons
     public interface IIconCache
     {
         /// <summary>
-        /// Determines whether this cache contains a local copy of an icon located at a specific URL.
-        /// </summary>
-        /// <param name="iconUrl">The location of the icon. Must be an HTTP(S) URL.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified icon is available in this cache;
-        ///   <c>false</c> if the specified icon is not available in this cache.
-        /// </returns>
-        bool Contains([NotNull] Uri iconUrl);
-
-        /// <summary>
         /// Gets a specific icon from this cache. If the icon is missing it will be downloaded automatically.
         /// </summary>
         /// <param name="iconUrl">The location of the icon. Must be an HTTP(S) URL.</param>
@@ -34,13 +24,5 @@ namespace ZeroInstall.Store.Icons
         /// <exception cref="WebException">A problem occured while downloading the icon.</exception>
         [NotNull]
         string GetIcon([NotNull] Uri iconUrl, [NotNull] ITaskHandler handler);
-
-        /// <summary>
-        /// Removes a specific icon from this cache.
-        /// </summary>
-        /// <param name="iconUrl">The location of the icon. Must be an HTTP(S) URL.</param>
-        /// <exception cref="IOException">The icon could not be deleted.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-        void Remove([NotNull] Uri iconUrl);
     }
 }
