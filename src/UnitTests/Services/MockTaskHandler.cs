@@ -42,7 +42,8 @@ namespace ZeroInstall.Services
         protected override void LogHandler(LogSeverity severity, string message)
         {}
 
-        public override void RunTask(ITask task) => task.Run();
+        /// <inheritdoc/>
+        public override void RunTask(ITask task) => task.Run(CancellationToken, CredentialProvider);
 
         /// <summary>
         /// Fakes asking the user a question.
@@ -67,7 +68,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
         /// </summary>
-        public IEnumerable LastOutputObjects { get; set; }
+        public IEnumerable LastOutputObjects { get; private set; }
 
         /// <summary>
         /// Fakes showing tabular data to the user.
