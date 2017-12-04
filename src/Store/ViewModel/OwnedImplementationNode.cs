@@ -59,7 +59,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <summary>
         /// The URI of the feed describing the implementation.
         /// </summary>
-        [Description("The URI of the feed describing the implementation.")]
+        [DisplayName("Feed URI"), Description("The URI of the feed describing the implementation.")]
         public FeedUri FeedUri => _parent.Uri;
 
         /// <summary>

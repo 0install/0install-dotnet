@@ -72,10 +72,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return Name?.GetHashCode() ?? 0;
-        }
+        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
         #endregion
 
         #region Comparison
