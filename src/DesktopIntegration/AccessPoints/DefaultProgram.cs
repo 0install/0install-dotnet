@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Store.Model.Capabilities.DefaultProgram>(Capability);
-            return new[] {"clients:" + capability.Service};
+            return new[] {$"clients:{capability.Service}"};
         }
 
         /// <inheritdoc/>

@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Store.Model.Capabilities.ContextMenu>(Capability);
-            return new[] {"context-menu-" + capability.Target + ":" + capability.ID + @"\" + capability.Verb};
+            return new[] {$@"context-menu-{capability.Target}:{capability.ID}\{capability.Verb}"};
         }
 
         /// <inheritdoc/>

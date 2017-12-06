@@ -39,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #endregion
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {"desktop:" + Name};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"desktop:{Name}"};
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)

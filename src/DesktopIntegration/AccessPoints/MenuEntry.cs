@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #endregion
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {"menu:" + Category + @"\" + Name};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$@"menu:{Category}\{Name}"};
 
         /// <summary>
         /// The category or folder in the menu to add the entry to. Leave empty for top-level entry.

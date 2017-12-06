@@ -35,7 +35,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <inheritdoc/>
         public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => string.IsNullOrEmpty(ID)
             ? Enumerable.Empty<string>()
-            : new[] {"mock:" + ID};
+            : new[] {$"mock:{ID}"};
 
         /// <summary>
         /// An indentifier that controls the result of <see cref="GetConflictIDs"/>.

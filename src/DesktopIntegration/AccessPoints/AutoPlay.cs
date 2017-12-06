@@ -41,7 +41,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Store.Model.Capabilities.AutoPlay>(Capability);
-            return capability.Events.Select(@event => "autoplay-event:" + @event.Name);
+            return capability.Events.Select(@event => $"autoplay-event:{@event.Name}");
         }
 
         /// <inheritdoc/>

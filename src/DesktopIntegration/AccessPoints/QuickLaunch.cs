@@ -32,7 +32,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     public class QuickLaunch : IconAccessPoint, IEquatable<QuickLaunch>
     {
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {"quick-launch:" + Name};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"quick-launch:{Name}"};
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)

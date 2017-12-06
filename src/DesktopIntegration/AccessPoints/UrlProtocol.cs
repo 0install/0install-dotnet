@@ -41,8 +41,9 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Store.Model.Capabilities.UrlProtocol>(Capability);
-            if (capability.KnownPrefixes.Count == 0) return new[] {"protocol:" + capability.ID};
-            return capability.KnownPrefixes.Select(prefix => "protocol:" + prefix.Value);
+            return (capability.KnownPrefixes.Count == 0)
+                ? new[] {$"protocol:{capability.ID}"}
+                : capability.KnownPrefixes.Select(prefix => $"protocol:{prefix.Value}");
         }
 
         /// <inheritdoc/>
