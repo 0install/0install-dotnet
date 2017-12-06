@@ -87,7 +87,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Clone
         /// <inheritdoc/>
-        public override Capability Clone() => new ContextMenu {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Target = Target, Verb = Verb.Clone()};
+        public override Capability Clone() => new ContextMenu {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Target = Target, Verb = Verb?.Clone()};
         #endregion
 
         #region Equality
