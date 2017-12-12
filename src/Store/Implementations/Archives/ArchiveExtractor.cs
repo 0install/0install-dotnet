@@ -268,8 +268,16 @@ namespace ZeroInstall.Store.Implementations.Archives
             CancellationToken.ThrowIfCancellationRequested();
 
             string absolutePath = DirectoryBuilder.NewFilePath(relativePath, lastWriteTime, executable);
-            using (var fileStream = File.Create(absolutePath))
-                if (fileSize != 0) StreamToFile(stream, fileStream);
+            try
+            {
+                using (var fileStream = File.Create(absolutePath))
+                    if (fileSize != 0) StreamToFile(stream, fileStream);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                // Missing directories usually indicate problems with long paths
+                throw new PathTooLongException(ex.Message, ex);
+            }
         }
 
         /// <summary>
