@@ -218,7 +218,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Extracts the archive.
         /// </summary>
         /// <exception cref="OperationCanceledException">The operation was canceled.</exception>
-        /// <exception cref="IOException">A problem occured while extracting the archive.</exception>
+        /// <exception cref="IOException">A problem occurred while extracting the archive.</exception>
         protected abstract void ExtractArchive();
 
         /// <summary>

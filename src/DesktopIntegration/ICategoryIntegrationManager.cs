@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="ConflictException">One or more of the <paramref name="categories"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="AppList"/>.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         void AddAccessPointCategories([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull, ItemNotNull] params string[] categories);
 

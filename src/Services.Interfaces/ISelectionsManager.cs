@@ -20,7 +20,7 @@ namespace ZeroInstall.Services
         /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
         /// <remarks>Feed files may be downloaded, no implementations are downloaded.</remarks>
         /// <exception cref="KeyNotFoundException">A <see cref="Feed"/> or <see cref="Implementation"/> is missing.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
         [NotNull, ItemNotNull]

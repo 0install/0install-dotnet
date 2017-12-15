@@ -104,8 +104,8 @@ namespace ZeroInstall.Services.Feeds
         /// <returns>The parsed <see cref="Feed"/> object.</returns>
         /// <remarks><see cref="Feed"/>s are always served from the <see cref="IFeedCache"/> if possible, unless <see cref="Refresh"/> is set to <c>true</c>.</remarks>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="WebException">A problem occured while fetching the feed file.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="WebException">A problem occurred while fetching the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
         /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
@@ -147,7 +147,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
         /// <returns>The parsed <see cref="Feed"/> object.</returns>
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         [NotNull]
         private Feed LoadCached(FeedUri feedUri)
@@ -194,7 +194,7 @@ namespace ZeroInstall.Services.Feeds
             return false;
         }
 
-        private static readonly TimeSpan _checkAttemptDelay = new TimeSpan(1, 0, 0);
+        private static readonly TimeSpan _checkAttemptDelay = TimeSpan.FromHours(1);
 
         private static void SetLastCheckAttempt(FeedUri feedUri)
             => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
@@ -214,8 +214,8 @@ namespace ZeroInstall.Services.Feeds
         /// </summary>
         /// <param name="feedUri">The URL of the feed to download.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="WebException">A problem occured while fetching the feed file.</exception>
-        /// <exception cref="IOException">A problem occured while writing the feed file.</exception>
+        /// <exception cref="WebException">A problem occurred while fetching the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
@@ -271,7 +271,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="data">The content of the feed.</param>
         /// <param name="feedUri">The URI the feed originally came from.</param>
         /// <param name="localPath">The local file path the feed data came from. May be <c>null</c> for in-memory data.</param>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>

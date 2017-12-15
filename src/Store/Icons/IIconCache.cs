@@ -19,9 +19,9 @@ namespace ZeroInstall.Store.Icons
         /// <param name="handler">A callback object used when the the user is to be informed about icon downloading.</param>
         /// <returns>File path to the cached icon.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occured while adding the icon to the cache.</exception>
+        /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
-        /// <exception cref="WebException">A problem occured while downloading the icon.</exception>
+        /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
         [NotNull]
         string GetIcon([NotNull] Uri iconUrl, [NotNull] ITaskHandler handler);
     }

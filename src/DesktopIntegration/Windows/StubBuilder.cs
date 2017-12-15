@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
         public static string GetRunStub(FeedTarget target, [CanBeNull] string command, [NotNull] ITaskHandler handler, bool machineWide = false)
         {
@@ -88,7 +88,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         private static void CreateOrUpdateRunStub(FeedTarget target, [NotNull] string path, [CanBeNull] string command, bool needsTerminal, [NotNull] ITaskHandler handler)
         {
@@ -137,7 +137,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         internal static void BuildRunStub(FeedTarget target, [NotNull] string path, [NotNull] ITaskHandler handler, bool needsTerminal, [CanBeNull] string command = null)
         {

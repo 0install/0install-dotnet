@@ -14,7 +14,7 @@
             <summary>
             Gives a size of uncompressed data in bytes
             </summary>
-            <returns>Size of uncompressed data or 0 if error occured</returns>
+            <returns>Size of uncompressed data or 0 if error occurred</returns>
         </member>
     </members>
 </doc>

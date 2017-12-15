@@ -98,7 +98,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="accessPoint">Indicates that the file associations shall become default handlers for their respective types.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
         public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.FileType fileType, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)
@@ -280,7 +280,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="capability"/> is invalid.</exception>
         internal static void RegisterVerbCapability(RegistryKey registryKey, FeedTarget target, Store.Model.Capabilities.VerbCapability capability, bool machineWide, ITaskHandler handler)
@@ -332,7 +332,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Store the stub in a machine-wide directory instead of just for the current user.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
         internal static string GetLaunchCommandLine(FeedTarget target, Store.Model.Capabilities.Verb verb, bool machineWide, ITaskHandler handler)
         {

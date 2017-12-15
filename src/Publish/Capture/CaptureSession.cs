@@ -162,7 +162,7 @@ namespace ZeroInstall.Publish.Capture
         /// </summary>
         /// <param name="path">The file to load from.</param>
         /// <param name="feedBuilder">All collected data is stored into this builder. You can perform additional modifications before using <see cref="FeedBuilder.Build"/> to get a feed.</param>
-        /// <exception cref="IOException">A problem occured while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the binary data.</exception>
         [NotNull]
@@ -180,7 +180,7 @@ namespace ZeroInstall.Publish.Capture
         /// Saves the capture session to a snapshot file.
         /// </summary>
         /// <param name="path">The file to save in.</param>
-        /// <exception cref="IOException">A problem occured while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         public void Save([NotNull] string path)
         {

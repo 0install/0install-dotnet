@@ -45,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <returns>The path to the icon file.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         [NotNull]
         public static string GetIconPath([NotNull] Icon icon, [NotNull] ITaskHandler handler, bool machineWide)

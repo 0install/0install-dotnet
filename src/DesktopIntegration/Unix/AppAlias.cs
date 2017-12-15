@@ -41,7 +41,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="machineWide">Create the alias machine-wide instead of just for the current user.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         public static void Create(FeedTarget target, [CanBeNull] string command, [NotNull] string aliasName, [NotNull] ITaskHandler handler, bool machineWide)
         {

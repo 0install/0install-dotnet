@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Store.Model.Capabilities.Capability"/> is invalid.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The access point's data or a referenced <see cref="Store.Model.Capabilities.Capability"/>'s data are invalid.</exception>
         public abstract void Apply([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull] ITaskHandler handler, bool machineWide);

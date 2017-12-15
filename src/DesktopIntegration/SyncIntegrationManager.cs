@@ -148,7 +148,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="resetMode">Controls how synchronization data is reset.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data or the specified crypto key was wrong.</exception>
-        /// <exception cref="WebException">A problem occured while communicating with the sync server or while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while communicating with the sync server or while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public void Sync(SyncResetMode resetMode = SyncResetMode.None)
@@ -298,7 +298,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="ConflictException">One or more new <see cref="AccessPoint"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="AppList"/>.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <remarks>Performs a three-way merge using <see cref="_appListLastSync"/> as base.</remarks>
         private void MergeData([NotNull] AppList remoteAppList, bool resetClient)

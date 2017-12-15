@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Feeds
         /// A list of feed URIs (e.g. "http://somedomain.net/interface.xml").
         /// Usually these can also be considered interface URIs.
         /// </returns>
-        /// <exception cref="IOException">A problem occured while reading from the cache.</exception>
+        /// <exception cref="IOException">A problem occurred while reading from the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         [NotNull, ItemNotNull]
         IEnumerable<FeedUri> ListAll();
@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
         /// <returns>The parsed <see cref="Feed"/> object. Do not modify this object! It may be a reference to an in-memory cache entry.</returns>
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
         [NotNull]
@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
         /// <returns>A list of signatures found, both valid and invalid.</returns>
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">There is no valid signature data embedded in the feed data.</exception>
         [NotNull, ItemNotNull]
@@ -67,7 +67,7 @@ namespace ZeroInstall.Store.Feeds
         /// Gets the file path of the on-disk representation of a specific <see cref="Feed"/>.
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <returns>The fully qualified path to the feed file.</returns>
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
@@ -80,7 +80,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed. Must not be a local path.</param>
         /// <param name="data">The content of the feed file as a byte array.</param>
-        /// <exception cref="IOException">A problem occured while writing the feed file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
         /// <exception cref="InvalidOperationException"><paramref name="feedUri"/> is a a local path.</exception>

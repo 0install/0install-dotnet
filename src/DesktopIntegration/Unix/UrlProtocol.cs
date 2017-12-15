@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="accessPoint">Indicates that the handler shall become the default handler for the protocol.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
         public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)

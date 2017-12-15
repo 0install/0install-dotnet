@@ -35,7 +35,7 @@ namespace ZeroInstall.Services.Feeds
         /// Loads the last result of <see cref="GetOnline"/>.
         /// </summary>
         /// <returns>A <see cref="Catalog"/>; <c>null</c> if there is no cached data.</returns>
-        /// <exception cref="IOException">A problem occured while reading the cache file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the cache file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache file was not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
@@ -46,9 +46,9 @@ namespace ZeroInstall.Services.Feeds
         /// Downloads and merges all <see cref="Catalog"/>s specified by the configuration files.
         /// </summary>
         /// <returns>A <see cref="Catalog"/>.</returns>
-        /// <exception cref="IOException">A problem occured while reading a local catalog file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading a local catalog file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a local catalog file was not permitted.</exception>
-        /// <exception cref="WebException">A problem occured while fetching a remote catalog file.</exception>
+        /// <exception cref="WebException">A problem occurred while fetching a remote catalog file.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
         /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
         /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>

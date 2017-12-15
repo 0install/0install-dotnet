@@ -274,7 +274,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Store.Model.Capabilities.Capability"/> is invalid.</exception>
         /// <exception cref="ConflictException">One or more of the <paramref name="accessPoints"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="IIntegrationManager.AppList"/>.</exception>
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         protected abstract void AddAccessPointsInternal([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull, ItemNotNull, InstantHandle] IEnumerable<AccessPoint> accessPoints);
@@ -298,7 +298,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="ConflictException"><paramref name="appEntry"/> conflicts with the rest of the <see cref="AppList"/>.</exception>
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
-        /// <exception cref="WebException">A problem occured while downloading additional data (such as icons).</exception>
+        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         protected abstract void RepairAppInternal([NotNull] AppEntry appEntry, [NotNull] Feed feed);
