@@ -55,6 +55,8 @@ namespace ZeroInstall.Services.PackageManagers
                     return FindJre(7);
                 case "openjdk-8-jre":
                     return FindJre(8);
+                case "openjdk-9-jre":
+                    return FindJre(9);
 
                 case "openjdk-6-jdk":
                     return FindJdk(6);
@@ -62,6 +64,8 @@ namespace ZeroInstall.Services.PackageManagers
                     return FindJdk(7);
                 case "openjdk-8-jdk":
                     return FindJdk(8);
+                case "openjdk-9-jdk":
+                    return FindJdk(9);
 
                 case "netfx":
                     return new[]
