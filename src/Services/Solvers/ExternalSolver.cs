@@ -41,7 +41,6 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Uses an external process controlled via a IPC to solve requirements. The external process is itself provided by another <see cref="ISolver"/>.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class ExternalSolver : ISolver
     {
         private const string ApiVersion = "2.7";
