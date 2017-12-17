@@ -85,6 +85,9 @@ namespace ZeroInstall.Services.PackageManagers
                 case "netfx-client":
                     return FindNetFx(new ImplementationVersion("4.0"), WindowsUtils.NetFx40, @"v4\Client");
 
+                case "powershell":
+                    return FindPowerShell();
+
                 default:
                     return Enumerable.Empty<ExternalImplementation>();
             }
@@ -163,6 +166,39 @@ namespace ZeroInstall.Services.PackageManagers
                 release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
                 if (install == 1 && release >= releaseNumber)
                     yield return Impl(Cpu.I486);
+            }
+        }
+
+        private IEnumerable<ExternalImplementation> FindPowerShell()
+        {
+            ExternalImplementation Impl(string baseVersion, bool wow6432)
+            {
+                string regPrefix = $@"HKEY_LOCAL_MACHINE\SOFTWARE\{(wow6432 ? @"Wow6432Node\" : "")}Microsoft\PowerShell\{baseVersion}";
+                if (RegistryUtils.GetDword(regPrefix, "Install") != 1) return null;
+
+                return new ExternalImplementation(DistributionName, "powershell",
+                    version: new ImplementationVersion(RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "PowerShellVersion")),
+                    cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
+                {
+                    Commands =
+                    {
+                        new Command
+                        {
+                            Name = Command.NameRun,
+                            Path = Path.Combine(RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "ApplicationBase"), "powershell.exe")
+                        }
+                    },
+                    IsInstalled = true
+                };
+            }
+
+            var impl = Impl(baseVersion: "3", wow6432: false) ?? Impl(baseVersion: "1", wow6432: false);
+            if (impl != null) yield return impl;
+
+            if (OSUtils.Is64BitProcess)
+            {
+                impl = Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true);
+                if (impl != null) yield return impl;
             }
         }
     }
