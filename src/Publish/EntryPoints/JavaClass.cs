@@ -39,19 +39,16 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        public override Command CreateCommand()
+        public override Command CreateCommand() => new Command
         {
-            return new Command
+            Name = CommandName,
+            Path = RelativePath,
+            Runner = new Runner
             {
-                Name = CommandName,
-                Path = RelativePath,
-                Runner = new Runner
-                {
-                    InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
-                    Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = (VersionRange)MinimumRuntimeVersion
-                }
-            };
-        }
+                InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
+                Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
+                Versions = (VersionRange)MinimumRuntimeVersion
+            }
+        };
     }
 }

@@ -40,32 +40,29 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        public override Command CreateCommand()
-        {
-            return ExternalDependencies
-                ? new Command
+        public override Command CreateCommand() => ExternalDependencies
+            ? new Command
+            {
+                Name = CommandName,
+                Bindings = {new EnvironmentBinding {Name = "CLASSPATH", Insert = RelativePath}},
+                Runner = new Runner
                 {
-                    Name = CommandName,
-                    Bindings = {new EnvironmentBinding {Name = "CLASSPATH", Insert = RelativePath}},
-                    Runner = new Runner
-                    {
-                        InterfaceUri = new FeedUri("http://repo.roscidus.com/java/jar-launcher"),
-                        Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                        Versions = (VersionRange)MinimumRuntimeVersion
-                    }
+                    InterfaceUri = new FeedUri("http://repo.roscidus.com/java/jar-launcher"),
+                    Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
+                    Versions = (VersionRange)MinimumRuntimeVersion
                 }
-                : new Command
+            }
+            : new Command
+            {
+                Name = CommandName,
+                Path = RelativePath,
+                Runner = new Runner
                 {
-                    Name = CommandName,
-                    Path = RelativePath,
-                    Runner = new Runner
-                    {
-                        InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
-                        Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                        Arguments = {@"-jar"},
-                        Versions = (VersionRange)MinimumRuntimeVersion
-                    }
-                };
-        }
+                    InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
+                    Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
+                    Arguments = {@"-jar"},
+                    Versions = (VersionRange)MinimumRuntimeVersion
+                }
+            };
     }
 }

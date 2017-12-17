@@ -86,51 +86,38 @@ namespace ZeroInstall.Services.PackageManagers
             }
         }
 
-        private IEnumerable<ExternalImplementation> FindJre(int version)
-        {
-            return FindJava(version,
-                typeShort: "jre",
-                typeLong: "Java Runtime Environment",
-                mainExe: "java",
-                secondaryCommand: Command.NameRunGui,
-                secondaryExe: "javaw");
-        }
+        private IEnumerable<ExternalImplementation> FindJre(int version) => FindJava(version,
+            typeShort: "jre",
+            typeLong: "Java Runtime Environment",
+            mainExe: "java",
+            secondaryCommand: Command.NameRunGui,
+            secondaryExe: "javaw");
 
-        private IEnumerable<ExternalImplementation> FindJdk(int version)
-        {
-            return FindJava(version,
-                typeShort: "jdk",
-                typeLong: "Java Development Kit",
-                mainExe: "javac",
-                secondaryCommand: "java",
-                secondaryExe: "java");
-        }
+        private IEnumerable<ExternalImplementation> FindJdk(int version) => FindJava(version,
+            typeShort: "jdk",
+            typeLong: "Java Development Kit",
+            mainExe: "javac",
+            secondaryCommand: "java",
+            secondaryExe: "java");
 
         private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
-        {
-            foreach (var javaHome in GetRegistredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome"))
-            {
-                string mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe");
-                string secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe");
-
-                if (File.Exists(mainPath) && File.Exists(secondaryPath))
+            => from javaHome in GetRegistredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
+                let mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe")
+                let secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe")
+                where File.Exists(mainPath) && File.Exists(secondaryPath)
+                select new ExternalImplementation(DistributionName,
+                    package: "openjdk-" + version + "-" + typeShort,
+                    version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion.GetLeftPartAtLastOccurrence(".")), // Trim patch level
+                    cpu: javaHome.Key)
                 {
-                    yield return new ExternalImplementation(DistributionName,
-                        package: "openjdk-" + version + "-" + typeShort,
-                        version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion.GetLeftPartAtLastOccurrence(".")), // Trim patch level
-                        cpu: javaHome.Key)
+                    Commands =
                     {
-                        Commands =
-                        {
-                            new Command {Name = Command.NameRun, Path = mainPath},
-                            new Command {Name = secondaryCommand, Path = secondaryPath}
-                        },
-                        IsInstalled = true,
-                        QuickTestFile = mainPath
-                    };
-                }
-            }
-        }
+                        new Command {Name = Command.NameRun, Path = mainPath},
+                        new Command {Name = secondaryCommand, Path = secondaryPath}
+                    },
+                    IsInstalled = true,
+                    QuickTestFile = mainPath
+                };
 
         private static IEnumerable<KeyValuePair<Cpu, string>> GetRegistredPaths(string registrySuffix, string valueName)
         {
@@ -151,19 +138,19 @@ namespace ZeroInstall.Services.PackageManagers
         // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
         private IEnumerable<ExternalImplementation> FindNetFx(ImplementationVersion version, string clrVersion, string registryVersion, int releaseNumber = 0)
         {
+            ExternalImplementation Impl(Cpu cpu) => new ExternalImplementation(DistributionName, "netfx", version, cpu)
+            {
+                // .NET executables do not need a runner on Windows
+                Commands = {new Command {Name = Command.NameRun, Path = ""}},
+                IsInstalled = true,
+                QuickTestFile = Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion), "mscorlib.dll")
+            };
+
             // Check for system native architecture (may be 32-bit or 64-bit)
             int install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
             int release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
             if (install == 1 && release >= releaseNumber)
-            {
-                yield return new ExternalImplementation(DistributionName, "netfx", version, Architecture.CurrentSystem.Cpu)
-                {
-                    // .NET executables do not need a runner on Windows
-                    Commands = {new Command {Name = Command.NameRun, Path = ""}},
-                    IsInstalled = true,
-                    QuickTestFile = GetNetfxQuickTestFile(clrVersion)
-                };
-            }
+                yield return Impl(Architecture.CurrentSystem.Cpu);
 
             // Check for 32-bit on a 64-bit system
             if (OSUtils.Is64BitProcess)
@@ -171,21 +158,8 @@ namespace ZeroInstall.Services.PackageManagers
                 install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
                 release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
                 if (install == 1 && release >= releaseNumber)
-                {
-                    yield return new ExternalImplementation(DistributionName, "netfx", version, Cpu.I486)
-                    {
-                        // .NET executables do not need a runner on Windows
-                        Commands = {new Command {Name = Command.NameRun, Path = ""}},
-                        IsInstalled = true,
-                        QuickTestFile = GetNetfxQuickTestFile(clrVersion)
-                    };
-                }
+                    yield return Impl(Cpu.I486);
             }
-        }
-
-        private static string GetNetfxQuickTestFile(string clrVersion)
-        {
-            return Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion), "mscorlib.dll");
         }
     }
 }

@@ -57,11 +57,16 @@ namespace ZeroInstall.Publish.EntryPoints
         protected override FeedUri InterpreterInterface => new FeedUri("http://repo.roscidus.com/python/python");
 
         /// <inheritdoc/>
-        public override Command CreateCommand()
+        public override Command CreateCommand() => new Command
         {
-            var command = base.CreateCommand();
-            command.Runner.Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui;
-            return command;
-        }
+            Name = CommandName,
+            Path = RelativePath,
+            Runner = new Runner
+            {
+                InterfaceUri = InterpreterInterface,
+                Versions = InterpreterVersions,
+                Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui
+            }
+        };
     }
 }

@@ -78,6 +78,33 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <inheritdoc/>
         public override Command CreateCommand()
         {
+            FeedUri GetInterfaceUri()
+            {
+                switch (RuntimeType)
+                {
+                    case DotNetRuntimeType.Any:
+                    default:
+                        return ExternalDependencies
+                            ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
+                            : new FeedUri("http://repo.roscidus.com/dotnet/clr");
+
+                    case DotNetRuntimeType.MicrosoftOnlyClientProfile:
+                        Architecture = new Architecture(OS.Windows, Architecture.Cpu);
+                        return ExternalDependencies
+                            ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
+                            : new FeedUri("http://repo.roscidus.com/dotnet/framework-client-profile");
+
+                    case DotNetRuntimeType.MicrosoftOnlyFullProfile:
+                        Architecture = new Architecture(OS.Windows, Architecture.Cpu);
+                        return ExternalDependencies
+                            ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
+                            : new FeedUri("http://repo.roscidus.com/dotnet/framework");
+
+                    case DotNetRuntimeType.MonoOnly:
+                        return new FeedUri("http://repo.roscidus.com/dotnet/mono");
+                }
+            }
+
             return new Command
             {
                 Name = CommandName,
@@ -86,52 +113,22 @@ namespace ZeroInstall.Publish.EntryPoints
                 {
                     InterfaceUri = GetInterfaceUri(),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = (VersionRange)MinimumRuntimeVersion
+                    Versions = MinimumRuntimeVersion
                 }
             };
         }
 
-        private FeedUri GetInterfaceUri()
-        {
-            switch (RuntimeType)
-            {
-                case DotNetRuntimeType.Any:
-                default:
-                    return ExternalDependencies
-                        ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
-                        : new FeedUri("http://repo.roscidus.com/dotnet/clr");
-
-                case DotNetRuntimeType.MicrosoftOnlyClientProfile:
-                    Architecture = new Architecture(OS.Windows, Architecture.Cpu);
-                    return ExternalDependencies
-                        ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
-                        : new FeedUri("http://repo.roscidus.com/dotnet/framework-client-profile");
-
-                case DotNetRuntimeType.MicrosoftOnlyFullProfile:
-                    Architecture = new Architecture(OS.Windows, Architecture.Cpu);
-                    return ExternalDependencies
-                        ? new FeedUri("http://repo.roscidus.com/dotnet/clr-monopath")
-                        : new FeedUri("http://repo.roscidus.com/dotnet/framework");
-
-                case DotNetRuntimeType.MonoOnly:
-                    return new FeedUri("http://repo.roscidus.com/dotnet/mono");
-            }
-        }
-
         #region Equality
-        private bool Equals(DotNetExe other)
-        {
-            return base.Equals(other) &&
-                   MinimumRuntimeVersion == other.MinimumRuntimeVersion &&
-                   RuntimeType == other.RuntimeType &&
-                   ExternalDependencies == other.ExternalDependencies;
-        }
+        private bool Equals(DotNetExe other) => base.Equals(other) &&
+            MinimumRuntimeVersion == other.MinimumRuntimeVersion &&
+            RuntimeType == other.RuntimeType &&
+            ExternalDependencies == other.ExternalDependencies;
 
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj is DotNetExe && Equals((DotNetExe)obj);
+            return obj is DotNetExe exe && Equals(exe);
         }
 
         public override int GetHashCode()
