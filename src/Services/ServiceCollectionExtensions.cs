@@ -63,9 +63,10 @@ namespace ZeroInstall.Services
                 .AddScoped<IFeedManager, FeedManager>()
                 .AddScoped<ICatalogManager, CatalogManager>()
                 .AddScoped(x => PackageManagerFactory.Create())
+                .AddScoped<ISelectionsManager, SelectionsManager>()
                 .AddScoped<IFetcher, SequentialFetcher>()
                 .AddScoped<IExecutor, Executor>()
-                .AddScoped<ISelectionsManager, SelectionsManager>();
+                .AddScoped<ISelectionCandidateProvider, SelectionCandidateProvider>();
 
             if (autoRefresh)
             {

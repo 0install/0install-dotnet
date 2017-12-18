@@ -44,7 +44,7 @@ namespace ZeroInstall.Services.Solvers
         {
             _feedManagerMock = CreateMock<IFeedManager>();
             _packageManagerMock = CreateMock<IPackageManager>();
-            _provider = new SelectionCandidateProvider(new Config(), _feedManagerMock.Object, new Mock<IStore>(MockBehavior.Loose).Object, _packageManagerMock.Object, new LanguageSet());
+            _provider = new SelectionCandidateProvider(new Config(), _feedManagerMock.Object, new Mock<IStore>(MockBehavior.Loose).Object, _packageManagerMock.Object);
         }
 
         [Fact]

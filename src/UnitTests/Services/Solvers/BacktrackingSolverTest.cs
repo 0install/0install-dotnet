@@ -30,6 +30,8 @@ namespace ZeroInstall.Services.Solvers
     public class BacktrackingSolverTest : SolverTest
     {
         protected override ISolver BuildSolver(IFeedManager feedManager)
-            => new BacktrackingSolver(new Config(), feedManager, new Mock<IStore>(MockBehavior.Loose).Object, new StubPackageManager(), new SilentTaskHandler());
+            => new BacktrackingSolver(
+                new SelectionCandidateProvider(new Config(), feedManager, new Mock<IStore>(MockBehavior.Loose).Object, new StubPackageManager()),
+                new SilentTaskHandler());
     }
 }

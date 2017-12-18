@@ -23,11 +23,9 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.PackageManagers;
 using ZeroInstall.Services.Properties;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -38,30 +36,19 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public class BacktrackingSolver : ISolver
     {
-        #region Dependencies
-        private readonly Config _config;
-        private readonly IFeedManager _feedManager;
-        private readonly IStore _store;
-        private readonly IPackageManager _packageManager;
+        private readonly ISelectionCandidateProvider _candidateProvider;
         private readonly ITaskHandler _handler;
 
         /// <summary>
         /// Creates a new backtracking solver.
         /// </summary>
-        /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
-        /// <param name="store">Used to check which <see cref="Implementation"/>s are already cached.</param>
-        /// <param name="feedManager">Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.</param>
-        /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
+        /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose among.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public BacktrackingSolver([NotNull] Config config, [NotNull] IFeedManager feedManager, [NotNull] IStore store, [NotNull] IPackageManager packageManager, [NotNull] ITaskHandler handler)
+        public BacktrackingSolver([NotNull] ISelectionCandidateProvider candidateProvider, [NotNull] ITaskHandler handler)
         {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
-            _store = store ?? throw new ArgumentNullException(nameof(store));
-            _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
-            _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
+            _candidateProvider = candidateProvider ?? throw new ArgumentNullException(nameof(candidateProvider));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         }
-        #endregion
 
         /// <inheritdoc/>
         public Selections Solve(Requirements requirements)
@@ -73,10 +60,10 @@ namespace ZeroInstall.Services.Solvers
 
             Log.Info($"Running Backtracking Solver for {requirements}");
 
-            var candidateProvider = new SelectionCandidateProvider(_config, _feedManager, _store, _packageManager, requirements.Languages);
+            _candidateProvider.Clear();
             var successfulAttempt = requirements
                 .GetNormalizedAlternatives()
-                .Select(req => new Attempt(req, _handler.CancellationToken, candidateProvider))
+                .Select(req => new Attempt(req, _handler.CancellationToken, _candidateProvider))
                 .FirstOrDefault(x => x.Successful);
 
             if (successfulAttempt == null) throw new SolverException("No solution found");
@@ -89,13 +76,13 @@ namespace ZeroInstall.Services.Solvers
         private class Attempt
         {
             private readonly CancellationToken _cancellationToken;
-            private readonly SelectionCandidateProvider _candidateProvider;
+            private readonly ISelectionCandidateProvider _candidateProvider;
             private readonly Requirements _topLevelRequirements;
 
             public Selections Selections { private set; get; }
             public bool Successful { get; }
 
-            public Attempt([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] SelectionCandidateProvider candidateProvider)
+            public Attempt([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] ISelectionCandidateProvider candidateProvider)
             {
                 _cancellationToken = cancellationToken;
                 _candidateProvider = candidateProvider;
@@ -223,6 +210,7 @@ namespace ZeroInstall.Services.Solvers
                     requirements.Distributions.AddRange(dependency.Distributions);
                     requirements.AddRestriction(dependency);
                     requirements.AddRestrictions(_topLevelRequirements);
+                    requirements.Languages.AddRange(_topLevelRequirements.Languages);
                     yield return Demand(requirements, dependency.Importance);
                 }
 
@@ -241,6 +229,7 @@ namespace ZeroInstall.Services.Solvers
                     var requirements = new Requirements(command.Runner.InterfaceUri, command.Runner.Command ?? Command.NameRun, _topLevelRequirements.Architecture);
                     requirements.AddRestriction(command.Runner);
                     requirements.AddRestrictions(_topLevelRequirements);
+                    requirements.Languages.AddRange(_topLevelRequirements.Languages);
                     yield return Demand(requirements);
                 }
 

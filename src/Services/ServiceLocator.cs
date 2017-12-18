@@ -129,6 +129,14 @@ namespace ZeroInstall.Services
         [NotNull]
         public IPackageManager PackageManager { get => Get(ref _packageManager, PackageManagerFactory.Create); set => _packageManager = value; }
 
+        private ISelectionCandidateProvider _selectionCandidateProvider;
+
+        /// <summary>
+        /// Generates <see cref="SelectionCandidate"/>s for the <see cref="Solver"/> to choose among.
+        /// </summary>
+        [NotNull]
+        public ISelectionCandidateProvider SelectionCandidateProvider { get => Get(ref _selectionCandidateProvider, () => new SelectionCandidateProvider(Config, FeedManager, Store, PackageManager)); set => _selectionCandidateProvider = value; }
+
         private ISolver _solver;
 
         /// <summary>
@@ -140,7 +148,7 @@ namespace ZeroInstall.Services
             get => Get(ref _solver, () =>
             {
                 ISolver
-                    backtrackingSolver = new BacktrackingSolver(Config, FeedManager, Store, PackageManager, Handler),
+                    backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider, Handler),
                     externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config, FeedManager, Handler);
                 return new FallbackSolver(backtrackingSolver, externalSolver);
             });

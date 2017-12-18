@@ -17,7 +17,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -52,7 +51,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="requirements">The requirements.</param>
         /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the <paramref name="requirements"/>.</param>
         /// <param name="importance">Describes how important the demand is (i.e. whether ignoring it is an option).</param>
-        public SolverDemand([NotNull] Requirements requirements, [NotNull] SelectionCandidateProvider candidateProvider, Importance importance = Importance.Essential)
+        public SolverDemand([NotNull] Requirements requirements, [NotNull] ISelectionCandidateProvider candidateProvider, Importance importance = Importance.Essential)
         {
             Requirements = requirements ?? throw new ArgumentNullException(nameof(requirements));
             Candidates = (candidateProvider ?? throw new ArgumentNullException(nameof(candidateProvider))).GetSortedCandidates(Requirements);
