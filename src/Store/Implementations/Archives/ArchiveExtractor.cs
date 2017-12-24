@@ -154,7 +154,10 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeType7Z:
                     return new SevenZipExtractor(stream, targetPath);
                 case Archive.MimeTypeCab:
-                    return new CabExtractor(stream, targetPath);
+                    // Extracted to delay loading of Microsoft.Deployment* DLLs
+                    ArchiveExtractor NewCabExtractor() => new CabExtractor(stream, targetPath);
+
+                    return NewCabExtractor();
                 case Archive.MimeTypeMsi:
                     throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!");
 #endif
@@ -184,8 +187,11 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (string.IsNullOrEmpty(mimeType)) mimeType = Archive.GuessMimeType(archivePath);
 
 #if !NETSTANDARD2_0
+            // Extracted to delay loading of Microsoft.Deployment* DLLs
+            ArchiveExtractor NewMsiExtractor() => new MsiExtractor(archivePath, targetPath);
+
             // MSI Extractor does not support Stream-based access
-            if (mimeType == Archive.MimeTypeMsi) return new MsiExtractor(archivePath, targetPath);
+            if (mimeType == Archive.MimeTypeMsi) return NewMsiExtractor();
 #endif
 
             Stream stream = File.OpenRead(archivePath);
