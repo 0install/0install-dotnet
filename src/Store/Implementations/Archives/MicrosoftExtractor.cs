@@ -26,7 +26,7 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Common base class for exractors for Microsoft archive formats.
+    /// Common base class for extractors for Microsoft archive formats.
     /// </summary>
     public abstract class MicrosoftExtractor : ArchiveExtractor, IUnpackStreamContext
     {
