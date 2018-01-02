@@ -31,28 +31,24 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public class SelectionCandidateComparer : IComparer<SelectionCandidate>
     {
-        private readonly NetworkLevel _networkUse;
-        private readonly Predicate<Implementation> _isCached;
         private readonly Stability _stabilityPolicy;
+        private readonly NetworkLevel _networkUse;
         private readonly LanguageSet _languages;
+        private readonly Predicate<Implementation> _isCached;
 
         /// <summary>
         /// Creates a new <see cref="SelectionCandidate"/> ranker.
         /// </summary>
-        /// <param name="config">Used to retrieve global configuration.</param>
-        /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IStore"/>.</param>
         /// <param name="stabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
+        /// <param name="networkUse">Controls how liberally network access is attempted.</param>
         /// <param name="languages">The preferred languages for the implementation.</param>
-        public SelectionCandidateComparer([NotNull] Config config, [NotNull] Predicate<Implementation> isCached, Stability stabilityPolicy, [NotNull] LanguageSet languages)
+        /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IStore"/>.</param>
+        public SelectionCandidateComparer(Stability stabilityPolicy, NetworkLevel networkUse, [NotNull] LanguageSet languages, [NotNull] Predicate<Implementation> isCached)
         {
-            if (config == null) throw new ArgumentNullException(nameof(config));
-            _networkUse = config.NetworkUse;
-            _stabilityPolicy = (stabilityPolicy == Stability.Unset)
-                ? (config.HelpWithTesting ? Stability.Testing : Stability.Stable)
-                : stabilityPolicy;
-
-            _isCached = isCached ?? throw new ArgumentNullException(nameof(isCached));
+            _stabilityPolicy = stabilityPolicy;
+            _networkUse = networkUse;
             _languages = languages ?? throw new ArgumentNullException(nameof(languages));
+            _isCached = isCached ?? throw new ArgumentNullException(nameof(isCached));
         }
 
         /// <inheritdoc/>
@@ -95,7 +91,7 @@ namespace ZeroInstall.Services.Solvers
             if (x.Implementation.Architecture.Cpu > y.Implementation.Architecture.Cpu) return -1;
             if (x.Implementation.Architecture.Cpu < y.Implementation.Architecture.Cpu) return 1;
 
-            // Slightly prefer languages specialised to our country
+            // Slightly prefer languages specialized to our country
             int xCountryRank = GetCountryRank(x.Implementation.Languages);
             int yCountryRank = GetCountryRank(y.Implementation.Languages);
             if (xCountryRank > yCountryRank) return -1;

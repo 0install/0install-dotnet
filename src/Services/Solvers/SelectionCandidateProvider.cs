@@ -97,10 +97,13 @@ namespace ZeroInstall.Services.Solvers
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
             #endregion
 
-            var candidates = GetFeeds(requirements)
+            var stabilityPolicy = _interfacePreferences[requirements.InterfaceUri].StabilityPolicy;
+            if (stabilityPolicy == Stability.Unset) stabilityPolicy = _config.HelpWithTesting ? Stability.Testing : Stability.Stable;
+
+           var candidates = GetFeeds(requirements)
                 .SelectMany(x => GetCandidates(x.Key, x.Value, requirements))
                 .ToList();
-            candidates.Sort(new SelectionCandidateComparer(_config, IsCached, _interfacePreferences[requirements.InterfaceUri].StabilityPolicy, requirements.Languages));
+            candidates.Sort(new SelectionCandidateComparer(stabilityPolicy, _config.NetworkUse, requirements.Languages, IsCached));
             return candidates;
         }
 
