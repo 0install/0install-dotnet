@@ -86,7 +86,15 @@ namespace ZeroInstall.Services.Solvers
             if (xStability < yStability) return -1;
             if (xStability > yStability) return 1;
 
-            // Newer versions come before older ones
+            // Newer versions come before older ones (ignoring modifiers)
+            if (x.Version.FirstPart > y.Version.FirstPart) return -1;
+            if (x.Version.FirstPart < y.Version.FirstPart) return 1;
+
+            // Prefer native packages if the main part of the versions are the same
+            if (x.EffectiveStability == Stability.Packaged && y.EffectiveStability != Stability.Packaged) return -1;
+            if (y.EffectiveStability == Stability.Packaged && x.EffectiveStability != Stability.Packaged) return 1;
+
+            // Full version compare (after package check, since comparing modifiers between native and non-native packages doesn't make sense)
             if (x.Version > y.Version) return -1;
             if (x.Version < y.Version) return 1;
 

@@ -44,6 +44,12 @@ namespace ZeroInstall.Services.Solvers
             worse: new Implementation {ID = "1", Version = new ImplementationVersion("1"), Stability = Stability.Stable});
 
         [Fact]
+        public void PreferNativePackagesIgnoringVersionModifiers() => TestSort(
+            new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
+            better: new Implementation {ID = "1-1", Version = new ImplementationVersion("2"), Stability = Stability.Packaged},
+            worse: new Implementation {ID = "1-2", Version = new ImplementationVersion("1"), Stability = Stability.Stable});
+
+        [Fact]
         public void PreferCached() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: x => x.ID == "1a"),
             better: new Implementation {ID = "1a", Version = new ImplementationVersion("1")},
