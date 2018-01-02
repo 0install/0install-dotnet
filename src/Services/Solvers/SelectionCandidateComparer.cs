@@ -79,9 +79,12 @@ namespace ZeroInstall.Services.Solvers
 
             // TODO: Packages that require admin access to install come last
 
-            // Implementations at or above the selected stability level come before all others (smaller enum value = more stable)
-            if (x.EffectiveStability <= _stabilityPolicy && y.EffectiveStability > _stabilityPolicy) return -1;
-            if (x.EffectiveStability > _stabilityPolicy && y.EffectiveStability <= _stabilityPolicy) return 1;
+            // Prefer more stable versions, but treat everything over the stability policy the same
+            // (so we prefer stable over testing if the policy is to prefer "stable", otherwise we don't care)
+            var xStability = ApplyPolicy(x.EffectiveStability);
+            var yStability = ApplyPolicy(y.EffectiveStability);
+            if (xStability < yStability) return -1;
+            if (xStability > yStability) return 1;
 
             // Newer versions come before older ones
             if (x.Version > y.Version) return -1;
@@ -109,6 +112,9 @@ namespace ZeroInstall.Services.Solvers
             // Order by ID so the order is not random
             return string.CompareOrdinal(x.Implementation.ID, y.Implementation.ID);
         }
+
+        private Stability ApplyPolicy(Stability stability)
+            => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
 
         private static readonly LanguageSet _englishSet = new LanguageSet {"en", "en_US"};
 

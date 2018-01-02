@@ -32,6 +32,12 @@ namespace ZeroInstall.Services.Solvers
     public class SelectionCandidateComparerTest
     {
         [Fact]
+        public void PreferStability() => TestSort(
+            new SelectionCandidateComparer(Stability.Stable, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
+            better: new Implementation {ID = "1", Version = new ImplementationVersion("1"), Stability = Stability.Stable},
+            worse: new Implementation {ID = "2", Version = new ImplementationVersion("2"), Stability = Stability.Testing});
+
+        [Fact]
         public void IgnoreStabilityAbovePolicy() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
             better: new Implementation {ID = "2", Version = new ImplementationVersion("2"), Stability = Stability.Testing},
