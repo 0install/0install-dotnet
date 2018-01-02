@@ -90,6 +90,10 @@ namespace ZeroInstall.Services.Solvers
             if (x.Version > y.Version) return -1;
             if (x.Version < y.Version) return 1;
 
+            // More specific OS types come first (checking whether the OS type is compatible at all is done elsewhere)
+            if (x.Implementation.Architecture.OS > y.Implementation.Architecture.OS) return -1;
+            if (x.Implementation.Architecture.OS < y.Implementation.Architecture.OS) return 1;
+
             // More specific CPU types come first (checking whether the CPU type is compatible at all is done elsewhere)
             if (x.Implementation.Architecture.Cpu > y.Implementation.Architecture.Cpu) return -1;
             if (x.Implementation.Architecture.Cpu < y.Implementation.Architecture.Cpu) return 1;

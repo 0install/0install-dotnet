@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Model
             // Compatible supersets
             if (implementation == OS.Windows && system == OS.Cygwin) return true;
             if (implementation == OS.Darwin && system == OS.MacOSX) return true;
-            if (implementation == OS.Posix && system <= OS.Posix) return true;
+            if (implementation == OS.Posix && system < OS.Windows) return true;
 
             // No match
             return false;

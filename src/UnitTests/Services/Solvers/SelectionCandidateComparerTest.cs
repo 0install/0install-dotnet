@@ -56,6 +56,12 @@ namespace ZeroInstall.Services.Solvers
             worse: new Implementation {ID = "2", Version = new ImplementationVersion("2")});
 
         [Fact]
+        public void PreferSpecificOS() => TestSort(
+            new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
+            better: new Implementation {ID = "1a", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.Linux, Cpu.All)},
+            worse: new Implementation {ID = "1b", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.Posix, Cpu.All)});
+
+        [Fact]
         public void PreferSpecificCpu() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
             better: new Implementation {ID = "1a", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.All, Cpu.I686)},

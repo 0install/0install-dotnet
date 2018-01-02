@@ -43,6 +43,10 @@ namespace ZeroInstall.Store.Model
         [XmlEnum("*")]
         All,
 
+        /// <summary>Everthing except <see cref="Windows"/>.</summary>
+        [XmlEnum("POSIX")]
+        Posix,
+
         /// <summary>Supports only Linux operating systems.</summary>
         [XmlEnum("Linux")]
         Linux,
@@ -55,21 +59,17 @@ namespace ZeroInstall.Store.Model
         [XmlEnum("FreeBSD")]
         FreeBsd,
 
-        /// <summary>Supports only MacOS X.</summary>
-        [XmlEnum("MacOSX")]
-        MacOSX,
-
         /// <summary>MacOSX, without the proprietary bits.</summary>
         [XmlEnum("Darwin")]
         Darwin,
 
+        /// <summary>Supports only MacOS X.</summary>
+        [XmlEnum("MacOSX")]
+        MacOSX,
+
         /// <summary>A Unix-compatibility layer for Windows.</summary>
         [XmlEnum("Cygwin")]
         Cygwin,
-
-        /// <summary>Everthing except <see cref="Windows"/>.</summary>
-        [XmlEnum("POSIX")]
-        Posix,
 
         /// <summary>Supports only Windows NT 5.0+ (Windows 2000, XP, 2003, Vista, 2008, 7, 2008 R2, ...).</summary>
         [XmlEnum("Windows")]
