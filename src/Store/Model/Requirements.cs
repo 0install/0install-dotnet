@@ -143,7 +143,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for.</param>
         /// <param name="command">he name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
         /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
-        public Requirements([NotNull] FeedUri interfaceUri, [CanBeNull] string command = null, Architecture architecture = default(Architecture))
+        public Requirements([NotNull] FeedUri interfaceUri, [CanBeNull] string command = null, Architecture architecture = default)
         {
             InterfaceUri = interfaceUri;
             Command = command;
@@ -168,7 +168,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
         /// <exception cref="UriFormatException"><paramref name="interfaceUri"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "Convenience overload that internally calls the Uri version")]
-        public Requirements([NotNull] string interfaceUri, [CanBeNull] string command = null, Architecture architecture = default(Architecture))
+        public Requirements([NotNull] string interfaceUri, [CanBeNull] string command = null, Architecture architecture = default)
             : this(new FeedUri(interfaceUri), command, architecture)
         {}
 

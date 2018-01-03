@@ -122,11 +122,11 @@ namespace ZeroInstall.Store.Model
         {
             var parts = new List<string>();
             if (!string.IsNullOrEmpty(ID)) parts.Add(ID);
-            if (Architecture != default(Architecture)) parts.Add(Architecture.ToString());
+            if (Architecture != default) parts.Add(Architecture.ToString());
             if (Version != null) parts.Add(Version.ToString());
-            if (Released != default(DateTime)) parts.Add(Released.ToString("d", CultureInfo.InvariantCulture));
+            if (Released != default) parts.Add(Released.ToString("d", CultureInfo.InvariantCulture));
             if (ReleasedVerbatim != null) parts.Add(ReleasedVerbatim);
-            if (Stability != default(Stability)) parts.Add(Stability.ToString());
+            if (Stability != default) parts.Add(Stability.ToString());
             if (!string.IsNullOrEmpty(License)) parts.Add(License);
             if (!string.IsNullOrEmpty(Main)) parts.Add(Main);
             return StringUtils.Join(", ", parts);

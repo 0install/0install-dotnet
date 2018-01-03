@@ -88,7 +88,7 @@ namespace ZeroInstall.Publish.Capture
 
             using (var installInfoKey = clientKey.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo))
             {
-                if (installInfoKey == null) return default(InstallCommands);
+                if (installInfoKey == null) return default;
 
                 string reinstall = IsolateCommand(installInfoKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, "").ToString(), installationDir, out string reinstallArgs);
                 string showIcons = IsolateCommand(installInfoKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, "").ToString(), installationDir, out string showIconsArgs);

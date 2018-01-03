@@ -151,7 +151,7 @@ namespace ZeroInstall.Publish
         [SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "We are explicitly looking for empty strings as opposed to null strings.")]
         private static bool IsManifestDigestMissing([NotNull] this Implementation implementation)
         {
-            return implementation.ManifestDigest == default(ManifestDigest) ||
+            return implementation.ManifestDigest == default ||
                    // Empty strings are used in 0template to indicate that the user wishes this value to be calculated
                    implementation.ManifestDigest.Sha1New == "" ||
                    implementation.ManifestDigest.Sha256 == "" ||
@@ -182,7 +182,7 @@ namespace ZeroInstall.Publish
         {
             var digest = ManifestUtils.GenerateDigest(path, handler);
 
-            if (implementation.ManifestDigest == default(ManifestDigest))
+            if (implementation.ManifestDigest == default)
                 executor.Execute(new SetValueCommand<ManifestDigest>(() => implementation.ManifestDigest, value => implementation.ManifestDigest = value, digest));
             else if (!digest.PartialEquals(implementation.ManifestDigest))
                 throw new DigestMismatchException(expectedDigest: implementation.ManifestDigest.ToString(), actualDigest: digest.ToString());

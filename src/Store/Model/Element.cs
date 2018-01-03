@@ -142,7 +142,7 @@ namespace ZeroInstall.Store.Model
             get
             {
                 if (ReleasedVerbatim != null) return ReleasedVerbatim;
-                else return (Released == default(DateTime) ? null : Released.ToString(ReleaseDateFormat));
+                else return (Released == default ? null : Released.ToString(ReleaseDateFormat));
             }
             set
             {
@@ -328,14 +328,14 @@ namespace ZeroInstall.Store.Model
             // Check if values are unset and need inheritance)
             if (Version == null) Version = parent.Version;
             if (VersionModifier == null) VersionModifier = parent.VersionModifier;
-            if (Released == default(DateTime)) Released = parent.Released;
+            if (Released == default) Released = parent.Released;
             if (Main == null) Main = parent.Main;
             if (SelfTest == null) SelfTest = parent.SelfTest;
             if (DocDir == null) DocDir = parent.DocDir;
             if (License == null) License = parent.License;
             if (Stability == Stability.Unset) Stability = parent.Stability;
             if (Languages.Count == 0) Languages = new LanguageSet(parent.Languages);
-            if (Architecture == default(Architecture)) Architecture = parent.Architecture;
+            if (Architecture == default) Architecture = parent.Architecture;
 
             // Accumulate list entries
             Commands.AddRange(parent.Commands);

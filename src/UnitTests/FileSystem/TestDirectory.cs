@@ -66,7 +66,7 @@ namespace ZeroInstall.FileSystem
             foreach (var element in Children)
                 element.Build(path);
 
-            if (LastWrite != default(DateTime))
+            if (LastWrite != default)
                 Directory.SetLastWriteTimeUtc(path, LastWrite);
         }
 
@@ -74,7 +74,7 @@ namespace ZeroInstall.FileSystem
         {
             string path = Path.Combine(parentPath, Name);
             Directory.Exists(path).Should().BeTrue(because: $"Directory '{path}' should exist.");
-            if (LastWrite != default(DateTime))
+            if (LastWrite != default)
                 Directory.GetLastWriteTimeUtc(path).Should().Be(LastWrite, because: $"Directory '{path}' should have correct last-write time.");
 
             foreach (var element in Children)
