@@ -4,6 +4,7 @@
     <AssemblyName>ZeroInstall.DesktopIntegration</AssemblyName>
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
     <TargetFrameworks>net20;net35;net40</TargetFrameworks>
+    <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>

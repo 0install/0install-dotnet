@@ -4,6 +4,7 @@
     <AssemblyName>ZeroInstall.Publish</AssemblyName>
     <RootNamespace>ZeroInstall.Publish</RootNamespace>
     <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
+    <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>

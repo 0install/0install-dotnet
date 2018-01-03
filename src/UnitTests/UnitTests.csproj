@@ -4,6 +4,7 @@
     <AssemblyName>ZeroInstall.Backend.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
     <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
+    <LangVersion>7.1</LangVersion>
     <IsPackable>False</IsPackable>
     <NoWarn>$(NoWarn);NU1701</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
