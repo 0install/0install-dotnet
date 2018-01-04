@@ -147,7 +147,7 @@ namespace ZeroInstall.Services.Fetchers
             var archiveInfos = archives.Select(archive => new ArchiveFileInfo {Extract = archive.Extract, Destination = archive.Destination, MimeType = archive.MimeType, StartOffset = archive.StartOffset, OriginalSource = archive.Href}).ToList();
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {GetRetrievalMethod(archives)}};
 
-            StoreMock.Setup(x => x.GetPath(digest)).Returns<string>(null);
+            StoreMock.Setup(x => x.GetPath(digest)).Returns(() => null);
             StoreMock.Setup(x => x.AddArchives(archiveInfos, digest, Handler)).Returns("");
 
             BuildFetcher().Fetch(new[] {testImplementation});
@@ -170,7 +170,7 @@ namespace ZeroInstall.Services.Fetchers
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest};
             testImplementation.RetrievalMethods.AddRange(retrievalMethod);
 
-            StoreMock.Setup(x => x.GetPath(digest)).Returns<string>(null);
+            StoreMock.Setup(x => x.GetPath(digest)).Returns(() => null);
             StoreMock.Setup(x => x.AddDirectory(It.Is<string>(path => expected.Verify(path)), digest, Handler)).Returns("");
 
             BuildFetcher().Fetch(new[] {testImplementation});
@@ -239,7 +239,7 @@ namespace ZeroInstall.Services.Fetchers
         {
             var implementation = new Implementation {ID = "test", ManifestDigest = new ManifestDigest(sha256New: "test123")};
             StoreMock.Setup(x => x.Flush());
-            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
+            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }
@@ -254,7 +254,7 @@ namespace ZeroInstall.Services.Fetchers
                 RetrievalMethods = {new Archive {MimeType = "test/format"}}
             };
             StoreMock.Setup(x => x.Flush());
-            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
+            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }
@@ -269,7 +269,7 @@ namespace ZeroInstall.Services.Fetchers
                 RetrievalMethods = {new Recipe {Steps = {new Archive {MimeType = Archive.MimeTypeZip}, new Archive {MimeType = "test/format"}}}}
             };
             StoreMock.Setup(x => x.Flush());
-            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns<string>(null);
+            StoreMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => BuildFetcher().Fetch(new[] {implementation}));
         }

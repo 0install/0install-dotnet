@@ -123,7 +123,7 @@ namespace ZeroInstall.Services
             var digest2 = new ManifestDigest(sha256New: "b");
 
             _storeMock.Setup(x => x.GetPath(digest1)).Returns("fake/path");
-            _storeMock.Setup(x => x.GetPath(digest2)).Returns<string>(null);
+            _storeMock.Setup(x => x.GetPath(digest2)).Returns(() => null);
 
             var tree = _selectionsManager.GetTree(new Selections
             {

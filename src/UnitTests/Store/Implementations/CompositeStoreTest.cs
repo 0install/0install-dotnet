@@ -137,7 +137,7 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void TestGetPathSecond()
         {
-            _mockStore1.Setup(x => x.GetPath(_digest1)).Returns<string>(null);
+            _mockStore1.Setup(x => x.GetPath(_digest1)).Returns(() => null);
             _mockStore2.Setup(x => x.GetPath(_digest1)).Returns("path");
             _testStore.GetPath(_digest1).Should().Be("path", because: "Should get path from second mock");
         }
@@ -145,8 +145,8 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void TestGetPathFail()
         {
-            _mockStore1.Setup(x => x.GetPath(_digest1)).Returns<string>(null);
-            _mockStore2.Setup(x => x.GetPath(_digest1)).Returns<string>(null);
+            _mockStore1.Setup(x => x.GetPath(_digest1)).Returns(() => null);
+            _mockStore2.Setup(x => x.GetPath(_digest1)).Returns(() => null);
             _testStore.GetPath(_digest1).Should().BeNull();
         }
         #endregion
