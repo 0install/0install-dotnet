@@ -87,12 +87,7 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(DownloadRetrievalMethod other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Href == Href && other.Size == Size;
-        }
+        protected bool Equals(DownloadRetrievalMethod other) => other != null && base.Equals(other) && other.Href == Href && other.Size == Size;
 
         /// <inheritdoc/>
         public override int GetHashCode()

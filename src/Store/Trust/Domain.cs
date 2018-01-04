@@ -60,13 +60,9 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Domain other)
-        {
-            return string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
-        }
+        public bool Equals(Domain other) => string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
 
         public static bool operator ==(Domain left, Domain right) => left.Equals(right);
-
         public static bool operator !=(Domain left, Domain right) => !left.Equals(right);
 
         /// <inheritdoc/>

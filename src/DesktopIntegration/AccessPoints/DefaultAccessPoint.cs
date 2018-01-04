@@ -42,12 +42,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string Capability { get; set; }
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(DefaultAccessPoint other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Capability == Capability;
-        }
+        protected bool Equals(DefaultAccessPoint other) => other != null && base.Equals(other) && other.Capability == Capability;
 
         /// <inheritdoc/>
         public override int GetHashCode()

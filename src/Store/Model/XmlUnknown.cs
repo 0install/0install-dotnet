@@ -88,7 +88,6 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        /// <inheritdoc/>
         protected bool Equals(XmlUnknown other)
         {
             if (other == null) return false;

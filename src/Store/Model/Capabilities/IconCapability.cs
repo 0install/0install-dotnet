@@ -60,12 +60,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         }
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(IconCapability other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Descriptions.SequencedEquals(other.Descriptions) && Icons.SequencedEquals(other.Icons);
-        }
+        protected bool Equals(IconCapability other) => other != null && base.Equals(other) && Descriptions.SequencedEquals(other.Descriptions) && Icons.SequencedEquals(other.Icons);
 
         /// <inheritdoc/>
         public override int GetHashCode()

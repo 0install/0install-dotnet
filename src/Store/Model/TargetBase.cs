@@ -89,12 +89,8 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(TargetBase other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && _languages.SetEquals(other._languages) && other.Architecture == Architecture;
-        }
+        protected bool Equals(TargetBase other) => other != null && base.Equals(other) &&
+            _languages.SetEquals(other._languages) && other.Architecture == Architecture;
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -57,13 +57,15 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            var download = retrievalMethod as DownloadRetrievalMethod;
-            if (download != null) return download.DownloadAndApply(handler, executor);
-
-            var recipe = retrievalMethod as Recipe;
-            if (recipe != null) return recipe.DownloadAndApply(handler, executor);
-
-            throw new NotSupportedException(Resources.UnknownRetrievalMethodType);
+            switch (retrievalMethod)
+            {
+                case DownloadRetrievalMethod download:
+                    return download.DownloadAndApply(handler, executor);
+                case Recipe recipe:
+                    return recipe.DownloadAndApply(handler, executor);
+                default:
+                    throw new NotSupportedException(Resources.UnknownRetrievalMethodType);
+            }
         }
 
         /// <summary>
@@ -283,8 +285,8 @@ namespace ZeroInstall.Publish
         {
             long size = new FileInfo(filePath).Length;
 
-            var archive = retrievalMethod as Archive;
-            if (archive != null) size -= archive.StartOffset;
+            if (retrievalMethod is Archive archive)
+                size -= archive.StartOffset;
 
             if (retrievalMethod.Size != size)
                 executor.Execute(new SetValueCommand<long>(() => retrievalMethod.Size, value => retrievalMethod.Size = value, newValue: size));

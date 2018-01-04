@@ -180,7 +180,6 @@ namespace ZeroInstall.Store.Model
         }
 
         public static bool operator ==(ImplementationVersion left, ImplementationVersion right) => Equals(left, right);
-
         public static bool operator !=(ImplementationVersion left, ImplementationVersion right) => !Equals(left, right);
         #endregion
 
@@ -207,21 +206,10 @@ namespace ZeroInstall.Store.Model
             return 0;
         }
 
-        /// <inheritdoc/>
-        public static bool operator <(ImplementationVersion left, ImplementationVersion right)
-            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) < 0;
-
-        /// <inheritdoc/>
-        public static bool operator >(ImplementationVersion left, ImplementationVersion right)
-            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) > 0;
-
-        /// <inheritdoc/>
-        public static bool operator <=(ImplementationVersion left, ImplementationVersion right)
-            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) <= 0;
-
-        /// <inheritdoc/>
-        public static bool operator >=(ImplementationVersion left, ImplementationVersion right)
-            => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) >= 0;
+        public static bool operator <(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) < 0;
+        public static bool operator >(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) > 0;
+        public static bool operator <=(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) <= 0;
+        public static bool operator >=(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) >= 0;
         #endregion
     }
 }

@@ -37,12 +37,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public List<Verb> Verbs { get; } = new List<Verb>();
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(VerbCapability other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Verbs.SequencedEquals(other.Verbs);
-        }
+        protected bool Equals(VerbCapability other) => other != null && base.Equals(other) && Verbs.SequencedEquals(other.Verbs);
 
         /// <inheritdoc/>
         public override int GetHashCode()

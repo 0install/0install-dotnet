@@ -72,9 +72,15 @@ namespace ZeroInstall.Store.Model
             : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.FromString(part.Trim())))
         {}
 
+        /// <summary>
+        /// Convenience cast for <see cref="ImplementationVersion"/>s into <see cref="VersionRange"/>s that match that exact version.
+        /// </summary>
         public static implicit operator VersionRange(ImplementationVersion version)
             => (version == null) ? null : new VersionRange(new VersionRangePartExact(version));
 
+        /// <summary>
+        /// Convenience cast for <see cref="Constraint"/>s into <see cref="VersionRange"/>s.
+        /// </summary>
         public static implicit operator VersionRange(Constraint constraint)
             => (constraint == null) ? null : new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
 
@@ -136,10 +142,8 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public bool Equals(VersionRange other)
         {
-            if (ReferenceEquals(null, other)) return false;
-
             // Cancel if the number of parts don't match
-            if (Parts.Count != other.Parts.Count)
+            if (Parts.Count != other?.Parts.Count)
                 return false;
 
             // Cacnel if one of the parts does not match
@@ -174,7 +178,6 @@ namespace ZeroInstall.Store.Model
         }
 
         public static bool operator ==(VersionRange left, VersionRange right) => Equals(left, right);
-
         public static bool operator !=(VersionRange left, VersionRange right) => !Equals(left, right);
         #endregion
     }

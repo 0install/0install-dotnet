@@ -35,12 +35,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public bool ExplicitOnly { get; set; }
 
         #region Equality
-        /// <inheritdoc/>
-        protected bool Equals(DefaultCapability other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.ExplicitOnly == ExplicitOnly;
-        }
+        protected bool Equals(DefaultCapability other) => other != null && base.Equals(other) && other.ExplicitOnly == ExplicitOnly;
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -63,7 +63,6 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         public static bool operator ==(ConflictData left, ConflictData right) => left.Equals(right);
-
         public static bool operator !=(ConflictData left, ConflictData right) => !left.Equals(right);
 
         /// <inheritdoc/>

@@ -300,7 +300,6 @@ namespace ZeroInstall.Store.Model
         public bool Equals(Architecture other) => other.OS == OS && other.Cpu == Cpu;
 
         public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
-
         public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
 
         /// <inheritdoc/>

@@ -88,7 +88,6 @@ namespace ZeroInstall.Store.Model.Capabilities
                other.HideIcons == HideIcons && other.HideIconsArgs == HideIconsArgs;
 
         public static bool operator ==(InstallCommands left, InstallCommands right) => left.Equals(right);
-
         public static bool operator !=(InstallCommands left, InstallCommands right) => !left.Equals(right);
 
         /// <inheritdoc/>

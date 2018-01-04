@@ -17,9 +17,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
-using NanoByte.Common;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 

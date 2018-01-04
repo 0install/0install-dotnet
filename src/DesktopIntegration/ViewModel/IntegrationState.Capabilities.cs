@@ -18,10 +18,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using JetBrains.Annotations;
 using ZeroInstall.Store.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {
+    [PublicAPI]
     partial class IntegrationState
     {
         /// <summary>

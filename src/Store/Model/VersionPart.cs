@@ -105,8 +105,10 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
+        /// <inheritdoc/>
         public bool Equals(VersionPart other) => Modifier == other.Modifier && DottedList == other.DottedList;
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -114,9 +116,9 @@ namespace ZeroInstall.Store.Model
         }
 
         public static bool operator ==(VersionPart left, VersionPart right) => left.Equals(right);
-
         public static bool operator !=(VersionPart left, VersionPart right) => !left.Equals(right);
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
@@ -135,16 +137,9 @@ namespace ZeroInstall.Store.Model
             return DottedList.CompareTo(other.DottedList);
         }
 
-        /// <inheritdoc/>
         public static bool operator <(VersionPart left, VersionPart right) => left.CompareTo(right) < 0;
-
-        /// <inheritdoc/>
         public static bool operator >(VersionPart left, VersionPart right) => left.CompareTo(right) > 0;
-
-        /// <inheritdoc/>
         public static bool operator <=(VersionPart left, VersionPart right) => left.CompareTo(right) <= 0;
-
-        /// <inheritdoc/>
         public static bool operator >=(VersionPart left, VersionPart right) => left.CompareTo(right) >= 0;
         #endregion
     }

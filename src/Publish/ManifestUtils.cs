@@ -29,7 +29,7 @@ namespace ZeroInstall.Publish
     /// <summary>
     /// Helper methods for working with <see cref="Manifest"/>s and <see cref="ManifestDigest"/>s.
     /// </summary>
-    public class ManifestUtils
+    public static class ManifestUtils
     {
         /// <summary>
         /// Calculates a <see cref="Manifest"/> digest for a directory.

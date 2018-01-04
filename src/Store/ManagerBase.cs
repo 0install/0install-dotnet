@@ -20,7 +20,6 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 using JetBrains.Annotations;
-using NanoByte.Common;
 using NanoByte.Common.Tasks;
 
 namespace ZeroInstall.Store
@@ -69,7 +68,7 @@ namespace ZeroInstall.Store
             {
                 var mutexSecurity = new MutexSecurity();
                 mutexSecurity.AddAccessRule(new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
-                _mutex = new Mutex(false, @"Global\" + MutexName, out bool createdNew, mutexSecurity);
+                _mutex = new Mutex(false, @"Global\" + MutexName, out _, mutexSecurity);
             }
             else
 #endif

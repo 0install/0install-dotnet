@@ -69,6 +69,7 @@ namespace ZeroInstall.Store.Trust
         #endregion
 
         #region Equality
+        /// <inheritdoc/>
         public bool Equals(OpenPgpSecretKey other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -76,6 +77,7 @@ namespace ZeroInstall.Store.Trust
             return KeyID == other.KeyID && _fingerprint.SequencedEquals(other._fingerprint) && UserID == other.UserID;
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -83,6 +85,7 @@ namespace ZeroInstall.Store.Trust
             return obj is OpenPgpSecretKey key && Equals(key);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
@@ -95,7 +98,6 @@ namespace ZeroInstall.Store.Trust
         }
 
         public static bool operator ==(OpenPgpSecretKey left, OpenPgpSecretKey right) => Equals(left, right);
-
         public static bool operator !=(OpenPgpSecretKey left, OpenPgpSecretKey right) => !Equals(left, right);
         #endregion
     }

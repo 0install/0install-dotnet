@@ -30,6 +30,7 @@ namespace ZeroInstall.Publish
     /// A wrapper around a <see cref="Feed"/> adding and XSL stylesheet and a digital signature.
     /// </summary>
     [Serializable]
+    [PublicAPI]
     public class SignedFeed
     {
         /// <summary>

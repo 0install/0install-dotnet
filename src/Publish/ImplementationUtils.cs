@@ -159,10 +159,7 @@ namespace ZeroInstall.Publish
         }
 
         private static bool IsDownloadSizeMissing([NotNull] this RetrievalMethod retrievalMethod)
-        {
-            var downloadRetrievalMethod = retrievalMethod as DownloadRetrievalMethod;
-            return downloadRetrievalMethod != null && downloadRetrievalMethod.Size == 0;
-        }
+            => retrievalMethod is DownloadRetrievalMethod downloadRetrievalMethod && downloadRetrievalMethod.Size == 0;
         #endregion
 
         #region Digest helpers

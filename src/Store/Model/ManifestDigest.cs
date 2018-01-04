@@ -224,7 +224,6 @@ namespace ZeroInstall.Store.Model
         }
 
         public static bool operator ==(ManifestDigest left, ManifestDigest right) => left.Equals(right);
-
         public static bool operator !=(ManifestDigest left, ManifestDigest right) => !left.Equals(right);
 
         /// <inheritdoc/>

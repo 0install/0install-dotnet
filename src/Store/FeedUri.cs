@@ -415,7 +415,6 @@ namespace ZeroInstall.Store
             : base.GetHashCode();
 
         public static bool operator ==(FeedUri left, FeedUri right) => Equals(left, right);
-
         public static bool operator !=(FeedUri left, FeedUri right) => !Equals(left, right);
         #endregion
     }

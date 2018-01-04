@@ -47,7 +47,7 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
                 Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                Versions = (VersionRange)MinimumRuntimeVersion
+                Versions = MinimumRuntimeVersion
             }
         };
     }
