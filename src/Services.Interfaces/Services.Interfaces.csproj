@@ -31,7 +31,7 @@ API documentation: http://0install.de/api/backend/
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Company>0install.de</Company>
-    <Copyright>Copyright 2010-2017 Bastian Eicher et al</Copyright>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
