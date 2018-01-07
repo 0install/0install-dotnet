@@ -15,10 +15,11 @@ namespace ZeroInstall.Store.Icons
         /// <summary>
         /// Gets a specific icon from this cache. If the icon is missing it will be downloaded automatically.
         /// </summary>
-        /// <param name="iconUrl">The location of the icon. Must be an HTTP(S) URL.</param>
+        /// <param name="iconUrl">The URL to download the icon from.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about icon downloading.</param>
         /// <returns>File path to the cached icon.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="UriFormatException"><paramref name="iconUrl"/> is not an absolute URL.</exception>
         /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
         /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>

@@ -50,7 +50,8 @@ namespace ZeroInstall.Store.Icons
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            string path = Path.Combine(DirectoryPath, new FeedUri(iconUrl).Escape());
+            if (!iconUrl.IsAbsoluteUri) throw new UriFormatException($"{iconUrl} is not an absolute URL.");
+            string path = Path.Combine(DirectoryPath, FeedUri.Escape(iconUrl.AbsoluteUri));
 
             if (!File.Exists(path))
             {
