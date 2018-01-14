@@ -20,7 +20,6 @@ using System.IO;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
@@ -34,20 +33,20 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="menuEntry">Information about the shortcut to be created.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        public static void Create([NotNull] MenuEntry menuEntry, FeedTarget target, [NotNull] ITaskHandler handler, bool machineWide)
+        public static void Create([NotNull] MenuEntry menuEntry, FeedTarget target, [NotNull] IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (menuEntry == null) throw new ArgumentNullException(nameof(menuEntry));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             string dirPath = GetStartMenuCategoryPath(menuEntry.Category, machineWide);
             if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
 
             string filePath = GetStartMenuPath(menuEntry.Category, menuEntry.Name, machineWide);
-            Create(filePath, target, menuEntry.Command, handler, machineWide);
+            Create(filePath, target, menuEntry.Command, iconStore, machineWide);
         }
 
         /// <summary>

@@ -22,7 +22,6 @@ using System.Runtime.InteropServices.ComTypes;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -40,9 +39,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="path">The location to place the shorcut at.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
         /// <param name="command">The command within <paramref name="target"/> the shorcut shall point to; can be <c>null</c>.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        private static void Create([NotNull] string path, FeedTarget target, [CanBeNull] string command, [NotNull] ITaskHandler handler, bool machineWide)
+        private static void Create([NotNull] string path, FeedTarget target, [CanBeNull] string command, [NotNull] IIconStore iconStore, bool machineWide)
         {
             if (string.IsNullOrEmpty(command)) command = Command.NameRun;
 
@@ -59,7 +58,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
 
             Create(path, targetPath, arguments,
-                iconLocation: (icon == null) ? null : IconProvider.GetIconPath(icon, handler, machineWide),
+                iconLocation: (icon == null) ? null : iconStore.GetPath(icon, machineWide),
                 description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command));
         }
 

@@ -20,7 +20,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
@@ -50,16 +49,16 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string Category { get; set; }
 
         /// <inheritdoc/>
-        public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)
+        public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
-            if (WindowsUtils.IsWindows) Windows.Shortcut.Create(this, target, handler, machineWide);
-            else if (UnixUtils.IsUnix) Unix.FreeDesktop.Create(this, target, machineWide, handler);
+            if (WindowsUtils.IsWindows) Windows.Shortcut.Create(this, target, iconStore, machineWide);
+            else if (UnixUtils.IsUnix) Unix.FreeDesktop.Create(this, target, iconStore, machineWide);
         }
 
         /// <inheritdoc/>

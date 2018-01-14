@@ -20,7 +20,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Capabilities;
@@ -52,11 +51,11 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         }
 
         /// <inheritdoc/>
-        public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)
+        public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var capabilities = appEntry.CapabilityLists.CompatibleCapabilities().ToList();
@@ -67,30 +66,30 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
                 switch (capability)
                 {
                     case Store.Model.Capabilities.FileType fileType:
-                        if (WindowsUtils.IsWindows) Windows.FileType.Register(target, fileType, machineWide, handler);
-                        else if (UnixUtils.IsUnix) Unix.FileType.Register(target, fileType, machineWide, handler);
+                        if (WindowsUtils.IsWindows) Windows.FileType.Register(target, fileType, iconStore, machineWide);
+                        else if (UnixUtils.IsUnix) Unix.FileType.Register(target, fileType, iconStore, machineWide);
                         break;
 
                     case Store.Model.Capabilities.UrlProtocol urlProtocol:
-                        if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, urlProtocol, machineWide, handler);
-                        else if (UnixUtils.IsUnix) Unix.UrlProtocol.Register(target, urlProtocol, machineWide, handler);
+                        if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
+                        else if (UnixUtils.IsUnix) Unix.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
                         break;
 
                     case Store.Model.Capabilities.AutoPlay autoPlay:
-                        if (WindowsUtils.IsWindows) Windows.AutoPlay.Register(target, autoPlay, machineWide, handler);
+                        if (WindowsUtils.IsWindows) Windows.AutoPlay.Register(target, autoPlay, iconStore, machineWide);
                         break;
 
                     case AppRegistration appRegistration:
-                        if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.AppRegistration.Register(target, appRegistration, capabilities.OfType<VerbCapability>(), machineWide, handler);
+                        if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.AppRegistration.Register(target, appRegistration, capabilities.OfType<VerbCapability>(), iconStore, machineWide);
                         break;
 
                     case Store.Model.Capabilities.DefaultProgram defaultProgram:
-                        if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, defaultProgram, handler);
-                        else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, machineWide, handler);
+                        if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, defaultProgram, iconStore);
+                        else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                         break;
 
                     case ComServer comServer:
-                        if (WindowsUtils.IsWindows) Windows.ComServer.Register(target, comServer, machineWide, handler);
+                        if (WindowsUtils.IsWindows) Windows.ComServer.Register(target, comServer, iconStore, machineWide);
                         break;
                 }
             }

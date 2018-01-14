@@ -18,7 +18,6 @@
 using System;
 using System.IO;
 using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store;
 
@@ -31,17 +30,17 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="autoStart">Information about the shortcut to be created.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        public static void Create(AutoStart autoStart, FeedTarget target, ITaskHandler handler, bool machineWide)
+        public static void Create(AutoStart autoStart, FeedTarget target, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (autoStart == null) throw new ArgumentNullException(nameof(autoStart));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             string filePath = GetStartupPath(autoStart.Name, machineWide);
-            Create(filePath, targetPath: StubBuilder.GetRunStub(target, autoStart.Command, handler));
+            Create(filePath, targetPath: StubBuilder.GetRunStub(target, autoStart.Command, iconStore));
         }
 
         /// <summary>

@@ -22,7 +22,6 @@ using System.IO;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
@@ -77,18 +76,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="target">The application being integrated.</param>
         /// <param name="contextMenu">The context menu entry to add.</param>
+        /// <param name="iconStore">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Add the context menu entry machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
-        public static void Apply(FeedTarget target, Store.Model.Capabilities.ContextMenu contextMenu, bool machineWide, ITaskHandler handler)
+        public static void Apply(FeedTarget target, Store.Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
@@ -104,7 +103,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     if (contextMenu.Verb.Extended) verbKey.SetValue(FileType.RegValueExtended, "");
 
                     using (var commandKey = verbKey.CreateSubKeyChecked("command"))
-                        commandKey.SetValue("", FileType.GetLaunchCommandLine(target, contextMenu.Verb, machineWide, handler));
+                        commandKey.SetValue("", FileType.GetLaunchCommandLine(target, contextMenu.Verb, iconStore, machineWide));
                 }
             }
         }

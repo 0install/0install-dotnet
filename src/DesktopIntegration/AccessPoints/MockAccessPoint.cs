@@ -21,7 +21,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
@@ -56,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string UnapplyFlagPath { get; set; }
 
         /// <inheritdoc/>
-        public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)
+        public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));

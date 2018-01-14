@@ -261,8 +261,9 @@ namespace ZeroInstall.DesktopIntegration
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 
+            var iconStore = new IconStore(Handler);
             accessPoints.ApplyWithRollback(
-                accessPoint => accessPoint.Apply(appEntry, feed, Handler, MachineWide),
+                accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
                 accessPoint =>
                 {
                     // Don't perform rollback if the access point was already applied previously and this was only a refresh

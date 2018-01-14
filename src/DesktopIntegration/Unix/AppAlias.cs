@@ -19,7 +19,6 @@ using System;
 using System.IO;
 using System.Net;
 using JetBrains.Annotations;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
 
@@ -37,17 +36,17 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="target">The application being integrated.</param>
         /// <param name="command">The command within <paramref name="target"/> the alias shall point to; can be <c>null</c>.</param>
         /// <param name="aliasName">The name of the alias to be created.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the alias machine-wide instead of just for the current user.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        public static void Create(FeedTarget target, [CanBeNull] string command, [NotNull] string aliasName, [NotNull] ITaskHandler handler, bool machineWide)
+        public static void Create(FeedTarget target, [CanBeNull] string command, [NotNull] string aliasName, [NotNull] IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(aliasName) || aliasName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)

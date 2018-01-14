@@ -27,10 +27,8 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
@@ -46,18 +44,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="target">The application to be launched via the stub.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Store the stub in a machine-wide directory instead of just for the current user.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <returns>The path to the generated stub EXE.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
-        public static string GetRunStub(FeedTarget target, [CanBeNull] string command, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public static string GetRunStub(FeedTarget target, [CanBeNull] string command, [NotNull] IIconStore iconStore, bool machineWide = false)
         {
             #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var entryPoint = target.Feed.GetEntryPoint(command);
@@ -69,7 +67,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
             string path = Path.Combine(Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "stubs", hash), exeName + ".exe");
 
-            CreateOrUpdateRunStub(target, path, command, needsTerminal, handler);
+            CreateOrUpdateRunStub(target, path, command, needsTerminal, iconStore);
             return path;
         }
 
@@ -84,13 +82,13 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="path">The target path to store the generated EXE file.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
         /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        private static void CreateOrUpdateRunStub(FeedTarget target, [NotNull] string path, [CanBeNull] string command, bool needsTerminal, [NotNull] ITaskHandler handler)
+        private static void CreateOrUpdateRunStub(FeedTarget target, [NotNull] string path, [CanBeNull] string command, bool needsTerminal, [NotNull] IIconStore iconStore)
         {
             if (File.Exists(path))
             { // Existing stub
@@ -115,12 +113,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     }
                     #endregion
 
-                    BuildRunStub(target, path, handler, needsTerminal, command);
+                    BuildRunStub(target, path, iconStore, needsTerminal, command);
                 }
             }
             else
             { // No existing stub, build new one
-                BuildRunStub(target, path, handler, needsTerminal, command);
+                BuildRunStub(target, path, iconStore, needsTerminal, command);
             }
         }
         #endregion
@@ -131,7 +129,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="target">The application to be launched via the stub.</param>
         /// <param name="path">The target path to store the generated EXE file.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
@@ -139,11 +137,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        internal static void BuildRunStub(FeedTarget target, [NotNull] string path, [NotNull] ITaskHandler handler, bool needsTerminal, [CanBeNull] string command = null)
+        internal static void BuildRunStub(FeedTarget target, [NotNull] string path, [NotNull] IIconStore iconStore, bool needsTerminal, [CanBeNull] string command = null)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var compilerParameters = new CompilerParameters
@@ -161,7 +159,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
             if (icon != null)
             {
-                string iconPath = IconCacheProvider.GetInstance().GetIcon(icon.Href, handler);
+                string iconPath = iconStore.GetPath(icon);
                 compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
             }
 

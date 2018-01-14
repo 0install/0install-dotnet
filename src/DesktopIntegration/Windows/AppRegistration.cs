@@ -25,7 +25,6 @@ using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Capabilities;
@@ -71,18 +70,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="appRegistration">The registration information to be applied.</param>
         /// <param name="verbCapabilities">The capabilities that the application is to be registered with.</param>
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/> or <paramref name="verbCapabilities"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AppRegistration appRegistration, IEnumerable<VerbCapability> verbCapabilities, bool machineWide, [NotNull] ITaskHandler handler)
+        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AppRegistration appRegistration, IEnumerable<VerbCapability> verbCapabilities, [NotNull] IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appRegistration == null) throw new ArgumentNullException(nameof(appRegistration));
             if (verbCapabilities == null) throw new ArgumentNullException(nameof(verbCapabilities));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(appRegistration.ID)) throw new InvalidDataException("Missing ID");
@@ -98,7 +97,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 // Set icon if available
                 var icon = target.Feed.GetIcon(Icon.MimeTypeIco);
-                if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, IconProvider.GetIconPath(icon, handler, machineWide) + ",0");
+                if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, iconStore.GetPath(icon, machineWide) + ",0");
 
                 using (var fileAssocsKey = capabilitiesKey.CreateSubKeyChecked(RegSubKeyFileAssocs))
                 {

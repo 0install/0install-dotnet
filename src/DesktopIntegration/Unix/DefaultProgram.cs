@@ -19,7 +19,6 @@ using System;
 using System.IO;
 using System.Net;
 using JetBrains.Annotations;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Unix
@@ -36,18 +35,18 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="target">The application being integrated.</param>
         /// <param name="defaultProgram">The default program information to be registered.</param>
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the program should be set as the current default for the service it provides.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)
+        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.DefaultProgram defaultProgram, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");

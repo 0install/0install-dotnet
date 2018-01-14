@@ -19,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
@@ -44,17 +43,17 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         }
 
         /// <inheritdoc/>
-        public override void Apply(AppEntry appEntry, Feed feed, ITaskHandler handler, bool machineWide)
+        public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var capability = appEntry.LookupCapability<Store.Model.Capabilities.ContextMenu>(Capability);
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
-            if (WindowsUtils.IsWindows) Windows.ContextMenu.Apply(target, capability, machineWide, handler);
-            else if (UnixUtils.IsUnix) Unix.ContextMenu.Apply(target, capability, machineWide, handler);
+            if (WindowsUtils.IsWindows) Windows.ContextMenu.Apply(target, capability, iconStore, machineWide);
+            else if (UnixUtils.IsUnix) Unix.ContextMenu.Apply(target, capability, iconStore, machineWide);
         }
 
         /// <inheritdoc/>

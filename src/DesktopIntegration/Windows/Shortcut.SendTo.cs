@@ -17,7 +17,6 @@
 
 using System;
 using System.IO;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store;
 
@@ -30,16 +29,16 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="sendTo">Information about the shortcut to be created.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
-        public static void Create(SendTo sendTo, FeedTarget target, ITaskHandler handler)
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
+        public static void Create(SendTo sendTo, FeedTarget target, IIconStore iconStore)
         {
             #region Sanity checks
             if (sendTo == null) throw new ArgumentNullException(nameof(sendTo));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             string filePath = GetSendToPath(sendTo.Name);
-            Create(filePath, target, sendTo.Command, handler, machineWide: false);
+            Create(filePath, target, sendTo.Command, iconStore, machineWide: false);
         }
 
         /// <summary>

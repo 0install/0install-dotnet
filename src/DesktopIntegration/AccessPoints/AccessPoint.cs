@@ -22,7 +22,6 @@ using System.Net;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
@@ -47,7 +46,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         /// <param name="appEntry">The application being integrated.</param>
         /// <param name="feed">The feed providing additional metadata, icons, etc. for the application.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Apply the configuration machine-wide instead of just for the current user.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Store.Model.Capabilities.Capability"/> is invalid.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
@@ -55,7 +54,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The access point's data or a referenced <see cref="Store.Model.Capabilities.Capability"/>'s data are invalid.</exception>
-        public abstract void Apply([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull] ITaskHandler handler, bool machineWide);
+        public abstract void Apply([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull] IIconStore iconStore, bool machineWide);
 
         /// <summary>
         /// Unapplies this access point on the current machine.

@@ -24,7 +24,6 @@ using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
@@ -68,18 +67,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="target">The application being integrated.</param>
         /// <param name="autoPlay">The AutoPlay handler information to be applied.</param>
         /// <param name="machineWide">Register the handler machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the handler should become the default handler for all <see cref="Store.Model.Capabilities.AutoPlay.Events"/>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AutoPlay autoPlay, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)
+        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AutoPlay autoPlay, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(autoPlay.ID)) throw new InvalidDataException("Missing ID");
@@ -90,7 +89,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 
             using (var commandKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + FileType.RegKeyPrefix + ".AutoPlay" + autoPlay.ID + @"\shell\" + autoPlay.Verb.Name + @"\command"))
-                commandKey.SetValue("", FileType.GetLaunchCommandLine(target, autoPlay.Verb, machineWide, handler));
+                commandKey.SetValue("", FileType.GetLaunchCommandLine(target, autoPlay.Verb, iconStore, machineWide));
 
             using (var handlerKey = hive.CreateSubKeyChecked(RegKeyHandlers + @"\" + FileType.RegKeyPrefix + autoPlay.ID))
             {
@@ -104,7 +103,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 var icon = autoPlay.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
                 if (icon != null)
-                    handlerKey.SetValue(RegValueIcon, IconProvider.GetIconPath(icon, handler, machineWide) + ",0");
+                    handlerKey.SetValue(RegValueIcon, iconStore.GetPath(icon, machineWide) + ",0");
             }
 
             foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))

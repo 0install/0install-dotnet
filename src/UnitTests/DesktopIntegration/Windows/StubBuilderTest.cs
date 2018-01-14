@@ -15,9 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Moq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -29,6 +29,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// </summary>
     public sealed class StubBuilderTest
     {
+        private readonly Mock<IIconStore> iconStoreMock = new Mock<IIconStore>();
+
         [SkippableFact]
         public void TestBuildStubGui()
         {
@@ -36,7 +38,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
-                StubBuilder.BuildRunStub(target, tempFile, new SilentTaskHandler(), needsTerminal: false);
+                StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: false);
         }
 
         [SkippableFact]
@@ -46,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
-                StubBuilder.BuildRunStub(target, tempFile, new SilentTaskHandler(), needsTerminal: true);
+                StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: true);
         }
     }
 }

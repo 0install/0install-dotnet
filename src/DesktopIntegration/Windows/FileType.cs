@@ -26,9 +26,9 @@ using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
+using ZeroInstall.Store.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -94,18 +94,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="target">The application being integrated.</param>
         /// <param name="fileType">The file type to register.</param>
         /// <param name="machineWide">Register the file type machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the file associations shall become default handlers for their respective types.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.FileType fileType, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)
+        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.FileType fileType, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(fileType.ID)) throw new InvalidDataException("Missing ID");
@@ -118,7 +118,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 // Add flag to remember whether created for capability or access point
                 progIDKey.SetValue(accessPoint ? PurposeFlagAccessPoint : PurposeFlagCapability, "");
 
-                RegisterVerbCapability(progIDKey, target, fileType, machineWide, handler);
+                RegisterVerbCapability(progIDKey, target, fileType, iconStore, machineWide);
             }
 
             using (var classesKey = hive.OpenSubKeyChecked(RegKeyClasses, writable: true))
@@ -276,18 +276,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="registryKey">The registry key to write the new data to.</param>
         /// <param name="target">The application being integrated.</param>
         /// <param name="capability">The capability to register.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Assume <paramref name="registryKey"/> is effective machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="capability"/> is invalid.</exception>
-        internal static void RegisterVerbCapability(RegistryKey registryKey, FeedTarget target, Store.Model.Capabilities.VerbCapability capability, bool machineWide, ITaskHandler handler)
+        internal static void RegisterVerbCapability(RegistryKey registryKey, FeedTarget target, VerbCapability capability, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (capability == null) throw new ArgumentNullException(nameof(capability));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (capability is Store.Model.Capabilities.UrlProtocol) registryKey.SetValue(UrlProtocol.ProtocolIndicator, "");
@@ -307,7 +307,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                         if (verb.Extended) verbKey.SetValue(RegValueExtended, "");
 
                         using (var commandKey = verbKey.CreateSubKeyChecked("command"))
-                            commandKey.SetValue("", GetLaunchCommandLine(target, verb, machineWide, handler));
+                            commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));
 
                         // Prevent conflicts with existing entries
                         shellKey.DeleteSubKey("ddeexec", throwOnMissingSubKey: false);
@@ -320,7 +320,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (icon != null)
             {
                 using (var iconKey = registryKey.CreateSubKeyChecked(RegSubKeyIcon))
-                    iconKey.SetValue("", IconProvider.GetIconPath(icon, handler, machineWide) + ",0");
+                    iconKey.SetValue("", iconStore.GetPath(icon, machineWide) + ",0");
             }
         }
 
@@ -329,16 +329,16 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="target">The application being integrated.</param>
         /// <param name="verb">The verb to get to launch command for.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Store the stub in a machine-wide directory instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
-        internal static string GetLaunchCommandLine(FeedTarget target, Store.Model.Capabilities.Verb verb, bool machineWide, ITaskHandler handler)
+        internal static string GetLaunchCommandLine(FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
             try
             {
-                string launchCommand = "\"" + StubBuilder.GetRunStub(target, verb.Command, handler, machineWide) + "\"";
+                string launchCommand = "\"" + StubBuilder.GetRunStub(target, verb.Command, iconStore, machineWide) + "\"";
                 if (!string.IsNullOrEmpty(verb.Arguments)) launchCommand += " " + verb.Arguments;
                 return launchCommand;
             }

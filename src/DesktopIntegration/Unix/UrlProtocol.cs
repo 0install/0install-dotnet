@@ -36,18 +36,18 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="target">The application being integrated.</param>
         /// <param name="urlProtocol">The URL protocol to register.</param>
         /// <param name="machineWide">Register the URL protocol machine-wide instead of just for the current user.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the handler shall become the default handler for the protocol.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, [NotNull] ITaskHandler handler, bool accessPoint = false)
+        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.UrlProtocol urlProtocol, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             if (string.IsNullOrEmpty(urlProtocol.ID)) throw new InvalidDataException("Missing ID");

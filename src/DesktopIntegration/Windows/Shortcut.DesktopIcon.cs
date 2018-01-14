@@ -19,7 +19,6 @@ using System;
 using System.IO;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store;
 
@@ -32,17 +31,17 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="desktopIcon">Information about the shortcut to be created.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        public static void Create([NotNull] DesktopIcon desktopIcon, FeedTarget target, [NotNull] ITaskHandler handler, bool machineWide)
+        public static void Create([NotNull] DesktopIcon desktopIcon, FeedTarget target, [NotNull] IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (desktopIcon == null) throw new ArgumentNullException(nameof(desktopIcon));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             string filePath = GetDesktopPath(desktopIcon.Name, machineWide);
-            Create(filePath, target, desktopIcon.Command, handler, machineWide);
+            Create(filePath, target, desktopIcon.Command, iconStore, machineWide);
         }
 
         /// <summary>
