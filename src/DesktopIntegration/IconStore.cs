@@ -73,7 +73,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 if (File.Exists(path))
                 {
-                    if (DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _freshness)
+                    if (DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _freshness && NetUtils.IsInternetConnected())
                     {
                         try
                         {

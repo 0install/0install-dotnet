@@ -64,9 +64,11 @@ namespace ZeroInstall.DesktopIntegration
             }
         }
 
-        [Fact]
+        [SkippableFact]
         public void ShouldRefreshStale()
         {
+            Skip.IfNot(NetUtils.IsInternetConnected(), "Icon cache is not refresh when offline");
+
             using (var server = new MicroServer("icon.png", "new".ToStream()))
             {
                 var icon = PngIcon(server.FileUri);
