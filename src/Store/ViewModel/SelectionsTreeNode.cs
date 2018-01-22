@@ -32,15 +32,16 @@ namespace ZeroInstall.Store.ViewModel
     [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
     public sealed class SelectionsTreeNode : INamed<SelectionsTreeNode>, IEquatable<SelectionsTreeNode>
     {
+        private string NameBase => (Parent == null)
+            ? Uri.ToStringRfc()
+            : $"{Parent.NameBase}#{Uri.ToStringRfc()}";
+
         /// <summary>
         /// The UI path name of this node. Uses a hash (#) as the separator in hierarchical names.
         /// </summary>
         [Browsable(false)]
         [NotNull]
-        public string Name {
-            get => (Parent == null) ? Uri.ToStringRfc() : Parent.Name + "#" + Uri.ToStringRfc();
-            set {}
-        }
+        public string Name { get => $"{NameBase}#{Version}"; set {} }
 
         /// <summary>
         /// The parent element of this node in the tree structure. <c>null</c> for the root element.
