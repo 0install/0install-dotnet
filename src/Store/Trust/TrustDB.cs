@@ -126,9 +126,9 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="path">The file to load from.</param>
         /// <returns>The loaded <see cref="TrustDB"/>.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occured while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
+        /// <exception cref="InvalidDataException">A problem occured while deserializing the XML data.</exception>
         [NotNull]
         public static TrustDB Load([NotNull] string path)
         {
@@ -143,59 +143,79 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <summary>
-        /// Tries to load the <see cref="TrustDB"/> from the default location. Automatically falls back to defaults on errors.
+        /// The default file path used to store the <see cref="TrustDB"/>.
+        /// </summary>
+        public static string DefaultLocation => Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
+
+        /// <summary>
+        /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Automatically falls back to defaults on errors.
         /// </summary>
         /// <returns>The loaded <see cref="TrustDB"/> or an empty <see cref="TrustDB"/> if there was a problem.</returns>
         [NotNull]
         public static TrustDB LoadSafe()
         {
-            string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
-
             try
             {
-                return Load(path);
+                return Load(DefaultLocation);
             }
-                #region Error handling
             catch (FileNotFoundException)
             {
-                return new TrustDB {_filePath = path};
+                return new TrustDB {_filePath = DefaultLocation}; // Start empty and save new file
             }
             catch (IOException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB();
+                return new TrustDB(); // Start empty but do not overwrite existing file
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB();
+                return new TrustDB(); // Start empty but do not overwrite existing file
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB();
+                return new TrustDB(); // Start empty but do not overwrite existing file
             }
-            #endregion
         }
 
         /// <summary>
         /// Saves the this <see cref="TrustDB"/> to the location it was loaded from if possible.
         /// </summary>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <returns><c>true</c> if the file was saved; <c>false</c> if</returns>
+        /// <exception cref="IOException">A problem occured while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void Save()
+        public bool Save()
         {
             if (_filePath == null)
             {
                 Log.Warn("Trust database was not loaded from disk and can therefore not be saved");
-                return;
+                return false;
             }
+            else
+            {
+                Save(_filePath);
+                return true;
+            }
+        }
 
-            Log.Debug("Saving trust database to: " + _filePath);
-            this.SaveXml(_filePath);
+        /// <summary>
+        /// Saves this <see cref="TrustDB"/> to a file.
+        /// </summary>
+        /// <param name="path">The file to save to.</param>
+        /// <exception cref="IOException">A problem occured while writing the file.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+        public void Save([NotNull] string path)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            #endregion
+
+            Log.Debug("Saving trust database to: " + path);
+            this.SaveXml(path);
         }
         #endregion
 

@@ -66,14 +66,29 @@ namespace ZeroInstall.Store.Trust
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
             {
                 // Write and read file
-                trust1.SaveXml(tempFile);
-                trust2 = XmlStorage.LoadXml<TrustDB>(tempFile);
+                trust1.Save(tempFile);
+                trust2 = TrustDB.Load(tempFile);
             }
 
             // Ensure data stayed the same
             trust2.Should().Be(trust1, because: "Serialized objects should be equal.");
             trust2.GetHashCode().Should().Be(trust1.GetHashCode(), because: "Serialized objects' hashes should be equal.");
             ReferenceEquals(trust1, trust2).Should().BeFalse(because: "Serialized objects should not return the same reference.");
+        }
+
+        [Fact]
+        public void TestSave()
+        {
+            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            {
+                var original = new TrustDB();
+                original.Save(tempFile);
+
+                var loaded = TrustDB.Load(tempFile);
+
+                original.Save().Should().BeFalse(because: "No loaded-from path to save back to");
+                loaded.Save().Should().BeTrue(because: "Loaded from disk");
+            }
         }
 
         [Fact] // Ensures that the class can be correctly cloned.
