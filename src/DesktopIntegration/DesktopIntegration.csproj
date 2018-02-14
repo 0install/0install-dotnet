@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>2.14.6</Version>
+    <Version>2.14.7</Version>
     <Description>
 Zero Install methods for integrating applications with desktop environments (creating menu entries, etc.).
 API documentation: http://0install.de/api/backend/
