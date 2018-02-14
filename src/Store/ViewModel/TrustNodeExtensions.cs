@@ -26,7 +26,7 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Maps between <see cref="TrustDB"/> and <see cref="TrustNode"/>s.
     /// </summary>
-    public static class TrustNodeManager
+    public static class TrustNodeExtensions
     {
         /// <summary>
         /// Creates <see cref="TrustNode"/> representations for all entries in a <see cref="TrustDB"/>.
