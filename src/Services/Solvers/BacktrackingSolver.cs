@@ -191,7 +191,7 @@ namespace ZeroInstall.Services.Solvers
                 foreach (var demand in selection.Dependencies.SelectMany(DemandsFor))
                     yield return demand;
 
-                foreach (var demand in selection.ToBindingRequirements(selection.InterfaceUri).Select(x => Demand(x)))
+                foreach (var demand in BuildRequirements(selection, selection.InterfaceUri).Select(x => Demand(x)))
                     yield return demand;
 
                 var command = selection[requirements.Command ?? Command.NameRun];
@@ -206,15 +206,13 @@ namespace ZeroInstall.Services.Solvers
             private IEnumerable<SolverDemand> DemandsFor([NotNull] Dependency dependency)
             {
                 {
-                    var requirements = new Requirements(dependency.InterfaceUri, "", _topLevelRequirements.Architecture);
+                    var requirements = BuildRequirements(dependency.InterfaceUri, command: "");
                     requirements.Distributions.AddRange(dependency.Distributions);
                     requirements.AddRestriction(dependency);
-                    requirements.AddRestrictions(_topLevelRequirements);
-                    requirements.Languages.AddRange(_topLevelRequirements.Languages);
                     yield return Demand(requirements, dependency.Importance);
                 }
 
-                foreach (var requirements in dependency.ToBindingRequirements(dependency.InterfaceUri))
+                foreach (var requirements in BuildRequirements(dependency, dependency.InterfaceUri))
                     yield return Demand(requirements, dependency.Importance);
             }
 
@@ -226,23 +224,33 @@ namespace ZeroInstall.Services.Solvers
 
                 if (command.Runner != null)
                 {
-                    var requirements = new Requirements(command.Runner.InterfaceUri, command.Runner.Command ?? Command.NameRun, _topLevelRequirements.Architecture);
+                    var requirements = BuildRequirements(command.Runner.InterfaceUri, command.Runner.Command);
                     requirements.AddRestriction(command.Runner);
-                    requirements.AddRestrictions(_topLevelRequirements);
-                    requirements.Languages.AddRange(_topLevelRequirements.Languages);
                     yield return Demand(requirements);
                 }
 
                 foreach (var requirements in command.Dependencies.SelectMany(DemandsFor))
                     yield return requirements;
 
-                foreach (var requirements in command.ToBindingRequirements(interfaceUri))
+                foreach (var requirements in BuildRequirements(command, interfaceUri))
                     yield return Demand(requirements);
             }
 
             [NotNull]
             private SolverDemand Demand([NotNull] Requirements requirements, Importance importance = Importance.Essential)
                 => new SolverDemand(requirements, _candidateProvider, importance);
+
+            private Requirements BuildRequirements([NotNull] FeedUri interfaceUri, [CanBeNull] string command)
+            {
+                var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _topLevelRequirements.Architecture);
+                requirements.AddRestrictions(_topLevelRequirements);
+                requirements.Languages.AddRange(_topLevelRequirements.Languages);
+                return requirements;
+            }
+
+            [NotNull, ItemNotNull]
+            private IEnumerable<Requirements> BuildRequirements([NotNull] IBindingContainer bindingContainer, [NotNull] FeedUri interfaceUri)
+                => bindingContainer.Bindings.OfType<ExecutableInBinding>().Select(x => BuildRequirements(interfaceUri, x.Command));
         }
     }
 }

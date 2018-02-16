@@ -24,7 +24,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Services.PackageManagers;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -182,23 +181,6 @@ namespace ZeroInstall.Services.Solvers
 
             foreach (var restriction in source.ExtraRestrictions)
                 requirements.AddRestriction(restriction.Key, restriction.Value);
-        }
-
-        /// <summary>
-        /// Creates <see cref="Requirements"/> for all <see cref="ExecutableInBinding"/>s and the specific <see cref="Command"/>s they reference.
-        /// </summary>
-        /// <param name="bindingContainer">The binding container that may contain <see cref="ExecutableInBinding"/>s.</param>
-        /// <param name="interfaceUri">The interface URI the bindings refer to. For <see cref="Element"/>s and <see cref="Command"/>s this is the URI of the containing feed. For <see cref="Dependency"/>s it is the URI of the target feed.</param>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<Requirements> ToBindingRequirements([NotNull] this IBindingContainer bindingContainer, [NotNull] FeedUri interfaceUri)
-        {
-            #region Sanity checks
-            if (bindingContainer == null) throw new ArgumentNullException(nameof(bindingContainer));
-            if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
-            #endregion
-
-            return bindingContainer.Bindings.OfType<ExecutableInBinding>()
-                .Select(x => new Requirements(interfaceUri, x.Command ?? Command.NameRun));
         }
 
         /// <summary>
