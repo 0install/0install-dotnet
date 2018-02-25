@@ -82,8 +82,8 @@ namespace ZeroInstall.Publish.Capture
                             fileType.Extensions.Add(new FileTypeExtension
                             {
                                 Value = fileAssoc.Key,
-                                MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType, "").ToString(),
-                                PerceivedType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValuePerceivedType, "").ToString()
+                                MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType)?.ToString(),
+                                PerceivedType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValuePerceivedType)?.ToString()
                             });
                         }
                     }
@@ -95,9 +95,8 @@ namespace ZeroInstall.Publish.Capture
                     capability = new UrlProtocol {ID = progID};
                 }
 
-                string description = progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName, "").ToString();
-                if (string.IsNullOrEmpty(description)) description = progIDKey.GetValue("", "").ToString();
-                capability.Descriptions.Add(description);
+                var description = progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName) ?? progIDKey.GetValue("");
+                if (description != null) capability.Descriptions.Add(description.ToString());
 
                 capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
 

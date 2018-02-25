@@ -56,8 +56,8 @@ namespace ZeroInstall.Publish.Capture
                 {
                     if (clientKey == null) continue;
 
-                    if (string.IsNullOrEmpty(appName)) appName = clientKey.GetValue("", "").ToString();
-                    if (string.IsNullOrEmpty(appName)) appName = clientKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueLocalizedName, "").ToString();
+                    if (string.IsNullOrEmpty(appName))
+                        appName = (clientKey.GetValue("") ?? clientKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueLocalizedName))?.ToString();
 
                     var defaultProgram = new DefaultProgram
                     {
@@ -90,9 +90,23 @@ namespace ZeroInstall.Publish.Capture
             {
                 if (installInfoKey == null) return default;
 
-                string reinstall = IsolateCommand(installInfoKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, "").ToString(), installationDir, out string reinstallArgs);
-                string showIcons = IsolateCommand(installInfoKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, "").ToString(), installationDir, out string showIconsArgs);
-                string hideIcons = IsolateCommand(installInfoKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand, "").ToString(), installationDir, out string hideIconsArgs);
+                string IsolateCommand(string regValueName, out string additionalArguments)
+                {
+                    string commandLine = installInfoKey.GetValue(regValueName)?.ToString();
+                    if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
+                    {
+                        additionalArguments = null;
+                        return null;
+                    }
+                    commandLine = commandLine.Substring(installationDir.Length + 2);
+
+                    additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
+                    return commandLine.GetLeftPartAtFirstOccurrence('"');
+                }
+
+                string reinstall = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, out string reinstallArgs);
+                string showIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, out string showIconsArgs);
+                string hideIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand, out string hideIconsArgs);
 
                 return new InstallCommands
                 {
@@ -101,26 +115,6 @@ namespace ZeroInstall.Publish.Capture
                     HideIcons = hideIcons, HideIconsArgs = hideIconsArgs
                 };
             }
-        }
-
-        /// <summary>
-        /// Isolates the path of an executable specified in a command-line relative to a base directory.
-        /// </summary>
-        /// <param name="commandLine"></param>
-        /// <param name="baseDir">The directory relative to which the executable is located.</param>
-        /// <param name="additionalArguments">Returns any additional arguments found.</param>
-        /// <returns>The path of the executable relative to <paramref name="baseDir"/> without any arguments.</returns>
-        private static string IsolateCommand(string commandLine, string baseDir, out string additionalArguments)
-        {
-            if (!commandLine.StartsWithIgnoreCase("\"" + baseDir + "\\"))
-            {
-                additionalArguments = null;
-                return null;
-            }
-            commandLine = commandLine.Substring(baseDir.Length + 2);
-
-            additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
-            return commandLine.GetLeftPartAtFirstOccurrence('"');
         }
         #endregion
     }

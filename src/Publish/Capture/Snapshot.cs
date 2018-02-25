@@ -148,10 +148,10 @@ namespace ZeroInstall.Publish.Capture
                 {
                     using (var assocKey = Registry.ClassesRoot.OpenSubKey(keyName))
                     {
-                        if (assocKey == null) continue;
-
                         // Get the main ProgID
-                        fileAssocsList.Add(new ComparableTuple<string>(keyName, assocKey.GetValue("", "").ToString()));
+                        string assocValue = assocKey?.GetValue("")?.ToString();
+                        if (string.IsNullOrEmpty(assocValue)) continue;
+                        fileAssocsList.Add(new ComparableTuple<string>(keyName, assocValue));
 
                         // Get additional ProgIDs
                         fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => new ComparableTuple<string>(keyName, progID)));

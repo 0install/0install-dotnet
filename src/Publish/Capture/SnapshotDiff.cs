@@ -124,23 +124,22 @@ namespace ZeroInstall.Publish.Capture
             {
                 if (verbKey == null) return null;
 
-                string description = verbKey.GetValue("", "").ToString();
+                string description = verbKey.GetValue("")?.ToString();
                 string commandLine;
                 using (var commandKey = verbKey.OpenSubKey("command"))
                 {
                     if (commandKey == null) return null;
-                    commandLine = commandKey.GetValue("", "").ToString();
+                    commandLine = commandKey.GetValue("")?.ToString();
                 }
 
+                if (string.IsNullOrEmpty(commandLine)) return null;
                 var command = commandMapper.GetCommand(commandLine, out string additionalArgs);
                 if (command == null) return null;
-                string commandName = command.Name;
 
-                if (commandName == Command.NameRun) commandName = null;
                 var verb = new Verb
                 {
                     Name = verbName,
-                    Command = commandName,
+                    Command = (command.Name == Command.NameRun) ? null : command.Name,
                     Arguments = additionalArgs
                 };
                 if (!string.IsNullOrEmpty(description)) verb.Descriptions.Add(description);

@@ -57,10 +57,10 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(capabilitiesRegPath))
                 return null;
 
-            using (var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out bool x64))
+            using (var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out _))
             {
-                if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName, "").ToString();
-                if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription, "").ToString();
+                if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName)?.ToString();
+                if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription)?.ToString();
 
                 CollectProtocolAssocsEx(capsKey, commandMapper, capabilities);
                 CollectFileAssocsEx(capsKey, capabilities);
@@ -97,7 +97,8 @@ namespace ZeroInstall.Publish.Capture
 
                 foreach (string protocol in urlAssocKey.GetValueNames())
                 {
-                    string progID = urlAssocKey.GetValue(protocol, "").ToString();
+                    string progID = urlAssocKey.GetValue(protocol)?.ToString();
+                    if (string.IsNullOrEmpty(progID)) continue;
                     using (var progIDKey = Registry.ClassesRoot.OpenSubKey(progID))
                     {
                         if (progIDKey == null) continue;
@@ -109,7 +110,7 @@ namespace ZeroInstall.Publish.Capture
                             var capability = new UrlProtocol
                             {
                                 ID = progID,
-                                Descriptions = {progIDKey.GetValue("", "").ToString()},
+                                Descriptions = {progIDKey.GetValue("", defaultValue: "").ToString()},
                                 KnownPrefixes = {prefix}
                             };
                             capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
