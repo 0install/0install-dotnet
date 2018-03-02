@@ -155,10 +155,10 @@
     <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) akışı olmalı.</value>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; İnternet adresi özniteliği ('{0}') ('{1}') üzerinden indirilen akışın İnternet adresi ile uyuşmuyor.</value>
+    <value>&lt;interface&gt; Adres özniteliği ('{0}') ('{1}') üzerinden indirilen akışın adresi ile uyuşmuyor.</value>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; İnternet adresi özniteliği eksik. '{0}' olmalı.</value>
+    <value>&lt;interface&gt; Adres özniteliği eksik. '{0}' olmalı.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Çözümleyici beklenmedik bir sorunla karşılaştı.</value>
@@ -173,7 +173,7 @@
     <value>{0} bağlantı adında geçersiz karakter var.</value>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Akışların alınabilmesi için kaynak İnternet adresleri belirtilmelidir.</value>
+    <value>Akışların alınabilmesi için kaynak adresler belirtilmelidir.</value>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
     <value>{0} bağlantısında ad eksik.</value>
@@ -198,7 +198,7 @@
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Olası bir yeniden oynatma saldırısı algılandı. Yeni akışın değişiklik zamanı eski sürümden önce.
-Akışın İnternet adresi: {0}
+Akış adresi: {0}
 Eski zaman: {1}
 Yeni zaman: {2}</value>
   </data>
@@ -209,7 +209,7 @@ Yeni zaman: {2}</value>
     <value>Akış yansı sunucusu deneniyor</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>İndirilen uygulama kataloğu önbelleğe alınamadı.</value>
+    <value>İndirilen uygulama kataloğu ön belleğe alınamadı.</value>
   </data>
   <data name="UnableToLoadKeyFile" xml:space="preserve">
     <value>'{0}' için GnuPG anahtar dosyası indirilemedi.</value>

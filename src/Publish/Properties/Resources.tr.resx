@@ -124,7 +124,7 @@
     <value>Bu yol noktası arşivin dışında.</value>
   </data>
   <data name="AskForPassphrase" xml:space="preserve">
-    <value>{0} için GnuPG parolasını girin:</value>
+    <value>{0} için GnuPG parolasını yazın:</value>
   </data>
   <data name="AskInstallerEXE" xml:space="preserve">
     <value>Bu bir EXE yükleyicisi mi?</value>
@@ -149,7 +149,7 @@ Bunu yaparsanız akışınız yerel kipte ve çevrimdışı olarak çalışacakt
 Bu uygulamanın aynı şekilde kalması gerekiyordu</value>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Bildirim özeti değişti. Değişikliğin varolan başka bir bildirim özetinin yerini almasını ister misiniz?</value>
+    <value>Bildirim özeti değişti. Değişikliğin var olan başka bir bildirim özetinin yerini almasını ister misiniz?</value>
   </data>
   <data name="DigestOtherImplementations" xml:space="preserve">
     <value>Bu uygulama için yeni özetin tüm diğer alma yöntemleriyle eşleşmesi gereklidir.</value>
@@ -159,8 +159,8 @@ Bu uygulamanın aynı şekilde kalması gerekiyordu</value>
 Uygulama amacını ben değiştirdim</value>
   </data>
   <data name="DiscardChanges" xml:space="preserve">
-    <value>Yoksay
-Kaydedilmemiş değişiklikleri yoksay</value>
+    <value>Yok say
+Kaydedilmemiş değişiklikleri yok say</value>
   </data>
   <data name="DownloadingPeviewImage" xml:space="preserve">
     <value>Önizleme için görsel indiriliyor...</value>
@@ -269,7 +269,7 @@ yalnız bir EXE'den oluşur</value>
     <value>İndirilen herhangi bir arşivi uygulama mağazasına ekleyin.</value>
   </data>
   <data name="OptionUnsign" xml:space="preserve">
-    <value>Varolan herhangi bir imzayı kaldırın.</value>
+    <value>Var olan herhangi bir imzayı kaldırın.</value>
   </data>
   <data name="OptionVersion" xml:space="preserve">
     <value>Sürüm bilgilerini görün.</value>

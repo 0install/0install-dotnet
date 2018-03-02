@@ -136,7 +136,7 @@
     <value>{0} arşivi oluşturuluyor</value>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu önbellek içindeki alt dizinler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
+    <value>Bu ön bellek içindeki alt dizinler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
 Bu korumanın yan etkisi olarak bu dosyalar Windows Gezgini kullanılarak silinemez.
 
 Tek bir kaydı silmek için komut satırında şu komutu kullanabilirsiniz:
@@ -145,7 +145,7 @@ Tek bir kaydı silmek için komut satırında şu komutu kullanabilirsiniz:
 Tüm klasörü silmek için komut satırında şu komutu kullanabilirsiniz:
 0install store purge {0}
 
-Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da önbellekleri yönetebilirsiniz:
+Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri yönetebilirsiniz:
 0install store manage</value>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
@@ -316,7 +316,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Uygun simge bulunamadı.</value>
   </data>
   <data name="NotCached" xml:space="preserve">
-    <value>(önbelleğe alınmadı)</value>
+    <value>(ön belleğe alınmamış)</value>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Numara değeri çok büyük.</value>
@@ -376,7 +376,7 @@ sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
     <value>Güvenilmeyen uygulama</value>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Uygulama önbellekte değil (şu anda çevrimdışı kipte)</value>
+    <value>Uygulama ön bellekte değil (şu anda çevrimdışı kipte)</value>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Yürütülemeyen kaynak uygulaması</value>
@@ -427,7 +427,7 @@ sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
     <value>Sürüm aralığı sonu özel olmalıdır. '..!{0}' kullanın '..{0}' değil.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Girdiğiniz parola geçersiz.</value>
+    <value>Yazdığınız parola geçersiz.</value>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Dosyanın son satırı imza bloğunun sonu değil.</value>

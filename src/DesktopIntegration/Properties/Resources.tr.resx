@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Varolan şu erişim noktaları birbiri ile çakışıyor:</value>
+    <value>Var olan şu erişim noktaları birbiri ile çakışıyor:</value>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>{0} uygulaması için varolan şu erişim noktaları birbiri ile çakışıyor:</value>
+    <value>{0} uygulaması için var olan şu erişim noktaları birbiri ile çakışıyor:</value>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>Varolan {0} erişim noktası yeni {1} erişim noktası ile çakışıyor.</value>
+    <value>Var olan {0} erişim noktası yeni {1} erişim noktası ile çakışıyor.</value>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>'{0}' uygulaması zaten uygulama listesinde var.</value>
