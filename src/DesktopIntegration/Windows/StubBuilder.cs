@@ -159,8 +159,37 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
             if (icon != null)
             {
-                string iconPath = iconStore.GetPath(icon);
-                compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
+                try
+                {
+                    string iconPath = iconStore.GetPath(icon);
+                    new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
+                    compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
+                }
+                #region Error handling
+                catch (UriFormatException ex)
+                {
+                    Log.Warn(ex);
+                }
+                catch (WebException ex)
+                {
+                    Log.Warn(ex);
+                }
+                catch (IOException ex)
+                {
+                    Log.Warn($"Failed to store {icon}");
+                    Log.Warn(ex);
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    Log.Warn($"Failed to store {icon}");
+                    Log.Warn(ex);
+                }
+                catch (ArgumentException ex)
+                {
+                    Log.Warn($"Failed to parse {icon}");
+                    Log.Warn(ex);
+                }
+                #endregion
             }
 
             compilerParameters.CompileCSharp(
