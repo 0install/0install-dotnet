@@ -2,5 +2,6 @@
 set -e
 cd `dirname $0`
 
-src/build.ps1
-doc/build.ps1
+src/build.sh
+src/test.sh
+doc/build.sh
