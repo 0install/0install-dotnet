@@ -1,7 +1,8 @@
 Zero Install .NET Backend
 =========================
 
-The Zero Install .NET Backend implements the core features of Zero Install. It also allow developers to embed Zero Install functionality in their own .NET applications.  
+The Zero Install .NET Backend implements the core features of Zero Install. It also allow developers to embed Zero Install functionality in their own .NET applications. It is available for .NET Framework 2.0 or newer and .NET Standard 2.0 or newer.
+
 [Zero Install for Windows](https://github.com/0install/0install-win) and the [Zero Install Publishing Tools](https://github.com/0install/0publish-win) are built upon this backend.
 
 [![TeamCity Build status](https://0install.de/teamcity/app/rest/builds/buildType:(id:ZeroInstall_DotNetBackend_Build)/statusIcon)](https://0install.de/teamcity/viewType.html?buildTypeId=ZeroInstall_DotNetBackend_Build&guest=1)
