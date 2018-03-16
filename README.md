@@ -26,7 +26,7 @@ Directory structure
 
 Building
 --------
-- You need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) and [Zero Install](http://0install.de/downloads/) to build this project.
-- The file `VERSION` contains the current version number of the project.
-- Run `.\Set-Version.ps1 "X.Y.Z"` in PowerShall to change the version number. This ensures that the version also gets set in other locations (e.g. `.csproj` files).
-- Run `.\build.ps1` in PowerShell to build everything.
+You need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) and [Zero Install](http://0install.de/downloads/) to perform a full build of this project.  
+You can work on the cross-platform parts of the library using the [.NET Core SDK](https://www.microsoft.com/net/download) or [Mono](https://www.mono-project.com/download/stable/).
+
+Run `.\build.ps1` on Windows or `./build.sh` on Linux to build and run unit tests.

@@ -3,10 +3,8 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Services.Interfaces</AssemblyName>
     <RootNamespace>ZeroInstall.Services</RootNamespace>
-    <TargetFrameworks>net20;net35;net40;netstandard2.0</TargetFrameworks>
     <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
     <NoWarn>$(NoWarn);1591;NU1701</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
@@ -15,6 +13,20 @@
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\build\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Full'">
+    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' == 'Windows_NT'">
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' != 'Windows_NT'">
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Mono'">
+    <TargetFrameworks>net45</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>

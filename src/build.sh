@@ -1,6 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 cd `dirname $0`
 
-msbuild -v:Quiet -t:Clean
-msbuild -t:Restore -t:Build -p:Configuration=Release
+echo "WARNING: You need Visual Studio on Windows to perform a full Release build"
+if hash msbuild 2>/dev/null; then
+    msbuild -t:Restore -t:Build
+else
+    dotnet build --configuration DebugLinuxCore
+fi

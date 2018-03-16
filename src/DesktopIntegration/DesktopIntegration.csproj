@@ -3,10 +3,8 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.DesktopIntegration</AssemblyName>
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
-    <TargetFrameworks>net20;net35;net40</TargetFrameworks>
     <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
@@ -17,6 +15,17 @@
     <OutputPath>..\..\build\$(Configuration)\</OutputPath>
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Full'">
+    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' == 'Windows_NT'">
+    <TargetFrameworks>net45</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Mono'">
+    <TargetFrameworks>net45</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
