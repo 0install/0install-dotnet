@@ -259,30 +259,30 @@ namespace ZeroInstall.Store.Implementations.Build
             {
                 new Recipe {Steps = {new Archive {Destination = "../destination"}}}
                     .Invoking(x => x.Apply(new[] {tempArchive}, new SilentTaskHandler()))
-                    .ShouldThrow<IOException>(because: "Should reject breakout path in Archive.Destination");
+                    .Should().Throw<IOException>(because: "Should reject breakout path in Archive.Destination");
             }
 
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
             {
                 new Recipe {Steps = {new SingleFile {Destination = "../file"}}}
                     .Invoking(x => x.Apply(new[] {tempFile}, new SilentTaskHandler()))
-                    .ShouldThrow<IOException>(because: "Should reject breakout path in SingleFile.Destination");
+                    .Should().Throw<IOException>(because: "Should reject breakout path in SingleFile.Destination");
             }
 
             new Recipe {Steps = {new RemoveStep {Path = "../file"}}}
                 .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .ShouldThrow<IOException>(because: "Should reject breakout path in RemoveStep.Path");
+                .Should().Throw<IOException>(because: "Should reject breakout path in RemoveStep.Path");
 
             new Recipe {Steps = {new RenameStep {Source = "../source", Destination = "destination"}}}
                 .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .ShouldThrow<IOException>(because: "Should reject breakout path in RenameStep.Source");
+                .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Source");
             new Recipe {Steps = {new RenameStep {Source = "source", Destination = "../destination"}}}
                 .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .ShouldThrow<IOException>(because: "Should reject breakout path in RenameStep.Destination");
+                .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Destination");
 
             new Recipe {Steps = {new CopyFromStep {ID = "id123", Destination = "../destination"}}}
                 .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .ShouldThrow<IOException>(because: "Should reject breakout path in CopyFromStep.Destination");
+                .Should().Throw<IOException>(because: "Should reject breakout path in CopyFromStep.Destination");
         }
 
         [Fact]

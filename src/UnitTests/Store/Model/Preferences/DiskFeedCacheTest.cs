@@ -105,7 +105,7 @@ namespace ZeroInstall.Store.Model.Preferences
         [Fact]
         public void TestGetFeedCaseSensitive()
         {
-            _cache.Invoking(x => x.GetFeed(new FeedUri("http://0install.de/feeds/test/test1.xml"))).ShouldNotThrow<KeyNotFoundException>();
+            _cache.Invoking(x => x.GetFeed(new FeedUri("http://0install.de/feeds/test/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
             Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new FeedUri("http://0install.de/feeds/test/Test1.xml")));
         }
 

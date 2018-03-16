@@ -43,9 +43,9 @@ namespace ZeroInstall.Services.Executors
         {
             var executor = new EnvironmentBuilder(new Mock<IStore>(MockBehavior.Loose).Object);
             executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
-                .ShouldThrow<ExecutorException>(because: "Selections with no implementations should be rejected");
+                .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
             executor.Invoking(x => x.Inject(new Selections {Implementations = {new ImplementationSelection()}}))
-                .ShouldThrow<ExecutorException>(because: "Selections with no start command should be rejected");
+                .Should().Throw<ExecutorException>(because: "Selections with no start command should be rejected");
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace ZeroInstall.Services.Executors
             storeMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns("test path");
             var executor = new EnvironmentBuilder(storeMock.Object);
             executor.Invoking(x => x.Inject(selections))
-                .ShouldThrow<ExecutorException>(because: "Invalid Selections should be rejected");
+                .Should().Throw<ExecutorException>(because: "Invalid Selections should be rejected");
         }
 
         private static IStore GetMockStore(Selections selections)

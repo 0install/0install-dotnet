@@ -51,12 +51,12 @@ namespace ZeroInstall.Services.Solvers
                 {
                     this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements)
                             .Should().Be(testCase.Selections, testCase.ToString()))
-                        .ShouldNotThrow(testCase.ToString());
+                        .Should().NotThrow(testCase.ToString());
                 }
                 else
                 {
                     this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
-                        .ShouldThrow<SolverException>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
+                        .Should().Throw<SolverException>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
                 }
             }
         }

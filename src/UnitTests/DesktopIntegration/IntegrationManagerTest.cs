@@ -61,7 +61,7 @@ namespace ZeroInstall.DesktopIntegration
                 .Should().Equal(new AppEntry {InterfaceUri = FeedTest.Test1Uri, Name = target.Feed.Name, CapabilityLists = {capabilityList}});
 
             _integrationManager.Invoking(x => x.AddApp(target))
-                .ShouldThrow<InvalidOperationException>(because: "Do not allow adding applications to AppList more than once.");
+                .Should().Throw<InvalidOperationException>(because: "Do not allow adding applications to AppList more than once.");
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace ZeroInstall.DesktopIntegration
 
                 unapplyFlag.Set.Should().BeTrue(because: "Access points should be unapplied when their AppEntry is removed");
                 _integrationManager.Invoking(x => x.RemoveApp(appEntry))
-                    .ShouldNotThrow(because: "Allow multiple removals of applications.");
+                    .Should().NotThrow(because: "Allow multiple removals of applications.");
             }
         }
 
@@ -104,7 +104,7 @@ namespace ZeroInstall.DesktopIntegration
                 applyFlag1.Set = false;
 
                 _integrationManager.Invoking(x => x.AddAccessPoints(appEntry1, feed1, accessPoints1))
-                    .ShouldNotThrow(because: "Duplicate access points should be silently reapplied");
+                    .Should().NotThrow(because: "Duplicate access points should be silently reapplied");
                 applyFlag1.Set.Should().BeTrue(because: "Duplicate access points should be silently reapplied");
 
                 _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints2);
@@ -112,7 +112,7 @@ namespace ZeroInstall.DesktopIntegration
 
                 var appEntry2 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test2Uri, feed2));
                 _integrationManager.Invoking(x => x.AddAccessPoints(appEntry2, feed2, accessPoints2))
-                    .ShouldThrow<ConflictException>(because: "Should prevent access point conflicts");
+                    .Should().Throw<ConflictException>(because: "Should prevent access point conflicts");
                 applyFlag2.Set.Should().BeFalse(because: "Should prevent access point conflicts");
             }
         }
@@ -137,7 +137,7 @@ namespace ZeroInstall.DesktopIntegration
                 unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
 
                 _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, new[] {accessPoint}))
-                    .ShouldNotThrow(because: "Allow multiple removals of access points.");
+                    .Should().NotThrow(because: "Allow multiple removals of access points.");
             }
         }
 
