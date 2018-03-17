@@ -2,10 +2,16 @@ image: Visual Studio 2017
 
 build_script:
   - ps: src\build.ps1
-  - ps: doc\build.ps1
 
 test_script:
   - ps: src\test.ps1
 
 artifacts:
   - path: build\Release\*.nupkg
+    name: NuGet
+
+deploy:
+  provider: Environment
+  name: nuget.org
+  on:
+    appveyor_repo_tag: true
