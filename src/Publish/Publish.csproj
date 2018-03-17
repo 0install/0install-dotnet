@@ -30,7 +30,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>2.14.7</Version>
     <Description>
 The Zero Install Publishing API provides methods for creating and modifying feed files.
 The Zero Install Publishing Tools (including the Feed Editor) are built upon this API. You can use the API to automate complex feed creation/update tasks.

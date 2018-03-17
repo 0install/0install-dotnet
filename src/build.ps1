@@ -1,3 +1,4 @@
+Param ($Version = "1.0-dev")
 $ErrorActionPreference = "Stop"
 pushd $(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
 
@@ -8,6 +9,6 @@ if (Test-Path "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswher
   Write-Host -ForegroundColor yellow "WARNING: You need Visual Studio to perform a full Release build"
   $msBuild = "dotnet msbuild"
 }
-. $msBuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release
+. $msBuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=$Version
 
 popd

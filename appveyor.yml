@@ -1,7 +1,10 @@
 image: Visual Studio 2017
 
+before_build:
+  - gitversion /l console /output buildserver
+
 build_script:
-  - ps: src\build.ps1
+  - ps: src\build.ps1 $env:GitVersion_NuGetVersion
 
 test_script:
   - ps: src\test.ps1
