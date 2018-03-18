@@ -5,16 +5,14 @@ The Zero Install .NET Backend implements the core features of Zero Install. It a
 
 [Zero Install for Windows](https://github.com/0install/0install-win) and the [Zero Install Publishing Tools](https://github.com/0install/0publish-win) are built upon this backend.
 
-[![TeamCity Build status](https://0install.de/teamcity/app/rest/builds/buildType:(id:ZeroInstall_DotNetBackend_Build)/statusIcon)](https://0install.de/teamcity/viewType.html?buildTypeId=ZeroInstall_DotNetBackend_Build&guest=1)
+NuGet packages:  
+[![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)
+[![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)
+[![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)
+[![ZeroInstall.](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)
 
-**[API documentation](http://0install.de/api/backend/)**
-
-NuGet packages:
-- **[ZeroInstall.Store](https://www.nuget.org/packages/ZeroInstall.Store/)** (data models and management functions for local file storage)
-- **[ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services/)** (services such as dependency resolution and implementation downloading)
-- **[ZeroInstall.Services.Interfaces](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)** (interfaces and extension methods)
-- **[ZeroInstall.DesktopIntegration](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)** (methods for integrating applications with desktop environments, creating menu entries, etc.)
-- **[ZeroInstall.Publish](https://www.nuget.org/packages/ZeroInstall.Publish/)** (methods for creating and modifying feed files)
+[![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](http://0install.de/api/backend/)
+[![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)
 
 Directory structure
 -------------------
