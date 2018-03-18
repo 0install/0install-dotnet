@@ -61,6 +61,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Handle native libs that would be copied via A NuGet .targets file when consumed externally -->
+    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
 
