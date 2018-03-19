@@ -24,7 +24,7 @@ Directory structure
 
 Building
 --------
-You need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) and [Zero Install](http://0install.de/downloads/) to perform a full build of this project.  
+You need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) to perform a full build of this project.  
 You can work on the cross-platform parts of the library using the [.NET Core SDK](https://www.microsoft.com/net/download) or [Mono](https://www.mono-project.com/download/stable/).
 
 Run `.\build.ps1` on Windows or `./build.sh` on Linux to build and run unit tests. These scripts takes a version number as an input argument. The source code itself contains no version numbers. Instead the version is picked by continous integration using [GitVersion](http://gitversion.readthedocs.io/).
