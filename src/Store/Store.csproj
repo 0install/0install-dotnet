@@ -5,31 +5,31 @@
     <RootNamespace>ZeroInstall.Store</RootNamespace>
     <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <IncludeSource>True</IncludeSource>
-    <NoWarn>$(NoWarn);1591;NU1701</NoWarn>
+    <NoWarn>$(NoWarn);1591</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\build\$(Configuration)\</OutputPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Full'">
-    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' == 'Windows_NT'">
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' != 'Windows_NT'">
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Mono'">
-    <TargetFrameworks>net45</TargetFrameworks>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSource>True</IncludeSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' and '$(OS)'!='Windows_NT'">
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'!='netstandard2.0' and '$(OS)'=='Windows_NT'">
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
@@ -56,7 +56,7 @@ API documentation: http://0install.de/api/backend/
     <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="Microsoft.Deployment.Compression" HintPath="..\..\lib\Microsoft.Deployment.Compression.dll" />
@@ -72,7 +72,7 @@ API documentation: http://0install.de/api/backend/
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.4.0" />
   </ItemGroup>
 

@@ -5,28 +5,28 @@
     <RootNamespace>ZeroInstall.Services</RootNamespace>
     <LangVersion>7.1</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <IncludeSource>True</IncludeSource>
-    <NoWarn>$(NoWarn);1591;NU1701</NoWarn>
+    <NoWarn>$(NoWarn);1591</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\build\$(Configuration)\</OutputPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Full'">
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' == 'Windows_NT'">
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core' and '$(OS)' != 'Windows_NT'">
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' and '$(OS)'!='Windows_NT'">
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Mono'">
-    <TargetFrameworks>net45</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -46,11 +46,11 @@ API documentation: http://0install.de/api/backend/
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
     <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
   </ItemGroup>
 
