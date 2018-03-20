@@ -59,7 +59,9 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="sourcePath">The path of the original directory to read.</param>
         /// <param name="targetPath">The path of the new directory to create.</param>
         public CloneDirectory([NotNull] string sourcePath, [NotNull] string targetPath) : base(sourcePath)
-            => DirectoryBuilder = new DirectoryBuilder(targetPath ?? throw new ArgumentNullException(targetPath));
+        {
+            DirectoryBuilder = new DirectoryBuilder(targetPath ?? throw new ArgumentNullException(targetPath));
+        }
 
         /// <inheritdoc/>
         public override string Name => Resources.CopyFiles;

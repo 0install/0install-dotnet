@@ -54,7 +54,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="sourcePath">The path of the directory to analyze.</param>
         /// <param name="format">The format of the manifest to generate.</param>
         public ManifestGenerator([NotNull] string sourcePath, [NotNull] ManifestFormat format) : base(sourcePath)
-            => Format = format ?? throw new ArgumentNullException(nameof(format));
+        {
+            Format = format ?? throw new ArgumentNullException(nameof(format));
+        }
 
         /// <inheritdoc/>
         protected override void HandleFile(FileInfo file, bool executable = false)
