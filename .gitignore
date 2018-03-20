@@ -1,6 +1,7 @@
 /build/
 /src/.vs/
 /src/_ReSharper*/
+/doc/*.tag
 obj/
 bin/
 *.bak
