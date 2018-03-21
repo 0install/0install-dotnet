@@ -32,7 +32,6 @@ namespace ZeroInstall.Publish.EntryPoints
         public void TestListCandidates()
         {
             Deploy(DotNetExeTest.Reference, xbit: false);
-            Deploy(WindowsExeTest.Reference32, xbit: false);
             Deploy(PythonScriptTest.Reference, xbit: true);
             Deploy(PosixScriptTest.Reference, xbit: true);
             Deploy(PosixBinaryTest.Reference32, xbit: true);
@@ -40,7 +39,6 @@ namespace ZeroInstall.Publish.EntryPoints
             var candidates = Detection.ListCandidates(Directory).ToList();
             candidates.Should().BeEquivalentTo(
                 DotNetExeTest.Reference,
-                WindowsExeTest.Reference32,
                 PythonScriptTest.Reference,
                 PosixScriptTest.Reference,
                 PosixBinaryTest.Reference32);

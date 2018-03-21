@@ -16,6 +16,7 @@
  */
 
 using FluentAssertions;
+using NanoByte.Common.Native;
 using Xunit;
 using ZeroInstall.Store.Model;
 
@@ -54,17 +55,33 @@ namespace ZeroInstall.Publish.EntryPoints
             NeedsTerminal = true
         };
 
-        [Fact]
-        public void X86() => TestAnalyze(Reference32);
+        [SkippableFact]
+        public void X86()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+            TestAnalyze(Reference32);
+        }
 
-        [Fact]
-        public void X64() => TestAnalyze(Reference64);
+        [SkippableFact]
+        public void X64()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+            TestAnalyze(Reference64);
+        }
 
-        [Fact]
-        public void X86Terminal() => TestAnalyze(ReferenceTerminal);
+        [SkippableFact]
+        public void X86Terminal()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+            TestAnalyze(ReferenceTerminal);
+        }
 
-        [Fact]
-        public void NotExe() => new WindowsExe().Analyze(baseDirectory: Directory, file: Deploy(PosixScriptTest.Reference, xbit: false))
-            .Should().BeFalse();
+        [SkippableFact]
+        public void NotExe()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+            new WindowsExe().Analyze(baseDirectory: Directory, file: Deploy(PosixScriptTest.Reference, xbit: false))
+                .Should().BeFalse();
+        }
     }
 }
