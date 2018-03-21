@@ -9,10 +9,12 @@ NuGet packages:
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)
 [![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)
-[![ZeroInstall.](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)
-
+[![ZeroInstall.](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)  
 [![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](http://0install.de/api/backend/)
-[![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)
+
+CI Builds:  
+[![Windows](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg?label=Windows)](https://ci.appveyor.com/project/0install/0install-dotnet)
+[![Linux](https://img.shields.io/travis/0install/0install-dotnet.svg?label=Linux)](https://travis-ci.org/0install/0install-dotnet)
 
 Directory structure
 -------------------
