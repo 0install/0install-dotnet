@@ -378,31 +378,21 @@ namespace ZeroInstall.Store.Implementations
         #region Contains
         /// <inheritdoc/>
         public bool Contains(ManifestDigest manifestDigest)
-        {
-            // Check for all supported digest algorithms
-            return manifestDigest.AvailableDigests.Any(digest => Directory.Exists(Path.Combine(DirectoryPath, digest)));
-        }
+            => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(Path.Combine(DirectoryPath, digest)));
 
         /// <inheritdoc/>
         public bool Contains(string directory)
-        {
-            return Directory.Exists(Path.Combine(DirectoryPath, directory));
-        }
+            => Directory.Exists(Path.Combine(DirectoryPath, directory));
 
         /// <inheritdoc/>
         public void Flush()
-        {
-            // No internal caching
-        }
+        {} // No internal caching
         #endregion
 
         #region Get
         /// <inheritdoc/>
         public string GetPath(ManifestDigest manifestDigest)
-        {
-            // Check for all supported digest algorithms
-            return manifestDigest.AvailableDigests.Select(digest => Path.Combine(DirectoryPath, digest)).FirstOrDefault(Directory.Exists);
-        }
+            => manifestDigest.AvailableDigests.Select(digest => Path.Combine(DirectoryPath, digest)).FirstOrDefault(Directory.Exists);
         #endregion
 
         #region Add
@@ -416,7 +406,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Info("Caching implementation: " + manifestDigest.Best);
+            Log.Info($"Caching implementation {manifestDigest} in {this}");
 
             // Copy to temporary directory inside the cache so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
@@ -454,7 +444,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Info("Caching implementation: " + manifestDigest.Best);
+            Log.Info($"Caching implementation {manifestDigest} in {this}");
 
             // Extract to temporary directory inside the cache so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
@@ -627,11 +617,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DirectoryStore other)
-        {
-            if (other == null) return false;
-            return DirectoryPath == other.DirectoryPath;
-        }
+        public bool Equals(DirectoryStore other) => other != null && DirectoryPath == other.DirectoryPath;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -642,10 +628,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return DirectoryPath.GetHashCode();
-        }
+        public override int GetHashCode() => DirectoryPath.GetHashCode();
         #endregion
     }
 }
