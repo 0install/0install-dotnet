@@ -8,7 +8,7 @@ EXCLUDE_PATTERNS = */packages/* */UnitTests/* */Properties/* */obj/* */bin/*
 TAGFILES = nanobyte-common.tag=http://nano-byte.de/common/api/
 
 OUTPUT_DIRECTORY = ../build/Documentation
-GENERATE_TAGFILE = ../build/Documentation/0install-backend.tag
+GENERATE_TAGFILE = ../build/Documentation/0install-dotnet.tag
 HTML_OUTPUT = .
 
 GENERATE_LATEX = NO
