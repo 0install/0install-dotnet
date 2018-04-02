@@ -74,20 +74,22 @@ namespace ZeroInstall.Services.PackageManagers
                 case "netfx":
                     return new[]
                     {
-                        // See: https://msdn.microsoft.com/en-us/library/hh925568
-                        FindNetFx(new ImplementationVersion("2.0"), WindowsUtils.NetFx20, WindowsUtils.NetFx20),
-                        FindNetFx(new ImplementationVersion("3.0"), WindowsUtils.NetFx20, WindowsUtils.NetFx30),
-                        FindNetFx(new ImplementationVersion("3.5"), WindowsUtils.NetFx20, WindowsUtils.NetFx35),
-                        FindNetFx(new ImplementationVersion("4.0"), WindowsUtils.NetFx40, @"v4\Full"),
-                        FindNetFx(new ImplementationVersion("4.5"), WindowsUtils.NetFx40, @"v4\Full", 378389),
-                        FindNetFx(new ImplementationVersion("4.5.1"), WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
-                        FindNetFx(new ImplementationVersion("4.5.2"), WindowsUtils.NetFx40, @"v4\Full", 379893),
-                        FindNetFx(new ImplementationVersion("4.6"), WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
-                        FindNetFx(new ImplementationVersion("4.6.1"), WindowsUtils.NetFx40, @"v4\Full", 394254),
-                        FindNetFx(new ImplementationVersion("4.6.2"), WindowsUtils.NetFx40, @"v4\Full", 394802) // also covers 394806
+                        // See: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+                        FindNetFx("2.0", WindowsUtils.NetFx20, WindowsUtils.NetFx20),
+                        FindNetFx("3.0", WindowsUtils.NetFx20, WindowsUtils.NetFx30),
+                        FindNetFx("3.5", WindowsUtils.NetFx20, WindowsUtils.NetFx35),
+                        FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Full"),
+                        FindNetFx("4.5", WindowsUtils.NetFx40, @"v4\Full", 378389),
+                        FindNetFx("4.5.1", WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
+                        FindNetFx("4.5.2", WindowsUtils.NetFx40, @"v4\Full", 379893),
+                        FindNetFx("4.6", WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
+                        FindNetFx("4.6.1", WindowsUtils.NetFx40, @"v4\Full", 394254),
+                        FindNetFx("4.6.2", WindowsUtils.NetFx40, @"v4\Full", 394802), // also covers 394806
+                        FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
+                        FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308) // also covers 461310
                     }.Flatten();
                 case "netfx-client":
-                    return FindNetFx(new ImplementationVersion("4.0"), WindowsUtils.NetFx40, @"v4\Client");
+                    return FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client");
 
                 case "powershell":
                     return FindPowerShell();
@@ -147,9 +149,9 @@ namespace ZeroInstall.Services.PackageManagers
         }
 
         // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
-        private IEnumerable<ExternalImplementation> FindNetFx(ImplementationVersion version, string clrVersion, string registryVersion, int releaseNumber = 0)
+        private IEnumerable<ExternalImplementation> FindNetFx(string version, string clrVersion, string registryVersion, int releaseNumber = 0)
         {
-            ExternalImplementation Impl(Cpu cpu) => new ExternalImplementation(DistributionName, "netfx", version, cpu)
+            ExternalImplementation Impl(Cpu cpu) => new ExternalImplementation(DistributionName, "netfx", new ImplementationVersion(version), cpu)
             {
                 // .NET executables do not need a runner on Windows
                 Commands = {new Command {Name = Command.NameRun, Path = ""}},
