@@ -5,7 +5,7 @@ The Zero Install .NET Backend implements the core features of Zero Install. It a
 
 [Zero Install for Windows](https://github.com/0install/0install-win) and the [Zero Install Publishing Tools](https://github.com/0install/0publish-win) are built upon this backend.
 
-NuGet packages:  
+NuGet packages (for .NET Framework 2.0+ and .NET Standard 2.0+):  
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)
 [![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)
