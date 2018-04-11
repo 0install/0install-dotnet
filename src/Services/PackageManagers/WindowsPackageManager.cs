@@ -94,6 +94,9 @@ namespace ZeroInstall.Services.PackageManagers
                 case "powershell":
                     return FindPowerShell();
 
+                case "git":
+                    return FindGitForWindows();
+
                 default:
                     return Enumerable.Empty<ExternalImplementation>();
             }
@@ -204,6 +207,49 @@ namespace ZeroInstall.Services.PackageManagers
             if (OSUtils.Is64BitProcess)
             {
                 impl = Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true);
+                if (impl != null) yield return impl;
+            }
+        }
+
+        private IEnumerable<ExternalImplementation> FindGitForWindows()
+        {
+            ExternalImplementation Impl(bool wow6432)
+            {
+                string regKey = $@"HKEY_LOCAL_MACHINE\SOFTWARE\{(wow6432 ? @"Wow6432Node\" : "")}GitForWindows";
+                string version = RegistryUtils.GetString(regKey, "CurrentVersion");
+                string path = RegistryUtils.GetString(regKey, "InstallPath");
+                if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
+
+                return new ExternalImplementation(DistributionName, "git",
+                    version: new ImplementationVersion(version),
+                    cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
+                {
+                    Commands =
+                    {
+                        new Command {Name = Command.NameRun, Path = Path.Combine(path, @"cmd\git.exe")},
+                        new Command {Name = Command.NameRunGui, Path = Path.Combine(path, @"cmd\git-gui.exe")},
+                        new Command {Name = "gitk", Path = Path.Combine(path, @"cmd\gitk.exe")},
+                        new Command {Name = "start-ssh-agent", Path = Path.Combine(path, @"cmd\start-ssh-agent.exe")},
+                        new Command {Name = "git-bash", Path = Path.Combine(path, @"git-bash.exe")},
+                        new Command {Name = "git-cmd", Path = Path.Combine(path, @"git-cmd.exe")},
+                        new Command {Name = "bash", Path = Path.Combine(path, @"usr\bin\bash.exe")},
+                        new Command {Name = "sh", Path = Path.Combine(path, @"usr\bin\sh.exe")},
+                        new Command {Name = "ssh", Path = Path.Combine(path, @"usr\bin\ssh.exe")},
+                        new Command {Name = "scp", Path = Path.Combine(path, @"usr\bin\scp.exe")},
+                        new Command {Name = "gpg", Path = Path.Combine(path, @"usr\bin\gpg.exe")},
+                        new Command {Name = "gpgv", Path = Path.Combine(path, @"usr\bin\gpgv.exe")},
+                        new Command {Name = "gpgsplit", Path = Path.Combine(path, @"usr\bin\gpgsplit.exe")}
+                    },
+                    IsInstalled = true
+                };
+            }
+
+            var impl = Impl(wow6432: false);
+            if (impl != null) yield return impl;
+
+            if (OSUtils.Is64BitProcess)
+            {
+                impl = Impl(wow6432: true);
                 if (impl != null) yield return impl;
             }
         }
