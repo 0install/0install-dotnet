@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -60,7 +60,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 return new DisposeWarpperStream(new XZInputStream(stream), stream.Dispose);
             }
-                #region Error handling
+            #region Error handling
             catch (Exception ex)
             {
                 // Wrap exception since only certain exception types are allowed

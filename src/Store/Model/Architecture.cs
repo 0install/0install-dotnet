@@ -31,7 +31,6 @@ using System.Runtime.InteropServices;
 
 namespace ZeroInstall.Store.Model
 {
-
     #region Enumerations
     /// <summary>
     /// Describes an operating system family.
@@ -200,7 +199,8 @@ namespace ZeroInstall.Store.Model
         /// Creates a new architecture structure from a string in the form "os-cpu".
         /// </summary>
         /// <exception cref="FormatException"><paramref name="architecture"/> is not in the form "os-cpu"</exception>
-        public Architecture([NotNull] string architecture) : this()
+        public Architecture([NotNull] string architecture)
+            : this()
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(architecture)) throw new ArgumentNullException(nameof(architecture));
@@ -218,7 +218,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="os">Determines which operating systems are supported.</param>
         /// <param name="cpu">Determines which CPU-architectures are supported.</param>
-        public Architecture(OS os, Cpu cpu) : this()
+        public Architecture(OS os, Cpu cpu)
+            : this()
         {
             OS = os;
             Cpu = cpu;
@@ -303,11 +304,7 @@ namespace ZeroInstall.Store.Model
         public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-            return obj is Architecture architecture && Equals(architecture);
-        }
+        public override bool Equals(object obj) => obj != null && obj is Architecture architecture && Equals(architecture);
 
         /// <inheritdoc/>
         public override int GetHashCode()

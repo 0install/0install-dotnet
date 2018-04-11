@@ -169,7 +169,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         serviceKey.DeleteSubKeyTree(defaultProgram.ID);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (ArgumentException)
                     {
                         // Ignore missing registry keys

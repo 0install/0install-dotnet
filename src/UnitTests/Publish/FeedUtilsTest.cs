@@ -41,7 +41,7 @@ namespace ZeroInstall.Publish
             var feed = new Feed {Name = "Test"};
             const string passphrase = "passphrase123";
             var signature = new byte[] {1, 2, 3};
-            var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] { 1, 2, 3 }, userID: "user");
+            var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
 
             var openPgpMock = CreateMock<IOpenPgp>();
             openPgpMock.Setup(x => x.Sign(It.IsAny<byte[]>(), secretKey, passphrase))
@@ -60,9 +60,9 @@ namespace ZeroInstall.Publish
             {
                 feed.SaveXml(stream);
                 expectedFeed = stream.ReadToString()
-                    + Store.Feeds.FeedUtils.SignatureBlockStart
-                    + Convert.ToBase64String(signature) + "\n"
-                    + Store.Feeds.FeedUtils.SignatureBlockEnd;
+                             + Store.Feeds.FeedUtils.SignatureBlockStart
+                             + Convert.ToBase64String(signature) + "\n"
+                             + Store.Feeds.FeedUtils.SignatureBlockEnd;
             }
 
             signedFeed.Should().Be(expectedFeed, because: "Feed should remain unchanged except for appended XML signatre");

@@ -66,8 +66,11 @@ namespace ZeroInstall.Store.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationPreferences other) => other != null && base.Equals(other) &&
-            ID == other.ID && UserStability == other.UserStability;
+        public bool Equals(ImplementationPreferences other)
+            => other != null
+            && base.Equals(other)
+            && ID == other.ID
+            && UserStability == other.UserStability;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

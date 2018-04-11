@@ -41,7 +41,8 @@ namespace ZeroInstall.FileSystem
         /// </summary>
         /// <param name="name">The name of the symlink.</param>
         /// <param name="target">The path the symlink points to relative to its own location.</param>
-        public TestSymlink([NotNull] string name, [NotNull] string target) : base(name)
+        public TestSymlink([NotNull] string name, [NotNull] string target)
+            : base(name)
         {
             Target = target;
         }

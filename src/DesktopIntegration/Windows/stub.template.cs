@@ -1,4 +1,4 @@
-// Embedded source template used by StubBuilder class
+﻿// Embedded source template used by StubBuilder class
 
 using System;
 using System.ComponentModel;

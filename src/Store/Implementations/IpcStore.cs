@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Implementations
                 {
                     return GetServiceProxy().DirectoryPath;
                 }
-                    #region Error handling
+                #region Error handling
                 catch (RemotingException ex)
                 {
                     Log.Debug("Unable to connect to Store Service");
@@ -66,37 +66,25 @@ namespace ZeroInstall.Store.Implementations
         /// Always returns empty list. Use a non-IPC <see cref="IStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public IEnumerable<ManifestDigest> ListAll()
-        {
-            return Enumerable.Empty<ManifestDigest>();
-        }
+        public IEnumerable<ManifestDigest> ListAll() => Enumerable.Empty<ManifestDigest>();
 
         /// <summary>
         /// Always returns empty list. Use a non-IPC <see cref="IStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public IEnumerable<string> ListAllTemp()
-        {
-            return Enumerable.Empty<string>();
-        }
+        public IEnumerable<string> ListAllTemp() => Enumerable.Empty<string>();
 
         /// <summary>
         /// Always returns <c>false</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public bool Contains(ManifestDigest manifestDigest)
-        {
-            return false;
-        }
+        public bool Contains(ManifestDigest manifestDigest) => false;
 
         /// <summary>
         /// Always returns <c>false</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public bool Contains(string directory)
-        {
-            return false;
-        }
+        public bool Contains(string directory) => false;
 
         /// <inheritdoc/>
         public void Flush()
@@ -108,10 +96,7 @@ namespace ZeroInstall.Store.Implementations
         /// Always returns <c>null</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public string GetPath(ManifestDigest manifestDigest)
-        {
-            return null;
-        }
+        public string GetPath(ManifestDigest manifestDigest) => null;
 
         /// <inheritdoc/>
         public string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler)
@@ -122,7 +107,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
                 return result;
             }
-                #region Error handling
+            #region Error handling
             catch (RemotingException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -145,7 +130,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
                 return result;
             }
-                #region Error handling
+            #region Error handling
             catch (RemotingException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -162,24 +147,17 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
         /// </summary>
-        public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            return false;
-        }
+        public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler) => false;
 
         /// <summary>
         /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
         /// </summary>
-        public long Optimise(ITaskHandler handler)
-        {
-            return 0;
-        }
+        public long Optimise(ITaskHandler handler) => 0;
 
         /// <summary>
         /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
         /// </summary>
-        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
-        {}
+        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler) {}
 
         #region Conversion
         /// <summary>

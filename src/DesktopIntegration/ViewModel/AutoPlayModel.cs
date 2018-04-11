@@ -34,9 +34,8 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         public string Events { get { return StringUtils.Join(", ", _autoPlay.Events.Select(x => x.Name)); } }
 
         /// <inheritdoc/>
-        public AutoPlayModel(AutoPlay capability, bool used) : base(capability, used)
-        {
-            _autoPlay = capability;
-        }
+        public AutoPlayModel(AutoPlay capability, bool used)
+            : base(capability, used)
+        { _autoPlay = capability; }
     }
 }

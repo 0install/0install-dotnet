@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2011 Simon E. Silva Lauinger
  *
  * This program is free software: you can redistribute it and/or modify

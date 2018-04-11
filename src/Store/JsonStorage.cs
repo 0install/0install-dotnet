@@ -33,10 +33,7 @@ namespace ZeroInstall.Store
         /// <param name="data">The object to be stored.</param>
         /// <returns>A string containing the JSON code.</returns>
         [NotNull]
-        public static string ToJsonString([CanBeNull] this object data)
-        {
-            return JsonConvert.SerializeObject(data);
-        }
+        public static string ToJsonString([CanBeNull] this object data) => JsonConvert.SerializeObject(data);
 
         /// <summary>
         /// Loads an object from an JSON string.
@@ -79,10 +76,7 @@ namespace ZeroInstall.Store
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
         [NotNull]
-        public static T ReparseAsJson<T>([NotNull] this object data)
-        {
-            return FromJsonString<T>(data.ToJsonString());
-        }
+        public static T ReparseAsJson<T>([NotNull] this object data) => FromJsonString<T>(data.ToJsonString());
 
         /// <summary>
         /// Reparses an object previously deserialized from JSON into a different representation using an anonymous type as the target.
@@ -92,9 +86,6 @@ namespace ZeroInstall.Store
         /// <param name="anonymousType">An instance of the anonymous type to parse to.</param>
         /// <returns>The deserialized object.</returns>
         [NotNull]
-        public static T ReparseAsJson<T>([NotNull] this object data, [NotNull] T anonymousType)
-        {
-            return FromJsonString(data.ToJsonString(), anonymousType);
-        }
+        public static T ReparseAsJson<T>([NotNull] this object data, [NotNull] T anonymousType) => FromJsonString(data.ToJsonString(), anonymousType);
     }
 }

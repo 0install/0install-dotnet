@@ -49,10 +49,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             _tarStream = new TarOutputStream(stream);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _tarStream.Dispose();
-        }
+        protected override void Dispose(bool disposing) => _tarStream.Dispose();
         #endregion
 
         private readonly List<FileInfo> _previousFiles = new List<FileInfo>();

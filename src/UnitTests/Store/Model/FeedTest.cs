@@ -130,7 +130,8 @@ namespace ZeroInstall.Store.Model
             {
                 new Dependency
                 {
-                    InterfaceUri = Test2Uri, Importance = Importance.Recommended,
+                    InterfaceUri = Test2Uri,
+                    Importance = Importance.Recommended,
                     Bindings = {EnvironmentBindingTest.CreateTestBinding(), OverlayBindingTest.CreateTestBinding(), ExecutableInVarTest.CreateTestBinding(), ExecutableInPathTest.CreateTestBinding()}
                 }
             }

@@ -34,9 +34,14 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         public static Implementation CreateTestImplementation() => new Implementation
         {
-            ID = "id", ManifestDigest = new ManifestDigest(sha256: "123"), Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586), Languages = {"en-US"},
-            Main = "executable", DocDir = "doc", Stability = Stability.Developer,
+            ID = "id",
+            ManifestDigest = new ManifestDigest(sha256: "123"),
+            Version = new ImplementationVersion("1.0"),
+            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Languages = {"en-US"},
+            Main = "executable",
+            DocDir = "doc",
+            Stability = Stability.Developer,
             Bindings = {EnvironmentBindingTest.CreateTestBinding()},
             RetrievalMethods = {ArchiveTest.CreateTestArchive(), new Recipe {Steps = {ArchiveTest.CreateTestArchive()}}},
             Commands = {CommandTest.CreateTestCommand1()}

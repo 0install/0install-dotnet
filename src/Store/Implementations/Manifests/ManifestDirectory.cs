@@ -94,10 +94,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return FullPath.GetHashCode();
-        }
+        public override int GetHashCode() => FullPath.GetHashCode();
         #endregion
     }
 }

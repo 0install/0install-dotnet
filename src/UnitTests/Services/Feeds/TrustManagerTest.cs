@@ -51,6 +51,7 @@ namespace ZeroInstall.Services.Feeds
             KeyInfoServer = null,
             AutoApproveKeys = false
         };
+
         private readonly TrustDB _trustDB = new TrustDB();
         private readonly MockTaskHandler _handler = new MockTaskHandler();
         private readonly Mock<IOpenPgp> _openPgpMock;
@@ -187,19 +188,13 @@ namespace ZeroInstall.Services.Feeds
         }
 
         private void RegisterKey()
-        {
-            _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
-        }
+            => _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
 
         private void TrustKey()
-        {
-            _trustDB.TrustKey(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain("localhost"));
-        }
+            => _trustDB.TrustKey(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain("localhost"));
 
         private bool IsKeyTrusted()
-        {
-            return _trustDB.IsTrusted(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain {Value = "localhost"});
-        }
+            => _trustDB.IsTrusted(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain {Value = "localhost"});
 
         private void ExpectKeyImport()
         {

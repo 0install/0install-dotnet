@@ -28,31 +28,19 @@ namespace ZeroInstall.Store.Model.Design
     internal class ArchitectureConverter : ValueTypeConverter<Architecture>
     {
         /// <inheritdoc/>
-        protected override string GetElementSeparator(CultureInfo culture)
-        {
-            return "-";
-        }
+        protected override string GetElementSeparator(CultureInfo culture) => "-";
 
         /// <inheritdoc/>
         protected override int NoArguments => 2;
 
         /// <inheritdoc/>
-        protected override ConstructorInfo GetConstructor()
-        {
-            return typeof(Architecture).GetConstructor(new[] {typeof(OS), typeof(Cpu)});
-        }
+        protected override ConstructorInfo GetConstructor() => typeof(Architecture).GetConstructor(new[] {typeof(OS), typeof(Cpu)});
 
         /// <inheritdoc/>
-        protected override object[] GetArguments(Architecture value)
-        {
-            return new object[] {value.OS, value.Cpu};
-        }
+        protected override object[] GetArguments(Architecture value) => new object[] {value.OS, value.Cpu};
 
         /// <inheritdoc/>
-        protected override string[] GetValues(Architecture value, ITypeDescriptorContext context, CultureInfo culture)
-        {
-            return new[] {value.OS.ConvertToString(), value.Cpu.ConvertToString()};
-        }
+        protected override string[] GetValues(Architecture value, ITypeDescriptorContext context, CultureInfo culture) => new[] {value.OS.ConvertToString(), value.Cpu.ConvertToString()};
 
         /// <inheritdoc/>
         protected override Architecture GetObject(string[] values, CultureInfo culture)

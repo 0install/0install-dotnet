@@ -113,7 +113,7 @@ namespace ZeroInstall.Store.Implementations
         public void ShouldHardlinkIdenticalFilesInDifferentImplementations()
         {
             string package1Path = DeployPackage("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
-            string package2Path = DeployPackage("sha256=2", new TestRoot{new TestFile("fileA") {Contents = "abc"}});
+            string package2Path = DeployPackage("sha256=2", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
 
             _store.Optimise(_handler).Should().Be(3);
             _store.Optimise(_handler).Should().Be(0);
@@ -231,9 +231,7 @@ namespace ZeroInstall.Store.Implementations
 
         [Fact]
         public void ShouldThrowWhenRequestedPathOfUncontainedPackage()
-        {
-            _store.GetPath(new ManifestDigest(sha256: "123")).Should().BeNull();
-        }
+            => _store.GetPath(new ManifestDigest(sha256: "123")).Should().BeNull();
 
         [Fact]
         public void TestAuditPass()

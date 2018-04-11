@@ -56,17 +56,20 @@ namespace ZeroInstall.Store.Implementations
         {}
 
         /// <inheritdoc/>
-        public ImplementationNotFoundException(string message) : base(message)
+        public ImplementationNotFoundException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public ImplementationNotFoundException(string message, Exception innerException) : base(message, innerException)
+        public ImplementationNotFoundException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private ImplementationNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ImplementationNotFoundException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
             #region Sanity checks
             if (info == null) throw new ArgumentNullException(nameof(info));

@@ -80,10 +80,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        public static IEnumerable<string> GetUserImplementationDirs()
-        {
-            return GetImplementationDirs(GetUserConfigFile());
-        }
+        public static IEnumerable<string> GetUserImplementationDirs() => GetImplementationDirs(GetUserConfigFile());
 
         /// <summary>
         /// Sets the list of custom implementation directories in the current user configuration.
@@ -91,15 +88,9 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetUserImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
-        {
-            SetImplementationDirs(GetUserConfigFile(), paths);
-        }
+        public static void SetUserImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths) => SetImplementationDirs(GetUserConfigFile(), paths);
 
-        private static string GetUserConfigFile()
-        {
-            return Locations.GetSaveConfigPath("0install.net", true, "injector", "implementation-dirs");
-        }
+        private static string GetUserConfigFile() => Locations.GetSaveConfigPath("0install.net", true, "injector", "implementation-dirs");
 
         /// <summary>
         /// Returns a list of custom implementation directories in the current machine-wide configuration.
@@ -108,10 +99,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        public static IEnumerable<string> GetMachineWideImplementationDirs()
-        {
-            return GetImplementationDirs(GetMachineWideConfigFile());
-        }
+        public static IEnumerable<string> GetMachineWideImplementationDirs() => GetImplementationDirs(GetMachineWideConfigFile());
 
         /// <summary>
         /// Sets the list of custom implementation directories in the current machine-wide configuration.
@@ -119,15 +107,9 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetMachineWideImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
-        {
-            SetImplementationDirs(GetMachineWideConfigFile(), paths);
-        }
+        public static void SetMachineWideImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths) => SetImplementationDirs(GetMachineWideConfigFile(), paths);
 
-        private static string GetMachineWideConfigFile()
-        {
-            return Locations.GetSaveSystemConfigPath("0install.net", true, "injector", "implementation-dirs");
-        }
+        private static string GetMachineWideConfigFile() => Locations.GetSaveSystemConfigPath("0install.net", true, "injector", "implementation-dirs");
 
         /// <summary>
         /// Returns a list of implementation directories in a specific configuration file.
@@ -164,7 +146,7 @@ namespace ZeroInstall.Store.Implementations
                         else throw new IOException(string.Format(Resources.NonRootedPathInConfig, path, configPath));
                     }
                 }
-                    #region Error handling
+                #region Error handling
                 catch (ArgumentException ex)
                 {
                     // Wrap exception to add context information

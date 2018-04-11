@@ -138,8 +138,8 @@ namespace ZeroInstall.Services
                         Version = new ImplementationVersion("1.0"),
                         Dependencies =
                         {
-                            new Dependency{InterfaceUri = new FeedUri("http://dependency/")},
-                            new Dependency{InterfaceUri = new FeedUri("http://missing/")}
+                            new Dependency {InterfaceUri = new FeedUri("http://dependency/")},
+                            new Dependency {InterfaceUri = new FeedUri("http://missing/")}
                         }
                     },
                     new ImplementationSelection
@@ -148,7 +148,7 @@ namespace ZeroInstall.Services
                         ID = "b",
                         ManifestDigest = digest2,
                         Version = new ImplementationVersion("2.0"),
-                        Dependencies = {new Dependency{InterfaceUri = new FeedUri("http://root/")}} // Exercise cycle detection
+                        Dependencies = {new Dependency {InterfaceUri = new FeedUri("http://root/")}} // Exercise cycle detection
                     }
                 }
             });
@@ -182,8 +182,8 @@ namespace ZeroInstall.Services
                     new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new ImplementationVersion("2.0")}
                 }
             }).Should().BeEquivalentTo(
-                new SelectionsDiffNode(new FeedUri("http://feed1"), oldVersion: new ImplementationVersion("1.0"), newVersion: new ImplementationVersion("2.0")),
-                new SelectionsDiffNode(new FeedUri("http://feed2"), oldVersion: new ImplementationVersion("1.0")),
-                new SelectionsDiffNode(new FeedUri("http://feed3"), newVersion: new ImplementationVersion("2.0")));
+            new SelectionsDiffNode(new FeedUri("http://feed1"), oldVersion: new ImplementationVersion("1.0"), newVersion: new ImplementationVersion("2.0")),
+            new SelectionsDiffNode(new FeedUri("http://feed2"), oldVersion: new ImplementationVersion("1.0")),
+            new SelectionsDiffNode(new FeedUri("http://feed3"), newVersion: new ImplementationVersion("2.0")));
     }
 }

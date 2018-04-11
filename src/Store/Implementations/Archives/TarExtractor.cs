@@ -91,7 +91,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     UpdateProgress();
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (SharpZipBaseException ex)
             {
                 // Wrap exception since only certain exception types are allowed

@@ -99,10 +99,10 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(CapabilityList other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && (OS == other.OS && Entries.SequencedEquals(other.Entries));
-        }
+            => other != null
+            && base.Equals(other)
+            && OS == other.OS
+            && Entries.SequencedEquals(other.Entries);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

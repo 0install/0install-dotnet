@@ -34,10 +34,7 @@ namespace ZeroInstall.Store.ViewModel
         /// Creates a new store node.
         /// </summary>
         /// <param name="store">The store containing the element.</param>
-        protected StoreNode([NotNull] IStore store)
-        {
-            Store = store;
-        }
+        protected StoreNode([NotNull] IStore store) => Store = store;
 
         /// <summary>
         /// The file system path of the element.

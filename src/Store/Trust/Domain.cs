@@ -37,17 +37,15 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new domain entry.
         /// </summary>
         /// <param name="value">A valid domain name (not a full <see cref="Uri"/>!).</param>
-        public Domain(string value) : this()
+        public Domain(string value)
+            : this()
         {
             Value = value;
         }
 
         #region Conversion
         /// <inheritdoc/>
-        public override string ToString()
-        {
-            return Value;
-        }
+        public override string ToString() => Value;
         #endregion
 
         #region Clone

@@ -81,30 +81,31 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         /// <inheritdoc/>
-        public ConflictException() : base("Unknown conflict")
+        public ConflictException()
+            : base("Unknown conflict")
         {}
 
         /// <inheritdoc/>
-        public ConflictException(string message) : base(message)
+        public ConflictException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public ConflictException(string message, Exception innerException) : base(message, innerException)
+        public ConflictException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private ConflictException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ConflictException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {}
 
         /// <inheritdoc/>
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            base.GetObjectData(info, context);
-        }
+        public override void GetObjectData(SerializationInfo info, StreamingContext context) => base.GetObjectData(info, context);
         #endregion
     }
 }

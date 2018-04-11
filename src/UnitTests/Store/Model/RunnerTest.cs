@@ -30,7 +30,9 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         private static Runner CreateTestRunner() => new Runner
         {
-            InterfaceUri = FeedTest.Test1Uri, Command = "run2", Bindings = {EnvironmentBindingTest.CreateTestBinding()},
+            InterfaceUri = FeedTest.Test1Uri,
+            Command = "run2",
+            Bindings = {EnvironmentBindingTest.CreateTestBinding()},
             Versions = new VersionRange("1.0..!2.0"),
             Arguments = {"--arg"}
         };

@@ -88,10 +88,7 @@ namespace ZeroInstall.Store
         }
 
         /// <inheritdoc/>
-        ~ManagerBase()
-        {
-            Dispose(false);
-        }
+        ~ManagerBase() => Dispose(false);
 
         /// <summary>
         /// Releases the mutex.

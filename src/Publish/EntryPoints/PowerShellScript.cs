@@ -81,8 +81,9 @@ namespace ZeroInstall.Publish.EntryPoints
         public PowerShellType PowerShellType { get; set; }
 
         #region Equality
-        private bool Equals(PowerShellScript other) => base.Equals(other) &&
-            PowerShellType == other.PowerShellType;
+        private bool Equals(PowerShellScript other)
+            => base.Equals(other)
+            && PowerShellType == other.PowerShellType;
 
         public override bool Equals(object obj)
         {

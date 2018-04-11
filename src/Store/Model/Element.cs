@@ -30,7 +30,6 @@ using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Model
 {
-
     #region Enumerations
     /// <summary>
     /// A stability rating for an <see cref="Implementation"/>.
@@ -262,7 +261,7 @@ namespace ZeroInstall.Store.Model
                 {
                     return Commands.First(command => command != null && command.Name == name);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (InvalidOperationException)
                 {
                     throw new KeyNotFoundException(string.Format(Resources.CommandNotFound, name));
@@ -384,9 +383,20 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        protected bool Equals(Element other) => other != null && base.Equals(other) &&
-            other.Version == Version && other.VersionModifier == VersionModifier && other.Released == Released && other.ReleasedVerbatim == ReleasedVerbatim && other.License == License && other.Main == Main && other.SelfTest == SelfTest && other.DocDir == DocDir &&
-            Commands.SequencedEquals(other.Commands) && Dependencies.SequencedEquals(other.Dependencies) && Restrictions.SequencedEquals(other.Restrictions) && Bindings.SequencedEquals(other.Bindings);
+        protected bool Equals(Element other)
+            => other != null
+            && base.Equals(other)
+            && other.Version == Version
+            && other.VersionModifier == VersionModifier
+            && other.Released == Released
+            && other.ReleasedVerbatim == ReleasedVerbatim
+            && other.License == License
+            && other.Main == Main && other.SelfTest == SelfTest
+            && other.DocDir == DocDir
+            && Commands.SequencedEquals(other.Commands)
+            && Dependencies.SequencedEquals(other.Dependencies)
+            && Restrictions.SequencedEquals(other.Restrictions)
+            && Bindings.SequencedEquals(other.Bindings);
 
         /// <inheritdoc/>
         public override int GetHashCode()

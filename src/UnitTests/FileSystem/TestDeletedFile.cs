@@ -32,7 +32,8 @@ namespace ZeroInstall.FileSystem
         /// Creates a new test deleted file.
         /// </summary>
         /// <param name="name">The name of the file.</param>
-        public TestDeletedFile([NotNull] string name) : base(name)
+        public TestDeletedFile([NotNull] string name)
+            : base(name)
         {}
 
         public override void Build(string parentPath)

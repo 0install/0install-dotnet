@@ -80,10 +80,7 @@ namespace ZeroInstall.Store.Model.Preferences
         /// <summary>
         /// Removes superflous entries from <see cref="Implementations"/>.
         /// </summary>
-        public void Normalize()
-        {
-            Implementations.RemoveAll(implementation => implementation.IsSuperflous);
-        }
+        public void Normalize() => Implementations.RemoveAll(implementation => implementation.IsSuperflous);
         #endregion
 
         #region Storage
@@ -125,7 +122,7 @@ namespace ZeroInstall.Store.Model.Preferences
             {
                 return LoadFor(feedUri);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
@@ -190,8 +187,11 @@ namespace ZeroInstall.Store.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FeedPreferences other) => other != null && base.Equals(other) &&
-            LastChecked == other.LastChecked && Implementations.SequencedEquals(other.Implementations);
+        public bool Equals(FeedPreferences other)
+            => other != null
+            && base.Equals(other)
+            && LastChecked == other.LastChecked
+            && Implementations.SequencedEquals(other.Implementations);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

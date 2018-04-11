@@ -24,7 +24,6 @@ using JetBrains.Annotations;
 
 namespace ZeroInstall.Store.Model.Capabilities
 {
-
     #region Enumerations
     /// <summary>
     /// Describes how important a dependency is (i.e. whether ignoring it is an option).
@@ -93,11 +92,10 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ContextMenu other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) &&
-                   other.Target == Target && Equals(other.Verb, Verb);
-        }
+            => other != null
+            && base.Equals(other)
+            && other.Target == Target
+            && Equals(other.Verb, Verb);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

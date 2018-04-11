@@ -131,7 +131,7 @@ namespace ZeroInstall.Services.Feeds
 
                     return LoadCached(feedUri);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (KeyNotFoundException ex)
                 {
                     // Wrap exception since only certain exception types are allowed
@@ -158,7 +158,7 @@ namespace ZeroInstall.Services.Feeds
                 Stale |= IsStale(feedUri);
                 return feed;
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidDataException ex)
             {
                 // Wrap exception since only certain exception types are allowed

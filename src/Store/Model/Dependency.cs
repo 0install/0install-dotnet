@@ -24,7 +24,6 @@ using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model
 {
-
     #region Enumerations
     /// <summary>
     /// Describes how important a dependency is (i.e. whether ignoring it is an option).
@@ -128,9 +127,10 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Dependency other)
-        {
-            return base.Equals(other) && Importance == other.Importance && Use == other.Use && Bindings.SequencedEquals(other.Bindings);
-        }
+            => other != null
+            && base.Equals(other)
+            && Importance == other.Importance
+            && Use == other.Use && Bindings.SequencedEquals(other.Bindings);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

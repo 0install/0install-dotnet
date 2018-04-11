@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Model
                 // TODO: PackageKit integration
                 return null;
             }
-            set { }
+            set {}
         }
 
         /// <summary>
@@ -71,18 +71,18 @@ namespace ZeroInstall.Store.Model
                 // TODO: PackageKit integration
                 return new DateTime();
             }
-            set { }
+            set {}
         }
 
         /// <summary>Not used.</summary>
         [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override string ReleasedString { set { } }
+        public override string ReleasedString { set {} }
 
         /// <summary>
         /// The default stability rating for all <see cref="PackageImplementation"/>s is always "packaged".
         /// </summary>
         [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override Stability Stability { get { return Stability.Unset; } set { } }
+        public override Stability Stability { get { return Stability.Unset; } set {} }
         #endregion
 
         /// <summary>

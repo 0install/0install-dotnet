@@ -83,6 +83,7 @@ namespace ZeroInstall.Publish.Capture
                 installationDir = new DirectoryInfo(ProgramsDirs[0]).WalkThroughPrefix().FullName;
                 Log.Info(string.Format(Resources.InstallationDirDetected, installationDir));
             }
+
             return installationDir;
         }
 
@@ -100,8 +101,7 @@ namespace ZeroInstall.Publish.Capture
             if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
             #endregion
 
-            return RegUtils.GetSubKeyNames(typeKey, "shell").
-                Select(verbName => GetVerb(typeKey, commandMapper, verbName)).WhereNotNull();
+            return RegUtils.GetSubKeyNames(typeKey, "shell").Select(verbName => GetVerb(typeKey, commandMapper, verbName)).WhereNotNull();
         }
 
         /// <summary>

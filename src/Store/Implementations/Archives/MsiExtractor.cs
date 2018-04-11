@@ -59,7 +59,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
                 UnitsTotal = _files.Values.Sum(x => x.Size);
             }
-                #region Error handling
+            #region Error handling
             catch (InstallerException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -172,10 +172,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 ResolveFile(file);
         }
 
-        private void ResolveFile(MsiFile file)
-        {
-            file.FullPath = _directories[file.DirectoryId].FullPath + "/" + file.Name;
-        }
+        private void ResolveFile(MsiFile file) => file.FullPath = _directories[file.DirectoryId].FullPath + "/" + file.Name;
         #endregion
 
         #region Cabinets
@@ -215,7 +212,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     }
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (InstallerException ex)
             {
                 // Wrap exception since only certain exception types are allowed

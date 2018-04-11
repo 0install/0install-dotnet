@@ -74,10 +74,10 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Constraint other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.NotBefore == NotBefore && other.Before == Before;
-        }
+            => other != null
+            && base.Equals(other)
+            && other.NotBefore == NotBefore
+            && other.Before == Before;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

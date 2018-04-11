@@ -99,7 +99,7 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     return Entries.First(entry => entry.InterfaceUri == interfaceUri);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (InvalidOperationException)
                 {
                     throw new KeyNotFoundException(string.Format(Resources.AppNotInList, interfaceUri));
@@ -171,7 +171,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 return XmlStorage.LoadXml<AppList>(GetDefaultPath(machineWide));
             }
-                #region Error handling
+            #region Error handling
             catch (FileNotFoundException)
             {
                 return new AppList();

@@ -62,7 +62,7 @@ namespace ZeroInstall.Services.Feeds
                 {
                     feed = feedManager[feedUri];
                 }
-                    #region Sanity checks
+                #region Sanity checks
                 catch (IOException ex)
                 {
                     Log.Warn(ex);
@@ -71,7 +71,7 @@ namespace ZeroInstall.Services.Feeds
                 {
                     Log.Warn(ex);
                 }
-                    #endregion
+                #endregion
 
                 finally
                 {

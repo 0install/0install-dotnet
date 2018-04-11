@@ -68,7 +68,7 @@ namespace ZeroInstall.Store.Model
                 {
                     retrievalMethod.Normalize(feedUri);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (UriFormatException ex)
                 {
                     Log.Error(ex);

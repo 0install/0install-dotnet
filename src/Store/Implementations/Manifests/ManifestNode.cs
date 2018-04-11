@@ -25,6 +25,5 @@ namespace ZeroInstall.Store.Implementations.Manifests
     /// <remarks>This class and the derived classes are immutable. They should only be used as a part of a <see cref="Manifest"/>.</remarks>
     [Serializable]
     public abstract class ManifestNode
-    {
-    }
+    {}
 }

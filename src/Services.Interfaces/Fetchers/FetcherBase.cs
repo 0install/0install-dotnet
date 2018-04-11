@@ -142,7 +142,7 @@ namespace ZeroInstall.Services.Fetchers
                 using (FetchHandle.Register(impl => Fetch(impl, tag: manifestDigest)))
                     Cook(recipe, manifestDigest);
             }
-                #region Error handling
+            #region Error handling
             catch (ImplementationAlreadyInStoreException)
             {}
             catch (DigestMismatchException)
@@ -230,7 +230,7 @@ namespace ZeroInstall.Services.Fetchers
                 Handler.RunTask(new DownloadFile(retrievalMethod.Href, tempFile, retrievalMethod.DownloadSize) {Tag = tag});
                 return tempFile;
             }
-                #region Error handling
+            #region Error handling
             catch
             {
                 tempFile.Dispose();

@@ -34,10 +34,7 @@ namespace ZeroInstall.Store.Trust
         private readonly byte[] _fingerprint;
 
         /// <inheritdoc/>
-        public byte[] GetFingerprint()
-        {
-            return _fingerprint.ToArray();
-        }
+        public byte[] GetFingerprint() => _fingerprint.ToArray();
 
         /// <summary>
         /// The user's name, e-mail address, etc. of the key owner.
@@ -62,10 +59,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Returns the secret key in the form "UserID". Not safe for parsing!
         /// </summary>
-        public override string ToString()
-        {
-            return UserID;
-        }
+        public override string ToString() => UserID;
         #endregion
 
         #region Equality

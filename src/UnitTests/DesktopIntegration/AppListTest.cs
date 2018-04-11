@@ -87,16 +87,10 @@ namespace ZeroInstall.DesktopIntegration
         #endregion
 
         [Fact] // Ensures that the class is correctly serialized and deserialized without AccessPoints.
-        public void TestSaveLoadWithoutAPs()
-        {
-            TestSaveLoad(CreateTestAppListWithoutAPs());
-        }
+        public void TestSaveLoadWithoutAPs() => TestSaveLoad(CreateTestAppListWithoutAPs());
 
         [Fact] // Ensures that the class is correctly serialized and deserialized with AccessPoints.
-        public void TestSaveLoadWithAPs()
-        {
-            TestSaveLoad(CreateTestAppListWithAPs());
-        }
+        public void TestSaveLoadWithAPs() => TestSaveLoad(CreateTestAppListWithAPs());
 
         private static void TestSaveLoad(AppList appList)
         {
@@ -149,16 +143,10 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact] // Ensures that the class can be correctly cloned without AccessPoints.
-        public void TestCloneWithoutAPs()
-        {
-            TestClone(CreateTestAppListWithoutAPs());
-        }
+        public void TestCloneWithoutAPs() => TestClone(CreateTestAppListWithoutAPs());
 
         [Fact] // Ensures that the class can be correctly cloned with AccessPoints.
-        public void TestCloneWithAPs()
-        {
-            TestClone(CreateTestAppListWithAPs());
-        }
+        public void TestCloneWithAPs() => TestClone(CreateTestAppListWithAPs());
 
         private static void TestClone(AppList appList)
         {

@@ -98,7 +98,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         File.Delete(path);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (IOException ex)
                     {
                         Log.Warn(string.Format(Resources.UnableToReplaceStub, path));
@@ -212,9 +212,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
             args += target.Uri.ToStringRfc().EscapeArgument();
 
             // Load the template code and insert variables
-            var code = typeof(StubBuilder).GetEmbeddedString("stub.template.cs")
-                .Replace("[EXE]", Path.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe")
-                .Replace(@"\", @"\\"));
+            var code = typeof(StubBuilder)
+                .GetEmbeddedString("stub.template.cs")
+                .Replace("[EXE]", Path.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe").Replace(@"\", @"\\"));
             code = code.Replace("[ARGUMENTS]", EscapeForCode(args));
             code = code.Replace("[TITLE]", EscapeForCode(target.Feed.GetBestName(CultureInfo.CurrentUICulture, command)));
             return code;
@@ -223,10 +223,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>
         /// Escapes a string so that is safe for substitution inside C# code
         /// </summary>
-        private static string EscapeForCode(string value)
-        {
-            return value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
-        }
+        private static string EscapeForCode(string value) => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
         #endregion
     }
 }

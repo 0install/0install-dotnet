@@ -102,10 +102,16 @@ namespace ZeroInstall.Services.Executors
             {
                 switch (binding)
                 {
-                    case EnvironmentBinding environmentBinding: ApplyEnvironmentBinding(environmentBinding, implementation); break;
+                    case EnvironmentBinding environmentBinding:
+                        ApplyEnvironmentBinding(environmentBinding, implementation);
+                        break;
                     //case OverlayBinding overlayBinding: ApplyOverlayBinding(overlayBinding, implementation); break;
-                    case ExecutableInVar executableInVar: ApplyExecutableInVar(executableInVar, implementation); break;
-                    case ExecutableInPath executableInPath: ApplyExecutableInPath(executableInPath, implementation); break;
+                    case ExecutableInVar executableInVar:
+                        ApplyExecutableInVar(executableInVar, implementation);
+                        break;
+                    case ExecutableInPath executableInPath:
+                        ApplyExecutableInPath(executableInPath, implementation);
+                        break;
                 }
             }
         }

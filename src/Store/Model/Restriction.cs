@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -172,10 +172,13 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Restriction other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && InterfaceUri == other.InterfaceUri && OS == other.OS && Versions == other.Versions && Constraints.SequencedEquals(other.Constraints) && Distributions.SequencedEquals(other.Distributions);
-        }
+            => other != null
+            && base.Equals(other)
+            && InterfaceUri == other.InterfaceUri
+            && OS == other.OS
+            && Versions == other.Versions
+            && Constraints.SequencedEquals(other.Constraints)
+            && Distributions.SequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

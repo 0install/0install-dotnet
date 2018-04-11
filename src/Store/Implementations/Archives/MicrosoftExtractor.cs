@@ -39,13 +39,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
         }
 
-        Stream IUnpackStreamContext.OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine)
-        {
-            return new DuplicateStream(CabStream);
-        }
+        Stream IUnpackStreamContext.OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine) => new DuplicateStream(CabStream);
 
-        void IUnpackStreamContext.CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
-        {}
+        void IUnpackStreamContext.CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream) {}
 
         private long _bytesStaged;
 

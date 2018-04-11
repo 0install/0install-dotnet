@@ -77,6 +77,7 @@ namespace ZeroInstall.Publish.EntryPoints
                     return false;
                 }
             }
+
             return true;
         }
 

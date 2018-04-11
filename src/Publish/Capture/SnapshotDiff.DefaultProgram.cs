@@ -98,6 +98,7 @@ namespace ZeroInstall.Publish.Capture
                         additionalArguments = null;
                         return null;
                     }
+
                     commandLine = commandLine.Substring(installationDir.Length + 2);
 
                     additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
@@ -110,9 +111,12 @@ namespace ZeroInstall.Publish.Capture
 
                 return new InstallCommands
                 {
-                    Reinstall = reinstall, ReinstallArgs = reinstallArgs,
-                    ShowIcons = showIcons, ShowIconsArgs = showIconsArgs,
-                    HideIcons = hideIcons, HideIconsArgs = hideIconsArgs
+                    Reinstall = reinstall,
+                    ReinstallArgs = reinstallArgs,
+                    ShowIcons = showIcons,
+                    ShowIconsArgs = showIconsArgs,
+                    HideIcons = hideIcons,
+                    HideIconsArgs = hideIconsArgs
                 };
             }
         }

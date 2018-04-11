@@ -82,7 +82,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         newConflictIDs.Add(conflictID, conflictData);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (ArgumentException)
                     {
                         throw ConflictException.InnerConflict(conflictData, newConflictIDs[conflictID]);
@@ -119,7 +119,7 @@ namespace ZeroInstall.DesktopIntegration
                         {
                             conflictIDs.Add(conflictID, conflictData);
                         }
-                            #region Error handling
+                        #region Error handling
                         catch (ArgumentException)
                         {
                             throw ConflictException.ExistingConflict(conflictIDs[conflictID], conflictData);

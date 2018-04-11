@@ -88,7 +88,7 @@ namespace ZeroInstall.Store.Model
                 else if (!string.IsNullOrEmpty(ID) && ID.StartsWith(".")) // Get local path from ID
                     LocalPath = ID = ModelUtils.GetAbsolutePath(ID, feedUri);
             }
-                #region Error handling
+            #region Error handling
             catch (UriFormatException ex)
             {
                 Log.Error(ex);
@@ -134,8 +134,12 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        protected bool Equals(ImplementationBase other) => other != null && base.Equals(other) &&
-            other.ID == ID && other.LocalPath == LocalPath && other.ManifestDigest == ManifestDigest;
+        protected bool Equals(ImplementationBase other)
+            => other != null
+            && base.Equals(other)
+            && other.ID == ID
+            && other.LocalPath == LocalPath
+            && other.ManifestDigest == ManifestDigest;
 
         /// <inheritdoc/>
         public override int GetHashCode()

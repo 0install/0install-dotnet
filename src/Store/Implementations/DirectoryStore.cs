@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Implementations
                 DirectoryPath = Path.GetFullPath(path);
                 if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
             }
-                #region Error handling
+            #region Error handling
             catch (ArgumentException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -99,7 +99,7 @@ namespace ZeroInstall.Store.Implementations
                     if (!_isUnixFS) FlagUtils.MarkAsNoUnixFS(DirectoryPath);
                     if (_useWriteProtection && WindowsUtils.IsWindowsNT) WriteDeleteInfoFile(DirectoryPath);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                 {
                     // Writing these files is not critical
@@ -186,7 +186,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Debug("Enabling write protection for: " + path);
                 FileUtils.EnableWriteProtection(path);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException)
             {
                 Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
@@ -219,7 +219,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Debug("Disabling write protection for: " + path);
                 FileUtils.DisableWriteProtection(path);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Error(ex);
@@ -385,8 +385,7 @@ namespace ZeroInstall.Store.Implementations
             => Directory.Exists(Path.Combine(DirectoryPath, directory));
 
         /// <inheritdoc/>
-        public void Flush()
-        {} // No internal caching
+        public void Flush() {} // No internal caching
         #endregion
 
         #region Get
@@ -417,7 +416,7 @@ namespace ZeroInstall.Store.Implementations
                 {
                     handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest});
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                     // TODO: Make language independent
                     when (ex.Message.StartsWith("Access") && ex.Message.EndsWith("is denied."))
@@ -463,7 +462,7 @@ namespace ZeroInstall.Store.Implementations
                             handler.RunTask(extractor);
                         }
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (IOException ex)
                     {
                         string source = archiveInfo.OriginalSource?.ToStringRfc() ?? archiveInfo.Path;
@@ -539,7 +538,7 @@ namespace ZeroInstall.Store.Implementations
                     }
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (Win32Exception ex)
             {
                 Log.Error(ex);

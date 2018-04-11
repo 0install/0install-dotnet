@@ -26,9 +26,7 @@ namespace ZeroInstall.Store.Model
         /// Determines whether an <paramref name="implementation"/> architecture (the current instance) can run on a <paramref name="system"/> architecture.
         /// </summary>
         public static bool IsCompatible(this Architecture implementation, Architecture system)
-        {
-            return implementation.OS.IsCompatible(system.OS) && implementation.Cpu.IsCompatible(system.Cpu);
-        }
+            => implementation.OS.IsCompatible(system.OS) && implementation.Cpu.IsCompatible(system.Cpu);
 
         /// <summary>
         /// Determines whether an <paramref name="implementation"/> OS is compatible with a <paramref name="system"/> OS.

@@ -32,21 +32,15 @@ namespace ZeroInstall.Store.Model.Design
 
         /// <returns>The constructor used to create new instances of <see cref="InstallCommands"/> (deserialization).</returns>
         protected override ConstructorInfo GetConstructor()
-        {
-            return typeof(InstallCommands).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)});
-        }
+            => typeof(InstallCommands).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)});
 
         /// <returns>The unconverted arguments of <see cref="InstallCommands"/>.</returns>
         protected override object[] GetArguments(InstallCommands value)
-        {
-            return new object[] {value.Reinstall, value.ReinstallArgs, value.ShowIcons, value.ShowIconsArgs, value.HideIcons, value.HideIconsArgs};
-        }
+            => new object[] {value.Reinstall, value.ReinstallArgs, value.ShowIcons, value.ShowIconsArgs, value.HideIcons, value.HideIconsArgs};
 
         /// <returns>The arguments of <see cref="InstallCommands"/> converted to string.</returns>
         protected override string[] GetValues(InstallCommands value, ITypeDescriptorContext context, CultureInfo culture)
-        {
-            return new[] {value.Reinstall, value.ReinstallArgs, value.ShowIcons, value.ShowIconsArgs, value.HideIcons, value.HideIconsArgs};
-        }
+            => new[] {value.Reinstall, value.ReinstallArgs, value.ShowIcons, value.ShowIconsArgs, value.HideIcons, value.HideIconsArgs};
 
         /// <returns>A new instance of <see cref="InstallCommands"/>.</returns>
         protected override InstallCommands GetObject(string[] values, CultureInfo culture)
@@ -57,9 +51,12 @@ namespace ZeroInstall.Store.Model.Design
 
             return new InstallCommands
             {
-                Reinstall = values[0], ReinstallArgs = values[1],
-                ShowIcons = values[2], ShowIconsArgs = values[3],
-                HideIcons = values[4], HideIconsArgs = values[5]
+                Reinstall = values[0],
+                ReinstallArgs = values[1],
+                ShowIcons = values[2],
+                ShowIconsArgs = values[3],
+                HideIcons = values[4],
+                HideIconsArgs = values[5]
             };
         }
 
@@ -72,9 +69,12 @@ namespace ZeroInstall.Store.Model.Design
 
             return new InstallCommands
             {
-                Reinstall = (string)propertyValues["Reinstall"], ReinstallArgs = (string)propertyValues["ReinstallArgs"],
-                ShowIcons = (string)propertyValues["ShowIcons"], ShowIconsArgs = (string)propertyValues["ShowIconsArgs"],
-                HideIcons = (string)propertyValues["HideIcons"], HideIconsArgs = (string)propertyValues["HideIconsArgs"]
+                Reinstall = (string)propertyValues["Reinstall"],
+                ReinstallArgs = (string)propertyValues["ReinstallArgs"],
+                ShowIcons = (string)propertyValues["ShowIcons"],
+                ShowIconsArgs = (string)propertyValues["ShowIconsArgs"],
+                HideIcons = (string)propertyValues["HideIcons"],
+                HideIconsArgs = (string)propertyValues["HideIconsArgs"]
             };
         }
     }

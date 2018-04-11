@@ -46,7 +46,8 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
         /// <param name="store">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public SequentialFetcher([NotNull] Config config, [NotNull] IStore store, [NotNull] ITaskHandler handler) : base(store, handler)
+        public SequentialFetcher([NotNull] Config config, [NotNull] IStore store, [NotNull] ITaskHandler handler)
+            : base(store, handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
@@ -84,7 +85,7 @@ namespace ZeroInstall.Services.Fetchers
                         Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag});
                     }
                 }
-                    #region Error handling
+                #region Error handling
                 catch (AbandonedMutexException ex)
                 {
                     // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere

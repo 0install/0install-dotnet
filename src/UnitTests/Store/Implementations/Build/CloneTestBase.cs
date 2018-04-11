@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using NanoByte.Common.Storage;
 
 namespace ZeroInstall.Store.Implementations.Build

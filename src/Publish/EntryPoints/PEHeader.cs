@@ -26,7 +26,6 @@ using NanoByte.Common.Values;
 
 namespace ZeroInstall.Publish.EntryPoints
 {
-
     #region File header structures
     [StructLayout(LayoutKind.Sequential)]
     [CLSCompliant(false)]

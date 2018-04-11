@@ -75,16 +75,22 @@ namespace ZeroInstall.Store.Implementations.Build
                                 if (downloadedEnum.Current == null) throw new ArgumentException(Resources.RecipeFileNotDownloaded, nameof(downloadedFiles));
                                 file.Apply(downloadedEnum.Current, workingDir);
                                 break;
-                            case RemoveStep x: x.Apply(workingDir); break;
-                            case RenameStep x: x.Apply(workingDir); break;
-                            case CopyFromStep x: x.Apply(workingDir, handler, tag); break;
+                            case RemoveStep x:
+                                x.Apply(workingDir);
+                                break;
+                            case RenameStep x:
+                                x.Apply(workingDir);
+                                break;
+                            case CopyFromStep x:
+                                x.Apply(workingDir, handler, tag);
+                                break;
                             default: throw new NotSupportedException($"Unknown recipe step: ${step}");
                         }
                     }
                 }
                 return workingDir;
             }
-                #region Error handling
+            #region Error handling
             catch
             {
                 workingDir.Dispose();
@@ -288,6 +294,5 @@ namespace ZeroInstall.Store.Implementations.Build
             }
             else throw new IOException(string.Format(Resources.RecipeCopyFromSourceMissing, step));
         }
-
     }
 }

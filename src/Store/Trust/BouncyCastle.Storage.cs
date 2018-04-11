@@ -53,7 +53,7 @@ namespace ZeroInstall.Store.Trust
                     using (var stream = File.OpenRead(PublicBundlePath))
                         return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
-                    #region Error handling
+                #region Error handling
                 catch (DirectoryNotFoundException)
                 {
                     return new PgpPublicKeyRingBundle(Enumerable.Empty<PgpPublicKeyRing>());
@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.Trust
                     using (var stream = File.OpenRead(Path.Combine(HomeDir, "secring.gpg")))
                         return _secretBundle = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
-                    #region Error handling
+                #region Error handling
                 catch (DirectoryNotFoundException)
                 {
                     return new PgpSecretKeyRingBundle(Enumerable.Empty<PgpSecretKeyRing>());

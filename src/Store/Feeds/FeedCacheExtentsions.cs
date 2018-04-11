@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Feeds
                 {
                     feeds.Add(cache.GetFeed(feedUri));
                 }
-                    #region Error handling
+                #region Error handling
                 catch (KeyNotFoundException)
                 {
                     // Feed file no longer exists

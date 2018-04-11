@@ -60,7 +60,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             {
                 return new ManifestExecutableFile(parts[1], FileUtils.FromUnixTime(long.Parse(parts[2])), long.Parse(parts[3]), parts[4]);
             }
-                #region Error handling
+            #region Error handling
             catch (OverflowException ex)
             {
                 throw new FormatException(Resources.NumberTooLarge, ex);
@@ -79,10 +79,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ManifestExecutableFile other)
-        {
-            return base.Equals(other);
-        }
+        public bool Equals(ManifestExecutableFile other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -93,10 +90,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

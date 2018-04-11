@@ -79,10 +79,16 @@ namespace ZeroInstall.Services.Feeds
             var signatures = FeedUtils.GetSignatures(_openPgp, data).ToList();
 
             foreach (var signature in signatures.OfType<ValidSignature>())
-                if (_trustDB.IsTrusted(signature.FormatFingerprint(), domain)) return signature;
+            {
+                if (_trustDB.IsTrusted(signature.FormatFingerprint(), domain))
+                    return signature;
+            }
 
             foreach (var signature in signatures.OfType<ValidSignature>())
-                if (HandleNewKey(uri, signature.FormatFingerprint(), domain)) return signature;
+            {
+                if (HandleNewKey(uri, signature.FormatFingerprint(), domain))
+                    return signature;
+            }
 
             foreach (var signature in signatures.OfType<MissingKeySignature>())
             {
@@ -111,7 +117,7 @@ namespace ZeroInstall.Services.Feeds
                 {
                     _trustDB.Save();
                 }
-                    #region Error handling
+                #region Error handling
                 catch (Exception ex)
                 {
                     Log.Error(ex);
@@ -178,7 +184,7 @@ namespace ZeroInstall.Services.Feeds
                 xmlReader.MoveToContent();
                 return xmlReader.ReadElementContentAsString();
             }
-                #region Error handling
+            #region Error handling
             catch (XmlException ex)
             {
                 Log.Error(string.Format(Resources.UnableToParseKeyInfo, fingerprint));
@@ -253,7 +259,7 @@ namespace ZeroInstall.Services.Feeds
             {
                 _openPgp.ImportKey(download.GetData());
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidDataException ex)
             {
                 // Wrap exception since only certain exception types are allowed

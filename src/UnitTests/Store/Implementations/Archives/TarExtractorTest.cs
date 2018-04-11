@@ -29,46 +29,34 @@ namespace ZeroInstall.Store.Implementations.Archives
     [Collection("WorkingDir")]
     public class TarExtractorTest : IDisposable
     {
-        private static readonly byte[] _garbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        private static readonly byte[] GarbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
         private readonly TemporaryDirectory _sandbox = new TemporaryWorkingDirectory("0install-unit-tests");
         public void Dispose() => _sandbox.Dispose();
 
         [Fact]
         public void TestPlain()
-        {
-            TestExtract(Model.Archive.MimeTypeTar, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"));
-        }
+            => TestExtract(Model.Archive.MimeTypeTar, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"));
 
         [Fact]
         public void TestPlainError()
-        {
-            Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTar, new MemoryStream(_garbageData)));
-        }
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTar, new MemoryStream(GarbageData)));
 
         [Fact]
         public void TestGzCompressed()
-        {
-            TestExtract(Model.Archive.MimeTypeTarGzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.gz"));
-        }
+            => TestExtract(Model.Archive.MimeTypeTarGzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.gz"));
 
         [Fact]
         public void TestGzCompressedError()
-        {
-            Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarGzip, new MemoryStream(_garbageData)));
-        }
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarGzip, new MemoryStream(GarbageData)));
 
         [Fact]
         public void TestBz2Compressed()
-        {
-            TestExtract(Model.Archive.MimeTypeTarBzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.bz2"));
-        }
+            => TestExtract(Model.Archive.MimeTypeTarBzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.bz2"));
 
         [Fact]
         public void TestBz2CompressedError()
-        {
-            Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
-        }
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(GarbageData)));
 
 #if !NETCOREAPP2_0
         [SkippableFact]
@@ -81,9 +69,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestLzmaCompressed()
-        {
-            TestExtract(Model.Archive.MimeTypeTarLzma, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma"));
-        }
+            => TestExtract(Model.Archive.MimeTypeTarLzma, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma"));
 
         [Fact]
         public void TestLzmaCompressedOnDisk()
@@ -99,16 +85,12 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestLzmaCompressedError()
-        {
-            Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
-        }
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(GarbageData)));
 #endif
 
         [Fact]
         public void TestRubyGem()
-        {
-            TestExtract(Model.Archive.MimeTypeRubyGem, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.gem"));
-        }
+            => TestExtract(Model.Archive.MimeTypeRubyGem, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.gem"));
 
         private void TestExtract(string mimeType, Stream archive)
         {

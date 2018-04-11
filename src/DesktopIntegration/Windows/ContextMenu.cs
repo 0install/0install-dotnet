@@ -134,7 +134,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 {
                     hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + keyName + @"\shell\" + RegKeyPrefix + contextMenu.Verb.Name);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (ArgumentException)
                 {
                     // Ignore missing registry keys

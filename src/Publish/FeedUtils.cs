@@ -123,7 +123,7 @@ namespace ZeroInstall.Publish
 
                 return openPgp.GetSecretKey(signature);
             }
-                #region Error handling
+            #region Error handling
             catch (KeyNotFoundException)
             {
                 Log.Info(Resources.SecretKeyNotInKeyring);

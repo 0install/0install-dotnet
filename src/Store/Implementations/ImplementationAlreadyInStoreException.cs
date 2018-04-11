@@ -53,17 +53,20 @@ namespace ZeroInstall.Store.Implementations
         {}
 
         /// <inheritdoc/>
-        public ImplementationAlreadyInStoreException(string message) : base(message)
+        public ImplementationAlreadyInStoreException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public ImplementationAlreadyInStoreException(string message, Exception innerException) : base(message, innerException)
+        public ImplementationAlreadyInStoreException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private ImplementationAlreadyInStoreException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ImplementationAlreadyInStoreException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
             #region Sanity checks
             if (info == null) throw new ArgumentNullException(nameof(info));

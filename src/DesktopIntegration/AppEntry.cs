@@ -145,7 +145,7 @@ namespace ZeroInstall.DesktopIntegration
                 return CapabilityLists.CompatibleCapabilities().OfType<T>()
                     .First(specificCapability => specificCapability.ID == id);
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidOperationException)
             {
                 throw new KeyNotFoundException(string.Format(Resources.UnableToFindTypeID, typeof(T).Name, id));

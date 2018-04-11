@@ -71,10 +71,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DesktopIcon other)
-        {
-            return base.Equals(other);
-        }
+        public bool Equals(DesktopIcon other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -85,10 +82,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

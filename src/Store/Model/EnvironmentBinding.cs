@@ -22,7 +22,6 @@ using JetBrains.Annotations;
 
 namespace ZeroInstall.Store.Model
 {
-
     #region Enumerations
     /// <summary>
     /// Controls how <see cref="EnvironmentBinding.Insert"/> or <see cref="EnvironmentBinding.Value"/> is added to a variable.
@@ -114,8 +113,15 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(EnvironmentBinding other) => other != null && (base.Equals(other) &&
-            other.Name == Name && other.Value == Value) && other.Insert == Insert && other.Mode == Mode && other.Separator == Separator && other.Default == Default;
+        public bool Equals(EnvironmentBinding other)
+            => other != null
+            && base.Equals(other)
+            && other.Name == Name
+            && other.Value == Value
+            && other.Insert == Insert
+            && other.Mode == Mode
+            && other.Separator == Separator
+            && other.Default == Default;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

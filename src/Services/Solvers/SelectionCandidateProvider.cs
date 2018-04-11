@@ -100,7 +100,7 @@ namespace ZeroInstall.Services.Solvers
             var stabilityPolicy = _interfacePreferences[requirements.InterfaceUri].StabilityPolicy;
             if (stabilityPolicy == Stability.Unset) stabilityPolicy = _config.HelpWithTesting ? Stability.Testing : Stability.Stable;
 
-           var candidates = GetFeeds(requirements)
+            var candidates = GetFeeds(requirements)
                 .SelectMany(x => GetCandidates(x.Key, x.Value, requirements))
                 .ToList();
             candidates.Sort(new SelectionCandidateComparer(stabilityPolicy, _config.NetworkUse, requirements.Languages, IsCached));
@@ -114,10 +114,10 @@ namespace ZeroInstall.Services.Solvers
             if (implemenationSelection == null) throw new ArgumentNullException(nameof(implemenationSelection));
             #endregion
 
-            return implemenationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                ? _externalImplementations[implemenationSelection.ID]
-                : _feeds[implemenationSelection.FromFeed ?? implemenationSelection.InterfaceUri][implemenationSelection.ID]
-                  ?? throw new KeyNotFoundException();
+            return (implemenationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                       ? _externalImplementations[implemenationSelection.ID]
+                       : _feeds[implemenationSelection.FromFeed ?? implemenationSelection.InterfaceUri][implemenationSelection.ID])
+                ?? throw new KeyNotFoundException();
         }
 
         /// <inheritdoc/>

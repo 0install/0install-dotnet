@@ -34,7 +34,8 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         public string Extensions { get { return StringUtils.Join(", ", _fileType.Extensions.Select(extension => extension.Value)); } }
 
         /// <inheritdoc/>
-        public FileTypeModel(FileType fileType, bool used) : base(fileType, used)
+        public FileTypeModel(FileType fileType, bool used)
+            : base(fileType, used)
         {
             _fileType = fileType;
         }

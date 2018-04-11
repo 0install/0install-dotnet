@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.Model
                 {
                     return Feeds.First(feed => feed.Uri == uri);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (InvalidOperationException)
                 {
                     throw new KeyNotFoundException(string.Format(Resources.FeedNotInCatalog, uri));

@@ -44,10 +44,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Conversion
         /// <inheritdoc/>
-        public override string ToString()
-        {
-            return Fingerprint + " " + Domains;
-        }
+        public override string ToString() => Fingerprint + " " + Domains;
         #endregion
 
         #region Clone

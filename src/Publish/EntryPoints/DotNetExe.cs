@@ -119,10 +119,11 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         #region Equality
-        private bool Equals(DotNetExe other) => base.Equals(other) &&
-            MinimumRuntimeVersion == other.MinimumRuntimeVersion &&
-            RuntimeType == other.RuntimeType &&
-            ExternalDependencies == other.ExternalDependencies;
+        private bool Equals(DotNetExe other)
+            => base.Equals(other)
+            && MinimumRuntimeVersion == other.MinimumRuntimeVersion
+            && RuntimeType == other.RuntimeType
+            && ExternalDependencies == other.ExternalDependencies;
 
         public override bool Equals(object obj)
         {

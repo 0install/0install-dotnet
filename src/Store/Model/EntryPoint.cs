@@ -139,9 +139,16 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(EntryPoint other) => other != null && base.Equals(other) &&
-            Command == other.Command && BinaryName == other.BinaryName && NeedsTerminal == other.NeedsTerminal &&
-            Names.SequencedEquals(other.Names) && Summaries.SequencedEquals(other.Summaries) && Descriptions.SequencedEquals(other.Descriptions) && Icons.SequencedEquals(other.Icons);
+        public bool Equals(EntryPoint other)
+            => other != null
+            && base.Equals(other)
+            && Command == other.Command
+            && BinaryName == other.BinaryName
+            && NeedsTerminal == other.NeedsTerminal
+            && Names.SequencedEquals(other.Names)
+            && Summaries.SequencedEquals(other.Summaries)
+            && Descriptions.SequencedEquals(other.Descriptions)
+            && Icons.SequencedEquals(other.Icons);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

@@ -47,7 +47,7 @@ namespace ZeroInstall.Services.Feeds
             {
                 return manager.GetCached() ?? new Catalog();
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(ex.Message);
@@ -82,7 +82,7 @@ namespace ZeroInstall.Services.Feeds
             {
                 return manager.GetOnline();
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(ex);

@@ -55,10 +55,7 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize()
-        {
-            EnsureNotNull(ItemFrom, xmlAttribute: "item-from", xmlTag: "for-each");
-        }
+        public override void Normalize() => EnsureNotNull(ItemFrom, xmlAttribute: "item-from", xmlTag: "for-each");
         #endregion
 
         #region Conversion
@@ -89,8 +86,12 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ForEachArgs other) => other != null && base.Equals(other) &&
-            other.ItemFrom == ItemFrom && other.Separator == Separator && Arguments.SequencedEquals(other.Arguments);
+        public bool Equals(ForEachArgs other)
+            => other != null
+            && base.Equals(other)
+            && other.ItemFrom == ItemFrom
+            && other.Separator == Separator
+            && Arguments.SequencedEquals(other.Arguments);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

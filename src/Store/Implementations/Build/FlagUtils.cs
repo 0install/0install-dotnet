@@ -71,7 +71,7 @@ namespace ZeroInstall.Store.Implementations.Build
                 if (FindRootDir(NoUnixFSFile, directoryPath) != null) return false;
                 else return FileUtils.IsUnixFS(directoryPath);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException)
             {
                 // Just assume the target is a Unix FS if the check fails on a Unixoid OS

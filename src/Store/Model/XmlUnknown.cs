@@ -52,10 +52,7 @@ namespace ZeroInstall.Store.Model
             }
 
             [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods")]
-            public int GetHashCode(XmlAttribute obj)
-            {
-                return (obj.Name + obj.Value).GetHashCode();
-            }
+            public int GetHashCode(XmlAttribute obj) => (obj.Name + obj.Value).GetHashCode();
         }
 
         private class XmlElementComparer : IEqualityComparer<XmlElement>
@@ -80,10 +77,7 @@ namespace ZeroInstall.Store.Model
             }
 
             [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods")]
-            public int GetHashCode(XmlElement obj)
-            {
-                return (obj.Name + obj.Value).GetHashCode();
-            }
+            public int GetHashCode(XmlElement obj) => (obj.Name + obj.Value).GetHashCode();
         }
         #endregion
 

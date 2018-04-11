@@ -171,8 +171,7 @@ namespace ZeroInstall.Store.Feeds
         }
 
         // No in-memory cache
-        void IFeedCache.Flush()
-        {}
+        void IFeedCache.Flush() {}
 
         #region Conversion
         /// <summary>

@@ -39,8 +39,7 @@ namespace ZeroInstall.Services
         /// </summary>
         public string LastQuestion { get; private set; }
 
-        protected override void LogHandler(LogSeverity severity, string message)
-        {}
+        protected override void LogHandler(LogSeverity severity, string message) {}
 
         /// <inheritdoc/>
         public override void RunTask(ITask task) => task.Run(CancellationToken, CredentialProvider);
@@ -75,8 +74,7 @@ namespace ZeroInstall.Services
         /// </summary>
         public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data;
 
-        public override void Error(Exception exception)
-        {}
+        public override void Error(Exception exception) {}
 
         public override ICredentialProvider CredentialProvider => null;
     }

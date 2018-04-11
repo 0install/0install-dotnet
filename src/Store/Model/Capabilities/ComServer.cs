@@ -51,10 +51,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ComServer other)
-        {
-            return base.Equals(other);
-        }
+        public bool Equals(ComServer other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -65,10 +62,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

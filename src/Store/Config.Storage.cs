@@ -164,7 +164,7 @@ namespace ZeroInstall.Store
                 using (var reader = new StreamReader(path, Encoding.UTF8))
                     _iniData = new StreamIniDataParser().ReadData(reader);
             }
-                #region Error handling
+            #region Error handling
             catch (ParsingException ex)
             {
                 // Wrap exception to add context information
@@ -187,7 +187,7 @@ namespace ZeroInstall.Store
                             ? global[key].Base64Utf8Decode()
                             : global[key];
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (FormatException ex)
                     {
                         // Wrap exception to add context information
@@ -245,10 +245,17 @@ namespace ZeroInstall.Store
         /// </summary>
         private void ReadFromRegistry()
         {
-            using (var registryKey = Registry.LocalMachine.OpenSubKey(RegistryPolicyPath, writable: false))
-                if (registryKey != null) ReadFromRegistry(registryKey);
-            using (var registryKey = Registry.CurrentUser.OpenSubKey(RegistryPolicyPath, writable: false))
-                if (registryKey != null) ReadFromRegistry(registryKey);
+            ReadFrom(Registry.LocalMachine);
+            ReadFrom(Registry.CurrentUser);
+
+            void ReadFrom(RegistryKey key)
+            {
+                using (var registryKey = key.OpenSubKey(RegistryPolicyPath, writable: false))
+                {
+                    if (registryKey != null)
+                        ReadFromRegistry(registryKey);
+                }
+            }
         }
 
         /// <summary>
@@ -269,7 +276,7 @@ namespace ZeroInstall.Store
                     {
                         property.Value.Value = value;
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (FormatException ex)
                     {
                         // Wrap exception to add context information

@@ -26,24 +26,12 @@ namespace ZeroInstall.DesktopIntegration.Unix
     /// </summary>
     public static class FreeDesktop
     {
-        public static void Create(MenuEntry menuEntry, FeedTarget target, IIconStore iconStore, bool machineWide)
-        {
-            throw new NotImplementedException();
-        }
+        public static void Create(MenuEntry menuEntry, FeedTarget target, IIconStore iconStore, bool machineWide) => throw new NotImplementedException();
 
-        public static void Remove(MenuEntry menuEntry, bool machineWide)
-        {
-            throw new NotImplementedException();
-        }
+        public static void Remove(MenuEntry menuEntry, bool machineWide) => throw new NotImplementedException();
 
-        public static void Create(DesktopIcon desktopIcon, FeedTarget target, IIconStore iconStore, bool machineWide)
-        {
-            throw new NotImplementedException();
-        }
+        public static void Create(DesktopIcon desktopIcon, FeedTarget target, IIconStore iconStore, bool machineWide) => throw new NotImplementedException();
 
-        public static void Remove(DesktopIcon desktopIcon, bool machineWide)
-        {
-            throw new NotImplementedException();
-        }
+        public static void Remove(DesktopIcon desktopIcon, bool machineWide) => throw new NotImplementedException();
     }
 }

@@ -33,7 +33,8 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         public string Name => _contextMenu.Verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? _contextMenu.Verb.Name;
 
         /// <inheritdoc/>
-        public ContextMenuModel(ContextMenu contextMenu, bool used) : base(contextMenu, used)
+        public ContextMenuModel(ContextMenu contextMenu, bool used)
+            : base(contextMenu, used)
         {
             _contextMenu = contextMenu;
         }

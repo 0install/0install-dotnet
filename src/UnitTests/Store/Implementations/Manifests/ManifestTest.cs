@@ -112,7 +112,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             using (var testDir = new TemporaryDirectory("0install-unit-tests"))
             {
-                new TestRoot{
+                new TestRoot
+                {
                     new TestDirectory("subdir") {new TestFile("file")}
                 }.Build(testDir);
 

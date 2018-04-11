@@ -90,12 +90,14 @@ namespace ZeroInstall.Store.Model
         {
             var appA = new Feed
             {
-                Uri = FeedTest.Test1Uri, Name = "AppA",
+                Uri = FeedTest.Test1Uri,
+                Name = "AppA",
                 EntryPoints = {new EntryPoint {Command = Command.NameRun, BinaryName = "BinaryA"}}
             };
             var appB = new Feed
             {
-                Uri = FeedTest.Test2Uri, Name = "AppB",
+                Uri = FeedTest.Test2Uri,
+                Name = "AppB",
                 EntryPoints = {new EntryPoint {Command = Command.NameRun, BinaryName = "BinaryB"}}
             };
             var catalog = new Catalog {Feeds = {appA, appA.Clone(), appB, appB.Clone()}};

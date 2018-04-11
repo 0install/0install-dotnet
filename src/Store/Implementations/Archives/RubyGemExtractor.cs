@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     if (entry.Name == "data.tar.gz") return tar;
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (SharpZipBaseException ex)
             {
                 // Wrap exception since only certain exception types are allowed

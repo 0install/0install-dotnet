@@ -117,7 +117,8 @@ namespace ZeroInstall.Store.Model
         /// <param name="sha256New">A SHA-256 hash of the new manifest format with a base32 encoding and no equals sign in the path.</param>
         [SuppressMessage("Microsoft.Design", "CA1025:ReplaceRepetitiveArgumentsWithParamsArray")]
         [SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Justification = "Only used in unit tests.")]
-        public ManifestDigest(string sha1 = null, string sha1New = null, string sha256 = null, string sha256New = null) : this()
+        public ManifestDigest(string sha1 = null, string sha1New = null, string sha256 = null, string sha256New = null)
+            : this()
         {
             Sha1 = sha1;
             Sha1New = sha1New;
@@ -131,7 +132,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="id">The ID string to parse. Digest values start with their format name followed by an equals sign and the actual hash.</param>
         /// <exception cref="NotSupportedException"><paramref name="id"/> is not a valid manifest digest.</exception>
-        public ManifestDigest([NotNull] string id) : this()
+        public ManifestDigest([NotNull] string id)
+            : this()
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -162,9 +164,7 @@ namespace ZeroInstall.Store.Model
         }
 
         private static string GetIfPrefixed(string value, string prefix)
-        {
-            return value.StartsWith(prefix) ? value.Substring(prefix.Length) : null;
-        }
+            => value.StartsWith(prefix) ? value.Substring(prefix.Length) : null;
         #endregion
 
         #region Conversion
@@ -185,9 +185,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ManifestDigest other)
-        {
-            return other.Sha1 == Sha1 && other.Sha1New == Sha1New && other.Sha256 == Sha256 && other.Sha256New == Sha256New;
-        }
+            => other.Sha1 == Sha1 && other.Sha1New == Sha1New && other.Sha256 == Sha256 && other.Sha256New == Sha256New;
 
         /// <summary>
         /// Indicates whether this digest is at least partially equal to another one.
@@ -196,12 +194,11 @@ namespace ZeroInstall.Store.Model
         public bool PartialEquals(ManifestDigest other)
         {
             int matchCounter = 0;
-            return
-                PartialEqualsHelper(ref matchCounter, Sha1, other.Sha1) &&
-                PartialEqualsHelper(ref matchCounter, Sha1New, other.Sha1New) &&
-                PartialEqualsHelper(ref matchCounter, Sha256, other.Sha256) &&
-                PartialEqualsHelper(ref matchCounter, Sha256New, other.Sha256New) &&
-                (matchCounter > 0);
+            return PartialEqualsHelper(ref matchCounter, Sha1, other.Sha1)
+                && PartialEqualsHelper(ref matchCounter, Sha1New, other.Sha1New)
+                && PartialEqualsHelper(ref matchCounter, Sha256, other.Sha256)
+                && PartialEqualsHelper(ref matchCounter, Sha256New, other.Sha256New)
+                && (matchCounter > 0);
         }
 
         /// <summary>

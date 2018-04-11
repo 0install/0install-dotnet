@@ -159,7 +159,7 @@ namespace ZeroInstall.Store.Trust
             {
                 return ParseObjects<T>(stream).First();
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidOperationException)
             {
                 throw new InvalidDataException("Unable to find instance of " + typeof(T).Name + " in stream");

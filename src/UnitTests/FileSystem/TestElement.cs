@@ -32,10 +32,7 @@ namespace ZeroInstall.FileSystem
         [NotNull]
         public string Name { get; }
 
-        protected TestElement([NotNull] string name)
-        {
-            Name = name;
-        }
+        protected TestElement([NotNull] string name) => Name = name;
 
         /// <summary>
         /// Realizes the element as an on-disk element.

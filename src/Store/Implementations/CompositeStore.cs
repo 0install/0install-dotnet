@@ -98,22 +98,13 @@ namespace ZeroInstall.Store.Implementations
         private readonly TransparentCache<ManifestDigest, bool> _containsCache;
 
         /// <inheritdoc/>
-        public bool Contains(ManifestDigest manifestDigest)
-        {
-            return _containsCache[manifestDigest];
-        }
+        public bool Contains(ManifestDigest manifestDigest) => _containsCache[manifestDigest];
 
         /// <inheritdoc/>
-        public bool Contains(string directory)
-        {
-            return _stores.Any(store => store.Contains(directory));
-        }
+        public bool Contains(string directory) => _stores.Any(store => store.Contains(directory));
 
         /// <inheritdoc/>
-        public void Flush()
-        {
-            _containsCache.Clear();
-        }
+        public void Flush() => _containsCache.Clear();
         #endregion
 
         #region Get path
@@ -148,7 +139,7 @@ namespace ZeroInstall.Store.Implementations
                     // Try to add implementation to this store
                     return store.AddDirectory(path, manifestDigest, handler);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                 {
                     innerException = ex; // Remember the last error
@@ -167,8 +158,7 @@ namespace ZeroInstall.Store.Implementations
             }
 
             // If we reach this, the implementation could not be added to any store
-            throw innerException?.PreserveStack()
-                ?? new InvalidOperationException();
+            throw innerException?.PreserveStack() ?? new InvalidOperationException();
         }
         #endregion
 
@@ -194,7 +184,7 @@ namespace ZeroInstall.Store.Implementations
                     // Try to add implementation to this store
                     return store.AddArchives(archiveInfos, manifestDigest, handler);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                 {
                     innerException = ex; // Remember the last error
@@ -213,8 +203,7 @@ namespace ZeroInstall.Store.Implementations
             }
 
             // If we reach this, the implementation couldn't be added to any store
-            throw innerException?.PreserveStack()
-                ?? new InvalidOperationException();
+            throw innerException?.PreserveStack() ?? new InvalidOperationException();
         }
         #endregion
 

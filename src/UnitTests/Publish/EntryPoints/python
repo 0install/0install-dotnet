@@ -3,9 +3,9 @@ import sys
 import locale
 from logging import warn
 try:
-	locale.setlocale(locale.LC_ALL, '')
+    locale.setlocale(locale.LC_ALL, '')
 except locale.Error:
-	warn('Error setting locale (eg. Invalid locale)')
+    warn('Error setting locale (eg. Invalid locale)')
 
 ## PATH ##
 

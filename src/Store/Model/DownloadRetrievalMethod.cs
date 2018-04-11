@@ -83,7 +83,6 @@ namespace ZeroInstall.Store.Model
         #region Clone
         /// <inheritdoc/>
         IRecipeStep ICloneable<IRecipeStep>.Clone() => (IRecipeStep)Clone();
-
         #endregion
 
         #region Equality

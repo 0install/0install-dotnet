@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2011 Simon E. Silva Lauinger
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,7 +33,8 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         public string Description => _iconCapability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? _iconCapability.ID;
 
         /// <inheritdoc/>
-        protected IconCapabilityModel(IconCapability capability, bool used) : base(capability, used)
+        protected IconCapabilityModel(IconCapability capability, bool used)
+            : base(capability, used)
         {
             _iconCapability = capability;
         }

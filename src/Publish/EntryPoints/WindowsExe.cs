@@ -40,7 +40,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 Parse(FileVersionInfo.GetVersionInfo(file.FullName));
                 return Parse(new PEHeader(file.FullName));
             }
-                #region Error handling
+            #region Error handling
             catch (IOException)
             {
                 return false;

@@ -1,4 +1,4 @@
-﻿Imports NanoByte.Common.Tasks
+Imports NanoByte.Common.Tasks
 Imports ZeroInstall.Services
 Imports ZeroInstall.Store.Model
 

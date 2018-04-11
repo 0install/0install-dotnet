@@ -92,14 +92,16 @@ namespace ZeroInstall.Store
         /// <param name="value">An existing <see cref="Uri"/>.</param>
         /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public FeedUri([NotNull] Uri value) : this(value.OriginalString)
+        public FeedUri([NotNull] Uri value)
+            : this(value.OriginalString)
         {}
 
         /// <summary>
         /// Passing a <see cref="FeedUri"/> instance into the <see cref="FeedUri"/> constructor does nothing useful. Just use the original object.
         /// </summary>
         [Obsolete("Passing a FeedUri instance into the FeedUri constructor does nothing useful. Just use the original object.")]
-        public FeedUri(FeedUri value) : this((Uri)value)
+        public FeedUri(FeedUri value)
+            : this((Uri)value)
         {}
 
         /// <summary>
@@ -108,7 +110,8 @@ namespace ZeroInstall.Store
         /// <param name="value">A string to parse as an HTTP(S) URL or an absolute local path.</param>
         /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads")]
-        public FeedUri([NotNull, Localizable(false)] string value) : base(TrimPrefix(value), UriKind.Absolute)
+        public FeedUri([NotNull, Localizable(false)] string value)
+            : base(TrimPrefix(value), UriKind.Absolute)
         {
             if (string.IsNullOrEmpty(value)) throw new UriFormatException();
 

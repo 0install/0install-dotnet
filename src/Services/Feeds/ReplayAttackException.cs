@@ -46,7 +46,7 @@ namespace ZeroInstall.Services.Feeds
         /// The last changed time stamp of the new file to be added.
         /// </summary>
         public DateTime NewTime { get; }
-        
+
         /// <summary>
         /// Creates a new replay attack exception.
         /// </summary>
@@ -67,18 +67,21 @@ namespace ZeroInstall.Services.Feeds
         {}
 
         /// <inheritdoc/>
-        public ReplayAttackException(string message) : base(message)
+        public ReplayAttackException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public ReplayAttackException(string message, Exception innerException) : base(message, innerException)
+        public ReplayAttackException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private ReplayAttackException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ReplayAttackException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
             #region Sanity checks
             if (info == null) throw new ArgumentNullException(nameof(info));

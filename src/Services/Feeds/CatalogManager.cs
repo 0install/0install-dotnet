@@ -92,7 +92,7 @@ namespace ZeroInstall.Services.Feeds
                 using (new MutexLock(CacheMutexName))
                     catalog.SaveXml(_cacheFilePath);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(Resources.UnableToCacheCatalog);

@@ -120,8 +120,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Group other) => other != null && base.Equals(other) &&
-            Elements.SequencedEquals(other.Elements);
+        public bool Equals(Group other) => other != null && base.Equals(other) && Elements.SequencedEquals(other.Elements);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

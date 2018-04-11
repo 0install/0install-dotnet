@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     else ExtractIndividual(extractor);
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (ObjectDisposedException ex)
             {
                 // Async cancellation may cause underlying file stream to be closed
@@ -113,7 +113,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             _unitsByte = false;
             UnitsTotal = 100;
-            extractor.Extracting += (sender, e) => { UnitsProcessed = e.PercentDone; };
+            extractor.Extracting += (sender, e) => UnitsProcessed = e.PercentDone;
 
             CancellationToken.ThrowIfCancellationRequested();
             if (string.IsNullOrEmpty(Extract)) extractor.ExtractArchive(DirectoryBuilder.EffectiveTargetPath);

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -32,10 +32,13 @@ namespace ZeroInstall.Store.Model
         public static Command CreateTestCommand1() => new Command
         {
             Name = Command.NameRun,
-            Path = "dir 1/executable1", Arguments = {"--executable1"},
+            Path = "dir 1/executable1",
+            Arguments = {"--executable1"},
             Runner = new Runner
             {
-                InterfaceUri = FeedTest.Test2Uri, Arguments = {"runner argument"}, Bindings = {new EnvironmentBinding {Name = "TEST2_PATH_RUNNER_SELF"}}
+                InterfaceUri = FeedTest.Test2Uri,
+                Arguments = {"runner argument"},
+                Bindings = {new EnvironmentBinding {Name = "TEST2_PATH_RUNNER_SELF"}}
             },
             Bindings = {new EnvironmentBinding {Name = "TEST1_PATH_COMMAND"}},
             WorkingDir = new WorkingDir {Source = "bin"}
@@ -47,10 +50,12 @@ namespace ZeroInstall.Store.Model
         public static Command CreateTestCommand1Test() => new Command
         {
             Name = Command.NameTest,
-            Path = "dir 1/test1", Arguments = {"--test1"},
+            Path = "dir 1/test1",
+            Arguments = {"--test1"},
             Runner = new Runner
             {
-                InterfaceUri = FeedTest.Test2Uri, Arguments = {"runner argument"}
+                InterfaceUri = FeedTest.Test2Uri,
+                Arguments = {"runner argument"}
             }
         };
 
@@ -60,7 +65,8 @@ namespace ZeroInstall.Store.Model
         public static Command CreateTestCommand2() => new Command
         {
             Name = Command.NameRun,
-            Path = "dir 2/executable2", Arguments = {"--executable2"},
+            Path = "dir 2/executable2",
+            Arguments = {"--executable2"},
             Dependencies =
             {
                 new Dependency

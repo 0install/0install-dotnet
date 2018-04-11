@@ -62,10 +62,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Checks whether an element passes the specified <see cref="IfZeroInstallVersion"/> restriction, if any.
         /// </summary>
-        protected static bool FilterMismatch(IRecipeStep step)
-        {
-            return FilterMismatch(step as FeedElement);
-        }
+        protected static bool FilterMismatch(IRecipeStep step) => FilterMismatch(step as FeedElement);
         #endregion
 
         #region Equality

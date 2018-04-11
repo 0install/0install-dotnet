@@ -29,26 +29,28 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Creates a new missing main exception.
         /// </summary>
-        public ExecutorException()
+        public ExecutorException() {}
+
+        /// <summary>
+        /// Creates a new missing main exception.
+        /// </summary>
+        public ExecutorException(string message)
+            : base(message)
         {}
 
         /// <summary>
         /// Creates a new missing main exception.
         /// </summary>
-        public ExecutorException(string message) : base(message)
-        {}
-
-        /// <summary>
-        /// Creates a new missing main exception.
-        /// </summary>
-        public ExecutorException(string message, Exception innerException) : base(message, innerException)
+        public ExecutorException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private ExecutorException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ExecutorException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {}
         #endregion
     }

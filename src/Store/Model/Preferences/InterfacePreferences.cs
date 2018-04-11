@@ -106,7 +106,7 @@ namespace ZeroInstall.Store.Model.Preferences
             {
                 return LoadFor(interfaceUri);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri));
@@ -171,14 +171,11 @@ namespace ZeroInstall.Store.Model.Preferences
         #region Equality
         /// <inheritdoc/>
         public bool Equals(InterfacePreferences other)
-        {
-            if (other == null) return false;
-            if (!base.Equals(other)) return false;
-            if (Uri != other.Uri) return false;
-            if (StabilityPolicy != other.StabilityPolicy) return false;
-            if (!Feeds.SequencedEquals(other.Feeds)) return false;
-            return true;
-        }
+            => other != null
+            && base.Equals(other)
+            && Uri == other.Uri
+            && StabilityPolicy == other.StabilityPolicy
+            && Feeds.SequencedEquals(other.Feeds);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

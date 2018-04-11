@@ -32,17 +32,11 @@ namespace ZeroInstall.Services.PackageManagers
         /// <summary>
         /// Always returns an empty list.
         /// </summary>
-        public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions)
-        {
-            return Enumerable.Empty<ExternalImplementation>();
-        }
+        public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions) => Enumerable.Empty<ExternalImplementation>();
 
         /// <summary>
         /// Always throws <see cref="ImplementationNotFoundException"/>.
         /// </summary>
-        public ExternalImplementation Lookup(ImplementationSelection selection)
-        {
-            throw new ImplementationNotFoundException(Resources.NoPackageManagerSupport);
-        }
+        public ExternalImplementation Lookup(ImplementationSelection selection) => throw new ImplementationNotFoundException(Resources.NoPackageManagerSupport);
     }
 }

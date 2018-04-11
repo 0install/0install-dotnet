@@ -54,7 +54,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 return new BZip2InputStream(stream);
             }
-                #region Error handling
+            #region Error handling
             catch (BZip2Exception ex)
             {
                 // Wrap exception since only certain exception types are allowed

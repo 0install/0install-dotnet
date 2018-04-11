@@ -83,9 +83,12 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(InstallCommands other)
-            => other.Reinstall == Reinstall && other.ReinstallArgs == ReinstallArgs &&
-               other.ShowIcons == ShowIcons && other.ShowIconsArgs == ShowIconsArgs &&
-               other.HideIcons == HideIcons && other.HideIconsArgs == HideIconsArgs;
+            => other.Reinstall == Reinstall
+            && other.ReinstallArgs == ReinstallArgs
+            && other.ShowIcons == ShowIcons
+            && other.ShowIconsArgs == ShowIconsArgs
+            && other.HideIcons == HideIcons
+            && other.HideIconsArgs == HideIconsArgs;
 
         public static bool operator ==(InstallCommands left, InstallCommands right) => left.Equals(right);
         public static bool operator !=(InstallCommands left, InstallCommands right) => !left.Equals(right);

@@ -35,10 +35,7 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new signature.
         /// </summary>
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        protected OpenPgpSignature(long keyID)
-        {
-            KeyID = keyID;
-        }
+        protected OpenPgpSignature(long keyID) { KeyID = keyID; }
 
         #region Equality
         protected bool Equals(OpenPgpSignature other)
@@ -86,7 +83,8 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
         /// <param name="fingerprint">The fingerprint of the key used to create this signature.</param>
         /// <param name="timestamp">The point in time when the signature was created in UTC.</param>
-        public ValidSignature(long keyID, [NotNull] byte[] fingerprint, DateTime timestamp) : base(keyID)
+        public ValidSignature(long keyID, [NotNull] byte[] fingerprint, DateTime timestamp)
+            : base(keyID)
         {
             _fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
             Timestamp = timestamp;
@@ -99,9 +97,9 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         private bool Equals(ValidSignature other)
-        {
-            return base.Equals(other) && _fingerprint.SequencedEquals(other._fingerprint) && Timestamp == other.Timestamp;
-        }
+            => base.Equals(other)
+            && _fingerprint.SequencedEquals(other._fingerprint)
+            && Timestamp == other.Timestamp;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -135,7 +133,8 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new signature error.
         /// </summary>
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public ErrorSignature(long keyID) : base(keyID)
+        public ErrorSignature(long keyID)
+            : base(keyID)
         {}
 
         /// <summary>
@@ -167,7 +166,8 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new bad signature.
         /// </summary>
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public BadSignature(long keyID) : base(keyID)
+        public BadSignature(long keyID)
+            : base(keyID)
         {}
 
         /// <summary>
@@ -200,7 +200,8 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new missing key error.
         /// </summary>
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public MissingKeySignature(long keyID) : base(keyID)
+        public MissingKeySignature(long keyID)
+            : base(keyID)
         {}
 
         /// <summary>

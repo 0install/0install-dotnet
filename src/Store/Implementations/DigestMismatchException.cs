@@ -111,18 +111,21 @@ namespace ZeroInstall.Store.Implementations
         {}
 
         /// <inheritdoc/>
-        public DigestMismatchException(string message) : base(message)
+        public DigestMismatchException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public DigestMismatchException(string message, Exception innerException) : base(message, innerException)
+        public DigestMismatchException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private DigestMismatchException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private DigestMismatchException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
             #region Sanity checks
             if (info == null) throw new ArgumentNullException(nameof(info));

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -86,9 +86,6 @@ namespace ZeroInstall.Store.ViewModel
         /// <summary>
         /// Returns the Node in the form "Digest URI Version Architecture". Safe for parsing!
         /// </summary>
-        public override string ToString()
-        {
-            return Digest + " " + _parent.Uri.ToStringRfc() + " " + Version + " " + Architecture;
-        }
+        public override string ToString() => Digest + " " + _parent.Uri.ToStringRfc() + " " + Version + " " + Architecture;
     }
 }

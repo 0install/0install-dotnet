@@ -22,7 +22,8 @@ namespace ZeroInstall.Store.Trust
     /// </summary>
     public class BouncyCastleTest : OpenPgpTest
     {
-        public BouncyCastleTest() : base(new BouncyCastle())
+        public BouncyCastleTest()
+            : base(new BouncyCastle())
         {}
     }
 }

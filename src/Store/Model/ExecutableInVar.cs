@@ -52,8 +52,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ExecutableInVar other) => other != null && base.Equals(other) &&
-            other.Name == Name;
+        public bool Equals(ExecutableInVar other) => other != null && base.Equals(other) && other.Name == Name;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

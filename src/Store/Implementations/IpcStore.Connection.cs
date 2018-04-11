@@ -88,14 +88,16 @@ namespace ZeroInstall.Store.Implementations
             Log.Debug("Attempting to connect to Store Service");
 
             // IPC channel for accessing the server
-            ChannelServices.RegisterChannel(new IpcClientChannel(
-                new Hashtable
-                {
-                    {"name", IpcPortName},
-                    {"secure", true}, {"tokenImpersonationLevel", "impersonation"} // Allow server to use identity of client
-                },
-                new BinaryClientFormatterSinkProvider()),
-                false);
+            ChannelServices.RegisterChannel(
+                new IpcClientChannel(
+                    new Hashtable
+                    {
+                        {"name", IpcPortName},
+                        {"secure", true},
+                        {"tokenImpersonationLevel", "impersonation"} // Allow server to use identity of client
+                    },
+                    new BinaryClientFormatterSinkProvider()),
+                ensureSecurity: false);
 
             // IPC channel for providing callbacks to the server
             ChannelServices.RegisterChannel(new IpcServerChannel(

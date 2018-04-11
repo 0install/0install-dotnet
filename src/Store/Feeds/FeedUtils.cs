@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.Feeds
             {
                 return openPgp.Verify(data, signature);
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidDataException ex)
             {
                 throw new SignatureException(Resources.InvalidSignature, ex);
@@ -145,7 +145,7 @@ namespace ZeroInstall.Store.Feeds
             {
                 return Convert.FromBase64String(base64Charachters);
             }
-                #region Error handling
+            #region Error handling
             catch (FormatException ex)
             {
                 throw new SignatureException(Resources.XmlSignatureNotBase64 + ex.Message, ex);

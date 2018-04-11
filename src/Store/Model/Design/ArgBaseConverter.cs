@@ -27,10 +27,8 @@ namespace ZeroInstall.Store.Model.Design
     public class ArgBaseConverter : TypeConverter
     {
         /// <inheritdoc/>
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
-            return (sourceType == typeof(string)) || base.CanConvertFrom(context, sourceType);
-        }
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) =>
+            (sourceType == typeof(string)) || base.CanConvertFrom(context, sourceType);
 
         /// <inheritdoc/>
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)

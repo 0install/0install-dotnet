@@ -56,7 +56,7 @@ namespace ZeroInstall.Services.Solvers
                 else
                 {
                     this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
-                        .Should().Throw<SolverException>(testCase.ToString())/*.WithMessage(testCase.Problem)*/;
+                        .Should().Throw<SolverException>(testCase.ToString()) /*.WithMessage(testCase.Problem)*/;
                 }
             }
         }

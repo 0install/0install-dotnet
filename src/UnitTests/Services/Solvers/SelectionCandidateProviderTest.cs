@@ -130,7 +130,7 @@ namespace ZeroInstall.Services.Solvers
 
             var pathComponents = mainFeed.Uri.EscapeComponent()
                 .Prepend("site-packages")
-                .Concat(new[] { "xyz", "0install", "feed.xml" });
+                .Concat(new[] {"xyz", "0install", "feed.xml"});
             var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", isFile: true, resource: pathComponents.ToArray()));
 
             var subFeed = mainFeed.Clone();

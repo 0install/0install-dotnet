@@ -88,7 +88,7 @@ namespace ZeroInstall.Store.ViewModel
             {
                 Store.Remove(_digest, handler);
             }
-                #region Error handling
+            #region Error handling
             catch (ImplementationNotFoundException ex)
             {
                 throw new KeyNotFoundException(ex.Message, ex);
@@ -103,17 +103,11 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">The entry's directory could not be processed.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
-        public void Verify([NotNull] ITaskHandler handler)
-        {
-            Store.Verify(_digest, handler);
-        }
+        public void Verify([NotNull] ITaskHandler handler) { Store.Verify(_digest, handler); }
 
         /// <summary>
         /// Returns the Node in the form "Digest". Safe for parsing!
         /// </summary>
-        public override string ToString()
-        {
-            return Digest;
-        }
+        public override string ToString() => Digest;
     }
 }

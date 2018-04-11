@@ -58,7 +58,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             {
                 return new ManifestSymlink(parts[1], long.Parse(parts[2]), parts[3]);
             }
-                #region Error handling
+            #region Error handling
             catch (OverflowException ex)
             {
                 throw new FormatException(Resources.NumberTooLarge, ex);
@@ -77,10 +77,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ManifestSymlink other)
-        {
-            return base.Equals(other);
-        }
+        public bool Equals(ManifestSymlink other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -91,10 +88,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

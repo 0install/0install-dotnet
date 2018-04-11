@@ -46,10 +46,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Creates a new default overlay binding that publishes the entire implementation to the filesystem root.
         /// </summary>
-        public OverlayBinding()
-        {
-            Source = ".";
-        }
+        public OverlayBinding() => Source = ".";
 
         #region Conversion
         /// <summary>

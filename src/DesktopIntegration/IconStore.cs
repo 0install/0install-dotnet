@@ -79,7 +79,6 @@ namespace ZeroInstall.DesktopIntegration
                         {
                             Download();
                         }
-
                         #region Error handling
                         catch (WebException ex)
                         { // Failure is not critical if there is already a cached file

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- namespace ZeroInstall.Store
+namespace ZeroInstall.Store
 {
     /// <summary>
     /// Controls how liberally network access is attempted.

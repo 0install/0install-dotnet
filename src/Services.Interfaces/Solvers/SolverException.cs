@@ -31,26 +31,28 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Indicates that the <see cref="ISolver"/> encountered an unknown problem.
         /// </summary>
-        public SolverException()
-        {}
+        public SolverException() {}
 
         /// <summary>
         /// Indicates that the <see cref="ISolver"/> encountered a specific problem.
         /// </summary>
-        public SolverException(string message) : base(message)
+        public SolverException(string message)
+            : base(message)
         {}
 
         /// <summary>
         /// Indicates that there was a problem parsing the <see cref="ISolver"/>'s output.
         /// </summary>
-        public SolverException(string message, Exception innerException) : base(message, innerException)
+        public SolverException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private SolverException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private SolverException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {}
         #endregion
     }

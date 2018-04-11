@@ -32,7 +32,8 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         public string Service => _defaultProgram.Service;
 
         /// <inheritdoc/>
-        public DefaultProgramModel(DefaultProgram capability, bool used) : base(capability, used)
+        public DefaultProgramModel(DefaultProgram capability, bool used)
+            : base(capability, used)
         {
             _defaultProgram = capability;
         }

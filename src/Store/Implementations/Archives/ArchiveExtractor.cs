@@ -62,11 +62,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         [Description("Sub-path to be appended to TargetDir without affecting location of flag files.")]
         [CanBeNull]
-        public string TargetSuffix
-        {
-            get => DirectoryBuilder.TargetSuffix;
-            set => DirectoryBuilder.TargetSuffix = value;
-        }
+        public string TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
 
         /// <summary>
         /// Prepares to extract an archive contained in a stream.
@@ -277,7 +273,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             try
             {
                 using (var fileStream = File.Create(absolutePath))
-                    if (fileSize != 0) StreamToFile(stream, fileStream);
+                {
+                    if (fileSize != 0)
+                        StreamToFile(stream, fileStream);
+                }
             }
             catch (DirectoryNotFoundException ex)
             {

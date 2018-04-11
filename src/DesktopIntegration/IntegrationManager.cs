@@ -99,7 +99,7 @@ namespace ZeroInstall.DesktopIntegration
                     AppList.SaveXml(AppListPath);
                 }
             }
-                #region Error handling
+            #region Error handling
             catch
             {
                 // Avoid abandoned mutexes
@@ -230,7 +230,7 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     AddAccessPointsInternal(appEntry, feed, new[] {accessPoint});
                 }
-                    #region Error handling
+                #region Error handling
                 catch (KeyNotFoundException)
                 {
                     Log.Warn($"Access point '{accessPoint}' no longer compatible with interface '{appEntry.InterfaceUri}'.");

@@ -72,7 +72,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 return store.ListAll();
             }
-                #region Error handling
+            #region Error handling
             catch (UnauthorizedAccessException)
             {
                 // Ignore authorization errors since listing is not a critical task
@@ -95,7 +95,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 return store.ListAllTemp();
             }
-                #region Error handling
+            #region Error handling
             catch (UnauthorizedAccessException)
             {
                 // Ignore authorization errors since listing is not a critical task
@@ -118,7 +118,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 return store.GetPath(manifestDigest);
             }
-                #region Error handling
+            #region Error handling
             catch (UnauthorizedAccessException)
             {
                 return null;

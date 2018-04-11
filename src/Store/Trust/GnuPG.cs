@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher, Simon E. Silva Lauinger
  *
  * This program is free software: you can redistribute it and/or modify
@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Trust
                     var parsedSignature = ParseSignatureLine(line);
                     if (parsedSignature != null) signatures.Add(parsedSignature);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (FormatException ex)
                 {
                     // Wrap exception since only certain exception types are allowed
@@ -145,8 +145,8 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            return new CliControl(HomeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID())
-                .Replace(Environment.NewLine, "\n") + "\n";
+            string result = new CliControl(HomeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
+            return result.Replace(Environment.NewLine, "\n") + "\n";
         }
 
         /// <inheritdoc/>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -115,10 +115,12 @@ namespace ZeroInstall.Services.PackageManagers
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ExternalImplementation other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Distribution == other.Distribution && Package == other.Package && IsInstalled == other.IsInstalled && QuickTestFile == other.QuickTestFile;
-        }
+            => other != null
+            && base.Equals(other)
+            && Distribution == other.Distribution
+            && Package == other.Package
+            && IsInstalled == other.IsInstalled
+            && QuickTestFile == other.QuickTestFile;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

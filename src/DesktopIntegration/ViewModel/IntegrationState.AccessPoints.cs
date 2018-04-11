@@ -48,11 +48,21 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
                 {
                     switch (element)
                     {
-                        case MenuEntry x: MenuEntries.Add(x); break;
-                        case DesktopIcon x: DesktopIcons.Add(x); break;
-                        case SendTo x: SendTo.Add(x); break;
-                        case AppAlias x: Aliases.Add(x); break;
-                        case AutoStart x: AutoStarts.Add(x); break;
+                        case MenuEntry x:
+                            MenuEntries.Add(x);
+                            break;
+                        case DesktopIcon x:
+                            DesktopIcons.Add(x);
+                            break;
+                        case SendTo x:
+                            SendTo.Add(x);
+                            break;
+                        case AppAlias x:
+                            Aliases.Add(x);
+                            break;
+                        case AutoStart x:
+                            AutoStarts.Add(x);
+                            break;
                     }
                 }
             }
@@ -72,11 +82,21 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
                 {
                     switch (entry)
                     {
-                        case MenuEntry x: currentMenuEntries.Add(x); break;
-                        case DesktopIcon x: currentDesktopIcons.Add(x); break;
-                        case SendTo x: currentSendTo.Add(x); break;
-                        case AppAlias x: currentAliases.Add(x); break;
-                        case AutoStart x: currentAutoStarts.Add(x); break;
+                        case MenuEntry x:
+                            currentMenuEntries.Add(x);
+                            break;
+                        case DesktopIcon x:
+                            currentDesktopIcons.Add(x);
+                            break;
+                        case SendTo x:
+                            currentSendTo.Add(x);
+                            break;
+                        case AppAlias x:
+                            currentAliases.Add(x);
+                            break;
+                        case AutoStart x:
+                            currentAutoStarts.Add(x);
+                            break;
                     }
                 }
             }

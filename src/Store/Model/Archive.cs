@@ -55,7 +55,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// All known <see cref="MimeType"/> values for archives.
         /// </summary>
-        public static readonly IEnumerable<string> KnownMimeTypes = new [] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarXz, MimeTypeRubyGem, MimeType7Z, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
+        public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarXz, MimeTypeRubyGem, MimeType7Z, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
 
         /// <summary>
         /// Tries to guess the MIME type of an archive file by looking at its file extension.
@@ -201,10 +201,12 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Archive other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && StringUtils.EqualsIgnoreCase(other.MimeType, MimeType) && other.StartOffset == StartOffset && other.Extract == Extract && other.Destination == Destination;
-        }
+            => other != null
+            && base.Equals(other)
+            && StringUtils.EqualsIgnoreCase(other.MimeType, MimeType)
+            && other.StartOffset == StartOffset
+            && other.Extract == Extract
+            && other.Destination == Destination;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

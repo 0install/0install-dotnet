@@ -53,9 +53,7 @@ namespace ZeroInstall.Store.Model
         /// <exception cref="UriFormatException"><paramref name="path"/> is relative and <paramref name="source"/> is a remote URI.</exception>
         [NotNull]
         public static string GetAbsolutePath([NotNull] string path, [CanBeNull] string source)
-        {
-            return GetAbsolutePath(path, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
-        }
+            => GetAbsolutePath(path, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
 
         /// <summary>
         /// Turns a relative HREF into an absolute one, using the file containing the reference as the base.
@@ -85,8 +83,6 @@ namespace ZeroInstall.Store.Model
         /// <exception cref="UriFormatException"><paramref name="href"/> is relative and <paramref name="source"/> is a remote URI.</exception>
         [NotNull]
         public static Uri GetAbsoluteHref([NotNull] Uri href, [CanBeNull] string source)
-        {
-            return GetAbsoluteHref(href, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
-        }
+            => GetAbsoluteHref(href, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
     }
 }

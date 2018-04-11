@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -13,7 +13,8 @@ namespace ZeroInstall.Store.Trust
     [Serializable]
     public class DomainSet : SortedSet<Domain>
     {
-        public DomainSet() : base(new DomainComparer())
+        public DomainSet()
+            : base(new DomainComparer())
         {}
 
         public Domain this[int index] => this.Skip(index).First();
@@ -24,10 +25,7 @@ namespace ZeroInstall.Store.Trust
 
         private class DomainComparer : IComparer<Domain>
         {
-            public int Compare(Domain x, Domain y)
-            {
-                return string.Compare(x.Value, y.Value, StringComparison.OrdinalIgnoreCase);
-            }
+            public int Compare(Domain x, Domain y) => string.Compare(x.Value, y.Value, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

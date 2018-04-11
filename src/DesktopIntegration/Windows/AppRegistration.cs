@@ -159,7 +159,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 hive.DeleteSubKeyTree( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath);
             }
-                #region Error handling
+            #region Error handling
             catch (ArgumentException)
             {
                 // Ignore missing registry keys

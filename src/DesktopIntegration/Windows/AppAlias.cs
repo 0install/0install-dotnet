@@ -130,8 +130,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide"><c>true</c> for a machine-wide directory; <c>false</c> for a directory just for the current user.</param>
         [NotNull]
         public static string GetStubDir(bool machineWide)
-        {
-            return Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "aliases");
-        }
+            => Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "aliases");
     }
 }

@@ -51,7 +51,7 @@ namespace ZeroInstall.Services.Solvers
             {
                 return solver.Solve(requirements);
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(ex);

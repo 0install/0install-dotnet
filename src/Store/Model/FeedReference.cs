@@ -51,10 +51,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize()
-        {
-            EnsureNotNull(Source, xmlAttribute: "src", xmlTag: "feed");
-        }
+        public void Normalize() => EnsureNotNull(Source, xmlAttribute: "src", xmlTag: "feed");
         #endregion
 
         #region Conversion

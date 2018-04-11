@@ -35,7 +35,6 @@ using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration
 {
-
     #region Enumerations
     /// <summary>
     /// Controls how synchronization data is reset.
@@ -171,7 +170,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         appListData = DownloadAppList(appListUri, webClient, resetMode);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (WebException ex)
                         when (ex.Status == WebExceptionStatus.ProtocolError && (ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.Unauthorized)
                     {
@@ -186,7 +185,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         UploadAppList(appListUri, webClient, resetMode);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (WebException ex)
                         when (ex.Status == WebExceptionStatus.ProtocolError && (ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.PreconditionFailed)
                     {
@@ -239,7 +238,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 serverList = AppList.LoadXmlZip(new MemoryStream(appListData), _cryptoKey);
             }
-                #region Error handling
+            #region Error handling
             catch (ZipException ex)
             {
                 // Wrap exception to add context information
@@ -337,10 +336,7 @@ namespace ZeroInstall.DesktopIntegration
         /// Creates a new <see cref="AppEntry"/> based on an existing prototype (applying any <see cref="AccessPoint"/>s) and adds it to the <see cref="AppList"/>.
         /// </summary>
         /// <param name="prototype">An existing <see cref="AppEntry"/> to use as a prototype.</param>
-        private void AddAppHelper([NotNull] AppEntry prototype)
-        {
-            AddAppInternal(prototype, _feedRetriever);
-        }
+        private void AddAppHelper([NotNull] AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
         #endregion
     }
 }

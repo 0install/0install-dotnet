@@ -95,12 +95,16 @@ namespace ZeroInstall.Publish
                 {
                     switch (retrievalMethod)
                     {
-                        case Archive archive: archive.Apply(downloadedFile, extractionDir, handler); break;
-                        case SingleFile file: file.Apply(downloadedFile, extractionDir); break;
+                        case Archive archive:
+                            archive.Apply(downloadedFile, extractionDir, handler);
+                            break;
+                        case SingleFile file:
+                            file.Apply(downloadedFile, extractionDir);
+                            break;
                         default: throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
                     }
                 }
-                    #region Error handling
+                #region Error handling
                 catch
                 {
                     extractionDir.Dispose();
@@ -262,7 +266,7 @@ namespace ZeroInstall.Publish
                         throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
                 }
             }
-                #region Error handling
+            #region Error handling
             catch
             {
                 extractionDir.Dispose();

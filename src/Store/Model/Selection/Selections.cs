@@ -113,16 +113,13 @@ namespace ZeroInstall.Store.Model.Selection
         /// <summary>
         /// Creates an empty selections document.
         /// </summary>
-        public Selections()
-        {}
+        public Selections() {}
 
         /// <summary>
         /// Creates a selections document prefilled with <see cref="ImplementationSelection"/>s.
         /// </summary>
         public Selections(IEnumerable<ImplementationSelection> implementations)
-        {
-            Implementations.AddRange(implementations);
-        }
+            => Implementations.AddRange(implementations);
 
         /// <summary>
         /// Determines whether an <see cref="ImplementationSelection"/> for a specific interface is listed in the selection.
@@ -130,9 +127,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// <param name="interfaceUri">The <see cref="ImplementationSelection.InterfaceUri"/> to look for.</param>
         /// <returns><c>true</c> if an implementation was found; <c>false</c> otherwise.</returns>
         public bool ContainsImplementation([NotNull] FeedUri interfaceUri)
-        {
-            return Implementations.Any(implementation => implementation.InterfaceUri == interfaceUri);
-        }
+            => Implementations.Any(implementation => implementation.InterfaceUri == interfaceUri);
 
         /// <summary>
         /// Returns the <see cref="ImplementationSelection"/> for a specific interface.
@@ -153,7 +148,7 @@ namespace ZeroInstall.Store.Model.Selection
                 {
                     return Implementations.First(implementation => implementation.InterfaceUri == interfaceUri);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (InvalidOperationException)
                 {
                     throw new KeyNotFoundException(string.Format(Resources.ImplementationNotInSelection, interfaceUri));

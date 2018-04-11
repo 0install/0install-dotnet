@@ -69,8 +69,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// <summary>
         /// Used for XML serialization.
         /// </summary>
-        public ImplementationSelection()
-        {}
+        public ImplementationSelection() {}
         #endregion
 
         /// <summary>
@@ -91,10 +90,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// Creates a new implemenetation selection.
         /// </summary>
         /// <param name="candidates">All candidates that were considered for selection (including the selected one). These are used to present the user with possible alternatives.</param>
-        public ImplementationSelection(IEnumerable<SelectionCandidate> candidates)
-        {
-            Candidates = candidates.ToList();
-        }
+        public ImplementationSelection(IEnumerable<SelectionCandidate> candidates) => Candidates = candidates.ToList();
 
         /// <inheritdoc/>
         public override void Normalize(FeedUri feedUri)
@@ -130,8 +126,12 @@ namespace ZeroInstall.Store.Model.Selection
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationSelection other) => other != null && base.Equals(other) &&
-            InterfaceUri == other.InterfaceUri && FromFeed == other.FromFeed && QuickTestFile == other.QuickTestFile;
+        public bool Equals(ImplementationSelection other)
+            => other != null
+            && base.Equals(other)
+            && InterfaceUri == other.InterfaceUri
+            && FromFeed == other.FromFeed
+            && QuickTestFile == other.QuickTestFile;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

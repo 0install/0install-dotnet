@@ -34,7 +34,8 @@ namespace ZeroInstall.DesktopIntegration
             var accessPointA = new MockAccessPoint {ID = "a"};
             var appEntry1 = new AppEntry
             {
-                Name = "App1", InterfaceUri = FeedTest.Test1Uri,
+                Name = "App1",
+                InterfaceUri = FeedTest.Test1Uri,
                 AccessPoints = new AccessPointList {Entries = {accessPointA}}
             };
             var accessPointB = new MockAccessPoint {ID = "b"};
@@ -50,7 +51,8 @@ namespace ZeroInstall.DesktopIntegration
             var accessPointA = new MockAccessPoint {ID = "a"};
             var appEntry1 = new AppEntry
             {
-                Name = "App1", InterfaceUri = FeedTest.Test1Uri,
+                Name = "App1",
+                InterfaceUri = FeedTest.Test1Uri,
                 AccessPoints = new AccessPointList {Entries = {accessPointA}}
             };
 

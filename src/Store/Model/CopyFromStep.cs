@@ -58,8 +58,7 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri feedUri)
-        {}
+        public void Normalize(FeedUri feedUri) {}
         #endregion
 
         #region Conversion
@@ -80,10 +79,11 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(CopyFromStep other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.ID == ID && other.Source == Source && other.Destination == Destination;
-        }
+            => other != null
+            && base.Equals(other)
+            && other.ID == ID
+            && other.Source == Source
+            && other.Destination == Destination;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

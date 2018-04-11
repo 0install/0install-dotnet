@@ -48,9 +48,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="GenericBinding"/>.</returns>
         public override Binding Clone()
-        {
-            return new GenericBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Path = Path, Command = Command};
-        }
+            => new GenericBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Path = Path, Command = Command};
         #endregion
 
         #region Equality

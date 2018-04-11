@@ -74,7 +74,7 @@ namespace ZeroInstall.Services.PackageManagers
                 CopyValues(from: selection, to: implementation);
                 return implementation;
             }
-                #region Error handling
+            #region Error handling
             catch (FormatException)
             {
                 throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, DistributionName));

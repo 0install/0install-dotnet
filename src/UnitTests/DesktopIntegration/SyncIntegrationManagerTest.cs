@@ -111,7 +111,9 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         new AppEntry
                         {
-                            InterfaceUri = FeedTest.Test1Uri, AutoUpdate = true, Timestamp = new DateTime(2001, 1, 1),
+                            InterfaceUri = FeedTest.Test1Uri,
+                            AutoUpdate = true,
+                            Timestamp = new DateTime(2001, 1, 1),
                             AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalUnapplied}}}
                         }
                     }
@@ -123,7 +125,9 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         new AppEntry
                         {
-                            InterfaceUri = FeedTest.Test1Uri, AutoUpdate = false, Timestamp = new DateTime(2000, 1, 1),
+                            InterfaceUri = FeedTest.Test1Uri,
+                            AutoUpdate = false,
+                            Timestamp = new DateTime(2000, 1, 1),
                             AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteUnapplied}}}
                         }
                     }
@@ -202,7 +206,9 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         new AppEntry
                         {
-                            InterfaceUri = FeedTest.Test1Uri, AutoUpdate = true, Timestamp = new DateTime(1999, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                            InterfaceUri = FeedTest.Test1Uri,
+                            AutoUpdate = true,
+                            Timestamp = new DateTime(1999, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                             AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalUnapplied}}}
                         }
                     }
@@ -214,7 +220,9 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         new AppEntry
                         {
-                            InterfaceUri = FeedTest.Test1Uri, AutoUpdate = false, Timestamp = new DateTime(2001, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                            InterfaceUri = FeedTest.Test1Uri,
+                            AutoUpdate = false,
+                            Timestamp = new DateTime(2001, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                             AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteUnapplied}}}
                         }
                     }
@@ -347,10 +355,14 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="ap4Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry4.</param>
         /// <param name="ap4Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry4.</param>
         private void TestSync(SyncResetMode resetMode,
-            TemporaryFlagFile ap1Applied, TemporaryFlagFile ap1Unapplied,
-            TemporaryFlagFile ap2Applied, TemporaryFlagFile ap2Unapplied,
-            TemporaryFlagFile ap3Applied, TemporaryFlagFile ap3Unapplied,
-            TemporaryFlagFile ap4Applied, TemporaryFlagFile ap4Unapplied)
+            TemporaryFlagFile ap1Applied,
+            TemporaryFlagFile ap1Unapplied,
+            TemporaryFlagFile ap2Applied,
+            TemporaryFlagFile ap2Unapplied,
+            TemporaryFlagFile ap3Applied,
+            TemporaryFlagFile ap3Unapplied,
+            TemporaryFlagFile ap4Applied,
+            TemporaryFlagFile ap4Unapplied)
         {
             var appEntry1 = new AppEntry
             {

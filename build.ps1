@@ -1,4 +1,4 @@
-Param ($Version = "1.0-dev")
+﻿Param ($Version = "1.0-dev")
 $ErrorActionPreference = "Stop"
 pushd $(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
 

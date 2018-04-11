@@ -48,11 +48,13 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Constructor
         /// <inheritdoc/>
-        public CategoryIntegrationManager([NotNull] ITaskHandler handler, bool machineWide = false) : base(handler, machineWide)
+        public CategoryIntegrationManager([NotNull] ITaskHandler handler, bool machineWide = false)
+            : base(handler, machineWide)
         {}
 
         /// <inheritdoc/>
-        public CategoryIntegrationManager([NotNull] string appListPath, [NotNull] ITaskHandler handler, bool machineWide = false) : base(appListPath, handler, machineWide)
+        public CategoryIntegrationManager([NotNull] string appListPath, [NotNull] ITaskHandler handler, bool machineWide = false)
+            : base(appListPath, handler, machineWide)
         {}
         #endregion
 

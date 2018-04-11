@@ -33,9 +33,17 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Canonical <see cref="Name"/>.
         /// </summary>
-        public const string NamePlayCDAudio = "PlayCDAudioOnArrival", NamePlayDvdAudioO = "PlayDVDAudioOnArrival", NamePlayMusicFiles = "PlayMusicFilesOnArrival",
-            NamePlayVideoCDMovie = "PlayVideoCDMovieOnArrival", NamePlaySuperVideoCDMovie = "PlaySuperVideoCDMovieOnArrival", NamePlayDvdMovie = "PlayDVDMovieOnArrival", NamePlayBluRay = "PlayBluRayOnArrival", NamePlayVideoFiles = "PlayVideoFilesOnArrival",
-            NameBurnCD = "HandleCDBurningOnArrival", NameBurnDvd = "HandleDVDBurningOnArrival", NameBurnBluRay = "HandleBDBurningOnArrival";
+        public const string NamePlayCDAudio = "PlayCDAudioOnArrival",
+            NamePlayDvdAudioO = "PlayDVDAudioOnArrival",
+            NamePlayMusicFiles = "PlayMusicFilesOnArrival",
+            NamePlayVideoCDMovie = "PlayVideoCDMovieOnArrival",
+            NamePlaySuperVideoCDMovie = "PlaySuperVideoCDMovieOnArrival",
+            NamePlayDvdMovie = "PlayDVDMovieOnArrival",
+            NamePlayBluRay = "PlayBluRayOnArrival",
+            NamePlayVideoFiles = "PlayVideoFilesOnArrival",
+            NameBurnCD = "HandleCDBurningOnArrival",
+            NameBurnDvd = "HandleDVDBurningOnArrival",
+            NameBurnBluRay = "HandleBDBurningOnArrival";
         #endregion
 
         /// <summary>
@@ -62,11 +70,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AutoPlayEvent other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Name == Name;
-        }
+        public bool Equals(AutoPlayEvent other) => other != null && base.Equals(other) && other.Name == Name;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

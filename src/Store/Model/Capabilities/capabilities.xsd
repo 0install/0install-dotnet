@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:xml="http://www.w3.org/XML/1998/namespace"
             xmlns:caps="http://0install.de/schema/desktop-integration/capabilities"

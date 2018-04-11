@@ -30,7 +30,10 @@ namespace ZeroInstall.Store.Model.Design
 
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new StandardValuesCollection(new[]
         {
-            Command.NameRun, Command.NameRunGui, Command.NameTest, Command.NameCompile
+            Command.NameRun,
+            Command.NameRunGui,
+            Command.NameTest,
+            Command.NameCompile
         });
     }
 }

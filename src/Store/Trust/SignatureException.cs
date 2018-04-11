@@ -28,22 +28,26 @@ namespace ZeroInstall.Store.Trust
     public sealed class SignatureException : Exception
     {
         /// <inheritdoc/>
-        public SignatureException() : base(Resources.InvalidSignature)
+        public SignatureException()
+            : base(Resources.InvalidSignature)
         {}
 
         /// <inheritdoc/>
-        public SignatureException(string message) : base(message)
+        public SignatureException(string message)
+            : base(message)
         {}
 
         /// <inheritdoc/>
-        public SignatureException(string message, Exception innerException) : base(message, innerException)
+        public SignatureException(string message, Exception innerException)
+            : base(message, innerException)
         {}
 
         #region Serialization
         /// <summary>
         /// Deserializes an exception.
         /// </summary>
-        private SignatureException(SerializationInfo info, StreamingContext context) : base(info, context)
+        private SignatureException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {}
         #endregion
     }

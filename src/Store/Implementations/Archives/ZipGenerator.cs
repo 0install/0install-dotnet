@@ -47,10 +47,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             _zipStream = new ZipOutputStream(stream);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _zipStream.Dispose();
-        }
+        protected override void Dispose(bool disposing) => _zipStream.Dispose();
         #endregion
 
         /// <inheritdoc/>
@@ -82,7 +79,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             var extraData = new ZipExtraData();
             extraData.AddEntry(new ExtendedUnixData
             {
-                AccessTime = timestamp, CreateTime = timestamp, ModificationTime = timestamp,
+                AccessTime = timestamp,
+                CreateTime = timestamp,
+                ModificationTime = timestamp,
                 Include = ExtendedUnixData.Flags.AccessTime | ExtendedUnixData.Flags.CreateTime | ExtendedUnixData.Flags.ModificationTime
             });
             return extraData.GetEntryData();

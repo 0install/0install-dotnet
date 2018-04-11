@@ -72,7 +72,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 decoder.SetDecoderProperties(stream.Read(5));
             }
-                #region Error handling
+            #region Error handling
             catch (IOException ex)
             {
                 // Wrap exception to add context

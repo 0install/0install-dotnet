@@ -261,15 +261,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         #endregion
 
         #region Enumeration
-        IEnumerator<ManifestNode> IEnumerable<ManifestNode>.GetEnumerator()
-        {
-            return ((IEnumerable<ManifestNode>)_nodes).GetEnumerator();
-        }
+        IEnumerator<ManifestNode> IEnumerable<ManifestNode>.GetEnumerator() => ((IEnumerable<ManifestNode>)_nodes).GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _nodes.GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => _nodes.GetEnumerator();
 
         /// <summary>
         /// Retreives a specific <see cref="ManifestNode"/>.
@@ -286,7 +280,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
             // If any node pair does not match, the manifests are not equal
             for (int i = 0; i < _nodes.Length; i++)
-                if (!Equals(_nodes[i], other._nodes[i])) return false;
+            {
+                if (!Equals(_nodes[i], other._nodes[i]))
+                    return false;
+            }
 
             // If the for-loop ran through, all node pairs are identical and the manifests are equal
             return true;

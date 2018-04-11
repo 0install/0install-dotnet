@@ -75,10 +75,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <summary>
         /// Appends a random string to a file path.
         /// </summary>
-        protected static string Randomize(string path)
-        {
-            return path + "." + System.IO.Path.GetRandomFileName() + ".tmp";
-        }
+        protected static string Randomize(string path) => path + "." + System.IO.Path.GetRandomFileName() + ".tmp";
 
         /// <summary>
         /// Indicates that applications shut down by the <see cref="WindowsRestartManager"/> shall not be restarted on <see cref="Dispose"/>.
@@ -126,7 +123,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                         if (!NoRestart) _restartManager.RestartApps(Handler);
                         _restartManager.Dispose();
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (IOException ex)
                     {
                         Log.Warn(ex);

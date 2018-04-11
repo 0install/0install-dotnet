@@ -49,7 +49,8 @@ namespace ZeroInstall.Store.Model
         /// Creates a new dotted-list from a a string.
         /// </summary>
         /// <param name="value">The string containing the dotted-list.</param>
-        public VersionPart(string value) : this()
+        public VersionPart(string value)
+            : this()
         {
             // Detect and trim version modifiers
             if (value.StartsWith("pre"))

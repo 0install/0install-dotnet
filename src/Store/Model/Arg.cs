@@ -39,10 +39,7 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize()
-        {
-            EnsureNotNull(Value, xmlAttribute: "value", xmlTag: "arg");
-        }
+        public override void Normalize() => EnsureNotNull(Value, xmlAttribute: "value", xmlTag: "arg");
         #endregion
 
         #region Conversion
@@ -59,11 +56,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Arg other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Value == Value;
-        }
+        public bool Equals(Arg other) => other != null && (base.Equals(other) && other.Value == Value);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

@@ -88,20 +88,14 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize()
-        {
-            EnsureNotNull(Href, xmlAttribute: "href", xmlTag: "icon");
-        }
+        public void Normalize() => EnsureNotNull(Href, xmlAttribute: "href", xmlTag: "icon");
         #endregion
 
         #region Conversion
         /// <summary>
         /// Returns the icon in the form "Location (MimeType)". Not safe for parsing!
         /// </summary>
-        public override string ToString()
-        {
-            return $"{Href} ({MimeType})";
-        }
+        public override string ToString() => $"{Href} ({MimeType})";
         #endregion
 
         #region Clone
@@ -114,8 +108,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Icon other) => other != null && base.Equals(other) &&
-            other.Href == Href && other.MimeType == MimeType;
+        public bool Equals(Icon other) => other != null && base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

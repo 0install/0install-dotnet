@@ -88,7 +88,14 @@ namespace ZeroInstall.Store.Model
         /// <seealso cref="Architecture"/>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [DefaultValue(false), XmlAttribute("source"), JsonProperty("source")]
-        public bool Source { get => Architecture.Cpu == Cpu.Source; set { if (value) Architecture = new Architecture(Architecture.OS, Cpu.Source); } }
+        public bool Source
+        {
+            get => Architecture.Cpu == Cpu.Source;
+            set
+            {
+                if (value) Architecture = new Architecture(Architecture.OS, Cpu.Source);
+            }
+        }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Architecture"/>
@@ -134,8 +141,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Cretes an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.
         /// </summary>
-        public Requirements()
-        {}
+        public Requirements() {}
 
         /// <summary>
         /// Creates a new requirements object.

@@ -159,7 +159,10 @@ namespace ZeroInstall.Store.Model.Selection
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(Implementation, other.Implementation) && FeedUri.Equals(other.FeedUri) && IsSuitable == other.IsSuitable && Notes == other.Notes;
+            return Equals(Implementation, other.Implementation)
+                && FeedUri.Equals(other.FeedUri)
+                && IsSuitable == other.IsSuitable
+                && Notes == other.Notes;
         }
 
         /// <inheritdoc/>

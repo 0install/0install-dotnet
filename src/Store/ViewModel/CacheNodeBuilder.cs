@@ -97,7 +97,7 @@ namespace ZeroInstall.Store.ViewModel
                 TotalSize += implementationNode.Size;
                 Add(implementationNode);
             }
-                #region Error handling
+            #region Error handling
             catch (FormatException ex)
             {
                 Log.Error($"Problem processing the manifest file for '{digest}'.");

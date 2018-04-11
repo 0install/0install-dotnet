@@ -257,8 +257,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         classesKey.DeleteSubKeyTree(RegKeyPrefix + fileType.ID);
                     }
-
-                        #region Error handling
+                    #region Error handling
                     catch (ArgumentException)
                     {
                         // Ignore missing registry keys
@@ -342,7 +341,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 if (!string.IsNullOrEmpty(verb.Arguments)) launchCommand += " " + verb.Arguments;
                 return launchCommand;
             }
-                #region Error handling
+            #region Error handling
             catch (InvalidOperationException ex)
             {
                 // Wrap exception since only certain exception types are allowed

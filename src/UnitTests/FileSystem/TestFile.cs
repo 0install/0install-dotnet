@@ -62,7 +62,8 @@ namespace ZeroInstall.FileSystem
         /// Creates a new test file.
         /// </summary>
         /// <param name="name">The name of the file.</param>
-        public TestFile([NotNull] string name) : base(name)
+        public TestFile([NotNull] string name)
+            : base(name)
         {}
 
         public override void Build(string parentPath)

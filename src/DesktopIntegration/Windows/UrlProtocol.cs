@@ -132,7 +132,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + urlProtocol.ID);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (ArgumentException)
                     {
                         // Ignore missing registry keys
@@ -169,7 +169,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + FileType.RegKeyPrefix + urlProtocol.ID);
                     }
-                        #region Error handling
+                    #region Error handling
                     catch (ArgumentException)
                     {
                         // Ignore missing registry keys

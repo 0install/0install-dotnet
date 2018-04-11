@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2016 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,8 +42,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
         public ClearDirectory([NotNull] string path, [NotNull] Manifest manifest, [NotNull] ITaskHandler handler)
             : base(path, manifest, handler)
-        {
-        }
+        {}
 
         private readonly Stack<KeyValuePair<string, string>> _pendingFilesDeletes = new Stack<KeyValuePair<string, string>>();
 
@@ -110,7 +109,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 {
                     File.Move(x.Value, x.Key);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (Exception ex)
                 {
                     Log.Error(ex);

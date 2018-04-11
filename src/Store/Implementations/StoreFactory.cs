@@ -54,7 +54,7 @@ namespace ZeroInstall.Store.Implementations
                 {
                     stores.Add(new DirectoryStore(path));
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                 {
                     // Wrap exception to add context information

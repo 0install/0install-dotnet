@@ -27,22 +27,15 @@ namespace ZeroInstall.Store.Model
         /// <summary>A singleton instance of the comparer.</summary>
         public static readonly ManifestDigestPartialEqualityComparer Instance = new ManifestDigestPartialEqualityComparer();
 
-        private ManifestDigestPartialEqualityComparer()
-        {}
+        private ManifestDigestPartialEqualityComparer() {}
 
         /// <inheritdoc/>
-        public bool Equals(ManifestDigest x, ManifestDigest y)
-        {
-            return x.PartialEquals(y);
-        }
+        public bool Equals(ManifestDigest x, ManifestDigest y) => x.PartialEquals(y);
 
         /// <summary>
         /// Always returns 0. The concept of hashing is not applicable to partial equality.
         /// </summary>
-        public int GetHashCode(ManifestDigest obj)
-        {
-            return 0;
-        }
+        public int GetHashCode(ManifestDigest obj) => 0;
     }
 
     /// <summary>
@@ -53,8 +46,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>A singleton instance of the comparer.</summary>
         public static readonly ManifestDigestPartialEqualityComparer<T> Instance = new ManifestDigestPartialEqualityComparer<T>();
 
-        private ManifestDigestPartialEqualityComparer()
-        {}
+        private ManifestDigestPartialEqualityComparer() {}
 
         /// <inheritdoc/>
         public bool Equals(T x, T y)
@@ -66,9 +58,6 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Always returns 0. The concept of hashing is not applicable to partial equality.
         /// </summary>
-        public int GetHashCode(T obj)
-        {
-            return 0;
-        }
+        public int GetHashCode(T obj) => 0;
     }
 }

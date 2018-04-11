@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 UnitsTotal = CabEngine.GetFileInfo(this, _ => true).Sum(x => x.Length);
             }
-                #region Error handling
+            #region Error handling
             catch (CabException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -61,7 +61,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 CabEngine.Unpack(this, _ => true);
             }
-                #region Error handling
+            #region Error handling
             catch (CabException ex)
             {
                 // Wrap exception since only certain exception types are allowed

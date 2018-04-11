@@ -54,7 +54,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 return new GZipInputStream(stream);
             }
-                #region Error handling
+            #region Error handling
             catch (GZipException ex)
             {
                 // Wrap exception since only certain exception types are allowed

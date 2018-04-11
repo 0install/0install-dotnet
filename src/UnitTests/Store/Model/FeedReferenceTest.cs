@@ -34,7 +34,8 @@ namespace ZeroInstall.Store.Model
             var reference1 = new FeedReference
             {
                 Source = FeedTest.Test1Uri,
-                Architecture = new Architecture(OS.Windows, Cpu.I586), Languages = {"en-US"}
+                Architecture = new Architecture(OS.Windows, Cpu.I586),
+                Languages = {"en-US"}
             };
             var reference2 = reference1.Clone();
 

@@ -32,9 +32,13 @@ namespace ZeroInstall.Store.Model.Selection
         {
             InterfaceUri = FeedTest.Test1Uri,
             FromFeed = FeedTest.Sub1Uri,
-            ID = "id1", ManifestDigest = new ManifestDigest(sha256: "123"), Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586), Languages = {"en-US"},
-            DocDir = "doc", Stability = Stability.Developer,
+            ID = "id1",
+            ManifestDigest = new ManifestDigest(sha256: "123"),
+            Version = new ImplementationVersion("1.0"),
+            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Languages = {"en-US"},
+            DocDir = "doc",
+            Stability = Stability.Developer,
             Bindings =
             {
                 new EnvironmentBinding {Name = "TEST1_PATH_SELF", Default = "default", Mode = EnvironmentMode.Append},
@@ -59,9 +63,13 @@ namespace ZeroInstall.Store.Model.Selection
         {
             InterfaceUri = FeedTest.Test2Uri,
             FromFeed = FeedTest.Sub2Uri,
-            ID = "id2", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586), Languages = {"en-US"},
-            DocDir = "doc", Stability = Stability.Developer,
+            ID = "id2",
+            ManifestDigest = new ManifestDigest(sha256: "abc"),
+            Version = new ImplementationVersion("1.0"),
+            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Languages = {"en-US"},
+            DocDir = "doc",
+            Stability = Stability.Developer,
             Bindings =
             {
                 new EnvironmentBinding {Name = "TEST2_PATH_SELF", Default = "default", Mode = EnvironmentMode.Prepend},

@@ -82,12 +82,11 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(AutoPlay other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) &&
-                   other.Provider == Provider && Equals(other.Verb, Verb) &&
-                   Events.SequencedEquals(other.Events);
-        }
+            => other != null
+            && base.Equals(other)
+            && other.Provider == Provider
+            && Equals(other.Verb, Verb)
+            && Events.SequencedEquals(other.Events);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

@@ -1,4 +1,4 @@
-﻿import clr
+import clr
 clr.AddReferenceToFile("NanoByte.Common.dll", "ZeroInstall.Services.dll", "ZeroInstall.Store.dll")
 
 import sys

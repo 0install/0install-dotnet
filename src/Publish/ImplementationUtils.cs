@@ -150,13 +150,11 @@ namespace ZeroInstall.Publish
 
         [SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "We are explicitly looking for empty strings as opposed to null strings.")]
         private static bool IsManifestDigestMissing([NotNull] this Implementation implementation)
-        {
-            return implementation.ManifestDigest == default ||
-                   // Empty strings are used in 0template to indicate that the user wishes this value to be calculated
-                   implementation.ManifestDigest.Sha1New == "" ||
-                   implementation.ManifestDigest.Sha256 == "" ||
-                   implementation.ManifestDigest.Sha256New == "";
-        }
+            => implementation.ManifestDigest == default ||
+               // Empty strings are used in 0template to indicate that the user wishes this value to be calculated
+               implementation.ManifestDigest.Sha1New == "" ||
+               implementation.ManifestDigest.Sha256 == "" ||
+               implementation.ManifestDigest.Sha256New == "";
 
         private static bool IsDownloadSizeMissing([NotNull] this RetrievalMethod retrievalMethod)
             => retrievalMethod is DownloadRetrievalMethod downloadRetrievalMethod && downloadRetrievalMethod.Size == 0;
@@ -196,7 +194,7 @@ namespace ZeroInstall.Publish
                 {
                     keepDownloads.AddDirectory(path, digest, handler);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (Exception ex)
                 {
                     Log.Warn(ex);

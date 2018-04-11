@@ -128,8 +128,14 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Verb other) => other != null && base.Equals(other) &&
-            other.Name == Name && other.Command == Command && other.Arguments == Arguments && other.Extended == Extended && Descriptions.SequencedEquals(other.Descriptions);
+        public bool Equals(Verb other)
+            => other != null
+            && base.Equals(other)
+            && other.Name == Name
+            && other.Command == Command
+            && other.Arguments == Arguments
+            && other.Extended == Extended
+            && Descriptions.SequencedEquals(other.Descriptions);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)

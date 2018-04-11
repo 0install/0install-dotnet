@@ -108,11 +108,11 @@ namespace ZeroInstall.Services.Executors
             string execFile = Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path));
             var execArgs = new[]
             {
-                    selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[1].Runner.Arguments[0].ToString(),
-                    Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[1].Path)),
-                    selections.Implementations[1].Commands[1].Arguments[0].ToString()
-                };
+                selections.Implementations[2].Commands[0].Arguments[0].ToString(),
+                selections.Implementations[1].Commands[1].Runner.Arguments[0].ToString(),
+                Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[1].Path)),
+                selections.Implementations[1].Commands[1].Arguments[0].ToString()
+            };
             if (WindowsUtils.IsWindows)
             {
                 startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_FILE_exec-in-var"].Should().Be(execFile);
@@ -306,7 +306,10 @@ namespace ZeroInstall.Services.Executors
                     selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
                     Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[0].Path)),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
-                    "pre1 split1 post1", "pre2 split1 post2", "pre1 split2 post1", "pre2 split2 post2"
+                    "pre1 split1 post1",
+                    "pre2 split1 post2",
+                    "pre1 split2 post1",
+                    "pre2 split2 post2"
                 }.JoinEscapeArguments(),
                 because: "Should combine core and additional runner arguments with application implementation directory and command path");
 

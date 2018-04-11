@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2010-2017 Bastian Eicher
  *
  * This program is free software: you can redistribute it and/or modify
@@ -45,8 +45,8 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="targetDirPath">The path of the new directory to clone the file to.</param>
         public CloneFile([NotNull] string sourceFilePath, [NotNull] string targetDirPath)
             : base(
-                  sourcePath: Path.GetDirectoryName(sourceFilePath) ?? throw new ArgumentNullException(sourceFilePath),
-                  targetPath: targetDirPath ?? throw new ArgumentNullException(targetDirPath))
+                sourcePath: Path.GetDirectoryName(sourceFilePath) ?? throw new ArgumentNullException(sourceFilePath),
+                targetPath: targetDirPath ?? throw new ArgumentNullException(targetDirPath))
         {
             SourceFileName = Path.GetFileName(sourceFilePath);
             TargetFileName = SourceFileName;

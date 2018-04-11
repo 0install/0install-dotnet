@@ -241,7 +241,7 @@ namespace ZeroInstall.Store.Model
                 {
                     return Implementations.First(implementation => implementation.ID == id);
                 }
-                    #region Error handling
+                #region Error handling
                 catch (InvalidOperationException)
                 {
                     throw new KeyNotFoundException($"Unable to find implementation '{id}' in feed '{Name}'.");
@@ -410,7 +410,7 @@ namespace ZeroInstall.Store.Model
                 {
                     step.Implementation = this[step.ID];
                 }
-                    #region Error handling
+                #region Error handling
                 catch (KeyNotFoundException ex)
                 {
                     // Wrap exception to add context information

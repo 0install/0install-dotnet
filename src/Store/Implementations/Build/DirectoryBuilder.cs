@@ -62,8 +62,8 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         [NotNull]
         public string EffectiveTargetPath
-            => _effectiveTargetPath ??
-               (_effectiveTargetPath = string.IsNullOrEmpty(TargetSuffix) ? TargetPath : Path.Combine(TargetPath, TargetSuffix));
+            => _effectiveTargetPath
+            ?? (_effectiveTargetPath = string.IsNullOrEmpty(TargetSuffix) ? TargetPath : Path.Combine(TargetPath, TargetSuffix));
 
         /// <summary>
         /// Indicates whether <see cref="TargetPath"/> is located on a filesystem with support for Unixoid features such as executable bits.

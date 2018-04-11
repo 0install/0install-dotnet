@@ -1,4 +1,4 @@
-﻿open NanoByte.Common.Tasks
+open NanoByte.Common.Tasks
 open ZeroInstall.Services
 open ZeroInstall.Store.Model
 

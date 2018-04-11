@@ -119,7 +119,7 @@ namespace ZeroInstall.Services.Executors
 
                 _mainCommandLine = GetCommandLine(GetMainImplementation(overrideMain), _selections.Command);
             }
-                #region Error handling
+            #region Error handling
             catch (KeyNotFoundException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -176,7 +176,7 @@ namespace ZeroInstall.Services.Executors
                 _startInfo.FileName = split.Path;
                 _startInfo.Arguments = split.Arguments;
             }
-                #region Error handling
+            #region Error handling
             catch (KeyNotFoundException ex)
             {
                 // Wrap exception since only certain exception types are allowed

@@ -43,7 +43,8 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal ZipExtractor([NotNull] Stream stream, [NotNull] string targetPath) : base(targetPath)
+        internal ZipExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+            : base(targetPath)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -64,7 +65,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
                 _zipStream = new ZipInputStream(stream);
             }
-                #region Error handling
+            #region Error handling
             catch (ZipException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -106,7 +107,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     UnitsProcessed += centralEntry.CompressedSize;
                 }
             }
-                #region Error handling
+            #region Error handling
             catch (SharpZipBaseException ex)
             {
                 // Wrap exception since only certain exception types are allowed
@@ -139,11 +140,8 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Determines whether a <see cref="ZipEntry"/> was created on a Unix-system with the symlink flag set.
         /// </summary>
         private static bool IsSymlink(ZipEntry entry)
-        {
-            return
-                (entry.HostSystem == HostSystemID.Unix) &&
-                entry.ExternalFileAttributes.HasFlag(SymlinkAttributes);
-        }
+            => (entry.HostSystem == HostSystemID.Unix)
+            && entry.ExternalFileAttributes.HasFlag(SymlinkAttributes);
 
         /// <summary>
         /// The <see cref="ZipEntry.ExternalFileAttributes"/> that indicate a ZIP entry is an executable file.
@@ -154,11 +152,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Determines whether a <see cref="ZipEntry"/> was created on a Unix-system with the executable flag set.
         /// </summary>
         private static bool IsExecutable(ZipEntry entry)
-        {
-            return
-                (entry.HostSystem == HostSystemID.Unix) &&
-                // Check if anybody is allowed to execute
-                (entry.ExternalFileAttributes & ExecuteAttributes) > 0;
-        }
+            => (entry.HostSystem == HostSystemID.Unix)
+            && (entry.ExternalFileAttributes & ExecuteAttributes) > 0; // Check if anybody is allowed to execute
     }
 }

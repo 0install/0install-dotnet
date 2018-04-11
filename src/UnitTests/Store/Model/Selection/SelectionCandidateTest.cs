@@ -64,8 +64,8 @@ namespace ZeroInstall.Store.Model.Selection
             var implementation = ImplementationTest.CreateTestImplementation();
             new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Buggy}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
                 .IsSuitable.Should().BeFalse();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Insecure}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun)).
-                IsSuitable.Should().BeFalse();
+            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Insecure}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
+                .IsSuitable.Should().BeFalse();
         }
     }
 }

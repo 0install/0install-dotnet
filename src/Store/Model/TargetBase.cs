@@ -41,11 +41,7 @@ namespace ZeroInstall.Store.Model
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
         [Category("Release"), Description("The natural language(s) which an implementation supports.")]
         [XmlIgnore]
-        public LanguageSet Languages
-        {
-            get => _languages;
-            set => _languages = value ?? throw new ArgumentNullException(nameof(value));
-        }
+        public LanguageSet Languages { get => _languages; set => _languages = value ?? throw new ArgumentNullException(nameof(value)); }
 
         /// <summary>
         /// For platform-specific binaries, the platform for which an <see cref="Implementation"/> was compiled.
@@ -89,8 +85,11 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Equality
-        protected bool Equals(TargetBase other) => other != null && base.Equals(other) &&
-            _languages.SetEquals(other._languages) && other.Architecture == Architecture;
+        protected bool Equals(TargetBase other)
+            => other != null
+            && base.Equals(other)
+            && _languages.SetEquals(other._languages)
+            && other.Architecture == Architecture;
 
         /// <inheritdoc/>
         public override int GetHashCode()

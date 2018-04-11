@@ -58,7 +58,8 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="sourcePath">The path of the original directory to read.</param>
         /// <param name="targetPath">The path of the new directory to create.</param>
-        public CloneDirectory([NotNull] string sourcePath, [NotNull] string targetPath) : base(sourcePath)
+        public CloneDirectory([NotNull] string sourcePath, [NotNull] string targetPath)
+            : base(sourcePath)
         {
             DirectoryBuilder = new DirectoryBuilder(targetPath ?? throw new ArgumentNullException(targetPath));
         }
@@ -92,7 +93,7 @@ namespace ZeroInstall.Store.Implementations.Build
                         {
                             FileUtils.EnableWriteProtection(path);
                         }
-                            #region Error handling
+                        #region Error handling
                         catch (IOException ex)
                         {
                             Log.Info("Unable to restore write protection after creating hardlinks");
@@ -111,7 +112,7 @@ namespace ZeroInstall.Store.Implementations.Build
                         #endregion
                     });
                 }
-                    #region Error handling
+                #region Error handling
                 catch (IOException ex)
                 {
                     Log.Info("Unable to remove write protection for creating hardlinks");

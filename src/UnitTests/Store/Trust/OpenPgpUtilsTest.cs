@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Trust
             using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
             {
                 const string publicKey = "public";
-                var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] { 1, 2, 3 }, userID: "user");
+                var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
 
                 var openPgpMock = CreateMock<IOpenPgp>();
                 openPgpMock.Setup(x => x.ExportKey(secretKey)).Returns(publicKey);
