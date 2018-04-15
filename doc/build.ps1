@@ -15,5 +15,6 @@ mkdir ..\build\Documentation | Out-Null
 Invoke-WebRequest http://nano-byte.de/common/api/nanobyte-common.tag -OutFile nanobyte-common.tag
 
 cmd /c "0install run --batch http://0install.de/feeds/Doxygen.xml 2>&1" # Redirect stderr to stdout
+if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 popd
