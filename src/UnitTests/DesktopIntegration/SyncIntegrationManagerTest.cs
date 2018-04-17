@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -355,14 +341,14 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="ap4Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry4.</param>
         /// <param name="ap4Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry4.</param>
         private void TestSync(SyncResetMode resetMode,
-            TemporaryFlagFile ap1Applied,
-            TemporaryFlagFile ap1Unapplied,
-            TemporaryFlagFile ap2Applied,
-            TemporaryFlagFile ap2Unapplied,
-            TemporaryFlagFile ap3Applied,
-            TemporaryFlagFile ap3Unapplied,
-            TemporaryFlagFile ap4Applied,
-            TemporaryFlagFile ap4Unapplied)
+                              TemporaryFlagFile ap1Applied,
+                              TemporaryFlagFile ap1Unapplied,
+                              TemporaryFlagFile ap2Applied,
+                              TemporaryFlagFile ap2Unapplied,
+                              TemporaryFlagFile ap3Applied,
+                              TemporaryFlagFile ap3Unapplied,
+                              TemporaryFlagFile ap4Applied,
+                              TemporaryFlagFile ap4Unapplied)
         {
             var appEntry1 = new AppEntry
             {

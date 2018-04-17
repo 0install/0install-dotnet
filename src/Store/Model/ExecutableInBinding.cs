@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using System.ComponentModel;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
 using ZeroInstall.Store.Model.Design;

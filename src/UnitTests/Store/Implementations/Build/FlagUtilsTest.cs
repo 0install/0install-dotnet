@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System.IO;
 using FluentAssertions;
@@ -64,9 +50,9 @@ namespace ZeroInstall.Store.Implementations.Build
                 };
 
                 FlagUtils.GetFiles(FlagUtils.XbitFile, flagDir)
-                    .Should().BeEquivalentTo(expectedResult, because: "Should find .xbit file in same directory");
+                         .Should().BeEquivalentTo(expectedResult, because: "Should find .xbit file in same directory");
                 FlagUtils.GetFiles(FlagUtils.XbitFile, Path.Combine(flagDir, "subdir"))
-                    .Should().BeEquivalentTo(expectedResult, because: "Should find .xbit file in parent directory");
+                         .Should().BeEquivalentTo(expectedResult, because: "Should find .xbit file in parent directory");
             }
         }
 

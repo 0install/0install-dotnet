@@ -1,4 +1,7 @@
-﻿using System.Xml.Serialization;
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using System.Xml.Serialization;
 
 namespace ZeroInstall.Store
 {

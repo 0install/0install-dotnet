@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2017 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -50,7 +36,9 @@ namespace ZeroInstall.Services.Executors
         /// </summary>
         /// <param name="store">Used to locate <see cref="Implementation"/>s.</param>
         public EnvironmentBuilder([NotNull] IStore store)
-            => _store = store ?? throw new ArgumentNullException(nameof(store));
+        {
+            _store = store ?? throw new ArgumentNullException(nameof(store));
+        }
         #endregion
 
         /// <summary>
@@ -285,7 +273,7 @@ namespace ZeroInstall.Services.Executors
                         string valueToSplit = _startInfo.EnvironmentVariables[forEach.ItemFrom];
                         if (!string.IsNullOrEmpty(valueToSplit))
                         {
-                            string[] items = valueToSplit.Split(
+                            var items = valueToSplit.Split(
                                 new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.None);
                             foreach (string item in items)
                             {

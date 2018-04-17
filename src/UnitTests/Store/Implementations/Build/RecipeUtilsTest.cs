@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -258,31 +244,31 @@ namespace ZeroInstall.Store.Implementations.Build
             using (var tempArchive = new TemporaryFile("0install-unit-tests"))
             {
                 new Recipe {Steps = {new Archive {Destination = "../destination"}}}
-                    .Invoking(x => x.Apply(new[] {tempArchive}, new SilentTaskHandler()))
-                    .Should().Throw<IOException>(because: "Should reject breakout path in Archive.Destination");
+                   .Invoking(x => x.Apply(new[] {tempArchive}, new SilentTaskHandler()))
+                   .Should().Throw<IOException>(because: "Should reject breakout path in Archive.Destination");
             }
 
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
             {
                 new Recipe {Steps = {new SingleFile {Destination = "../file"}}}
-                    .Invoking(x => x.Apply(new[] {tempFile}, new SilentTaskHandler()))
-                    .Should().Throw<IOException>(because: "Should reject breakout path in SingleFile.Destination");
+                   .Invoking(x => x.Apply(new[] {tempFile}, new SilentTaskHandler()))
+                   .Should().Throw<IOException>(because: "Should reject breakout path in SingleFile.Destination");
             }
 
             new Recipe {Steps = {new RemoveStep {Path = "../file"}}}
-                .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .Should().Throw<IOException>(because: "Should reject breakout path in RemoveStep.Path");
+               .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
+               .Should().Throw<IOException>(because: "Should reject breakout path in RemoveStep.Path");
 
             new Recipe {Steps = {new RenameStep {Source = "../source", Destination = "destination"}}}
-                .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Source");
+               .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
+               .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Source");
             new Recipe {Steps = {new RenameStep {Source = "source", Destination = "../destination"}}}
-                .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Destination");
+               .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
+               .Should().Throw<IOException>(because: "Should reject breakout path in RenameStep.Destination");
 
             new Recipe {Steps = {new CopyFromStep {ID = "id123", Destination = "../destination"}}}
-                .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
-                .Should().Throw<IOException>(because: "Should reject breakout path in CopyFromStep.Destination");
+               .Invoking(x => x.Apply(new TemporaryFile[0], new SilentTaskHandler()))
+               .Should().Throw<IOException>(because: "Should reject breakout path in CopyFromStep.Destination");
         }
 
         [Fact]

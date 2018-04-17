@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2011 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as Captureed by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -53,7 +39,7 @@ namespace ZeroInstall.Publish.Capture
 
             // Get registry path pointer
             string appRegName = RegisteredApplications[0];
-            var capabilitiesRegPath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\" + DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications, appRegName);
+            string capabilitiesRegPath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\" + DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications, appRegName);
             if (string.IsNullOrEmpty(capabilitiesRegPath))
                 return null;
 
@@ -144,7 +130,7 @@ namespace ZeroInstall.Publish.Capture
 
                 foreach (string extension in fileAssocKey.GetValueNames())
                 {
-                    var progID = fileAssocKey.GetValue(extension, "") as string;
+                    string progID = fileAssocKey.GetValue(extension, "") as string;
                     if (!string.IsNullOrEmpty(progID)) AddExtensionToFileType(extension, progID, capabilities);
                 }
             }

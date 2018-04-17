@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -52,15 +38,13 @@ namespace ZeroInstall.Store.Model
 
         // Order is always alphabetical, duplicate entries are not allowed
 
-        private LanguageSet _languages = new LanguageSet();
-
         /// <summary>
         /// The preferred languages for the implementation.
         /// </summary>
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
         [Description("The preferred languages for the implementation.")]
         [XmlIgnore, JsonIgnore]
-        public LanguageSet Languages => _languages;
+        public LanguageSet Languages { get; private set; } = new LanguageSet();
 
         /// <summary>
         /// The architecture to find executables for. Find for the current system if left at default value.
@@ -82,7 +66,7 @@ namespace ZeroInstall.Store.Model
         /// <seealso cref="Languages"/>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(""), JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string LanguagesString { get => _languages.ToString(); set => _languages = new LanguageSet(value); }
+        public string LanguagesString { get => Languages.ToString(); set => Languages = new LanguageSet(value); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Architecture"/>

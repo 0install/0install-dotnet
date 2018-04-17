@@ -1,4 +1,7 @@
-﻿using System;
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using System;
 using System.IO;
 using FluentAssertions;
 using NanoByte.Common.Native;
@@ -32,7 +35,7 @@ namespace ZeroInstall.Store.Model
             result.Should().Be(absolutePath);
 
             ModelUtils.GetAbsolutePath(absolutePath)
-                .Should().Be(absolutePath, because: "Should ignore source if path is already absolute.");
+                      .Should().Be(absolutePath, because: "Should ignore source if path is already absolute.");
         }
 
         [Fact]
@@ -45,14 +48,14 @@ namespace ZeroInstall.Store.Model
         [Fact]
         public void TestGetAbsoluteHref()
         {
-            Uri absoluteHref = WindowsUtils.IsWindows ? new Uri("file:///C:/local/subdir/file") : new Uri("file:///local/subdir/file");
+            var absoluteHref = WindowsUtils.IsWindows ? new Uri("file:///C:/local/subdir/file") : new Uri("file:///local/subdir/file");
 
             var result = ModelUtils.GetAbsoluteHref(new Uri("subdir/file", UriKind.Relative), new FeedUri(WindowsUtils.IsWindows ? @"C:\local\feed.xml" : "/local/feed.xml"));
             result.IsAbsoluteUri.Should().BeTrue();
             result.Should().Be(absoluteHref);
 
             ModelUtils.GetAbsoluteHref(absoluteHref)
-                .Should().Be(absoluteHref, because: "Should ignore source if href is already absolute.");
+                      .Should().Be(absoluteHref, because: "Should ignore source if href is already absolute.");
         }
 
         [Fact]

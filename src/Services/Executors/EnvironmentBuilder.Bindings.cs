@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2017 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -74,8 +60,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         private void ApplyDependencyBindings([NotNull] IDependencyContainer dependencyContainer)
         {
-            foreach (var dependency in dependencyContainer.Dependencies
-                .Where(x => x.Importance == Importance.Essential || _selections.ContainsImplementation(x.InterfaceUri)))
+            foreach (var dependency in dependencyContainer.Dependencies.Where(x => x.Importance == Importance.Essential || _selections.ContainsImplementation(x.InterfaceUri)))
                 ApplyBindings(dependency, _selections[dependency.InterfaceUri]);
         }
 
@@ -311,7 +296,7 @@ namespace ZeroInstall.Services.Executors
         [NotNull]
         private static string GetRunEnvTemplate()
         {
-            var templateName = WindowsUtils.IsWindows
+            string templateName = WindowsUtils.IsWindows
                 ? (Environment.Version.Major == 4)
                     ? "runenv.clr4.template"
                     : "runenv.clr2.template"

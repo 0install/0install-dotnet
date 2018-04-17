@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -77,7 +63,7 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>Used for DataGrid rendering.</summary>
         /// <seealso cref="Categories"/>
         [XmlIgnore, DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string CategoriesString { get { return StringUtils.Join(", ", Categories.Select(x => x.Name)); } }
+        public string CategoriesString => StringUtils.Join(", ", Categories.Select(x => x.Name));
 
         /// <summary>
         /// Generates a pseudo-<see cref="Feed"/> using the information from this result.

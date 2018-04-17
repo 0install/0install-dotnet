@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -54,14 +40,19 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Creates an empty version range (matches everything).
         /// </summary>
-        public VersionRange() => Parts = new VersionRangePart[0];
+        public VersionRange()
+        {
+            Parts = new VersionRangePart[0];
+        }
 
         /// <summary>
         /// Creates a new version range set.
         /// </summary>
         /// <param name="parts">The individual ranges.</param>
         public VersionRange([NotNull] params VersionRangePart[] parts)
-            => Parts = (parts ?? throw new ArgumentNullException(nameof(parts))).ToArray();
+        {
+            Parts = (parts ?? throw new ArgumentNullException(nameof(parts))).ToArray();
+        }
 
         /// <summary>
         /// Creates a new version range set from a a string.
@@ -171,7 +162,7 @@ namespace ZeroInstall.Store.Model
             unchecked
             {
                 int result = 397;
-                foreach (VersionRangePart part in Parts)
+                foreach (var part in Parts)
                     result = (result * 397) ^ part.GetHashCode();
                 return result;
             }

@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -26,6 +12,7 @@ using NanoByte.Common.Streams;
 using ZeroInstall.Publish.Properties;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
+using StoreFeedUtils = ZeroInstall.Store.Feeds.FeedUtils;
 
 namespace ZeroInstall.Publish
 {
@@ -91,10 +78,10 @@ namespace ZeroInstall.Publish
             var signature = openPgp.Sign(stream.ToArray(), secretKey, passphrase);
 
             // Add the signature to the end of the file
-            var writer = new StreamWriter(stream, Store.Feeds.FeedUtils.Encoding) {NewLine = "\n"};
-            writer.Write(Store.Feeds.FeedUtils.SignatureBlockStart);
+            var writer = new StreamWriter(stream, StoreFeedUtils.Encoding) {NewLine = "\n"};
+            writer.Write(StoreFeedUtils.SignatureBlockStart);
             writer.WriteLine(Convert.ToBase64String(signature));
-            writer.Write(Store.Feeds.FeedUtils.SignatureBlockEnd);
+            writer.Write(StoreFeedUtils.SignatureBlockEnd);
             writer.Flush();
         }
 
@@ -117,8 +104,9 @@ namespace ZeroInstall.Publish
 
             try
             {
-                var signature = Store.Feeds.FeedUtils.GetSignatures(openPgp, File.ReadAllBytes(path))
-                    .OfType<ValidSignature>().FirstOrDefault();
+                var signature = StoreFeedUtils.GetSignatures(openPgp, File.ReadAllBytes(path))
+                                              .OfType<ValidSignature>()
+                                              .FirstOrDefault();
                 if (signature == null) return null;
 
                 return openPgp.GetSecretKey(signature);

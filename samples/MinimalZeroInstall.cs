@@ -1,4 +1,4 @@
-﻿using NanoByte.Common.Tasks;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Services;
 using ZeroInstall.Store.Model;
 

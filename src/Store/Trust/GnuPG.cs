@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher, Simon E. Silva Lauinger
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -46,11 +32,11 @@ namespace ZeroInstall.Store.Trust
                 File.WriteAllBytes(signatureFile, signature);
                 result = new CliControl(HomeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
             }
-            string[] lines = result.SplitMultilineText();
+            var lines = result.SplitMultilineText();
 
             // Each signature is represented by one line of encoded information
             var signatures = new List<OpenPgpSignature>(lines.Length);
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
                 try
                 {
@@ -80,7 +66,7 @@ namespace ZeroInstall.Store.Trust
         {
             const int signatureTypeIndex = 1, fingerprintIndex = 2, timestampIndex = 4, keyIDIndex = 2, errorCodeIndex = 7;
 
-            string[] signatureParts = line.Split(' ');
+            var signatureParts = line.Split(' ');
             if (signatureParts.Length < signatureTypeIndex + 1) return null;
             switch (signatureParts[signatureTypeIndex])
             {
@@ -90,7 +76,7 @@ namespace ZeroInstall.Store.Trust
                     return new ValidSignature(
                         keyID: OpenPgpUtils.FingerprintToKeyID(fingerprint),
                         fingerprint: fingerprint,
-                        timestamp: FileUtils.FromUnixTime(Int64.Parse(signatureParts[timestampIndex])));
+                        timestamp: FileUtils.FromUnixTime(long.Parse(signatureParts[timestampIndex])));
 
                 case "BADSIG":
                     if (signatureParts.Length < 3) throw new FormatException("Incorrect number of columns in BADSIG line.");
@@ -98,7 +84,7 @@ namespace ZeroInstall.Store.Trust
 
                 case "ERRSIG":
                     if (signatureParts.Length != 8) throw new FormatException("Incorrect number of columns in ERRSIG line.");
-                    int errorCode = Int32.Parse(signatureParts[errorCodeIndex]);
+                    int errorCode = int.Parse(signatureParts[errorCodeIndex]);
                     switch (errorCode)
                     {
                         case 9:
@@ -120,12 +106,12 @@ namespace ZeroInstall.Store.Trust
             if (secretKey == null) throw new ArgumentNullException(nameof(secretKey));
             #endregion
 
-            string output = new CliControl(HomeDir, data).Execute("--batch", "--no-secmem-warning", "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-");
-            string signatureBase64 = output
-                .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
-                .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
-                .Replace(Environment.NewLine, "\n");
-            return Convert.FromBase64String(signatureBase64);
+            return Convert.FromBase64String(
+                new CliControl(HomeDir, data)
+                   .Execute("--batch", "--no-secmem-warning", "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
+                   .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
+                   .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
+                   .Replace(Environment.NewLine, "\n"));
         }
 
         /// <inheritdoc/>
@@ -184,12 +170,10 @@ namespace ZeroInstall.Store.Trust
         }
 
         private static OpenPgpSecretKey ParseSecretKey(string[] sec, string[] fpr, string[] uid)
-        {
-            return new OpenPgpSecretKey(
+            => new OpenPgpSecretKey(
                 keyID: OpenPgpUtils.ParseKeyID(sec[4]),
                 fingerprint: OpenPgpUtils.ParseFingerpint(fpr[9]),
                 userID: uid[9]);
-        }
 
         /// <inheritdoc/>
         public string HomeDir { get; set; } = DefaultHomeDir;

@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -111,7 +97,7 @@ namespace ZeroInstall.Services.Feeds
         public Catalog GetOnline()
         {
             // Download + merge
-            Catalog mergedCatalog = new Catalog();
+            var mergedCatalog = new Catalog();
             foreach (var source in GetSources())
             {
                 foreach (var feed in DownloadCatalog(source).Feeds)
@@ -181,7 +167,7 @@ namespace ZeroInstall.Services.Feeds
         [NotNull, ItemNotNull]
         public static FeedUri[] GetSources()
         {
-            var path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
+            string path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
             if (string.IsNullOrEmpty(path)) return new[] {DefaultSource};
 
             string[] ReadAllLines()
@@ -190,11 +176,10 @@ namespace ZeroInstall.Services.Feeds
                     return File.ReadAllLines(path, Encoding.UTF8);
             }
 
-            return ReadAllLines()
-                .Except(string.IsNullOrEmpty)
-                .Except(line => line.StartsWith("#"))
-                .Select(line => new FeedUri(line))
-                .ToArray();
+            return ReadAllLines().Except(string.IsNullOrEmpty)
+                                 .Except(line => line.StartsWith("#"))
+                                 .Select(line => new FeedUri(line))
+                                 .ToArray();
         }
 
         /// <summary>

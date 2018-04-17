@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
 using System.IO;
@@ -71,13 +57,13 @@ namespace ZeroInstall.Store.Model.Preferences
             {
                 _feed1.SaveXml(localFeed);
                 _cache.Contains(new FeedUri(localFeed))
-                    .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
+                      .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
             }
 
             using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
             {
                 _cache.Contains(new FeedUri(Path.Combine(tempDir, "feed.xml")))
-                    .Should().BeFalse(because: "Should not detect phantom local feed files");
+                      .Should().BeFalse(because: "Should not detect phantom local feed files");
             }
         }
 
@@ -90,17 +76,11 @@ namespace ZeroInstall.Store.Model.Preferences
 
         [Fact]
         public void TestListAll()
-        {
-            _cache.ListAll()
-                .Should().Equal(FeedTest.Test1Uri, FeedTest.Test2Uri);
-        }
+            => _cache.ListAll().Should().Equal(FeedTest.Test1Uri, FeedTest.Test2Uri);
 
         [Fact]
         public void TestGetFeed()
-        {
-            _cache.GetFeed(_feed1.Uri)
-                .Should().Be(_feed1);
-        }
+            => _cache.GetFeed(_feed1.Uri).Should().Be(_feed1);
 
         [Fact]
         public void TestGetFeedCaseSensitive()
@@ -111,10 +91,7 @@ namespace ZeroInstall.Store.Model.Preferences
 
         [Fact]
         public void TestGetSignatures()
-        {
-            _cache.GetSignatures(FeedTest.Test1Uri)
-                .Should().BeEmpty();
-        }
+            => _cache.GetSignatures(FeedTest.Test1Uri).Should().BeEmpty();
 
         [Fact]
         public void TestAdd()
@@ -125,7 +102,7 @@ namespace ZeroInstall.Store.Model.Preferences
             _cache.Add(feed.Uri, ToArray(feed));
 
             _cache.GetFeed(feed.Uri)
-                .Should().Be(feed);
+                  .Should().Be(feed);
         }
 
         [Fact]

@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -118,22 +104,22 @@ namespace ZeroInstall.Services.PackageManagers
 
         private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
             => from javaHome in GetRegistredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
-                let mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe")
-                let secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe")
-                where File.Exists(mainPath) && File.Exists(secondaryPath)
-                select new ExternalImplementation(DistributionName,
-                    package: "openjdk-" + version + "-" + typeShort,
-                    version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion.GetLeftPartAtLastOccurrence(".")), // Trim patch level
-                    cpu: javaHome.Key)
-                {
-                    Commands =
-                    {
-                        new Command {Name = Command.NameRun, Path = mainPath},
-                        new Command {Name = secondaryCommand, Path = secondaryPath}
-                    },
-                    IsInstalled = true,
-                    QuickTestFile = mainPath
-                };
+               let mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe")
+               let secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe")
+               where File.Exists(mainPath) && File.Exists(secondaryPath)
+               select new ExternalImplementation(DistributionName,
+                   package: "openjdk-" + version + "-" + typeShort,
+                   version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion.GetLeftPartAtLastOccurrence(".")), // Trim patch level
+                   cpu: javaHome.Key)
+               {
+                   Commands =
+                   {
+                       new Command {Name = Command.NameRun, Path = mainPath},
+                       new Command {Name = secondaryCommand, Path = secondaryPath}
+                   },
+                   IsInstalled = true,
+                   QuickTestFile = mainPath
+               };
 
         private static IEnumerable<KeyValuePair<Cpu, string>> GetRegistredPaths(string registrySuffix, string valueName)
         {

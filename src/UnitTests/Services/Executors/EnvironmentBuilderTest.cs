@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
 using System.IO;
@@ -43,9 +29,9 @@ namespace ZeroInstall.Services.Executors
         {
             var executor = new EnvironmentBuilder(new Mock<IStore>(MockBehavior.Loose).Object);
             executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
-                .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
+                    .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
             executor.Invoking(x => x.Inject(new Selections {Implementations = {new ImplementationSelection()}}))
-                .Should().Throw<ExecutorException>(because: "Selections with no start command should be rejected");
+                    .Should().Throw<ExecutorException>(because: "Selections with no start command should be rejected");
         }
 
         [Fact]
@@ -82,7 +68,7 @@ namespace ZeroInstall.Services.Executors
             storeMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns("test path");
             var executor = new EnvironmentBuilder(storeMock.Object);
             executor.Invoking(x => x.Inject(selections))
-                .Should().Throw<ExecutorException>(because: "Invalid Selections should be rejected");
+                    .Should().Throw<ExecutorException>(because: "Invalid Selections should be rejected");
         }
 
         private static IStore GetMockStore(Selections selections)
@@ -138,9 +124,9 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections)
-                .AddArguments("--custom$arg")
-                .ToStartInfo();
+                           .Inject(selections)
+                           .AddArguments("--custom$arg")
+                           .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
                 because: "Should combine runner implementation directory with runner command path");
@@ -170,10 +156,10 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections)
-                .AddWrapper("wrapper --wrapper")
-                .AddArguments("--custom")
-                .ToStartInfo();
+                           .Inject(selections)
+                           .AddWrapper("wrapper --wrapper")
+                           .AddArguments("--custom")
+                           .ToStartInfo();
             startInfo.FileName.Should().Be("wrapper");
             startInfo.Arguments.Should().Be(
                 new[]
@@ -201,9 +187,9 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections, overrideMain: "main")
-                .AddArguments("--custom")
-                .ToStartInfo();
+                           .Inject(selections, overrideMain: "main")
+                           .AddArguments("--custom")
+                           .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
                 because: "Should combine runner implementation directory with runner command path");
@@ -230,9 +216,9 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections, overrideMain: "/main")
-                .AddArguments("--custom")
-                .ToStartInfo();
+                           .Inject(selections, overrideMain: "/main")
+                           .AddArguments("--custom")
+                           .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
                 because: "Should combine runner implementation directory with runner command path");
@@ -260,9 +246,9 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations[1].Commands[0].Path = null;
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections)
-                .AddArguments("--custom")
-                .ToStartInfo();
+                           .Inject(selections)
+                           .AddArguments("--custom")
+                           .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)));
             startInfo.Arguments.Should().Be(
@@ -294,8 +280,8 @@ namespace ZeroInstall.Services.Executors
             selections.Implementations[2].Bindings.Add(new EnvironmentBinding {Name = "SPLIT_ARG", Value = "split1" + Path.PathSeparator + "split2"});
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
-                .Inject(selections)
-                .ToStartInfo();
+                           .Inject(selections)
+                           .ToStartInfo();
             startInfo.FileName.Should().Be(
                 Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
                 because: "Should combine runner implementation directory with runner command path");

@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -44,16 +30,18 @@ namespace ZeroInstall.Store.ViewModel
             if (store == null) throw new ArgumentNullException(nameof(store));
             #endregion
 
-            _path = path;
+            Path = path;
         }
 
         /// <inheritdoc/>
-        public override string Name { get => Resources.TemporaryDirectories + "\\" + System.IO.Path.GetFileName(_path) + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
-
-        private readonly string _path;
+        public override string Name
+        {
+            get => Resources.TemporaryDirectories + "\\" + System.IO.Path.GetFileName(Path) + (SuffixCounter == 0 ? "" : " " + SuffixCounter);
+            set => throw new NotSupportedException();
+        }
 
         /// <inheritdoc/>
-        public override string Path => _path;
+        public override string Path { get; }
 
         /// <summary>
         /// Deletes this temporary directory from the <see cref="IStore"/> it is located in.
@@ -68,10 +56,10 @@ namespace ZeroInstall.Store.ViewModel
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            handler.RunTask(new SimpleTask(string.Format(Resources.DeletingDirectory, _path), () =>
+            handler.RunTask(new SimpleTask(string.Format(Resources.DeletingDirectory, Path), () =>
             {
-                DirectoryStore.DisableWriteProtection(_path);
-                Directory.Delete(_path, recursive: true);
+                DirectoryStore.DisableWriteProtection(Path);
+                Directory.Delete(Path, recursive: true);
             }));
         }
     }

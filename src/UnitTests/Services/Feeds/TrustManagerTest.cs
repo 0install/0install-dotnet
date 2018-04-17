@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -72,7 +58,7 @@ namespace ZeroInstall.Services.Feeds
             TrustKey();
 
             _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
-                .Should().Be(OpenPgpUtilsTest.TestSignature);
+                         .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
 
         [Fact]
@@ -91,7 +77,7 @@ namespace ZeroInstall.Services.Feeds
             TrustKey();
 
             _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
-                .Should().Be(OpenPgpUtilsTest.TestSignature);
+                         .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
 
         [Fact]
@@ -111,7 +97,7 @@ namespace ZeroInstall.Services.Feeds
             _handler.AnswerQuestionWith = true;
 
             _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
-                .Should().Be(OpenPgpUtilsTest.TestSignature);
+                         .Should().Be(OpenPgpUtilsTest.TestSignature);
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
         }
 
@@ -140,7 +126,7 @@ namespace ZeroInstall.Services.Feeds
             {
                 UseKeyInfoServer(keyInfoServer);
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
-                    .Should().Be(OpenPgpUtilsTest.TestSignature);
+                             .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
         }
@@ -152,9 +138,7 @@ namespace ZeroInstall.Services.Feeds
             _handler.AnswerQuestionWith = false;
 
             using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
-            {
                 Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml")));
-            }
             IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
         }
 
@@ -167,7 +151,7 @@ namespace ZeroInstall.Services.Feeds
             using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
             {
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml"))
-                    .Should().Be(OpenPgpUtilsTest.TestSignature);
+                             .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
         }
@@ -182,7 +166,7 @@ namespace ZeroInstall.Services.Feeds
             {
                 _config.FeedMirror = server.ServerUri;
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost:9999/test/feed.xml"))
-                    .Should().Be(OpenPgpUtilsTest.TestSignature);
+                             .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
         }
@@ -199,8 +183,8 @@ namespace ZeroInstall.Services.Feeds
         private void ExpectKeyImport()
         {
             _openPgpMock.SetupSequence(x => x.Verify(_feedBytes, _signatureBytes))
-                .Returns(new OpenPgpSignature[] {new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)})
-                .Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
+                        .Returns(new OpenPgpSignature[] {new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)})
+                        .Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
             _openPgpMock.Setup(x => x.ImportKey(_keyData));
         }
 

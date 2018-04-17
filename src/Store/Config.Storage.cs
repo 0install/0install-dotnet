@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -142,7 +128,7 @@ namespace ZeroInstall.Store
         private void ReadFromIniFiles()
         {
             var paths = Locations.GetLoadConfigPaths("0install.net", true, "injector", "global");
-            foreach (var path in paths.Reverse()) // Read least important first
+            foreach (string path in paths.Reverse()) // Read least important first
                 ReadFromIniFile(path);
         }
 
@@ -268,7 +254,7 @@ namespace ZeroInstall.Store
             foreach (var property in _metaData)
             {
                 string key = property.Key;
-                object data = registryKey.GetValue(key);
+                var data = registryKey.GetValue(key);
                 if (data != null)
                 {
                     string value = data.ToString();

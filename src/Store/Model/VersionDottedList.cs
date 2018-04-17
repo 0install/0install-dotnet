@@ -1,4 +1,7 @@
-﻿using System;
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -36,7 +39,7 @@ namespace ZeroInstall.Store.Model
             if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
             #endregion
 
-            string[] parts = value.Split('.');
+            var parts = value.Split('.');
             var decimals = new long[parts.Length];
 
             for (int i = 0; i < parts.Length; i++)
@@ -106,7 +109,7 @@ namespace ZeroInstall.Store.Model
             var rightArray = other.Decimals ?? new long[0];
 
             int upperBound = Math.Max(leftArray.Count, rightArray.Count);
-            for (var i = 0; i < upperBound; ++i)
+            for (int i = 0; i < upperBound; ++i)
             {
                 long left = i >= leftArray.Count ? -1 : leftArray[i];
                 long right = i >= rightArray.Count ? -1 : rightArray[i];

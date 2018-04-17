@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2017 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.Collections.Generic;
@@ -61,10 +47,9 @@ namespace ZeroInstall.Services.Solvers
             Log.Info($"Running Backtracking Solver for {requirements}");
 
             _candidateProvider.Clear();
-            var successfulAttempt = requirements
-                .GetNormalizedAlternatives()
-                .Select(req => new Attempt(req, _handler.CancellationToken, _candidateProvider))
-                .FirstOrDefault(x => x.Successful);
+            var successfulAttempt = requirements.GetNormalizedAlternatives()
+                                                .Select(req => new Attempt(req, _handler.CancellationToken, _candidateProvider))
+                                                .FirstOrDefault(x => x.Successful);
 
             if (successfulAttempt == null) throw new SolverException("No solution found");
             return successfulAttempt.Selections;
@@ -103,9 +88,9 @@ namespace ZeroInstall.Services.Solvers
                 var essential = new List<SolverDemand>();
                 var recommended = new List<SolverDemand>();
                 demands.Bucketize(x => x.Importance)
-                    .Add(Importance.Essential, essential)
-                    .Add(Importance.Recommended, recommended)
-                    .Run();
+                       .Add(Importance.Essential, essential)
+                       .Add(Importance.Recommended, recommended)
+                       .Run();
 
                 // Quickly reject impossible sets of demands
                 if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;

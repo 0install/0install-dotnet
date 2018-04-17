@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010-2016 Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using FluentAssertions;
@@ -58,10 +44,10 @@ namespace ZeroInstall.DesktopIntegration
             _integrationManager.AddApp(target);
 
             _integrationManager.AppList.Entries
-                .Should().Equal(new AppEntry {InterfaceUri = FeedTest.Test1Uri, Name = target.Feed.Name, CapabilityLists = {capabilityList}});
+                               .Should().Equal(new AppEntry {InterfaceUri = FeedTest.Test1Uri, Name = target.Feed.Name, CapabilityLists = {capabilityList}});
 
             _integrationManager.Invoking(x => x.AddApp(target))
-                .Should().Throw<InvalidOperationException>(because: "Do not allow adding applications to AppList more than once.");
+                               .Should().Throw<InvalidOperationException>(because: "Do not allow adding applications to AppList more than once.");
         }
 
         [Fact]
@@ -80,7 +66,7 @@ namespace ZeroInstall.DesktopIntegration
 
                 unapplyFlag.Set.Should().BeTrue(because: "Access points should be unapplied when their AppEntry is removed");
                 _integrationManager.Invoking(x => x.RemoveApp(appEntry))
-                    .Should().NotThrow(because: "Allow multiple removals of applications.");
+                                   .Should().NotThrow(because: "Allow multiple removals of applications.");
             }
         }
 
@@ -104,7 +90,7 @@ namespace ZeroInstall.DesktopIntegration
                 applyFlag1.Set = false;
 
                 _integrationManager.Invoking(x => x.AddAccessPoints(appEntry1, feed1, accessPoints1))
-                    .Should().NotThrow(because: "Duplicate access points should be silently reapplied");
+                                   .Should().NotThrow(because: "Duplicate access points should be silently reapplied");
                 applyFlag1.Set.Should().BeTrue(because: "Duplicate access points should be silently reapplied");
 
                 _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints2);
@@ -112,7 +98,7 @@ namespace ZeroInstall.DesktopIntegration
 
                 var appEntry2 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test2Uri, feed2));
                 _integrationManager.Invoking(x => x.AddAccessPoints(appEntry2, feed2, accessPoints2))
-                    .Should().Throw<ConflictException>(because: "Should prevent access point conflicts");
+                                   .Should().Throw<ConflictException>(because: "Should prevent access point conflicts");
                 applyFlag2.Set.Should().BeFalse(because: "Should prevent access point conflicts");
             }
         }
@@ -137,7 +123,7 @@ namespace ZeroInstall.DesktopIntegration
                 unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
 
                 _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, new[] {accessPoint}))
-                    .Should().NotThrow(because: "Allow multiple removals of access points.");
+                                   .Should().NotThrow(because: "Allow multiple removals of access points.");
             }
         }
 
@@ -155,7 +141,7 @@ namespace ZeroInstall.DesktopIntegration
             var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed));
             _integrationManager.AddAccessPoints(appEntry, feed, accessPoints);
             _integrationManager.AppList.Entries[0].AccessPoints.Entries
-                .Should().Equal(accessPoints, because: "All access points should be applied.");
+                               .Should().Equal(accessPoints, because: "All access points should be applied.");
 
             // Modify feed
             feed.Name = "Test 2";
@@ -164,7 +150,7 @@ namespace ZeroInstall.DesktopIntegration
             _integrationManager.UpdateApp(appEntry, feed);
             appEntry.Name.Should().Be("Test 2");
             _integrationManager.AppList.Entries[0].AccessPoints.Entries
-                .Should().Equal(new[] {accessPoints[0]}, because: "Only the first access point should be left.");
+                               .Should().Equal(new[] {accessPoints[0]}, because: "Only the first access point should be left.");
         }
 
         [Fact]

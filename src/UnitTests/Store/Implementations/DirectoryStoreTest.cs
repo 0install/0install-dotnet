@@ -1,19 +1,5 @@
-﻿/*
- * Copyright 2010 Roland Leopold Walkling, Bastian Eicher
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser Public License for more details.
- *
- * You should have received a copy of the GNU Lesser Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
 
 using System;
 using System.IO;
@@ -226,7 +212,7 @@ namespace ZeroInstall.Store.Implementations
             string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
             Directory.CreateDirectory(implPath);
             _store.GetPath(new ManifestDigest(sha256New: "123ABC"))
-                .Should().Be(implPath, because: "Store must return the correct path for Implementations it contains");
+                  .Should().Be(implPath, because: "Store must return the correct path for Implementations it contains");
         }
 
         [Fact]
