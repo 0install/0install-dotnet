@@ -49,7 +49,7 @@ namespace ZeroInstall.Services.Solvers
                 }
                 catch (WebException ex2)
                 {
-                    Log.Warn("Unable to download secondary solver failed");
+                    Log.Warn("Unable to download secondary solver");
                     Log.Info(ex2);
 
                     // Report the original problem instead of inability to launch secondary solver
