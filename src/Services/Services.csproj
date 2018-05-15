@@ -61,10 +61,19 @@ API documentation: http://0install.de/api/backend/
 
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
-    <Compile Remove="Executors\runenv.cs" />
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Executors\runenv.sh.template" />
     <EmbeddedResource Include="Executors\runenv.clr2.template" />
     <EmbeddedResource Include="Executors\runenv.clr4.template" />
+    <Compile Remove="Executors\runenv.cs" />
   </ItemGroup>
 
 </Project>

@@ -61,6 +61,15 @@ API documentation: http://0install.de/api/backend/
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
     <None Include="CodeAnalysis.ruleset" />
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Windows\stub.template.cs" />
     <EmbeddedResource Include="Windows\Stub.manifest" />
     <Compile Remove="Windows\stub.template.cs" />
