@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.Model.Preferences
 
         [Fact]
         public void TestListAll()
-            => _cache.ListAll().Should().Equal(FeedTest.Test1Uri, FeedTest.Test2Uri);
+            => _cache.ListAll().Should().BeEquivalentTo(FeedTest.Test1Uri, FeedTest.Test2Uri);
 
         [Fact]
         public void TestGetFeed()
