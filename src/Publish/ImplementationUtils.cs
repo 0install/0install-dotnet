@@ -94,7 +94,7 @@ namespace ZeroInstall.Publish
 
         private static void GenerateMissingArchive([NotNull] Implementation implementation, [NotNull] ITaskHandler handler, [NotNull] ICommandExecutor executor)
         {
-            var archive = implementation.RetrievalMethods.OfType<Archive>().SingleOrDefault();
+            var archive = implementation.RetrievalMethods.OfType<Archive>().FirstOrDefault();
             if (archive == null || !string.IsNullOrEmpty(archive.Destination) || !string.IsNullOrEmpty(archive.Extract)) return;
 
             string directoryPath;
