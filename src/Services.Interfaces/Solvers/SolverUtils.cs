@@ -50,13 +50,21 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <summary>
+        /// Turns <see cref="SelectionCandidate"/>s into <see cref="ImplementationSelection"/>s.
+        /// </summary>
+        /// <param name="candidates">The selection candidates.</param>
+        /// <param name="demand">The solver demand the candidates were chosen for.</param>
+        public static IEnumerable<ImplementationSelection> ToSelections(this IEnumerable<SelectionCandidate> candidates, SolverDemand demand)
+            => candidates.Select(x => x.ToSelection(demand.Requirements, allCandidates: demand.Candidates));
+
+        /// <summary>
         /// Turns a <see cref="SelectionCandidate"/> into a <see cref="ImplementationSelection"/>.
         /// </summary>
-        /// <param name="candidate">The selected candidate.</param>
-        /// <param name="allCandidates">All candidates that were considered for selection (including the selected one). These are used to present the user with possible alternatives.</param>
-        /// <param name="requirements">The requirements the selected candidate was chosen for.</param>
+        /// <param name="candidate">The selection candidate.</param>
+        /// <param name="requirements">The requirements the candidate was chosen for.</param>
+        /// <param name="allCandidates">All candidates that were considered for selection (including <paramref name="candidate"/>). These are used to present the user with possible alternatives.</param>
         [NotNull]
-        public static ImplementationSelection ToSelection([NotNull] this SelectionCandidate candidate, [NotNull, ItemNotNull] IEnumerable<SelectionCandidate> allCandidates, [NotNull] Requirements requirements)
+        public static ImplementationSelection ToSelection([NotNull] this SelectionCandidate candidate, [NotNull] Requirements requirements, [NotNull] [ItemNotNull] IEnumerable<SelectionCandidate> allCandidates)
         {
             #region Sanity checks
             if (candidate == null) throw new ArgumentNullException(nameof(candidate));
@@ -167,20 +175,6 @@ namespace ZeroInstall.Services.Solvers
 
             foreach (var restriction in source.ExtraRestrictions)
                 requirements.AddRestriction(restriction.Key, restriction.Value);
-        }
-
-        /// <summary>
-        /// Checks wether a set of selection candidates contains an implementation with a specific ID.
-        /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "This method only operate on Selections.")]
-        public static bool Contains([NotNull] this IEnumerable<SelectionCandidate> candidates, [NotNull] ImplementationSelection implementation)
-        {
-            #region Sanity checks
-            if (candidates == null) throw new ArgumentNullException(nameof(candidates));
-            if (implementation == null) throw new ArgumentNullException(nameof(implementation));
-            #endregion
-
-            return candidates.Select(x => x.Implementation.ID).Contains(implementation.ID);
         }
 
         /// <summary>

@@ -160,7 +160,7 @@ namespace ZeroInstall.Services.Solvers
 
             var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
             var candidates = _provider.GetSortedCandidates(requirements);
-            var candidate = candidates.Single().ToSelection(candidates, requirements);
+            var candidate = candidates.Single().ToSelection(requirements, allCandidates: candidates);
 
             _provider.LookupOriginalImplementation(candidate)
                      .Should().Be(mainFeed.Elements[0]);

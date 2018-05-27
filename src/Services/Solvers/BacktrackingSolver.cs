@@ -22,6 +22,11 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public class BacktrackingSolver : ISolver
     {
+        /// <summary>
+        /// The maximum number of <see cref="SelectionCandidate"/>s to try per <see cref="SolverDemand"/>.
+        /// </summary>
+        private const int MaxSearchWidth = 32;
+
         private readonly ISelectionCandidateProvider _candidateProvider;
         private readonly ITaskHandler _handler;
 
@@ -95,7 +100,7 @@ namespace ZeroInstall.Services.Solvers
                 // Quickly reject impossible sets of demands
                 if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
 
-                var backtrackingSnapshot = Selections.Clone();
+                var selectionsSnapshot = Selections.Clone(); // Create snapshot
                 foreach (var premutation in essential.Permutate())
                 {
                     if (premutation.All(TryToMeet))
@@ -103,7 +108,7 @@ namespace ZeroInstall.Services.Solvers
                         recommended.ForEach(x => TryToMeet(x));
                         return true;
                     }
-                    else Selections = backtrackingSnapshot.Clone();
+                    else Selections = selectionsSnapshot.Clone(); // Revert to snapshot
                 }
                 return false;
             }
@@ -117,21 +122,18 @@ namespace ZeroInstall.Services.Solvers
                 var existingSelection = Selections.GetImplementation(demand.Requirements.InterfaceUri);
                 if (existingSelection == null)
                 { // Try to make new selection
-                    foreach (var selection in compatibleCandidates.Select(x => x.ToSelection(demand.Candidates, demand.Requirements)))
+                    foreach (var selection in compatibleCandidates.Take(MaxSearchWidth).ToSelections(demand))
                     {
                         Selections.Implementations.Add(selection);
                         if (TryToMeet(DemandsFor(selection, demand.Requirements))) return true;
-                        else
-                        {
-                            Selections.Implementations.RemoveLast();
-                            return false;
-                        }
+                        else Selections.Implementations.RemoveLast();
                     }
                     return false;
                 }
                 else
                 { // Try to use existing selection
-                    if (!compatibleCandidates.Contains(existingSelection)) return false;
+                    // Ensure existing selection is one of the compatible candidates
+                    if (compatibleCandidates.All(x => x.Implementation.ID != existingSelection.ID)) return false;
 
                     if (!existingSelection.ContainsCommand(demand.Requirements.Command))
                     { // Add additional command to selection if needed
@@ -204,9 +206,6 @@ namespace ZeroInstall.Services.Solvers
             [NotNull, ItemNotNull]
             private IEnumerable<SolverDemand> DemandsFor([NotNull] Command command, [NotNull] FeedUri interfaceUri)
             {
-                if (command.Bindings.OfType<ExecutableInBinding>().Any())
-                    throw new NotSupportedException("<executable-in-*> not supported in <command>");
-
                 if (command.Runner != null)
                 {
                     var requirements = BuildRequirements(command.Runner.InterfaceUri, command.Runner.Command);

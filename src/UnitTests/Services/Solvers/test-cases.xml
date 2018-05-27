@@ -264,29 +264,29 @@
     </selections>
   </test>
 
-  <!-- Not supported yet -->
-  <!--
   <test name="self-command-dependencies" add-downloads="true">
     <interface uri="http://example.com/app.xml">
       <name>prog</name>
-      <implementation version="1.0" id="app1">
-        <command name="commandA" path="helperA"/>
+      <group>
         <command name="run" path="test-app">
           <executable-in-path command="commandA" name="helperA"/>
         </command>
-      </implementation>
+        <implementation version="1.0" id="app1">
+          <command name="commandA" path="helperA"/>
+        </implementation>
+        <implementation version="2.0" id="app2"/>
+      </group>
     </interface>
     <requirements command="run" interface="http://example.com/app.xml"/>
     <selections source="false" command="run" interface="http://example.com/app.xml">
       <selection version="1.0" id="app1" interface="http://example.com/app.xml">
-        <command name="commandA" path="helperA"/>
         <command name="run" path="test-app">
           <executable-in-path command="commandA" name="helperA"/>
         </command>
+        <command name="commandA" path="helperA"/>
       </selection>
     </selections>
   </test>
-  -->
 
   <test name="multiple-command-dependencies" add-downloads="true">
     <interface uri="http://example.com/app.xml">
@@ -772,8 +772,6 @@
     </selections>
   </test>
 
-  <!-- Not supported yet -->
-  <!--
   <test name='restrictions' add-downloads='true'>
     <interface uri='http://example.com/lib.xml'>
       <name>lib</name>
@@ -838,7 +836,6 @@ Can't find all required implementations:
       http://example.com/lib.xml 0 cannot be used (regardless of other components): Not compatible with the requested OS type
     </justification>
   </test>
-  -->
 
   <test name='impossible' add-downloads='true'>
     <interface uri='http://example.com/lib.xml'>
@@ -923,10 +920,8 @@ Can't find all required implementations:
     </selections>
   </test>
 
-  <!-- Not supported yet -->
   <!-- We can have either the latest lib1 or the latest lib2 but not both.
        We give priority to lib1, because it's listed first in prog's dependencies. -->
-  <!--
   <test name='priority' add-downloads='true'>
     <interface uri='http://example.com/lib1.xml'>
       <name>lib1</name>
@@ -972,7 +967,6 @@ The changes would be:
 http://example.com/lib1.xml: 2 to 1
     </justification>
   </test>
-  -->
 
   <!-- Network problem -->
   <test name='no-impls'>
