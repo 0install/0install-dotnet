@@ -22,12 +22,18 @@ for:
         name: NuGet
       - path: build\Documentation
         name: Documentation
+      - path: src\**\*.xsd
+        name: XML Schema
 
     deploy:
-      provider: Environment
-      name: nuget.org
-      on:
-        appveyor_repo_tag: true
+      - provider: Environment
+        name: github.com
+        on:
+          appveyor_repo_tag: true
+      - provider: Environment
+        name: nuget.org
+        on:
+          appveyor_repo_tag: true
 
   - matrix:
       only:
