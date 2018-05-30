@@ -61,134 +61,11 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add missing.
-        /// </summary>
-        internal static string AddMissing {
-            get {
-                return ResourceManager.GetString("AddMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This path points outside of the archive..
-        /// </summary>
-        internal static string ArchiveBreakoutPath {
-            get {
-                return ResourceManager.GetString("ArchiveBreakoutPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please enter the GnuPG passphrase for {0}:.
-        /// </summary>
-        internal static string AskForPassphrase {
-            get {
-                return ResourceManager.GetString("AskForPassphrase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is this an installer EXE?.
-        /// </summary>
-        internal static string AskInstallerEXE {
-            get {
-                return ResourceManager.GetString("AskInstallerEXE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to skip capturing?
-        ///Information about the application&apos;s desktop integration (e.g. file associations) will not be added to the feed..
-        /// </summary>
-        internal static string AskSkipCapture {
-            get {
-                return ResourceManager.GetString("AskSkipCapture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to continue without adding icons?
-        ///Zero Install will only be able to display a generic placeholder icon in the catalog as well as for any desktop integration shortcuts..
-        /// </summary>
-        internal static string AskSkipIcon {
-            get {
-                return ResourceManager.GetString("AskSkipIcon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to continue without completing these settings?
-        ///Your feed will only work locally and not online..
-        /// </summary>
-        internal static string AskSkipSecurity {
-            get {
-                return ResourceManager.GetString("AskSkipSecurity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Searching for executable files.
         /// </summary>
         internal static string DetectingCandidates {
             get {
                 return ResourceManager.GetString("DetectingCandidates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Keep
-        ///The implementation was supposed to stay the same.
-        /// </summary>
-        internal static string DigestKeep {
-            get {
-                return ResourceManager.GetString("DigestKeep", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The manifest digest has changed. Do you wish to replace the existing one?.
-        /// </summary>
-        internal static string DigestMismatch {
-            get {
-                return ResourceManager.GetString("DigestMismatch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to All other retrieval methods for this implementation must match the new digest as well!.
-        /// </summary>
-        internal static string DigestOtherImplementations {
-            get {
-                return ResourceManager.GetString("DigestOtherImplementations", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Replace
-        ///I changed the implementation on purpose.
-        /// </summary>
-        internal static string DigestReplace {
-            get {
-                return ResourceManager.GetString("DigestReplace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Discard
-        ///Discard unsaved changes.
-        /// </summary>
-        internal static string DiscardChanges {
-            get {
-                return ResourceManager.GetString("DiscardChanges", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Downloading image for preview....
-        /// </summary>
-        internal static string DownloadingPeviewImage {
-            get {
-                return ResourceManager.GetString("DownloadingPeviewImage", resourceCulture);
             }
         }
         
@@ -212,29 +89,11 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The feed does not have the correct format..
-        /// </summary>
-        internal static string FeedNotValid {
-            get {
-                return ResourceManager.GetString("FeedNotValid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Downloading &apos;{0}&apos; using Zero Install.
         /// </summary>
         internal static string FetchingExternal {
             get {
                 return ResourceManager.GetString("FetchingExternal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Feed files (*.xml)|*.xml|Template files (*.xml.template)|*.xml.template|All files|*.
-        /// </summary>
-        internal static string FileDialogFilter {
-            get {
-                return ResourceManager.GetString("FileDialogFilter", resourceCulture);
             }
         }
         
@@ -248,93 +107,11 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A complete possibly multi-line description.
-        /// </summary>
-        internal static string HintTextMultiline {
-            get {
-                return ResourceManager.GetString("HintTextMultiline", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The image format is not supported by Zero Install..
-        /// </summary>
-        internal static string ImageFormatNotSupported {
-            get {
-                return ResourceManager.GetString("ImageFormatNotSupported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Detected &apos;{0}&apos; as installation directory..
         /// </summary>
         internal static string InstallationDirDetected {
             get {
                 return ResourceManager.GetString("InstallationDirDetected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to extract the installer as an archive..
-        /// </summary>
-        internal static string InstallerExtractFailed {
-            get {
-                return ResourceManager.GetString("InstallerExtractFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You need to provide an alternative download source for the application, e.g. a ZIP archive. We will still use the desktop integration information captured from the installer!.
-        /// </summary>
-        internal static string InstallerNeedAltSource {
-            get {
-                return ResourceManager.GetString("InstallerNeedAltSource", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid capabilities registry path: {0}.
-        /// </summary>
-        internal static string InvalidCapabilitiesRegistryPath {
-            get {
-                return ResourceManager.GetString("InvalidCapabilitiesRegistryPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This program comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law.
-        ///You may redistribute copies of this program under the terms of the GNU Lesser General Public License..
-        /// </summary>
-        internal static string LicenseInfo {
-            get {
-                return ResourceManager.GetString("LicenseInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Manifest digest may have changed..
-        /// </summary>
-        internal static string ManifestDigestChanged {
-            get {
-                return ResourceManager.GetString("ManifestDigestChanged", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Manifest digest not calculated yet..
-        /// </summary>
-        internal static string ManifestDigestMissing {
-            get {
-                return ResourceManager.GetString("ManifestDigestMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Missing arguments. Try {0} --help.
-        /// </summary>
-        internal static string MissingArguments {
-            get {
-                return ResourceManager.GetString("MissingArguments", resourceCulture);
             }
         }
         
@@ -375,33 +152,6 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New key....
-        /// </summary>
-        internal static string NewKey {
-            get {
-                return ResourceManager.GetString("NewKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No entry points (EXEs, JARs, Python scripts, etc.) were found. Please make sure you selected the correct archive and extract directory..
-        /// </summary>
-        internal static string NoEntryPointsFound {
-            get {
-                return ResourceManager.GetString("NoEntryPointsFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find any matching feed files..
-        /// </summary>
-        internal static string NoFeedFilesFound {
-            get {
-                return ResourceManager.GetString("NoFeedFilesFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No installation directory was detected.
         ///Try specifying it manually..
         /// </summary>
@@ -412,139 +162,11 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No, the application itself
-        ///consists only of one EXE.
-        /// </summary>
-        internal static string NoSingleExecutable {
-            get {
-                return ResourceManager.GetString("NoSingleExecutable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This method is currently only available on Windows..
         /// </summary>
         internal static string OnlyAvailableOnWindows {
             get {
                 return ResourceManager.GetString("OnlyAvailableOnWindows", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Download missing archives, calculate manifest digests, etc...
-        /// </summary>
-        internal static string OptionAddMissing {
-            get {
-                return ResourceManager.GetString("OptionAddMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Combine all specified feeds into a single catalog {FILE}..
-        /// </summary>
-        internal static string OptionCatalog {
-            get {
-                return ResourceManager.GetString("OptionCatalog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use {PASS} to unlock the GnuPG secret key..
-        /// </summary>
-        internal static string OptionGnuPGPassphrase {
-            get {
-                return ResourceManager.GetString("OptionGnuPGPassphrase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show the built-in help text..
-        /// </summary>
-        internal static string OptionHelp {
-            get {
-                return ResourceManager.GetString("OptionHelp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Key to use for signing (if you have more than one, or if you want to resign with a different key)..
-        /// </summary>
-        internal static string OptionKey {
-            get {
-                return ResourceManager.GetString("OptionKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Options:.
-        /// </summary>
-        internal static string Options {
-            get {
-                return ResourceManager.GetString("Options", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add any downloaded archives to the implementation store..
-        /// </summary>
-        internal static string OptionsKeepDownloads {
-            get {
-                return ResourceManager.GetString("OptionsKeepDownloads", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove any existing signatures..
-        /// </summary>
-        internal static string OptionUnsign {
-            get {
-                return ResourceManager.GetString("OptionUnsign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Display version information..
-        /// </summary>
-        internal static string OptionVersion {
-            get {
-                return ResourceManager.GetString("OptionVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add an XML signature block. (All remote feeds must be signed.).
-        /// </summary>
-        internal static string OptionXmlSign {
-            get {
-                return ResourceManager.GetString("OptionXmlSign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please click:.
-        /// </summary>
-        internal static string PleaseClick {
-            get {
-                return ResourceManager.GetString("PleaseClick", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save
-        ///Save changes.
-        /// </summary>
-        internal static string SaveChanges {
-            get {
-                return ResourceManager.GetString("SaveChanges", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to save the changes?.
-        /// </summary>
-        internal static string SaveQuestion {
-            get {
-                return ResourceManager.GetString("SaveQuestion", resourceCulture);
             }
         }
         
@@ -567,57 +189,11 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown operation mode.
-        ///Try {0} --help.
-        /// </summary>
-        internal static string UnknownMode {
-            get {
-                return ResourceManager.GetString("UnknownMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unknown retrieval method type..
         /// </summary>
         internal static string UnknownRetrievalMethodType {
             get {
                 return ResourceManager.GetString("UnknownRetrievalMethodType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Usage:.
-        /// </summary>
-        internal static string Usage {
-            get {
-                return ResourceManager.GetString("Usage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Waiting for installer to complete.
-        /// </summary>
-        internal static string WaitingForInstaller {
-            get {
-                return ResourceManager.GetString("WaitingForInstaller", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wrong MIME type! Should be {0}..
-        /// </summary>
-        internal static string WrongMimeType {
-            get {
-                return ResourceManager.GetString("WrongMimeType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yes, installer EXE.
-        /// </summary>
-        internal static string YesInstallerExe {
-            get {
-                return ResourceManager.GetString("YesInstallerExe", resourceCulture);
             }
         }
     }
