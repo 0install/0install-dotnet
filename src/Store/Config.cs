@@ -60,15 +60,6 @@ namespace ZeroInstall.Store
         [DefaultValue(true), Category("Policy"), DisplayName(@"Auto approve keys"), Description("Automatically approve keys known by the key info server and seen the first time a feed is fetched.")]
         public bool AutoApproveKeys { get => _autoApproveKeys; set => _autoApproveKeys = value; }
 
-        private bool _allowApiHooking;
-
-        /// <summary>
-        /// WARNING! This feature is highly experimental!<br/>
-        /// Controls whether Zero Install may install hooks for operating sytem APIs to improve desktop integration.
-        /// </summary>
-        [DefaultValue(false), Category("Policy"), DisplayName(@"Allow API hooking"), Description("WARNING! This feature is highly experimental!\r\nControls whether Zero Install may install hooks for operating sytem APIs to improve desktop integration.")]
-        public bool AllowApiHooking { get => _allowApiHooking; set => _allowApiHooking = value; }
-
         /// <summary>
         /// The default value for <see cref="FeedMirror"/>.
         /// </summary>
@@ -179,7 +170,6 @@ namespace ZeroInstall.Store
                 {"help_with_testing", new PropertyPointer<bool>(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
                 {"network_use", GetNetworkUseConverter()},
                 {"auto_approve_keys", new PropertyPointer<bool>(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
-                {"allow_api_hooking", new PropertyPointer<bool>(() => AllowApiHooking, value => AllowApiHooking = value).ToStringPointer()},
                 {"feed_mirror", new PropertyPointer<Uri>(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
                 {"key_info_server", new PropertyPointer<Uri>(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
                 {"self_update_uri", new PropertyPointer<FeedUri>(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
