@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>0install</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PackageId>ZeroInstall.Commands</PackageId>
+    <RootNamespace>ZeroInstall.Commands</RootNamespace>
+    <LangVersion>7.1</LangVersion>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <OutputPath>..\..\build\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSource>True</IncludeSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
+    <TargetFrameworks>net45</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Description>
+A command-line interface for Zero Install, for installing and launching applications, managing caches, etc..
+This is both the 0install CLI itself as well as a library for building additional (e.g. GUI) clients.
+API documentation: http://0install.de/api/backend/
+    </Description>
+    <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
+    <PackageIconUrl>https://0install.de/wp-content/uploads/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+    <Product>Zero Install</Product>
+    <Authors>Bastian Eicher</Authors>
+    <Company>0install.de</Company>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" Pack="False" />
+    <Reference Include="System.ServiceProcess" Pack="False" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Utils\import.*" />
+    <EmbeddedResource Include="Utils\legacy.manifest" />
+  </ItemGroup>
+
+</Project>

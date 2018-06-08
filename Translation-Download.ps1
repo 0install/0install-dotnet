@@ -14,4 +14,5 @@ function download($slug, $pathBase) {
 download store "$ScriptDir\src\Store\Properties\Resources"
 download services "$ScriptDir\src\Services\Properties\Resources"
 download desktopintegration "$ScriptDir\src\DesktopIntegration\Properties\Resources"
+download commands "$ScriptDir\src\Commands\Properties\Resources"
 download publish "$ScriptDir\src\Publish\Properties\Resources"

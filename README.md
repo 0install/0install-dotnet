@@ -8,7 +8,9 @@ The Zero Install .NET Backend implements the core features of Zero Install. It a
 NuGet packages (for .NET Framework 2.0+ and .NET Standard 2.0+):  
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)
+[![ZeroInstall.Services.Interfaces](https://img.shields.io/nuget/v/ZeroInstall.Services.Interfaces.svg?label=ZeroInstall.Services.Interfaces)](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)
 [![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)
+[![ZeroInstall.Commands](https://img.shields.io/nuget/v/ZeroInstall.Commands.svg?label=ZeroInstall.Commands)](https://www.nuget.org/packages/ZeroInstall.Commands/)
 [![ZeroInstall.Publish](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)
 
 [![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](http://0install.de/api/backend/)

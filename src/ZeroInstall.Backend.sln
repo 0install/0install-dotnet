@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Interfaces", "Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopIntegration", "DesktopIntegration\DesktopIntegration.csproj", "{F48937E1-3763-465F-9F12-6CBBBFF61784}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commands", "Commands\Commands.csproj", "{E46735AB-DF37-4D99-9E8A-7F014D92F82E}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{06237727-AEA0-4E42-85C0-C0886F425352}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publish", "Publish\Publish.csproj", "{996B5E17-68C8-4901-990F-7D3660A78AA0}"
@@ -45,6 +47,12 @@ Global
 		{F48937E1-3763-465F-9F12-6CBBBFF61784}.DebugLinuxCore|Any CPU.ActiveCfg = Debug|Any CPU
 		{F48937E1-3763-465F-9F12-6CBBBFF61784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F48937E1-3763-465F-9F12-6CBBBFF61784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.DebugLinuxCore|Any CPU.ActiveCfg = Debug|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.DebugLinuxCore|Any CPU.Build.0 = Debug|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E46735AB-DF37-4D99-9E8A-7F014D92F82E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06237727-AEA0-4E42-85C0-C0886F425352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06237727-AEA0-4E42-85C0-C0886F425352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06237727-AEA0-4E42-85C0-C0886F425352}.DebugLinuxCore|Any CPU.ActiveCfg = Debug|Any CPU
