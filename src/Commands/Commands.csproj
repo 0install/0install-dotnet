@@ -72,6 +72,13 @@ API documentation: http://0install.de/api/backend/
     <EmbeddedResource Include="Desktop\Helpers\legacy.manifest" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+    <None Include="$(OutputPath)\net20\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net20" />
+    <None Include="$(OutputPath)\net35\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net35" />
+    <None Include="$(OutputPath)\net40\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net40" />
+    <None Include="$(OutputPath)\net45\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net45" />
+  </ItemGroup>
+
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
     <EmbeddedResource Update="Properties\Resources.resx">
