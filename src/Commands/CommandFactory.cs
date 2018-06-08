@@ -8,8 +8,11 @@ using System.Linq;
 using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
-using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
+
+#if !NETCOREAPP2_0
+using ZeroInstall.Commands.Desktop;
+#endif
 
 namespace ZeroInstall.Commands
 {
@@ -25,7 +28,9 @@ namespace ZeroInstall.Commands
         internal static readonly string[] CommandNames =
         {
             Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
+#if !NETCOREAPP2_0
             Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, MaintenanceMan.Name, SelfUpdate.Name
+#endif
         };
 
         /// <summary>
@@ -78,6 +83,7 @@ namespace ZeroInstall.Commands
                     return new Digest(handler);
                 case StoreMan.Name:
                     return new StoreMan(handler);
+#if !NETCOREAPP2_0
                 case Central.Name:
                     return new Central(handler);
                 case AddApp.Name:
@@ -113,6 +119,7 @@ namespace ZeroInstall.Commands
                     return new MaintenanceMan(handler);
                 case SelfUpdate.Name:
                     return new SelfUpdate(handler);
+#endif
                 default:
                     throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
             }

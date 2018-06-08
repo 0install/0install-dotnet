@@ -4,12 +4,15 @@
 using System;
 using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
-using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model.Selection;
+
+#if !NETCOREAPP2_0
+using ZeroInstall.DesktopIntegration.ViewModel;
+#endif
 
 namespace ZeroInstall.Commands
 {
@@ -49,6 +52,7 @@ namespace ZeroInstall.Commands
         /// <param name="solveCallback">Called after interface preferences have been changed and the solver needs to be rerun.</param>
         void CustomizeSelections([NotNull] Func<Selections> solveCallback);
 
+#if !NETCOREAPP2_0
         /// <summary>
         /// Displays application integration options to the user.
         /// </summary>
@@ -56,6 +60,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="OperationCanceledException">The user does not want any changes to be applied.</exception>
         /// <remarks>The caller is responsible for saving any changes.</remarks>
         void ShowIntegrateApp([NotNull] IntegrationState state);
+#endif
 
         /// <summary>
         /// Displays the results of a feed search to the user.

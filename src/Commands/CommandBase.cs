@@ -9,17 +9,20 @@ using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.Desktop;
-using ZeroInstall.Commands.Desktop.Helpers;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
+
+#if !NETCOREAPP2_0
+using NanoByte.Common.Net;
+using ZeroInstall.Commands.Desktop;
+using ZeroInstall.Commands.Desktop.Helpers;
+using ZeroInstall.DesktopIntegration;
+#endif
 
 namespace ZeroInstall.Commands
 {
@@ -48,8 +51,11 @@ namespace ZeroInstall.Commands
 
             try
             {
+#if !NETCOREAPP2_0
                 if (uri.StartsWith("alias:")) return ResolveAlias(uri.Substring("alias:".Length));
-                else if (uri.StartsWith("file://")) return new FeedUri(uri);
+                else
+#endif
+                if (uri.StartsWith("file://")) return new FeedUri(uri);
                 else if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
                 else if (uri.StartsWith("file:")) return new FeedUri(Path.GetFullPath(uri.Substring("file:".Length)));
                 else if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new FeedUri(uri);
@@ -77,6 +83,7 @@ namespace ZeroInstall.Commands
             #endregion
         }
 
+#if !NETCOREAPP2_0
         [NotNull]
         private static FeedUri ResolveAlias(string aliasName)
         {
@@ -86,6 +93,7 @@ namespace ZeroInstall.Commands
             if (appEntry?.InterfaceUri == null) throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
             return appEntry.InterfaceUri;
         }
+#endif
 
         [CanBeNull]
         private FeedUri TryResolveCatalog(string shortName)
@@ -137,6 +145,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected void SelfUpdateCheck()
         {
+#if !NETCOREAPP2_0
             if (SelfUpdateUtils.NoAutoCheck ||
                 ProgramUtils.IsRunningFromCache ||
                 !NetUtils.IsInternetConnected ||
@@ -150,6 +159,7 @@ namespace ZeroInstall.Commands
 
             Log.Info("Starting periodic background self-update check");
             StartCommandBackground(SelfUpdate.Name);
+#endif
         }
 
         /// <summary>
@@ -159,6 +169,7 @@ namespace ZeroInstall.Commands
         /// <param name="args">Additional arguments to pass to the command.</param>
         protected static void StartCommandBackground([NotNull] string command, [NotNull] params string[] args)
         {
+#if !NETCOREAPP2_0
             #region Sanity checks
             if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
             #endregion
@@ -183,6 +194,7 @@ namespace ZeroInstall.Commands
                 Log.Warn(ex);
             }
             #endregion
+#endif
         }
     }
 }

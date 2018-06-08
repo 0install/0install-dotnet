@@ -22,12 +22,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net40;net45;netcoreapp2.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSource>True</IncludeSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45</TargetFrameworks>
+    <TargetFrameworks>net45;netcoreapp2.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' and '$(OS)'!='Windows_NT'">
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -47,18 +50,26 @@ API documentation: http://0install.de/api/backend/
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
     <Reference Include="System.Web" Pack="False" />
     <Reference Include="System.ServiceProcess" Pack="False" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+    <Compile Remove="Desktop\**" />
+    <EmbeddedResource Include="Desktop\Helpers\legacy.manifest" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +84,6 @@ API documentation: http://0install.de/api/backend/
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Basic\Helpers\import.*" />
-    <EmbeddedResource Include="Desktop\Helpers\legacy.manifest" />
   </ItemGroup>
 
 </Project>

@@ -25,9 +25,6 @@ namespace ZeroInstall.Services
     /// </summary>
     /// <remarks>Use the property setters to override default service implementations, e.g. for mocking.</remarks>
     [PublicAPI]
-#if NETSTANDARD2_0
-    [Obsolete("Use .AddZeroInstall() extension method for IServiceCollection instead.")]
-#endif
     public class ServiceLocator
     {
         /// <summary>
