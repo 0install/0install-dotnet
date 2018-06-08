@@ -1,0 +1,4 @@
+mode: ContinuousDeployment
+branches:
+  master:
+    increment: patch
