@@ -13,7 +13,7 @@ using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Values;
 using NDesk.Options;
-using ZeroInstall.Commands.CliCommands;
+using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Executors;
@@ -118,31 +118,23 @@ namespace ZeroInstall.Commands
             {
                 return ExitCode.UserCanceled;
             }
-            catch (NeedGuiException ex)
+            catch (NeedsGuiException) when (GuiAssemblyName != null)
             {
-                if (GuiAssemblyName != null)
+                Log.Info("Switching to GUI");
+                handler.DisableUI();
+                try
                 {
-                    Log.Info("Switching to GUI");
-                    handler.DisableUI();
-                    try
-                    {
-                        return (ExitCode)ProcessUtils.Assembly(GuiAssemblyName, args).Run();
-                    }
-                    catch (IOException ex2)
-                    {
-                        handler.Error(ex2);
-                        return ExitCode.IOError;
-                    }
-                    catch (NotAdminException ex2)
-                    {
-                        handler.Error(ex2);
-                        return ExitCode.AccessDenied;
-                    }
+                    return (ExitCode)ProcessUtils.Assembly(GuiAssemblyName, args).Run();
                 }
-                else
+                catch (IOException ex2)
                 {
-                    handler.Error(ex);
-                    return ExitCode.NotSupported;
+                    handler.Error(ex2);
+                    return ExitCode.IOError;
+                }
+                catch (NotAdminException ex2)
+                {
+                    handler.Error(ex2);
+                    return ExitCode.AccessDenied;
                 }
             }
             catch (NotAdminException ex)
@@ -180,6 +172,11 @@ namespace ZeroInstall.Commands
                     handler.Error(ex);
                     return ExitCode.AccessDenied;
                 }
+            }
+            catch (ConflictException ex)
+            {
+                handler.Error(ex);
+                return ExitCode.Conflict;
             }
             catch (UnsuitableInstallBaseException ex)
             {
@@ -315,11 +312,6 @@ namespace ZeroInstall.Commands
             {
                 handler.Error(ex);
                 return ExitCode.ExecutorError;
-            }
-            catch (ConflictException ex)
-            {
-                handler.Error(ex);
-                return ExitCode.Conflict;
             }
             #endregion
 

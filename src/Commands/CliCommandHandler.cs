@@ -3,9 +3,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NanoByte.Common;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.CliCommands;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Services.Feeds;
@@ -46,10 +44,10 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
-        public void CustomizeSelections(Func<Selections> solveCallback) => throw new NeedGuiException(Resources.NoCustomizeSelectionsInCli);
+        public void CustomizeSelections(Func<Selections> solveCallback) => throw new NeedsGuiException(Resources.NoCustomizeSelectionsInCli);
 
         /// <inheritdoc/>
-        public void ShowIntegrateApp(IntegrationState state) => throw new NeedGuiException(Resources.IntegrateAppUseGui);
+        public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
 
         /// <inheritdoc/>
         public void ShowFeedSearch(SearchQuery query)
@@ -72,6 +70,6 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
-        public void ManageStore(IStore store, IFeedCache feedCache) => throw new NeedGuiException();
+        public void ManageStore(IStore store, IFeedCache feedCache) => throw new NeedsGuiException();
     }
 }

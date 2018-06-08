@@ -7,7 +7,8 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using NDesk.Options;
-using ZeroInstall.Commands.CliCommands;
+using ZeroInstall.Commands.Basic;
+using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands
@@ -21,7 +22,11 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// A list of command names (without alternatives) as used in command-line arguments in lower-case.
         /// </summary>
-        internal static readonly string[] CommandNames = {Central.Name, SelfUpdate.Name, Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, Digest.Name, StoreMan.Name, MaintenanceMan.Name};
+        internal static readonly string[] CommandNames =
+        {
+            Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
+            Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, MaintenanceMan.Name, SelfUpdate.Name
+        };
 
         /// <summary>
         /// Creates a new <see cref="CliCommand"/> based on a name.
@@ -41,10 +46,6 @@ namespace ZeroInstall.Commands
             {
                 case ExportHelp.Name:
                     return new ExportHelp(handler);
-                case Central.Name:
-                    return new Central(handler);
-                case SelfUpdate.Name:
-                    return new SelfUpdate(handler);
                 case Selection.Name:
                     return new Selection(handler);
                 case Download.Name:
@@ -73,6 +74,12 @@ namespace ZeroInstall.Commands
                     return new RemoveFeed(handler);
                 case ListFeeds.Name:
                     return new ListFeeds(handler);
+                case Digest.Name:
+                    return new Digest(handler);
+                case StoreMan.Name:
+                    return new StoreMan(handler);
+                case Central.Name:
+                    return new Central(handler);
                 case AddApp.Name:
                 case AddApp.AltName:
                     return new AddApp(handler);
@@ -102,12 +109,10 @@ namespace ZeroInstall.Commands
                     return new ImportApps(handler);
                 case SyncApps.Name:
                     return new SyncApps(handler);
-                case Digest.Name:
-                    return new Digest(handler);
-                case StoreMan.Name:
-                    return new StoreMan(handler);
                 case MaintenanceMan.Name:
                     return new MaintenanceMan(handler);
+                case SelfUpdate.Name:
+                    return new SelfUpdate(handler);
                 default:
                     throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
             }

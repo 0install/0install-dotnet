@@ -72,8 +72,8 @@ API documentation: http://0install.de/api/backend/
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Utils\import.*" />
-    <EmbeddedResource Include="Utils\legacy.manifest" />
+    <EmbeddedResource Include="Basic\Helpers\import.*" />
+    <EmbeddedResource Include="Desktop\Helpers\legacy.manifest" />
   </ItemGroup>
 
 </Project>

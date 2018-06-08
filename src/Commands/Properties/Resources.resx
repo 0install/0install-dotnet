@@ -519,6 +519,12 @@ Run '0install self-update --force' to fix this.</value>
   <data name="MyApps" xml:space="preserve">
     <value>My applications</value>
   </data>
+  <data name="NeedsGui" xml:space="preserve">
+    <value>Please use the GUI version of Zero Install for this feature.</value>
+  </data>
+  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
+    <value>The graphical policy editor is not available in command-line mode.</value>
+  </data>
   <data name="NoIntegrationFromCache" xml:space="preserve">
     <value>Zero Install needs to be setup on your system for desktop integration to work.</value>
   </data>
@@ -530,9 +536,6 @@ Run '0install self-update --force' to fix this.</value>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install is running from a user-specific directory. It needs to be deployed to a directory accessible by all users for machine-wide desktop integration to work.</value>
-  </data>
-  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
-    <value>The graphical policy editor is not available in command-line mode.</value>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
     <value>When running an implementation the command may not be empty.</value>

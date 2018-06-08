@@ -1225,6 +1225,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please use the GUI version of Zero Install for this feature..
+        /// </summary>
+        internal static string NeedsGui {
+            get {
+                return ResourceManager.GetString("NeedsGui", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The graphical policy editor is not available in command-line mode..
         /// </summary>
         internal static string NoCustomizeSelectionsInCli {

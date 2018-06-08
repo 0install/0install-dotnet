@@ -4,7 +4,6 @@
 using System;
 using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.CliCommands;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
