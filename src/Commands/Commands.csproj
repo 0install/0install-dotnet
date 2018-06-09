@@ -37,7 +37,7 @@
     <Description>
 A command-line interface for Zero Install, for installing and launching applications, managing caches, etc..
 This is both the 0install CLI itself as well as a library for building additional (e.g. GUI) clients.
-API documentation: http://0install.de/api/backend/
+API documentation: http://0install.de/api/
     </Description>
     <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
     <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>

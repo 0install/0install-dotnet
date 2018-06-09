@@ -33,7 +33,7 @@
     <Description>
 Zero Install services such as dependency resolution and implementation downloading.
 Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
-API documentation: http://0install.de/api/backend/
+API documentation: http://0install.de/api/
     </Description>
     <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
     <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>

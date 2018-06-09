@@ -1,9 +1,9 @@
-Zero Install .NET Backend
-=========================
+Zero Install .NET 
+==================
 
-The Zero Install .NET Backend implements the core features of Zero Install. It also allow developers to embed Zero Install functionality in their own .NET applications. It is available for .NET Framework 2.0 or newer and .NET Standard 2.0 or newer.
+Zero Install .NET implements the core features of Zero Install as a command-line interface. It also allow developers to embed Zero Install functionality in their own .NET applications. It is available for .NET Framework 2.0 or newer and .NET Standard 2.0 or newer.
 
-[Zero Install for Windows](https://github.com/0install/0install-win) and the [Zero Install Publishing Tools](https://github.com/0install/0publish-win) are built upon this backend.
+[Zero Install for Windows](https://github.com/0install/0install-win) and the [Zero Install Publishing Tools](https://github.com/0install/0publish-win) are built upon Zero Install .NET.
 
 NuGet packages (for .NET Framework 2.0+ and .NET Standard 2.0+):  
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)
@@ -13,16 +13,16 @@ NuGet packages (for .NET Framework 2.0+ and .NET Standard 2.0+):
 [![ZeroInstall.Commands](https://img.shields.io/nuget/v/ZeroInstall.Commands.svg?label=ZeroInstall.Commands)](https://www.nuget.org/packages/ZeroInstall.Commands/)
 [![ZeroInstall.Publish](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)
 
-[![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](http://0install.de/api/backend/)
+[![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](http://0install.de/api/)
 [![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)
 
 Directory structure
 -------------------
 - `src` contains source code.
 - `lib` contains pre-compiled 3rd party libraries which are not available via NuGet.
-- `doc` contains a Doxyfile project for generation the API documentation.
+- `doc` contains a Doxygen project for generation the API documentation.
 - `build` contains the results of various compilation processes. It is created on first usage.
-- `samples` contains code snippets in different languages illustrating how to use the Zero Install Backend.
+- `samples` contains code snippets in different languages illustrating how to use the Zero Install .NET API.
 
 Building
 --------

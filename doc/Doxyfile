@@ -1,4 +1,4 @@
-PROJECT_NAME = "Zero Install .NET Backend API"
+PROJECT_NAME = "Zero Install .NET API"
 
 INPUT = main.md ../src
 USE_MDFILE_AS_MAINPAGE = main.md

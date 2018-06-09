@@ -34,7 +34,7 @@
   <PropertyGroup>
     <Description>
 Zero Install methods for integrating applications with desktop environments (creating menu entries, etc.).
-API documentation: http://0install.de/api/backend/
+API documentation: http://0install.d
     </Description>
     <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
     <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>

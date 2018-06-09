@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>ZeroInstall.Backend.UnitTests</AssemblyName>
+    <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
     <LangVersion>7.1</LangVersion>
     <IsPackable>False</IsPackable>
