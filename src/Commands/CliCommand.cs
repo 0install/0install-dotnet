@@ -92,6 +92,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>The command-line argument parser used to evaluate user input.</summary>
+        [CLSCompliant(false)]
         protected internal readonly OptionSet Options = new OptionSet();
         #endregion
 
