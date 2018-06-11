@@ -10,7 +10,7 @@ using ZeroInstall.Commands.Properties;
 namespace ZeroInstall.Commands.Basic.Helpers
 {
     /// <summary>
-    /// Exports all <see cref="CliCommand"/> help texts as HTML.
+    /// Exports all <see cref="CommandBase"/> help texts as HTML.
     /// </summary>
     public class HtmlHelpExporter : HelpExporterBase
     {

@@ -22,7 +22,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Common base class for commands that manage <see cref="DesktopIntegration"/>.
     /// </summary>
-    public abstract class IntegrationCommand : CliCommand
+    public abstract class IntegrationCommand : CommandBase
     {
         #region State
         /// <summary>Do not download the application itself yet.</summary>

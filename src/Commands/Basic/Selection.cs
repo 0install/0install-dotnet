@@ -23,7 +23,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Select a version of the program identified by URI, and compatible versions of all of its dependencies.
     /// </summary>
-    public class Selection : CliCommand
+    public class Selection : CommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

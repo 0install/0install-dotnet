@@ -68,7 +68,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Common initialization code to be called by every Frontend executable right after startup.
+        /// Common initialization code to be called by every Zero Install executable right after startup.
         /// </summary>
         public static void Init()
         {

@@ -18,7 +18,7 @@ using ZeroInstall.DesktopIntegration.ViewModel;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Uses the stdin/stderr streams to allow users to interact with <see cref="CliCommand"/>s.
+    /// Uses the stdin/stderr streams to allow users to interact with <see cref="CommandBase"/>s.
     /// </summary>
     [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly", Justification = "Diamond inheritance structure leads to false positive")]
     public sealed class CliCommandHandler : CliTaskHandler, ICommandHandler

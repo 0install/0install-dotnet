@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Calculate the manifest digest of a directory or archive.
     /// </summary>
-    public sealed class Digest : CliCommand
+    public sealed class Digest : CommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

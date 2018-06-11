@@ -13,7 +13,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// The default command used when no command is explicitly specified.
     /// </summary>
-    public sealed class DefaultCommand : CliCommand
+    public sealed class DefaultCommand : CommandBase
     {
         #region Metadata
         /// <inheritdoc/>

@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Opens the central graphical user interface for launching and managing applications.
     /// </summary>
-    public sealed class Central : CliCommand
+    public sealed class Central : CommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

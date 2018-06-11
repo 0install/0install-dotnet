@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Manages the <see cref="Catalog"/>s provided by the <see cref="ICatalogManager"/>.
     /// </summary>
-    public sealed partial class CatalogMan : MultiCommand
+    public sealed partial class CatalogMan : MultiCommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
@@ -30,7 +30,7 @@ namespace ZeroInstall.Commands.Basic
         public override IEnumerable<string> SubCommandNames => new[] {Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name};
 
         /// <inheritdoc/>
-        public override SubCommand GetCommand(string commandName)
+        public override SubCommandBase GetCommand(string commandName)
         {
             #region Sanity checks
             if (commandName == null) throw new ArgumentNullException(nameof(commandName));
@@ -55,7 +55,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        private abstract class CatalogSubCommand : SubCommand
+        private abstract class CatalogSubCommand : SubCommandBase
         {
             protected override string ParentName => CatalogMan.Name;
 

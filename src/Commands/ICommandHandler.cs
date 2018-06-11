@@ -17,7 +17,7 @@ using ZeroInstall.DesktopIntegration.ViewModel;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Callback methods to allow users to interact with <see cref="CliCommand"/>s.
+    /// Callback methods to allow users to interact with <see cref="CommandBase"/>s.
     /// </summary>
     /// <remarks>The methods may be called from a background thread. Implementations apply appropriate thread-synchronization to update UI elements.</remarks>
     public interface ICommandHandler : ITaskHandler

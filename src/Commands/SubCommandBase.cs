@@ -3,15 +3,15 @@
 
 using JetBrains.Annotations;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Common base class for sub-commands that are aggregated by a <see cref="MultiCommand"/>.
+    /// Common base class for sub-commands that are aggregated by a <see cref="MultiCommandBase"/>.
     /// </summary>
-    public abstract class SubCommand : CliCommand
+    public abstract class SubCommandBase : CommandBase
     {
         /// <summary>
-        /// The <see cref="CliCommand.Name"/> of the <see cref="MultiCommand"/> this command is a sub-command of.
+        /// The <see cref="CommandBase.Name"/> of the <see cref="MultiCommandBase"/> this command is a sub-command of.
         /// </summary>
         [NotNull]
         protected abstract string ParentName { get; }
@@ -21,7 +21,7 @@ namespace ZeroInstall.Commands.Basic
         public override string Name => ParentName + " " + base.Name;
 
         /// <inheritdoc/>
-        protected SubCommand([NotNull] ICommandHandler handler)
+        protected SubCommandBase([NotNull] ICommandHandler handler)
             : base(handler)
         {}
     }

@@ -10,12 +10,12 @@ using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Common base class for commands that provide multiple <see cref="SubCommand"/>s.
+    /// Common base class for commands that provide multiple <see cref="SubCommandBase"/>s.
     /// </summary>
-    public abstract class MultiCommand : CliCommand
+    public abstract class MultiCommandBase : CommandBase
     {
         #region Metadata
         /// <inheritdoc/>
@@ -38,7 +38,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        protected MultiCommand([NotNull] ICommandHandler handler)
+        protected MultiCommandBase([NotNull] ICommandHandler handler)
             : base(handler)
         {
             // Defer all option parsing to the sub-commands
@@ -52,20 +52,20 @@ namespace ZeroInstall.Commands.Basic
         public abstract IEnumerable<string> SubCommandNames { get; }
 
         /// <summary>
-        /// Creates a new <see cref="SubCommand"/> based on a name.
+        /// Creates a new <see cref="SubCommandBase"/> based on a name.
         /// </summary>
         /// <param name="commandName">The command name to look for; case-insensitive.</param>
-        /// <returns>The requested <see cref="SubCommand"/>.</returns>
+        /// <returns>The requested <see cref="SubCommandBase"/>.</returns>
         /// <exception cref="OptionException"><paramref name="commandName"/> is an unknown command.</exception>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         [NotNull]
-        public abstract SubCommand GetCommand([NotNull] string commandName);
+        public abstract SubCommandBase GetCommand([NotNull] string commandName);
 
         /// <summary>The sub-command selected in <see cref="Parse"/> and used in <see cref="Execute"/>.</summary>
         [CanBeNull]
-        private SubCommand _subCommand;
+        private SubCommandBase _subCommand;
 
         /// <inheritdoc/>
         [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]

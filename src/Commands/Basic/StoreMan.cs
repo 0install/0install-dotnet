@@ -15,7 +15,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Manages the contents of the <see cref="IStore"/>s.
     /// </summary>
-    public sealed partial class StoreMan : MultiCommand
+    public sealed partial class StoreMan : MultiCommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
@@ -31,7 +31,7 @@ namespace ZeroInstall.Commands.Basic
         public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, AddDir.Name, RemoveDir.Name};
 
         /// <inheritdoc/>
-        public override SubCommand GetCommand(string commandName)
+        public override SubCommandBase GetCommand(string commandName)
         {
             #region Sanity checks
             if (commandName == null) throw new ArgumentNullException(nameof(commandName));
@@ -75,7 +75,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal abstract class StoreSubCommand : SubCommand
+        internal abstract class StoreSubCommand : SubCommandBase
         {
             protected override string ParentName => StoreMan.Name;
 
@@ -84,7 +84,7 @@ namespace ZeroInstall.Commands.Basic
             {}
 
             /// <summary>
-            /// Returns the default <see cref="IStore"/> or a <see cref="CompositeStore"/> as specifief by the <see cref="CliCommand.AdditionalArgs"/>.
+            /// Returns the default <see cref="IStore"/> or a <see cref="CompositeStore"/> as specifief by the <see cref="CommandBase.AdditionalArgs"/>.
             /// </summary>
             protected IStore GetEffectiveStore()
             {

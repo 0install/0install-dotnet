@@ -7,9 +7,9 @@ using ZeroInstall.Commands.Basic.Helpers;
 namespace ZeroInstall.Commands.Basic
 {
     /// <summary>
-    /// Exports all <see cref="CliCommand"/> help texts as HTML.
+    /// Exports all <see cref="CommandBase"/> help texts as HTML.
     /// </summary>
-    public class ExportHelp : CliCommand
+    public class ExportHelp : CommandBase
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

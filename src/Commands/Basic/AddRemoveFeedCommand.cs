@@ -17,7 +17,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Common base class for <see cref="AddFeed"/> and <see cref="RemoveFeed"/>.
     /// </summary>
-    public abstract class AddRemoveFeedCommand : CliCommand
+    public abstract class AddRemoveFeedCommand : CommandBase
     {
         #region Metadata
         /// <inheritdoc/>
