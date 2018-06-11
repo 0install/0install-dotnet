@@ -77,15 +77,15 @@ API documentation: http://0install.de/api/
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Bundle managed libs in NuGet package -->
+    <!-- Bundle managed libs -->
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net35" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net40" />
     <None Include="..\..\lib\INIFileParser.*" Pack="true" PackagePath="lib/netstandard2.0" />
 
-    <!-- Bundle native libs in NuGet package -->
+    <!-- Bundle native libs -->
     <None Include="ZeroInstall.Store.targets" Pack="true" PackagePath="build" />
-    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" Pack="true" PackagePath="build" />
+    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" Pack="true" PackagePath="build" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <!-- Include XML Serialization assembly in NuGet package -->
