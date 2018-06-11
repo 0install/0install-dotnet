@@ -11,4 +11,8 @@ if (Test-Path "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswher
 }
 . $msBuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=$Version
 
+# Create snapshot of XML Schemas
+if (!(Test-Path ..\build\Schemas)) { mkdir ..\build\Schemas }
+cp *\*.xsd,*\*\*.xsd ..\build\Schemas
+
 popd

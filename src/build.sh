@@ -10,3 +10,7 @@ if hash msbuild 2>/dev/null; then
 else
     dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=DebugLinuxCore -p:Version=${1:-1.0-dev}
 fi
+
+# Create snapshot of XML Schemas
+mkdir -p ../build/Schemas
+cp */*.xsd */*/*.xsd ../build/Schemas

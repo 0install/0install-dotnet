@@ -18,20 +18,19 @@ for:
       - ps: src\test.ps1
 
     artifacts:
-      - path: build\Release\*.nupkg
-        name: NuGet
       - path: build\Documentation
-        name: Documentation
-      - path: src\**\*.xsd
-        name: XML Schema
+        name: apidocs
+      - path: build\Schemas
+        name: xml-schemas
+      - path: build\Release\*.nupkg
 
     deploy:
       - provider: Environment
-        name: github.com
+        name: GitHub Releases
         on:
           appveyor_repo_tag: true
       - provider: Environment
-        name: nuget.org
+        name: NuGet
         on:
           appveyor_repo_tag: true
 
@@ -41,7 +40,6 @@ for:
 
     build_script:
       - sh: src/build.sh
- 
+
     test_script:
       - sh: src/test.sh
-  
