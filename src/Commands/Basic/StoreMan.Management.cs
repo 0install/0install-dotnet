@@ -39,7 +39,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class ListImplementations : StoreSubCommand
+        public class ListImplementations : StoreSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
@@ -80,7 +80,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Audit : StoreSubCommand
+        public class Audit : StoreSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
@@ -104,7 +104,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Optimise : StoreSubCommand
+        public class Optimise : StoreSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
@@ -129,7 +129,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Purge : StoreSubCommand
+        public class Purge : StoreSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass

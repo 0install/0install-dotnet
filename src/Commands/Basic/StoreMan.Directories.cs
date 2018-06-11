@@ -113,7 +113,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class List : StoreSubCommand
+        public class List : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "list";

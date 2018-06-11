@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// Deploys Zero Install to a target directory and integrates it in the system.
         /// </summary>
-        internal class Deploy : MaintenanceSubCommand
+        public class Deploy : MaintenanceSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass

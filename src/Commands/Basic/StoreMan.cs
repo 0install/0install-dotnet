@@ -75,7 +75,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal abstract class StoreSubCommand : SubCommandBase
+        public abstract class StoreSubCommand : SubCommandBase
         {
             protected override string ParentName => StoreMan.Name;
 

@@ -34,6 +34,7 @@
     <ProjectReference Include="..\Store\Store.csproj" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
     <ProjectReference Include="..\Publish\Publish.csproj" />
   </ItemGroup>
 

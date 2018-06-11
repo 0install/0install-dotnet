@@ -51,7 +51,7 @@ namespace ZeroInstall.Commands.Desktop
             }
         }
 
-        internal abstract class MaintenanceSubCommand : SubCommandBase
+        public abstract class MaintenanceSubCommand : SubCommandBase
         {
             protected override string ParentName => MaintenanceMan.Name;
 

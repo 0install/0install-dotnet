@@ -80,6 +80,11 @@ namespace ZeroInstall.Commands
                 // Wrap exception since only certain exception types are allowed
                 throw new UriFormatException(ex.Message);
             }
+            catch (NotSupportedException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new UriFormatException(ex.Message);
+            }
             #endregion
         }
 

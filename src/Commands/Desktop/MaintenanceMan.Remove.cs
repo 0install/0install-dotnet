@@ -20,7 +20,7 @@ namespace ZeroInstall.Commands.Desktop
 {
     partial class MaintenanceMan
     {
-        internal abstract class RemoveSubCommandBase : MaintenanceSubCommand
+        public abstract class RemoveSubCommandBase : MaintenanceSubCommand
         {
             protected RemoveSubCommandBase([NotNull] ICommandHandler handler)
                 : base(handler)
@@ -48,7 +48,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// Removes the current instance of Zero Install from the system.
         /// </summary>
-        internal class Remove : RemoveSubCommandBase
+        public class Remove : RemoveSubCommandBase
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass

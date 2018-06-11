@@ -20,7 +20,7 @@ namespace ZeroInstall.Commands.Basic
     {
         // ReSharper disable MemberHidesStaticFromOuterClass
 
-        internal class Add : StoreSubCommand
+        public class Add : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "add";
@@ -78,7 +78,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Copy : StoreSubCommand
+        public class Copy : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "copy";
@@ -126,7 +126,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Export : StoreSubCommand
+        public class Export : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "export";
@@ -163,7 +163,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Find : StoreSubCommand
+        public class Find : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "find";
@@ -192,7 +192,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Remove : StoreSubCommand
+        public class Remove : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "remove";
@@ -219,7 +219,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        internal class Verify : StoreSubCommand
+        public class Verify : StoreSubCommand
         {
             #region Metadata
             public new const string Name = "verify";
