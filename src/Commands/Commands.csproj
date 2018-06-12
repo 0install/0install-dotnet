@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <AssemblyName>0install</AssemblyName>
@@ -69,7 +69,7 @@ API documentation: http://0install.de/api/
 
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
     <Compile Remove="Desktop\**" />
-    <EmbeddedResource Include="Desktop\Helpers\legacy.manifest" />
+    <EmbeddedResource Include="Desktop\Utils\legacy.manifest" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
@@ -90,7 +90,7 @@ API documentation: http://0install.de/api/
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Basic\Helpers\import.*" />
+    <EmbeddedResource Include="Basic\Utils\import.*" />
   </ItemGroup>
 
 </Project>

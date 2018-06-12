@@ -21,7 +21,7 @@ using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
 #if !NETCOREAPP2_0
-using ZeroInstall.Commands.Desktop.Helpers;
+using ZeroInstall.Commands.Desktop.Utils;
 #endif
 
 namespace ZeroInstall.Commands

@@ -20,7 +20,7 @@ using ZeroInstall.Store.Model;
 #if !NETCOREAPP2_0
 using NanoByte.Common.Net;
 using ZeroInstall.Commands.Desktop;
-using ZeroInstall.Commands.Desktop.Helpers;
+using ZeroInstall.Commands.Desktop.Utils;
 using ZeroInstall.DesktopIntegration;
 #endif
 

@@ -8,7 +8,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
-namespace ZeroInstall.Commands.Desktop.Helpers
+namespace ZeroInstall.Commands.Desktop.Utils
 {
     /// <summary>
     /// Provides utility methods for operating on <see cref="AppList"/>s and <see cref="IIntegrationManager"/>s.

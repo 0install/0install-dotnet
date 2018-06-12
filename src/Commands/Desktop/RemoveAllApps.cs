@@ -3,7 +3,7 @@
 
 using System;
 using JetBrains.Annotations;
-using ZeroInstall.Commands.Desktop.Helpers;
+using ZeroInstall.Commands.Desktop.Utils;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 

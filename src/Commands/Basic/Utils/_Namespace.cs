@@ -2,8 +2,8 @@
 // ReSharper disable EmptyNamespace
 
 /// <summary>
-/// Helper classes for desktop integration CLI commands.
+/// Utilitiy classes for basic CLI commands.
 /// </summary>
 
-namespace ZeroInstall.Commands.Desktop.Helpers
+namespace ZeroInstall.Commands.Basic.Utils
 {}

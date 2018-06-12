@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using JetBrains.Annotations;
-using ZeroInstall.Commands.Basic.Helpers;
+using ZeroInstall.Commands.Basic.Utils;
 
 namespace ZeroInstall.Commands.Basic
 {

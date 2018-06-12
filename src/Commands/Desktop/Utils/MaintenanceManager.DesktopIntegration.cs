@@ -11,7 +11,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.Windows;
 
-namespace ZeroInstall.Commands.Desktop.Helpers
+namespace ZeroInstall.Commands.Desktop.Utils
 {
     partial class MaintenanceManager
     {

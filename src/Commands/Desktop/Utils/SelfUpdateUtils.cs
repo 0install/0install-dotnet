@@ -15,7 +15,7 @@ using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
 
-namespace ZeroInstall.Commands.Desktop.Helpers
+namespace ZeroInstall.Commands.Desktop.Utils
 {
     /// <summary>
     /// Provides functionality for controlling Zero Install's self-update feature.

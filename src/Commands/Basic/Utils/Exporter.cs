@@ -19,7 +19,7 @@ using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.Trust;
 
-namespace ZeroInstall.Commands.Basic.Helpers
+namespace ZeroInstall.Commands.Basic.Utils
 {
     /// <summary>
     /// Exports feeds and implementations listed in a <see cref="Selections"/> document.

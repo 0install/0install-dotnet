@@ -7,7 +7,7 @@ using System.Web;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Basic.Helpers
+namespace ZeroInstall.Commands.Basic.Utils
 {
     /// <summary>
     /// Exports all <see cref="CommandBase"/> help texts as HTML.
