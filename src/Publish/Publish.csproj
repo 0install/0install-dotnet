@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Publish</AssemblyName>
     <RootNamespace>ZeroInstall.Publish</RootNamespace>
-    <LangVersion>7.1</LangVersion>
+    <LangVersion>7.2</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
