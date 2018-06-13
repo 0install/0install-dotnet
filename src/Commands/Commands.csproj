@@ -72,11 +72,10 @@ API documentation: http://0install.de/api/
     <EmbeddedResource Include="Desktop\Utils\legacy.manifest" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <None Include="$(OutputPath)\net20\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net20" />
-    <None Include="$(OutputPath)\net35\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net35" />
-    <None Include="$(OutputPath)\net40\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net40" />
-    <None Include="$(OutputPath)\net45\$(AssemblyName).exe.config" Pack="true" PackagePath="lib/net45" />
+  <ItemGroup>
+    <!-- Bundle native libs -->
+    <None Include="*.targets" Pack="true" PackagePath="build" />
+    <None Include="App.config" Pack="true" PackagePath="build/$(AssemblyName).exe.config" />
   </ItemGroup>
 
   <ItemGroup>

@@ -84,7 +84,7 @@ API documentation: http://0install.de/api/
     <None Include="..\..\lib\INIFileParser.*" Pack="true" PackagePath="lib/netstandard2.0" />
 
     <!-- Bundle native libs -->
-    <None Include="ZeroInstall.Store.targets" Pack="true" PackagePath="build" />
+    <None Include="*.targets" Pack="true" PackagePath="build" />
     <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" Pack="true" PackagePath="build" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
