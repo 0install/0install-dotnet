@@ -35,7 +35,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 {
                     InterfaceUri = new FeedUri("http://repo.roscidus.com/java/jar-launcher"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = MinimumRuntimeVersion
+                    Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
                 }
             }
             : new Command
@@ -47,7 +47,7 @@ namespace ZeroInstall.Publish.EntryPoints
                     InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                     Arguments = {@"-jar"},
-                    Versions = MinimumRuntimeVersion
+                    Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
                 }
             };
     }
