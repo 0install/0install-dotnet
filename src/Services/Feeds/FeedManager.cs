@@ -109,7 +109,7 @@ namespace ZeroInstall.Services.Feeds
                     {
                         // Do not download in offline mode
                         if (_config.NetworkUse == NetworkLevel.Offline)
-                            throw new IOException(string.Format(Resources.FeedNotCachedOffline, feedUri));
+                            throw new WebException(string.Format(Resources.FeedNotCachedOffline, feedUri));
 
                         // Try to download missing feed
                         Download(feedUri);
