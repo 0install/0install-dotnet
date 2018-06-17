@@ -59,21 +59,26 @@ API documentation: http://0install.de/api/
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+    <!-- Duplicated references from ZeroInstall.Store to ensure inclusion in *.deps.json -->
+    <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
+    <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
+
     <Compile Remove="Desktop\**" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
+
     <EmbeddedResource Include="Desktop\Utils\legacy.manifest" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Bundle native libs -->
+    <!-- Bundle .NET Framework app config -->
     <None Include="*.targets" Pack="true" PackagePath="build" />
     <None Include="App.config" Pack="true" PackagePath="build/$(AssemblyName).exe.config" />
   </ItemGroup>

@@ -10,6 +10,7 @@ if (Test-Path "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswher
   $msBuild = "dotnet msbuild"
 }
 . $msBuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=$Version
+. $msBuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=netcoreapp2.0 -p:Version=$Version Commands
 
 # Create snapshot of XML Schemas
 if (!(Test-Path ..\build\Schemas)) { mkdir ..\build\Schemas | Out-Null }
