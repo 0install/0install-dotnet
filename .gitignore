@@ -12,3 +12,4 @@ bin/
 *.userprefs
 *.resources
 *.filtered.resx
+launchSettings.json

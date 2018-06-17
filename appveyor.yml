@@ -18,11 +18,11 @@ for:
       - ps: src\test.ps1
 
     artifacts:
+      - path: build\Release\*.nupkg
       - path: build\Documentation
         name: apidocs
       - path: build\Schemas
         name: xml-schemas
-      - path: build\Release\*.nupkg
 
     deploy:
       - provider: Environment
