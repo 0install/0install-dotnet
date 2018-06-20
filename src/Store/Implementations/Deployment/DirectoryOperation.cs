@@ -84,12 +84,33 @@ namespace ZeroInstall.Store.Implementations.Deployment
 
                 if (WindowsUtils.IsWindowsVista)
                 {
-                    if (_restartManager == null)
-                        _restartManager = new WindowsRestartManager();
+                    try
+                    {
+                        if (_restartManager == null)
+                            _restartManager = new WindowsRestartManager();
 
-                    _restartManager.RegisterResources(fileArray);
-                    if (_restartManager.ListApps(Handler).Length == 0) NoRestart = true;
-                    _restartManager.ShutdownApps(Handler);
+                        _restartManager.RegisterResources(fileArray);
+                        if (_restartManager.ListApps(Handler).Length == 0) NoRestart = true;
+                        _restartManager.ShutdownApps(Handler);
+                    }
+                    #region Error handling
+                    catch (IOException ex)
+                    {
+                        Log.Warn(ex);
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        Log.Warn(ex);
+                    }
+                    catch (TimeoutException ex)
+                    {
+                        Log.Warn(ex);
+                    }
+                    catch (Win32Exception ex)
+                    {
+                        Log.Error(ex);
+                    }
+                    #endregion
                 }
 
                 foreach (string path in fileArray)
@@ -114,9 +135,13 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     {
                         Log.Warn(ex);
                     }
-                    catch (Win32Exception ex)
+                    catch (UnauthorizedAccessException ex)
                     {
                         Log.Warn(ex);
+                    }
+                    catch (Win32Exception ex)
+                    {
+                        Log.Error(ex);
                     }
                     #endregion
                 }

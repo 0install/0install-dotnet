@@ -524,13 +524,21 @@ namespace ZeroInstall.Store.Implementations
                 }
             }
             #region Error handling
-            catch (Win32Exception ex)
+            catch (IOException ex)
             {
-                Log.Error(ex);
+                Log.Warn(ex);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Warn(ex);
             }
             catch (TimeoutException ex)
             {
                 Log.Warn(ex);
+            }
+            catch (Win32Exception ex)
+            {
+                Log.Error(ex);
             }
             #endregion
         }
