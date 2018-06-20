@@ -44,7 +44,10 @@ namespace ZeroInstall.Commands.Desktop
             if (_machineWide && !WindowsUtils.IsAdministrator)
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
-            return (ExitCode)ProcessUtils.Assembly("ZeroInstall").Run();
+            var process = _machineWide
+                ? ProcessUtils.Assembly("ZeroInstall", "--machine")
+                : ProcessUtils.Assembly("ZeroInstall");
+            return (ExitCode)process.Run();
         }
     }
 }
