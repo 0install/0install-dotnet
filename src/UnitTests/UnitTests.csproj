@@ -4,6 +4,7 @@
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
     <LangVersion>7.2</LangVersion>
+    <OutputType>Library</OutputType>
     <IsPackable>False</IsPackable>
     <NoWarn>$(NoWarn);xUnit1013</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
