@@ -50,10 +50,6 @@ API documentation: http://0install.de/api/
     <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.0" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
