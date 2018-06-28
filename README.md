@@ -21,7 +21,7 @@ Directory structure
 - `src` contains source code.
 - `lib` contains pre-compiled 3rd party libraries which are not available via NuGet.
 - `doc` contains a Doxygen project for generation the API documentation.
-- `build` contains the results of various compilation processes. It is created on first usage.
+- `artifacts` contains the results of various compilation processes. It is created on first usage.
 - `samples` contains code snippets in different languages illustrating how to use the Zero Install .NET API.
 
 Building

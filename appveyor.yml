@@ -21,10 +21,10 @@ for:
     artifacts:
       - path: release\*.xml
       - path: release\*.tar.gz
-      - path: build\Release\*.nupkg
-      - path: build\Documentation
+      - path: artifacts\Release\*.nupkg
+      - path: artifacts\Documentation
         name: apidocs
-      - path: build\Schemas
+      - path: artifacts\Schemas
         name: xml-schemas
 
     deploy:

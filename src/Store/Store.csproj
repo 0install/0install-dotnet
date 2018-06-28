@@ -9,7 +9,7 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-    <OutputPath>..\..\build\$(Configuration)\</OutputPath>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -90,9 +90,9 @@ API documentation: http://0install.de/api/
 
   <!-- Include XML Serialization assembly in NuGet package -->
   <ItemGroup>
-    <None Include="..\..\build\$(Configuration)\net20\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net20" />
-    <None Include="..\..\build\$(Configuration)\net35\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net35" />
-    <None Include="..\..\build\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\artifacts\$(Configuration)\net20\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net20" />
+    <None Include="..\..\artifacts\$(Configuration)\net35\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net35" />
+    <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,5 +12,5 @@ else
 fi
 
 # Create snapshot of XML Schemas
-mkdir -p ../build/Schemas
-cp */*.xsd */*/*.xsd ../build/Schemas
+mkdir -p ../artifacts/Schemas
+cp */*.xsd */*/*.xsd ../artifacts/Schemas
