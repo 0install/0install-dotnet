@@ -10,6 +10,8 @@
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <OutputType>Library</OutputType>
+    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -20,7 +22,6 @@
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <TargetFrameworks>net40;net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
@@ -50,13 +51,11 @@ API documentation: http://0install.de/api/
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
+  <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
-    <!--<PackageReference Include="ELFSharp" Version="1.0.4" />-->
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <!--<PackageReference Include="CoreCompat.ELFSharp" Version="1.0.5" />-->
     <Compile Remove="Capture\**" />
   </ItemGroup>
 

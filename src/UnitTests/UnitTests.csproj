@@ -23,6 +23,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Store\Store.csproj" />
+    <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+    <ProjectReference Include="..\Publish\Publish.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.4.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
     <PackageReference Include="Moq" Version="4.8.3" />
@@ -31,18 +39,10 @@
     <PackageReference Include="Xunit.SkippableFact" Version="1.3.6" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Store\Store.csproj" />
-    <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" />
-    <ProjectReference Include="..\Services\Services.csproj" />
-    <ProjectReference Include="..\Commands\Commands.csproj" />
-    <ProjectReference Include="..\Publish\Publish.csproj" />
-  </ItemGroup>
-
+  <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
     <Compile Remove="DesktopIntegration\**" />
     <Compile Remove="Publish\Capture\**" />

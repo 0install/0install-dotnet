@@ -10,6 +10,8 @@
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <OutputType>Library</OutputType>
+    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -20,7 +22,6 @@
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <IncludeSource>True</IncludeSource>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
     <TargetFrameworks>net45</TargetFrameworks>
