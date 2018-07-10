@@ -202,8 +202,8 @@ namespace ZeroInstall.Store.Model
             }
             foreach (var language in Languages)
                 args.AddRange(new[] {"--language", language.ToString()});
-            foreach (var pair in ExtraRestrictions)
-                args.AddRange(new[] {"--version-for", pair.Key.ToStringRfc(), pair.Value.ToString()});
+            foreach (var (uri, range) in ExtraRestrictions)
+                args.AddRange(new[] {"--version-for", uri.ToStringRfc(), range.ToString()});
             args.Add(InterfaceUri.ToStringRfc());
 
             return args.ToArray();

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Properties;
@@ -211,12 +212,12 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         private void CreatePendingHardlinks()
         {
-            foreach (var pair in _pendingHardlinks.ToList()) // NOTE: Must clone list because it may be modified during enumeration
+            foreach ((string source, string target) in _pendingHardlinks.ToList()) // NOTE: Must clone list because it may be modified during enumeration
             {
-                string sourceAbsolute = GetFullPath(pair.Key);
+                string sourceAbsolute = GetFullPath(source);
                 string sourceDirectory = Path.GetDirectoryName(sourceAbsolute);
                 if (sourceDirectory != null && !Directory.Exists(sourceDirectory)) Directory.CreateDirectory(sourceDirectory);
-                string targetAbsolute = GetFullPath(pair.Value);
+                string targetAbsolute = GetFullPath(target);
 
                 try
                 {
@@ -257,8 +258,8 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         private void SetPendingLastWriteTimes()
         {
-            foreach (var pair in _pendingFileWriteTimes)
-                File.SetLastWriteTimeUtc(GetFullPath(pair.Key), DateTime.SpecifyKind(pair.Value, DateTimeKind.Utc));
+            foreach ((string path, var timestamp) in _pendingFileWriteTimes)
+                File.SetLastWriteTimeUtc(GetFullPath(path), DateTime.SpecifyKind(timestamp, DateTimeKind.Utc));
             _pendingFileWriteTimes.Clear();
 
             // Run through list backwards to ensure directories are handled "from the inside out"

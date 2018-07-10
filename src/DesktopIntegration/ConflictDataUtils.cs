@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using NanoByte.Common.Collections;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration
@@ -32,10 +33,9 @@ namespace ZeroInstall.DesktopIntegration
             var newConflictData = accessPoints.GetConflictData(appEntry);
             var existingConflictData = appList.Entries.GetConflictData();
 
-            foreach (var pair in newConflictData)
+            foreach ((string conflictId, var newEntry) in newConflictData)
             {
-                var newEntry = pair.Value;
-                if (existingConflictData.TryGetValue(pair.Key, out var existingEntry))
+                if (existingConflictData.TryGetValue(conflictId, out var existingEntry))
                 {
                     // Ignore conflicts that are actually just re-applications of existing access points
                     if (existingEntry != newEntry) throw ConflictException.NewConflict(existingEntry, newEntry);

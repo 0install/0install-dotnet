@@ -43,11 +43,11 @@ namespace ZeroInstall.Store.Implementations.Deployment
             if (File.Exists(manifestPath))
                 filesToDelete.Add(manifestPath);
 
-            foreach (var pair in ElementPaths)
+            foreach ((string relativePath, var node) in ElementPaths)
             {
-                string elementPath = System.IO.Path.Combine(Path, pair.Key);
+                string elementPath = System.IO.Path.Combine(Path, relativePath);
 
-                if (pair.Value is ManifestDirectory)
+                if (node is ManifestDirectory)
                 {
                     if (Directory.Exists(elementPath))
                         _pendingDirectoryDeletes.Push(elementPath);
