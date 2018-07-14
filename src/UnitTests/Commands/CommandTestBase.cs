@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using JetBrains.Annotations;
@@ -72,9 +71,7 @@ namespace ZeroInstall.Commands
             Sut.Executor = BuildMock<IExecutor>();
             Sut.SelectionsManager = BuildMock<ISelectionsManager>();
 
-#if !NETCOREAPP2_0
-            SelfUpdateUtils.NoAutoCheck = true;
-#endif
+            ZeroInstallInstance.DisableBackgroundUpdate();
         }
 
         /// <summary>

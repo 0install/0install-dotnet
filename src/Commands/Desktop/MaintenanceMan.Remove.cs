@@ -69,7 +69,7 @@ namespace ZeroInstall.Commands.Desktop
 
             public override ExitCode Execute()
             {
-                if (ProgramUtils.IsRunningFromCache)
+                if (ZeroInstallInstance.IsRunningFromCache)
                 {
                     Log.Error("This instance of Zero Install is running from a cache. There is nothing to uninstall.");
                     return ExitCode.NoChanges;

@@ -74,8 +74,8 @@ namespace ZeroInstall.Commands.Desktop
                 throw new OperationCanceledException();
             }
 
-            if (ProgramUtils.IsRunningFromCache) throw new UnsuitableInstallBaseException(Resources.NoIntegrationFromCache, MachineWide);
-            if (MachineWide && ProgramUtils.IsRunningFromPerUserDir) throw new UnsuitableInstallBaseException(Resources.NoMachineWideIntegrationFromPerUser, MachineWide);
+            if (ZeroInstallInstance.IsRunningFromCache) throw new UnsuitableInstallBaseException(Resources.NoIntegrationFromCache, MachineWide);
+            if (MachineWide && ZeroInstallInstance.IsRunningFromPerUserDir) throw new UnsuitableInstallBaseException(Resources.NoMachineWideIntegrationFromPerUser, MachineWide);
         }
 
         /// <summary>

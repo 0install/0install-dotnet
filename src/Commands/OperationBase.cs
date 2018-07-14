@@ -18,7 +18,6 @@ using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
 #if !NETCOREAPP2_0
-using NanoByte.Common.Net;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Desktop.Utils;
 using ZeroInstall.DesktopIntegration;
@@ -151,19 +150,17 @@ namespace ZeroInstall.Commands
         protected void SelfUpdateCheck()
         {
 #if !NETCOREAPP2_0
-            if (SelfUpdateUtils.NoAutoCheck ||
-                ProgramUtils.IsRunningFromCache ||
-                !NetUtils.IsInternetConnected ||
-                Config.NetworkUse != NetworkLevel.Full ||
-                Handler.Verbosity == Verbosity.Batch ||
-                !FeedManager.IsStale(Config.SelfUpdateUri))
-                return;
+            if (ZeroInstallInstance.IsBackgroundUpdateAllowed
+             && Config.NetworkUse == NetworkLevel.Full
+             && Handler.Verbosity != Verbosity.Batch
+             && FeedManager.IsStale(Config.SelfUpdateUri))
+            {
+                // Prevent multiple concurrent updates
+                if (FeedManager.RateLimit(Config.SelfUpdateUri)) return;
 
-            // Prevent multiple concurrent updates
-            if (FeedManager.RateLimit(Config.SelfUpdateUri)) return;
-
-            Log.Info("Starting periodic background self-update check");
-            StartCommandBackground(SelfUpdate.Name);
+                Log.Info("Starting periodic background self-update check");
+                StartCommandBackground(SelfUpdate.Name);
+            }
 #endif
         }
 

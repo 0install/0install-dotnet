@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Info;
 using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
@@ -74,7 +73,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            if (ProgramUtils.IsRunningFromCache) throw new NotSupportedException(Resources.SelfUpdateBlocked);
+            if (ZeroInstallInstance.IsRunningFromCache) throw new NotSupportedException(Resources.SelfUpdateBlocked);
 
             try
             {
@@ -109,6 +108,6 @@ namespace ZeroInstall.Commands.Desktop
             else return ExitCode.OK;
         }
 
-        private bool UpdateFound() => _force || (Selections.MainImplementation.Version > new ImplementationVersion(AppInfo.CurrentLibrary.Version));
+        private bool UpdateFound() => _force || (Selections.MainImplementation.Version > ZeroInstallInstance.Version);
     }
 }

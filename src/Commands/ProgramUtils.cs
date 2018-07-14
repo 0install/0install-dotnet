@@ -32,16 +32,6 @@ namespace ZeroInstall.Commands
     public static class ProgramUtils
     {
         /// <summary>
-        /// Indicates whether the application is running from an implementation cache.
-        /// </summary>
-        public static bool IsRunningFromCache => StoreUtils.DetectImplementationPath(Locations.InstallBase) != null;
-
-        /// <summary>
-        /// Indicates whether the application is running from a user-specific location.
-        /// </summary>
-        public static bool IsRunningFromPerUserDir => Locations.InstallBase.StartsWith(Locations.HomeDir);
-
-        /// <summary>
         /// The current UI language; <c>null</c> to use system default.
         /// </summary>
         /// <remarks>This value is only used on Windows and is stored in the Registry. For non-Windows platforms use the <c>LC_*</c> environment variables instead.</remarks>
@@ -340,30 +330,12 @@ namespace ZeroInstall.Commands
         /// <exception cref="NotAdminException">The target process requires elevation.</exception>
         private static ExitCode? TryRunOtherInstance([NotNull] string exeName, [NotNull] string[] args, [NotNull] ICommandHandler handler, bool needsMachineWide)
         {
-            string installLocation = FindOtherInstance(needsMachineWide);
+            string installLocation = ZeroInstallInstance.FindOther(needsMachineWide);
             if (installLocation == null) return null;
 
             Log.Warn("Redirecting to instance at " + installLocation);
             handler.DisableUI();
             return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
-        }
-
-        /// <summary>
-        /// Tries to find another instance of Zero Install deployed on this system.
-        /// </summary>
-        /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
-        /// <returns>The installation directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
-        [CanBeNull]
-        public static string FindOtherInstance(bool needsMachineWide = true)
-        {
-            if (!WindowsUtils.IsWindows) return null;
-
-            string installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation");
-            if (string.IsNullOrEmpty(installLocation)) return null;
-            if (installLocation == Locations.InstallBase) return null;
-            if (needsMachineWide && installLocation.StartsWith(Locations.HomeDir)) return null;
-            if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
-            return installLocation;
         }
     }
 }
