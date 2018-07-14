@@ -81,7 +81,7 @@ API documentation: http://0install.de/api/
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
-    <EmbeddedResource Include="Desktop\Utils\legacy.manifest" />
+    <EmbeddedResource Include="Desktop\Maintenance\legacy.manifest" />
   </ItemGroup>
 
   <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->

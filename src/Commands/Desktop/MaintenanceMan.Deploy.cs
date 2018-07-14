@@ -9,7 +9,7 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NDesk.Options;
-using ZeroInstall.Commands.Desktop.Utils;
+using ZeroInstall.Commands.Desktop.Maintenance;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Desktop

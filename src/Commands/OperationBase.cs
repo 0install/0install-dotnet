@@ -19,7 +19,6 @@ using ZeroInstall.Store.Model;
 
 #if !NETCOREAPP2_0
 using ZeroInstall.Commands.Desktop;
-using ZeroInstall.Commands.Desktop.Utils;
 using ZeroInstall.DesktopIntegration;
 #endif
 

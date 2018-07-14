@@ -19,10 +19,6 @@ using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
-#if !NETCOREAPP2_0
-using ZeroInstall.Commands.Desktop.Utils;
-#endif
-
 namespace ZeroInstall.Commands
 {
     /// <summary>
