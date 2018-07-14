@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using JetBrains.Annotations;
-using ZeroInstall.Commands.Desktop.Utils;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;

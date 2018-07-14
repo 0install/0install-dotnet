@@ -3,15 +3,14 @@
 
 using System;
 using JetBrains.Annotations;
-using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Store;
 
-namespace ZeroInstall.Commands.Desktop.Utils
+namespace ZeroInstall.DesktopIntegration
 {
     /// <summary>
-    /// Helper methods for creating instances of <see cref="SyncIntegrationManager"/>.
+    /// Provides extension methods for <see cref="SyncServer"/>.
     /// </summary>
-    public static class SyncUtils
+    public static class SyncServerExtensions
     {
         /// <summary>
         /// Reads the relevant information from a <see cref="Config"/> in order to construct a <see cref="SyncServer"/> struct.
