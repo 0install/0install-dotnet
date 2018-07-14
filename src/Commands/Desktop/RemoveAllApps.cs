@@ -2,8 +2,10 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.IO;
+using System.Linq;
 using JetBrains.Annotations;
-using ZeroInstall.Commands.Desktop.Utils;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
@@ -40,7 +42,15 @@ namespace ZeroInstall.Commands.Desktop
         public override ExitCode Execute()
         {
             if (Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
-                AppUtils.RemoveAllApps(Handler, MachineWide);
+            {
+                using (var integrationManager = new IntegrationManager(Handler, MachineWide))
+                {
+                    Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
+
+                    // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
+                    File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
+                }
+            }
             else throw new OperationCanceledException();
 
             return ExitCode.OK;

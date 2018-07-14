@@ -29,7 +29,7 @@ namespace ZeroInstall.Commands.Desktop
         protected bool NoDownload;
 
         /// <summary>Apply the operation machine-wide instead of just for the current user.</summary>
-        protected bool MachineWide { get; private set; }
+        internal bool MachineWide { get; set; }
 
         /// <inheritdoc/>
         protected IntegrationCommand([NotNull] ICommandHandler handler)

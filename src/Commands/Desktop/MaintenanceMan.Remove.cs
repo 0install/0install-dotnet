@@ -83,11 +83,7 @@ namespace ZeroInstall.Commands.Desktop
 
                 if (ExistingDesktopIntegration(MachineWide) || ExistingDesktopIntegration(machineWide: false))
                 {
-                    if (Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
-                    {
-                        AppUtils.RemoveAllApps(Handler, MachineWide);
-                        if (MachineWide) AppUtils.RemoveAllApps(Handler, machineWide: false);
-                    }
+                    new RemoveAllApps(Handler) {MachineWide = MachineWide}.Execute();
                 }
 
                 if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: false))
