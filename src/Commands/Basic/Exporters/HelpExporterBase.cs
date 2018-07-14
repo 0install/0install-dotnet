@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using NanoByte.Common;
 using NDesk.Options;
 
-namespace ZeroInstall.Commands.Basic.Utils
+namespace ZeroInstall.Commands.Basic.Exporters
 {
     /// <summary>
     /// Common base class for exporting all <see cref="CommandBase"/> help texts in a structured text format.

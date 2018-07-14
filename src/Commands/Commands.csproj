@@ -101,7 +101,7 @@ API documentation: http://0install.de/api/
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Basic\Utils\import.*" />
+    <EmbeddedResource Include="Basic\Exporters\import.*" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
-using ZeroInstall.Commands.Basic.Utils;
+using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services;
 using ZeroInstall.Store;

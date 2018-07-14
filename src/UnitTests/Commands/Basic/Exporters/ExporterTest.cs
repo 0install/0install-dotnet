@@ -12,7 +12,7 @@ using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
 
-namespace ZeroInstall.Commands.Basic.Utils
+namespace ZeroInstall.Commands.Basic.Exporters
 {
     public class ExporterTest : TestWithMocks
     {
