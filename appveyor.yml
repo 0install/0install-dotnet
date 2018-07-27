@@ -25,7 +25,7 @@ for:
       - path: artifacts\Documentation
         name: apidocs
       - path: artifacts\Schemas
-        name: xml-schemas
+        name: schemas
 
     deploy:
       - provider: Environment
