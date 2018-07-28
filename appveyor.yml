@@ -13,7 +13,7 @@ for:
     build_script:
       - ps: src\build.ps1 $env:GitVersion_NuGetVersion
       - ps: doc\build.ps1
-      - ps: release\build.ps1 $env:GitVersion_NuGetVersion -GitHubRelease:$($env:APPVEYOR_REPO_TAG -eq "true")
+      - ps: release\build.ps1 $env:GitVersion_NuGetVersion
 
     test_script:
       - ps: src\test.ps1
