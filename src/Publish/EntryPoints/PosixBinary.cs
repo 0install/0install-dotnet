@@ -4,12 +4,9 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using ELFSharp.ELF;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.Model;
-
-#if ELFSHARP
-using ELFSharp.ELF;
-#endif
 
 namespace ZeroInstall.Publish.EntryPoints
 {
@@ -27,7 +24,6 @@ namespace ZeroInstall.Publish.EntryPoints
             Name = file.Name;
             Architecture = new Architecture(OS.Linux, Cpu.All);
 
-#if ELFSHARP
             IELF elfData = null;
             try
             {
@@ -44,7 +40,6 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 elfData?.Dispose();
             }
-#endif
 
             return true;
         }
@@ -67,7 +62,6 @@ namespace ZeroInstall.Publish.EntryPoints
             return true;
         }
 
-#if ELFSHARP
         private static Cpu GetCpu(IELF elfData)
         {
             switch (elfData.Machine)
@@ -86,7 +80,6 @@ namespace ZeroInstall.Publish.EntryPoints
                     return Cpu.Unknown;
             }
         }
-#endif
 
         /// <summary>
         /// The specific POSIX-style operating system the binary is compiled for.

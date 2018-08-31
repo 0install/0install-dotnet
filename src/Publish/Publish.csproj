@@ -52,6 +52,10 @@ API documentation: http://0install.de/api/
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ELFSharp" Version="2.1.0" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63102-01" PrivateAssets="All" />
   </ItemGroup>

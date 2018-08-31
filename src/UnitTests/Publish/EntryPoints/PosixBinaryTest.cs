@@ -12,7 +12,6 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public class PosixBinaryTest : CandidateTest
     {
-#if ELFSHARP
         public static readonly PosixBinary Reference32 = new PosixBinary {RelativePath = "elf32", Name = "elf32", Architecture = new Architecture(OS.Linux, Cpu.I386)};
         public static readonly PosixBinary Reference64 = new PosixBinary {RelativePath = "elf64", Name = "elf64", Architecture = new Architecture(OS.Linux, Cpu.X64)};
 
@@ -21,12 +20,6 @@ namespace ZeroInstall.Publish.EntryPoints
 
         [Fact]
         public void Elf64() => TestAnalyze(Reference64, executable: true);
-#else
-        public static readonly PosixBinary Reference32 = new PosixBinary {RelativePath = "elf32", Name = "elf32", Architecture = new Architecture(OS.Linux, Cpu.All)};
-
-        [Fact]
-        public void Elf() => TestAnalyze(Reference32, executable: true);
-#endif
 
         [Fact]
         public void NotExecutable()
