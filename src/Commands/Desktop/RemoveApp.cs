@@ -1,13 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
-using ZeroInstall.Store;
 
 namespace ZeroInstall.Commands.Desktop
 {
@@ -39,16 +37,11 @@ namespace ZeroInstall.Commands.Desktop
         {}
 
         /// <inheritdoc/>
-        protected override ExitCode ExecuteHelper(ICategoryIntegrationManager integrationManager, FeedUri interfaceUri)
+        protected override ExitCode ExecuteHelper()
         {
-            #region Sanity checks
-            if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
-            if (integrationManager == null) throw new ArgumentNullException(nameof(integrationManager));
-            #endregion
-
             try
             {
-                integrationManager.RemoveApp(integrationManager.AppList[interfaceUri]);
+                IntegrationManager.RemoveApp(IntegrationManager.AppList[InterfaceUri]);
             }
             #region Sanity checks
             catch (KeyNotFoundException ex)

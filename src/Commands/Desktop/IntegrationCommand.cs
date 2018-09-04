@@ -154,7 +154,7 @@ namespace ZeroInstall.Commands.Desktop
         }
 
         /// <summary>
-        /// Pre-download application in a background proccess for later use.
+        /// Pre-download application in a background process for later use.
         /// </summary>
         private void BackgroundDownload([NotNull] FeedUri interfaceUri)
         {

@@ -49,20 +49,20 @@ namespace ZeroInstall.Commands
 
             try
             {
-#if !NETCOREAPP2_0
-                if (uri.StartsWith("alias:")) return ResolveAlias(uri.Substring("alias:".Length));
-                else
-#endif
                 if (uri.StartsWith("file://")) return new FeedUri(uri);
-                else if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
-                else if (uri.StartsWith("file:")) return new FeedUri(Path.GetFullPath(uri.Substring("file:".Length)));
-                else if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new FeedUri(uri);
+                if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
+                if (uri.StartsWith("file:")) return new FeedUri(Path.GetFullPath(uri.Substring("file:".Length)));
+                if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new FeedUri(uri);
+
+                var result = TryResolveAlias(uri);
+                if (result != null) return result;
+
                 if (Path.IsPathRooted(uri)) return new FeedUri(uri);
 
                 string path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
                 if (File.Exists(path)) return new FeedUri(path);
 
-                var result = TryResolveCatalog(uri);
+                result = TryResolveCatalog(uri);
                 if (result != null) return result;
 
                 return new FeedUri(path);
@@ -86,17 +86,27 @@ namespace ZeroInstall.Commands
             #endregion
         }
 
-#if !NETCOREAPP2_0
-        [NotNull]
-        private static FeedUri ResolveAlias(string aliasName)
+        [CanBeNull]
+        private static FeedUri TryResolveAlias(string uri)
         {
+#if NETCOREAPP2_0
+            return null;
+#else
             var appList = AppList.LoadSafe();
 
-            AddAlias.GetAppAlias(appList, aliasName, out var appEntry);
-            if (appEntry?.InterfaceUri == null) throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
-            return appEntry.InterfaceUri;
-        }
+            const string aliasPrefix = "alias:";
+            if (uri.StartsWith(aliasPrefix))
+            {
+                string aliasName = uri.Substring(aliasPrefix.Length);
+                var result = appList.TryResolveAlias(aliasName, out _);
+
+                if (result == null)
+                    throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
+                return result;
+            }
+            else return null;
 #endif
+        }
 
         [CanBeNull]
         private FeedUri TryResolveCatalog(string shortName)

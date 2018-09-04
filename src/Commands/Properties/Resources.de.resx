@@ -741,7 +741,7 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <value>Möchten Sie die Liste auf ihren ursprünglichen Zustand zurücksetzen?</value>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>'{0}' nach '{1}', unter der verwendung eines Katalogs, aufgelöst</value>
+    <value>'{0}' nach '{1}' mit einem Katalog aufgelöst.</value>
   </data>
   <data name="RunNgen" xml:space="preserve">
     <value>.NET Assemblies zum schnelleren Anwendugsstart vorkompilieren</value>

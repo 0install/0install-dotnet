@@ -8,7 +8,6 @@ using NanoByte.Common.Native;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop
@@ -47,18 +46,13 @@ namespace ZeroInstall.Commands.Desktop
         public static readonly int AddedNonCatalogAppWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.AddedNonCatalogApp");
 
         /// <inheritdoc/>
-        protected override ExitCode ExecuteHelper(ICategoryIntegrationManager integrationManager, FeedUri interfaceUri)
+        protected override ExitCode ExecuteHelper()
         {
-            #region Sanity checks
-            if (integrationManager == null) throw new ArgumentNullException(nameof(integrationManager));
-            if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
-            #endregion
-
             try
             {
-                var entry = CreateAppEntry(integrationManager, ref interfaceUri);
+                var appEntry = CreateAppEntry(IntegrationManager, ref InterfaceUri);
 
-                if (!CatalogManager.GetCachedSafe().ContainsFeed(entry.InterfaceUri))
+                if (!CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                     WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes
 
                 return ExitCode.OK;

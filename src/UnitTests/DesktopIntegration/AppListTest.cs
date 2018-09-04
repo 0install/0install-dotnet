@@ -6,6 +6,7 @@ using FluentAssertions;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
+using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration
@@ -142,6 +143,46 @@ namespace ZeroInstall.DesktopIntegration
             appList2.Should().Be(appList, because: "Cloned objects should be equal.");
             appList2.GetHashCode().Should().Be(appList.GetHashCode(), because: "Cloned objects' hashes should be equal.");
             appList2.Should().NotBeSameAs(appList, because: "Cloning should not return the same reference.");
+        }
+
+        [Fact]
+        public void TestGetAppAlias()
+        {
+            var appAlias = new AppAlias {Name = "foobar"};
+            var appEntry = new AppEntry {AccessPoints = new AccessPointList {Entries = {appAlias}}};
+            var appList = new AppList {Entries = {appEntry}};
+
+            appList.GetAppAlias("foobar", out var foundAppEntry)
+                   .Should().Be(appAlias);
+            foundAppEntry.Should().Be(appEntry);
+
+            appList.GetAppAlias("other", out _).Should().BeNull();
+        }
+
+        [Fact]
+        public void TestResolveAppAlias()
+        {
+            FeedUri uri = new FeedUri("http://0install.de/feeds/test1.xml");
+            var appList = new AppList
+            {
+                Entries =
+                {
+                    new AppEntry
+                    {
+                        AccessPoints = new AccessPointList {Entries =
+                        {
+                            new AppAlias {Name = "foobar", Command = Command.NameTest}
+                        }},
+                        InterfaceUri = uri
+                    }
+                }
+            };
+
+            appList.TryResolveAlias("foobar", out string command).Should().Be(uri);
+            command.Should().Be(Command.NameTest);
+
+            appList.TryResolveAlias("other", out command).Should().BeNull();
+            command.Should().BeNull();
         }
     }
 }

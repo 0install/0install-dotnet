@@ -12,6 +12,7 @@ using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
+using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -130,6 +131,57 @@ namespace ZeroInstall.DesktopIntegration
                     else if (entry.Name.Replace(' ', '-').ContainsIgnoreCase(query)) yield return entry;
                 }
             }
+        }
+
+        /// <summary>
+        /// Retrieves a specific <see cref="AppAlias"/>.
+        /// </summary>
+        /// <param name="aliasName">The name of the alias to search for.</param>
+        /// <param name="foundAppEntry">Returns the <see cref="AppEntry"/> containing the found <see cref="AppAlias"/>; <c>null</c> if none was found.</param>
+        /// <returns>The first <see cref="AppAlias"/> matching <paramref name="aliasName"/>; <c>null</c> if none was found.</returns>
+        [ContractAnnotation("=>null,foundAppEntry:null; =>notnull,foundAppEntry:notnull")]
+        public AppAlias GetAppAlias([NotNull] string aliasName, out AppEntry foundAppEntry)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
+            #endregion
+
+            var results =
+                from entry in Entries
+                where entry.AccessPoints != null
+                from alias in entry.AccessPoints.Entries.OfType<AppAlias>()
+                where alias.Name == aliasName
+                select new {entry, alias};
+
+            var result = results.FirstOrDefault();
+            if (result == null)
+            {
+                foundAppEntry = null;
+                return null;
+            }
+            else
+            {
+                foundAppEntry = result.entry;
+                return result.alias;
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the target URI of a specific <see cref="AppAlias"/>.
+        /// </summary>
+        /// <param name="aliasName">The name of the alias to search for.</param>
+        /// <param name="command">The name of the command within the target feed the alias points to; <c>null</c> for default.</param>
+        /// <returns>The target feed of the alias; <c>null</c> if none was found.</returns>
+        [CanBeNull]
+        public FeedUri TryResolveAlias([NotNull] string aliasName, [CanBeNull] out string command)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
+            #endregion
+
+            var alias = GetAppAlias(aliasName, out var appEntry);
+            command = alias?.Command;
+            return appEntry?.InterfaceUri;
         }
 
         #region Storage

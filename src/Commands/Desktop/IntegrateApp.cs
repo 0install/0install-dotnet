@@ -14,7 +14,6 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop
 {
@@ -72,93 +71,70 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        protected override ExitCode ExecuteHelper(ICategoryIntegrationManager integrationManager, FeedUri interfaceUri)
+        protected override ExitCode ExecuteHelper()
         {
-            #region Sanity checks
-            if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
-            if (integrationManager == null) throw new ArgumentNullException(nameof(integrationManager));
-            #endregion
-
-            if (RemoveOnly())
+            if (RemoveOnly)
             {
-                RemoveOnly(integrationManager, interfaceUri);
+                IntegrationManager.RemoveAccessPointCategories(IntegrationManager.AppList[InterfaceUri], _removeCategories.ToArray());
                 return ExitCode.OK;
             }
-
-            CheckInstallBase();
-
-            var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
-            var feed = FeedManager[interfaceUri];
-
-            if (NoSpecifiedIntegrations())
+            else
             {
-                var state = new IntegrationState(integrationManager, appEntry, feed);
-                Retry:
-                Handler.ShowIntegrateApp(state);
-                try
-                {
-                    state.ApplyChanges();
-                }
-                #region Error handling
-                catch (ConflictException ex)
-                {
-                    if (Handler.Ask(
-                        Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
-                        defaultAnswer: false, alternateMessage: ex.Message))
-                        goto Retry;
-                }
-                catch (InvalidDataException ex)
-                {
-                    if (Handler.Ask(
-                        Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
-                        defaultAnswer: false, alternateMessage: ex.Message))
-                        goto Retry;
-                }
-                #endregion
+                CheckInstallBase();
 
-                return ExitCode.OK;
+                var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
+                var feed = FeedManager[InterfaceUri];
+
+                if (NoSpecifiedIntegrations)
+                {
+                    var state = new IntegrationState(IntegrationManager, appEntry, feed);
+                    Retry:
+                    Handler.ShowIntegrateApp(state);
+                    try
+                    {
+                        state.ApplyChanges();
+                    }
+                    #region Error handling
+                    catch (ConflictException ex)
+                    {
+                        if (Handler.Ask(
+                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
+                            defaultAnswer: false, alternateMessage: ex.Message))
+                            goto Retry;
+                    }
+                    catch (InvalidDataException ex)
+                    {
+                        if (Handler.Ask(
+                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
+                            defaultAnswer: false, alternateMessage: ex.Message))
+                            goto Retry;
+                    }
+                    #endregion
+
+                    return ExitCode.OK;
+                }
+                else
+                {
+                    if (_removeCategories.Any())
+                        IntegrationManager.RemoveAccessPointCategories(appEntry, _removeCategories.ToArray());
+                    if (_addCategories.Any())
+                        IntegrationManager.AddAccessPointCategories(appEntry, feed, _addCategories.ToArray());
+                    return ExitCode.OK;
+                }
             }
-
-            RemoveAndAdd(integrationManager, feed, appEntry);
-            return ExitCode.OK;
         }
 
-        #region Helpers
         /// <summary>
         /// Determines whether the user specified only removals. This means we do not need to fetch any feeds.
         /// </summary>
-        private bool RemoveOnly()
-            => !_addCategories.Any() && _removeCategories.Any();
-
-        /// <summary>
-        /// Applies the <see cref="_removeCategories"/> specified by the user.
-        /// </summary>
-        private void RemoveOnly(ICategoryIntegrationManager integrationManager, FeedUri interfaceUri)
-            => integrationManager.RemoveAccessPointCategories(integrationManager.AppList[interfaceUri], _removeCategories.ToArray());
+        private bool RemoveOnly => !_addCategories.Any() && _removeCategories.Any();
 
         /// <summary>
         /// Determines whether the user specified no integration changes. This means we need a GUI to ask what to do.
         /// </summary>
-        private bool NoSpecifiedIntegrations()
-            => !_addCategories.Any() && !_removeCategories.Any();
+        private bool NoSpecifiedIntegrations => !_addCategories.Any() && !_removeCategories.Any();
 
-        /// <summary>
-        /// Applies the <see cref="_removeCategories"/> and <see cref="_addCategories"/> specified by the user.
-        /// </summary>
-        private void RemoveAndAdd(ICategoryIntegrationManager integrationManager, Feed feed, AppEntry appEntry)
-        {
-            if (_removeCategories.Any())
-                integrationManager.RemoveAccessPointCategories(appEntry, _removeCategories.ToArray());
-
-            if (_addCategories.Any())
-                integrationManager.AddAccessPointCategories(appEntry, feed, _addCategories.ToArray());
-        }
-
-        /// <summary>
-        /// Finds an existing <see cref="AppEntry"/> or creates a new one for a specific interface URI and feed.
-        /// </summary>
-        /// <param name="integrationManager">Manages desktop integration operations.</param>
-        /// <param name="interfaceUri">The interface URI to create an <see cref="AppEntry"/> for. Will be updated if <see cref="Feed.ReplacedBy"/> is set and accepted by the user.</param>
+        /// <inheritdoc />
         protected override AppEntry GetAppEntry(IIntegrationManager integrationManager, ref FeedUri interfaceUri)
         {
             #region Sanity checks
@@ -181,6 +157,5 @@ namespace ZeroInstall.Commands.Desktop
 
             return appEntry;
         }
-        #endregion
     }
 }
