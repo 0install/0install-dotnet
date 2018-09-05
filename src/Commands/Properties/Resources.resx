@@ -740,6 +740,9 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
   <data name="ResetList" xml:space="preserve">
     <value>Do you want to reset the list to its original state?</value>
   </data>
+  <data name="ResolvedUsingAlias" xml:space="preserve">
+    <value>Resolved '{0}' to '{1}' using an alias.</value>
+  </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>Resolved '{0}' to '{1}' using a catalog.</value>
   </data>

@@ -28,7 +28,7 @@ namespace ZeroInstall.Commands.Desktop
         public override string Description => Resources.DescriptionRemoveApp;
 
         /// <inheritdoc/>
-        public override string Usage => "[OPTIONS] (PET-NAME|INTERFACE)";
+        public override string Usage => "[OPTIONS] (ALIAS|INTERFACE)";
         #endregion
 
         /// <inheritdoc/>

@@ -28,7 +28,10 @@ namespace ZeroInstall.Commands.Desktop
         public override string Description => Resources.DescriptionAddApp;
 
         /// <inheritdoc/>
-        public override string Usage => "[OPTIONS] INTERFACE";
+        public override string Usage => "[OPTIONS] [ALIAS] INTERFACE";
+
+        /// <inheritdoc/>
+        protected override int AdditionalArgsMax => 2;
         #endregion
 
         #region State
@@ -51,6 +54,9 @@ namespace ZeroInstall.Commands.Desktop
             try
             {
                 var appEntry = CreateAppEntry(IntegrationManager, ref InterfaceUri);
+
+                if (AdditionalArgs.Count == 2)
+                    CreateAlias(appEntry, AdditionalArgs[1]);
 
                 if (!CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                     WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes

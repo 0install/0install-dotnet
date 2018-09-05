@@ -104,7 +104,15 @@ namespace ZeroInstall.Commands
                     throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
                 return result;
             }
-            else return null;
+            else
+            {
+                string aliasName = uri;
+                var result = appList.TryResolveAlias(aliasName, out _);
+
+                if (result != null)
+                    Log.Info(string.Format(Resources.ResolvedUsingAlias, aliasName, result));
+                return result;
+            }
 #endif
         }
 

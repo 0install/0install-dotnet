@@ -740,6 +740,9 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
   <data name="ResetList" xml:space="preserve">
     <value>Möchten Sie die Liste auf ihren ursprünglichen Zustand zurücksetzen?</value>
   </data>
+  <data name="ResolvedUsingAlias" xml:space="preserve">
+    <value>'{0}' nach '{1}' mit einem Alias aufgelöst.</value>
+  </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>'{0}' nach '{1}' mit einem Katalog aufgelöst.</value>
   </data>

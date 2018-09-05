@@ -1866,6 +1866,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using an alias..
+        /// </summary>
+        public static string ResolvedUsingAlias {
+            get {
+                return ResourceManager.GetString("ResolvedUsingAlias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using a catalog..
         /// </summary>
         public static string ResolvedUsingCatalog {
