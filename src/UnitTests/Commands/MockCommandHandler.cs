@@ -4,6 +4,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
@@ -117,12 +119,13 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
         /// </summary>
-        public IEnumerable LastOutputObjects { get; private set; }
+        [NotNull]
+        public IEnumerable LastOutputObjects { get; private set; } = Enumerable.Empty<object>();
 
         /// <summary>
         /// Fakes showing tabular data to the user.
         /// </summary>
-        public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data;
+        public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data.ToArray();
 
         public override void Error(Exception exception) {}
 
