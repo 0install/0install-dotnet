@@ -3,7 +3,9 @@ $ErrorActionPreference = "Stop"
 pushd $(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
 
 # Ensure 0install is in the PATH
-if (!(Get-Command 0install -ErrorAction SilentlyContinue)) { $env:PATH = "$(Resolve-Path ..\artifacts\Release\net45);$env:PATH" }
+if (!(Get-Command 0install -ErrorAction SilentlyContinue)) {
+    $env:PATH = "$(Resolve-Path ..\artifacts\Release\net45);$env:PATH"
+}
 
 # Build feed and archive
 $stability = if($Version.Contains('-')) {'developer'} else {'stable'}

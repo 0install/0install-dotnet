@@ -2,8 +2,8 @@
 /src/.vs/
 /src/_ReSharper*/
 /doc/*.tag
-/release/*.xml
-/release/*.tar.gz
+/feed/*.xml
+/feed/*.tar.gz
 obj/
 bin/
 *.bak
