@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <AssemblyName>0install</AssemblyName>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
@@ -38,17 +38,15 @@
     <Description>
 A command-line interface for Zero Install, for installing and launching applications, managing caches, etc..
 This is both the 0install CLI itself as well as a library for building additional (e.g. GUI) clients.
-API documentation: http://0install.de/api/
     </Description>
-    <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
-    <PackageIconUrl>https://0install.de/wp-content/uploads/icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
-    <Company>0install.de</Company>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
+    <PackageProjectUrl>http://0install.de/api/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -35,17 +35,15 @@
     <Description>
 The Zero Install Publishing API provides methods for creating and modifying feed files.
 The Zero Install Publishing Tools (including the Feed Editor) are built upon this API. You can use the API to automate complex feed creation/update tasks.
-API documentation: http://0install.de/api/
     </Description>
-    <PackageProjectUrl>http://0install.de/</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
-    <PackageIconUrl>https://0install.de/wp-content/uploads/icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
-    <Company>0install.de</Company>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
+    <PackageProjectUrl>http://0install.de/api/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
