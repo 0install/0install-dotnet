@@ -12,7 +12,6 @@ for:
 
     build_script:
       - ps: src\build.ps1 $env:GitVersion_NuGetVersion
-      - ps: doc\build.ps1
       - ps: feed\build.ps1 $env:GitVersion_NuGetVersion
 
     test_script:
@@ -22,8 +21,6 @@ for:
       - path: feed\*.xml
       - path: feed\*.tar.gz
       - path: artifacts\Release\*.nupkg
-      - path: artifacts\Documentation
-        name: apidocs
       - path: artifacts\Schemas
         name: schemas
 

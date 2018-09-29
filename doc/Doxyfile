@@ -1,11 +1,11 @@
 PROJECT_NAME = "Zero Install .NET API"
 
-INPUT = main.md ../src
+INPUT = *.md ../src
 USE_MDFILE_AS_MAINPAGE = main.md
 STRIP_FROM_PATH = ../src
 RECURSIVE = YES
 EXCLUDE_PATTERNS = */packages/* */UnitTests/* */Properties/* */obj/* */bin/*
-TAGFILES = nanobyte-common.tag=http://nano-byte.de/common/api/
+TAGFILES = nanobyte-common.tag=https://common.nanobyte.de/
 
 OUTPUT_DIRECTORY = ../artifacts/Documentation
 GENERATE_TAGFILE = ../artifacts/Documentation/0install-dotnet.tag

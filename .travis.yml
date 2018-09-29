@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+before_install:
+  - sudo apt-get install -y doxygen
+script:
+  - doc/build.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: artifacts/Documentation
+  github-token: $GITHUB_TOKEN
+  on:
+    tags: true
