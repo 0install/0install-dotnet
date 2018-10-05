@@ -51,7 +51,7 @@ This package only contains interfaces and not actual implementations. You will u
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63102-01" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

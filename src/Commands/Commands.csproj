@@ -70,7 +70,7 @@ This is both the 0install CLI itself as well as a library for building additiona
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63102-01" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
