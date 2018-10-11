@@ -2,7 +2,7 @@
 // ReSharper disable EmptyNamespace
 
 /// <summary>
-/// Shared logic for feed publishing tools (feed editors).
+/// Utilities for creating and modifying feed files.
 /// </summary>
 
 namespace ZeroInstall.Publish

@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 before_install:
-  - sudo apt-get install -y doxygen
+  - sudo apt-get install -y zeroinstall-injector
 script:
   - doc/build.sh
 deploy:

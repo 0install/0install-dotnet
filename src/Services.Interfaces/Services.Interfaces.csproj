@@ -32,10 +32,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>
-Zero Install service interfaces and extension methods
-This package only contains interfaces and not actual implementations. You will usually get this package indirectly as a dependency of ZeroInstall.Services.
-    </Description>
+    <Description>Zero Install interfaces/abstractions for types from ZeroInstall.Services package</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>

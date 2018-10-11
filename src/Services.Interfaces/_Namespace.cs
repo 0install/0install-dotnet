@@ -2,7 +2,7 @@
 // ReSharper disable EmptyNamespace
 
 /// <summary>
-/// Services used by Frontend implementations. Use <see cref="ZeroInstall.Services.ServiceLocator"/> for dependency injection!
+/// Core services like solving dependencies, downloading implementations and execution selections.
 /// </summary>
 
 namespace ZeroInstall.Services

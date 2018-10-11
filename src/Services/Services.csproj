@@ -32,7 +32,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>Zero Install services such as dependency resolution and implementation downloading.</Description>
+    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>

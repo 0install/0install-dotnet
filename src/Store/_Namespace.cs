@@ -2,7 +2,7 @@
 // ReSharper disable EmptyNamespace
 
 /// <summary>
-/// Manages persisting data in the file system.
+/// Data model for the feed format, signature verification, management of on-disk caches, etc..
 /// </summary>
 
 namespace ZeroInstall.Store

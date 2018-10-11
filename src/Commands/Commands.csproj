@@ -35,10 +35,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>
-A command-line interface for Zero Install, for installing and launching applications, managing caches, etc..
-This is both the 0install CLI itself as well as a library for building additional (e.g. GUI) clients.
-    </Description>
+    <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>

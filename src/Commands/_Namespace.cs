@@ -2,7 +2,7 @@
 // ReSharper disable EmptyNamespace
 
 /// <summary>
-/// A command-line interface for Zero Install, for installing and launching applications, managing caches, etc..
+/// Command-line interface for Zero Install. Both an actual CLI and a library for building other clients.
 /// </summary>
 
 namespace ZeroInstall.Commands

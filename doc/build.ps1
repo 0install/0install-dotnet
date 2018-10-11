@@ -12,7 +12,7 @@ mkdir ..\artifacts\Documentation | Out-Null
 # Download tag files for external references
 Invoke-WebRequest http://common.nanobyte.de/nanobyte-common.tag -OutFile nanobyte-common.tag
 
-0install run --batch http://0install.de/feeds/Doxygen.xml
+0install run --batch http://repo.roscidus.com/devel/doxygen
 
 cp CNAME ..\artifacts\Documentation\
 

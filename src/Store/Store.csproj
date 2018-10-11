@@ -37,7 +37,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Description>Zero Install data models and management functions for local file storage.</Description>
+    <Description>Zero Install data model for the feed format, signature verification, management of on-disk caches</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
