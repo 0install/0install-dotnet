@@ -50,7 +50,7 @@ public static class Stub
         bool first = true;
         for (int i = 0; i < args.Length; i++)
         {
-            // No separator before first or after last line
+            // No separator before first or after last argument
             if (first) first = false;
             else output.Append(' ');
 
