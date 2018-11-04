@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
+using System.IO;
 using FluentAssertions;
 using Xunit;
 using ZeroInstall.Store.Model.Preferences;
@@ -12,6 +14,25 @@ namespace ZeroInstall.Store.Model.Selection
     /// </summary>
     public class SelectionCandidateTest
     {
+        [Fact]
+        public void TestRejectsMissingId()
+        {
+            ShouldThrow(new Implementation {Version = new ImplementationVersion("1")});
+        }
+
+        [Fact]
+        public void TestRejectsMissingVersion()
+        {
+            ShouldThrow(new Implementation {ID = "1"});
+        }
+
+        private static void ShouldThrow(Implementation implementation)
+        {
+            // ReSharper disable once ObjectCreationAsStatement
+            Action builder = () => new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun));
+            builder.Should().Throw<InvalidDataException>();
+        }
+
         [Fact]
         public void TestIsSuitable()
         {

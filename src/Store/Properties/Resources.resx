@@ -241,6 +241,9 @@ Alternatively you can use the graphical user interface for managing the caches:
   <data name="ImplementationMissingID" xml:space="preserve">
     <value>'{0}' in {1} has no ID.</value>
   </data>
+  <data name="ImplementationMissingVersion" xml:space="preserve">
+    <value>'{0}' in {1} has no version.</value>
+  </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>The implementation '{0}' could not be located.</value>
   </data>

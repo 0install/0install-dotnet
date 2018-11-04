@@ -104,6 +104,7 @@ namespace ZeroInstall.Store.Model.Selection
             Implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
 
             if (string.IsNullOrEmpty(implementation.ID)) throw new InvalidDataException(string.Format(Resources.ImplementationMissingID, implementation, feedUri));
+            if (implementation.Version == null) throw new InvalidDataException(string.Format(Resources.ImplementationMissingVersion, implementation, feedUri));
 
             _implementationPreferences = feedPreferences[implementation.ID];
 

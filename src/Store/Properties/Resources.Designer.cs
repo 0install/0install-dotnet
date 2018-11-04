@@ -413,6 +413,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; in {1} has no version..
+        /// </summary>
+        internal static string ImplementationMissingVersion {
+            get {
+                return ResourceManager.GetString("ImplementationMissingVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The implementation &apos;{0}&apos; could not be located..
         /// </summary>
         internal static string ImplementationNotFound {
