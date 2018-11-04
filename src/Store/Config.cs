@@ -18,14 +18,13 @@ namespace ZeroInstall.Store
     [Serializable]
     public sealed partial class Config : ICloneable<Config>, IEquatable<Config>
     {
-        private static readonly TimeSpan _defaultFreshness = new TimeSpan(7, 0, 0, 0, 0); // 7 days
-        private TimeSpan _freshness = _defaultFreshness;
+        private static readonly TimeSpan _defaultFreshness = TimeSpan.FromDays(7);
 
         /// <summary>
         /// The maximum age a cached <see cref="Feed"/> may have until it is considered stale (needs to be updated).
         /// </summary>
         [DefaultValue(typeof(TimeSpan), "7.00:00:00"), Category("Policy"), DisplayName(@"Freshness"), Description("The maximum age a cached feed may have until it is considered stale (needs to be updated).")]
-        public TimeSpan Freshness { get => _freshness; set => _freshness = value; }
+        public TimeSpan Freshness { get; set; } = _defaultFreshness;
 
         /// <summary>
         /// Always prefer the newest versions, even if they have not been marked as <see cref="Stability.Stable"/> yet.
@@ -52,13 +51,11 @@ namespace ZeroInstall.Store
             }
         }
 
-        private bool _autoApproveKeys = true;
-
         /// <summary>
         /// Automatically approve keys known by the <see cref="KeyInfoServer"/> and seen the first time a feed is fetched.
         /// </summary>
         [DefaultValue(true), Category("Policy"), DisplayName(@"Auto approve keys"), Description("Automatically approve keys known by the key info server and seen the first time a feed is fetched.")]
-        public bool AutoApproveKeys { get => _autoApproveKeys; set => _autoApproveKeys = value; }
+        public bool AutoApproveKeys { get; set; } = true;
 
         /// <summary>
         /// The default value for <see cref="FeedMirror"/>.
@@ -91,26 +88,22 @@ namespace ZeroInstall.Store
         /// </summary>
         public const string DefaultSelfUpdateUri = "http://0install.de/feeds/ZeroInstall.xml";
 
-        private FeedUri _selfUpdateUri = new FeedUri(DefaultSelfUpdateUri);
-
         /// <summary>
         /// The feed URI used by the solver to search for updates for Zero Install itself.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself.")]
-        public FeedUri SelfUpdateUri { get => _selfUpdateUri; set => _selfUpdateUri = value; }
+        public FeedUri SelfUpdateUri { get; set; } = new FeedUri(DefaultSelfUpdateUri);
 
         /// <summary>
         /// The default value for <see cref="ExternalSolverUri"/>.
         /// </summary>
         public const string DefaultExternalSolverUri = "http://0install.net/tools/0install.xml";
 
-        private FeedUri _externalSolverUri = new FeedUri(DefaultExternalSolverUri);
-
         /// <summary>
         /// The feed URI used to get the external solver.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver.")]
-        public FeedUri ExternalSolverUri { get => _externalSolverUri; set => _externalSolverUri = value; }
+        public FeedUri ExternalSolverUri { get; set; } = new FeedUri(DefaultExternalSolverUri);
 
         /// <summary>
         /// The default value for <see cref="SyncServer"/>.
@@ -127,17 +120,13 @@ namespace ZeroInstall.Store
         [DefaultValue(typeof(Uri), DefaultSyncServer), Category("Sync"), DisplayName(@"Server"), Description("The sync server used to synchronize your app list between multiple computers.")]
         public Uri SyncServer { get => _syncServer; set => _syncServer = value?.ReparseAsAbsolute(); }
 
-        private string _syncServerUsername = "";
-
         /// <summary>
         /// The username to authenticate with against the <see cref="SyncServer"/>.
         /// </summary>
         /// <seealso cref="SyncServer"/>
         /// <seealso cref="SyncServerPassword"/>
         [DefaultValue(""), Category("Sync"), DisplayName(@"Username"), Description("The username to authenticate with against the Sync server.")]
-        public string SyncServerUsername { get => _syncServerUsername; set => _syncServerUsername = value; }
-
-        private string _syncServerPassword = "";
+        public string SyncServerUsername { get; set; } = "";
 
         /// <summary>
         /// The password to authenticate with against the <see cref="SyncServer"/>.
@@ -145,15 +134,13 @@ namespace ZeroInstall.Store
         /// <seealso cref="SyncServer"/>
         /// <seealso cref="SyncServerUsername"/>
         [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Password"), Description("The password to authenticate with against the Sync server.")]
-        public string SyncServerPassword { get => _syncServerPassword; set => _syncServerPassword = value; }
-
-        private string _syncCryptoKey = "";
+        public string SyncServerPassword { get; set; } = "";
 
         /// <summary>
         /// The local key used to encrypt data before sending it to the <see cref="SyncServer"/>.
         /// </summary>
         [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the Sync server.")]
-        public string SyncCryptoKey { get => _syncCryptoKey; set => _syncCryptoKey = value; }
+        public string SyncCryptoKey { get; set; } = "";
 
         /// <summary>Provides meta-data for loading and saving settings properties.</summary>
         private readonly Dictionary<string, PropertyPointer<string>> _metaData;
@@ -166,26 +153,29 @@ namespace ZeroInstall.Store
         {
             _metaData = new Dictionary<string, PropertyPointer<string>>
             {
-                {"freshness", new PropertyPointer<TimeSpan>(() => Freshness, value => Freshness = value, defaultValue: _defaultFreshness).ToStringPointer()},
-                {"help_with_testing", new PropertyPointer<bool>(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
-                {"network_use", GetNetworkUseConverter()},
-                {"auto_approve_keys", new PropertyPointer<bool>(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
-                {"feed_mirror", new PropertyPointer<Uri>(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
-                {"key_info_server", new PropertyPointer<Uri>(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
-                {"self_update_uri", new PropertyPointer<FeedUri>(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
-                {"external_solver_uri", new PropertyPointer<FeedUri>(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
-                {"sync_server", new PropertyPointer<Uri>(() => SyncServer, value => SyncServer = value, defaultValue: new Uri(DefaultSyncServer)).ToStringPointer()},
-                {"sync_server_user", new PropertyPointer<string>(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
-                {"sync_server_pw", new PropertyPointer<string>(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
-                {"sync_crypto_key", new PropertyPointer<string>(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},
+                {"freshness", Property(() => Freshness, value => Freshness = value, defaultValue: _defaultFreshness).ToStringPointer()},
+                {"help_with_testing", Property(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
+                {"network_use", UseConverterProperty()},
+                {"auto_approve_keys", Property(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
+                {"feed_mirror", Property(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
+                {"key_info_server", Property(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
+                {"self_update_uri", Property(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
+                {"external_solver_uri", Property(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
+                {"sync_server", Property(() => SyncServer, value => SyncServer = value, defaultValue: new Uri(DefaultSyncServer)).ToStringPointer()},
+                {"sync_server_user", Property(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
+                {"sync_server_pw", Property(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
+                {"sync_crypto_key", Property(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},
             };
         }
+
+        private static PropertyPointer<T> Property<T>([NotNull] Func<T> getValue, [NotNull] Action<T> setValue, T defaultValue = default, bool needsEncoding = false)
+            => new PropertyPointer<T>(getValue, setValue, defaultValue, needsEncoding);
 
         /// <summary>
         /// Creates a <see cref="string"/> pointer referencing <see cref="NetworkUse"/>. Uses hardcoded string lookup tables.
         /// </summary>
-        private PropertyPointer<string> GetNetworkUseConverter()
-            => new PropertyPointer<string>(
+        private PropertyPointer<string> UseConverterProperty()
+            => Property<string>(
                 getValue: () =>
                 {
                     switch (NetworkUse)

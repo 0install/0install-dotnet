@@ -39,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration
         private readonly object _lock = new object();
 
         /// <summary>How long to keep cached icons files before refreshing them.</summary>
-        private static readonly TimeSpan _freshness = new TimeSpan(0, 20, 0); // 20 minutes
+        private static readonly TimeSpan _freshness = TimeSpan.FromDays(1);
 
         /// <inheritdoc/>
         public string GetPath(Icon icon, bool machineWide = false)

@@ -23,7 +23,7 @@ namespace ZeroInstall.Store
         public static Config CreateTestConfig() => new Config
         {
             HelpWithTesting = true,
-            Freshness = new TimeSpan(12, 0, 0, 0),
+            Freshness = TimeSpan.FromHours(12),
             NetworkUse = NetworkLevel.Minimal,
             AutoApproveKeys = false,
             SyncServerPassword = "pw123"
