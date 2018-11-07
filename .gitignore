@@ -1,6 +1,7 @@
 /artifacts/
 /src/.vs/
-/src/_ReSharper*/
+/src/.idea/
+/src/_ReSharper.*/
 /doc/*.tag
 /feed/*.xml
 /feed/*.tar.gz
