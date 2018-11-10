@@ -10,41 +10,12 @@ using System.Text;
 
 public static class Stub
 {
-    public const int Win32RequestedOperationRequiresElevation = 740, Win32Cancelled = 1223;
-
     public static int Main(string[] args)
     {
-        ProcessStartInfo startInfo = new ProcessStartInfo("[EXE]", "[ARGUMENTS] " + GetArguments(args));
-        startInfo.UseShellExecute = false;
-        Process process;
-        try
-        {
-            try
-            {
-                process = Process.Start(startInfo);
-            }
-            catch (Win32Exception ex)
-            {
-                if (ex.NativeErrorCode == Win32RequestedOperationRequiresElevation)
-                {
-                    // UAC handling requires ShellExecute
-                    startInfo.UseShellExecute = true;
-                    process = Process.Start(startInfo);
-                }
-                else throw;
-            }
-
-            process.WaitForExit();
-        }
-        catch (Win32Exception ex)
-        {
-            if (ex.NativeErrorCode == Win32Cancelled) return 100;
-            else throw;
-        }
-        return process.ExitCode;
+        return Run("[EXE]", "[ARGUMENTS] " + JoinArgs(args));
     }
 
-    private static string GetArguments(string[] args)
+    private static string JoinArgs(string[] args)
     {
         StringBuilder output = new StringBuilder();
         bool first = true;
@@ -70,5 +41,44 @@ public static class Stub
     private static bool ContainsWhitespace(string text)
     {
         return text.Contains(" ") || text.Contains("\t") || text.Contains("\n") || text.Contains("\r");
+    }
+
+    private static int Run(string fileName, string arguments)
+    {
+        const int Win32RequestedOperationRequiresElevation = 740, Win32Cancelled = 1223;
+
+        try
+        {
+            // Avoid using ShellExecute if possible
+            return Run(fileName, arguments, false);
+        }
+        catch (Win32Exception ex)
+        {
+            if (ex.NativeErrorCode == Win32RequestedOperationRequiresElevation)
+            {
+                try
+                {
+                    // UAC handling requires ShellExecute
+                    return Run(fileName, arguments, true);
+                }
+                catch (Win32Exception ex2)
+                {
+                    // UAC cancellation should not be treated as a crash
+                    if (ex2.NativeErrorCode == Win32Cancelled) return 100;
+                    else throw;
+                }
+            }
+            else throw;
+        }
+    }
+
+    private static int Run(string fileName, string arguments, bool useShellExecute)
+    {
+        ProcessStartInfo startInfo = new ProcessStartInfo(fileName, arguments);
+        startInfo.UseShellExecute = useShellExecute;
+
+        Process process = Process.Start(startInfo);
+        process.WaitForExit();
+        return process.ExitCode;
     }
 }
