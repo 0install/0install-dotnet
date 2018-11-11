@@ -1,18 +1,16 @@
-/artifacts/
+*.user
+*.bak
+*.filtered.resx
+
+# Caches
 /src/.vs/
 /src/.idea/
 /src/_ReSharper.*/
+/src/*/obj/
+/src/*/bin/
 /doc/*.tag
+
+# Output
+/artifacts/
 /feed/*.xml
 /feed/*.tar.gz
-obj/
-bin/
-*.bak
-*.cache
-*.pidb
-*.suo
-*.user
-*.userprefs
-*.resources
-*.filtered.resx
-launchSettings.json
