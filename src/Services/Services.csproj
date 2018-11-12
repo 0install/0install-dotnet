@@ -14,11 +14,19 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+  <PropertyGroup>
+    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
+    <Product>Zero Install</Product>
+    <Authors>Bastian Eicher</Authors>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
+    <PackageProjectUrl>https://dotnet.0install.de/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
 
+  <!-- Auto-select supported target frameworks based on MSBuild version -->
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -30,16 +38,9 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
-    <Product>Zero Install</Product>
-    <Authors>Bastian Eicher</Authors>
-    <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <PackageProjectUrl>https://dotnet.0install.de/</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.gnu.org/copyleft/lesser.html</PackageLicenseUrl>
-    <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

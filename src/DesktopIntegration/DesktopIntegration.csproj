@@ -14,24 +14,6 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)'!='netstandard2.0' and '$(OS)'=='Windows_NT'">
-    <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
-    <SgenUseProxyTypes>False</SgenUseProxyTypes>
-  </PropertyGroup>
-
   <PropertyGroup>
     <Description>Zero Install methods for integrating applications with desktop environments (creating menu entries, etc.).</Description>
     <Product>Zero Install</Product>
@@ -42,6 +24,25 @@
     <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+  </PropertyGroup>
+
+  <!-- Auto-select supported target frameworks based on MSBuild version -->
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+    <TargetFrameworks>net20;net35;net40;net45</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
+    <TargetFrameworks>net45</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'!='netstandard2.0' and '$(OS)'=='Windows_NT'">
+    <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
+    <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
 
   <ItemGroup>
