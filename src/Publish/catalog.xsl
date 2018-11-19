@@ -10,10 +10,10 @@
   <xsl:template match="/catalog:catalog">
     <html>
       <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Language" content="en" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="content-language" content="en"/>
         <title>Zero Install - Software catalog</title>
-        <link rel="stylesheet" href="catalog.css" type="text/css" />
+        <link rel="stylesheet" href="catalog.css" type="text/css"/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
         <script>
           window.addEventListener("keydown",function (e) {
@@ -28,7 +28,7 @@
       <body>
         <div id="main">
           <h1>Zero Install - Software catalog</h1>
-          <input id="search" class="search" placeholder="Search" />
+          <input id="search" class="search" placeholder="Search"/>
           <div class="list">
             <xsl:for-each select="interface:interface">
               <div class="app">

@@ -13,8 +13,8 @@ http://creativecommons.org/licenses/by-sa/2.5/
 	<xsl:template match="/zi:interface">
 		<html>
 			<head>
-				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-				<meta http-equiv="Content-Language" content="en"/>
+				<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+				<meta http-equiv="content-language" content="en"/>
 				<title><xsl:value-of select="zi:name"/></title>
 				<link rel="stylesheet" type="text/css" href='feed.css'/>
 			</head>
@@ -26,7 +26,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 
 								<xsl:variable name="icon-href" select="(zi:icon[@type='image/png'][1])/@href"/>
 								<xsl:if test="$icon-href != ''">
-									<img src="{$icon-href}" class="alpha icon" />
+									<img src="{$icon-href}" class="alpha icon"/>
 								</xsl:if>
 
 								<h1><xsl:value-of select="zi:name"/></h1>
@@ -38,7 +38,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 								</xsl:if>
 
 								<div class="what-is-this">
-									<xsl:if test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">								
+									<xsl:if test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">
 										<form action="https://0install.de/bootstrap/" method="get" style="float: left; margin-right: 4px;">
 											<input type="hidden" name="name" value="{zi:name}"/>
 											<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
