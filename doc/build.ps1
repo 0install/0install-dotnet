@@ -10,7 +10,7 @@ if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Docum
 mkdir ..\artifacts\Documentation | Out-Null
 
 # Download tag files for external references
-Invoke-WebRequest http://common.nanobyte.de/nanobyte-common.tag -OutFile nanobyte-common.tag
+Invoke-WebRequest http://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
 0install run --batch http://repo.roscidus.com/devel/doxygen
 

@@ -5,7 +5,7 @@ USE_MDFILE_AS_MAINPAGE = main.md
 STRIP_FROM_PATH = ../src
 RECURSIVE = YES
 EXCLUDE_PATTERNS = */UnitTests/* */Properties/* */obj/* */bin/*
-TAGFILES = nanobyte-common.tag=https://common.nanobyte.de/
+TAGFILES = nanobyte-common.tag=https://common.nano-byte.net/
 
 OUTPUT_DIRECTORY = ../artifacts/Documentation
 GENERATE_TAGFILE = ../artifacts/Documentation/0install-dotnet.tag
