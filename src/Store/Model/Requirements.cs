@@ -55,7 +55,7 @@ namespace ZeroInstall.Store.Model
         public Architecture Architecture { get; set; }
 
         #region XML/JSON serialization
-        /// <summary>Used for XMLserialization.</summary>
+        /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]

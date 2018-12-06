@@ -101,9 +101,9 @@ namespace ZeroInstall.Services.Solvers
                 if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
 
                 var selectionsSnapshot = Selections.Clone(); // Create snapshot
-                foreach (var premutation in essential.Permutate())
+                foreach (var permutation in essential.Permutate())
                 {
-                    if (premutation.All(TryToMeet))
+                    if (permutation.All(TryToMeet))
                     {
                         recommended.ForEach(x => TryToMeet(x));
                         return true;
@@ -151,7 +151,7 @@ namespace ZeroInstall.Services.Solvers
 
                 var nativeImplementation = candidate.Implementation as ExternalImplementation;
 
-                // Ensure the candidate does not conflict with restricions of existing selections
+                // Ensure the candidate does not conflict with restrictions of existing selections
                 foreach (var restriction in Selections.RestrictionsFor(demand.Requirements.InterfaceUri))
                 {
                     if (restriction.Versions != null && !restriction.Versions.Match(candidate.Version)) return false;
