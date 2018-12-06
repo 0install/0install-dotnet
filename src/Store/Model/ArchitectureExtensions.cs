@@ -44,11 +44,28 @@ namespace ZeroInstall.Store.Model
             if (implementation == system || implementation == Cpu.All || system == Cpu.All) return true;
 
             // Compatible supersets
-            if (implementation >= Cpu.I386 && implementation <= Cpu.I686 && system >= implementation && system <= Cpu.I686) return true;
+            if (implementation >= Cpu.I386 && implementation <= Cpu.X64 && system >= implementation && system <= Cpu.X64) return true;
+            if (implementation >= Cpu.Ppc && implementation <= Cpu.Ppc64 && system >= implementation && system <= Cpu.Ppc64) return true;
             if (implementation >= Cpu.ArmV6L && implementation <= Cpu.ArmV7L && system >= implementation && system <= Cpu.ArmV7L) return true;
 
             // No match
             return false;
         }
+
+        /// <summary>
+        /// Indicates whether the CPU architecture is 32-bit.
+        /// </summary>
+        public static bool Is32Bit(this Cpu cpu)
+            => cpu >= Cpu.I386 && cpu <= Cpu.I686
+            || cpu == Cpu.Ppc
+            || cpu == Cpu.ArmV6L
+            || cpu == Cpu.ArmV7L;
+
+        /// <summary>
+        /// Indicates whether the CPU architecture is 64-bit.
+        /// </summary>
+        public static bool Is64Bit(this Cpu cpu)
+            => cpu == Cpu.X64
+            || cpu == Cpu.Ppc64;
     }
 }

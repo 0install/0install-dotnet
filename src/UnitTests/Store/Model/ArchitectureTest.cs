@@ -75,10 +75,10 @@ namespace ZeroInstall.Store.Model
             Cpu.I386.IsCompatible(Cpu.I686).Should().BeTrue();
             Cpu.I686.IsCompatible(Cpu.I386).Should().BeFalse();
 
-            // 32bit/64bit exclusion
-            Cpu.I386.IsCompatible(Cpu.X64).Should().BeFalse();
+            // 32bit/64bit compatibility
+            Cpu.I386.IsCompatible(Cpu.X64).Should().BeTrue();
             Cpu.X64.IsCompatible(Cpu.I686).Should().BeFalse();
-            Cpu.Ppc.IsCompatible(Cpu.Ppc64).Should().BeFalse();
+            Cpu.Ppc.IsCompatible(Cpu.Ppc64).Should().BeTrue();
             Cpu.Ppc64.IsCompatible(Cpu.Ppc).Should().BeFalse();
         }
     }

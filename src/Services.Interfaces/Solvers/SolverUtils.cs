@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
@@ -20,35 +19,6 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public static class SolverUtils
     {
-        /// <summary>
-        /// Returns a list of <see cref="Requirements"/> that substitute blanks with appropriate default values.
-        /// Multiple different <see cref="Requirements"/> represent equally valid but mutually exclusive choices such as 32-bit vs 64-bit processes.
-        /// </summary>
-        /// <param name="requirements">The baseline <see cref="Requirements"/> to extend.</param>
-        /// <returns>1 or more alternative <see cref="Requirements"/> ordered from most to least optimal.</returns>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<Requirements> GetNormalizedAlternatives([NotNull] this Requirements requirements)
-        {
-            #region Sanity checks
-            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-            #endregion
-
-            var effectiveRequirements = requirements.Clone();
-            effectiveRequirements.Command = requirements.Command ?? (requirements.Architecture.Cpu == Cpu.Source ? Command.NameCompile : Command.NameRun);
-            effectiveRequirements.Architecture = new Architecture(
-                (effectiveRequirements.Architecture.OS == OS.All) ? Architecture.CurrentSystem.OS : effectiveRequirements.Architecture.OS,
-                (effectiveRequirements.Architecture.Cpu == Cpu.All) ? Architecture.CurrentSystem.Cpu : effectiveRequirements.Architecture.Cpu);
-            if (effectiveRequirements.Languages.Count == 0) effectiveRequirements.Languages.Add(CultureInfo.CurrentUICulture);
-
-            if (effectiveRequirements.Architecture.Cpu == Cpu.X64)
-            { // x86-on-X64 compatability
-                var x86Requirements = effectiveRequirements.Clone();
-                x86Requirements.Architecture = new Architecture(x86Requirements.Architecture.OS, Cpu.I686);
-                return new[] {effectiveRequirements, x86Requirements};
-            }
-            else return new[] {effectiveRequirements};
-        }
-
         /// <summary>
         /// Turns <see cref="SelectionCandidate"/>s into <see cref="ImplementationSelection"/>s.
         /// </summary>

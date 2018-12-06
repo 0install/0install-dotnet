@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
 using NanoByte.Common;
@@ -161,6 +162,23 @@ namespace ZeroInstall.Store.Model
         public Requirements([NotNull] string interfaceUri, [CanBeNull] string command = null, Architecture architecture = default)
             : this(new FeedUri(interfaceUri), command, architecture)
         {}
+
+        /// <summary>
+        /// Substitutes blank values with default values appropriate for the current system.
+        /// </summary>
+        [NotNull]
+        public Requirements ForCurrentSystem()
+        {
+            var cloned = Clone();
+
+            cloned.Command = Command ?? (Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun);
+            cloned.Architecture = new Architecture(
+                (Architecture.OS == OS.All) ? Architecture.CurrentSystem.OS : Architecture.OS,
+                (Architecture.Cpu == Cpu.All) ? Architecture.CurrentSystem.Cpu : Architecture.Cpu);
+            if (Languages.Count == 0) cloned.Languages.Add(CultureInfo.CurrentUICulture);
+
+            return cloned;
+        }
 
         #region Clone
         /// <summary>

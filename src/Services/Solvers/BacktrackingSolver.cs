@@ -52,12 +52,9 @@ namespace ZeroInstall.Services.Solvers
             Log.Info($"Running Backtracking Solver for {requirements}");
 
             _candidateProvider.Clear();
-            var successfulAttempt = requirements.GetNormalizedAlternatives()
-                                                .Select(req => new Attempt(req, _handler.CancellationToken, _candidateProvider))
-                                                .FirstOrDefault(x => x.Successful);
-
-            if (successfulAttempt == null) throw new SolverException("No solution found");
-            return successfulAttempt.Selections;
+            var attempt = new Attempt(requirements.ForCurrentSystem(), _handler.CancellationToken, _candidateProvider);
+            if (!attempt.Successful) throw new SolverException("No solution found");
+            return attempt.Selections;
         }
 
         /// <summary>
@@ -154,6 +151,10 @@ namespace ZeroInstall.Services.Solvers
                 // Ensure the candidate does not conflict with restrictions of existing selections
                 foreach (var restriction in Selections.RestrictionsFor(demand.Requirements.InterfaceUri))
                 {
+                    // Prevent mixing of 32-bit and 64-bit binaries
+                    if (candidate.Implementation.Architecture.Cpu.Is32Bit() && Selections.Is64Bit) return false;
+                    if (candidate.Implementation.Architecture.Cpu.Is64Bit() && Selections.Is32Bit) return false;
+
                     if (restriction.Versions != null && !restriction.Versions.Match(candidate.Version)) return false;
                     if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
                 }
