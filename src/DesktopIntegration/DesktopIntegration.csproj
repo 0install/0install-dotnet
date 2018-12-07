@@ -5,7 +5,7 @@
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
     <LangVersion>7.2</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+    <NoWarn>$(NoWarn);1591;NU5125</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
