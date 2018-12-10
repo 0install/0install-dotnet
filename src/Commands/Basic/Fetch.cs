@@ -39,6 +39,7 @@ namespace ZeroInstall.Commands.Basic
             if (string.IsNullOrEmpty(input)) return ExitCode.InvalidData;
 
             var feedFragment = XmlStorage.FromXmlString<Feed>(input);
+            feedFragment.Normalize();
             Fetcher.Fetch(feedFragment.Implementations);
 
             return ExitCode.OK;
