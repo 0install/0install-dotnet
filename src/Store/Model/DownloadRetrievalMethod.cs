@@ -46,12 +46,8 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc cref="RetrievalMethod.Normalize"/>
-        public override void Normalize(FeedUri feedUri)
+        public override void Normalize(FeedUri feedUri = null)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            #endregion
-
             base.Normalize(feedUri);
 
             if (Href != null) Href = ModelUtils.GetAbsoluteHref(Href, feedUri);

@@ -322,12 +322,8 @@ namespace ZeroInstall.Store.Model
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize([NotNull] FeedUri feedUri)
+        public void Normalize([CanBeNull] FeedUri feedUri = null)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            #endregion
-
             // Apply if-0install-version filter
             Elements.RemoveAll(FeedElement.FilterMismatch);
             Icons.RemoveAll(FeedElement.FilterMismatch);
@@ -345,7 +341,7 @@ namespace ZeroInstall.Store.Model
             ResolveInternalReferences();
         }
 
-        private void NormalizeElements([NotNull] FeedUri feedUri)
+        private void NormalizeElements([CanBeNull] FeedUri feedUri)
         {
             var collapsedElements = new List<Element>();
             foreach (var element in Elements)

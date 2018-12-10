@@ -82,7 +82,7 @@ namespace ZeroInstall.Store.Model.Selection
         }
 
         /// <inheritdoc/>
-        public override void Normalize(FeedUri feedUri)
+        public override void Normalize(FeedUri feedUri = null)
         {
             base.Normalize(feedUri);
 

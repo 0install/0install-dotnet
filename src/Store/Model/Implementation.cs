@@ -36,12 +36,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public override void Normalize(FeedUri feedUri)
+        public override void Normalize(FeedUri feedUri = null)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            #endregion
-
             base.Normalize(feedUri);
 
             // Apply if-0install-version filter

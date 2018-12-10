@@ -146,12 +146,8 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize(FeedUri feedUri)
+        public override void Normalize(FeedUri feedUri = null)
         {
-            #region Sanity checks
-            if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-            #endregion
-
             base.Normalize(feedUri);
 
             // If the MIME type is already set or the location is missing, we have nothing to do here
