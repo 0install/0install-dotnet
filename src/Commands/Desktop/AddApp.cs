@@ -56,7 +56,7 @@ namespace ZeroInstall.Commands.Desktop
                 var appEntry = CreateAppEntry(IntegrationManager, ref InterfaceUri);
 
                 if (AdditionalArgs.Count == 2)
-                    CreateAlias(appEntry, AdditionalArgs[1]);
+                    CreateAlias(appEntry, AdditionalArgs[0]);
 
                 if (!CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                     WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes
