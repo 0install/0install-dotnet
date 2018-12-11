@@ -20,7 +20,7 @@ namespace ZeroInstall.Publish
         /// The (optionally signed) feed being edited.
         /// </summary>
         [NotNull]
-        public SignedFeed SignedFeed { get; }
+        public SignedFeed SignedFeed { get; private set; }
 
         /// <summary>
         /// The passphrase to use to unlock <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
@@ -28,56 +28,44 @@ namespace ZeroInstall.Publish
         [CanBeNull]
         public string Passphrase { get; set; }
 
-        /// <inheritdoc/>
-        [NotNull]
-        public override Feed Target { get => SignedFeed.Feed; set => SignedFeed.Feed = value; }
-
         /// <summary>
-        /// Starts with a <see cref="Feed"/> loaded from a file.
+        /// Indicates whether there are changes to the feed that have not yet been saved to a file.
         /// </summary>
-        /// <param name="signedFeed">The feed to be edited.</param>
-        /// <param name="path">The path of the file the <paramref name="signedFeed"/> was loaded from.</param>
-        public FeedEditing([NotNull] SignedFeed signedFeed, [NotNull] string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            Path = path;
-            SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
-        }
+        public bool UnsavedChanges => UndoEnabled || string.IsNullOrEmpty(Path);
 
         /// <summary>
-        /// Starts with a <see cref="Feed"/> that has not been saved on disk yet.
+        /// Starts with an existing feed.
         /// </summary>
         /// <param name="signedFeed">The feed to be edited.</param>
         public FeedEditing([NotNull] SignedFeed signedFeed)
+            : base(signedFeed.Feed)
         {
-            Changed = true; // Makes sure remind the user to save before closing
             SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
+
+            TargetUpdated += () => SignedFeed = new SignedFeed(Target, SignedFeed.SecretKey);
         }
 
         /// <summary>
-        /// Starts with an empty <see cref="Feed"/>.
+        /// Starts with an empty feed.
         /// </summary>
         public FeedEditing()
-        {
-            SignedFeed = new SignedFeed(new Feed());
-        }
+            : this(new SignedFeed(new Feed()))
+        {}
 
         /// <summary>
-        /// Loads a <see cref="Feed"/> from an XML file (feed).
+        /// Loads a feed from an XML file (feed).
         /// </summary>
         /// <param name="path">The file to load from.</param>
-        /// <returns>A <see cref="FeedEditing"/> containing the loaded <see cref="Feed"/>.</returns>
+        /// <returns>A <see cref="FeedEditing"/> containing the loaded feed.</returns>
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
         [NotNull]
-        public static FeedEditing Load([NotNull] string path) => new FeedEditing(SignedFeed.Load(path), path);
+        public static FeedEditing Load([NotNull] string path)
+            => new FeedEditing(SignedFeed.Load(path)) {Path = path};
 
         /// <summary>
-        /// Saves <see cref="Feed"/> to an XML file, adds the default stylesheet and signs it with <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
+        /// Saves feed to an XML file, adds the default stylesheet and signs it with <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
         /// </summary>
         /// <remarks>Writing and signing the feed file are performed as an atomic operation (i.e. if signing fails an existing file remains unchanged).</remarks>
         /// <param name="path">The file to save in.</param>
@@ -90,7 +78,7 @@ namespace ZeroInstall.Publish
             SignedFeed.Save(path, Passphrase);
 
             Path = path;
-            Reset();
+            ClearUndo();
         }
     }
 }

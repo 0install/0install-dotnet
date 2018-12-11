@@ -117,8 +117,8 @@ namespace ZeroInstall.Publish
             implementation.UpdateDigest(directoryPath, handler, executor);
             using (var generator = ArchiveGenerator.Create(directoryPath, archivePath, archive.MimeType))
                 handler.RunTask(generator);
-            executor.Execute(new SetValueCommand<long>(() => archive.Size, x => archive.Size = x, new FileInfo(archivePath).Length));
-            executor.Execute(new SetValueCommand<string>(() => implementation.LocalPath, x => implementation.LocalPath = x, null));
+            executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archivePath).Length));
+            executor.Execute(SetValueCommand.For(() => implementation.LocalPath, newValue: null));
         }
 
         private static void ConvertSha256ToSha256New([NotNull] Implementation implementation, [NotNull] ICommandExecutor executor)
@@ -131,7 +131,7 @@ namespace ZeroInstall.Publish
                 implementation.ManifestDigest.Sha256,
                 implementation.ManifestDigest.Sha256.Base16Decode().Base32Encode());
 
-            executor.Execute(new SetValueCommand<ManifestDigest>(() => implementation.ManifestDigest, value => implementation.ManifestDigest = value, digest));
+            executor.Execute(SetValueCommand.For(() => implementation.ManifestDigest, newValue: digest));
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "We are explicitly looking for empty strings as opposed to null strings.")]
@@ -164,14 +164,14 @@ namespace ZeroInstall.Publish
             var digest = ManifestUtils.GenerateDigest(path, handler);
 
             if (implementation.ManifestDigest == default)
-                executor.Execute(new SetValueCommand<ManifestDigest>(() => implementation.ManifestDigest, value => implementation.ManifestDigest = value, digest));
+                executor.Execute(SetValueCommand.For(() => implementation.ManifestDigest, newValue: digest));
             else if (!digest.PartialEquals(implementation.ManifestDigest))
                 throw new DigestMismatchException(expectedDigest: implementation.ManifestDigest.ToString(), actualDigest: digest.ToString());
 
             if (string.IsNullOrEmpty(implementation.ID))
             {
                 string id = ManifestUtils.CalculateDigest(path, ManifestFormat.Sha1New, handler);
-                executor.Execute(new SetValueCommand<string>(() => implementation.ID, value => implementation.ID = value, id));
+                executor.Execute(SetValueCommand.For(() => implementation.ID, newValue: id));
             }
 
             if (keepDownloads != null)

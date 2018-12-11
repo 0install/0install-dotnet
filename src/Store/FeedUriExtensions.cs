@@ -21,7 +21,7 @@ namespace ZeroInstall.Store
             if (pointer == null) throw new ArgumentNullException(nameof(pointer));
             #endregion
 
-            return new PropertyPointer<string>(
+            return PropertyPointer.For(
                 getValue: () => pointer.Value?.ToStringRfc(),
                 setValue: value => pointer.Value = (value == null) ? null : new FeedUri(value),
                 defaultValue: pointer.DefaultValue?.ToStringRfc());

@@ -168,7 +168,7 @@ namespace ZeroInstall.Publish
                     if (string.IsNullOrEmpty(archive.MimeType))
                     {
                         string mimeType = Archive.GuessMimeType(archive.Href.OriginalString);
-                        executor.Execute(new SetValueCommand<string>(() => archive.MimeType, value => archive.MimeType = value, mimeType));
+                        executor.Execute(SetValueCommand.For(() => archive.MimeType, newValue: mimeType));
                     }
                     break;
 
@@ -177,7 +177,7 @@ namespace ZeroInstall.Publish
                     if (string.IsNullOrEmpty(file.Destination))
                     {
                         string destination = file.Href.GetLocalFileName();
-                        executor.Execute(new SetValueCommand<string>(() => file.Destination, value => file.Destination = value, destination));
+                        executor.Execute(SetValueCommand.For(() => file.Destination, newValue: destination));
                     }
                     break;
 
@@ -231,7 +231,7 @@ namespace ZeroInstall.Publish
                         if (string.IsNullOrEmpty(archive.MimeType))
                         {
                             string mimeType = Archive.GuessMimeType(localPath);
-                            executor.Execute(new SetValueCommand<string>(() => archive.MimeType, value => archive.MimeType = value, mimeType));
+                            executor.Execute(SetValueCommand.For(() => archive.MimeType, newValue:  mimeType));
                         }
 
                         archive.Apply(localPath, extractionDir, handler);
@@ -242,7 +242,7 @@ namespace ZeroInstall.Publish
                         if (string.IsNullOrEmpty(file.Destination))
                         {
                             string destination = Path.GetFileName(localPath);
-                            executor.Execute(new SetValueCommand<string>(() => file.Destination, value => file.Destination = value, destination));
+                            executor.Execute(SetValueCommand.For(() => file.Destination, newValue: destination));
                         }
 
                         file.Apply(localPath, extractionDir, handler);
@@ -279,7 +279,7 @@ namespace ZeroInstall.Publish
                 size -= archive.StartOffset;
 
             if (retrievalMethod.Size != size)
-                executor.Execute(new SetValueCommand<long>(() => retrievalMethod.Size, value => retrievalMethod.Size = value, newValue: size));
+                executor.Execute(SetValueCommand.For(() => retrievalMethod.Size, newValue: size));
         }
         #endregion
     }

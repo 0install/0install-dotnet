@@ -23,7 +23,7 @@ namespace ZeroInstall.Publish
         /// The wrapped <see cref="Feed"/>.
         /// </summary>
         [NotNull]
-        public Feed Feed { get; set; }
+        public Feed Feed { get; }
 
         /// <summary>
         /// The secret key used to sign the <see cref="Feed"/>; <c>null</c> for no signature.

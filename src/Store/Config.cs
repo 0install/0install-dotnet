@@ -153,29 +153,26 @@ namespace ZeroInstall.Store
         {
             _metaData = new Dictionary<string, PropertyPointer<string>>
             {
-                {"freshness", Property(() => Freshness, value => Freshness = value, defaultValue: _defaultFreshness).ToStringPointer()},
-                {"help_with_testing", Property(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
-                {"network_use", UseConverterProperty()},
-                {"auto_approve_keys", Property(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
-                {"feed_mirror", Property(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
-                {"key_info_server", Property(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
-                {"self_update_uri", Property(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
-                {"external_solver_uri", Property(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
-                {"sync_server", Property(() => SyncServer, value => SyncServer = value, defaultValue: new Uri(DefaultSyncServer)).ToStringPointer()},
-                {"sync_server_user", Property(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
-                {"sync_server_pw", Property(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
-                {"sync_crypto_key", Property(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},
+                {"freshness", PropertyPointer.For(() => Freshness, value => Freshness = value, defaultValue: _defaultFreshness).ToStringPointer()},
+                {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
+                {"network_use", NetworkUsePropertyPointer},
+                {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
+                {"feed_mirror", PropertyPointer.For(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
+                {"key_info_server", PropertyPointer.For(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
+                {"self_update_uri", PropertyPointer.For(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
+                {"external_solver_uri", PropertyPointer.For(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
+                {"sync_server", PropertyPointer.For(() => SyncServer, value => SyncServer = value, defaultValue: new Uri(DefaultSyncServer)).ToStringPointer()},
+                {"sync_server_user", PropertyPointer.For(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
+                {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
+                {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},
             };
         }
-
-        private static PropertyPointer<T> Property<T>([NotNull] Func<T> getValue, [NotNull] Action<T> setValue, T defaultValue = default, bool needsEncoding = false)
-            => new PropertyPointer<T>(getValue, setValue, defaultValue, needsEncoding);
 
         /// <summary>
         /// Creates a <see cref="string"/> pointer referencing <see cref="NetworkUse"/>. Uses hardcoded string lookup tables.
         /// </summary>
-        private PropertyPointer<string> UseConverterProperty()
-            => Property<string>(
+        private PropertyPointer<string> NetworkUsePropertyPointer
+            => PropertyPointer.For(
                 getValue: () =>
                 {
                     switch (NetworkUse)
