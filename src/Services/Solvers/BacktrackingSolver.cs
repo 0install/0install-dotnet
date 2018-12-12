@@ -23,9 +23,9 @@ namespace ZeroInstall.Services.Solvers
     public class BacktrackingSolver : ISolver
     {
         /// <summary>
-        /// The maximum number of <see cref="SelectionCandidate"/>s to try per <see cref="SolverDemand"/>.
+        /// The maximum number backtracking steps to perform before giving up.
         /// </summary>
-        private const int MaxSearchWidth = 32;
+        private const int MaxBacktrackingSteps = 128;
 
         private readonly ISelectionCandidateProvider _candidateProvider;
         private readonly ITaskHandler _handler;
@@ -68,6 +68,7 @@ namespace ZeroInstall.Services.Solvers
 
             public Selections Selections { private set; get; }
             public bool Successful { get; }
+            private int _backtrackCounter;
 
             public Attempt([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] ISelectionCandidateProvider candidateProvider)
             {
@@ -119,12 +120,14 @@ namespace ZeroInstall.Services.Solvers
                 var existingSelection = Selections.GetImplementation(demand.Requirements.InterfaceUri);
                 if (existingSelection == null)
                 { // Try to make new selection
-                    foreach (var selection in compatibleCandidates.Take(MaxSearchWidth).ToSelections(demand))
+                    foreach (var selection in compatibleCandidates.ToSelections(demand))
                     {
                         Selections.Implementations.Add(selection);
                         if (TryToMeet(DemandsFor(selection, demand.Requirements))) return true;
                         else Selections.Implementations.RemoveLast();
                     }
+
+                    if (_backtrackCounter++ >= MaxBacktrackingSteps) throw new SolverException("Too much backtracking; dependency graph too complex.");
                     return false;
                 }
                 else

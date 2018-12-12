@@ -98,9 +98,6 @@ namespace ZeroInstall.Services.Solvers
                     }
                     control.HandleStderr();
                 }
-
-                // Hacky workaround for sporadic race conditions (files created by external process not immediately visible to parent)
-                Thread.Sleep(1000);
             }));
 
             return selections;
