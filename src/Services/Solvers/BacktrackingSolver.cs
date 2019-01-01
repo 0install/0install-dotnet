@@ -25,7 +25,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// The maximum number backtracking steps to perform before giving up.
         /// </summary>
-        private const int MaxBacktrackingSteps = 128;
+        private const int MaxBacktrackingSteps = 64;
 
         private readonly ISelectionCandidateProvider _candidateProvider;
         private readonly ITaskHandler _handler;
