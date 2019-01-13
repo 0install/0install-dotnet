@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Implementations
     public interface IStore
     {
         /// <summary>
-        /// Indiciates what kind of access to this store is possible.
+        /// Indicates what kind of access to this store is possible.
         /// </summary>
         StoreKind Kind { get; }
 
@@ -51,7 +51,7 @@ namespace ZeroInstall.Store.Implementations
         /// Returns a list of all implementations currently in the store.
         /// </summary>
         /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
-        /// <returns>A list of implementations formated as "algorithm=digest" (e.g. "sha256=123abc").</returns>
+        /// <returns>A list of implementations formatted as "algorithm=digest" (e.g. "sha256=123abc").</returns>
         [NotNull]
         IEnumerable<ManifestDigest> ListAll();
 
@@ -135,7 +135,7 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if no implementation matching <paramref name="manifestDigest"/> could be found in the store.</returns>
+        /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if it could not be removed, e.g. because no implementation matching <paramref name="manifestDigest"/> was found.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">Thrown if the implementation could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
