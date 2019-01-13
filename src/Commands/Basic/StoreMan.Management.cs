@@ -151,7 +151,7 @@ namespace ZeroInstall.Commands.Basic
                     GetEffectiveStore().Purge(Handler);
                     return ExitCode.OK;
                 }
-                else throw new OperationCanceledException();
+                else return ExitCode.NoChanges;
             }
         }
     }

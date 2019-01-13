@@ -481,8 +481,10 @@ namespace ZeroInstall.Store.Implementations
                 Log.Warn(Resources.NoStoreSelfRemove);
                 return false;
             }
-
-            if (WindowsUtils.IsWindowsVista) UseRestartManager(path, handler);
+            if (WindowsUtils.IsWindowsVista)
+            {
+                if (!UseRestartManager(path, handler)) return false;
+            }
 
             handler.RunTask(new SimpleTask(string.Format(Resources.DeletingImplementation, manifestDigest), () =>
             {
@@ -500,8 +502,8 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Ensures that there are no applications running with open file handles in <paramref name="path"/>.
         /// </summary>
-        /// <returns>A Restart Manager session that is to be disposed once exclusive access to the directory is no longer required; may be <c>null</c>.</returns>
-        private static void UseRestartManager(string path, ITaskHandler handler)
+        /// <returns><c>true</c> if there are no longer any open file handles; <c>false</c> if this could not be ensured.</returns>
+        private static bool UseRestartManager(string path, ITaskHandler handler)
         {
             try
             {
@@ -519,26 +521,31 @@ namespace ZeroInstall.Store.Implementations
                         if (handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
                             defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
                             restartManager.ShutdownApps(handler);
-                        else throw new OperationCanceledException();
+                        else return false;
                     }
+                    return true;
                 }
             }
             #region Error handling
             catch (IOException ex)
             {
                 Log.Warn(ex);
+                return false;
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(ex);
+                return false;
             }
             catch (TimeoutException ex)
             {
                 Log.Warn(ex);
+                return false;
             }
             catch (Win32Exception ex)
             {
                 Log.Error(ex);
+                return false;
             }
             #endregion
         }
