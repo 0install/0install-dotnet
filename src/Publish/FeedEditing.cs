@@ -31,7 +31,8 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Indicates whether there are changes to the feed that have not yet been saved to a file.
         /// </summary>
-        public bool UnsavedChanges => UndoEnabled || string.IsNullOrEmpty(Path);
+        public bool UnsavedChanges => UndoEnabled
+                                   || (string.IsNullOrEmpty(Path) && Target.Elements.Count != 0); // Generated programmatically
 
         /// <summary>
         /// Starts with an existing feed.
@@ -42,6 +43,7 @@ namespace ZeroInstall.Publish
         {
             SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
 
+            // Keep Target and SignedFeed in sync even if Target is replaced with a new object
             TargetUpdated += () => SignedFeed = new SignedFeed(Target, SignedFeed.SecretKey);
         }
 
@@ -53,6 +55,23 @@ namespace ZeroInstall.Publish
         {}
 
         /// <summary>
+        /// Saves feed to an XML file, adds the default stylesheet and signs it with <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
+        /// </summary>
+        /// <remarks>Writing and signing the feed file are performed as an atomic operation (i.e. if signing fails an existing file remains unchanged).</remarks>
+        /// <param name="path">The file to save to.</param>
+        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+        /// <exception cref="KeyNotFoundException">The specified <see cref="Publish.SignedFeed.SecretKey"/> could not be found on the system.</exception>
+        /// <exception cref="WrongPassphraseException"><see cref="Passphrase"/> was incorrect.</exception>
+        public override void Save([NotNull] string path)
+        {
+            SignedFeed.Save(path, Passphrase);
+
+            Path = path;
+            ClearUndo();
+        }
+
+        /// <summary>
         /// Loads a feed from an XML file (feed).
         /// </summary>
         /// <param name="path">The file to load from.</param>
@@ -61,24 +80,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
         [NotNull]
-        public static FeedEditing Load([NotNull] string path)
+        public new static FeedEditing Load([NotNull] string path)
             => new FeedEditing(SignedFeed.Load(path)) {Path = path};
-
-        /// <summary>
-        /// Saves feed to an XML file, adds the default stylesheet and signs it with <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
-        /// </summary>
-        /// <remarks>Writing and signing the feed file are performed as an atomic operation (i.e. if signing fails an existing file remains unchanged).</remarks>
-        /// <param name="path">The file to save in.</param>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        /// <exception cref="KeyNotFoundException">The specified <see cref="Publish.SignedFeed.SecretKey"/> could not be found on the system.</exception>
-        /// <exception cref="WrongPassphraseException"><see cref="Passphrase"/> was incorrect.</exception>
-        public void Save([NotNull] string path)
-        {
-            SignedFeed.Save(path, Passphrase);
-
-            Path = path;
-            ClearUndo();
-        }
     }
 }
