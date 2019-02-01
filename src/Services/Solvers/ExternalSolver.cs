@@ -4,15 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using JetBrains.Annotations;
-using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
@@ -25,12 +20,11 @@ using ZeroInstall.Store.Model.Selection;
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
-    /// Uses an external process controlled via a IPC to solve requirements. The external process is itself provided by another <see cref="ISolver"/>.
+    /// Uses an external process to solve <see cref="Requirements"/>.
     /// </summary>
+    /// <remarks>The executable for external process is itself provided by another <see cref="ISolver"/>.</remarks>
     public class ExternalSolver : ISolver
     {
-        private const string ApiVersion = "2.7";
-
         #region Dependencies
         private readonly ISolver _backingSolver;
         private readonly ISelectionsManager _selectionsManager;
@@ -75,7 +69,7 @@ namespace ZeroInstall.Services.Solvers
             Selections selections = null;
             _handler.RunTask(new SimpleTask(Resources.ExternalSolverRunning, () =>
             {
-                using (var control = new JsonControl(GetStartInfo())
+                using (var control = new ExternalSolverSession(GetStartInfo())
                 {
                     {"confirm", args => DoConfirm((string)args[0])},
                     {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
@@ -113,7 +107,7 @@ namespace ZeroInstall.Services.Solvers
             var missing = _selectionsManager.GetUncachedImplementations(_solverSelections);
             _fetcher.Fetch(missing);
 
-            var arguments = new[] {"--console", "slave", ApiVersion};
+            var arguments = new[] {"--console", "slave", ExternalSolverSession.ApiVersion};
             for (int i = 0; i < (int)_handler.Verbosity; i++)
                 arguments = arguments.Append("--verbose");
             var startInfo = _executor.Inject(_solverSelections)
@@ -147,149 +141,6 @@ namespace ZeroInstall.Services.Solvers
 
             string message = string.Format(Resources.AskKeyTrust, feedUri.ToStringRfc(), key.Key, hint[1], feedUri.Host);
             return _handler.Ask(message) ? "ok" : "cancel";
-        }
-
-        /// <summary>
-        /// Controls communication with an external process via JSON interface.
-        /// </summary>
-        private sealed class JsonControl : Dictionary<string, Func<object[], object>>, IDisposable
-        {
-            private readonly Stream _stdin;
-            private readonly Stream _stdout;
-            private readonly StreamConsumer _stderr;
-
-            public JsonControl(ProcessStartInfo startInfo)
-            {
-                var process = startInfo.Start();
-                Debug.Assert(process != null);
-
-                _stdin = process.StandardInput.BaseStream;
-                _stdout = process.StandardOutput.BaseStream;
-                _stderr = new StreamConsumer(process.StandardError);
-
-                var apiNotification = GetJsonChunk();
-                if (apiNotification == null ||
-                    apiNotification[0].ToString() != "invoke" ||
-                    apiNotification[1] != null ||
-                    apiNotification[2].ToString() != "set-api-version")
-                    throw new IOException("External solver did not respond correctly to handshake.");
-
-                var apiVersion = new ImplementationVersion(apiNotification[3].ReparseAsJson<string[]>()[0]);
-                if (apiVersion >= new ImplementationVersion(ApiVersion))
-                    Log.Debug("Agreed on 0install slave API version " + apiVersion);
-                else throw new IOException("Failed to agree on slave API version. External solver insisted on: " + apiVersion);
-            }
-
-            [CanBeNull]
-            private object[] GetJsonChunk()
-            {
-                var chunk = GetChunk();
-                if (chunk == null) return null;
-
-                string json = Encoding.UTF8.GetString(chunk);
-                return JsonStorage.FromJsonString<object[]>(json);
-            }
-
-            [CanBeNull]
-            private byte[] GetChunk()
-            {
-                var preamble = _stdout.Read(11, throwOnEnd: false);
-                if (preamble == null) return null;
-
-                int length = Convert.ToInt32(Encoding.UTF8.GetString(preamble).TrimEnd('\n'), 16);
-                return _stdout.Read(length);
-            }
-
-            private void SendJsonChunk([NotNull] params object[] value)
-            {
-                string json = value.ToJsonString();
-                SendChunk(Encoding.UTF8.GetBytes(json));
-            }
-
-            private void SendChunk(byte[] data)
-            {
-                _stdin.Write(Encoding.UTF8.GetBytes($"0x{data.Length:x8}\n"));
-                _stdin.Write(data);
-                _stdin.Flush();
-            }
-
-            private int _nextTicket;
-            private readonly Dictionary<string, Action<object[]>> _callbacks = new Dictionary<string, Action<object[]>>();
-
-            public void Invoke(Action<object[]> onSuccess, string operation, params object[] args)
-            {
-                string ticket = _nextTicket++.ToString();
-                _callbacks[ticket] = onSuccess;
-
-                SendJsonChunk("invoke", ticket, operation, args);
-            }
-
-            public void HandleStderr()
-            {
-                string message;
-                while ((message = _stderr.ReadLine()) != null)
-                {
-                    if (message.StartsWith("error: ")) Log.Error("External solver: " + message.Substring("error: ".Length));
-                    else if (message.StartsWith("warning: ")) Log.Warn("External solver: " + message.Substring("warning: ".Length));
-                    else if (message.StartsWith("info: ")) Log.Info("External solver: " + message.Substring("info: ".Length));
-                    else if (message.StartsWith("debug: ")) Log.Debug("External solver: " + message.Substring("debug: ".Length));
-                    else Log.Debug("External solver: " + message);
-                }
-            }
-
-            public void HandleNextChunk()
-            {
-                var apiRequest = GetJsonChunk();
-                if (apiRequest == null) throw new IOException("External solver exited unexpectedly.");
-
-                string type = (string)apiRequest[0];
-                string ticket = (string)apiRequest[1];
-                string operation = (string)apiRequest[2];
-                var args = apiRequest[3];
-
-                switch (type)
-                {
-                    case "invoke":
-                        try
-                        {
-                            var response = this[operation](args.ReparseAsJson<object[]>());
-                            ReplyOK(ticket, response);
-                        }
-                        catch (Exception ex)
-                        {
-                            ReplyFail(ticket, ex.Message);
-                            throw;
-                        }
-                        break;
-
-                    case "return":
-                        switch (operation)
-                        {
-                            case "ok":
-                                _callbacks[ticket](args.ReparseAsJson<object[]>());
-                                break;
-                            case "ok+xml":
-                                // ReSharper disable once AssignNullToNotNullAttribute
-                                string xml = Encoding.UTF8.GetString(GetChunk());
-                                Log.Debug("XML from external solver: " + xml);
-                                _callbacks[ticket](args.ReparseAsJson<object[]>().Append(xml));
-                                break;
-                            case "fail":
-                                throw new IOException(((string)args).Replace("\n", Environment.NewLine));
-                        }
-                        break;
-                }
-            }
-
-            private void ReplyOK(string ticket, object response) => SendJsonChunk("return", ticket, "ok", new[] {response});
-
-            private void ReplyFail(string ticket, string message) => SendJsonChunk("return", ticket, "fail", message);
-
-            public void Dispose()
-            {
-                _stdin.Close();
-                _stdout.Close();
-            }
         }
     }
 }
