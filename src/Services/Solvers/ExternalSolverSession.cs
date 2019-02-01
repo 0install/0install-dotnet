@@ -23,18 +23,19 @@ namespace ZeroInstall.Services.Solvers
     {
         public const string ApiVersion = "2.7";
 
+        private readonly Process _process;
         private readonly Stream _stdin;
         private readonly Stream _stdout;
         private readonly StreamConsumer _stderr;
 
         public ExternalSolverSession(ProcessStartInfo startInfo)
         {
-            var process = startInfo.Start();
-            Debug.Assert(process != null);
+            _process = startInfo.Start();
+            Debug.Assert(_process != null);
 
-            _stdin = process.StandardInput.BaseStream;
-            _stdout = process.StandardOutput.BaseStream;
-            _stderr = new StreamConsumer(process.StandardError);
+            _stdin = _process.StandardInput.BaseStream;
+            _stdout = _process.StandardOutput.BaseStream;
+            _stderr = new StreamConsumer(_process.StandardError);
 
             var apiNotification = GetJsonChunk();
             if (apiNotification == null ||
@@ -158,6 +159,7 @@ namespace ZeroInstall.Services.Solvers
         {
             _stdin.Close();
             _stdout.Close();
+            _process.WaitForExit();
         }
     }
 }
