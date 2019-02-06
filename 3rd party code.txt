@@ -41,12 +41,12 @@ NuGet package: SevenZipSharp.Interop
 XZ.NET
 https://github.com/RomanBelkov/XZ.NET
 MIT license: http://opensource.org/licenses/MIT
-Self-compiled managed DLL: XZ.NET.dll
+NuGet package: XZ.NET
 
 liblzma (XZ Utils)
 http://tukaani.org/xz/
 Public domain
-Pre-compiled native DLLs: liblzma.dll, liblzma64.dll
+NuGet package: XZ.NET
 
 WiX Toolset 3.8
 http://wixtoolset.org/
