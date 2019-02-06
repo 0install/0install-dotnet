@@ -47,10 +47,6 @@
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
@@ -61,6 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ini-parser-netstandard" Version="2.5.2" />
     <PackageReference Include="NanoByte.Common" Version="2.3.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.1" />
@@ -81,11 +78,10 @@
 
   <ItemGroup>
     <!-- Bundle managed libs -->
-    <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net20" />
-    <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net35" />
-    <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net40" />
-    <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net45" />
-    <None Include="..\..\lib\INIFileParser.*" Pack="true" PackagePath="lib/netstandard2.0" />
+    <None Include="..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net20" />
+    <None Include="..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net35" />
+    <None Include="..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\lib\Microsoft.Deployment.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net45" />
 
     <!-- Bundle native libs -->
     <None Include="*.targets" Pack="true" PackagePath="build" />

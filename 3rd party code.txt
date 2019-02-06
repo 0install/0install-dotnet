@@ -18,6 +18,11 @@ http://www.bouncycastle.org/csharp
 Bouncy Castle license: http://www.bouncycastle.org/csharp/licence.html
 NuGet package: BouncyCastle.OpenPgp
 
+INI File Parser
+http://github.com/rickyah/ini-parser
+MIT license: http://opensource.org/licenses/MIT
+NuGet package: ini-parser
+
 ELFSharp
 http://antmicro.com/projects/elfsharp/
 X11 license: ELFSharp.license.txt
@@ -42,11 +47,6 @@ liblzma (XZ Utils)
 http://tukaani.org/xz/
 Public domain
 Pre-compiled native DLLs: liblzma.dll, liblzma64.dll
-
-INI File Parser 2.0.4
-http://github.com/rickyah/ini-parser
-MIT license: http://opensource.org/licenses/MIT
-Pre-compiled managed DLL: INIFileParser.dll
 
 WiX Toolset 3.8
 http://wixtoolset.org/

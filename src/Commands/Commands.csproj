@@ -54,11 +54,6 @@
     <Reference Include="System.ServiceProcess" Pack="False" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
-    <!-- Duplicate transitive references to ensure inclusion in *.deps.json -->
-    <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="SourceLink.Copy.PdbFiles" Version="2.8.3" PrivateAssets="All" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
