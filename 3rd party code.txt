@@ -48,7 +48,7 @@ http://tukaani.org/xz/
 Public domain
 NuGet package: XZ.NET
 
-WiX Toolset 3.8
+WiX Toolset
 http://wixtoolset.org/
 Microsoft Reciprocal License: http://opensource.org/licenses/MS-RL
-Pre-compiled managed DLLs: Microsoft.Deployment.*.dll
+NuGet package: wix-libs
