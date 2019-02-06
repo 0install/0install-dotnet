@@ -21,7 +21,6 @@
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
     <PackageProjectUrl>https://dotnet.0install.de/</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIconUrl>https://github.com/0install/0install-dotnet/raw/master/icon.png</PackageIconUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
