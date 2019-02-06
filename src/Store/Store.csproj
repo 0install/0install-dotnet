@@ -81,6 +81,7 @@
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net35" />
     <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\lib\INIFileParser.*;..\..\lib\Microsoft.Deployment.*;..\..\lib\SevenZipSharp.*;..\..\lib\XZ.NET.*" Pack="true" PackagePath="lib/net45" />
     <None Include="..\..\lib\INIFileParser.*" Pack="true" PackagePath="lib/netstandard2.0" />
 
     <!-- Bundle native libs -->
@@ -93,6 +94,7 @@
     <None Include="..\..\artifacts\$(Configuration)\net20\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\artifacts\$(Configuration)\net35\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net35" />
     <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
   </ItemGroup>
 
   <ItemGroup>
