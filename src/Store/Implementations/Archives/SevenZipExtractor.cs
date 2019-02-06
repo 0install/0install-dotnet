@@ -54,7 +54,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             try
             {
                 // NOTE: Must do initialization here since the constructor may be called on a different thread and SevenZipSharp is thread-affine
-                SevenZipBase.SetLibraryPath(Locations.GetInstalledFilePath(OSUtils.Is64BitProcess ? "7zxa-x64.dll" : "7zxa.dll"));
+                SevenZipBase.SetLibraryPath(Locations.GetInstalledFilePath(OSUtils.Is64BitProcess ? @"x64\7z.dll" : @"x86\7z.dll"));
 
                 using (var extractor = new SevenZip.SevenZipExtractor(_stream))
                 {

@@ -25,13 +25,13 @@ NuGet package: ELFSharp
 
 SevenZipSharp
 http://sevenzipsharp.codeplex.com/
-GNU LGPL 2.1: http://opensource.org/licenses/LGPL-2.1
-Self-compiled managed DLL: SevenZipSharp.dll
+GNU LGPL 3.0: http://opensource.org/licenses/LGPL-3.0
+NuGet package: SevenZipSharp
 
-7-Zip Extra files
+7z.dll
 http://www.7-zip.org/
-GNU LGPL 2.1: http://opensource.org/licenses/LGPL-2.1
-Pre-compiled native DLLs: 7zxa.dll, 7zxa-x64.dll
+GNU LGPL 3.0: http://opensource.org/licenses/LGPL-3.0
+NuGet package: SevenZipSharp.Interop
 
 XZ.NET
 https://github.com/RomanBelkov/XZ.NET
