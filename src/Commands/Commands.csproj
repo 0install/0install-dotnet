@@ -56,7 +56,6 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
     <!-- Duplicate transitive references to ensure inclusion in *.deps.json -->
-    <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
     <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
   </ItemGroup>
 

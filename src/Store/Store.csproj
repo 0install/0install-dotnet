@@ -48,7 +48,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
     <Reference Include="INIFileParser" HintPath="..\..\lib\INIFileParser.dll" />
   </ItemGroup>
 
@@ -58,6 +57,7 @@
     <Reference Include="Microsoft.Deployment.Compression" HintPath="..\..\lib\Microsoft.Deployment.Compression.dll" />
     <Reference Include="Microsoft.Deployment.Compression.Cab" HintPath="..\..\lib\Microsoft.Deployment.Compression.Cab.dll" />
     <Reference Include="Microsoft.Deployment.WindowsInstaller" HintPath="..\..\lib\Microsoft.Deployment.WindowsInstaller.dll" />
+    <Reference Include="SevenZipSharp" HintPath="..\..\lib\SevenZipSharp.dll" />
     <Reference Include="XZ.NET" HintPath="..\..\lib\XZ.NET.dll" />
   </ItemGroup>
 

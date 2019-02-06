@@ -80,18 +80,15 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTarBzip:
 #if !NETSTANDARD2_0
                 case Archive.MimeTypeTarLzma:
-#endif
                 case Archive.MimeTypeTarXz:
-                case Archive.MimeTypeRubyGem:
-                    return;
-
-#if !NETSTANDARD2_0
                 case Archive.MimeType7Z:
                 case Archive.MimeTypeCab:
                 case Archive.MimeTypeMsi:
                     if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
                     return;
 #endif
+                case Archive.MimeTypeRubyGem:
+                    return;
 
                 default:
                     throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
@@ -129,10 +126,6 @@ namespace ZeroInstall.Store.Implementations.Archives
                     return new TarLzmaExtractor(stream, targetPath);
                 case Archive.MimeTypeTarXz:
                     return new TarXzExtractor(stream, targetPath);
-#endif
-                case Archive.MimeTypeRubyGem:
-                    return new RubyGemExtractor(stream, targetPath);
-#if !NETSTANDARD2_0
                 case Archive.MimeType7Z:
                     return new SevenZipExtractor(stream, targetPath);
                 case Archive.MimeTypeCab:
@@ -143,6 +136,8 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeMsi:
                     throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!");
 #endif
+                case Archive.MimeTypeRubyGem:
+                    return new RubyGemExtractor(stream, targetPath);
                 default:
                     throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
             }
