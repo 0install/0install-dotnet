@@ -45,7 +45,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Store\Store.csproj" />
+    <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">

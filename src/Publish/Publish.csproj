@@ -43,7 +43,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,7 +56,7 @@
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <Compile Remove="Capture\**" />
