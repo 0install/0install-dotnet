@@ -39,7 +39,7 @@
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'!='netstandard2.0' and '$(OS)'=='Windows_NT'">
+  <PropertyGroup Condition="'$(OS)'=='Windows_NT'">
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>

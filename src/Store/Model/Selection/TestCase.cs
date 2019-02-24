@@ -1,21 +1,18 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 
-namespace ZeroInstall.Services.Solvers
+namespace ZeroInstall.Store.Model.Selection
 {
     /// <summary>
-    /// A single <see cref="ISolver"/> test case.
+    /// A test case describing <see cref="Model.Requirements"/> and the <see cref="Selection.Selections"/> they are expected to lead to. Used for automated testing of Solvers.
     /// </summary>
-    [Serializable, XmlType("test", Namespace = Feed.XmlNamespace)]
-    public class TestCase : XmlUnknown
+    [XmlType("test", Namespace = Feed.XmlNamespace)]
+    public class TestCase
     {
         [XmlAttribute("name")]
         public string Name { get; set; }
