@@ -94,6 +94,9 @@ namespace ZeroInstall.Services.Solvers
                 }
             }));
 
+            // Invalidate in-memory feed cache, because external solver may have modified on-disk feed cache
+            _feedManager.Clear();
+
             return selections;
         }
 
