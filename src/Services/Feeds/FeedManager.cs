@@ -55,7 +55,7 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Set to <c>true</c> to re-download <see cref="Feed"/>s even if they are already in the <see cref="IFeedCache"/>.
         /// </summary>
-        /// <remarks>Setting this to <c>true</c> implicity also flushes the in-memory cache.</remarks>
+        /// <remarks>Setting this to <c>true</c> implicitly also flushes the in-memory cache.</remarks>
         public bool Refresh
         {
             get => _refresh;
