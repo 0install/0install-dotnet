@@ -97,10 +97,5 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="IOException">The feed could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
         void Remove([NotNull] FeedUri feedUri);
-
-        /// <summary>
-        /// Clears any in-memory caches.
-        /// </summary>
-        void Flush();
     }
 }

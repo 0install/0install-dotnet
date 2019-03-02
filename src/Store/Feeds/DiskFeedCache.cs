@@ -156,9 +156,6 @@ namespace ZeroInstall.Store.Feeds
             File.Delete(path);
         }
 
-        // No in-memory cache
-        void IFeedCache.Flush() {}
-
         #region Conversion
         /// <summary>
         /// Returns the store in the form "DiskFeedCache: DirectoryPath". Not safe for parsing!

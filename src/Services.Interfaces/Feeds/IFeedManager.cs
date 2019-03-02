@@ -71,5 +71,10 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing.</exception>
         void ImportFeed([NotNull] string path);
+
+        /// <summary>
+        /// Clears any in-memory caches.
+        /// </summary>
+        void Clear();
     }
 }
