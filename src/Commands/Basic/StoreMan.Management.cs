@@ -34,7 +34,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                Handler.ManageStore(Store, FeedCache);
+                Handler.ManageStore(ImplementationStore, FeedCache);
                 return ExitCode.OK;
             }
         }
@@ -58,7 +58,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                var nodeBuilder = new CacheNodeBuilder(Store, FeedCache);
+                var nodeBuilder = new CacheNodeBuilder(ImplementationStore, FeedCache);
                 nodeBuilder.Run();
 
                 if (AdditionalArgs.Count == 1)

@@ -15,12 +15,12 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Provides transparent access to an <see cref="IStore"/> running in another process (the Store Service).
+    /// Provides transparent access to an <see cref="IImplementationStore"/> running in another process (the Store Service).
     /// </summary>
-    public partial class IpcStore : IStore
+    public partial class IpcImplementationStore : IImplementationStore
     {
         /// <inheritdoc/>
-        public StoreKind Kind => StoreKind.Service;
+        public ImplementationStoreKind Kind => ImplementationStoreKind.Service;
 
         /// <inheritdoc/>
         public string DirectoryPath
@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 try
                 {
-                    return GetServiceProxy().DirectoryPath;
+                    return GetProxy().DirectoryPath;
                 }
                 #region Error handling
                 catch (RemotingException ex)
@@ -49,25 +49,25 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <summary>
-        /// Always returns empty list. Use a non-IPC <see cref="IStore"/> for this method instead.
+        /// Always returns empty list. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public IEnumerable<ManifestDigest> ListAll() => Enumerable.Empty<ManifestDigest>();
 
         /// <summary>
-        /// Always returns empty list. Use a non-IPC <see cref="IStore"/> for this method instead.
+        /// Always returns empty list. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public IEnumerable<string> ListAllTemp() => Enumerable.Empty<string>();
 
         /// <summary>
-        /// Always returns <c>false</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
+        /// Always returns <c>false</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public bool Contains(ManifestDigest manifestDigest) => false;
 
         /// <summary>
-        /// Always returns <c>false</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
+        /// Always returns <c>false</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public bool Contains(string directory) => false;
@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <summary>
-        /// Always returns <c>null</c>. Use a non-IPC <see cref="IStore"/> for this method instead.
+        /// Always returns <c>null</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public string GetPath(ManifestDigest manifestDigest) => null;
@@ -89,7 +89,7 @@ namespace ZeroInstall.Store.Implementations
         {
             try
             {
-                string result = GetServiceProxy().AddDirectory(path, manifestDigest, handler);
+                string result = GetProxy().AddDirectory(path, manifestDigest, handler);
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
                 return result;
             }
@@ -112,7 +112,7 @@ namespace ZeroInstall.Store.Implementations
         {
             try
             {
-                string result = GetServiceProxy().AddArchives(archiveInfos, manifestDigest, handler);
+                string result = GetProxy().AddArchives(archiveInfos, manifestDigest, handler);
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
                 return result;
             }
@@ -131,17 +131,17 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
         /// </summary>
         public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler) => false;
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
         /// </summary>
         public long Optimise(ITaskHandler handler) => 0;
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DirectoryStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
         /// </summary>
         public void Verify(ManifestDigest manifestDigest, ITaskHandler handler) {}
 

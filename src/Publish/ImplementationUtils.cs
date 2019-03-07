@@ -36,7 +36,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Write access to temporary files was not permitted.</exception>
         /// <exception cref="NotSupportedException">A <see cref="Archive.MimeType"/> is not supported.</exception>
         [NotNull]
-        public static Implementation Build([NotNull] RetrievalMethod retrievalMethod, [NotNull] ITaskHandler handler, [CanBeNull] IStore keepDownloads = null)
+        public static Implementation Build([NotNull] RetrievalMethod retrievalMethod, [NotNull] ITaskHandler handler, [CanBeNull] IImplementationStore keepDownloads = null)
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
@@ -70,7 +70,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>
-        public static void AddMissing([NotNull] this Implementation implementation, [NotNull] ITaskHandler handler, [CanBeNull] ICommandExecutor executor = null, [CanBeNull] IStore keepDownloads = null)
+        public static void AddMissing([NotNull] this Implementation implementation, [NotNull] ITaskHandler handler, [CanBeNull] ICommandExecutor executor = null, [CanBeNull] IImplementationStore keepDownloads = null)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -159,7 +159,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>
-        private static void UpdateDigest([NotNull] this Implementation implementation, [NotNull] string path, [NotNull] ITaskHandler handler, [NotNull] ICommandExecutor executor, [CanBeNull] IStore keepDownloads = null)
+        private static void UpdateDigest([NotNull] this Implementation implementation, [NotNull] string path, [NotNull] ITaskHandler handler, [NotNull] ICommandExecutor executor, [CanBeNull] IImplementationStore keepDownloads = null)
         {
             var digest = ManifestUtils.GenerateDigest(path, handler);
 

@@ -27,7 +27,7 @@ namespace ZeroInstall.Services.Executors
         [Fact]
         public void TestExceptions()
         {
-            var executor = new EnvironmentBuilder(new Mock<IStore>(MockBehavior.Loose).Object);
+            var executor = new EnvironmentBuilder(new Mock<IImplementationStore>(MockBehavior.Loose).Object);
             executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
                     .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
             executor.Invoking(x => x.Inject(new Selections {Implementations = {new ImplementationSelection()}}))
@@ -64,16 +64,16 @@ namespace ZeroInstall.Services.Executors
 
         private static void ExpectCommandException(Selections selections)
         {
-            var storeMock = new Mock<IStore>(MockBehavior.Loose);
+            var storeMock = new Mock<IImplementationStore>(MockBehavior.Loose);
             storeMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns("test path");
             var executor = new EnvironmentBuilder(storeMock.Object);
             executor.Invoking(x => x.Inject(selections))
                     .Should().Throw<ExecutorException>(because: "Invalid Selections should be rejected");
         }
 
-        private static IStore GetMockStore(Selections selections)
+        private static IImplementationStore GetMockStore(Selections selections)
         {
-            var storeMock = new Mock<IStore>(MockBehavior.Loose);
+            var storeMock = new Mock<IImplementationStore>(MockBehavior.Loose);
             storeMock.Setup(x => x.GetPath(selections.Implementations[1].ManifestDigest)).Returns(Test1Path);
             storeMock.Setup(x => x.GetPath(selections.Implementations[2].ManifestDigest)).Returns(Test2Path);
             return storeMock.Object;

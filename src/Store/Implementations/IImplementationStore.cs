@@ -15,15 +15,15 @@ namespace ZeroInstall.Store.Implementations
     /// Describes an object that allows the storage and retrieval of <see cref="Implementation"/> directories.
     /// </summary>
     /// <remarks>A store caches <see cref="Implementation"/>s identified by their <see cref="ManifestDigest"/>s.</remarks>
-    public interface IStore
+    public interface IImplementationStore
     {
         /// <summary>
         /// Indicates what kind of access to this store is possible.
         /// </summary>
-        StoreKind Kind { get; }
+        ImplementationStoreKind Kind { get; }
 
         /// <summary>
-        /// The directory containing the cached <see cref="Implementation"/>s. May be <c>null</c> for some <see cref="IStore"/> types.
+        /// The directory containing the cached <see cref="Implementation"/>s. May be <c>null</c> for some <see cref="IImplementationStore"/> types.
         /// </summary>
         [CanBeNull]
         string DirectoryPath { get; }

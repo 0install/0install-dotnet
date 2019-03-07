@@ -3,8 +3,8 @@
 
 namespace ZeroInstall.Store.Implementations
 {
-    /// <seealso cref="IStore.Kind"/>
-    public enum StoreKind
+    /// <seealso cref="IImplementationStore.Kind"/>
+    public enum ImplementationStoreKind
     {
         /// <summary>
         /// This store can be written to directly.

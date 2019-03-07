@@ -16,7 +16,7 @@ using NanoByte.Common;
 
 namespace ZeroInstall.Store.Implementations
 {
-    public partial class IpcStore
+    public partial class IpcImplementationStore
     {
         /// <summary>
         /// The port name to use to contact the store service.
@@ -24,7 +24,7 @@ namespace ZeroInstall.Store.Implementations
         public const string IpcPortName = "ZeroInstall.Store.Service";
 
         /// <summary>
-        /// The Uri fragment to use to request an <see cref="IStore"/> object from other processes.
+        /// The Uri fragment to use to request an <see cref="IImplementationStore"/> object from other processes.
         /// </summary>
         public const string IpcObjectUri = "Store";
 
@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Implementations
         public static readonly CommonSecurityDescriptor IpcAcl;
 
         [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "Must build ACL during init")]
-        static IpcStore()
+        static IpcImplementationStore()
         {
             var dacl = new DiscretionaryAcl(false, false, 1);
             dacl.AddAccess(AccessControlType.Allow, new SecurityIdentifier(WellKnownSidType.CreatorOwnerSid, null), -1, InheritanceFlags.None, PropagationFlags.None);
@@ -44,33 +44,33 @@ namespace ZeroInstall.Store.Implementations
         }
 
         private static readonly object _lock = new object();
-        private static volatile IStore _store;
+        private static volatile IImplementationStore _proxy;
 
         /// <summary>
-        /// Provides a proxy object for accessing the <see cref="IStore"/> in the store service.
+        /// Provides a proxy object for accessing the <see cref="IImplementationStore"/> in the store service.
         /// </summary>
         /// <exception cref="RemotingException">There is a problem connecting with the store service.</exception>
         /// <remarks>Always returns the same instance. Opens named pipes on first call. Connection is only established on demand.</remarks>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        private static IStore GetServiceProxy()
+        private static IImplementationStore GetProxy()
         {
             // Thread-safe singleton with double-check
-            if (_store == null)
+            if (_proxy == null)
             {
                 lock (_lock)
                 {
-                    if (_store == null)
-                        _store = CreateServiceProxy();
+                    if (_proxy == null)
+                        _proxy = CreateServiceProxy();
                 }
             }
-            return _store;
+            return _proxy;
         }
 
         /// <summary>
-        /// Sets up named pipes and creates a proxy object for accessing the <see cref="IStore"/> in the store service.
+        /// Sets up named pipes and creates a proxy object for accessing the <see cref="IImplementationStore"/> in the store service.
         /// </summary>
         /// <remarks>Must only be called once per process!</remarks>
-        private static IStore CreateServiceProxy()
+        private static IImplementationStore CreateServiceProxy()
         {
             Log.Debug("Attempting to connect to Store Service");
 
@@ -97,7 +97,7 @@ namespace ZeroInstall.Store.Implementations
                 IpcAcl), ensureSecurity: false);
 
             // Create proxy object
-            return (IStore)Activator.GetObject(typeof(IStore), "ipc://" + IpcPortName + "/" + IpcObjectUri);
+            return (IImplementationStore)Activator.GetObject(typeof(IImplementationStore), "ipc://" + IpcPortName + "/" + IpcObjectUri);
         }
     }
 }

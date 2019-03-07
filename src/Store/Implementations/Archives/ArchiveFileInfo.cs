@@ -11,7 +11,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// <summary>
     /// A parameter structure (data transfer object) containing information about a requested archive extraction.
     /// </summary>
-    /// <see cref="IStore.AddArchives"/>
+    /// <see cref="IImplementationStore.AddArchives"/>
     [Serializable]
     public struct ArchiveFileInfo : IEquatable<ArchiveFileInfo>
     {

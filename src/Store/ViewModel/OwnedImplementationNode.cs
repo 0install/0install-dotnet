@@ -12,7 +12,7 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Store.ViewModel
 {
     /// <summary>
-    /// Models information about an implementation in an <see cref="IStore"/> with a known owning interface for display in a UI.
+    /// Models information about an implementation in an <see cref="IImplementationStore"/> with a known owning interface for display in a UI.
     /// </summary>
     public sealed class OwnedImplementationNode : ImplementationNode
     {
@@ -28,12 +28,12 @@ namespace ZeroInstall.Store.ViewModel
         /// <param name="digest">The digest identifying the implementation.</param>
         /// <param name="implementation">Information about the implementation from a <see cref="Feed"/> file.</param>
         /// <param name="parent">The node of the feed owning the implementation.</param>
-        /// <param name="store">The <see cref="IStore"/> the implementation is located in.</param>
+        /// <param name="implementationStore">The <see cref="IImplementationStore"/> the implementation is located in.</param>
         /// <exception cref="FormatException">The manifest file is not valid.</exception>
         /// <exception cref="IOException">The manifest file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        public OwnedImplementationNode(ManifestDigest digest, [NotNull] Implementation implementation, [NotNull] FeedNode parent, [NotNull] IStore store)
-            : base(digest, store)
+        public OwnedImplementationNode(ManifestDigest digest, [NotNull] Implementation implementation, [NotNull] FeedNode parent, [NotNull] IImplementationStore implementationStore)
+            : base(digest, implementationStore)
         {
             _parent = parent ?? throw new ArgumentNullException(nameof(parent));
             _implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));

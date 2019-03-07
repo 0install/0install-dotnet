@@ -31,7 +31,7 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>Indicates the user wants the implementation locations on the disk.</summary>
         private bool _show;
 
-        /// <summary><see cref="Implementation"/>s referenced in <see cref="Selection.Selections"/> that are not available in the <see cref="IStore"/>.</summary>
+        /// <summary><see cref="Implementation"/>s referenced in <see cref="Selection.Selections"/> that are not available in the <see cref="IImplementationStore"/>.</summary>
         protected ICollection<Implementation> UncachedImplementations;
 
         /// <inheritdoc/>
@@ -96,7 +96,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Downloads any <see cref="Implementation"/>s in <see cref="Selection"/> that are missing from <see cref="IStore"/>.
+        /// Downloads any <see cref="Implementation"/>s in <see cref="Selection"/> that are missing from <see cref="IImplementationStore"/>.
         /// </summary>
         /// <remarks>Makes sure <see cref="ISolver"/> ran with up-to-date feeds before downloading any implementations.</remarks>
         protected void DownloadUncachedImplementations()

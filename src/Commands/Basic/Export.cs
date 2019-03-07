@@ -89,7 +89,7 @@ namespace ZeroInstall.Commands.Basic
             if (!_noImplementations)
             {
                 DownloadUncachedImplementations();
-                exporter.ExportImplementations(Store, Handler);
+                exporter.ExportImplementations(ImplementationStore, Handler);
             }
 
             exporter.DeployImportScript();

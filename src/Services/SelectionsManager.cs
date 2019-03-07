@@ -23,19 +23,19 @@ namespace ZeroInstall.Services
     {
         #region Dependencies
         private readonly IFeedManager _feedManager;
-        private readonly IStore _store;
+        private readonly IImplementationStore _implementationStore;
         private readonly IPackageManager _packageManager;
 
         /// <summary>
         /// Creates a new selections manager
         /// </summary>
         /// <param name="feedManager">Used to load <see cref="Feed"/>s containing the original <see cref="Implementation"/>s.</param>
-        /// <param name="store">The locations to search for cached <see cref="Implementation"/>s.</param>
+        /// <param name="implementationStore">The locations to search for cached <see cref="Implementation"/>s.</param>
         /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
-        public SelectionsManager([NotNull] IFeedManager feedManager, [NotNull] IStore store, [NotNull] IPackageManager packageManager)
+        public SelectionsManager([NotNull] IFeedManager feedManager, [NotNull] IImplementationStore implementationStore, [NotNull] IPackageManager packageManager)
         {
             _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
-            _store = store ?? throw new ArgumentNullException(nameof(store));
+            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
             _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
         }
         #endregion
@@ -59,7 +59,7 @@ namespace ZeroInstall.Services
                 }
                 else
                 {
-                    if (!_store.Contains(implementation.ManifestDigest))
+                    if (!_implementationStore.Contains(implementation.ManifestDigest))
                         yield return implementation;
                 }
             }
@@ -106,7 +106,7 @@ namespace ZeroInstall.Services
                 => implementation.LocalPath
                 ?? (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
                        ? "(" + implementation.ID + ")"
-                       : _store.GetPath(implementation.ManifestDigest));
+                       : _implementationStore.GetPath(implementation.ManifestDigest));
 
             void AddNodes(IInterfaceUri target, SelectionsTreeNode parent)
             {

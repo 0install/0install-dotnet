@@ -24,7 +24,7 @@ namespace ZeroInstall.Commands.Basic
         public abstract class StoreSubCommand<T> : CommandTestBase<T>
             where T : StoreMan.StoreSubCommand
         {
-            protected Mock<IStore> StoreMock => GetMock<IStore>();
+            protected Mock<IImplementationStore> StoreMock => GetMock<IImplementationStore>();
         }
 
         public class Add : StoreSubCommand<StoreMan.Add>
@@ -231,7 +231,7 @@ namespace ZeroInstall.Commands.Basic
                     FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
 
                     var feedNode = new FeedNode(testFeed, Sut.FeedCache);
-                    RunAndAssert(new ImplementationNode[] {new OwnedImplementationNode(digest1, testImplementation, feedNode, Sut.Store), new OrphanedImplementationNode(digest2, Sut.Store)}, ExitCode.OK);
+                    RunAndAssert(new ImplementationNode[] {new OwnedImplementationNode(digest1, testImplementation, feedNode, Sut.ImplementationStore), new OrphanedImplementationNode(digest2, Sut.ImplementationStore)}, ExitCode.OK);
                 }
             }
         }

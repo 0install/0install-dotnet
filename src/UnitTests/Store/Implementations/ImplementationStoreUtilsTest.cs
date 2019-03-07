@@ -8,18 +8,18 @@ using Xunit;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Contains test methods for <see cref="StoreUtils"/>.
+    /// Contains test methods for <see cref="ImplementationStoreUtils"/>.
     /// </summary>
-    public class StoreUtilsTest
+    public class ImplementationStoreUtilsTest
     {
         [Fact]
         public void TestDetectImplementationPath()
         {
-            StoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir")
+            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir")
                       .Should().BeNull();
-            StoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123")
+            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123")
                       .Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
-            StoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123\subdir" : "/some/dir/sha1new=123/subdir")
+            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123\subdir" : "/some/dir/sha1new=123/subdir")
                       .Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
         }
     }

@@ -28,11 +28,11 @@ namespace ZeroInstall.Services.Fetchers
         protected static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         protected readonly Config Config = new Config();
-        protected readonly Mock<IStore> StoreMock;
+        protected readonly Mock<IImplementationStore> StoreMock;
 
         protected FetcherTest()
         {
-            StoreMock = CreateMock<IStore>();
+            StoreMock = CreateMock<IImplementationStore>();
         }
 
         protected readonly MockTaskHandler Handler = new MockTaskHandler();

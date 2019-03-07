@@ -30,10 +30,10 @@ namespace ZeroInstall.Services.Fetchers
         /// Creates a new sequential download fetcher.
         /// </summary>
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
-        /// <param name="store">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
+        /// <param name="implementationStore">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public SequentialFetcher([NotNull] Config config, [NotNull] IStore store, [NotNull] ITaskHandler handler)
-            : base(store, handler)
+        public SequentialFetcher([NotNull] Config config, [NotNull] IImplementationStore implementationStore, [NotNull] ITaskHandler handler)
+            : base(implementationStore, handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }

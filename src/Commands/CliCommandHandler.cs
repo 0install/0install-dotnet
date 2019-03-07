@@ -75,6 +75,6 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
-        public void ManageStore(IStore store, IFeedCache feedCache) => throw new NeedsGuiException();
+        public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache) => throw new NeedsGuiException();
     }
 }

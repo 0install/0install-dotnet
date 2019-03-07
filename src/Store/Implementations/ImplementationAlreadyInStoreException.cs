@@ -10,7 +10,7 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Indicates an <see cref="Implementation"/> being added to an <see cref="IStore"/> is already in the store.
+    /// Indicates an <see cref="Implementation"/> being added to an <see cref="IImplementationStore"/> is already in the store.
     /// </summary>
     [Serializable]
     public sealed class ImplementationAlreadyInStoreException : Exception

@@ -11,7 +11,7 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Indicates an <see cref="Implementation"/> could not be found in a <see cref="IStore"/>.
+    /// Indicates an <see cref="Implementation"/> could not be found in a <see cref="IImplementationStore"/>.
     /// </summary>
     [Serializable]
     public sealed class ImplementationNotFoundException : IOException

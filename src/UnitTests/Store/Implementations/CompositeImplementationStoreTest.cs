@@ -14,9 +14,9 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Uses mocking to ensure <see cref="CompositeStore"/> correctly delegates work to its child <see cref="IStore"/>s.
+    /// Uses mocking to ensure <see cref="CompositeImplementationStore"/> correctly delegates work to its child <see cref="IImplementationStore"/>s.
     /// </summary>
-    public class CompositeStoreTest : TestWithMocks
+    public class CompositeImplementationStoreTest : TestWithMocks
     {
         #region Constants
         private static readonly ManifestDigest _digest1 = new ManifestDigest(sha1New: "abc");
@@ -27,17 +27,17 @@ namespace ZeroInstall.Store.Implementations
         #endregion
 
         private readonly MockTaskHandler _handler;
-        private readonly Mock<IStore> _mockStore1, _mockStore2;
-        private readonly CompositeStore _testStore;
+        private readonly Mock<IImplementationStore> _mockStore1, _mockStore2;
+        private readonly CompositeImplementationStore _testStore;
 
-        public CompositeStoreTest()
+        public CompositeImplementationStoreTest()
         {
             _handler = new MockTaskHandler();
 
-            _mockStore1 = CreateMock<IStore>();
-            _mockStore2 = CreateMock<IStore>();
+            _mockStore1 = CreateMock<IImplementationStore>();
+            _mockStore2 = CreateMock<IImplementationStore>();
 
-            _testStore = new CompositeStore(new[] {_mockStore1.Object, _mockStore2.Object});
+            _testStore = new CompositeImplementationStore(new[] {_mockStore1.Object, _mockStore2.Object});
         }
 
         #region List all

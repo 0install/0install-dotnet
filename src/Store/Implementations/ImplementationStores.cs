@@ -12,23 +12,65 @@ using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
+#if !NETSTANDARD2_0
+using NanoByte.Common.Native;
+#endif
+
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Manages <see cref="IStore"/> implementation directories.
+    /// Manages implementation store directories and provides <see cref="IImplementationStore"/> instances.
     /// </summary>
-    public static class StoreConfig
+    public static class ImplementationStores
     {
+        /// <summary>
+        /// Creates an <see cref="IImplementationStore"/> instance that uses the default cache locations (based on <see cref="ImplementationStores"/>.
+        /// </summary>
+        /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
+        /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
+        [NotNull]
+        public static IImplementationStore Default()
+        {
+            var stores = new List<IImplementationStore>();
+
+            foreach (string path in GetDirectories())
+            {
+                try
+                {
+                    stores.Add(new DiskImplementationStore(path));
+                }
+                #region Error handling
+                catch (IOException ex)
+                {
+                    // Wrap exception to add context information
+                    throw new IOException(string.Format(Resources.ProblemAccessingStore, path), ex);
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    // Wrap exception to add context information
+                    throw new UnauthorizedAccessException(string.Format(Resources.ProblemAccessingStore, path), ex);
+                }
+                #endregion
+            }
+
+#if !NETSTANDARD2_0
+            if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
+                stores.Add(new IpcImplementationStore());
+#endif
+
+            return new CompositeImplementationStore(stores);
+        }
+
         /// <summary>
         /// Returns a list of paths for implementation directories as defined by configuration files including the default locations.
         /// </summary>
         /// <param name="serviceMode"><c>true</c> to exclude the default location in the user profile, e.g., for system services.</param>
-        /// <remarks>Mutliple configuration files apply cumulatively. I.e., directories from both the user config and the system config are used.</remarks>
+        /// <remarks>Multiple configuration files apply cumulatively. I.e., directories from both the user config and the system config are used.</remarks>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
         [NotNull, ItemNotNull]
-        public static IEnumerable<string> GetImplementationDirs(bool serviceMode = false)
+        public static IEnumerable<string> GetDirectories(bool serviceMode = false)
         {
             if (!serviceMode)
             {
@@ -54,7 +96,7 @@ namespace ZeroInstall.Store.Implementations
             // Add configured cache locations
             foreach (string configFile in Locations.GetLoadConfigPaths("0install.net", true, "injector", "implementation-dirs"))
             {
-                foreach (string path in GetImplementationDirs(configFile))
+                foreach (string path in GetDirectories(configFile))
                     yield return path;
             }
         }
@@ -62,11 +104,12 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Returns a list of custom implementation directories in the current user configuration.
         /// </summary>
-        /// <exception cref="IOException">There was a problem accessin a configuration file.</exception>
+        /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        public static IEnumerable<string> GetUserImplementationDirs() => GetImplementationDirs(GetUserConfigFile());
+        public static IEnumerable<string> GetUserDirectories()
+            => GetDirectories(GetUserConfigFile());
 
         /// <summary>
         /// Sets the list of custom implementation directories in the current user configuration.
@@ -74,18 +117,21 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetUserImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths) => SetImplementationDirs(GetUserConfigFile(), paths);
+        public static void SetUserDirectories([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+            => SetDirectories(GetUserConfigFile(), paths);
 
-        private static string GetUserConfigFile() => Locations.GetSaveConfigPath("0install.net", true, "injector", "implementation-dirs");
+        private static string GetUserConfigFile()
+            => Locations.GetSaveConfigPath("0install.net", true, "injector", "implementation-dirs");
 
         /// <summary>
         /// Returns a list of custom implementation directories in the current machine-wide configuration.
         /// </summary>
-        /// <exception cref="IOException">There was a problem accessin a configuration file.</exception>
+        /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        public static IEnumerable<string> GetMachineWideImplementationDirs() => GetImplementationDirs(GetMachineWideConfigFile());
+        public static IEnumerable<string> GetMachineWideDirectories()
+            => GetDirectories(GetMachineWideConfigFile());
 
         /// <summary>
         /// Sets the list of custom implementation directories in the current machine-wide configuration.
@@ -93,9 +139,11 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetMachineWideImplementationDirs([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths) => SetImplementationDirs(GetMachineWideConfigFile(), paths);
+        public static void SetMachineWideDirectories([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+            => SetDirectories(GetMachineWideConfigFile(), paths);
 
-        private static string GetMachineWideConfigFile() => Locations.GetSaveSystemConfigPath("0install.net", true, "injector", "implementation-dirs");
+        private static string GetMachineWideConfigFile()
+            => Locations.GetSaveSystemConfigPath("0install.net", true, "injector", "implementation-dirs");
 
         /// <summary>
         /// Returns a list of implementation directories in a specific configuration file.
@@ -104,7 +152,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="IOException">There was a problem accessing <paramref name="configPath"/>.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to <paramref name="configPath"/> was not permitted.</exception>
         [NotNull, ItemNotNull]
-        private static IEnumerable<string> GetImplementationDirs([NotNull] string configPath)
+        private static IEnumerable<string> GetDirectories([NotNull] string configPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(configPath)) throw new ArgumentNullException(nameof(configPath));
@@ -151,7 +199,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing <paramref name="configPath"/>.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to <paramref name="configPath"/> was not permitted.</exception>
-        private static void SetImplementationDirs([NotNull] string configPath, [NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+        private static void SetDirectories([NotNull] string configPath, [NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(configPath)) throw new ArgumentNullException(nameof(configPath));

@@ -87,7 +87,7 @@ namespace ZeroInstall.Commands.Desktop
                 }
 
                 if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: false))
-                    Store.Purge(Handler);
+                    ImplementationStore.Purge(Handler);
 
                 if (WindowsUtils.IsWindows) DelegateToTempCopy();
                 else PerformRemove();

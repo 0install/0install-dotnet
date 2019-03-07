@@ -20,17 +20,17 @@ namespace ZeroInstall.Store.ViewModel
     public sealed class CacheNodeBuilder : TaskBase
     {
         #region Dependencies
-        private readonly IStore _store;
+        private readonly IImplementationStore _implementationStore;
         private readonly IFeedCache _feedCache;
 
         /// <summary>
         /// Creates a new list builder
         /// </summary>
-        /// <param name="store">Used to list <see cref="Implementation"/>s</param>
+        /// <param name="implementationStore">Used to list <see cref="Implementation"/>s</param>
         /// <param name="feedCache">Used to load <see cref="Feed"/>s.</param>
-        public CacheNodeBuilder([NotNull] IStore store, [NotNull] IFeedCache feedCache)
+        public CacheNodeBuilder([NotNull] IImplementationStore implementationStore, [NotNull] IFeedCache feedCache)
         {
-            _store = store ?? throw new ArgumentNullException(nameof(store));
+            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
             _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
         }
         #endregion
@@ -64,8 +64,8 @@ namespace ZeroInstall.Store.ViewModel
                 feed.Normalize(feed.Uri);
                 Add(feed);
             }
-            foreach (var digest in _store.ListAll()) Add(digest);
-            foreach (string path in _store.ListAllTemp()) Add(path);
+            foreach (var digest in _implementationStore.ListAll()) Add(digest);
+            foreach (string path in _implementationStore.ListAllTemp()) Add(path);
         }
 
         private void Add(Feed feed) => Add(new FeedNode(feed, _feedCache));
@@ -77,8 +77,8 @@ namespace ZeroInstall.Store.ViewModel
                 var implementation = _feeds.GetImplementation(digest, out var feed);
 
                 ImplementationNode implementationNode;
-                if (implementation == null) implementationNode = new OrphanedImplementationNode(digest, _store);
-                else implementationNode = new OwnedImplementationNode(digest, implementation, new FeedNode(feed, _feedCache), _store);
+                if (implementation == null) implementationNode = new OrphanedImplementationNode(digest, _implementationStore);
+                else implementationNode = new OwnedImplementationNode(digest, implementation, new FeedNode(feed, _feedCache), _implementationStore);
 
                 TotalSize += implementationNode.Size;
                 Add(implementationNode);
@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.ViewModel
             #endregion
         }
 
-        private void Add(string path) => Add(new TempDirectoryNode(path, _store));
+        private void Add(string path) => Add(new TempDirectoryNode(path, _implementationStore));
 
         private void Add(CacheNode entry)
         {

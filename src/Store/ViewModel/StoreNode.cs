@@ -14,15 +14,15 @@ namespace ZeroInstall.Store.ViewModel
     {
         /// <summary>The store containing the element.</summary>
         [NotNull]
-        protected readonly IStore Store;
+        protected readonly IImplementationStore ImplementationStore;
 
         /// <summary>
         /// Creates a new store node.
         /// </summary>
-        /// <param name="store">The store containing the element.</param>
-        protected StoreNode([NotNull] IStore store)
+        /// <param name="implementationStore">The store containing the element.</param>
+        protected StoreNode([NotNull] IImplementationStore implementationStore)
         {
-            Store = store;
+            ImplementationStore = implementationStore;
         }
 
         /// <summary>

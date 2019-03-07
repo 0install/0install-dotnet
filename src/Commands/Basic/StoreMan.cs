@@ -13,7 +13,7 @@ using ZeroInstall.Store.Implementations;
 namespace ZeroInstall.Commands.Basic
 {
     /// <summary>
-    /// Manages the contents of the <see cref="IStore"/>s.
+    /// Manages the contents of the <see cref="IImplementationStore"/>s.
     /// </summary>
     public sealed partial class StoreMan : MultiCommandBase
     {
@@ -84,11 +84,11 @@ namespace ZeroInstall.Commands.Basic
             {}
 
             /// <summary>
-            /// Returns the default <see cref="IStore"/> or a <see cref="CompositeStore"/> as specifief by the <see cref="CommandBase.AdditionalArgs"/>.
+            /// Returns the default <see cref="IImplementationStore"/> or a <see cref="CompositeImplementationStore"/> as specifief by the <see cref="CommandBase.AdditionalArgs"/>.
             /// </summary>
-            protected IStore GetEffectiveStore()
+            protected IImplementationStore GetEffectiveStore()
             {
-                if (AdditionalArgs.Count == 0) return Store;
+                if (AdditionalArgs.Count == 0) return ImplementationStore;
                 else
                 {
                     foreach (string path in AdditionalArgs)
@@ -97,8 +97,8 @@ namespace ZeroInstall.Commands.Basic
                             throw new DirectoryNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
                     }
 
-                    return new CompositeStore(
-                        AdditionalArgs.Select(x => (IStore)new DirectoryStore(x, useWriteProtection: false)));
+                    return new CompositeImplementationStore(
+                        AdditionalArgs.Select(x => (IImplementationStore)new DiskImplementationStore(x, useWriteProtection: false)));
                 }
             }
         }

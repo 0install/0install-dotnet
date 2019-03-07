@@ -11,7 +11,7 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.ViewModel
 {
     /// <summary>
-    /// Models information about a temporary directory in an <see cref="IStore"/> for display in a UI.
+    /// Models information about a temporary directory in an <see cref="IImplementationStore"/> for display in a UI.
     /// </summary>
     public sealed class TempDirectoryNode : StoreNode
     {
@@ -19,15 +19,15 @@ namespace ZeroInstall.Store.ViewModel
         /// Creates a new temporary directory node.
         /// </summary>
         /// <param name="path">The path of the directory in the store.</param>
-        /// <param name="store">The <see cref="IStore"/> the directory is located in.</param>
+        /// <param name="implementationStore">The <see cref="IImplementationStore"/> the directory is located in.</param>
         /// <exception cref="FormatException">The manifest file is not valid.</exception>
         /// <exception cref="IOException">The manifest file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        public TempDirectoryNode([NotNull] string path, [NotNull] IStore store)
-            : base(store)
+        public TempDirectoryNode([NotNull] string path, [NotNull] IImplementationStore implementationStore)
+            : base(implementationStore)
         {
             #region Sanity checks
-            if (store == null) throw new ArgumentNullException(nameof(store));
+            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             #endregion
 
             Path = path;
@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.ViewModel
         public override string Path { get; }
 
         /// <summary>
-        /// Deletes this temporary directory from the <see cref="IStore"/> it is located in.
+        /// Deletes this temporary directory from the <see cref="IImplementationStore"/> it is located in.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
         /// <exception cref="DirectoryNotFoundException">The directory could be found in the store.</exception>
@@ -58,7 +58,7 @@ namespace ZeroInstall.Store.ViewModel
 
             handler.RunTask(new SimpleTask(string.Format(Resources.DeletingDirectory, Path), () =>
             {
-                DirectoryStore.DisableWriteProtection(Path);
+                DiskImplementationStore.DisableWriteProtection(Path);
                 Directory.Delete(Path, recursive: true);
             }));
         }

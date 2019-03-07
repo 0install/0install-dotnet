@@ -50,12 +50,14 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Indicates whether Zero Install is running from an implementation cache.
         /// </summary>
-        public static bool IsRunningFromCache => StoreUtils.DetectImplementationPath(Locations.InstallBase) != null;
+        public static bool IsRunningFromCache
+            => ImplementationStoreUtils.DetectImplementationPath(Locations.InstallBase) != null;
 
         /// <summary>
         /// Indicates whether Zero Install is running from a user-specific location.
         /// </summary>
-        public static bool IsRunningFromPerUserDir => Locations.InstallBase.StartsWith(Locations.HomeDir);
+        public static bool IsRunningFromPerUserDir
+            => Locations.InstallBase.StartsWith(Locations.HomeDir);
 
         /// <summary>
         /// Tries to find another instance of Zero Install deployed on this system.

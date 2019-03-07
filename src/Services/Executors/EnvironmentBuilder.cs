@@ -29,15 +29,15 @@ namespace ZeroInstall.Services.Executors
         /// Used to locate <see cref="Implementation"/>s.
         /// </summary>
         [NotNull]
-        private readonly IStore _store;
+        private readonly IImplementationStore _implementationStore;
 
         /// <summary>
         /// Creates a new build.
         /// </summary>
-        /// <param name="store">Used to locate <see cref="Implementation"/>s.</param>
-        public EnvironmentBuilder([NotNull] IStore store)
+        /// <param name="implementationStore">Used to locate <see cref="Implementation"/>s.</param>
+        public EnvironmentBuilder([NotNull] IImplementationStore implementationStore)
         {
-            _store = store ?? throw new ArgumentNullException(nameof(store));
+            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
         }
         #endregion
 
@@ -245,7 +245,7 @@ namespace ZeroInstall.Services.Executors
                 string path = FileUtils.UnifySlashes(command.Path);
 
                 // Fully qualified paths are used by package/native implementations, usually relative to the implementation
-                commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(_store.GetPath(implementation), path));
+                commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(_implementationStore.GetPath(implementation), path));
             }
             commandLine.AddRange(command.Arguments);
 

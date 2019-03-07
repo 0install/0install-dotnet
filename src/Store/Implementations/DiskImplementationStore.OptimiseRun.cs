@@ -11,10 +11,10 @@ using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.Implementations
 {
-    partial class DirectoryStore
+    partial class DiskImplementationStore
     {
         /// <summary>
-        /// Manages state during a single <see cref="IStore.Optimise"/> run.
+        /// Manages state during a single <see cref="IImplementationStore.Optimise"/> run.
         /// </summary>
         private class OptimiseRun : IDisposable
         {
@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Implementations
             /// <summary>
             /// Creates a new optimise run.
             /// </summary>
-            /// <param name="storePath">The <see cref="IStore.DirectoryPath"/>.</param>
+            /// <param name="storePath">The <see cref="IImplementationStore.DirectoryPath"/>.</param>
             public OptimiseRun(string storePath)
             {
                 _storePath = storePath;

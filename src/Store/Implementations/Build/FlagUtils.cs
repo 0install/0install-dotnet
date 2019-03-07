@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             // Move up one level to avoid write-protection within implementation directories
-            string implementationPath = StoreUtils.DetectImplementationPath(directoryPath);
+            string implementationPath = ImplementationStoreUtils.DetectImplementationPath(directoryPath);
             if (implementationPath != null) directoryPath = Path.Combine(implementationPath, "..");
 
             try

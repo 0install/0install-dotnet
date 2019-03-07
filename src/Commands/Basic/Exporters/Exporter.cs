@@ -96,16 +96,16 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <summary>
         /// Exports all implementations listed in a <see cref="Selections"/> document as archives.
         /// </summary>
-        /// <param name="store">Used to get cached implementations.</param>
+        /// <param name="implementationStore">Used to get cached implementations.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="UnauthorizedAccessException">The file could not be read or written.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
         /// <exception cref="IOException">An implementation archive could not be creates.</exception>
-        public void ExportImplementations([NotNull] IStore store, [NotNull] ITaskHandler handler)
+        public void ExportImplementations([NotNull] IImplementationStore implementationStore, [NotNull] ITaskHandler handler)
         {
             #region Sanity checks
-            if (store == null) throw new ArgumentNullException(nameof(store));
+            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
@@ -114,7 +114,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
 
             foreach (var digest in _selections.Implementations.Select(x => x.ManifestDigest).Where(x => x.Best != null).Distinct())
             {
-                string sourcePath = store.GetPath(digest);
+                string sourcePath = implementationStore.GetPath(digest);
                 if (sourcePath == null)
                 {
                     Log.Warn("Implementation " + digest + " missing from cache");

@@ -67,7 +67,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
             using (var implDir1 = new TemporaryDirectory("0install-unit-tests"))
             using (var implDir2 = new TemporaryDirectory("0install-unit-tests"))
             {
-                var storeMock = CreateMock<IStore>();
+                var storeMock = CreateMock<IImplementationStore>();
                 storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "123", null))).Returns(implDir1);
                 storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "abc", null))).Returns(implDir2);
 

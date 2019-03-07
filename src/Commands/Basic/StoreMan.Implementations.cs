@@ -44,13 +44,13 @@ namespace ZeroInstall.Commands.Basic
                 {
                     if (File.Exists(path))
                     { // One or more archives (combined/overlayed)
-                        Store.AddArchives(GetArchiveFileInfos(), manifestDigest, Handler);
+                        ImplementationStore.AddArchives(GetArchiveFileInfos(), manifestDigest, Handler);
                         return ExitCode.OK;
                     }
                     else if (Directory.Exists(path))
                     { // A single directory
                         if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
-                        Store.AddDirectory(Path.GetFullPath(path), manifestDigest, Handler);
+                        ImplementationStore.AddDirectory(Path.GetFullPath(path), manifestDigest, Handler);
                         return ExitCode.OK;
                     }
                     else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path), path);
@@ -112,7 +112,7 @@ namespace ZeroInstall.Commands.Basic
                 }
                 #endregion
 
-                var store = (AdditionalArgs.Count == 2) ? new DirectoryStore(AdditionalArgs[1]) : Store;
+                var store = (AdditionalArgs.Count == 2) ? new DiskImplementationStore(AdditionalArgs[1]) : ImplementationStore;
                 try
                 {
                     store.AddDirectory(path, manifestDigest, Handler);
@@ -151,7 +151,7 @@ namespace ZeroInstall.Commands.Basic
                 string outputArchive = AdditionalArgs[1];
                 Debug.Assert(outputArchive != null);
 
-                string sourceDirectory = Store.GetPath(manifestDigest);
+                string sourceDirectory = ImplementationStore.GetPath(manifestDigest);
                 if (sourceDirectory == null)
                     throw new ImplementationNotFoundException(manifestDigest);
 
@@ -185,7 +185,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
 
-                string path = Store.GetPath(manifestDigest);
+                string path = ImplementationStore.GetPath(manifestDigest);
                 if (path == null) throw new ImplementationNotFoundException(manifestDigest);
                 Handler.Output(string.Format(Resources.LocalPathOf, AdditionalArgs[0]), path);
                 return ExitCode.OK;
@@ -212,7 +212,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 foreach (var digest in AdditionalArgs.Select(x => new ManifestDigest(x)))
                 {
-                    if (!Store.Remove(digest, Handler))
+                    if (!ImplementationStore.Remove(digest, Handler))
                         throw new ImplementationNotFoundException(digest);
                 }
                 return ExitCode.OK;
@@ -245,12 +245,12 @@ namespace ZeroInstall.Commands.Basic
                     {
                         case 1:
                             // Verify a directory inside the store
-                            Store.Verify(new ManifestDigest(AdditionalArgs[0]), Handler);
+                            ImplementationStore.Verify(new ManifestDigest(AdditionalArgs[0]), Handler);
                             break;
 
                         case 2:
                             // Verify an arbitrary directory
-                            DirectoryStore.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
+                            DiskImplementationStore.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
                             break;
                     }
                 }

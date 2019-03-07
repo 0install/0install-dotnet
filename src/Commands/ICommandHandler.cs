@@ -78,10 +78,10 @@ namespace ZeroInstall.Commands
         void ShowConfig([NotNull] Config config, ConfigTab configTab);
 
         /// <summary>
-        /// Displays a user interface for managing <see cref="IStore"/>s.
+        /// Displays a user interface for managing <see cref="IImplementationStore"/>s.
         /// </summary>
-        /// <param name="store">The <see cref="IStore"/> to manage.</param>
-        /// <param name="feedCache">Information about implementations found in the <paramref name="store"/> are extracted from here.</param>
-        void ManageStore([NotNull] IStore store, [NotNull] IFeedCache feedCache);
+        /// <param name="implementationStore">The <see cref="IImplementationStore"/> to manage.</param>
+        /// <param name="feedCache">Information about implementations found in the <paramref name="implementationStore"/> are extracted from here.</param>
+        void ManageStore([NotNull] IImplementationStore implementationStore, [NotNull] IFeedCache feedCache);
     }
 }

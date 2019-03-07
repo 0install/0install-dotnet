@@ -12,7 +12,7 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Services.Fetchers
 {
     /// <summary>
-    /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IStore"/>.
+    /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
     /// </summary>
     /// <remarks>This is an application of the strategy pattern.</remarks>
     public interface IFetcher
@@ -25,7 +25,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IStore"/> is not permitted.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         void Fetch([NotNull, ItemNotNull] IEnumerable<Implementation> implementations);
     }

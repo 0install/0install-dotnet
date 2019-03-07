@@ -20,24 +20,24 @@ using System.Runtime.Remoting;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Combines multiple <see cref="IStore"/>s as a composite. Adds memory caching for <see cref="IStore.Contains(ManifestDigest)"/>.
+    /// Combines multiple <see cref="IImplementationStore"/>s as a composite. Adds memory caching for <see cref="IImplementationStore.Contains(ManifestDigest)"/>.
     /// </summary>
     /// <remarks>
-    ///   <para>When adding new <see cref="Implementation"/>s the last child <see cref="IStore"/> that doesn't throw an <see cref="UnauthorizedAccessException"/> is used.</para>
-    ///   <para>When when retrieving existing <see cref="Implementation"/>s the first child <see cref="IStore"/> that returns <c>true</c> for <see cref="IStore.Contains(ZeroInstall.Store.Model.ManifestDigest)"/> is used.</para>
+    ///   <para>When adding new <see cref="Implementation"/>s the last child <see cref="IImplementationStore"/> that doesn't throw an <see cref="UnauthorizedAccessException"/> is used.</para>
+    ///   <para>When when retrieving existing <see cref="Implementation"/>s the first child <see cref="IImplementationStore"/> that returns <c>true</c> for <see cref="IImplementationStore.Contains(ZeroInstall.Store.Model.ManifestDigest)"/> is used.</para>
     /// </remarks>
-    public class CompositeStore : MarshalByRefObject, IStore
+    public class CompositeImplementationStore : MarshalByRefObject, IImplementationStore
     {
         #region Properties
-        private readonly IStore[] _stores;
+        private readonly IImplementationStore[] _innerStores;
 
         /// <summary>
-        /// The <see cref="IStore"/>s this store is internally composed of.
+        /// The <see cref="IImplementationStore"/>s this store is internally composed of.
         /// </summary>
-        public IEnumerable<IStore> Stores => new ReadOnlyCollection<IStore>(_stores);
+        public IEnumerable<IImplementationStore> Stores => new ReadOnlyCollection<IImplementationStore>(_innerStores);
 
         /// <inheritdoc/>
-        public StoreKind Kind => StoreKind.ReadWrite;
+        public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
         /// <inheritdoc/>
         public string DirectoryPath => null;
@@ -45,20 +45,20 @@ namespace ZeroInstall.Store.Implementations
 
         #region Constructor
         /// <summary>
-        /// Creates a new composite implementation provider with a set of <see cref="IStore"/>s.
+        /// Creates a new composite implementation store with a set of <see cref="IImplementationStore"/>s.
         /// </summary>
-        /// <param name="stores">
-        ///   A priority-sorted list of <see cref="IStore"/>s.
+        /// <param name="innerStores">
+        ///   A priority-sorted list of <see cref="IImplementationStore"/>s.
         ///   Queried last-to-first for adding new <see cref="Implementation"/>s, first-to-last otherwise.
         /// </param>
-        public CompositeStore([NotNull, ItemNotNull] IEnumerable<IStore> stores)
+        public CompositeImplementationStore([NotNull, ItemNotNull] IEnumerable<IImplementationStore> innerStores)
         {
             #region Sanity checks
-            if (stores == null) throw new ArgumentNullException(nameof(stores));
+            if (innerStores == null) throw new ArgumentNullException(nameof(innerStores));
             #endregion
 
-            _stores = stores.ToArray();
-            _containsCache = new TransparentCache<ManifestDigest, bool>(manifestDigest => _stores.Any(store => store.Contains(manifestDigest)));
+            _innerStores = innerStores.ToArray();
+            _containsCache = new TransparentCache<ManifestDigest, bool>(manifestDigest => _innerStores.Any(x => x.Contains(manifestDigest)));
         }
         #endregion
 
@@ -68,12 +68,12 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public IEnumerable<ManifestDigest> ListAll()
             // Merge the lists from all contained stores, eliminating duplicates
-            => new HashSet<ManifestDigest>(_stores.SelectMany(x => x.ListAllSafe()));
+            => new HashSet<ManifestDigest>(_innerStores.SelectMany(x => x.ListAllSafe()));
 
         /// <inheritdoc/>
         public IEnumerable<string> ListAllTemp()
             // Merge the lists from all contained stores, eliminating duplicates
-            => new HashSet<string>(_stores.SelectMany(x => x.ListAllTempSafe()), StringComparer.Ordinal);
+            => new HashSet<string>(_innerStores.SelectMany(x => x.ListAllTempSafe()), StringComparer.Ordinal);
         #endregion
 
         #region Contains
@@ -83,7 +83,7 @@ namespace ZeroInstall.Store.Implementations
         public bool Contains(ManifestDigest manifestDigest) => _containsCache[manifestDigest];
 
         /// <inheritdoc/>
-        public bool Contains(string directory) => _stores.Any(store => store.Contains(directory));
+        public bool Contains(string directory) => _innerStores.Any(store => store.Contains(directory));
 
         /// <inheritdoc/>
         public void Flush() => _containsCache.Clear();
@@ -93,7 +93,7 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public string GetPath(ManifestDigest manifestDigest)
             // Use the first store that contains the implementation
-            => _stores.Select(store => store.GetPathSafe(manifestDigest))
+            => _innerStores.Select(store => store.GetPathSafe(manifestDigest))
                       .WhereNotNull()
                       .FirstOrDefault();
         #endregion
@@ -113,7 +113,7 @@ namespace ZeroInstall.Store.Implementations
 
             // Find the last store the implementation can be added to (some might be write-protected)
             Exception innerException = null;
-            foreach (var store in _stores.Reverse())
+            foreach (var store in _innerStores.Reverse())
             {
                 try
                 {
@@ -158,7 +158,7 @@ namespace ZeroInstall.Store.Implementations
 
             // Find the last store the implementation can be added to (some might be write-protected)
             Exception innerException = null;
-            foreach (var store in _stores.Reverse())
+            foreach (var store in _innerStores.Reverse())
             {
                 try
                 {
@@ -200,7 +200,7 @@ namespace ZeroInstall.Store.Implementations
 
             // Remove from _every_ store that contains the implementation
             bool removed = false;
-            foreach (var store in _stores.Reverse())
+            foreach (var store in _innerStores.Reverse())
                 removed |= store.Remove(manifestDigest, handler);
 
             return removed;
@@ -216,7 +216,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             // Try to optimize all contained stores
-            return _stores.Reverse().Sum(x => x.Optimise(handler));
+            return _innerStores.Reverse().Sum(x => x.Optimise(handler));
         }
         #endregion
 
@@ -230,7 +230,7 @@ namespace ZeroInstall.Store.Implementations
 
             // Verify in every store that contains the implementation
             bool verified = false;
-            foreach (var store in _stores.Where(store => store.Contains(manifestDigest)))
+            foreach (var store in _innerStores.Where(store => store.Contains(manifestDigest)))
             {
                 store.Verify(manifestDigest, handler);
                 verified = true;
@@ -245,7 +245,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Returns the names of the child stores. Not safe for parsing!
         /// </summary>
-        public override string ToString() => "CompositeStore: " + StringUtils.Join(", ", _stores.Select(x => x.ToString()));
+        public override string ToString() => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()));
         #endregion
     }
 }

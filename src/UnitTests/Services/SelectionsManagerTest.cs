@@ -22,14 +22,14 @@ namespace ZeroInstall.Services
     public class SelectionsManagerTest : TestWithMocks
     {
         private readonly Mock<IFeedManager> _feedManagereMock;
-        private readonly Mock<IStore> _storeMock;
+        private readonly Mock<IImplementationStore> _storeMock;
         private readonly Mock<IPackageManager> _packageManagerMock;
         private readonly ISelectionsManager _selectionsManager;
 
         public SelectionsManagerTest()
         {
             _feedManagerMock = CreateMock<IFeedManager>();
-            _storeMock = CreateMock<IStore>();
+            _storeMock = CreateMock<IImplementationStore>();
             _packageManagerMock = CreateMock<IPackageManager>();
             _selectionsManager = new SelectionsManager(_feedManagerMock.Object, _storeMock.Object, _packageManagerMock.Object);
         }

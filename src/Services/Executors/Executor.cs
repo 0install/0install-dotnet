@@ -19,22 +19,22 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to locate the selected <see cref="Implementation"/>s.
         /// </summary>
-        private readonly IStore _store;
+        private readonly IImplementationStore _implementationStore;
 
         /// <summary>
         /// Creates a new executor.
         /// </summary>
-        /// <param name="store">Used to locate the selected <see cref="Implementation"/>s.</param>
-        public Executor([NotNull] IStore store)
+        /// <param name="implementationStore">Used to locate the selected <see cref="Implementation"/>s.</param>
+        public Executor([NotNull] IImplementationStore implementationStore)
         {
-            _store = store ?? throw new ArgumentNullException(nameof(store));
+            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
         }
         #endregion
 
         /// <inheritdoc/>
-        public Process Start(Selections selections) => new EnvironmentBuilder(_store).Inject(selections).Start();
+        public Process Start(Selections selections) => new EnvironmentBuilder(_implementationStore).Inject(selections).Start();
 
         /// <inheritdoc/>
-        public IEnvironmentBuilder Inject(Selections selections, string overrideMain = null) => new EnvironmentBuilder(_store).Inject(selections, overrideMain);
+        public IEnvironmentBuilder Inject(Selections selections, string overrideMain = null) => new EnvironmentBuilder(_implementationStore).Inject(selections, overrideMain);
     }
 }

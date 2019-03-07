@@ -101,7 +101,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
-        public void ManageStore(IStore store, IFeedCache feedCache)
+        public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache)
         {
             // No UI, so nothing to do
         }

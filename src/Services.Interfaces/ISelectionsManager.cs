@@ -18,7 +18,7 @@ namespace ZeroInstall.Services
     public interface ISelectionsManager
     {
         /// <summary>
-        /// Returns a list of any downloadable <see cref="ImplementationSelection"/>s that are missing from an <see cref="IStore"/>.
+        /// Returns a list of any downloadable <see cref="ImplementationSelection"/>s that are missing from an <see cref="IImplementationStore"/>.
         /// </summary>
         /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
         /// <remarks>Feed files may be downloaded, no implementations are downloaded.</remarks>

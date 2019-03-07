@@ -50,13 +50,13 @@ namespace ZeroInstall.Services
         [NotNull]
         public Config Config { get => Get(ref _config, Config.Load); set => _config = value; }
 
-        private IStore _store;
+        private IImplementationStore _implementationStore;
 
         /// <summary>
         /// Describes an object that allows the storage and retrieval of <see cref="Implementation"/> directories.
         /// </summary>
         [NotNull]
-        public IStore Store { get => Get(ref _store, StoreFactory.CreateDefault); set => _store = value; }
+        public IImplementationStore ImplementationStore { get => Get(ref _implementationStore, ImplementationStores.Default); set => _implementationStore = value; }
 
         private IOpenPgp _openPgp;
 
@@ -120,7 +120,7 @@ namespace ZeroInstall.Services
         /// Generates <see cref="SelectionCandidate"/>s for the <see cref="Solver"/> to choose among.
         /// </summary>
         [NotNull]
-        public ISelectionCandidateProvider SelectionCandidateProvider { get => Get(ref _selectionCandidateProvider, () => new SelectionCandidateProvider(Config, FeedManager, Store, PackageManager)); set => _selectionCandidateProvider = value; }
+        public ISelectionCandidateProvider SelectionCandidateProvider { get => Get(ref _selectionCandidateProvider, () => new SelectionCandidateProvider(Config, FeedManager, ImplementationStore, PackageManager)); set => _selectionCandidateProvider = value; }
 
         private ISolver _solver;
 
@@ -146,7 +146,7 @@ namespace ZeroInstall.Services
         /// Used to download missing <see cref="Implementation"/>s.
         /// </summary>
         [NotNull]
-        public IFetcher Fetcher { get => Get(ref _fetcher, () => new SequentialFetcher(Config, Store, Handler)); set => _fetcher = value; }
+        public IFetcher Fetcher { get => Get(ref _fetcher, () => new SequentialFetcher(Config, ImplementationStore, Handler)); set => _fetcher = value; }
 
         private IExecutor _executor;
 
@@ -154,7 +154,7 @@ namespace ZeroInstall.Services
         /// Executes a <see cref="Selections"/> document as a program using dependency injection.
         /// </summary>
         [NotNull]
-        public IExecutor Executor { get => Get(ref _executor, () => new Executor(Store)); set => _executor = value; }
+        public IExecutor Executor { get => Get(ref _executor, () => new Executor(ImplementationStore)); set => _executor = value; }
 
         private ISelectionsManager _selectionsManager;
 
@@ -162,7 +162,7 @@ namespace ZeroInstall.Services
         /// Contains helper methods for filtering <see cref="Selections"/>.
         /// </summary>
         [NotNull]
-        public ISelectionsManager SelectionsManager { get => Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, Store, PackageManager)); set => _selectionsManager = value; }
+        public ISelectionsManager SelectionsManager { get => Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, ImplementationStore, PackageManager)); set => _selectionsManager = value; }
 
         private static T Get<T>(ref T value, Func<T> build) where T : class
         {

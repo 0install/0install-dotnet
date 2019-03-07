@@ -38,13 +38,13 @@ namespace ZeroInstall.Commands.Basic
 
             protected IEnumerable<string> GetImplementationDirs()
                 => MachineWide
-                    ? StoreConfig.GetMachineWideImplementationDirs()
-                    : StoreConfig.GetUserImplementationDirs();
+                    ? ImplementationStores.GetMachineWideDirectories()
+                    : ImplementationStores.GetUserDirectories();
 
             protected void SetImplementationDirs([NotNull] IEnumerable<string> paths)
             {
-                if (MachineWide) StoreConfig.SetMachineWideImplementationDirs(paths);
-                else StoreConfig.SetUserImplementationDirs(paths);
+                if (MachineWide) ImplementationStores.SetMachineWideDirectories(paths);
+                else ImplementationStores.SetUserDirectories(paths);
             }
         }
 
@@ -66,7 +66,7 @@ namespace ZeroInstall.Commands.Basic
                 string path = GetPath();
 
                 // Init new store to ensure the target is suitable
-                Store = new DirectoryStore(path);
+                ImplementationStore = new DiskImplementationStore(path);
 
                 var dirs = GetImplementationDirs().ToList();
                 if (dirs.AddIfNew(path))
@@ -131,8 +131,8 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                var composite = Store as CompositeStore;
-                Handler.Output(Resources.CachedInterfaces, (composite == null) ? new[] {Store} : composite.Stores);
+                var composite = ImplementationStore as CompositeImplementationStore;
+                Handler.Output(Resources.CachedInterfaces, (composite == null) ? new[] {ImplementationStore} : composite.Stores);
                 return ExitCode.OK;
             }
         }

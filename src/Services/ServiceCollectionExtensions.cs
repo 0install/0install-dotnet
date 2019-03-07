@@ -41,7 +41,7 @@ namespace ZeroInstall.Services
             services
                 .AddScoped<ITaskHandler, TTaskHandler>()
                 .AddScoped(x => Config.Load())
-                .AddScoped(x => StoreFactory.CreateDefault())
+                .AddScoped(x => ImplementationStores.Default())
                 .AddScoped<IOpenPgp, BouncyCastle>()
                 .AddScoped(x => FeedCaches.Default(x.GetService<IOpenPgp>()))
                 .AddScoped(x => TrustDB.LoadSafe())

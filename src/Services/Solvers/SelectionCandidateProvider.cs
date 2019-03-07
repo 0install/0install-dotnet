@@ -39,14 +39,14 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
         /// <param name="feedManager">Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.</param>
-        /// <param name="store">Used to check which <see cref="Implementation"/>s are already cached.</param>
+        /// <param name="implementationStore">Used to check which <see cref="Implementation"/>s are already cached.</param>
         /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
-        public SelectionCandidateProvider([NotNull] Config config, [NotNull] IFeedManager feedManager, [NotNull] IStore store, [NotNull] IPackageManager packageManager)
+        public SelectionCandidateProvider([NotNull] Config config, [NotNull] IFeedManager feedManager, [NotNull] IImplementationStore implementationStore, [NotNull] IPackageManager packageManager)
         {
             #region Sanity checks
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (feedManager == null) throw new ArgumentNullException(nameof(feedManager));
-            if (store == null) throw new ArgumentNullException(nameof(store));
+            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             if (packageManager == null) throw new ArgumentNullException(nameof(packageManager));
             #endregion
 
@@ -55,7 +55,7 @@ namespace ZeroInstall.Services.Solvers
 
             _interfacePreferences = new TransparentCache<FeedUri, InterfacePreferences>(InterfacePreferences.LoadForSafe);
             _externalImplementations = new Dictionary<string, ExternalImplementation>();
-            _storeContains = new TransparentCache<ManifestDigest, bool>(store.Contains);
+            _storeContains = new TransparentCache<ManifestDigest, bool>(implementationStore.Contains);
             _feeds = new TransparentCache<FeedUri, Feed>(feedUri =>
             {
                 try

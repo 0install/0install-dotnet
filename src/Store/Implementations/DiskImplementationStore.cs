@@ -27,10 +27,10 @@ namespace ZeroInstall.Store.Implementations
     /// Manages a cache directory that stores <see cref="Implementation"/>s, each in its own sub-directory named by its <see cref="ManifestDigest"/>.
     /// </summary>
     /// <remarks>The represented store data is mutable but the class itself is immutable.</remarks>
-    public partial class DirectoryStore : MarshalNoTimeout, IStore, IEquatable<DirectoryStore>
+    public partial class DiskImplementationStore : MarshalNoTimeout, IImplementationStore, IEquatable<DiskImplementationStore>
     {
         /// <inheritdoc/>
-        public StoreKind Kind { get; }
+        public ImplementationStoreKind Kind { get; }
 
         /// <inheritdoc/>
         [NotNull]
@@ -46,19 +46,19 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Creates a new store using a specific path to a cache directory.
         /// </summary>
-        /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
+        /// <param name="directoryPath">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
         /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</param>
-        /// <exception cref="IOException">The directory <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
-        /// <exception cref="UnauthorizedAccessException">Creating the directory <paramref name="path"/> is not permitted.</exception>
-        public DirectoryStore([NotNull] string path, bool useWriteProtection = true)
+        /// <exception cref="IOException">The <paramref name="directoryPath"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
+        /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="directoryPath"/> is not permitted.</exception>
+        public DiskImplementationStore([NotNull] string directoryPath, bool useWriteProtection = true)
         {
             #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
             #endregion
 
             try
             {
-                DirectoryPath = Path.GetFullPath(path);
+                DirectoryPath = Path.GetFullPath(directoryPath);
                 if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
             }
             #region Error handling
@@ -78,7 +78,7 @@ namespace ZeroInstall.Store.Implementations
             _useWriteProtection = useWriteProtection;
             _isUnixFS = FlagUtils.IsUnixFS(DirectoryPath);
 
-            if (Kind == StoreKind.ReadWrite)
+            if (Kind == ImplementationStoreKind.ReadWrite)
             {
                 try
                 {
@@ -100,7 +100,7 @@ namespace ZeroInstall.Store.Implementations
             }
         }
 
-        private static StoreKind DetermineKind(string path)
+        private static ImplementationStoreKind DetermineKind(string path)
         {
             try
             {
@@ -109,12 +109,12 @@ namespace ZeroInstall.Store.Implementations
                     throw new IOException(Resources.InsufficientFSTimeAccuracy);
 
                 // As a side-effect the test above told us we have write access
-                return StoreKind.ReadWrite;
+                return ImplementationStoreKind.ReadWrite;
             }
             catch (UnauthorizedAccessException)
             {
                 // The test could not be performed because we have no write access, which is fine
-                return StoreKind.ReadOnly;
+                return ImplementationStoreKind.ReadOnly;
             }
         }
 
@@ -475,7 +475,7 @@ namespace ZeroInstall.Store.Implementations
 
             string path = GetPath(manifestDigest);
             if (path == null) return false;
-            if (Kind == StoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+            if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
             if (path == Locations.InstallBase && WindowsUtils.IsWindows)
             {
                 Log.Warn(Resources.NoStoreSelfRemove);
@@ -560,7 +560,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (!Directory.Exists(DirectoryPath)) return 0;
-            if (Kind == StoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
+            if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
             using (var run = new OptimiseRun(DirectoryPath))
             {
@@ -616,14 +616,14 @@ namespace ZeroInstall.Store.Implementations
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DirectoryStore other) => other != null && DirectoryPath == other.DirectoryPath;
+        public bool Equals(DiskImplementationStore other) => other != null && DirectoryPath == other.DirectoryPath;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj.GetType() == typeof(DirectoryStore) && Equals((DirectoryStore)obj);
+            return obj.GetType() == typeof(DiskImplementationStore) && Equals((DiskImplementationStore)obj);
         }
 
         /// <inheritdoc/>

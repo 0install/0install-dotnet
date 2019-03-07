@@ -28,7 +28,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="stabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
         /// <param name="networkUse">Controls how liberally network access is attempted.</param>
         /// <param name="languages">The preferred languages for the implementation.</param>
-        /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IStore"/>.</param>
+        /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
         public SelectionCandidateComparer(Stability stabilityPolicy, NetworkLevel networkUse, [NotNull] LanguageSet languages, [NotNull] Predicate<Implementation> isCached)
         {
             _stabilityPolicy = stabilityPolicy;
