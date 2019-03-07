@@ -31,11 +31,11 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// Creates a new disk-based cache.
         /// </summary>
-        /// <param name="path">A fully qualified directory path.</param>
+        /// <param name="directoryPath">A fully qualified directory path.</param>
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-        public DiskFeedCache([NotNull] string path, [NotNull] IOpenPgp openPgp)
+        public DiskFeedCache([NotNull] string directoryPath, [NotNull] IOpenPgp openPgp)
         {
-            DirectoryPath = path ?? throw new ArgumentNullException(nameof(path));
+            DirectoryPath = directoryPath ?? throw new ArgumentNullException(nameof(directoryPath));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
         }
         #endregion

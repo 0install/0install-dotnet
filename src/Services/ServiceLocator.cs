@@ -72,7 +72,7 @@ namespace ZeroInstall.Services
         /// Provides access to a cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
         /// </summary>
         [NotNull]
-        public IFeedCache FeedCache { get => Get(ref _feedCache, () => FeedCacheFactory.CreateDefault(OpenPgp)); set => _feedCache = value; }
+        public IFeedCache FeedCache { get => Get(ref _feedCache, () => FeedCaches.Default(OpenPgp)); set => _feedCache = value; }
 
         private TrustDB _trustDB;
 

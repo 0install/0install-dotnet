@@ -43,7 +43,7 @@ namespace ZeroInstall.Services
                 .AddScoped(x => Config.Load())
                 .AddScoped(x => StoreFactory.CreateDefault())
                 .AddScoped<IOpenPgp, BouncyCastle>()
-                .AddScoped(x => FeedCacheFactory.CreateDefault(x.GetService<IOpenPgp>()))
+                .AddScoped(x => FeedCaches.Default(x.GetService<IOpenPgp>()))
                 .AddScoped(x => TrustDB.LoadSafe())
                 .AddScoped<ITrustManager, TrustManager>()
                 .AddScoped<IFeedManager, FeedManager>()
