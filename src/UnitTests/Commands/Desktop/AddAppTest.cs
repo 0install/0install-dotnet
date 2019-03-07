@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Contains integration tests for <see cref="AddApp"/>.
     /// </summary>
-    public class AddAppTest : CommandTestBase<AddApp>
+    public class AddAppTest : CliCommandTestBase<AddApp>
     {
         [Fact]
         public void TestWithoutAlias()

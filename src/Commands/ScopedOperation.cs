@@ -4,12 +4,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
 using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services;
@@ -18,6 +16,8 @@ using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
 #if !NETCOREAPP2_0
+using System.Linq;
+using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
 #endif
@@ -27,13 +27,13 @@ namespace ZeroInstall.Commands
     /// <summary>
     /// Common base class for Zero Install operations that require scoped dependency resolution.
     /// </summary>
-    public abstract class OperationBase : ServiceLocator
+    public abstract class ScopedOperation : ServiceLocator
     {
         /// <summary>
         /// Creates a new command base.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        protected OperationBase([NotNull] ITaskHandler handler)
+        protected ScopedOperation([NotNull] ITaskHandler handler)
             : base(handler)
         {}
 
@@ -145,7 +145,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Uses <see cref="Catalog.FindByShortName"/> to find a <see cref="Feed"/> matching a specific short name.
         /// </summary>
-        /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Command.NameRun"/>.</param>
+        /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Store.Model.Command.NameRun"/>.</param>
         /// <returns>The first matching <see cref="Feed"/>; <c>null</c> if no match was found.</returns>
         /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
         [CanBeNull]
@@ -184,7 +184,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Starts executing a "0install" command in a background process. Returns immediately.
         /// </summary>
-        /// <param name="command">The <see cref="CommandBase.Name"/> of the command to execute.</param>
+        /// <param name="command">The <see cref="CliCommand.Name"/> of the command to execute.</param>
         /// <param name="args">Additional arguments to pass to the command.</param>
         protected static void StartCommandBackground([NotNull] string command, [NotNull] params string[] args)
         {

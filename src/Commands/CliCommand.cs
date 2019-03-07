@@ -25,10 +25,10 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Represents a command invoked via command-line arguments. Not to be confused with <see cref="Command"/>!
+    /// Represents a command invoked via command-line arguments.
     /// </summary>
     /// <remarks>Specific sub-classes of this class are used to handle a commands like "0install COMMAND [OPTIONS]".</remarks>
-    public abstract class CommandBase : OperationBase
+    public abstract partial class CliCommand : ScopedOperation
     {
         #region Metadata
         /// <summary>
@@ -113,7 +113,7 @@ namespace ZeroInstall.Commands
         /// Creates a new command.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        protected CommandBase([NotNull] ICommandHandler handler)
+        protected CliCommand([NotNull] ICommandHandler handler)
             : base(handler)
         {
             Handler = handler;

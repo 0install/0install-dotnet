@@ -10,7 +10,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Contains integration tests for <see cref="List"/>.
     /// </summary>
-    public class ListTest : CommandTestBase<List>
+    public class ListTest : CliCommandTestBase<List>
     {
         private Mock<IFeedCache> FeedCacheMock => GetMock<IFeedCache>();
 

@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s piped in as XML via stdin (for programmatic use). Use <see cref="Feed"/> format with no inner linebreaks and terminated by a single linebreak.
     /// </summary>
-    public class Fetch : CommandBase
+    public class Fetch : CliCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

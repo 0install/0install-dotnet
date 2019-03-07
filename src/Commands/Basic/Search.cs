@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Searches for feeds indexed by the mirror server.
     /// </summary>
-    public class Search : CommandBase
+    public class Search : CliCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

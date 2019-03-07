@@ -91,7 +91,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Parses command-line arguments and performs the indicated action. Performs error handling.
         /// </summary>
-        /// <param name="exeName">The name of the executable to use as a reference in help messages and self-invokation.</param>
+        /// <param name="exeName">The name of the executable to use as a reference in help messages and self-invocation.</param>
         /// <param name="args">The arguments to be processed.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <returns>The exit status code to end the process with. Cast to <see cref="int"/> to return from a Main method.</returns>
@@ -105,7 +105,7 @@ namespace ZeroInstall.Commands
 
             try
             {
-                var command = CommandFactory.CreateAndParse(args, handler);
+                var command = CliCommand.CreateAndParse(args, handler);
                 return command.Execute();
             }
             #region Error handling

@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Manages the integration of Zero Install itself in the operating system (deployment and removal).
     /// </summary>
-    public sealed partial class MaintenanceMan : MultiCommandBase
+    public sealed partial class MaintenanceMan : CliMultiCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
@@ -32,7 +32,7 @@ namespace ZeroInstall.Commands.Desktop
         public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name};
 
         /// <inheritdoc/>
-        public override SubCommandBase GetCommand(string commandName)
+        public override CliSubCommand GetCommand(string commandName)
         {
             #region Sanity checks
             if (commandName == null) throw new ArgumentNullException(nameof(commandName));
@@ -51,7 +51,7 @@ namespace ZeroInstall.Commands.Desktop
             }
         }
 
-        public abstract class MaintenanceSubCommand : SubCommandBase
+        public abstract class MaintenanceSubCommand : CliSubCommand
         {
             protected override string ParentName => MaintenanceMan.Name;
 

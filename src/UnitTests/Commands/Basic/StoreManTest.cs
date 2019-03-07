@@ -21,7 +21,7 @@ namespace ZeroInstall.Commands.Basic
     [Collection("WorkingDir")]
     public class StoreManTest
     {
-        public abstract class StoreSubCommand<T> : CommandTestBase<T>
+        public abstract class StoreSubCommand<T> : CliCommandTestBase<T>
             where T : StoreMan.StoreSubCommand
         {
             protected Mock<IImplementationStore> StoreMock => GetMock<IImplementationStore>();

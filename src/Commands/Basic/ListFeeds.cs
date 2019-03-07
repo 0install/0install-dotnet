@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// List all known feed URIs for a specific interface.
     /// </summary>
-    public sealed class ListFeeds : CommandBase
+    public sealed class ListFeeds : CliCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

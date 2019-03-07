@@ -22,11 +22,11 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Contains common code for testing specific <see cref="CommandBase"/>s.
+    /// Contains common code for testing specific <see cref="CliCommand"/>s.
     /// </summary>
-    /// <typeparam name="TCommand">The specific type of <see cref="CommandBase"/> to test.</typeparam>
-    public abstract class CommandTestBase<TCommand> : TestWithMocksAndRedirect
-        where TCommand : CommandBase
+    /// <typeparam name="TCommand">The specific type of <see cref="CliCommand"/> to test.</typeparam>
+    public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
+        where TCommand : CliCommand
     {
         protected readonly MockCommandHandler Handler = new MockCommandHandler();
 
@@ -44,7 +44,7 @@ namespace ZeroInstall.Commands
         /// <remarks>All created <see cref="Mock"/>s are automatically verified after the test completes.</remarks>
         protected Mock<T> GetMock<T>() where T : class => (Mock<T>)_mocks[typeof(T)];
 
-        protected CommandTestBase()
+        protected CliCommandTestBase()
         {
             Sut = (TCommand)(typeof(TCommand).GetConstructor(new[] {typeof(ICommandHandler)}).Invoke(new object[] {Handler}));
 
@@ -71,11 +71,11 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CommandBase.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
         /// </summary>
         /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
-        /// <param name="args">The arguments to pass to <see cref="CommandBase.Parse"/>.</param>
+        /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
         protected void RunAndAssert([CanBeNull] string expectedOutput, ExitCode expectedExitCode, params string[] args)
         {
             Sut.Parse(args);
@@ -84,11 +84,11 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CommandBase.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
         /// </summary>
         /// <param name="expectedOutput">The expected tabular data for a <see cref="ITaskHandler.Output{T}"/> call.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
-        /// <param name="args">The arguments to pass to <see cref="CommandBase.Parse"/>.</param>
+        /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
         protected void RunAndAssert<T>(IEnumerable<T> expectedOutput, ExitCode expectedExitCode, params string[] args)
         {
             Sut.Parse(args);

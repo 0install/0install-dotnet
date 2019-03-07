@@ -16,16 +16,12 @@ using ZeroInstall.Commands.Desktop;
 
 namespace ZeroInstall.Commands
 {
-    /// <summary>
-    /// Handles the creation of <see cref="CommandBase"/> instances for handling of commands like "0install COMMAND [OPTIONS]".
-    /// </summary>
-    public static class CommandFactory
+    partial class CliCommand
     {
-        #region Command list
         /// <summary>
         /// A list of command names (without alternatives) as used in command-line arguments in lower-case.
         /// </summary>
-        internal static readonly string[] CommandNames =
+        internal static readonly string[] Names =
         {
             Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
 #if !NETCOREAPP2_0
@@ -34,17 +30,17 @@ namespace ZeroInstall.Commands
         };
 
         /// <summary>
-        /// Creates a new <see cref="CommandBase"/> based on a name.
+        /// Creates a new <see cref="CliCommand"/> based on a name.
         /// </summary>
         /// <param name="commandName">The command name to look for; case-insensitive; can be <c>null</c>.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        /// <returns>The requested <see cref="CommandBase"/> or <see cref="DefaultCommand"/> if <paramref name="commandName"/> was <c>null</c>.</returns>
+        /// <returns>The requested <see cref="CliCommand"/> or <see cref="DefaultCommand"/> if <paramref name="commandName"/> was <c>null</c>.</returns>
         /// <exception cref="OptionException"><paramref name="commandName"/> is an unknown command.</exception>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         [NotNull]
-        public static CommandBase GetCommand([CanBeNull] string commandName, [NotNull] ICommandHandler handler)
+        public static CliCommand Create([CanBeNull] string commandName, [NotNull] ICommandHandler handler)
         {
             if (string.IsNullOrEmpty(commandName)) return new DefaultCommand(handler);
             switch (commandName.ToLowerInvariant())
@@ -124,15 +120,13 @@ namespace ZeroInstall.Commands
                     throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
             }
         }
-        #endregion
 
-        #region Create and parse
         /// <summary>
-        /// Parses command-line arguments, automatically creating an appropriate <see cref="CommandBase"/>.
+        /// Parses command-line arguments, automatically creating an appropriate <see cref="CliCommand"/>.
         /// </summary>
         /// <param name="args">The command-line arguments to be parsed.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        /// <returns>The newly created <see cref="CommandBase"/> after <see cref="CommandBase.Parse"/> has been called.</returns>
+        /// <returns>The newly created <see cref="CliCommand"/> after <see cref="CliCommand.Parse"/> has been called.</returns>
         /// <exception cref="OperationCanceledException">The user asked to see help information, version information, etc..</exception>
         /// <exception cref="OptionException"><paramref name="args"/> contains unknown options or specified an unknown command.</exception>
         /// <exception cref="IOException">A problem occurred while creating a directory.</exception>
@@ -140,14 +134,14 @@ namespace ZeroInstall.Commands
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         /// <exception cref="FormatException">An URI, local path, version number, etc. is invalid.</exception>
         [NotNull]
-        public static CommandBase CreateAndParse([NotNull, ItemNotNull] IEnumerable<string> args, [NotNull] ICommandHandler handler)
+        public static CliCommand CreateAndParse([NotNull, ItemNotNull] IEnumerable<string> args, [NotNull] ICommandHandler handler)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            var command = GetCommand(GetCommandName(ref args), handler);
+            var command = Create(GetCommandName(ref args), handler);
             command.Parse(args);
             return command;
         }
@@ -171,6 +165,5 @@ namespace ZeroInstall.Commands
             args = arguments;
             return commandName;
         }
-        #endregion
     }
 }

@@ -13,7 +13,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// The default command used when no command is explicitly specified.
     /// </summary>
-    public sealed class DefaultCommand : CommandBase
+    public sealed class DefaultCommand : CliCommand
     {
         #region Metadata
         /// <inheritdoc/>
@@ -22,7 +22,7 @@ namespace ZeroInstall.Commands.Basic
             get
             {
                 var builder = new StringBuilder(Resources.TryHelpWith + Environment.NewLine);
-                foreach (string possibleCommand in CommandFactory.CommandNames)
+                foreach (string possibleCommand in Names)
                     builder.AppendLine("0install " + possibleCommand);
                 return builder.ToString();
             }

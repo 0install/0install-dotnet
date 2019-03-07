@@ -12,12 +12,12 @@ using NDesk.Options;
 namespace ZeroInstall.Commands.Basic.Exporters
 {
     /// <summary>
-    /// Common base class for exporting all <see cref="CommandBase"/> help texts in a structured text format.
+    /// Common base class for exporting all <see cref="CliCommand"/> help texts in a structured text format.
     /// </summary>
     public abstract class HelpExporterBase
     {
         /// <summary>
-        /// Returns all <see cref="CommandBase"/> help texts in a structured text format.
+        /// Returns all <see cref="CliCommand"/> help texts in a structured text format.
         /// </summary>
         public override string ToString()
         {
@@ -39,14 +39,14 @@ namespace ZeroInstall.Commands.Basic.Exporters
             return builder.ToString();
         }
 
-        private static void ForEachCommand(Action<CommandBase> action)
+        private static void ForEachCommand(Action<CliCommand> action)
         {
             using (var handler = new CliCommandHandler())
             {
-                foreach (string commandName in CommandFactory.CommandNames)
+                foreach (string commandName in CliCommand.Names)
                 {
-                    var command = CommandFactory.GetCommand(commandName, handler);
-                    if (command is MultiCommandBase multiCommand)
+                    var command = CliCommand.Create(commandName, handler);
+                    if (command is CliMultiCommand multiCommand)
                     {
                         foreach (string stringCommandName in multiCommand.SubCommandNames)
                             action(multiCommand.GetCommand(stringCommandName));

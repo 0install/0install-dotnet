@@ -13,9 +13,9 @@ using ZeroInstall.Commands.Properties;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Common base class for commands that provide multiple <see cref="SubCommandBase"/>s.
+    /// Common base class for commands that provide multiple <see cref="CliSubCommand"/>s.
     /// </summary>
-    public abstract class MultiCommandBase : CommandBase
+    public abstract class CliMultiCommand : CliCommand
     {
         #region Metadata
         /// <inheritdoc/>
@@ -38,7 +38,7 @@ namespace ZeroInstall.Commands
         #endregion
 
         /// <inheritdoc/>
-        protected MultiCommandBase([NotNull] ICommandHandler handler)
+        protected CliMultiCommand([NotNull] ICommandHandler handler)
             : base(handler)
         {
             // Defer all option parsing to the sub-commands
@@ -52,20 +52,20 @@ namespace ZeroInstall.Commands
         public abstract IEnumerable<string> SubCommandNames { get; }
 
         /// <summary>
-        /// Creates a new <see cref="SubCommandBase"/> based on a name.
+        /// Creates a new <see cref="CliSubCommand"/> based on a name.
         /// </summary>
         /// <param name="commandName">The command name to look for; case-insensitive.</param>
-        /// <returns>The requested <see cref="SubCommandBase"/>.</returns>
+        /// <returns>The requested <see cref="CliSubCommand"/>.</returns>
         /// <exception cref="OptionException"><paramref name="commandName"/> is an unknown command.</exception>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         [NotNull]
-        public abstract SubCommandBase GetCommand([NotNull] string commandName);
+        public abstract CliSubCommand GetCommand([NotNull] string commandName);
 
         /// <summary>The sub-command selected in <see cref="Parse"/> and used in <see cref="Execute"/>.</summary>
         [CanBeNull]
-        private SubCommandBase _subCommand;
+        private CliSubCommand _subCommand;
 
         /// <inheritdoc/>
         [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
@@ -73,7 +73,7 @@ namespace ZeroInstall.Commands
         {
             base.Parse(args);
 
-            string subCommandName = CommandFactory.GetCommandName(ref args);
+            string subCommandName = GetCommandName(ref args);
             if (subCommandName == null) return;
 
             _subCommand = GetCommand(subCommandName);

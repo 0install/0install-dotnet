@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands.Basic
     /// Contains integration tests for commands derived from <see cref="Selection"/>.
     /// </summary>
     /// <typeparam name="TCommand">The specific type of <see cref="CliCommand"/> to test.</typeparam>
-    public abstract class SelectionTestBase<TCommand> : CommandTestBase<TCommand>
+    public abstract class SelectionTestBase<TCommand> : CliCommandTestBase<TCommand>
         where TCommand : Selection
     {
         [Fact]
@@ -67,12 +67,12 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="CliCommand.Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommands.Parse"/> and <see cref="CliCommands.Execute"/> causes a specific reuslt.
         /// </summary>
         /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
-        /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommand.Execute"/>.</param>
+        /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommands.Execute"/>.</param>
         /// <param name="expectedSelections">The expected value passed to <see cref="ICommandHandler.ShowSelections"/>.</param>
-        /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
+        /// <param name="args">The arguments to pass to <see cref="CliCommands.Parse"/>.</param>
         protected void RunAndAssert([CanBeNull] string expectedOutput, ExitCode expectedExitCode, Selections expectedSelections, params string[] args)
         {
             RunAndAssert(expectedOutput, expectedExitCode, args);
