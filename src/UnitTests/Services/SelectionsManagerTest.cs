@@ -28,10 +28,10 @@ namespace ZeroInstall.Services
 
         public SelectionsManagerTest()
         {
-            _feedManagereMock = CreateMock<IFeedManager>();
+            _feedManagerMock = CreateMock<IFeedManager>();
             _storeMock = CreateMock<IStore>();
             _packageManagerMock = CreateMock<IPackageManager>();
-            _selectionsManager = new SelectionsManager(_feedManagereMock.Object, _storeMock.Object, _packageManagerMock.Object);
+            _selectionsManager = new SelectionsManager(_feedManagerMock.Object, _storeMock.Object, _packageManagerMock.Object);
         }
 
         [Fact]
@@ -94,8 +94,8 @@ namespace ZeroInstall.Services
                 new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
             };
 
-            _feedManagereMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
-            _feedManagereMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Elements = {impl2}});
+            _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
+            _feedManagerMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Elements = {impl2}});
             _packageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
 
             _selectionsManager.GetImplementations(implementationSelections)

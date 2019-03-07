@@ -179,7 +179,7 @@ namespace ZeroInstall.Store.Trust
         public string HomeDir { get; set; } = DefaultHomeDir;
 
         /// <summary>
-        /// The default value for <see cref="IOpenPgp.HomeDir"/> based on the current operating system and environment variables.
+        /// The default value for <see cref="HomeDir"/> based on the current operating system and environment variables.
         /// </summary>
         public static string DefaultHomeDir =>
             Environment.GetEnvironmentVariable("GNUPGHOME") ??

@@ -135,8 +135,8 @@ namespace ZeroInstall.Store.Trust
 
         private void DeployKeyRings()
         {
-            typeof(OpenPgpTest).CopyEmbeddedToFile("pubring.gpg", Path.Combine(_sut.HomeDir, "pubring.gpg"));
-            typeof(OpenPgpTest).CopyEmbeddedToFile("secring.gpg", Path.Combine(_sut.HomeDir, "secring.gpg"));
+            typeof(OpenPgpTest).CopyEmbeddedToFile("pubring.gpg", Path.Combine(_homeDir, "pubring.gpg"));
+            typeof(OpenPgpTest).CopyEmbeddedToFile("secring.gpg", Path.Combine(_homeDir, "secring.gpg"));
         }
     }
 }

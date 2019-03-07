@@ -14,7 +14,7 @@ namespace ZeroInstall.Store.Trust
     public interface IOpenPgp
     {
         /// <summary>
-        /// Verifys a detached OpenPGP signature.
+        /// Verifies a detached OpenPGP signature.
         /// </summary>
         /// <param name="data">The data the signature is for.</param>
         /// <param name="signature">The signature in binary format.</param>
