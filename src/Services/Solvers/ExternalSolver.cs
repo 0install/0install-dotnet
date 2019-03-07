@@ -16,6 +16,7 @@ using ZeroInstall.Services.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Services.Solvers
 {
@@ -121,6 +122,8 @@ namespace ZeroInstall.Services.Solvers
             startInfo.RedirectStandardInput = true;
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
+
+            startInfo.EnvironmentVariables["GNUPGHOME"] = OpenPgp.VerifyingHomeDir;
 
             if (Locations.IsPortable)
                 startInfo.EnvironmentVariables["ZEROINSTALL_PORTABLE_BASE"] = Locations.PortableBase;
