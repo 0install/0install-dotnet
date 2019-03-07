@@ -6,7 +6,7 @@ using Moq;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
@@ -21,7 +21,7 @@ namespace ZeroInstall.Services
     /// </summary>
     public class SelectionsManagerTest : TestWithMocks
     {
-        private readonly Mock<IFeedManager> _feedManagereMock;
+        private readonly Mock<IFeedManager> _feedManagerMock;
         private readonly Mock<IImplementationStore> _storeMock;
         private readonly Mock<IPackageManager> _packageManagerMock;
         private readonly ISelectionsManager _selectionsManager;

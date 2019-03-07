@@ -8,7 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 

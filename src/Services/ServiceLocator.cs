@@ -8,7 +8,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
@@ -112,7 +112,7 @@ namespace ZeroInstall.Services
         /// An external package manager that can install <see cref="PackageImplementation"/>s.
         /// </summary>
         [NotNull]
-        public IPackageManager PackageManager { get => Get(ref _packageManager, PackageManagerFactory.Create); set => _packageManager = value; }
+        public IPackageManager PackageManager { get => Get(ref _packageManager, PackageManagers.Default); set => _packageManager = value; }
 
         private ISelectionCandidateProvider _selectionCandidateProvider;
 

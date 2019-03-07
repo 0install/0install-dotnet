@@ -8,7 +8,7 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;

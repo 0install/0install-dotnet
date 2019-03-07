@@ -7,7 +7,7 @@ using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
     /// Handles packages provided by the operating system's native package managers rather than Zero Install itself.

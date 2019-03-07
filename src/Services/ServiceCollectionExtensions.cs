@@ -11,7 +11,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
@@ -48,7 +48,7 @@ namespace ZeroInstall.Services
                 .AddScoped<ITrustManager, TrustManager>()
                 .AddScoped<IFeedManager, FeedManager>()
                 .AddScoped<ICatalogManager, CatalogManager>()
-                .AddScoped(x => PackageManagerFactory.Create())
+                .AddScoped(x => PackageManagers.Default())
                 .AddScoped<ISelectionsManager, SelectionsManager>()
                 .AddScoped<IFetcher, SequentialFetcher>()
                 .AddScoped<IExecutor, Executor>()

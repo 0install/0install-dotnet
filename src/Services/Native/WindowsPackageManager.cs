@@ -11,7 +11,7 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Store.Model;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
     /// Detects common Windows software packages (such as Java and .NET) that are installed natively.

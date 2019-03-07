@@ -3,17 +3,17 @@
 
 using NanoByte.Common.Native;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
-    /// Creates <see cref="IPackageManager"/> instances.
+    /// Provides <see cref="IPackageManager"/> instances.
     /// </summary>
-    public static class PackageManagerFactory
+    public static class PackageManagers
     {
         /// <summary>
-        /// Creates an <see cref="IPackageManager"/> instance.
+        /// Creates the default <see cref="IPackageManager"/> for the current platform.
         /// </summary>
-        public static IPackageManager Create()
+        public static IPackageManager Default()
         {
             if (WindowsUtils.IsWindows) return new WindowsPackageManager();
             //else if (UnixUtils.IsUnix) return new PackageKitPackageManager();

@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;

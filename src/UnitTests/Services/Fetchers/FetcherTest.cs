@@ -11,7 +11,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.FileSystem;
-using ZeroInstall.Services.PackageManagers;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;

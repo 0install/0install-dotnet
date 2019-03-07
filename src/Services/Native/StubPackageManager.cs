@@ -8,7 +8,7 @@ using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
     /// Stub implementation of <see cref="IPackageManager"/>, used when there is no native package manager support for the current platform.

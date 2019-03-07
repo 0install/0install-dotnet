@@ -5,7 +5,7 @@ using System;
 using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
     /// Retrieves an implementation by installing it via an external package manager rather than Zero Install itself.

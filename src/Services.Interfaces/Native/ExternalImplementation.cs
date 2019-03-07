@@ -7,7 +7,7 @@ using NanoByte.Common.Values;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
-namespace ZeroInstall.Services.PackageManagers
+namespace ZeroInstall.Services.Native
 {
     /// <summary>
     /// An implementation provided by an external package manager.
