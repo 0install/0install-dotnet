@@ -31,15 +31,20 @@ namespace ZeroInstall.Publish
         [CanBeNull]
         public OpenPgpSecretKey SecretKey { get; set; }
 
+        [NotNull]
+        private readonly IOpenPgp _openPgp;
+
         /// <summary>
         /// Creates a new signed feed.
         /// </summary>
         /// <param name="feed">The wrapped <see cref="Feed"/>.</param>
         /// <param name="secretKey">The secret key used to sign the <see cref="Feed"/>; <c>null</c> for no signature.</param>
-        public SignedFeed([NotNull] Feed feed, [CanBeNull] OpenPgpSecretKey secretKey = null)
+        /// <param name="openPgp">The OpenPGP-compatible system used to create the signatures; <c>null</c> for default.</param>
+        public SignedFeed([NotNull] Feed feed, [CanBeNull] OpenPgpSecretKey secretKey = null, [CanBeNull] IOpenPgp openPgp = null)
         {
             Feed = feed ?? throw new ArgumentNullException(nameof(feed));
             SecretKey = secretKey;
+            _openPgp = openPgp ?? OpenPgp.Signing();
         }
 
         /// <summary>
@@ -57,7 +62,8 @@ namespace ZeroInstall.Publish
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
-            return new SignedFeed(XmlStorage.LoadXml<Feed>(path), FeedUtils.GetKey(path, new BouncyCastle()));
+            var openPgp = OpenPgp.Signing();
+            return new SignedFeed(XmlStorage.LoadXml<Feed>(path), FeedUtils.GetKey(path, openPgp), openPgp);
         }
 
         /// <summary>
@@ -82,19 +88,18 @@ namespace ZeroInstall.Publish
                 return;
             }
 
-            IOpenPgp openPgp = new BouncyCastle();
             using (var stream = new MemoryStream())
             {
                 Feed.SaveXml(stream, stylesheet: @"feed.xsl");
                 stream.Position = 0;
 
-                FeedUtils.SignFeed(stream, SecretKey, passphrase, openPgp);
+                FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
                 stream.CopyToFile(path);
             }
             string directory = Path.GetDirectoryName(path);
             if (directory != null)
             {
-                openPgp.DeployPublicKey(SecretKey, directory);
+                _openPgp.DeployPublicKey(SecretKey, directory);
                 FeedUtils.DeployStylesheet(directory, @"feed");
             }
         }

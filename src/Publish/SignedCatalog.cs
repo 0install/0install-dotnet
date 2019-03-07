@@ -31,15 +31,20 @@ namespace ZeroInstall.Publish
         [PublicAPI]
         public OpenPgpSecretKey SecretKey { get; set; }
 
+        [NotNull]
+        private readonly IOpenPgp _openPgp;
+
         /// <summary>
         /// Creates a new signed catalog.
         /// </summary>
         /// <param name="catalog">The wrapped <see cref="Catalog"/>.</param>
         /// <param name="secretKey">The secret key used to sign the <see cref="Catalog"/>; <c>null</c> for no signature.</param>
-        public SignedCatalog([NotNull] Catalog catalog, [CanBeNull] OpenPgpSecretKey secretKey)
+        /// <param name="openPgp">The OpenPGP-compatible system used to create the signatures; <c>null</c> for default.</param>
+        public SignedCatalog([NotNull] Catalog catalog, [CanBeNull] OpenPgpSecretKey secretKey, [CanBeNull] IOpenPgp openPgp = null)
         {
             Catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
             SecretKey = secretKey;
+            _openPgp = openPgp ?? OpenPgp.Signing();
         }
 
         /// <summary>
@@ -57,7 +62,8 @@ namespace ZeroInstall.Publish
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
-            return new SignedCatalog(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, new BouncyCastle()));
+            var openPgp = OpenPgp.Signing();
+            return new SignedCatalog(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, openPgp), openPgp);
         }
 
         /// <summary>
@@ -82,17 +88,16 @@ namespace ZeroInstall.Publish
                 return;
             }
 
-            IOpenPgp openPgp = new BouncyCastle();
             using (var stream = new MemoryStream())
             {
                 Catalog.SaveXml(stream, stylesheet: @"catalog.xsl");
                 stream.Position = 0;
 
-                FeedUtils.SignFeed(stream, SecretKey, passphrase, openPgp);
+                FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
                 stream.CopyToFile(path);
             }
             string directory = Path.GetDirectoryName(path);
-            openPgp.DeployPublicKey(SecretKey, directory);
+            _openPgp.DeployPublicKey(SecretKey, directory);
             FeedUtils.DeployStylesheet(directory, @"catalog");
         }
     }

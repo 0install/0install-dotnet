@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 
 namespace ZeroInstall.Store.Trust
@@ -18,6 +17,21 @@ namespace ZeroInstall.Store.Trust
     /// <remarks>This class is immutable and thread-safe.</remarks>
     public partial class GnuPG : IOpenPgp
     {
+        private readonly string _homeDir;
+
+        /// <summary>
+        /// Creates a new GnuPG instance.
+        /// </summary>
+        /// <param name="homeDir">The GnuPG home dir to use.</param>
+        public GnuPG([NotNull] string homeDir)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
+            #endregion
+            
+            _homeDir = homeDir;
+        }
+
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSignature> Verify(byte[] data, byte[] signature)
         {
@@ -30,7 +44,7 @@ namespace ZeroInstall.Store.Trust
             using (var signatureFile = new TemporaryFile("0install-sig"))
             {
                 File.WriteAllBytes(signatureFile, signature);
-                result = new CliControl(HomeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
+                result = new CliControl(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
             }
             var lines = result.SplitMultilineText();
 
@@ -107,7 +121,7 @@ namespace ZeroInstall.Store.Trust
             #endregion
 
             return Convert.FromBase64String(
-                new CliControl(HomeDir, data)
+                new CliControl(_homeDir, data)
                    .Execute("--batch", "--no-secmem-warning", "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
                    .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
                    .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
@@ -121,7 +135,7 @@ namespace ZeroInstall.Store.Trust
             if (data == null) throw new ArgumentNullException(nameof(data));
             #endregion
 
-            new CliControl(HomeDir, data).Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
+            new CliControl(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
         }
 
         /// <inheritdoc/>
@@ -131,14 +145,14 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            string result = new CliControl(HomeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
+            string result = new CliControl(_homeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
             return result.Replace(Environment.NewLine, "\n") + "\n";
         }
 
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
         {
-            string result = new CliControl(HomeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
+            string result = new CliControl(_homeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
             string[] sec = null, fpr = null, uid = null;
             foreach (string line in result.SplitMultilineText())
@@ -174,18 +188,6 @@ namespace ZeroInstall.Store.Trust
                 keyID: OpenPgpUtils.ParseKeyID(sec[4]),
                 fingerprint: OpenPgpUtils.ParseFingerpint(fpr[9]),
                 userID: uid[9]);
-
-        /// <inheritdoc/>
-        public string HomeDir { get; set; } = DefaultHomeDir;
-
-        /// <summary>
-        /// The default value for <see cref="HomeDir"/> based on the current operating system and environment variables.
-        /// </summary>
-        public static string DefaultHomeDir =>
-            Environment.GetEnvironmentVariable("GNUPGHOME") ??
-            (WindowsUtils.IsWindows
-                ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gnupg")
-                : Path.Combine(Locations.HomeDir, ".gnupg"));
 
         /// <summary>
         /// Launches an interactive process for generating a new keypair.

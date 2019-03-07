@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ZeroInstall.Store.Trust.GnuPG" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="4.5" Width="1.25" />
+    <Position X="2.25" Y="4.75" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAARAAAUQAUAEAAAAQQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAARAAAUQAUAAAAAAQQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Trust\GnuPG.CliControl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -15,20 +15,13 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAMgAAACAAAAAAAAIAAAAEAQAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAACAAAAAAAAIAAAAAAQAAAABA=</HashCode>
       <FileName>Trust\Key.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Domains" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ZeroInstall.Store.Trust.OpenPgpFactory">
-    <Position X="2.75" Y="0.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Trust\OpenPgpFactory.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="ZeroInstall.Store.Trust.OpenPgpSecretKey" BaseTypeListCollapsed="true">
     <Position X="9.25" Y="0.5" Width="1.75" />
@@ -61,7 +54,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ZeroInstall.Store.Trust.BadSignature" Collapsed="true">
-    <Position X="9.25" Y="4.25" Width="1.5" />
+    <Position X="9.25" Y="4.25" Width="1.75" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -81,7 +74,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ZeroInstall.Store.Trust.ErrorSignature" Collapsed="true">
-    <Position X="8.25" Y="3" Width="1.5" />
+    <Position X="8.25" Y="3" Width="1.75" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -100,7 +93,7 @@
   <Class Name="ZeroInstall.Store.Trust.TrustDB" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAQgIAQAAAAAgAJiAGAAAAAAAAAAMAAAAAAAAAAABA=</HashCode>
+      <HashCode>AEAAgIAQAAAAAgABiAGCAAAAAAAAAMAAAAAAAAAAABA=</HashCode>
       <FileName>Trust\TrustDB.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -116,26 +109,33 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ZeroInstall.Store.Trust.BouncyCastle" Collapsed="true">
-    <Position X="3.75" Y="4.5" Width="1.25" />
+    <Position X="3.75" Y="4.75" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>gAAAIAAAAUAACRAAAQQAEAEAAQAAAAAAAAAAAAJAAAA=</HashCode>
+      <HashCode>AAAAIAAAAUAACRAAAQQAEAAAAQAAEAAAAAAAAAJAAAA=</HashCode>
       <FileName>Trust\BouncyCastle.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="ZeroInstall.Store.Trust.OpenPgp">
+    <Position X="2.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Trust\OpenPgp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="ZeroInstall.Store.Trust.Domain" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQMgAAAAAAAAAAAAIAAAAAgAAAAAjA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAgAAAAAjA=</HashCode>
       <FileName>Trust\Domain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Struct>
   <Interface Name="ZeroInstall.Store.Trust.IOpenPgp">
-    <Position X="2.75" Y="1.75" Width="1.75" />
+    <Position X="2.75" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAARAAAQQAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Trust\IOpenPgp.cs</FileName>

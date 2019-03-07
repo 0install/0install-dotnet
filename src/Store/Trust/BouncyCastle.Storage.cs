@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
@@ -12,10 +13,22 @@ namespace ZeroInstall.Store.Trust
 {
     partial class BouncyCastle
     {
-        private string PublicBundlePath => Path.Combine(
-            // Avoid polluting user profile with auto-imported public keys
-            (HomeDir == GnuPG.DefaultHomeDir) ? Locations.GetCacheDirPath("0install.net", machineWide: false) : HomeDir,
-            "pubring.gpg");
+        /// <summary>
+        /// Creates a new Bouncy Castle instance.
+        /// </summary>
+        /// <param name="homeDir">The GnuPG home dir to use.</param>
+        public BouncyCastle([NotNull] string homeDir)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
+            #endregion
+
+            _publicBundlePath = Path.Combine(homeDir, "pubring.gpg");
+            _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
+        }
+
+        [NotNull]
+        private readonly string _publicBundlePath;
 
         [CanBeNull]
         private PgpPublicKeyRingBundle _publicBundle;
@@ -35,8 +48,8 @@ namespace ZeroInstall.Store.Trust
 
                 try
                 {
-                    using (new AtomicRead(PublicBundlePath))
-                    using (var stream = File.OpenRead(PublicBundlePath))
+                    using (new AtomicRead(_publicBundlePath))
+                    using (var stream = File.OpenRead(_publicBundlePath))
                         return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
                 #region Error handling
@@ -59,7 +72,7 @@ namespace ZeroInstall.Store.Trust
             {
                 // Lost-write races are OK, since public keys are easily reacquired
                 _publicBundle = value;
-                using (var atomic = new AtomicWrite(PublicBundlePath))
+                using (var atomic = new AtomicWrite(_publicBundlePath))
                 {
                     using (var stream = File.Create(atomic.WritePath))
                         value.Encode(stream);
@@ -67,6 +80,9 @@ namespace ZeroInstall.Store.Trust
                 }
             }
         }
+
+        [NotNull]
+        private readonly string _secretBundlePath;
 
         [CanBeNull]
         private PgpSecretKeyRingBundle _secretBundle;
@@ -85,7 +101,7 @@ namespace ZeroInstall.Store.Trust
 
                 try
                 {
-                    using (var stream = File.OpenRead(Path.Combine(HomeDir, "secring.gpg")))
+                    using (var stream = File.OpenRead(_secretBundlePath))
                         return _secretBundle = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
                 #region Error handling

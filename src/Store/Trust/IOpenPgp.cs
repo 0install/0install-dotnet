@@ -62,11 +62,5 @@ namespace ZeroInstall.Store.Trust
         /// <seealso cref="ExportKey"/>
         [NotNull, ItemNotNull]
         IEnumerable<OpenPgpSecretKey> ListSecretKeys();
-
-        /// <summary>
-        /// The home directory used to store key rings.
-        /// </summary>
-        [NotNull]
-        string HomeDir { get; set; }
     }
 }
