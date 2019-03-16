@@ -1,9 +1,2 @@
-#pragma warning disable 1587
-// ReSharper disable EmptyNamespace
-
-/// <summary>
-/// CLI commands that require desktop integration functionality.
-/// </summary>
-
-namespace ZeroInstall.Commands.Desktop
-{}
+//! \namespace ZeroInstall.Commands.Desktop
+//! \brief CLI commands that require desktop integration functionality.
