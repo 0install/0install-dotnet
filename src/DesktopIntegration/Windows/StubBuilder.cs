@@ -132,15 +132,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             var compilerParameters = new CompilerParameters
             {
-                GenerateExecutable = true,
                 OutputAssembly = path,
-                IncludeDebugInformation = false,
-                GenerateInMemory = false,
+                GenerateExecutable = true,
                 TreatWarningsAsErrors = true,
-                ReferencedAssemblies = {"System.dll"}
+                ReferencedAssemblies = {"System.dll"},
+                CompilerOptions = needsTerminal ? "/target:exe" : "/target:winexe"
             };
-
-            if (!needsTerminal) compilerParameters.CompilerOptions += " /target:winexe";
 
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
             if (icon != null)
@@ -179,8 +176,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             }
 
             compilerParameters.CompileCSharp(
-                GetRunStubCode(target, needsTerminal, command),
-                typeof(StubBuilder).GetEmbeddedString("Stub.manifest"));
+                code: GetRunStubCode(target, needsTerminal, command),
+                manifest: typeof(StubBuilder).GetEmbeddedString("Stub.manifest"));
         }
 
         /// <summary>
