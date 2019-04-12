@@ -53,7 +53,7 @@ namespace ZeroInstall.Commands.Desktop
         {
             try
             {
-                var appEntry = CreateAppEntry(IntegrationManager, ref InterfaceUri);
+                var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
 
                 if (AdditionalArgs.Count == 2)
                     CreateAlias(appEntry, AdditionalArgs[0]);

@@ -45,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="requirements">The requirements describing the application to add.</param>
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
         /// <returns>The newly created application entry (already added to <see cref="AppList"/>).</returns>
-        /// <exception cref="InvalidOperationException">The application is already in the list.</exception>
+        /// <exception cref="InvalidOperationException">An application with the same <paramref name="petName"/> is already in the list.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         [NotNull]
