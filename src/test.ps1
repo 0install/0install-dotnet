@@ -1,5 +1,5 @@
 ﻿$ErrorActionPreference = "Stop"
-pushd $(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
+pushd $PSScriptRoot
 
 dotnet test --no-build --configuration Release UnitTests\UnitTests.csproj
 
