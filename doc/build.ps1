@@ -10,6 +10,7 @@ if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Docum
 mkdir ..\artifacts\Documentation | Out-Null
 
 # Download tag files for external references
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 Invoke-WebRequest https://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
 0install run --batch http://repo.roscidus.com/devel/doxygen
