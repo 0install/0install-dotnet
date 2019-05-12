@@ -24,6 +24,20 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         internal override IEnumerable<Implementation> Implementations => Enumerable.Empty<Implementation>();
 
+        /// <summary>
+        /// The version number as provided by the operating system.
+        /// </summary>
+        [Browsable(false)]
+        [XmlIgnore]
+        public VersionRange VersionRange { get; set; }
+
+        #region XML serialization
+        /// <summary>Used for XML serialization.</summary>
+        /// <seealso cref="VersionRange"/>
+        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        public override string VersionString { get => VersionRange?.ToString(); set => VersionRange = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
+        #endregion
+
         #region Constants
         /// <summary>
         /// Well-known values for <see cref="Distributions"/>.

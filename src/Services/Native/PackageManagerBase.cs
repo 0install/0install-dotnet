@@ -34,7 +34,10 @@ namespace ZeroInstall.Services.Native
 
             if (!distributions.ContainsOrEmpty(DistributionName) || !package.Distributions.ContainsOrEmpty(DistributionName) || string.IsNullOrEmpty(package.Package)) yield break;
 
-            foreach (var implementation in GetImplementations(package.Package))
+            var range = package.VersionRange ?? new VersionRange();
+            var implementations = GetImplementations(package.Package).Where(x => range.Match(x.Version));
+
+            foreach (var implementation in implementations)
             {
                 CopyValues(from: package, to: implementation);
                 yield return implementation;
@@ -54,8 +57,9 @@ namespace ZeroInstall.Services.Native
 
                 // Reference implementation from ID does not contain all required information.
                 // Therefore, find the original implementation.
-                var implementation = GetImplementations(referenceImpl.Package).First(x => x.Version == referenceImpl.Version
-                                                                                       && x.Architecture == referenceImpl.Architecture);
+                var implementation = GetImplementations(referenceImpl.Package)
+                   .First(x => x.Version == referenceImpl.Version
+                            && x.Architecture == referenceImpl.Architecture);
 
                 CopyValues(from: selection, to: implementation);
                 return implementation;
