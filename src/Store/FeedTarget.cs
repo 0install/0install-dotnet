@@ -7,19 +7,19 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Store
 {
     /// <summary>
-    /// Associates a <see cref="FeedUri"/> with the <see cref="Feed"/> data aquired from there.
+    /// Associates a <see cref="FeedUri"/> with the <see cref="Feed"/> data acquired from there.
     /// </summary>
     /// <remarks><see cref="Model.Feed.Uri"/> is only mandatory for remote feeds. This structure associates a <see cref="FeedUri"/> with all kinds of feeds, local and remote.</remarks>
     public struct FeedTarget
     {
         /// <summary>
-        /// The URI or local path (must be absolute) the feed was aquired from.
+        /// The URI or local path (must be absolute) the feed was acquired from.
         /// </summary>
         [NotNull]
         public readonly FeedUri Uri;
 
         /// <summary>
-        /// The data aquired from <see cref="Uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.
+        /// The data acquired from <see cref="Uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.
         /// </summary>
         [NotNull]
         public readonly Feed Feed;
@@ -28,7 +28,7 @@ namespace ZeroInstall.Store
         /// Creates a new feed target.
         /// </summary>
         /// <param name="uri">The URI or local path (must be absolute) to the feed.</param>
-        /// <param name="feed">The data aquired from <paramref name="uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.</param>
+        /// <param name="feed">The data acquired from <paramref name="uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.</param>
         public FeedTarget([NotNull] FeedUri uri, [NotNull] Feed feed)
         {
             Uri = uri;

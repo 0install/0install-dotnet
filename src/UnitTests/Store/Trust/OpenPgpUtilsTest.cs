@@ -38,13 +38,13 @@ namespace ZeroInstall.Store.Trust
                            .Should().Be(TestKeyID);
 
         [Fact]
-        public void TestParseFingerrpint()
-            => OpenPgpUtils.ParseFingerpint(TestFingerprintString)
+        public void TestParseFingerpint()
+            => OpenPgpUtils.ParseFingerprint(TestFingerprintString)
                            .Should().Equal(TestFingerprint);
 
         [Fact]
         public void TestFingerprintToKeyID()
-            => OpenPgpUtils.FingerprintToKeyID(OpenPgpUtils.ParseFingerpint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"))
+            => OpenPgpUtils.FingerprintToKeyID(OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"))
                            .Should().Be(OpenPgpUtils.ParseKeyID("DEED44B49BE24661"));
 
         [Fact]

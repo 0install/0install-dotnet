@@ -92,7 +92,7 @@
           <xsd:element name="replaced-by" type="feed:interface-reference" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>
-                This feed's interface has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
+                This interface of the feed has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:element>
@@ -746,7 +746,7 @@
         <xsd:attribute name="path" type="xsd:string">
           <xsd:annotation>
             <xsd:documentation>
-              If your binding needs a path within the selected implemention, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions.
+              If your binding needs a path within the selected implementation, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
@@ -785,7 +785,7 @@
         <xsd:attribute name="insert" type="xsd:string">
           <xsd:annotation>
             <xsd:documentation>
-              The relative path of the item within the implementation to insert into the variable's value. Use "." to publish the root directory. If this is set 'value' must be empty.
+              The relative path of the item within the implementation to insert into the variable value. Use "." to publish the root directory. If this is set 'value' must be empty.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>

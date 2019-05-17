@@ -9,7 +9,7 @@ namespace ZeroInstall.FileSystem
 {
     /// <summary>
     /// Represents a non-existing/deleted file used for testing file system operations.
-    /// It can either be deleted from disk or compared against the existance of an on-disk file.
+    /// It can either be deleted from disk or compared against the existence of an on-disk file.
     /// </summary>
     /// <seealso cref="TestRoot"/>
     public class TestDeletedFile : TestElement

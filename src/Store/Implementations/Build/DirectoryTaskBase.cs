@@ -78,13 +78,13 @@ namespace ZeroInstall.Store.Implementations.Build
             Array.Sort(files, StringComparer.Ordinal);
             Array.Sort(directories, StringComparer.Ordinal);
 
-            // Create the combined result list (files first, then sub-diretories)
+            // Create the combined result list (files first, then sub-directories)
             var result = new List<FileSystemInfo>(files.Select(file => new FileInfo(file)).Cast<FileSystemInfo>());
             foreach (string directory in directories)
             {
                 result.Add(new DirectoryInfo(directory));
 
-                // Recurse into sub-direcories (but do not follow symlinks)
+                // Recurse into sub-directories (but do not follow symlinks)
                 if (!FileUtils.IsSymlink(directory)) result.AddRange(GetSortedDirectoryEntries(directory));
             }
             return result.ToArray();

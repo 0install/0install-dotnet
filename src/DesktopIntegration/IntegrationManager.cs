@@ -63,7 +63,7 @@ namespace ZeroInstall.DesktopIntegration
 
             try
             {
-                AquireMutex();
+                AcquireMutex();
             }
             catch (TimeoutException)
             {

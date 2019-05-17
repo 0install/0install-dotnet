@@ -53,9 +53,9 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <summary>
-        /// The URI indentifying this feed.
+        /// The URI identifying this feed.
         /// </summary>
-        [Description("The URI indentifying this feed.")]
+        [Description("The URI identifying this feed.")]
         [NotNull]
         public FeedUri Uri => _feed.Uri;
 

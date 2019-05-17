@@ -16,7 +16,7 @@ namespace ZeroInstall.Services.Feeds
     public interface ITrustManager
     {
         /// <summary>
-        /// Checks whether a remote feed or catalog file has a a valid and trusted signature. Downloads missing GPG keys for verification and interactivley asks the user to approve new keys.
+        /// Checks whether a remote feed or catalog file has a a valid and trusted signature. Downloads missing GPG keys for verification and interactively asks the user to approve new keys.
         /// </summary>
         /// <param name="data">The data of the file.</param>
         /// <param name="uri">The URI the <paramref name="data"/> originally came from.</param>

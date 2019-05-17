@@ -113,7 +113,7 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <summary>
-        /// Retruns the first <see cref="Feed"/> that matches a sepecific short name.
+        /// Returns the first <see cref="Feed"/> that matches a specific short name.
         /// </summary>
         /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Command.NameRun"/>.</param>
         /// <returns>The first matching <see cref="Feed"/>; <c>null</c> if no match was found.</returns>

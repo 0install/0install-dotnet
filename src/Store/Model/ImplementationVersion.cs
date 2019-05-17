@@ -24,7 +24,7 @@ namespace ZeroInstall.Store.Model
     ///   DottedList := (Integer ("." Integer)*)
     ///   Modifier := "pre" | "rc" | "post"
     ///   </code>
-    ///   If the string <see cref="ModelUtils.ContainsTemplateVariables"/> the entire string is stored verbatimed and not parsed.
+    ///   If the string <see cref="ModelUtils.ContainsTemplateVariables"/> the entire string is stored verbatim and not parsed.
     /// </para>
     /// </remarks>
     [TypeConverter(typeof(StringConstructorConverter<ImplementationVersion>))]

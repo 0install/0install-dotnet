@@ -22,9 +22,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>
         /// Creates a new Windows shortcut.
         /// </summary>
-        /// <param name="path">The location to place the shorcut at.</param>
+        /// <param name="path">The location to place the shortcut at.</param>
         /// <param name="target">The target the shortcut shall point to.</param>
-        /// <param name="command">The command within <paramref name="target"/> the shorcut shall point to; can be <c>null</c>.</param>
+        /// <param name="command">The command within <paramref name="target"/> the shortcut shall point to; can be <c>null</c>.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
         private static void Create([NotNull] string path, FeedTarget target, [CanBeNull] string command, [NotNull] IIconStore iconStore, bool machineWide)
@@ -51,7 +51,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>
         /// Creates a new Windows shortcut.
         /// </summary>
-        /// <param name="path">The location to place the shorcut at.</param>
+        /// <param name="path">The location to place the shortcut at.</param>
         /// <param name="targetPath">The target path the shortcut shall point to.</param>
         /// <param name="arguments">Additional arguments to pass to the target; can be <c>null</c>.</param>
         /// <param name="iconLocation">The path of the icon to use for the shortcut; leave <c>null</c> ot get the icon from <paramref name="targetPath"/>.</param>

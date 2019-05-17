@@ -64,9 +64,9 @@ namespace ZeroInstall.Store.Model.Preferences
 
         #region Normalize
         /// <summary>
-        /// Removes superflous entries from <see cref="Implementations"/>.
+        /// Removes superfluous entries from <see cref="Implementations"/>.
         /// </summary>
-        public void Normalize() => Implementations.RemoveAll(implementation => implementation.IsSuperflous);
+        public void Normalize() => Implementations.RemoveAll(implementation => implementation.IsSuperfluous);
         #endregion
 
         #region Storage

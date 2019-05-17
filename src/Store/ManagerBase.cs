@@ -37,17 +37,17 @@ namespace ZeroInstall.Store
         }
 
         /// <summary>
-        /// The name of the cross-process mutex used by <see cref="AquireMutex"/>.
+        /// The name of the cross-process mutex used by <see cref="AcquireMutex"/>.
         /// </summary>
         protected abstract string MutexName { get; }
 
         private Mutex _mutex;
 
         /// <summary>
-        /// Tries to aquire a mutex with the name <see cref="MutexName"/>. Call this at the end of your constructors.
+        /// Tries to acquire a mutex with the name <see cref="MutexName"/>. Call this at the end of your constructors.
         /// </summary>
         /// <exception cref="TimeoutException">Another process is already holding the mutex.</exception>
-        protected void AquireMutex()
+        protected void AcquireMutex()
         {
 #if !NETSTANDARD2_0
             if (MachineWide)

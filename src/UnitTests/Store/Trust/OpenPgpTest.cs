@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Trust
 
         private readonly OpenPgpSecretKey _secretKey = new OpenPgpSecretKey(
             keyID: OpenPgpUtils.ParseKeyID("DEED44B49BE24661"),
-            fingerprint: OpenPgpUtils.ParseFingerpint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
+            fingerprint: OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
             userID: "Test User <test@0install.de>");
 
         private readonly byte[] _referenceData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};

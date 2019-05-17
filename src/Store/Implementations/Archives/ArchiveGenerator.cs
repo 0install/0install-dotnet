@@ -14,7 +14,7 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates an archive from a directory. Preserves execuable bits, symlinks and timestamps.
+    /// Creates an archive from a directory. Preserves executable bits, symlinks and timestamps.
     /// </summary>
     public abstract class ArchiveGenerator : DirectoryTaskBase, IDisposable
     {

@@ -73,10 +73,10 @@ namespace ZeroInstall.FileSystem
 
             if (IsExecutable)
             {
-                bool isExeuctable = UnixUtils.IsUnix
+                bool isExecutable = UnixUtils.IsUnix
                     ? FileUtils.IsExecutable(path)
                     : FlagUtils.IsFlagged(FlagUtils.XbitFile, path);
-                isExeuctable.Should().BeTrue(because: $"File '{path}' should be executable.");
+                isExecutable.Should().BeTrue(because: $"File '{path}' should be executable.");
             }
         }
     }

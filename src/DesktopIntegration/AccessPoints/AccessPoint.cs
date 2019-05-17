@@ -43,7 +43,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public abstract void Apply([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull] IIconStore iconStore, bool machineWide);
 
         /// <summary>
-        /// Unapplies this access point on the current machine.
+        /// Unapply this access point on the current machine.
         /// </summary>
         /// <param name="appEntry">The application entry containing this access point.</param>
         /// <param name="machineWide">Apply the configuration machine-wide instead of just for the current user.</param>

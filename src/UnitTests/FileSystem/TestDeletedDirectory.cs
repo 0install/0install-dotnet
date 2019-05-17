@@ -9,7 +9,7 @@ namespace ZeroInstall.FileSystem
 {
     /// <summary>
     /// Represents a non-existing/deleted directory used for testing file system operations.
-    /// It can either be deleted from disk or compared against the existance of an on-disk directory.
+    /// It can either be deleted from disk or compared against the existence of an on-disk directory.
     /// </summary>
     /// <seealso cref="TestRoot"/>
     public class TestDeletedDirectory : TestElement

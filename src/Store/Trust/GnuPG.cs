@@ -86,7 +86,7 @@ namespace ZeroInstall.Store.Trust
             {
                 case "VALIDSIG":
                     if (signatureParts.Length != 12) throw new FormatException("Incorrect number of columns in VALIDSIG line.");
-                    var fingerprint = OpenPgpUtils.ParseFingerpint(signatureParts[fingerprintIndex]);
+                    var fingerprint = OpenPgpUtils.ParseFingerprint(signatureParts[fingerprintIndex]);
                     return new ValidSignature(
                         keyID: OpenPgpUtils.FingerprintToKeyID(fingerprint),
                         fingerprint: fingerprint,
@@ -186,7 +186,7 @@ namespace ZeroInstall.Store.Trust
         private static OpenPgpSecretKey ParseSecretKey(string[] sec, string[] fpr, string[] uid)
             => new OpenPgpSecretKey(
                 keyID: OpenPgpUtils.ParseKeyID(sec[4]),
-                fingerprint: OpenPgpUtils.ParseFingerpint(fpr[9]),
+                fingerprint: OpenPgpUtils.ParseFingerprint(fpr[9]),
                 userID: uid[9]);
 
         /// <summary>

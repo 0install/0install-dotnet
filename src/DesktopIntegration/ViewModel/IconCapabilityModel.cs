@@ -14,7 +14,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         private readonly IconCapability _iconCapability;
 
         /// <summary>
-        /// Returns the description of the <see cref="IconCapability" /> dependend on <see cref="CultureInfo.CurrentUICulture" />.
+        /// Returns the description of the <see cref="IconCapability" /> dependant on <see cref="CultureInfo.CurrentUICulture" />.
         /// </summary>
         public string Description => _iconCapability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? _iconCapability.ID;
 

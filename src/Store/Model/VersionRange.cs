@@ -137,7 +137,7 @@ namespace ZeroInstall.Store.Model
             if (Parts.Count != other?.Parts.Count)
                 return false;
 
-            // Cacnel if one of the parts does not match
+            // Cancel if one of the parts does not match
             for (int i = 0; i < Parts.Count; i++)
             {
                 if (!Parts[i].Equals(other.Parts[i]))

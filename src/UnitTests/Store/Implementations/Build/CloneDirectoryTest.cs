@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Build
             };
             root.Build(SourceDirectory);
 
-            FileUtils.EnableWriteProtection(SourceDirectory); // Hardlinking logic should work around write-protection by temporarily removing it
+            FileUtils.EnableWriteProtection(SourceDirectory); // Hard linking logic should work around write-protection by temporarily removing it
             try
             {
                 new CloneDirectory(SourceDirectory, TargetDirectory) {UseHardlinks = true}.Run();

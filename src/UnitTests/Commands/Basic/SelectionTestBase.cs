@@ -67,7 +67,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CliCommands.Parse"/> and <see cref="CliCommands.Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommands.Parse"/> and <see cref="CliCommands.Execute"/> causes a specific result.
         /// </summary>
         /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommands.Execute"/>.</param>

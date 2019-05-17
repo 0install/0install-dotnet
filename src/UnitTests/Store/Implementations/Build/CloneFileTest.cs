@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Implementations.Build
         {
             new TestRoot {new TestFile("fileA")}.Build(SourceDirectory);
 
-            FileUtils.EnableWriteProtection(SourceDirectory); // Hardlinking logic should work around write-protection by temporarily removing it
+            FileUtils.EnableWriteProtection(SourceDirectory); // Hard linking logic should work around write-protection by temporarily removing it
             try
             {
                 new CloneFile(Path.Combine(SourceDirectory, "fileA"), TargetDirectory) {TargetFileName = "fileB", UseHardlinks = true}.Run();

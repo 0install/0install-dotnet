@@ -104,7 +104,7 @@ namespace ZeroInstall.Services.Native
             secondaryExe: "java");
 
         private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
-            => from javaHome in GetRegistredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
+            => from javaHome in GetRegisteredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
                let mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe")
                let secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe")
                where File.Exists(mainPath) && File.Exists(secondaryPath)
@@ -122,7 +122,7 @@ namespace ZeroInstall.Services.Native
                    QuickTestFile = mainPath
                };
 
-        private static IEnumerable<KeyValuePair<Cpu, string>> GetRegistredPaths(string registrySuffix, string valueName)
+        private static IEnumerable<KeyValuePair<Cpu, string>> GetRegisteredPaths(string registrySuffix, string valueName)
         {
             // Check for system native architecture (may be 32-bit or 64-bit)
             string path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\" + registrySuffix, valueName);

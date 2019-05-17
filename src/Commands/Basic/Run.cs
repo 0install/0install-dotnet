@@ -136,7 +136,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Updates the application in a background proccess.
+        /// Updates the application in a background process.
         /// </summary>
         private void BackgroundUpdate()
         {

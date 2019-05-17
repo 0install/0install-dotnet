@@ -24,14 +24,14 @@ namespace ZeroInstall.Publish.Capture
             /// <summary>The full command-line rooted in the filesystem.</summary>
             public readonly string CommandLine;
 
-            /// <summary>The command coressponding to the execution of the command-line.</summary>
+            /// <summary>The command corresponding to the execution of the command-line.</summary>
             public readonly Command Command;
 
             /// <summary>
             /// Creates a new command tuple.
             /// </summary>
             /// <param name="commandLine">The full command-line rooted in the filesystem.</param>
-            /// <param name="command">The command coressponding to the execution of the command-line.</param>
+            /// <param name="command">The command corresponding to the execution of the command-line.</param>
             public CommandTuple(string commandLine, Command command)
             {
                 CommandLine = commandLine;
@@ -39,7 +39,7 @@ namespace ZeroInstall.Publish.Capture
             }
         }
 
-        /// <summary>A list of command-lines and coressponding <see cref="Command"/>s.</summary>
+        /// <summary>A list of command-lines and corresponding <see cref="Command"/>s.</summary>
         private readonly List<CommandTuple> _commmands = new List<CommandTuple>();
 
         /// <summary>

@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         [Fact]
-        public void ComplexHierachy()
+        public void ComplexHierarchy()
         {
             using (var extractor = ArchiveExtractor.Create(typeof(ZipExtractorTest).GetEmbeddedStream("testArchive.zip"), _sandbox, Archive.MimeTypeZip))
                 extractor.Run();

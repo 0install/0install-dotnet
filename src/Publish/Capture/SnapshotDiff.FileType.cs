@@ -37,7 +37,7 @@ namespace ZeroInstall.Publish.Capture
         /// <summary>
         /// Retrieves data about a specific file type or URL protocol from a snapshot diff.
         /// </summary>
-        /// <param name="progID">The programatic identifier of the file type.</param>
+        /// <param name="progID">The programmatic identifier of the file type.</param>
         /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
         /// <returns>Data about the file type or <see paramref="null"/> if no file type for this <paramref name="progID"/> was detected.</returns>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>

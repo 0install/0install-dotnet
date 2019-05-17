@@ -146,7 +146,7 @@ namespace ZeroInstall.Commands.Basic
         protected Selections Selections;
 
         /// <summary>
-        /// Trys to parse <see cref="Store.Model.Requirements.InterfaceUri"/> as a pre-computed <see cref="Selection.Selections"/> document.
+        /// Tries to parse <see cref="Store.Model.Requirements.InterfaceUri"/> as a pre-computed <see cref="Selection.Selections"/> document.
         /// </summary>
         /// <seealso cref="SelectionsDocument"/>
         private void TryParseSelectionsDocument()

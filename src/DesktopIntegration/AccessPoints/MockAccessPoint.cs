@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             : new[] {$"mock:{ID}"};
 
         /// <summary>
-        /// An indentifier that controls the result of <see cref="GetConflictIDs"/>.
+        /// An identifier that controls the result of <see cref="GetConflictIDs"/>.
         /// </summary>
         [XmlAttribute("id")]
         public string ID { get; set; }

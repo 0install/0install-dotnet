@@ -26,7 +26,7 @@ namespace ZeroInstall.Publish
         /// </summary>
         /// <param name="path">The directory to write the stylesheet files to.</param>
         /// <param name="name">The name of the stylesheet to deploy. Must be "feed" or "catalog".</param>
-        /// <exception cref="IOException">Failed to write the sytelsheet files.</exception>
+        /// <exception cref="IOException">Failed to write the stylesheet files.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
         public static void DeployStylesheet([NotNull] string path, [NotNull] string name)
         {

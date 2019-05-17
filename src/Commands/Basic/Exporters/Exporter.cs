@@ -51,7 +51,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <param name="selections">A list of <see cref="ImplementationSelection"/>s to check for referenced feeds.</param>
         /// <param name="requirements">The <see cref="Requirements"/> used to generate the <see cref="Selections"/>.</param>
         /// <param name="destination">The path of the directory to export to.</param>
-        /// <exception cref="IOException">The directory <paramref name="destination"/> could not be createdor.</exception>
+        /// <exception cref="IOException">The directory <paramref name="destination"/> could not be created.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the directory <paramref name="destination"/> is not permitted.</exception>
         public Exporter([NotNull] Selections selections, [NotNull] Requirements requirements, [NotNull] string destination)
             : this(selections, requirements.ForCurrentSystem().Architecture, destination)

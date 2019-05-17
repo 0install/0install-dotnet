@@ -45,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
             AppEntry = appEntry ?? throw new ArgumentNullException(nameof(appEntry));
             Feed = feed ?? throw new ArgumentNullException(nameof(feed));
 
-            CapabilitiyRegistration = (AppEntry.AccessPoints == null) || AppEntry.AccessPoints.Entries.OfType<AccessPoints.CapabilityRegistration>().Any();
+            CapabilityRegistration = (AppEntry.AccessPoints == null) || AppEntry.AccessPoints.Entries.OfType<AccessPoints.CapabilityRegistration>().Any();
 
             LoadCommandAccessPoints();
             LoadDefaultAccessPoints();
@@ -64,7 +64,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         {
             var toAdd = new List<AccessPoints.AccessPoint>();
             var toRemove = new List<AccessPoints.AccessPoint>();
-            (CapabilitiyRegistration ? toAdd : toRemove).Add(new AccessPoints.CapabilityRegistration());
+            (CapabilityRegistration ? toAdd : toRemove).Add(new AccessPoints.CapabilityRegistration());
             CollectCommandAccessPointChanges(toAdd, toRemove);
             CollectDefaultAccessPointChanges(toAdd, toRemove);
 

@@ -22,7 +22,7 @@ namespace ZeroInstall.Store.Model
     /// </summary>
     public enum Stability
     {
-        /// <summary>Inherit stabilitiy from <see cref="Group"/> or default to <see cref="Testing"/></summary>
+        /// <summary>Inherit stability from <see cref="Group"/> or default to <see cref="Testing"/></summary>
         [XmlIgnore]
         Unset,
 

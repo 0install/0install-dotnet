@@ -124,7 +124,7 @@ namespace ZeroInstall.Store.Model
         public ICollection<string> Distributions { get; } = new List<string>();
 
         /// <summary>
-        /// Cretes an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.
+        /// Creates an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.
         /// </summary>
         public Requirements() {}
 

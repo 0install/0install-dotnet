@@ -104,7 +104,7 @@ namespace ZeroInstall.Store.Implementations
         {
             try
             {
-                // Ensure the store is backed by a filesystem that can store file-changed times accurate to the second (otherwise ManifestDigets will break)
+                // Ensure the store is backed by a filesystem that can store file-changed times accurate to the second (otherwise ManifestDigests will break)
                 if (FileUtils.DetermineTimeAccuracy(path) > 0)
                     throw new IOException(Resources.InsufficientFSTimeAccuracy);
 

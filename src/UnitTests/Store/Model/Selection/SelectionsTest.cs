@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Model.Selection
         };
 
         /// <summary>
-        /// Ensures that <see cref="Selections.GetImplementation"/> and <see cref="Selections.this"/> correctly retrieve implementatinos.
+        /// Ensures that <see cref="Selections.GetImplementation"/> and <see cref="Selections.this"/> correctly retrieve implementations.
         /// </summary>
         [Fact]
         public void TestGetImplementation()

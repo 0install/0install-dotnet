@@ -92,15 +92,15 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <inheritdoc/>
-        public Implementation LookupOriginalImplementation(ImplementationSelection implemenationSelection)
+        public Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection)
         {
             #region Sanity checks
-            if (implemenationSelection == null) throw new ArgumentNullException(nameof(implemenationSelection));
+            if (implementationSelection == null) throw new ArgumentNullException(nameof(implementationSelection));
             #endregion
 
-            return (implemenationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                       ? _externalImplementations[implemenationSelection.ID]
-                       : _feeds[implemenationSelection.FromFeed ?? implemenationSelection.InterfaceUri][implemenationSelection.ID])
+            return (implementationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                       ? _externalImplementations[implementationSelection.ID]
+                       : _feeds[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri][implementationSelection.ID])
                 ?? throw new KeyNotFoundException();
         }
 

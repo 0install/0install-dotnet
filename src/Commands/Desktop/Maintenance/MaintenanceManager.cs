@@ -65,7 +65,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
 
             try
             {
-                AquireMutex();
+                AcquireMutex();
             }
             catch (TimeoutException)
             {
@@ -92,7 +92,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
 
             try
             {
-                TargetMutexAquire();
+                TargetMutexAcquire();
 
                 using (var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler))
                 using (var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler))
@@ -151,7 +151,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
 
             try
             {
-                TargetMutexAquire();
+                TargetMutexAcquire();
 
                 using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
                 {

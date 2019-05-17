@@ -84,7 +84,7 @@ namespace ZeroInstall.Store.Model
 
         #region Conversion
         /// <summary>
-        /// Returns the group in the form "Comma-seperated list of set values". Not safe for parsing!
+        /// Returns the group in the form "Comma-separated list of set values". Not safe for parsing!
         /// </summary>
         public override string ToString()
         {

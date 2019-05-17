@@ -39,7 +39,7 @@ namespace ZeroInstall.Commands
 
         /// <summary>
         /// Shows the user the <see cref="Selections"/> made by the solver.
-        /// Returns immediately. Will be ignored by non-GUI intefaces.
+        /// Returns immediately. Will be ignored by non-GUI interfaces.
         /// </summary>
         /// <param name="selections">The <see cref="Selections"/> as provided by the solver.</param>
         /// <param name="feedManager">The feed manager used to retrieve feeds for additional information about implementations.</param>
@@ -47,7 +47,7 @@ namespace ZeroInstall.Commands
 
         /// <summary>
         /// Allows the user to customize the interface preferences and rerun the solver if desired.
-        /// Returns once the user is satisfied with her choice. Will be ignored by non-GUI intefaces.
+        /// Returns once the user is satisfied with her choice. Will be ignored by non-GUI interfaces.
         /// </summary>
         /// <param name="solveCallback">Called after interface preferences have been changed and the solver needs to be rerun.</param>
         void CustomizeSelections([NotNull] Func<Selections> solveCallback);

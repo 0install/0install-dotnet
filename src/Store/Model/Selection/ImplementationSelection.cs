@@ -73,7 +73,7 @@ namespace ZeroInstall.Store.Model.Selection
         public IEnumerable<SelectionCandidate> Candidates { get; }
 
         /// <summary>
-        /// Creates a new implemenetation selection.
+        /// Creates a new implementation selection.
         /// </summary>
         /// <param name="candidates">All candidates that were considered for selection (including the selected one). These are used to present the user with possible alternatives.</param>
         public ImplementationSelection(IEnumerable<SelectionCandidate> candidates)

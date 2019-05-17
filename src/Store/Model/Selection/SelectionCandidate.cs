@@ -83,7 +83,7 @@ namespace ZeroInstall.Store.Model.Selection
         public string Notes { get; set; }
 
         /// <summary>
-        /// Indicates wether this implementation fullfills all specified <see cref="Requirements"/>.
+        /// Indicates whether this implementation fulfills all specified <see cref="Requirements"/>.
         /// </summary>
         [Browsable(false)]
         public bool IsSuitable { get; set; }
@@ -94,7 +94,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// <param name="feedUri">The file name or URL of the feed listing the implementation.</param>
         /// <param name="feedPreferences">The <see cref="FeedPreferences"/> for <see cref="FeedUri"/>.</param>
         /// <param name="implementation">The implementation this selection candidate references.</param>
-        /// <param name="requirements">A set of requirements/restrictions the <paramref name="implementation"/> needs to fullfill for <see cref="IsSuitable"/> to be <c>true</c>.</param>
+        /// <param name="requirements">A set of requirements/restrictions the <paramref name="implementation"/> needs to fulfill for <see cref="IsSuitable"/> to be <c>true</c>.</param>
         /// <param name="offlineUncached">Mark this candidate as unsuitable because it is uncached and <see cref="Config.NetworkUse"/> is set to <see cref="NetworkLevel.Offline"/>.</param>
         /// <exception cref="InvalidDataException"><paramref name="implementation"/>'s <see cref="ImplementationBase.ID"/> is empty.</exception>
         public SelectionCandidate([NotNull] FeedUri feedUri, [NotNull] FeedPreferences feedPreferences, [NotNull] Implementation implementation, [NotNull] Requirements requirements, bool offlineUncached = false)

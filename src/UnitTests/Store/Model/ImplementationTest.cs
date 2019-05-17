@@ -119,9 +119,9 @@ namespace ZeroInstall.Store.Model
         [Fact]
         public void TestNormalizeRejectLocalPath()
         {
-            var implmementation = new Implementation {LocalPath = "subdir"};
-            implmementation.Normalize(FeedTest.Test1Uri);
-            implmementation.LocalPath.Should().BeNull();
+            var implementation = new Implementation {LocalPath = "subdir"};
+            implementation.Normalize(FeedTest.Test1Uri);
+            implementation.LocalPath.Should().BeNull();
         }
 
         /// <summary>
@@ -132,10 +132,10 @@ namespace ZeroInstall.Store.Model
         {
             var relative = new Archive {Href = new Uri("relative", UriKind.Relative)};
             var absolute = new Archive {Href = new Uri("http://server/absolute.zip", UriKind.Absolute)};
-            var implmementation = new Implementation {RetrievalMethods = {relative, absolute}};
+            var implementation = new Implementation {RetrievalMethods = {relative, absolute}};
 
-            implmementation.Normalize(FeedTest.Test1Uri);
-            implmementation.RetrievalMethods.Should().Equal(absolute);
+            implementation.Normalize(FeedTest.Test1Uri);
+            implementation.RetrievalMethods.Should().Equal(absolute);
         }
 
         /// <summary>

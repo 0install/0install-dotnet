@@ -130,12 +130,12 @@ namespace ZeroInstall.DesktopIntegration
         [Fact]
         public void TestUpdateApp()
         {
-            var capabilitiyList = new CapabilityList
+            var capabilityList = new CapabilityList
             {
                 OS = Architecture.CurrentSystem.OS,
                 Entries = {new FileType {ID = "my_ext1"}, new FileType {ID = "my_ext2"}}
             };
-            var feed = new Feed {Name = "Test 1", CapabilityLists = {capabilitiyList}};
+            var feed = new Feed {Name = "Test 1", CapabilityLists = {capabilityList}};
             var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1"}};
 
             var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed));
@@ -145,7 +145,7 @@ namespace ZeroInstall.DesktopIntegration
 
             // Modify feed
             feed.Name = "Test 2";
-            capabilitiyList.Entries.RemoveLast();
+            capabilityList.Entries.RemoveLast();
 
             _integrationManager.UpdateApp(appEntry, feed);
             appEntry.Name.Should().Be("Test 2");

@@ -21,7 +21,7 @@ using ZeroInstall.Store.Model.Capabilities;
 namespace ZeroInstall.DesktopIntegration
 {
     /// <summary>
-    /// Represents an application in the <see cref="AppList"/> indentified by its interface URI.
+    /// Represents an application in the <see cref="AppList"/> identified by its interface URI.
     /// </summary>
     [XmlType("app", Namespace = AppList.XmlNamespace)]
     public sealed class AppEntry : XmlUnknown, IMergeable<AppEntry>, ICloneable<AppEntry>

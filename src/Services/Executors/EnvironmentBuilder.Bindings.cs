@@ -140,17 +140,17 @@ namespace ZeroInstall.Services.Executors
                 default:
                 case EnvironmentMode.Prepend:
                     environmentVariables[binding.Name] = string.IsNullOrEmpty(previousValue)
-                        // No exisiting value, just set new one
+                        // No existing value, just set new one
                         ? newValue
-                        // Prepend new value to existing one seperated by path separator
+                        // Prepend new value to existing one separated by path separator
                         : newValue + separator + environmentVariables[binding.Name];
                     break;
 
                 case EnvironmentMode.Append:
                     environmentVariables[binding.Name] = string.IsNullOrEmpty(previousValue)
-                        // No exisiting value, just set new one
+                        // No existing value, just set new one
                         ? newValue
-                        // Append new value to existing one seperated by path separator
+                        // Append new value to existing one separated by path separator
                         : environmentVariables[binding.Name] + separator + newValue;
                     break;
 
@@ -167,7 +167,7 @@ namespace ZeroInstall.Services.Executors
         private struct RunEnvPending
         {
             /// <summary>
-            /// The executable's file name without any file ending.
+            /// The executable file name without any file ending.
             /// </summary>
             public readonly string ExeName;
 
@@ -176,7 +176,7 @@ namespace ZeroInstall.Services.Executors
             /// </summary>
             public readonly List<ArgBase> CommandLine;
 
-            /// <param name="name">The executable's file name without any file ending.</param>
+            /// <param name="name">The executable file name without any file ending.</param>
             /// <param name="commandLine">The command-line the executable should run.</param>
             public RunEnvPending(string name, List<ArgBase> commandLine)
             {
@@ -340,7 +340,7 @@ namespace ZeroInstall.Services.Executors
 
             try
             {
-                // Allow Python/OCaml-version of Zero Install and other tools to call back to the Fetcher
+                // Allow Linux-version of Zero Install and other tools to call back to the Fetcher
                 var fetchCommand = ProcessUtils.Assembly("0install", "fetch");
                 _startInfo.EnvironmentVariables["ZEROINSTALL_EXTERNAL_FETCHER"] = fetchCommand.FileName.EscapeArgument() + " " + fetchCommand.Arguments;
             }

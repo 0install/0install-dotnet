@@ -58,7 +58,7 @@ namespace ZeroInstall.Store
         /// Reparses an object previously deserialized from JSON into a different representation.
         /// </summary>
         /// <typeparam name="T">The type of object the data shall be converted into.</typeparam>
-        /// <param name="data">The object to be reparsed.</param>
+        /// <param name="data">The object to be parsed again.</param>
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
         [NotNull]
@@ -68,7 +68,7 @@ namespace ZeroInstall.Store
         /// Reparses an object previously deserialized from JSON into a different representation using an anonymous type as the target.
         /// </summary>
         /// <typeparam name="T">The type of object the data shall be converted into.</typeparam>
-        /// <param name="data">The object to be reparsed.</param>
+        /// <param name="data">The object to be parsed again.</param>
         /// <param name="anonymousType">An instance of the anonymous type to parse to.</param>
         /// <returns>The deserialized object.</returns>
         [NotNull]

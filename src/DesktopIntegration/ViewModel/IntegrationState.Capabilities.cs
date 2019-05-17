@@ -15,7 +15,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// <summary>
         /// Controls whether <see cref="AccessPoints.CapabilityRegistration"/> is used.
         /// </summary>
-        public bool CapabilitiyRegistration { get; set; }
+        public bool CapabilityRegistration { get; set; }
 
         public readonly BindingList<FileTypeModel> FileTypes = new BindingList<FileTypeModel>();
         public readonly BindingList<UrlProtocolModel> UrlProtocols = new BindingList<UrlProtocolModel>();
@@ -29,7 +29,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         private readonly List<CapabilityModel> _capabilityModels = new List<CapabilityModel>();
 
         /// <summary>
-        /// Reads the <see cref="DefaultCapability"/>s from <see cref="Store.Model.Feed.CapabilityLists"/> and creates a coressponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.
+        /// Reads the <see cref="DefaultCapability"/>s from <see cref="Store.Model.Feed.CapabilityLists"/> and creates a corresponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.
         /// </summary>
         private void LoadDefaultAccessPoints()
         {
@@ -84,7 +84,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         {
             foreach (var model in _capabilityModels.Where(model => model.Changed))
             {
-                var accessPoint = model.Capability.ToAcessPoint();
+                var accessPoint = model.Capability.ToAccessPoint();
                 if (model.Use) toAdd.Add(accessPoint);
                 else toRemove.Add(accessPoint);
             }

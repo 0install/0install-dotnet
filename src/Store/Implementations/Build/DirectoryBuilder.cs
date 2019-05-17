@@ -181,7 +181,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="source">The path of the hardlink to create (relative to <see cref="EffectiveTargetPath"/>).</param>
         /// <param name="target">The path of the target the hardlink shall point to (relative to <see cref="EffectiveTargetPath"/>).</param>
-        /// <param name="executable"><c>true</c> if the hardlink's executable bit is set; <c>false</c> otherwise.</param>
+        /// <param name="executable"><c>true</c> if the executable bit of the hardlink is set; <c>false</c> otherwise.</param>
         public void QueueHardlink([NotNull] string source, [NotNull] string target, bool executable = false)
         {
             #region Sanity checks

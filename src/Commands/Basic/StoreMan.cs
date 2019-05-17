@@ -84,7 +84,7 @@ namespace ZeroInstall.Commands.Basic
             {}
 
             /// <summary>
-            /// Returns the default <see cref="IImplementationStore"/> or a <see cref="CompositeImplementationStore"/> as specifief by the <see cref="CliCommand.AdditionalArgs"/>.
+            /// Returns the default <see cref="IImplementationStore"/> or a <see cref="CompositeImplementationStore"/> as specified by the <see cref="CliCommand.AdditionalArgs"/>.
             /// </summary>
             protected IImplementationStore GetEffectiveStore()
             {

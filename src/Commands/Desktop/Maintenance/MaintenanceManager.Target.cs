@@ -53,7 +53,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.
         /// </summary>
         /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
-        private void TargetMutexAquire()
+        private void TargetMutexAcquire()
         {
             if (TargetDir == Locations.InstallBase)
             {
@@ -85,7 +85,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         }
 
         /// <summary>
-        /// Counterpart to <see cref="TargetMutexAquire"/>.
+        /// Counterpart to <see cref="TargetMutexAcquire"/>.
         /// </summary>
         private void TargetMutexRelease() => _targetMutex?.Close();
 

@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Model
         [XmlEnum("*")]
         All,
 
-        /// <summary>Everthing except <see cref="Windows"/>.</summary>
+        /// <summary>Everything except <see cref="Windows"/>.</summary>
         [XmlEnum("POSIX")]
         Posix,
 

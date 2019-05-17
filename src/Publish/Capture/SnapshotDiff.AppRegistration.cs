@@ -111,7 +111,7 @@ namespace ZeroInstall.Publish.Capture
 
         #region File associations
         /// <summary>
-        /// Collects data about file assocations indicated by registered application capabilities.
+        /// Collects data about file associations indicated by registered application capabilities.
         /// </summary>
         /// <param name="capsKey">A registry key containing capability information for a registered application.</param>
         /// <param name="capabilities">The capability list to add the collected data to.</param>

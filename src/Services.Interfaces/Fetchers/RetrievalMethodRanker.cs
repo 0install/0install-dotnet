@@ -7,7 +7,7 @@ using ZeroInstall.Store.Model;
 namespace ZeroInstall.Services.Fetchers
 {
     /// <summary>
-    /// Compares <see cref="RetrievalMethod"/>s and sortes them from most to least preferred by <see cref="IFetcher"/>s.
+    /// Compares <see cref="RetrievalMethod"/>s and sorts them from most to least preferred by <see cref="IFetcher"/>s.
     /// </summary>
     public sealed class RetrievalMethodRanker : IComparer<RetrievalMethod>
     {

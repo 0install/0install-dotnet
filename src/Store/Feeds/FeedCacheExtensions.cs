@@ -13,7 +13,7 @@ namespace ZeroInstall.Store.Feeds
     /// <summary>
     /// Provides extensions methods for <see cref="IFeedCache"/>.
     /// </summary>
-    public static class FeedCacheExtentsions
+    public static class FeedCacheExtensions
     {
         /// <summary>
         /// Loads all <see cref="Feed"/>s stored in <see cref="IFeedCache"/> into memory.

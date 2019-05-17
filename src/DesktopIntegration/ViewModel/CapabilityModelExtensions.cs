@@ -17,7 +17,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// Sets all <see cref="CapabilityModel.Use"/> values within a list/model to a specific value.
         /// </summary>
         /// <typeparam name="T">The specific kind of <see cref="DesktopIntegration.AccessPoints.DefaultAccessPoint"/> to handle.</typeparam>
-        /// <param name="model">A model represeting the underlying <see cref="Store.Model.Capabilities.DefaultCapability"/>s and their selection states.</param>
+        /// <param name="model">A model representing the underlying <see cref="Store.Model.Capabilities.DefaultCapability"/>s and their selection states.</param>
         /// <param name="value">The value to set.</param>
         public static void SetAllUse<T>([NotNull, ItemNotNull] this BindingList<T> model, bool value)
             where T : CapabilityModel

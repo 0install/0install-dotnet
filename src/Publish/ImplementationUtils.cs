@@ -59,7 +59,7 @@ namespace ZeroInstall.Publish
 
         #region Add missing
         /// <summary>
-        /// Adds missing data (by downloading and infering) to an <see cref="Implementation"/>.
+        /// Adds missing data (by downloading and inferring) to an <see cref="Implementation"/>.
         /// </summary>
         /// <param name="implementation">The <see cref="Implementation"/> to add data to.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>

@@ -52,10 +52,10 @@ namespace ZeroInstall.Store.Model
         public string Value { get; set; }
 
         /// <summary>
-        /// The relative path of the item within the implementation to insert into the variable's value. Use <c>.</c> to publish the root directory.
+        /// The relative path of the item within the implementation to insert into the variable value. Use <c>.</c> to publish the root directory.
         /// </summary>
         /// <remarks>If this is set <see cref="Value"/> must be <c>null</c>.</remarks>
-        [Description("The relative path of the item within the implementation to insert into the variable's value. Use \".\" to publish the root directory. If this is set 'Value' must be empty.")]
+        [Description("The relative path of the item within the implementation to insert into the variable value. Use \".\" to publish the root directory. If this is set 'Value' must be empty.")]
         [XmlAttribute("insert"), CanBeNull]
         public string Insert { get; set; }
 

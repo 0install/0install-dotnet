@@ -22,7 +22,7 @@ namespace ZeroInstall.Store.Model
     {
         #region Constants
         /// <summary>
-        /// Canonical <see cref="Name"/> coressponding to <see cref="Element.Main"/>.
+        /// Canonical <see cref="Name"/> corresponding to <see cref="Element.Main"/>.
         /// </summary>
         public const string NameRun = "run";
 
@@ -32,7 +32,7 @@ namespace ZeroInstall.Store.Model
         public const string NameRunGui = "run-gui";
 
         /// <summary>
-        /// Canonical <see cref="Name"/> coressponding to <see cref="Element.SelfTest"/>.
+        /// Canonical <see cref="Name"/> corresponding to <see cref="Element.SelfTest"/>.
         /// </summary>
         public const string NameTest = "test";
 

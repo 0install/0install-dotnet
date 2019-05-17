@@ -54,7 +54,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
@@ -86,7 +86,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <remarks>Make sure <see cref="Implementation.RetrievalMethods"/> is not empty before calling this!</remarks>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
@@ -108,7 +108,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="manifestDigest">The digest the result of the retrieval method should produce.</param>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
@@ -160,7 +160,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="manifestDigest">The digest the result of the recipe should produce.</param>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
@@ -232,7 +232,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="files">The downloaded archive files, indexes matching those in <paramref name="archives"/>.</param>
         /// <param name="manifestDigest">The digest the extracted archives should produce.</param>
         /// <exception cref="OperationCanceledException">An IO task was canceled from another thread.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
@@ -263,7 +263,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="files">The files downloaded for the <paramref name="recipe"/> steps, order matching the <see cref="DownloadRetrievalMethod"/> steps in <see cref="Recipe.Steps"/>.</param>
         /// <param name="manifestDigest">The digest the result of the recipe should produce.</param>
         /// <exception cref="OperationCanceledException">An IO task was canceled from another thread.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocal, etc. is unknown or not supported.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>

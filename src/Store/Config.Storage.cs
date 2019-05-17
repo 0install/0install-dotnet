@@ -286,7 +286,7 @@ namespace ZeroInstall.Store
         }
 
         /// <summary>
-        /// Returns the keys and values of all contained setings.
+        /// Returns the keys and values of all contained settings.
         /// </summary>
         public override string ToString()
         {

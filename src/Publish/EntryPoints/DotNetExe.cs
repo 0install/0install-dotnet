@@ -46,7 +46,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public ImplementationVersion MinimumRuntimeVersion { get; set; }
 
         /// <summary>
-        /// The types of .NET runtimes supported by the application.
+        /// The types of .NET Runtime supported by the application.
         /// </summary>
         [Category("Details (.NET)"), DisplayName(@".NET type"), Description("The types of .NET runtimes supported by the application.")]
         [DefaultValue(typeof(DotNetRuntimeType), "Any")]

@@ -13,7 +13,7 @@ using SevenZip.Sdk.Compression.Lzma;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates a LZMA-compressed TAR archive from a directory. Preserves execuable bits, symlinks, hardlinks and timestamps.
+    /// Creates a LZMA-compressed TAR archive from a directory. Preserves executable bits, symlinks, hardlinks and timestamps.
     /// </summary>
     public class TarLzmaGenerator : TarGenerator
     {

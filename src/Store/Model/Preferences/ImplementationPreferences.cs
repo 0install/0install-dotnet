@@ -15,7 +15,7 @@ namespace ZeroInstall.Store.Model.Preferences
     public sealed class ImplementationPreferences : XmlUnknown, ICloneable<ImplementationPreferences>, IEquatable<ImplementationPreferences>
     {
         /// <summary>
-        /// A unique identifier for the implementation. Coressponds to <see cref="ImplementationBase.ID"/>.
+        /// A unique identifier for the implementation. Corresponds to <see cref="ImplementationBase.ID"/>.
         /// </summary>
         [Description("A unique identifier for the implementation.")]
         [XmlAttribute("id")]
@@ -29,11 +29,11 @@ namespace ZeroInstall.Store.Model.Preferences
         public Stability UserStability { get; set; } = Stability.Unset;
 
         /// <summary>
-        /// Indicates whether this configuration object stores no information other than the <see cref="ID"/> and is thus superflous.
+        /// Indicates whether this configuration object stores no information other than the <see cref="ID"/> and is thus superfluous.
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public bool IsSuperflous => (UserStability == Stability.Unset);
+        public bool IsSuperfluous => (UserStability == Stability.Unset);
 
         #region Clone
         /// <summary>

@@ -10,7 +10,7 @@ using ZeroInstall.Store.Model.Selection;
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
-    /// Wraps two solvers always passing requests to the primary one intially and falling back to secondary one should the primary one fail.
+    /// Wraps two solvers always passing requests to the primary one initially and falling back to secondary one should the primary one fail.
     /// </summary>
     public sealed class FallbackSolver : ISolver
     {

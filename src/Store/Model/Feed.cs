@@ -171,7 +171,7 @@ namespace ZeroInstall.Store.Model
         public List<InterfaceReference> FeedFor { get; } = new List<InterfaceReference>();
 
         /// <summary>
-        /// This feed's interface <see cref="Uri"/> has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
+        /// This interface <see cref="Uri"/> of the feed has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
         /// </summary>
         /// <seealso cref="ImplementationBase.ManifestDigest"/>
         [Browsable(false)]

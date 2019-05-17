@@ -43,7 +43,7 @@ namespace ZeroInstall.Commands.Basic
                 try
                 {
                     if (File.Exists(path))
-                    { // One or more archives (combined/overlayed)
+                    { // One or more archives (combined/overlay)
                         ImplementationStore.AddArchives(GetArchiveFileInfos(), manifestDigest, Handler);
                         return ExitCode.OK;
                     }

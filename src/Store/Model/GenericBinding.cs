@@ -15,9 +15,9 @@ namespace ZeroInstall.Store.Model
     public sealed class GenericBinding : ExecutableInBinding, IEquatable<GenericBinding>
     {
         /// <summary>
-        /// If your binding needs a path within the selected implemention, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions.
+        /// If your binding needs a path within the selected implementation, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions.
         /// </summary>
-        [Description("If your binding needs a path within the selected implemention, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions. ")]
+        [Description("If your binding needs a path within the selected implementation, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions. ")]
         [XmlAttribute("path")]
         public string Path { get; set; }
 

@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.ViewModel
             NewVersion = newVersion;
         }
 
-        // <inheritdoc/>
+        /// <inheritdoc/>
         public override string ToString()
         {
             if (OldVersion == null) return $"{Uri}: new -> {NewVersion}";
@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         #region Equality
-        // <inheritdoc/>
+        /// <inheritdoc/>
         public bool Equals(SelectionsDiffNode other)
         {
             if (ReferenceEquals(null, other)) return false;
@@ -65,7 +65,7 @@ namespace ZeroInstall.Store.ViewModel
             return Uri == other.Uri && OldVersion == other.OldVersion && NewVersion == other.NewVersion;
         }
 
-        // <inheritdoc/>
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
@@ -73,7 +73,7 @@ namespace ZeroInstall.Store.ViewModel
             return obj is SelectionsDiffNode node && Equals(node);
         }
 
-        // <inheritdoc/>
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked

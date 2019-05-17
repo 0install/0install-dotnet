@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <exception cref="FormatException">The string format is not valid.</exception>
         [NotNull]
-        internal static byte[] ParseFingerpint([NotNull] string fingerprint)
+        internal static byte[] ParseFingerprint([NotNull] string fingerprint)
         {
             #region Sanity checks
             if (fingerprint == null) throw new ArgumentNullException(nameof(fingerprint));

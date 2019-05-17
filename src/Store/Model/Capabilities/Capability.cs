@@ -32,7 +32,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <summary>
         /// Identifiers from a namespace global to all <see cref="Capability"/>s.
-        /// Collisions in this namespace indicate that the concered <see cref="Capability"/>s are in conflict cannot be registered on a single system at the same time.
+        /// Collisions in this namespace indicate that the concerned <see cref="Capability"/>s are in conflict cannot be registered on a single system at the same time.
         /// </summary>
         /// <remarks>These identifiers are not guaranteed to stay the same between versions. They should not be stored in files but instead always generated on demand.</remarks>
         [Browsable(false)]

@@ -162,7 +162,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Periodically checks Zero Install itself for updates in a background proccess.
+        /// Periodically checks Zero Install itself for updates in a background process.
         /// </summary>
         protected void SelfUpdateCheck()
         {

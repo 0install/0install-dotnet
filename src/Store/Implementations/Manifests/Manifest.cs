@@ -131,7 +131,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             using (var stream = File.Create(path))
                 Save(stream);
 
-            // Caclulate the digest of the completed manifest file
+            // Calculate the digest of the completed manifest file
             using (var stream = File.OpenRead(path))
                 return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
         }
@@ -150,7 +150,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            // Use UTF-8 without BOM and Unix-stlye line breaks to ensure correct digest values
+            // Use UTF-8 without BOM and Unix-style line breaks to ensure correct digest values
             var writer = new StreamWriter(stream, encoding: FeedUtils.Encoding) {NewLine = "\n"};
 
             // Write one line for each node
@@ -252,7 +252,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         IEnumerator IEnumerable.GetEnumerator() => _nodes.GetEnumerator();
 
         /// <summary>
-        /// Retreives a specific <see cref="ManifestNode"/>.
+        /// Retrieves a specific <see cref="ManifestNode"/>.
         /// </summary>
         /// <param name="i">The index of the node to retreive.</param>
         public ManifestNode this[int i] => _nodes[i];

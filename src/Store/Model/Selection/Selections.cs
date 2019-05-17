@@ -112,7 +112,7 @@ namespace ZeroInstall.Store.Model.Selection
         public Selections() {}
 
         /// <summary>
-        /// Creates a selections document prefilled with <see cref="ImplementationSelection"/>s.
+        /// Creates a selections document pre-filled with <see cref="ImplementationSelection"/>s.
         /// </summary>
         public Selections(IEnumerable<ImplementationSelection> implementations)
         {

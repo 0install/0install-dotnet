@@ -80,7 +80,7 @@ namespace ZeroInstall.DesktopIntegration
                     from capability in appEntry.CapabilityLists.CompatibleCapabilities().OfType<DefaultCapability>()
                     where !capability.WindowsMachineWideOnly || MachineWide || !WindowsUtils.IsWindows
                     where !capability.ExplicitOnly
-                    select capability.ToAcessPoint()));
+                    select capability.ToAccessPoint()));
             }
 
             try

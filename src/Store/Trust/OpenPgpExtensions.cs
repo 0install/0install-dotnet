@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Trust
 
             try
             {
-                var fingerprint = OpenPgpUtils.ParseFingerpint(keySpecifier);
+                var fingerprint = OpenPgpUtils.ParseFingerprint(keySpecifier);
                 return secretKeys.First(x => x.GetFingerprint().SequenceEqual(fingerprint));
             }
             catch (FormatException)

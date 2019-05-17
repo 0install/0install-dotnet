@@ -71,7 +71,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific result.
         /// </summary>
         /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
@@ -84,7 +84,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific reuslt.
+        /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific result.
         /// </summary>
         /// <param name="expectedOutput">The expected tabular data for a <see cref="ITaskHandler.Output{T}"/> call.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>

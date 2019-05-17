@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Determines whether a directory resides on a non-Unix filesystem.
         /// </summary>
         /// <param name="directoryPath">The full path to the directory.</param>
-        /// <remarks>The flag file is searched for instead of specifiying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
+        /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         /// <seealso cref="NoUnixFSFile"/>
         /// <seealso cref="FileUtils.IsUnixFS"/>
         public static bool IsUnixFS([NotNull] string directoryPath)
@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <returns>A list of fully qualified paths of files that are named in an external flag file.</returns>
         /// <exception cref="IOException">There was an error reading the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the flag file.</exception>
-        /// <remarks>The flag file is searched for instead of specifiying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
+        /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "flag")]
         [NotNull, ItemNotNull]
         public static ICollection<string> GetFiles([NotNull] string flagName, [NotNull] string directoryPath)
@@ -123,7 +123,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException"><paramref name="filePath"/> is not an absolute path.</exception>
         /// <exception cref="IOException">There was an error reading the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the flag file.</exception>
-        /// <remarks>The flag file is searched for instead of specifiying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
+        /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "flag")]
         public static bool IsFlagged([NotNull] string flagName, [NotNull] string filePath)
         {
@@ -156,7 +156,7 @@ namespace ZeroInstall.Store.Implementations.Build
             string flagDir = Path.GetFullPath(directoryPath);
             while (!File.Exists(Path.Combine(flagDir, flagName)))
             {
-                // Go up one level in the directory hierachy
+                // Go up one level in the directory hierarchy
                 flagDir = Path.GetDirectoryName(flagDir);
 
                 // Cancel once the root dir has been reached

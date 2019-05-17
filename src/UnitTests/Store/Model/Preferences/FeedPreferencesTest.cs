@@ -52,14 +52,14 @@ namespace ZeroInstall.Store.Model.Preferences
         }
 
         /// <summary>
-        /// Ensures that <see cref="FeedPreferences.Normalize"/> correctly removes superflous entries from <see cref="FeedPreferences.Implementations"/>.
+        /// Ensures that <see cref="FeedPreferences.Normalize"/> correctly removes superfluous entries from <see cref="FeedPreferences.Implementations"/>.
         /// </summary>
         [Fact]
         public void TestNormalize()
         {
             var keep = new ImplementationPreferences {ID = "id1", UserStability = Stability.Testing};
-            var superflous = new ImplementationPreferences {ID = "id2"};
-            var preferences = new FeedPreferences {Implementations = {keep, superflous}};
+            var superfluous = new ImplementationPreferences {ID = "id2"};
+            var preferences = new FeedPreferences {Implementations = {keep, superfluous}};
 
             preferences.Normalize();
             preferences.Implementations.Should().BeEquivalentTo(keep);
@@ -69,14 +69,14 @@ namespace ZeroInstall.Store.Model.Preferences
         public void TestGetImplementationPreferences()
         {
             var preferences = new FeedPreferences();
-            var prefs1 = preferences["id1"];
-            preferences["id1"].Should().BeSameAs(prefs1, because: "Second call with same ID should return same reference");
+            var preferences1 = preferences["id1"];
+            preferences["id1"].Should().BeSameAs(preferences1, because: "Second call with same ID should return same reference");
 
-            var prefs2 = new ImplementationPreferences {ID = "id2"};
-            preferences.Implementations.Add(prefs2);
-            preferences["id2"].Should().BeSameAs(prefs2, because: "Call with pre-existing ID should return existing reference");
+            var preferences2 = new ImplementationPreferences {ID = "id2"};
+            preferences.Implementations.Add(preferences2);
+            preferences["id2"].Should().BeSameAs(preferences2, because: "Call with pre-existing ID should return existing reference");
 
-            preferences.Implementations.Should().BeEquivalentTo(prefs1, prefs2);
+            preferences.Implementations.Should().BeEquivalentTo(preferences1, preferences2);
         }
     }
 }

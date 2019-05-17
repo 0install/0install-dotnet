@@ -10,10 +10,10 @@ using NanoByte.Common;
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
-    /// A linked feed that contains more implementations of this feed's interface. Is treated by the solver as if it were part of the main feed.
+    /// A linked feed that contains more implementations of this interface. Is treated by the solver as if it were part of the main feed.
     /// </summary>
     /// <seealso cref="Feed.Feeds"/>
-    [Description("A linked feed that contains more implementations of this feed's interface. Is treated by the solver as if it were part of the main feed.")]
+    [Description("A linked feed that contains more implementations of this interface. Is treated by the solver as if it were part of the main feed.")]
     [Serializable, XmlRoot("feed", Namespace = Feed.XmlNamespace), XmlType("feed", Namespace = Feed.XmlNamespace)]
     public sealed class FeedReference : TargetBase, ICloneable<FeedReference>, IEquatable<FeedReference>
     {

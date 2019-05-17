@@ -58,25 +58,25 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         private void RegistryApply(long size)
         {
             var hive = MachineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var uninsKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Zero Install_is1"))
+            using (var uninstallKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Zero Install_is1"))
             {
-                if (uninsKey == null) return;
+                if (uninstallKey == null) return;
 
-                uninsKey.SetValue("InstallLocation", TargetDir + @"\");
-                uninsKey.SetValue("Publisher", "0install.de");
-                uninsKey.SetValue("URLInfoAbout", "http://0install.de/");
-                uninsKey.SetValue("DisplayName", MachineWide ? AppInfo.CurrentLibrary.ProductName : AppInfo.CurrentLibrary.ProductName + " (current user)");
-                uninsKey.SetValue("DisplayVersion", AppInfo.CurrentLibrary.Version.ToString());
-                uninsKey.SetValue("MajorVersion", AppInfo.CurrentLibrary.Version.Major, RegistryValueKind.DWord);
-                uninsKey.SetValue("MinorVersion", AppInfo.CurrentLibrary.Version.Minor, RegistryValueKind.DWord);
-                uninsKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
-                uninsKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
+                uninstallKey.SetValue("InstallLocation", TargetDir + @"\");
+                uninstallKey.SetValue("Publisher", "0install.de");
+                uninstallKey.SetValue("URLInfoAbout", "http://0install.de/");
+                uninstallKey.SetValue("DisplayName", MachineWide ? AppInfo.CurrentLibrary.ProductName : AppInfo.CurrentLibrary.ProductName + " (current user)");
+                uninstallKey.SetValue("DisplayVersion", AppInfo.CurrentLibrary.Version.ToString());
+                uninstallKey.SetValue("MajorVersion", AppInfo.CurrentLibrary.Version.Major, RegistryValueKind.DWord);
+                uninstallKey.SetValue("MinorVersion", AppInfo.CurrentLibrary.Version.Minor, RegistryValueKind.DWord);
+                uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+                uninstallKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
 
-                uninsKey.SetValue("DisplayIcon", Path.Combine(TargetDir, "ZeroInstall.exe"));
-                uninsKey.SetValue("UninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name}.JoinEscapeArguments());
-                uninsKey.SetValue("QuietUninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name, "--batch", "--background"}.JoinEscapeArguments());
-                uninsKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
-                uninsKey.SetValue("NoRepiar", 1, RegistryValueKind.DWord);
+                uninstallKey.SetValue("DisplayIcon", Path.Combine(TargetDir, "ZeroInstall.exe"));
+                uninstallKey.SetValue("UninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name}.JoinEscapeArguments());
+                uninstallKey.SetValue("QuietUninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name, "--batch", "--background"}.JoinEscapeArguments());
+                uninstallKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
+                uninstallKey.SetValue("NoRepiar", 1, RegistryValueKind.DWord);
             }
 
             RegistryUtils.SetSoftwareString("Zero Install", "InstallLocation", TargetDir, MachineWide);
@@ -89,8 +89,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
             RegistryUtils.DeleteSoftwareValue(@"Microsoft\PackageManagement", "ZeroInstall", MachineWide);
 
             var hive = MachineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var uninsKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                uninsKey?.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
+            using (var uninstallKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+                uninstallKey?.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
         }
     }
 }

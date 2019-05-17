@@ -9,10 +9,10 @@ using NanoByte.Common;
 namespace ZeroInstall.Store.Model.Capabilities
 {
     /// <summary>
-    /// Names a well-known protocol prefix. Used for protocols that are shared accross many applications (e.g. HTTP, FTP) but not for application-specific protocols.
+    /// Names a well-known protocol prefix. Used for protocols that are shared across many applications (e.g. HTTP, FTP) but not for application-specific protocols.
     /// </summary>
     /// <seealso cref="UrlProtocol.KnownPrefixes"/>
-    [Description("Names a well-known protocol prefix. Used for protocols that are shared accross many applications (e.g. HTTP, FTP) but not for application-specific protocols.")]
+    [Description("Names a well-known protocol prefix. Used for protocols that are shared across many applications (e.g. HTTP, FTP) but not for application-specific protocols.")]
     [Serializable, XmlRoot("known-prefix", Namespace = CapabilityList.XmlNamespace), XmlType("known-prefix", Namespace = CapabilityList.XmlNamespace)]
     public class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolPrefix>, IEquatable<KnownProtocolPrefix>
     {

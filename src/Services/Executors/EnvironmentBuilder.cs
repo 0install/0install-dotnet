@@ -205,7 +205,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <summary>
-        /// Determines the command-line needed to execute an <see cref="ImplementationSelection"/>. Recursivley handles <see cref="Runner"/>s.
+        /// Determines the command-line needed to execute an <see cref="ImplementationSelection"/>. Recursively handles <see cref="Runner"/>s.
         /// </summary>
         /// <param name="implementation">The implementation to launch.</param>
         /// <param name="commandName">The name of the <see cref="Command"/> within the <paramref name="implementation"/> to launch.</param>

@@ -110,7 +110,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <summary>
-        /// Retreives a new instance of the hashing algorithm used for generating digests.
+        /// Retrieves a new instance of the hashing algorithm used for generating digests.
         /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Generates a new instance each time to allow for concurrent usage")]
         [NotNull]

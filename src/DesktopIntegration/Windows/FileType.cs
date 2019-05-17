@@ -24,7 +24,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     public static class FileType
     {
         #region Constants
-        /// <summary>Prepended before any programatic identifiers used by Zero Install in the registry. This prevents conflicts with non-Zero Install installations.</summary>
+        /// <summary>Prepended before any programmatic identifiers used by Zero Install in the registry. This prevents conflicts with non-Zero Install installations.</summary>
         internal const string RegKeyPrefix = "ZeroInstall.";
 
         /// <summary>Prepended before any registry purpose flags. Purpose flags indicate what a registry key was created for and whether it is still required.</summary>
@@ -48,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>The registry value name for friendly type name storage.</summary>
         public const string RegValueFriendlyName = "FriendlyTypeName";
 
-        /// <summary>The registry value name for application user model IDs (used by the Windows 7 taksbar).</summary>
+        /// <summary>The registry value name for application user model IDs (used by the Windows 7 taskbar).</summary>
         public const string RegValueAppUserModelID = "AppUserModelID";
 
         /// <summary>The registry value name for MIME type storage.</summary>
@@ -57,7 +57,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>The registry value name for perceived type storage.</summary>
         public const string RegValuePerceivedType = "PerceivedType";
 
-        /// <summary>The registry value name for the flag indicating a menue entry should only appear when the SHIFT key is pressed.</summary>
+        /// <summary>The registry value name for the flag indicating a menu entry should only appear when the SHIFT key is pressed.</summary>
         public const string RegValueExtended = "extended";
 
         /// <summary>The registry subkey containing <see cref="Store.Model.Capabilities.FileType"/> references.</summary>
@@ -183,7 +183,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 foreach (var extension in fileType.Extensions.Except(extension => string.IsNullOrEmpty(extension.Value)))
                 {
-                    // Unegister MIME types
+                    // Unregister MIME types
                     if (!string.IsNullOrEmpty(extension.MimeType))
                     {
                         using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
@@ -201,7 +201,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                         //        // Must delete and recreate instead of direct modification due to wicked ACLs
                         //        extensionOverrideKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
                         //        using (var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice"))
-                        //            userChoiceKey.SetValue("Progid", fileType.PreviousID);
+                        //            userChoiceKey.SetValue("ProgID", fileType.PreviousID);
                         //    }
                         //}
                     }

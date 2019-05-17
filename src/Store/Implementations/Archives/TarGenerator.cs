@@ -13,7 +13,7 @@ using NanoByte.Common.Streams;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates a TAR archive from a directory. Preserves execuable bits, symlinks, hardlinks and timestamps.
+    /// Creates a TAR archive from a directory. Preserves executable bits, symlinks, hardlinks and timestamps.
     /// </summary>
     public class TarGenerator : ArchiveGenerator
     {

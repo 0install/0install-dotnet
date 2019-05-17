@@ -81,7 +81,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeSingleFileExecuteable()
+        public void TestApplyRecipeSingleFileExecutable()
         {
             using (var singleFile = new TemporaryFile("0install-unit-tests"))
             {

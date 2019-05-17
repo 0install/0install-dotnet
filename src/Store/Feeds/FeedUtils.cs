@@ -113,7 +113,7 @@ namespace ZeroInstall.Store.Feeds
         }
 
         /// <summary>
-        /// Isolates and decodes the Base64-econded signature.
+        /// Isolates and decodes the Base64-encoded signature.
         /// </summary>
         /// <param name="feedData">The feed data containing a signature block.</param>
         /// <param name="signatureStartIndex">The index of the first byte of the signature block.</param>
@@ -126,10 +126,10 @@ namespace ZeroInstall.Store.Feeds
             if (!signatureString.EndsWith(SignatureBlockEnd)) throw new SignatureException(Resources.XmlSignatureInvalidEnd);
 
             // Concatenate Base64 lines and decode
-            string base64Charachters = signatureString.Substring(SignatureBlockStart.Length, signatureString.Length - SignatureBlockStart.Length - SignatureBlockEnd.Length).Replace("\n", "");
+            string base64Characters = signatureString.Substring(SignatureBlockStart.Length, signatureString.Length - SignatureBlockStart.Length - SignatureBlockEnd.Length).Replace("\n", "");
             try
             {
-                return Convert.FromBase64String(base64Charachters);
+                return Convert.FromBase64String(base64Characters);
             }
             #region Error handling
             catch (FormatException ex)

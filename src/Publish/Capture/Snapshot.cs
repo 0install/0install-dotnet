@@ -29,13 +29,13 @@ namespace ZeroInstall.Publish.Capture
         /// <summary>A list of associations of an AutoPlay events with an AutoPlay handlers.</summary>
         public ComparableTuple<string>[] AutoPlayAssocsUser, AutoPlayAssocsMachine;
 
-        /// <summary>A list of associations of file extensions with programatic identifiers.</summary>
+        /// <summary>A list of associations of file extensions with programmatic identifiers.</summary>
         public ComparableTuple<string>[] FileAssocs;
 
         /// <summary>A list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).</summary>
         public ComparableTuple<string>[] ProtocolAssocs;
 
-        /// <summary>A list of programatic indentifiers.</summary>
+        /// <summary>A list of programmatic identifiers.</summary>
         public string[] ProgIDs;
 
         /// <summary>A list of COM class IDs.</summary>
@@ -121,7 +121,7 @@ namespace ZeroInstall.Publish.Capture
         }
 
         /// <summary>
-        /// Retrieves a list of file assocations and programatic indentifiers the registry.
+        /// Retrieves a list of file associations and programmatic identifiers the registry.
         /// </summary>
         private static void GetFileAssocData(out ComparableTuple<string>[] fileAssocs, out string[] progIDs)
         {
@@ -196,7 +196,7 @@ namespace ZeroInstall.Publish.Capture
                 ? Environment.GetEnvironmentVariable("ProgramFiles")
                 : null;
 
-            // Build a list of all installation directorie
+            // Build a list of all installation directories
             var programDirs = new List<string>();
             if (string.IsNullOrEmpty(programFiles32Bit)) Log.Warn(Resources.MissingProgramFiles32Bit);
             else programDirs.AddRange(Directory.GetDirectories(programFiles32Bit));

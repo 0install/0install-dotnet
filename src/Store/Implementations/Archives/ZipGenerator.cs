@@ -11,7 +11,7 @@ using NanoByte.Common.Streams;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates a ZIP archive from a directory. Preserves execuable bits, symlinks and timestamps.
+    /// Creates a ZIP archive from a directory. Preserves executable bits, symlinks and timestamps.
     /// </summary>
     public class ZipGenerator : ArchiveGenerator
     {
