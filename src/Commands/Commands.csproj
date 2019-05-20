@@ -78,14 +78,6 @@
     <None Include="App.config" Pack="true" PackagePath="build/net20/$(AssemblyName).exe.config" />
   </ItemGroup>
 
-  <!-- Write full version number to file -->
-  <Target Name="GenerateVersionFile" AfterTargets="Build">
-    <WriteLinesToFile File="$(OutputPath)\VERSION" Lines="$(Version)" Overwrite="true" />
-  </Target>
-  <Target Name="PublishVersionFile" AfterTargets="Publish">
-    <Copy SourceFiles="$(OutputPath)\VERSION" DestinationFolder="$(PublishDir)" />
-  </Target>
-
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
     <EmbeddedResource Update="Properties\Resources.resx">

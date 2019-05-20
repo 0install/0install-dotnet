@@ -108,6 +108,6 @@ namespace ZeroInstall.Commands.Desktop
             else return ExitCode.OK;
         }
 
-        private bool UpdateFound() => _force || (Selections.MainImplementation.Version > ZeroInstallInstance.Version);
+        private bool UpdateFound() => _force || (Selections.MainImplementation.Version > ImplementationVersion.ZeroInstall);
     }
 }

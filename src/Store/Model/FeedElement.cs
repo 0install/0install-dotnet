@@ -30,11 +30,6 @@ namespace ZeroInstall.Store.Model
 
         #region Filter
         /// <summary>
-        /// The version number of the Zero Install model.
-        /// </summary>
-        public static readonly ImplementationVersion ZeroInstallVersion = new ImplementationVersion(AppInfo.CurrentLibrary.Version);
-
-        /// <summary>
         /// Checks whether an element passes the specified <see cref="IfZeroInstallVersion"/> restriction, if any.
         /// </summary>
         protected internal static bool FilterMismatch<T>(T element)
@@ -42,7 +37,7 @@ namespace ZeroInstall.Store.Model
         {
             if (element == null) return false;
 
-            return element.IfZeroInstallVersion != null && !element.IfZeroInstallVersion.Match(ZeroInstallVersion);
+            return element.IfZeroInstallVersion != null && !element.IfZeroInstallVersion.Match(ImplementationVersion.ZeroInstall);
         }
 
         /// <summary>

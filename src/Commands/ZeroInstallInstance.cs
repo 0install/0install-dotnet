@@ -4,10 +4,8 @@
 using System;
 using System.IO;
 using System.Net;
-using System.Text;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -26,27 +24,6 @@ namespace ZeroInstall.Commands
     /// </summary>
     public static class ZeroInstallInstance
     {
-        /// <summary>
-        /// The version number of the currently running instance of Zero Install.
-        /// </summary>
-        public static ImplementationVersion Version
-        {
-            get
-            {
-                string path = Path.Combine(Locations.InstallBase, "VERSION");
-                try
-                {
-                    return new ImplementationVersion(File.ReadAllLines(path, Encoding.UTF8)[0]);
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"Unable to read Zero Install version number from {path}. Falling back to .NET assembly version number.");
-                    Log.Warn(ex);
-                    return new ImplementationVersion(AppInfo.CurrentLibrary.Version);
-                }
-            }
-        }
-
         /// <summary>
         /// Indicates whether Zero Install is running from an implementation cache.
         /// </summary>
@@ -114,7 +91,7 @@ namespace ZeroInstall.Commands
             var selections = services.Solver.Solve(requirements);
 
             var newVersion = selections.MainImplementation.Version;
-            return (newVersion > Version) ? newVersion : null;
+            return (newVersion > ImplementationVersion.ZeroInstall) ? newVersion : null;
         }
     }
 }

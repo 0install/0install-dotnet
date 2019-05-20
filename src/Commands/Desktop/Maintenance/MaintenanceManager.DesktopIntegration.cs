@@ -5,11 +5,11 @@ using System;
 using System.IO;
 using Microsoft.Win32;
 using NanoByte.Common;
-using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.Windows;
+using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop.Maintenance
 {
@@ -65,10 +65,10 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
                 uninstallKey.SetValue("InstallLocation", TargetDir + @"\");
                 uninstallKey.SetValue("Publisher", "0install.de");
                 uninstallKey.SetValue("URLInfoAbout", "http://0install.de/");
-                uninstallKey.SetValue("DisplayName", MachineWide ? AppInfo.CurrentLibrary.ProductName : AppInfo.CurrentLibrary.ProductName + " (current user)");
-                uninstallKey.SetValue("DisplayVersion", AppInfo.CurrentLibrary.Version.ToString());
-                uninstallKey.SetValue("MajorVersion", AppInfo.CurrentLibrary.Version.Major, RegistryValueKind.DWord);
-                uninstallKey.SetValue("MinorVersion", AppInfo.CurrentLibrary.Version.Minor, RegistryValueKind.DWord);
+                uninstallKey.SetValue("DisplayName", MachineWide ? "Zero Install" : "Zero Install (current user)");
+                uninstallKey.SetValue("DisplayVersion", ImplementationVersion.ZeroInstall.ToString());
+                uninstallKey.DeleteValue("MajorVersion");
+                uninstallKey.DeleteValue("MinorVersion");
                 uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
                 uninstallKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
 
