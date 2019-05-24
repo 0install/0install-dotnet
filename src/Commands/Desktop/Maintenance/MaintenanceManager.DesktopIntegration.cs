@@ -67,8 +67,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
                 uninstallKey.SetValue("URLInfoAbout", "http://0install.de/");
                 uninstallKey.SetValue("DisplayName", MachineWide ? "Zero Install" : "Zero Install (current user)");
                 uninstallKey.SetValue("DisplayVersion", ImplementationVersion.ZeroInstall.ToString());
-                uninstallKey.DeleteValue("MajorVersion");
-                uninstallKey.DeleteValue("MinorVersion");
+                uninstallKey.DeleteValue("MajorVersion", throwOnMissingValue: false);
+                uninstallKey.DeleteValue("MinorVersion", throwOnMissingValue: false);
                 uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
                 uninstallKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
 
