@@ -25,24 +25,29 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 You can use the following NuGet packages to integrate Zero Install features into your own application:
 
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Data model for the [feed format](https://docs.0install.de/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.de/details/cache/)
+Data model for the [feed format](https://docs.0install.de/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.de/details/cache/).  
+This provides a common basis for the packages `ZeroInstall.Services` and `ZeroInstall.Publish`. You will usually get this package indirectly as a dependency from there.
 
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)  
-Core services like [solving dependencies](https://docs.0install.de/developers/solver/), downloading implementations and execution selections
+Core services like [solving dependencies](https://docs.0install.de/developers/solver/), downloading implementations and execution selections.  
+Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
 
 [![ZeroInstall.Services.Interfaces](https://img.shields.io/nuget/v/ZeroInstall.Services.Interfaces.svg?label=ZeroInstall.Services.Interfaces)](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)  
-Interfaces/abstractions for types from `ZeroInstall.Services` package
+Interfaces/abstractions for Zero Install services (contains no actual implementations).  
+You will usually get this package indirectly as a dependency of `ZeroInstall.Services`.
 
 [![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)  
-Methods for integrating applications with desktop environments (creating menu entries, etc.)
+Methods for integrating applications with desktop environments (creating menu entries, etc.).
 
 [![ZeroInstall.Commands](https://img.shields.io/nuget/v/ZeroInstall.Commands.svg?label=ZeroInstall.Commands)](https://www.nuget.org/packages/ZeroInstall.Commands/)  
-Command-line interface for Zero Install (both an actual CLI and a library for building other clients)
+Command-line interface for Zero Install.  
+The binary in this package serves both as an actual CLI and a library for building other clients.
 
 [![ZeroInstall.Publish](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)  
-Utilities for creating and modifying feed files
+Utilities for creating and modifying feed files.  
+The [Zero Install Publishing Tools](https://github.com/0install/0publish-win) (including the Feed Editor) are built upon this library. You can use this to automate complex feed creation/update tasks.
 
-![Dependencies](package-dependencies.svg)
+For more information read the [Zero Install .NET API documentation](https://docs.0install.de/developers/dotnet-api/).
 
 ## Building
 
