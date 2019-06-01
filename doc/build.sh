@@ -10,4 +10,4 @@ curl -o nanobyte-common.tag https://common.nano-byte.net/nanobyte-common.tag
 
 0install run http://repo.roscidus.com/devel/doxygen
 
-cp CNAME ../artifacts/Documentation/
+cp .nojekyll CNAME ../artifacts/Documentation/
