@@ -45,7 +45,7 @@
     <xsd:attribute name="id" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation>
-          An ID that differentiates this capability from other capabilities of the same time within the interface. Also serves as a programmatic identifier within the desktop environment.
+          An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.
           In case of conflicts, the first capability listed with a specific ID will take precedence.
         </xsd:documentation>
       </xsd:annotation>

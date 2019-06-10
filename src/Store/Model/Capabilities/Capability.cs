@@ -23,10 +23,10 @@ namespace ZeroInstall.Store.Model.Capabilities
         public abstract bool WindowsMachineWideOnly { get; }
 
         /// <summary>
-        /// An ID that differentiates this capability from other capabilities of the same time within the interface. Also serves as a programmatic identifier within the desktop environment.
+        /// An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.
         /// </summary>
         /// <remarks>In case of conflicts, the first capability listed with a specific ID will take precedence.</remarks>
-        [Description("An ID that differentiates this capability from other capabilities of the same time within the interface. Also serves as a programmatic identifier within the desktop environment.")]
+        [Description("An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.")]
         [XmlAttribute("id")]
         public string ID { get; set; }
 
