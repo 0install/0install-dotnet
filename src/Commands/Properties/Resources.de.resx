@@ -759,7 +759,7 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <value>Diese Zero Install Instanz wurde als Implementierung von einer anderen Zero Install Instanz gestartet. Sie kann sich daher nicht selbst aktualisieren.</value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Stabilitäts-Policy für {0} entsprechend setzten?</value>
+    <value>Stabilitäts-Policy für {0} entsprechend setzen?</value>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>Stabilitäts-Policy für {0} auf Default zurücksetzen?</value>
