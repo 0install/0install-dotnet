@@ -136,6 +136,9 @@
     <value>{0} çalıştırmak için gerekli tüm bileşenler '{1}' üzerine verildi.
 Alma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka bir bilgisayara alabilirsiniz..</value>
   </data>
+  <data name="AlreadyDeployedTo" xml:space="preserve">
+    <value>Zero Install zaten '{0}' uygulamasını yüklemiş. Yüklenmiş sürümü değiştirmek için '0install self-update' komutunu kullanın.</value>
+  </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' zaten özel uygulama ön bellekleri listesinde var.</value>
   </data>
@@ -516,6 +519,12 @@ Sorunu çözmek için '0install self-update --force' komutunu çalıştırın.</
   <data name="MyApps" xml:space="preserve">
     <value>Uygulamalarım</value>
   </data>
+  <data name="NeedsGui" xml:space="preserve">
+    <value>Bu özellik için lütfen Zero Install görsel kullanıcı arayüzü sürümünü kullanın.</value>
+  </data>
+  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
+    <value>Görsel ilke düzenleyicisi komut satırı kipinde kullanılamaz.</value>
+  </data>
   <data name="NoIntegrationFromCache" xml:space="preserve">
     <value>Masaüstü bütünleştirmesinin çalışabilmesi için Zero Install yazılımının yüklenmesi gerekir.</value>
   </data>
@@ -527,9 +536,6 @@ Sorunu çözmek için '0install self-update --force' komutunu çalıştırın.</
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install kullanıcıya özel bir klasörde çalışıyor. Masaüstü bütünleştirmesinin bilgisayar genelinde kullanılabilmesi için, tüm kullanıcılar tarafından erişilebilen bir klasörde yüklü olmalıdır.</value>
-  </data>
-  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
-    <value>Görsel ilke düzenleyicisi komut satırı kipinde kullanılamaz.</value>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
     <value>Uygulama çalıştırılırken komut boş olamaz.</value>
@@ -733,6 +739,9 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
   </data>
   <data name="ResetList" xml:space="preserve">
     <value>Listeyi ilk durumuna geri yüklemek ister misiniz?</value>
+  </data>
+  <data name="ResolvedUsingAlias" xml:space="preserve">
+    <value>'{0}' bir kısaltma kullanılarak '{1}' çözümlendi.</value>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>Bir katalog kullanılarak '{0}' yerine '{1}' olarak çözümlendi.</value>

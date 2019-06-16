@@ -241,6 +241,9 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
   <data name="ImplementationMissingID" xml:space="preserve">
     <value>{1} '{0}' kimliği içermiyor.</value>
   </data>
+  <data name="ImplementationMissingVersion" xml:space="preserve">
+    <value>{1} içindeki '{0}' için bir sürüm yok.</value>
+  </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>'{0}' uygulaması bulunamadı.</value>
   </data>
