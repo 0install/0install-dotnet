@@ -10,7 +10,7 @@ using NanoByte.Common;
 namespace ZeroInstall.Store.Model.Capabilities
 {
     /// <summary>
-    /// A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user. It does not change the behaviour of existing UI elements.
+    /// A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user.
     /// </summary>
     [XmlType("capability", Namespace = CapabilityList.XmlNamespace)]
     public abstract class Capability : XmlUnknown, ICloneable<Capability>
@@ -23,9 +23,9 @@ namespace ZeroInstall.Store.Model.Capabilities
         public abstract bool WindowsMachineWideOnly { get; }
 
         /// <summary>
-        /// An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.
+        /// An ID that differentiates this capability from other capabilities of the same type within the feed.
         /// </summary>
-        /// <remarks>In case of conflicts, the first capability listed with a specific ID will take precedence.</remarks>
+        /// <remarks>Also serves as a programmatic identifier within the desktop environment. In case of conflicts, the first capability listed with a specific ID will take precedence.</remarks>
         [Description("An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.")]
         [XmlAttribute("id")]
         public string ID { get; set; }

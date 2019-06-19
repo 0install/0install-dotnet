@@ -21,9 +21,9 @@ namespace ZeroInstall.Store.Model.Capabilities
         public override bool WindowsMachineWideOnly => !WindowsUtils.IsWindows8;
 
         /// <summary>
-        /// The registry path relative to HKEY_LOCAL_MACHINE which is used to store the application's capability registration information.
+        /// The registry path relative to HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE which should be used to store the application's capability registration information.
         /// </summary>
-        [Description("The registry path relative to HKEY_LOCAL_MACHINE which is used to store the application's capability registration information.")]
+        [Description("The registry path relative to HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE which should be used to store the application's capability registration information.")]
         [XmlAttribute("capability-reg-path")]
         public string CapabilityRegPath { get; set; }
 

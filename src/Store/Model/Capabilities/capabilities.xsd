@@ -39,14 +39,14 @@
   <xsd:complexType name="capability" abstract="true">
     <xsd:annotation>
       <xsd:documentation>
-        A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user. It does not change the behaviour of existing UI elements.
+        A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:attribute name="id" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation>
-          An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.
-          In case of conflicts, the first capability listed with a specific ID will take precedence.
+          An ID that differentiates this capability from other capabilities of the same type within the feed.
+          Also serves as a programmatic identifier within the desktop environment. In case of conflicts, the first capability listed with a specific ID will take precedence.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -62,7 +62,7 @@
         <xsd:attribute name="capability-reg-path" type="xsd:string" use="required">
           <xsd:annotation>
             <xsd:appinfo>
-              The registry path relative to HKEY_LOCAL_MACHINE which is used to store the application's capability registration information.
+              The registry path relative to HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE which should be used to store the application's capability registration information.
             </xsd:appinfo>
           </xsd:annotation>
         </xsd:attribute>
