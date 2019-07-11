@@ -114,7 +114,19 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 }
 
                 foreach (string path in fileArray)
-                    new FileInfo(path).IsReadOnly = false;
+                {
+                    try
+                    {
+                        new FileInfo(path).IsReadOnly = false;
+                    }
+                    #region Error handling
+                    catch (ArgumentException ex)
+                    {
+                        // Wrap exception since only certain exception types are allowed
+                        throw new UnauthorizedAccessException(ex.Message, ex);
+                    }
+                    #endregion
+                }
             }
         }
 
