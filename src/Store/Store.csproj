@@ -76,7 +76,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'!='Mono'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19351-01" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Include XML Serialization assembly in NuGet package -->
