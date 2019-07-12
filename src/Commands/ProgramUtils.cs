@@ -80,7 +80,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         [CanBeNull]
         public static readonly string GuiAssemblyName =
-            WindowsUtils.IsWindows && WindowsUtils.IsInteractive ? "0install-win" : null;
+            WindowsUtils.IsWindows && OSUtils.IsInteractive ? "0install-win" : null;
 #endif
 
         private const string

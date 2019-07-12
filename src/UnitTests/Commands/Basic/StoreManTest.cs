@@ -1,9 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Globalization;
 using System.IO;
 using Moq;
+using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Commands.Properties;
@@ -243,7 +243,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 StoreMock.Setup(x => x.Optimise(Handler)).Returns(123);
 
-                RunAndAssert(string.Format(Resources.StorageReclaimed, FileUtils.FormatBytes(123, CultureInfo.CurrentCulture)), ExitCode.OK);
+                RunAndAssert(string.Format(Resources.StorageReclaimed, 123L.FormatBytes()), ExitCode.OK);
             }
         }
 

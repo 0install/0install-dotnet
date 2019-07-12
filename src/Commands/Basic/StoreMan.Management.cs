@@ -1,12 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
-using NanoByte.Common.Storage;
+using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
@@ -124,7 +122,7 @@ namespace ZeroInstall.Commands.Basic
             public override ExitCode Execute()
             {
                 long savedBytes = GetEffectiveStore().Optimise(Handler);
-                Handler.OutputLow(Resources.OptimiseComplete, string.Format(Resources.StorageReclaimed, savedBytes.FormatBytes(CultureInfo.CurrentCulture)));
+                Handler.OutputLow(Resources.OptimiseComplete, string.Format(Resources.StorageReclaimed, savedBytes.FormatBytes()));
                 return ExitCode.OK;
             }
         }
