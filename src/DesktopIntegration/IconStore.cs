@@ -41,6 +41,11 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>How long to keep cached icons files before refreshing them.</summary>
         private static readonly TimeSpan _freshness = TimeSpan.FromDays(1);
 
+        /// <summary>
+        /// The maximum number of bytes to download for a single icon.
+        /// </summary>
+        private const long MaximumIconSize = 2 * 1024 * 1024;
+
         /// <inheritdoc/>
         public string GetPath(Icon icon, bool machineWide = false)
         {
@@ -50,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 using (var atomic = new AtomicWrite(path))
                 {
-                    _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath));
+                    _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
                     atomic.Commit();
                 }
             }
