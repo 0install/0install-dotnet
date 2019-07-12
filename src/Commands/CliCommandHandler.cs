@@ -3,6 +3,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Feeds;
@@ -23,6 +24,12 @@ namespace ZeroInstall.Commands
     [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly", Justification = "Diamond inheritance structure leads to false positive")]
     public sealed class CliCommandHandler : CliTaskHandler, ICommandHandler
     {
+        public CliCommandHandler()
+        {
+             if (!OSUtils.IsInteractive)
+                Verbosity = Verbosity.Batch;
+        }
+
         /// <summary>
         /// Always returns <c>false</c>.
         /// </summary>
