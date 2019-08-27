@@ -14,6 +14,7 @@ mkdir ..\artifacts\Documentation | Out-Null
 Invoke-WebRequest https://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
 0install run --batch http://repo.roscidus.com/devel/doxygen
+if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 cp .nojekyll,CNAME ..\artifacts\Documentation\
 
