@@ -72,11 +72,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             try
             {
                 // Read ZIP file sequentially and reference central directory in parallel
-                int i = 0;
-                ZipEntry localEntry;
-                while ((localEntry = _zipStream.GetNextEntry()) != null)
+                foreach (var centralEntry in _centralDirectory)
                 {
-                    var centralEntry = _centralDirectory[i++];
+                    var localEntry = _zipStream.GetNextEntry();
+                    if (localEntry == null) break;
 
                     string relativePath = GetRelativePath(centralEntry.Name);
                     if (string.IsNullOrEmpty(relativePath)) continue;
