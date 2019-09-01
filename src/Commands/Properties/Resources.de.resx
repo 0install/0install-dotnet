@@ -583,11 +583,11 @@ Führen Sie '0install self-update --force' aus, um dies zu beheben.</value>
     <value>Entferne Implementierungen die nach dem Update nicht mehr benötigt werden.</value>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Anstelle der Ausführung des Standardkommandos, verwenden Sie {COMMAND}. Mögliche Kommandos sind im Programminterface spezifiziert.
+    <value>Anstelle der Ausführung des Standardbefehls, verwenden Sie {COMMAND}. Gültige Befehle sind im Feed des Programms spezifiziert.
 Auf leer ("") setzen um den Command bei der Auswahl zu ignorieren.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Wechsle auf eine bestimmte Registerkarte im Konfigurations-GUI. Mögliche {TAB}s sind 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' und 'advanced'.
+    <value>Wechsle auf eine bestimmte Registerkarte im Konfigurations-GUI. Gültige {TAB}s sind 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' und 'advanced'.
 Hat keine Wirkung im Text-Modus.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -681,7 +681,7 @@ Im Offline-Modus wird kein Interface erneuert, auch wenn es veraltet ist und neu
     <value>Wählt Quellecode anstelle einer Binärdatei aus. Dies wird intern von '0compile' verwendet.</value>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Setze die Synchronisationsdaten zurück. Mögliche {MODE}s sind 'none' (führe Daten vom Client und Server normal zusammen), 'client' (ersetze alle Daten auf dem Client mit Daten vom Server) und 'server' (ersetze alle Daten auf dem Server mit Daten vom Client).</value>
+    <value>Setze die Synchronisationsdaten zurück. Gültige {MODE}s sind 'none' (führe Daten vom Client und Server normal zusammen), 'client' (ersetze alle Daten auf dem Client mit Daten vom Server) und 'server' (ersetze alle Daten auf dem Server mit Daten vom Client).</value>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Ausführlichere Ausgaben. Verwenden Sie die Option zweimal um noch ausführlicher informiert zu werden.</value>

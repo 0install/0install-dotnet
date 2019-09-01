@@ -583,11 +583,11 @@ Run '0install self-update --force' to fix this.</value>
     <value>Remove implementations no longer required after the update.</value>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Instead of executing the default command, use {COMMAND} instead. Possible command names are defined in the program's interface.
+    <value>Instead of executing the default command, use {COMMAND} instead. Valid command names are specified in the program's feed.
 Set to empty ("") to ignore the command during selection.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Switch to a specific tab in the configuration GUI. Possible {TAB}s are 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' and 'advanced'.
+    <value>Switch to a specific tab in the configuration GUI. Valid {TAB}s are 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' and 'advanced'.
 Has no effect in text-mode.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -681,7 +681,7 @@ In off-line mode, no interfaces are refreshed even if they are out-of-date, and 
     <value>Select source code rather than a binary. This is used internally by '0compile'.</value>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Reset the synchronization data. Possible {MODE}s are 'none' (merge data from client and server normally), 'client' (replace all data on client with data from server) and 'server' (replace all data on server with data from client).</value>
+    <value>Reset the synchronization data. Valid {MODE}s are 'none' (merge data from client and server normally), 'client' (replace all data on client with data from server) and 'server' (replace all data on server with data from client).</value>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>More verbose output. Use twice for even more verbose output.</value>
