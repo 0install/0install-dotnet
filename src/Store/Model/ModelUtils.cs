@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="path">The potentially relative path; will remain untouched if absolute.</param>
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute path.</returns>
-        /// <exception cref="UriFormatException"><paramref name="path"/> is relative and <paramref name="source"/> is a remote URI.</exception>
+        /// <exception cref="UriFormatException"><paramref name="path"/> is a relative URI that cannot be resolved.</exception>
         [NotNull]
         public static string GetAbsolutePath([NotNull] string path, [CanBeNull] FeedUri source = null)
         {
@@ -53,7 +53,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="path">The potentially relative path; will remain untouched if absolute.</param>
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute path.</returns>
-        /// <exception cref="UriFormatException"><paramref name="path"/> is relative and <paramref name="source"/> is a remote URI.</exception>
+        /// <exception cref="UriFormatException"><paramref name="path"/> is a relative URI that cannot be resolved.</exception>
         [NotNull]
         public static string GetAbsolutePath([NotNull] string path, [CanBeNull] string source)
             => GetAbsolutePath(path, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
@@ -64,7 +64,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="href">The potentially relative HREF; will remain untouched if absolute.</param>
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute HREF.</returns>
-        /// <exception cref="UriFormatException"><paramref name="href"/> is relative and <paramref name="source"/> is a remote URI.</exception>
+        /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
         [NotNull]
         public static Uri GetAbsoluteHref([NotNull] Uri href, [CanBeNull] FeedUri source = null)
         {
@@ -83,7 +83,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="href">The potentially relative HREF; will remain untouched if absolute.</param>
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute HREF.</returns>
-        /// <exception cref="UriFormatException"><paramref name="href"/> is relative and <paramref name="source"/> is a remote URI.</exception>
+        /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
         [NotNull]
         public static Uri GetAbsoluteHref([NotNull] Uri href, [CanBeNull] string source)
             => GetAbsoluteHref(href, string.IsNullOrEmpty(source) ? null : new FeedUri(source));

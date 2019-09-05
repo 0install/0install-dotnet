@@ -37,6 +37,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="value">The mapped value to check.</param>
         /// <param name="xmlAttribute">The name of the XML attribute.</param>
         /// <param name="xmlTag">The name of the XML tag containing the attribute.</param>
+        /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
         // ReSharper disable once UnusedParameter.Global
         protected static void EnsureNotNull(object value, [NotNull] string xmlAttribute, [NotNull] string xmlTag)
         {

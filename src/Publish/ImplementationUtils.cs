@@ -31,6 +31,7 @@ namespace ZeroInstall.Publish
         /// <param name="keepDownloads">Used to retain downloaded implementations; can be <c>null</c>.</param>
         /// <returns>A newly created <see cref="Implementation"/> containing one <see cref="Archive"/>.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> inside <paramref name="retrievalMethod"/> is a relative URI that cannot be resolved.</exception>
         /// <exception cref="IOException">There was a problem extracting the archive.</exception>
         /// <exception cref="WebException">There was a problem downloading the archive.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to temporary files was not permitted.</exception>
@@ -66,6 +67,7 @@ namespace ZeroInstall.Publish
         /// <param name="executor">Used to apply properties in an undoable fashion.</param>
         /// <param name="keepDownloads">Used to retain downloaded implementations; can be <c>null</c>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> inside <paramref name="implementation"/> is a relative URI that cannot be resolved.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
