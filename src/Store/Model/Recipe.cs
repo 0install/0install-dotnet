@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Model
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(RenameStep)), XmlElement(typeof(RemoveStep)), XmlElement(typeof(CopyFromStep))]
         public object[] StepsArray
         {
-            get => Steps.ToArray();
+            get => Steps.Cast<object>().ToArray();
             set
             {
                 Steps.Clear();
