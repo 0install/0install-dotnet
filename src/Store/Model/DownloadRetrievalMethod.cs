@@ -4,9 +4,11 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using System.Net;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Net;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Model
 {
@@ -58,8 +60,11 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Performs sanity checks.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        public void Validate() => EnsureNotNull(Href, xmlAttribute: "href", xmlTag: XmlTagName);
+        /// <exception cref="WebException"><see cref="Href"/> is not set.</exception>
+        public void Validate()
+        {
+            if (Href == null) throw new WebException(string.Format(Resources.MissingXmlAttributeOnTag, "href", XmlTagName));
+        }
         #endregion
 
         #region Clone
