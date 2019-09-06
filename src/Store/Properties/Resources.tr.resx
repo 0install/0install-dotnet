@@ -354,10 +354,10 @@ sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>Bir tarif adımı geçersiz yol içeriyor (olası bir güvenlik açığı): {0}</value>
   </data>
-  <data name="RelativePathInRemoteFeed" xml:space="preserve">
+  <data name="RelativePathUnresolvable" xml:space="preserve">
     <value>Uzak akış için '{0}' bağıl yolu belirtilmiş. Bağıl yollar yalnız yerel akışlarda kullanılabilir.</value>
   </data>
-  <data name="RelativeUriInRemoteFeed" xml:space="preserve">
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>Uzak akış içinde '{0}' HREF belirtilmiş. Bağıl HREF yalnız yerel akışlarda kullanılabilir.</value>
   </data>
   <data name="RootedPathRequired" xml:space="preserve">

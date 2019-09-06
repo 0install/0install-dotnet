@@ -333,10 +333,10 @@
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>Ένα recipe περιέχει μια έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
   </data>
-  <data name="RelativePathInRemoteFeed" xml:space="preserve">
+  <data name="RelativePathUnresolvable" xml:space="preserve">
     <value>Η σχετική διαδρομή '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσία. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές διαδρομές.</value>
   </data>
-  <data name="RelativeUriInRemoteFeed" xml:space="preserve">
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>Η σχετική HREF '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσίας. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές HREFs.</value>
   </data>
   <data name="RootedPathRequired" xml:space="preserve">

@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Model
             #endregion
 
             if (Path.IsPathRooted(path)) return path;
-            if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativePathInRemoteFeed, path));
+            if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
             return Path.Combine(Path.GetDirectoryName(source.LocalPath) ?? "", FileUtils.UnifySlashes(path));
         }
 
@@ -73,7 +73,7 @@ namespace ZeroInstall.Store.Model
             #endregion
 
             if (href.IsAbsoluteUri) return href;
-            if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativeUriInRemoteFeed, href));
+            if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
             return new Uri(new Uri(source.LocalPath, UriKind.Absolute), href);
         }
 

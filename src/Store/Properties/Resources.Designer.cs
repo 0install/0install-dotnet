@@ -742,20 +742,20 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The relative path &apos;{0}&apos; was specified in a remote feed. Only local feeds may contain relative paths..
+        ///   Looks up a localized string similar to The relative path &apos;{0}&apos; could not be resolved. Only feeds saved as local files may contain relative paths..
         /// </summary>
-        internal static string RelativePathInRemoteFeed {
+        internal static string RelativePathUnresolvable {
             get {
-                return ResourceManager.GetString("RelativePathInRemoteFeed", resourceCulture);
+                return ResourceManager.GetString("RelativePathUnresolvable", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The relative HREF &apos;{0}&apos; was specified in a remote feed. Only local feeds may contain relative HREFs..
+        ///   Looks up a localized string similar to The relative URI &apos;{0}&apos; could not be resolved. Only feeds saved as local files may contain relative URIs..
         /// </summary>
-        internal static string RelativeUriInRemoteFeed {
+        internal static string RelativeUriUnresolvable {
             get {
-                return ResourceManager.GetString("RelativeUriInRemoteFeed", resourceCulture);
+                return ResourceManager.GetString("RelativeUriUnresolvable", resourceCulture);
             }
         }
         

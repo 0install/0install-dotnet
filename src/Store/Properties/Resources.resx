@@ -354,11 +354,11 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>A recipe step contains an invalid path (potentially a security risk): {0}</value>
   </data>
-  <data name="RelativePathInRemoteFeed" xml:space="preserve">
-    <value>The relative path '{0}' was specified in a remote feed. Only local feeds may contain relative paths.</value>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>The relative path '{0}' could not be resolved. Only feeds saved as local files may contain relative paths.</value>
   </data>
-  <data name="RelativeUriInRemoteFeed" xml:space="preserve">
-    <value>The relative HREF '{0}' was specified in a remote feed. Only local feeds may contain relative HREFs.</value>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>The relative URI '{0}' could not be resolved. Only feeds saved as local files may contain relative URIs.</value>
   </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>A fully qualified/rooted path is required.</value>
