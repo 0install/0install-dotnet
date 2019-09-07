@@ -587,7 +587,7 @@ Sorunu çözmek için '0install self-update --force' komutunu çalıştırın.</
 Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Ayar görsel ara yüzünde belirtilen sekmeyi açar. Kullanılabilecek {TAB} sekmeleri, güncellemeler için 'updates', depolama için 'storage', katalog için 'catalog', güvenilirlik için 'trust', eşitleme için 'sync' ve gelişmiş ayarlar için 'advanced'.
+    <value>Ayar görsel ara yüzünde belirtilen sekmeyi açar. Kullanılabilecek {TAB} sekmeleri, güncellemeler için 'updates', depolama için 'storage', katalog için 'catalog', güvenilirlik için 'trust', eşitleme için 'sync' ve gelişmiş ayarlar için 'advanced' şeklindedir.
 Metin kipinde bir etkisi yoktur.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -637,7 +637,7 @@ Birden çok dil için bu seçenek birden çok kez kullanılabilir.</value>
     <value>Ayarları geçerli kullanıcı yerine makine çapında (tüm bilgisayar için) uygular.</value>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Varsayılan yerine belirtilen dosya {MAIN} çalıştırılır. '/' ya da '\' ile başlıyorsa yol uygulamanın kök klasörüne göre alınır. Bunun dışında yol varsayılan ana yazılımın bulunduğu klasöre göre alınır.
+    <value>Varsayılan yerine belirtilen dosya {MAIN} çalıştırılır. '/' ya da '\' ile başlıyorsa yol uygulamanın kök klasörüne göreli olarak alınır. Bunun dışında yol varsayılan ana yazılımın bulunduğu klasöre göreli olarak alınır.
 Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.</value>
   </data>
   <data name="OptionMan" xml:space="preserve">
@@ -681,7 +681,7 @@ Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.
     <value>İkili yerine kaynak kodunu seçer. İçeride '0compile' tarafından kullanılır.</value>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Eşitleme verisini sıfırlar. Olası kipler {MODE} 'none' (istemci ve sunucu verileri normal şekilde eşitlenir), 'client' (istemci tarafındaki tüm veriyi sunucu verisi ile değiştirir) ve 'server' (sunucu tarafındaki tüm veriyi istemci verisi ile değiştirir).</value>
+    <value>Eşitleme verisini sıfırlar. Kullanılabilecek kipler {MODE} 'none' (istemci ve sunucu verileri normal şekilde eşitlenir), 'client' (istemci tarafındaki tüm veriyi sunucu verisi ile değiştirir) ve 'server' (sunucu tarafındaki tüm veriyi istemci verisi ile değiştirir) şeklindedir.</value>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Ayrıntılı bir çıktı üretir. Daha ayrıntılı çıktı için twice kullanın.</value>

@@ -306,7 +306,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Tanımlanmış bilinen özet yöntemi yok.</value>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>'{0}' yolu kesin bir yol değil. Bağıl yollar yalnız taşınabilir kipte kullanılabilir.
+    <value>'{0}' yolu mutlak bir yol değil. Göreli yollar yalnız taşınabilir kipte kullanılabilir.
 '{1}' yapılandırma dosyasında belirtilmiştir.</value>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -325,7 +325,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Numara değeri çok büyük.</value>
   </data>
   <data name="PathNotRelative" xml:space="preserve">
-    <value>Yol bağıl olmalıdır.</value>
+    <value>Yol göreli olmalıdır.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>'{0}' uygulama mağazasına erişilirken bir sorun çıktı.</value>
@@ -355,10 +355,10 @@ sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
     <value>Bir tarif adımı geçersiz yol içeriyor (olası bir güvenlik açığı): {0}</value>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Uzak akış için '{0}' bağıl yolu belirtilmiş. Bağıl yollar yalnız yerel akışlarda kullanılabilir.</value>
+    <value>'{0}' göreli yolu çözümlenemedi. Göreli yollar yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Uzak akış içinde '{0}' HREF belirtilmiş. Bağıl HREF yalnız yerel akışlarda kullanılabilir.</value>
+    <value>'{0}' göreli adresi çözümlenemedi. Göreli adresler yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
   </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Tam belirtilmiş/köke göre yazılmış yol gereklidir.</value>
