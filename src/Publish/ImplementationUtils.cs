@@ -99,27 +99,17 @@ namespace ZeroInstall.Publish
             var archive = implementation.RetrievalMethods.OfType<Archive>().FirstOrDefault();
             if (archive == null || !string.IsNullOrEmpty(archive.Destination) || !string.IsNullOrEmpty(archive.Extract)) return;
 
-            string directoryPath;
-            string archivePath;
-            try
-            {
-                if (string.IsNullOrEmpty(implementation.LocalPath)) return;
-                directoryPath = ModelUtils.GetAbsolutePath(implementation.LocalPath, executor.Path);
+            if (string.IsNullOrEmpty(implementation.LocalPath)) return;
+            string directoryPath = ModelUtils.GetAbsolutePath(implementation.LocalPath, executor.Path);
 
-                if (archive.Href == null) return;
-                var archiveHref = ModelUtils.GetAbsoluteHref(archive.Href, executor.Path);
-                if (!archiveHref.IsFile) return;
-                archivePath = archiveHref.LocalPath;
-            }
-            catch (UriFormatException)
-            {
-                return;
-            }
+            if (archive.Href == null) return;
+            var archiveHref = ModelUtils.GetAbsoluteHref(archive.Href, executor.Path);
+            if (!archiveHref.IsFile) return;
 
             implementation.UpdateDigest(directoryPath, handler, executor);
-            using (var generator = ArchiveGenerator.Create(directoryPath, archivePath, archive.MimeType))
+            using (var generator = ArchiveGenerator.Create(directoryPath, archiveHref.LocalPath, archive.MimeType))
                 handler.RunTask(generator);
-            executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archivePath).Length));
+            executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
             executor.Execute(SetValueCommand.For(() => implementation.LocalPath, newValue: null));
         }
 
