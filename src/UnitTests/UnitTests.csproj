@@ -17,10 +17,10 @@
 
   <!-- Auto-select supported target frameworks based on MSBuild version -->
   <PropertyGroup Condition="'$(OS)'=='Windows_NT' Or '$(MSBuildRuntimeType)'=='Mono'">
-    <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net461;netcoreapp2.1</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(OS)'!='Windows_NT' And '$(MSBuildRuntimeType)'=='Core'">
-    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,10 +41,10 @@
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.1'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.1'">
     <Compile Remove="DesktopIntegration\**" />
     <Compile Remove="Publish\Capture\**" />
     <Compile Remove="Commands\Desktop\**" />

@@ -15,7 +15,7 @@ using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model.Selection;
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
 using ZeroInstall.DesktopIntegration.ViewModel;
 #endif
 
@@ -81,7 +81,7 @@ namespace ZeroInstall.Commands
             // No UI, so nothing to do
         }
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state)
         {

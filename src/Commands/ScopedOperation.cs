@@ -15,7 +15,7 @@ using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
 using System.Linq;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Desktop;
@@ -89,7 +89,7 @@ namespace ZeroInstall.Commands
         [CanBeNull]
         private static FeedUri TryResolveAlias(string uri)
         {
-#if NETCOREAPP2_0
+#if NETCOREAPP2_1
             return null;
 #else
             var appList = AppList.LoadSafe();
@@ -166,7 +166,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected void SelfUpdateCheck()
         {
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
             if (ZeroInstallInstance.IsBackgroundUpdateAllowed
              && Config.NetworkUse == NetworkLevel.Full
              && Handler.Verbosity != Verbosity.Batch
@@ -188,7 +188,7 @@ namespace ZeroInstall.Commands
         /// <param name="args">Additional arguments to pass to the command.</param>
         protected static void StartCommandBackground([NotNull] string command, [NotNull] params string[] args)
         {
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
             #region Sanity checks
             if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
             #endregion

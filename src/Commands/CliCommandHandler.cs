@@ -12,7 +12,7 @@ using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model.Selection;
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
 using ZeroInstall.DesktopIntegration.ViewModel;
 #endif
 
@@ -56,7 +56,7 @@ namespace ZeroInstall.Commands
         /// <inheritdoc/>
         public void CustomizeSelections(Func<Selections> solveCallback) => throw new NeedsGuiException(Resources.NoCustomizeSelectionsInCli);
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
 #endif

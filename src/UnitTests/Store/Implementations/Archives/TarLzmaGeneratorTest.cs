@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NETCOREAPP2_0
+#if !NETCOREAPP2_1
 using System.IO;
 
 namespace ZeroInstall.Store.Implementations.Archives

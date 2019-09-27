@@ -12,10 +12,10 @@
 
   <group license="LGPL v3 (GNU Lesser General Public License)">
     <command name="run" path="0install.dll">
-      <runner interface="http://repo.roscidus.com/dotnet/core" version="2.."/>
+      <runner interface="http://repo.roscidus.com/dotnet/core" version="2.1.."/>
     </command>
 
-    <implementation version="{version}" stability="{stability}" local-path="../artifacts/Release/netcoreapp2.0/publish">
+    <implementation version="{version}" stability="{stability}" local-path="../artifacts/Release/netcoreapp2.1/publish">
       <archive href="0install-dotnet-{version}.tar.gz"/>
     </implementation>
   </group>
