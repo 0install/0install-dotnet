@@ -21,7 +21,7 @@
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
     <PackageProjectUrl>https://dotnet.0install.de/</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
 
@@ -79,8 +79,13 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
   </ItemGroup>
 
-  <!-- Include XML Serialization assembly in NuGet package -->
   <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include XML Serialization assembly in NuGet package -->
     <None Include="..\..\artifacts\$(Configuration)\net20\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net20" />
     <None Include="..\..\artifacts\$(Configuration)\net35\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net35" />
     <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
@@ -89,7 +94,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

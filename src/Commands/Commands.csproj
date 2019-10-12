@@ -24,7 +24,7 @@
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
     <PackageProjectUrl>https://dotnet.0install.de/</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIconUrl>https://raw.githubusercontent.com/0install/0install-dotnet/master/icon.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
 
@@ -71,14 +71,18 @@
     <EmbeddedResource Include="Desktop\Maintenance\legacy.manifest" />
   </ItemGroup>
 
-  <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
     <None Include="*.targets" Pack="true" PackagePath="build/net20" />
     <None Include="App.config" Pack="true" PackagePath="build/net20/$(AssemblyName).exe.config" />
   </ItemGroup>
 
   <ItemGroup>
-    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
