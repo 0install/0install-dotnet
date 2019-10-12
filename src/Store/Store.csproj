@@ -62,7 +62,7 @@
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.6.0" />
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
