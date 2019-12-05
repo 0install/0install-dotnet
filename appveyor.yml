@@ -1,11 +1,11 @@
 image:
-  - Visual Studio 2017
+  - Visual Studio 2019
   - Ubuntu1804
 
 for:
   - matrix:
       only:
-        - image: Visual Studio 2017
+        - image: Visual Studio 2019
 
     cache:
       - '%USERPROFILE%\.nuget\packages -> **\*.csproj'
@@ -13,6 +13,7 @@ for:
       - '%APPDATA%\0install.net'
 
     before_build:
+      - choco install GitVersion.Portable --version 4.0.0
       - gitversion /l console /output buildserver
 
     build_script:
