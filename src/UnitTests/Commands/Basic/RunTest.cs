@@ -13,7 +13,7 @@ using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Model;
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 #endif
@@ -112,7 +112,7 @@ namespace ZeroInstall.Commands.Basic
             if (WindowsUtils.IsWindows) Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri(":::"));
         }
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
         [Fact]
         public void TestGetCanonicalUriAliases()
         {

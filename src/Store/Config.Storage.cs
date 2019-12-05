@@ -17,7 +17,7 @@ using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
 using System.Configuration;
 #endif
 
@@ -67,7 +67,7 @@ namespace ZeroInstall.Store
         {
             var config = new Config();
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
             config.ReadFromAppSettings();
 #endif
             config.ReadFromIniFiles();
@@ -211,7 +211,7 @@ namespace ZeroInstall.Store
             }
         }
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
         /// <summary>
         /// Reads settings from <see cref="ConfigurationManager.AppSettings"/> and transfers them to properties.
         /// </summary>

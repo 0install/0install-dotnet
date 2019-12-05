@@ -11,7 +11,7 @@ using NanoByte.Common.Values.Design;
 using ZeroInstall.Store.Model.Design;
 using ZeroInstall.Store.Properties;
 
-#if NETSTANDARD2_0
+#if NETSTANDARD
 using System.Runtime.InteropServices;
 #endif
 
@@ -160,7 +160,7 @@ namespace ZeroInstall.Store.Model
 
             Cpu GetCpu()
             {
-#if NETSTANDARD2_0
+#if NETSTANDARD
                 switch (RuntimeInformation.OSArchitecture)
                 {
                     case System.Runtime.InteropServices.Architecture.Arm:

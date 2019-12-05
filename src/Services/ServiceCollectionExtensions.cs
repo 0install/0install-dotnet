@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETSTANDARD2_0
+#if NETSTANDARD
 using System;
 using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;

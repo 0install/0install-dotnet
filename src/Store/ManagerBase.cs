@@ -49,7 +49,7 @@ namespace ZeroInstall.Store
         /// <exception cref="TimeoutException">Another process is already holding the mutex.</exception>
         protected void AcquireMutex()
         {
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
             if (MachineWide)
             {
                 var mutexSecurity = new MutexSecurity();

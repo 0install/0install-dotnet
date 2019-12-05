@@ -12,7 +12,7 @@ using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
 using NanoByte.Common.Native;
 #endif
 
@@ -53,7 +53,7 @@ namespace ZeroInstall.Store.Implementations
                 #endregion
             }
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
             if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
                 stores.Add(new IpcImplementationStore());
 #endif

@@ -18,7 +18,7 @@ using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
 using NanoByte.Common.Collections;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
@@ -74,7 +74,7 @@ namespace ZeroInstall.Commands
             NetUtils.ConfigureTls();
         }
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
         /// <summary>
         /// The EXE name for the Command GUI best suited for the current system; <c>null</c> if no GUI subsystem is running.
         /// </summary>
@@ -113,7 +113,7 @@ namespace ZeroInstall.Commands
             {
                 return ExitCode.UserCanceled;
             }
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
             catch (NeedsGuiException) when (GuiAssemblyName != null)
             {
                 Log.Info("Switching to GUI");

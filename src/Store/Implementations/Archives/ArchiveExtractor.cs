@@ -78,7 +78,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTar:
                 case Archive.MimeTypeTarGzip:
                 case Archive.MimeTypeTarBzip:
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
                 case Archive.MimeTypeTarLzma:
                 case Archive.MimeTypeTarXz:
                 case Archive.MimeType7Z:
@@ -121,7 +121,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     return new TarGzExtractor(stream, targetPath);
                 case Archive.MimeTypeTarBzip:
                     return new TarBz2Extractor(stream, targetPath);
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
                 case Archive.MimeTypeTarLzma:
                     return new TarLzmaExtractor(stream, targetPath);
                 case Archive.MimeTypeTarXz:
@@ -163,7 +163,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             if (string.IsNullOrEmpty(mimeType)) mimeType = Archive.GuessMimeType(archivePath);
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
             // Extracted to delay loading of Microsoft.Deployment* DLLs
             ArchiveExtractor NewMsiExtractor() => new MsiExtractor(archivePath, targetPath);
 

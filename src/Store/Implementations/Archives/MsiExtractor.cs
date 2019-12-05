@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
 using System;
 using System.Collections.Generic;
 using System.IO;

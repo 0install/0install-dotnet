@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         public void TestBz2CompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(GarbageData)));
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
         [SkippableFact]
         public void TestXzCompressed()
         {

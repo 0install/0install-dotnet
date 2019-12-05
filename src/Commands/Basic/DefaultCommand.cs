@@ -43,7 +43,7 @@ namespace ZeroInstall.Commands.Basic
             Options.Add("V|version", () => Resources.OptionVersion, _ =>
             {
                 Handler.Output(Resources.VersionInformation,
-#if NETCOREAPP2_0
+#if NETCOREAPP
                     "Zero Install (.NET Core) "
 #else
                     "Zero Install (.NET Framework) "

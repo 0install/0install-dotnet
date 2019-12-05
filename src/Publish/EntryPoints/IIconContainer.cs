@@ -10,7 +10,7 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public interface IIconContainer
     {
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
         /// <summary>
         /// Extracts the primary icon of the executable.
         /// </summary>

@@ -10,7 +10,7 @@ using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model.Selection;
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration.ViewModel;
 #endif
 
@@ -52,7 +52,7 @@ namespace ZeroInstall.Commands
         /// <param name="solveCallback">Called after interface preferences have been changed and the solver needs to be rerun.</param>
         void CustomizeSelections([NotNull] Func<Selections> solveCallback);
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
         /// <summary>
         /// Displays application integration options to the user.
         /// </summary>

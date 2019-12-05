@@ -12,7 +12,7 @@ using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.Trust;
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 #endif
@@ -42,7 +42,7 @@ namespace ZeroInstall.Commands
         /// <seealso cref="IOException"/>
         IOError = 12,
 
-#if !NETCOREAPP2_0
+#if NETFRAMEWORK
         /// <summary>A desktop integration operation could not be completed due to conflicting <see cref="AccessPoint"/>s.</summary>
         /// <seealso cref="ConflictException"/>
         Conflict = 15,

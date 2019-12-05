@@ -13,7 +13,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Model;
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
 using System.Runtime.Remoting;
 #endif
 
@@ -129,7 +129,7 @@ namespace ZeroInstall.Store.Implementations
                 {
                     innerException = ex; // Remember the last error
                 }
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
                 catch (RemotingException ex)
                 {
                     innerException = ex; // Remember the last error
@@ -174,7 +174,7 @@ namespace ZeroInstall.Store.Implementations
                 {
                     innerException = ex; // Remember the last error
                 }
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
                 catch (RemotingException ex)
                 {
                     innerException = ex; // Remember the last error

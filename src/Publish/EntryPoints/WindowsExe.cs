@@ -76,7 +76,7 @@ namespace ZeroInstall.Publish.EntryPoints
             }
         }
 
-#if !NETSTANDARD2_0
+#if NETFRAMEWORK
         /// <inheritdoc/>
         public System.Drawing.Icon ExtractIcon()
             => System.Drawing.Icon.ExtractAssociatedIcon(Path.Combine(BaseDirectory.FullName, RelativePath));
