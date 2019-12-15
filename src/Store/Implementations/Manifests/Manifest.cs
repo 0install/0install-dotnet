@@ -226,8 +226,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
             if (format == null) throw new ArgumentNullException(nameof(format));
             #endregion
 
-            using (var stream = File.OpenRead(path))
-                return Load(stream, format);
+            using var stream = File.OpenRead(path);
+            return Load(stream, format);
         }
 
         /// <summary>
@@ -236,13 +236,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <returns>The manifest digest.</returns>
         public string CalculateDigest()
         {
-            using (var stream = new MemoryStream())
-            {
-                Save(stream);
+            using var stream = new MemoryStream();
+            Save(stream);
 
-                stream.Position = 0;
-                return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
-            }
+            stream.Position = 0;
+            return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
         }
         #endregion
 

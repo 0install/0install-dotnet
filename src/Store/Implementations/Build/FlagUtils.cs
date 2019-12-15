@@ -94,8 +94,8 @@ namespace ZeroInstall.Store.Implementations.Build
 
             string path = Path.Combine(flagDir, flagName);
             using (new AtomicRead(path))
-            using (var reader = File.OpenText(path))
             {
+                using var reader = File.OpenText(path);
                 var externalFlags = new HashSet<string>();
 
                 // Each line in the file signals a flagged file
@@ -203,8 +203,8 @@ namespace ZeroInstall.Store.Implementations.Build
             // Convert path to rooted Unix-style
             string unixPath = "/" + relativePath.Replace(Path.DirectorySeparatorChar, '/');
 
-            using (var flagFile = new StreamWriter(path, append: true, encoding: FeedUtils.Encoding) {NewLine = "\n"})
-                flagFile.WriteLine(unixPath);
+            using var flagFile = new StreamWriter(path, append: true, encoding: FeedUtils.Encoding) {NewLine = "\n"};
+            flagFile.WriteLine(unixPath);
         }
 
         /// <summary>
@@ -254,23 +254,21 @@ namespace ZeroInstall.Store.Implementations.Build
             // Convert path to rooted Unix-style
             string unixPath = "/" + relativePath.Replace(Path.DirectorySeparatorChar, '/');
 
-            using (var atomic = new AtomicWrite(path))
-            using (var newFlagFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
-            using (var oldFlagFile = File.OpenText(path))
+            using var atomic = new AtomicWrite(path);
+            using var newFlagFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"};
+            using var oldFlagFile = File.OpenText(path);
+            // Each line in the file signals a flagged file
+            while (!oldFlagFile.EndOfStream)
             {
-                // Each line in the file signals a flagged file
-                while (!oldFlagFile.EndOfStream)
+                string line = oldFlagFile.ReadLine();
+                if (line != null && line.StartsWith("/"))
                 {
-                    string line = oldFlagFile.ReadLine();
-                    if (line != null && line.StartsWith("/"))
-                    {
-                        if (line == unixPath || line.StartsWith(unixPath + "/")) continue; // Filter out removed files
+                    if (line == unixPath || line.StartsWith(unixPath + "/")) continue; // Filter out removed files
 
-                        newFlagFile.WriteLine(line);
-                    }
+                    newFlagFile.WriteLine(line);
                 }
-                atomic.Commit();
             }
+            atomic.Commit();
         }
 
         /// <summary>
@@ -298,23 +296,21 @@ namespace ZeroInstall.Store.Implementations.Build
             source = "/" + source.Replace(Path.DirectorySeparatorChar, '/');
             destination = "/" + destination.Replace(Path.DirectorySeparatorChar, '/');
 
-            using (var atomic = new AtomicWrite(path))
-            using (var newFlagFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
-            using (var oldFlagFile = File.OpenText(path))
+            using var atomic = new AtomicWrite(path);
+            using var newFlagFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"};
+            using var oldFlagFile = File.OpenText(path);
+            // Each line in the file signals a flagged file
+            while (!oldFlagFile.EndOfStream)
             {
-                // Each line in the file signals a flagged file
-                while (!oldFlagFile.EndOfStream)
+                string line = oldFlagFile.ReadLine();
+                if (line != null && line.StartsWith("/"))
                 {
-                    string line = oldFlagFile.ReadLine();
-                    if (line != null && line.StartsWith("/"))
-                    {
-                        if (line == source || line.StartsWith(source + "/"))
-                            newFlagFile.WriteLine(destination + line.Substring(source.Length));
-                        else newFlagFile.WriteLine(line);
-                    }
+                    if (line == source || line.StartsWith(source + "/"))
+                        newFlagFile.WriteLine(destination + line.Substring(source.Length));
+                    else newFlagFile.WriteLine(line);
                 }
-                atomic.Commit();
             }
+            atomic.Commit();
         }
         #endregion
 

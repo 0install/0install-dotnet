@@ -56,12 +56,10 @@ namespace ZeroInstall.Store.Implementations.Archives
                 // NOTE: Must do initialization here since the constructor may be called on a different thread and SevenZipSharp is thread-affine
                 SevenZipBase.SetLibraryPath(Locations.GetInstalledFilePath(OSUtils.Is64BitProcess ? @"x64\7z.dll" : @"x86\7z.dll"));
 
-                using (var extractor = new SevenZip.SevenZipExtractor(_stream))
-                {
-                    State = TaskState.Data;
-                    if (extractor.IsSolid || string.IsNullOrEmpty(Extract)) ExtractComplete(extractor);
-                    else ExtractIndividual(extractor);
-                }
+                using var extractor = new SevenZip.SevenZipExtractor(_stream);
+                State = TaskState.Data;
+                if (extractor.IsSolid || string.IsNullOrEmpty(Extract)) ExtractComplete(extractor);
+                else ExtractIndividual(extractor);
             }
             #region Error handling
             catch (ObjectDisposedException ex)

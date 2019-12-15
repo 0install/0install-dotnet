@@ -65,16 +65,14 @@ namespace ZeroInstall.Store.Trust
         [Fact]
         public void TestSave()
         {
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                var original = new TrustDB();
-                original.Save(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            var original = new TrustDB();
+            original.Save(tempFile);
 
-                var loaded = TrustDB.Load(tempFile);
+            var loaded = TrustDB.Load(tempFile);
 
-                original.Save().Should().BeFalse(because: "No loaded-from path to save back to");
-                loaded.Save().Should().BeTrue(because: "Loaded from disk");
-            }
+            original.Save().Should().BeFalse(because: "No loaded-from path to save back to");
+            loaded.Save().Should().BeTrue(because: "Loaded from disk");
         }
 
         [Fact] // Ensures that the class can be correctly cloned.

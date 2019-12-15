@@ -88,8 +88,8 @@ namespace ZeroInstall.Publish
             {
                 if (implementation.IsManifestDigestMissing() || retrievalMethod.IsDownloadSizeMissing())
                 {
-                    using (var tempDir = retrievalMethod.DownloadAndApply(handler, executor))
-                        implementation.UpdateDigest(tempDir, handler, executor, keepDownloads);
+                    using var tempDir = retrievalMethod.DownloadAndApply(handler, executor);
+                    implementation.UpdateDigest(tempDir, handler, executor, keepDownloads);
                 }
             }
         }

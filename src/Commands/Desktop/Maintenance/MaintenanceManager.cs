@@ -95,8 +95,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
                 TargetMutexAcquire();
 
                 using (var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler))
-                using (var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler))
                 {
+                    using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
                     deployDir.Stage();
                     clearDir.Stage();
                     if (Portable) FileUtils.Touch(Path.Combine(TargetDir, Locations.PortableFlagName));

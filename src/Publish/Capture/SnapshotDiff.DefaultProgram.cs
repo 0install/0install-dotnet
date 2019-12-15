@@ -38,22 +38,20 @@ namespace ZeroInstall.Publish.Capture
                 string service = serviceAssoc.Key;
                 string client = serviceAssoc.Value;
 
-                using (var clientKey = Registry.LocalMachine.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client))
+                using var clientKey = Registry.LocalMachine.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client);
+                if (clientKey == null) continue;
+
+                if (string.IsNullOrEmpty(appName))
+                    appName = (clientKey.GetValue("") ?? clientKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueLocalizedName))?.ToString();
+
+                var defaultProgram = new DefaultProgram
                 {
-                    if (clientKey == null) continue;
-
-                    if (string.IsNullOrEmpty(appName))
-                        appName = (clientKey.GetValue("") ?? clientKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueLocalizedName))?.ToString();
-
-                    var defaultProgram = new DefaultProgram
-                    {
-                        ID = client,
-                        Service = service
-                    };
-                    defaultProgram.Verbs.AddRange(GetVerbs(clientKey, commandMapper));
-                    defaultProgram.InstallCommands = GetInstallCommands(clientKey, commandMapper.InstallationDir);
-                    capabilities.Entries.Add(defaultProgram);
-                }
+                    ID = client,
+                    Service = service
+                };
+                defaultProgram.Verbs.AddRange(GetVerbs(clientKey, commandMapper));
+                defaultProgram.InstallCommands = GetInstallCommands(clientKey, commandMapper.InstallationDir);
+                capabilities.Entries.Add(defaultProgram);
             }
         }
 
@@ -72,39 +70,37 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(installationDir)) throw new ArgumentNullException(nameof(installationDir));
             #endregion
 
-            using (var installInfoKey = clientKey.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo))
+            using var installInfoKey = clientKey.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo);
+            if (installInfoKey == null) return default;
+
+            string IsolateCommand(string regValueName, out string additionalArguments)
             {
-                if (installInfoKey == null) return default;
-
-                string IsolateCommand(string regValueName, out string additionalArguments)
+                string commandLine = installInfoKey.GetValue(regValueName)?.ToString();
+                if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
                 {
-                    string commandLine = installInfoKey.GetValue(regValueName)?.ToString();
-                    if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
-                    {
-                        additionalArguments = null;
-                        return null;
-                    }
-
-                    commandLine = commandLine.Substring(installationDir.Length + 2);
-
-                    additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
-                    return commandLine.GetLeftPartAtFirstOccurrence('"');
+                    additionalArguments = null;
+                    return null;
                 }
 
-                string reinstall = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, out string reinstallArgs);
-                string showIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, out string showIconsArgs);
-                string hideIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand, out string hideIconsArgs);
+                commandLine = commandLine.Substring(installationDir.Length + 2);
 
-                return new InstallCommands
-                {
-                    Reinstall = reinstall,
-                    ReinstallArgs = reinstallArgs,
-                    ShowIcons = showIcons,
-                    ShowIconsArgs = showIconsArgs,
-                    HideIcons = hideIcons,
-                    HideIconsArgs = hideIconsArgs
-                };
+                additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
+                return commandLine.GetLeftPartAtFirstOccurrence('"');
             }
+
+            string reinstall = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, out string reinstallArgs);
+            string showIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, out string showIconsArgs);
+            string hideIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand, out string hideIconsArgs);
+
+            return new InstallCommands
+            {
+                Reinstall = reinstall,
+                ReinstallArgs = reinstallArgs,
+                ShowIcons = showIcons,
+                ShowIconsArgs = showIconsArgs,
+                HideIcons = hideIcons,
+                HideIconsArgs = hideIconsArgs
+            };
         }
         #endregion
     }

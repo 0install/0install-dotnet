@@ -194,15 +194,13 @@ namespace ZeroInstall.Services.Feeds
             if (uris == null) throw new ArgumentNullException(nameof(uris));
             #endregion
 
-            using (var atomic = new AtomicWrite(Locations.GetSaveConfigPath("0install.net", true, "catalog-sources")))
+            using var atomic = new AtomicWrite(Locations.GetSaveConfigPath("0install.net", true, "catalog-sources"));
+            using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
             {
-                using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
-                {
-                    foreach (var uri in uris)
-                        configFile.WriteLine(uri.ToStringRfc());
-                }
-                atomic.Commit();
+                foreach (var uri in uris)
+                    configFile.WriteLine(uri.ToStringRfc());
             }
+            atomic.Commit();
         }
     }
 }

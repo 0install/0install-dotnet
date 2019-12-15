@@ -22,12 +22,10 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             var stream = BuildArchive(new TestRoot {new TestFile("x"), new TestFile("y"), new TestFile("Z")});
 
-            using (var archive = new TarInputStream(stream))
-            {
-                archive.GetNextEntry().Name.Should().Be("Z");
-                archive.GetNextEntry().Name.Should().Be("x");
-                archive.GetNextEntry().Name.Should().Be("y");
-            }
+            using var archive = new TarInputStream(stream);
+            archive.GetNextEntry().Name.Should().Be("Z");
+            archive.GetNextEntry().Name.Should().Be("x");
+            archive.GetNextEntry().Name.Should().Be("y");
         }
 
         [Fact]
@@ -41,32 +39,30 @@ namespace ZeroInstall.Store.Implementations.Archives
                 new TestDirectory("dir") {new TestFile("sub")}
             });
 
-            using (var archive = new TarInputStream(stream))
-            {
-                var executable = archive.GetNextEntry();
-                executable.Name.Should().Be("executable");
-                executable.ModTime.Should().Be(TestFile.DefaultLastWrite);
-                executable.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode | TarExtractor.ExecuteMode);
+            using var archive = new TarInputStream(stream);
+            var executable = archive.GetNextEntry();
+            executable.Name.Should().Be("executable");
+            executable.ModTime.Should().Be(TestFile.DefaultLastWrite);
+            executable.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode | TarExtractor.ExecuteMode);
 
-                var normal = archive.GetNextEntry();
-                normal.Name.Should().Be("normal");
-                normal.ModTime.Should().Be(TestFile.DefaultLastWrite);
-                normal.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode);
+            var normal = archive.GetNextEntry();
+            normal.Name.Should().Be("normal");
+            normal.ModTime.Should().Be(TestFile.DefaultLastWrite);
+            normal.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode);
 
-                var symlink = archive.GetNextEntry();
-                symlink.Name.Should().Be("symlink");
-                symlink.TarHeader.TypeFlag.Should().Be(TarHeader.LF_SYMLINK);
+            var symlink = archive.GetNextEntry();
+            symlink.Name.Should().Be("symlink");
+            symlink.TarHeader.TypeFlag.Should().Be(TarHeader.LF_SYMLINK);
 
-                var directory = archive.GetNextEntry();
-                directory.Name.Should().Be("dir");
-                directory.IsDirectory.Should().BeTrue();
-                directory.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode | TarExtractor.ExecuteMode);
+            var directory = archive.GetNextEntry();
+            directory.Name.Should().Be("dir");
+            directory.IsDirectory.Should().BeTrue();
+            directory.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode | TarExtractor.ExecuteMode);
 
-                var sub = archive.GetNextEntry();
-                sub.Name.Should().Be("dir/sub");
-                sub.ModTime.Should().Be(TestFile.DefaultLastWrite);
-                sub.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode);
-            }
+            var sub = archive.GetNextEntry();
+            sub.Name.Should().Be("dir/sub");
+            sub.ModTime.Should().Be(TestFile.DefaultLastWrite);
+            sub.TarHeader.Mode.Should().Be(TarExtractor.DefaultMode);
         }
 
         [Fact]
@@ -82,16 +78,14 @@ namespace ZeroInstall.Store.Implementations.Archives
                 stream = BuildArchive(tempDir);
             }
 
-            using (var archive = new TarInputStream(stream))
-            {
-                var file = archive.GetNextEntry();
-                file.Name.Should().Be("file");
+            using var archive = new TarInputStream(stream);
+            var file = archive.GetNextEntry();
+            file.Name.Should().Be("file");
 
-                var hardlink = archive.GetNextEntry();
-                hardlink.Name.Should().Be("hardlink");
-                hardlink.TarHeader.TypeFlag.Should().Be(TarHeader.LF_LINK);
-                hardlink.TarHeader.LinkName.Should().Be("file");
-            }
+            var hardlink = archive.GetNextEntry();
+            hardlink.Name.Should().Be("hardlink");
+            hardlink.TarHeader.TypeFlag.Should().Be(TarHeader.LF_LINK);
+            hardlink.TarHeader.LinkName.Should().Be("file");
         }
     }
 }

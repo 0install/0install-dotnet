@@ -72,22 +72,20 @@ namespace ZeroInstall.Commands
         {
             get
             {
-                using (var buffer = new MemoryStream())
+                using var buffer = new MemoryStream();
+                var writer = new StreamWriter(buffer);
+                writer.WriteLine(Resources.Usage + " 0install " + Name + " " + Usage);
+                writer.WriteLine();
+                writer.WriteLine(Description);
+                if (Options.Count != 0)
                 {
-                    var writer = new StreamWriter(buffer);
-                    writer.WriteLine(Resources.Usage + " 0install " + Name + " " + Usage);
                     writer.WriteLine();
-                    writer.WriteLine(Description);
-                    if (Options.Count != 0)
-                    {
-                        writer.WriteLine();
-                        writer.WriteLine(Resources.Options);
-                        Options.WriteOptionDescriptions(writer);
-                    }
-                    writer.Flush();
-
-                    return buffer.ReadToString();
+                    writer.WriteLine(Resources.Options);
+                    Options.WriteOptionDescriptions(writer);
                 }
+                writer.Flush();
+
+                return buffer.ReadToString();
             }
         }
 

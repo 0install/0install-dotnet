@@ -41,19 +41,17 @@ namespace ZeroInstall.Commands.Basic.Exporters
 
         private static void ForEachCommand(Action<CliCommand> action)
         {
-            using (var handler = new CliCommandHandler())
+            using var handler = new CliCommandHandler();
+            foreach (string commandName in CliCommand.Names)
             {
-                foreach (string commandName in CliCommand.Names)
+                var command = CliCommand.Create(commandName, handler);
+                if (command is CliMultiCommand multiCommand)
                 {
-                    var command = CliCommand.Create(commandName, handler);
-                    if (command is CliMultiCommand multiCommand)
-                    {
-                        foreach (string stringCommandName in multiCommand.SubCommandNames)
-                            action(multiCommand.GetCommand(stringCommandName));
-                    }
-                    else
-                        action(command);
+                    foreach (string stringCommandName in multiCommand.SubCommandNames)
+                        action(multiCommand.GetCommand(stringCommandName));
                 }
+                else
+                    action(command);
             }
         }
 

@@ -89,18 +89,17 @@ namespace ZeroInstall.Commands.Basic
             }
             else if (File.Exists(path))
             {
-                using (var tempDir = new TemporaryDirectory("0install"))
-                {
-                    using (var extractor = ArchiveExtractor.Create(path, tempDir))
-                    {
-                        extractor.Extract = subdir;
-                        Handler.RunTask(extractor);
-                    }
+                using var tempDir = new TemporaryDirectory("0install");
 
-                    var generator = new ManifestGenerator(tempDir, _algorithm);
-                    Handler.RunTask(generator);
-                    return generator.Manifest;
+                using (var extractor = ArchiveExtractor.Create(path, tempDir))
+                {
+                    extractor.Extract = subdir;
+                    Handler.RunTask(extractor);
                 }
+
+                var generator = new ManifestGenerator(tempDir, _algorithm);
+                Handler.RunTask(generator);
+                return generator.Manifest;
             }
             else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
         }

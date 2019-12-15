@@ -206,15 +206,13 @@ namespace ZeroInstall.Store.Implementations
             if (paths == null) throw new ArgumentNullException(nameof(paths));
             #endregion
 
-            using (var atomic = new AtomicWrite(configPath))
+            using var atomic = new AtomicWrite(configPath);
+            using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
             {
-                using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
-                {
-                    foreach (string path in paths)
-                        configFile.WriteLine(path);
-                }
-                atomic.Commit();
+                foreach (string path in paths)
+                    configFile.WriteLine(path);
             }
+            atomic.Commit();
         }
     }
 }

@@ -91,12 +91,10 @@ namespace ZeroInstall.Store
         {
             string testIniData = "[global]" + Environment.NewLine + "test = test" + Environment.NewLine;
 
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                File.WriteAllText(tempFile, testIniData);
-                Config.Load(tempFile).Save(tempFile);
-                File.ReadAllText(tempFile).Should().Be(testIniData);
-            }
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            File.WriteAllText(tempFile, testIniData);
+            Config.Load(tempFile).Save(tempFile);
+            File.ReadAllText(tempFile).Should().Be(testIniData);
         }
 
         [Fact]

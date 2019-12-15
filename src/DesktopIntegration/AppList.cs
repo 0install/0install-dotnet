@@ -246,18 +246,16 @@ namespace ZeroInstall.DesktopIntegration
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            using (var zipFile = new ZipFile(stream) {IsStreamOwner = false, Password = password})
-            {
-                var zipEntry = zipFile.Cast<ZipEntry>().First(x => StringUtils.EqualsIgnoreCase(x.Name, "data.xml"));
+            using var zipFile = new ZipFile(stream) {IsStreamOwner = false, Password = password};
+            var zipEntry = zipFile.Cast<ZipEntry>().First(x => StringUtils.EqualsIgnoreCase(x.Name, "data.xml"));
 
-                try
-                {
-                    return XmlStorage.LoadXml<AppList>(zipFile.GetInputStream(zipEntry));
-                }
-                catch (InvalidOperationException)
-                {
-                    throw new InvalidDataException(Resources.SyncServerDataDamaged);
-                }
+            try
+            {
+                return XmlStorage.LoadXml<AppList>(zipFile.GetInputStream(zipEntry));
+            }
+            catch (InvalidOperationException)
+            {
+                throw new InvalidDataException(Resources.SyncServerDataDamaged);
             }
         }
 
@@ -273,19 +271,17 @@ namespace ZeroInstall.DesktopIntegration
             #endregion
 
             if (stream.CanSeek) stream.Position = 0;
-            using (var zipStream = new ZipOutputStream(stream) {IsStreamOwner = false})
-            {
-                if (!string.IsNullOrEmpty(password)) zipStream.Password = password;
+            using var zipStream = new ZipOutputStream(stream) {IsStreamOwner = false};
+            if (!string.IsNullOrEmpty(password)) zipStream.Password = password;
 
-                // Write the XML file to the ZIP archive
-                {
-                    var entry = new ZipEntry("data.xml") {DateTime = DateTime.Now};
-                    if (!string.IsNullOrEmpty(password)) entry.AESKeySize = 128;
-                    zipStream.SetLevel(9);
-                    zipStream.PutNextEntry(entry);
-                    this.SaveXml(zipStream);
-                    zipStream.CloseEntry();
-                }
+            // Write the XML file to the ZIP archive
+            {
+                var entry = new ZipEntry("data.xml") {DateTime = DateTime.Now};
+                if (!string.IsNullOrEmpty(password)) entry.AESKeySize = 128;
+                zipStream.SetLevel(9);
+                zipStream.PutNextEntry(entry);
+                this.SaveXml(zipStream);
+                zipStream.CloseEntry();
             }
         }
         #endregion

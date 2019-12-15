@@ -53,8 +53,8 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (executable)
                 entry.ExternalFileAttributes = ZipExtractor.DefaultAttributes | ZipExtractor.ExecuteAttributes;
             _zipStream.PutNextEntry(entry);
-            using (var stream = file.OpenRead())
-                stream.CopyToEx(_zipStream);
+            using var stream = file.OpenRead();
+            stream.CopyToEx(_zipStream);
         }
 
         /// <summary>

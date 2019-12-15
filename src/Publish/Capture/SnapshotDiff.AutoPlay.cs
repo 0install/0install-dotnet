@@ -57,33 +57,29 @@ namespace ZeroInstall.Publish.Capture
             if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
             #endregion
 
-            using (var handlerKey = hive.OpenSubKey(DesktopIntegration.Windows.AutoPlay.RegKeyHandlers + @"\" + handler))
+            using var handlerKey = hive.OpenSubKey(DesktopIntegration.Windows.AutoPlay.RegKeyHandlers + @"\" + handler);
+            string progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
+            if (string.IsNullOrEmpty(progID)) return null;
+
+            string verbName = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
+            if (string.IsNullOrEmpty(verbName)) return null;
+
+            using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
+            if (progIDKey == null) throw new IOException(progID + " key not found");
+            var autoPlay = new AutoPlay
             {
-                string progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
-                if (string.IsNullOrEmpty(progID)) return null;
+                ID = handler,
+                Provider = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString(),
+                Descriptions = {handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString()},
+                Verb = GetVerb(progIDKey, commandMapper, verbName)
+            };
 
-                string verbName = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
-                if (string.IsNullOrEmpty(verbName)) return null;
+            autoPlay.Events.AddRange(
+                from autoPlayAssoc in autoPlayAssocs
+                where autoPlayAssoc.Value == handler
+                select new AutoPlayEvent {Name = autoPlayAssoc.Key});
 
-                using (var progIDKey = Registry.ClassesRoot.OpenSubKey(progID))
-                {
-                    if (progIDKey == null) throw new IOException(progID + " key not found");
-                    var autoPlay = new AutoPlay
-                    {
-                        ID = handler,
-                        Provider = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString(),
-                        Descriptions = {handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString()},
-                        Verb = GetVerb(progIDKey, commandMapper, verbName)
-                    };
-
-                    autoPlay.Events.AddRange(
-                        from autoPlayAssoc in autoPlayAssocs
-                        where autoPlayAssoc.Value == handler
-                        select new AutoPlayEvent {Name = autoPlayAssoc.Key});
-
-                    return autoPlay;
-                }
-            }
+            return autoPlay;
         }
     }
 }

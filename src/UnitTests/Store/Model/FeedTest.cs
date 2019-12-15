@@ -212,15 +212,13 @@ namespace ZeroInstall.Store.Model
         {
             var feed = CreateTestFeed();
 
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                feed.SaveXml(tempFile);
-                var feedReload = XmlStorage.LoadXml<Feed>(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            feed.SaveXml(tempFile);
+            var feedReload = XmlStorage.LoadXml<Feed>(tempFile);
 
-                feed.Normalize(new FeedUri(tempFile));
-                feedReload.Normalize(new FeedUri(tempFile));
-                feedReload.GetHashCode().Should().Be(feed.GetHashCode());
-            }
+            feed.Normalize(new FeedUri(tempFile));
+            feedReload.Normalize(new FeedUri(tempFile));
+            feedReload.GetHashCode().Should().Be(feed.GetHashCode());
         }
 
         /// <summary>

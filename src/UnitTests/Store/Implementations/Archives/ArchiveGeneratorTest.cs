@@ -18,21 +18,17 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         protected Stream BuildArchive(TestRoot root)
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                root.Build(tempDir);
-                return BuildArchive(tempDir);
-            }
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            root.Build(tempDir);
+            return BuildArchive(tempDir);
         }
 
         protected virtual Stream BuildArchive(string sourcePath)
         {
-            using (var archiveWriteStream = new MemoryStream())
-            {
-                using (var generator = CreateGenerator(sourcePath, archiveWriteStream))
-                    generator.Run();
-                return new MemoryStream(archiveWriteStream.ToArray(), writable: false);
-            }
+            using var archiveWriteStream = new MemoryStream();
+            using (var generator = CreateGenerator(sourcePath, archiveWriteStream))
+                generator.Run();
+            return new MemoryStream(archiveWriteStream.ToArray(), writable: false);
         }
     }
 }

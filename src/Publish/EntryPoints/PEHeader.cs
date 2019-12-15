@@ -242,18 +242,16 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <param name="path">The file to read.</param>
         public PEHeader([NotNull] string path)
         {
-            using (var stream = File.OpenRead(path))
-            {
-                var reader = new BinaryReader(stream);
+            using var stream = File.OpenRead(path);
+            var reader = new BinaryReader(stream);
 
-                DosHeader = Read<ImageDosHeader>(reader);
-                stream.Seek(DosHeader.e_lfanew, SeekOrigin.Begin);
-                reader.ReadUInt32(); // Skip ntHeadersSignature
+            DosHeader = Read<ImageDosHeader>(reader);
+            stream.Seek(DosHeader.e_lfanew, SeekOrigin.Begin);
+            reader.ReadUInt32(); // Skip ntHeadersSignature
 
-                FileHeader = Read<ImageFileHeader>(reader);
-                if (Is32BitHeader) OptionalHeader32 = Read<ImageOptionalHeader32>(reader);
-                else OptionalHeader64 = Read<ImageOptionalHeader64>(reader);
-            }
+            FileHeader = Read<ImageFileHeader>(reader);
+            if (Is32BitHeader) OptionalHeader32 = Read<ImageOptionalHeader32>(reader);
+            else OptionalHeader64 = Read<ImageOptionalHeader64>(reader);
         }
 
         private static T Read<T>(BinaryReader reader)

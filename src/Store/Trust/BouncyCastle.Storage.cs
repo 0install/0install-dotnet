@@ -49,8 +49,10 @@ namespace ZeroInstall.Store.Trust
                 try
                 {
                     using (new AtomicRead(_publicBundlePath))
-                    using (var stream = File.OpenRead(_publicBundlePath))
+                    {
+                        using var stream = File.OpenRead(_publicBundlePath);
                         return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
+                    }
                 }
                 #region Error handling
                 catch (DirectoryNotFoundException)
@@ -72,12 +74,10 @@ namespace ZeroInstall.Store.Trust
             {
                 // Lost-write races are OK, since public keys are easily reacquired
                 _publicBundle = value;
-                using (var atomic = new AtomicWrite(_publicBundlePath))
-                {
-                    using (var stream = File.Create(atomic.WritePath))
-                        value.Encode(stream);
-                    atomic.Commit();
-                }
+                using var atomic = new AtomicWrite(_publicBundlePath);
+                using (var stream = File.Create(atomic.WritePath))
+                    value.Encode(stream);
+                atomic.Commit();
             }
         }
 
@@ -101,8 +101,8 @@ namespace ZeroInstall.Store.Trust
 
                 try
                 {
-                    using (var stream = File.OpenRead(_secretBundlePath))
-                        return _secretBundle = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
+                    using var stream = File.OpenRead(_secretBundlePath);
+                    return _secretBundle = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
                 }
                 #region Error handling
                 catch (DirectoryNotFoundException)

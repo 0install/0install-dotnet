@@ -439,13 +439,11 @@ namespace ZeroInstall.Store.Implementations
                 {
                     try
                     {
-                        using (var extractor = ArchiveExtractor.Create(archiveInfo.Path, tempDir, archiveInfo.MimeType, archiveInfo.StartOffset))
-                        {
-                            extractor.Extract = archiveInfo.Extract;
-                            extractor.TargetSuffix = archiveInfo.Destination;
-                            extractor.Tag = manifestDigest;
-                            handler.RunTask(extractor);
-                        }
+                        using var extractor = ArchiveExtractor.Create(archiveInfo.Path, tempDir, archiveInfo.MimeType, archiveInfo.StartOffset);
+                        extractor.Extract = archiveInfo.Extract;
+                        extractor.TargetSuffix = archiveInfo.Destination;
+                        extractor.Tag = manifestDigest;
+                        handler.RunTask(extractor);
                     }
                     #region Error handling
                     catch (IOException ex)
@@ -507,24 +505,23 @@ namespace ZeroInstall.Store.Implementations
         {
             try
             {
-                using (var restartManager = new WindowsRestartManager())
-                {
-                    // Look for handles to well-known executable types in the top-level directory
-                    // Searching for all file types and/or in subdirectories takes too long
-                    restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
-                    restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
+                using var restartManager = new WindowsRestartManager();
 
-                    var apps = restartManager.ListApps(handler);
-                    if (apps.Length != 0)
-                    {
-                        string appsList = string.Join(Environment.NewLine, apps);
-                        if (handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
-                            defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
-                            restartManager.ShutdownApps(handler);
-                        else return false;
-                    }
-                    return true;
+                // Look for handles to well-known executable types in the top-level directory
+                // Searching for all file types and/or in subdirectories takes too long
+                restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
+                restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
+
+                var apps = restartManager.ListApps(handler);
+                if (apps.Length != 0)
+                {
+                    string appsList = string.Join(Environment.NewLine, apps);
+                    if (handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
+                        defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
+                        restartManager.ShutdownApps(handler);
+                    else return false;
                 }
+                return true;
             }
             #region Error handling
             catch (IOException ex)
@@ -562,14 +559,12 @@ namespace ZeroInstall.Store.Implementations
             if (!Directory.Exists(DirectoryPath)) return 0;
             if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
-            using (var run = new OptimiseRun(DirectoryPath))
-            {
-                handler.RunTask(ForEachTask.Create(
-                    name: string.Format(Resources.FindingDuplicateFiles, DirectoryPath),
-                    target: ListAll(),
-                    work: run.Work));
-                return run.SavedBytes;
-            }
+            using var run = new OptimiseRun(DirectoryPath);
+            handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.FindingDuplicateFiles, DirectoryPath),
+                target: ListAll(),
+                work: run.Work));
+            return run.SavedBytes;
         }
         #endregion
 

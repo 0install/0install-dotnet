@@ -244,11 +244,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             string absolutePath = DirectoryBuilder.NewFilePath(relativePath, lastWriteTime, executable);
             try
             {
-                using (var fileStream = File.Create(absolutePath))
-                {
-                    if (fileSize != 0)
-                        StreamToFile(stream, fileStream);
-                }
+                using var fileStream = File.Create(absolutePath);
+                if (fileSize != 0)
+                    StreamToFile(stream, fileStream);
             }
             catch (DirectoryNotFoundException ex)
             {

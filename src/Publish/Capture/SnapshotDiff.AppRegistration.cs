@@ -43,21 +43,19 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(capabilitiesRegPath))
                 return null;
 
-            using (var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out _))
+            using var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out _);
+            if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName)?.ToString();
+            if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription)?.ToString();
+
+            CollectProtocolAssocsEx(capsKey, commandMapper, capabilities);
+            CollectFileAssocsEx(capsKey, capabilities);
+            // Note: Contenders for StartMenu entries are detected elsewhere
+
+            return new AppRegistration
             {
-                if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName)?.ToString();
-                if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription)?.ToString();
-
-                CollectProtocolAssocsEx(capsKey, commandMapper, capabilities);
-                CollectFileAssocsEx(capsKey, capabilities);
-                // Note: Contenders for StartMenu entries are detected elsewhere
-
-                return new AppRegistration
-                {
-                    ID = appRegName,
-                    CapabilityRegPath = capabilitiesRegPath
-                };
-            }
+                ID = appRegName,
+                CapabilityRegPath = capabilitiesRegPath
+            };
         }
 
         #region Protocols
@@ -77,34 +75,30 @@ namespace ZeroInstall.Publish.Capture
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));
             #endregion
 
-            using (var urlAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyUrlAssocs))
+            using var urlAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyUrlAssocs);
+            if (urlAssocKey == null) return;
+
+            foreach (string protocol in urlAssocKey.GetValueNames())
             {
-                if (urlAssocKey == null) return;
+                string progID = urlAssocKey.GetValue(protocol)?.ToString();
+                if (string.IsNullOrEmpty(progID)) continue;
+                using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
+                if (progIDKey == null) continue;
 
-                foreach (string protocol in urlAssocKey.GetValueNames())
+                var prefix = new KnownProtocolPrefix {Value = protocol};
+                var existing = capabilities.GetCapability<UrlProtocol>(progID);
+                if (existing == null)
                 {
-                    string progID = urlAssocKey.GetValue(protocol)?.ToString();
-                    if (string.IsNullOrEmpty(progID)) continue;
-                    using (var progIDKey = Registry.ClassesRoot.OpenSubKey(progID))
+                    var capability = new UrlProtocol
                     {
-                        if (progIDKey == null) continue;
-
-                        var prefix = new KnownProtocolPrefix {Value = protocol};
-                        var existing = capabilities.GetCapability<UrlProtocol>(progID);
-                        if (existing == null)
-                        {
-                            var capability = new UrlProtocol
-                            {
-                                ID = progID,
-                                Descriptions = {progIDKey.GetValue("", defaultValue: "").ToString()},
-                                KnownPrefixes = {prefix}
-                            };
-                            capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
-                            capabilities.Entries.Add(capability);
-                        }
-                        else existing.KnownPrefixes.Add(prefix);
-                    }
+                        ID = progID,
+                        Descriptions = {progIDKey.GetValue("", defaultValue: "").ToString()},
+                        KnownPrefixes = {prefix}
+                    };
+                    capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
+                    capabilities.Entries.Add(capability);
                 }
+                else existing.KnownPrefixes.Add(prefix);
             }
         }
         #endregion
@@ -124,15 +118,13 @@ namespace ZeroInstall.Publish.Capture
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));
             #endregion
 
-            using (var fileAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyFileAssocs))
-            {
-                if (fileAssocKey == null) return;
+            using var fileAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyFileAssocs);
+            if (fileAssocKey == null) return;
 
-                foreach (string extension in fileAssocKey.GetValueNames())
-                {
-                    string progID = fileAssocKey.GetValue(extension, "") as string;
-                    if (!string.IsNullOrEmpty(progID)) AddExtensionToFileType(extension, progID, capabilities);
-                }
+            foreach (string extension in fileAssocKey.GetValueNames())
+            {
+                string progID = fileAssocKey.GetValue(extension, "") as string;
+                if (!string.IsNullOrEmpty(progID)) AddExtensionToFileType(extension, progID, capabilities);
             }
         }
 

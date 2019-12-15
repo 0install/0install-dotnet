@@ -67,8 +67,8 @@ namespace ZeroInstall.Store.Implementations.Archives
 
                 entry.Size = file.Length;
                 _tarStream.PutNextEntry(entry);
-                using (var stream = file.OpenRead())
-                    stream.CopyToEx(_tarStream);
+                using var stream = file.OpenRead();
+                stream.CopyToEx(_tarStream);
             }
             _tarStream.CloseEntry();
         }

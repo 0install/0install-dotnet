@@ -60,11 +60,9 @@ namespace ZeroInstall.Store.Model.Preferences
                       .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
             }
 
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                _cache.Contains(new FeedUri(Path.Combine(tempDir, "feed.xml")))
-                      .Should().BeFalse(because: "Should not detect phantom local feed files");
-            }
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            _cache.Contains(new FeedUri(Path.Combine(tempDir, "feed.xml")))
+                  .Should().BeFalse(because: "Should not detect phantom local feed files");
         }
 
         [Fact]
@@ -141,11 +139,9 @@ namespace ZeroInstall.Store.Model.Preferences
 
         private static byte[] ToArray(Feed feed)
         {
-            using (var stream = new MemoryStream())
-            {
-                feed.SaveXml(stream);
-                return stream.ToArray();
-            }
+            using var stream = new MemoryStream();
+            feed.SaveXml(stream);
+            return stream.ToArray();
         }
     }
 }

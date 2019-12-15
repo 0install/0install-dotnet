@@ -62,13 +62,11 @@ namespace ZeroInstall.Commands.Basic
             envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
             envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
 
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                selections.SaveXml(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            selections.SaveXml(tempFile);
 
-                selections.Normalize();
-                RunAndAssert(null, 0, selections, tempFile, "--arg1", "--arg2");
-            }
+            selections.Normalize();
+            RunAndAssert(null, 0, selections, tempFile, "--arg1", "--arg2");
         }
 
         public override void ShouldRejectTooManyArgs()

@@ -38,14 +38,12 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         private static byte[] BuildArchive()
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            using (var archiveStream = new MemoryStream())
-            {
-                SamplePackageHierarchy.Build(tempDir);
-                using (var generator = new ZipGenerator(tempDir, archiveStream))
-                    generator.Run();
-                return archiveStream.ToArray();
-            }
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var archiveStream = new MemoryStream();
+            SamplePackageHierarchy.Build(tempDir);
+            using (var generator = new ZipGenerator(tempDir, archiveStream))
+                generator.Run();
+            return archiveStream.ToArray();
         }
 
         [Fact]

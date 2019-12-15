@@ -96,42 +96,38 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void TestCalculateDigest()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            new TestRoot
             {
-                new TestRoot
-                {
-                    new TestDirectory("subdir") {new TestFile("file")}
-                }.Build(testDir);
+                new TestDirectory("subdir") {new TestFile("file")}
+            }.Build(testDir);
 
-                GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler())
-                   .CalculateDigest()
-                   .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha1New, new MockTaskHandler()),
-                        because: "sha1new dot file and digest should match");
-                GenerateManifest(testDir, ManifestFormat.Sha256, new MockTaskHandler())
-                   .CalculateDigest()
-                   .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256, new MockTaskHandler()),
-                        because: "sha256 dot file and digest should match");
-                GenerateManifest(testDir, ManifestFormat.Sha256New, new MockTaskHandler())
-                   .CalculateDigest()
-                   .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256New, new MockTaskHandler()),
-                        because: "sha256new dot file and digest should match");
-            }
+            GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler())
+               .CalculateDigest()
+               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha1New, new MockTaskHandler()),
+                    because: "sha1new dot file and digest should match");
+            GenerateManifest(testDir, ManifestFormat.Sha256, new MockTaskHandler())
+               .CalculateDigest()
+               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256, new MockTaskHandler()),
+                    because: "sha256 dot file and digest should match");
+            GenerateManifest(testDir, ManifestFormat.Sha256New, new MockTaskHandler())
+               .CalculateDigest()
+               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256New, new MockTaskHandler()),
+                    because: "sha256new dot file and digest should match");
         }
 
         [Fact] // Ensures that ToXmlString() correctly outputs a serialized form of the manifest.
         public void TestToString()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            new TestRoot
             {
-                new TestRoot
-                {
-                    new TestDirectory("subdir") {new TestFile("file")}
-                }.Build(testDir);
+                new TestDirectory("subdir") {new TestFile("file")}
+            }.Build(testDir);
 
-                var manifest = GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler());
-                manifest.ToString().Replace(Environment.NewLine, "\n")
-                        .Should().Be("D /subdir\nF 606ec6e9bd8a8ff2ad14e5fade3f264471e82251 946684800 3 file\n");
-            }
+            var manifest = GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler());
+            manifest.ToString().Replace(Environment.NewLine, "\n")
+                    .Should().Be("D /subdir\nF 606ec6e9bd8a8ff2ad14e5fade3f264471e82251 946684800 3 file\n");
         }
 
         [Fact]
@@ -156,109 +152,91 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldListNormalWindowsExeWithFlagF()
         {
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string filePath = Path.Combine(package, "test.exe");
-                string manifestPath = Path.Combine(package, Manifest.ManifestFile);
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            string filePath = Path.Combine(package, "test.exe");
+            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
 
-                File.WriteAllText(filePath, @"xxxxxxx");
-                CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
+            File.WriteAllText(filePath, @"xxxxxxx");
+            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
 
-                using (var manifest = File.OpenText(manifestPath))
-                {
-                    string firstLine = manifest.ReadLine();
-                    Assert.True(Regex.IsMatch(firstLine, @"^F \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
-                }
-            }
+            using var manifest = File.OpenText(manifestPath);
+            string firstLine = manifest.ReadLine();
+            Assert.True(Regex.IsMatch(firstLine, @"^F \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
         }
 
         [Fact]
         public void ShouldListFilesInXbitWithFlagX()
         {
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            string filePath = Path.Combine(package, "test.exe");
+            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
+
+            File.WriteAllText(filePath, "target");
+            if (WindowsUtils.IsWindows)
             {
-                string filePath = Path.Combine(package, "test.exe");
-                string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-
-                File.WriteAllText(filePath, "target");
-                if (WindowsUtils.IsWindows)
-                {
-                    string flagPath = Path.Combine(package, FlagUtils.XbitFile);
-                    File.WriteAllText(flagPath, @"/test.exe");
-                }
-                else FileUtils.SetExecutable(filePath, true);
-                CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-
-                using (var manifest = File.OpenText(manifestPath))
-                {
-                    string firstLine = manifest.ReadLine();
-                    Assert.True(Regex.IsMatch(firstLine, @"^X \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
-                }
+                string flagPath = Path.Combine(package, FlagUtils.XbitFile);
+                File.WriteAllText(flagPath, @"/test.exe");
             }
+            else FileUtils.SetExecutable(filePath, true);
+            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
+
+            using var manifest = File.OpenText(manifestPath);
+            string firstLine = manifest.ReadLine();
+            Assert.True(Regex.IsMatch(firstLine, @"^X \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
         }
 
         [Fact]
         public void ShouldListFilesInSymlinkWithFlagS()
         {
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            string sourcePath = Path.Combine(package, "test");
+            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
+
+            if (WindowsUtils.IsWindows)
             {
-                string sourcePath = Path.Combine(package, "test");
-                string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-
-                if (WindowsUtils.IsWindows)
-                {
-                    File.WriteAllText(sourcePath, "target");
-                    string flagPath = Path.Combine(package, FlagUtils.SymlinkFile);
-                    File.WriteAllText(flagPath, @"/test");
-                }
-                else FileUtils.CreateSymlink(sourcePath, "target");
-                CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-
-                using (var manifest = File.OpenText(manifestPath))
-                {
-                    string firstLine = manifest.ReadLine();
-                    Assert.True(Regex.IsMatch(firstLine, @"^S \w+ \d+ test$"), "Manifest didn't match expected format");
-                }
+                File.WriteAllText(sourcePath, "target");
+                string flagPath = Path.Combine(package, FlagUtils.SymlinkFile);
+                File.WriteAllText(flagPath, @"/test");
             }
+            else FileUtils.CreateSymlink(sourcePath, "target");
+            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
+
+            using var manifest = File.OpenText(manifestPath);
+            string firstLine = manifest.ReadLine();
+            Assert.True(Regex.IsMatch(firstLine, @"^S \w+ \d+ test$"), "Manifest didn't match expected format");
         }
 
         [Fact]
         public void ShouldListNothingForEmptyPackage()
         {
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
-            {
-                CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-                using (var manifestFile = File.OpenRead(Path.Combine(package, Manifest.ManifestFile)))
-                    manifestFile.Length.Should().Be(0, because: "Empty package directory should make an empty manifest");
-            }
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
+            using var manifestFile = File.OpenRead(Path.Combine(package, Manifest.ManifestFile));
+            manifestFile.Length.Should().Be(0, because: "Empty package directory should make an empty manifest");
         }
 
         [Fact]
         public void ShouldHandleSubdirectoriesWithExecutables()
         {
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string innerPath = Path.Combine(package, "inner");
-                Directory.CreateDirectory(innerPath);
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            string innerPath = Path.Combine(package, "inner");
+            Directory.CreateDirectory(innerPath);
 
-                string innerExePath = Path.Combine(innerPath, "inner.exe");
-                string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-                File.WriteAllText(innerExePath, @"xxxxxxx");
-                if (WindowsUtils.IsWindows)
-                {
-                    string flagPath = Path.Combine(package, FlagUtils.XbitFile);
-                    File.WriteAllText(flagPath, @"/inner/inner.exe");
-                }
-                else FileUtils.SetExecutable(innerExePath, true);
-                CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-                using (var manifestFile = File.OpenText(manifestPath))
-                {
-                    string currentLine = manifestFile.ReadLine();
-                    Assert.True(Regex.IsMatch(currentLine, @"^D /inner$"), "Manifest didn't match expected format:\n" + currentLine);
-                    currentLine = manifestFile.ReadLine();
-                    Assert.True(Regex.IsMatch(currentLine, @"^X \w+ \w+ \d+ inner.exe$"), "Manifest didn't match expected format:\n" + currentLine);
-                }
+            string innerExePath = Path.Combine(innerPath, "inner.exe");
+            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
+            File.WriteAllText(innerExePath, @"xxxxxxx");
+            if (WindowsUtils.IsWindows)
+            {
+                string flagPath = Path.Combine(package, FlagUtils.XbitFile);
+                File.WriteAllText(flagPath, @"/inner/inner.exe");
             }
+            else FileUtils.SetExecutable(innerExePath, true);
+            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
+            using var manifestFile = File.OpenText(manifestPath);
+            string currentLine = manifestFile.ReadLine();
+            Assert.True(Regex.IsMatch(currentLine, @"^D /inner$"), "Manifest didn't match expected format:\n" + currentLine);
+            currentLine = manifestFile.ReadLine();
+            Assert.True(Regex.IsMatch(currentLine, @"^X \w+ \w+ \d+ inner.exe$"), "Manifest didn't match expected format:\n" + currentLine);
         }
 
         // ReSharper restore AssignNullToNotNullAttribute
@@ -268,17 +246,15 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             Skip.IfNot(UnixUtils.IsUnix, "Can only test symlinks on Unixoid system");
 
-            using (var package = new TemporaryDirectory("0install-unit-tests"))
-            {
-                Directory.CreateDirectory(Path.Combine(package, "target"));
-                FileUtils.CreateSymlink(Path.Combine(package, "source"), "target");
-                var manifest = GenerateManifest(package, ManifestFormat.Sha256New, new MockTaskHandler());
+            using var package = new TemporaryDirectory("0install-unit-tests");
+            Directory.CreateDirectory(Path.Combine(package, "target"));
+            FileUtils.CreateSymlink(Path.Combine(package, "source"), "target");
+            var manifest = GenerateManifest(package, ManifestFormat.Sha256New, new MockTaskHandler());
 
-                (manifest[0] is ManifestSymlink).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
-                ((ManifestSymlink)manifest[0]).Name.Should().Be("source", because: "Unexpected manifest:\n" + manifest);
-                (manifest[1] is ManifestDirectory).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
-                ((ManifestDirectory)manifest[1]).FullPath.Should().Be("/target", because: "Unexpected manifest:\n" + manifest);
-            }
+            (manifest[0] is ManifestSymlink).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
+            ((ManifestSymlink)manifest[0]).Name.Should().Be("source", because: "Unexpected manifest:\n" + manifest);
+            (manifest[1] is ManifestDirectory).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
+            ((ManifestDirectory)manifest[1]).FullPath.Should().Be("/target", because: "Unexpected manifest:\n" + manifest);
         }
     }
 }

@@ -46,11 +46,9 @@ namespace ZeroInstall.DesktopIntegration
         [Fact]
         public void ShouldDownloadMissing()
         {
-            using (var server = new MicroServer("icon.png", "data".ToStream()))
-            {
-                var icon = PngIcon(server.FileUri);
-                Verify(icon, "data");
-            }
+            using var server = new MicroServer("icon.png", "data".ToStream());
+            var icon = PngIcon(server.FileUri);
+            Verify(icon, "data");
         }
 
         [SkippableFact]
@@ -58,23 +56,19 @@ namespace ZeroInstall.DesktopIntegration
         {
             Skip.IfNot(NetUtils.IsInternetConnected, "Icon cache is not refresh when offline");
 
-            using (var server = new MicroServer("icon.png", "new".ToStream()))
-            {
-                var icon = PngIcon(server.FileUri);
-                Inject(icon, "old", timestamp: new DateTime(1980, 1, 1));
-                Verify(icon, "new");
-            }
+            using var server = new MicroServer("icon.png", "new".ToStream());
+            var icon = PngIcon(server.FileUri);
+            Inject(icon, "old", timestamp: new DateTime(1980, 1, 1));
+            Verify(icon, "new");
         }
 
         [Fact]
         public void ShouldReturnStaleOnRefreshFailure()
         {
-            using (var server = new MicroServer("_", new MemoryStream()))
-            {
-                var icon = PngIcon(new Uri(server.FileUri + "-invalid"));
-                Inject(icon, "data", timestamp: new DateTime(1980, 1, 1));
-                Verify(icon, "data");
-            }
+            using var server = new MicroServer("_", new MemoryStream());
+            var icon = PngIcon(new Uri(server.FileUri + "-invalid"));
+            Inject(icon, "data", timestamp: new DateTime(1980, 1, 1));
+            Verify(icon, "data");
         }
 
         private static Icon PngIcon(Uri href) => new Icon {Href = href, MimeType = Icon.MimeTypePng};

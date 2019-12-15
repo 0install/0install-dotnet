@@ -39,14 +39,12 @@ namespace ZeroInstall.Services.Feeds
             var array = catalogStream.ToArray();
             catalogStream.Position = 0;
 
-            using (var server = new MicroServer("catalog.xml", catalogStream))
-            {
-                var uri = new FeedUri(server.FileUri);
-                CatalogManager.SetSources(new[] {uri});
-                _trustManagerMock.Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
+            using var server = new MicroServer("catalog.xml", catalogStream);
+            var uri = new FeedUri(server.FileUri);
+            CatalogManager.SetSources(new[] {uri});
+            _trustManagerMock.Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
 
-                _sut.GetOnline().Should().Be(catalog);
-            }
+            _sut.GetOnline().Should().Be(catalog);
         }
 
         [Fact]

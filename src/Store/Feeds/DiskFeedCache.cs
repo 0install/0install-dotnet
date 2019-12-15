@@ -137,11 +137,9 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="path">The file to write to.</param>
         private static void WriteToFile(byte[] data, string path)
         {
-            using (var atomic = new AtomicWrite(path))
-            {
-                File.WriteAllBytes(atomic.WritePath, data);
-                atomic.Commit();
-            }
+            using var atomic = new AtomicWrite(path);
+            File.WriteAllBytes(atomic.WritePath, data);
+            atomic.Commit();
         }
 
         /// <inheritdoc/>

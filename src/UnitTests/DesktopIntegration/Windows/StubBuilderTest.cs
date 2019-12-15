@@ -23,8 +23,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-                StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: false);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: false);
         }
 
         [SkippableFact]
@@ -33,8 +33,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-                StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: true);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: true);
         }
     }
 }

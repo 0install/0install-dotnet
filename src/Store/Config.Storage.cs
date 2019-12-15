@@ -114,12 +114,10 @@ namespace ZeroInstall.Store
 
             Log.Debug("Saving Config to: " + path);
 
-            using (var atomic = new AtomicWrite(path))
-            {
-                using (var writer = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding))
-                    new StreamIniDataParser().WriteData(writer, _iniData);
-                atomic.Commit();
-            }
+            using var atomic = new AtomicWrite(path);
+            using (var writer = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding))
+                new StreamIniDataParser().WriteData(writer, _iniData);
+            atomic.Commit();
         }
 
         /// <summary>
@@ -147,8 +145,10 @@ namespace ZeroInstall.Store
             try
             {
                 using (new AtomicRead(path))
-                using (var reader = new StreamReader(path, Encoding.UTF8))
+                {
+                    using var reader = new StreamReader(path, Encoding.UTF8);
                     _iniData = new StreamIniDataParser().ReadData(reader);
+                }
             }
             #region Error handling
             catch (ParsingException ex)
@@ -236,11 +236,9 @@ namespace ZeroInstall.Store
 
             void ReadFrom(RegistryKey key)
             {
-                using (var registryKey = key.OpenSubKey(RegistryPolicyPath, writable: false))
-                {
-                    if (registryKey != null)
-                        ReadFromRegistry(registryKey);
-                }
+                using var registryKey = key.OpenSubKey(RegistryPolicyPath, writable: false);
+                if (registryKey != null)
+                    ReadFromRegistry(registryKey);
             }
         }
 

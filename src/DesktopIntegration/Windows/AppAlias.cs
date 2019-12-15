@@ -68,9 +68,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (!machineWide && !WindowsUtils.IsWindows7) return;
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var appPathsKey = hive.CreateSubKeyChecked(RegKeyAppPaths))
-            using (var exeKey = appPathsKey.CreateSubKeyChecked(exeName))
-                exeKey.SetValue("", exePath);
+            using var appPathsKey = hive.CreateSubKeyChecked(RegKeyAppPaths);
+            using var exeKey = appPathsKey.CreateSubKeyChecked(exeName);
+            exeKey.SetValue("", exePath);
         }
         #endregion
 
@@ -102,11 +102,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
         private static void RemoveFromAppPaths(string exeName, bool machineWide)
         {
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var appPathsKey = hive.OpenSubKey(RegKeyAppPaths, writable: true))
-            {
-                if (appPathsKey != null && appPathsKey.GetSubKeyNames().Contains(exeName))
-                    appPathsKey.DeleteSubKey(exeName);
-            }
+            using var appPathsKey = hive.OpenSubKey(RegKeyAppPaths, writable: true);
+            if (appPathsKey != null && appPathsKey.GetSubKeyNames().Contains(exeName))
+                appPathsKey.DeleteSubKey(exeName);
         }
         #endregion
 

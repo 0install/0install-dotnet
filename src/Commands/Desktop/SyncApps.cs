@@ -45,8 +45,8 @@ namespace ZeroInstall.Commands.Desktop
 
             try
             {
-                using (var syncManager = new SyncIntegrationManager(Config.ToSyncServer(), Config.SyncCryptoKey, FeedManager.GetFresh, Handler, MachineWide))
-                    syncManager.Sync(_syncResetMode);
+                using var syncManager = new SyncIntegrationManager(Config.ToSyncServer(), Config.SyncCryptoKey, FeedManager.GetFresh, Handler, MachineWide);
+                syncManager.Sync(_syncResetMode);
             }
             #region Error handling
             catch

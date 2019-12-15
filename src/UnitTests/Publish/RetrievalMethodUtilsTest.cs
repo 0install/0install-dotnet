@@ -27,15 +27,13 @@ namespace ZeroInstall.Publish
         [Fact]
         public void DownloadAndApplyArchive()
         {
-            using (var stream = typeof(RetrievalMethodUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var archive = new Archive {Href = microServer.FileUri};
-                archive.DownloadAndApply(new SilentTaskHandler()).Dispose();
+            using var stream = typeof(RetrievalMethodUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var archive = new Archive {Href = microServer.FileUri};
+            archive.DownloadAndApply(new SilentTaskHandler()).Dispose();
 
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -44,14 +42,12 @@ namespace ZeroInstall.Publish
         [Fact]
         public void DownloadAndApplySingleFile()
         {
-            using (var stream = SingleFileData.ToStream())
-            using (var microServer = new MicroServer(SingleFileName, stream))
-            {
-                var file = new SingleFile {Href = microServer.FileUri, Destination = SingleFileName};
-                file.DownloadAndApply(new SilentTaskHandler()).Dispose();
+            using var stream = SingleFileData.ToStream();
+            using var microServer = new MicroServer(SingleFileName, stream);
+            var file = new SingleFile {Href = microServer.FileUri, Destination = SingleFileName};
+            file.DownloadAndApply(new SilentTaskHandler()).Dispose();
 
-                file.Size.Should().Be(stream.Length);
-            }
+            file.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -60,16 +56,14 @@ namespace ZeroInstall.Publish
         [Fact]
         public void DownloadAndApplyRecipe()
         {
-            using (var stream = typeof(RetrievalMethodUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var archive = new Archive {Href = microServer.FileUri};
-                var recipe = new Recipe {Steps = {archive}};
-                recipe.DownloadAndApply(new SilentTaskHandler()).Dispose();
+            using var stream = typeof(RetrievalMethodUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var archive = new Archive {Href = microServer.FileUri};
+            var recipe = new Recipe {Steps = {archive}};
+            recipe.DownloadAndApply(new SilentTaskHandler()).Dispose();
 
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -78,20 +72,18 @@ namespace ZeroInstall.Publish
         [Fact]
         public void LocalApplyArchive()
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string tempFile = Path.Combine(tempDir, "archive.zip");
-                typeof(RetrievalMethodUtilsTest).CopyEmbeddedToFile("testArchive.zip", tempFile);
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            string tempFile = Path.Combine(tempDir, "archive.zip");
+            typeof(RetrievalMethodUtilsTest).CopyEmbeddedToFile("testArchive.zip", tempFile);
 
-                var archive = new Archive();
-                using (var extractedDir = archive.LocalApply(tempFile, new SilentTaskHandler()))
-                    File.Exists(Path.Combine(extractedDir, "symlink")).Should().BeTrue();
+            var archive = new Archive();
+            using (var extractedDir = archive.LocalApply(tempFile, new SilentTaskHandler()))
+                File.Exists(Path.Combine(extractedDir, "symlink")).Should().BeTrue();
 
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(new FileInfo(tempFile).Length);
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(new FileInfo(tempFile).Length);
 
-                File.Exists(tempFile).Should().BeTrue(because: "Local reference file should not be removed");
-            }
+            File.Exists(tempFile).Should().BeTrue(because: "Local reference file should not be removed");
         }
 
         /// <summary>
@@ -100,20 +92,18 @@ namespace ZeroInstall.Publish
         [Fact]
         public void LocalApplySingleFile()
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string tempFile = Path.Combine(tempDir, "file");
-                File.WriteAllText(tempFile, @"abc");
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            string tempFile = Path.Combine(tempDir, "file");
+            File.WriteAllText(tempFile, @"abc");
 
-                var file = new SingleFile();
-                using (var extractedDir = file.LocalApply(tempFile, new SilentTaskHandler()))
-                    File.Exists(Path.Combine(extractedDir, "file")).Should().BeTrue();
+            var file = new SingleFile();
+            using (var extractedDir = file.LocalApply(tempFile, new SilentTaskHandler()))
+                File.Exists(Path.Combine(extractedDir, "file")).Should().BeTrue();
 
-                file.Destination.Should().Be("file");
-                file.Size.Should().Be(3);
+            file.Destination.Should().Be("file");
+            file.Size.Should().Be(3);
 
-                File.Exists(tempFile).Should().BeTrue(because: "Local reference file should not be removed");
-            }
+            File.Exists(tempFile).Should().BeTrue(because: "Local reference file should not be removed");
         }
     }
 }

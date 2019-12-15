@@ -20,8 +20,8 @@ namespace ZeroInstall.Commands
         {
             ProgramUtils.Init();
 
-            using (var handler = new CliCommandHandler())
-                return (int)ProgramUtils.Run(ExeName, args, handler);
+            using var handler = new CliCommandHandler();
+            return (int)ProgramUtils.Run(ExeName, args, handler);
         }
     }
 }

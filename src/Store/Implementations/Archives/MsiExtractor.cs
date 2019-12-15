@@ -166,14 +166,12 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         private void ReadCabinets()
         {
-            using (var mediaView = _database.OpenView("SELECT Cabinet FROM Media"))
-            {
-                mediaView.Execute();
-                _cabinets = mediaView.Select(row => row["Cabinet"].ToString())
-                                     .Where(name => name.StartsWith("#"))
-                                     .Select(name => name.Substring(1))
-                                     .ToList();
-            }
+            using var mediaView = _database.OpenView("SELECT Cabinet FROM Media");
+            mediaView.Execute();
+            _cabinets = mediaView.Select(row => row["Cabinet"].ToString())
+                                 .Where(name => name.StartsWith("#"))
+                                 .Select(name => name.Substring(1))
+                                 .ToList();
         }
         #endregion
 
@@ -184,17 +182,13 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 foreach (string cabinet in _cabinets)
                 {
-                    using (var streamsView = _database.OpenView("SELECT Data FROM _Streams WHERE Name = '{0}'", cabinet))
-                    {
-                        streamsView.Execute();
-                        using (var record = streamsView.Fetch())
-                        {
-                            if (record == null) throw new IOException(Resources.ArchiveInvalid + Environment.NewLine + $"Cabinet stream '{cabinet}' missing");
+                    using var streamsView = _database.OpenView("SELECT Data FROM _Streams WHERE Name = '{0}'", cabinet);
+                    streamsView.Execute();
+                    using var record = streamsView.Fetch();
+                    if (record == null) throw new IOException(Resources.ArchiveInvalid + Environment.NewLine + $"Cabinet stream '{cabinet}' missing");
 
-                            using (var stream = record.GetStream("Data"))
-                                ExtractCab(stream);
-                        }
-                    }
+                    using var stream = record.GetStream("Data");
+                    ExtractCab(stream);
                 }
             }
             #region Error handling
@@ -213,16 +207,14 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         private void ExtractCab(Stream stream)
         {
-            using (var tempFile = new TemporaryFile("0install"))
-            {
-                // Extract embedded CAB from MSI
-                using (var tempStream = File.Create(tempFile))
-                    stream.CopyToEx(tempStream, cancellationToken: CancellationToken);
+            using var tempFile = new TemporaryFile("0install");
+            // Extract embedded CAB from MSI
+            using (var tempStream = File.Create(tempFile))
+                stream.CopyToEx(tempStream, cancellationToken: CancellationToken);
 
-                // Extract individual files from CAB
-                using (CabStream = File.OpenRead(tempFile))
-                    CabEngine.Unpack(this, _ => true);
-            }
+            // Extract individual files from CAB
+            using (CabStream = File.OpenRead(tempFile))
+                CabEngine.Unpack(this, _ => true);
         }
 
         /// <inheritdoc/>

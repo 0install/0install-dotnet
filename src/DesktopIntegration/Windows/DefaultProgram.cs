@@ -66,37 +66,35 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
             if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
-            using (var serviceKey = Registry.LocalMachine.CreateSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service))
+            using var serviceKey = Registry.LocalMachine.CreateSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service);
+            using (var appKey = serviceKey.CreateSubKeyChecked(defaultProgram.ID))
             {
-                using (var appKey = serviceKey.CreateSubKeyChecked(defaultProgram.ID))
+                // Add flag to remember whether created for capability or access point
+                appKey.SetValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, "");
+
+                appKey.SetValue("", target.Feed.Name);
+
+                FileType.RegisterVerbCapability(appKey, target, defaultProgram, iconStore, machineWide: true);
+
+                // Set callbacks for Windows SPAD
+                using (var installInfoKey = appKey.CreateSubKeyChecked(RegSubKeyInstallInfo))
                 {
-                    // Add flag to remember whether created for capability or access point
-                    appKey.SetValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, "");
-
-                    appKey.SetValue("", target.Feed.Name);
-
-                    FileType.RegisterVerbCapability(appKey, target, defaultProgram, iconStore, machineWide: true);
-
-                    // Set callbacks for Windows SPAD
-                    using (var installInfoKey = appKey.CreateSubKeyChecked(RegSubKeyInstallInfo))
-                    {
-                        string exePath = Path.Combine(Locations.InstallBase, "0install-win.exe");
-                        installInfoKey.SetValue(RegValueReinstallCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", "defaults", target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                        installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.CategoryName, "--add", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                        installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.CategoryName, "--remove", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                        installInfoKey.SetValue(RegValueIconsVisible, 0, RegistryValueKind.DWord);
-                    }
-
-                    if (defaultProgram.Service == Store.Model.Capabilities.DefaultProgram.ServiceMail)
-                    {
-                        var mailToProtocol = new Store.Model.Capabilities.UrlProtocol {Verbs = {new Verb {Name = Verb.NameOpen}}};
-                        using (var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto"))
-                            FileType.RegisterVerbCapability(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
-                    }
+                    string exePath = Path.Combine(Locations.InstallBase, "0install-win.exe");
+                    installInfoKey.SetValue(RegValueReinstallCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", "defaults", target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                    installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.CategoryName, "--add", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                    installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.CategoryName, "--remove", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                    installInfoKey.SetValue(RegValueIconsVisible, 0, RegistryValueKind.DWord);
                 }
 
-                if (accessPoint) serviceKey.SetValue("", defaultProgram.ID);
+                if (defaultProgram.Service == Store.Model.Capabilities.DefaultProgram.ServiceMail)
+                {
+                    var mailToProtocol = new Store.Model.Capabilities.UrlProtocol {Verbs = {new Verb {Name = Verb.NameOpen}}};
+                    using var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto");
+                    FileType.RegisterVerbCapability(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
+                }
             }
+
+            if (accessPoint) serviceKey.SetValue("", defaultProgram.ID);
         }
 
         /// <summary>
@@ -106,8 +104,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconsVisible"><c>true</c> if the icons are currently visible, <c>false</c> if the icons are currently not visible.</param>
         internal static void ToggleIconsVisible(Store.Model.Capabilities.DefaultProgram defaultProgram, bool iconsVisible)
         {
-            using (var installInfoKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service + @"\" + defaultProgram.ID + @"\" + RegSubKeyInstallInfo, writable: true))
-                installInfoKey.SetValue(RegValueIconsVisible, iconsVisible ? 1 : 0, RegistryValueKind.DWord);
+            using var installInfoKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service + @"\" + defaultProgram.ID + @"\" + RegSubKeyInstallInfo, writable: true);
+            installInfoKey.SetValue(RegValueIconsVisible, iconsVisible ? 1 : 0, RegistryValueKind.DWord);
         }
         #endregion
 
@@ -129,39 +127,37 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
             if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
-            using (var serviceKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service, writable: true))
+            using var serviceKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service, writable: true);
+            if (accessPoint)
             {
-                if (accessPoint)
-                {
-                    // TODO: Restore previous default
-                }
+                // TODO: Restore previous default
+            }
 
-                // Remove appropriate purpose flag and check if there are others
-                bool otherFlags;
-                using (var appKey = serviceKey.OpenSubKey(defaultProgram.ID, writable: true))
+            // Remove appropriate purpose flag and check if there are others
+            bool otherFlags;
+            using (var appKey = serviceKey.OpenSubKey(defaultProgram.ID, writable: true))
+            {
+                if (appKey == null) otherFlags = false;
+                else
                 {
-                    if (appKey == null) otherFlags = false;
-                    else
-                    {
-                        appKey.DeleteValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, throwOnMissingValue: false);
-                        otherFlags = appKey.GetValueNames().Any(name => name.StartsWith(FileType.PurposeFlagPrefix));
-                    }
+                    appKey.DeleteValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, throwOnMissingValue: false);
+                    otherFlags = appKey.GetValueNames().Any(name => name.StartsWith(FileType.PurposeFlagPrefix));
                 }
+            }
 
-                // Delete app key if there are no other references
-                if (!otherFlags)
+            // Delete app key if there are no other references
+            if (!otherFlags)
+            {
+                try
                 {
-                    try
-                    {
-                        serviceKey.DeleteSubKeyTree(defaultProgram.ID);
-                    }
-                    #region Error handling
-                    catch (ArgumentException)
-                    {
-                        // Ignore missing registry keys
-                    }
-                    #endregion
+                    serviceKey.DeleteSubKeyTree(defaultProgram.ID);
                 }
+                #region Error handling
+                catch (ArgumentException)
+                {
+                    // Ignore missing registry keys
+                }
+                #endregion
             }
         }
         #endregion

@@ -103,15 +103,13 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     }
                 }
 
-                using (var startMenuKey = capabilitiesKey.CreateSubKeyChecked(RegSubKeyStartMenu))
-                {
-                    foreach (var defaultProgram in verbCapabilities.OfType<Store.Model.Capabilities.DefaultProgram>().Except(x => string.IsNullOrEmpty(x.ID) || string.IsNullOrEmpty(x.Service)))
-                        startMenuKey.SetValue(defaultProgram.Service, defaultProgram.ID);
-                }
+                using var startMenuKey = capabilitiesKey.CreateSubKeyChecked(RegSubKeyStartMenu);
+                foreach (var defaultProgram in verbCapabilities.OfType<Store.Model.Capabilities.DefaultProgram>().Except(x => string.IsNullOrEmpty(x.ID) || string.IsNullOrEmpty(x.Service)))
+                    startMenuKey.SetValue(defaultProgram.Service, defaultProgram.ID);
             }
 
-            using (var regAppsKey = hive.CreateSubKeyChecked(RegKeyMachineRegisteredApplications))
-                regAppsKey.SetValue(appRegistration.ID, /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath);
+            using var regAppsKey = hive.CreateSubKeyChecked(RegKeyMachineRegisteredApplications);
+            regAppsKey.SetValue(appRegistration.ID, /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath);
         }
         #endregion
 

@@ -107,54 +107,50 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 RegisterVerbCapability(progIDKey, target, fileType, iconStore, machineWide);
             }
 
-            using (var classesKey = hive.OpenSubKeyChecked(RegKeyClasses, writable: true))
+            using var classesKey = hive.OpenSubKeyChecked(RegKeyClasses, writable: true);
+            foreach (var extension in fileType.Extensions.Except(x => string.IsNullOrEmpty(x.Value)))
             {
-                foreach (var extension in fileType.Extensions.Except(x => string.IsNullOrEmpty(x.Value)))
+                // Register extensions
+                using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
                 {
-                    // Register extensions
-                    using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
+                    if (!string.IsNullOrEmpty(extension.MimeType)) extensionKey.SetValue(RegValueContentType, extension.MimeType);
+                    if (!string.IsNullOrEmpty(extension.PerceivedType)) extensionKey.SetValue(RegValuePerceivedType, extension.PerceivedType);
+
+                    using (var openWithKey = extensionKey.CreateSubKeyChecked(RegSubKeyOpenWith))
+                        openWithKey.SetValue(RegKeyPrefix + fileType.ID, "");
+
+                    if (accessPoint)
                     {
-                        if (!string.IsNullOrEmpty(extension.MimeType)) extensionKey.SetValue(RegValueContentType, extension.MimeType);
-                        if (!string.IsNullOrEmpty(extension.PerceivedType)) extensionKey.SetValue(RegValuePerceivedType, extension.PerceivedType);
-
-                        using (var openWithKey = extensionKey.CreateSubKeyChecked(RegSubKeyOpenWith))
-                            openWithKey.SetValue(RegKeyPrefix + fileType.ID, "");
-
-                        if (accessPoint)
-                        {
-                            if (!machineWide && WindowsUtils.IsWindowsVista)
-                            { // Windows Vista and later store per-user file extension overrides
-                                using (var overridesKey = hive.OpenSubKeyChecked(RegKeyOverrides, writable: true))
-                                using (var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value))
-                                {
-                                    // Only mess with this part of the registry when necessary
-                                    bool alreadySet;
-                                    using (var userChoiceKey = extensionOverrideKey.OpenSubKey("UserChoice", writable: false))
-                                    {
-                                        if (userChoiceKey == null) alreadySet = false;
-                                        else alreadySet = ((userChoiceKey.GetValue("Progid") ?? "").ToString() == RegKeyPrefix + fileType.ID);
-                                    }
-
-                                    if (!alreadySet)
-                                    {
-                                        // Must delete and recreate instead of direct modification due to wicked ACLs
-                                        extensionOverrideKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
-
-                                        using (var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice"))
-                                            userChoiceKey.SetValue("Progid", RegKeyPrefix + fileType.ID);
-                                    }
-                                }
+                        if (!machineWide && WindowsUtils.IsWindowsVista)
+                        { // Windows Vista and later store per-user file extension overrides
+                            using var overridesKey = hive.OpenSubKeyChecked(RegKeyOverrides, writable: true);
+                            using var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value);
+                            // Only mess with this part of the registry when necessary
+                            bool alreadySet;
+                            using (var userChoiceKey = extensionOverrideKey.OpenSubKey("UserChoice", writable: false))
+                            {
+                                if (userChoiceKey == null) alreadySet = false;
+                                else alreadySet = ((userChoiceKey.GetValue("Progid") ?? "").ToString() == RegKeyPrefix + fileType.ID);
                             }
-                            else extensionKey.SetValue("", RegKeyPrefix + fileType.ID);
-                        }
-                    }
 
-                    // Register MIME types
-                    if (!string.IsNullOrEmpty(extension.MimeType))
-                    {
-                        using (var mimeKey = classesKey.CreateSubKeyChecked(RegSubKeyMimeType + @"\" + extension.MimeType))
-                            mimeKey.SetValue(RegValueExtension, extension.Value);
+                            if (!alreadySet)
+                            {
+                                // Must delete and recreate instead of direct modification due to wicked ACLs
+                                extensionOverrideKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
+
+                                using var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice");
+                                userChoiceKey.SetValue("Progid", RegKeyPrefix + fileType.ID);
+                            }
+                        }
+                        else extensionKey.SetValue("", RegKeyPrefix + fileType.ID);
                     }
+                }
+
+                // Register MIME types
+                if (!string.IsNullOrEmpty(extension.MimeType))
+                {
+                    using var mimeKey = classesKey.CreateSubKeyChecked(RegSubKeyMimeType + @"\" + extension.MimeType);
+                    mimeKey.SetValue(RegValueExtension, extension.Value);
                 }
             }
         }
@@ -179,75 +175,73 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(fileType.ID)) throw new InvalidDataException("Missing ID");
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var classesKey = hive.OpenSubKeyChecked(RegKeyClasses, writable: true))
+            using var classesKey = hive.OpenSubKeyChecked(RegKeyClasses, writable: true);
+            foreach (var extension in fileType.Extensions.Except(extension => string.IsNullOrEmpty(extension.Value)))
             {
-                foreach (var extension in fileType.Extensions.Except(extension => string.IsNullOrEmpty(extension.Value)))
+                // Unregister MIME types
+                if (!string.IsNullOrEmpty(extension.MimeType))
                 {
-                    // Unregister MIME types
-                    if (!string.IsNullOrEmpty(extension.MimeType))
+                    using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
                     {
-                        using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
-                        {
-                            // TODO: Restore previous default
-                            //extensionKey.SetValue("", fileType.PreviousID);
-                        }
-
-                        //if (!machineWide && WindowsUtils.IsWindowsVista && !WindowsUtils.IsWindows8)
-                        //{
-                        //    // Windows Vista and later store per-user file extension overrides, Windows 8 blocks programmatic modification with hash values
-                        //    using (var overridesKey = hive.OpenSubKey(RegKeyOverrides, true))
-                        //    using (var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value))
-                        //    {
-                        //        // Must delete and recreate instead of direct modification due to wicked ACLs
-                        //        extensionOverrideKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
-                        //        using (var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice"))
-                        //            userChoiceKey.SetValue("ProgID", fileType.PreviousID);
-                        //    }
-                        //}
+                        // TODO: Restore previous default
+                        //extensionKey.SetValue("", fileType.PreviousID);
                     }
 
-                    // Unregister extensions
-                    using (var extensionKey = classesKey.OpenSubKey(extension.Value, writable: true))
-                    {
-                        if (extensionKey != null)
-                        {
-                            using (var openWithKey = extensionKey.OpenSubKey(RegSubKeyOpenWith, writable: true))
-                                openWithKey?.DeleteValue(RegKeyPrefix + fileType.ID, throwOnMissingValue: false);
-                        }
-
-                        if (accessPoint)
-                        {
-                            // TODO: Restore previous default
-                        }
-                    }
+                    //if (!machineWide && WindowsUtils.IsWindowsVista && !WindowsUtils.IsWindows8)
+                    //{
+                    //    // Windows Vista and later store per-user file extension overrides, Windows 8 blocks programmatic modification with hash values
+                    //    using (var overridesKey = hive.OpenSubKey(RegKeyOverrides, true))
+                    //    using (var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value))
+                    //    {
+                    //        // Must delete and recreate instead of direct modification due to wicked ACLs
+                    //        extensionOverrideKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
+                    //        using (var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice"))
+                    //            userChoiceKey.SetValue("ProgID", fileType.PreviousID);
+                    //    }
+                    //}
                 }
 
-                // Remove appropriate purpose flag and check if there are others
-                bool otherFlags;
-                using (var progIDKey = classesKey.OpenSubKey(RegKeyPrefix + fileType.ID, writable: true))
+                // Unregister extensions
+                using (var extensionKey = classesKey.OpenSubKey(extension.Value, writable: true))
                 {
-                    if (progIDKey == null) otherFlags = false;
-                    else
+                    if (extensionKey != null)
                     {
-                        progIDKey.DeleteValue(accessPoint ? PurposeFlagAccessPoint : PurposeFlagCapability, throwOnMissingValue: false);
-                        otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWith(PurposeFlagPrefix));
+                        using var openWithKey = extensionKey.OpenSubKey(RegSubKeyOpenWith, writable: true);
+                        openWithKey?.DeleteValue(RegKeyPrefix + fileType.ID, throwOnMissingValue: false);
                     }
-                }
 
-                // Delete ProgID if there are no other references
-                if (!otherFlags)
-                {
-                    try
+                    if (accessPoint)
                     {
-                        classesKey.DeleteSubKeyTree(RegKeyPrefix + fileType.ID);
+                        // TODO: Restore previous default
                     }
-                    #region Error handling
-                    catch (ArgumentException)
-                    {
-                        // Ignore missing registry keys
-                    }
-                    #endregion
                 }
+            }
+
+            // Remove appropriate purpose flag and check if there are others
+            bool otherFlags;
+            using (var progIDKey = classesKey.OpenSubKey(RegKeyPrefix + fileType.ID, writable: true))
+            {
+                if (progIDKey == null) otherFlags = false;
+                else
+                {
+                    progIDKey.DeleteValue(accessPoint ? PurposeFlagAccessPoint : PurposeFlagCapability, throwOnMissingValue: false);
+                    otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWith(PurposeFlagPrefix));
+                }
+            }
+
+            // Delete ProgID if there are no other references
+            if (!otherFlags)
+            {
+                try
+                {
+                    classesKey.DeleteSubKeyTree(RegKeyPrefix + fileType.ID);
+                }
+                #region Error handling
+                catch (ArgumentException)
+                {
+                    // Ignore missing registry keys
+                }
+                #endregion
             }
         }
         #endregion
@@ -283,18 +277,16 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 foreach (var verb in capability.Verbs)
                 {
-                    using (var verbKey = shellKey.CreateSubKeyChecked(verb.Name))
-                    {
-                        string verbDescription = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
-                        if (verbDescription != null) verbKey.SetValue("", verbDescription);
-                        if (verb.Extended) verbKey.SetValue(RegValueExtended, "");
+                    using var verbKey = shellKey.CreateSubKeyChecked(verb.Name);
+                    string verbDescription = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
+                    if (verbDescription != null) verbKey.SetValue("", verbDescription);
+                    if (verb.Extended) verbKey.SetValue(RegValueExtended, "");
 
-                        using (var commandKey = verbKey.CreateSubKeyChecked("command"))
-                            commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));
+                    using (var commandKey = verbKey.CreateSubKeyChecked("command"))
+                        commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));
 
-                        // Prevent conflicts with existing entries
-                        shellKey.DeleteSubKey("ddeexec", throwOnMissingSubKey: false);
-                    }
+                    // Prevent conflicts with existing entries
+                    shellKey.DeleteSubKey("ddeexec", throwOnMissingSubKey: false);
                 }
             }
 
@@ -302,8 +294,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco);
             if (icon != null)
             {
-                using (var iconKey = registryKey.CreateSubKeyChecked(RegSubKeyIcon))
-                    iconKey.SetValue("", iconStore.GetPath(icon, machineWide) + ",0");
+                using var iconKey = registryKey.CreateSubKeyChecked(RegSubKeyIcon);
+                iconKey.SetValue("", iconStore.GetPath(icon, machineWide) + ",0");
             }
         }
 

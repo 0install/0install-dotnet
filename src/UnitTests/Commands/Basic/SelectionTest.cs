@@ -24,14 +24,12 @@ namespace ZeroInstall.Commands.Basic
         public virtual void TestImportSelections()
         {
             var selections = Fake.Selections;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                selections.SaveXml(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            selections.SaveXml(tempFile);
 
-                selections.Normalize();
-                RunAndAssert(selections.ToXmlString(), 0, selections,
-                    "--xml", tempFile);
-            }
+            selections.Normalize();
+            RunAndAssert(selections.ToXmlString(), 0, selections,
+                "--xml", tempFile);
         }
     }
 }

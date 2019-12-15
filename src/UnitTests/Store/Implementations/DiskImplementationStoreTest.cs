@@ -150,14 +150,12 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void ShouldAllowToAddFolder()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
-                _implementationStore.AddDirectory(testDir, digest, _handler);
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+            _implementationStore.AddDirectory(testDir, digest, _handler);
 
-                _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
-                _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
-            }
+            _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
+            _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
         }
 
         [Fact]
@@ -165,16 +163,14 @@ namespace ZeroInstall.Store.Implementations
         {
             Directory.Delete(_tempDir, recursive: true);
 
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
-                _implementationStore.AddDirectory(testDir, digest, _handler);
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+            _implementationStore.AddDirectory(testDir, digest, _handler);
 
-                _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
-                _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
+            _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
+            _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
 
-                Directory.Exists(_tempDir).Should().BeTrue(because: "Store directory should have been recreated");
-            }
+            Directory.Exists(_tempDir).Should().BeTrue(because: "Store directory should have been recreated");
         }
 
         [Fact]
@@ -222,15 +218,13 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void TestAuditPass()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
-                var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
-                _implementationStore.AddDirectory(testDir, digest, _handler);
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
+            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
+            _implementationStore.AddDirectory(testDir, digest, _handler);
 
-                _implementationStore.Verify(digest, _handler);
-                _handler.LastQuestion.Should().BeNull();
-            }
+            _implementationStore.Verify(digest, _handler);
+            _handler.LastQuestion.Should().BeNull();
         }
 
         [Fact]
@@ -250,42 +244,40 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void StressTest()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
+
+            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+
+            Exception exception = null;
+            var threads = new Thread[100];
+            for (int i = 0; i < threads.Length; i++)
             {
-                new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
-
-                var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
-
-                Exception exception = null;
-                var threads = new Thread[100];
-                for (int i = 0; i < threads.Length; i++)
+                threads[i] = new Thread(() =>
                 {
-                    threads[i] = new Thread(() =>
+                    try
                     {
-                        try
-                        {
-                            // ReSharper disable once AccessToDisposedClosure
-                            _implementationStore.AddDirectory(testDir, digest, _handler);
-                            _implementationStore.Remove(digest, _handler);
-                        }
-                        catch (ImplementationAlreadyInStoreException)
-                        {}
-                        catch (ImplementationNotFoundException)
-                        {}
-                        catch (Exception ex)
-                        {
-                            exception = ex;
-                        }
-                    });
-                    threads[i].Start();
-                }
-
-                foreach (var thread in threads)
-                    thread.Join();
-                if (exception != null) throw exception.PreserveStack();
-
-                _implementationStore.Contains(digest).Should().BeFalse();
+                        // ReSharper disable once AccessToDisposedClosure
+                        _implementationStore.AddDirectory(testDir, digest, _handler);
+                        _implementationStore.Remove(digest, _handler);
+                    }
+                    catch (ImplementationAlreadyInStoreException)
+                    {}
+                    catch (ImplementationNotFoundException)
+                    {}
+                    catch (Exception ex)
+                    {
+                        exception = ex;
+                    }
+                });
+                threads[i].Start();
             }
+
+            foreach (var thread in threads)
+                thread.Join();
+            if (exception != null) throw exception.PreserveStack();
+
+            _implementationStore.Contains(digest).Should().BeFalse();
         }
     }
 }

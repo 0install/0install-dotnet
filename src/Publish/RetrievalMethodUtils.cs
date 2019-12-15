@@ -73,32 +73,30 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            using (var downloadedFile = retrievalMethod.Download(handler, executor))
+            using var downloadedFile = retrievalMethod.Download(handler, executor);
+            var extractionDir = new TemporaryDirectory("0publish");
+            try
             {
-                var extractionDir = new TemporaryDirectory("0publish");
-                try
+                switch (retrievalMethod)
                 {
-                    switch (retrievalMethod)
-                    {
-                        case Archive archive:
-                            archive.Apply(downloadedFile, extractionDir, handler);
-                            break;
-                        case SingleFile file:
-                            file.Apply(downloadedFile, extractionDir);
-                            break;
-                        default: throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
-                    }
+                    case Archive archive:
+                        archive.Apply(downloadedFile, extractionDir, handler);
+                        break;
+                    case SingleFile file:
+                        file.Apply(downloadedFile, extractionDir);
+                        break;
+                    default: throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
                 }
-                #region Error handling
-                catch
-                {
-                    extractionDir.Dispose();
-                    throw;
-                }
-                #endregion
-
-                return extractionDir;
             }
+            #region Error handling
+            catch
+            {
+                extractionDir.Dispose();
+                throw;
+            }
+            #endregion
+
+            return extractionDir;
         }
 
         /// <summary>

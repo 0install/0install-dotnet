@@ -89,8 +89,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
             RegistryUtils.DeleteSoftwareValue(@"Microsoft\PackageManagement", "ZeroInstall", MachineWide);
 
             var hive = MachineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using (var uninstallKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                uninstallKey?.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
+            using var uninstallKey = hive.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+            uninstallKey?.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
         }
     }
 }

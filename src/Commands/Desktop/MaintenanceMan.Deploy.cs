@@ -147,11 +147,9 @@ namespace ZeroInstall.Commands.Desktop
 
             private void PerformDeploy([NotNull] string targetDir)
             {
-                using (var manager = new MaintenanceManager(targetDir, Handler, _machineWide, _portable))
-                {
-                    Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
-                    manager.Deploy();
-                }
+                using var manager = new MaintenanceManager(targetDir, Handler, _machineWide, _portable);
+                Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
+                manager.Deploy();
             }
 
             private static void RestartCentral([NotNull] string targetDir)

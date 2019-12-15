@@ -17,21 +17,17 @@ namespace ZeroInstall.Publish
         [Fact]
         public void TestCalculateDigest()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string digest = ManifestUtils.CalculateDigest(testDir, ManifestFormat.Sha256New, new SilentTaskHandler());
-                digest.Should().StartWith("sha256new_");
-            }
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            string digest = ManifestUtils.CalculateDigest(testDir, ManifestFormat.Sha256New, new SilentTaskHandler());
+            digest.Should().StartWith("sha256new_");
         }
 
         [Fact]
         public void TestGenerateDigest()
         {
-            using (var testDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                var digest = ManifestUtils.GenerateDigest(testDir, new SilentTaskHandler());
-                digest.Sha256New.Should().NotBeNull();
-            }
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            var digest = ManifestUtils.GenerateDigest(testDir, new SilentTaskHandler());
+            digest.Sha256New.Should().NotBeNull();
         }
     }
 }

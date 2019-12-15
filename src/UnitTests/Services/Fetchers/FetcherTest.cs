@@ -43,92 +43,80 @@ namespace ZeroInstall.Services.Fetchers
         public void DownloadSingleArchive()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var server = new MicroServer("archive.zip", ZipArchiveStream))
-            {
-                TestDownloadArchives(
-                    new Archive {Href = server.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
-            }
+            using var server = new MicroServer("archive.zip", ZipArchiveStream);
+            TestDownloadArchives(
+                new Archive {Href = server.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
         }
 
         [Fact]
         public void DownloadLocalArchive()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                ZipArchiveStream.CopyToFile(tempFile);
-                TestDownloadArchives(
-                    new Archive {Href = new Uri(tempFile), MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
-            }
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            ZipArchiveStream.CopyToFile(tempFile);
+            TestDownloadArchives(
+                new Archive {Href = new Uri(tempFile), MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
         }
 
         [Fact]
         public void DownloadMultipleArchives()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var server1 = new MicroServer("archive.zip", ZipArchiveStream))
-            using (var server2 = new MicroServer("archive.zip", ZipArchiveStream))
-            {
-                TestDownloadArchives(
-                    new Archive {Href = server1.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract1", Destination = "destination1"},
-                    new Archive {Href = server2.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract2", Destination = "destination2"});
-            }
+            using var server1 = new MicroServer("archive.zip", ZipArchiveStream);
+            using var server2 = new MicroServer("archive.zip", ZipArchiveStream);
+            TestDownloadArchives(
+                new Archive {Href = server1.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract1", Destination = "destination1"},
+                new Archive {Href = server2.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract2", Destination = "destination2"});
         }
 
         [Fact]
         public void DownloadSingleFile()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var server = new MicroServer("regular", TestFile.DefaultContents.ToStream()))
-            {
-                TestDownload(
-                    new TestRoot {new TestFile("regular") {LastWrite = UnixEpoch}},
-                    new SingleFile {Href = server.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular"});
-            }
+            using var server = new MicroServer("regular", TestFile.DefaultContents.ToStream());
+            TestDownload(
+                new TestRoot {new TestFile("regular") {LastWrite = UnixEpoch}},
+                new SingleFile {Href = server.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular"});
         }
 
         [Fact]
         public void DownloadRecipe()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var serverArchive = new MicroServer("archive.zip", ZipArchiveStream))
-            using (var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream()))
-            {
-                TestDownload(
-                    new TestRoot
+            using var serverArchive = new MicroServer("archive.zip", ZipArchiveStream);
+            using var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream());
+            TestDownload(
+                new TestRoot
+                {
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)},
+                    new TestFile("regular2") {LastWrite = UnixEpoch},
+                    new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
+                },
+                new Recipe
+                {
+                    Steps =
                     {
-                        new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)},
-                        new TestFile("regular2") {LastWrite = UnixEpoch},
-                        new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
-                    },
-                    new Recipe
-                    {
-                        Steps =
-                        {
-                            new Archive {Href = serverArchive.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length},
-                            new RenameStep {Source = "executable", Destination = "executable2"},
-                            new SingleFile {Href = serverSingleFile.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular2"}
-                        }
-                    });
-            }
+                        new Archive {Href = serverArchive.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length},
+                        new RenameStep {Source = "executable", Destination = "executable2"},
+                        new SingleFile {Href = serverSingleFile.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular2"}
+                    }
+                });
         }
 
         [Fact]
         public void SkipBroken()
         {
             StoreMock.Setup(x => x.Flush());
-            using (var serverArchive = new MicroServer("archive.zip", ZipArchiveStream))
-            using (var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream()))
-            {
-                TestDownload(
-                    new TestRoot {new TestFile("regular") {LastWrite = UnixEpoch}},
-                    // broken: wrong size
-                    new Archive {Href = serverArchive.FileUri, MimeType = Archive.MimeTypeZip, Size = 0},
-                    // broken: unknown archive format
-                    new Archive {Href = serverArchive.FileUri, MimeType = "test/format", Size = ZipArchiveStream.Length},
-                    // works
-                    new Recipe {Steps = {new SingleFile {Href = serverSingleFile.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular"}}});
-            }
+            using var serverArchive = new MicroServer("archive.zip", ZipArchiveStream);
+            using var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream());
+            TestDownload(
+                new TestRoot {new TestFile("regular") {LastWrite = UnixEpoch}},
+                // broken: wrong size
+                new Archive {Href = serverArchive.FileUri, MimeType = Archive.MimeTypeZip, Size = 0},
+                // broken: unknown archive format
+                new Archive {Href = serverArchive.FileUri, MimeType = "test/format", Size = ZipArchiveStream.Length},
+                // works
+                new Recipe {Steps = {new SingleFile {Href = serverSingleFile.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular"}}});
         }
 
         #region Helpers

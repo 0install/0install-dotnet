@@ -156,9 +156,9 @@ namespace ZeroInstall.Store.Implementations.Build
 
             void CopyFile(string existingPath, string newPath)
             {
-                using (var readStream = File.OpenRead(existingPath))
-                using (var writeStream = File.Create(newPath))
-                    readStream.CopyToEx(writeStream, cancellationToken: CancellationToken);
+                using var readStream = File.OpenRead(existingPath);
+                using var writeStream = File.Create(newPath);
+                readStream.CopyToEx(writeStream, cancellationToken: CancellationToken);
             }
         }
 

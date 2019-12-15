@@ -53,11 +53,9 @@ namespace ZeroInstall.DesktopIntegration
 
             void Download()
             {
-                using (var atomic = new AtomicWrite(path))
-                {
-                    _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
-                    atomic.Commit();
-                }
+                using var atomic = new AtomicWrite(path);
+                _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+                atomic.Commit();
             }
 
             lock (_lock) // Prevent concurrent downloads

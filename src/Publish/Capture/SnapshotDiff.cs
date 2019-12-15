@@ -106,31 +106,29 @@ namespace ZeroInstall.Publish.Capture
             if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
             #endregion
 
-            using (var verbKey = typeKey.OpenSubKey(@"shell\" + verbName))
+            using var verbKey = typeKey.OpenSubKey(@"shell\" + verbName);
+            if (verbKey == null) return null;
+
+            string description = verbKey.GetValue("")?.ToString();
+            string commandLine;
+            using (var commandKey = verbKey.OpenSubKey("command"))
             {
-                if (verbKey == null) return null;
-
-                string description = verbKey.GetValue("")?.ToString();
-                string commandLine;
-                using (var commandKey = verbKey.OpenSubKey("command"))
-                {
-                    if (commandKey == null) return null;
-                    commandLine = commandKey.GetValue("")?.ToString();
-                }
-
-                if (string.IsNullOrEmpty(commandLine)) return null;
-                var command = commandMapper.GetCommand(commandLine, out string additionalArgs);
-                if (command == null) return null;
-
-                var verb = new Verb
-                {
-                    Name = verbName,
-                    Command = (command.Name == Command.NameRun) ? null : command.Name,
-                    Arguments = additionalArgs
-                };
-                if (!string.IsNullOrEmpty(description)) verb.Descriptions.Add(description);
-                return verb;
+                if (commandKey == null) return null;
+                commandLine = commandKey.GetValue("")?.ToString();
             }
+
+            if (string.IsNullOrEmpty(commandLine)) return null;
+            var command = commandMapper.GetCommand(commandLine, out string additionalArgs);
+            if (command == null) return null;
+
+            var verb = new Verb
+            {
+                Name = verbName,
+                Command = (command.Name == Command.NameRun) ? null : command.Name,
+                Arguments = additionalArgs
+            };
+            if (!string.IsNullOrEmpty(description)) verb.Descriptions.Add(description);
+            return verb;
         }
     }
 }

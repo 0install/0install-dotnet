@@ -40,8 +40,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         {
             get
             {
-                using (var stream = typeof(MaintenanceManager).GetEmbeddedStream("legacy.manifest"))
-                    return Manifest.Load(stream, ManifestFormat.Sha256New); // The digests are not checked so the format does not matter
+                using var stream = typeof(MaintenanceManager).GetEmbeddedStream("legacy.manifest");
+                return Manifest.Load(stream, ManifestFormat.Sha256New); // The digests are not checked so the format does not matter
             }
         }
 

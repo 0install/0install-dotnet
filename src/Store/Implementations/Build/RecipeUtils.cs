@@ -111,13 +111,11 @@ namespace ZeroInstall.Store.Implementations.Build
 
             if (string.IsNullOrEmpty(step.MimeType)) throw new IOException(Resources.UnknownArchiveType);
 
-            using (var extractor = ArchiveExtractor.Create(localPath, workingDir, step.MimeType, step.StartOffset))
-            {
-                extractor.Extract = step.Extract;
-                extractor.TargetSuffix = FileUtils.UnifySlashes(step.Destination);
-                extractor.Tag = tag;
-                handler.RunTask(extractor);
-            }
+            using var extractor = ArchiveExtractor.Create(localPath, workingDir, step.MimeType, step.StartOffset);
+            extractor.Extract = step.Extract;
+            extractor.TargetSuffix = FileUtils.UnifySlashes(step.Destination);
+            extractor.Tag = tag;
+            handler.RunTask(extractor);
         }
 
         /// <summary>
@@ -138,12 +136,10 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             // Use a copy of the original file because the source file is moved
-            using (var tempFile = new TemporaryFile("0install"))
-            {
-                // ReSharper disable once AccessToDisposedClosure
-                handler.RunTask(new SimpleTask(Resources.CopyFiles, () => File.Copy(localPath, tempFile, overwrite: true)));
-                step.Apply(tempFile, workingDir);
-            }
+            using var tempFile = new TemporaryFile("0install");
+            // ReSharper disable once AccessToDisposedClosure
+            handler.RunTask(new SimpleTask(Resources.CopyFiles, () => File.Copy(localPath, tempFile, overwrite: true)));
+            step.Apply(tempFile, workingDir);
         }
 
         /// <summary>

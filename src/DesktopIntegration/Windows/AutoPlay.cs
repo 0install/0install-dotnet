@@ -99,8 +99,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 if (accessPoint)
                 {
-                    using (var chosenEventKey = hive.CreateSubKeyChecked(RegKeyChosenAssocs + @"\" + autoPlayEvent.Name))
-                        chosenEventKey.SetValue("", FileType.RegKeyPrefix + autoPlay.ID);
+                    using var chosenEventKey = hive.CreateSubKeyChecked(RegKeyChosenAssocs + @"\" + autoPlayEvent.Name);
+                    chosenEventKey.SetValue("", FileType.RegKeyPrefix + autoPlay.ID);
                 }
             }
         }
@@ -148,8 +148,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))
                 {
-                    using (var eventKey = hive.OpenSubKey(RegKeyAssocs + @"\" + autoPlayEvent.Name, writable: true))
-                        eventKey?.DeleteValue(FileType.RegKeyPrefix + autoPlay.ID, throwOnMissingValue: false);
+                    using var eventKey = hive.OpenSubKey(RegKeyAssocs + @"\" + autoPlayEvent.Name, writable: true);
+                    eventKey?.DeleteValue(FileType.RegKeyPrefix + autoPlay.ID, throwOnMissingValue: false);
                 }
 
                 hive.DeleteSubKey(RegKeyHandlers + @"\" + FileType.RegKeyPrefix + autoPlay.ID, throwOnMissingSubKey: false);

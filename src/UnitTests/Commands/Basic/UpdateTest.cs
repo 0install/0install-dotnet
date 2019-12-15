@@ -50,12 +50,10 @@ namespace ZeroInstall.Commands.Basic
         public void TestRejectImportSelections()
         {
             var selections = Fake.Selections;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                selections.SaveXml(tempFile);
-                Sut.Parse(new string[] {tempFile});
-                Assert.Throws<NotSupportedException>(() => Sut.Execute());
-            }
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            selections.SaveXml(tempFile);
+            Sut.Parse(new string[] {tempFile});
+            Assert.Throws<NotSupportedException>(() => Sut.Execute());
         }
     }
 }

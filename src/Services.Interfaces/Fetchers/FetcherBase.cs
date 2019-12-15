@@ -270,8 +270,8 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void ApplyRecipe([NotNull] Recipe recipe, [NotNull, ItemNotNull] IEnumerable<TemporaryFile> files, ManifestDigest manifestDigest)
         {
-            using (var recipeDir = recipe.Apply(files, Handler, manifestDigest))
-                _implementationStore.AddDirectory(recipeDir, manifestDigest, Handler);
+            using var recipeDir = recipe.Apply(files, Handler, manifestDigest);
+            _implementationStore.AddDirectory(recipeDir, manifestDigest, Handler);
         }
     }
 }

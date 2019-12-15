@@ -26,8 +26,8 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
             #endregion
 
-            using (var contextMenuExtendedKey = root.OpenSubKey(key))
-                return contextMenuExtendedKey?.GetValueNames() ?? new string[0];
+            using var contextMenuExtendedKey = root.OpenSubKey(key);
+            return contextMenuExtendedKey?.GetValueNames() ?? new string[0];
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
             #endregion
 
-            using (var contextMenuExtendedKey = root.OpenSubKey(key))
-                return contextMenuExtendedKey?.GetSubKeyNames() ?? new string[0];
+            using var contextMenuExtendedKey = root.OpenSubKey(key);
+            return contextMenuExtendedKey?.GetSubKeyNames() ?? new string[0];
         }
     }
 }

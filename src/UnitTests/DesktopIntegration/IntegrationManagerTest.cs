@@ -57,17 +57,15 @@ namespace ZeroInstall.DesktopIntegration
             var appEntry = _integrationManager.AddApp(target);
 
             // Inject access point into AppEntry (without running integration)
-            using (var unapplyFlag = new TemporaryFlagFile("0install-unit-tests"))
-            {
-                appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {UnapplyFlagPath = unapplyFlag}}};
+            using var unapplyFlag = new TemporaryFlagFile("0install-unit-tests");
+            appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {UnapplyFlagPath = unapplyFlag}}};
 
-                _integrationManager.RemoveApp(appEntry);
-                _integrationManager.AppList.Entries.Should().BeEmpty();
+            _integrationManager.RemoveApp(appEntry);
+            _integrationManager.AppList.Entries.Should().BeEmpty();
 
-                unapplyFlag.Set.Should().BeTrue(because: "Access points should be unapplied when their AppEntry is removed");
-                _integrationManager.Invoking(x => x.RemoveApp(appEntry))
-                                   .Should().NotThrow(because: "Allow multiple removals of applications.");
-            }
+            unapplyFlag.Set.Should().BeTrue(because: "Access points should be unapplied when their AppEntry is removed");
+            _integrationManager.Invoking(x => x.RemoveApp(appEntry))
+                               .Should().NotThrow(because: "Allow multiple removals of applications.");
         }
 
         [Fact]
@@ -76,31 +74,29 @@ namespace ZeroInstall.DesktopIntegration
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var feed1 = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
             var feed2 = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
-            using (var applyFlag1 = new TemporaryFlagFile("0install-unit-tests"))
-            using (var applyFlag2 = new TemporaryFlagFile("0install-unit-tests"))
-            {
-                var accessPoints1 = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1", ApplyFlagPath = applyFlag1}};
-                var accessPoints2 = new AccessPoint[] {new MockAccessPoint {ID = "id2", Capability = "my_ext2", ApplyFlagPath = applyFlag2}};
+            using var applyFlag1 = new TemporaryFlagFile("0install-unit-tests");
+            using var applyFlag2 = new TemporaryFlagFile("0install-unit-tests");
+            var accessPoints1 = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1", ApplyFlagPath = applyFlag1}};
+            var accessPoints2 = new AccessPoint[] {new MockAccessPoint {ID = "id2", Capability = "my_ext2", ApplyFlagPath = applyFlag2}};
 
-                _integrationManager.AppList.Entries.Count.Should().Be(0);
-                var appEntry1 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed1));
-                _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints1);
-                _integrationManager.AppList.Entries.Count.Should().Be(1, because: "Should implicitly create missing AppEntries");
-                applyFlag1.Set.Should().BeTrue(because: "Should apply AccessPoint");
-                applyFlag1.Set = false;
+            _integrationManager.AppList.Entries.Count.Should().Be(0);
+            var appEntry1 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed1));
+            _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints1);
+            _integrationManager.AppList.Entries.Count.Should().Be(1, because: "Should implicitly create missing AppEntries");
+            applyFlag1.Set.Should().BeTrue(because: "Should apply AccessPoint");
+            applyFlag1.Set = false;
 
-                _integrationManager.Invoking(x => x.AddAccessPoints(appEntry1, feed1, accessPoints1))
-                                   .Should().NotThrow(because: "Duplicate access points should be silently reapplied");
-                applyFlag1.Set.Should().BeTrue(because: "Duplicate access points should be silently reapplied");
+            _integrationManager.Invoking(x => x.AddAccessPoints(appEntry1, feed1, accessPoints1))
+                               .Should().NotThrow(because: "Duplicate access points should be silently reapplied");
+            applyFlag1.Set.Should().BeTrue(because: "Duplicate access points should be silently reapplied");
 
-                _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints2);
-                applyFlag2.Set = false;
+            _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints2);
+            applyFlag2.Set = false;
 
-                var appEntry2 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test2Uri, feed2));
-                _integrationManager.Invoking(x => x.AddAccessPoints(appEntry2, feed2, accessPoints2))
-                                   .Should().Throw<ConflictException>(because: "Should prevent access point conflicts");
-                applyFlag2.Set.Should().BeFalse(because: "Should prevent access point conflicts");
-            }
+            var appEntry2 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test2Uri, feed2));
+            _integrationManager.Invoking(x => x.AddAccessPoints(appEntry2, feed2, accessPoints2))
+                               .Should().Throw<ConflictException>(because: "Should prevent access point conflicts");
+            applyFlag2.Set.Should().BeFalse(because: "Should prevent access point conflicts");
         }
 
         [Fact]
@@ -109,22 +105,20 @@ namespace ZeroInstall.DesktopIntegration
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var testApp = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
 
-            using (var unapplyFlag = new TemporaryFlagFile("0install-unit-tests"))
-            {
-                var accessPoint = new MockAccessPoint {ID = "id1", Capability = "my_ext1", UnapplyFlagPath = unapplyFlag};
+            using var unapplyFlag = new TemporaryFlagFile("0install-unit-tests");
+            var accessPoint = new MockAccessPoint {ID = "id1", Capability = "my_ext1", UnapplyFlagPath = unapplyFlag};
 
-                // Inject access point into AppEntry (without running integration)
-                var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, testApp));
-                appEntry.AccessPoints = new AccessPointList {Entries = {accessPoint}};
+            // Inject access point into AppEntry (without running integration)
+            var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, testApp));
+            appEntry.AccessPoints = new AccessPointList {Entries = {accessPoint}};
 
-                _integrationManager.RemoveAccessPoints(appEntry, new[] {accessPoint});
-                _integrationManager.AppList.Entries[0].AccessPoints.Entries.Should().BeEmpty();
+            _integrationManager.RemoveAccessPoints(appEntry, new[] {accessPoint});
+            _integrationManager.AppList.Entries[0].AccessPoints.Entries.Should().BeEmpty();
 
-                unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
+            unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
 
-                _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, new[] {accessPoint}))
-                                   .Should().NotThrow(because: "Allow multiple removals of access points.");
-            }
+            _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, new[] {accessPoint}))
+                               .Should().NotThrow(because: "Allow multiple removals of access points.");
         }
 
         [Fact]
@@ -159,14 +153,12 @@ namespace ZeroInstall.DesktopIntegration
             var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test"});
             var appEntry = _integrationManager.AddApp(target);
 
-            using (var applyFlag = new TemporaryFlagFile("0install-unit-tests"))
-            {
-                // Inject access point into AppEntry (without running integration)
-                appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
-                _integrationManager.Repair(uri => new Feed());
+            using var applyFlag = new TemporaryFlagFile("0install-unit-tests");
+            // Inject access point into AppEntry (without running integration)
+            appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
+            _integrationManager.Repair(uri => new Feed());
 
-                applyFlag.Set.Should().BeTrue(because: "Access points should be reapplied");
-            }
+            applyFlag.Set.Should().BeTrue(because: "Access points should be reapplied");
         }
     }
 }

@@ -37,16 +37,14 @@ namespace ZeroInstall.Publish
         [Fact]
         public void BuildArchive()
         {
-            using (var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var implementation = ImplementationUtils.Build(new Archive {Href = microServer.FileUri}, new SilentTaskHandler());
-                implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
+            using var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var implementation = ImplementationUtils.Build(new Archive {Href = microServer.FileUri}, new SilentTaskHandler());
+            implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
 
-                var archive = (Archive)implementation.RetrievalMethods[0];
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            var archive = (Archive)implementation.RetrievalMethods[0];
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -55,15 +53,13 @@ namespace ZeroInstall.Publish
         [Fact]
         public void BuildSingleFile()
         {
-            using (var originalStream = SingleFileData.ToStream())
-            using (var microServer = new MicroServer(SingleFileName, originalStream))
-            {
-                var implementation = ImplementationUtils.Build(new SingleFile {Href = microServer.FileUri, Destination = SingleFileName}, new SilentTaskHandler());
-                ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
+            using var originalStream = SingleFileData.ToStream();
+            using var microServer = new MicroServer(SingleFileName, originalStream);
+            var implementation = ImplementationUtils.Build(new SingleFile {Href = microServer.FileUri, Destination = SingleFileName}, new SilentTaskHandler());
+            ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
 
-                var file = (SingleFile)implementation.RetrievalMethods[0];
-                file.Size.Should().Be(originalStream.Length);
-            }
+            var file = (SingleFile)implementation.RetrievalMethods[0];
+            file.Size.Should().Be(originalStream.Length);
         }
 
         /// <summary>
@@ -72,16 +68,14 @@ namespace ZeroInstall.Publish
         [Fact]
         public void BuildRecipe()
         {
-            using (var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var implementation = ImplementationUtils.Build(new Recipe {Steps = {new Archive {Href = microServer.FileUri}}}, new SilentTaskHandler());
-                implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
+            using var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var implementation = ImplementationUtils.Build(new Recipe {Steps = {new Archive {Href = microServer.FileUri}}}, new SilentTaskHandler());
+            implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
 
-                var archive = (Archive)((Recipe)implementation.RetrievalMethods[0]).Steps[0];
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            var archive = (Archive)((Recipe)implementation.RetrievalMethods[0]).Steps[0];
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -90,17 +84,15 @@ namespace ZeroInstall.Publish
         [Fact]
         public void AddMissingArchive()
         {
-            using (var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var implementation = new Implementation {RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
-                implementation.AddMissing(new SilentTaskHandler());
-                implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
+            using var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var implementation = new Implementation {RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+            implementation.AddMissing(new SilentTaskHandler());
+            implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
 
-                var archive = (Archive)implementation.RetrievalMethods[0];
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            var archive = (Archive)implementation.RetrievalMethods[0];
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -109,17 +101,15 @@ namespace ZeroInstall.Publish
         [Fact]
         public void AddMissingSingleFile()
         {
-            using (var originalStream = SingleFileData.ToStream())
-            using (var microServer = new MicroServer(SingleFileName, originalStream))
-            {
-                var implementation = new Implementation {RetrievalMethods = {new SingleFile {Href = microServer.FileUri}}};
-                implementation.AddMissing(new SilentTaskHandler());
-                ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
+            using var originalStream = SingleFileData.ToStream();
+            using var microServer = new MicroServer(SingleFileName, originalStream);
+            var implementation = new Implementation {RetrievalMethods = {new SingleFile {Href = microServer.FileUri}}};
+            implementation.AddMissing(new SilentTaskHandler());
+            ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
 
-                var file = (SingleFile)implementation.RetrievalMethods[0];
-                file.Size.Should().Be(originalStream.Length);
-                file.Destination.Should().Be(SingleFileName);
-            }
+            var file = (SingleFile)implementation.RetrievalMethods[0];
+            file.Size.Should().Be(originalStream.Length);
+            file.Destination.Should().Be(SingleFileName);
         }
 
         /// <summary>
@@ -128,17 +118,15 @@ namespace ZeroInstall.Publish
         [Fact]
         public void AddMissingRecipe()
         {
-            using (var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var implementation = new Implementation {RetrievalMethods = {new Recipe {Steps = {new Archive {Href = microServer.FileUri}}}}};
-                implementation.AddMissing(new SilentTaskHandler());
-                implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
+            using var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var implementation = new Implementation {RetrievalMethods = {new Recipe {Steps = {new Archive {Href = microServer.FileUri}}}}};
+            implementation.AddMissing(new SilentTaskHandler());
+            implementation.ManifestDigest.Sha256New.Should().Be(ArchiveSha256Digest);
 
-                var archive = (Archive)((Recipe)implementation.RetrievalMethods[0]).Steps[0];
-                archive.MimeType.Should().Be(Archive.MimeTypeZip);
-                archive.Size.Should().Be(stream.Length);
-            }
+            var archive = (Archive)((Recipe)implementation.RetrievalMethods[0]).Steps[0];
+            archive.MimeType.Should().Be(Archive.MimeTypeZip);
+            archive.Size.Should().Be(stream.Length);
         }
 
         /// <summary>
@@ -147,23 +135,21 @@ namespace ZeroInstall.Publish
         [Fact]
         public void GenerateMissingArchive()
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-            {
-                string feedPath = Path.Combine(tempDir, "feed.xml");
-                Directory.CreateDirectory(Path.Combine(tempDir, "impl"));
-                FileUtils.Touch(Path.Combine(tempDir, "impl", "file"));
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            string feedPath = Path.Combine(tempDir, "feed.xml");
+            Directory.CreateDirectory(Path.Combine(tempDir, "impl"));
+            FileUtils.Touch(Path.Combine(tempDir, "impl", "file"));
 
-                var archive = new Archive {Href = new Uri("archive.zip", UriKind.Relative)};
-                var implementation = new Implementation {LocalPath = "impl", RetrievalMethods = {archive}};
+            var archive = new Archive {Href = new Uri("archive.zip", UriKind.Relative)};
+            var implementation = new Implementation {LocalPath = "impl", RetrievalMethods = {archive}};
 
-                implementation.AddMissing(new SilentTaskHandler(), new SimpleCommandExecutor {Path = feedPath});
+            implementation.AddMissing(new SilentTaskHandler(), new SimpleCommandExecutor {Path = feedPath});
 
-                implementation.LocalPath.Should().BeNull();
-                implementation.ManifestDigest.Should().NotBe(default(ManifestDigest));
-                archive.Size.Should().NotBe(0);
+            implementation.LocalPath.Should().BeNull();
+            implementation.ManifestDigest.Should().NotBe(default(ManifestDigest));
+            archive.Size.Should().NotBe(0);
 
-                File.Exists(Path.Combine(tempDir, "archive.zip")).Should().BeTrue();
-            }
+            File.Exists(Path.Combine(tempDir, "archive.zip")).Should().BeTrue();
         }
 
         /// <summary>
@@ -172,12 +158,10 @@ namespace ZeroInstall.Publish
         [Fact]
         public void AddMissingExceptions()
         {
-            using (var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip"))
-            using (var microServer = new MicroServer("archive.zip", stream))
-            {
-                var implementation = new Implementation {ManifestDigest = new ManifestDigest(sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
-                Assert.Throws<DigestMismatchException>(() => implementation.AddMissing(new SilentTaskHandler()));
-            }
+            using var stream = typeof(ImplementationUtilsTest).GetEmbeddedStream("testArchive.zip");
+            using var microServer = new MicroServer("archive.zip", stream);
+            var implementation = new Implementation {ManifestDigest = new ManifestDigest(sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+            Assert.Throws<DigestMismatchException>(() => implementation.AddMissing(new SilentTaskHandler()));
         }
     }
 }

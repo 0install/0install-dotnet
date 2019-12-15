@@ -41,13 +41,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         private static void Test(TestRoot root, params ManifestNode[] expected)
         {
-            using (var sourceDirectory = new TemporaryDirectory("0install-unit-tests"))
-            {
-                root.Build(sourceDirectory);
-                var generator = new ManifestGenerator(sourceDirectory, ManifestFormat.Sha1New);
-                generator.Run();
-                generator.Manifest.Should().Equal(expected);
-            }
+            using var sourceDirectory = new TemporaryDirectory("0install-unit-tests");
+            root.Build(sourceDirectory);
+            var generator = new ManifestGenerator(sourceDirectory, ManifestFormat.Sha1New);
+            generator.Run();
+            generator.Manifest.Should().Equal(expected);
         }
     }
 }

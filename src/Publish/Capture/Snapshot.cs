@@ -107,17 +107,15 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
         private static ComparableTuple<string>[] GetServiceAssocs()
         {
-            using (var clientsKey = Registry.LocalMachine.OpenSubKey(DefaultProgram.RegKeyMachineClients))
-            {
-                if (clientsKey == null) return new ComparableTuple<string>[0];
+            using var clientsKey = Registry.LocalMachine.OpenSubKey(DefaultProgram.RegKeyMachineClients);
+            if (clientsKey == null) return new ComparableTuple<string>[0];
 
-                return (
-                    from serviceName in clientsKey.GetSubKeyNames()
-                    // ReSharper disable AccessToDisposedClosure
-                    from clientName in RegUtils.GetSubKeyNames(clientsKey, serviceName)
-                    // ReSharper restore AccessToDisposedClosure
-                    select new ComparableTuple<string>(serviceName, clientName)).ToArray();
-            }
+            return (
+                from serviceName in clientsKey.GetSubKeyNames()
+                // ReSharper disable AccessToDisposedClosure
+                from clientName in RegUtils.GetSubKeyNames(clientsKey, serviceName)
+                // ReSharper restore AccessToDisposedClosure
+                select new ComparableTuple<string>(serviceName, clientName)).ToArray();
         }
 
         /// <summary>
@@ -132,16 +130,14 @@ namespace ZeroInstall.Publish.Capture
             {
                 if (keyName.StartsWith("."))
                 {
-                    using (var assocKey = Registry.ClassesRoot.OpenSubKey(keyName))
-                    {
-                        // Get the main ProgID
-                        string assocValue = assocKey?.GetValue("")?.ToString();
-                        if (string.IsNullOrEmpty(assocValue)) continue;
-                        fileAssocsList.Add(new ComparableTuple<string>(keyName, assocValue));
+                    using var assocKey = Registry.ClassesRoot.OpenSubKey(keyName);
+                    // Get the main ProgID
+                    string assocValue = assocKey?.GetValue("")?.ToString();
+                    if (string.IsNullOrEmpty(assocValue)) continue;
+                    fileAssocsList.Add(new ComparableTuple<string>(keyName, assocValue));
 
-                        // Get additional ProgIDs
-                        fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => new ComparableTuple<string>(keyName, progID)));
-                    }
+                    // Get additional ProgIDs
+                    fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => new ComparableTuple<string>(keyName, progID)));
                 }
                 else progIDsList.Add(keyName);
             }
@@ -168,15 +164,13 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
         private static ComparableTuple<string>[] GetAutoPlayAssocs(RegistryKey hive)
         {
-            using (var eventsKey = hive.OpenSubKey(AutoPlay.RegKeyAssocs))
-            {
-                if (eventsKey == null) return new ComparableTuple<string>[0];
+            using var eventsKey = hive.OpenSubKey(AutoPlay.RegKeyAssocs);
+            if (eventsKey == null) return new ComparableTuple<string>[0];
 
-                return (
-                    from eventName in eventsKey.GetSubKeyNames()
-                    from handlerName in RegUtils.GetValueNames(eventsKey, eventName)
-                    select new ComparableTuple<string>(eventName, handlerName)).ToArray();
-            }
+            return (
+                from eventName in eventsKey.GetSubKeyNames()
+                from handlerName in RegUtils.GetValueNames(eventsKey, eventName)
+                select new ComparableTuple<string>(eventName, handlerName)).ToArray();
         }
         #endregion
 

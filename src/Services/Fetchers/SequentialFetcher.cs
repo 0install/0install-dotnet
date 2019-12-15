@@ -61,36 +61,34 @@ namespace ZeroInstall.Services.Fetchers
             #endregion
 
             // Use mutex to detect in-progress download of same implementation in other processes
-            using (var mutex = new Mutex(false, "0install-fetcher-" + GetDownloadID(implementation)))
+            using var mutex = new Mutex(false, "0install-fetcher-" + GetDownloadID(implementation));
+            try
             {
-                try
-                {
-                    while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
-                        Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag}); // Wait for mutex to be released
-                }
-                #region Error handling
-                catch (AbandonedMutexException ex)
-                {
-                    // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere
-                    Log.Warn(ex.Message);
-                }
-                #endregion
+                while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
+                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag}); // Wait for mutex to be released
+            }
+            #region Error handling
+            catch (AbandonedMutexException ex)
+            {
+                // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere
+                Log.Warn(ex.Message);
+            }
+            #endregion
 
-                try
-                {
-                    // Check if another process added the implementation in the meantime
-                    string path = GetPathSafe(implementation);
-                    if (path != null) return path;
+            try
+            {
+                // Check if another process added the implementation in the meantime
+                string path = GetPathSafe(implementation);
+                if (path != null) return path;
 
-                    if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
-                    Retrieve(implementation);
+                if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
+                Retrieve(implementation);
 
-                    return GetPathSafe(implementation);
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
+                return GetPathSafe(implementation);
+            }
+            finally
+            {
+                mutex.ReleaseMutex();
             }
         }
 

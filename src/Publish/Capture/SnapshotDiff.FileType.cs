@@ -50,45 +50,41 @@ namespace ZeroInstall.Publish.Capture
             if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
             #endregion
 
-            using (var progIDKey = Registry.ClassesRoot.OpenSubKey(progID))
-            {
-                if (progIDKey == null) return null;
+            using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
+            if (progIDKey == null) return null;
 
-                VerbCapability capability;
-                if (progIDKey.GetValue(DesktopIntegration.Windows.UrlProtocol.ProtocolIndicator) == null)
-                { // Normal file type
-                    var fileType = new FileType {ID = progID};
+            VerbCapability capability;
+            if (progIDKey.GetValue(DesktopIntegration.Windows.UrlProtocol.ProtocolIndicator) == null)
+            { // Normal file type
+                var fileType = new FileType {ID = progID};
 
-                    foreach (var fileAssoc in FileAssocs.Where(fileAssoc => fileAssoc.Value == progID && !string.IsNullOrEmpty(fileAssoc.Key)))
+                foreach (var fileAssoc in FileAssocs.Where(fileAssoc => fileAssoc.Value == progID && !string.IsNullOrEmpty(fileAssoc.Key)))
+                {
+                    using var assocKey = Registry.ClassesRoot.OpenSubKey(fileAssoc.Key);
+                    if (assocKey == null) continue;
+
+                    fileType.Extensions.Add(new FileTypeExtension
                     {
-                        using (var assocKey = Registry.ClassesRoot.OpenSubKey(fileAssoc.Key))
-                        {
-                            if (assocKey == null) continue;
-
-                            fileType.Extensions.Add(new FileTypeExtension
-                            {
-                                Value = fileAssoc.Key,
-                                MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType)?.ToString(),
-                                PerceivedType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValuePerceivedType)?.ToString()
-                            });
-                        }
-                    }
-
-                    capability = fileType;
-                }
-                else
-                { // URL protocol handler
-                    capability = new UrlProtocol {ID = progID};
+                        Value = fileAssoc.Key,
+                        MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType)?.ToString(),
+                        PerceivedType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValuePerceivedType)?.ToString()
+                    });
                 }
 
-                var description = progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName) ?? progIDKey.GetValue("");
-                if (description != null) capability.Descriptions.Add(description.ToString());
-
-                capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
-
-                // Only return capabilities that have verbs associated with them
-                return capability.Verbs.Count == 0 ? null : capability;
+                capability = fileType;
             }
+            else
+            { // URL protocol handler
+                capability = new UrlProtocol {ID = progID};
+            }
+
+            var description = progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName) ?? progIDKey.GetValue("");
+            if (description != null) capability.Descriptions.Add(description.ToString());
+
+            capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
+
+            // Only return capabilities that have verbs associated with them
+            return capability.Verbs.Count == 0 ? null : capability;
         }
     }
 }

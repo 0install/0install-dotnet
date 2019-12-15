@@ -37,11 +37,9 @@ namespace ZeroInstall.Commands.Desktop
 
             protected void PerformRemove()
             {
-                using (var manager = new MaintenanceManager(TargetDir, Handler, MachineWide, Portable))
-                {
-                    Log.Info($"Using Zero Install instance at '{Locations.InstallBase}' to remove '{TargetDir}'");
-                    manager.Remove();
-                }
+                using var manager = new MaintenanceManager(TargetDir, Handler, MachineWide, Portable);
+                Log.Info($"Using Zero Install instance at '{Locations.InstallBase}' to remove '{TargetDir}'");
+                manager.Remove();
             }
         }
 

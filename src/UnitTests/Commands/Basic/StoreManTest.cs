@@ -32,120 +32,106 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Archive()
             {
-                using (var tempFile = new TemporaryFile("0install-unit-tests"))
+                using var tempFile = new TemporaryFile("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = tempFile;
+                StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = tempFile;
-                    StoreMock.Setup(x => x.AddArchives(new[]
-                    {
-                        new ArchiveFileInfo {Path = path}
-                    }, digest, Handler)).Returns("");
+                    new ArchiveFileInfo {Path = path}
+                }, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, path);
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, path);
             }
 
             [Fact]
             public void ArchiveRelativePath()
             {
-                using (var tempDir = new TemporaryWorkingDirectory("0install-unit-tests"))
+                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = Path.Combine(tempDir, "archive");
+                File.WriteAllText(path, "xyz");
+                StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = Path.Combine(tempDir, "archive");
-                    File.WriteAllText(path, "xyz");
-                    StoreMock.Setup(x => x.AddArchives(new[]
-                    {
-                        new ArchiveFileInfo {Path = path}
-                    }, digest, Handler)).Returns("");
+                    new ArchiveFileInfo {Path = path}
+                }, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, "archive");
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, "archive");
             }
 
             [Fact]
             public void ArchiveExtract()
             {
-                using (var tempFile = new TemporaryFile("0install-unit-tests"))
+                using var tempFile = new TemporaryFile("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = tempFile;
+                StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = tempFile;
-                    StoreMock.Setup(x => x.AddArchives(new[]
-                    {
-                        new ArchiveFileInfo {Path = path, Extract = "extract"}
-                    }, digest, Handler)).Returns("");
+                    new ArchiveFileInfo {Path = path, Extract = "extract"}
+                }, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, path, "extract");
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, path, "extract");
             }
 
             [Fact]
             public void ArchiveExtractMime()
             {
-                using (var tempFile = new TemporaryFile("0install-unit-tests"))
+                using var tempFile = new TemporaryFile("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = tempFile;
+                StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = tempFile;
-                    StoreMock.Setup(x => x.AddArchives(new[]
-                    {
-                        new ArchiveFileInfo {Path = path, Extract = "extract", MimeType = "mime"}
-                    }, digest, Handler)).Returns("");
+                    new ArchiveFileInfo {Path = path, Extract = "extract", MimeType = "mime"}
+                }, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, path, "extract", "mime");
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, path, "extract", "mime");
             }
 
             [Fact]
             public void MultipleArchives()
             {
-                using (var tempFile1 = new TemporaryFile("0install-unit-tests"))
-                using (var tempFile2 = new TemporaryFile("0install-unit-tests"))
+                using var tempFile1 = new TemporaryFile("0install-unit-tests");
+                using var tempFile2 = new TemporaryFile("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path1 = tempFile1;
+                string path2 = tempFile2;
+                StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path1 = tempFile1;
-                    string path2 = tempFile2;
-                    StoreMock.Setup(x => x.AddArchives(new[]
-                    {
-                        new ArchiveFileInfo {Path = path1, Extract = "extract1", MimeType = "mime1"},
-                        new ArchiveFileInfo {Path = path2, Extract = "extract2", MimeType = "mime2"}
-                    }, digest, Handler)).Returns("");
+                    new ArchiveFileInfo {Path = path1, Extract = "extract1", MimeType = "mime1"},
+                    new ArchiveFileInfo {Path = path2, Extract = "extract2", MimeType = "mime2"}
+                }, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New,
-                        path1, "extract1", "mime1",
-                        path2, "extract2", "mime2");
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New,
+                    path1, "extract1", "mime1",
+                    path2, "extract2", "mime2");
             }
 
             [Fact]
             public void Directory()
             {
-                using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-                {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = tempDir;
-                    StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
+                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = tempDir;
+                StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, path);
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, path);
             }
 
             [Fact]
             public void DirectoryRelativePath()
             {
-                using (var tempDir = new TemporaryWorkingDirectory("0install-unit-tests"))
-                {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = tempDir;
-                    StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
+                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = tempDir;
+                StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New, ".");
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, ".");
             }
         }
 
@@ -167,28 +153,24 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Normal()
             {
-                using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-                {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
-                    StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
+                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
+                StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK, path);
-                }
+                RunAndAssert(null, ExitCode.OK, path);
             }
 
             [Fact]
             public void RelativePath()
             {
-                using (var tempDir = new TemporaryWorkingDirectory("0install-unit-tests"))
-                {
-                    var digest = new ManifestDigest(sha256New: "abc");
-                    string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
-                    StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
+                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
+                StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
 
-                    RunAndAssert(null, ExitCode.OK,
-                        "sha256new_" + digest.Sha256New);
-                }
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New);
             }
         }
 
@@ -221,18 +203,16 @@ namespace ZeroInstall.Commands.Basic
                 var digest1 = testImplementation.ManifestDigest;
                 var digest2 = new ManifestDigest(sha256New: "2");
 
-                using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-                {
-                    GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
-                    GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
-                    StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
-                    StoreMock.Setup(x => x.ListAllTemp()).Returns(new string[0]);
-                    StoreMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(tempDir);
-                    FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
+                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
+                GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
+                StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
+                StoreMock.Setup(x => x.ListAllTemp()).Returns(new string[0]);
+                StoreMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(tempDir);
+                FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
 
-                    var feedNode = new FeedNode(testFeed, Sut.FeedCache);
-                    RunAndAssert(new ImplementationNode[] {new OwnedImplementationNode(digest1, testImplementation, feedNode, Sut.ImplementationStore), new OrphanedImplementationNode(digest2, Sut.ImplementationStore)}, ExitCode.OK);
-                }
+                var feedNode = new FeedNode(testFeed, Sut.FeedCache);
+                RunAndAssert(new ImplementationNode[] {new OwnedImplementationNode(digest1, testImplementation, feedNode, Sut.ImplementationStore), new OrphanedImplementationNode(digest2, Sut.ImplementationStore)}, ExitCode.OK);
             }
         }
 

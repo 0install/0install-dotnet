@@ -30,16 +30,14 @@ namespace ZeroInstall.Publish.Capture
 
             foreach (string protocol in ProtocolAssocs.Select(protocolAssoc => protocolAssoc.Key))
             {
-                using (var protocolKey = Registry.ClassesRoot.OpenSubKey(protocol))
+                using var protocolKey = Registry.ClassesRoot.OpenSubKey(protocol);
+                if (protocolKey == null) throw new IOException(protocol + " not found");
+                capabilities.Entries.Add(new UrlProtocol
                 {
-                    if (protocolKey == null) throw new IOException(protocol + " not found");
-                    capabilities.Entries.Add(new UrlProtocol
-                    {
-                        ID = protocol,
-                        Descriptions = {RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol, valueName: null, defaultValue: protocol)},
-                        Verbs = {GetVerb(protocolKey, commandMapper, "open")}
-                    });
-                }
+                    ID = protocol,
+                    Descriptions = {RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol, valueName: null, defaultValue: protocol)},
+                    Verbs = {GetVerb(protocolKey, commandMapper, "open")}
+                });
             }
         }
     }

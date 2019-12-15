@@ -70,29 +70,27 @@ namespace ZeroInstall.Services.Solvers
             Selections selections = null;
             _handler.RunTask(new SimpleTask(Resources.ExternalSolverRunning, () =>
             {
-                using (var control = new ExternalSolverSession(GetStartInfo())
+                using var control = new ExternalSolverSession(GetStartInfo())
                 {
                     {"confirm", args => DoConfirm((string)args[0])},
                     {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
                     {"update-key-info", args => null}
-                })
+                };
+                control.Invoke(args =>
                 {
-                    control.Invoke(args =>
+                    if ((string)args[0] == "ok")
                     {
-                        if ((string)args[0] == "ok")
-                        {
-                            _feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
-                            selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
-                        }
-                        else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
-                    }, "select", GetEffectiveRequirements(requirements), _feedManager.Refresh);
-                    while (selections == null)
-                    {
-                        control.HandleStderr();
-                        control.HandleNextChunk();
+                        _feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
+                        selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
                     }
+                    else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
+                }, "select", GetEffectiveRequirements(requirements), _feedManager.Refresh);
+                while (selections == null)
+                {
                     control.HandleStderr();
+                    control.HandleNextChunk();
                 }
+                control.HandleStderr();
             }));
 
             // Invalidate in-memory feed cache, because external solver may have modified on-disk feed cache

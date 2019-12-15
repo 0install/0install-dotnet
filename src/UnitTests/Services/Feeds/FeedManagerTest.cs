@@ -47,21 +47,19 @@ namespace ZeroInstall.Services.Feeds
         [Fact]
         public void Local()
         {
-            using (var feedFile = new TemporaryFile("0install-unit-tests"))
-            {
-                _feedPreNormalize.SaveXml(feedFile);
+            using var feedFile = new TemporaryFile("0install-unit-tests");
+            _feedPreNormalize.SaveXml(feedFile);
 
-                var result = _feedManager[new FeedUri(feedFile)];
-                result.Should().Be(_feedPostNormalize);
-                _feedManager.Stale.Should().BeFalse();
-            }
+            var result = _feedManager[new FeedUri(feedFile)];
+            result.Should().Be(_feedPostNormalize);
+            _feedManager.Stale.Should().BeFalse();
         }
 
         [Fact]
         public void LocalMissing()
         {
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
-                Assert.Throws<FileNotFoundException>(() => _feedManager[new FeedUri(Path.Combine(tempDir, "invalid"))]);
+            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            Assert.Throws<FileNotFoundException>(() => _feedManager[new FeedUri(Path.Combine(tempDir, "invalid"))]);
         }
 
         [Fact]
@@ -69,26 +67,24 @@ namespace ZeroInstall.Services.Feeds
         {
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
-            using (var server = new MicroServer("feed.xml", feedStream))
-            {
-                feed.Uri = new FeedUri(server.FileUri);
-                feed.SaveXml(feedStream);
-                var data = feedStream.ToArray();
-                feedStream.Position = 0;
+            using var server = new MicroServer("feed.xml", feedStream);
+            feed.Uri = new FeedUri(server.FileUri);
+            feed.SaveXml(feedStream);
+            var data = feedStream.ToArray();
+            feedStream.Position = 0;
 
-                _feedManager.IsStale(feed.Uri).Should().BeTrue(because: "Non-cached feeds should be reported as stale");
+            _feedManager.IsStale(feed.Uri).Should().BeTrue(because: "Non-cached feeds should be reported as stale");
 
-                // No previous feed
-                _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
-                _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
+            // No previous feed
+            _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
+            _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
-                _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
-                _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
+            _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
+            _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
 
-                _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+            _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
-                _feedManager[feed.Uri].Should().Be(feed);
-            }
+            _feedManager[feed.Uri].Should().Be(feed);
         }
 
         [Fact]
@@ -99,15 +95,13 @@ namespace ZeroInstall.Services.Feeds
             feed.SaveXml(feedStream);
             feedStream.Position = 0;
 
-            using (var server = new MicroServer("feed.xml", feedStream))
-            {
-                var feedUri = new FeedUri(server.FileUri);
+            using var server = new MicroServer("feed.xml", feedStream);
+            var feedUri = new FeedUri(server.FileUri);
 
-                // No previous feed
-                _feedCacheMock.Setup(x => x.Contains(feedUri)).Returns(false);
+            // No previous feed
+            _feedCacheMock.Setup(x => x.Contains(feedUri)).Returns(false);
 
-                Assert.Throws<InvalidDataException>(() => _feedManager[feedUri]);
-            }
+            Assert.Throws<InvalidDataException>(() => _feedManager[feedUri]);
         }
 
         [Fact]
@@ -123,14 +117,12 @@ namespace ZeroInstall.Services.Feeds
 
             _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
             _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
-            using (var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data)))
-            {
-                // ReSharper disable once AccessToDisposedClosure
-                _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+            using var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data));
+            // ReSharper disable once AccessToDisposedClosure
+            _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
-                _config.FeedMirror = mirrorServer.ServerUri;
-                _feedManager[feed.Uri].Should().Be(feed);
-            }
+            _config.FeedMirror = mirrorServer.ServerUri;
+            _feedManager[feed.Uri].Should().Be(feed);
         }
 
         [Fact]
@@ -162,15 +154,13 @@ namespace ZeroInstall.Services.Feeds
         {
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
-            using (var server = new MicroServer("feed.xml", feedStream))
-            {
-                feed.Uri = new FeedUri(server.FileUri);
-                feed.SaveXml(feedStream);
-                var feedData = feedStream.ToArray();
-                feedStream.Position = 0;
+            using var server = new MicroServer("feed.xml", feedStream);
+            feed.Uri = new FeedUri(server.FileUri);
+            feed.SaveXml(feedStream);
+            var feedData = feedStream.ToArray();
+            feedStream.Position = 0;
 
-                AssertRefreshData(feed, feedData);
-            }
+            AssertRefreshData(feed, feedData);
         }
 
         [Fact]
@@ -178,20 +168,18 @@ namespace ZeroInstall.Services.Feeds
         {
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
-            using (var server = new MicroServer("feed.xml", feedStream))
-            {
-                feed.Uri = new FeedUri(server.FileUri);
-                feed.SaveXml(feedStream);
-                var feedData = feedStream.ToArray();
-                feedStream.Position = 0;
+            using var server = new MicroServer("feed.xml", feedStream);
+            feed.Uri = new FeedUri(server.FileUri);
+            feed.SaveXml(feedStream);
+            var feedData = feedStream.ToArray();
+            feedStream.Position = 0;
 
-                // Cause feed to become in-memory cached
-                _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(true);
-                _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
-                _feedManager[feed.Uri].Should().Be(feed);
+            // Cause feed to become in-memory cached
+            _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(true);
+            _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
+            _feedManager[feed.Uri].Should().Be(feed);
 
-                AssertRefreshData(feed, feedData);
-            }
+            AssertRefreshData(feed, feedData);
         }
 
         private void AssertRefreshData(Feed feed, byte[] feedData)
@@ -237,11 +225,9 @@ namespace ZeroInstall.Services.Feeds
             _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
             _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
-            using (var feedFile = new TemporaryFile("0install-unit-tests"))
-            {
-                File.WriteAllBytes(feedFile, data);
-                _feedManager.ImportFeed(feedFile);
-            }
+            using var feedFile = new TemporaryFile("0install-unit-tests");
+            File.WriteAllBytes(feedFile, data);
+            _feedManager.ImportFeed(feedFile);
         }
 
         [Fact] // Ensures replay attacks are detected.
@@ -256,11 +242,9 @@ namespace ZeroInstall.Services.Feeds
                 new ValidSignature(OpenPgpUtilsTest.TestKeyID, OpenPgpUtilsTest.TestFingerprint, new DateTime(2002, 1, 1, 0, 0, 0, DateTimeKind.Utc))
             });
 
-            using (var feedFile = new TemporaryFile("0install-unit-tests"))
-            {
-                File.WriteAllBytes(feedFile, data);
-                Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(feedFile));
-            }
+            using var feedFile = new TemporaryFile("0install-unit-tests");
+            File.WriteAllBytes(feedFile, data);
+            Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(feedFile));
         }
 
         /// <summary>

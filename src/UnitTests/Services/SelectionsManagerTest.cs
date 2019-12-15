@@ -50,32 +50,30 @@ namespace ZeroInstall.Services
         [Fact]
         public void TestGetUncachedSelectionsPackageManager()
         {
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            var impl1 = new ExternalImplementation("RPM", "firefox", new ImplementationVersion("1.0")) {IsInstalled = false};
+            var impl2 = new ExternalImplementation("RPM", "thunderbird", new ImplementationVersion("1.0")) {IsInstalled = true};
+            var impl3 = new ExternalImplementation("RPM", "vlc", new ImplementationVersion("1.0")) {IsInstalled = true, QuickTestFile = tempFile};
+
+            var selections = new Selections
             {
-                var impl1 = new ExternalImplementation("RPM", "firefox", new ImplementationVersion("1.0")) {IsInstalled = false};
-                var impl2 = new ExternalImplementation("RPM", "thunderbird", new ImplementationVersion("1.0")) {IsInstalled = true};
-                var impl3 = new ExternalImplementation("RPM", "vlc", new ImplementationVersion("1.0")) {IsInstalled = true, QuickTestFile = tempFile};
-
-                var selections = new Selections
+                InterfaceUri = FeedTest.Test1Uri,
+                Command = Command.NameRun,
+                Implementations =
                 {
-                    InterfaceUri = FeedTest.Test1Uri,
-                    Command = Command.NameRun,
-                    Implementations =
-                    {
-                        new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, QuickTestFile = impl1.QuickTestFile},
-                        new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, QuickTestFile = impl2.QuickTestFile},
-                        new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, QuickTestFile = impl3.QuickTestFile}
-                    }
-                };
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, QuickTestFile = impl1.QuickTestFile},
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, QuickTestFile = impl2.QuickTestFile},
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, QuickTestFile = impl3.QuickTestFile}
+                }
+            };
 
-                _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[0])).Returns(impl1);
-                _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[1])).Returns(impl2);
+            _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[0])).Returns(impl1);
+            _packageManagerMock.Setup(x => x.Lookup(selections.Implementations[1])).Returns(impl2);
 
-                var implementationSelections = _selectionsManager.GetUncachedSelections(selections);
+            var implementationSelections = _selectionsManager.GetUncachedSelections(selections);
 
-                // Only the first implementation should be listed as uncached
-                implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
-            }
+            // Only the first implementation should be listed as uncached
+            implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
         }
 
         [Fact]

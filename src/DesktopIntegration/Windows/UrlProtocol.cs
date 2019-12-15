@@ -55,8 +55,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 if (accessPoint)
                 { // Can only be registered invasively by registering protocol ProgID (will replace existing and become default)
-                    using (var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + urlProtocol.ID))
-                        FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                    using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + urlProtocol.ID);
+                    FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
                 }
             }
             else
@@ -75,14 +75,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         if (WindowsUtils.IsWindowsVista && !machineWide)
                         {
-                            using (var someKey = Registry.CurrentUser.CreateSubKeyChecked(RegKeyUserVistaUrlAssoc + @"\" + prefix.Value + @"\UserChoice"))
-                                someKey.SetValue("ProgID", FileType.RegKeyPrefix + urlProtocol.ID);
+                            using var someKey = Registry.CurrentUser.CreateSubKeyChecked(RegKeyUserVistaUrlAssoc + @"\" + prefix.Value + @"\UserChoice");
+                            someKey.SetValue("ProgID", FileType.RegKeyPrefix + urlProtocol.ID);
                         }
                         else
                         {
                             // Setting default invasively by registering protocol ProgID
-                            using (var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + prefix.Value))
-                                FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                            using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + prefix.Value);
+                            FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
                         }
                     }
                 }

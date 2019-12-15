@@ -86,11 +86,9 @@ namespace ZeroInstall.Store.Implementations.Deployment
         {
             TempDir.Dispose();
 
-            using (var operation = new ClearDirectory(TempDir, Manifest, new SilentTaskHandler()))
-            {
-                operation.Stage();
-                operation.Commit();
-            }
+            using var operation = new ClearDirectory(TempDir, Manifest, new SilentTaskHandler());
+            operation.Stage();
+            operation.Commit();
         }
     }
 }

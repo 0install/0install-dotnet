@@ -48,12 +48,10 @@ namespace ZeroInstall.Store.Feeds
                 new Uri("search/?q=" + Uri.EscapeUriString(keywords), UriKind.Relative));
 
             Log.Info("Performing search query: " + url.ToStringRfc());
-            using (var webClient = new WebClientTimeout())
-            {
-                var result = XmlStorage.FromXmlString<SearchQuery>(webClient.DownloadString(url));
-                result.Keywords = keywords;
-                return result;
-            }
+            using var webClient = new WebClientTimeout();
+            var result = XmlStorage.FromXmlString<SearchQuery>(webClient.DownloadString(url));
+            result.Keywords = keywords;
+            return result;
         }
 
         /// <summary>

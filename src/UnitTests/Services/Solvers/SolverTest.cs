@@ -27,8 +27,8 @@ namespace ZeroInstall.Services.Solvers
         {
             TestCaseSet Load()
             {
-                using (var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml"))
-                    return XmlStorage.LoadXml<TestCaseSet>(stream);
+                using var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml");
+                return XmlStorage.LoadXml<TestCaseSet>(stream);
             }
 
             foreach (var testCase in Load().TestCases)

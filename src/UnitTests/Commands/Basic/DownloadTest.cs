@@ -35,13 +35,11 @@ namespace ZeroInstall.Commands.Basic
                 new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new ImplementationVersion("1.0")},
                 new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new ImplementationVersion("1.0")});
 
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                selections.SaveXml(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            selections.SaveXml(tempFile);
 
-                selections.Normalize();
-                RunAndAssert(Resources.AllComponentsDownloaded, 0, selections, tempFile);
-            }
+            selections.Normalize();
+            RunAndAssert(Resources.AllComponentsDownloaded, 0, selections, tempFile);
         }
     }
 }

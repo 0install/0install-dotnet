@@ -60,13 +60,11 @@ namespace ZeroInstall.Store.Implementations.Archives
         [Fact]
         public void TestLzmaCompressedOnDisk()
         {
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
-            {
-                typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma").CopyToFile(tempFile);
+            using var tempFile = new TemporaryFile("0install-unit-tests");
+            typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma").CopyToFile(tempFile);
 
-                using (var stream = File.OpenRead(tempFile))
-                    TestExtract(Model.Archive.MimeTypeTarLzma, stream);
-            }
+            using var stream = File.OpenRead(tempFile);
+            TestExtract(Model.Archive.MimeTypeTarLzma, stream);
         }
 
         [Fact]
