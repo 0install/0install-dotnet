@@ -6,6 +6,7 @@
     <LangVersion>8.0</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
@@ -28,14 +29,14 @@
 
   <!-- Auto-select supported target frameworks based on MSBuild version -->
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' And '$(OS)'!='Windows_NT'">
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -56,10 +57,10 @@
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0' And '$(TargetFramework)'!='netstandard2.1'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' Or '$(TargetFramework)'=='netstandard2.1'">
     <Compile Remove="Capture\**" />
   </ItemGroup>
 

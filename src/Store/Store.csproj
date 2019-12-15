@@ -6,6 +6,7 @@
     <LangVersion>8.0</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
@@ -28,14 +29,14 @@
 
   <!-- Auto-select supported target frameworks based on MSBuild version -->
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' and '$(OS)'!='Windows_NT'">
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -43,12 +44,12 @@
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(OS)'=='Windows_NT' and '$(TargetFramework)'!='netstandard2.0'">
+  <PropertyGroup Condition="'$(OS)'=='Windows_NT' And '$(TargetFramework)'!='netstandard2.0' And '$(TargetFramework)'!='netstandard2.1'">
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0' And '$(TargetFramework)'!='netstandard2.1'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
   </ItemGroup>
@@ -61,8 +62,11 @@
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' or '$(TargetFramework)'=='netstandard2.1'">
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -70,7 +74,7 @@
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0' And '$(TargetFramework)'!='netstandard2.1'">
     <PackageReference Include="SevenZipSharp.Interop" Version="19.0.0" PrivateAssets="None" />
     <PackageReference Include="wix-libs" Version="3.11.1" />
     <PackageReference Include="XZ.NET-netstandard" Version="2.0.0.2" PrivateAssets="None" />
@@ -92,6 +96,8 @@
     <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
     <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
     <None Include="..\..\artifacts\$(Configuration)\netstandard2.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.0" />
+    <!-- Disabled for .NET Standard 2.1 until https://github.com/dotnet/corefx/issues/40730 is resolved -->
+    <!--<None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />-->
   </ItemGroup>
 
   <ItemGroup>

@@ -69,11 +69,11 @@ namespace ZeroInstall.Store.Model
                 if (x.NamespaceURI != y.NamespaceURI || x.Name != y.Name || x.InnerText != y.InnerText) return false;
 
                 // ReSharper disable once InvokeAsExtensionMethod
-                bool attributesEqual = CollectionExtensions.UnsequencedEquals(
+                bool attributesEqual = NanoByte.Common.Collections.CollectionExtensions.UnsequencedEquals(
                     x.Attributes.OfType<XmlAttribute>().ToArray(),
                     y.Attributes.OfType<XmlAttribute>().ToArray(),
                     comparer: XmlAttributeComparer.Instance);
-                bool elementsEqual = CollectionExtensions.SequencedEquals(
+                bool elementsEqual = NanoByte.Common.Collections.CollectionExtensions.SequencedEquals(
                     x.ChildNodes.OfType<XmlElement>().ToArray(),
                     y.ChildNodes.OfType<XmlElement>().ToArray(),
                     comparer: Instance);
@@ -90,11 +90,11 @@ namespace ZeroInstall.Store.Model
         {
             if (other == null) return false;
             // ReSharper disable once InvokeAsExtensionMethod
-            bool attributesEqual = CollectionExtensions.UnsequencedEquals(
+            bool attributesEqual = NanoByte.Common.Collections.CollectionExtensions.UnsequencedEquals(
                 UnknownAttributes ?? new XmlAttribute[0],
                 other.UnknownAttributes ?? new XmlAttribute[0],
                 comparer: XmlAttributeComparer.Instance);
-            bool elementsEqual = CollectionExtensions.SequencedEquals(
+            bool elementsEqual = NanoByte.Common.Collections.CollectionExtensions.SequencedEquals(
                 UnknownElements ?? new XmlElement[0],
                 other.UnknownElements ?? new XmlElement[0],
                 comparer: XmlElementComparer.Instance);

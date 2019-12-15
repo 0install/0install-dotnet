@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using JetBrains.Annotations;
@@ -68,7 +67,7 @@ namespace ZeroInstall.Commands
         private CliSubCommand _subCommand;
 
         /// <inheritdoc/>
-        [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
         public override void Parse(IEnumerable<string> args)
         {
             base.Parse(args);

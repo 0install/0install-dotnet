@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -123,7 +122,7 @@ namespace ZeroInstall.Commands.Basic
         /// <returns>The newly created <see cref="Process"/>; <c>null</c> if no external process was started.</returns>
         /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
-        [SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "Explicit test for empty but non-null strings is intended")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "Explicit test for empty but non-null strings is intended")]
         [CanBeNull]
         protected Process LaunchImplementation()
         {

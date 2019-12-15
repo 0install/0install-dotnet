@@ -12,10 +12,10 @@
 
   <group license="LGPL v3 (GNU Lesser General Public License)">
     <command name="run" path="0install.dll">
-      <runner interface="https://apps.0install.net/dotnet/core.xml" version="2.1.."/>
+      <runner interface="https://apps.0install.net/dotnet/core.xml" version="3.1.."/>
     </command>
 
-    <implementation version="{version}" stability="{stability}" local-path="../artifacts/Release/netcoreapp2.0/publish">
+    <implementation version="{version}" stability="{stability}" local-path="../artifacts/Release/netcoreapp3.1/publish">
       <archive href="0install-dotnet-{version}.tar.gz"/>
     </implementation>
   </group>
