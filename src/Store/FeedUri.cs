@@ -326,8 +326,10 @@ namespace ZeroInstall.Store
             switch (Scheme)
             {
                 case "http":
-                case "https":
                     return new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))};
+
+                case "https":
+                    return new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))};
 
                 case "file":
                     return new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath.Substring(1))};

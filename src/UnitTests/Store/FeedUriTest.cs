@@ -117,6 +117,7 @@ namespace ZeroInstall.Store
         {
             new FeedUri("http://example.com/foo/bar.xml").EscapeComponent().Should().Equal("http", "example.com", "foo__bar.xml");
             new FeedUri("http://example.com/").EscapeComponent().Should().Equal("http", "example.com", "");
+            new FeedUri("https://example.com/").EscapeComponent().Should().Equal("https", "example.com", "");
             new FeedUri(WindowsUtils.IsWindows ? @"C:\my feed.xml" : "/root/my feed.xml").EscapeComponent().Should().Equal("file", WindowsUtils.IsWindows ? "C_3a___my_20_feed.xml" : "root__my_20_feed.xml");
             if (WindowsUtils.IsWindows)
                 new FeedUri(@"\\SERVER\C$\my feed.xml").EscapeComponent().Should().Equal("file", "____server__C_24___my_20_feed.xml");
