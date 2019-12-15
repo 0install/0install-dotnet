@@ -64,31 +64,14 @@ namespace ZeroInstall.Store.Model
         #region Conversion
         /// <inheritdoc/>
         public override string ToString()
-        {
-            string result;
-            switch (Modifier)
+            => Modifier switch
             {
-                case VersionModifier.None:
-                    result = "";
-                    break;
-                case VersionModifier.Pre:
-                    result = "pre";
-                    break;
-                case VersionModifier.RC:
-                    result = "rc";
-                    break;
-                case VersionModifier.Post:
-                    result = "post";
-                    break;
-                default:
-                    throw new InvalidOperationException(Resources.UnknownModifier);
-            }
-
-            // Combine both parts without any separator
-            result += DottedList.ToString();
-
-            return result;
-        }
+                VersionModifier.None => "",
+                VersionModifier.Pre => "pre",
+                VersionModifier.RC => "rc",
+                VersionModifier.Post => "post",
+                _ => throw new InvalidOperationException(Resources.UnknownModifier)
+            } + DottedList;
         #endregion
 
         #region Equality

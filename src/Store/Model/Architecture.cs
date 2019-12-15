@@ -161,21 +161,19 @@ namespace ZeroInstall.Store.Model
             Cpu GetCpu()
             {
 #if NETSTANDARD
-                switch (RuntimeInformation.OSArchitecture)
+                return RuntimeInformation.OSArchitecture switch
                 {
-                    case System.Runtime.InteropServices.Architecture.Arm:
-                    case System.Runtime.InteropServices.Architecture.Arm64:
-                        return Cpu.ArmV7L;
-                    case System.Runtime.InteropServices.Architecture.X86:
-                        return Cpu.I686;
-                    case System.Runtime.InteropServices.Architecture.X64:
-                        return Cpu.X64;
-                }
+                    System.Runtime.InteropServices.Architecture.Arm => Cpu.ArmV7L,
+                    System.Runtime.InteropServices.Architecture.Arm64 => Cpu.ArmV7L,
+                    System.Runtime.InteropServices.Architecture.X86 => Cpu.I686,
+                    System.Runtime.InteropServices.Architecture.X64 => Cpu.X64,
+                    _ => Cpu.Unknown
+                };
 #else
                 if (WindowsUtils.IsWindows) return OSUtils.Is64BitOperatingSystem ? Cpu.X64 : Cpu.I686;
-                if (UnixUtils.IsUnix) return ParseCpuString(UnixUtils.CpuType);
+                else if (UnixUtils.IsUnix) return ParseCpuString(UnixUtils.CpuType);
+                else return Cpu.Unknown;
 #endif
-                return Cpu.Unknown;
             }
 
             return new Architecture(GetOS(), GetCpu());
@@ -213,35 +211,22 @@ namespace ZeroInstall.Store.Model
 
         #region Parse string
         private static OS ParseOSString(string os)
-        {
             //try { return os.ConvertFromString<OS>(); }
             //catch (ArgumentException) { return OS.Unknown; }
-
             // NOTE: Use hard-coded switch instead of reflection-based code for better performance
-            switch (os)
+            => os switch
             {
-                case "*":
-                    return OS.All;
-                case "Linux":
-                    return OS.Linux;
-                case "Solaris":
-                    return OS.Solaris;
-                case "FreeBSD":
-                    return OS.FreeBsd;
-                case "MacOSX":
-                    return OS.MacOSX;
-                case "Darwin":
-                    return OS.Darwin;
-                case "Cygwin":
-                    return OS.Cygwin;
-                case "POSIX":
-                    return OS.Posix;
-                case "Windows":
-                    return OS.Windows;
-                default:
-                    return OS.Unknown;
-            }
-        }
+                "*" => OS.All,
+                "Linux" => OS.Linux,
+                "Solaris" => OS.Solaris,
+                "FreeBSD" => OS.FreeBsd,
+                "MacOSX" => OS.MacOSX,
+                "Darwin" => OS.Darwin,
+                "Cygwin" => OS.Cygwin,
+                "POSIX" => OS.Posix,
+                "Windows" => OS.Windows,
+                _ => OS.Unknown
+            };
 
         private static Cpu ParseCpuString(string cpu)
         {
@@ -249,29 +234,19 @@ namespace ZeroInstall.Store.Model
             //catch (ArgumentException) { return Cpu.Unknown; }
 
             // NOTE: Use hard-coded switch instead of reflection-based code for better performance
-            switch (cpu)
+            return cpu switch
             {
-                case "*":
-                    return Cpu.All;
-                case "i386":
-                    return Cpu.I386;
-                case "i486":
-                    return Cpu.I486;
-                case "i586":
-                    return Cpu.I586;
-                case "i686":
-                    return Cpu.I686;
-                case "x86_64":
-                    return Cpu.X64;
-                case "ppc":
-                    return Cpu.Ppc;
-                case "ppc64":
-                    return Cpu.Ppc64;
-                case "src":
-                    return Cpu.Source;
-                default:
-                    return Cpu.Unknown;
-            }
+                "*" => Cpu.All,
+                "i386" => Cpu.I386,
+                "i486" => Cpu.I486,
+                "i586" => Cpu.I586,
+                "i686" => Cpu.I686,
+                "x86_64" => Cpu.X64,
+                "ppc" => Cpu.Ppc,
+                "ppc64" => Cpu.Ppc64,
+                "src" => Cpu.Source,
+                _ => Cpu.Unknown
+            };
         }
         #endregion
 

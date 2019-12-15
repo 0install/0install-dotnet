@@ -57,23 +57,17 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
             #endregion
 
-            switch (mimeType)
+            return mimeType switch
             {
-                case Archive.MimeTypeZip:
-                    return new ZipGenerator(sourceDirectory, stream);
-                case Archive.MimeTypeTar:
-                    return new TarGenerator(sourceDirectory, stream);
-                case Archive.MimeTypeTarGzip:
-                    return new TarGzGenerator(sourceDirectory, stream);
-                case Archive.MimeTypeTarBzip:
-                    return new TarBz2Generator(sourceDirectory, stream);
+                Archive.MimeTypeZip => (ArchiveGenerator)new ZipGenerator(sourceDirectory, stream),
+                Archive.MimeTypeTar => new TarGenerator(sourceDirectory, stream),
+                Archive.MimeTypeTarGzip => new TarGzGenerator(sourceDirectory, stream),
+                Archive.MimeTypeTarBzip => new TarBz2Generator(sourceDirectory, stream),
 #if NETFRAMEWORK
-                case Archive.MimeTypeTarLzma:
-                    return new TarLzmaGenerator(sourceDirectory, stream);
+                Archive.MimeTypeTarLzma => new TarLzmaGenerator(sourceDirectory, stream),
 #endif
-                default:
-                    throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
-            }
+                _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
+            };
         }
 
         /// <summary>

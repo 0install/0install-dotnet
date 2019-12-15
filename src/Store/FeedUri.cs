@@ -322,23 +322,13 @@ namespace ZeroInstall.Store
         /// Uses [underscore_escape] to escape each component.
         /// </summary>
         public string[] EscapeComponent()
-        {
-            switch (Scheme)
+            => Scheme switch
             {
-                case "http":
-                    return new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))};
-
-                case "https":
-                    return new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))};
-
-                case "file":
-                    return new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath.Substring(1))};
-
-                default:
-                    // Should never reach this
-                    throw new InvalidOperationException();
-            }
-        }
+                "http" => new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))},
+                "https" => new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))},
+                "file" => new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath.Substring(1))},
+                _ => throw new InvalidOperationException()
+            };
         #endregion
 
         #region Serialization

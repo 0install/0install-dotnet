@@ -44,15 +44,12 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            switch (retrievalMethod)
+            return retrievalMethod switch
             {
-                case DownloadRetrievalMethod download:
-                    return download.DownloadAndApply(handler, executor);
-                case Recipe recipe:
-                    return recipe.DownloadAndApply(handler, executor);
-                default:
-                    throw new NotSupportedException(Resources.UnknownRetrievalMethodType);
-            }
+                DownloadRetrievalMethod download => download.DownloadAndApply(handler, executor),
+                Recipe recipe => recipe.DownloadAndApply(handler, executor),
+                _ => throw new NotSupportedException(Resources.UnknownRetrievalMethodType)
+            };
         }
 
         /// <summary>

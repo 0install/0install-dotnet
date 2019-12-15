@@ -80,35 +80,19 @@ namespace ZeroInstall.Store.Model
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> is not in the list of <see cref="KnownMimeTypes"/>.</exception>
         [NotNull]
         public static string GetDefaultExtension([NotNull] string mimeType)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
-            #endregion
-
-            switch (mimeType)
+            => (mimeType ?? throw new ArgumentNullException(nameof(mimeType))) switch
             {
-                case MimeTypeZip:
-                    return ".zip";
-                case MimeTypeTar:
-                    return ".tar";
-                case MimeTypeTarGzip:
-                    return ".tar.gz";
-                case MimeTypeTarBzip:
-                    return ".tar.bz2";
-                case MimeTypeTarLzma:
-                    return ".tar.lzma";
-                case MimeTypeRubyGem:
-                    return ".gem";
-                case MimeType7Z:
-                    return ".7z";
-                case MimeTypeCab:
-                    return ".cab";
-                case MimeTypeMsi:
-                    return ".msi";
-                default:
-                    throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
-            }
-        }
+                MimeTypeZip => ".zip",
+                MimeTypeTar => ".tar",
+                MimeTypeTarGzip => ".tar.gz",
+                MimeTypeTarBzip => ".tar.bz2",
+                MimeTypeTarLzma => ".tar.lzma",
+                MimeTypeRubyGem => ".gem",
+                MimeType7Z => ".7z",
+                MimeTypeCab => ".cab",
+                MimeTypeMsi => ".msi",
+                _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
+            };
         #endregion
 
         /// <summary>

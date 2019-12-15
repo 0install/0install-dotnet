@@ -32,48 +32,26 @@ namespace ZeroInstall.Commands.Basic
 
         /// <inheritdoc/>
         public override CliSubCommand GetCommand(string commandName)
-        {
-            #region Sanity checks
-            if (commandName == null) throw new ArgumentNullException(nameof(commandName));
-            #endregion
-
-            switch (commandName)
+            => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                case Add.Name:
-                    return new Add(Handler);
-                case Audit.Name:
-                    return new Audit(Handler);
-                case Copy.Name:
-                    return new Copy(Handler);
-                case Export.Name:
-                    return new Export(Handler);
-                case Find.Name:
-                    return new Find(Handler);
-                case List.Name:
-                    return new List(Handler);
-                case ListImplementations.Name:
-                    return new ListImplementations(Handler);
-                case Manage.Name:
-                    return new Manage(Handler);
-                case "manifest":
-                    throw new NotSupportedException(string.Format(Resources.UseInstead, "0install digest --manifest"));
-                case Optimise.Name:
-                case Optimise.AltName:
-                    return new Optimise(Handler);
-                case Purge.Name:
-                    return new Purge(Handler);
-                case Remove.Name:
-                    return new Remove(Handler);
-                case Verify.Name:
-                    return new Verify(Handler);
-                case AddDir.Name:
-                    return new AddDir(Handler);
-                case RemoveDir.Name:
-                    return new RemoveDir(Handler);
-                default:
-                    throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
-            }
-        }
+                Add.Name => (CliSubCommand)new Add(Handler),
+                Audit.Name => new Audit(Handler),
+                Copy.Name => new Copy(Handler),
+                Export.Name => new Export(Handler),
+                Find.Name => new Find(Handler),
+                List.Name => new List(Handler),
+                ListImplementations.Name => new ListImplementations(Handler),
+                Manage.Name => new Manage(Handler),
+                "manifest" => throw new NotSupportedException(string.Format(Resources.UseInstead, "0install digest --manifest")),
+                Optimise.Name => new Optimise(Handler),
+                Optimise.AltName => new Optimise(Handler),
+                Purge.Name => new Purge(Handler),
+                Remove.Name => new Remove(Handler),
+                Verify.Name => new Verify(Handler),
+                AddDir.Name => new AddDir(Handler),
+                RemoveDir.Name => new RemoveDir(Handler),
+                _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
+            };
 
         public abstract class StoreSubCommand : CliSubCommand
         {

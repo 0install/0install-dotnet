@@ -111,36 +111,27 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
             #endregion
 
-            switch (mimeType)
-            {
-                case Archive.MimeTypeZip:
-                    return new ZipExtractor(stream, targetPath);
-                case Archive.MimeTypeTar:
-                    return new TarExtractor(stream, targetPath);
-                case Archive.MimeTypeTarGzip:
-                    return new TarGzExtractor(stream, targetPath);
-                case Archive.MimeTypeTarBzip:
-                    return new TarBz2Extractor(stream, targetPath);
 #if NETFRAMEWORK
-                case Archive.MimeTypeTarLzma:
-                    return new TarLzmaExtractor(stream, targetPath);
-                case Archive.MimeTypeTarXz:
-                    return new TarXzExtractor(stream, targetPath);
-                case Archive.MimeType7Z:
-                    return new SevenZipExtractor(stream, targetPath);
-                case Archive.MimeTypeCab:
-                    // Extracted to delay loading of Microsoft.Deployment* DLLs
-                    ArchiveExtractor NewCabExtractor() => new CabExtractor(stream, targetPath);
-
-                    return NewCabExtractor();
-                case Archive.MimeTypeMsi:
-                    throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!");
+            // Extracted to separate function delay loading of Microsoft.Deployment* DLLs
+            ArchiveExtractor NewCabExtractor() => new CabExtractor(stream, targetPath);
 #endif
-                case Archive.MimeTypeRubyGem:
-                    return new RubyGemExtractor(stream, targetPath);
-                default:
-                    throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
-            }
+
+            return mimeType switch
+            {
+                Archive.MimeTypeZip => (ArchiveExtractor)new ZipExtractor(stream, targetPath),
+                Archive.MimeTypeTar => new TarExtractor(stream, targetPath),
+                Archive.MimeTypeTarGzip => new TarGzExtractor(stream, targetPath),
+                Archive.MimeTypeTarBzip => new TarBz2Extractor(stream, targetPath),
+#if NETFRAMEWORK
+                Archive.MimeTypeTarLzma => new TarLzmaExtractor(stream, targetPath),
+                Archive.MimeTypeTarXz => new TarXzExtractor(stream, targetPath),
+                Archive.MimeType7Z => new SevenZipExtractor(stream, targetPath),
+                Archive.MimeTypeCab => NewCabExtractor(),
+                Archive.MimeTypeMsi => throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!"),
+#endif
+                Archive.MimeTypeRubyGem => new RubyGemExtractor(stream, targetPath),
+                _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
+            };
         }
 
         /// <summary>

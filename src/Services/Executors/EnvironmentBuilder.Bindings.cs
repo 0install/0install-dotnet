@@ -135,30 +135,14 @@ namespace ZeroInstall.Services.Executors
             string previousValue = environmentVariables[binding.Name];
             string separator = (string.IsNullOrEmpty(binding.Separator) ? Path.PathSeparator.ToString(CultureInfo.InvariantCulture) : binding.Separator);
 
-            switch (binding.Mode)
+            environmentVariables[binding.Name] = binding.Mode switch
             {
-                default:
-                case EnvironmentMode.Prepend:
-                    environmentVariables[binding.Name] = string.IsNullOrEmpty(previousValue)
-                        // No existing value, just set new one
-                        ? newValue
-                        // Prepend new value to existing one separated by path separator
-                        : newValue + separator + environmentVariables[binding.Name];
-                    break;
-
-                case EnvironmentMode.Append:
-                    environmentVariables[binding.Name] = string.IsNullOrEmpty(previousValue)
-                        // No existing value, just set new one
-                        ? newValue
-                        // Append new value to existing one separated by path separator
-                        : environmentVariables[binding.Name] + separator + newValue;
-                    break;
-
-                case EnvironmentMode.Replace:
-                    // Overwrite any existing value
-                    environmentVariables[binding.Name] = newValue;
-                    break;
-            }
+                _ when string.IsNullOrEmpty(previousValue) => newValue,
+                EnvironmentMode.Replace => newValue,
+                EnvironmentMode.Prepend => newValue + separator + environmentVariables[binding.Name],
+                EnvironmentMode.Append => environmentVariables[binding.Name] + separator + newValue,
+                _ => throw new InvalidOperationException($"Unknown {nameof(EnvironmentBinding)} value: {binding.Mode}")
+            };
         }
 
         /// <summary>

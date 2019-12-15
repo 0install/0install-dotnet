@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Trust
             #region Sanity checks
             if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
             #endregion
-            
+
             _homeDir = homeDir;
         }
 
@@ -98,14 +98,11 @@ namespace ZeroInstall.Store.Trust
 
                 case "ERRSIG":
                     if (signatureParts.Length != 8) throw new FormatException("Incorrect number of columns in ERRSIG line.");
-                    int errorCode = int.Parse(signatureParts[errorCodeIndex]);
-                    switch (errorCode)
+                    return int.Parse(signatureParts[errorCodeIndex]) switch
                     {
-                        case 9:
-                            return new MissingKeySignature(OpenPgpUtils.ParseKeyID(signatureParts[keyIDIndex]));
-                        default:
-                            return new ErrorSignature(OpenPgpUtils.ParseKeyID(signatureParts[keyIDIndex]));
-                    }
+                        9 => new MissingKeySignature(OpenPgpUtils.ParseKeyID(signatureParts[keyIDIndex])),
+                        _ => new ErrorSignature(OpenPgpUtils.ParseKeyID(signatureParts[keyIDIndex]))
+                    };
 
                 default:
                     return null;

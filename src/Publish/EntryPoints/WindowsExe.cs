@@ -64,17 +64,12 @@ namespace ZeroInstall.Publish.EntryPoints
 
         [CLSCompliant(false)]
         protected static Cpu GetCpu(MachineType machine)
-        {
-            switch (machine)
+            => machine switch
             {
-                case MachineType.I386:
-                    return Cpu.All;
-                case MachineType.X64:
-                    return Cpu.X64;
-                default:
-                    return Cpu.Unknown;
-            }
-        }
+                MachineType.I386 => Cpu.All,
+                MachineType.X64 => Cpu.X64,
+                _ => Cpu.Unknown
+            };
 
 #if NETFRAMEWORK
         /// <inheritdoc/>

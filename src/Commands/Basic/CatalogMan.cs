@@ -31,29 +31,16 @@ namespace ZeroInstall.Commands.Basic
 
         /// <inheritdoc/>
         public override CliSubCommand GetCommand(string commandName)
-        {
-            #region Sanity checks
-            if (commandName == null) throw new ArgumentNullException(nameof(commandName));
-            #endregion
-
-            switch (commandName)
+            => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                case Search.Name:
-                    return new Search(Handler);
-                case Refresh.Name:
-                    return new Refresh(Handler);
-                case Add.Name:
-                    return new Add(Handler);
-                case Remove.Name:
-                    return new Remove(Handler);
-                case Reset.Name:
-                    return new Reset(Handler);
-                case List.Name:
-                    return new List(Handler);
-                default:
-                    throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
-            }
-        }
+                Search.Name => (CliSubCommand)new Search(Handler),
+                Refresh.Name => new Refresh(Handler),
+                Add.Name => new Add(Handler),
+                Remove.Name => new Remove(Handler),
+                Reset.Name => new Reset(Handler),
+                List.Name => new List(Handler),
+                _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
+            };
 
         private abstract class CatalogSubCommand : CliSubCommand
         {

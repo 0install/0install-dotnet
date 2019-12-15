@@ -63,23 +63,15 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         private static Cpu GetCpu(IELF elfData)
-        {
-            switch (elfData.Machine)
+            => elfData.Machine switch
             {
-                case Machine.Intel386:
-                    return Cpu.I386;
-                case Machine.Intel486:
-                    return Cpu.I486;
-                case Machine.AMD64:
-                    return Cpu.X64;
-                case Machine.PPC:
-                    return Cpu.Ppc;
-                case Machine.PPC64:
-                    return Cpu.Ppc64;
-                default:
-                    return Cpu.Unknown;
-            }
-        }
+                Machine.Intel386 => Cpu.I386,
+                Machine.Intel486 => Cpu.I486,
+                Machine.AMD64 => Cpu.X64,
+                Machine.PPC => Cpu.Ppc,
+                Machine.PPC64 => Cpu.Ppc64,
+                _ => Cpu.Unknown
+            };
 
         /// <summary>
         /// The specific POSIX-style operating system the binary is compiled for.

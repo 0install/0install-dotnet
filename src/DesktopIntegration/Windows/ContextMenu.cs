@@ -40,20 +40,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// Gets the registry key name relevant for the specified context menu <paramref name="target"/>.
         /// </summary>
         private static IEnumerable<string> GetKeyName(Store.Model.Capabilities.ContextMenuTarget target)
-        {
-            switch (target)
+            => target switch
             {
-                case Store.Model.Capabilities.ContextMenuTarget.Files:
-                default:
-                    return new[] {RegKeyClassesFiles};
-                case Store.Model.Capabilities.ContextMenuTarget.ExecutableFiles:
-                    return RegKeyClassesExecutableFiles;
-                case Store.Model.Capabilities.ContextMenuTarget.Directories:
-                    return new[] {RegKeyClassesDirectories};
-                case Store.Model.Capabilities.ContextMenuTarget.All:
-                    return new[] {RegKeyClassesAll};
-            }
-        }
+                Store.Model.Capabilities.ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
+                Store.Model.Capabilities.ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
+                Store.Model.Capabilities.ContextMenuTarget.Directories => new[] {RegKeyClassesDirectories},
+                Store.Model.Capabilities.ContextMenuTarget.All => new[] {RegKeyClassesAll},
+                _ => new[] {RegKeyClassesFiles}
+            };
         #endregion
 
         #region Apply

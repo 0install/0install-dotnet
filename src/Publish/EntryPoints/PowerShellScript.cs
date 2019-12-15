@@ -40,23 +40,12 @@ namespace ZeroInstall.Publish.EntryPoints
 
         /// <inheritdoc/>
         protected override FeedUri InterpreterInterface
-        {
-            get
+            => PowerShellType switch
             {
-                switch (PowerShellType)
-                {
-                    case PowerShellType.Any:
-                    default:
-                        return new FeedUri("http://repo.roscidus.com/powershell/powershell");
-
-                    case PowerShellType.WindowsOnly:
-                        return new FeedUri("http://repo.roscidus.com/powershell/windows");
-
-                    case PowerShellType.CoreOnly:
-                        return new FeedUri("http://repo.roscidus.com/powershell/core");
-                }
-            }
-        }
+                PowerShellType.WindowsOnly => new FeedUri("http://repo.roscidus.com/powershell/windows"),
+                PowerShellType.CoreOnly => new FeedUri("http://repo.roscidus.com/powershell/core"),
+                _ => new FeedUri("http://repo.roscidus.com/powershell/powershell"),
+            };
 
         /// <summary>
         /// The types of PowerShell supported by the script.

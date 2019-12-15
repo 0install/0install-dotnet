@@ -173,35 +173,22 @@ namespace ZeroInstall.Store
         /// </summary>
         private PropertyPointer<string> NetworkUsePropertyPointer
             => PropertyPointer.For(
-                getValue: () =>
+                getValue: () => NetworkUse switch
                 {
-                    switch (NetworkUse)
-                    {
-                        case NetworkLevel.Full:
-                            return "full";
-                        case NetworkLevel.Minimal:
-                            return "minimal";
-                        case NetworkLevel.Offline:
-                            return "off-line";
-                    }
-                    return null; // Will never be reached
+                    NetworkLevel.Full => "full",
+                    NetworkLevel.Minimal => "minimal",
+                    NetworkLevel.Offline => "off-line",
+                    _ => null // Will never be reached
                 },
                 setValue: value =>
                 {
-                    switch (value)
+                    NetworkUse = value switch
                     {
-                        case "full":
-                            NetworkUse = NetworkLevel.Full;
-                            return;
-                        case "minimal":
-                            NetworkUse = NetworkLevel.Minimal;
-                            return;
-                        case "off-line":
-                            NetworkUse = NetworkLevel.Offline;
-                            return;
-                        default:
-                            throw new FormatException("Must be 'full', 'minimal' or 'off-line'");
-                    }
+                        "full" => NetworkLevel.Full,
+                        "minimal" => NetworkLevel.Minimal,
+                        "off-line" => NetworkLevel.Offline,
+                        _ => throw new FormatException("Must be 'full', 'minimal' or 'off-line'")
+                    };
                 },
                 defaultValue: "full");
     }

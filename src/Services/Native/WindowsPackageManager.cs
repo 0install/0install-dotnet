@@ -28,66 +28,40 @@ namespace ZeroInstall.Services.Native
 
         /// <inheritdoc/>
         protected override IEnumerable<ExternalImplementation> GetImplementations(string packageName)
-        {
-            #region Sanity checks
-            if (packageName == null) throw new ArgumentNullException(nameof(packageName));
-            #endregion
-
-            switch (packageName)
+            => (packageName ?? throw new ArgumentNullException(nameof(packageName))) switch
             {
-                case "openjdk-6-jre":
-                    return FindJre(6);
-                case "openjdk-7-jre":
-                    return FindJre(7);
-                case "openjdk-8-jre":
-                    return FindJre(8);
-                case "openjdk-9-jre":
-                    return FindJre(9);
-                case "openjdk-10-jre":
-                    return FindJre(10);
-
-                case "openjdk-6-jdk":
-                    return FindJdk(6);
-                case "openjdk-7-jdk":
-                    return FindJdk(7);
-                case "openjdk-8-jdk":
-                    return FindJdk(8);
-                case "openjdk-9-jdk":
-                    return FindJdk(9);
-                case "openjdk-10-jdk":
-                    return FindJdk(10);
-
-                case "netfx":
-                    return new[]
-                    {
-                        // See: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
-                        FindNetFx("2.0", WindowsUtils.NetFx20, WindowsUtils.NetFx20),
-                        FindNetFx("3.0", WindowsUtils.NetFx20, WindowsUtils.NetFx30),
-                        FindNetFx("3.5", WindowsUtils.NetFx20, WindowsUtils.NetFx35),
-                        FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Full"),
-                        FindNetFx("4.5", WindowsUtils.NetFx40, @"v4\Full", 378389),
-                        FindNetFx("4.5.1", WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
-                        FindNetFx("4.5.2", WindowsUtils.NetFx40, @"v4\Full", 379893),
-                        FindNetFx("4.6", WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
-                        FindNetFx("4.6.1", WindowsUtils.NetFx40, @"v4\Full", 394254),
-                        FindNetFx("4.6.2", WindowsUtils.NetFx40, @"v4\Full", 394802), // also covers 394806
-                        FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
-                        FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308), // also covers 461310
-                        FindNetFx("4.7.2", WindowsUtils.NetFx40, @"v4\Full", 461808) // also covers 461814
-                    }.Flatten();
-                case "netfx-client":
-                    return FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client");
-
-                case "powershell":
-                    return FindPowerShell();
-
-                case "git":
-                    return FindGitForWindows();
-
-                default:
-                    return Enumerable.Empty<ExternalImplementation>();
-            }
-        }
+                "openjdk-6-jre" => FindJre(6),
+                "openjdk-7-jre" => FindJre(7),
+                "openjdk-8-jre" => FindJre(8),
+                "openjdk-9-jre" => FindJre(9),
+                "openjdk-10-jre" => FindJre(10),
+                "openjdk-6-jdk" => FindJdk(6),
+                "openjdk-7-jdk" => FindJdk(7),
+                "openjdk-8-jdk" => FindJdk(8),
+                "openjdk-9-jdk" => FindJdk(9),
+                "openjdk-10-jdk" => FindJdk(10),
+                "netfx" => new[]
+                {
+                    // See: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+                    FindNetFx("2.0", WindowsUtils.NetFx20, WindowsUtils.NetFx20),
+                    FindNetFx("3.0", WindowsUtils.NetFx20, WindowsUtils.NetFx30),
+                    FindNetFx("3.5", WindowsUtils.NetFx20, WindowsUtils.NetFx35),
+                    FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Full"),
+                    FindNetFx("4.5", WindowsUtils.NetFx40, @"v4\Full", 378389),
+                    FindNetFx("4.5.1", WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
+                    FindNetFx("4.5.2", WindowsUtils.NetFx40, @"v4\Full", 379893),
+                    FindNetFx("4.6", WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
+                    FindNetFx("4.6.1", WindowsUtils.NetFx40, @"v4\Full", 394254),
+                    FindNetFx("4.6.2", WindowsUtils.NetFx40, @"v4\Full", 394802), // also covers 394806
+                    FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
+                    FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308), // also covers 461310
+                    FindNetFx("4.7.2", WindowsUtils.NetFx40, @"v4\Full", 461808) // also covers 461814
+                }.Flatten(),
+                "netfx-client" => FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client"),
+                "powershell" => FindPowerShell(),
+                "git" => FindGitForWindows(),
+                _ => Enumerable.Empty<ExternalImplementation>()
+            };
 
         private IEnumerable<ExternalImplementation> FindJre(int version) => FindJava(version,
             typeShort: "jre",

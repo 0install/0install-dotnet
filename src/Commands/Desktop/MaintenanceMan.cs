@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NDesk.Options;
-using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Desktop
@@ -33,23 +32,13 @@ namespace ZeroInstall.Commands.Desktop
 
         /// <inheritdoc/>
         public override CliSubCommand GetCommand(string commandName)
-        {
-            #region Sanity checks
-            if (commandName == null) throw new ArgumentNullException(nameof(commandName));
-            #endregion
-
-            switch (commandName)
+            => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                case Deploy.Name:
-                    return new Deploy(Handler);
-                case Remove.Name:
-                    return new Remove(Handler);
-                case RemoveHelper.Name:
-                    return new RemoveHelper(Handler);
-                default:
-                    throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
-            }
-        }
+                Deploy.Name => (CliSubCommand)new Deploy(Handler),
+                Remove.Name => new Remove(Handler),
+                RemoveHelper.Name => new RemoveHelper(Handler),
+                _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
+            };
 
         public abstract class MaintenanceSubCommand : CliSubCommand
         {
