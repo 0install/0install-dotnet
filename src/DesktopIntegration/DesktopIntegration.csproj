@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>Zero Install methods for integrating applications with desktop environments (creating menu entries, etc.).</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>

@@ -18,6 +18,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>

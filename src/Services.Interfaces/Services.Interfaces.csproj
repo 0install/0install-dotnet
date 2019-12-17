@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>Zero Install interfaces/abstractions for types from ZeroInstall.Services package</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>

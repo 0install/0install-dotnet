@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>Zero Install data model for the feed format, signature verification, management of on-disk caches</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>

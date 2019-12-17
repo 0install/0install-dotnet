@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>

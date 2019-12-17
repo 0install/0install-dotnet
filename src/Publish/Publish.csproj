@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.0-pre</Version>
     <Description>utilities for creating and modifying Zero Install feed files</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
