@@ -132,28 +132,13 @@ namespace ZeroInstall.Store.Model.Selection
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ InterfaceUri?.GetHashCode() ?? 0;
-                result = (result * 397) ^ FromFeed?.GetHashCode() ?? 0;
-                result = (result * 397) ^ QuickTestFile?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), InterfaceUri, FromFeed, QuickTestFile);
         #endregion
 
         #region Comparison
         /// <inheritdoc/>
         public int CompareTo(ImplementationSelection other)
-        {
-            #region Sanity checks
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            #endregion
-
-            return StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other.InterfaceUri.ToStringRfc());
-        }
+            => StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other.InterfaceUri.ToStringRfc());
         #endregion
     }
 }

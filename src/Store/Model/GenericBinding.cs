@@ -40,10 +40,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(GenericBinding other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Path == Path;
-        }
+            => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -55,14 +52,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Path?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Path);
         #endregion
     }
 }

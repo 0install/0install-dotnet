@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.ComponentModel;
 using System.IO;
 using JetBrains.Annotations;
@@ -68,14 +69,7 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 397) ^ (int)PowerShellType;
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), PowerShellType);
         #endregion
     }
 }

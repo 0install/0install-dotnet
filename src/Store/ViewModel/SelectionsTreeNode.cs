@@ -100,28 +100,13 @@ namespace ZeroInstall.Store.ViewModel
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = Uri.GetHashCode();
-                hashCode = (hashCode * 397) ^ (Version != null ? Version.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Path != null ? Path.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Parent != null ? Parent.GetHashCode() : 0);
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(Uri, Version, Path, Parent);
         #endregion
 
         #region Comparison
         /// <inheritdoc/>
         public int CompareTo(SelectionsTreeNode other)
-        {
-            #region Sanity checks
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            #endregion
-
-            return string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
-        }
+            => string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
         #endregion
     }
 }

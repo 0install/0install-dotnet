@@ -450,24 +450,21 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Feed other)
-        {
-            if (other == null) return false;
-            if (!base.Equals(other)) return false;
-            if (Uri != other.Uri) return false;
-            if (MinInjectorVersion != other.MinInjectorVersion) return false;
-            if (Name != other.Name) return false;
-            if (!Summaries.SequencedEquals(other.Summaries)) return false;
-            if (!Descriptions.SequencedEquals(other.Descriptions)) return false;
-            if (Homepage != other.Homepage) return false;
-            if (NeedsTerminal != other.NeedsTerminal) return false;
-            if (!Feeds.SequencedEquals(other.Feeds)) return false;
-            if (!Categories.SequencedEquals(other.Categories)) return false;
-            if (!Icons.SequencedEquals(other.Icons)) return false;
-            if (!Elements.SequencedEquals(other.Elements)) return false;
-            if (!EntryPoints.SequencedEquals(other.EntryPoints)) return false;
-            if (!CapabilityLists.SequencedEquals(other.CapabilityLists)) return false;
-            return true;
-        }
+            => other != null
+            && base.Equals(other)
+            && Uri == other.Uri
+            && MinInjectorVersion == other.MinInjectorVersion
+            && Name == other.Name
+            && Summaries.SequencedEquals(other.Summaries)
+            && Descriptions.SequencedEquals(other.Descriptions)
+            && Homepage == other.Homepage
+            && NeedsTerminal == other.NeedsTerminal
+            && Feeds.SequencedEquals(other.Feeds)
+            && Categories.SequencedEquals(other.Categories)
+            && Icons.SequencedEquals(other.Icons)
+            && Elements.SequencedEquals(other.Elements)
+            && EntryPoints.SequencedEquals(other.EntryPoints)
+            && CapabilityLists.SequencedEquals(other.CapabilityLists);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -480,24 +477,22 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Uri?.GetHashCode() ?? 0;
-                result = (result * 397) ^ MinInjectorVersion?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Name?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Summaries.GetSequencedHashCode();
-                result = (result * 397) ^ Descriptions.GetSequencedHashCode();
-                result = (result * 397) ^ Homepage?.GetHashCode() ?? 0;
-                result = (result * 397) ^ NeedsTerminal.GetHashCode();
-                result = (result * 397) ^ Feeds.GetSequencedHashCode();
-                result = (result * 397) ^ Categories.GetSequencedHashCode();
-                result = (result * 397) ^ Icons.GetSequencedHashCode();
-                result = (result * 397) ^ Elements.GetSequencedHashCode();
-                result = (result * 397) ^ EntryPoints.GetSequencedHashCode();
-                result = (result * 397) ^ CapabilityLists.GetSequencedHashCode();
-                return result;
-            }
+            var hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(Uri);
+            hash.Add(MinInjectorVersion);
+            hash.Add(Name);
+            hash.Add(Summaries.GetSequencedHashCode());
+            hash.Add(Descriptions.GetSequencedHashCode());
+            hash.Add(Homepage);
+            hash.Add(NeedsTerminal);
+            hash.Add(Feeds.GetSequencedHashCode());
+            hash.Add(Categories.GetSequencedHashCode());
+            hash.Add(Icons.GetSequencedHashCode());
+            hash.Add(Elements.GetSequencedHashCode());
+            hash.Add(EntryPoints.GetSequencedHashCode());
+            hash.Add(CapabilityLists.GetSequencedHashCode());
+            return hash.ToHashCode();
         }
         #endregion
     }

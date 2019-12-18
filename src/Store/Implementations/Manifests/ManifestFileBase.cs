@@ -42,14 +42,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ ModifiedTimeUnix.GetHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), ModifiedTimeUnix);
         #endregion
     }
 }

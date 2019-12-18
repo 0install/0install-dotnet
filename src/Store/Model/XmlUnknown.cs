@@ -1,8 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -55,8 +55,8 @@ namespace ZeroInstall.Store.Model
                 return x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.Value == y.Value;
             }
 
-            [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods")]
-            public int GetHashCode(XmlAttribute obj) => (obj.Name + obj.Value).GetHashCode();
+            public int GetHashCode(XmlAttribute obj)
+                => HashCode.Combine(obj.Name, obj.Value);
         }
 
         private class XmlElementComparer : IEqualityComparer<XmlElement>
@@ -80,8 +80,8 @@ namespace ZeroInstall.Store.Model
                 return attributesEqual && elementsEqual;
             }
 
-            [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods")]
-            public int GetHashCode(XmlElement obj) => (obj.Name + obj.Value).GetHashCode();
+            public int GetHashCode(XmlElement obj)
+                => HashCode.Combine(obj.Name, obj.Value);
         }
         #endregion
 
@@ -103,15 +103,9 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = 397;
-                result = (result * 397) ^ (UnknownAttributes ?? new XmlAttribute[0]).GetUnsequencedHashCode(XmlAttributeComparer.Instance);
-                result = (result * 397) ^ (UnknownElements ?? new XmlElement[0]).GetSequencedHashCode(XmlElementComparer.Instance);
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                (UnknownAttributes ?? new XmlAttribute[0]).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
+                (UnknownElements ?? new XmlElement[0]).GetSequencedHashCode(XmlElementComparer.Instance));
         #endregion
     }
 }

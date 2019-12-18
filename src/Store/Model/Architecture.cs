@@ -259,7 +259,8 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Architecture other) => other.OS == OS && other.Cpu == Cpu;
+        public bool Equals(Architecture other)
+            => other.OS == OS && other.Cpu == Cpu;
 
         public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
         public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
@@ -269,12 +270,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((int)OS * 397) ^ (int)Cpu;
-            }
-        }
+            => HashCode.Combine(OS, Cpu);
         #endregion
     }
 }

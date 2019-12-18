@@ -73,11 +73,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
         #region Equality
         protected bool Equals(InterpretedScript other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) &&
-                   Equals(InterpreterVersions, other.InterpreterVersions);
-        }
+            => other != null && base.Equals(other) && Equals(InterpreterVersions, other.InterpreterVersions);
 
         public override bool Equals(object obj)
         {
@@ -88,12 +84,7 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (InterpreterVersions?.GetHashCode() ?? 0);
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), InterpreterVersions);
         #endregion
     }
 }

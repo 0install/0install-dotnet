@@ -85,10 +85,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Implementation other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && RetrievalMethods.SequencedEquals(other.RetrievalMethods);
-        }
+            => other != null && base.Equals(other) && RetrievalMethods.SequencedEquals(other.RetrievalMethods);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -101,12 +98,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ RetrievalMethods.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), RetrievalMethods.GetSequencedHashCode());
         #endregion
     }
 }

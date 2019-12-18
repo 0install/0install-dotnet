@@ -164,12 +164,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (FirstPart.GetHashCode() * 397) ^ AdditionalParts.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(FirstPart, AdditionalParts.GetSequencedHashCode());
 
         public static bool operator ==(ImplementationVersion left, ImplementationVersion right) => Equals(left, right);
         public static bool operator !=(ImplementationVersion left, ImplementationVersion right) => !Equals(left, right);

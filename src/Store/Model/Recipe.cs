@@ -91,7 +91,10 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Recipe other) => other != null && base.Equals(other) && Steps.SequencedEquals(other.Steps);
+        public bool Equals(Recipe other)
+            => other != null
+            && base.Equals(other)
+            && Steps.SequencedEquals(other.Steps);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -103,12 +106,9 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ Steps.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                Steps.GetSequencedHashCode());
         #endregion
     }
 }

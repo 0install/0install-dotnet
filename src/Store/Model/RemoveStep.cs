@@ -44,10 +44,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(RemoveStep other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Path == Path;
-        }
+            => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -59,12 +56,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (Path ?? "").GetHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Path);
         #endregion
     }
 }

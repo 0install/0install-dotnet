@@ -119,16 +119,11 @@ namespace ZeroInstall.Services.Native
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Distribution.GetHashCode();
-                result = (result * 397) ^ Package.GetHashCode();
-                result = (result * 397) ^ QuickTestFile?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                Distribution,
+                Package,
+                QuickTestFile);
         #endregion
     }
 }

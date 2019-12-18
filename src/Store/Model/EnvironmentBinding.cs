@@ -119,19 +119,14 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Name?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Value?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Insert?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Mode.GetHashCode();
-                result = (result * 397) ^ Separator?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Default?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                Name,
+                Value,
+                Insert,
+                Mode,
+                Separator,
+                Default);
         #endregion
     }
 }

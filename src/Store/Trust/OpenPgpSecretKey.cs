@@ -54,7 +54,9 @@ namespace ZeroInstall.Store.Trust
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return KeyID == other.KeyID && _fingerprint.SequencedEquals(other._fingerprint) && UserID == other.UserID;
+            return KeyID == other.KeyID
+                && _fingerprint.SequencedEquals(other._fingerprint)
+                && UserID == other.UserID;
         }
 
         /// <inheritdoc/>
@@ -67,15 +69,10 @@ namespace ZeroInstall.Store.Trust
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = KeyID.GetHashCode();
-                hashCode = (hashCode * 397) ^ _fingerprint.GetSequencedHashCode();
-                hashCode = (hashCode * 397) ^ UserID.GetHashCode();
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(
+                KeyID,
+                _fingerprint.GetSequencedHashCode(),
+                UserID);
 
         public static bool operator ==(OpenPgpSecretKey left, OpenPgpSecretKey right) => Equals(left, right);
         public static bool operator !=(OpenPgpSecretKey left, OpenPgpSecretKey right) => !Equals(left, right);

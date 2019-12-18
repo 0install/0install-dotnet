@@ -214,16 +214,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = Sha1?.GetHashCode() ?? 0;
-                result = (result * 397) ^ (Sha1New?.GetHashCode() ?? 0);
-                result = (result * 397) ^ (Sha256?.GetHashCode() ?? 0);
-                result = (result * 397) ^ (Sha256New?.GetHashCode() ?? 0);
-                return result;
-            }
-        }
+            => HashCode.Combine(Sha1, Sha1New, Sha256, Sha256New);
         #endregion
     }
 }

@@ -231,16 +231,13 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Requirements other)
-        {
-            if (other == null) return false;
-            if (InterfaceUri != other.InterfaceUri) return false;
-            if (Command != other.Command) return false;
-            if (Architecture != other.Architecture) return false;
-            if (!Languages.SequencedEquals(other.Languages)) return false;
-            if (!ExtraRestrictions.UnsequencedEquals(other.ExtraRestrictions)) return false;
-            if (!Distributions.UnsequencedEquals(other.Distributions)) return false;
-            return true;
-        }
+            => other != null
+            && InterfaceUri == other.InterfaceUri
+            && Command == other.Command
+            && Architecture == other.Architecture
+            && Languages.SetEquals(other.Languages)
+            && ExtraRestrictions.UnsequencedEquals(other.ExtraRestrictions)
+            && Distributions.UnsequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -252,18 +249,13 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = InterfaceUri?.GetHashCode() ?? 0;
-                result = (result * 397) ^ (Command?.GetHashCode() ?? 0);
-                result = (result * 397) ^ Architecture.GetHashCode();
-                result = (result * 397) ^ Languages.GetSequencedHashCode();
-                result = (result * 397) ^ ExtraRestrictions.GetUnsequencedHashCode();
-                result = (result * 397) ^ Distributions.GetUnsequencedHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                InterfaceUri,
+                Command,
+                Architecture,
+                Languages.GetUnsequencedHashCode(),
+                ExtraRestrictions.GetUnsequencedHashCode(),
+                Distributions.GetUnsequencedHashCode());
         #endregion
     }
 }

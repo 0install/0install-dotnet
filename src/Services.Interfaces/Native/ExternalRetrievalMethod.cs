@@ -58,10 +58,13 @@ namespace ZeroInstall.Services.Native
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ExternalRetrievalMethod other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Distro == other.Distro && PackageID == other.PackageID && Size == other.Size && ConfirmationQuestion == other.ConfirmationQuestion && Equals(Install, other.Install);
-        }
+            => other != null
+            && base.Equals(other)
+            && Distro == other.Distro
+            && PackageID == other.PackageID
+            && Size == other.Size
+            && ConfirmationQuestion == other.ConfirmationQuestion
+            && Equals(Install, other.Install);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -73,17 +76,7 @@ namespace ZeroInstall.Services.Native
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Distro?.GetHashCode() ?? 0;
-                result = (result * 397) ^ PackageID?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Size.GetHashCode();
-                result = (result * 397) ^ ConfirmationQuestion?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Distro, PackageID, Size, ConfirmationQuestion);
         #endregion
     }
 }

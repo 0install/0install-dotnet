@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Values.Design;
 
 namespace ZeroInstall.Store.Model
@@ -158,15 +159,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = 397;
-                foreach (var part in Parts)
-                    result = (result * 397) ^ part.GetHashCode();
-                return result;
-            }
-        }
+            => Parts.GetSequencedHashCode();
 
         public static bool operator ==(VersionRange left, VersionRange right) => Equals(left, right);
         public static bool operator !=(VersionRange left, VersionRange right) => !Equals(left, right);

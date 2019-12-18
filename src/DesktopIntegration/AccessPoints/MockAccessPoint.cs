@@ -95,10 +95,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Equality
         /// <inheritdoc/>
         public bool Equals(MockAccessPoint other)
-        {
-            if (other == null) return false;
-            return other.ID == ID;
-        }
+            => other != null && other.ID == ID;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -110,12 +107,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (ID ?? "").GetHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), ID);
         #endregion
     }
 }

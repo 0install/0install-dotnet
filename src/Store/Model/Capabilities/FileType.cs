@@ -55,10 +55,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(FileType other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Extensions.SequencedEquals(other.Extensions);
-        }
+            => other != null && base.Equals(other) && Extensions.SequencedEquals(other.Extensions);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -70,12 +67,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ Extensions.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Extensions.GetSequencedHashCode());
         #endregion
     }
 }

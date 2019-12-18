@@ -90,12 +90,7 @@ namespace ZeroInstall.Store.Model
         }
 
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((LowerInclusive?.GetHashCode() ?? 0) * 397) ^ (UpperExclusive?.GetHashCode() ?? 0);
-            }
-        }
+            => HashCode.Combine(LowerInclusive, UpperExclusive);
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
@@ -50,14 +51,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ IfZeroInstallVersion?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), IfZeroInstallVersion);
         #endregion
     }
 }

@@ -46,10 +46,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(AppRegistration other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.CapabilityRegPath == CapabilityRegPath;
-        }
+            => other != null && base.Equals(other) && other.CapabilityRegPath == CapabilityRegPath;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -61,14 +58,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ (CapabilityRegPath ?? "").GetHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), CapabilityRegPath);
         #endregion
     }
 }

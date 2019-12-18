@@ -60,14 +60,7 @@ namespace ZeroInstall.DesktopIntegration
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = AccessPoint.GetHashCode();
-                result = (result * 397) ^ AppEntry?.InterfaceUri?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(AccessPoint, AppEntry?.InterfaceUri);
         #endregion
     }
 }

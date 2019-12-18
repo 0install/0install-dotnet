@@ -55,10 +55,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(OverlayBinding other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Source == Source && other.MountPoint == MountPoint;
-        }
+            => other != null && base.Equals(other) && other.Source == Source && other.MountPoint == MountPoint;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -70,15 +67,8 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Source?.GetHashCode() ?? 0;
-                result = (result * 397) ^ MountPoint?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(), Source, MountPoint);
         #endregion
     }
 }

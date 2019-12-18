@@ -185,15 +185,13 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                if (MimeType != null) result = (result * 397) ^ StringComparer.OrdinalIgnoreCase.GetHashCode(MimeType);
-                result = (result * 397) ^ StartOffset.GetHashCode();
-                result = (result * 397) ^ Extract?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Destination?.GetHashCode() ?? 0;
-                return result;
-            }
+            var hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            if (MimeType != null) hash.Add(MimeType, StringComparer.OrdinalIgnoreCase);
+            hash.Add(StartOffset);
+            hash.Add(Extract);
+            hash.Add(Destination);
+            return hash.ToHashCode();
         }
         #endregion
     }

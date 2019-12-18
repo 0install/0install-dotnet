@@ -166,17 +166,14 @@ namespace ZeroInstall.DesktopIntegration
         #region Equality
         /// <inheritdoc/>
         public bool Equals(AppEntry other)
-        {
-            if (other == null) return false;
-            if (!base.Equals(other)) return false;
-            if (InterfaceUri != other.InterfaceUri) return false;
-            if (Name != other.Name) return false;
-            if (AutoUpdate != other.AutoUpdate) return false;
-            if (!Equals(Requirements, other.Requirements)) return false;
-            if (!CapabilityLists.SequencedEquals(other.CapabilityLists)) return false;
-            if (!Equals(AccessPoints, other.AccessPoints)) return false;
-            return true;
-        }
+            => other != null
+            && base.Equals(other)
+            && InterfaceUri == other.InterfaceUri
+            && Name == other.Name
+            && AutoUpdate == other.AutoUpdate
+            && Equals(Requirements, other.Requirements)
+            && CapabilityLists.SequencedEquals(other.CapabilityLists)
+            && Equals(AccessPoints, other.AccessPoints);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -188,19 +185,14 @@ namespace ZeroInstall.DesktopIntegration
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ InterfaceUri?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Name?.GetHashCode() ?? 0;
-                result = (result * 397) ^ AutoUpdate.GetHashCode();
-                result = (result * 397) ^ Requirements?.GetHashCode() ?? 0;
-                result = (result * 397) ^ CapabilityLists.GetSequencedHashCode();
-                result = (result * 397) ^ AccessPoints?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                InterfaceUri,
+                Name,
+                AutoUpdate,
+                Requirements,
+                CapabilityLists.GetSequencedHashCode(),
+                AccessPoints);
         #endregion
     }
 }

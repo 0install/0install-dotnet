@@ -378,23 +378,21 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ (Version?.GetHashCode() ?? 0);
-                result = (result * 397) ^ (VersionModifier?.GetHashCode() ?? 0);
-                result = (result * 397) ^ Released.GetHashCode();
-                result = (result * 397) ^ ReleasedVerbatim?.GetHashCode() ?? 0;
-                result = (result * 397) ^ License?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Main?.GetHashCode() ?? 0;
-                result = (result * 397) ^ SelfTest?.GetHashCode() ?? 0;
-                result = (result * 397) ^ DocDir?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Commands.GetSequencedHashCode();
-                result = (result * 397) ^ Dependencies.GetSequencedHashCode();
-                result = (result * 397) ^ Restrictions.GetSequencedHashCode();
-                result = (result * 397) ^ Bindings.GetSequencedHashCode();
-                return result;
-            }
+            var hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(Version);
+            hash.Add(VersionModifier);
+            hash.Add(Released);
+            hash.Add(ReleasedVerbatim);
+            hash.Add(License);
+            hash.Add(Main);
+            hash.Add(SelfTest);
+            hash.Add(DocDir);
+            hash.Add(Commands.GetSequencedHashCode());
+            hash.Add(Dependencies.GetSequencedHashCode());
+            hash.Add(Restrictions.GetSequencedHashCode());
+            hash.Add(Bindings.GetSequencedHashCode());
+            return hash.ToHashCode();
         }
         #endregion
     }

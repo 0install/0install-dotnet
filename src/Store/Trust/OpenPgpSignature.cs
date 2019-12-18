@@ -25,13 +25,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         protected bool Equals(OpenPgpSignature other)
-        {
-            #region Sanity checks
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            #endregion
-
-            return KeyID == other.KeyID;
-        }
+            => KeyID == other.KeyID;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -97,15 +91,10 @@ namespace ZeroInstall.Store.Trust
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 397) ^ _fingerprint.GetSequencedHashCode();
-                hashCode = (hashCode * 397) ^ Timestamp.GetHashCode();
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                _fingerprint.GetSequencedHashCode(),
+                Timestamp);
         #endregion
     }
 

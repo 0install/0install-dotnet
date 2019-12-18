@@ -46,19 +46,18 @@ namespace ZeroInstall.Store.Model.Capabilities
         }
 
         #region Equality
-        protected bool Equals(IconCapability other) => other != null && base.Equals(other) && Descriptions.SequencedEquals(other.Descriptions) && Icons.SequencedEquals(other.Icons);
+        protected bool Equals(IconCapability other)
+            => other != null
+            && base.Equals(other)
+            && Descriptions.SequencedEquals(other.Descriptions)
+            && Icons.SequencedEquals(other.Icons);
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Descriptions.GetSequencedHashCode();
-                result = (result * 397) ^ Icons.GetSequencedHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                Descriptions.GetSequencedHashCode(),
+                Icons.GetSequencedHashCode());
         #endregion
     }
 }

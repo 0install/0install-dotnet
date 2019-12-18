@@ -75,15 +75,7 @@ namespace ZeroInstall.Store.ViewModel
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = Uri.GetHashCode();
-                hashCode = (hashCode * 397) ^ (OldVersion != null ? OldVersion.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (NewVersion != null ? NewVersion.GetHashCode() : 0);
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(Uri, OldVersion, NewVersion);
         #endregion
     }
 }

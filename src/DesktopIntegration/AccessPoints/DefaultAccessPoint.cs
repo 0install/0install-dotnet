@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -32,12 +33,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (Capability ?? "").GetHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Capability);
         #endregion
     }
 }

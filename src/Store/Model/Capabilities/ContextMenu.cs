@@ -78,10 +78,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ContextMenu other)
-            => other != null
-            && base.Equals(other)
-            && other.Target == Target
-            && Equals(other.Verb, Verb);
+            => other != null && base.Equals(other) && other.Target == Target && Equals(other.Verb, Verb);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -93,15 +90,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Target.GetHashCode();
-                result = (result * 397) ^ Verb?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Target, Verb);
         #endregion
     }
 }

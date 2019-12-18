@@ -303,10 +303,7 @@ namespace ZeroInstall.DesktopIntegration
         #region Equality
         /// <inheritdoc/>
         public bool Equals(AppList other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Entries.SequencedEquals(other.Entries);
-        }
+            => other != null && (base.Equals(other) && Entries.SequencedEquals(other.Entries));
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -318,12 +315,7 @@ namespace ZeroInstall.DesktopIntegration
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ Entries.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Entries.GetUnsequencedHashCode());
         #endregion
     }
 }

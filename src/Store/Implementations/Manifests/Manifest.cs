@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
@@ -259,19 +260,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Manifest other)
-        {
-            if (other == null || _nodes.Length != other._nodes.Length) return false;
-
-            // If any node pair does not match, the manifests are not equal
-            for (int i = 0; i < _nodes.Length; i++)
-            {
-                if (!Equals(_nodes[i], other._nodes[i]))
-                    return false;
-            }
-
-            // If the for-loop ran through, all node pairs are identical and the manifests are equal
-            return true;
-        }
+            => other != null && Format == other.Format && _nodes.SequencedEquals(other._nodes);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -283,15 +272,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = Format.GetHashCode();
-                foreach (var node in _nodes)
-                    result = (result * 397) ^ node.GetHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(Format, _nodes.GetSequencedHashCode());
         #endregion
     }
 }

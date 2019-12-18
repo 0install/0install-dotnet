@@ -69,22 +69,13 @@ namespace ZeroInstall.Store.ViewModel
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (Fingerprint.GetHashCode() * 397) ^ Domain.GetHashCode();
-            }
-        }
+            => HashCode.Combine(Fingerprint, Domain);
         #endregion
 
         #region Comparison
         /// <inheritdoc/>
         int IComparable<TrustNode>.CompareTo(TrustNode other)
         {
-            #region Sanity checks
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            #endregion
-
             int fingerprintCompare = string.CompareOrdinal(Fingerprint, other.Fingerprint);
             return (fingerprintCompare == 0) ? string.CompareOrdinal(Domain.Value, other.Domain.Value) : fingerprintCompare;
         }

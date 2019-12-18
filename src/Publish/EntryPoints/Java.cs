@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.ComponentModel;
 using JetBrains.Annotations;
 using ZeroInstall.Publish.EntryPoints.Design;
@@ -39,12 +40,10 @@ namespace ZeroInstall.Publish.EntryPoints
 
         #region Equality
         protected bool Equals(Java other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) &&
-                   Equals(MinimumRuntimeVersion, other.MinimumRuntimeVersion) &&
-                   ExternalDependencies == other.ExternalDependencies;
-        }
+            => other != null
+            && base.Equals(other)
+            && Equals(MinimumRuntimeVersion, other.MinimumRuntimeVersion)
+            && ExternalDependencies == other.ExternalDependencies;
 
         public override bool Equals(object obj)
         {
@@ -55,15 +54,10 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 397) ^ (MinimumRuntimeVersion?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ ExternalDependencies.GetHashCode();
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                MinimumRuntimeVersion,
+                ExternalDependencies);
         #endregion
     }
 }

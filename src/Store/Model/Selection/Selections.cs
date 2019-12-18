@@ -208,14 +208,11 @@ namespace ZeroInstall.Store.Model.Selection
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Selections other)
-        {
-            if (other == null) return false;
-            if (!base.Equals(other)) return false;
-            if (InterfaceUri != other.InterfaceUri) return false;
-            if (Command != other.Command) return false;
-            if (!Implementations.UnsequencedEquals(other.Implementations)) return false;
-            return true;
-        }
+            => other != null
+            && base.Equals(other)
+            && InterfaceUri == other.InterfaceUri
+            && Command == other.Command
+            && Implementations.UnsequencedEquals(other.Implementations);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -227,16 +224,11 @@ namespace ZeroInstall.Store.Model.Selection
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ InterfaceUri?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Command?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Implementations.GetUnsequencedHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                InterfaceUri,
+                Command,
+                Implementations.GetUnsequencedHashCode());
         #endregion
     }
 }

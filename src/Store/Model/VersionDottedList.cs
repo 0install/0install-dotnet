@@ -89,16 +89,14 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            return obj is VersionDottedList list && Equals(list);
-        }
+            => !ReferenceEquals(null, obj) && obj is VersionDottedList list && Equals(list);
 
         public static bool operator ==(VersionDottedList left, VersionDottedList right) => left.Equals(right);
         public static bool operator !=(VersionDottedList left, VersionDottedList right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override int GetHashCode() => Decimals?.GetSequencedHashCode() ?? 0;
+        public override int GetHashCode()
+            => Decimals?.GetSequencedHashCode() ?? 0;
         #endregion
 
         #region Comparison

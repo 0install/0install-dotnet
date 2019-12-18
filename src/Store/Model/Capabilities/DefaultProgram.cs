@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DefaultProgram other) => other != null && (base.Equals(other) && other.Service == Service);
+        public bool Equals(DefaultProgram other) => other != null && base.Equals(other) && other.Service == Service;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -114,12 +114,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (Service ?? "").GetHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Service);
         #endregion
     }
 }

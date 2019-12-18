@@ -129,10 +129,10 @@ namespace ZeroInstall.Store.Model
         #region Equals
         /// <inheritdoc/>
         public bool Equals(PackageImplementation other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && Package == other.Package && Distributions.SequencedEquals(other.Distributions);
-        }
+            => other != null
+            && base.Equals(other)
+            && Package == other.Package
+            && Distributions.SequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -145,15 +145,10 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Package?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Distributions.GetSequencedHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(
+                base.GetHashCode(),
+                Package,
+                Distributions.GetSequencedHashCode());
         #endregion
     }
 }

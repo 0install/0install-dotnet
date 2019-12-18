@@ -66,12 +66,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ KnownPrefixes.GetSequencedHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), KnownPrefixes.GetSequencedHashCode());
         #endregion
     }
 }

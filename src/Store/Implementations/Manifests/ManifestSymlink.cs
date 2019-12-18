@@ -74,7 +74,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
+        public override int GetHashCode()
+            => base.GetHashCode();
         #endregion
     }
 }

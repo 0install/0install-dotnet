@@ -65,10 +65,10 @@ namespace ZeroInstall.Store.Implementations.Archives
         #region Equality
         /// <inheritdoc/>
         public bool Equals(ArchiveFileInfo other)
-            => string.Equals(Extract, other.Extract)
-            && string.Equals(Destination, other.Destination)
-            && string.Equals(MimeType, other.MimeType)
-               // NOTE: Exclude Path from comparison to allow easy testing with randomized TemporaryFiles
+            => Extract == other.Extract
+            && Destination == other.Destination
+            && MimeType == other.MimeType
+            // NOTE: Exclude Path from comparison to allow easy testing with randomized TemporaryFiles
             && StartOffset == other.StartOffset
             && OriginalSource == other.OriginalSource;
 
@@ -82,18 +82,12 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                // NOTE: Exclude Path from comparison to allow easy testing with randomized TemporaryFiles
-                int hashCode = Extract?.GetHashCode() ?? 0;
-                hashCode = (hashCode * 397) ^ (Destination?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ (MimeType?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ StartOffset.GetHashCode();
-                hashCode = (hashCode * 397) ^ (OriginalSource?.GetHashCode() ?? 0);
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(
+                Extract,
+                Destination,
+                MimeType,
+                StartOffset,
+                OriginalSource);
         #endregion
     }
 }

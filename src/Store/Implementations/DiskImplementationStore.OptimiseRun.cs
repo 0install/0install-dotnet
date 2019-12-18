@@ -41,16 +41,7 @@ namespace ZeroInstall.Store.Implementations
                 }
 
                 public override int GetHashCode()
-                {
-                    unchecked
-                    {
-                        int hashCode = Size.GetHashCode();
-                        hashCode = (hashCode * 397) ^ LastModified.GetHashCode();
-                        hashCode = (hashCode * 397) ^ Format.GetHashCode();
-                        hashCode = (hashCode * 397) ^ Digest.GetHashCode();
-                        return hashCode;
-                    }
-                }
+                    => HashCode.Combine(Size, LastModified, Format, Digest);
             }
 
             private struct StoreFile

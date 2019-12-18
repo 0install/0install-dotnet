@@ -49,10 +49,9 @@ namespace ZeroInstall.Store.Trust
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Key other)
-        {
-            if (other == null) return false;
-            return Fingerprint == other.Fingerprint && Domains.SetEquals(other.Domains);
-        }
+            => other != null
+            && Fingerprint == other.Fingerprint
+            && Domains.SetEquals(other.Domains);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -64,14 +63,7 @@ namespace ZeroInstall.Store.Trust
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = (Fingerprint ?? "").GetHashCode();
-                result = (result * 397) ^ Domains.GetUnsequencedHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(Fingerprint, Domains.GetUnsequencedHashCode());
         #endregion
     }
 }

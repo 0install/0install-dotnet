@@ -64,13 +64,7 @@ namespace ZeroInstall.Store.ViewModel
         #region Comparison
         /// <inheritdoc/>
         public int CompareTo(CacheNode other)
-        {
-            #region Sanity checks
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            #endregion
-
-            return string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
-        }
+            => string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
         #endregion
     }
 }

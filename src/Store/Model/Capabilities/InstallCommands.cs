@@ -84,18 +84,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = (Reinstall ?? "").GetHashCode();
-                result = (result * 397) ^ ReinstallArgs?.GetHashCode() ?? 0;
-                result = (result * 397) ^ ShowIcons?.GetHashCode() ?? 0;
-                result = (result * 397) ^ ShowIconsArgs?.GetHashCode() ?? 0;
-                result = (result * 397) ^ HideIcons?.GetHashCode() ?? 0;
-                result = (result * 397) ^ HideIconsArgs?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(Reinstall, ReinstallArgs, ShowIcons, ShowIconsArgs, HideIcons, HideIconsArgs);
         #endregion
     }
 }

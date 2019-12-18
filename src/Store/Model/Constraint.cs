@@ -60,10 +60,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Constraint other)
-            => other != null
-            && base.Equals(other)
-            && other.NotBefore == NotBefore
-            && other.Before == Before;
+            => other != null && base.Equals(other) && other.NotBefore == NotBefore && other.Before == Before;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -75,15 +72,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ NotBefore?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Before?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), NotBefore, Before);
         #endregion
     }
 }

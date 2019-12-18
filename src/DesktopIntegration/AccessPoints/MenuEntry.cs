@@ -66,10 +66,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Equality
         /// <inheritdoc/>
         public bool Equals(MenuEntry other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Category == Category;
-        }
+            => other != null && (base.Equals(other) && other.Category == Category);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -81,14 +78,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Category?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Category);
         #endregion
     }
 }

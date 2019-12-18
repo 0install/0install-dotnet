@@ -61,10 +61,7 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(InterfaceReference other)
-        {
-            if (other == null) return false;
-            return base.Equals(other) && other.Target == Target;
-        }
+            => other != null && base.Equals(other) && other.Target == Target;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -76,12 +73,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (base.GetHashCode() * 397) ^ (TargetString ?? "").GetHashCode();
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), TargetString);
         #endregion
     }
 }

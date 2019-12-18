@@ -90,12 +90,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((int)Modifier * 397) ^ DottedList.GetHashCode();
-            }
-        }
+            => HashCode.Combine(Modifier, DottedList);
         #endregion
 
         #region Comparison

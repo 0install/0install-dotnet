@@ -12,8 +12,10 @@ using IniParser.Model;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Values;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
@@ -348,10 +350,8 @@ namespace ZeroInstall.Store
 
         /// <inheritdoc/>
         public bool Equals(Config other)
-        {
-            if (other == null) return false;
-            return _metaData.All(property => property.Value.Value == other.GetOption(property.Key));
-        }
+            => other != null
+            && _metaData.All(property => property.Value.Value == other.GetOption(property.Key));
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -363,17 +363,7 @@ namespace ZeroInstall.Store
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = 397;
-                foreach (var property in _metaData)
-                {
-                    if (property.Value.Value != null)
-                        result = (result * 397) ^ property.Value.Value.GetHashCode();
-                }
-                return result;
-            }
-        }
+            => _metaData.GetUnsequencedHashCode(
+                new KeyEqualityComparer<PropertyPointer<string>, string>(x => x.Value));
     }
 }

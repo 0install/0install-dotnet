@@ -162,16 +162,7 @@ namespace ZeroInstall.Store.Model.Selection
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = Implementation.GetHashCode();
-                hashCode = (hashCode * 397) ^ FeedUri.GetHashCode();
-                hashCode = (hashCode * 397) ^ IsSuitable.GetHashCode();
-                if (Notes != null) hashCode = (hashCode * 397) ^ Notes.GetHashCode();
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(Implementation, FeedUri, IsSuitable, Notes);
         #endregion
     }
 }

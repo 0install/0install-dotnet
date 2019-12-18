@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
@@ -46,15 +47,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = base.GetHashCode();
-                hashCode = (hashCode * 397) ^ (Name?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ (Command?.GetHashCode() ?? 0);
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Name, Command);
         #endregion
     }
 }

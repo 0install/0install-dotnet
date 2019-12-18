@@ -149,19 +149,16 @@ namespace ZeroInstall.Store.Model
         #region Equality
         /// <inheritdoc/>
         public bool Equals(Command other)
-        {
-            if (other == null) return false;
-            if (!base.Equals(other)) return false;
-            if (Name != other.Name) return false;
-            if (Path != other.Path) return false;
-            if (!Arguments.SequencedEquals(other.Arguments)) return false;
-            if (!Bindings.SequencedEquals(other.Bindings)) return false;
-            if (!Equals(WorkingDir, other.WorkingDir)) return false;
-            if (!Dependencies.SequencedEquals(other.Dependencies)) return false;
-            if (!Restrictions.SequencedEquals(other.Restrictions)) return false;
-            if (!Equals(Runner, other.Runner)) return false;
-            return true;
-        }
+            => other != null
+            && base.Equals(other)
+            && Name == other.Name
+            && Path == other.Path
+            && Arguments.SequencedEquals(other.Arguments)
+            && Bindings.SequencedEquals(other.Bindings)
+            && Equals(WorkingDir, other.WorkingDir)
+            && Dependencies.SequencedEquals(other.Dependencies)
+            && Restrictions.SequencedEquals(other.Restrictions)
+            && Equals(Runner, other.Runner);
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -174,19 +171,17 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Name?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Path?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Arguments.GetSequencedHashCode();
-                result = (result * 397) ^ Bindings.GetSequencedHashCode();
-                result = (result * 397) ^ WorkingDir?.GetHashCode() ?? 0;
-                result = (result * 397) ^ Dependencies.GetSequencedHashCode();
-                result = (result * 397) ^ Restrictions.GetSequencedHashCode();
-                result = (result * 397) ^ Runner?.GetHashCode() ?? 0;
-                return result;
-            }
+            var hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(Name);
+            hash.Add(Path);
+            hash.Add(Arguments.GetSequencedHashCode());
+            hash.Add(Bindings.GetSequencedHashCode());
+            hash.Add(WorkingDir);
+            hash.Add(Dependencies.GetSequencedHashCode());
+            hash.Add(Restrictions.GetSequencedHashCode());
+            hash.Add(Runner);
+            return hash.ToHashCode();
         }
         #endregion
     }

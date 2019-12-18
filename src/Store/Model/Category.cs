@@ -69,15 +69,7 @@ namespace ZeroInstall.Store.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = base.GetHashCode();
-                result = (result * 397) ^ Name?.GetHashCode() ?? 0;
-                result = (result * 397) ^ TypeNamespace?.GetHashCode() ?? 0;
-                return result;
-            }
-        }
+            => HashCode.Combine(base.GetHashCode(), Name, TypeNamespace);
         #endregion
 
         #region Clone
@@ -85,7 +77,7 @@ namespace ZeroInstall.Store.Model
         /// Creates a plain copy of this category.
         /// </summary>
         /// <returns>The cloned category.</returns>
-        public Category Clone() => new Category {Name = Name, TypeNamespace = TypeNamespace};
+        public Category Clone() => new Category {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, TypeNamespace = TypeNamespace};
         #endregion
     }
 }

@@ -56,15 +56,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         /// <inheritdoc/>
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int result = Digest.GetHashCode();
-                result = (result * 397) ^ Size.GetHashCode();
-                result = (result * 397) ^ Name.GetHashCode();
-                return result;
-            }
-        }
+            => HashCode.Combine(Digest, Size, Name);
         #endregion
     }
 }

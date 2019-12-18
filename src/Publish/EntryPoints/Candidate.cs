@@ -117,17 +117,14 @@ namespace ZeroInstall.Publish.EntryPoints
 
         #region Equality
         protected bool Equals(Candidate other)
-        {
-            if (other == null) return false;
-            return
-                string.Equals(RelativePath, other.RelativePath) &&
-                string.Equals(Name, other.Name) &&
-                string.Equals(Summary, other.Summary) &&
-                string.Equals(Category, other.Category) &&
-                Equals(Version, other.Version) &&
-                Architecture == other.Architecture &&
-                NeedsTerminal == other.NeedsTerminal;
-        }
+            => other != null
+            && RelativePath == other.RelativePath
+            && Name == other.Name
+            && Summary == other.Summary
+            && Category == other.Category
+            && Equals(Version, other.Version)
+            && Architecture == other.Architecture
+            && NeedsTerminal == other.NeedsTerminal;
 
         public override bool Equals(object obj)
         {
@@ -138,19 +135,14 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         public override int GetHashCode()
-        {
-            unchecked
-            {
-                int hashCode = RelativePath?.GetHashCode() ?? 0;
-                hashCode = (hashCode * 397) ^ (Name?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ (Summary?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ (Category?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ (Version?.GetHashCode() ?? 0);
-                hashCode = (hashCode * 397) ^ Architecture.GetHashCode();
-                hashCode = (hashCode * 397) ^ NeedsTerminal.GetHashCode();
-                return hashCode;
-            }
-        }
+            => HashCode.Combine(
+                RelativePath,
+                Name,
+                Summary,
+                Category,
+                Version,
+                Architecture,
+                NeedsTerminal);
         #endregion
     }
 }
