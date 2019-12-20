@@ -62,17 +62,25 @@ namespace ZeroInstall.Store.Implementations.Archives
                     string relativePath = GetRelativePath(entry.Name);
                     if (string.IsNullOrEmpty(relativePath)) continue;
 
-                    if (entry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, entry.TarHeader.ModTime);
-                    else if (entry.TarHeader.TypeFlag == TarHeader.LF_LINK)
+                    switch (entry.TarHeader.TypeFlag)
                     {
-                        string targetPath = GetRelativePath(entry.TarHeader.LinkName);
-                        if (string.IsNullOrEmpty(targetPath)) throw new IOException(string.Format(Resources.HardlinkTargetMissing, relativePath, entry.TarHeader.LinkName));
-                        DirectoryBuilder.QueueHardlink(relativePath, targetPath, IsExecutable(entry));
+                        case TarHeader.LF_DIR:
+                            DirectoryBuilder.CreateDirectory(relativePath, entry.TarHeader.ModTime);
+                            break;
+                        case TarHeader.LF_LINK:
+                        {
+                            string targetPath = GetRelativePath(entry.TarHeader.LinkName);
+                            if (string.IsNullOrEmpty(targetPath)) throw new IOException(string.Format(Resources.HardlinkTargetMissing, relativePath, entry.TarHeader.LinkName));
+                            DirectoryBuilder.QueueHardlink(relativePath, targetPath, IsExecutable(entry));
+                            break;
+                        }
+                        case TarHeader.LF_SYMLINK:
+                            DirectoryBuilder.CreateSymlink(relativePath, entry.TarHeader.LinkName);
+                            break;
+                        default:
+                            WriteFile(relativePath, entry.Size, entry.TarHeader.ModTime, _tarStream, IsExecutable(entry));
+                            break;
                     }
-                    else if (entry.TarHeader.TypeFlag == TarHeader.LF_SYMLINK)
-                        DirectoryBuilder.CreateSymlink(relativePath, entry.TarHeader.LinkName);
-                    else
-                        WriteFile(relativePath, entry.Size, entry.TarHeader.ModTime, _tarStream, IsExecutable(entry));
 
                     UpdateProgress();
                 }
