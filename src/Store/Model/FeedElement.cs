@@ -4,7 +4,6 @@
 using System.ComponentModel;
 using System.Xml.Serialization;
 using JetBrains.Annotations;
-using NanoByte.Common.Info;
 
 namespace ZeroInstall.Store.Model
 {

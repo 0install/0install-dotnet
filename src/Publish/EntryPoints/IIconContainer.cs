@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if NETFRAMEWORK
 using System.Drawing;
+#endif
 
 namespace ZeroInstall.Publish.EntryPoints
 {

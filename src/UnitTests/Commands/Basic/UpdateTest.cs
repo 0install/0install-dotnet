@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using Moq;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Services;

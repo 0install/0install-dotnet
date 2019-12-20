@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using System.IO;
 using System.Net;
 using System.Xml.Serialization;
 using NanoByte.Common;
