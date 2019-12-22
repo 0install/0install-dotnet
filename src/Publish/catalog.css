@@ -1,54 +1,69 @@
-html { overflow-y: scroll; }
+html {
+    overflow-y: scroll;
+}
 
-body { font-family: sans-serif; }
+body {
+    font-family: sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+input {
+     width: 100%;
+}
 
 #main {
-  background: white;
-  max-width: 50em;
-  margin: 1em auto;
+    margin-top: -0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
 }
 
-h1 { text-align: center; }
-
-.search { width: 100%; }
+.searchBar {
+    position: sticky;
+    top: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+    background-color: white;
+}
 
 .app {
-  display: flex;
-  min-height: 64px;
-  align-items: center;
+    display: flex;
+    min-height: 64px;
+    align-items: center;
 }
 
-.app:nth-child(even) { background-color: #EEE; }
+.app:nth-child(even) {
+    background-color: #EEE;
+}
 
 .icon {
-  width: 42px;
-  flex: 0 0 auto;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+    width: 42px;
+    flex: 0 0 auto;
+    padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
 .info {
-  flex: 1 1 auto;
-  /*flex-grow: 1;*/
-  padding: 0.5rem 0 0.5rem 0.5rem;
+    flex: 1 1 auto;
+    padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
 .name {
-  font-size: 1.1rem;
-  margin: 0;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .summary {
-  vertical-align: top;
-  float: left;
-  margin: 0;
-}
-
-.subtle {
-  color: black;
-  text-decoration: none;
+    vertical-align: top;
+    float: left;
+    margin: 0;
 }
 
 .actions {
-  flex: 0 0 auto;
-  padding: 1rem;
+    flex: 0 0 auto;
+    padding: 1rem;
 }

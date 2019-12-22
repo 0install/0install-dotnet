@@ -26,7 +26,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 
 								<xsl:variable name="icon-href" select="(zi:icon[@type='image/png'][1])/@href"/>
 								<xsl:if test="$icon-href != ''">
-									<img src="{$icon-href}" class="alpha icon" />
+									<img src="{$icon-href}" class="alpha icon"/>
 								</xsl:if>
 
 								<h1><xsl:value-of select="zi:name"/></h1>
@@ -38,7 +38,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 								</xsl:if>
 
 								<div class="what-is-this">
-									<xsl:if test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">								
+									<xsl:if test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">
 										<form action="https://0install.de/bootstrap/" method="get" style="float: left; margin-right: 4px;">
 											<input type="hidden" name="name" value="{zi:name}"/>
 											<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
@@ -204,6 +204,9 @@ http://creativecommons.org/licenses/by-sa/2.5/
 																	<xsl:for-each select=".//zi:archive">
 																		<a href="{@href}">Download</a> (<xsl:value-of select="@size"/> bytes)
 																	</xsl:for-each>
+																	<xsl:for-each select=".//zi:file">
+																		<a href="{@href}">Download</a> (<xsl:value-of select="@size"/> bytes)
+																	</xsl:for-each>
 																</td>
 															</tr>
 														</xsl:for-each>
@@ -249,7 +252,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 								<xsl:choose>
 									<xsl:when test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">
 										<p>
-											Dies ist ein Zero Install Feed. Wenn Sie <a href="http://0install.net/">Zero Install</a> auf Ihrem System haben,
+											Dies ist ein Zero Install Feed. Wenn Sie <a href="https://0install.net/">Zero Install</a> auf Ihrem System haben,
 											können Sie es verwenden, um <xsl:value-of select="zi:name"/> von der Befehlszeile aus zu starten:
 										</p>
 										<pre>0install run <xsl:value-of select="/zi:interface/@uri"/></pre>
@@ -264,7 +267,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 											<xsl:value-of select="zi:name"/> ist eine Bibliothek und kann nicht direkt als Anwendung ausgeführt werden.
 										</p>
 										<p>
-											Für weitere Informationen über die Verwendung von Zero Install Paketen, lesen Sie die <a href="http://0install.net/dev.html">Zero Install Entwickleranleitung</a>.
+											Für weitere Informationen über die Verwendung von Zero Install Paketen, lesen Sie die <a href="https://docs.0install.net/packaging/">Zero Install Dokumentation</a>.
 										</p>
 									</xsl:otherwise>
 								</xsl:choose>

@@ -13,8 +13,8 @@ http://creativecommons.org/licenses/by-sa/2.5/
 	<xsl:template match="/zi:interface">
 		<html>
 			<head>
-				<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-				<meta http-equiv="content-language" content="en"/>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+				<meta http-equiv="Content-Language" content="en"/>
 				<title><xsl:value-of select="zi:name"/></title>
 				<link rel="stylesheet" type="text/css" href='feed.css'/>
 			</head>
@@ -204,6 +204,9 @@ http://creativecommons.org/licenses/by-sa/2.5/
 																	<xsl:for-each select=".//zi:archive">
 																		<a href="{@href}">Download</a> (<xsl:value-of select="@size"/> bytes)
 																	</xsl:for-each>
+																	<xsl:for-each select=".//zi:file">
+																		<a href="{@href}">Download</a> (<xsl:value-of select="@size"/> bytes)
+																	</xsl:for-each>
 																</td>
 															</tr>
 														</xsl:for-each>
@@ -249,7 +252,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 								<xsl:choose>
 									<xsl:when test="//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main]">
 										<p>
-											This is a Zero Install feed. If you have <a href="http://0install.net/">Zero Install</a> on your system you
+											This is a Zero Install feed. If you have <a href="https://0install.net/">Zero Install</a> on your system you
 											can use it to run <xsl:value-of select="zi:name"/> from the command-line:
 										</p>
 										<pre>0install run <xsl:value-of select="/zi:interface/@uri"/></pre>
@@ -264,7 +267,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 											<xsl:value-of select="zi:name"/> is a library and cannot be run as an application directly.
 										</p>
 										<p>
-											For more information about using Zero Install packages, see the <a href="http://0install.net/dev.html">Zero Install developer's guide</a>.
+											For more information about using Zero Install packages, see the <a href="https://docs.0install.net/packaging/">Zero Install packaging guide</a>.
 										</p>
 									</xsl:otherwise>
 								</xsl:choose>
