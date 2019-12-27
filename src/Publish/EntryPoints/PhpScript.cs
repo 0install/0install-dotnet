@@ -22,6 +22,6 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        protected override FeedUri InterpreterInterface => new FeedUri("http://repo.roscidus.com/php/php");
+        protected override FeedUri InterpreterInterface => new FeedUri("https://apps.0install.net/php/php.xml");
     }
 }

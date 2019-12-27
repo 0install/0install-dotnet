@@ -40,7 +40,7 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        protected override FeedUri InterpreterInterface => new FeedUri("http://repo.roscidus.com/python/python");
+        protected override FeedUri InterpreterInterface => new FeedUri("https://apps.0install.net/python/python.xml");
 
         /// <inheritdoc/>
         public override Command CreateCommand() => new Command

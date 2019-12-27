@@ -42,9 +42,9 @@ namespace ZeroInstall.Publish.EntryPoints
         protected override FeedUri InterpreterInterface
             => PowerShellType switch
             {
-                PowerShellType.WindowsOnly => new FeedUri("http://repo.roscidus.com/powershell/windows"),
-                PowerShellType.CoreOnly => new FeedUri("http://repo.roscidus.com/powershell/core"),
-                _ => new FeedUri("http://repo.roscidus.com/powershell/powershell"),
+                PowerShellType.WindowsOnly => new FeedUri("https://apps.0install.net/powershell/windows.xml"),
+                PowerShellType.CoreOnly => new FeedUri("https://apps.0install.net/powershell/core.xml"),
+                _ => new FeedUri("https://apps.0install.net/powershell/powershell.xml"),
             };
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace ZeroInstall.Publish.EntryPoints
             Path = RelativePath,
             Runner = new Runner
             {
-                InterfaceUri = new FeedUri("http://repo.roscidus.com/java/openjdk-jre"),
+                InterfaceUri = new FeedUri("https://apps.0install.net/java/jre.xml"),
                 Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                 Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
             }

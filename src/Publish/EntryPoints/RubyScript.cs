@@ -22,6 +22,6 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        protected override FeedUri InterpreterInterface => new FeedUri("http://repo.roscidus.com/ruby/ruby");
+        protected override FeedUri InterpreterInterface => new FeedUri("https://apps.0install.net/ruby/ruby.xml");
     }
 }

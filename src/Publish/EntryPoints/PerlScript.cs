@@ -22,6 +22,6 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        protected override FeedUri InterpreterInterface => new FeedUri("http://repo.roscidus.com/perl/perl");
+        protected override FeedUri InterpreterInterface => new FeedUri("https://apps.0install.net/perl/perl.xml");
     }
 }
