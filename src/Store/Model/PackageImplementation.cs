@@ -31,13 +31,6 @@ namespace ZeroInstall.Store.Model
         [XmlIgnore]
         public VersionRange VersionRange { get; set; }
 
-        #region XML serialization
-        /// <summary>Used for XML serialization.</summary>
-        /// <seealso cref="VersionRange"/>
-        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override string VersionString { get => VersionRange?.ToString(); set => VersionRange = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
-        #endregion
-
         #region Constants
         /// <summary>
         /// Well-known values for <see cref="Distributions"/>.
@@ -46,34 +39,29 @@ namespace ZeroInstall.Store.Model
         #endregion
 
         #region Disabled Properties
-        /// <summary>
-        /// The version number as provided by the operating system.
-        /// </summary>
-        [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override ImplementationVersion Version
-        {
-            get => null; // TODO: PackageKit integration
-            set {}
-        }
-
-        /// <summary>
-        /// The version number as provided by the operating system.
-        /// </summary>
-        [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override DateTime Released
-        {
-            get => new DateTime(); // TODO: PackageKit integration
-            set {}
-        }
+        /// <summary>Not used.</summary>
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlIgnore]
+        public override ImplementationVersion Version { get => null; set {} }
 
         /// <summary>Not used.</summary>
-        [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override string ReleasedString { set {} }
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("version-modifier")]
+        public override string VersionModifier { get => null; set {} }
 
-        /// <summary>
-        /// The default stability rating for all <see cref="PackageImplementation"/>s is always "packaged".
-        /// </summary>
-        [XmlIgnore, Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        /// <summary>Not used.</summary>
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlIgnore]
+        public override DateTime Released { get => new DateTime(); set {} }
+
+        /// <summary>Not used.</summary>
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("released")]
+        public override string ReleasedString { get => null; set {} }
+
+        /// <summary>Not used.</summary>
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
         public override Stability Stability { get => Stability.Unset; set {} }
         #endregion
 
