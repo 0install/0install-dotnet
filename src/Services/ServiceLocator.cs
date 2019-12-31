@@ -132,10 +132,13 @@ namespace ZeroInstall.Services
         {
             get => Get(ref _solver, () =>
             {
-                ISolver
-                    backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider, Handler),
-                    externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config, FeedManager, Handler);
-                return new FallbackSolver(backtrackingSolver, externalSolver);
+                var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider, Handler);
+                if (Config.ExternalSolverUri == null) return backtrackingSolver;
+                else
+                {
+                    var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config.ExternalSolverUri, FeedManager, Handler);
+                    return new FallbackSolver(backtrackingSolver, externalSolver);
+                }
             });
             set => _solver = value;
         }
