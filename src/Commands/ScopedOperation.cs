@@ -8,6 +8,7 @@ using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
+using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services;
@@ -167,9 +168,11 @@ namespace ZeroInstall.Commands
         protected void SelfUpdateCheck()
         {
 #if NETFRAMEWORK
-            if (ZeroInstallInstance.IsBackgroundUpdateAllowed
-             && Config.NetworkUse == NetworkLevel.Full
+            if (!ZeroInstallInstance.IsRunningFromCache
+             && NetUtils.IsInternetConnected
              && Handler.Verbosity != Verbosity.Batch
+             && Config.NetworkUse == NetworkLevel.Full
+             && Config.SelfUpdateUri != null
              && FeedManager.IsStale(Config.SelfUpdateUri))
             {
                 // Prevent multiple concurrent updates

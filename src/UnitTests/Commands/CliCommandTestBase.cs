@@ -55,7 +55,7 @@ namespace ZeroInstall.Commands
                 return mock.Object;
             }
 
-            Sut.Config = new Config();
+            Sut.Config = new Config {SelfUpdateUri = null};
             Sut.FeedCache = BuildMock<IFeedCache>();
             Sut.CatalogManager = BuildMock<ICatalogManager>();
             Sut.OpenPgp = BuildMock<IOpenPgp>();
@@ -66,8 +66,6 @@ namespace ZeroInstall.Commands
             Sut.Fetcher = BuildMock<IFetcher>();
             Sut.Executor = BuildMock<IExecutor>();
             Sut.SelectionsManager = BuildMock<ISelectionsManager>();
-
-            ZeroInstallInstance.DisableBackgroundUpdate();
         }
 
         /// <summary>

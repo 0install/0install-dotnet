@@ -116,7 +116,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 try
                 {
-                    var selfSelections = Solver.Solve(new Requirements(Config.SelfUpdateUri));
+                    var selfSelections = Solver.Solve(new Requirements(Config.DefaultSelfUpdateUri));
 
                     Selections.Implementations.AddRange(selfSelections.Implementations);
                     UncachedImplementations.AddRange(SelectionsManager.GetUncachedImplementations(selfSelections));

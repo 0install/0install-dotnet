@@ -54,44 +54,73 @@ namespace ZeroInstall.Commands
             return installLocation;
         }
 
-        private static string DisableBackgroundUpdateFile => Path.Combine(Locations.PortableBase, "_no_self_update_check");
-
         /// <summary>
-        /// Disables background update checks for Zero Install.
-        /// </summary>
-        public static void DisableBackgroundUpdate() => FileUtils.Touch(DisableBackgroundUpdateFile);
-
-        /// <summary>
-        /// Determines whether a background update check for Zero Install is currently allowed.
-        /// </summary>
-        public static bool IsBackgroundUpdateAllowed
-            => !File.Exists(DisableBackgroundUpdateFile)
-            && !IsRunningFromCache
-            && NetUtils.IsInternetConnected;
-
-        /// <summary>
-        /// Checks if an update for Zero Install is available.
+        /// Silently checks if an update for Zero Install is available.
         /// </summary>
         /// <returns>The version number of the newest available update; <c>null</c> if no update is available.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occured while reading the feed file.</exception>
-        /// <exception cref="WebException">A problem occured while fetching the feed file.</exception>
-        /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
-        /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
-        /// <exception cref="UriFormatException"><see cref="Config.SelfUpdateUri"/> is invalid.</exception>
-        /// <exception cref="SolverException">The solver was unable to get information about the current version of Zero Install.</exception>
-        /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
-        [CanBeNull]
-        public static ImplementationVersion UpdateCheck(ITaskHandler handler)
+        public static ImplementationVersion SilentUpdateCheck()
         {
+            if (IsRunningFromCache || !NetUtils.IsInternetConnected) return null;
+
+            using var handler = new SilentTaskHandler();
             var services = new ServiceLocator(handler) {FeedManager = {Refresh = true}};
-            if (services.Config.NetworkUse == NetworkLevel.Offline) return null;
+            if (services.Config.NetworkUse == NetworkLevel.Offline || services.Config.SelfUpdateUri == null) return null;
 
             var requirements = new Requirements(services.Config.SelfUpdateUri);
-            var selections = services.Solver.Solve(requirements);
 
-            var newVersion = selections.MainImplementation.Version;
-            return (newVersion > ImplementationVersion.ZeroInstall) ? newVersion : null;
+            try
+            {
+                var selections = services.Solver.Solve(requirements);
+                var newVersion = selections.MainImplementation.Version;
+                return (newVersion > ImplementationVersion.ZeroInstall) ? newVersion : null;
+            }
+            #region Error handling
+            catch (OperationCanceledException)
+            {
+                return null;
+            }
+            catch (WebException ex)
+            {
+                Log.Debug(ex);
+                return null;
+            }
+            catch (IOException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            catch (SignatureException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            catch (UriFormatException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            catch (SolverException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            catch (InvalidDataException ex)
+            {
+                Log.Warn("Problem with silent self-update check");
+                Log.Warn(ex);
+                return null;
+            }
+            #endregion
         }
     }
 }

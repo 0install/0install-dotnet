@@ -61,7 +61,7 @@ namespace ZeroInstall.Commands.Desktop
             AdditionalArgs.AddRange(Options.Parse(args));
             if (AdditionalArgs.Count != 0) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.JoinEscapeArguments(), null);
 
-            SetInterfaceUri(Config.SelfUpdateUri);
+            SetInterfaceUri(Config.SelfUpdateUri ?? throw new UriFormatException("Self update is disabled in config."));
             if (ProgramUtils.GuiAssemblyName != null) Requirements.Command = Command.NameRunGui;
 
             // Instruct new version of Zero Install in the cache to deploy itself over the location of the current version
