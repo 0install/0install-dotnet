@@ -141,7 +141,7 @@ namespace ZeroInstall.Commands
         /// <param name="args">The command-line arguments to be parsed.</param>
         /// <exception cref="OperationCanceledException">The user asked to see help information, version information, etc..</exception>
         /// <exception cref="OptionException"><paramref name="args"/> contains unknown options.</exception>
-        /// <exception cref="IOException">A problem occurred while creating a directory.</exception>
+        /// <exception cref="IOException">An IO operation failed.</exception>
         /// <exception cref="UnauthorizedAccessException">More privileges are required.</exception>
         /// <exception cref="UriFormatException">The URI or local path specified is invalid.</exception>
         [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
