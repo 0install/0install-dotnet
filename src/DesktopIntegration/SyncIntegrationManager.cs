@@ -56,11 +56,8 @@ namespace ZeroInstall.DesktopIntegration
         #endregion
 
         #region Variables
-        /// <summary>Access information for the sync server..</summary>
-        private readonly SyncServer _server;
-
-        /// <summary>The local key used to encrypt data before sending it to the <see cref="_server"/>.</summary>
-        private readonly string _cryptoKey;
+        /// <summary>Configuration for communicating with a sync server.</summary>
+        private readonly SyncConfig _config;
 
         /// <summary>Callback method used to retrieve additional <see cref="Feed"/>s on demand.</summary>
         private readonly Converter<FeedUri, Feed> _feedRetriever;
@@ -73,20 +70,17 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Creates a new sync manager. Performs Mutex-based locking!
         /// </summary>
-        /// <param name="server">Access information for the sync server.</param>
-        /// <param name="cryptoKey">The local key used to encrypt data before sending it to the <paramref name="server"/>.</param>
+        /// <param name="config">Configuration for communicating with a sync server.</param>
         /// <param name="feedRetriever">Callback method used to retrieve additional <see cref="Feed"/>s on demand.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public SyncIntegrationManager(SyncServer server, [CanBeNull] string cryptoKey, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public SyncIntegrationManager([NotNull] SyncConfig config, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
-            if (server.Uri == null) throw new ArgumentNullException(nameof(server));
-            _server = server;
-            _cryptoKey = cryptoKey;
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
             if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
@@ -101,18 +95,17 @@ namespace ZeroInstall.DesktopIntegration
         /// Creates a new sync manager for a custom <see cref="AppList"/> file. Used for testing. Uses no mutex!
         /// </summary>
         /// <param name="appListPath">The storage location of the <see cref="AppList"/> file.</param>
-        /// <param name="server">Access information for the sync server.</param>
+        /// <param name="config">Configuration for communicating with a sync server.</param>
         /// <param name="feedRetriever">Callback method used to retrieve additional <see cref="Feed"/>s on demand.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public SyncIntegrationManager([NotNull] string appListPath, SyncServer server, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public SyncIntegrationManager([NotNull] string appListPath, [NotNull] SyncConfig config, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
             : base(appListPath, handler, machineWide)
         {
-            if (server.Uri == null) throw new ArgumentNullException(nameof(server));
-            _server = server;
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
             if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
@@ -138,12 +131,10 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public void Sync(SyncResetMode resetMode = SyncResetMode.None)
         {
-            if (!_server.IsValid) throw new InvalidDataException(Resources.PleaseConfigSync);
-
-            var appListUri = new Uri(_server.Uri, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
+            var appListUri = new Uri(_config.Uri, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
             using (var webClient = new WebClientTimeout
             {
-                Credentials = _server.Credentials,
+                Credentials = _config.Credentials,
                 CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore)
             })
             {
@@ -222,7 +213,7 @@ namespace ZeroInstall.DesktopIntegration
             AppList serverList;
             try
             {
-                serverList = AppList.LoadXmlZip(new MemoryStream(appListData), _cryptoKey);
+                serverList = AppList.LoadXmlZip(new MemoryStream(appListData), _config.CryptoKey);
             }
             #region Error handling
             catch (ZipException ex)
@@ -259,7 +250,7 @@ namespace ZeroInstall.DesktopIntegration
             if (resetMode == SyncResetMode.Client) return;
 
             var memoryStream = new MemoryStream();
-            AppList.SaveXmlZip(memoryStream, _cryptoKey);
+            AppList.SaveXmlZip(memoryStream, _config.CryptoKey);
 
             // Prevent "lost updates" (race conditions) with HTTP ETags
             if (resetMode == SyncResetMode.None && (appListUri.Scheme == "http" || appListUri.Scheme == "https"))
