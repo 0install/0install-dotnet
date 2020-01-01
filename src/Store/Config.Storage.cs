@@ -78,6 +78,35 @@ namespace ZeroInstall.Store
         }
 
         /// <summary>
+        /// Tries to load the <see cref="Config"/>. Automatically falls back to default values on errors.
+        /// </summary>
+        /// <returns>The loaded <see cref="Config"/> or default <see cref="Config"/> if there was a problem.</returns>
+        public static Config LoadSafe()
+        {
+            try
+            {
+                return Load();
+            }
+            #region Error handling
+            catch (IOException ex)
+            {
+                Log.Error(ex);
+                return new Config();
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Error(ex);
+                return new Config();
+            }
+            catch (InvalidDataException ex)
+            {
+                Log.Error(ex);
+                return new Config();
+            }
+            #endregion
+        }
+
+        /// <summary>
         /// Loads the settings from a single INI file.
         /// </summary>
         /// <returns>The loaded <see cref="Config"/>.</returns>
