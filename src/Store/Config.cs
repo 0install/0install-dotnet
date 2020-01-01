@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using NanoByte.Common;
-using NanoByte.Common.Net;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store
@@ -62,26 +61,22 @@ namespace ZeroInstall.Store
         /// </summary>
         public const string DefaultFeedMirror = "http://roscidus.com/0mirror";
 
-        private Uri _feedMirror = new Uri(DefaultFeedMirror);
-
         /// <summary>
         /// The mirror server used to provide feeds when the original server is unavailable.
         /// </summary>
-        [DefaultValue(typeof(Uri), DefaultFeedMirror), CanBeNull, Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable.")]
-        public Uri FeedMirror { get => _feedMirror; set => _feedMirror = value?.ReparseAsAbsolute(); }
+        [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable.")]
+        public FeedUri FeedMirror { get; set; } = new FeedUri(DefaultFeedMirror);
 
         /// <summary>
         /// The default value for <see cref="KeyInfoServer"/>.
         /// </summary>
         public const string DefaultKeyInfoServer = "https://keylookup.0install.net/";
 
-        private Uri _keyInfoServer = new Uri(DefaultKeyInfoServer);
-
         /// <summary>
         /// The key information server used to get information about who signed a feed.
         /// </summary>
-        [DefaultValue(typeof(Uri), DefaultKeyInfoServer), CanBeNull, Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed.")]
-        public Uri KeyInfoServer { get => _keyInfoServer; set => _keyInfoServer = value?.ReparseAsAbsolute(); }
+        [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed.")]
+        public FeedUri KeyInfoServer { get; set; } = new FeedUri(DefaultKeyInfoServer);
 
         /// <summary>
         /// The default value for <see cref="SelfUpdateUri"/>.
@@ -110,15 +105,13 @@ namespace ZeroInstall.Store
         /// </summary>
         public const string DefaultSyncServer = "https://0install.de/sync/";
 
-        private Uri _syncServer = new Uri(DefaultSyncServer);
-
         /// <summary>
         /// The sync server used to synchronize your app list between multiple computers.
         /// </summary>
         /// <seealso cref="SyncServerUsername"/>
         /// <seealso cref="SyncServerPassword"/>
-        [DefaultValue(typeof(Uri), DefaultSyncServer), Category("Sync"), DisplayName(@"Server"), Description("The sync server used to synchronize your app list between multiple computers.")]
-        public Uri SyncServer { get => _syncServer; set => _syncServer = value?.ReparseAsAbsolute(); }
+        [DefaultValue(typeof(FeedUri), DefaultSyncServer), Category("Sync"), DisplayName(@"Server"), Description("The sync server used to synchronize your app list between multiple computers.")]
+        public FeedUri SyncServer { get; set; } = new FeedUri(DefaultSyncServer);
 
         /// <summary>
         /// The username to authenticate with against the <see cref="SyncServer"/>.
@@ -157,11 +150,11 @@ namespace ZeroInstall.Store
                 {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
                 {"network_use", NetworkUsePropertyPointer},
                 {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
-                {"feed_mirror", PropertyPointer.For(() => FeedMirror, value => FeedMirror = value, defaultValue: new Uri(DefaultFeedMirror)).ToStringPointer()},
-                {"key_info_server", PropertyPointer.For(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new Uri(DefaultKeyInfoServer)).ToStringPointer()},
+                {"feed_mirror", PropertyPointer.For(() => FeedMirror, value => FeedMirror = value, defaultValue: new FeedUri(DefaultFeedMirror)).ToStringPointer()},
+                {"key_info_server", PropertyPointer.For(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new FeedUri(DefaultKeyInfoServer)).ToStringPointer()},
                 {"self_update_uri", PropertyPointer.For(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
                 {"external_solver_uri", PropertyPointer.For(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
-                {"sync_server", PropertyPointer.For(() => SyncServer, value => SyncServer = value, defaultValue: new Uri(DefaultSyncServer)).ToStringPointer()},
+                {"sync_server", PropertyPointer.For(() => SyncServer, value => SyncServer = value, defaultValue: new FeedUri(DefaultSyncServer)).ToStringPointer()},
                 {"sync_server_user", PropertyPointer.For(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
                 {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
                 {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},

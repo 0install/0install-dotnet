@@ -164,7 +164,7 @@ namespace ZeroInstall.Services.Feeds
 
             using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
             {
-                _config.FeedMirror = server.ServerUri;
+                _config.FeedMirror = new FeedUri(server.ServerUri);
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost:9999/test/feed.xml"))
                              .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
@@ -191,7 +191,7 @@ namespace ZeroInstall.Services.Feeds
         private void UseKeyInfoServer(MicroServer keyInfoServer)
         {
             _config.AutoApproveKeys = true;
-            _config.KeyInfoServer = keyInfoServer.ServerUri;
+            _config.KeyInfoServer = new FeedUri(keyInfoServer.ServerUri);
         }
     }
 }

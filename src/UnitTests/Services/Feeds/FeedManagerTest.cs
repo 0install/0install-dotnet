@@ -121,7 +121,7 @@ namespace ZeroInstall.Services.Feeds
             // ReSharper disable once AccessToDisposedClosure
             _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
-            _config.FeedMirror = mirrorServer.ServerUri;
+            _config.FeedMirror = new FeedUri(mirrorServer.ServerUri);
             _feedManager[feed.Uri].Should().Be(feed);
         }
 

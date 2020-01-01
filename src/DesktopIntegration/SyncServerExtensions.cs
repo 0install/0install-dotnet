@@ -33,7 +33,7 @@ namespace ZeroInstall.DesktopIntegration
             if (config == null) throw new ArgumentNullException(nameof(config));
             #endregion
 
-            config.SyncServer = syncServer.Uri;
+            config.SyncServer = new FeedUri(syncServer.Uri);
             config.SyncServerUsername = syncServer.Username;
             config.SyncServerPassword = syncServer.Password;
         }
