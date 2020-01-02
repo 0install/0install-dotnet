@@ -24,7 +24,7 @@ namespace ZeroInstall.Commands.Basic
     {
         [Fact]
         public virtual void ShouldRejectTooManyArgs()
-            => Assert.Throws<OptionException>(() => Sut.Parse(new[] {"http://0install.de/feeds/test/test1.xml", "arg1"}));
+            => Assert.Throws<OptionException>(() => Sut.Parse(new[] {"http://example.com/test1.xml", "arg1"}));
 
         /// <summary>
         /// Configures the <see cref="ISolver"/> mock to expect a call with <see cref="CreateTestRequirements"/>.

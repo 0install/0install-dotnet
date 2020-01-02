@@ -68,8 +68,8 @@ namespace ZeroInstall.Store.Model.Preferences
         [Fact]
         public void TestContainsCaseSensitive()
         {
-            _cache.Contains(new FeedUri("http://0install.de/feeds/test/test1.xml")).Should().BeTrue();
-            _cache.Contains(new FeedUri("http://0install.de/feeds/test/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
+            _cache.Contains(new FeedUri("http://example.com/test1.xml")).Should().BeTrue();
+            _cache.Contains(new FeedUri("http://example.com/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
         }
 
         [Fact]
@@ -83,8 +83,8 @@ namespace ZeroInstall.Store.Model.Preferences
         [Fact]
         public void TestGetFeedCaseSensitive()
         {
-            _cache.Invoking(x => x.GetFeed(new FeedUri("http://0install.de/feeds/test/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
-            Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new FeedUri("http://0install.de/feeds/test/Test1.xml")));
+            _cache.Invoking(x => x.GetFeed(new FeedUri("http://example.com/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
+            Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new FeedUri("http://example.com/Test1.xml")));
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace ZeroInstall.Store.Model.Preferences
                 longHttpUrlBuilder.Append("x");
 
             var feed = FeedTest.CreateTestFeed();
-            feed.Uri = new FeedUri("http://0install.de/feeds/test-" + longHttpUrlBuilder);
+            feed.Uri = new FeedUri("http://example.com-" + longHttpUrlBuilder);
 
             _cache.Add(feed.Uri, ToArray(feed));
 

@@ -121,7 +121,7 @@ namespace ZeroInstall.Services.Executors
         public void TestBaseline()
         {
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                            .Inject(selections)
@@ -153,7 +153,7 @@ namespace ZeroInstall.Services.Executors
             Skip.IfNot(WindowsUtils.IsWindows, "Wrapper command-line parsing relies on a Win32 API and therefore will not work on non-Windows platforms");
 
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                            .Inject(selections)
@@ -184,7 +184,7 @@ namespace ZeroInstall.Services.Executors
         public void TestMainRelative()
         {
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                            .Inject(selections, overrideMain: "main")
@@ -213,7 +213,7 @@ namespace ZeroInstall.Services.Executors
         public void TestMainAbsolute()
         {
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                            .Inject(selections, overrideMain: "/main")
@@ -242,7 +242,7 @@ namespace ZeroInstall.Services.Executors
         public void TestPathlessCommand()
         {
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
             selections.Implementations[1].Commands[0].Path = null;
 
             var startInfo = new EnvironmentBuilder(GetMockStore(selections))
@@ -270,7 +270,7 @@ namespace ZeroInstall.Services.Executors
         public void TestForEachArgs()
         {
             var selections = SelectionsTest.CreateTestSelections();
-            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://0install.de/feeds/test/dummy.xml")}); // Should be ignored by Executor
+            selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
 
             selections.Implementations[1].Commands[0].Arguments.Add(new ForEachArgs
             {

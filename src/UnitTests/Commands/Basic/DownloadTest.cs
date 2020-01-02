@@ -23,7 +23,7 @@ namespace ZeroInstall.Commands.Basic
                 new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new ImplementationVersion("1.0")});
 
             RunAndAssert(Resources.AllComponentsDownloaded, 0, selections,
-                "http://0install.de/feeds/test/test1.xml", "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://0install.de/feeds/test/test2.xml", "2.0..!3.0");
+                "http://example.com/test1.xml", "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0");
         }
 
         [Fact] // Ensures local Selections XMLs are correctly detected and parsed.

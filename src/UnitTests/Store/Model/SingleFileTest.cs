@@ -17,7 +17,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         internal static SingleFile CreateTestSingleFile() => new SingleFile
         {
-            Href = new Uri("http://0install.de/files/test/test.exe"),
+            Href = new Uri("http://example.com/test.exe"),
             Size = 128,
             Destination = "dest",
             Executable = true

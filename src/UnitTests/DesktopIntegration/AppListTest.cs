@@ -162,7 +162,7 @@ namespace ZeroInstall.DesktopIntegration
         [Fact]
         public void TestResolveAppAlias()
         {
-            FeedUri uri = new FeedUri("http://0install.de/feeds/test1.xml");
+            FeedUri uri = new FeedUri("http://example.com/test1.xml");
             var appList = new AppList
             {
                 Entries =

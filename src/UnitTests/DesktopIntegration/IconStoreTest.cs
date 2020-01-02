@@ -38,7 +38,7 @@ namespace ZeroInstall.DesktopIntegration
         [Fact]
         public void ShouldReturnCached()
         {
-            var icon = PngIcon(new Uri("http://0install.de/feeds/images/test1.png"));
+            var icon = PngIcon(new Uri("http://example.com/test1.png"));
             Inject(icon, iconData: "icon");
             Verify(icon, iconData: "icon");
         }

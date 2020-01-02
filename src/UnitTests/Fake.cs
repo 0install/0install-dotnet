@@ -10,17 +10,17 @@ namespace ZeroInstall
 {
     public static class Fake
     {
-        public static readonly FeedUri Feed1Uri = new FeedUri("http://0install.de/feeds/test/test1.xml");
-        public static readonly FeedUri Feed2Uri = new FeedUri("http://0install.de/feeds/test/test2.xml");
-        public static readonly FeedUri SubFeed1Uri = new FeedUri("http://0install.de/feeds/test/sub1.xml");
-        public static readonly FeedUri SubFeed2Uri = new FeedUri("http://0install.de/feeds/test/sub2.xml");
-        public static readonly FeedUri SubFeed3Uri = new FeedUri("http://0install.de/feeds/test/sub3.xml");
+        public static readonly FeedUri Feed1Uri = new FeedUri("http://example.com/test1.xml");
+        public static readonly FeedUri Feed2Uri = new FeedUri("http://example.com/test2.xml");
+        public static readonly FeedUri SubFeed1Uri = new FeedUri("http://example.com/sub1.xml");
+        public static readonly FeedUri SubFeed2Uri = new FeedUri("http://example.com/sub2.xml");
+        public static readonly FeedUri SubFeed3Uri = new FeedUri("http://example.com/sub3.xml");
 
         public static Feed Feed => new Feed
         {
             Uri = Feed1Uri,
             Name = "MyApp",
-            Homepage = new Uri("http://0install.de/"),
+            Homepage = new Uri("http://example.com/"),
             Summaries = {"Summary"},
             Elements =
             {

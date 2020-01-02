@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         internal static Archive CreateTestArchive() => new Archive
         {
-            Href = new Uri("http://0install.de/files/test/test.exe"),
+            Href = new Uri("http://example.com/test.exe"),
             MimeType = Archive.MimeTypeZip,
             Size = 128,
             StartOffset = 16,
@@ -45,8 +45,8 @@ namespace ZeroInstall.Store.Model
         [Fact]
         public void TestNormalizeGuessMimeType()
         {
-            var archive = new Archive {Href = new Uri("http://0install.de/files/test/test.tar.gz"), Size = 128};
-            archive.Normalize(new FeedUri("http://0install.de/feeds/test/"));
+            var archive = new Archive {Href = new Uri("http://example.com/test.tar.gz"), Size = 128};
+            archive.Normalize(new FeedUri("http://example.com/"));
             archive.MimeType.Should().Be(Archive.MimeTypeTarGzip, because: "Normalize() should guess missing MIME type");
         }
 

@@ -18,12 +18,12 @@ namespace ZeroInstall.Store.Model
     public class FeedTest
     {
         #region Helpers
-        public static readonly FeedUri Test1Uri = new FeedUri("http://0install.de/feeds/test/test1.xml");
-        public static readonly FeedUri Test2Uri = new FeedUri("http://0install.de/feeds/test/test2.xml");
-        public static readonly FeedUri Test3Uri = new FeedUri("http://0install.de/feeds/test/test3.xml");
-        public static readonly FeedUri Sub1Uri = new FeedUri("http://0install.de/feeds/test/sub1.xml");
-        public static readonly FeedUri Sub2Uri = new FeedUri("http://0install.de/feeds/test/sub2.xml");
-        public static readonly FeedUri Sub3Uri = new FeedUri("http://0install.de/feeds/test/sub3.xml");
+        public static readonly FeedUri Test1Uri = new FeedUri("http://example.com/test1.xml");
+        public static readonly FeedUri Test2Uri = new FeedUri("http://example.com/test2.xml");
+        public static readonly FeedUri Test3Uri = new FeedUri("http://example.com/test3.xml");
+        public static readonly FeedUri Sub1Uri = new FeedUri("http://example.com/sub1.xml");
+        public static readonly FeedUri Sub2Uri = new FeedUri("http://example.com/sub2.xml");
+        public static readonly FeedUri Sub3Uri = new FeedUri("http://example.com/sub3.xml");
 
         /// <summary>
         /// Creates a fictive test <see cref="Feed"/>.
@@ -33,12 +33,12 @@ namespace ZeroInstall.Store.Model
             Uri = Test1Uri,
             Name = "MyApp",
             Categories = {"Category1", "Category2"},
-            Homepage = new Uri("http://0install.de/"),
+            Homepage = new Uri("http://example.com/"),
             Feeds = {new FeedReference {Source = Sub1Uri}},
-            FeedFor = {new InterfaceReference {Target = new FeedUri("http://0install.de/feeds/test/super1.xml")}},
+            FeedFor = {new InterfaceReference {Target = new FeedUri("http://example.com/super1.xml")}},
             Summaries = {"Default summary", {"de-DE", "German summary"}},
             Descriptions = {"Default description", {"de-DE", "German description"}},
-            Icons = {new Icon {Href = new Uri("http://0install.de/feeds/images/test.png"), MimeType = Icon.MimeTypePng}},
+            Icons = {new Icon {Href = new Uri("http://example.com/test.png"), MimeType = Icon.MimeTypePng}},
             Elements = {CreateTestImplementation(), CreateTestPackageImplementation(), CreateTestGroup()},
             CapabilityLists = {CapabilityListTest.CreateTestCapabilityList()},
             EntryPoints =
@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Model
                     BinaryName = "myapp",
                     Names = {"Entry name", {"de-DE", "German entry name"}},
                     Summaries = {"Entry summary", {"de-DE", "German entry summary"}},
-                    Icons = {new Icon {Href = new Uri("http://0install.de/feeds/images/test_command.png"), MimeType = Icon.MimeTypePng}}
+                    Icons = {new Icon {Href = new Uri("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng}}
                 }
             }
         };
@@ -90,8 +90,8 @@ namespace ZeroInstall.Store.Model
                 {
                     Steps =
                     {
-                        new Archive {Href = new Uri("http://0install.de/files/test/test.zip"), Size = 1024},
-                        new SingleFile {Href = new Uri("http://0install.de/files/test/test.dat"), Size = 1024, Destination = "test.dat"},
+                        new Archive {Href = new Uri("http://example.com/test.zip"), Size = 1024},
+                        new SingleFile {Href = new Uri("http://example.com/test.dat"), Size = 1024, Destination = "test.dat"},
                         new RenameStep {Source = "a", Destination = "b"},
                         new RemoveStep {Path = "c"}
                     }
@@ -318,8 +318,8 @@ namespace ZeroInstall.Store.Model
         {
             var feed = CreateTestFeed();
 
-            var feedIcon = new Icon {Href = new Uri("http://0install.de/feeds/images/test.png"), MimeType = Icon.MimeTypePng};
-            var commandIcon = new Icon {Href = new Uri("http://0install.de/feeds/images/test_command.png"), MimeType = Icon.MimeTypePng};
+            var feedIcon = new Icon {Href = new Uri("http://example.com/test.png"), MimeType = Icon.MimeTypePng};
+            var commandIcon = new Icon {Href = new Uri("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng};
 
             feed.GetIcon(Icon.MimeTypePng).Should().Be(commandIcon);
             feed.GetIcon(Icon.MimeTypePng, "unknown").Should().Be(feedIcon);

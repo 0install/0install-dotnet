@@ -22,13 +22,13 @@ namespace ZeroInstall.Store
         [Fact]
         public void TestValid()
         {
-            new FeedUri("http://0install.de");
-            new FeedUri("http://0install.de/");
-            new FeedUri("http://0install.de/feeds/test1.xml");
-            new FeedUri("https://0install.de/feeds/test1.xml");
+            new FeedUri("http://example.com");
+            new FeedUri("http://example.com/");
+            new FeedUri("http://example.com/test1.xml");
+            new FeedUri("https://example.com/test1.xml");
 
-            new FeedUri("http://0install.de/feeds/my feed.xml");
-            new FeedUri("http://0install.de/feeds/my%20feed.xml");
+            new FeedUri("http://example.com/my feed.xml");
+            new FeedUri("http://example.com/my%20feed.xml");
 
             new FeedUri(WindowsUtils.IsWindows ? @"C:\my feed.xml" : "/root/my feed.xml");
             new FeedUri(WindowsUtils.IsWindows ? "file:///C:/my%20feed.xml" : "file:///root/my%20feed.xml");
@@ -52,15 +52,15 @@ namespace ZeroInstall.Store
         [Fact]
         public void TestToString()
         {
-            new FeedUri("http://0install.de").ToStringRfc().Should().Be("http://0install.de/");
-            new FeedUri("http://0install.de/").ToStringRfc().Should().Be("http://0install.de/");
-            new FeedUri("http://0install.de/feeds/test1.xml").ToStringRfc().Should().Be("http://0install.de/feeds/test1.xml");
-            new FeedUri("https://0install.de/feeds/test1.xml").ToStringRfc().Should().Be("https://0install.de/feeds/test1.xml");
+            new FeedUri("http://example.com").ToStringRfc().Should().Be("http://example.com/");
+            new FeedUri("http://example.com/").ToStringRfc().Should().Be("http://example.com/");
+            new FeedUri("http://example.com/test1.xml").ToStringRfc().Should().Be("http://example.com/test1.xml");
+            new FeedUri("https://example.com/test1.xml").ToStringRfc().Should().Be("https://example.com/test1.xml");
 
-            new FeedUri("http://0install.de/feeds/my feed.xml").ToString().Should().Be("http://0install.de/feeds/my feed.xml");
-            new FeedUri("http://0install.de/feeds/my%20feed.xml").ToString().Should().Be("http://0install.de/feeds/my feed.xml");
-            new FeedUri("http://0install.de/feeds/my feed.xml").ToStringRfc().Should().Be("http://0install.de/feeds/my%20feed.xml");
-            new FeedUri("http://0install.de/feeds/my%20feed.xml").ToStringRfc().Should().Be("http://0install.de/feeds/my%20feed.xml");
+            new FeedUri("http://example.com/my feed.xml").ToString().Should().Be("http://example.com/my feed.xml");
+            new FeedUri("http://example.com/my%20feed.xml").ToString().Should().Be("http://example.com/my feed.xml");
+            new FeedUri("http://example.com/my feed.xml").ToStringRfc().Should().Be("http://example.com/my%20feed.xml");
+            new FeedUri("http://example.com/my%20feed.xml").ToStringRfc().Should().Be("http://example.com/my%20feed.xml");
 
             var absoluteUri = new FeedUri(WindowsUtils.IsWindows ? @"C:\my feed.xml" : "/root/my feed.xml");
             absoluteUri.LocalPath.Should().Be(
@@ -96,21 +96,21 @@ namespace ZeroInstall.Store
 
         [Fact]
         public void TestEscape()
-            => FeedTest.Test1Uri.Escape().Should().Be("http%3a%2f%2f0install.de%2ffeeds%2ftest%2ftest1.xml");
+            => FeedTest.Test1Uri.Escape().Should().Be("http%3a%2f%2fexample.com%2ftest1.xml");
 
         [Fact]
         public void TestUnescape()
-            => FeedUri.Unescape("http%3A%2F%2F0install.de%2Ffeeds%2Ftest%2Ftest1.xml").Should().Be(FeedTest.Test1Uri);
+            => FeedUri.Unescape("http%3a%2f%2fexample.com%2Ftest1.xml").Should().Be(FeedTest.Test1Uri);
 
         [Fact]
         public void TestPrettyEscape()
             => FeedTest.Test1Uri.PrettyEscape().Should().Be(
                 // Colon is preserved on POSIX systems but not on other OSes
-                UnixUtils.IsUnix ? "http:##0install.de#feeds#test#test1.xml" : "http%3a##0install.de#feeds#test#test1.xml");
+                UnixUtils.IsUnix ? "http:##example.com#test1.xml" : "http%3a##example.com#test1.xml");
 
         [Fact]
         public void TestPrettyUnescape()
-            => FeedUri.PrettyUnescape(UnixUtils.IsUnix ? "http:##0install.de#feeds#test#test1.xml" : "http%3a##0install.de#feeds#test#test1.xml").Should().Be(FeedTest.Test1Uri);
+            => FeedUri.PrettyUnescape(UnixUtils.IsUnix ? "http:##example.com#test1.xml" : "http%3a##example.com#test1.xml").Should().Be(FeedTest.Test1Uri);
 
         [Fact]
         public void TestEscapeComponent()

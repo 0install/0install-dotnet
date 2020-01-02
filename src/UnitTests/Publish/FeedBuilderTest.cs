@@ -67,9 +67,9 @@ namespace ZeroInstall.Publish
             TestGenerateCommands();
 
             _builder.RetrievalMethod = new Archive();
-            _builder.Uri = new FeedUri("http://0install.de/feeds/test/test1.xml");
-            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new Uri("http://0install.de/test.png")});
-            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new Uri("http://0install.de/test.ico")});
+            _builder.Uri = new FeedUri("http://example.com/test1.xml");
+            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new Uri("http://example.com/test.png")});
+            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new Uri("http://example.com/test.ico")});
             _builder.SecretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
             var signedFeed = _builder.Build();
 

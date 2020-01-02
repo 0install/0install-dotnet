@@ -42,13 +42,13 @@ namespace ZeroInstall.Store.Model
         public void TestToCommandLineArgs()
             => CreateTestRequirements()
               .ToCommandLineArgs()
-              .Should().Equal("--command", "command", "--os", "Windows", "--cpu", "i586", "--version-for", "http://0install.de/feeds/test/test1.xml", "1.0..!2.0", "--version-for", "http://0install.de/feeds/test/test2.xml", "2.0..!3.0", "http://0install.de/feeds/test/test1.xml");
+              .Should().Equal("--command", "command", "--os", "Windows", "--cpu", "i586", "--version-for", "http://example.com/test1.xml", "1.0..!2.0", "--version-for", "http://example.com/test2.xml", "2.0..!3.0", "http://example.com/test1.xml");
 
         [Fact]
         public void TestJson()
             => CreateTestRequirements()
               .ToJsonString()
-              .Should().Be("{\"interface\":\"http://0install.de/feeds/test/test1.xml\",\"command\":\"command\",\"source\":false,\"os\":\"Windows\",\"cpu\":\"i586\",\"extra_restrictions\":{\"http://0install.de/feeds/test/test1.xml\":\"1.0..!2.0\",\"http://0install.de/feeds/test/test2.xml\":\"2.0..!3.0\"}}");
+              .Should().Be("{\"interface\":\"http://example.com/test1.xml\",\"command\":\"command\",\"source\":false,\"os\":\"Windows\",\"cpu\":\"i586\",\"extra_restrictions\":{\"http://example.com/test1.xml\":\"1.0..!2.0\",\"http://example.com/test2.xml\":\"2.0..!3.0\"}}");
 
         [Fact]
         public void TestXml()

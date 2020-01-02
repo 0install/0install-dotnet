@@ -43,8 +43,8 @@ namespace ZeroInstall.Commands.Basic
             envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
 
             RunAndAssert(null, 0, selections,
-                "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://0install.de/feeds/test/test2.xml", "2.0..!3.0",
-                "--main=Main", "--wrapper=Wrapper", "http://0install.de/feeds/test/test1.xml", "--arg1", "--arg2");
+                "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0",
+                "--main=Main", "--wrapper=Wrapper", "http://example.com/test1.xml", "--arg1", "--arg2");
         }
 
         [Fact] // Ensures local Selections XMLs are correctly detected and parsed.
@@ -76,9 +76,9 @@ namespace ZeroInstall.Commands.Basic
 
         [Fact]
         public void TestGetCanonicalUriRemote()
-            => Sut.GetCanonicalUri("http://0install.de/feeds/test/test1.xml")
+            => Sut.GetCanonicalUri("http://example.com/test1.xml")
                   .ToStringRfc()
-                  .Should().Be("http://0install.de/feeds/test/test1.xml");
+                  .Should().Be("http://example.com/test1.xml");
 
         [Fact]
         public void TestGetCanonicalUriFile()

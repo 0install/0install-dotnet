@@ -349,7 +349,7 @@ namespace ZeroInstall.DesktopIntegration
             };
             var appEntry4 = new AppEntry
             {
-                InterfaceUri = new FeedUri("http://0install.de/feeds/test/test4.xml"),
+                InterfaceUri = new FeedUri("http://example.com/test4.xml"),
                 AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4Unapplied}}}
             };
             var appListLocal = new AppList {Entries = {appEntry1, appEntry4}};
