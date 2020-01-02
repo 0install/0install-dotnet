@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using NanoByte.Common.Collections;
@@ -27,16 +28,19 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            var category = feed.Categories.FirstOrDefault();
-            string categoryString = (category == null)
-                ? (feed.EntryPoints.Count > 1 ? feed.Name : "")
-                : (feed.EntryPoints.Count > 1 ? category + "/" + feed.Name : category.ToString());
+            string category = feed.Categories.FirstOrDefault()?.Name?.SafeFileName();
+            if (feed.EntryPoints.Count > 1)
+            {
+                category = (category == null)
+                    ? feed.Name
+                    : category + "/" + feed.Name;
+            }
 
             return (from entryPoint in feed.EntryPoints
                     select new MenuEntry
                     {
-                        Category = categoryString,
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command),
+                        Category = category,
+                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
                     }).DistinctBy(x => x.Name);
         }
@@ -55,7 +59,7 @@ namespace ZeroInstall.DesktopIntegration
                     where entryPoint.Command == Command.NameRun || entryPoint.Command == Command.NameRunGui
                     select new DesktopIcon
                     {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command),
+                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
                     }).DistinctBy(x => x.Name);
         }
@@ -74,7 +78,7 @@ namespace ZeroInstall.DesktopIntegration
                     where entryPoint.SuggestSendTo
                     select new SendTo
                     {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command),
+                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
                     }).DistinctBy(x => x.Name);
         }
@@ -93,7 +97,7 @@ namespace ZeroInstall.DesktopIntegration
                     where entryPoint.NeedsTerminal
                     select new AppAlias
                     {
-                        Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command),
+                        Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
                     }).DistinctBy(x => x.Name);
         }
@@ -112,9 +116,15 @@ namespace ZeroInstall.DesktopIntegration
                     where entryPoint.SuggestAutoStart
                     select new AutoStart
                     {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command),
+                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
                     }).DistinctBy(x => x.Name);
         }
+
+        /// <summary>
+        /// Replaces all characters in a string that are not safe for file names with hyphens.
+        /// </summary>
+        private static string SafeFileName(this string value)
+            => string.Join("-", value.Split(Path.GetInvalidFileNameChars()));
     }
 }
