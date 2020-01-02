@@ -41,6 +41,8 @@ namespace ZeroInstall.Store.Feeds
             if (config == null) throw new ArgumentNullException(nameof(config));
             #endregion
 
+            if (config.FeedMirror == null) throw new UriFormatException("Feed mirror, which is required for search, is disabled in config.");
+
             if (string.IsNullOrEmpty(keywords)) return new SearchQuery();
 
             var url = new Uri(
