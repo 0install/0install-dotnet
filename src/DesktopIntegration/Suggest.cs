@@ -32,8 +32,8 @@ namespace ZeroInstall.DesktopIntegration
             if (feed.EntryPoints.Count > 1)
             {
                 category = (category == null)
-                    ? feed.Name
-                    : category + "/" + feed.Name;
+                    ? feed.Name.SafeFileName()
+                    : category + "/" + feed.Name.SafeFileName();
             }
 
             return (from entryPoint in feed.EntryPoints
