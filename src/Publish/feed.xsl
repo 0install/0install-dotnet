@@ -100,14 +100,20 @@ http://creativecommons.org/licenses/by-sa/2.5/
 									</xsl:if>
 
 									<xsl:if test="zi:description[@xml:lang='en']">
-										<xsl:call-template name='description'>
-											<xsl:with-param name='text'><xsl:value-of select="zi:description[@xml:lang='en']"/></xsl:with-param>
-										</xsl:call-template>
+										<dt>Description</dt>
+										<dd class="description">
+											<xsl:call-template name='description'>
+												<xsl:with-param name='text'><xsl:value-of select="zi:description[@xml:lang='en']"/></xsl:with-param>
+											</xsl:call-template>
+										</dd>
 									</xsl:if>
 									<xsl:if test="not(zi:description[@xml:lang='en']) and zi:description">
-										<xsl:call-template name='description'>
-											<xsl:with-param name='text'><xsl:value-of select="zi:description"/></xsl:with-param>
-										</xsl:call-template>
+										<dt>Description</dt>
+										<dd class="description">
+											<xsl:call-template name='description'>
+												<xsl:with-param name='text'><xsl:value-of select="zi:description"/></xsl:with-param>
+											</xsl:call-template>
+										</dd>
 									</xsl:if>
 
 									<xsl:apply-templates mode="dl" select="*|@*"/>
@@ -310,33 +316,22 @@ http://creativecommons.org/licenses/by-sa/2.5/
 
 	<xsl:template name='description'>
 		<xsl:param name="text"/>
-        <dt>Description</dt>
-		<dd class="description">
-			<xsl:if test='normalize-space($text)'>
-				<xsl:variable name='first' select='substring-before($text, "&#xa;&#xa;")'/>
-				<xsl:choose>
-					<xsl:when test='normalize-space($first)'>
-						<p><xsl:value-of select='$first'/></p>
-						<xsl:call-template name='description'>
-							<xsl:with-param name='text'><xsl:value-of select='substring-after($text, "&#xa;&#xa;")'/></xsl:with-param>
-						</xsl:call-template>
-					</xsl:when>
-					<xsl:otherwise>
-						<p><xsl:value-of select='$text'/></p>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
-		</dd>
+		<xsl:if test='normalize-space($text)'>
+			<xsl:variable name='first' select='substring-before($text, "&#xa;&#xa;")'/>
+			<xsl:choose>
+				<xsl:when test='normalize-space($first)'>
+					<p><xsl:value-of select='$first'/></p>
+					<xsl:call-template name='description'>
+						<xsl:with-param name='text'><xsl:value-of select='substring-after($text, "&#xa;&#xa;")'/></xsl:with-param>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					<p><xsl:value-of select='$text'/></p>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:if>
 	</xsl:template>
 
-	<!-- <xsl:template mode="dl" match="zi:icon"> -->
-	<!-- 	<dt>Icon</dt> -->
-	<!-- 	<dd> -->
-	<!-- 		<p> -->
-	<!-- 			<img src="{@href}" class="alpha"/> -->
-	<!-- 		</p> -->
-	<!-- 	</dd> -->
-	<!-- </xsl:template> -->
 	<xsl:template mode="dl" match="*|@*"/>
 	<xsl:template match="zi:group">
 		<dl class="group">
