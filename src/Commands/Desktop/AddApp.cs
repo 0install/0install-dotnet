@@ -5,6 +5,7 @@ using System;
 using System.Net;
 using JetBrains.Annotations;
 using NanoByte.Common.Native;
+using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;
@@ -35,11 +36,14 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         #region State
+        private string _command;
+
         /// <inheritdoc/>
         public AddApp([NotNull] ICommandHandler handler)
             : base(handler)
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
+            Options.Add("command=", () => Resources.OptionCommand, command => _command = command);
         }
         #endregion
 
@@ -56,7 +60,9 @@ namespace ZeroInstall.Commands.Desktop
                 var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
 
                 if (AdditionalArgs.Count == 2)
-                    CreateAlias(appEntry, AdditionalArgs[0]);
+                    CreateAlias(appEntry, AdditionalArgs[0], _command);
+                else if (_command != null)
+                    throw new OptionException(Resources.NoAddCommandWithoutAlias, "command");
 
                 if (!CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                     WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes

@@ -1234,6 +1234,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to --command may only be specified together with an alias name..
+        /// </summary>
+        public static string NoAddCommandWithoutAlias {
+            get {
+                return ResourceManager.GetString("NoAddCommandWithoutAlias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The graphical policy editor is not available in command-line mode..
         /// </summary>
         public static string NoCustomizeSelectionsInCli {

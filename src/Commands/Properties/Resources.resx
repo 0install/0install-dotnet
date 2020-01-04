@@ -522,6 +522,9 @@ Run '0install self-update --force' to fix this.</value>
   <data name="NeedsGui" xml:space="preserve">
     <value>Please use the GUI version of Zero Install for this feature.</value>
   </data>
+  <data name="NoAddCommandWithoutAlias" xml:space="preserve">
+    <value>--command may only be specified together with an alias name.</value>
+  </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>The graphical policy editor is not available in command-line mode.</value>
   </data>

@@ -522,6 +522,9 @@ Führen Sie '0install self-update --force' aus, um dies zu beheben.</value>
   <data name="NeedsGui" xml:space="preserve">
     <value>Bitte verwenden Sie die GUI Version von Zero Install für dieses Feature.</value>
   </data>
+  <data name="NoAddCommandWithoutAlias" xml:space="preserve">
+    <value>--command darf nur zusammen mit einem Aliasnamen angegeben werden.</value>
+  </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Der grafische Policy-Editor ist im Befehlszeilenmodus nicht verfügbar.</value>
   </data>
