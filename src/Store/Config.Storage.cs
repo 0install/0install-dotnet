@@ -31,7 +31,8 @@ namespace ZeroInstall.Store
         /// <param name="key">The key of the option to retrieve.</param>
         /// <returns>The string representation of the the option.</returns>
         /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
-        public string GetOption(string key) => _metaData[key].Value;
+        public string GetOption(string key)
+            => _metaData[key].Value;
 
         /// <summary>
         /// Sets an option identified by a key.
@@ -40,7 +41,25 @@ namespace ZeroInstall.Store
         /// <param name="value">A string representation of the option.</param>
         /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
         /// <exception cref="FormatException"><paramref name="value"/> is invalid.</exception>
-        public void SetOption(string key, string value) => _metaData[key].Value = value;
+        /// <exception cref="UnauthorizedAccessException">This option is controlled by a group policy and can therefore not be modified.</exception>
+        public void SetOption(string key, string value)
+        {
+            if (WindowsUtils.IsWindowsNT && IsLockedByPolicy(key))
+                throw new UnauthorizedAccessException("This option is controlled by a group policy and can therefore not be modified.");
+
+            _metaData[key].Value = value;
+        }
+
+        private bool IsLockedByPolicy(string key)
+        {
+            bool IsPolicySet(RegistryKey root)
+            {
+                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
+                return registryKey?.GetValue(key) != null;
+            }
+
+            return IsPolicySet(Registry.CurrentUser) || IsPolicySet(Registry.LocalMachine);
+        }
 
         /// <summary>
         /// Resets an option identified by a key to its default value.
@@ -48,10 +67,7 @@ namespace ZeroInstall.Store
         /// <param name="key">The key of the option to reset.</param>
         /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
         public void ResetOption(string key)
-        {
-            var property = _metaData[key];
-            property.Value = property.DefaultValue;
-        }
+            => SetOption(key, _metaData[key].DefaultValue);
 
         private const string RegistryPolicyPath = @"SOFTWARE\Policies\Zero Install";
 
@@ -263,9 +279,9 @@ namespace ZeroInstall.Store
             ReadFrom(Registry.LocalMachine);
             ReadFrom(Registry.CurrentUser);
 
-            void ReadFrom(RegistryKey key)
+            void ReadFrom(RegistryKey root)
             {
-                using var registryKey = key.OpenSubKey(RegistryPolicyPath, writable: false);
+                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
                 if (registryKey != null)
                     ReadFromRegistry(registryKey);
             }
