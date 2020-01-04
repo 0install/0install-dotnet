@@ -1423,7 +1423,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instead of executing the default command, use {COMMAND} instead. Possible command names are defined in the program&apos;s interface.
+        ///   Looks up a localized string similar to Instead of executing the default command, use {COMMAND} instead. Valid command names are specified in the program&apos;s feed.
         ///Set to empty (&quot;&quot;) to ignore the command during selection..
         /// </summary>
         public static string OptionCommand {
@@ -1433,7 +1433,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Switch to a specific tab in the configuration GUI. Possible {TAB}s are &apos;updates&apos;, &apos;storage&apos;, &apos;catalog&apos;, &apos;trust&apos;, &apos;sync&apos;, &apos;language&apos;, &apos;language&apos; and &apos;advanced&apos;.
+        ///   Looks up a localized string similar to Switch to a specific tab in the configuration GUI. Valid {TAB}s are &apos;updates&apos;, &apos;storage&apos;, &apos;catalog&apos;, &apos;trust&apos;, &apos;sync&apos;, &apos;language&apos;, &apos;language&apos; and &apos;advanced&apos;.
         ///Has no effect in text-mode..
         /// </summary>
         public static string OptionConfigTab {
@@ -1707,7 +1707,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset the synchronization data. Possible {MODE}s are &apos;none&apos; (merge data from client and server normally), &apos;client&apos; (replace all data on client with data from server) and &apos;server&apos; (replace all data on server with data from client)..
+        ///   Looks up a localized string similar to Reset the synchronization data. Valid {MODE}s are &apos;none&apos; (merge data from client and server normally), &apos;client&apos; (replace all data on client with data from server) and &apos;server&apos; (replace all data on server with data from client)..
         /// </summary>
         public static string OptionSyncReset {
             get {
