@@ -1929,6 +1929,16 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Self-update is disabled.
+        ///Run &apos;0install config self_update_uri default&apos; to enable it..
+        /// </summary>
+        public static string SelfUpdateDisabled {
+            get {
+                return ResourceManager.GetString("SelfUpdateDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set stability policy for {0} to match?.
         /// </summary>
         public static string StabilityPolicyAutoSet {

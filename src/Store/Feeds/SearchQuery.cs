@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Feeds
 {
@@ -41,7 +42,7 @@ namespace ZeroInstall.Store.Feeds
             if (config == null) throw new ArgumentNullException(nameof(config));
             #endregion
 
-            if (config.FeedMirror == null) throw new UriFormatException("Feed mirror, which is required for search, is disabled in config.");
+            if (config.FeedMirror == null) throw new UriFormatException(Resources.FeedMirrorDisabled);
 
             if (string.IsNullOrEmpty(keywords)) return new SearchQuery();
 

@@ -202,6 +202,10 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
   </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Verwendung des Feed Mirror, welcher für die Suche benötigt wird, ist deaktiviert.
+Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>
+  </data>
   <data name="FileMissingDest" xml:space="preserve">
     <value>Einem &lt;file&gt; Tag fehlt ein Destination Attribut.</value>
   </data>
@@ -324,7 +328,10 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Der Zahlenwert ist zu groß.</value>
   </data>
-  <data name="PathNotRelative" xml:space="preserve">
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Diese Einstellung wird durch eine Gruppenrichtlinie kontrolliert und kann daher nicht modifiziert werden.</value>
+  </data>
+<data name="PathNotRelative" xml:space="preserve">
     <value>Der Pfad sollte relativ sein.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

@@ -758,6 +758,10 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>Ein Update auf Zero Install v{0} ist verfügbar. Jetzt installieren?</value>
   </data>
+  <data name="SelfUpdateDisabled" xml:space="preserve">
+    <value>Die Selbstupdatefunktion ist deaktiviert.
+Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.</value>
+  </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Diese Zero Install Instanz wurde als Implementierung von einer anderen Zero Install Instanz gestartet. Sie kann sich daher nicht selbst aktualisieren.</value>
   </data>

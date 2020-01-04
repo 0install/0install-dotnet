@@ -758,6 +758,10 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>An update to Zero Install v{0} is available. Install now?</value>
   </data>
+  <data name="SelfUpdateDisabled" xml:space="preserve">
+    <value>Self-update is disabled.
+Run '0install config self_update_uri default' to enable it.</value>
+  </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>This Zero Install instance was launched as an implementation by another Zero Install instance. It therefore cannot update itself.</value>
   </data>

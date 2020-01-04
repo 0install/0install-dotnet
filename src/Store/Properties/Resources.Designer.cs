@@ -278,6 +278,16 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Usage of the feed mirror, which is required for search, is disabled.
+        ///Run &apos;0install config feed_mirror default&apos; to enable it..
+        /// </summary>
+        internal static string FeedMirrorDisabled {
+            get {
+                return ResourceManager.GetString("FeedMirrorDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; could not be located in the feed cache. Looked for file at: {1}.
         /// </summary>
         internal static string FeedNotInCache {
@@ -654,6 +664,15 @@ namespace ZeroInstall.Store.Properties {
         internal static string NumberTooLarge {
             get {
                 return ResourceManager.GetString("NumberTooLarge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This option is controlled by a group policy and can therefore not be modified..
+        /// </summary>
+        internal static string OptionLockedByPolicy {
+            get {
+                return ResourceManager.GetString("OptionLockedByPolicy", resourceCulture);
             }
         }
         

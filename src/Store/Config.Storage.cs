@@ -45,7 +45,7 @@ namespace ZeroInstall.Store
         public void SetOption(string key, string value)
         {
             if (WindowsUtils.IsWindowsNT && IsLockedByPolicy(key))
-                throw new UnauthorizedAccessException("This option is controlled by a group policy and can therefore not be modified.");
+                throw new UnauthorizedAccessException(Resources.OptionLockedByPolicy);
 
             _metaData[key].Value = value;
         }
