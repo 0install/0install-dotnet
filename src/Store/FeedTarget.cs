@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
@@ -31,8 +32,14 @@ namespace ZeroInstall.Store
         /// <param name="feed">The data acquired from <paramref name="uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.</param>
         public FeedTarget([NotNull] FeedUri uri, [NotNull] Feed feed)
         {
-            Uri = uri;
-            Feed = feed;
+            Uri = uri ?? throw new ArgumentNullException(nameof(uri));
+            Feed = feed ?? throw new ArgumentNullException(nameof(feed));
         }
+
+        /// <summary>
+        /// Returns the <see cref="Uri"/>. Not safe for parsing!
+        /// </summary>
+        public override string ToString()
+            => Uri.ToStringRfc();
     }
 }
