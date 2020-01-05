@@ -3,7 +3,6 @@
 
 using System;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// A list of <see cref="Domain"/>s this key is valid for.
         /// </summary>
-        [XmlElement("domain"), NotNull]
+        [XmlElement("domain")]
         public DomainSet Domains { get; } = new DomainSet();
 
         #region Conversion
@@ -54,7 +53,7 @@ namespace ZeroInstall.Store.Trust
             && Domains.SetEquals(other.Domains);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

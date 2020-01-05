@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values;
 using NanoByte.Common.Values.Design;
@@ -133,14 +132,12 @@ namespace ZeroInstall.Store.Model
         /// Determines which operating systems are supported.
         /// </summary>
         [Description("Determines which operating systems are supported.")]
-        [UsedImplicitly]
         public OS OS { get; set; }
 
         /// <summary>
         /// Determines which CPU-architectures are supported.
         /// </summary>
         [Description("Determines which CPU-architectures are supported.")]
-        [UsedImplicitly]
         public Cpu Cpu { get; set; }
 
         /// <summary>
@@ -183,7 +180,7 @@ namespace ZeroInstall.Store.Model
         /// Creates a new architecture structure from a string in the form "os-cpu".
         /// </summary>
         /// <exception cref="FormatException"><paramref name="architecture"/> is not in the form "os-cpu"</exception>
-        public Architecture([NotNull] string architecture)
+        public Architecture(string architecture)
             : this()
         {
             #region Sanity checks
@@ -266,7 +263,7 @@ namespace ZeroInstall.Store.Model
         public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj) => obj != null && obj is Architecture architecture && Equals(architecture);
+        public override bool Equals(object? obj) => obj != null && obj is Architecture architecture && Equals(architecture);
 
         /// <inheritdoc/>
         public override int GetHashCode()

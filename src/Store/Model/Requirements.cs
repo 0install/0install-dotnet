@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Values;
@@ -20,22 +19,22 @@ namespace ZeroInstall.Store.Model
     /// A set of requirements/restrictions imposed by the user on the <see cref="Implementation"/> selection process. Used as input for the solver.
     /// </summary>
     [Serializable, XmlRoot("requirements", Namespace = Feed.XmlNamespace), XmlType("requirements", Namespace = Feed.XmlNamespace)]
-    public class Requirements : IInterfaceUri, ICloneable<Requirements>, IEquatable<Requirements>
+    public class Requirements : ICloneable<Requirements>, IEquatable<Requirements>
     {
         /// <summary>
         /// The URI or local path (must be absolute) to the interface to solve the dependencies for.
         /// </summary>
         [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
         [XmlIgnore, JsonProperty("interface")]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         /// <summary>
         /// The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.
         /// </summary>
         [Description("The name of the command in the implementation to execute. Will default to 'run' or 'compile' if null. Will not try to find any command if set to ''.")]
         [TypeConverter(typeof(CommandNameConverter))]
-        [XmlAttribute("command"), JsonProperty("command"), CanBeNull]
-        public string Command { get; set; }
+        [XmlAttribute("command"), JsonProperty("command")]
+        public string? Command { get; set; }
 
         // Order is always alphabetical, duplicate entries are not allowed
 
@@ -61,7 +60,7 @@ namespace ZeroInstall.Store.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("interface"), JsonIgnore]
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Languages"/>
@@ -99,7 +98,7 @@ namespace ZeroInstall.Store.Model
         /// The ranges of versions of specific sub-implementations that can be chosen.
         /// </summary>
         [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
-        [XmlIgnore, JsonProperty("extra_restrictions"), NotNull]
+        [XmlIgnore, JsonProperty("extra_restrictions")]
         public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new Dictionary<FeedUri, VersionRange>();
 
         /// <summary>
@@ -120,7 +119,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <remarks>Used internally by solvers, copied from <see cref="Restriction.Distributions"/>, not set directly by user, not serialized.</remarks>
         [Browsable(false)]
-        [XmlIgnore, JsonIgnore, NotNull]
+        [XmlIgnore, JsonIgnore]
         public ICollection<string> Distributions { get; } = new List<string>();
 
         /// <summary>
@@ -134,7 +133,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for.</param>
         /// <param name="command">he name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
         /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
-        public Requirements([NotNull] FeedUri interfaceUri, [CanBeNull] string command = null, Architecture architecture = default)
+        public Requirements(FeedUri interfaceUri, string? command = null, Architecture architecture = default)
         {
             InterfaceUri = interfaceUri;
             Command = command;
@@ -147,7 +146,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for. Must be an HTTP(S) URL or an absolute local path.</param>
         /// <exception cref="UriFormatException"><paramref name="interfaceUri"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "Convenience overload that internally calls the Uri version")]
-        public Requirements([NotNull] string interfaceUri)
+        public Requirements(string interfaceUri)
             : this(new FeedUri(interfaceUri))
         {}
 
@@ -159,14 +158,13 @@ namespace ZeroInstall.Store.Model
         /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
         /// <exception cref="UriFormatException"><paramref name="interfaceUri"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "Convenience overload that internally calls the Uri version")]
-        public Requirements([NotNull] string interfaceUri, [CanBeNull] string command = null, Architecture architecture = default)
+        public Requirements(string interfaceUri, string? command = null, Architecture architecture = default)
             : this(new FeedUri(interfaceUri), command, architecture)
         {}
 
         /// <summary>
         /// Substitutes blank values with default values appropriate for the current system.
         /// </summary>
-        [NotNull]
         public Requirements ForCurrentSystem()
         {
             var cloned = Clone();
@@ -199,14 +197,14 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Returns the requirements in the form "InterfaceUri (Command)". Not safe for parsing!
         /// </summary>
-        public override string ToString() => string.IsNullOrEmpty(Command)
-            ? InterfaceUri.ToStringRfc()
-            : InterfaceUri.ToStringRfc() + " (" + Command + ")";
+        public override string ToString()
+            => string.IsNullOrEmpty(Command)
+                ? InterfaceUri.ToStringRfc() ?? ""
+                : InterfaceUri.ToStringRfc() + " (" + Command + ")";
 
         /// <summary>
         /// Transforms the requirements into a command-line arguments.
         /// </summary>
-        [NotNull]
         public string[] ToCommandLineArgs()
         {
             var args = new List<string>();
@@ -240,7 +238,7 @@ namespace ZeroInstall.Store.Model
             && Distributions.UnsequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

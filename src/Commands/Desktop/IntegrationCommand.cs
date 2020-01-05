@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -30,7 +29,7 @@ namespace ZeroInstall.Commands.Desktop
         internal bool MachineWide { get; set; }
 
         /// <inheritdoc/>
-        protected IntegrationCommand([NotNull] ICommandHandler handler)
+        protected IntegrationCommand(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("o|offline", () => Resources.OptionOffline, _ => Config.NetworkUse = NetworkLevel.Offline);
@@ -81,8 +80,7 @@ namespace ZeroInstall.Commands.Desktop
         /// </summary>
         /// <param name="integrationManager">Manages desktop integration operations.</param>
         /// <param name="interfaceUri">The interface URI to create an <see cref="AppEntry"/> for. Will be updated if <see cref="Feed.ReplacedBy"/> is set and accepted by the user.</param>
-        [NotNull]
-        protected virtual AppEntry GetAppEntry([NotNull] IIntegrationManager integrationManager, [NotNull] ref FeedUri interfaceUri)
+        protected virtual AppEntry GetAppEntry(IIntegrationManager integrationManager, ref FeedUri interfaceUri)
         {
             #region Sanity checks
             if (integrationManager == null) throw new ArgumentNullException(nameof(integrationManager));
@@ -141,7 +139,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// Pre-download application in a background process for later use.
         /// </summary>
-        private void BackgroundDownload([NotNull] FeedUri interfaceUri)
+        private void BackgroundDownload(FeedUri interfaceUri)
         {
             if (!NoDownload && Config.NetworkUse == NetworkLevel.Full)
             {

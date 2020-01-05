@@ -6,8 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.FileSystem
 {
     /// <summary>
@@ -41,7 +39,7 @@ namespace ZeroInstall.FileSystem
         /// Creates a new test directory.
         /// </summary>
         /// <param name="name">The name of the directory.</param>
-        public TestDirectory([NotNull] string name)
+        public TestDirectory(string name)
             : base(name)
         {}
 

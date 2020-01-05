@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Model.Design;
@@ -37,37 +36,36 @@ namespace ZeroInstall.Store.Model
         /// A SHA-1 hash of the old manifest format. Not supported anymore!
         /// </summary>
         [Description("A SHA-1 hash of the old manifest format. Not supported anymore!")]
-        [XmlAttribute("sha1"), DefaultValue(""), CanBeNull]
-        public string Sha1 { get; set; }
+        [XmlAttribute("sha1"), DefaultValue("")]
+        public string? Sha1 { get; set; }
 
         /// <summary>
         /// A SHA-1 hash of the new manifest format.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
         [Description("A SHA-1 hash of the new manifest format.")]
-        [XmlAttribute("sha1new"), DefaultValue(""), CanBeNull]
-        public string Sha1New { get; set; }
+        [XmlAttribute("sha1new"), DefaultValue("")]
+        public string? Sha1New { get; set; }
 
         /// <summary>
         /// A SHA-256 hash of the new manifest format. (most secure)
         /// </summary>
         [Description("A SHA-256 hash of the new manifest format. (most secure)")]
-        [XmlAttribute("sha256"), DefaultValue(""), CanBeNull]
-        public string Sha256 { get; set; }
+        [XmlAttribute("sha256"), DefaultValue("")]
+        public string? Sha256 { get; set; }
 
         /// <summary>
         /// A SHA-256 hash of the new manifest format with a base32 encoding and no equals sign in the path.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
         [Description("A SHA-256 hash of the new manifest format with a base32 encoding and no equals sign in the path.")]
-        [XmlAttribute("sha256new"), DefaultValue(""), CanBeNull]
-        public string Sha256New { get; set; }
+        [XmlAttribute("sha256new"), DefaultValue("")]
+        public string? Sha256New { get; set; }
 
         /// <summary>
         /// Lists all contained manifest digests sorted from best (safest) to worst.
         /// </summary>
         [XmlIgnore, Browsable(false)]
-        [NotNull, ItemNotNull]
         public IEnumerable<string> AvailableDigests
         {
             get
@@ -85,8 +83,7 @@ namespace ZeroInstall.Store.Model
         /// Returns the best entry of <see cref="AvailableDigests"/>; <c>null</c> if there are none.
         /// </summary>
         [Browsable(false)]
-        [CanBeNull]
-        public string Best => AvailableDigests.FirstOrDefault();
+        public string? Best => AvailableDigests.FirstOrDefault();
 
         /// <summary>
         /// Contains any unknown hash algorithms specified as pure XML attributes.
@@ -103,7 +100,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="sha256New">A SHA-256 hash of the new manifest format with a base32 encoding and no equals sign in the path.</param>
         [SuppressMessage("Microsoft.Design", "CA1025:ReplaceRepetitiveArgumentsWithParamsArray")]
         [SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Justification = "Only used in unit tests.")]
-        public ManifestDigest(string sha1 = null, string sha1New = null, string sha256 = null, string sha256New = null)
+        public ManifestDigest(string? sha1 = null, string? sha1New = null, string? sha256 = null, string? sha256New = null)
             : this()
         {
             Sha1 = sha1;
@@ -118,7 +115,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="id">The ID string to parse. Digest values start with their format name followed by an equals sign and the actual hash.</param>
         /// <exception cref="NotSupportedException"><paramref name="id"/> is not a valid manifest digest.</exception>
-        public ManifestDigest([NotNull] string id)
+        public ManifestDigest(string id)
             : this()
         {
             #region Sanity checks
@@ -136,7 +133,7 @@ namespace ZeroInstall.Store.Model
         /// Parses an ID string, checking for digest values. The values will be added to this object if the corresponding digest value hasn't been set already.
         /// </summary>
         /// <param name="id">The ID string to parse. Digest values start with their format name followed by an equals sign and the actual hash.</param>
-        public void ParseID([NotNull] string id)
+        public void ParseID(string id)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -194,8 +191,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="left">The first value to be compared.</param>
         /// <param name="right">The second value to be compared.</param>
         /// <returns><c>true</c> if the values either match or one of them is <c>null</c>.</returns>
-        [ContractAnnotation("left:null => true; right:null => true")]
-        private static bool PartialEqualsHelper(ref int matchCounter, [CanBeNull] string left, [CanBeNull] string right)
+        private static bool PartialEqualsHelper(ref int matchCounter, string? left, string? right)
         {
             if (string.IsNullOrEmpty(left) || string.IsNullOrEmpty(right)) return true;
             if (left == right)
@@ -210,7 +206,7 @@ namespace ZeroInstall.Store.Model
         public static bool operator !=(ManifestDigest left, ManifestDigest right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj) => obj is ManifestDigest digest && Equals(digest);
+        public override bool Equals(object? obj) => obj is ManifestDigest digest && Equals(digest);
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Model;
 
@@ -28,7 +27,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public Fetch([NotNull] ICommandHandler handler)
+        public Fetch(ICommandHandler handler)
             : base(handler)
         {}
 

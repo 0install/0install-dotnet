@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
@@ -24,7 +23,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The format of the manifest to generate.
         /// </summary>
-        [NotNull]
         public ManifestFormat Format { get; }
 
         private readonly List<ManifestNode> _nodes = new List<ManifestNode>();
@@ -39,7 +37,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="sourcePath">The path of the directory to analyze.</param>
         /// <param name="format">The format of the manifest to generate.</param>
-        public ManifestGenerator([NotNull] string sourcePath, [NotNull] ManifestFormat format)
+        public ManifestGenerator(string sourcePath, ManifestFormat format)
             : base(sourcePath)
         {
             Format = format ?? throw new ArgumentNullException(nameof(format));

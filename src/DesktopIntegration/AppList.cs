@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using ICSharpCode.SharpZipLib.Zip;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -50,7 +49,7 @@ namespace ZeroInstall.DesktopIntegration
         /// A list of <see cref="AppEntry"/>s.
         /// </summary>
         [Description("A list of application entries.")]
-        [XmlElement("app"), NotNull]
+        [XmlElement("app")]
         public List<AppEntry> Entries { get; } = new List<AppEntry>();
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="interfaceUri">The <see cref="AppEntry.InterfaceUri"/> to look for.</param>
         /// <returns><c>true</c> if a matching entry was found; <c>false</c> otherwise.</returns>
-        public bool ContainsEntry([NotNull] FeedUri interfaceUri)
+        public bool ContainsEntry(FeedUri interfaceUri)
         {
             #region Sanity checks
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
@@ -73,8 +72,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="interfaceUri">The <see cref="AppEntry.InterfaceUri"/> to look for.</param>
         /// <returns>The first matching <see cref="AppEntry"/>.</returns>
         /// <exception cref="KeyNotFoundException">No entry matching the interface URI was found.</exception>
-        [NotNull]
-        public AppEntry this[[NotNull] FeedUri interfaceUri]
+        public AppEntry this[FeedUri interfaceUri]
         {
             get
             {
@@ -100,8 +98,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="interfaceUri">The <see cref="AppEntry.InterfaceUri"/> to look for.</param>
         /// <returns>The first matching <see cref="AppEntry"/>; <c>null</c> if no match was found.</returns>
-        [CanBeNull]
-        public AppEntry GetEntry([NotNull] FeedUri interfaceUri)
+        public AppEntry? GetEntry(FeedUri interfaceUri)
         {
             #region Sanity checks
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
@@ -115,8 +112,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="query">The search query. Must be contained within <see cref="AppEntry.Name"/>.</param>
         /// <returns>All <see cref="AppEntry"/>s matching <paramref name="query"/>.</returns>
-        [NotNull, ItemNotNull]
-        public IEnumerable<AppEntry> Search([CanBeNull] string query)
+        public IEnumerable<AppEntry> Search(string? query)
         {
             if (string.IsNullOrEmpty(query))
             {
@@ -139,8 +135,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="aliasName">The name of the alias to search for.</param>
         /// <param name="foundAppEntry">Returns the <see cref="AppEntry"/> containing the found <see cref="AppAlias"/>; <c>null</c> if none was found.</param>
         /// <returns>The first <see cref="AppAlias"/> matching <paramref name="aliasName"/>; <c>null</c> if none was found.</returns>
-        [ContractAnnotation("=>null,foundAppEntry:null; =>notnull,foundAppEntry:notnull")]
-        public AppAlias GetAppAlias([NotNull] string aliasName, out AppEntry foundAppEntry)
+        public AppAlias? GetAppAlias(string aliasName, out AppEntry? foundAppEntry)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
@@ -172,8 +167,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="aliasName">The name of the alias to search for.</param>
         /// <param name="command">The name of the command within the target feed the alias points to; <c>null</c> for default.</param>
         /// <returns>The target feed of the alias; <c>null</c> if none was found.</returns>
-        [CanBeNull]
-        public FeedUri TryResolveAlias([NotNull] string aliasName, [CanBeNull] out string command)
+        public FeedUri? TryResolveAlias(string aliasName, out string? command)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
@@ -201,7 +195,6 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="machineWide">Load the machine-wide <see cref="AppList"/> instead of the one for the current user.</param>
         /// <returns>The loaded <see cref="AppList"/>.</returns>
-        [NotNull]
         public static AppList LoadSafe(bool machineWide = false)
         {
             try
@@ -239,8 +232,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <returns>The loaded list.</returns>
         /// <exception cref="ZipException">A problem occurred while reading the ZIP data or <paramref name="password"/> is wrong.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
-        [NotNull]
-        public static AppList LoadXmlZip([NotNull] Stream stream, [CanBeNull] string password = null)
+        public static AppList LoadXmlZip(Stream stream, string? password = null)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -264,7 +256,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="stream">The ZIP archive to be written.</param>
         /// <param name="password">The password to use for encryption; <c>null</c> for no encryption.</param>
-        public void SaveXmlZip([NotNull] Stream stream, [CanBeNull] string password = null)
+        public void SaveXmlZip(Stream stream, string? password = null)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -306,7 +298,7 @@ namespace ZeroInstall.DesktopIntegration
             => other != null && (base.Equals(other) && Entries.SequencedEquals(other.Entries));
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -45,7 +44,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="externalSolverUri">The feed URI used to get the external solver.</param>
         /// <param name="feedManager">Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public ExternalSolver([NotNull] ISolver backingSolver, [NotNull] ISelectionsManager selectionsManager, [NotNull] IFetcher fetcher, [NotNull] IExecutor executor, [NotNull] FeedUri externalSolverUri, [NotNull] IFeedManager feedManager, [NotNull] ITaskHandler handler)
+        public ExternalSolver(ISolver backingSolver, ISelectionsManager selectionsManager, IFetcher fetcher, IExecutor executor, FeedUri externalSolverUri, IFeedManager feedManager, ITaskHandler handler)
         {
             _backingSolver = backingSolver ?? throw new ArgumentNullException(nameof(backingSolver));
             _selectionsManager = selectionsManager ?? throw new ArgumentNullException(nameof(selectionsManager));
@@ -65,7 +64,7 @@ namespace ZeroInstall.Services.Solvers
             if (requirements.InterfaceUri == null) throw new ArgumentException(Resources.MissingInterfaceUri, nameof(requirements));
             #endregion
 
-            Selections selections = null;
+            Selections selections = default!;
             _handler.RunTask(new SimpleTask(Resources.ExternalSolverRunning, () =>
             {
                 using var control = new ExternalSolverSession(GetStartInfo())
@@ -97,7 +96,7 @@ namespace ZeroInstall.Services.Solvers
             return selections;
         }
 
-        private Selections _solverSelections;
+        private Selections? _solverSelections;
 
         private ProcessStartInfo GetStartInfo()
         {

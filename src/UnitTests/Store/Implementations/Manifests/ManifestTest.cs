@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using FluentAssertions;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -42,7 +41,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>
-        public static string CreateDotFile([NotNull] string path, [NotNull] ManifestFormat format, [NotNull] ITaskHandler handler)
+        public static string CreateDotFile(string path, ManifestFormat format, ITaskHandler handler)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -181,7 +180,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
 
             using var manifest = File.OpenText(manifestPath);
-            string firstLine = manifest.ReadLine();
+            string? firstLine = manifest.ReadLine();
             Assert.True(Regex.IsMatch(firstLine, @"^X \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
         }
 
@@ -202,7 +201,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
 
             using var manifest = File.OpenText(manifestPath);
-            string firstLine = manifest.ReadLine();
+            string? firstLine = manifest.ReadLine();
             Assert.True(Regex.IsMatch(firstLine, @"^S \w+ \d+ test$"), "Manifest didn't match expected format");
         }
 
@@ -233,7 +232,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             else FileUtils.SetExecutable(innerExePath, true);
             CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
             using var manifestFile = File.OpenText(manifestPath);
-            string currentLine = manifestFile.ReadLine();
+            string? currentLine = manifestFile.ReadLine();
             Assert.True(Regex.IsMatch(currentLine, @"^D /inner$"), "Manifest didn't match expected format:\n" + currentLine);
             currentLine = manifestFile.ReadLine();
             Assert.True(Regex.IsMatch(currentLine, @"^X \w+ \w+ \d+ inner.exe$"), "Manifest didn't match expected format:\n" + currentLine);

@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -26,8 +25,7 @@ namespace ZeroInstall.Services.Solvers
         /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
-        [CanBeNull]
-        public static Selections TrySolve(this ISolver solver, [NotNull] Requirements requirements)
+        public static Selections? TrySolve(this ISolver solver, Requirements requirements)
         {
             #region Sanity checks
             if (solver == null) throw new ArgumentNullException(nameof(solver));

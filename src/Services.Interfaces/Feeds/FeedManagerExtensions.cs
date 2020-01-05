@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
-        public static Feed GetFresh([NotNull] this IFeedManager feedManager, [NotNull] FeedUri feedUri)
+        public static Feed GetFresh(this IFeedManager feedManager, FeedUri feedUri)
         {
             #region Sanity checks
             if (feedManager == null) throw new ArgumentNullException(nameof(feedManager));

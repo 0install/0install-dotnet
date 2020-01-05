@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
@@ -32,7 +31,7 @@ namespace ZeroInstall.Services
         /// <param name="feedManager">Used to load <see cref="Feed"/>s containing the original <see cref="Implementation"/>s.</param>
         /// <param name="implementationStore">The locations to search for cached <see cref="Implementation"/>s.</param>
         /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
-        public SelectionsManager([NotNull] IFeedManager feedManager, [NotNull] IImplementationStore implementationStore, [NotNull] IPackageManager packageManager)
+        public SelectionsManager(IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager)
         {
             _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
             _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
@@ -90,7 +89,7 @@ namespace ZeroInstall.Services
             var visited = new HashSet<FeedUri>();
             var result = new List<SelectionsTreeNode>();
 
-            ImplementationSelection TryGetImplementation(IInterfaceUri target)
+            ImplementationSelection? TryGetImplementation(IInterfaceUri target)
             {
                 try
                 {
@@ -108,7 +107,7 @@ namespace ZeroInstall.Services
                        ? "(" + implementation.ID + ")"
                        : _implementationStore.GetPath(implementation.ManifestDigest));
 
-            void AddNodes(IInterfaceUri target, SelectionsTreeNode parent)
+            void AddNodes(IInterfaceUri target, SelectionsTreeNode? parent)
             {
                 // Prevent infinite recursion
                 if (visited.Contains(target.InterfaceUri)) return;

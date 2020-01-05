@@ -4,8 +4,6 @@
 using System;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Trust
 {
     /// <summary>
@@ -16,7 +14,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Formats a key ID as a canonical string.
         /// </summary>
-        public static string FormatKeyID([NotNull] this IKeyIDContainer keyIDContainer)
+        public static string FormatKeyID(this IKeyIDContainer keyIDContainer)
         {
             #region Sanity checks
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
@@ -28,7 +26,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Formats a key fingerprint as a canonical string.
         /// </summary>
-        public static string FormatFingerprint([NotNull] this IFingerprintContainer fingerprintContainer)
+        public static string FormatFingerprint(this IFingerprintContainer fingerprintContainer)
         {
             #region Sanity checks
             if (fingerprintContainer == null) throw new ArgumentNullException(nameof(fingerprintContainer));
@@ -41,7 +39,7 @@ namespace ZeroInstall.Store.Trust
         /// Parses a canonical string formatting of a key ID.
         /// </summary>
         /// <exception cref="FormatException">The string format is not valid.</exception>
-        internal static long ParseKeyID([NotNull] string keyID)
+        internal static long ParseKeyID(string keyID)
         {
             #region Sanity checks
             if (keyID == null) throw new ArgumentNullException(nameof(keyID));
@@ -56,8 +54,7 @@ namespace ZeroInstall.Store.Trust
         /// Parses a canonical string formatting of a key fingerprint.
         /// </summary>
         /// <exception cref="FormatException">The string format is not valid.</exception>
-        [NotNull]
-        internal static byte[] ParseFingerprint([NotNull] string fingerprint)
+        internal static byte[] ParseFingerprint(string fingerprint)
         {
             #region Sanity checks
             if (fingerprint == null) throw new ArgumentNullException(nameof(fingerprint));
@@ -72,7 +69,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Extracts the key ID from a key fingerprint.
         /// </summary>
-        internal static long FingerprintToKeyID([NotNull] byte[] fingerprint)
+        internal static long FingerprintToKeyID(byte[] fingerprint)
         {
             #region Sanity checks
             if (fingerprint == null) throw new ArgumentNullException(nameof(fingerprint));
@@ -96,7 +93,7 @@ namespace ZeroInstall.Store.Trust
         /// <exception cref="UnauthorizedAccessException">The file could not be read or written.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
         /// <exception cref="IOException">The specified <paramref name="keyID"/> could not be found on the system.</exception>
-        public static void DeployPublicKey([NotNull] this IOpenPgp openPgp, [NotNull] IKeyIDContainer keyID, [NotNull] string path)
+        public static void DeployPublicKey(this IOpenPgp openPgp, IKeyIDContainer keyID, string path)
         {
             #region Sanity checks
             if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));

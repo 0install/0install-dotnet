@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -26,43 +25,37 @@ namespace ZeroInstall.Store.ViewModel
         /// The UI path name of this node. Uses a hash (#) as the separator in hierarchical names.
         /// </summary>
         [Browsable(false)]
-        [NotNull]
         public string Name { get => $"{NameBase}#{Version}"; set {} }
 
         /// <summary>
         /// The parent element of this node in the tree structure. <c>null</c> for the root element.
         /// </summary>
         [Browsable(false)]
-        [CanBeNull]
-        public SelectionsTreeNode Parent { get; }
+        public SelectionsTreeNode? Parent { get; }
 
         /// <summary>
         /// A prefix used to indicate the indentation level inside the tree structure.
         /// </summary>
         [DisplayName(" ")]
-        [NotNull]
         public string Prefix => (Parent == null) ? "- " : "  " + Parent.Prefix;
 
         /// <summary>
         /// The feed URI of the selected implementation.
         /// </summary>
         [DisplayName("URI")]
-        [NotNull]
         public FeedUri Uri { get; }
 
         /// <summary>
         /// The version of the selected implementation. <c>null</c> for a missing selection.
         /// </summary>
-        [CanBeNull]
-        public ImplementationVersion Version { get; }
+        public ImplementationVersion? Version { get; }
 
         /// <summary>
         /// The local path of the cached implementation. <c>null</c> for an uncached implementation.
         /// </summary>
-        [CanBeNull]
-        public string Path { get; }
+        public string? Path { get; }
 
-        public SelectionsTreeNode([NotNull] FeedUri uri, [CanBeNull] ImplementationVersion version, [CanBeNull] string path, [CanBeNull] SelectionsTreeNode parent)
+        public SelectionsTreeNode(FeedUri uri, ImplementationVersion? version, string? path, SelectionsTreeNode? parent)
         {
             Uri = uri ?? throw new ArgumentNullException(nameof(uri));
             Version = version;
@@ -91,7 +84,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

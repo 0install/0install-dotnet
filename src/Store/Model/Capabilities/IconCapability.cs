@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -27,7 +26,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// Zero or more icons to represent the capability. Used for things like file icons.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("icon", Namespace = Feed.XmlNamespace), NotNull]
+        [XmlElement("icon", Namespace = Feed.XmlNamespace)]
         public List<Icon> Icons { get; } = new List<Icon>();
 
         /// <summary>
@@ -35,8 +34,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// </summary>
         /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
         /// <returns>The best matching icon that was found or <c>null</c> if no matching icon was found.</returns>
-        [CanBeNull]
-        public Icon GetIcon([NotNull] string mimeType)
+        public Icon? GetIcon(string mimeType)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));

@@ -16,6 +16,6 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("verb")]
-        Verb Verb { get; set; }
+        Verb? Verb { get; set; }
     }
 }

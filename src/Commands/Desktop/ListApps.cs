@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -30,7 +29,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public ListApps([NotNull] ICommandHandler handler)
+        public ListApps(ICommandHandler handler)
             : base(handler)
         {}
 

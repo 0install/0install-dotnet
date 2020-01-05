@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using JetBrains.Annotations;
 using NanoByte.Common;
 
 namespace ZeroInstall.Store
@@ -13,18 +11,12 @@ namespace ZeroInstall.Store
     public static class FeedUriExtensions
     {
         /// <summary>
-        /// Wraps a <see cref="FeedUri"/> pointer in a <see cref="string"/> pointer.
+        /// Wraps a <see cref="FeedUri"/> pointer in a <see cref="string"/> pointer. Maps empty strings to <c>null</c> URIs.
         /// </summary>
-        public static PropertyPointer<string> ToStringPointer([NotNull] this PropertyPointer<FeedUri> pointer)
-        {
-            #region Sanity checks
-            if (pointer == null) throw new ArgumentNullException(nameof(pointer));
-            #endregion
-
-            return PropertyPointer.For(
-                getValue: () => pointer.Value?.ToStringRfc(),
-                setValue: value => pointer.Value = (value == null) ? null : new FeedUri(value),
-                defaultValue: pointer.DefaultValue?.ToStringRfc());
-        }
+        public static PropertyPointer<string> ToStringPointer(this PropertyPointer<FeedUri?> pointer)
+            => PropertyPointer.For(
+                getValue: () => pointer.Value?.ToStringRfc() ?? "",
+                setValue: value => pointer.Value = string.IsNullOrEmpty(value) ? default : new FeedUri(value),
+                defaultValue: pointer.DefaultValue?.ToStringRfc() ?? "");
     }
 }

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 
@@ -23,7 +22,7 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new GnuPG instance.
         /// </summary>
         /// <param name="homeDir">The GnuPG home dir to use.</param>
-        public GnuPG([NotNull] string homeDir)
+        public GnuPG(string homeDir)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
@@ -75,8 +74,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="line">The console line containing the signature information.</param>
         /// <returns>The parsed signature representation; <c>null</c> if <paramref name="line"/> did not contain any signature information.</returns>
         /// <exception cref="FormatException"><paramref name="line"/> contains incorrectly formatted signature information.</exception>
-        [CanBeNull]
-        private static OpenPgpSignature ParseSignatureLine([NotNull] string line)
+        private static OpenPgpSignature? ParseSignatureLine(string line)
         {
             const int signatureTypeIndex = 1, fingerprintIndex = 2, timestampIndex = 4, keyIDIndex = 2, errorCodeIndex = 7;
 
@@ -110,7 +108,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string passphrase = null)
+        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string? passphrase = null)
         {
             #region Sanity checks
             if (data == null) throw new ArgumentNullException(nameof(data));
@@ -151,7 +149,7 @@ namespace ZeroInstall.Store.Trust
         {
             string result = new CliControl(_homeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
-            string[] sec = null, fpr = null, uid = null;
+            string[]? sec = null, fpr = null, uid = null;
             foreach (string line in result.SplitMultilineText())
             {
                 var parts = line.Split(':');
@@ -191,7 +189,6 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <returns>A handle that can be used to wait for the process to finish.</returns>
         /// <exception cref="IOException">The OpenPGP implementation could not be launched.</exception>
-        [PublicAPI]
         public static Process GenerateKey() => new CliControl().StartInteractive("--gen-key");
     }
 }

@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Feeds;
@@ -21,7 +20,7 @@ namespace ZeroInstall.Commands.Basic
         public new const string Name = "catalog";
 
         /// <inheritdoc/>
-        public CatalogMan([NotNull] ICommandHandler handler)
+        public CatalogMan(ICommandHandler handler)
             : base(handler)
         {}
         #endregion
@@ -46,7 +45,7 @@ namespace ZeroInstall.Commands.Basic
         {
             protected override string ParentName => CatalogMan.Name;
 
-            protected CatalogSubCommand([NotNull] ICommandHandler handler)
+            protected CatalogSubCommand(ICommandHandler handler)
                 : base(handler)
             {}
         }

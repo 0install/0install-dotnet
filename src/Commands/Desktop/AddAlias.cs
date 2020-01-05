@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
@@ -38,7 +37,7 @@ namespace ZeroInstall.Commands.Desktop
         private bool _remove;
 
         /// <inheritdoc/>
-        public AddAlias([NotNull] ICommandHandler handler)
+        public AddAlias(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Services.Native
@@ -16,14 +15,12 @@ namespace ZeroInstall.Services.Native
         /// <summary>
         /// The name of the distribution this package came from.
         /// </summary>
-        [CanBeNull]
-        public string Distro { get; set; }
+        public string? Distro { get; set; }
 
         /// <summary>
         /// The package name, in a form recognised by the external package manager.
         /// </summary>
-        [CanBeNull]
-        public string PackageID { get; set; }
+        public string? PackageID { get; set; }
 
         /// <summary>
         /// The download size in bytes.
@@ -33,13 +30,12 @@ namespace ZeroInstall.Services.Native
         /// <summary>
         /// A question the user shall be asked for confirmation before calling <see cref="Install"/>. <c>null</c> if no confirmation is required.
         /// </summary>
-        [CanBeNull]
-        public string ConfirmationQuestion { get; set; }
+        public string? ConfirmationQuestion { get; set; }
 
         /// <summary>
         /// A function to call to install this package.
         /// </summary>
-        public Action Install { get; set; }
+        public Action? Install { get; set; }
 
         #region Clone
         /// <summary>
@@ -67,7 +63,7 @@ namespace ZeroInstall.Services.Native
             && Equals(Install, other.Install);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

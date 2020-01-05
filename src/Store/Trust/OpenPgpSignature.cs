@@ -3,7 +3,6 @@
 
 using System;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Trust
@@ -28,7 +27,7 @@ namespace ZeroInstall.Store.Trust
             => KeyID == other.KeyID;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
@@ -63,7 +62,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">The key ID of the key used to create this signature.</param>
         /// <param name="fingerprint">The fingerprint of the key used to create this signature.</param>
         /// <param name="timestamp">The point in time when the signature was created in UTC.</param>
-        public ValidSignature(long keyID, [NotNull] byte[] fingerprint, DateTime timestamp)
+        public ValidSignature(long keyID, byte[] fingerprint, DateTime timestamp)
             : base(keyID)
         {
             _fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
@@ -82,7 +81,7 @@ namespace ZeroInstall.Store.Trust
             && Timestamp == other.Timestamp;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
@@ -119,7 +118,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
@@ -152,7 +151,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;
@@ -186,7 +185,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

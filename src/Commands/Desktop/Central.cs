@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using ZeroInstall.Commands.Properties;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Commands.Desktop
         private bool _machineWide;
 
         /// <inheritdoc/>
-        public Central([NotNull] ICommandHandler handler)
+        public Central(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);

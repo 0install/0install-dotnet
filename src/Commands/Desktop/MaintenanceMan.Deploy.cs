@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -42,7 +41,7 @@ namespace ZeroInstall.Commands.Desktop
             /// <summary>Indicates whether the installer shall restart the <see cref="Central"/> GUI after the installation.</summary>
             private bool _restartCentral;
 
-            public Deploy([NotNull] ICommandHandler handler)
+            public Deploy(ICommandHandler handler)
                 : base(handler)
             {
                 Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
@@ -83,7 +82,6 @@ namespace ZeroInstall.Commands.Desktop
                 return ExitCode.OK;
             }
 
-            [NotNull]
             private string GetTargetDir()
             {
                 if (AdditionalArgs.Count == 0)
@@ -94,7 +92,6 @@ namespace ZeroInstall.Commands.Desktop
                 else return GetCustomTargetDir();
             }
 
-            [NotNull]
             private string GetDefaultTargetDir()
             {
                 if (WindowsUtils.IsWindows)
@@ -112,7 +109,6 @@ namespace ZeroInstall.Commands.Desktop
                 else throw new PlatformNotSupportedException();
             }
 
-            [NotNull]
             private string GetCustomTargetDir()
             {
                 string targetDir = Path.GetFullPath(AdditionalArgs[0]);
@@ -145,14 +141,14 @@ namespace ZeroInstall.Commands.Desktop
                 return targetDir;
             }
 
-            private void PerformDeploy([NotNull] string targetDir)
+            private void PerformDeploy(string targetDir)
             {
                 using var manager = new MaintenanceManager(targetDir, Handler, _machineWide, _portable);
                 Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
                 manager.Deploy();
             }
 
-            private static void RestartCentral([NotNull] string targetDir)
+            private static void RestartCentral(string targetDir)
             {
                 if (ProgramUtils.GuiAssemblyName != null)
                 {

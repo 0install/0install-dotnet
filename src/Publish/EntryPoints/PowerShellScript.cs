@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -53,7 +52,6 @@ namespace ZeroInstall.Publish.EntryPoints
         /// </summary>
         [Category("Details (Script)"), DisplayName(@"PowerShell type"), Description("The types of PowerShell supported by the script.")]
         [DefaultValue(typeof(PowerShellType), "Any")]
-        [UsedImplicitly]
         public PowerShellType PowerShellType { get; set; }
 
         #region Equality
@@ -61,7 +59,7 @@ namespace ZeroInstall.Publish.EntryPoints
             => base.Equals(other)
             && PowerShellType == other.PowerShellType;
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

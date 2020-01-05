@@ -5,7 +5,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -22,11 +21,10 @@ namespace ZeroInstall.Commands.Desktop
     {
         public abstract class RemoveSubCommandBase : MaintenanceSubCommand
         {
-            protected RemoveSubCommandBase([NotNull] ICommandHandler handler)
+            protected RemoveSubCommandBase(ICommandHandler handler)
                 : base(handler)
             {}
 
-            [NotNull]
             protected abstract string TargetDir { get; }
 
             // Auto-detect portable targets by looking for flag file
@@ -58,7 +56,7 @@ namespace ZeroInstall.Commands.Desktop
 
             protected override int AdditionalArgsMax => 0;
 
-            public Remove([NotNull] ICommandHandler handler)
+            public Remove(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -135,7 +133,7 @@ namespace ZeroInstall.Commands.Desktop
 
             protected override int AdditionalArgsMax => 1;
 
-            public RemoveHelper([NotNull] ICommandHandler handler)
+            public RemoveHelper(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

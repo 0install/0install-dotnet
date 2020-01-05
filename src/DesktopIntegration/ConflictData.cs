@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration
         public static bool operator !=(ConflictData left, ConflictData right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             return obj is ConflictData data && Equals(data);

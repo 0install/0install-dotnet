@@ -3,8 +3,6 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
@@ -12,7 +10,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class TarGzGenerator : TarGenerator
     {
-        internal TarGzGenerator([NotNull] string sourcePath, [NotNull] Stream stream)
+        internal TarGzGenerator(string sourcePath, Stream stream)
             : base(sourcePath, new GZipOutputStream(stream))
         {}
     }

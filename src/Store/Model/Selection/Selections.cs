@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -34,14 +33,14 @@ namespace ZeroInstall.Store.Model.Selection
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
         #endregion
 
         /// <summary>
         /// The name specified by the feed at <see cref="InterfaceUri"/>.
         /// </summary>
         [Description("The name specified by the feed at InterfaceUri.")]
-        [XmlElement("name"), CanBeNull]
+        [XmlElement("name")]
         public string Name { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Used for XML serialization")]
         [Description("A list of implementations chosen in this selection.")]
-        [XmlElement("selection"), NotNull]
+        [XmlElement("selection")]
         public List<ImplementationSelection> Implementations { get; } = new List<ImplementationSelection>();
 
         /// <summary>
@@ -75,7 +74,6 @@ namespace ZeroInstall.Store.Model.Selection
         /// <summary>
         /// Gets a list of all <see cref="Restriction"/>s and <see cref="Dependency"/> that point to a specific <paramref name="interfaceUri"/>.
         /// </summary>
-        [NotNull, ItemNotNull]
         public IEnumerable<Restriction> RestrictionsFor(FeedUri interfaceUri)
         {
             foreach (var implementation in Implementations)
@@ -124,7 +122,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// </summary>
         /// <param name="interfaceUri">The <see cref="ImplementationSelection.InterfaceUri"/> to look for.</param>
         /// <returns><c>true</c> if an implementation was found; <c>false</c> otherwise.</returns>
-        public bool ContainsImplementation([NotNull] FeedUri interfaceUri)
+        public bool ContainsImplementation(FeedUri interfaceUri)
             => Implementations.Any(implementation => implementation.InterfaceUri == interfaceUri);
 
         /// <summary>
@@ -133,8 +131,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// <param name="interfaceUri">The <see cref="ImplementationSelection.InterfaceUri"/> to look for.</param>
         /// <returns>The first matching implementation.</returns>
         /// <exception cref="KeyNotFoundException">No matching implementation was found.</exception>
-        [NotNull]
-        public ImplementationSelection this[[NotNull] FeedUri interfaceUri]
+        public ImplementationSelection this[FeedUri interfaceUri]
         {
             get
             {
@@ -160,8 +157,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// </summary>
         /// <param name="interfaceUri">The <see cref="ImplementationSelection.InterfaceUri"/> to look for.</param>
         /// <returns>The first matching implementation; <c>null</c> if no matching one was found.</returns>
-        [CanBeNull]
-        public ImplementationSelection GetImplementation([NotNull] FeedUri interfaceUri)
+        public ImplementationSelection? GetImplementation(FeedUri interfaceUri)
         {
             #region Sanity checks
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
@@ -215,7 +211,7 @@ namespace ZeroInstall.Store.Model.Selection
             && Implementations.UnsequencedEquals(other.Implementations);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

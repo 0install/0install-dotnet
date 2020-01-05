@@ -37,57 +37,27 @@ namespace ZeroInstall.Commands.Basic
                 string path = tempFile;
                 StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    new ArchiveFileInfo {Path = path}
-                }, digest, Handler)).Returns("");
-
-                RunAndAssert(null, ExitCode.OK,
-                    "sha256new_" + digest.Sha256New, path);
-            }
-
-            [Fact]
-            public void ArchiveRelativePath()
-            {
-                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
-                var digest = new ManifestDigest(sha256New: "abc");
-                string path = Path.Combine(tempDir, "archive");
-                File.WriteAllText(path, "xyz");
-                StoreMock.Setup(x => x.AddArchives(new[]
-                {
-                    new ArchiveFileInfo {Path = path}
-                }, digest, Handler)).Returns("");
-
-                RunAndAssert(null, ExitCode.OK,
-                    "sha256new_" + digest.Sha256New, "archive");
-            }
-
-            [Fact]
-            public void ArchiveExtract()
-            {
-                using var tempFile = new TemporaryFile("0install-unit-tests");
-                var digest = new ManifestDigest(sha256New: "abc");
-                string path = tempFile;
-                StoreMock.Setup(x => x.AddArchives(new[]
-                {
-                    new ArchiveFileInfo {Path = path, Extract = "extract"}
-                }, digest, Handler)).Returns("");
-
-                RunAndAssert(null, ExitCode.OK,
-                    "sha256new_" + digest.Sha256New, path, "extract");
-            }
-
-            [Fact]
-            public void ArchiveExtractMime()
-            {
-                using var tempFile = new TemporaryFile("0install-unit-tests");
-                var digest = new ManifestDigest(sha256New: "abc");
-                string path = tempFile;
-                StoreMock.Setup(x => x.AddArchives(new[]
-                {
-                    new ArchiveFileInfo {Path = path, Extract = "extract", MimeType = "mime"}
+                    new ArchiveFileInfo(path, "mime") {Extract = "extract"}
                 }, digest, Handler)).Returns("");
 
                 RunAndAssert(null, ExitCode.OK,
                     "sha256new_" + digest.Sha256New, path, "extract", "mime");
+            }
+
+            [Fact]
+            public void ArchiveRelativePathGuessMimeType()
+            {
+                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                var digest = new ManifestDigest(sha256New: "abc");
+                string path = Path.Combine(tempDir, "archive.zip");
+                File.WriteAllText(path, "xyz");
+                StoreMock.Setup(x => x.AddArchives(new[]
+                {
+                    new ArchiveFileInfo(path, Store.Model.Archive.MimeTypeZip)
+                }, digest, Handler)).Returns("");
+
+                RunAndAssert(null, ExitCode.OK,
+                    "sha256new_" + digest.Sha256New, "archive.zip");
             }
 
             [Fact]
@@ -100,8 +70,8 @@ namespace ZeroInstall.Commands.Basic
                 string path2 = tempFile2;
                 StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    new ArchiveFileInfo {Path = path1, Extract = "extract1", MimeType = "mime1"},
-                    new ArchiveFileInfo {Path = path2, Extract = "extract2", MimeType = "mime2"}
+                    new ArchiveFileInfo(path1, "mime1") {Extract = "extract1"},
+                    new ArchiveFileInfo(path2, "mime2") {Extract = "extract2"}
                 }, digest, Handler)).Returns("");
 
                 RunAndAssert(null, ExitCode.OK,

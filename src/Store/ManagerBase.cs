@@ -5,7 +5,6 @@ using System;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 
 namespace ZeroInstall.Store
@@ -30,7 +29,7 @@ namespace ZeroInstall.Store
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-        protected ManagerBase([NotNull] ITaskHandler handler, bool machineWide = false)
+        protected ManagerBase(ITaskHandler handler, bool machineWide = false)
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
             MachineWide = machineWide;
@@ -41,7 +40,7 @@ namespace ZeroInstall.Store
         /// </summary>
         protected abstract string MutexName { get; }
 
-        private Mutex _mutex;
+        private Mutex? _mutex;
 
         /// <summary>
         /// Tries to acquire a mutex with the name <see cref="MutexName"/>. Call this at the end of your constructors.

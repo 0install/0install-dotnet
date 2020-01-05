@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model.Design;
 
@@ -29,15 +28,15 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The category name as specified by the TypeNamespace.")]
         [TypeConverter(typeof(CategoryNameConverter))]
-        [XmlText, CanBeNull]
-        public string Name { get; set; }
+        [XmlText]
+        public string? Name { get; set; }
 
         /// <summary>
         /// If no type is given, then the category is one of the 'Main' categories defined by the freedesktop.org menu specification (http://standards.freedesktop.org/menu-spec/latest/apa.html). Otherwise, it is a URI giving the namespace for the category.
         /// </summary>
         [Description("If no type is given, then the category is one of the 'Main' categories defined by the freedesktop.org menu specification. Otherwise, it is a URI giving the namespace for the category.")]
-        [XmlAttribute("type"), DefaultValue(""), CanBeNull]
-        public string TypeNamespace { get; set; }
+        [XmlAttribute("type"), DefaultValue("")]
+        public string? TypeNamespace { get; set; }
 
         #region Conversion
         /// <summary>
@@ -60,7 +59,7 @@ namespace ZeroInstall.Store.Model
             && other.TypeNamespace == TypeNamespace;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

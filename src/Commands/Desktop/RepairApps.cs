@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public RepairApps([NotNull] ICommandHandler handler)
+        public RepairApps(ICommandHandler handler)
             : base(handler)
         {}
 

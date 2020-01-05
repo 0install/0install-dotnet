@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -17,13 +16,11 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// The requirements.
         /// </summary>
-        [NotNull]
         public Requirements Requirements { get; }
 
         /// <summary>
         /// All candidates for the <see cref="Requirements"/>, including those that are not suitable.
         /// </summary>
-        [NotNull, ItemNotNull]
         public IList<SelectionCandidate> Candidates { get; }
 
         /// <summary>
@@ -37,7 +34,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="requirements">The requirements.</param>
         /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the <paramref name="requirements"/>.</param>
         /// <param name="importance">Describes how important the demand is (i.e. whether ignoring it is an option).</param>
-        public SolverDemand([NotNull] Requirements requirements, [NotNull] ISelectionCandidateProvider candidateProvider, Importance importance = Importance.Essential)
+        public SolverDemand(Requirements requirements, ISelectionCandidateProvider candidateProvider, Importance importance = Importance.Essential)
         {
             Requirements = requirements ?? throw new ArgumentNullException(nameof(requirements));
             Candidates = (candidateProvider ?? throw new ArgumentNullException(nameof(candidateProvider))).GetSortedCandidates(Requirements);

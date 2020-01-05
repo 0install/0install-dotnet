@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Properties;
 
@@ -23,13 +22,13 @@ namespace ZeroInstall.Store.Model
         /// Contains any unknown additional XML attributes.
         /// </summary>
         [XmlAnyAttribute]
-        public XmlAttribute[] UnknownAttributes;
+        public XmlAttribute[]? UnknownAttributes;
 
         /// <summary>
         /// Contains any unknown additional XML elements.
         /// </summary>
         [XmlAnyElement]
-        public XmlElement[] UnknownElements;
+        public XmlElement[]? UnknownElements;
 
         /// <summary>
         /// Ensures that a value mapped from an XML attribute is not null.
@@ -39,7 +38,13 @@ namespace ZeroInstall.Store.Model
         /// <param name="xmlTag">The name of the XML tag containing the attribute.</param>
         /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
         // ReSharper disable once UnusedParameter.Global
-        protected static void EnsureNotNull(object value, [NotNull] string xmlAttribute, [NotNull] string xmlTag)
+        protected static void EnsureNotNull(
+#if NETSTANDARD2_1
+            [System.Diagnostics.CodeAnalysis.NotNull]
+#endif
+            object? value,
+            string xmlAttribute,
+            string xmlTag)
         {
             if (value == null) throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, xmlAttribute, xmlTag));
         }
@@ -49,7 +54,7 @@ namespace ZeroInstall.Store.Model
         {
             public static readonly XmlAttributeComparer Instance = new XmlAttributeComparer();
 
-            public bool Equals(XmlAttribute x, XmlAttribute y)
+            public bool Equals(XmlAttribute? x, XmlAttribute? y)
             {
                 if (x == null || y == null) return false;
                 return x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.Value == y.Value;
@@ -63,7 +68,7 @@ namespace ZeroInstall.Store.Model
         {
             public static readonly XmlElementComparer Instance = new XmlElementComparer();
 
-            public bool Equals(XmlElement x, XmlElement y)
+            public bool Equals(XmlElement? x, XmlElement? y)
             {
                 if (x == null || y == null) return false;
                 if (x.NamespaceURI != y.NamespaceURI || x.Name != y.Name || x.InnerText != y.InnerText) return false;

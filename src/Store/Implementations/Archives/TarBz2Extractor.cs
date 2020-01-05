@@ -3,7 +3,6 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.BZip2;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
@@ -21,7 +20,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarBz2Extractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal TarBz2Extractor(Stream stream, string targetPath)
             : base(GetDecompressionStream(stream), targetPath)
         {
             _stream = stream;

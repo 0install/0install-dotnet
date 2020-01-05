@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Feeds;
@@ -28,7 +27,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public Search([NotNull] ICommandHandler handler)
+        public Search(ICommandHandler handler)
             : base(handler)
         {}
 

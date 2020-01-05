@@ -3,8 +3,6 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.BZip2;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
@@ -12,7 +10,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class TarBz2Generator : TarGenerator
     {
-        internal TarBz2Generator([NotNull] string sourcePath, [NotNull] Stream stream)
+        internal TarBz2Generator(string sourcePath, Stream stream)
             : base(sourcePath, new BZip2OutputStream(stream))
         {}
     }

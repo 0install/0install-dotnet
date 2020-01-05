@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model.Design;
 
 namespace ZeroInstall.Store.Model
@@ -20,8 +19,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The name of the command in the implementation to launch; leave empty for 'run'.")]
         [TypeConverter(typeof(CommandNameConverter))]
-        [XmlAttribute("command"), DefaultValue(""), CanBeNull]
-        public string Command { get; set; }
+        [XmlAttribute("command"), DefaultValue("")]
+        public string? Command { get; set; }
 
         #region Equality
         protected bool Equals(ExecutableInBinding other) => other != null && base.Equals(other) && Command == other.Command;

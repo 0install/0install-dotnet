@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -39,7 +38,7 @@ namespace ZeroInstall.Store.Model.Preferences
         /// A list of implementation-specific user-overrides.
         /// </summary>
         [Description("A list of implementation-specific user-overrides.")]
-        [XmlElement("implementation"), NotNull]
+        [XmlElement("implementation")]
         // Note: Can not use ICollection<T> interface with XML Serialization
         public List<ImplementationPreferences> Implementations { get; } = new List<ImplementationPreferences>();
 
@@ -78,8 +77,7 @@ namespace ZeroInstall.Store.Model.Preferences
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        [NotNull]
-        public static FeedPreferences LoadFor([NotNull] FeedUri feedUri)
+        public static FeedPreferences LoadFor(FeedUri feedUri)
         {
             #region Sanity checks
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
@@ -97,8 +95,7 @@ namespace ZeroInstall.Store.Model.Preferences
         /// </summary>
         /// <param name="feedUri">The feed to load the preferences for.</param>
         /// <returns>The loaded <see cref="FeedPreferences"/> or default value if there was a problem.</returns>
-        [NotNull]
-        public static FeedPreferences LoadForSafe([NotNull] FeedUri feedUri)
+        public static FeedPreferences LoadForSafe(FeedUri feedUri)
         {
             #region Sanity checks
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
@@ -136,7 +133,7 @@ namespace ZeroInstall.Store.Model.Preferences
         /// <param name="feedUri">The feed to save the preferences for.</param>
         /// <exception cref="IOException">A problem occurs while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void SaveFor([NotNull] FeedUri feedUri)
+        public void SaveFor(FeedUri feedUri)
         {
             #region Sanity checks
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
@@ -180,7 +177,7 @@ namespace ZeroInstall.Store.Model.Preferences
             && Implementations.SequencedEquals(other.Implementations);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

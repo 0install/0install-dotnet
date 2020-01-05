@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
@@ -41,7 +40,7 @@ namespace ZeroInstall.Commands.Desktop
         private bool _clean;
 
         /// <inheritdoc/>
-        public UpdateApps([NotNull] ICommandHandler handler)
+        public UpdateApps(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("c|clean", () => Resources.OptionClean, _ => _clean = true);

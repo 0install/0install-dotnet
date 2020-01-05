@@ -3,8 +3,6 @@
 
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -16,7 +14,6 @@ namespace ZeroInstall.Store.Model
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
         /// </summary>
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
-        [NotNull]
         List<Binding> Bindings { get; }
     }
 }

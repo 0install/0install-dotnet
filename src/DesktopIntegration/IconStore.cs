@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -19,18 +18,16 @@ namespace ZeroInstall.DesktopIntegration
     /// </summary>
     public sealed class IconStore : IIconStore
     {
-        [NotNull]
         private readonly ITaskHandler _handler;
 
-        [CanBeNull]
-        private readonly string _pathOverride;
+        private readonly string? _pathOverride;
 
         /// <summary>
         /// Creates a new icon cache.
         /// </summary>
         /// <param name="handler">A callback object used when the the user is to be informed about icon downloading.</param>
         /// <param name="pathOverride">An alternative on-disk path to use for storage. Only set for testing, leave <c>null</c> otherwise.</param>
-        public IconStore([NotNull] ITaskHandler handler, [CanBeNull] string pathOverride = null)
+        public IconStore(ITaskHandler handler, string? pathOverride = null)
         {
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
             _pathOverride = pathOverride;
@@ -86,7 +83,7 @@ namespace ZeroInstall.DesktopIntegration
             return path;
         }
 
-        internal string BuildPath([NotNull] Icon icon, bool machineWide)
+        internal string BuildPath(Icon icon, bool machineWide)
         {
             string path = Path.Combine(
                 _pathOverride ?? Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "icons"),

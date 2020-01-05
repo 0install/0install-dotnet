@@ -3,7 +3,6 @@
 
 using System;
 using System.Globalization;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
@@ -33,8 +32,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="line">The string representation to parse.</param>
         /// <returns>The newly created node.</returns>
         /// <exception cref="FormatException">The <paramref name="line"/> format is incorrect.</exception>
-        [NotNull]
-        internal static ManifestSymlink FromString([NotNull] string line)
+        internal static ManifestSymlink FromString(string line)
         {
             const int numberOfParts = 4;
             var parts = line.Split(new[] {' '}, numberOfParts);
@@ -66,7 +64,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         public bool Equals(ManifestSymlink other) => base.Equals(other);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -5,7 +5,6 @@
 using System;
 using System.IO;
 using System.Threading;
-using JetBrains.Annotations;
 using NanoByte.Common.Streams;
 using SevenZip.Sdk;
 using SevenZip.Sdk.Compression.Lzma;
@@ -17,7 +16,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class TarLzmaGenerator : TarGenerator
     {
-        internal TarLzmaGenerator([NotNull] string sourcePath, [NotNull] Stream stream)
+        internal TarLzmaGenerator(string sourcePath, Stream stream)
             : base(sourcePath, GetCompressionStream(stream))
         {}
 

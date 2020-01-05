@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Linq;
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Model.Preferences;
 
@@ -31,7 +30,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public ListFeeds([NotNull] ICommandHandler handler)
+        public ListFeeds(ICommandHandler handler)
             : base(handler)
         {}
 

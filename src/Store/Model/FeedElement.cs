@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 
 namespace ZeroInstall.Store.Model
 {
@@ -18,14 +17,14 @@ namespace ZeroInstall.Store.Model
         /// Only process this element if the current Zero Install version matches the range.
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, CanBeNull]
-        public VersionRange IfZeroInstallVersion { get; set; }
+        [XmlIgnore]
+        public VersionRange? IfZeroInstallVersion { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="IfZeroInstallVersion"/>
         [XmlAttribute("if-0install-version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string IfZeroInstallVersionString { get => IfZeroInstallVersion?.ToString(); set => IfZeroInstallVersion = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
+        public string? IfZeroInstallVersionString { get => IfZeroInstallVersion?.ToString(); set => IfZeroInstallVersion = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
         #endregion
 
         #region Filter
@@ -33,7 +32,7 @@ namespace ZeroInstall.Store.Model
         /// Checks whether an element passes the specified <see cref="IfZeroInstallVersion"/> restriction, if any.
         /// </summary>
         protected internal static bool FilterMismatch<T>(T element)
-            where T : FeedElement
+            where T : FeedElement?
         {
             if (element == null) return false;
 

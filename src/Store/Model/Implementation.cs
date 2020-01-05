@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -27,7 +26,6 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(Recipe))]
-        [NotNull]
         public List<RetrievalMethod> RetrievalMethods { get; } = new List<RetrievalMethod>();
 
         #region Normalize
@@ -36,7 +34,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public override void Normalize(FeedUri feedUri = null)
+        public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);
 
@@ -88,7 +86,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && RetrievalMethods.SequencedEquals(other.RetrievalMethods);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

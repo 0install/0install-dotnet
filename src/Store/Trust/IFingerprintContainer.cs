@@ -2,8 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Trust
 {
     /// <summary>
@@ -14,7 +12,6 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Returns an OpenPGP key fingerprint. A long identifier for a key. Superset of <see cref="IKeyIDContainer.KeyID"/>.
         /// </summary>
-        [NotNull]
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
         byte[] GetFingerprint();
     }

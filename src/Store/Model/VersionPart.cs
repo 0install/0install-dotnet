@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(VersionPart other) => Modifier == other.Modifier && DottedList == other.DottedList;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             return obj is VersionPart part && Equals(part);

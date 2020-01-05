@@ -62,7 +62,7 @@ namespace ZeroInstall.Services.Solvers
         private static void TestSort(SelectionCandidateComparer comparer, Implementation better, Implementation worse)
         {
             SelectionCandidate ToCandidate(Implementation implementation)
-                => new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements {InterfaceUri = FeedTest.Test1Uri, Command = ""});
+                => new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, command: ""));
 
             var a = ToCandidate(better);
             var b = ToCandidate(worse);

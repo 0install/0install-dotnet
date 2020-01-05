@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Model;
@@ -33,8 +32,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="candidate">The selection candidate.</param>
         /// <param name="requirements">The requirements the candidate was chosen for.</param>
         /// <param name="allCandidates">All candidates that were considered for selection (including <paramref name="candidate"/>). These are used to present the user with possible alternatives.</param>
-        [NotNull]
-        public static ImplementationSelection ToSelection([NotNull] this SelectionCandidate candidate, [NotNull] Requirements requirements, [NotNull] [ItemNotNull] IEnumerable<SelectionCandidate> allCandidates)
+        public static ImplementationSelection ToSelection(this SelectionCandidate candidate, Requirements requirements, IEnumerable<SelectionCandidate> allCandidates)
         {
             #region Sanity checks
             if (candidate == null) throw new ArgumentNullException(nameof(candidate));
@@ -75,7 +73,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="target">The <see cref="IDependencyContainer"/> to add the <see cref="Dependency"/>s to.</param>
         /// <param name="requirements">The requirements which restrict which <see cref="Dependency"/>s are applicable.</param>
         /// <param name="from">The <see cref="IDependencyContainer"/> to get the <see cref="Dependency"/>s to.</param>
-        public static void AddDependencies([NotNull] this IDependencyContainer target, [NotNull] Requirements requirements, [NotNull] IDependencyContainer from)
+        public static void AddDependencies(this IDependencyContainer target, Requirements requirements, IDependencyContainer from)
         {
             #region Sanity checks
             if (target == null) throw new ArgumentNullException(nameof(target));
@@ -95,8 +93,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="from">The <see cref="Implementation"/> to get the <see cref="Command"/> from.</param>
         /// <returns>The <see cref="Command"/> that was added to <paramref name="selection"/>; <c>null</c> if none.</returns>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "This method explicitly transfers information from an Implementation to an ImplementationSelection.")]
-        [CanBeNull]
-        public static Command AddCommand([NotNull] this ImplementationSelection selection, [NotNull] Requirements requirements, [NotNull] Implementation from)
+        public static Command? AddCommand(this ImplementationSelection selection, Requirements requirements, Implementation from)
         {
             #region Sanity checks
             if (selection == null) throw new ArgumentNullException(nameof(selection));
@@ -122,7 +119,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Adds the version restriction from <paramref name="source"/> to the <paramref name="requirements"/>.
         /// </summary>
-        public static void AddRestriction([NotNull] this Requirements requirements, [NotNull] Restriction source)
+        public static void AddRestriction(this Requirements requirements, Restriction source)
         {
             #region Sanity checks
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
@@ -136,7 +133,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Adds the version restrictions from <paramref name="source"/> to the <paramref name="requirements"/>.
         /// </summary>
-        public static void AddRestrictions([NotNull] this Requirements requirements, [NotNull] Requirements source)
+        public static void AddRestrictions(this Requirements requirements, Requirements source)
         {
             #region Sanity checks
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
@@ -150,7 +147,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Removes all <see cref="Restriction"/>s from <see cref="Selections"/>.
         /// </summary>
-        public static void PurgeRestrictions([NotNull] this Selections selections)
+        public static void PurgeRestrictions(this Selections selections)
         {
             #region Sanity checks
             if (selections == null) throw new ArgumentNullException(nameof(selections));

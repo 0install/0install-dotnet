@@ -5,7 +5,6 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Security.Cryptography;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
@@ -49,8 +48,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="id">The digest id to extract the prefix from or only the prefix.</param>
         /// <exception cref="ArgumentException"><paramref name="id"/> is no known algorithm prefix.</exception>
-        [NotNull]
-        public static ManifestFormat FromPrefix([NotNull] string id)
+        public static ManifestFormat FromPrefix(string id)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -67,13 +65,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The prefix used to identify the format (e.g. "sha256").
         /// </summary>
-        [NotNull]
         public abstract string Prefix { get; }
 
         /// <summary>
         /// The separator placed between the <see cref="Prefix"/> and the actual digest.
         /// </summary>
-        [NotNull]
         public virtual string Separator => "=";
 
         /// <inheritdoc/>
@@ -84,8 +80,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="stream">The content of the implementation file.</param>
         /// <returns>A string representation of the digest.</returns>
-        [NotNull]
-        public string DigestContent([NotNull] Stream stream)
+        public string DigestContent(Stream stream)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -99,8 +94,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="stream">The content of the manifest file.</param>
         /// <returns>A string representation of the digest.</returns>
-        [NotNull]
-        public string DigestManifest([NotNull] Stream stream)
+        public string DigestManifest(Stream stream)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -113,19 +107,17 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// Retrieves a new instance of the hashing algorithm used for generating digests.
         /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Generates a new instance each time to allow for concurrent usage")]
-        [NotNull]
         protected abstract HashAlgorithm GetHashAlgorithm();
 
         /// <summary>
         /// Serializes a hash as digest of an implementation file as used within the manifest file.
         /// </summary>
-        protected virtual string SerializeContentDigest([NotNull] byte[] hash) => hash.Base16Encode();
+        protected virtual string SerializeContentDigest(byte[] hash) => hash.Base16Encode();
 
         /// <summary>
         /// Serializes a hash as a digest of a manifest file as used for the implementation directory name.
         /// </summary>
-        [NotNull]
-        protected virtual string SerializeManifestDigest([NotNull] byte[] hash) => hash.Base16Encode();
+        protected virtual string SerializeManifestDigest(byte[] hash) => hash.Base16Encode();
         #endregion
 
         #region Inner classes

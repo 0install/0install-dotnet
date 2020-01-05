@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -52,7 +51,7 @@ namespace ZeroInstall.Store.Model
         /// A list of <see cref="Feed"/>s contained within this catalog.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace), NotNull]
+        [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
         public List<Feed> Feeds { get; } = new List<Feed>();
 
         /// <summary>
@@ -60,7 +59,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="uri">The <see cref="Feed.Uri"/> to look for.</param>
         /// <returns><c>true</c> if a matching feed was found; <c>false</c> otherwise.</returns>
-        public bool ContainsFeed([NotNull] FeedUri uri)
+        public bool ContainsFeed(FeedUri uri)
         {
             #region Sanity checks
             if (uri == null) throw new ArgumentNullException(nameof(uri));
@@ -75,8 +74,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="uri">The <see cref="Feed.Uri"/> to look for.</param>
         /// <returns>The identified <see cref="Feed"/>.</returns>
         /// <exception cref="KeyNotFoundException">No <see cref="Feed"/> matching <paramref name="uri"/> was found in <see cref="Feeds"/>.</exception>
-        [NotNull]
-        public Feed this[[NotNull] FeedUri uri]
+        public Feed this[FeedUri uri]
         {
             get
             {
@@ -102,8 +100,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="uri">The <see cref="Feed.Uri"/> to look for.</param>
         /// <returns>The identified <see cref="Feed"/>; <c>null</c> if no matching entry was found.</returns>
-        [CanBeNull]
-        public Feed GetFeed([NotNull] FeedUri uri)
+        public Feed? GetFeed(FeedUri uri)
         {
             #region Sanity checks
             if (uri == null) throw new ArgumentNullException(nameof(uri));
@@ -117,8 +114,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Command.NameRun"/>.</param>
         /// <returns>The first matching <see cref="Feed"/>; <c>null</c> if no match was found.</returns>
-        [CanBeNull]
-        public Feed FindByShortName([CanBeNull] string shortName)
+        public Feed? FindByShortName(string? shortName)
         {
             if (string.IsNullOrEmpty(shortName)) return null;
 
@@ -140,8 +136,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="query">The search query. Must be contained within <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Command.NameRun"/>.</param>
         /// <returns>All <see cref="Feed"/>s matching <paramref name="query"/>.</returns>
-        [NotNull, ItemNotNull]
-        public IEnumerable<Feed> Search([CanBeNull] string query)
+        public IEnumerable<Feed> Search(string? query)
         {
             if (string.IsNullOrEmpty(query))
             {
@@ -192,7 +187,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && Feeds.SequencedEquals(other.Feeds);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

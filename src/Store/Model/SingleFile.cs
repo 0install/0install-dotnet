@@ -4,8 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -19,8 +17,8 @@ namespace ZeroInstall.Store.Model
         /// The file's target path relative to the implementation root as a Unix-style path.
         /// </summary>
         [Description("The file's target path relative to the implementation root as a Unix-style path.")]
-        [XmlAttribute("dest"), CanBeNull]
-        public string Destination { get; set; }
+        [XmlAttribute("dest")]
+        public string? Destination { get; set; }
 
         /// <summary>
         /// Set this to <c>true</c> to mark the file as executable.
@@ -53,7 +51,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(SingleFile other) => other != null && base.Equals(other) && other.Destination == Destination && other.Executable == Executable;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

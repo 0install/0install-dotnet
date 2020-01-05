@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model.Selection;
 
@@ -31,7 +30,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Category("Identity"), Description("If the feed file is a local file (the interface 'uri' starts with /) then the local-path attribute may contain the pathname of a local directory (either an absolute path or a path relative to the directory containing the feed file).")]
         [XmlAttribute("local-path"), DefaultValue("")]
-        public string LocalPath { get; set; }
+        public string? LocalPath { get; set; }
 
         private ManifestDigest _manifestDigest;
 
@@ -48,7 +47,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public override void Normalize(FeedUri feedUri = null)
+        public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);
 
@@ -87,7 +86,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Copies all known values from one instance to another. Helper method for instance cloning.
         /// </summary>
-        protected static void CloneFromTo([NotNull] ImplementationBase from, [NotNull] ImplementationBase to)
+        protected static void CloneFromTo(ImplementationBase from, ImplementationBase to)
         {
             Element.CloneFromTo(from ?? throw new ArgumentNullException(nameof(from)), to ?? throw new ArgumentNullException(nameof(to)));
             to.ID = from.ID;

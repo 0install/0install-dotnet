@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Streams;
 using ZeroInstall.Publish.Properties;
@@ -28,7 +27,7 @@ namespace ZeroInstall.Publish
         /// <param name="name">The name of the stylesheet to deploy. Must be "feed" or "catalog".</param>
         /// <exception cref="IOException">Failed to write the stylesheet files.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
-        public static void DeployStylesheet([NotNull] string path, [NotNull] string name)
+        public static void DeployStylesheet(string path, string name)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -66,7 +65,7 @@ namespace ZeroInstall.Publish
         /// The existing file must end with a line break.
         /// Old signatures are not removed.
         /// </remarks>
-        public static void SignFeed([NotNull] Stream stream, [NotNull] OpenPgpSecretKey secretKey, [CanBeNull] string passphrase, [NotNull] IOpenPgp openPgp)
+        public static void SignFeed(Stream stream, OpenPgpSecretKey secretKey, string? passphrase, IOpenPgp openPgp)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -94,8 +93,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="FileNotFoundException">The file file could not be found.</exception>
         /// <exception cref="IOException">The file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        [CanBeNull]
-        public static OpenPgpSecretKey GetKey([NotNull] string path, [NotNull] IOpenPgp openPgp)
+        public static OpenPgpSecretKey? GetKey(string path, IOpenPgp openPgp)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

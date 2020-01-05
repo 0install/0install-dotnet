@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -33,7 +32,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="directoryPath">A fully qualified directory path.</param>
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-        public DiskFeedCache([NotNull] string directoryPath, [NotNull] IOpenPgp openPgp)
+        public DiskFeedCache(string directoryPath, IOpenPgp openPgp)
         {
             DirectoryPath = directoryPath ?? throw new ArgumentNullException(nameof(directoryPath));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
@@ -43,7 +42,6 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// The directory containing the cached <see cref="Feed"/>s.
         /// </summary>
-        [NotNull]
         public string DirectoryPath { get; }
 
         /// <inheritdoc/>

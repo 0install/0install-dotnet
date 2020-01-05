@@ -5,7 +5,6 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
@@ -35,12 +34,11 @@ namespace ZeroInstall.Commands
         /// The current UI language; <c>null</c> to use system default.
         /// </summary>
         /// <remarks>This value is only used on Windows and is stored in the Registry. For non-Windows platforms use the <c>LC_*</c> environment variables instead.</remarks>
-        [CanBeNull]
-        public static CultureInfo UILanguage
+        public static CultureInfo? UILanguage
         {
             get
             {
-                string language = RegistryUtils.GetSoftwareString("Zero Install", "Language");
+                string? language = RegistryUtils.GetSoftwareString("Zero Install", "Language");
                 if (!string.IsNullOrEmpty(language))
                 {
                     try
@@ -78,8 +76,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The EXE name for the Command GUI best suited for the current system; <c>null</c> if no GUI subsystem is running.
         /// </summary>
-        [CanBeNull]
-        public static readonly string GuiAssemblyName =
+        public static readonly string? GuiAssemblyName =
             WindowsUtils.IsWindows && OSUtils.IsInteractive ? "0install-win" : null;
 #endif
 
@@ -95,7 +92,7 @@ namespace ZeroInstall.Commands
         /// <param name="args">The arguments to be processed.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <returns>The exit status code to end the process with. Cast to <see cref="int"/> to return from a Main method.</returns>
-        public static ExitCode Run([NotNull] string exeName, [NotNull] string[] args, [NotNull] ICommandHandler handler)
+        public static ExitCode Run(string exeName, string[] args, ICommandHandler handler)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(exeName)) throw new ArgumentNullException(nameof(exeName));
@@ -327,9 +324,9 @@ namespace ZeroInstall.Commands
         /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
         /// <exception cref="IOException">There was a problem launching the target instance.</exception>
         /// <exception cref="NotAdminException">The target process requires elevation.</exception>
-        private static ExitCode? TryRunOtherInstance([NotNull] string exeName, [NotNull] string[] args, [NotNull] ICommandHandler handler, bool needsMachineWide)
+        private static ExitCode? TryRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool needsMachineWide)
         {
-            string installLocation = ZeroInstallInstance.FindOther(needsMachineWide);
+            string? installLocation = ZeroInstallInstance.FindOther(needsMachineWide);
             if (installLocation == null) return null;
 
             Log.Warn("Redirecting to instance at " + installLocation);

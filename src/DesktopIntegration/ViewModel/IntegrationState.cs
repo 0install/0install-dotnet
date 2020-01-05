@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
@@ -24,13 +23,11 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// <summary>
         /// The application being integrated.
         /// </summary>
-        [NotNull]
         public AppEntry AppEntry { get; }
 
         /// <summary>
         /// The feed providing additional metadata, icons, etc. for the application.
         /// </summary>
-        [NotNull]
         public Feed Feed { get; }
 
         /// <summary>
@@ -39,7 +36,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// <param name="integrationManager">The integration manager used to apply selected integration options.</param>
         /// <param name="appEntry">The application being integrated.</param>
         /// <param name="feed">The feed providing additional metadata, icons, etc. for the application.</param>
-        public IntegrationState([NotNull] IIntegrationManager integrationManager, [NotNull] AppEntry appEntry, [NotNull] Feed feed)
+        public IntegrationState(IIntegrationManager integrationManager, AppEntry appEntry, Feed feed)
         {
             _integrationManager = integrationManager ?? throw new ArgumentNullException(nameof(integrationManager));
             AppEntry = appEntry ?? throw new ArgumentNullException(nameof(appEntry));

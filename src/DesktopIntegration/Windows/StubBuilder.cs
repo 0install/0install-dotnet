@@ -8,7 +8,6 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -38,7 +37,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
-        public static string GetRunStub(FeedTarget target, [CanBeNull] string command, [NotNull] IIconStore iconStore, bool machineWide = false)
+        public static string GetRunStub(FeedTarget target, string? command, IIconStore iconStore, bool machineWide = false)
         {
             #region Sanity checks
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
@@ -74,7 +73,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        private static void CreateOrUpdateRunStub(FeedTarget target, [NotNull] string path, [CanBeNull] string command, bool needsTerminal, [NotNull] IIconStore iconStore)
+        private static void CreateOrUpdateRunStub(FeedTarget target, string path, string? command, bool needsTerminal, IIconStore iconStore)
         {
             if (File.Exists(path))
             { // Existing stub
@@ -123,7 +122,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        internal static void BuildRunStub(FeedTarget target, [NotNull] string path, [NotNull] IIconStore iconStore, bool needsTerminal, [CanBeNull] string command = null)
+        internal static void BuildRunStub(FeedTarget target, string path, IIconStore iconStore, bool needsTerminal, string? command = null)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -187,7 +186,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
         /// <returns>Generated C# code.</returns>
-        private static string GetRunStubCode(FeedTarget target, bool needsTerminal, [CanBeNull] string command = null)
+        private static string GetRunStubCode(FeedTarget target, bool needsTerminal, string? command = null)
         {
             // Build command-line
             string args = needsTerminal ? "run " : "run --no-wait ";

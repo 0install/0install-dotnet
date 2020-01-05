@@ -8,7 +8,6 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
@@ -78,7 +77,7 @@ namespace ZeroInstall.Store
         /// <param name="value">An existing <see cref="Uri"/>.</param>
         /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public FeedUri([NotNull] Uri value)
+        public FeedUri(Uri value)
             : this(value.OriginalString)
         {}
 
@@ -96,7 +95,7 @@ namespace ZeroInstall.Store
         /// <param name="value">A string to parse as an HTTP(S) URL or an absolute local path.</param>
         /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
         [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads")]
-        public FeedUri([NotNull, Localizable(false)] string value)
+        public FeedUri([Localizable(false)] string value)
             : base(TrimPrefix(value), UriKind.Absolute)
         {
             if (string.IsNullOrEmpty(value)) throw new UriFormatException();
@@ -119,8 +118,10 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Escapes an identifier using URL encoding.
         /// </summary>
-        [Pure, NotNull]
-        public static string Escape([NotNull] string value)
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
+        public static string Escape(string value)
         {
             #region Sanity checks
             if (value == null) throw new ArgumentNullException(nameof(value));
@@ -154,15 +155,13 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Escapes the identifier using URL encoding.
         /// </summary>
-        [NotNull]
         public new string Escape() => Escape(AbsoluteUri);
 
         /// <summary>
         /// Unescapes an identifier using URL encoding.
         /// </summary>
         /// <exception cref="UriFormatException">The unescaped string is not a valid HTTP(S) URL or an absolute local path.</exception>
-        [NotNull]
-        public new static FeedUri Unescape([NotNull] string escaped)
+        public new static FeedUri Unescape(string escaped)
         {
             #region Sanity checks
             if (escaped == null) throw new ArgumentNullException(nameof(escaped));
@@ -192,8 +191,10 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Escapes an identifier using URL encoding except for slashes (encoded as #) and colons (left as-is on POSIX systems).
         /// </summary>
-        [Pure, NotNull]
-        public static string PrettyEscape([NotNull] string value)
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
+        public static string PrettyEscape(string value)
         {
             #region Sanity checks
             if (value == null) throw new ArgumentNullException(nameof(value));
@@ -236,14 +237,15 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Escapes the identifier using URL encoding except for slashes (encoded as #) and colons (left as-is on POSIX systems).
         /// </summary>
-        [NotNull]
         public string PrettyEscape() => PrettyEscape(AbsoluteUri);
 
         /// <summary>
         /// Unescapes an identifier using URL encoding except for slashes (encoded as #).
         /// </summary>
-        [Pure, NotNull]
-        public static FeedUri PrettyUnescape([NotNull] string escaped)
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
+        public static FeedUri PrettyUnescape(string escaped)
         {
             #region Sanity checks
             if (escaped == null) throw new ArgumentNullException(nameof(escaped));
@@ -382,7 +384,7 @@ namespace ZeroInstall.Store
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
@@ -395,8 +397,8 @@ namespace ZeroInstall.Store
             ? StringComparer.OrdinalIgnoreCase.GetHashCode(LocalPath)
             : base.GetHashCode();
 
-        public static bool operator ==(FeedUri left, FeedUri right) => Equals(left, right);
-        public static bool operator !=(FeedUri left, FeedUri right) => !Equals(left, right);
+        public static bool operator ==(FeedUri? left, FeedUri? right) => Equals(left, right);
+        public static bool operator !=(FeedUri? left, FeedUri? right) => !Equals(left, right);
         #endregion
     }
 }

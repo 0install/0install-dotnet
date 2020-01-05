@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -25,7 +24,7 @@ namespace ZeroInstall.Publish
         /// Creates a new external fetch job.
         /// </summary>
         /// <param name="implementation">The implementation to download.</param>
-        public ExternalFetch([NotNull] Implementation implementation)
+        public ExternalFetch(Implementation implementation)
         {
             _implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
         }

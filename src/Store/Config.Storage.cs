@@ -9,7 +9,6 @@ using System.Text;
 using IniParser;
 using IniParser.Exceptions;
 using IniParser.Model;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -87,7 +86,6 @@ namespace ZeroInstall.Store
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the config data.</exception>
-        [NotNull]
         public static Config Load()
         {
             var config = new Config();
@@ -138,8 +136,7 @@ namespace ZeroInstall.Store
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the config data.</exception>
-        [NotNull]
-        public static Config Load([NotNull] string path)
+        public static Config Load(string path)
         {
             Log.Debug("Loading Config from: " + path);
 
@@ -162,7 +159,7 @@ namespace ZeroInstall.Store
         /// <remarks>This method performs an atomic write operation when possible.</remarks>
         /// <exception cref="IOException">A problem occurs while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void Save([NotNull] string path)
+        public void Save(string path)
         {
             TransferToIni();
 
@@ -189,12 +186,12 @@ namespace ZeroInstall.Store
 
         /// <summary>Stores the original INI data so that unknown values are preserved on re<see cref="Save()"/>ing.</summary>
         [NonSerialized]
-        private IniData _iniData;
+        private IniData? _iniData;
 
         /// <summary>
         /// Reads settings from an INI file on the disk and transfers them to properties.
         /// </summary>
-        private void ReadFromIniFile([NotNull] string path)
+        private void ReadFromIniFile(string path)
         {
             try
             {
@@ -299,7 +296,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Reads settings from a Windows registry key and transfers them to properties.
         /// </summary>
-        private void ReadFromRegistry([NotNull] RegistryKey registryKey)
+        private void ReadFromRegistry(RegistryKey registryKey)
         {
             Log.Debug("Loading config from: " + registryKey);
 
@@ -354,7 +351,7 @@ namespace ZeroInstall.Store
             && _metaData.All(property => property.Value.Value == other.GetOption(property.Key));
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

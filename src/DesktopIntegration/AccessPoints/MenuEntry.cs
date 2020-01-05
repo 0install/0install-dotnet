@@ -32,7 +32,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         [Description("The category or folder in the menu to add the entry to. Leave empty for top-level entry.")]
         [XmlAttribute("category")]
-        public string Category { get; set; }
+        public string? Category { get; set; }
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)
@@ -69,7 +69,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             => other != null && (base.Equals(other) && other.Category == Category);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -3,8 +3,6 @@
 
 using System.IO;
 using FluentAssertions;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.FileSystem
 {
     /// <summary>
@@ -18,7 +16,7 @@ namespace ZeroInstall.FileSystem
         /// Creates a new test deleted directory.
         /// </summary>
         /// <param name="name">The name of the directory.</param>
-        public TestDeletedDirectory([NotNull] string name)
+        public TestDeletedDirectory(string name)
             : base(name)
         {}
 

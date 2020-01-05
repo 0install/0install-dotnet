@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
 
@@ -24,8 +23,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The name of the command in the interface to use; leave empty for 'run'.")]
         [TypeConverter(typeof(CommandNameConverter))]
-        [XmlAttribute("command"), DefaultValue(""), CanBeNull]
-        public string Command { get; set; }
+        [XmlAttribute("command"), DefaultValue("")]
+        public string? Command { get; set; }
 
         /// <summary>
         /// A list of command-line arguments to be passed to the runner before the path of the implementation.
@@ -83,7 +82,7 @@ namespace ZeroInstall.Store.Model
             && Arguments.SequencedEquals(other.Arguments);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using NanoByte.Common.Cli;
 using ZeroInstall.Commands.Properties;
 
@@ -28,7 +27,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public Import([NotNull] ICommandHandler handler)
+        public Import(ICommandHandler handler)
             : base(handler)
         {}
 

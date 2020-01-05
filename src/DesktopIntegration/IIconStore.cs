@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.DesktopIntegration
@@ -24,7 +23,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
         /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
-        [NotNull]
-        string GetPath([NotNull] Icon icon, bool machineWide = false);
+        string GetPath(Icon icon, bool machineWide = false);
     }
 }

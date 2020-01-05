@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Streams;
 using Org.BouncyCastle.Bcpg;
@@ -36,8 +35,7 @@ namespace ZeroInstall.Store.Trust
             return result;
         }
 
-        [NotNull]
-        private OpenPgpSignature Verify([NotNull] byte[] data, [NotNull] PgpSignature signature)
+        private OpenPgpSignature Verify(byte[] data, PgpSignature signature)
         {
             var key = PublicBundle.GetPublicKey(signature.KeyId);
 
@@ -60,7 +58,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string passphrase = null)
+        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string? passphrase = null)
         {
             #region Sanity checks
             if (data == null) throw new ArgumentNullException(nameof(data));
@@ -77,8 +75,7 @@ namespace ZeroInstall.Store.Trust
             return signatureGenerator.Generate().GetEncoded();
         }
 
-        [NotNull]
-        private static PgpPrivateKey GetPrivateKey([NotNull] PgpSecretKey secretKey, [CanBeNull] string passphrase)
+        private static PgpPrivateKey GetPrivateKey(PgpSecretKey secretKey, string? passphrase)
         {
             try
             {
@@ -138,8 +135,7 @@ namespace ZeroInstall.Store.Trust
             }
         }
 
-        [NotNull]
-        private static T ParseObject<T>([NotNull] Stream stream) where T : PgpObject
+        private static T ParseObject<T>(Stream stream) where T : PgpObject
         {
             try
             {
@@ -157,8 +153,7 @@ namespace ZeroInstall.Store.Trust
             #endregion
         }
 
-        [NotNull, ItemNotNull]
-        private static IEnumerable<T> ParseObjects<T>([NotNull] Stream stream) where T : PgpObject
+        private static IEnumerable<T> ParseObjects<T>(Stream stream) where T : PgpObject
         {
             var factory = new PgpObjectFactory(stream);
 

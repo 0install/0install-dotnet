@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -25,7 +24,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        protected AppCommand([NotNull] ICommandHandler handler)
+        protected AppCommand(ICommandHandler handler)
             : base(handler)
         {}
 
@@ -68,7 +67,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <param name="appEntry">The app entry to add the alias to.</param>
         /// <param name="aliasName">The name of the alias to create.</param>
         /// <param name="command">A command within the interface the alias shall point to; can be <c>null</c>.</param>
-        protected void CreateAlias([NotNull] AppEntry appEntry, [NotNull] string aliasName, [CanBeNull] string command = null)
+        protected void CreateAlias(AppEntry appEntry, string aliasName, string? command = null)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));

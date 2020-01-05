@@ -4,7 +4,6 @@
 #if NETFRAMEWORK
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using XZ.NET;
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarXzExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal TarXzExtractor(Stream stream, string targetPath)
             : base(GetDecompressionStream(stream), targetPath)
         {
             if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);

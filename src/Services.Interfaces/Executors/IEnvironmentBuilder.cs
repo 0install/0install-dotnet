@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -20,13 +19,13 @@ namespace ZeroInstall.Services.Executors
         /// Instead of executing the selected program directly, pass it as an argument to this program. Useful for debuggers. May contain command-line arguments. Whitespaces must be escaped!
         /// </summary>
         /// <returns>The execution environment. Reference to self for fluent API use.</returns>
-        IEnvironmentBuilder AddWrapper([CanBeNull] string wrapper);
+        IEnvironmentBuilder AddWrapper(string? wrapper);
 
         /// <summary>
         /// Appends user specified <paramref name="arguments"/> to the command-line.
         /// </summary>
         /// <returns>The execution environment. Reference to self for fluent API use.</returns>
-        IEnvironmentBuilder AddArguments([NotNull, ItemNotNull] params string[] arguments);
+        IEnvironmentBuilder AddArguments(params string[] arguments);
 
         /// <summary>
         /// Builds a <see cref="ProcessStartInfo"/> for starting the program.
@@ -36,7 +35,6 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        [NotNull]
         ProcessStartInfo ToStartInfo();
 
         /// <summary>
@@ -47,7 +45,6 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/> or the main executable could not be launched.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        [NotNull]
         Process Start();
     }
 }

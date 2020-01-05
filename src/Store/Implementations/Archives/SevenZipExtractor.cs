@@ -5,7 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -29,7 +28,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal SevenZipExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal SevenZipExtractor(Stream stream, string targetPath)
             : base(targetPath)
         {
             if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);

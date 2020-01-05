@@ -4,7 +4,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services;
@@ -32,10 +31,10 @@ namespace ZeroInstall.Commands.Basic
         private bool _show;
 
         /// <summary><see cref="Implementation"/>s referenced in <see cref="Selection.Selections"/> that are not available in the <see cref="IImplementationStore"/>.</summary>
-        protected ICollection<Implementation> UncachedImplementations;
+        protected ICollection<Implementation> UncachedImplementations = default!;
 
         /// <inheritdoc/>
-        public Download([NotNull] ICommandHandler handler)
+        public Download(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("show", () => Resources.OptionShow, _ => _show = true);

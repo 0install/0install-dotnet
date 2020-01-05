@@ -9,7 +9,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
@@ -33,7 +32,6 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind { get; }
 
         /// <inheritdoc/>
-        [NotNull]
         public string DirectoryPath { get; }
 
         /// <summary>Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</summary>
@@ -50,7 +48,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</param>
         /// <exception cref="IOException">The <paramref name="directoryPath"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="directoryPath"/> is not permitted.</exception>
-        public DiskImplementationStore([NotNull] string directoryPath, bool useWriteProtection = true)
+        public DiskImplementationStore(string directoryPath, bool useWriteProtection = true)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
@@ -145,7 +143,7 @@ namespace ZeroInstall.Store.Implementations
         /// Deletes a temporary directory.
         /// </summary>
         /// <param name="path">The path to the temporary directory.</param>
-        protected virtual void DeleteTempDir([NotNull] string path)
+        protected virtual void DeleteTempDir(string path)
         {
             if (Directory.Exists(path))
             {
@@ -160,7 +158,7 @@ namespace ZeroInstall.Store.Implementations
         /// Makes a directory read-only using platform-specific mechanisms. Logs any errors and continues.
         /// </summary>
         /// <param name="path">The directory to protect.</param>
-        public static void EnableWriteProtection([NotNull] string path)
+        public static void EnableWriteProtection(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -193,7 +191,7 @@ namespace ZeroInstall.Store.Implementations
         /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
         /// </summary>
         /// <param name="path">The directory to unprotect.</param>
-        public static void DisableWriteProtection([NotNull] string path)
+        public static void DisableWriteProtection(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -243,7 +241,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             // Determine the digest method to use
-            string expectedDigestValue = expectedDigest.Best;
+            string? expectedDigestValue = expectedDigest.Best;
             if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
 
             // Determine the source and target directories
@@ -298,7 +296,7 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            string expectedDigestValue = expectedDigest.Best;
+            string? expectedDigestValue = expectedDigest.Best;
             if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             var format = ManifestFormat.FromPrefix(expectedDigestValue);
 
@@ -579,7 +577,7 @@ namespace ZeroInstall.Store.Implementations
 
             if (!Contains(manifestDigest)) throw new ImplementationNotFoundException(manifestDigest);
 
-            string digest = manifestDigest.Best;
+            string? digest = manifestDigest.Best;
             if (digest == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             string target = Path.Combine(DirectoryPath, digest);
             try
@@ -614,7 +612,7 @@ namespace ZeroInstall.Store.Implementations
         public bool Equals(DiskImplementationStore other) => other != null && DirectoryPath == other.DirectoryPath;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

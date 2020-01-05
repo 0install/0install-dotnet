@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store;
@@ -19,7 +18,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="target">The target the shortcut shall point to.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        public static void Create([NotNull] DesktopIcon desktopIcon, FeedTarget target, [NotNull] IIconStore iconStore, bool machineWide)
+        public static void Create(DesktopIcon desktopIcon, FeedTarget target, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (desktopIcon == null) throw new ArgumentNullException(nameof(desktopIcon));
@@ -35,7 +34,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="desktopIcon">Information about the shortcut to be removed.</param>
         /// <param name="machineWide">The shortcut was created machine-wide instead of just for the current user.</param>
-        public static void Remove([NotNull] DesktopIcon desktopIcon, bool machineWide)
+        public static void Remove(DesktopIcon desktopIcon, bool machineWide)
         {
             #region Sanity checks
             if (desktopIcon == null) throw new ArgumentNullException(nameof(desktopIcon));
@@ -51,8 +50,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="name">The name of the shortcut (without the .lnk ending).</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide desktop; <c>false</c> for the per-user variant.</param>
         /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
-        [NotNull]
-        public static string GetDesktopPath([NotNull] string name, bool machineWide)
+        public static string GetDesktopPath(string name, bool machineWide)
         {
             CheckName(name);
 

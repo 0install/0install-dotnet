@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 
 namespace ZeroInstall.Store.Model.Selection
@@ -18,7 +17,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// <summary>
         /// A list of input <see cref="Feed"/>s for the solver.
         /// </summary>
-        [XmlElement("test", typeof(TestCase), Namespace = Feed.XmlNamespace), NotNull]
+        [XmlElement("test", typeof(TestCase), Namespace = Feed.XmlNamespace)]
         public List<TestCase> TestCases { get; } = new List<TestCase>();
     }
 }

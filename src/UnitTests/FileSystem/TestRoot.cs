@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using ZeroInstall.Store.Implementations.Build;
 
@@ -22,7 +21,7 @@ namespace ZeroInstall.FileSystem
         /// Realizes the directory structure as an on-disk directory.
         /// </summary>
         /// <param name="path">The full path of the directory to realize the structure in.</param>
-        public void Build([NotNull] string path)
+        public void Build(string path)
         {
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
@@ -39,7 +38,7 @@ namespace ZeroInstall.FileSystem
         /// </summary>
         /// <param name="path">The full path of the directory to compare the structure against.</param>
         /// <returns>Always <c>true</c>.</returns>
-        public bool Verify([NotNull] string path)
+        public bool Verify(string path)
         {
             foreach (var element in this)
                 element.Verify(path);

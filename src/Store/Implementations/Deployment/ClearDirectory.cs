@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
@@ -26,7 +25,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <param name="path">The path of the directory to clear.</param>
         /// <param name="manifest">The contents of a <see cref="Manifest"/> file describing the directory.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-        public ClearDirectory([NotNull] string path, [NotNull] Manifest manifest, [NotNull] ITaskHandler handler)
+        public ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
             : base(path, manifest, handler)
         {}
 

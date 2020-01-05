@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using JetBrains.Annotations;
 using Moq;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Services;
@@ -74,7 +73,7 @@ namespace ZeroInstall.Commands
         /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
         /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
-        protected void RunAndAssert([CanBeNull] string expectedOutput, ExitCode expectedExitCode, params string[] args)
+        protected void RunAndAssert(string? expectedOutput, ExitCode expectedExitCode, params string[] args)
         {
             Sut.Parse(args);
             Sut.Execute().Should().Be(expectedExitCode);

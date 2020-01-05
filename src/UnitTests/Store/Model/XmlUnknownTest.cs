@@ -16,7 +16,7 @@ namespace ZeroInstall.Store.Model
         [XmlRoot(ElementName = "root")]
         public sealed class XmlUnknownStub : XmlUnknown
         {
-            public override bool Equals(object obj)
+            public override bool Equals(object? obj)
             {
                 if (obj == null) return false;
                 if (obj == this) return true;

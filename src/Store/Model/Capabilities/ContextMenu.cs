@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model.Capabilities
 {
     #region Enumerations
@@ -56,8 +54,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// The command to execute when the context menu entry is clicked.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("verb"), CanBeNull]
-        public Verb Verb { get; set; }
+        [XmlElement("verb")]
+        public Verb? Verb { get; set; }
 
         /// <inheritdoc/>
         [XmlIgnore]
@@ -81,7 +79,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             => other != null && base.Equals(other) && other.Target == Target && Equals(other.Verb, Verb);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

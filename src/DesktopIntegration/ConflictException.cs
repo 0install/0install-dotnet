@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
@@ -22,7 +21,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// The entries that are in conflict with each other.
         /// </summary>
-        [PublicAPI]
         public IEnumerable<ConflictData> Entries { get; private set; }
 
         /// <summary>
@@ -40,7 +38,7 @@ namespace ZeroInstall.DesktopIntegration
         /// Creates an exception indicating an inner desktop integration conflict.
         /// </summary>
         /// <param name="entries">The entries that are in conflict with each other.</param>
-        public static ConflictException InnerConflict([NotNull] params ConflictData[] entries)
+        public static ConflictException InnerConflict(params ConflictData[] entries)
         {
             #region Sanity checks
             if (entries == null) throw new ArgumentNullException(nameof(entries));
@@ -55,7 +53,7 @@ namespace ZeroInstall.DesktopIntegration
         /// Creates an exception indicating an existing desktop integration conflict.
         /// </summary>
         /// <param name="entries">The entries that are in conflict with each other.</param>
-        public static ConflictException ExistingConflict([NotNull] params ConflictData[] entries)
+        public static ConflictException ExistingConflict(params ConflictData[] entries)
         {
             #region Sanity checks
             if (entries == null) throw new ArgumentNullException(nameof(entries));

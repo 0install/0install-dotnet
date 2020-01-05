@@ -6,7 +6,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
@@ -36,8 +35,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="WebException">There was a problem downloading the archive.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to temporary files was not permitted.</exception>
         /// <exception cref="NotSupportedException">A <see cref="Archive.MimeType"/> is not supported.</exception>
-        [NotNull]
-        public static Implementation Build([NotNull] RetrievalMethod retrievalMethod, [NotNull] ITaskHandler handler, [CanBeNull] IImplementationStore keepDownloads = null)
+        public static Implementation Build(RetrievalMethod retrievalMethod, ITaskHandler handler, IImplementationStore? keepDownloads = null)
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
@@ -72,7 +70,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>
-        public static void AddMissing([NotNull] this Implementation implementation, [NotNull] ITaskHandler handler, [CanBeNull] ICommandExecutor executor = null, [CanBeNull] IImplementationStore keepDownloads = null)
+        public static void AddMissing(this Implementation implementation, ITaskHandler handler, ICommandExecutor? executor = null, IImplementationStore? keepDownloads = null)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -94,7 +92,7 @@ namespace ZeroInstall.Publish
             }
         }
 
-        private static void GenerateMissingArchive([NotNull] Implementation implementation, [NotNull] ITaskHandler handler, [NotNull] ICommandExecutor executor)
+        private static void GenerateMissingArchive(Implementation implementation, ITaskHandler handler, ICommandExecutor executor)
         {
             var archive = implementation.RetrievalMethods.OfType<Archive>().FirstOrDefault();
             if (archive == null || !string.IsNullOrEmpty(archive.Destination) || !string.IsNullOrEmpty(archive.Extract)) return;
@@ -107,13 +105,18 @@ namespace ZeroInstall.Publish
             if (!archiveHref.IsFile) return;
 
             implementation.UpdateDigest(directoryPath, handler, executor);
-            using (var generator = ArchiveGenerator.Create(directoryPath, archiveHref.LocalPath, archive.MimeType))
-                handler.RunTask(generator);
+
+            using var generator = ArchiveGenerator.Create(
+                directoryPath,
+                archiveHref.LocalPath,
+                archive.MimeType ?? Archive.GuessMimeType(archiveHref.LocalPath));
+            handler.RunTask(generator);
+
             executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
-            executor.Execute(SetValueCommand.For(() => implementation.LocalPath, newValue: null));
+            executor.Execute(SetValueCommand.For<string?>(() => implementation.LocalPath, newValue: null));
         }
 
-        private static void ConvertSha256ToSha256New([NotNull] Implementation implementation, [NotNull] ICommandExecutor executor)
+        private static void ConvertSha256ToSha256New(Implementation implementation, ICommandExecutor executor)
         {
             if (string.IsNullOrEmpty(implementation.ManifestDigest.Sha256) || !string.IsNullOrEmpty(implementation.ManifestDigest.Sha256New)) return;
 
@@ -127,14 +130,14 @@ namespace ZeroInstall.Publish
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "We are explicitly looking for empty strings as opposed to null strings.")]
-        private static bool IsManifestDigestMissing([NotNull] this Implementation implementation)
+        private static bool IsManifestDigestMissing(this Implementation implementation)
             => implementation.ManifestDigest == default ||
                // Empty strings are used in 0template to indicate that the user wishes this value to be calculated
                implementation.ManifestDigest.Sha1New == "" ||
                implementation.ManifestDigest.Sha256 == "" ||
                implementation.ManifestDigest.Sha256New == "";
 
-        private static bool IsDownloadSizeMissing([NotNull] this RetrievalMethod retrievalMethod)
+        private static bool IsDownloadSizeMissing(this RetrievalMethod retrievalMethod)
             => retrievalMethod is DownloadRetrievalMethod downloadRetrievalMethod && downloadRetrievalMethod.Size == 0;
         #endregion
 
@@ -151,7 +154,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>
-        private static void UpdateDigest([NotNull] this Implementation implementation, [NotNull] string path, [NotNull] ITaskHandler handler, [NotNull] ICommandExecutor executor, [CanBeNull] IImplementationStore keepDownloads = null)
+        private static void UpdateDigest(this Implementation implementation, string path, ITaskHandler handler, ICommandExecutor executor, IImplementationStore? keepDownloads = null)
         {
             var digest = ManifestUtils.GenerateDigest(path, handler);
 

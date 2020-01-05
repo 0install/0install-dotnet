@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Undo;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
@@ -19,14 +18,12 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// The (optionally signed) feed being edited.
         /// </summary>
-        [NotNull]
         public SignedFeed SignedFeed { get; private set; }
 
         /// <summary>
         /// The passphrase to use to unlock <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
         /// </summary>
-        [CanBeNull]
-        public string Passphrase { get; set; }
+        public string? Passphrase { get; set; }
 
         /// <summary>
         /// Indicates whether there are changes to the feed that have not yet been saved to a file.
@@ -38,7 +35,7 @@ namespace ZeroInstall.Publish
         /// Starts with an existing feed.
         /// </summary>
         /// <param name="signedFeed">The feed to be edited.</param>
-        public FeedEditing([NotNull] SignedFeed signedFeed)
+        public FeedEditing(SignedFeed signedFeed)
             : base(signedFeed.Feed)
         {
             SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
@@ -63,7 +60,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <exception cref="KeyNotFoundException">The specified <see cref="Publish.SignedFeed.SecretKey"/> could not be found on the system.</exception>
         /// <exception cref="WrongPassphraseException"><see cref="Passphrase"/> was incorrect.</exception>
-        public override void Save([NotNull] string path)
+        public override void Save(string path)
         {
             SignedFeed.Save(path, Passphrase);
 
@@ -79,8 +76,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        [NotNull]
-        public new static FeedEditing Load([NotNull] string path)
+        public new static FeedEditing Load(string path)
             => new FeedEditing(SignedFeed.Load(path)) {Path = path};
     }
 }

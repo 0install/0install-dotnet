@@ -23,7 +23,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Last question passed to <see cref="Ask"/>.
         /// </summary>
-        public string LastQuestion { get; private set; }
+        public string? LastQuestion { get; private set; }
 
         protected override void LogHandler(LogSeverity severity, string message) {}
 
@@ -43,7 +43,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Last information string passed to <see cref="Output"/>.
         /// </summary>
-        public string LastOutput { get; private set; }
+        public string? LastOutput { get; private set; }
 
         /// <summary>
         /// Fakes showing an information string output to the user.
@@ -53,7 +53,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
         /// </summary>
-        public IEnumerable LastOutputObjects { get; private set; }
+        public IEnumerable? LastOutputObjects { get; private set; }
 
         /// <summary>
         /// Fakes showing tabular data to the user.
@@ -62,6 +62,6 @@ namespace ZeroInstall.Services
 
         public override void Error(Exception exception) {}
 
-        public override ICredentialProvider CredentialProvider => null;
+        public override ICredentialProvider? CredentialProvider => null;
     }
 }

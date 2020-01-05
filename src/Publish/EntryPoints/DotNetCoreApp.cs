@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Store;
@@ -29,8 +28,7 @@ namespace ZeroInstall.Publish.EntryPoints
         [Category("Details (.NET Core)"), DisplayName(@"Minimum .NET Core version"), Description("The minimum version of the .NET Core Runtime required by the application.")]
         [DefaultValue("")]
         [TypeConverter(typeof(StringConstructorConverter<ImplementationVersion>))]
-        [UsedImplicitly, CanBeNull]
-        public ImplementationVersion MinimumRuntimeVersion { get; set; } = new ImplementationVersion("2.0");
+        public ImplementationVersion? MinimumRuntimeVersion { get; set; } = new ImplementationVersion("2.0");
 
         /// <inheritdoc/>
         public override Command CreateCommand() => new Command
@@ -50,7 +48,7 @@ namespace ZeroInstall.Publish.EntryPoints
             => base.Equals(other)
             && MinimumRuntimeVersion == other.MinimumRuntimeVersion;
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

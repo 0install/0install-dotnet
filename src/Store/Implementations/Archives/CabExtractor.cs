@@ -5,7 +5,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using Microsoft.Deployment.Compression.Cab;
 using ZeroInstall.Store.Properties;
 
@@ -22,7 +21,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal CabExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal CabExtractor(Stream stream, string targetPath)
             : base(targetPath)
         {
             CabStream = stream ?? throw new ArgumentNullException(nameof(stream));

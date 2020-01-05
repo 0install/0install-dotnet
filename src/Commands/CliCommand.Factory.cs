@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Properties;
@@ -39,8 +38,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
-        [NotNull]
-        public static CliCommand Create([CanBeNull] string commandName, [NotNull] ICommandHandler handler)
+        public static CliCommand Create(string? commandName, ICommandHandler handler)
         {
             if (string.IsNullOrEmpty(commandName)) return new DefaultCommand(handler);
             switch (commandName.ToLowerInvariant())
@@ -133,8 +131,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="UnauthorizedAccessException">Creating a directory is not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         /// <exception cref="FormatException">An URI, local path, version number, etc. is invalid.</exception>
-        [NotNull]
-        public static CliCommand CreateAndParse([NotNull, ItemNotNull] IEnumerable<string> args, [NotNull] ICommandHandler handler)
+        public static CliCommand CreateAndParse(IEnumerable<string> args, ICommandHandler handler)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
@@ -151,15 +148,14 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <param name="args">The command-line arguments to search for a command name. If a command is found it is removed from the collection.</param>
         /// <returns>The name of the command that was found or <c>null</c> if none was specified.</returns>
-        [CanBeNull]
-        public static string GetCommandName([NotNull, ItemNotNull] ref IEnumerable<string> args)
+        public static string? GetCommandName(ref IEnumerable<string> args)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
             #endregion
 
             var arguments = new LinkedList<string>(args);
-            string commandName = arguments.FirstOrDefault(argument => !argument.StartsWith("-") && !argument.StartsWith("/"));
+            string? commandName = arguments.FirstOrDefault(argument => !argument.StartsWith("-") && !argument.StartsWith("/"));
             if (commandName != null) arguments.Remove(commandName);
 
             args = arguments;

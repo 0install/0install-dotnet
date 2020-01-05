@@ -3,7 +3,6 @@
 
 using System.ComponentModel;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -19,7 +18,6 @@ namespace ZeroInstall.Publish.EntryPoints
         /// Does this application have a graphical interface an no terminal output? Only enable if you are sure!
         /// </summary>
         [Category("Details (Python)"), DisplayName(@"GUI only"), Description("Does this application have a graphical interface an no terminal output? Only enable if you are sure!")]
-        [UsedImplicitly]
         public bool GuiOnly { get => !NeedsTerminal; set => NeedsTerminal = !value; }
 
         /// <inheritdoc/>

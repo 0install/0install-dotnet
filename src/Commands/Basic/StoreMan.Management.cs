@@ -3,7 +3,6 @@
 
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations;
@@ -25,7 +24,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 0;
 
-            public Manage([NotNull] ICommandHandler handler)
+            public Manage(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -49,7 +48,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 1;
 
-            public ListImplementations([NotNull] ICommandHandler handler)
+            public ListImplementations(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -88,7 +87,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Usage => "[CACHE-DIR+]";
 
-            public Audit([NotNull] ICommandHandler handler)
+            public Audit(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -114,7 +113,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Usage => "[CACHE-DIR+]";
 
-            public Optimise([NotNull] ICommandHandler handler)
+            public Optimise(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -137,7 +136,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Usage => "[CACHE-DIR+]";
 
-            public Purge([NotNull] ICommandHandler handler)
+            public Purge(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

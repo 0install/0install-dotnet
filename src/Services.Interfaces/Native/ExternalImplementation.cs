@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using NanoByte.Common.Values;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -26,13 +25,11 @@ namespace ZeroInstall.Services.Native
         /// <summary>
         /// The name of the distribution (e.g. Debian, RPM) where this implementation comes from.
         /// </summary>
-        [NotNull]
         public string Distribution { get; set; }
 
         /// <summary>
         /// The name of the package in the <see cref="Distribution"/>.
         /// </summary>
-        [NotNull]
         public string Package { get; set; }
 
         /// <summary>
@@ -45,8 +42,7 @@ namespace ZeroInstall.Services.Native
         /// </summary>
         /// <remarks>This makes it possible to avoid <see cref="IPackageManager.Lookup"/> calls for better performance.</remarks>
         /// <seealso cref="ImplementationSelection.QuickTestFile"/>
-        [CanBeNull]
-        public string QuickTestFile { get; set; }
+        public string? QuickTestFile { get; set; }
 
         /// <summary>
         /// Creates a new external implementation.
@@ -55,7 +51,7 @@ namespace ZeroInstall.Services.Native
         /// <param name="package">The name of the package in the <paramref name="distribution"/>.</param>
         /// <param name="version">The version number of the implementation.</param>
         /// <param name="cpu">For platform-specific binaries, the CPU architecture for which the implementation was compiled.</param>
-        public ExternalImplementation([NotNull] string distribution, [NotNull] string package, [NotNull] ImplementationVersion version, Cpu cpu = Cpu.All)
+        public ExternalImplementation(string distribution, string package, ImplementationVersion version, Cpu cpu = Cpu.All)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(distribution)) throw new ArgumentNullException(nameof(distribution));
@@ -82,7 +78,7 @@ namespace ZeroInstall.Services.Native
         /// </summary>
         /// <param name="id">The ID to parse.</param>
         /// <exception cref="FormatException"><paramref name="id"/> is not a standard <see cref="ExternalImplementation"/> ID.</exception>
-        public static ExternalImplementation FromID([NotNull] string id)
+        public static ExternalImplementation FromID(string id)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -109,7 +105,7 @@ namespace ZeroInstall.Services.Native
             && QuickTestFile == other.QuickTestFile;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

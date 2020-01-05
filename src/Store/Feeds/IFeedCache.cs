@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
 
@@ -28,7 +27,7 @@ namespace ZeroInstall.Store.Feeds
         ///   <c>true</c> if the specified feed is available in this cache;
         ///   <c>false</c> if the specified feed is not available in this cache.
         /// </returns>
-        bool Contains([NotNull] FeedUri feedUri);
+        bool Contains(FeedUri feedUri);
 
         /// <summary>
         /// Returns a list of all <see cref="Feed"/>s stored in this cache.
@@ -39,7 +38,6 @@ namespace ZeroInstall.Store.Feeds
         /// </returns>
         /// <exception cref="IOException">A problem occurred while reading from the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-        [NotNull, ItemNotNull]
         IEnumerable<FeedUri> ListAll();
 
         /// <summary>
@@ -51,8 +49,7 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
-        [NotNull]
-        Feed GetFeed([NotNull] FeedUri feedUri);
+        Feed GetFeed(FeedUri feedUri);
 
         /// <summary>
         /// Determines which signatures a <see cref="Feed"/> from this cache is signed with.
@@ -63,8 +60,7 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">There is no valid signature data embedded in the feed data.</exception>
-        [NotNull, ItemNotNull]
-        IEnumerable<OpenPgpSignature> GetSignatures([NotNull] FeedUri feedUri);
+        IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri);
 
         /// <summary>
         /// Gets the file path of the on-disk representation of a specific <see cref="Feed"/>.
@@ -75,8 +71,7 @@ namespace ZeroInstall.Store.Feeds
         /// <returns>The fully qualified path to the feed file.</returns>
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-        [NotNull]
-        string GetPath([NotNull] FeedUri feedUri);
+        string GetPath(FeedUri feedUri);
 
         /// <summary>
         /// Adds a new <see cref="Feed"/> to the cache. Only do this after the feed source has been verified and trusted and replay attacks filtered!
@@ -87,7 +82,7 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
         /// <exception cref="InvalidOperationException"><paramref name="feedUri"/> is a a local path.</exception>
-        void Add([NotNull] FeedUri feedUri, [NotNull] byte[] data);
+        void Add(FeedUri feedUri, byte[] data);
 
         /// <summary>
         /// Removes a specific <see cref="Feed"/> from this cache. No exception is thrown if the specified <see cref="Feed"/> is not in the cache.
@@ -96,6 +91,6 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
         /// <exception cref="IOException">The feed could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-        void Remove([NotNull] FeedUri feedUri);
+        void Remove(FeedUri feedUri);
     }
 }

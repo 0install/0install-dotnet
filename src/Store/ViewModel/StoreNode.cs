@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.ComponentModel;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Store.ViewModel
@@ -13,14 +12,13 @@ namespace ZeroInstall.Store.ViewModel
     public abstract class StoreNode : CacheNode
     {
         /// <summary>The store containing the element.</summary>
-        [NotNull]
         protected readonly IImplementationStore ImplementationStore;
 
         /// <summary>
         /// Creates a new store node.
         /// </summary>
         /// <param name="implementationStore">The store containing the element.</param>
-        protected StoreNode([NotNull] IImplementationStore implementationStore)
+        protected StoreNode(IImplementationStore implementationStore)
         {
             ImplementationStore = implementationStore;
         }
@@ -29,7 +27,6 @@ namespace ZeroInstall.Store.ViewModel
         /// The file system path of the element.
         /// </summary>
         [Description("The file system path of the element.")]
-        [CanBeNull]
-        public abstract string Path { get; }
+        public abstract string? Path { get; }
     }
 }

@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
@@ -51,7 +50,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last question passed to <see cref="Ask"/>.
         /// </summary>
-        public string LastQuestion { get; private set; }
+        public string? LastQuestion { get; private set; }
 
         protected override void LogHandler(LogSeverity severity, string message) {}
 
@@ -109,7 +108,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last information string passed to <see cref="Output"/>.
         /// </summary>
-        public string LastOutput { get; private set; }
+        public string? LastOutput { get; private set; }
 
         /// <summary>
         /// Fakes showing an information string output to the user.
@@ -119,7 +118,6 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
         /// </summary>
-        [NotNull]
         public IEnumerable LastOutputObjects { get; private set; } = Enumerable.Empty<object>();
 
         /// <summary>
@@ -129,6 +127,6 @@ namespace ZeroInstall.Commands
 
         public override void Error(Exception exception) {}
 
-        public override ICredentialProvider CredentialProvider => null;
+        public override ICredentialProvider? CredentialProvider => null;
     }
 }

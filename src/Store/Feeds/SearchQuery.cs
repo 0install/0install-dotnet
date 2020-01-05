@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -21,14 +20,13 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// The keywords the search was performed for.
         /// </summary>
-        [XmlIgnore, CanBeNull]
-        public string Keywords { get; private set; }
+        [XmlIgnore]
+        public string? Keywords { get; private set; }
 
         /// <summary>
         /// A list of results matching the <see cref="Keywords"/>.
         /// </summary>
         [XmlElement("result")]
-        [NotNull, ItemNotNull]
         public List<SearchResult> Results { get; } = new List<SearchResult>();
 
         /// <summary>
@@ -36,7 +34,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="config">The current configuration determining which mirror server to query.</param>
         /// <param name="keywords">The keywords to search for.</param>
-        public static SearchQuery Perform([NotNull] Config config, [CanBeNull] string keywords)
+        public static SearchQuery Perform(Config config, string? keywords)
         {
             #region Sanity checks
             if (config == null) throw new ArgumentNullException(nameof(config));

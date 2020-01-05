@@ -33,7 +33,7 @@ namespace ZeroInstall.Store.Implementations
                     Digest = digest;
                 }
 
-                public override bool Equals(object obj)
+                public override bool Equals(object? obj)
                 {
                     if (!(obj is DedupKey)) return false;
                     var other = (DedupKey)obj;
@@ -81,7 +81,7 @@ namespace ZeroInstall.Store.Implementations
             /// </summary>
             public void Work(ManifestDigest manifestDigest)
             {
-                string digestString = manifestDigest.Best;
+                string? digestString = manifestDigest.Best;
                 if (digestString == null) return;
                 string implementationPath = Path.Combine(_storePath, digestString);
                 var manifest = Manifest.Load(Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));

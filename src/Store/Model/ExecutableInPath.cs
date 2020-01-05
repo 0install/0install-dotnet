@@ -41,7 +41,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(ExecutableInPath other) => other != null && (base.Equals(other) && other.Name == Name);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

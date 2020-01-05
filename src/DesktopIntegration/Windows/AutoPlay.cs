@@ -6,7 +6,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -60,7 +59,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AutoPlay autoPlay, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Store.Model.Capabilities.AutoPlay autoPlay, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));
@@ -116,7 +115,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
-        public static void Unregister([NotNull] Store.Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Store.Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));

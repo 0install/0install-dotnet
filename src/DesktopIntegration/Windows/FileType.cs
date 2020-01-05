@@ -7,7 +7,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -87,7 +86,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.FileType fileType, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Store.Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
@@ -166,7 +165,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Unregister([NotNull] Store.Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Store.Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));

@@ -5,7 +5,6 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
@@ -70,15 +69,15 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// </summary>
         [Description("The name of the command in the feed to use when launching via this capability; leave empty for 'run'.")]
         [TypeConverter(typeof(CommandNameConverter))]
-        [XmlAttribute("command"), DefaultValue(""), CanBeNull]
-        public string Command { get; set; }
+        [XmlAttribute("command"), DefaultValue("")]
+        public string? Command { get; set; }
 
         /// <summary>
         /// A custom arguments list to be passed to the command. %1 will be replaced with the path of the file being opened.
         /// </summary>
         [Description("A custom arguments list to be passed to the command. %1 will be replaced with the path of the file being opened.")]
         [XmlAttribute("args"), DefaultValue("")]
-        public string Arguments { get; set; }
+        public string? Arguments { get; set; }
 
         /// <summary>
         /// Set this to <c>true</c> to hide the verb in the Windows context menu unless the Shift key is pressed when opening the menu.
@@ -124,7 +123,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             && Descriptions.SequencedEquals(other.Descriptions);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

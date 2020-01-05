@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -38,7 +37,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        public static void Create(FeedTarget target, [CanBeNull] string command, [NotNull] string aliasName, [NotNull] IIconStore iconStore, bool machineWide)
+        public static void Create(FeedTarget target, string? command, string aliasName, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
@@ -112,7 +111,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// Returns the path of the directory used to store alias stub EXEs.
         /// </summary>
         /// <param name="machineWide"><c>true</c> for a machine-wide directory; <c>false</c> for a directory just for the current user.</param>
-        [NotNull]
         public static string GetStubDir(bool machineWide)
             => Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "aliases");
     }

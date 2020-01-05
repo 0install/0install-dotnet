@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using System.Text;
 using FluentAssertions;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Implementations.Build;
@@ -48,7 +47,7 @@ namespace ZeroInstall.FileSystem
         /// Creates a new test file.
         /// </summary>
         /// <param name="name">The name of the file.</param>
-        public TestFile([NotNull] string name)
+        public TestFile(string name)
             : base(name)
         {}
 

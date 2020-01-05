@@ -3,7 +3,6 @@
 
 using System;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
@@ -36,10 +35,10 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         #region State
-        private string _command;
+        private string? _command;
 
         /// <inheritdoc/>
-        public AddApp([NotNull] ICommandHandler handler)
+        public AddApp(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);

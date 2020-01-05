@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -32,7 +31,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
         /// <param name="implementationStore">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public SequentialFetcher([NotNull] Config config, [NotNull] IImplementationStore implementationStore, [NotNull] ITaskHandler handler)
+        public SequentialFetcher(Config config, IImplementationStore implementationStore, ITaskHandler handler)
             : base(implementationStore, handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
@@ -54,7 +53,7 @@ namespace ZeroInstall.Services.Fetchers
         }
 
         /// <inheritdoc/>
-        protected override string Fetch(Implementation implementation, object tag)
+        protected override string? Fetch(Implementation implementation, object tag)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -78,7 +77,7 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 // Check if another process added the implementation in the meantime
-                string path = GetPathSafe(implementation);
+                string? path = GetPathSafe(implementation);
                 if (path != null) return path;
 
                 if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
@@ -96,21 +95,20 @@ namespace ZeroInstall.Services.Fetchers
         /// Returns a unique identifier for an <see cref="Implementation"/>. Usually based on <see cref="ImplementationBase.ManifestDigest"/>.
         /// </summary>
         /// <exception cref="NotSupportedException"><paramref name="implementation"/> does not specify manifest digests in any known formats.</exception>
-        [NotNull]
-        private static string GetDownloadID([NotNull] Implementation implementation)
+        private static string GetDownloadID(Implementation implementation)
         {
             if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
                 return implementation.ID;
             else
             {
-                string digest = implementation.ManifestDigest.Best;
+                string? digest = implementation.ManifestDigest.Best;
                 if (digest == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
                 return digest;
             }
         }
 
         /// <inheritdoc/>
-        protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, object tag = null)
+        protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, object? tag = null)
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));

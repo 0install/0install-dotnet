@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 
@@ -22,7 +21,7 @@ namespace ZeroInstall.Store.Feeds
         /// <returns>The parsed <see cref="Feed"/>s. Damaged files are logged and skipped.</returns>
         /// <exception cref="IOException">A problem occurred while reading from the cache.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-        public static IEnumerable<Feed> GetAll([NotNull] this IFeedCache cache)
+        public static IEnumerable<Feed> GetAll(this IFeedCache cache)
         {
             #region Sanity checks
             if (cache == null) throw new ArgumentNullException(nameof(cache));

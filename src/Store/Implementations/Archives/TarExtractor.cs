@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Properties;
 
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal TarExtractor(Stream stream, string targetPath)
             : base(targetPath)
         {
             #region Sanity checks
@@ -59,7 +58,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 TarEntry entry;
                 while ((entry = _tarStream.GetNextEntry()) != null)
                 {
-                    string relativePath = GetRelativePath(entry.Name);
+                    string? relativePath = GetRelativePath(entry.Name);
                     if (string.IsNullOrEmpty(relativePath)) continue;
 
                     switch (entry.TarHeader.TypeFlag)
@@ -69,7 +68,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                             break;
                         case TarHeader.LF_LINK:
                         {
-                            string targetPath = GetRelativePath(entry.TarHeader.LinkName);
+                            string? targetPath = GetRelativePath(entry.TarHeader.LinkName);
                             if (string.IsNullOrEmpty(targetPath)) throw new IOException(string.Format(Resources.HardlinkTargetMissing, relativePath, entry.TarHeader.LinkName));
                             DirectoryBuilder.QueueHardlink(relativePath, targetPath, IsExecutable(entry));
                             break;

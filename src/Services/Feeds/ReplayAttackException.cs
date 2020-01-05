@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using JetBrains.Annotations;
 using ZeroInstall.Services.Properties;
 using ZeroInstall.Store.Feeds;
 
@@ -20,7 +19,6 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// The URL of the feed file to be added to the cache.
         /// </summary>
-        [CanBeNull]
         public Uri FeedUrl { get; }
 
         /// <summary>
@@ -46,21 +44,6 @@ namespace ZeroInstall.Services.Feeds
             OldTime = oldTime;
             NewTime = newTime;
         }
-
-        /// <inheritdoc/>
-        public ReplayAttackException()
-            : base(string.Format(Resources.ReplayAttack, "unknown", "unknown", "unknown"))
-        {}
-
-        /// <inheritdoc/>
-        public ReplayAttackException(string message)
-            : base(message)
-        {}
-
-        /// <inheritdoc/>
-        public ReplayAttackException(string message, Exception innerException)
-            : base(message, innerException)
-        {}
 
         #region Serialization
         /// <summary>

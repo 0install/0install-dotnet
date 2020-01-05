@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store.Model;
@@ -21,14 +20,13 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Returns a list of suitable default <see cref="MenuEntry"/>s.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<MenuEntry> MenuEntries([NotNull] Feed feed)
+        public static IEnumerable<MenuEntry> MenuEntries(Feed feed)
         {
             #region Sanity checks
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            string category = feed.Categories.FirstOrDefault()?.Name?.SafeFileName();
+            string? category = feed.Categories.FirstOrDefault()?.Name?.SafeFileName();
             if (feed.EntryPoints.Count > 1)
             {
                 category = (category == null)
@@ -48,8 +46,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Returns a list of suitable default <see cref="DesktopIcon"/>s.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<DesktopIcon> DesktopIcons([NotNull] Feed feed)
+        public static IEnumerable<DesktopIcon> DesktopIcons(Feed feed)
         {
             #region Sanity checks
             if (feed == null) throw new ArgumentNullException(nameof(feed));
@@ -67,8 +64,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Returns a list of suitable default <see cref="SendTo"/>s.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<SendTo> SendTo([NotNull] Feed feed)
+        public static IEnumerable<SendTo> SendTo(Feed feed)
         {
             #region Sanity checks
             if (feed == null) throw new ArgumentNullException(nameof(feed));
@@ -86,8 +82,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Returns a list of suitable default <see cref="AppAlias"/>s.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<AppAlias> Aliases([NotNull] Feed feed)
+        public static IEnumerable<AppAlias> Aliases(Feed feed)
         {
             #region Sanity checks
             if (feed == null) throw new ArgumentNullException(nameof(feed));
@@ -105,8 +100,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Returns a list of suitable default <see cref="AutoStart"/>s.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<AutoStart> AutoStart([NotNull] Feed feed)
+        public static IEnumerable<AutoStart> AutoStart(Feed feed)
         {
             #region Sanity checks
             if (feed == null) throw new ArgumentNullException(nameof(feed));

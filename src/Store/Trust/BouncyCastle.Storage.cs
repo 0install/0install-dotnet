@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Org.BouncyCastle.Bcpg.OpenPgp;
@@ -17,7 +16,7 @@ namespace ZeroInstall.Store.Trust
         /// Creates a new Bouncy Castle instance.
         /// </summary>
         /// <param name="homeDir">The GnuPG home dir to use.</param>
-        public BouncyCastle([NotNull] string homeDir)
+        public BouncyCastle(string homeDir)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
@@ -27,18 +26,15 @@ namespace ZeroInstall.Store.Trust
             _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
         }
 
-        [NotNull]
         private readonly string _publicBundlePath;
 
-        [CanBeNull]
-        private PgpPublicKeyRingBundle _publicBundle;
+        private PgpPublicKeyRingBundle? _publicBundle;
 
         /// <summary>
         /// Stores imported public keys on disk.
         /// Intentionally separate from the normal GnuPG public keyring to keep the user's GnuPG profile clean.
         /// </summary>
         /// <remarks>Data is cached in memory for life-time of instance.</remarks>
-        [NotNull]
         private PgpPublicKeyRingBundle PublicBundle
         {
             get
@@ -81,17 +77,14 @@ namespace ZeroInstall.Store.Trust
             }
         }
 
-        [NotNull]
         private readonly string _secretBundlePath;
 
-        [CanBeNull]
-        private PgpSecretKeyRingBundle _secretBundle;
+        private PgpSecretKeyRingBundle? _secretBundle;
 
         /// <summary>
         /// Stores secret keys on disk.
         /// </summary>
         /// <remarks>Data is cached in memory for life-time of instance.</remarks>
-        [NotNull]
         private PgpSecretKeyRingBundle SecretBundle
         {
             get

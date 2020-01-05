@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Model;
@@ -45,15 +44,14 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
         /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
-        [NotNull]
-        Feed this[[NotNull] FeedUri feedUri] { get; }
+        Feed this[FeedUri feedUri] { get; }
 
         /// <summary>
         /// Determines whether there is a stale cached copy of a particular feed.
         /// </summary>
         /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
         /// <returns><c>true</c> if there is a stale copy in the cache or no copy at all; <c>false</c> if there is a fresh copy in the cache.</returns>
-        bool IsStale([NotNull] FeedUri feedUri);
+        bool IsStale(FeedUri feedUri);
 
         /// <summary>
         /// Ensures that operations regarding a specific feed do not happen to often in a row.
@@ -70,7 +68,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing.</exception>
-        void ImportFeed([NotNull] string path);
+        void ImportFeed(string path);
 
         /// <summary>
         /// Clears any in-memory caches.

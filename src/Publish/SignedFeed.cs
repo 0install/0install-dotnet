@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.Model;
@@ -16,22 +15,18 @@ namespace ZeroInstall.Publish
     /// A wrapper around a <see cref="Feed"/> adding and XSL stylesheet and a digital signature.
     /// </summary>
     [Serializable]
-    [PublicAPI]
     public class SignedFeed
     {
         /// <summary>
         /// The wrapped <see cref="Feed"/>.
         /// </summary>
-        [NotNull]
         public Feed Feed { get; }
 
         /// <summary>
         /// The secret key used to sign the <see cref="Feed"/>; <c>null</c> for no signature.
         /// </summary>
-        [CanBeNull]
-        public OpenPgpSecretKey SecretKey { get; set; }
+        public OpenPgpSecretKey? SecretKey { get; set; }
 
-        [NotNull]
         private readonly IOpenPgp _openPgp;
 
         /// <summary>
@@ -40,7 +35,7 @@ namespace ZeroInstall.Publish
         /// <param name="feed">The wrapped <see cref="Feed"/>.</param>
         /// <param name="secretKey">The secret key used to sign the <see cref="Feed"/>; <c>null</c> for no signature.</param>
         /// <param name="openPgp">The OpenPGP-compatible system used to create the signatures; <c>null</c> for default.</param>
-        public SignedFeed([NotNull] Feed feed, [CanBeNull] OpenPgpSecretKey secretKey = null, [CanBeNull] IOpenPgp openPgp = null)
+        public SignedFeed(Feed feed, OpenPgpSecretKey? secretKey = null, IOpenPgp? openPgp = null)
         {
             Feed = feed ?? throw new ArgumentNullException(nameof(feed));
             SecretKey = secretKey;
@@ -55,8 +50,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">A problem occurs while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        [NotNull]
-        public static SignedFeed Load([NotNull] string path)
+        public static SignedFeed Load(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -76,7 +70,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <exception cref="KeyNotFoundException">The specified <see cref="SecretKey"/> could not be found on the system.</exception>
         /// <exception cref="WrongPassphraseException"><paramref name="passphrase"/> was incorrect.</exception>
-        public void Save([NotNull] string path, [CanBeNull] string passphrase = null)
+        public void Save(string path, string? passphrase = null)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

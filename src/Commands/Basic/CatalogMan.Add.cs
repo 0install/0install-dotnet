@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
@@ -28,7 +27,7 @@ namespace ZeroInstall.Commands.Basic
             #region State
             private bool _skipVerify;
 
-            public Add([NotNull] ICommandHandler handler)
+            public Add(ICommandHandler handler)
                 : base(handler)
             {
                 Options.Add("skip-verify", () => Resources.OptionCatalogAddSkipVerify, _ => _skipVerify = true);

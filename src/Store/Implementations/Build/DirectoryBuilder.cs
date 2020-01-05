@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -21,17 +20,14 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The path to the directory to build.
         /// </summary>
-        [NotNull]
         public string TargetPath { get; }
 
-        [CanBeNull]
-        private string _targetSuffix;
+        private string? _targetSuffix;
 
         /// <summary>
         /// Sub-path to be appended to <see cref="TargetPath"/> without affecting location of flag files; <c>null</c> for none.
         /// </summary>
-        [CanBeNull]
-        public string TargetSuffix
+        public string? TargetSuffix
         {
             get => _targetSuffix;
             set
@@ -41,13 +37,11 @@ namespace ZeroInstall.Store.Implementations.Build
             }
         }
 
-        [CanBeNull]
-        private string _effectiveTargetPath;
+        private string? _effectiveTargetPath;
 
         /// <summary>
         /// <see cref="TargetPath"/> and <see cref="TargetSuffix"/> combined.
         /// </summary>
-        [NotNull]
         public string EffectiveTargetPath
             => _effectiveTargetPath
             ?? (_effectiveTargetPath = string.IsNullOrEmpty(TargetSuffix) ? TargetPath : Path.Combine(TargetPath, TargetSuffix));
@@ -67,7 +61,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Creates a new directory builder.
         /// </summary>
         /// <param name="targetPath">The path to the directory to build.</param>
-        public DirectoryBuilder([NotNull] string targetPath)
+        public DirectoryBuilder(string targetPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
@@ -106,7 +100,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="relativePath">The path of the directory to create (relative to <see cref="EffectiveTargetPath"/>).</param>
         /// <param name="lastWriteTime">The last write time to set for the directory.</param>
-        public void CreateDirectory([NotNull] string relativePath, DateTime lastWriteTime)
+        public void CreateDirectory(string relativePath, DateTime lastWriteTime)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));
@@ -146,7 +140,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="source">A path relative to <see cref="EffectiveTargetPath"/>.</param>
         /// <param name="target">The target the symbolic link shall point to relative to <paramref name="source"/>. May use non-native path separators!</param>
-        public void CreateSymlink([NotNull] string source, [NotNull] string target)
+        public void CreateSymlink(string source, string target)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(source)) throw new ArgumentNullException(nameof(source));
@@ -182,7 +176,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="source">The path of the hardlink to create (relative to <see cref="EffectiveTargetPath"/>).</param>
         /// <param name="target">The path of the target the hardlink shall point to (relative to <see cref="EffectiveTargetPath"/>).</param>
         /// <param name="executable"><c>true</c> if the executable bit of the hardlink is set; <c>false</c> otherwise.</param>
-        public void QueueHardlink([NotNull] string source, [NotNull] string target, bool executable = false)
+        public void QueueHardlink(string source, string target, bool executable = false)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(source)) throw new ArgumentNullException(nameof(source));
@@ -275,7 +269,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Deletes a file if it exists and removes any pending steps registered for it.
         /// </summary>
         /// <param name="relativePath">A path relative to <see cref="EffectiveTargetPath"/>.</param>
-        private void DeleteFile([NotNull] string relativePath)
+        private void DeleteFile(string relativePath)
         {
             _pendingFileWriteTimes.Remove(relativePath);
             _pendingExecutableFiles.Remove(relativePath);
@@ -293,7 +287,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Resolves a path relative to <see cref="EffectiveTargetPath"/> to a full path.
         /// </summary>
         /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, points outside the archive's root, contains invalid characters).</exception>
-        private string GetFullPath([NotNull] string relativePath)
+        private string GetFullPath(string relativePath)
         {
             if (FileUtils.IsBreakoutPath(relativePath)) throw new IOException(string.Format(Resources.ArchiveInvalidPath, relativePath));
 
@@ -314,7 +308,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="relativePath">A path relative to <see cref="EffectiveTargetPath"/>.</param>
         /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, points outside the archive's root, contains invalid characters).</exception>
-        private string GetFlagRelativePath([NotNull] string relativePath)
+        private string GetFlagRelativePath(string relativePath)
         {
             if (FileUtils.IsBreakoutPath(relativePath)) throw new IOException(string.Format(Resources.ArchiveInvalidPath, relativePath));
 

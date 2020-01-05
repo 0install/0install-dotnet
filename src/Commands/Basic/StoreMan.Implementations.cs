@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMin => 2;
 
-            public Add([NotNull] ICommandHandler handler)
+            public Add(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -67,12 +66,11 @@ namespace ZeroInstall.Commands.Basic
                 var archives = new ArchiveFileInfo[(AdditionalArgs.Count + 1) / 3];
                 for (int i = 0; i < archives.Length; i++)
                 {
-                    archives[i] = new ArchiveFileInfo
-                    {
-                        Path = Path.GetFullPath(AdditionalArgs[i * 3 + 1]),
-                        Extract = (AdditionalArgs.Count > i * 3 + 2) ? AdditionalArgs[i * 3 + 2] : null,
-                        MimeType = (AdditionalArgs.Count > i * 3 + 3) ? AdditionalArgs[i * 3 + 3] : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1])
-                    };
+                    archives[i] = new ArchiveFileInfo(
+                        path: Path.GetFullPath(AdditionalArgs[i * 3 + 1]),
+                        mimeType: (AdditionalArgs.Count > i * 3 + 3) ? AdditionalArgs[i * 3 + 3] : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]));
+                    if (AdditionalArgs.Count > i * 3 + 2)
+                        archives[i].Extract = AdditionalArgs[i * 3 + 2];
                 }
                 return archives;
             }
@@ -91,7 +89,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 2;
 
-            public Copy([NotNull] ICommandHandler handler)
+            public Copy(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -139,7 +137,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 3;
 
-            public Export([NotNull] ICommandHandler handler)
+            public Export(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -151,11 +149,11 @@ namespace ZeroInstall.Commands.Basic
                 string outputArchive = AdditionalArgs[1];
                 Debug.Assert(outputArchive != null);
 
-                string sourceDirectory = ImplementationStore.GetPath(manifestDigest);
+                string? sourceDirectory = ImplementationStore.GetPath(manifestDigest);
                 if (sourceDirectory == null)
                     throw new ImplementationNotFoundException(manifestDigest);
 
-                string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : null;
+                string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : Archive.GuessMimeType(outputArchive);
 
                 using (var generator = ArchiveGenerator.Create(sourceDirectory, outputArchive, mimeType))
                     Handler.RunTask(generator);
@@ -176,7 +174,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 1;
 
-            public Find([NotNull] ICommandHandler handler)
+            public Find(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -185,7 +183,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
 
-                string path = ImplementationStore.GetPath(manifestDigest);
+                string? path = ImplementationStore.GetPath(manifestDigest);
                 if (path == null) throw new ImplementationNotFoundException(manifestDigest);
                 Handler.Output(string.Format(Resources.LocalPathOf, AdditionalArgs[0]), path);
                 return ExitCode.OK;
@@ -203,7 +201,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMin => 1;
 
-            public Remove([NotNull] ICommandHandler handler)
+            public Remove(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -232,7 +230,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 2;
 
-            public Verify([NotNull] ICommandHandler handler)
+            public Verify(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

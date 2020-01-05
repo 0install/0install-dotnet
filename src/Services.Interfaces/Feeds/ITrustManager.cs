@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Trust;
 
@@ -28,7 +27,6 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="SignatureException">No trusted signature was found.</exception>
         /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-        [NotNull]
-        ValidSignature CheckTrust([NotNull] byte[] data, [NotNull] FeedUri uri, [CanBeNull] string localPath = null);
+        ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null);
     }
 }

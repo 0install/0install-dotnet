@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
@@ -40,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// </summary>
         /// <param name="capability">That shall be wrapped.</param>
         /// <param name="used">Indicates whether the <see cref="Capability" /> was already used.</param>
-        protected CapabilityModel([NotNull] DefaultCapability capability, bool used)
+        protected CapabilityModel(DefaultCapability capability, bool used)
         {
             Capability = capability ?? throw new ArgumentNullException(nameof(capability));
             _wasUsed = Use = used;

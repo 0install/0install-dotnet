@@ -3,13 +3,13 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -42,7 +42,7 @@ namespace ZeroInstall.Commands.Basic
         private bool _printManifest, _printDigest;
 
         /// <inheritdoc/>
-        public Digest([NotNull] ICommandHandler handler)
+        public Digest(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("manifest", () => Resources.OptionManifest, _ => _printManifest = true);
@@ -77,7 +77,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         #region Helpers
-        private Manifest GenerateManifest(string path, string subdir)
+        private Manifest GenerateManifest(string path, string? subdir)
         {
             if (Directory.Exists(path))
             {
@@ -91,7 +91,7 @@ namespace ZeroInstall.Commands.Basic
             {
                 using var tempDir = new TemporaryDirectory("0install");
 
-                using (var extractor = ArchiveExtractor.Create(path, tempDir))
+                using (var extractor = ArchiveExtractor.Create(path, tempDir, Archive.GuessMimeType(path)))
                 {
                     extractor.Extract = subdir;
                     Handler.RunTask(extractor);

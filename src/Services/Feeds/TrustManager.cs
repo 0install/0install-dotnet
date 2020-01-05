@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Xml;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
@@ -39,7 +38,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="trustDB">A database of OpenPGP signature fingerprints the users trusts to sign <see cref="Feed"/>s coming from specific domains.</param>
         /// <param name="feedCache">Provides access to a cache of <see cref="Feed"/>s that were downloaded via HTTP(S).</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions.</param>
-        public TrustManager([NotNull] Config config, [NotNull] IOpenPgp openPgp, [NotNull] TrustDB trustDB, [NotNull] IFeedCache feedCache, [NotNull] ITaskHandler handler)
+        public TrustManager(Config config, IOpenPgp openPgp, TrustDB trustDB, IFeedCache feedCache, ITaskHandler handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
@@ -51,7 +50,7 @@ namespace ZeroInstall.Services.Feeds
 
         /// <inheritdoc/>
         [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings")]
-        public ValidSignature CheckTrust(byte[] data, FeedUri uri, string localPath = null)
+        public ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null)
         {
             #region Sanity checks
             if (uri == null) throw new ArgumentNullException(nameof(uri));
@@ -94,7 +93,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="domain">The domain to trust the key for.</param>
         /// <returns><c>true</c> if the user decided to trust the key, <c>false</c> if they decided not to trust the key.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        private bool HandleNewKey([NotNull] FeedUri uri, [NotNull] string fingerprint, Domain domain)
+        private bool HandleNewKey(FeedUri uri, string fingerprint, Domain domain)
         {
             if (AskKeyApproval(uri, fingerprint, domain))
             {
@@ -122,7 +121,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="domain">The domain to trust the key for.</param>
         /// <returns><c>true</c> if the user decided to trust the key, <c>false</c> if they decided not to trust the key.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        private bool AskKeyApproval([NotNull] FeedUri uri, [NotNull] string fingerprint, Domain domain)
+        private bool AskKeyApproval(FeedUri uri, string fingerprint, Domain domain)
         {
             string keyInformation = GetKeyInformation(fingerprint, out bool goodVote) ?? Resources.NoKeyInfoServerData;
 
@@ -145,8 +144,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="goodVote">Returns <c>true</c> if the server indicated that the key is trustworthy.</param>
         /// <returns>Human-readable information about the key or <c>null</c> if the server failed to provide a response.</returns>
-        [CanBeNull]
-        private string GetKeyInformation([NotNull] string fingerprint, out bool goodVote)
+        private string? GetKeyInformation(string fingerprint, out bool goodVote)
         {
             if (_config.KeyInfoServer == null)
             {
@@ -198,7 +196,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="SignatureException">A downloaded key file is damaged.</exception>
         /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-        private void AcquireMissingKey([NotNull] MissingKeySignature signature, [NotNull] Uri uri, [CanBeNull] string localPath = null)
+        private void AcquireMissingKey(MissingKeySignature signature, Uri uri, string? localPath = null)
         {
             if (!string.IsNullOrEmpty(localPath))
             {
@@ -237,7 +235,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="SignatureException">The downloaded key file is damaged.</exception>
         /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-        private void DownloadKey([NotNull] Uri keyUri)
+        private void DownloadKey(Uri keyUri)
         {
             var download = new DownloadMemory(keyUri);
             _handler.RunTask(download);

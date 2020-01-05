@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Source"/>
         [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string SourceString { get => Source?.ToStringRfc(); set => Source = (value == null) ? null : new FeedUri(value); }
+        public string? SourceString { get => Source?.ToStringRfc(); set => Source = (value == null) ? null : new FeedUri(value); }
         #endregion
 
         #region Normalize
@@ -68,7 +68,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && other.Source == Source;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

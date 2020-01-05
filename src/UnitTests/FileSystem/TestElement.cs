@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
-
 namespace ZeroInstall.FileSystem
 {
     /// <summary>
@@ -15,10 +13,9 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The name of the file system element.
         /// </summary>
-        [NotNull]
         public string Name { get; }
 
-        protected TestElement([NotNull] string name)
+        protected TestElement(string name)
         {
             Name = name;
         }
@@ -27,12 +24,12 @@ namespace ZeroInstall.FileSystem
         /// Realizes the element as an on-disk element.
         /// </summary>
         /// <param name="parentPath">The full path of the existing directory to realize the element in.</param>
-        public abstract void Build([NotNull] string parentPath);
+        public abstract void Build(string parentPath);
 
         /// <summary>
         /// Compares the element against an existing on-disk element using assertions.
         /// </summary>
         /// <param name="parentPath">The full path of the directory containing the element.</param>
-        public abstract void Verify([NotNull] string parentPath);
+        public abstract void Verify(string parentPath);
     }
 }

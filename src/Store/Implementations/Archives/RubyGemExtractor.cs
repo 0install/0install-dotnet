@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
@@ -21,7 +20,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal RubyGemExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal RubyGemExtractor(Stream stream, string targetPath)
             : base(GetPartialStream(stream), targetPath)
         {}
 

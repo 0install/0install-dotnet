@@ -10,7 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
@@ -53,7 +52,7 @@ namespace ZeroInstall.Store.Model
         /// Provides XML Editors with location hints for XSD files.
         /// </summary>
         [XmlAttribute("schemaLocation", Namespace = XmlStorage.XsiNamespace)]
-        public string SchemaLocation = XsiSchemaLocation;
+        public string? SchemaLocation = XsiSchemaLocation;
         #endregion
 
         /// <summary>
@@ -67,16 +66,16 @@ namespace ZeroInstall.Store.Model
         /// The URI of the <see cref="Catalog"/> this feed was stored within. Used as an implementation detail; not part of the official feed format!
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, CanBeNull]
-        public FeedUri CatalogUri { get; set; }
+        [XmlIgnore,]
+        public FeedUri? CatalogUri { get; set; }
 
         /// <summary>
         /// This attribute gives the oldest version of the injector that can read this file. Older versions will tell the user to upgrade if they are asked to read the file. Versions prior to 0.20 do not perform this check, however. If the attribute is not present, the file can be read by all versions.
         /// </summary>
         //[Category("Feed"), Description("This attribute gives the oldest version of the injector that can read this file. Older versions will tell the user to upgrade if they are asked to read the file. Versions prior to 0.20 do not perform this check, however. If the attribute is not present, the file can be read by all versions.")]
         [Browsable(false)]
-        [XmlIgnore, CanBeNull]
-        public ImplementationVersion MinInjectorVersion { get; set; }
+        [XmlIgnore]
+        public ImplementationVersion? MinInjectorVersion { get; set; }
 
         /// <summary>
         /// A short name to identify the interface (e.g. "Foo").
@@ -99,21 +98,21 @@ namespace ZeroInstall.Store.Model
         /// The main website of the application.
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, CanBeNull]
-        public Uri Homepage { get; set; }
+        [XmlIgnore]
+        public Uri? Homepage { get; set; }
 
         /// <summary>
         /// Zero or more icons representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..
         /// </summary>
         [Browsable(false)]
-        [XmlElement("icon"), NotNull]
+        [XmlElement("icon")]
         public List<Icon> Icons { get; } = new List<Icon>();
 
         /// <summary>
         /// A list of well-known categories the applications fits into. May influence the placement in the application menu.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("category"), NotNull]
+        [XmlElement("category")]
         public List<Category> Categories { get; } = new List<Category>();
 
         /// <summary>
@@ -130,44 +129,44 @@ namespace ZeroInstall.Store.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Uri"), Category("Feed"), Description("This attribute is only needed for remote feeds (fetched via HTTP). The value must exactly match the expected URL, to prevent an attacker replacing one correctly-signed feed with another (e.g., returning a feed for the shred program when the user asked for the backup program).")]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        public string? UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
 
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="CatalogUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
         [XmlAttribute("catalog-uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string CatalogUriString { get => CatalogUri?.ToStringRfc(); set => CatalogUri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        public string? CatalogUriString { get => CatalogUri?.ToStringRfc(); set => CatalogUri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="MinInjectorVersion"/>
         [XmlAttribute("min-injector-version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string MinInjectorVersionString { get => MinInjectorVersion?.ToString(); set => MinInjectorVersion = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
+        public string? MinInjectorVersionString { get => MinInjectorVersion?.ToString(); set => MinInjectorVersion = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
 
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="Homepage"/>
         [DisplayName(@"Homepage"), Category("Interface"), Description("The main website of the application.")]
         [XmlElement("homepage"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string HomepageString { get => Homepage?.ToStringRfc(); set => Homepage = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.Absolute)); }
+        public string? HomepageString { get => Homepage?.ToStringRfc(); set => Homepage = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.Absolute)); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NeedsTerminal"/>
         [XmlElement("needs-terminal"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string NeedsTerminalString { get => (NeedsTerminal ? "" : null); set => NeedsTerminal = (value != null); }
+        public string? NeedsTerminalString { get => (NeedsTerminal ? "" : null); set => NeedsTerminal = (value != null); }
         #endregion
 
         /// <summary>
         /// Zero ore more additional feeds containing implementations of this interface.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("feed"), NotNull]
+        [XmlElement("feed")]
         public List<FeedReference> Feeds { get; } = new List<FeedReference>();
 
         /// <summary>
         /// The implementations in this feed are implementations of the given interface. This is used when adding a third-party feed.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("feed-for"), NotNull]
+        [XmlElement("feed-for")]
         public List<InterfaceReference> FeedFor { get; } = new List<InterfaceReference>();
 
         /// <summary>
@@ -176,7 +175,7 @@ namespace ZeroInstall.Store.Model
         /// <seealso cref="ImplementationBase.ManifestDigest"/>
         [Browsable(false)]
         [XmlElement("replaced-by")]
-        public InterfaceReference ReplacedBy { get; set; }
+        public InterfaceReference? ReplacedBy { get; set; }
 
         /// <summary>
         /// A list of <see cref="Group"/>s and <see cref="Implementation"/>s contained within this interface.
@@ -189,14 +188,14 @@ namespace ZeroInstall.Store.Model
         /// A list of <see cref="EntryPoint"/>s for starting this interface.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("entry-point"), NotNull]
+        [XmlElement("entry-point")]
         public List<EntryPoint> EntryPoints { get; } = new List<EntryPoint>();
 
         /// <summary>
         /// A set of <see cref="Capability"/> lists for different architectures.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace), NotNull]
+        [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
         // Note: Can not use ICollection<T> interface with XML Serialization
         public List<CapabilityList> CapabilityLists { get; } = new List<CapabilityList>();
 
@@ -241,8 +240,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="command">The command name to search for; <c>null</c> is equivalent to <see cref="Command.NameRun"/>.</param>
         /// <returns>The identified <see cref="EntryPoint"/>; <c>null</c> no matching one was found.</returns>
-        [CanBeNull]
-        public EntryPoint GetEntryPoint([CanBeNull] string command = null)
+        public EntryPoint? GetEntryPoint(string? command = null)
         {
             if (command == null) command = Command.NameRun;
 
@@ -255,8 +253,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="language">The language to look for; use <see cref="CultureInfo.InvariantCulture"/> for none.</param>
         /// <param name="command">The name of the command the name should represent; <c>null</c> is equivalent to <see cref="Command.NameRun"/>.</param>
         /// <returns>The best matching name that was found.</returns>
-        [NotNull]
-        public string GetBestName([NotNull] CultureInfo language, [CanBeNull] string command = null)
+        public string GetBestName(CultureInfo language, string? command = null)
         {
             #region Sanity checks
             if (language == null) throw new ArgumentNullException(nameof(language));
@@ -265,7 +262,7 @@ namespace ZeroInstall.Store.Model
             if (command == null) command = Command.NameRun;
 
             var entryPoint = GetEntryPoint(command);
-            string name = entryPoint?.Names.GetBestLanguage(language);
+            string? name = entryPoint?.Names.GetBestLanguage(language);
             if (!string.IsNullOrEmpty(name)) return name;
 
             return (command == Command.NameRun) ? Name : Name + " " + command;
@@ -277,8 +274,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="language">The language to look for; use <see cref="CultureInfo.InvariantCulture"/> for none.</param>
         /// <param name="command">The name of the command the summary should represent; <c>null</c> is equivalent to <see cref="Command.NameRun"/>.</param>
         /// <returns>The best matching summary that was found; <c>null</c> if no matching summary was found.</returns>
-        [CanBeNull]
-        public string GetBestSummary([NotNull] CultureInfo language, [CanBeNull] string command = null)
+        public string? GetBestSummary(CultureInfo language, string? command = null)
         {
             #region Sanity checks
             if (language == null) throw new ArgumentNullException(nameof(language));
@@ -287,7 +283,7 @@ namespace ZeroInstall.Store.Model
             if (command == null) command = Command.NameRun;
 
             var entryPoint = GetEntryPoint(command);
-            string summary = entryPoint?.Summaries.GetBestLanguage(language);
+            string? summary = entryPoint?.Summaries.GetBestLanguage(language);
             if (!string.IsNullOrEmpty(summary)) return summary;
 
             return Summaries.GetBestLanguage(language);
@@ -299,8 +295,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
         /// <param name="command">The name of the command the icon should represent; <c>null</c> is equivalent to <see cref="Command.NameRun"/>.</param>
         /// <returns>The best matching icon that was found or <c>null</c> if no matching icon was found.</returns>
-        [CanBeNull]
-        public Icon GetIcon([NotNull] string mimeType, [CanBeNull] string command = null)
+        public Icon? GetIcon(string mimeType, string? command = null)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
@@ -322,7 +317,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize([CanBeNull] FeedUri feedUri = null)
+        public void Normalize(FeedUri? feedUri = null)
         {
             // Apply if-0install-version filter
             Elements.RemoveAll(FeedElement.FilterMismatch);
@@ -341,7 +336,7 @@ namespace ZeroInstall.Store.Model
             ResolveInternalReferences();
         }
 
-        private void NormalizeElements([CanBeNull] FeedUri feedUri)
+        private void NormalizeElements(FeedUri? feedUri)
         {
             var collapsedElements = new List<Element>();
             foreach (var element in Elements)
@@ -467,7 +462,7 @@ namespace ZeroInstall.Store.Model
             && CapabilityLists.SequencedEquals(other.CapabilityLists);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

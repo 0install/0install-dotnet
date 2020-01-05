@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NDesk.Options;
@@ -39,7 +38,7 @@ namespace ZeroInstall.Commands.Desktop
         private bool _restartCentral;
 
         /// <inheritdoc/>
-        public SelfUpdate([NotNull] ICommandHandler handler)
+        public SelfUpdate(ICommandHandler handler)
             : base(handler)
         {
             NoWait = true;

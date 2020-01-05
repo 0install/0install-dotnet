@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -54,7 +53,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public IntegrationManager([NotNull] ITaskHandler handler, bool machineWide = false)
+        public IntegrationManager(ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
             #region Sanity checks
@@ -105,7 +104,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurs while accessing <paramref name="appListPath"/>.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to <paramref name="appListPath"/> file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public IntegrationManager([NotNull] string appListPath, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public IntegrationManager(string appListPath, ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
             AppListPath = appListPath ?? throw new ArgumentNullException(nameof(appListPath));

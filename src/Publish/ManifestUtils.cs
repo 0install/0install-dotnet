@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Publish.Properties;
@@ -27,8 +26,10 @@ namespace ZeroInstall.Publish
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
-        [Pure, NotNull]
-        public static string CalculateDigest([NotNull] string path, [NotNull] ManifestFormat format, [NotNull] ITaskHandler handler)
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
+        public static string CalculateDigest(string path, ManifestFormat format, ITaskHandler handler)
         {
             var manifestGenerator = new ManifestGenerator(path, format);
             handler.RunTask(manifestGenerator);
@@ -44,8 +45,10 @@ namespace ZeroInstall.Publish
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
-        [Pure]
-        public static ManifestDigest GenerateDigest([NotNull] string path, [NotNull] ITaskHandler handler)
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
+        public static ManifestDigest GenerateDigest(string path, ITaskHandler handler)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

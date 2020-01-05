@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Commands.Desktop
         private SyncResetMode _syncResetMode = SyncResetMode.None;
 
         /// <inheritdoc/>
-        public SyncApps([NotNull] ICommandHandler handler)
+        public SyncApps(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("reset=", () => Resources.OptionSyncReset, (SyncResetMode mode) => _syncResetMode = mode);

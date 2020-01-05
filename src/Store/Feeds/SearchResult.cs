@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model;
@@ -32,7 +31,7 @@ namespace ZeroInstall.Store.Feeds
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        public string? UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
         #endregion
 
         /// <summary>
@@ -57,13 +56,14 @@ namespace ZeroInstall.Store.Feeds
         /// A list of well-known categories the applications fits into.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("category"), NotNull]
+        [XmlElement("category")]
         public List<Category> Categories { get; } = new List<Category>();
 
         /// <summary>Used for DataGrid rendering.</summary>
         /// <seealso cref="Categories"/>
         [XmlIgnore, DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string CategoriesString => StringUtils.Join(", ", Categories.Select(x => x.Name));
+        public string CategoriesString
+            => StringUtils.Join(", ", Categories.Select(x => x.Name).WhereNotNull());
 
         /// <summary>
         /// Generates a pseudo-<see cref="Feed"/> using the information from this result.

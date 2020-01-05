@@ -3,7 +3,6 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace ZeroInstall.Store
@@ -18,8 +17,7 @@ namespace ZeroInstall.Store
         /// </summary>
         /// <param name="data">The object to be stored.</param>
         /// <returns>A string containing the JSON code.</returns>
-        [NotNull]
-        public static string ToJsonString([CanBeNull] this object data) => JsonConvert.SerializeObject(data);
+        public static string ToJsonString(this object? data) => JsonConvert.SerializeObject(data);
 
         /// <summary>
         /// Loads an object from an JSON string.
@@ -28,7 +26,7 @@ namespace ZeroInstall.Store
         /// <param name="data">The JSON string to be parsed.</param>
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
-        public static T FromJsonString<T>([NotNull] string data)
+        public static T FromJsonString<T>(string data)
         {
             #region Sanity checks
             if (data == null) throw new ArgumentNullException(nameof(data));
@@ -44,7 +42,7 @@ namespace ZeroInstall.Store
         /// <param name="data">The JSON string to be parsed.</param>
         /// <param name="anonymousType">An instance of the anonymous type to parse to.</param>
         /// <returns>The deserialized object.</returns>
-        public static T FromJsonString<T>([NotNull] string data, [NotNull] T anonymousType)
+        public static T FromJsonString<T>(string data, T anonymousType)
         {
             #region Sanity checks
             if (data == null) throw new ArgumentNullException(nameof(data));
@@ -61,8 +59,7 @@ namespace ZeroInstall.Store
         /// <param name="data">The object to be parsed again.</param>
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
-        [NotNull]
-        public static T ReparseAsJson<T>([NotNull] this object data) => FromJsonString<T>(data.ToJsonString());
+        public static T ReparseAsJson<T>(this object data) => FromJsonString<T>(data.ToJsonString());
 
         /// <summary>
         /// Reparses an object previously deserialized from JSON into a different representation using an anonymous type as the target.
@@ -71,7 +68,6 @@ namespace ZeroInstall.Store
         /// <param name="data">The object to be parsed again.</param>
         /// <param name="anonymousType">An instance of the anonymous type to parse to.</param>
         /// <returns>The deserialized object.</returns>
-        [NotNull]
-        public static T ReparseAsJson<T>([NotNull] this object data, [NotNull] T anonymousType) => FromJsonString(data.ToJsonString(), anonymousType);
+        public static T ReparseAsJson<T>(this object data, T anonymousType) => FromJsonString(data.ToJsonString(), anonymousType);
     }
 }

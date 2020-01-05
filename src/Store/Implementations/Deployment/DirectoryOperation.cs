@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
@@ -22,25 +21,21 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <summary>
         /// The path of the directory to operate on.
         /// </summary>
-        [NotNull]
         public string Path { get; }
 
         /// <summary>
         /// The contents of a <see cref="Manifests.Manifest"/> file describing the directory.
         /// </summary>
-        [NotNull]
         protected readonly Manifest Manifest;
 
         /// <summary>
         /// A callback object used when the the user needs to be asked questions or informed about IO tasks.
         /// </summary>
-        [NotNull]
         protected readonly ITaskHandler Handler;
 
         /// <summary>
         /// The paths of all <see cref="ManifestNode"/>s in <see cref="Manifest"/> relative to the manifest root.
         /// </summary>
-        [NotNull]
         protected readonly IList<KeyValuePair<string, ManifestNode>> ElementPaths;
 
         /// <summary>
@@ -49,7 +44,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <param name="path">The path of the directory to operate on.</param>
         /// <param name="manifest">The contents of a <see cref="Manifests.Manifest"/> file describing the directory.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-        protected DirectoryOperation([NotNull] string path, [NotNull] Manifest manifest, [NotNull] ITaskHandler handler)
+        protected DirectoryOperation(string path, Manifest manifest, ITaskHandler handler)
         {
             Path = path ?? throw new ArgumentNullException(nameof(path));
             Manifest = manifest ?? throw new ArgumentNullException(nameof(manifest));
@@ -68,8 +63,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// </summary>
         public bool NoRestart { get; set; }
 
-        [CanBeNull]
-        private WindowsRestartManager _restartManager;
+        private WindowsRestartManager? _restartManager;
 
         /// <summary>
         /// Uses <see cref="WindowsRestartManager"/> to close any applications that have open references to the specified <paramref name="files"/> if possible and removes read-only attributes.

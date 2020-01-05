@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(Arg other) => other != null && (base.Equals(other) && other.Value == Value);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

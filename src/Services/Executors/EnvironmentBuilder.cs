@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -28,14 +27,13 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to locate <see cref="Implementation"/>s.
         /// </summary>
-        [NotNull]
         private readonly IImplementationStore _implementationStore;
 
         /// <summary>
         /// Creates a new build.
         /// </summary>
         /// <param name="implementationStore">Used to locate <see cref="Implementation"/>s.</param>
-        public EnvironmentBuilder([NotNull] IImplementationStore implementationStore)
+        public EnvironmentBuilder(IImplementationStore implementationStore)
         {
             _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
         }
@@ -49,12 +47,12 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to hold the command-line of the main implementation while it is being built.
         /// </summary>
-        private List<ArgBase> _mainCommandLine;
+        private List<ArgBase> _mainCommandLine = default!;
 
         /// <summary>
         /// The set of <see cref="Implementation"/>s be injected into the execution environment.
         /// </summary>
-        private Selections _selections;
+        private Selections _selections = default!;
 
         /// <summary>
         /// Adds an environment variable to the execution environment.
@@ -68,7 +66,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         /// <returns>The execution environment. Reference to self for fluent API use.</returns>
         /// <remarks>Must be called before using other methods on the object. May not be called more than once.</remarks>
-        public void SetEnvironmentVariable([NotNull] string key, [NotNull] string value)
+        public void SetEnvironmentVariable(string key, string value)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
@@ -90,7 +88,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         /// <returns>The execution environment. Reference to self for fluent API use.</returns>
-        public IEnvironmentBuilder Inject([NotNull] Selections selections, [CanBeNull] string overrideMain = null)
+        public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null)
         {
             #region Sanity checks
             if (selections == null) throw new ArgumentNullException(nameof(selections));
@@ -119,7 +117,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <inheritdoc/>
-        public IEnvironmentBuilder AddWrapper(string wrapper)
+        public IEnvironmentBuilder AddWrapper(string? wrapper)
         {
             #region Sanity checks
             if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
@@ -183,8 +181,7 @@ namespace ZeroInstall.Services.Executors
         /// Replaces the <see cref="Command"/> of the main implementation with the binary specified in <paramref name="overrideMain"/> if set.
         /// </summary>
         /// <param name="overrideMain">An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
-        [NotNull]
-        private ImplementationSelection GetMainImplementation([CanBeNull] string overrideMain)
+        private ImplementationSelection GetMainImplementation(string? overrideMain)
         {
             if (string.IsNullOrEmpty(overrideMain)) return _selections.MainImplementation;
 
@@ -214,8 +211,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">A <see cref="Command"/> contained invalid data.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        [NotNull, ItemNotNull]
-        private List<ArgBase> GetCommandLine([NotNull] ImplementationSelection implementation, [NotNull] string commandName)
+        private List<ArgBase> GetCommandLine(ImplementationSelection implementation, string commandName)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -256,8 +252,7 @@ namespace ZeroInstall.Services.Executors
         /// Expands any Unix-style environment variables.
         /// </summary>
         /// <param name="commandLine">The command-line to expand.</param>
-        [NotNull, ItemNotNull]
-        private IList<string> ExpandCommandLine([NotNull, ItemNotNull] IEnumerable<ArgBase> commandLine)
+        private IList<string> ExpandCommandLine(IEnumerable<ArgBase> commandLine)
         {
             var result = new List<string>();
 
@@ -312,7 +307,7 @@ namespace ZeroInstall.Services.Executors
         /// Splits a command-line into a file name and an arguments part.
         /// </summary>
         /// <param name="commandLine">The command-line to split.</param>
-        private static CommandLineSplit SplitCommandLine([NotNull, ItemNotNull] IList<string> commandLine)
+        private static CommandLineSplit SplitCommandLine(IList<string> commandLine)
         {
             if (commandLine.Count == 0) throw new ExecutorException(Resources.CommandLineEmpty);
 

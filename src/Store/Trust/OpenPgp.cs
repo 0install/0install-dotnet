@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 
@@ -17,7 +16,6 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Creates an instance of <see cref="IOpenPgp"/> intended for verifying signatures.
         /// </summary>
-        [NotNull]
         public static IOpenPgp Verifying()
             => new BouncyCastle(VerifyingHomeDir);
 
@@ -31,7 +29,6 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Creates an instance of <see cref="IOpenPgp"/> intended for creating signatures.
         /// </summary>
-        [NotNull]
         public static IOpenPgp Signing()
             => new BouncyCastle(SigningHomeDir);
 

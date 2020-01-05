@@ -4,7 +4,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Commands.Basic
             /// <summary>Apply the operation machine-wide instead of just for the current user.</summary>
             protected bool MachineWide { get; private set; }
 
-            protected DirCommand([NotNull] ICommandHandler handler)
+            protected DirCommand(ICommandHandler handler)
                 : base(handler)
             {
                 Options.Add("m|machine", () => Resources.OptionMachine, _ => MachineWide = true);
@@ -41,7 +40,7 @@ namespace ZeroInstall.Commands.Basic
                     ? ImplementationStores.GetMachineWideDirectories()
                     : ImplementationStores.GetUserDirectories();
 
-            protected void SetImplementationDirs([NotNull] IEnumerable<string> paths)
+            protected void SetImplementationDirs(IEnumerable<string> paths)
             {
                 if (MachineWide) ImplementationStores.SetMachineWideDirectories(paths);
                 else ImplementationStores.SetUserDirectories(paths);
@@ -56,7 +55,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Description => Resources.DescriptionStoreAddDir;
 
-            public AddDir([NotNull] ICommandHandler handler)
+            public AddDir(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -90,7 +89,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Description => Resources.DescriptionStoreRemoveDir;
 
-            public RemoveDir([NotNull] ICommandHandler handler)
+            public RemoveDir(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion
@@ -124,7 +123,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 0;
 
-            public List([NotNull] ICommandHandler handler)
+            public List(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

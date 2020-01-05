@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.Trust;
@@ -44,7 +43,7 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="feedData">The feed data containing an embedded signature.</param>
         /// <returns>A list of signatures found, both valid and invalid.</returns>
         /// <exception cref="SignatureException">There is no valid signature data embedded in the <paramref name="feedData"/>.</exception>
-        public static IEnumerable<OpenPgpSignature> GetSignatures([NotNull] IOpenPgp openPgp, [NotNull] byte[] feedData)
+        public static IEnumerable<OpenPgpSignature> GetSignatures(IOpenPgp openPgp, byte[] feedData)
         {
             #region Sanity checks
             if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NDesk.Options;
@@ -46,12 +45,11 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process as parsed from the command-line arguments.
         /// </summary>
-        [NotNull]
         protected Requirements Requirements { get; } = new Requirements();
 
         // Intermediate variables, transferred to Requirements after parsing
-        private VersionRange _version;
-        private ImplementationVersion _before, _notBefore;
+        private VersionRange? _version;
+        private ImplementationVersion? _before, _notBefore;
 
         /// <summary>Indicates the user provided a pre-computed <see cref="Selections"/> XML document instead of using the <see cref="ISolver"/>.</summary>
         protected bool SelectionsDocument;
@@ -63,7 +61,7 @@ namespace ZeroInstall.Commands.Basic
         protected bool ShowXml;
 
         /// <inheritdoc/>
-        public Selection([NotNull] ICommandHandler handler)
+        public Selection(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("customize", () => Resources.OptionCustomize, _ => CustomizeSelections = true);
@@ -143,7 +141,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>Cached <see cref="ISolver"/> results.</summary>
-        protected Selections Selections;
+        protected Selections Selections = default!;
 
         /// <summary>
         /// Tries to parse <see cref="Store.Model.Requirements.InterfaceUri"/> as a pre-computed <see cref="Selection.Selections"/> document.

@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
@@ -29,7 +28,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="networkUse">Controls how liberally network access is attempted.</param>
         /// <param name="languages">The preferred languages for the implementation.</param>
         /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
-        public SelectionCandidateComparer(Stability stabilityPolicy, NetworkLevel networkUse, [NotNull] LanguageSet languages, [NotNull] Predicate<Implementation> isCached)
+        public SelectionCandidateComparer(Stability stabilityPolicy, NetworkLevel networkUse, LanguageSet languages, Predicate<Implementation> isCached)
         {
             _stabilityPolicy = stabilityPolicy;
             _networkUse = networkUse;

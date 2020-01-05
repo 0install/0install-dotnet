@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -52,8 +51,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <param name="id">The <see cref="Capability.ID"/> to match.</param>
         /// <returns>The first matching <see cref="Capability"/>; <c>null</c> if no match was found.</returns>
         /// <exception cref="KeyNotFoundException">No capability matching <paramref name="id"/> and <typeparamref name="T"/> was found.</exception>
-        [CanBeNull]
-        public T GetCapability<T>([NotNull] string id) where T : Capability
+        public T? GetCapability<T>(string id) where T : Capability
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -91,7 +89,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             && Entries.SequencedEquals(other.Entries);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

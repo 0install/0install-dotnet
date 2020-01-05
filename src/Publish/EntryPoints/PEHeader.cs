@@ -5,7 +5,6 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
-using JetBrains.Annotations;
 using NanoByte.Common.Values;
 
 // ReSharper disable All
@@ -240,7 +239,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// Reads the PE header of a file.
         /// </summary>
         /// <param name="path">The file to read.</param>
-        public PEHeader([NotNull] string path)
+        public PEHeader(string path)
         {
             using var stream = File.OpenRead(path);
             var reader = new BinaryReader(stream);

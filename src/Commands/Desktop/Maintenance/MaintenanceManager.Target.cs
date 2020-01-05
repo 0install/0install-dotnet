@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Threading;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -21,8 +20,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// </summary>
         /// <param name="dirPath">The directory to check for a manifest file.</param>
         /// <returns>The loaded <see cref="Manifest"/>; <c>null</c> if no <see cref="Manifest"/> file was found.</returns>
-        [CanBeNull]
-        private static Manifest LoadManifest([NotNull] string dirPath)
+        private static Manifest? LoadManifest(string dirPath)
         {
             string manifestPath = Path.Combine(dirPath, Manifest.ManifestFile);
             if (!File.Exists(manifestPath)) return null;
@@ -35,7 +33,6 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// <summary>
         /// Provides a fake <see cref="Manifest"/> listing the files usually present in older deployments.
         /// </summary>
-        [NotNull]
         private static Manifest LegacyManifest
         {
             get
@@ -46,8 +43,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         }
 
         /// <summary>A mutex that prevents Zero Install instances from being launched while an update is in progress.</summary>
-        [CanBeNull]
-        private AppMutex _targetMutex;
+        private AppMutex? _targetMutex;
 
         /// <summary>
         /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.

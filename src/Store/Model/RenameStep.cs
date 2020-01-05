@@ -4,8 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -19,19 +17,19 @@ namespace ZeroInstall.Store.Model
         /// The source file or directory relative to the implementation root as a Unix-style path.
         /// </summary>
         [Description("The source file or directory relative to the implementation root as a Unix-style path.")]
-        [XmlAttribute("source"), DefaultValue(""), CanBeNull]
-        public string Source { get; set; }
+        [XmlAttribute("source"), DefaultValue("")]
+        public string? Source { get; set; }
 
         /// <summary>
         /// The destination file or directory relative to the implementation root as a Unix-style path.
         /// </summary>
         [Description("The destination file or directory relative to the implementation root as a Unix-style path.")]
-        [XmlAttribute("dest"), DefaultValue(""), CanBeNull]
-        public string Destination { get; set; }
+        [XmlAttribute("dest"), DefaultValue("")]
+        public string? Destination { get; set; }
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri feedUri) {}
+        public void Normalize(FeedUri? feedUri = null) {}
         #endregion
 
         #region Conversion
@@ -54,7 +52,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(RenameStep other) => other != null && base.Equals(other) && other.Source == Source && other.Destination == Destination;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

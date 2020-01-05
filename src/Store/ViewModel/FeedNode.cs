@@ -8,8 +8,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Model;
@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.ViewModel
         /// </summary>
         /// <param name="feed">The <see cref="Feed"/> to be represented by this node.</param>
         /// <param name="cache">The <see cref="IFeedCache"/> the <see cref="Feed"/> is located in.</param>
-        public FeedNode([NotNull] Feed feed, [NotNull] IFeedCache cache)
+        public FeedNode(Feed feed, IFeedCache cache)
         {
             _cache = cache ?? throw new ArgumentNullException(nameof(cache));
             _feed = feed ?? throw new ArgumentNullException(nameof(feed));
@@ -56,29 +56,25 @@ namespace ZeroInstall.Store.ViewModel
         /// The URI identifying this feed.
         /// </summary>
         [Description("The URI identifying this feed.")]
-        [NotNull]
         public FeedUri Uri => _feed.Uri;
 
         /// <summary>
         /// The main website of the application.
         /// </summary>
         [Description("The main website of the application.")]
-        [CanBeNull]
-        public Uri Homepage => _feed.Homepage;
+        public Uri? Homepage => _feed.Homepage;
 
         /// <summary>
         /// A short one-line description of the application.
         /// </summary>
         [Description("A short one-line description of the application.")]
-        [CanBeNull]
-        public string Summary => _feed.GetBestSummary(CultureInfo.CurrentUICulture);
+        public string? Summary => _feed.GetBestSummary(CultureInfo.CurrentUICulture);
 
         /// <summary>
         /// A comma-separated list of categories the applications fits into.
         /// </summary>
         [Description("A comma-separated list of categories the applications fits into.")]
-        [NotNull]
-        public string Categories => StringUtils.Join(",", _feed.Categories.Select(x => x.Name));
+        public string Categories => StringUtils.Join(",", _feed.Categories.Select(x => x.Name).WhereNotNull());
 
         /// <summary>
         /// Deletes this <see cref="Feed"/> from the <see cref="IFeedCache"/> it is located in.

@@ -3,7 +3,6 @@
 
 using System;
 using System.Globalization;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
@@ -18,7 +17,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The complete path of this directory relative to the tree root as a Unix-Path beginning with a slash.
         /// </summary>
-        [NotNull]
         public string FullPath { get; }
 
         /// <summary>
@@ -43,8 +41,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="line">The string representation to parse.</param>
         /// <returns>The newly created node.</returns>
         /// <exception cref="FormatException">The <paramref name="line"/> format is incorrect.</exception>
-        [NotNull]
-        internal static ManifestDirectory FromString([NotNull] string line)
+        internal static ManifestDirectory FromString(string line)
         {
             const int numberOfParts = 2;
             var parts = line.Split(new[] {' '}, numberOfParts);
@@ -68,7 +65,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             => other != null && FullPath == other.FullPath;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

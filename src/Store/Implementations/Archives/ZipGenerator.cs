@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using ICSharpCode.SharpZipLib.Zip;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 
@@ -23,7 +22,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         /// <param name="sourcePath">The path of the directory to capture/store in the archive.</param>
         /// <param name="stream">The stream to write the generated archive to. Will be disposed when the generator is disposed.</param>
-        internal ZipGenerator([NotNull] string sourcePath, [NotNull] Stream stream)
+        internal ZipGenerator(string sourcePath, Stream stream)
             : base(sourcePath)
         {
             #region Sanity checks

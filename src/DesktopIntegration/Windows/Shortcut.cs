@@ -5,7 +5,6 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.Properties;
@@ -27,7 +26,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="command">The command within <paramref name="target"/> the shortcut shall point to; can be <c>null</c>.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        private static void Create([NotNull] string path, FeedTarget target, [CanBeNull] string command, [NotNull] IIconStore iconStore, bool machineWide)
+        private static void Create(string path, FeedTarget target, string? command, IIconStore iconStore, bool machineWide)
         {
             if (string.IsNullOrEmpty(command)) command = Command.NameRun;
 
@@ -56,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="arguments">Additional arguments to pass to the target; can be <c>null</c>.</param>
         /// <param name="iconLocation">The path of the icon to use for the shortcut; leave <c>null</c> ot get the icon from <paramref name="targetPath"/>.</param>
         /// <param name="description">A short human-readable description; can be <c>null</c>.</param>
-        public static void Create([NotNull] string path, [NotNull] string targetPath, [CanBeNull] string arguments = null, [CanBeNull] string iconLocation = null, [CanBeNull] string description = null)
+        public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null)
         {
             if (File.Exists(path)) File.Delete(path);
 
@@ -76,7 +75,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// Ensures that the given name can be used as a file name.
         /// </summary>
         /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
-        private static void CheckName([CanBeNull] string name)
+        private static void CheckName(string? name)
         {
             if (string.IsNullOrEmpty(name) || name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
                 throw new IOException(string.Format(Resources.NameInvalidChars, name));

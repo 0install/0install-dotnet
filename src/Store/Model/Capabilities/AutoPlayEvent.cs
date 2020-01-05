@@ -43,7 +43,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Returns the event in the form "Name". Not safe for parsing!
         /// </summary>
-        public override string ToString() => Name;
+        public override string ToString()
+            => Name ?? "";
         #endregion
 
         #region Clone
@@ -59,7 +60,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public bool Equals(AutoPlayEvent other) => other != null && base.Equals(other) && other.Name == Name;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

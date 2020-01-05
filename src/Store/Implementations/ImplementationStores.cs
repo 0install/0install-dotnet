@@ -7,7 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
@@ -28,7 +27,6 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
-        [NotNull]
         public static IImplementationStore Default()
         {
             var stores = new List<IImplementationStore>();
@@ -69,7 +67,6 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
-        [NotNull, ItemNotNull]
         public static IEnumerable<string> GetDirectories(bool serviceMode = false)
         {
             if (!serviceMode)
@@ -81,7 +78,7 @@ namespace ZeroInstall.Store.Implementations
             // Add the system cache when not in portable mode
             if (!Locations.IsPortable)
             {
-                string systemCache;
+                string? systemCache;
                 try
                 {
                     systemCache = Locations.GetCacheDirPath("0install.net", machineWide: true, resource: "implementations");
@@ -106,7 +103,6 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
         public static IEnumerable<string> GetUserDirectories()
             => GetDirectories(GetUserConfigFile());
@@ -117,7 +113,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetUserDirectories([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+        public static void SetUserDirectories(IEnumerable<string> paths)
             => SetDirectories(GetUserConfigFile(), paths);
 
         private static string GetUserConfigFile()
@@ -128,7 +124,6 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        [NotNull, ItemNotNull]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
         public static IEnumerable<string> GetMachineWideDirectories()
             => GetDirectories(GetMachineWideConfigFile());
@@ -139,7 +134,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetMachineWideDirectories([NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+        public static void SetMachineWideDirectories(IEnumerable<string> paths)
             => SetDirectories(GetMachineWideConfigFile(), paths);
 
         private static string GetMachineWideConfigFile()
@@ -151,8 +146,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="configPath">The path of the configuration file to read.</param>
         /// <exception cref="IOException">There was a problem accessing <paramref name="configPath"/>.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to <paramref name="configPath"/> was not permitted.</exception>
-        [NotNull, ItemNotNull]
-        private static IEnumerable<string> GetDirectories([NotNull] string configPath)
+        private static IEnumerable<string> GetDirectories(string configPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(configPath)) throw new ArgumentNullException(nameof(configPath));
@@ -199,7 +193,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="paths">The list of implementation directories to set.</param>
         /// <exception cref="IOException">There was a problem writing <paramref name="configPath"/>.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to <paramref name="configPath"/> was not permitted.</exception>
-        private static void SetDirectories([NotNull] string configPath, [NotNull, ItemNotNull, InstantHandle] IEnumerable<string> paths)
+        private static void SetDirectories(string configPath, IEnumerable<string> paths)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(configPath)) throw new ArgumentNullException(nameof(configPath));

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model.Capabilities
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// A list of all file extensions associated with this file type.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("extension"), NotNull]
+        [XmlElement("extension")]
         public List<FileTypeExtension> Extensions { get; } = new List<FileTypeExtension>();
 
         /// <inheritdoc/>
@@ -36,7 +35,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Returns the capability in the form "ID". Not safe for parsing!
         /// </summary>
-        public override string ToString() => ID;
+        public override string ToString()
+            => ID ?? "";
         #endregion
 
         #region Clone
@@ -58,7 +58,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             => other != null && base.Equals(other) && Extensions.SequencedEquals(other.Extensions);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

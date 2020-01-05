@@ -21,9 +21,11 @@ namespace ZeroInstall.Store.Implementations
         #region Constants
         private static readonly ManifestDigest _digest1 = new ManifestDigest(sha1New: "abc");
         private static readonly ManifestDigest _digest2 = new ManifestDigest(sha1New: "123");
-        private static readonly ArchiveFileInfo _archive1 = new ArchiveFileInfo {Path = "path1"};
-        private static readonly ArchiveFileInfo _archive2 = new ArchiveFileInfo {Path = "path2"};
-        private static readonly IEnumerable<ArchiveFileInfo> _archives = new[] {_archive1, _archive2};
+        private static readonly IEnumerable<ArchiveFileInfo> _archives = new[]
+        {
+            new ArchiveFileInfo("path1", Archive.MimeTypeZip),
+            new ArchiveFileInfo("path2", Archive.MimeTypeZip)
+        };
         #endregion
 
         private readonly MockTaskHandler _handler;

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Model;
@@ -24,8 +23,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="path">A path to a directory that may or may not be inside a store implementation.</param>
         /// <returns>The top-level of the detected store implementation directory if any; <c>null</c> otherwise.</returns>
         /// <remarks>Performs no file system access. Only looks at the path string itself.</remarks>
-        [CanBeNull]
-        public static string DetectImplementationPath([NotNull] string path)
+        public static string? DetectImplementationPath(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -47,8 +45,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Wrapper for <see cref="IImplementationStore.ListAll"/>, handling exceptions.
         /// </summary>
-        [NotNull]
-        public static IEnumerable<ManifestDigest> ListAllSafe([NotNull] this IImplementationStore implementationStore)
+        public static IEnumerable<ManifestDigest> ListAllSafe(this IImplementationStore implementationStore)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
@@ -70,8 +67,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Wrapper for <see cref="IImplementationStore.ListAllTemp"/>, handling exceptions.
         /// </summary>
-        [NotNull, ItemNotNull]
-        public static IEnumerable<string> ListAllTempSafe([NotNull] this IImplementationStore implementationStore)
+        public static IEnumerable<string> ListAllTempSafe(this IImplementationStore implementationStore)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
@@ -93,8 +89,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Wrapper for <see cref="IImplementationStore.GetPath"/>, handling exceptions.
         /// </summary>
-        [CanBeNull]
-        public static string GetPathSafe([NotNull] this IImplementationStore implementationStore, ManifestDigest manifestDigest)
+        public static string? GetPathSafe(this IImplementationStore implementationStore, ManifestDigest manifestDigest)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
@@ -120,8 +115,7 @@ namespace ZeroInstall.Store.Implementations
         /// <returns>A fully qualified path to the directory containing the implementation.</returns>
         /// <exception cref="ImplementationNotFoundException">The <paramref name="implementation"/> is not cached yet.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
-        [NotNull]
-        public static string GetPath([NotNull] this IImplementationStore implementationStore, [NotNull] ImplementationBase implementation)
+        public static string GetPath(this IImplementationStore implementationStore, ImplementationBase implementation)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
@@ -130,7 +124,7 @@ namespace ZeroInstall.Store.Implementations
 
             if (string.IsNullOrEmpty(implementation.LocalPath))
             {
-                string path = implementationStore.GetPath(implementation.ManifestDigest);
+                string? path = implementationStore.GetPath(implementation.ManifestDigest);
                 if (path == null) throw new ImplementationNotFoundException(implementation.ManifestDigest);
                 return path;
             }
@@ -145,7 +139,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">An implementation could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-        public static void Purge([NotNull] this IImplementationStore implementationStore, [NotNull] ITaskHandler handler)
+        public static void Purge(this IImplementationStore implementationStore, ITaskHandler handler)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));

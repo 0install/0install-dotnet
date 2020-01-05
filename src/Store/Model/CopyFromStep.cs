@@ -4,8 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -19,22 +17,22 @@ namespace ZeroInstall.Store.Model
         /// The <see cref="ImplementationBase.ID"/> of the <see cref="Implementation"/> to copy from.
         /// </summary>
         [Description("The ID of the implementation to copy from.")]
-        [XmlAttribute("id"), DefaultValue(""), CanBeNull]
-        public string ID { get; set; }
+        [XmlAttribute("id"), DefaultValue("")]
+        public string? ID { get; set; }
 
         /// <summary>
         /// The source file or directory relative to the source implementation root as a Unix-style path. Leave <c>null</c> to copy the entire implementation.
         /// </summary>
         [Description("The source file or directory relative to the source implementation root as a Unix-style path. Leave unset to copy the entire implementation.")]
-        [XmlAttribute("source"), DefaultValue(""), CanBeNull]
-        public string Source { get; set; }
+        [XmlAttribute("source"), DefaultValue("")]
+        public string? Source { get; set; }
 
         /// <summary>
         /// The destination file or directory relative to the destination implementation root as a Unix-style path. Leave <c>null</c> to copy to the root of the new implementation. Must be set if <see cref="Source"/> points to a file rather than a directory.
         /// </summary>
         [Description("The destination file or directory relative to the destination implementation root as a Unix-style path. Leave unset to copy to the root of the new implementation. Must be set if Source points to a file rather than a directory.")]
-        [XmlAttribute("dest"), DefaultValue(""), CanBeNull]
-        public string Destination { get; set; }
+        [XmlAttribute("dest"), DefaultValue("")]
+        public string? Destination { get; set; }
 
         /// <summary>
         /// Used to hold the <see cref="Implementation"/> the <see cref="ID"/> references after <see cref="Feed.Normalize"/> has been executed.
@@ -44,7 +42,7 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri feedUri) {}
+        public void Normalize(FeedUri? feedUri = null) {}
         #endregion
 
         #region Conversion
@@ -72,7 +70,7 @@ namespace ZeroInstall.Store.Model
             && other.Destination == Destination;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

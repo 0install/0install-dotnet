@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.ViewModel
         /// The UI path name of this node. Uses a backslash as the separator in hierarchical names.
         /// </summary>
         [Browsable(false)]
-        public virtual string Name { get; set; }
+        public abstract string Name { get; set; }
 
         /// <summary>
         /// A counter that can be used to prevent naming collisions.
@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -3,8 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Implementations.Build
 {
     /// <summary>
@@ -15,13 +13,11 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The name of the original file to read without any directory information.
         /// </summary>
-        [NotNull]
         public string SourceFileName { get; }
 
         /// <summary>
         /// The name of the new file to write without any directory information.
         /// </summary>
-        [NotNull]
         public string TargetFileName { get; set; }
 
         /// <summary>
@@ -29,7 +25,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="sourceFilePath">The path of the original file to read.</param>
         /// <param name="targetDirPath">The path of the new directory to clone the file to.</param>
-        public CloneFile([NotNull] string sourceFilePath, [NotNull] string targetDirPath)
+        public CloneFile(string sourceFilePath, string targetDirPath)
             : base(
                 sourcePath: Path.GetDirectoryName(sourceFilePath) ?? throw new ArgumentNullException(sourceFilePath),
                 targetPath: targetDirPath ?? throw new ArgumentNullException(targetDirPath))

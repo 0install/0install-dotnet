@@ -24,7 +24,7 @@ namespace ZeroInstall.Publish.EntryPoints
             Name = file.Name;
             Architecture = new Architecture(OS.Linux, Cpu.All);
 
-            IELF elfData = null;
+            IELF? elfData = null;
             try
             {
                 if (ELFReader.TryLoad(file.FullName, out elfData))

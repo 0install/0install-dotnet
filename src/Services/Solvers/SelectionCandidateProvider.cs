@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -31,7 +30,7 @@ namespace ZeroInstall.Services.Solvers
 
         private readonly TransparentCache<FeedUri, InterfacePreferences> _interfacePreferences;
         private readonly Dictionary<string, ExternalImplementation> _externalImplementations;
-        private readonly TransparentCache<FeedUri, Feed> _feeds;
+        private readonly TransparentCache<FeedUri, Feed?> _feeds;
         private readonly TransparentCache<ManifestDigest, bool> _storeContains;
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="feedManager">Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.</param>
         /// <param name="implementationStore">Used to check which <see cref="Implementation"/>s are already cached.</param>
         /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
-        public SelectionCandidateProvider([NotNull] Config config, [NotNull] IFeedManager feedManager, [NotNull] IImplementationStore implementationStore, [NotNull] IPackageManager packageManager)
+        public SelectionCandidateProvider(Config config, IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager)
         {
             #region Sanity checks
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -56,7 +55,7 @@ namespace ZeroInstall.Services.Solvers
             _interfacePreferences = new TransparentCache<FeedUri, InterfacePreferences>(InterfacePreferences.LoadForSafe);
             _externalImplementations = new Dictionary<string, ExternalImplementation>();
             _storeContains = new TransparentCache<ManifestDigest, bool>(implementationStore.Contains);
-            _feeds = new TransparentCache<FeedUri, Feed>(feedUri =>
+            _feeds = new TransparentCache<FeedUri, Feed?>(feedUri =>
             {
                 try
                 {

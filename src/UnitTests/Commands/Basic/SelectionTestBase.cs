@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using FluentAssertions;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using NDesk.Options;
 using Xunit;
@@ -73,7 +72,7 @@ namespace ZeroInstall.Commands.Basic
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommands.Execute"/>.</param>
         /// <param name="expectedSelections">The expected value passed to <see cref="ICommandHandler.ShowSelections"/>.</param>
         /// <param name="args">The arguments to pass to <see cref="CliCommands.Parse"/>.</param>
-        protected void RunAndAssert([CanBeNull] string expectedOutput, ExitCode expectedExitCode, Selections expectedSelections, params string[] args)
+        protected void RunAndAssert(string? expectedOutput, ExitCode expectedExitCode, Selections expectedSelections, params string[] args)
         {
             RunAndAssert(expectedOutput, expectedExitCode, args);
 

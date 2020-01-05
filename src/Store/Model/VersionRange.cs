@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Values.Design;
@@ -50,7 +49,7 @@ namespace ZeroInstall.Store.Model
         /// Creates a new version range set.
         /// </summary>
         /// <param name="parts">The individual ranges.</param>
-        public VersionRange([NotNull] params VersionRangePart[] parts)
+        public VersionRange(params VersionRangePart[] parts)
         {
             Parts = (parts ?? throw new ArgumentNullException(nameof(parts))).ToArray();
         }
@@ -60,7 +59,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="value">The string containing the version ranges.</param>
         /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>
-        public VersionRange([NotNull] string value)
+        public VersionRange(string value)
             : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.FromString(part.Trim())))
         {}
 
@@ -82,8 +81,12 @@ namespace ZeroInstall.Store.Model
         /// <param name="value">The string to parse.</param>
         /// <param name="result">Returns the created <see cref="VersionRange"/> if successfully; <c>null</c> otherwise.</param>
         /// <returns><c>true</c> if the <see cref="VersionRange"/> was successfully created; <c>false</c> otherwise.</returns>
-        [ContractAnnotation("=>false,result:null; =>true,result:notnull")]
-        public static bool TryCreate([NotNull] string value, out VersionRange result)
+        public static bool TryCreate(
+            string value,
+#if NETSTANDARD2_1
+            [System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out VersionRange? result)
         {
             try
             {
@@ -100,7 +103,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Intersects another version range set with this one and returns a new set as the result.
         /// </summary>
-        public VersionRange Intersect([NotNull] VersionRange other)
+        public VersionRange Intersect(VersionRange other)
         {
             #region Sanity checks
             if (other == null) throw new ArgumentNullException(nameof(other));
@@ -115,7 +118,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Determines whether a specific version lies within this range set.
         /// </summary>
-        public bool Match([NotNull] ImplementationVersion version)
+        public bool Match(ImplementationVersion version)
         {
             #region Sanity checks
             if (version == null) throw new ArgumentNullException(nameof(version));
@@ -150,7 +153,7 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
@@ -161,8 +164,8 @@ namespace ZeroInstall.Store.Model
         public override int GetHashCode()
             => Parts.GetSequencedHashCode();
 
-        public static bool operator ==(VersionRange left, VersionRange right) => Equals(left, right);
-        public static bool operator !=(VersionRange left, VersionRange right) => !Equals(left, right);
+        public static bool operator ==(VersionRange? left, VersionRange? right) => Equals(left, right);
+        public static bool operator !=(VersionRange? left, VersionRange? right) => !Equals(left, right);
         #endregion
     }
 }

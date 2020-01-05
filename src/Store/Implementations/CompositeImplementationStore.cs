@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
@@ -40,7 +39,7 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
         /// <inheritdoc/>
-        public string DirectoryPath => null;
+        public string? DirectoryPath => null;
         #endregion
 
         #region Constructor
@@ -51,7 +50,7 @@ namespace ZeroInstall.Store.Implementations
         ///   A priority-sorted list of <see cref="IImplementationStore"/>s.
         ///   Queried last-to-first for adding new <see cref="Implementation"/>s, first-to-last otherwise.
         /// </param>
-        public CompositeImplementationStore([NotNull, ItemNotNull] IEnumerable<IImplementationStore> innerStores)
+        public CompositeImplementationStore(IEnumerable<IImplementationStore> innerStores)
         {
             #region Sanity checks
             if (innerStores == null) throw new ArgumentNullException(nameof(innerStores));
@@ -112,7 +111,7 @@ namespace ZeroInstall.Store.Implementations
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
 
             // Find the last store the implementation can be added to (some might be write-protected)
-            Exception innerException = null;
+            Exception? innerException = null;
             foreach (var store in _innerStores.Reverse())
             {
                 try
@@ -157,7 +156,7 @@ namespace ZeroInstall.Store.Implementations
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
 
             // Find the last store the implementation can be added to (some might be write-protected)
-            Exception innerException = null;
+            Exception? innerException = null;
             foreach (var store in _innerStores.Reverse())
             {
                 try

@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             => other != null && base.Equals(other) && other.CapabilityRegPath == CapabilityRegPath;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

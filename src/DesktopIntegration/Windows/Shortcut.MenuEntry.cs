@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
@@ -21,7 +20,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="target">The target the shortcut shall point to.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        public static void Create([NotNull] MenuEntry menuEntry, FeedTarget target, [NotNull] IIconStore iconStore, bool machineWide)
+        public static void Create(MenuEntry menuEntry, FeedTarget target, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (menuEntry == null) throw new ArgumentNullException(nameof(menuEntry));
@@ -40,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="menuEntry">Information about the shortcut to be removed.</param>
         /// <param name="machineWide">The shortcut was created machine-wide instead of just for the current user.</param>
-        public static void Remove([NotNull] MenuEntry menuEntry, bool machineWide)
+        public static void Remove(MenuEntry menuEntry, bool machineWide)
         {
             #region Sanity checks
             if (menuEntry == null) throw new ArgumentNullException(nameof(menuEntry));
@@ -62,8 +61,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="name">The name of the shortcut (without the .lnk ending).</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide start menu; <c>false</c> for the per-user variant.</param>
         /// <exception cref="IOException"><paramref name="name"/> or <paramref name="category"/> contains invalid characters.</exception>
-        [NotNull]
-        public static string GetStartMenuPath([CanBeNull] string category, [NotNull] string name, bool machineWide)
+        public static string GetStartMenuPath(string? category, string name, bool machineWide)
         {
             CheckName(name);
 
@@ -76,8 +74,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="category">The name of the category/directory below the programs folder; can be <c>null</c>.</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide start menu; <c>false</c> for the per-user variant.</param>
         /// <exception cref="IOException"><paramref name="category"/> contains invalid characters.</exception>
-        [NotNull]
-        private static string GetStartMenuCategoryPath([CanBeNull] string category, bool machineWide)
+        private static string GetStartMenuCategoryPath(string? category, bool machineWide)
         {
             string menuDir = machineWide
                 ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Programs")

@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -58,7 +57,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">A <see cref="Command"/> contained invalid data.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        private void ApplyDependencyBindings([NotNull] IDependencyContainer dependencyContainer)
+        private void ApplyDependencyBindings(IDependencyContainer dependencyContainer)
         {
             foreach (var dependency in dependencyContainer.Dependencies.Where(x => x.Importance == Importance.Essential || _selections.ContainsImplementation(x.InterfaceUri)))
                 ApplyBindings(dependency, _selections[dependency.InterfaceUri]);
@@ -73,7 +72,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">A <see cref="Command"/> contained invalid data.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        private void ApplyBindings([NotNull] IBindingContainer bindingContainer, [NotNull] ImplementationSelection implementation)
+        private void ApplyBindings(IBindingContainer bindingContainer, ImplementationSelection implementation)
         {
             // Do not apply bindings more than once
             if (!_appliedBindingContainers.Add(bindingContainer)) return;
@@ -107,7 +106,7 @@ namespace ZeroInstall.Services.Executors
         /// <param name="binding">The binding to apply.</param>
         /// <param name="implementation">The implementation to be made available.</param>
         /// <exception cref="ExecutorException"><see cref="EnvironmentBinding.Name"/> or other data is invalid.</exception>
-        private void ApplyEnvironmentBinding([NotNull] EnvironmentBinding binding, [NotNull] ImplementationSelection implementation)
+        private void ApplyEnvironmentBinding(EnvironmentBinding binding, ImplementationSelection implementation)
         {
             Log.Debug("Applying " + binding + " for " + implementation);
 
@@ -184,7 +183,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException"><see cref="ExecutableInVar.Name"/> is invalid.</exception>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        private void ApplyExecutableInVar([NotNull] ExecutableInVar binding, [NotNull] ImplementationSelection implementation)
+        private void ApplyExecutableInVar(ExecutableInVar binding, ImplementationSelection implementation)
         {
             Log.Debug("Applying " + binding + " for " + implementation);
 
@@ -212,7 +211,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException"><see cref="ExecutableInPath.Name"/> is invalid.</exception>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        private void ApplyExecutableInPath([NotNull] ExecutableInPath binding, [NotNull] ImplementationSelection implementation)
+        private void ApplyExecutableInPath(ExecutableInPath binding, ImplementationSelection implementation)
         {
             Log.Debug("Applying " + binding + " for " + implementation);
 
@@ -239,8 +238,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <remarks>A run-environment executable executes a command-line specified in an environment variable based on its own name.</remarks>
-        [NotNull]
-        private static string DeployRunEnvExecutable([NotNull] string name)
+        private static string DeployRunEnvExecutable(string name)
         {
             string templatePath = GetRunEnvTemplate();
             string deployedPath = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
@@ -277,7 +275,6 @@ namespace ZeroInstall.Services.Executors
         /// Deploys an appropriate runenv binary template for the current operating system.
         /// </summary>
         /// <returns>The path to the deployed executable file.</returns>
-        [NotNull]
         private static string GetRunEnvTemplate()
         {
             string templateName = WindowsUtils.IsWindows
@@ -341,7 +338,7 @@ namespace ZeroInstall.Services.Executors
         /// <param name="implementation">The implementation to be made available via the <see cref="WorkingDir"/> change.</param>
         /// <exception cref="ImplementationNotFoundException">The <paramref name="implementation"/> is not cached yet.</exception>
         /// <exception cref="ExecutorException">The <paramref name="binding"/> has an invalid path or another working directory has already been set.</exception>
-        private void ApplyWorkingDir([NotNull] WorkingDir binding, [NotNull] ImplementationSelection implementation)
+        private void ApplyWorkingDir(WorkingDir binding, ImplementationSelection implementation)
         {
             Log.Debug("Applying " + binding + " for " + implementation);
 

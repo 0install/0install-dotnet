@@ -4,8 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     #region Enumerations
@@ -48,16 +46,16 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <remarks>If this is set <see cref="Insert"/> must be <c>null</c>.</remarks>
         [Description("A static value to set the variable to. If this is set 'Insert' must be empty.")]
-        [XmlAttribute("value"), CanBeNull]
-        public string Value { get; set; }
+        [XmlAttribute("value")]
+        public string? Value { get; set; }
 
         /// <summary>
         /// The relative path of the item within the implementation to insert into the variable value. Use <c>.</c> to publish the root directory.
         /// </summary>
         /// <remarks>If this is set <see cref="Value"/> must be <c>null</c>.</remarks>
         [Description("The relative path of the item within the implementation to insert into the variable value. Use \".\" to publish the root directory. If this is set 'Value' must be empty.")]
-        [XmlAttribute("insert"), CanBeNull]
-        public string Insert { get; set; }
+        [XmlAttribute("insert")]
+        public string? Insert { get; set; }
 
         /// <summary>
         /// Controls how the <see cref="Insert"/> or <see cref="Value"/> is added to the variable.
@@ -71,14 +69,14 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("Overrides the default separator character (\":\" on POSIX and \";\" on Windows).")]
         [XmlAttribute("separator"), DefaultValue("")]
-        public string Separator { get; set; }
+        public string? Separator { get; set; }
 
         /// <summary>
         /// If the environment variable is not currently set then this value is used for prepending or appending.
         /// </summary>
         [Description("If the environment variable is not currently set then this value is used for prepending or appending.")]
         [XmlAttribute("default"), DefaultValue("")]
-        public string Default { get; set; }
+        public string? Default { get; set; }
 
         #region Conversion
         /// <summary>
@@ -110,7 +108,7 @@ namespace ZeroInstall.Store.Model
             && other.Default == Default;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

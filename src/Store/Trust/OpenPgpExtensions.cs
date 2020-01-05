@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Properties;
 
@@ -23,8 +22,7 @@ namespace ZeroInstall.Store.Trust
         /// <exception cref="KeyNotFoundException">The specified key could not be found on the system.</exception>
         /// <seealso cref="IOpenPgp.Sign"/>
         /// <seealso cref="IOpenPgp.ExportKey"/>
-        [NotNull]
-        public static OpenPgpSecretKey GetSecretKey([NotNull] this IOpenPgp openPgp, [NotNull] IKeyIDContainer keyIDContainer)
+        public static OpenPgpSecretKey GetSecretKey(this IOpenPgp openPgp, IKeyIDContainer keyIDContainer)
         {
             #region Sanity checks
             if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));
@@ -53,8 +51,7 @@ namespace ZeroInstall.Store.Trust
         /// <exception cref="KeyNotFoundException">The specified key could not be found on the system.</exception>
         /// <seealso cref="IOpenPgp.Sign"/>
         /// <seealso cref="IOpenPgp.ExportKey"/>
-        [NotNull]
-        public static OpenPgpSecretKey GetSecretKey([NotNull] this IOpenPgp openPgp, [CanBeNull] string keySpecifier = null)
+        public static OpenPgpSecretKey GetSecretKey(this IOpenPgp openPgp, string? keySpecifier = null)
         {
             #region Sanity checks
             if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));

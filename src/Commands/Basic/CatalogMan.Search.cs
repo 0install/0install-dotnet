@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 
@@ -19,7 +18,7 @@ namespace ZeroInstall.Commands.Basic
 
             public override string Usage => "[QUERY]";
 
-            public Search([NotNull] ICommandHandler handler)
+            public Search(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

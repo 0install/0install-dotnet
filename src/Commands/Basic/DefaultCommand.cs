@@ -3,7 +3,6 @@
 
 using System;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Info;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
@@ -37,7 +36,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public DefaultCommand([NotNull] ICommandHandler handler)
+        public DefaultCommand(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("V|version", () => Resources.OptionVersion, _ =>

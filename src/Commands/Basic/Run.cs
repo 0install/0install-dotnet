@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -38,18 +37,16 @@ namespace ZeroInstall.Commands.Basic
 
         #region State
         /// <summary>>An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>.</summary>
-        [CanBeNull]
-        private string _overrideMain;
+        private string? _overrideMain;
 
         /// <summary>Instead of executing the selected program directly, pass it as an argument to this program.</summary>
-        [CanBeNull]
-        private string _wrapper;
+        private string? _wrapper;
 
         /// <summary>Immediately returns once the chosen program has been launched instead of waiting for it to finish executing.</summary>
         protected bool NoWait;
 
         /// <inheritdoc/>
-        public Run([NotNull] ICommandHandler handler)
+        public Run(ICommandHandler handler)
             : base(handler)
         {
             //Options.Remove("xml");
@@ -123,8 +120,7 @@ namespace ZeroInstall.Commands.Basic
         /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "Explicit test for empty but non-null strings is intended")]
-        [CanBeNull]
-        protected Process LaunchImplementation()
+        protected Process? LaunchImplementation()
         {
             if (Requirements.Command == "") throw new OptionException(Resources.NoRunWithEmptyCommand, "command");
 

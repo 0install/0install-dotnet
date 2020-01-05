@@ -3,7 +3,6 @@
 
 using System.IO;
 using FluentAssertions;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 
@@ -19,7 +18,6 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The path the symlink points to relative to its own location.
         /// </summary>
-        [NotNull]
         public string Target { get; }
 
         /// <summary>
@@ -27,7 +25,7 @@ namespace ZeroInstall.FileSystem
         /// </summary>
         /// <param name="name">The name of the symlink.</param>
         /// <param name="target">The path the symlink points to relative to its own location.</param>
-        public TestSymlink([NotNull] string name, [NotNull] string target)
+        public TestSymlink(string name, string target)
             : base(name)
         {
             Target = target;
@@ -46,7 +44,7 @@ namespace ZeroInstall.FileSystem
             (File.Exists(path) || Directory.Exists(path)).Should().BeTrue(because: $"Symlink '{path}' should exist.");
 
             bool isSymlink = UnixUtils.IsUnix
-                ? FileUtils.IsSymlink(path, out string target)
+                ? FileUtils.IsSymlink(path, out string? target)
                 : CygwinUtils.IsSymlink(path, out target);
             isSymlink.Should().BeTrue(because: $"'{path}' should be a symlink.");
             target.Should().Be(Target, because: $"Symlink '{path}' should point to correct target.");

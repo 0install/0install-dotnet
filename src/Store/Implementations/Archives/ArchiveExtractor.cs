@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -30,8 +29,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// The name of the subdirectory in the archive to extract (with Unix-style slashes); <c>null</c> to extract entire archive.
         /// </summary>
         [Description("The name of the subdirectory in the archive to extract (with Unix-style slashes); null to extract entire archive.")]
-        [CanBeNull]
-        public string Extract { get; set; }
+        public string? Extract { get; set; }
 
         /// <summary>Used to build the target directory with support for flag files.</summary>
         protected readonly DirectoryBuilder DirectoryBuilder;
@@ -40,21 +38,19 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// The path to the directory to extract into.
         /// </summary>
         [Description("The path to the directory to extract into.")]
-        [NotNull]
         public string TargetPath => DirectoryBuilder.TargetPath;
 
         /// <summary>
         /// Sub-path to be appended to <see cref="TargetPath"/> without affecting location of flag files; <c>null</c> for none.
         /// </summary>
         [Description("Sub-path to be appended to TargetDir without affecting location of flag files.")]
-        [CanBeNull]
-        public string TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
+        public string? TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
 
         /// <summary>
         /// Prepares to extract an archive contained in a stream.
         /// </summary>
         /// <param name="targetPath">The path to the directory to extract into.</param>
-        protected ArchiveExtractor([NotNull] string targetPath)
+        protected ArchiveExtractor(string targetPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
@@ -70,9 +66,9 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="mimeType">The MIME type of archive format of the stream.</param>
         /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type or is <c>null</c>.</exception>
-        public static void VerifySupport([CanBeNull] string mimeType)
+        public static void VerifySupport(string mimeType)
         {
-            switch (mimeType)
+            switch (mimeType ?? throw new ArgumentNullException(nameof(mimeType)))
             {
                 case Archive.MimeTypeZip:
                 case Archive.MimeTypeTar:
@@ -103,12 +99,12 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="mimeType">The MIME type of archive format of the stream.</param>
         /// <exception cref="IOException">Failed to read the archive file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the archive file was denied.</exception>
-        [NotNull]
-        public static ArchiveExtractor Create([NotNull] Stream stream, [NotNull] string targetPath, [CanBeNull] string mimeType)
+        public static ArchiveExtractor Create(Stream stream, string targetPath, string mimeType)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
+            if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
             #endregion
 
 #if NETFRAMEWORK
@@ -139,20 +135,18 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         /// <param name="archivePath">The path of the archive file to be extracted.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <param name="mimeType">The MIME type of archive format of the stream. Leave <c>null</c> to guess based on file name.</param>
+        /// <param name="mimeType">The MIME type of archive format of the stream.</param>
         /// <param name="startOffset"></param>
         /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
         /// <exception cref="IOException">The archive is damaged.</exception>
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
-        [NotNull]
-        public static ArchiveExtractor Create([NotNull] string archivePath, [NotNull] string targetPath, [CanBeNull] string mimeType = null, long startOffset = 0)
+        public static ArchiveExtractor Create(string archivePath, string targetPath, string mimeType, long startOffset = 0)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(archivePath)) throw new ArgumentNullException(nameof(mimeType));
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
+            if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
             #endregion
-
-            if (string.IsNullOrEmpty(mimeType)) mimeType = Archive.GuessMimeType(archivePath);
 
 #if NETFRAMEWORK
             // Extracted to delay loading of Microsoft.Deployment* DLLs
@@ -200,8 +194,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         /// <param name="entryName">The Unix-style path of the archive entry relative to the archive's root.</param>
         /// <returns>The relative path or <c>null</c> if the <paramref name="entryName"/> doesn't lie within the <see cref="Extract"/>.</returns>
-        [CanBeNull]
-        protected virtual string GetRelativePath([NotNull] string entryName)
+        protected virtual string? GetRelativePath(string entryName)
         {
             entryName = FileUtils.UnifySlashes(entryName);
 
@@ -215,13 +208,13 @@ namespace ZeroInstall.Store.Implementations.Archives
                 string subDir = FileUtils.UnifySlashes(Extract).Trim(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
 
                 // Only extract objects within the selected sub-directory
-                entryName = entryName.StartsWith(subDir) ? entryName.Substring(subDir.Length) : null;
+                if (!entryName.StartsWith(subDir)) return null;
+
+                entryName = entryName.Substring(subDir.Length);
             }
 
             // Remove leading slashes left over after trimming away the SubDir
-            entryName = entryName?.TrimStart(Path.DirectorySeparatorChar);
-
-            return entryName;
+            return entryName.TrimStart(Path.DirectorySeparatorChar);
         }
 
         /// <summary>
@@ -232,7 +225,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="lastWriteTime">The last write time to set.</param>
         /// <param name="stream">The stream containing the file data to be written.</param>
         /// <param name="executable"><c>true</c> if the file's executable bit is set; <c>false</c> otherwise.</param>
-        protected void WriteFile([NotNull] string relativePath, long fileSize, DateTime lastWriteTime, [NotNull] Stream stream, bool executable = false)
+        protected void WriteFile(string relativePath, long fileSize, DateTime lastWriteTime, Stream stream, bool executable = false)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));
@@ -261,7 +254,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream to write to a file.</param>
         /// <param name="fileStream">Stream access to the file to write.</param>
         /// <remarks>Can be overwritten for archive formats that don't simply write a <see cref="Stream"/> to a file.</remarks>
-        protected virtual void StreamToFile([NotNull] Stream stream, [NotNull] FileStream fileStream)
+        protected virtual void StreamToFile(Stream stream, FileStream fileStream)
             => stream.CopyToEx(fileStream, cancellationToken: CancellationToken);
 
         #region Dispose

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -17,15 +16,13 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Gets all <see cref="SelectionCandidate"/>s for a specific set of <see cref="Requirements"/> sorted from best to worst.
         /// </summary>
-        [NotNull, ItemNotNull]
-        IList<SelectionCandidate> GetSortedCandidates([NotNull] Requirements requirements);
+        IList<SelectionCandidate> GetSortedCandidates(Requirements requirements);
 
         /// <summary>
         /// Retrieves the original <see cref="Implementation"/> an <see cref="ImplementationSelection"/> was based ofF.
         /// </summary>
         /// <exception cref="KeyNotFoundException">The <paramref name="implementationSelection"/> was not provided by <see cref="GetSortedCandidates"/> or <see cref="Clear"/> was called in between.</exception>
-        [NotNull]
-        Implementation LookupOriginalImplementation([NotNull] ImplementationSelection implementationSelection);
+        Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection);
 
         /// <summary>
         /// Clears all internal caches.

@@ -27,7 +27,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Returns the prefix in the form "Value". Not safe for parsing!
         /// </summary>
-        public override string ToString() => Value;
+        public override string ToString()
+            => Value ?? "";
         #endregion
 
         #region Clone
@@ -43,7 +44,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public bool Equals(KnownProtocolPrefix other) => other != null && base.Equals(other) && other.Value == Value;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

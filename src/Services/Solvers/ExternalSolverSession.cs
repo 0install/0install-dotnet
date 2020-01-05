@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Streams;
@@ -19,7 +18,7 @@ namespace ZeroInstall.Services.Solvers
     /// An external solver process controlled via a JSON API (http://0install.net/json-api.html).
     /// </summary>
     /// <seealso cref="ExternalSolver"/>
-    internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], object>>, IDisposable
+    internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], object?>>, IDisposable
     {
         public const string ApiVersion = "2.7";
 
@@ -50,8 +49,7 @@ namespace ZeroInstall.Services.Solvers
             else throw new IOException("Failed to agree on slave API version. External solver insisted on: " + apiVersion);
         }
 
-        [CanBeNull]
-        private object[] GetJsonChunk()
+        private object[]? GetJsonChunk()
         {
             var chunk = GetChunk();
             if (chunk == null) return null;
@@ -60,17 +58,16 @@ namespace ZeroInstall.Services.Solvers
             return JsonStorage.FromJsonString<object[]>(json);
         }
 
-        [CanBeNull]
-        private byte[] GetChunk()
+        private byte[]? GetChunk()
         {
-            var preamble = _stdout.Read(11, throwOnEnd: false);
+            var preamble = _stdout.TryRead(11);
             if (preamble == null) return null;
 
             int length = Convert.ToInt32(Encoding.UTF8.GetString(preamble).TrimEnd('\n'), 16);
             return _stdout.Read(length);
         }
 
-        private void SendJsonChunk([NotNull] params object[] value)
+        private void SendJsonChunk(params object?[] value)
         {
             string json = value.ToJsonString();
             SendChunk(Encoding.UTF8.GetBytes(json));
@@ -96,7 +93,7 @@ namespace ZeroInstall.Services.Solvers
 
         public void HandleStderr()
         {
-            string message;
+            string? message;
             while ((message = _stderr.ReadLine()) != null)
             {
                 if (message.StartsWith("error: ")) Log.Error("External solver: " + message.Substring("error: ".Length));
@@ -151,7 +148,7 @@ namespace ZeroInstall.Services.Solvers
             }
         }
 
-        private void ReplyOK(string ticket, object response) => SendJsonChunk("return", ticket, "ok", new[] {response});
+        private void ReplyOK(string ticket, object? response) => SendJsonChunk("return", ticket, "ok", new[] {response});
 
         private void ReplyFail(string ticket, string message) => SendJsonChunk("return", ticket, "fail", message);
 

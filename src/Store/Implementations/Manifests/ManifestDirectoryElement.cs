@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
@@ -17,7 +16,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The digest of the content of the file calculated using the selected digest algorithm.
         /// </summary>
-        [NotNull]
         public string Digest { get; }
 
         /// <summary>
@@ -28,7 +26,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The name of the file without the containing directory.
         /// </summary>
-        [NotNull]
         public string Name { get; }
 
         /// <summary>

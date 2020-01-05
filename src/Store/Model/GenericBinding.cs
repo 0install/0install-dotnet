@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -40,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.UrlProtocol urlProtocol, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Store.Model.Capabilities.UrlProtocol urlProtocol, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));
@@ -100,7 +99,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
-        public static void Unregister([NotNull] Store.Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Store.Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));

@@ -7,7 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
@@ -41,7 +40,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="feedCache">The disk-based cache to store downloaded <see cref="Feed"/>s.</param>
         /// <param name="trustManager">Methods for verifying signatures and user trust.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public FeedManager([NotNull] Config config, [NotNull] IFeedCache feedCache, [NotNull] ITrustManager trustManager, [NotNull] ITaskHandler handler)
+        public FeedManager(Config config, IFeedCache feedCache, ITrustManager trustManager, ITaskHandler handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
@@ -95,7 +94,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
         /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
-        private Feed GetFeed([NotNull] FeedUri feedUri)
+        private Feed GetFeed(FeedUri feedUri)
         {
             if (feedUri.IsFromDistribution)
                 throw new ArgumentException($"{feedUri.ToStringRfc()} is a virtual feed URI and therefore cannot be downloaded.");
@@ -135,7 +134,6 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
-        [NotNull]
         private Feed LoadCached(FeedUri feedUri)
         {
             try
@@ -261,7 +259,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
-        private void ImportFeed([NotNull] byte[] data, [NotNull] FeedUri feedUri, [CanBeNull] string localPath = null)
+        private void ImportFeed(byte[] data, FeedUri feedUri, string? localPath = null)
         {
             Log.Debug("Importing feed " + feedUri.ToStringRfc() + " from " + (localPath ?? "web"));
 
@@ -288,7 +286,7 @@ namespace ZeroInstall.Services.Feeds
             if (feed.Uri != feedUri) throw new InvalidDataException(string.Format(Resources.FeedUriMismatch, feed.Uri, feedUri));
         }
 
-        private void CheckTrust(byte[] data, FeedUri feedUri, string localPath)
+        private void CheckTrust(byte[] data, FeedUri feedUri, string? localPath)
         {
             // Detect replay attacks
             var newSignature = _trustManager.CheckTrust(data, feedUri, localPath);

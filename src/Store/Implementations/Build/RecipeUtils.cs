@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Archives;
@@ -30,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException">The <see cref="Archive"/>s in <paramref name="recipe"/> and the files in <paramref name="downloadedFiles"/> do not match up.</exception>
         /// <exception cref="NotSupportedException"><paramref name="recipe"/> contains unknown step types.</exception>
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positivie due to usage inside lamda")]
-        public static TemporaryDirectory Apply([NotNull] this Recipe recipe, [NotNull, ItemNotNull] IEnumerable<TemporaryFile> downloadedFiles, [NotNull] ITaskHandler handler, [CanBeNull] object tag = null)
+        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile> downloadedFiles, ITaskHandler handler, object? tag = null)
         {
             #region Sanity checks
             if (recipe == null) throw new ArgumentNullException(nameof(recipe));
@@ -94,7 +93,8 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
         /// <param name="tag">A tag used to associate composite task with a specific operation; can be null.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
-        public static void Apply([NotNull] this Archive step, [NotNull] string localPath, [NotNull] TemporaryDirectory workingDir, [NotNull] ITaskHandler handler, [CanBeNull] object tag = null)
+        /// <exception cref="ArgumentException"><see cref="Archive.Normalize"/> was not called for <paramref name="step"/>.</exception>
+        public static void Apply(this Archive step, string localPath, TemporaryDirectory workingDir, ITaskHandler handler, object? tag = null)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -109,9 +109,11 @@ namespace ZeroInstall.Store.Implementations.Build
                 if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
             }
 
-            if (string.IsNullOrEmpty(step.MimeType)) throw new IOException(Resources.UnknownArchiveType);
-
-            using var extractor = ArchiveExtractor.Create(localPath, workingDir, step.MimeType, step.StartOffset);
+            using var extractor = ArchiveExtractor.Create(
+                localPath,
+                workingDir,
+                step.MimeType ?? throw new ArgumentException($"{nameof(step.Normalize)} was not called.", nameof(step)),
+                step.StartOffset);
             extractor.Extract = step.Extract;
             extractor.TargetSuffix = FileUtils.UnifySlashes(step.Destination);
             extractor.Tag = tag;
@@ -126,7 +128,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
-        public static void Apply([NotNull] this SingleFile step, [NotNull] string localPath, [NotNull] TemporaryDirectory workingDir, [NotNull] ITaskHandler handler)
+        public static void Apply(this SingleFile step, string localPath, TemporaryDirectory workingDir, ITaskHandler handler)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -150,7 +152,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "tag", Justification = "Number of method parameters must match overloaded method to ensure proper type-based compiler selection")]
-        public static void Apply([NotNull] this SingleFile step, [NotNull] TemporaryFile downloadedFile, [NotNull] TemporaryDirectory workingDir)
+        public static void Apply(this SingleFile step, TemporaryFile downloadedFile, TemporaryDirectory workingDir)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -175,7 +177,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="step">The <see cref="RemoveStep"/> to apply.</param>
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
-        public static void Apply([NotNull] this RemoveStep step, [NotNull] TemporaryDirectory workingDir)
+        public static void Apply(this RemoveStep step, TemporaryDirectory workingDir)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -201,7 +203,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="step">The <see cref="RenameStep"/> to apply.</param>
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
-        public static void Apply([NotNull] this RenameStep step, [NotNull] TemporaryDirectory workingDir)
+        public static void Apply(this RenameStep step, TemporaryDirectory workingDir)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -238,7 +240,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
         /// <exception cref="ArgumentException"><see cref="CopyFromStep.Implementation"/> is <c>null</c>. Please call <see cref="Feed.ResolveInternalReferences"/> first.</exception>
         /// <exception cref="InvalidOperationException"><see cref="FetchHandle.Register"/> was not called first.</exception>
-        public static void Apply([NotNull] this CopyFromStep step, [NotNull] TemporaryDirectory workingDir, [NotNull] ITaskHandler handler, [CanBeNull] object tag = null)
+        public static void Apply(this CopyFromStep step, TemporaryDirectory workingDir, ITaskHandler handler, object? tag = null)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));

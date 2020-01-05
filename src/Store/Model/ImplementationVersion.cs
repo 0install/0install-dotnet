@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Info;
 using NanoByte.Common.Values.Design;
@@ -48,7 +47,7 @@ namespace ZeroInstall.Store.Model
         public IList<VersionPart> AdditionalParts { get; }
 
         /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
-        private readonly string _verbatimString;
+        private readonly string? _verbatimString;
 
         /// <summary>
         /// Indicates whether this version number contains a template variable (a substring enclosed in curly brackets, e.g {var}) .
@@ -61,7 +60,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="value">The string containing the version information.</param>
         /// <exception cref="FormatException"><paramref name="value"/> is not a valid version string.</exception>
-        public ImplementationVersion([NotNull] string value)
+        public ImplementationVersion(string value)
         {
             if (string.IsNullOrEmpty(value)) throw new FormatException(Resources.MustStartWithDottedList);
 
@@ -104,8 +103,12 @@ namespace ZeroInstall.Store.Model
         /// <param name="value">The string to parse.</param>
         /// <param name="result">Returns the created <see cref="ImplementationVersion"/> if successfully; <c>null</c> otherwise.</param>
         /// <returns><c>true</c> if the <see cref="ImplementationVersion"/> was successfully created; <c>false</c> otherwise.</returns>
-        [ContractAnnotation("=>false,result:null; =>true,result:notnull")]
-        public static bool TryCreate([NotNull] string value, out ImplementationVersion result)
+        public static bool TryCreate(
+            string value,
+#if NETSTANDARD2_1
+            [System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out ImplementationVersion? result)
         {
             try
             {
@@ -154,7 +157,7 @@ namespace ZeroInstall.Store.Model
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
@@ -166,8 +169,8 @@ namespace ZeroInstall.Store.Model
         public override int GetHashCode()
             => HashCode.Combine(FirstPart, AdditionalParts.GetSequencedHashCode());
 
-        public static bool operator ==(ImplementationVersion left, ImplementationVersion right) => Equals(left, right);
-        public static bool operator !=(ImplementationVersion left, ImplementationVersion right) => !Equals(left, right);
+        public static bool operator ==(ImplementationVersion? left, ImplementationVersion? right) => Equals(left, right);
+        public static bool operator !=(ImplementationVersion? left, ImplementationVersion? right) => !Equals(left, right);
         #endregion
 
         #region Comparison

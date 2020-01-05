@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model.Capabilities
@@ -32,14 +31,14 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// The command to execute when the handler gets called.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("verb"), CanBeNull]
-        public Verb Verb { get; set; }
+        [XmlElement("verb")]
+        public Verb? Verb { get; set; }
 
         /// <summary>
         /// The IDs of the events this action can handle.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("event"), NotNull]
+        [XmlElement("event")]
         public List<AutoPlayEvent> Events { get; } = new List<AutoPlayEvent>();
 
         /// <inheritdoc/>
@@ -50,7 +49,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Returns the capability in the form "ID". Not safe for parsing!
         /// </summary>
-        public override string ToString() => ID;
+        public override string ToString()
+            => ID ?? "";
         #endregion
 
         #region Clone
@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Model.Capabilities
             && Events.SequencedEquals(other.Events);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

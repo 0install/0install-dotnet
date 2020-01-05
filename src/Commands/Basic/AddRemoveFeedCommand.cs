@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
@@ -32,7 +31,7 @@ namespace ZeroInstall.Commands.Basic
 
         #region State
         /// <inheritdoc/>
-        protected AddRemoveFeedCommand([NotNull] ICommandHandler handler)
+        protected AddRemoveFeedCommand(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("o|offline", () => Resources.OptionOffline, _ => Config.NetworkUse = NetworkLevel.Offline);

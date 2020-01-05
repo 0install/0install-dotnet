@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
@@ -16,10 +15,8 @@ namespace ZeroInstall.Store.ViewModel
     /// </summary>
     public sealed class OwnedImplementationNode : ImplementationNode
     {
-        [NotNull]
         private readonly Implementation _implementation;
 
-        [NotNull]
         private readonly FeedNode _parent;
 
         /// <summary>
@@ -32,7 +29,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="FormatException">The manifest file is not valid.</exception>
         /// <exception cref="IOException">The manifest file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        public OwnedImplementationNode(ManifestDigest digest, [NotNull] Implementation implementation, [NotNull] FeedNode parent, [NotNull] IImplementationStore implementationStore)
+        public OwnedImplementationNode(ManifestDigest digest, Implementation implementation, FeedNode parent, IImplementationStore implementationStore)
             : base(digest, implementationStore)
         {
             _parent = parent ?? throw new ArgumentNullException(nameof(parent));
@@ -52,7 +49,6 @@ namespace ZeroInstall.Store.ViewModel
         /// The version number of the implementation.
         /// </summary>
         [Description("The version number of the implementation.")]
-        [NotNull]
         public ImplementationVersion Version => _implementation.Version;
 
         /// <summary>
@@ -66,7 +62,6 @@ namespace ZeroInstall.Store.ViewModel
         /// A unique identifier for the implementation. Used when storing implementation-specific user preferences.
         /// </summary>
         [Description("A unique identifier for the implementation. Used when storing implementation-specific user preferences.")]
-        [NotNull]
         public string ID => _implementation.ID;
 
         /// <summary>

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration
@@ -17,7 +16,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="capability">The <see cref="Store.Model.Capabilities.DefaultCapability"/> to create a <see cref="DefaultAccessPoint"/> for.</param>
         /// <returns>The newly created <see cref="DefaultAccessPoint"/>.</returns>
-        public static AccessPoint ToAccessPoint([NotNull] this Store.Model.Capabilities.DefaultCapability capability)
+        public static AccessPoint ToAccessPoint(this Store.Model.Capabilities.DefaultCapability capability)
             => (capability ?? throw new ArgumentNullException(nameof(capability))) switch
             {
                 Store.Model.Capabilities.AutoPlay x => (AccessPoint)new AutoPlay {Capability = x.ID},

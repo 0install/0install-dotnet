@@ -413,7 +413,7 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
     <value>Konnte den Schreibschutz für '{0}' nicht aktivieren.</value>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Unbekannter Archiv-Typ.</value>
+    <value>Die Dateiendung '{0}' entspricht keinem bekannten Archivtyp.</value>
   </data>
   <data name="UnknownCpu" xml:space="preserve">
     <value>Unbekannte CPU.</value>

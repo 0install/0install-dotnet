@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NDesk.Options;
@@ -22,7 +21,7 @@ namespace ZeroInstall.Commands.Desktop
         public new const string Name = "maintenance";
 
         /// <inheritdoc/>
-        public MaintenanceMan([NotNull] ICommandHandler handler)
+        public MaintenanceMan(ICommandHandler handler)
             : base(handler)
         {}
         #endregion
@@ -44,7 +43,7 @@ namespace ZeroInstall.Commands.Desktop
         {
             protected override string ParentName => MaintenanceMan.Name;
 
-            protected MaintenanceSubCommand([NotNull] ICommandHandler handler)
+            protected MaintenanceSubCommand(ICommandHandler handler)
                 : base(handler)
             {}
 
@@ -53,8 +52,7 @@ namespace ZeroInstall.Commands.Desktop
             /// </summary>
             /// <param name="machineWide"><c>true</c> to look only for machine-wide instances; <c>false</c> to look only for instances in the current user profile.</param>
             /// <returns>The installation directory of an instance of Zero Install; <c>null</c> if none was found.</returns>
-            [CanBeNull]
-            protected static string FindExistingInstance(bool machineWide)
+            protected static string? FindExistingInstance(bool machineWide)
             {
                 if (!WindowsUtils.IsWindows) return null;
 

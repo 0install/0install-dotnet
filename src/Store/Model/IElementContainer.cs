@@ -3,8 +3,6 @@
 
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -16,7 +14,6 @@ namespace ZeroInstall.Store.Model
         /// A list of <see cref="Group"/>s and <see cref="Implementation"/>s contained within this element.
         /// </summary>
         [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
-        [NotNull]
         List<Element> Elements { get; }
     }
 }

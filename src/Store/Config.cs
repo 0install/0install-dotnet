@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 
@@ -65,7 +64,7 @@ namespace ZeroInstall.Store
         /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.")]
-        public FeedUri FeedMirror { get; set; } = new FeedUri(DefaultFeedMirror);
+        public FeedUri? FeedMirror { get; set; } = new FeedUri(DefaultFeedMirror);
 
         /// <summary>
         /// The default value for <see cref="KeyInfoServer"/>.
@@ -76,7 +75,7 @@ namespace ZeroInstall.Store
         /// The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.")]
-        public FeedUri KeyInfoServer { get; set; } = new FeedUri(DefaultKeyInfoServer);
+        public FeedUri? KeyInfoServer { get; set; } = new FeedUri(DefaultKeyInfoServer);
 
         /// <summary>
         /// The default value for <see cref="SelfUpdateUri"/>.
@@ -87,7 +86,7 @@ namespace ZeroInstall.Store
         /// The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.")]
-        public FeedUri SelfUpdateUri { get; set; } = new FeedUri(DefaultSelfUpdateUri);
+        public FeedUri? SelfUpdateUri { get; set; } = new FeedUri(DefaultSelfUpdateUri);
 
         /// <summary>
         /// The default value for <see cref="ExternalSolverUri"/>.
@@ -98,7 +97,7 @@ namespace ZeroInstall.Store
         /// The feed URI used to get the external solver. Set to empty to deactive use of external solver.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver. Set to empty to deactive use of external solver.")]
-        public FeedUri ExternalSolverUri { get; set; } = new FeedUri(DefaultExternalSolverUri);
+        public FeedUri? ExternalSolverUri { get; set; } = new FeedUri(DefaultExternalSolverUri);
 
         /// <summary>
         /// The default value for <see cref="SyncServer"/>.
@@ -111,7 +110,7 @@ namespace ZeroInstall.Store
         /// <seealso cref="SyncServerUsername"/>
         /// <seealso cref="SyncServerPassword"/>
         [DefaultValue(typeof(FeedUri), DefaultSyncServer), Category("Sync"), DisplayName(@"Server"), Description("The sync server used to synchronize your app list between multiple computers.")]
-        public FeedUri SyncServer { get; set; } = new FeedUri(DefaultSyncServer);
+        public FeedUri? SyncServer { get; set; } = new FeedUri(DefaultSyncServer);
 
         /// <summary>
         /// The username to authenticate with against the <see cref="SyncServer"/>.
@@ -171,7 +170,7 @@ namespace ZeroInstall.Store
                     NetworkLevel.Full => "full",
                     NetworkLevel.Minimal => "minimal",
                     NetworkLevel.Offline => "off-line",
-                    _ => null // Will never be reached
+                    _ => throw new InvalidEnumArgumentException() // Will never be reached
                 },
                 setValue: value =>
                 {

@@ -31,7 +31,7 @@ namespace ZeroInstall.Store.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Target"), Description("The URI used to locate the interface.")]
         [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string TargetString { get => Target?.ToStringRfc(); set => Target = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        public string? TargetString { get => Target?.ToStringRfc(); set => Target = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
         #endregion
 
         #region Normalize
@@ -64,7 +64,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && other.Target == Target;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

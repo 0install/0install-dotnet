@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -17,23 +16,20 @@ namespace ZeroInstall.Store.ViewModel
         /// <summary>
         /// The interface URI of the changed implementation.
         /// </summary>
-        [NotNull]
         [DisplayName("URI")]
         public FeedUri Uri { get; }
 
         /// <summary>
         /// The old version of the implementation; <c>null</c> if the implementation did not exist in the old selection.
         /// </summary>
-        [CanBeNull]
         [DisplayName("Old version")]
-        public ImplementationVersion OldVersion { get; }
+        public ImplementationVersion? OldVersion { get; }
 
         /// <summary>
         /// The new version of the implementation; <c>null</c> if the implementation does not exist in the new selection.
         /// </summary>
-        [CanBeNull]
         [DisplayName("New version")]
-        public ImplementationVersion NewVersion { get; }
+        public ImplementationVersion? NewVersion { get; }
 
         /// <summary>
         /// Creates a new selection diff.
@@ -41,7 +37,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <param name="uri">The interface URI of the changed implementation.</param>
         /// <param name="oldVersion">The old version of the implementation; <c>null</c> if the implementation did not exist in the old selection.</param>
         /// <param name="newVersion">The new version of the implementation; <c>null</c> if the implementation does not exist in the new selection.</param>
-        public SelectionsDiffNode([NotNull] FeedUri uri, [CanBeNull] ImplementationVersion oldVersion = null, [CanBeNull] ImplementationVersion newVersion = null)
+        public SelectionsDiffNode(FeedUri uri, ImplementationVersion? oldVersion = null, ImplementationVersion? newVersion = null)
         {
             Uri = uri ?? throw new ArgumentNullException(nameof(uri));
             OldVersion = oldVersion;
@@ -66,7 +62,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

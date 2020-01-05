@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 
@@ -37,7 +36,7 @@ namespace ZeroInstall.Commands
         #endregion
 
         /// <inheritdoc/>
-        protected CliMultiCommand([NotNull] ICommandHandler handler)
+        protected CliMultiCommand(ICommandHandler handler)
             : base(handler)
         {
             // Defer all option parsing to the sub-commands
@@ -47,7 +46,6 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// A list of sub-command names (without alternatives) as used in command-line arguments in lower-case.
         /// </summary>
-        [NotNull, ItemNotNull]
         public abstract IEnumerable<string> SubCommandNames { get; }
 
         /// <summary>
@@ -59,12 +57,10 @@ namespace ZeroInstall.Commands
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
-        [NotNull]
-        public abstract CliSubCommand GetCommand([NotNull] string commandName);
+        public abstract CliSubCommand GetCommand(string commandName);
 
         /// <summary>The sub-command selected in <see cref="Parse"/> and used in <see cref="Execute"/>.</summary>
-        [CanBeNull]
-        private CliSubCommand _subCommand;
+        private CliSubCommand? _subCommand;
 
         /// <inheritdoc/>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
@@ -72,7 +68,7 @@ namespace ZeroInstall.Commands
         {
             base.Parse(args);
 
-            string subCommandName = GetCommandName(ref args);
+            string? subCommandName = GetCommandName(ref args);
             if (subCommandName == null) return;
 
             _subCommand = GetCommand(subCommandName);

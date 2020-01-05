@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Unix
@@ -28,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.DefaultProgram defaultProgram, [NotNull] IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Store.Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
@@ -52,7 +51,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
-        public static void Unregister([NotNull] Store.Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Store.Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));

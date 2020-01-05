@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ICSharpCode.SharpZipLib.Tar;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         /// <param name="sourcePath">The path of the directory to capture/store in the archive.</param>
         /// <param name="stream">The stream to write the generated archive to. Will be disposed when the generator is disposed.</param>
-        internal TarGenerator([NotNull] string sourcePath, [NotNull] Stream stream)
+        internal TarGenerator(string sourcePath, Stream stream)
             : base(sourcePath)
         {
             #region Sanity checks

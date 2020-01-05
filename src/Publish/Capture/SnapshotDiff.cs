@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="before">The first snapshot taken.</param>
         /// <param name="after">The second snapshot taken.</param>
         /// <remarks>Assumes that all internal arrays are sorted alphabetically.</remarks>
-        public SnapshotDiff([NotNull] Snapshot before, [NotNull] Snapshot after)
+        public SnapshotDiff(Snapshot before, Snapshot after)
         {
             #region Sanity checks
             if (before == null) throw new ArgumentNullException(nameof(before));
@@ -55,7 +54,6 @@ namespace ZeroInstall.Publish.Capture
         /// Locates the directory into which the new application was installed.
         /// </summary>
         /// <exception cref="InvalidOperationException">No installation directory was detected.</exception>
-        [NotNull]
         public string GetInstallationDir()
         {
             string installationDir;
@@ -79,8 +77,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="typeKey">The registry key containing information about the file type / protocol the verbs belong to.</param>
         /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
         /// <returns>A list of detected <see cref="Verb"/>.</returns>
-        [NotNull, ItemNotNull]
-        private static IEnumerable<Verb> GetVerbs([NotNull] RegistryKey typeKey, [NotNull] CommandMapper commandMapper)
+        private static IEnumerable<Verb> GetVerbs(RegistryKey typeKey, CommandMapper commandMapper)
         {
             #region Sanity checks
             if (typeKey == null) throw new ArgumentNullException(nameof(typeKey));
@@ -97,8 +94,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
         /// <param name="verbName">The internal name of the verb.</param>
         /// <returns>The detected <see cref="Verb"/> or an empty <see cref="Verb"/> if no match was found.</returns>
-        [CanBeNull]
-        private static Verb GetVerb([NotNull] RegistryKey typeKey, [NotNull] CommandMapper commandMapper, [NotNull] string verbName)
+        private static Verb? GetVerb(RegistryKey typeKey, CommandMapper commandMapper, string verbName)
         {
             #region Sanity checks
             if (typeKey == null) throw new ArgumentNullException(nameof(typeKey));

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 
@@ -29,7 +28,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public List([NotNull] ICommandHandler handler)
+        public List(ICommandHandler handler)
             : base(handler)
         {}
 

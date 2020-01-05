@@ -3,7 +3,6 @@
 
 using System;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Solvers;
@@ -25,10 +24,10 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         #region State
-        private Selections _oldSelections;
+        private Selections _oldSelections = default!;
 
         /// <inheritdoc/>
-        public Update([NotNull] ICommandHandler handler)
+        public Update(ICommandHandler handler)
             : base(handler)
         {
             //Options.Remove("o|offline");

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -32,7 +31,7 @@ namespace ZeroInstall.Commands.Desktop
 
         #region State
         /// <inheritdoc/>
-        public ImportApps([NotNull] ICommandHandler handler)
+        public ImportApps(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);

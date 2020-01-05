@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -35,7 +34,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidOperationException">The application is already in the list.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        [NotNull]
         AppEntry AddApp(FeedTarget target);
 
         /// <summary>
@@ -48,8 +46,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidOperationException">An application with the same <paramref name="petName"/> is already in the list.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        [NotNull]
-        AppEntry AddApp([NotNull] string petName, [NotNull] Requirements requirements, [NotNull] Feed feed);
+        AppEntry AddApp(string petName, Requirements requirements, Feed feed);
 
         /// <summary>
         /// Removes an <see cref="AppEntry"/> from the <see cref="AppList"/> while unapplying any remaining <see cref="AccessPoint"/>s.
@@ -58,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        void RemoveApp([NotNull] AppEntry appEntry);
+        void RemoveApp(AppEntry appEntry);
 
         /// <summary>
         /// Updates an <see cref="AppEntry"/> with new metadata and capabilities from a <see cref="Feed"/>. This may unapply and remove some existing <see cref="AccessPoint"/>s.
@@ -66,7 +63,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appEntry">The application entry to update.</param>
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
-        void UpdateApp([NotNull] AppEntry appEntry, [NotNull] Feed feed);
+        void UpdateApp(AppEntry appEntry, Feed feed);
 
         /// <summary>
         /// Updates a named <see cref="AppEntry"/> with new <see cref="Requirements"/>.
@@ -74,7 +71,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appEntry">The application entry to update.</param>
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
         /// <param name="requirements">The new requirements to apply to the app.</param>
-        void UpdateApp([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull] Requirements requirements);
+        void UpdateApp(AppEntry appEntry, Feed feed, Requirements requirements);
 
         /// <summary>
         /// Applies <see cref="AccessPoint"/>s for an application.
@@ -88,7 +85,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        void AddAccessPoints([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull, ItemNotNull, InstantHandle] IEnumerable<AccessPoint> accessPoints);
+        void AddAccessPoints(AppEntry appEntry, Feed feed, IEnumerable<AccessPoint> accessPoints);
 
         /// <summary>
         /// Removes already applied <see cref="AccessPoint"/>s for an application.
@@ -98,7 +95,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        void RemoveAccessPoints([NotNull] AppEntry appEntry, [NotNull, ItemNotNull, InstantHandle] IEnumerable<AccessPoint> accessPoints);
+        void RemoveAccessPoints(AppEntry appEntry, IEnumerable<AccessPoint> accessPoints);
 
         /// <summary>
         /// Reapplies all <see cref="AccessPoint"/>s for all <see cref="AppEntry"/>s.
@@ -110,6 +107,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        void Repair([NotNull, InstantHandle] Converter<FeedUri, Feed> feedRetriever);
+        void Repair(Converter<FeedUri, Feed> feedRetriever);
     }
 }

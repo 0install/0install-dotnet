@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
@@ -37,21 +36,20 @@ namespace ZeroInstall.Commands
         {
             get
             {
-                var field = GetType().GetField("Name", BindingFlags.Public | BindingFlags.Static);
-                return field?.GetValue(null).ToString();
+                var type = GetType();
+                var field = type.GetField("Name", BindingFlags.Public | BindingFlags.Static);
+                return field?.GetValue(null).ToString() ?? "";
             }
         }
 
         /// <summary>
         /// A short description of what this command does.
         /// </summary>
-        [NotNull]
         public abstract string Description { get; }
 
         /// <summary>
         /// The additional arguments to be displayed after the command name in the help text.
         /// </summary>
-        [NotNull]
         public abstract string Usage { get; }
 
         /// <summary>
@@ -98,19 +96,17 @@ namespace ZeroInstall.Commands
         /// A callback object used when the the user needs to be asked questions or informed about download and IO tasks.
         /// </summary>
         // Type covariance: ServiceLocator -> CommandBase, ITaskHandler -> ICommandHandler
-        [NotNull]
         public new ICommandHandler Handler { get; }
 
         /// <summary>Feeds to add, terms to search for, etc.</summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Using a List<T> for performance reasons")]
-        [NotNull, ItemNotNull]
         protected readonly List<string> AdditionalArgs = new List<string>();
 
         /// <summary>
         /// Creates a new command.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        protected CliCommand([NotNull] ICommandHandler handler)
+        protected CliCommand(ICommandHandler handler)
             : base(handler)
         {
             Handler = handler;
@@ -144,7 +140,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="UnauthorizedAccessException">More privileges are required.</exception>
         /// <exception cref="UriFormatException">The URI or local path specified is invalid.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
-        public virtual void Parse([NotNull, ItemNotNull] IEnumerable<string> args)
+        public virtual void Parse(IEnumerable<string> args)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));

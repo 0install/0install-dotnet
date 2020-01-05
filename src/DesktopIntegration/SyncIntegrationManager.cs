@@ -8,7 +8,6 @@ using System.Net;
 using System.Net.Cache;
 using System.Runtime.Serialization;
 using ICSharpCode.SharpZipLib.Zip;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Dispatch;
 using NanoByte.Common.Net;
@@ -77,7 +76,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public SyncIntegrationManager([NotNull] SyncConfig config, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public SyncIntegrationManager(SyncConfig config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
@@ -102,7 +101,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        public SyncIntegrationManager([NotNull] string appListPath, [NotNull] SyncConfig config, [NotNull] Converter<FeedUri, Feed> feedRetriever, [NotNull] ITaskHandler handler, bool machineWide = false)
+        public SyncIntegrationManager(string appListPath, SyncConfig config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
             : base(appListPath, handler, machineWide)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
@@ -188,7 +187,7 @@ namespace ZeroInstall.DesktopIntegration
 
 
             #region Serialization
-            protected WebRaceConditionException([NotNull] SerializationInfo serializationInfo, StreamingContext streamingContext)
+            protected WebRaceConditionException(SerializationInfo serializationInfo, StreamingContext streamingContext)
                 : base(serializationInfo, streamingContext)
             {}
             #endregion
@@ -196,8 +195,7 @@ namespace ZeroInstall.DesktopIntegration
         #endregion
 
         #region Helpers
-        [NotNull]
-        private byte[] DownloadAppList([NotNull] Uri appListUri, [NotNull] WebClientTimeout webClient, SyncResetMode resetMode)
+        private byte[] DownloadAppList(Uri appListUri, WebClientTimeout webClient, SyncResetMode resetMode)
         {
             if (resetMode == SyncResetMode.Server) return new byte[0];
 
@@ -206,7 +204,7 @@ namespace ZeroInstall.DesktopIntegration
             return data;
         }
 
-        private void HandleDownloadedAppList(SyncResetMode resetMode, [NotNull] byte[] appListData)
+        private void HandleDownloadedAppList(SyncResetMode resetMode, byte[] appListData)
         {
             if (appListData.Length == 0) return;
 
@@ -245,7 +243,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Upload the encrypted AppList back to the server (unless the client was reset)
         /// </summary>
-        private void UploadAppList([NotNull] Uri appListUri, [NotNull] WebClientTimeout webClient, SyncResetMode resetMode)
+        private void UploadAppList(Uri appListUri, WebClientTimeout webClient, SyncResetMode resetMode)
         {
             if (resetMode == SyncResetMode.Client) return;
 
@@ -277,7 +275,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <remarks>Performs a three-way merge using <see cref="_appListLastSync"/> as base.</remarks>
-        private void MergeData([NotNull] AppList remoteAppList, bool resetClient)
+        private void MergeData(AppList remoteAppList, bool resetClient)
         {
             #region Sanity checks
             if (remoteAppList == null) throw new ArgumentNullException(nameof(remoteAppList));
@@ -313,7 +311,7 @@ namespace ZeroInstall.DesktopIntegration
         /// Creates a new <see cref="AppEntry"/> based on an existing prototype (applying any <see cref="AccessPoint"/>s) and adds it to the <see cref="AppList"/>.
         /// </summary>
         /// <param name="prototype">An existing <see cref="AppEntry"/> to use as a prototype.</param>
-        private void AddAppHelper([NotNull] AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
+        private void AddAppHelper(AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
         #endregion
     }
 }

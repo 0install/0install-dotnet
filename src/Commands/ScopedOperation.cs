@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
@@ -33,7 +32,7 @@ namespace ZeroInstall.Commands
         /// Creates a new command base.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        protected ScopedOperation([NotNull] ITaskHandler handler)
+        protected ScopedOperation(ITaskHandler handler)
             : base(handler)
         {}
 
@@ -42,7 +41,6 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <exception cref="UriFormatException"><paramref name="uri"/> is an invalid interface URI.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "This method handles a number of non-standard URI types which cannot be represented by the regular Uri class.")]
-        [NotNull]
         public FeedUri GetCanonicalUri(string uri)
         {
             if (string.IsNullOrEmpty(uri)) throw new UriFormatException();
@@ -86,8 +84,7 @@ namespace ZeroInstall.Commands
             #endregion
         }
 
-        [CanBeNull]
-        private static FeedUri TryResolveAlias(string uri)
+        private static FeedUri? TryResolveAlias(string uri)
         {
 #if NETCOREAPP
             return null;
@@ -116,8 +113,7 @@ namespace ZeroInstall.Commands
 #endif
         }
 
-        [CanBeNull]
-        private FeedUri TryResolveCatalog(string shortName)
+        private FeedUri? TryResolveCatalog(string shortName)
         {
             var feed = FindByShortName(shortName);
             if (feed == null) return null;
@@ -132,10 +128,9 @@ namespace ZeroInstall.Commands
         /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
         /// <exception cref="WebException">Attempted to download catalog and failed.</exception>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO")]
-        [NotNull]
         protected Catalog GetCatalog()
         {
-            Catalog result = null;
+            Catalog? result = null;
             if (!FeedManager.Refresh) result = CatalogManager.GetCached();
             if (result == null && Config.NetworkUse != NetworkLevel.Offline) result = CatalogManager.GetOnlineSafe();
             if (result == null) throw new WebException(Resources.UnableToLoadCatalog);
@@ -148,14 +143,13 @@ namespace ZeroInstall.Commands
         /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Store.Model.Command.NameRun"/>.</param>
         /// <returns>The first matching <see cref="Feed"/>; <c>null</c> if no match was found.</returns>
         /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
-        [CanBeNull]
-        protected Feed FindByShortName([NotNull] string shortName)
+        protected Feed? FindByShortName(string shortName)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(shortName)) throw new ArgumentNullException(nameof(shortName));
             #endregion
 
-            Feed result = null;
+            Feed? result = null;
             if (!FeedManager.Refresh) result = CatalogManager.GetCachedSafe().FindByShortName(shortName);
             if (result == null && Config.NetworkUse != NetworkLevel.Offline) result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
             return result;
@@ -188,7 +182,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <param name="command">The <see cref="CliCommand.Name"/> of the command to execute.</param>
         /// <param name="args">Additional arguments to pass to the command.</param>
-        protected static void StartCommandBackground([NotNull] string command, [NotNull] params string[] args)
+        protected static void StartCommandBackground(string command, params string[] args)
         {
 #if NETFRAMEWORK
             #region Sanity checks

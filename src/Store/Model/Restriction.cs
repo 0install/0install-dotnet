@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
@@ -41,20 +40,20 @@ namespace ZeroInstall.Store.Model
         /// Each range is in the form "START..!END". The range matches versions where START &lt;= VERSION &lt; END. The start or end may be omitted. A single version number may be used instead of a range to match only that version, or !VERSION to match everything except that version.
         /// </summary>
         [Description("A more flexible alternative to Constraints.\r\nEach range is in the form \"START..!END\". The range matches versions where START < VERSION < END. The start or end may be omitted. A single version number may be used instead of a range to match only that version, or !VERSION to match everything except that version.")]
-        [XmlIgnore, CanBeNull]
-        public VersionRange Versions { get; set; }
+        [XmlIgnore]
+        public VersionRange? Versions { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Versions"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string VersionsString { get => Versions?.ToString(); set => Versions = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
+        public string? VersionsString { get => Versions?.ToString(); set => Versions = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
         #endregion
 
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
@@ -63,7 +62,7 @@ namespace ZeroInstall.Store.Model
         /// A list of version <see cref="Constraint"/>s that must be fulfilled.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("version"), NotNull]
+        [XmlElement("version")]
         public List<Constraint> Constraints { get; } = new List<Constraint>();
 
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
@@ -78,7 +77,7 @@ namespace ZeroInstall.Store.Model
         /// The special value <see cref="DistributionZeroInstall"/> may be used to require an implementation provided by Zero Install (i.e. one not provided by a <see cref="PackageImplementation"/>).
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, NotNull]
+        [XmlIgnore]
         public List<string> Distributions { get; } = new List<string>();
 
         /// <summary>
@@ -103,7 +102,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Determines whether this reference is applicable for the given <paramref name="requirements"/>.
         /// </summary>
-        public virtual bool IsApplicable([NotNull] Requirements requirements)
+        public virtual bool IsApplicable(Requirements requirements)
         {
             #region Sanity checks
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
@@ -167,7 +166,7 @@ namespace ZeroInstall.Store.Model
             && Distributions.SequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -6,7 +6,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using ZeroInstall.Store.Model.Design;
@@ -57,7 +56,7 @@ namespace ZeroInstall.Store.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Href"), Description("The URL used to locate the icon.")]
         [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.Absolute)); }
+        public string? HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.Absolute)); }
         #endregion
 
         /// <summary>
@@ -65,8 +64,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The MIME type of the icon. This value is case-insensitive.")]
         [TypeConverter(typeof(IconMimeTypeConverter))]
-        [XmlAttribute("type"), DefaultValue(""), CanBeNull]
-        public string MimeType { get; set; }
+        [XmlAttribute("type"), DefaultValue("")]
+        public string? MimeType { get; set; }
 
         #region Normalize
         /// <summary>
@@ -97,7 +96,7 @@ namespace ZeroInstall.Store.Model
         public bool Equals(Icon other) => other != null && base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
@@ -32,7 +31,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurs while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
-        protected IntegrationManagerBase([NotNull] ITaskHandler handler, bool machineWide = false)
+        protected IntegrationManagerBase(ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {}
 
@@ -221,14 +220,14 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidOperationException">An application with the same <paramref name="petName"/> is already in the list.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract AppEntry AddAppInternal([NotNull] string petName, [NotNull] Requirements requirements, [NotNull] Feed feed);
+        protected abstract AppEntry AddAppInternal(string petName, Requirements requirements, Feed feed);
 
         /// <summary>
         /// Creates a new <see cref="AppEntry"/> based on an existing prototype (applying any <see cref="AccessPoint"/>s) and adds it to the <see cref="AppList"/>.
         /// </summary>
         /// <param name="prototype">An existing <see cref="AppEntry"/> to use as a prototype.</param>
         /// <param name="feedRetriever">Callback method used to retrieve additional <see cref="Feed"/>s on demand.</param>
-        protected abstract void AddAppInternal([NotNull] AppEntry prototype, [NotNull, InstantHandle] Converter<FeedUri, Feed> feedRetriever);
+        protected abstract void AddAppInternal(AppEntry prototype, Converter<FeedUri, Feed> feedRetriever);
 
         /// <summary>
         /// Removes an <see cref="AppEntry"/> from the <see cref="AppList"/> while unapplying any remaining <see cref="AccessPoint"/>s.
@@ -238,7 +237,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract void RemoveAppInternal([NotNull] AppEntry appEntry);
+        protected abstract void RemoveAppInternal(AppEntry appEntry);
 
         /// <summary>
         /// Updates an <see cref="AppEntry"/> with new metadata and capabilities from a <see cref="Feed"/>. This may unapply and remove some existing <see cref="AccessPoint"/>s.
@@ -247,7 +246,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <param name="appEntry">The application entry to update.</param>
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
-        protected abstract void UpdateAppInternal([NotNull] AppEntry appEntry, [NotNull] Feed feed);
+        protected abstract void UpdateAppInternal(AppEntry appEntry, Feed feed);
 
         /// <summary>
         /// Applies <see cref="AccessPoint"/>s for an application.
@@ -263,7 +262,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract void AddAccessPointsInternal([NotNull] AppEntry appEntry, [NotNull] Feed feed, [NotNull, ItemNotNull, InstantHandle] IEnumerable<AccessPoint> accessPoints);
+        protected abstract void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IEnumerable<AccessPoint> accessPoints);
 
         /// <summary>
         /// Removes already applied <see cref="AccessPoint"/>s for an application.
@@ -274,7 +273,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Store.Model.Capabilities.Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract void RemoveAccessPointsInternal([NotNull] AppEntry appEntry, [NotNull, ItemNotNull, InstantHandle] IEnumerable<AccessPoint> accessPoints);
+        protected abstract void RemoveAccessPointsInternal(AppEntry appEntry, IEnumerable<AccessPoint> accessPoints);
 
         /// <summary>
         /// Reapplies all <see cref="AccessPoint"/>s for a specific <see cref="AppEntry"/>.
@@ -287,7 +286,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract void RepairAppInternal([NotNull] AppEntry appEntry, [NotNull] Feed feed);
+        protected abstract void RepairAppInternal(AppEntry appEntry, Feed feed);
 
         /// <summary>
         /// To be called after integration operations have been completed to inform the desktop environment and save the <see cref="DesktopIntegration.AppList"/>.

@@ -5,7 +5,6 @@ using System;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Dispatch;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Model;
@@ -22,31 +21,26 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// The hash value the <see cref="Implementation"/> was supposed to have.
         /// </summary>
-        [CanBeNull]
-        public string ExpectedDigest { get; }
+        public string? ExpectedDigest { get; }
 
         /// <summary>
         /// The <see cref="Manifest"/> that resulted in the <see cref="ExpectedDigest"/>.
         /// </summary>
-        [CanBeNull]
-        public Manifest ExpectedManifest { get; }
+        public Manifest? ExpectedManifest { get; }
 
         /// <summary>
         /// The hash value that was actually calculated.
         /// </summary>
-        [CanBeNull]
-        public string ActualDigest { get; }
+        public string? ActualDigest { get; }
 
         /// <summary>
         /// The <see cref="Manifest"/> that resulted in the <see cref="ActualDigest"/>.
         /// </summary>
-        [CanBeNull]
-        public Manifest ActualManifest { get; }
+        public Manifest? ActualManifest { get; }
 
         /// <summary>
         /// A longer version of <see cref="Exception.Message"/> that contains more details. Suitable for verbose output.
         /// </summary>
-        [NotNull]
         public string LongMessage
         {
             get
@@ -74,7 +68,7 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="actualDigest">The digest value that was actually calculated.</param>
         /// <param name="expectedManifest">The <see cref="Manifest"/> that resulted in the <paramref name="expectedDigest"/>; may be <c>null</c>.</param>
         /// <param name="actualManifest">The <see cref="Manifest"/> that resulted in the <paramref name="actualDigest"/>.</param>
-        public DigestMismatchException(string expectedDigest = null, string actualDigest = null, Manifest expectedManifest = null, Manifest actualManifest = null)
+        public DigestMismatchException(string? expectedDigest = null, string? actualDigest = null, Manifest? expectedManifest = null, Manifest? actualManifest = null)
             : base(BuildMessage(expectedDigest, actualDigest))
         {
             ExpectedDigest = expectedDigest;
@@ -83,7 +77,7 @@ namespace ZeroInstall.Store.Implementations
             ActualManifest = actualManifest;
         }
 
-        private static string BuildMessage(string expectedDigest, string actualDigest)
+        private static string BuildMessage(string? expectedDigest, string? actualDigest)
         {
             string message = Resources.DigestMismatch;
             if (!string.IsNullOrEmpty(expectedDigest)) message += Environment.NewLine + string.Format(Resources.DigestMismatchExpectedDigest, expectedDigest);

@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -25,8 +24,7 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/> or the main executable could not be launched.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        [CanBeNull]
-        Process Start([NotNull] Selections selections);
+        Process? Start(Selections selections);
 
         /// <summary>
         /// Starts building an execution environment for a <see cref="Selections"/> document.
@@ -38,7 +36,6 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        [NotNull]
-        IEnvironmentBuilder Inject([NotNull] Selections selections, string overrideMain = null);
+        IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null);
     }
 }

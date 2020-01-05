@@ -123,7 +123,13 @@ namespace ZeroInstall.Services.Fetchers
         protected void TestDownloadArchives(params Archive[] archives)
         {
             var digest = new ManifestDigest(sha256New: "test123");
-            var archiveInfos = archives.Select(archive => new ArchiveFileInfo {Extract = archive.Extract, Destination = archive.Destination, MimeType = archive.MimeType, StartOffset = archive.StartOffset, OriginalSource = archive.Href}).ToList();
+            var archiveInfos = archives.Select(archive => new ArchiveFileInfo("dummy", archive.MimeType)
+            {
+                Extract = archive.Extract,
+                Destination = archive.Destination,
+                StartOffset = archive.StartOffset,
+                OriginalSource = archive.Href
+            }).ToList();
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {GetRetrievalMethod(archives)}};
 
             StoreMock.Setup(x => x.GetPath(digest)).Returns(() => null);

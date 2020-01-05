@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model
@@ -29,14 +28,14 @@ namespace ZeroInstall.Store.Model
         /// Overrides the default separator character (":" on POSIX and ";" on Windows).
         /// </summary>
         [Description("Overrides the default separator character (\":\" on POSIX and \";\" on Windows).")]
-        [XmlAttribute("separator"), DefaultValue(""), CanBeNull]
-        public string Separator { get; set; }
+        [XmlAttribute("separator"), DefaultValue("")]
+        public string? Separator { get; set; }
 
         /// <summary>
         /// A list of command-line arguments to be passed to an executable. "${item}" will be substituted with each for-each value.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("arg"), NotNull]
+        [XmlElement("arg")]
         public List<Arg> Arguments { get; } = new List<Arg>();
 
         #region Normalize
@@ -80,7 +79,7 @@ namespace ZeroInstall.Store.Model
             && Arguments.SequencedEquals(other.Arguments);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

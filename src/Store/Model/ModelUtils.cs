@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Properties;
 
@@ -17,7 +16,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Determines whether a string contains a template variable (a substring enclosed in curly brackets, e.g {var}).
         /// </summary>
-        public static bool ContainsTemplateVariables([NotNull] string value)
+        public static bool ContainsTemplateVariables(string value)
         {
             #region Sanity checks
             if (value == null) throw new ArgumentNullException(nameof(value));
@@ -35,8 +34,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute path.</returns>
         /// <exception cref="UriFormatException"><paramref name="path"/> is a relative URI that cannot be resolved.</exception>
-        [NotNull]
-        public static string GetAbsolutePath([NotNull] string path, [CanBeNull] FeedUri source = null)
+        public static string GetAbsolutePath(string path, FeedUri? source = null)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -54,8 +52,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute path.</returns>
         /// <exception cref="UriFormatException"><paramref name="path"/> is a relative URI that cannot be resolved.</exception>
-        [NotNull]
-        public static string GetAbsolutePath([NotNull] string path, [CanBeNull] string source)
+        public static string GetAbsolutePath(string path, string? source)
             => GetAbsolutePath(path, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
 
         /// <summary>
@@ -65,8 +62,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute HREF.</returns>
         /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
-        [NotNull]
-        public static Uri GetAbsoluteHref([NotNull] Uri href, [CanBeNull] FeedUri source = null)
+        public static Uri GetAbsoluteHref(Uri href, FeedUri? source = null)
         {
             #region Sanity checks
             if (href == null) throw new ArgumentNullException(nameof(href));
@@ -84,8 +80,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
         /// <returns>An absolute HREF.</returns>
         /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
-        [NotNull]
-        public static Uri GetAbsoluteHref([NotNull] Uri href, [CanBeNull] string source)
+        public static Uri GetAbsoluteHref(Uri href, string? source)
             => GetAbsoluteHref(href, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
     }
 }

@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Capabilities;
@@ -19,7 +18,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="capabilities">The capability list to add the collected data to.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        public void CollectContextMenus([NotNull] CommandMapper commandMapper, [NotNull] CapabilityList capabilities)
+        public void CollectContextMenus(CommandMapper commandMapper, CapabilityList capabilities)
         {
             #region Sanity checks
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));

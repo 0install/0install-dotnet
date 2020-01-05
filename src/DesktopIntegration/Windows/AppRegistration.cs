@@ -7,7 +7,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -62,7 +61,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/> or <paramref name="verbCapabilities"/> is invalid.</exception>
-        public static void Register(FeedTarget target, [NotNull] Store.Model.Capabilities.AppRegistration appRegistration, IEnumerable<VerbCapability> verbCapabilities, [NotNull] IIconStore iconStore, bool machineWide)
+        public static void Register(FeedTarget target, Store.Model.Capabilities.AppRegistration appRegistration, IEnumerable<VerbCapability> verbCapabilities, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (appRegistration == null) throw new ArgumentNullException(nameof(appRegistration));
@@ -122,7 +121,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/>.</exception>
-        public static void Unregister([NotNull] Store.Model.Capabilities.AppRegistration appRegistration, bool machineWide)
+        public static void Unregister(Store.Model.Capabilities.AppRegistration appRegistration, bool machineWide)
         {
             #region Sanity checks
             if (appRegistration == null) throw new ArgumentNullException(nameof(appRegistration));

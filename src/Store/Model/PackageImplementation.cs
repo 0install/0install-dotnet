@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
@@ -42,12 +41,12 @@ namespace ZeroInstall.Store.Model
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlIgnore]
-        public override ImplementationVersion Version { get => null; set {} }
+        public override ImplementationVersion? Version { get => null; set {} }
 
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("version-modifier")]
-        public override string VersionModifier { get => null; set {} }
+        public override string? VersionModifier { get => null; set {} }
 
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
@@ -57,7 +56,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("released")]
-        public override string ReleasedString { get => null; set {} }
+        public override string? ReleasedString { get => null; set {} }
 
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
@@ -69,8 +68,8 @@ namespace ZeroInstall.Store.Model
         /// The name of the package in the distribution-specific package manager.
         /// </summary>
         [Category("Identity"), Description("The name of the package in the distribution-specific package manager.")]
-        [XmlAttribute("package"), CanBeNull]
-        public string Package { get; set; }
+        [XmlAttribute("package")]
+        public string? Package { get; set; }
 
         // Order is not important (but is preserved), duplicate string entries are not allowed (but not enforced)
 
@@ -78,7 +77,7 @@ namespace ZeroInstall.Store.Model
         /// A list of distribution names (e.g. Debian, RPM) where <see cref="Package"/> applies. Applies everywhere if empty.
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, NotNull]
+        [XmlIgnore]
         public List<string> Distributions { get; } = new List<string>();
 
         /// <summary>
@@ -135,7 +134,7 @@ namespace ZeroInstall.Store.Model
             && Distributions.SequencedEquals(other.Distributions);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

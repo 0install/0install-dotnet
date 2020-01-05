@@ -3,7 +3,6 @@
 
 using System;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Model;
@@ -21,7 +20,7 @@ namespace ZeroInstall.Services.Solvers
         private readonly ISolver _innerSolver;
         private readonly IFeedManager _feedManager;
 
-        public RefreshingSolver([NotNull] ISolver innerSolver, [NotNull] IFeedManager feedManager)
+        public RefreshingSolver(ISolver innerSolver, IFeedManager feedManager)
         {
             _innerSolver = innerSolver ?? throw new ArgumentNullException(nameof(innerSolver));
             _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));

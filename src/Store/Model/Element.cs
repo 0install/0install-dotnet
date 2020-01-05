@@ -8,7 +8,6 @@ using System.Globalization;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
@@ -88,15 +87,15 @@ namespace ZeroInstall.Store.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
+        public virtual string? VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
         #endregion
 
         /// <summary>
         /// A string to be appended to the version. The purpose of this is to allow complex version numbers (such as "1.0-rc2") in older versions of the injector.
         /// </summary>
         [Category("Release"), Description("A string to be appended to the version. The purpose of this is to allow complex version numbers (such as \"1.0-rc2\") in older versions of the injector.")]
-        [XmlAttribute("version-modifier"), DefaultValue(""), CanBeNull]
-        public virtual string VersionModifier { get; set; }
+        [XmlAttribute("version-modifier"), DefaultValue("")]
+        public virtual string? VersionModifier { get; set; }
 
         /// <summary>
         /// The date this implementation was made available. For development versions checked out from version control this attribute should not be present.
@@ -108,8 +107,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Used to store the unparsed release date string (instead of <see cref="Released"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.
         /// </summary>
-        [CanBeNull]
-        protected string ReleasedVerbatim;
+        protected string? ReleasedVerbatim;
 
         /// <summary>
         /// The string form of <see cref="Released"/>. Only use this if the string <see cref="ModelUtils.ContainsTemplateVariables"/>.
@@ -117,7 +115,7 @@ namespace ZeroInstall.Store.Model
         /// <seealso cref="Released"/>
         [Category("Release"), Description("The string form of Released. Only use this if the string contains template variables.")]
         [XmlAttribute("released")]
-        public virtual string ReleasedString
+        public virtual string? ReleasedString
         {
             get
             {
@@ -126,8 +124,17 @@ namespace ZeroInstall.Store.Model
             }
             set
             {
-                if (ModelUtils.ContainsTemplateVariables(value)) ReleasedVerbatim = value;
-                else Released = DateTime.ParseExact(value, ReleaseDateFormat, CultureInfo.InvariantCulture);
+                if (string.IsNullOrEmpty(value)) Released = default;
+                else if (ModelUtils.ContainsTemplateVariables(value))
+                {
+                    Released = default;
+                    ReleasedVerbatim = value;
+                }
+                else
+                {
+                    Released = DateTime.ParseExact(value, ReleaseDateFormat, CultureInfo.InvariantCulture);
+                    ReleasedVerbatim = null;
+                }
             }
         }
 
@@ -144,7 +151,7 @@ namespace ZeroInstall.Store.Model
         [Category("Release"), Description("License terms (typically a Trove category, as used on freshmeat.net).")]
         [TypeConverter(typeof(LicenseNameConverter))]
         [XmlAttribute("license"), DefaultValue("")]
-        public string License { get; set; }
+        public string? License { get; set; }
 
         /// <summary>
         /// The relative path of an executable inside the implementation that should be executed by default when the interface is run. If an implementation has no main setting, then it cannot be executed without specifying one manually. This typically means that the interface is for a library.
@@ -155,8 +162,8 @@ namespace ZeroInstall.Store.Model
         /// An empty string corresponds to a <see cref="Command"/> with no <see cref="Command.Path"/>.
         /// </remarks>
         [Category("Execution"), Description("The relative path of an executable inside the implementation that should be executed by default when the interface is run. If an implementation has no main setting, then it cannot be executed without specifying one manually. This typically means that the interface is for a library.")]
-        [XmlAttribute("main"), DefaultValue(""), CanBeNull]
-        public string Main { get; set; }
+        [XmlAttribute("main"), DefaultValue("")]
+        public string? Main { get; set; }
 
         /// <summary>
         /// The relative path of an executable inside the implementation that can be executed to test the program. The program must be non-interactive (e.g. it can't open any windows or prompt for input). It should return with an exit status of zero if the tests pass. Any other status indicates failure.
@@ -168,14 +175,14 @@ namespace ZeroInstall.Store.Model
         /// </remarks>
         [Category("Execution"), Description("The relative path of an executable inside the implementation that can be executed to test the program. The program must be non-interactive (e.g. it can't open any windows or prompt for input). It should return with an exit status of zero if the tests pass. Any other status indicates failure.")]
         [XmlAttribute("self-test"), DefaultValue("")]
-        public string SelfTest { get; set; }
+        public string? SelfTest { get; set; }
 
         /// <summary>
         /// The relative path of a directory inside the implementation that contains the package's documentation. This is the directory that would end up inside /usr/share/doc on a traditional Linux system.
         /// </summary>
         [Category("Execution"), Description("The relative path of a directory inside the implementation that contains the package's documentation. This is the directory that would end up inside /usr/share/doc on a traditional Linux system.")]
         [XmlAttribute("doc-dir"), DefaultValue("")]
-        public string DocDir { get; set; }
+        public string? DocDir { get; set; }
 
         /// <summary>
         /// A list of interfaces this implementation depends upon.
@@ -203,7 +210,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <remarks>This will eventually replace <see cref="Main"/> and <see cref="SelfTest"/>.</remarks>
         [Browsable(false)]
-        [XmlElement("command"), NotNull]
+        [XmlElement("command")]
         public List<Command> Commands { get; } = new List<Command>();
 
         /// <summary>
@@ -228,8 +235,7 @@ namespace ZeroInstall.Store.Model
         /// <returns>The first matching command; <c>null</c> if <paramref name="name"/> is <see cref="string.Empty"/>.</returns>
         /// <exception cref="KeyNotFoundException">No matching <see cref="Command"/> was found.</exception>
         /// <remarks>Should only be called after <see cref="Normalize"/> has been called, otherwise nested <see cref="Implementation"/>s will not be considered.</remarks>
-        [CanBeNull]
-        public Command this[[NotNull] string name]
+        public Command? this[string name]
         {
             get
             {
@@ -257,8 +263,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="name">The <see cref="Command.Name"/> to look for.</param>
         /// <returns>The first matching command; <c>null</c> if no matching one was found.</returns>
         /// <remarks>Should only be called after <see cref="Normalize"/> has been called, otherwise nested <see cref="Implementation"/>s will not be considered.</remarks>
-        [CanBeNull]
-        public Command GetCommand([NotNull] string name)
+        public Command? GetCommand(string name)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(name);
@@ -273,7 +278,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public virtual void Normalize([CanBeNull] FeedUri feedUri = null)
+        public virtual void Normalize(FeedUri? feedUri = null)
         {
             // Apply if-0install-version filter
             Commands.RemoveAll(FilterMismatch);
@@ -295,7 +300,7 @@ namespace ZeroInstall.Store.Model
         /// Existing values are not replaced. Provides an inheritance-like relation.
         /// </summary>
         /// <param name="parent">The object to take the attributes from.</param>
-        internal void InheritFrom([NotNull] Element parent)
+        internal void InheritFrom(Element parent)
         {
             #region Sanity checks
             if (parent == null) throw new ArgumentNullException(nameof(parent));
@@ -335,7 +340,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// Copies all known values from one instance to another. Helper method for instance cloning.
         /// </summary>
-        protected static void CloneFromTo([NotNull] Element from, [NotNull] Element to)
+        protected static void CloneFromTo(Element from, Element to)
         {
             #region Sanity checks
             if (from == null) throw new ArgumentNullException(nameof(from));

@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
@@ -28,7 +27,7 @@ namespace ZeroInstall.Store.ViewModel
         /// </summary>
         /// <param name="implementationStore">Used to list <see cref="Implementation"/>s</param>
         /// <param name="feedCache">Used to load <see cref="Feed"/>s.</param>
-        public CacheNodeBuilder([NotNull] IImplementationStore implementationStore, [NotNull] IFeedCache feedCache)
+        public CacheNodeBuilder(IImplementationStore implementationStore, IFeedCache feedCache)
         {
             _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
             _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
@@ -77,7 +76,7 @@ namespace ZeroInstall.Store.ViewModel
                 var implementation = _feeds.GetImplementation(digest, out var feed);
 
                 ImplementationNode implementationNode;
-                if (implementation == null) implementationNode = new OrphanedImplementationNode(digest, _implementationStore);
+                if (implementation == null || feed == null) implementationNode = new OrphanedImplementationNode(digest, _implementationStore);
                 else implementationNode = new OwnedImplementationNode(digest, implementation, new FeedNode(feed, _feedCache), _implementationStore);
 
                 TotalSize += implementationNode.Size;

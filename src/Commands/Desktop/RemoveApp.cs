@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
@@ -32,7 +31,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public RemoveApp([NotNull] ICommandHandler handler)
+        public RemoveApp(ICommandHandler handler)
             : base(handler)
         {}
 

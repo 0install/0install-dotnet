@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Threading;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
@@ -83,8 +82,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
             #endregion
         }));
 
-        [CanBeNull]
-        private static ServiceController GetServiceController()
+        private static ServiceController? GetServiceController()
             => ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
 
         private static readonly string _installUtilExe = Path.Combine(_runtimeDir, "InstallUtil.exe");

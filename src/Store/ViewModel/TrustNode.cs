@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Trust;
 
@@ -21,7 +20,7 @@ namespace ZeroInstall.Store.ViewModel
         /// </summary>
         /// <param name="fingerprint">The <see cref="Key.Fingerprint"/>.</param>
         /// <param name="domain">The domain the fingerprint is valid for.</param>
-        public TrustNode([NotNull] string fingerprint, Domain domain)
+        public TrustNode(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -35,13 +34,11 @@ namespace ZeroInstall.Store.ViewModel
         /// The UI path name of this node. Uses a backslash as the separator in hierarchical names.
         /// </summary>
         [Browsable(false)]
-        [NotNull]
         public string Name { get => Fingerprint + "\\" + Domain.Value; set => throw new NotSupportedException(); }
 
         /// <summary>
         /// The <see cref="Key.Fingerprint"/>.
         /// </summary>
-        [NotNull]
         public string Fingerprint { get; }
 
         /// <summary>
@@ -59,7 +56,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

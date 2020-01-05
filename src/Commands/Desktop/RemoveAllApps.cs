@@ -3,7 +3,6 @@
 
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -33,7 +32,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public RemoveAllApps([NotNull] ICommandHandler handler)
+        public RemoveAllApps(ICommandHandler handler)
             : base(handler)
         {}
 

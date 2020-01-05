@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Cli;
 using NanoByte.Common.Streams;
@@ -25,13 +24,11 @@ namespace ZeroInstall.Store.Trust
 
             private static readonly object _gpgLock = new object();
 
-            [CanBeNull]
-            private readonly string _homeDir;
+            private readonly string? _homeDir;
 
-            [CanBeNull]
-            private readonly byte[] _stdinBytes;
+            private readonly byte[]? _stdinBytes;
 
-            public CliControl([CanBeNull] string homeDir = null, [CanBeNull] byte[] stdinBytes = null)
+            public CliControl(string? homeDir = null, byte[]? stdinBytes = null)
             {
                 _homeDir = homeDir;
                 _stdinBytes = stdinBytes;
@@ -68,7 +65,7 @@ namespace ZeroInstall.Store.Trust
             }
 
             /// <inheritdoc/>
-            protected override string HandleStderr(string line)
+            protected override string? HandleStderr(string line)
             {
                 #region Sanity checks
                 if (line == null) throw new ArgumentNullException(nameof(line));

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model;
@@ -22,7 +21,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="capabilities">The capability list to add the collected data to.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        public void CollectAutoPlays([NotNull] CommandMapper commandMapper, [NotNull] CapabilityList capabilities)
+        public void CollectAutoPlays(CommandMapper commandMapper, CapabilityList capabilities)
         {
             #region Sanity checks
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));
@@ -47,8 +46,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        [CanBeNull]
-        private static Capability GetAutoPlay([NotNull] string handler, [NotNull] RegistryKey hive, [NotNull] IEnumerable<ComparableTuple<string>> autoPlayAssocs, [NotNull] CommandMapper commandMapper)
+        private static Capability? GetAutoPlay(string handler, RegistryKey hive, IEnumerable<ComparableTuple<string>> autoPlayAssocs, CommandMapper commandMapper)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));

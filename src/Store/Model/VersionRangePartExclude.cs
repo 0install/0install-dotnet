@@ -3,8 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -14,14 +12,13 @@ namespace ZeroInstall.Store.Model
     [Serializable]
     public sealed class VersionRangePartExclude : VersionRangePart
     {
-        [NotNull]
         public ImplementationVersion Version { get; }
 
         /// <summary>
         /// Creates a new version exclusion.
         /// </summary>
         /// <param name="version">The version to be excluded.</param>
-        public VersionRangePartExclude([NotNull] ImplementationVersion version)
+        public VersionRangePartExclude(ImplementationVersion version)
         {
             Version = version ?? throw new ArgumentNullException(nameof(version));
         }
@@ -64,7 +61,7 @@ namespace ZeroInstall.Store.Model
         public override string ToString() => "!" + Version;
 
         #region Equality
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

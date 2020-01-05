@@ -3,7 +3,6 @@
 
 #if NETSTANDARD
 using System;
-using JetBrains.Annotations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NanoByte.Common.Net;
@@ -23,7 +22,7 @@ namespace ZeroInstall.Services
     /// <summary>
     /// Provides extension methods for <see cref="IServiceCollection"/>.
     /// </summary>
-    [PublicAPI, CLSCompliant(false)]
+    [CLSCompliant(false)]
     public static class ServiceCollectionExtensions
     {
         /// <summary>
@@ -32,7 +31,7 @@ namespace ZeroInstall.Services
         /// <typeparam name="TTaskHandler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</typeparam>
         /// <param name="services">The service collection to add the services to.</param>
         /// <param name="autoRefresh"><c>true</c> to wrap the default <see cref="ISolver"/> in a <see cref="RefreshingSolver"/>.</param>
-        public static IServiceCollection AddZeroInstall<TTaskHandler>([NotNull] this IServiceCollection services, bool autoRefresh = false) where TTaskHandler : class, ITaskHandler
+        public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services, bool autoRefresh = false) where TTaskHandler : class, ITaskHandler
         {
             #region Sanity checks
             if (services == null) throw new ArgumentNullException(nameof(services));
@@ -72,7 +71,7 @@ namespace ZeroInstall.Services
         /// <param name="services">The service collection to add the services to.</param>
         /// <param name="autoRefresh"><c>true</c> to wrap the default <see cref="ISolver"/> in a <see cref="RefreshingSolver"/>.</param>
         /// <seealso cref="ConfigurationCredentialProviderRegisration.ConfigureCredentials"/>
-        public static IServiceCollection AddZeroInstall([NotNull] this IServiceCollection services, bool autoRefresh = false)
+        public static IServiceCollection AddZeroInstall(this IServiceCollection services, bool autoRefresh = false)
             => services.AddZeroInstall<ServiceTaskHandler>(autoRefresh);
     }
 }

@@ -7,7 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
@@ -43,7 +42,7 @@ namespace ZeroInstall.Services.Feeds
         /// </summary>
         /// <param name="trustManager">Methods for verifying signatures and user trust.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public CatalogManager([NotNull] ITrustManager trustManager, [NotNull] ITaskHandler handler)
+        public CatalogManager(ITrustManager trustManager, ITaskHandler handler)
         {
             _trustManager = trustManager ?? throw new ArgumentNullException(nameof(trustManager));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
@@ -54,7 +53,7 @@ namespace ZeroInstall.Services.Feeds
 
         /// <inheritdoc/>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
-        public Catalog GetCached()
+        public Catalog? GetCached()
         {
             try
             {
@@ -70,7 +69,7 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Saves a merged <see cref="Catalog"/> to the cache file for later retrieval by <see cref="GetCached"/>.
         /// </summary>
-        private void SaveCache([NotNull] Catalog catalog)
+        private void SaveCache(Catalog catalog)
         {
             try
             {
@@ -164,7 +163,6 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
         /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
-        [NotNull, ItemNotNull]
         public static FeedUri[] GetSources()
         {
             string path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
@@ -188,7 +186,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="uris">The list of catalog sources to use from now on.</param>
         /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-        public static void SetSources([NotNull, ItemNotNull, InstantHandle] IEnumerable<FeedUri> uris)
+        public static void SetSources(IEnumerable<FeedUri> uris)
         {
             #region Sanity checks
             if (uris == null) throw new ArgumentNullException(nameof(uris));

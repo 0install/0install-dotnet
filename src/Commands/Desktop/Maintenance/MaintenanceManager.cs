@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -37,7 +36,6 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// <summary>
         /// The full path to the directory containing the Zero Install instance.
         /// </summary>
-        [NotNull]
         public string TargetDir { get; }
 
         /// <summary>
@@ -52,7 +50,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
-        public MaintenanceManager([NotNull] string targetDir, [NotNull] ITaskHandler handler, bool machineWide, bool portable)
+        public MaintenanceManager(string targetDir, ITaskHandler handler, bool machineWide, bool portable)
             : base(handler, machineWide)
         {
             #region Sanity checks

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model.Capabilities
@@ -20,7 +19,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// A list of all available operations for the element.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("verb"), NotNull]
+        [XmlElement("verb")]
         public List<Verb> Verbs { get; } = new List<Verb>();
 
         #region Equality

@@ -121,7 +121,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             using (var extractor = new TarExtractor(typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"), _sandbox))
                 extractor.Run();
 
-            string target;
+            string? target;
             string source = Path.Combine(_sandbox, "symlink");
             if (UnixUtils.IsUnix) FileUtils.IsSymlink(source, out target).Should().BeTrue();
             else CygwinUtils.IsSymlink(source, out target).Should().BeTrue();

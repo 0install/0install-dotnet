@@ -80,7 +80,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public static bool operator !=(InstallCommands left, InstallCommands right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj) => obj is InstallCommands commands && Equals(commands);
+        public override bool Equals(object? obj) => obj is InstallCommands commands && Equals(commands);
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model;
 
@@ -49,7 +48,7 @@ namespace ZeroInstall.Publish.EntryPoints
             }
         }
 
-        protected virtual bool Parse([NotNull] PEHeader peHeader)
+        protected virtual bool Parse(PEHeader peHeader)
         {
             #region Sanity checks
             if (peHeader == null) throw new ArgumentNullException(nameof(peHeader));

@@ -5,8 +5,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Web;
-using JetBrains.Annotations;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
@@ -35,7 +35,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <param name="selections">A list of <see cref="ImplementationSelection"/>s to check for referenced feeds.</param>
         /// <param name="architecture">The target architecture to use for bootstrap binaries.</param>
         /// <param name="destination">The path of the directory to export to.</param>
-        public Exporter([NotNull] Selections selections, Architecture architecture, [NotNull] string destination)
+        public Exporter(Selections selections, Architecture architecture, string destination)
         {
             _selections = selections ?? throw new ArgumentNullException(nameof(selections));
             _architecture = architecture;
@@ -52,7 +52,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <param name="destination">The path of the directory to export to.</param>
         /// <exception cref="IOException">The directory <paramref name="destination"/> could not be created.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the directory <paramref name="destination"/> is not permitted.</exception>
-        public Exporter([NotNull] Selections selections, [NotNull] Requirements requirements, [NotNull] string destination)
+        public Exporter(Selections selections, Requirements requirements, string destination)
             : this(selections, requirements.ForCurrentSystem().Architecture, destination)
         {}
 
@@ -64,7 +64,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <exception cref="UnauthorizedAccessException">The file could not be read or written.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
         /// <exception cref="IOException">A feed or GnuPG could not be read from the cache.</exception>
-        public void ExportFeeds([NotNull] IFeedCache feedCache, [NotNull] IOpenPgp openPgp)
+        public void ExportFeeds(IFeedCache feedCache, IOpenPgp openPgp)
         {
             #region Sanity checks
             if (feedCache == null) throw new ArgumentNullException(nameof(feedCache));
@@ -74,7 +74,9 @@ namespace ZeroInstall.Commands.Basic.Exporters
             string contentDir = Path.Combine(_destination, "content");
             Directory.CreateDirectory(contentDir);
 
-            var feedUris = _selections.Implementations.Select(x => x.FromFeed ?? x.InterfaceUri).Distinct().ToList();
+            var feedUris = _selections.Implementations
+                                      .Select(x => x.FromFeed ?? x.InterfaceUri)
+                                      .WhereNotNull().Distinct().ToList();
 
             foreach (var feedUri in feedUris)
             {
@@ -101,7 +103,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <exception cref="UnauthorizedAccessException">The file could not be read or written.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
         /// <exception cref="IOException">An implementation archive could not be creates.</exception>
-        public void ExportImplementations([NotNull] IImplementationStore implementationStore, [NotNull] ITaskHandler handler)
+        public void ExportImplementations(IImplementationStore implementationStore, ITaskHandler handler)
         {
             #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
@@ -113,7 +115,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
 
             foreach (var digest in _selections.Implementations.Select(x => x.ManifestDigest).Where(x => x.Best != null).Distinct())
             {
-                string sourcePath = implementationStore.GetPath(digest);
+                string? sourcePath = implementationStore.GetPath(digest);
                 if (sourcePath == null)
                 {
                     Log.Warn("Implementation " + digest + " missing from cache");
@@ -142,7 +144,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// Deploys a bootstrap file for importing exported feeds and implementations.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public void DeployBootstrapRun([NotNull] ITaskHandler handler)
+        public void DeployBootstrapRun(ITaskHandler handler)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -155,7 +157,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// Deploys a bootstrap file for importing exported feeds and implementations.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public void DeployBootstrapIntegrate([NotNull] ITaskHandler handler)
+        public void DeployBootstrapIntegrate(ITaskHandler handler)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -164,7 +166,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
             DeployBootstrap(handler, mode: "integrate");
         }
 
-        private void DeployBootstrap([NotNull] ITaskHandler handler, [NotNull] string mode)
+        private void DeployBootstrap(ITaskHandler handler, string mode)
         {
             string appName = _selections.Name ?? "application";
             string fileName = (_architecture.OS == OS.Windows)

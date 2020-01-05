@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations;
@@ -22,7 +21,7 @@ namespace ZeroInstall.Commands.Basic
         public new const string Name = "store";
 
         /// <inheritdoc/>
-        public StoreMan([NotNull] ICommandHandler handler)
+        public StoreMan(ICommandHandler handler)
             : base(handler)
         {}
         #endregion
@@ -57,7 +56,7 @@ namespace ZeroInstall.Commands.Basic
         {
             protected override string ParentName => StoreMan.Name;
 
-            protected StoreSubCommand([NotNull] ICommandHandler handler)
+            protected StoreSubCommand(ICommandHandler handler)
                 : base(handler)
             {}
 

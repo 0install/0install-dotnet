@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Model.Capabilities
@@ -25,7 +24,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// A well-known protocol prefix such as "http". Should be empty and set in <see cref="Capability.ID"/> instead if it is a custom protocol.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("known-prefix"), NotNull]
+        [XmlElement("known-prefix")]
         public List<KnownProtocolPrefix> KnownPrefixes { get; } = new List<KnownProtocolPrefix>();
 
         /// <inheritdoc/>
@@ -36,7 +35,8 @@ namespace ZeroInstall.Store.Model.Capabilities
         /// <summary>
         /// Returns the capability in the form "ID". Not safe for parsing!
         /// </summary>
-        public override string ToString() => ID;
+        public override string ToString()
+            => ID ?? "";
         #endregion
 
         #region Clone
@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Model.Capabilities
         public bool Equals(UrlProtocol other) => other != null && base.Equals(other) && KnownPrefixes.SequencedEquals(other.KnownPrefixes);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

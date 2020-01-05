@@ -23,14 +23,15 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri feedUri) {}
+        public void Normalize(FeedUri? feedUri = null) {}
         #endregion
 
         #region Conversion
         /// <summary>
         /// Returns the remove step in the form "Path". Not safe for parsing!
         /// </summary>
-        public override string ToString() => Path;
+        public override string ToString()
+            => Path ?? "";
         #endregion
 
         #region Clone
@@ -47,7 +48,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

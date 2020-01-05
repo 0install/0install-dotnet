@@ -4,8 +4,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Store.Model.Design;
 using ZeroInstall.Store.Properties;
@@ -47,10 +47,8 @@ namespace ZeroInstall.Store.Model
         /// Tries to guess the MIME type of an archive file by looking at its file extension.
         /// </summary>
         /// <param name="fileName">The file name to analyze.</param>
-        /// <returns>The MIME type if it could be guessed; <c>null</c> otherwise.</returns>
-        /// <remarks>The file's content is not analyzed.</remarks>
-        [CanBeNull]
-        public static string GuessMimeType([NotNull] string fileName)
+        /// <exception cref="NotSupportedException">The file extension does not correspond to a known archive type.</exception>
+        public static string GuessMimeType(string fileName)
         {
             #region Sanity checks
             if (fileName == null) throw new ArgumentNullException(nameof(fileName));
@@ -69,7 +67,7 @@ namespace ZeroInstall.Store.Model
             if (fileName.EndsWithIgnoreCase(".deb")) return MimeTypeDeb;
             if (fileName.EndsWithIgnoreCase(".rpm")) return MimeTypeRpm;
             if (fileName.EndsWithIgnoreCase(".dmg")) return MimeTypeDmg;
-            return null;
+            throw new NotSupportedException(string.Format(Resources.UnknownArchiveType, Path.GetExtension(fileName)));
         }
 
         /// <summary>
@@ -78,8 +76,7 @@ namespace ZeroInstall.Store.Model
         /// <param name="mimeType">The MIME type to get the extension for.</param>
         /// <returns>The file extension including the leading dot, e.g. '.zip'.</returns>
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> is not in the list of <see cref="KnownMimeTypes"/>.</exception>
-        [NotNull]
-        public static string GetDefaultExtension([NotNull] string mimeType)
+        public static string GetDefaultExtension(string mimeType)
             => (mimeType ?? throw new ArgumentNullException(nameof(mimeType))) switch
             {
                 MimeTypeZip => ".zip",
@@ -100,8 +97,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The type of the archive as a MIME type. If missing, the type is guessed from the extension on the location attribute. This value is case-insensitive.")]
         [TypeConverter(typeof(ArchiveMimeTypeConverter))]
-        [XmlAttribute("type"), DefaultValue(""), CanBeNull]
-        public string MimeType { get; set; }
+        [XmlAttribute("type"), DefaultValue("")]
+        public string? MimeType { get; set; }
 
         /// <summary>
         /// The number of bytes at the beginning of the file which should be ignored. The value in <see cref="DownloadRetrievalMethod.Size"/> does not include the skipped bytes.
@@ -118,19 +115,19 @@ namespace ZeroInstall.Store.Model
         /// The name of the subdirectory in the archive to extract; <c>null</c> or <see cref="string.Empty"/> for entire archive.
         /// </summary>
         [Description("The name of the subdirectory in the archive to extract; null for entire archive.")]
-        [XmlAttribute("extract"), DefaultValue(""), CanBeNull]
-        public string Extract { get; set; }
+        [XmlAttribute("extract"), DefaultValue("")]
+        public string? Extract { get; set; }
 
         /// <summary>
         /// The subdirectory within the implementation directory to extract this archive to; can be <c>null</c>.
         /// </summary>
         [Description("The subdirectory within the implementation directory to extract this archive to; can be null.")]
-        [XmlAttribute("dest"), CanBeNull]
-        public string Destination { get; set; }
+        [XmlAttribute("dest")]
+        public string? Destination { get; set; }
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize(FeedUri feedUri = null)
+        public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);
 
@@ -175,7 +172,7 @@ namespace ZeroInstall.Store.Model
             && other.Destination == Destination;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

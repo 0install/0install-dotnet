@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Basic
@@ -20,7 +19,7 @@ namespace ZeroInstall.Commands.Basic
 
             protected override int AdditionalArgsMax => 0;
 
-            public List([NotNull] ICommandHandler handler)
+            public List(ICommandHandler handler)
                 : base(handler)
             {}
             #endregion

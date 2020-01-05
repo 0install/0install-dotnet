@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -23,7 +22,6 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <summary>
         /// The path of the destination directory. May already exist.
         /// </summary>
-        [NotNull]
         public string DestinationPath { get; }
 
         /// <summary>
@@ -33,7 +31,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <param name="sourceManifest">The contents of a <see cref="Manifest"/> file describing the source directory.</param>
         /// <param name="destinationPath">The path of the destination directory to copy to.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-        public DeployDirectory([NotNull] string sourcePath, [NotNull] Manifest sourceManifest, [NotNull] string destinationPath, [NotNull] ITaskHandler handler)
+        public DeployDirectory(string sourcePath, Manifest sourceManifest, string destinationPath, ITaskHandler handler)
             : base(sourcePath, sourceManifest, handler)
         {
             #region Sanity checks
@@ -95,7 +93,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                         {
                             if (UnixUtils.IsUnix)
                             {
-                                if (UnixUtils.IsSymlink(sourcePath, out string symlinkTarget))
+                                if (UnixUtils.IsSymlink(sourcePath, out string? symlinkTarget))
                                     UnixUtils.CreateSymlink(tempPath, symlinkTarget);
                             }
                         }

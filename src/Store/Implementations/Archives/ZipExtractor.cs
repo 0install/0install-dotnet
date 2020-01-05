@@ -5,7 +5,6 @@ using System;
 using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Zip;
-using JetBrains.Annotations;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
 using ZeroInstall.Store.Properties;
@@ -29,7 +28,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
-        internal ZipExtractor([NotNull] Stream stream, [NotNull] string targetPath)
+        internal ZipExtractor(Stream stream, string targetPath)
             : base(targetPath)
         {
             #region Sanity checks
@@ -77,7 +76,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                     var localEntry = _zipStream.GetNextEntry();
                     if (localEntry == null) break;
 
-                    string relativePath = GetRelativePath(centralEntry.Name);
+                    string? relativePath = GetRelativePath(centralEntry.Name);
                     if (string.IsNullOrEmpty(relativePath)) continue;
 
                     if (centralEntry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, localEntry.DateTime);

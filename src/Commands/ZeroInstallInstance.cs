@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
@@ -41,12 +40,11 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
         /// <returns>The installation directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
-        [CanBeNull]
-        public static string FindOther(bool needsMachineWide = true)
+        public static string? FindOther(bool needsMachineWide = true)
         {
             if (!WindowsUtils.IsWindows) return null;
 
-            string installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation");
+            string? installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation");
             if (string.IsNullOrEmpty(installLocation)) return null;
             if (installLocation == Locations.InstallBase) return null;
             if (needsMachineWide && installLocation.StartsWith(Locations.HomeDir)) return null;
@@ -58,7 +56,7 @@ namespace ZeroInstall.Commands
         /// Silently checks if an update for Zero Install is available.
         /// </summary>
         /// <returns>The version number of the newest available update; <c>null</c> if no update is available.</returns>
-        public static ImplementationVersion SilentUpdateCheck()
+        public static ImplementationVersion? SilentUpdateCheck()
         {
             if (IsRunningFromCache || !NetUtils.IsInternetConnected) return null;
 

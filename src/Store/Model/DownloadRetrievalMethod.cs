@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Model
         /// <seealso cref="Href"/>
         [DisplayName(@"Href"), Description("The URL to download the file from. Relative URLs are only allowed in local feed files.")]
         [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.RelativeOrAbsolute)); }
+        public string? HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.RelativeOrAbsolute)); }
         #endregion
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace ZeroInstall.Store.Model
 
         #region Normalize
         /// <inheritdoc cref="RetrievalMethod.Normalize"/>
-        public override void Normalize(FeedUri feedUri = null)
+        public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);
 

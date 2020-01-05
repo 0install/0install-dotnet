@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using JetBrains.Annotations;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Store;
 
@@ -28,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        public static void Create(FeedTarget target, [CanBeNull] string command, [NotNull] string aliasName, [NotNull] IIconStore iconStore, bool machineWide)
+        public static void Create(FeedTarget target, string? command, string aliasName, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));

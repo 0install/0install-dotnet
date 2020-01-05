@@ -3,7 +3,6 @@
 
 using System;
 using System.Diagnostics;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
@@ -25,7 +24,7 @@ namespace ZeroInstall.Services.Executors
         /// Creates a new executor.
         /// </summary>
         /// <param name="implementationStore">Used to locate the selected <see cref="Implementation"/>s.</param>
-        public Executor([NotNull] IImplementationStore implementationStore)
+        public Executor(IImplementationStore implementationStore)
         {
             _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
         }
@@ -35,6 +34,6 @@ namespace ZeroInstall.Services.Executors
         public Process Start(Selections selections) => new EnvironmentBuilder(_implementationStore).Inject(selections).Start();
 
         /// <inheritdoc/>
-        public IEnvironmentBuilder Inject(Selections selections, string overrideMain = null) => new EnvironmentBuilder(_implementationStore).Inject(selections, overrideMain);
+        public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null) => new EnvironmentBuilder(_implementationStore).Inject(selections, overrideMain);
     }
 }

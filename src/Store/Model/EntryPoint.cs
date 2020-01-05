@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Store.Model.Design;
@@ -33,8 +32,8 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         /// <remarks>Will default to <see cref="Command"/> when left <c>null</c>.</remarks>
         [Description("The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.")]
-        [XmlAttribute("binary-name"), DefaultValue(""), CanBeNull]
-        public string BinaryName { get; set; }
+        [XmlAttribute("binary-name"), DefaultValue("")]
+        public string? BinaryName { get; set; }
 
         /// <summary>
         /// If <c>true</c>, indicates that the <see cref="Command"/> represented by this entry point requires a terminal in order to run.
@@ -61,24 +60,24 @@ namespace ZeroInstall.Store.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NeedsTerminal"/>
         [XmlElement("needs-terminal"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string NeedsTerminalString { get => (NeedsTerminal ? "" : null); set => NeedsTerminal = (value != null); }
+        public string? NeedsTerminalString { get => (NeedsTerminal ? "" : null); set => NeedsTerminal = (value != null); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="SuggestAutoStart"/>
         [XmlElement("suggest-auto-start"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string SuggestAutoStartString { get => (SuggestAutoStart ? "" : null); set => SuggestAutoStart = (value != null); }
+        public string? SuggestAutoStartString { get => (SuggestAutoStart ? "" : null); set => SuggestAutoStart = (value != null); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="SuggestSendTo"/>
         [XmlElement("suggest-send-to"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string SuggestSendToString { get => (SuggestSendTo ? "" : null); set => SuggestSendTo = (value != null); }
+        public string? SuggestSendToString { get => (SuggestSendTo ? "" : null); set => SuggestSendTo = (value != null); }
         #endregion
 
         /// <summary>
         /// User-friendly names for the command. If not present, <see cref="Command"/> is used instead.
         /// </summary>
         [Browsable(false)]
-        [XmlElement("name"), NotNull]
+        [XmlElement("name")]
         public LocalizableStringCollection Names { get; } = new LocalizableStringCollection();
 
         /// <inheritdoc/>
@@ -95,7 +94,7 @@ namespace ZeroInstall.Store.Model
         /// Zero or more icons representing the command. Used for desktop icons, menu entries, etc..
         /// </summary>
         [Browsable(false)]
-        [XmlElement("icon"), NotNull]
+        [XmlElement("icon")]
         public List<Icon> Icons { get; } = new List<Icon>();
 
         #region Conversion
@@ -137,7 +136,7 @@ namespace ZeroInstall.Store.Model
             && Icons.SequencedEquals(other.Icons);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

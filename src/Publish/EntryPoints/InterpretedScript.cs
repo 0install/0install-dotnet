@@ -5,7 +5,6 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Model;
@@ -37,8 +36,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// </summary>
         [Category("Details (Script)"), DisplayName(@"Interpreter versions"), Description("The range of versions of the script interpreter supported by the application.")]
         [DefaultValue("")]
-        [UsedImplicitly, CanBeNull]
-        public VersionRange InterpreterVersions { get; set; }
+        public VersionRange? InterpreterVersions { get; set; }
 
         /// <inheritdoc/>
         public override Command CreateCommand() => new Command
@@ -54,7 +52,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// </summary>
         /// <param name="file">The file to analyze.</param>
         /// <param name="interpreter">The name of the interpreter to search for (e.g. 'python').</param>
-        protected bool HasShebang([NotNull] FileInfo file, [NotNull, Localizable(false)] string interpreter)
+        protected bool HasShebang(FileInfo file, [Localizable(false)] string interpreter)
         {
             #region Sanity checks
             if (file == null) throw new ArgumentNullException(nameof(file));
@@ -63,7 +61,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             if (!IsExecutable(file.FullName)) return false;
 
-            string firstLine = file.ReadFirstLine(Encoding.ASCII);
+            string? firstLine = file.ReadFirstLine(Encoding.ASCII);
             if (string.IsNullOrEmpty(firstLine)) return false;
             return
                 firstLine.StartsWith(@"#!/usr/bin/" + interpreter) ||
@@ -75,7 +73,7 @@ namespace ZeroInstall.Publish.EntryPoints
         protected bool Equals(InterpretedScript other)
             => other != null && base.Equals(other) && Equals(InterpreterVersions, other.InterpreterVersions);
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

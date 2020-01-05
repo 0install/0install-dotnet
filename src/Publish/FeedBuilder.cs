@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -25,13 +24,13 @@ namespace ZeroInstall.Publish
     public class FeedBuilder : IDisposable
     {
         #region Directories
-        private TemporaryDirectory _temporaryDirectory;
+        private TemporaryDirectory? _temporaryDirectory;
 
         /// <summary>
         /// A temporary directory to prepare files for <see cref="ImplementationDirectory"/>. Not used by the <see cref="FeedBuilder"/> itself.
         /// </summary>
         /// <remarks>Setting a new value will automatically <see cref="IDisposable.Dispose"/> the previous one.</remarks>
-        public TemporaryDirectory TemporaryDirectory
+        public TemporaryDirectory? TemporaryDirectory
         {
             get => _temporaryDirectory;
             set
@@ -62,7 +61,7 @@ namespace ZeroInstall.Publish
         /// Set the directory to search for <see cref="Candidates"/> and to generate the <see cref="ManifestDigest"/> from.
         /// Is usually a subdirectory of or equal to <see cref="TemporaryDirectory"/>.
         /// </summary>
-        public string ImplementationDirectory { get; set; }
+        public string? ImplementationDirectory { get; set; }
         #endregion
 
         #region Candidates
@@ -77,7 +76,7 @@ namespace ZeroInstall.Publish
         /// Set the main entry point. Provides meta-data and startup instructions for the application.
         /// Should be one of the auto-detected <see cref="Candidates"/>.
         /// </summary>
-        public Candidate MainCandidate { get; set; }
+        public Candidate? MainCandidate { get; set; }
 
         /// <summary>
         /// Detects <see cref="Candidates"/> in the <see cref="ImplementationDirectory"/>.
@@ -107,13 +106,11 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Lists the <see cref="Command"/> derived from <see cref="Candidates"/> and <see cref="MainCandidate"/>.
         /// </summary>
-        [NotNull]
         public List<Command> Commands { get; } = new List<Command>();
 
         /// <summary>
         /// Lists the <see cref="EntryPoint"/>s accompanying <see cref="Commands"/>.
         /// </summary>
-        [NotNull]
         public List<EntryPoint> EntryPoints { get; } = new List<EntryPoint>();
 
         /// <summary>
@@ -202,18 +199,17 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Set to configure <see cref="Implementation.RetrievalMethods"/>.
         /// </summary>
-        [CanBeNull]
-        public RetrievalMethod RetrievalMethod { get; set; }
+        public RetrievalMethod? RetrievalMethod { get; set; }
 
         /// <summary>
         /// Set to configure <see cref="Feed.CapabilityLists"/>.
         /// </summary>
-        public CapabilityList CapabilityList { get; set; }
+        public CapabilityList? CapabilityList { get; set; }
 
         /// <summary>
         /// Set to configure <see cref="SignedFeed.SecretKey"/>.
         /// </summary>
-        public OpenPgpSecretKey SecretKey { get; set; }
+        public OpenPgpSecretKey? SecretKey { get; set; }
 
         /// <summary>
         /// Generates a feed as described by the properties.
@@ -221,9 +217,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="InvalidOperationException"><see cref="MainCandidate"/> is <c>null</c>.</exception>
         public SignedFeed Build()
         {
-            #region Sanity checks
-            if (MainCandidate == null) throw new InvalidOperationException("MainCandidate is not set.");
-            #endregion
+            if (MainCandidate == null) throw new InvalidOperationException($"{nameof(MainCandidate)} is not set.");
 
             var implementation = new Implementation
             {

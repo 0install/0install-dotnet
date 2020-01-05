@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 
 namespace ZeroInstall.Store.Model
@@ -23,8 +22,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The relative path of the directory in the implementation to set as the working directory. Defaults to use the root of the implementation if unset.")]
         [XmlAttribute("src"), DefaultValue("")]
-        [CanBeNull]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         #region Conversion
         /// <summary>
@@ -47,7 +45,7 @@ namespace ZeroInstall.Store.Model
             => other != null && base.Equals(other) && other.Source == Source;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -21,7 +20,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="directory">The directory to add to the search PATH.</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
-        public static void AddDir([NotNull] string directory, bool machineWide)
+        public static void AddDir(string directory, bool machineWide)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
@@ -36,7 +35,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="directory">The directory to remove from the search PATH.</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
-        public static void RemoveDir([NotNull] string directory, bool machineWide)
+        public static void RemoveDir(string directory, bool machineWide)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
@@ -51,7 +50,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
         /// <returns>The individual directories listed in the search path.</returns>
-        [NotNull]
         public static string[] Get(bool machineWide)
         {
             string value = Environment.GetEnvironmentVariable(
@@ -65,7 +63,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="directories">The individual directories to list in the search PATH.</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
-        public static void Set([NotNull, ItemNotNull] string[] directories, bool machineWide)
+        public static void Set(string[] directories, bool machineWide)
         {
             #region Sanity checks
             if (directories == null) throw new ArgumentNullException(nameof(directories));

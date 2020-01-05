@@ -99,7 +99,7 @@ namespace ZeroInstall.Services.Native
         private static IEnumerable<KeyValuePair<Cpu, string>> GetRegisteredPaths(string registrySuffix, string valueName)
         {
             // Check for system native architecture (may be 32-bit or 64-bit)
-            string path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\" + registrySuffix, valueName);
+            string? path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\" + registrySuffix, valueName);
             if (!string.IsNullOrEmpty(path))
                 yield return new KeyValuePair<Cpu, string>(Architecture.CurrentSystem.Cpu, path);
 
@@ -141,7 +141,7 @@ namespace ZeroInstall.Services.Native
 
         private IEnumerable<ExternalImplementation> FindPowerShell()
         {
-            ExternalImplementation Impl(string baseVersion, bool wow6432)
+            ExternalImplementation? Impl(string baseVersion, bool wow6432)
             {
                 string regPrefix = $@"HKEY_LOCAL_MACHINE\SOFTWARE\{(wow6432 ? @"Wow6432Node\" : "")}Microsoft\PowerShell\{baseVersion}";
                 if (RegistryUtils.GetDword(regPrefix, "Install") != 1) return null;
@@ -174,11 +174,11 @@ namespace ZeroInstall.Services.Native
 
         private IEnumerable<ExternalImplementation> FindGitForWindows()
         {
-            ExternalImplementation Impl(bool wow6432)
+            ExternalImplementation? Impl(bool wow6432)
             {
                 string regKey = $@"HKEY_LOCAL_MACHINE\SOFTWARE\{(wow6432 ? @"Wow6432Node\" : "")}GitForWindows";
-                string version = RegistryUtils.GetString(regKey, "CurrentVersion");
-                string path = RegistryUtils.GetString(regKey, "InstallPath");
+                string? version = RegistryUtils.GetString(regKey, "CurrentVersion");
+                string? path = RegistryUtils.GetString(regKey, "InstallPath");
                 if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
                 return new ExternalImplementation(DistributionName, "git",

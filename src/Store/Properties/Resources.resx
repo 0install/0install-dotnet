@@ -413,7 +413,7 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
     <value>Unable to enable write protection for '{0}'.</value>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Unknown archive type.</value>
+    <value>The file extension '{0}' does not correspond to a known archive type.</value>
   </data>
   <data name="UnknownCpu" xml:space="preserve">
     <value>Unknown CPU.</value>

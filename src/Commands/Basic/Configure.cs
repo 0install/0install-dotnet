@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
@@ -33,7 +32,7 @@ namespace ZeroInstall.Commands.Basic
         private ConfigTab _configTab;
 
         /// <inheritdoc/>
-        public Configure([NotNull] ICommandHandler handler)
+        public Configure(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => _configTab = tab);

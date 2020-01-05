@@ -8,7 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
@@ -34,7 +33,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// The format of the manifest (which file details are listed, which digest method is used, etc.).
         /// </summary>
-        [NotNull]
         public ManifestFormat Format { get; }
 
         private readonly ManifestNode[] _nodes;
@@ -63,7 +61,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestDirectoryElement.Digest"/>.</param>
         /// <param name="nodes">A list of all elements in the tree this manifest represents.</param>
-        public Manifest([NotNull] ManifestFormat format, [NotNull, ItemNotNull, InstantHandle] IEnumerable<ManifestNode> nodes)
+        public Manifest(ManifestFormat format, IEnumerable<ManifestNode> nodes)
         {
             Format = format ?? throw new ArgumentNullException(nameof(format));
             _nodes = (nodes ?? throw new ArgumentNullException(nameof(nodes))).ToArray(); // Make the collection immutable
@@ -74,7 +72,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestDirectoryElement.Digest"/>.</param>
         /// <param name="nodes">A list of all elements in the tree this manifest represents.</param>
-        public Manifest([NotNull] ManifestFormat format, [NotNull, ItemNotNull, InstantHandle] params ManifestNode[] nodes)
+        public Manifest(ManifestFormat format, params ManifestNode[] nodes)
         {
             Format = format ?? throw new ArgumentNullException(nameof(format));
             _nodes = nodes ?? throw new ArgumentNullException(nameof(nodes));
@@ -85,7 +83,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <returns>A mapping of relative paths to <see cref="ManifestNode"/>s.</returns>
         /// <remarks>This handles the fact that <see cref="ManifestDirectoryElement"/>s inherit their location from the last <see cref="ManifestDirectory"/> that precedes them.</remarks>
-        [Pure, NotNull]
+#if NETSTANDARD
+        [System.Diagnostics.Contracts.Pure]
+#endif
         public IList<KeyValuePair<string, ManifestNode>> ListPaths()
         {
             var result = new List<KeyValuePair<string, ManifestNode>>();
@@ -122,8 +122,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>
-        [NotNull]
-        public string Save([NotNull] string path)
+        public string Save(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -145,7 +144,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>
-        public void Save([NotNull] Stream stream)
+        public void Save(Stream stream)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -182,8 +181,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>
-        [NotNull]
-        public static Manifest Load([NotNull] Stream stream, [NotNull] ManifestFormat format)
+        public static Manifest Load(Stream stream, ManifestFormat format)
         {
             #region Sanity checks
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -219,8 +217,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>
-        [NotNull]
-        public static Manifest Load([NotNull] string path, [NotNull] ManifestFormat format)
+        public static Manifest Load(string path, ManifestFormat format)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -263,7 +260,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             => other != null && Format == other.Format && _nodes.SequencedEquals(other._nodes);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

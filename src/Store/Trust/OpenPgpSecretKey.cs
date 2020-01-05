@@ -3,7 +3,6 @@
 
 using System;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Trust
@@ -25,7 +24,6 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// The user's name, e-mail address, etc. of the key owner.
         /// </summary>
-        [NotNull]
         public string UserID { get; }
 
         /// <summary>
@@ -34,7 +32,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="keyID">A short identifier for the key.</param>
         /// <param name="fingerprint">A long identifier for the key.</param>
         /// <param name="userID">The user's name, e-mail address, etc. of the key owner.</param>
-        public OpenPgpSecretKey(long keyID, [NotNull] byte[] fingerprint, [NotNull] string userID)
+        public OpenPgpSecretKey(long keyID, byte[] fingerprint, string userID)
         {
             KeyID = keyID;
             _fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
@@ -60,7 +58,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
@@ -74,8 +72,8 @@ namespace ZeroInstall.Store.Trust
                 _fingerprint.GetSequencedHashCode(),
                 UserID);
 
-        public static bool operator ==(OpenPgpSecretKey left, OpenPgpSecretKey right) => Equals(left, right);
-        public static bool operator !=(OpenPgpSecretKey left, OpenPgpSecretKey right) => !Equals(left, right);
+        public static bool operator ==(OpenPgpSecretKey? left, OpenPgpSecretKey? right) => Equals(left, right);
+        public static bool operator !=(OpenPgpSecretKey? left, OpenPgpSecretKey? right) => !Equals(left, right);
         #endregion
     }
 }

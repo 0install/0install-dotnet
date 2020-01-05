@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -24,14 +23,12 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The path to the directory to clone to.
         /// </summary>
-        [NotNull]
         public string TargetPath => DirectoryBuilder.TargetPath;
 
         /// <summary>
         /// Sub-path to be appended to <see cref="TargetPath"/> without affecting location of flag files; <c>null</c> for none.
         /// </summary>
-        [CanBeNull]
-        public string TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
+        public string? TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
 
         /// <summary>
         /// Use hardlinks instead of copying files when possible.
@@ -44,7 +41,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="sourcePath">The path of the original directory to read.</param>
         /// <param name="targetPath">The path of the new directory to create.</param>
-        public CloneDirectory([NotNull] string sourcePath, [NotNull] string targetPath)
+        public CloneDirectory(string sourcePath, string targetPath)
             : base(sourcePath)
         {
             DirectoryBuilder = new DirectoryBuilder(targetPath ?? throw new ArgumentNullException(targetPath));
@@ -65,9 +62,9 @@ namespace ZeroInstall.Store.Implementations.Build
             }
 
             // Tries to remove write-protection on the directory, if it is located in a Store to allow creating hardlinks pointing into it.
-            IDisposable TryUnsealImplementation()
+            IDisposable? TryUnsealImplementation()
             {
-                string path = ImplementationStoreUtils.DetectImplementationPath(SourceDirectory.FullName);
+                string? path = ImplementationStoreUtils.DetectImplementationPath(SourceDirectory.FullName);
                 if (path == null) return null;
 
                 try

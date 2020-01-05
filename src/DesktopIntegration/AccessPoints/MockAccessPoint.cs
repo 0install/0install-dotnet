@@ -98,7 +98,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             => other != null && other.ID == ID;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

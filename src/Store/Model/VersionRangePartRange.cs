@@ -3,8 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Store.Model
 {
     /// <summary>
@@ -14,18 +12,16 @@ namespace ZeroInstall.Store.Model
     [Serializable]
     public sealed class VersionRangePartRange : VersionRangePart
     {
-        [CanBeNull]
-        public ImplementationVersion LowerInclusive { get; }
+        public ImplementationVersion? LowerInclusive { get; }
 
-        [CanBeNull]
-        public ImplementationVersion UpperExclusive { get; }
+        public ImplementationVersion? UpperExclusive { get; }
 
         /// <summary>
         /// Creates a new version range.
         /// </summary>
         /// <param name="lowerInclusive">The lower inclusive bound. May be <c>null</c>.</param>
         /// <param name="upperExclusive">The upper exclusive bound. May be <c>null</c>.</param>
-        public VersionRangePartRange([CanBeNull] ImplementationVersion lowerInclusive, [CanBeNull] ImplementationVersion upperExclusive)
+        public VersionRangePartRange(ImplementationVersion? lowerInclusive, ImplementationVersion? upperExclusive)
         {
             LowerInclusive = lowerInclusive;
             UpperExclusive = upperExclusive;
@@ -80,7 +76,7 @@ namespace ZeroInstall.Store.Model
         public override string ToString() => LowerInclusive + ".." + (UpperExclusive == null ? "" : ("!" + UpperExclusive));
 
         #region Equality
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;

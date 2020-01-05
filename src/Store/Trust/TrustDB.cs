@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -45,7 +44,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// A list of known <see cref="Key"/>s.
         /// </summary>
-        [XmlElement("key"), NotNull]
+        [XmlElement("key")]
         // Note: Can not use ICollection<T> interface with XML Serialization
         public List<Key> Keys { get; } = new List<Key>();
 
@@ -54,7 +53,7 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="domain">The domain the key should be valid for.</param>
-        public bool IsTrusted([NotNull] string fingerprint, Domain domain)
+        public bool IsTrusted(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -68,7 +67,7 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="domain">The domain the key should be valid for.</param>
-        public void TrustKey([NotNull] string fingerprint, Domain domain)
+        public void TrustKey(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -91,7 +90,7 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="domain">The domain the key should be valid for.</param>
-        public void UntrustKey([NotNull] string fingerprint, Domain domain)
+        public void UntrustKey(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -104,8 +103,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         #region Storage
-        [CanBeNull]
-        private string _filePath;
+        private string? _filePath;
 
         /// <summary>
         /// Loads the <see cref="TrustDB"/> from a file.
@@ -115,8 +113,7 @@ namespace ZeroInstall.Store.Trust
         /// <exception cref="IOException">A problem occured while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occured while deserializing the XML data.</exception>
-        [NotNull]
-        public static TrustDB Load([NotNull] string path)
+        public static TrustDB Load(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -137,7 +134,6 @@ namespace ZeroInstall.Store.Trust
         /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Automatically falls back to defaults on errors.
         /// </summary>
         /// <returns>The loaded <see cref="TrustDB"/> or an empty <see cref="TrustDB"/> if there was a problem.</returns>
-        [NotNull]
         public static TrustDB LoadSafe()
         {
             try
@@ -194,7 +190,7 @@ namespace ZeroInstall.Store.Trust
         /// <param name="path">The file to save to.</param>
         /// <exception cref="IOException">A problem occured while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void Save([NotNull] string path)
+        public void Save(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -224,7 +220,7 @@ namespace ZeroInstall.Store.Trust
             => other != null && Keys.UnsequencedEquals(other.Keys);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

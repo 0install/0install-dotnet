@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Archives;
@@ -17,19 +16,16 @@ namespace ZeroInstall.Publish.Capture
     /// </summary>
     public class CaptureSession
     {
-        [NotNull]
         private readonly Snapshot _snapshot;
 
-        [NotNull]
         private readonly FeedBuilder _feedBuilder;
 
         /// <summary>
         /// The fully qualified path to the installation directory; leave <c>null</c> or empty for auto-detection.
         /// </summary>
-        [CanBeNull]
-        public string InstallationDir { get; set; }
+        public string? InstallationDir { get; set; }
 
-        private CaptureSession([NotNull] Snapshot snapshotBefore, [NotNull] FeedBuilder feedBuilder)
+        private CaptureSession(Snapshot snapshotBefore, FeedBuilder feedBuilder)
         {
             _snapshot = snapshotBefore;
             _feedBuilder = feedBuilder;
@@ -41,8 +37,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="feedBuilder">All collected data is stored into this builder. You can perform additional modifications before using <see cref="FeedBuilder.Build"/> to get a feed.</param>
         /// <exception cref="IOException">There was an error accessing the registry or file system.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the registry or the file system was not permitted.</exception>
-        [NotNull]
-        public static CaptureSession Start([NotNull] FeedBuilder feedBuilder)
+        public static CaptureSession Start(FeedBuilder feedBuilder)
         {
             #region Sanity checks
             if (feedBuilder == null) throw new ArgumentNullException(nameof(feedBuilder));
@@ -51,8 +46,7 @@ namespace ZeroInstall.Publish.Capture
             return new CaptureSession(Snapshot.Take(), feedBuilder);
         }
 
-        [CanBeNull]
-        private SnapshotDiff _diff;
+        private SnapshotDiff? _diff;
 
         /// <summary>
         /// Collects data from the locations indicated by the differences between the <see cref="Start"/> state and the current system state.
@@ -62,7 +56,7 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There was an error accessing the registry or file system.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the registry or file system was not permitted.</exception>
-        public void Diff([NotNull] ITaskHandler handler)
+        public void Diff(ITaskHandler handler)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -91,7 +85,6 @@ namespace ZeroInstall.Publish.Capture
             _feedBuilder.CapabilityList = GetCapabilityList(commandMapper, _diff);
         }
 
-        [NotNull]
         private static CapabilityList GetCapabilityList(CommandMapper commandMapper, SnapshotDiff diff)
         {
             var capabilities = new CapabilityList {OS = OS.Windows};
@@ -123,7 +116,7 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There was an error reading the installation files or writing the archive.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the file system was not permitted.</exception>
-        public void CollectFiles([NotNull] string archivePath, [NotNull] Uri archiveUrl, [NotNull] ITaskHandler handler)
+        public void CollectFiles(string archivePath, Uri archiveUrl, ITaskHandler handler)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(archivePath)) throw new ArgumentNullException(nameof(archivePath));
@@ -151,8 +144,7 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the binary data.</exception>
-        [NotNull]
-        public static CaptureSession Load([NotNull] string path, [NotNull] FeedBuilder feedBuilder)
+        public static CaptureSession Load(string path, FeedBuilder feedBuilder)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -168,7 +160,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="path">The file to save in.</param>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public void Save([NotNull] string path)
+        public void Save(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
@@ -53,21 +52,21 @@ namespace ZeroInstall.DesktopIntegration
         /// A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.
         /// </summary>
         [Description("A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.")]
-        [XmlAttribute("hostname"), DefaultValue(""), CanBeNull]
-        public string Hostname { get; set; }
+        [XmlAttribute("hostname"), DefaultValue("")]
+        public string? Hostname { get; set; }
 
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process.
         /// </summary>
         [Description("A set of requirements/restrictions imposed by the user on the implementation selection process.")]
-        [XmlIgnore, CanBeNull]
-        public Requirements Requirements { get; set; }
+        [XmlIgnore]
+        public Requirements? Requirements { get; set; }
 
         /// <summary>
         /// The <see cref="Requirements"/> if it is set, otherwise a basic reference to <see cref="InterfaceUri"/>.
         /// </summary>
         [Browsable(false)]
-        [XmlIgnore, NotNull]
+        [XmlIgnore]
         public Requirements EffectiveRequirements => Requirements ?? new Requirements(InterfaceUri);
 
         #region XML serialization
@@ -88,7 +87,6 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
-        [NotNull]
         // Note: Can not use ICollection<T> interface with XML Serialization
         public List<CapabilityList> CapabilityLists { get; } = new List<CapabilityList>();
 
@@ -96,8 +94,8 @@ namespace ZeroInstall.DesktopIntegration
         /// A set of <see cref="AccessPoints"/>s to be registered in the desktop environment. Is <c>null</c> if no desktop integration has been performed yet.
         /// </summary>
         [Description("A set of AccessPoints to be registered in the desktop environment. Is null if no desktop integration has been performed yet.")]
-        [XmlElement("access-points"), CanBeNull]
-        public AccessPointList AccessPoints { get; set; }
+        [XmlElement("access-points")]
+        public AccessPointList? AccessPoints { get; set; }
 
         /// <inheritdoc/>
         [Browsable(false)]
@@ -119,8 +117,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="id">The <see cref="Capability.ID"/> to match.</param>
         /// <returns>The first matching <see cref="Capability"/>.</returns>
         /// <exception cref="KeyNotFoundException">No capability matching <paramref name="id"/> and <typeparamref name="T"/> was found.</exception>
-        [NotNull]
-        public T LookupCapability<T>([NotNull] string id) where T : Capability
+        public T LookupCapability<T>(string id) where T : Capability
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
@@ -176,7 +173,7 @@ namespace ZeroInstall.DesktopIntegration
             && Equals(AccessPoints, other.AccessPoints);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

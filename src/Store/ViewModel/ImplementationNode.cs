@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Manifests;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="FormatException">The manifest file is not valid.</exception>
         /// <exception cref="IOException">The manifest file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        protected ImplementationNode(ManifestDigest digest, [NotNull] IImplementationStore implementationStore)
+        protected ImplementationNode(ManifestDigest digest, IImplementationStore implementationStore)
             : base(implementationStore)
         {
             #region Sanity checks
@@ -37,7 +36,7 @@ namespace ZeroInstall.Store.ViewModel
             _digest = digest;
 
             // Determine the total size of an implementation via its manifest file
-            string path = implementationStore.GetPath(digest);
+            string? path = implementationStore.GetPath(digest);
             if (path == null) return;
             string manifestPath = System.IO.Path.Combine(path, Manifest.ManifestFile);
             Size = Manifest.Load(manifestPath, ManifestFormat.FromPrefix(digest.AvailableDigests.First())).TotalSize;
@@ -49,7 +48,6 @@ namespace ZeroInstall.Store.ViewModel
         /// The digest identifying the implementation in the store.
         /// </summary>
         [Description("The digest identifying the implementation in the store.")]
-        [NotNull]
         public string Digest => _digest.AvailableDigests.First();
 
         /// <summary>
@@ -59,7 +57,7 @@ namespace ZeroInstall.Store.ViewModel
         public long Size { get; }
 
         /// <inheritdoc/>
-        public override string Path => ImplementationStore.GetPath(_digest);
+        public override string? Path => ImplementationStore.GetPath(_digest);
 
         /// <summary>
         /// Deletes this implementation from the <see cref="IImplementationStore"/> it is located in.
@@ -89,7 +87,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">The entry's directory could not be processed.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
-        public void Verify([NotNull] ITaskHandler handler) => ImplementationStore.Verify(_digest, handler);
+        public void Verify(ITaskHandler handler) => ImplementationStore.Verify(_digest, handler);
 
         /// <summary>
         /// Returns the Node in the form "Digest". Safe for parsing!

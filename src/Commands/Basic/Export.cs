@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.Commands.Properties;
@@ -42,7 +41,7 @@ namespace ZeroInstall.Commands.Basic
         private BootstrapMode _bootstrapType = BootstrapMode.Run;
 
         /// <inheritdoc/>
-        public Export([NotNull] ICommandHandler handler)
+        public Export(ICommandHandler handler)
             : base(handler)
         {
             //Options.Remove("xml");
@@ -54,7 +53,7 @@ namespace ZeroInstall.Commands.Basic
         }
         #endregion
 
-        private string _outputPath;
+        private string _outputPath = default!;
 
         public override void Parse(IEnumerable<string> args)
         {

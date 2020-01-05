@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
@@ -47,7 +46,7 @@ namespace ZeroInstall.Commands.Desktop
         private readonly List<string> _removeCategories = new List<string>();
 
         /// <inheritdoc/>
-        public IntegrateApp([NotNull] ICommandHandler handler)
+        public IntegrateApp(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);

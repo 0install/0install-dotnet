@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Feeds;
@@ -42,14 +41,14 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         /// <seealso cref="NoUnixFSFile"/>
         /// <seealso cref="FileUtils.IsUnixFS"/>
-        public static bool IsUnixFS([NotNull] string directoryPath)
+        public static bool IsUnixFS(string directoryPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
             #endregion
 
             // Move up one level to avoid write-protection within implementation directories
-            string implementationPath = ImplementationStoreUtils.DetectImplementationPath(directoryPath);
+            string? implementationPath = ImplementationStoreUtils.DetectImplementationPath(directoryPath);
             if (implementationPath != null) directoryPath = Path.Combine(implementationPath, "..");
 
             try
@@ -81,15 +80,14 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the flag file.</exception>
         /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "flag")]
-        [NotNull, ItemNotNull]
-        public static ICollection<string> GetFiles([NotNull] string flagName, [NotNull] string directoryPath)
+        public static ICollection<string> GetFiles(string flagName, string directoryPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(flagName)) throw new ArgumentNullException(nameof(flagName));
             if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
             #endregion
 
-            string flagDir = FindRootDir(flagName, directoryPath);
+            string? flagDir = FindRootDir(flagName, directoryPath);
             if (flagDir == null) return new string[0];
 
             string path = Path.Combine(flagDir, flagName);
@@ -125,7 +123,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the flag file.</exception>
         /// <remarks>The flag file is searched for instead of specifying it directly to allow handling of special cases like creating manifests of subdirectories of extracted archives.</remarks>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "flag")]
-        public static bool IsFlagged([NotNull] string flagName, [NotNull] string filePath)
+        public static bool IsFlagged(string flagName, string filePath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(flagName)) throw new ArgumentNullException(nameof(flagName));
@@ -144,8 +142,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="flagName">The name of the flag type to search for (<see cref="XbitFile"/> or <see cref="SymlinkFile"/>).</param>
         /// <param name="directoryPath">The target directory to start the search from.</param>
         /// <returns>The full path to the closest flag file that was found; <c>null</c> if none was found.</returns>
-        [CanBeNull]
-        private static string FindRootDir([NotNull] string flagName, [NotNull] string directoryPath)
+        private static string? FindRootDir(string flagName, string directoryPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(flagName)) throw new ArgumentNullException(nameof(flagName));
@@ -175,7 +172,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="IOException">There was an error writing the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to write the flag file.</exception>
         /// <seealso cref="NoUnixFSFile"/>
-        public static void MarkAsNoUnixFS([NotNull] string directoryPath)
+        public static void MarkAsNoUnixFS(string directoryPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
@@ -192,7 +189,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException"><paramref name="relativePath"/> is not a relative path.</exception>
         /// <exception cref="IOException">There was an error writing the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to write the flag file.</exception>
-        public static void Set([NotNull] string path, [NotNull] string relativePath)
+        public static void Set(string path, string relativePath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -216,7 +213,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="IOException">There was an error writing the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to write the flag file.</exception>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "flag")]
-        public static void SetAuto([NotNull] string flagName, [NotNull] string filePath)
+        public static void SetAuto(string flagName, string filePath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(flagName)) throw new ArgumentNullException(nameof(flagName));
@@ -241,7 +238,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException"><paramref name="relativePath"/> is not a relative path.</exception>
         /// <exception cref="IOException">There was an error writing the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to write the flag file.</exception>
-        public static void Remove([NotNull] string path, [NotNull] string relativePath)
+        public static void Remove(string path, string relativePath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -280,7 +277,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException"><paramref name="source"/> or <paramref name="destination"/> is not a relative path.</exception>
         /// <exception cref="IOException">There was an error writing the flag file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to write the flag file.</exception>
-        public static void Rename([NotNull] string path, [NotNull] string source, [NotNull] string destination)
+        public static void Rename(string path, string source, string destination)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -319,7 +316,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Converts all flag files in a directory into real filesystem attributes (executable bits and symlinks).
         /// </summary>
         /// <param name="path">The path to the directory to convert.</param>
-        public static void ConvertToFS([NotNull] string path)
+        public static void ConvertToFS(string path)
         {
             string xbitFile = Path.Combine(path, XbitFile);
             if (File.Exists(xbitFile))

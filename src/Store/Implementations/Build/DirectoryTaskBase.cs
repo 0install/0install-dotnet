@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JetBrains.Annotations;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -29,14 +28,13 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The directory to walk.
         /// </summary>
-        [NotNull]
         public DirectoryInfo SourceDirectory { get; }
 
         /// <summary>
         /// Creates a new directory walking task.
         /// </summary>
         /// <param name="sourcePath">The path of the directory to walk.</param>
-        protected DirectoryTaskBase([NotNull] string sourcePath)
+        protected DirectoryTaskBase(string sourcePath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(sourcePath)) throw new ArgumentNullException(nameof(sourcePath));
@@ -64,7 +62,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <returns>An array of filesystem entries.</returns>
         /// <exception cref="IOException">The directory could not be processed.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the directory is not permitted.</exception>
-        private static FileSystemInfo[] GetSortedDirectoryEntries([NotNull] string path)
+        private static FileSystemInfo[] GetSortedDirectoryEntries(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -96,7 +94,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="NotSupportedException">A file has illegal properties (e.g. is a device file, has line breaks in the filename, etc.).</exception>
         /// <exception cref="IOException">There was an error reading a file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read a file.</exception>
-        protected virtual void HandleEntries([NotNull] IEnumerable<FileSystemInfo> entries)
+        protected virtual void HandleEntries(IEnumerable<FileSystemInfo> entries)
         {
             var externalXbits = FlagUtils.GetFiles(FlagUtils.XbitFile, SourceDirectory.FullName);
             var externalSymlinks = FlagUtils.GetFiles(FlagUtils.SymlinkFile, SourceDirectory.FullName);
@@ -128,11 +126,11 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="NotSupportedException">The <paramref name="entry"/> has illegal properties (e.g. is a device file, has line breaks in the filename, etc.).</exception>
         /// <exception cref="IOException">There was an error reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the file.</exception>
-        private void HandleEntry([NotNull] FileInfo entry, [NotNull] ICollection<string> externalXbits, [NotNull] ICollection<string> externalSymlinks)
+        private void HandleEntry(FileInfo entry, ICollection<string> externalXbits, ICollection<string> externalSymlinks)
         {
             if (_sourceIsUnixFS)
             {
-                if (FileUtils.IsSymlink(entry.FullName, out string symlinkTarget))
+                if (FileUtils.IsSymlink(entry.FullName, out string? symlinkTarget))
                     HandleSymlink(entry, symlinkTarget);
                 else if (FileUtils.IsExecutable(entry.FullName))
                     HandleFile(entry, executable: true);
@@ -142,7 +140,7 @@ namespace ZeroInstall.Store.Implementations.Build
             }
             else
             {
-                if (CygwinUtils.IsSymlink(entry.FullName, out string symlinkTarget))
+                if (CygwinUtils.IsSymlink(entry.FullName, out string? symlinkTarget))
                     HandleSymlink(entry, symlinkTarget);
                 else if (externalSymlinks.Contains(entry.FullName))
                     HandleSymlink(entry, File.ReadAllText(entry.FullName, Encoding.UTF8));
@@ -158,9 +156,9 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="entry">The directory entry to handles.</param>
         /// <exception cref="IOException">There was an error reading the directory.</exception>
         /// <exception cref="UnauthorizedAccessException">You have insufficient rights to read the directory.</exception>
-        private void HandleEntry([NotNull] DirectoryInfo entry)
+        private void HandleEntry(DirectoryInfo entry)
         {
-            if (_sourceIsUnixFS && FileUtils.IsSymlink(entry.FullName, out string target))
+            if (_sourceIsUnixFS && FileUtils.IsSymlink(entry.FullName, out string? target))
                 HandleSymlink(entry, target);
             else
                 HandleDirectory(entry);
@@ -171,19 +169,19 @@ namespace ZeroInstall.Store.Implementations.Build
         /// </summary>
         /// <param name="file">The file to handle.</param>
         /// <param name="executable"><c>true</c> indicates that the file is marked as executable.</param>
-        protected abstract void HandleFile([NotNull] FileInfo file, bool executable = false);
+        protected abstract void HandleFile(FileInfo file, bool executable = false);
 
         /// <summary>
         /// Handles a symlink.
         /// </summary>
         /// <param name="symlink">The symlink to handle.</param>
         /// <param name="target">The target the symlink points to.</param>
-        protected abstract void HandleSymlink([NotNull] FileSystemInfo symlink, [NotNull] string target);
+        protected abstract void HandleSymlink(FileSystemInfo symlink, string target);
 
         /// <summary>
         /// Handles a directory.
         /// </summary>
         /// <param name="directory">The directory to handle.</param>
-        protected abstract void HandleDirectory([NotNull] DirectoryInfo directory);
+        protected abstract void HandleDirectory(DirectoryInfo directory);
     }
 }

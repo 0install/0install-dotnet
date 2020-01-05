@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
@@ -35,7 +34,7 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose among.</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public BacktrackingSolver([NotNull] ISelectionCandidateProvider candidateProvider, [NotNull] ITaskHandler handler)
+        public BacktrackingSolver(ISelectionCandidateProvider candidateProvider, ITaskHandler handler)
         {
             _candidateProvider = candidateProvider ?? throw new ArgumentNullException(nameof(candidateProvider));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
@@ -70,7 +69,7 @@ namespace ZeroInstall.Services.Solvers
             public bool Successful { get; }
             private int _backtrackCounter;
 
-            public Attempt([NotNull] Requirements requirements, CancellationToken cancellationToken, [NotNull] ISelectionCandidateProvider candidateProvider)
+            public Attempt(Requirements requirements, CancellationToken cancellationToken, ISelectionCandidateProvider candidateProvider)
             {
                 _cancellationToken = cancellationToken;
                 _candidateProvider = candidateProvider;
@@ -86,7 +85,7 @@ namespace ZeroInstall.Services.Solvers
                 Selections.Implementations.Sort();
             }
 
-            private bool TryToMeet([NotNull, ItemNotNull] IEnumerable<SolverDemand> demands)
+            private bool TryToMeet(IEnumerable<SolverDemand> demands)
             {
                 var essential = new List<SolverDemand>();
                 var recommended = new List<SolverDemand>();
@@ -111,7 +110,7 @@ namespace ZeroInstall.Services.Solvers
                 return false;
             }
 
-            private bool TryToMeet([NotNull] SolverDemand demand)
+            private bool TryToMeet(SolverDemand demand)
             {
                 _cancellationToken.ThrowIfCancellationRequested();
 
@@ -144,8 +143,7 @@ namespace ZeroInstall.Services.Solvers
                 }
             }
 
-            [NotNull]
-            private IEnumerable<SelectionCandidate> GetCompatibleCandidates([NotNull] SolverDemand demand) => demand.Candidates.Where(candidate =>
+            private IEnumerable<SelectionCandidate> GetCompatibleCandidates(SolverDemand demand) => demand.Candidates.Where(candidate =>
             {
                 if (!candidate.IsSuitable) return false;
 
@@ -176,8 +174,7 @@ namespace ZeroInstall.Services.Solvers
                 return true;
             });
 
-            [NotNull, ItemNotNull]
-            private IEnumerable<SolverDemand> DemandsFor([NotNull] ImplementationSelection selection, [NotNull] Requirements requirements)
+            private IEnumerable<SolverDemand> DemandsFor(ImplementationSelection selection, Requirements requirements)
             {
                 foreach (var demand in selection.Dependencies.SelectMany(DemandsFor))
                     yield return demand;
@@ -193,8 +190,7 @@ namespace ZeroInstall.Services.Solvers
                 }
             }
 
-            [NotNull, ItemNotNull]
-            private IEnumerable<SolverDemand> DemandsFor([NotNull] Dependency dependency)
+            private IEnumerable<SolverDemand> DemandsFor(Dependency dependency)
             {
                 {
                     var requirements = BuildRequirements(dependency.InterfaceUri, command: "");
@@ -207,8 +203,7 @@ namespace ZeroInstall.Services.Solvers
                     yield return Demand(requirements, dependency.Importance);
             }
 
-            [NotNull, ItemNotNull]
-            private IEnumerable<SolverDemand> DemandsFor([NotNull] Command command, [NotNull] FeedUri interfaceUri)
+            private IEnumerable<SolverDemand> DemandsFor(Command command, FeedUri interfaceUri)
             {
                 if (command.Runner != null)
                 {
@@ -224,11 +219,10 @@ namespace ZeroInstall.Services.Solvers
                     yield return Demand(requirements);
             }
 
-            [NotNull]
-            private SolverDemand Demand([NotNull] Requirements requirements, Importance importance = Importance.Essential)
+            private SolverDemand Demand(Requirements requirements, Importance importance = Importance.Essential)
                 => new SolverDemand(requirements, _candidateProvider, importance);
 
-            private Requirements BuildRequirements([NotNull] FeedUri interfaceUri, [CanBeNull] string command)
+            private Requirements BuildRequirements(FeedUri interfaceUri, string? command)
             {
                 var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _topLevelRequirements.Architecture);
                 requirements.AddRestrictions(_topLevelRequirements);
@@ -236,8 +230,7 @@ namespace ZeroInstall.Services.Solvers
                 return requirements;
             }
 
-            [NotNull, ItemNotNull]
-            private IEnumerable<Requirements> BuildRequirements([NotNull] IBindingContainer bindingContainer, [NotNull] FeedUri interfaceUri)
+            private IEnumerable<Requirements> BuildRequirements(IBindingContainer bindingContainer, FeedUri interfaceUri)
                 => bindingContainer.Bindings.OfType<ExecutableInBinding>().Select(x => BuildRequirements(interfaceUri, x.Command));
         }
     }

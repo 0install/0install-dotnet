@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
-
 namespace ZeroInstall.Commands
 {
     /// <summary>
@@ -13,15 +11,13 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The <see cref="CliCommand.Name"/> of the <see cref="CliMultiCommand"/> this command is a sub-command of.
         /// </summary>
-        [NotNull]
         protected abstract string ParentName { get; }
 
         /// <inheritdoc/>
-        [NotNull]
         public override string Name => ParentName + " " + base.Name;
 
         /// <inheritdoc/>
-        protected CliSubCommand([NotNull] ICommandHandler handler)
+        protected CliSubCommand(ICommandHandler handler)
             : base(handler)
         {}
     }

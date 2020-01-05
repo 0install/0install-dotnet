@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using JetBrains.Annotations;
 using ZeroInstall.Commands.Basic.Exporters;
 
 namespace ZeroInstall.Commands.Basic
@@ -27,7 +26,7 @@ namespace ZeroInstall.Commands.Basic
 
         #region State
         /// <inheritdoc/>
-        public ExportHelp([NotNull] ICommandHandler handler)
+        public ExportHelp(ICommandHandler handler)
             : base(handler)
         {}
         #endregion

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store
@@ -16,13 +15,11 @@ namespace ZeroInstall.Store
         /// <summary>
         /// The URI or local path (must be absolute) the feed was acquired from.
         /// </summary>
-        [NotNull]
         public readonly FeedUri Uri;
 
         /// <summary>
         /// The data acquired from <see cref="Uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.
         /// </summary>
-        [NotNull]
         public readonly Feed Feed;
 
         /// <summary>
@@ -30,7 +27,7 @@ namespace ZeroInstall.Store
         /// </summary>
         /// <param name="uri">The URI or local path (must be absolute) to the feed.</param>
         /// <param name="feed">The data acquired from <paramref name="uri"/>. <see cref="Model.Feed.Normalize"/> has already been called.</param>
-        public FeedTarget([NotNull] FeedUri uri, [NotNull] Feed feed)
+        public FeedTarget(FeedUri uri, Feed feed)
         {
             Uri = uri ?? throw new ArgumentNullException(nameof(uri));
             Feed = feed ?? throw new ArgumentNullException(nameof(feed));

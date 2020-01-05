@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         /// <inheritdoc/>
-        public RemoveFeed([NotNull] ICommandHandler handler)
+        public RemoveFeed(ICommandHandler handler)
             : base(handler)
         {}
 

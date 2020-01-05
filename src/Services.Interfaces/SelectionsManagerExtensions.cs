@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Selection;
 
@@ -20,7 +19,7 @@ namespace ZeroInstall.Services
         /// </summary>
         /// <param name="selectionsManager">The <see cref="ISelectionsManager"/></param>
         /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
-        public static ICollection<Implementation> GetUncachedImplementations([NotNull] this ISelectionsManager selectionsManager, [NotNull] Selections selections)
+        public static ICollection<Implementation> GetUncachedImplementations(this ISelectionsManager selectionsManager, Selections selections)
         {
             #region Sanity checks
             if (selectionsManager == null) throw new ArgumentNullException(nameof(selectionsManager));

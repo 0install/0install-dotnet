@@ -50,7 +50,7 @@ namespace ZeroInstall.Store.Trust
         public static bool operator !=(Domain left, Domain right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             return obj is Domain domain && Equals(domain);
