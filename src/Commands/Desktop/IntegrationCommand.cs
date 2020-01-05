@@ -89,18 +89,41 @@ namespace ZeroInstall.Commands.Desktop
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
             #endregion
 
-            return integrationManager.AppList.GetEntry(interfaceUri)
-                ?? CreateAppEntry(integrationManager, ref interfaceUri);
+            var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
+
+            var target = GetTarget(ref interfaceUri, out bool replaced);
+
+            return replaced && existingEntry != null
+                ? ReplaceAppEntry(integrationManager, existingEntry, target)
+                : existingEntry ?? CreateAppEntry(integrationManager, target);
         }
 
-        /// <summary>
-        /// Creates a new <see cref="AppEntry"/> for a specific interface URI.
-        /// </summary>
-        private AppEntry CreateAppEntry([NotNull] IIntegrationManager integrationManager, [NotNull] ref FeedUri interfaceUri)
+        private FeedTarget GetTarget(ref FeedUri interfaceUri, out bool replaced)
         {
-            var target = new FeedTarget(interfaceUri, FeedManager.GetFresh(interfaceUri));
-            DetectReplacement(ref target);
+            var feed = FeedManager[interfaceUri];
 
+            if (feed.ReplacedBy?.Target != null
+             && Handler.Ask(string.Format(Resources.FeedReplacedAsk, feed.Name, feed.Uri, feed.ReplacedBy.Target), defaultAnswer: false, alternateMessage: Resources.FeedReplaced))
+            {
+                interfaceUri = feed.ReplacedBy.Target;
+                feed = FeedManager.GetFresh(interfaceUri);
+                replaced = true;
+            }
+            else replaced = false;
+
+            return new FeedTarget(interfaceUri, feed);
+        }
+
+        private AppEntry ReplaceAppEntry(IIntegrationManager integrationManager, AppEntry entry, FeedTarget newTarget)
+        {
+            integrationManager.RemoveApp(entry);
+            var newEntry = CreateAppEntry(integrationManager, newTarget);
+            integrationManager.AddAccessPoints(newEntry, newTarget.Feed, entry.AccessPoints.Entries);
+            return newEntry;
+        }
+
+        private AppEntry CreateAppEntry(IIntegrationManager integrationManager, FeedTarget target)
+        {
             BackgroundDownload(target.Uri);
 
             try
@@ -111,24 +134,7 @@ namespace ZeroInstall.Commands.Desktop
             catch (InvalidOperationException ex) when (ex.GetType() == typeof(InvalidOperationException))
             {
                 Log.Warn("Attempting to handle race condition while creating app entry for " + target.Uri.ToStringRfc());
-                return integrationManager.AppList[interfaceUri];
-            }
-        }
-
-        /// <summary>
-        /// Detects and handles <see cref="Feed.ReplacedBy"/>.
-        /// </summary>
-        private void DetectReplacement(ref FeedTarget target)
-        {
-            if (target.Feed.ReplacedBy == null || target.Feed.ReplacedBy.Target == null) return;
-
-            if (Handler.Ask(
-                string.Format(Resources.FeedReplacedAsk, target.Feed.Name, target.Uri, target.Feed.ReplacedBy.Target),
-                defaultAnswer: false, alternateMessage: string.Format(Resources.FeedReplaced, target.Uri, target.Feed.ReplacedBy.Target)))
-            {
-                target = new FeedTarget(
-                    target.Feed.ReplacedBy.Target,
-                    FeedManager.GetFresh(target.Feed.ReplacedBy.Target));
+                return integrationManager.AppList[target.Uri];
             }
         }
 
