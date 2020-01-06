@@ -62,9 +62,9 @@ namespace ZeroInstall.Store
         public const string DefaultFeedMirror = "http://roscidus.com/0mirror";
 
         /// <summary>
-        /// The mirror server used to provide feeds when the original server is unavailable.
+        /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable.")]
+        [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.")]
         public FeedUri FeedMirror { get; set; } = new FeedUri(DefaultFeedMirror);
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace ZeroInstall.Store
         public const string DefaultKeyInfoServer = "https://keylookup.0install.net/";
 
         /// <summary>
-        /// The key information server used to get information about who signed a feed.
+        /// The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed.")]
+        [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.")]
         public FeedUri KeyInfoServer { get; set; } = new FeedUri(DefaultKeyInfoServer);
 
         /// <summary>
@@ -84,9 +84,9 @@ namespace ZeroInstall.Store
         public const string DefaultSelfUpdateUri = "http://0install.de/feeds/ZeroInstall.xml";
 
         /// <summary>
-        /// The feed URI used by the solver to search for updates for Zero Install itself.
+        /// The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself.")]
+        [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.")]
         public FeedUri SelfUpdateUri { get; set; } = new FeedUri(DefaultSelfUpdateUri);
 
         /// <summary>
@@ -95,9 +95,9 @@ namespace ZeroInstall.Store
         public const string DefaultExternalSolverUri = "http://0install.net/tools/0install.xml";
 
         /// <summary>
-        /// The feed URI used to get the external solver.
+        /// The feed URI used to get the external solver. Set to empty to deactive use of external solver.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver.")]
+        [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver. Set to empty to deactive use of external solver.")]
         public FeedUri ExternalSolverUri { get; set; } = new FeedUri(DefaultExternalSolverUri);
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace ZeroInstall.Store
         /// </summary>
         /// <seealso cref="SyncServer"/>
         /// <seealso cref="SyncServerPassword"/>
-        [DefaultValue(""), Category("Sync"), DisplayName(@"Username"), Description("The username to authenticate with against the Sync server.")]
+        [DefaultValue(""), Category("Sync"), DisplayName(@"Username"), Description("The username to authenticate with against the sync server.")]
         public string SyncServerUsername { get; set; } = "";
 
         /// <summary>
@@ -126,13 +126,13 @@ namespace ZeroInstall.Store
         /// </summary>
         /// <seealso cref="SyncServer"/>
         /// <seealso cref="SyncServerUsername"/>
-        [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Password"), Description("The password to authenticate with against the Sync server.")]
+        [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Password"), Description("The password to authenticate with against the sync server.")]
         public string SyncServerPassword { get; set; } = "";
 
         /// <summary>
         /// The local key used to encrypt data before sending it to the <see cref="SyncServer"/>.
         /// </summary>
-        [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the Sync server.")]
+        [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the sync server.")]
         public string SyncCryptoKey { get; set; } = "";
 
         /// <summary>Provides meta-data for loading and saving settings properties.</summary>
