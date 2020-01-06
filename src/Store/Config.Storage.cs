@@ -44,21 +44,28 @@ namespace ZeroInstall.Store
         /// <exception cref="UnauthorizedAccessException">This option is controlled by a group policy and can therefore not be modified.</exception>
         public void SetOption(string key, string value)
         {
-            if (WindowsUtils.IsWindowsNT && IsLockedByPolicy(key))
+            if (IsOptionLocked(key))
                 throw new UnauthorizedAccessException(Resources.OptionLockedByPolicy);
 
             _metaData[key].Value = value;
         }
 
-        private bool IsLockedByPolicy(string key)
+        /// <summary>
+        /// Determines whether an option is locked by a group policy.
+        /// </summary>
+        /// <param name="key">The key of the option to check.</param>
+        public static bool IsOptionLocked(string key)
         {
-            bool IsPolicySet(RegistryKey root)
+            bool HasPolicyIn(RegistryKey root)
             {
                 using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
                 return registryKey?.GetValue(key) != null;
             }
 
-            return IsPolicySet(Registry.CurrentUser) || IsPolicySet(Registry.LocalMachine);
+            // Extracted to separate function to prevent type load error on non-Windows OSes
+            bool HasPolicy() => HasPolicyIn(Registry.CurrentUser) || HasPolicyIn(Registry.LocalMachine);
+
+            return WindowsUtils.IsWindowsNT && HasPolicy();
         }
 
         /// <summary>
