@@ -239,7 +239,6 @@ namespace ZeroInstall.Commands
             }
             catch (PathTooLongException ex) when (
                 WindowsUtils.IsWindows10Redstone &&
-                Environment.Version >= new Version(4, 6, 2) &&
                 RegistryUtils.GetDword(RegKeyFSPolicyUser, RegValueNameLongPaths, defaultValue: RegistryUtils.GetDword(RegKeyFSPolicyMachine, RegValueNameLongPaths)) != 1)
             {
                 string message = ex.Message + @" " + Resources.SuggestLongPath;
