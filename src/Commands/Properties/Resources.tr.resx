@@ -361,7 +361,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
 Ek bir değişken ile özel hedef ön bellek konumu olarak belirtilebilir.</value>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Önbelleğe alınmış bir uygulama bir arşiv olarak (ZIP, TAR, vb.) dışa aktarılır. '0install store add' kullanılarak sonuç diğer makinelerde içe aktarılabilir.</value>
+    <value>Ön belleğe alınmış bir uygulama bir arşiv olarak (ZIP, TAR, vb.) dışa aktarılır. '0install store add' kullanılarak sonuç diğer makinelerde içe aktarılabilir.</value>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
     <value>Önbelleğe alınmış bir uygulamanın yolu belirlenir.</value>
@@ -473,7 +473,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
 Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Zero Install Mağaza Hizmeti başlatılıyor...</value>
+    <value>Zero Install Depo Hizmeti başlatılıyor...</value>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>{0} ile bütünleştir</value>
@@ -521,6 +521,9 @@ Sorunu çözmek için '0install self-update --force' komutunu çalıştırın.</
   </data>
   <data name="NeedsGui" xml:space="preserve">
     <value>Bu özellik için lütfen Zero Install görsel kullanıcı arayüzü sürümünü kullanın.</value>
+  </data>
+  <data name="NoAddCommandWithoutAlias" xml:space="preserve">
+    <value>--command yalnız bir kısaltma adı ile birlikte belirtilebilir.</value>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Görsel ilke düzenleyicisi komut satırı kipinde kullanılamaz.</value>
@@ -755,6 +758,10 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>Zero Install v{0} güncellemesi yayınlanmış. Şimdi kurulsun mu?</value>
   </data>
+  <data name="SelfUpdateDisabled" xml:space="preserve">
+    <value>Self-update devre dışı bırakılmış.
+Etkinleştirmek için '0install config self_update_uri default' komutunu kullanın.</value>
+  </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Bu Zero Install kopyası uygulama olarak başka bir Zero Install kopyasını başlattı. Bu nedenle kendini güncelleyemedi.</value>
   </data>
@@ -768,19 +775,19 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <value>Akışta yalnız tek bir uyarlama var ve kararlılık düzeyi '{0}'.</value>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Zero Install Bellek Hizmeti başlatılıyor</value>
+    <value>Zero Install Depo Hizmeti başlatılıyor</value>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Zero Install Bellek Hizmeti durduruluyor</value>
+    <value>Zero Install Depo Hizmeti durduruluyor</value>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} depolama alanı kazanıldı.</value>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Bellek denetimi</value>
+    <value>Depo denetimi</value>
   </data>
   <data name="StoreVerfiyTryAuditInstead" xml:space="preserve">
-    <value>Bellekteki tüm uygulamaları denetlemek yerine "0store audit" kullanın.</value>
+    <value>Depodaki tüm uygulamaları denetlemek yerine "0store audit" kullanın.</value>
   </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
     <value>{0} başarıyla kaldırıldı.</value>
@@ -811,7 +818,7 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <value>'{0}' akışı yüklenemedi; atlanıyor.</value>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Zero Install Mağaza Hizmeti Kaldırılıyor</value>
+    <value>Zero Install Depo Hizmeti Kaldırılıyor</value>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Bilinmeyen komut '{0}'.</value>
