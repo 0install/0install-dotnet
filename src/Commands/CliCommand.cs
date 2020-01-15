@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using NanoByte.Common;
+using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Values;
@@ -155,6 +156,9 @@ namespace ZeroInstall.Commands
             if (AdditionalArgsMin == 1 && string.IsNullOrEmpty(AdditionalArgs[0])) throw new OptionException(Resources.MissingArguments, null);
 
             if (AdditionalArgs.Count > AdditionalArgsMax) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(AdditionalArgsMax).JoinEscapeArguments(), null);
+
+            if (Handler.Verbosity == Verbosity.Normal && !OSUtils.IsInteractive)
+                Handler.Verbosity = Verbosity.Batch;
         }
 
         /// <summary>

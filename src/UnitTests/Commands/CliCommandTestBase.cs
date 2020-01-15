@@ -27,7 +27,7 @@ namespace ZeroInstall.Commands
     public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
         where TCommand : CliCommand
     {
-        protected readonly MockCommandHandler Handler = new MockCommandHandler();
+        protected readonly MockCommandHandler Handler = new MockCommandHandler {Verbosity = Verbosity.Verbose};
 
         /// <summary>
         /// The object to be tested (system under test).
