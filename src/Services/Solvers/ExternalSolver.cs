@@ -81,7 +81,7 @@ namespace ZeroInstall.Services.Solvers
                         selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
                     }
                     else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
-                }, "select", GetEffectiveRequirements(requirements), _feedManager.Refresh);
+                }, "select", GetEffectiveRequirements(requirements), false /*_feedManager.Refresh*/); // Pretend refresh is always false to avoid downloading feeds in external process (could cause problems with HTTPS and GPG validation)
                 while (selections == null)
                 {
                     control.HandleStderr();
