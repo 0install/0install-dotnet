@@ -402,41 +402,41 @@
       <FileName>Basic\Search.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan">
+  <Class Name="ZeroInstall.Commands.Desktop.Self">
     <Position X="38" Y="5.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan.MaintenanceSubCommand" Collapsed="true">
+      <Class Name="ZeroInstall.Commands.Desktop.Self.SelfSubCommand" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Desktop\MaintenanceMan.cs</NewMemberFileName>
+          <NewMemberFileName>Desktop\Self.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan.Deploy" Collapsed="true">
+      <Class Name="ZeroInstall.Commands.Desktop.Self.Deploy" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Desktop\MaintenanceMan.Deploy.cs</NewMemberFileName>
+          <NewMemberFileName>Desktop\Self.Deploy.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan.RemoveSubCommandBase" Collapsed="true">
+      <Class Name="ZeroInstall.Commands.Desktop.Self.RemoveSubCommandBase" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Desktop\MaintenanceMan.Remove.cs</NewMemberFileName>
+          <NewMemberFileName>Desktop\Self.Remove.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan.Remove" Collapsed="true">
+      <Class Name="ZeroInstall.Commands.Desktop.Self.Remove" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Desktop\MaintenanceMan.Remove.cs</NewMemberFileName>
+          <NewMemberFileName>Desktop\Self.Remove.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="ZeroInstall.Commands.Desktop.MaintenanceMan.RemoveHelper" Collapsed="true">
+      <Class Name="ZeroInstall.Commands.Desktop.Self.RemoveHelper" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Desktop\MaintenanceMan.Remove.cs</NewMemberFileName>
+          <NewMemberFileName>Desktop\Self.Remove.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAABACAA=</HashCode>
-      <FileName>Desktop\MaintenanceMan.cs</FileName>
+      <FileName>Desktop\Self.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ZeroInstall.Commands.Basic.Export">

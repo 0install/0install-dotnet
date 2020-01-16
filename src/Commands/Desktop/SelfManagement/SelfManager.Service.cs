@@ -13,9 +13,9 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Desktop.Maintenance
+namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
-    partial class MaintenanceManager
+    partial class SelfManager
     {
         private static readonly string _runtimeDir = WindowsUtils.GetNetFxDirectory(
             (Environment.Version.Major == 4) ? WindowsUtils.NetFx40 : WindowsUtils.NetFx20);

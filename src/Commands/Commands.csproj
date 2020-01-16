@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp2.1' And '$(TargetFramework)'!='netcoreapp3.1'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
-    <EmbeddedResource Include="Desktop\Maintenance\legacy.manifest" />
+    <EmbeddedResource Include="Desktop\SelfManagement\legacy.manifest" />
   </ItemGroup>
 
   <ItemGroup>

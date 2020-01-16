@@ -11,9 +11,9 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.Windows;
 using ZeroInstall.Store.Model;
 
-namespace ZeroInstall.Commands.Desktop.Maintenance
+namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
-    partial class MaintenanceManager
+    partial class SelfManager
     {
         private void DesktopIntegrationApply()
         {
@@ -73,8 +73,8 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
                 uninstallKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
 
                 uninstallKey.SetValue("DisplayIcon", Path.Combine(TargetDir, "ZeroInstall.exe"));
-                uninstallKey.SetValue("UninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name}.JoinEscapeArguments());
-                uninstallKey.SetValue("QuietUninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), MaintenanceMan.Name, MaintenanceMan.Remove.Name, "--batch", "--background"}.JoinEscapeArguments());
+                uninstallKey.SetValue("UninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name}.JoinEscapeArguments());
+                uninstallKey.SetValue("QuietUninstallString", new[] {Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name, "--batch", "--background"}.JoinEscapeArguments());
                 uninstallKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
                 uninstallKey.SetValue("NoRepiar", 1, RegistryValueKind.DWord);
             }

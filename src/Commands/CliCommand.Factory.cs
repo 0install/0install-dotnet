@@ -24,7 +24,7 @@ namespace ZeroInstall.Commands
         {
             Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
 #if NETFRAMEWORK
-            Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, MaintenanceMan.Name, SelfUpdate.Name
+            Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, Self.Name, SelfUpdate.Name
 #endif
         };
 
@@ -109,8 +109,9 @@ namespace ZeroInstall.Commands
                     return new ImportApps(handler);
                 case SyncApps.Name:
                     return new SyncApps(handler);
-                case MaintenanceMan.Name:
-                    return new MaintenanceMan(handler);
+                case Self.Name:
+                case Self.AltName:
+                    return new Self(handler);
                 case SelfUpdate.Name:
                     return new SelfUpdate(handler);
 #endif

@@ -11,9 +11,9 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations.Manifests;
 
-namespace ZeroInstall.Commands.Desktop.Maintenance
+namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
-    partial class MaintenanceManager
+    partial class SelfManager
     {
         /// <summary>
         /// Loads the <see cref="Manifest"/> file in a directory.
@@ -37,7 +37,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         {
             get
             {
-                using var stream = typeof(MaintenanceManager).GetEmbeddedStream("legacy.manifest");
+                using var stream = typeof(SelfManager).GetEmbeddedStream("legacy.manifest");
                 return Manifest.Load(stream, ManifestFormat.Sha256New); // The digests are not checked so the format does not matter
             }
         }

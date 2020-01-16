@@ -8,17 +8,17 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NDesk.Options;
-using ZeroInstall.Commands.Desktop.Maintenance;
+using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Desktop
 {
-    partial class MaintenanceMan
+    partial class Self
     {
         /// <summary>
         /// Deploys Zero Install to a target directory and integrates it in the system.
         /// </summary>
-        public class Deploy : MaintenanceSubCommand
+        public class Deploy : SelfSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
@@ -143,7 +143,7 @@ namespace ZeroInstall.Commands.Desktop
 
             private void PerformDeploy(string targetDir)
             {
-                using var manager = new MaintenanceManager(targetDir, Handler, _machineWide, _portable);
+                using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
                 Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
                 manager.Deploy();
             }

@@ -182,7 +182,7 @@ namespace ZeroInstall.Commands
                         else if (handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + ex.Message,
                             defaultAnswer: true, alternateMessage: ex.Message))
                         {
-                            var deployArgs = new[] {MaintenanceMan.Name, MaintenanceMan.Deploy.Name, "--batch"};
+                            var deployArgs = new[] {Self.AltName, Self.Deploy.Name, "--batch"};
                             if (ex.NeedsMachineWide) deployArgs = deployArgs.Append("--machine");
                             var deployResult = Run(exeName, deployArgs, handler);
                             if (deployResult == ExitCode.OK)

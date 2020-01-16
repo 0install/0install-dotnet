@@ -10,7 +10,7 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations.Deployment;
 
-namespace ZeroInstall.Commands.Desktop.Maintenance
+namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
     /// <summary>
     /// Represents a specific Zero Install instance that is to be deployed, updated or removed.
@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
     /// To prevent race-conditions there may only be one maintenance class instance active at any given time.
     /// This class acquires a mutex upon calling its constructor and releases it upon calling <see cref="IDisposable.Dispose"/>.
     /// </remarks>
-    public partial class MaintenanceManager : ManagerBase
+    public partial class SelfManager : ManagerBase
     {
         #region Constants
         /// <summary>
@@ -50,7 +50,7 @@ namespace ZeroInstall.Commands.Desktop.Maintenance
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
-        public MaintenanceManager(string targetDir, ITaskHandler handler, bool machineWide, bool portable)
+        public SelfManager(string targetDir, ITaskHandler handler, bool machineWide, bool portable)
             : base(handler, machineWide)
         {
             #region Sanity checks

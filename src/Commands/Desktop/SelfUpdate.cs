@@ -64,7 +64,7 @@ namespace ZeroInstall.Commands.Desktop
             if (ProgramUtils.GuiAssemblyName != null) Requirements.Command = Command.NameRunGui;
 
             // Instruct new version of Zero Install in the cache to deploy itself over the location of the current version
-            AdditionalArgs.AddRange(new[] {MaintenanceMan.Name, MaintenanceMan.Deploy.Name, "--batch", Locations.InstallBase});
+            AdditionalArgs.AddRange(new[] {Self.AltName, Self.Deploy.Name, "--batch", Locations.InstallBase});
 
             if (_restartCentral) AdditionalArgs.Add("--restart-central");
         }

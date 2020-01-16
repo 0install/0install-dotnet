@@ -10,16 +10,16 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.Desktop.Maintenance;
+using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop
 {
-    partial class MaintenanceMan
+    partial class Self
     {
-        public abstract class RemoveSubCommandBase : MaintenanceSubCommand
+        public abstract class RemoveSubCommandBase : SelfSubCommand
         {
             protected RemoveSubCommandBase(ICommandHandler handler)
                 : base(handler)
@@ -35,7 +35,7 @@ namespace ZeroInstall.Commands.Desktop
 
             protected void PerformRemove()
             {
-                using var manager = new MaintenanceManager(TargetDir, Handler, MachineWide, Portable);
+                using var manager = new SelfManager(TargetDir, Handler, MachineWide, Portable);
                 Log.Info($"Using Zero Install instance at '{Locations.InstallBase}' to remove '{TargetDir}'");
                 manager.Remove();
             }
@@ -103,12 +103,12 @@ namespace ZeroInstall.Commands.Desktop
             private void DelegateToTempCopy()
             {
                 string tempDir = FileUtils.GetTempDirectory("0install-remove");
-                using (var manager = new MaintenanceManager(tempDir, Handler, machineWide: false, portable: true))
+                using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
                     manager.Deploy();
 
                 string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? "0install");
 
-                var args = new[] {MaintenanceMan.Name, RemoveHelper.Name, Locations.InstallBase};
+                var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
                 if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
                 if (Handler.Background) args = args.Append("--background");
 

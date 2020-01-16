@@ -14,14 +14,17 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Manages the integration of Zero Install itself in the operating system (deployment and removal).
     /// </summary>
-    public sealed partial class MaintenanceMan : CliMultiCommand
+    public sealed partial class Self : CliMultiCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public const string Name = "maintenance";
+        public const string Name = "self";
+
+        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
+        public const string AltName = "maintenance";
 
         /// <inheritdoc/>
-        public MaintenanceMan(ICommandHandler handler)
+        public Self(ICommandHandler handler)
             : base(handler)
         {}
         #endregion
@@ -39,11 +42,11 @@ namespace ZeroInstall.Commands.Desktop
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
 
-        public abstract class MaintenanceSubCommand : CliCommand, ICliSubCommand
+        public abstract class SelfSubCommand : CliCommand, ICliSubCommand
         {
-            public string ParentName => MaintenanceMan.Name;
+            public string ParentName => Self.Name;
 
-            protected MaintenanceSubCommand(ICommandHandler handler)
+            protected SelfSubCommand(ICommandHandler handler)
                 : base(handler)
             {}
 

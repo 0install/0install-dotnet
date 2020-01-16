@@ -64,7 +64,7 @@ namespace ZeroInstall.Commands.Desktop
                 if (Handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + Resources.NoIntegrationFromPortable,
                     defaultAnswer: false, alternateMessage: Resources.NoIntegrationFromPortable))
                 {
-                    var deployArgs = new[] {MaintenanceMan.Name, MaintenanceMan.Deploy.Name, "--restart-central"};
+                    var deployArgs = new[] {Self.Name, Self.Deploy.Name, "--restart-central"};
                     if (MachineWide) deployArgs = deployArgs.Append("--machine");
                     ProgramUtils.Run("0install", deployArgs, Handler);
                 }
