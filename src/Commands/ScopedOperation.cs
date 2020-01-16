@@ -172,7 +172,7 @@ namespace ZeroInstall.Commands
                 if (FeedManager.RateLimit(Config.SelfUpdateUri)) return;
 
                 Log.Info("Starting periodic background self-update check");
-                StartCommandBackground(SelfUpdate.Name);
+                StartCommandBackground(Self.Name, Self.Update.Name);
             }
 #endif
         }

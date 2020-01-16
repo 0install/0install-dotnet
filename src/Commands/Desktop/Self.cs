@@ -30,7 +30,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name};
+        public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name, Update.Name};
 
         /// <inheritdoc/>
         public override CliCommand GetCommand(string commandName)
@@ -39,6 +39,7 @@ namespace ZeroInstall.Commands.Desktop
                 Deploy.Name => (CliCommand)new Deploy(Handler),
                 Remove.Name => new Remove(Handler),
                 RemoveHelper.Name => new RemoveHelper(Handler),
+                Update.Name => new Update(Handler),
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
 

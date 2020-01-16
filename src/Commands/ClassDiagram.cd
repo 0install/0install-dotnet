@@ -187,16 +187,6 @@
       <FileName>Basic\Digest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ZeroInstall.Commands.Desktop.SelfUpdate">
-    <Position X="6.25" Y="19.75" Width="2" />
-    <Members>
-      <Method Name="SelfUpdate" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAgAAQAAAAgAQQEAAAAAAAAAAAAEAAAAAA=</HashCode>
-      <FileName>Desktop\SelfUpdate.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ZeroInstall.Commands.Basic.AddRemoveFeedCommand">
     <Position X="11.25" Y="5.75" Width="2" />
     <Members>
@@ -431,6 +421,11 @@
       <Class Name="ZeroInstall.Commands.Desktop.Self.RemoveHelper" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Desktop\Self.Remove.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ZeroInstall.Commands.Desktop.Self.Update">
+        <TypeIdentifier>
+          <FileName>Desktop\Self.Update.cs</FileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
