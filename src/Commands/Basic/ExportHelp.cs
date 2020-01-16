@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "export-help";
+        public const string Name = "export-help";
 
         /// <inheritdoc/>
         public override string Description => "Exports all command help texts as HTML.";

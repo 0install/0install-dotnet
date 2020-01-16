@@ -31,15 +31,21 @@ namespace ZeroInstall.Commands
     {
         #region Metadata
         /// <summary>
-        /// The name of this command as used in command-line arguments in lower-case.
+        /// The full name of this command (including sub-commands) as used in command-line arguments in lower-case.
         /// </summary>
-        public virtual string Name
+        public string FullName
         {
             get
             {
-                var type = GetType();
-                var field = type.GetField("Name", BindingFlags.Public | BindingFlags.Static);
-                return field?.GetValue(null).ToString() ?? "";
+                // Get value from "public string const Name" on this type
+                var field = GetType().GetField("Name", BindingFlags.Public | BindingFlags.Static);
+                string name = field?.GetValue(null).ToString() ?? "";
+
+                return this switch
+                {
+                    ICliSubCommand sub => sub.ParentName + " " + name,
+                    _ => name
+                };
             }
         }
 
@@ -72,7 +78,7 @@ namespace ZeroInstall.Commands
             {
                 using var buffer = new MemoryStream();
                 var writer = new StreamWriter(buffer);
-                writer.WriteLine(Resources.Usage + " 0install " + Name + " " + Usage);
+                writer.WriteLine(Resources.Usage + " 0install " + FullName + " " + Usage);
                 writer.WriteLine();
                 writer.WriteLine(Description);
                 if (Options.Count != 0)

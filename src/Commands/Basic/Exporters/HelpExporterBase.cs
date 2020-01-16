@@ -24,12 +24,12 @@ namespace ZeroInstall.Commands.Basic.Exporters
             var builder = new StringBuilder();
 
             builder.AppendLine(CommandListHeader());
-            ForEachCommand(command => builder.AppendLine(CommandListEntry(command.Name, command.Description)));
+            ForEachCommand(command => builder.AppendLine(CommandListEntry(command.FullName, command.Description)));
             builder.AppendLine(CommandListFooter());
 
             ForEachCommand(command =>
             {
-                builder.AppendLine(CommandDetails(command.Name, command.Description, command.Usage));
+                builder.AppendLine(CommandDetails(command.FullName, command.Description, command.Usage));
                 builder.AppendLine(OptionListHeader());
                 foreach (var option in command.Options.Where(x => x.Prototype != "<>" && x.Description != null))
                     builder.AppendLine(OptionListEntry(GetPrototypes(option), option.Description));

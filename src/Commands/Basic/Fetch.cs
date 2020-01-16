@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "fetch";
+        public const string Name = "fetch";
 
         /// <inheritdoc/>
         public override string Description => "Downloads a set of implementations piped in as XML via stdin (for programmatic use). Use Feed format with no inner linebreaks and terminated by a single linebreak.";

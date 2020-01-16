@@ -18,7 +18,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "store";
+        public const string Name = "store";
 
         /// <inheritdoc/>
         public StoreMan(ICommandHandler handler)
@@ -30,10 +30,10 @@ namespace ZeroInstall.Commands.Basic
         public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, AddDir.Name, RemoveDir.Name};
 
         /// <inheritdoc/>
-        public override CliSubCommand GetCommand(string commandName)
+        public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Add.Name => (CliSubCommand)new Add(Handler),
+                Add.Name => (CliCommand)new Add(Handler),
                 Audit.Name => new Audit(Handler),
                 Copy.Name => new Copy(Handler),
                 Export.Name => new Export(Handler),
@@ -52,9 +52,9 @@ namespace ZeroInstall.Commands.Basic
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
 
-        public abstract class StoreSubCommand : CliSubCommand
+        public abstract class StoreSubCommand : CliCommand, ICliSubCommand
         {
-            protected override string ParentName => StoreMan.Name;
+            public string ParentName => StoreMan.Name;
 
             protected StoreSubCommand(ICommandHandler handler)
                 : base(handler)

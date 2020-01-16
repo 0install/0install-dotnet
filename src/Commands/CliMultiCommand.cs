@@ -11,7 +11,7 @@ using ZeroInstall.Commands.Properties;
 namespace ZeroInstall.Commands
 {
     /// <summary>
-    /// Common base class for commands that provide multiple <see cref="CliSubCommand"/>s.
+    /// Common base class for commands that provide multiple sub-<see cref="CliCommand"/>s.
     /// </summary>
     public abstract class CliMultiCommand : CliCommand
     {
@@ -23,7 +23,7 @@ namespace ZeroInstall.Commands
             {
                 var builder = new StringBuilder(Resources.TryHelpWith + Environment.NewLine);
                 foreach (string possibleSubCommand in SubCommandNames)
-                    builder.AppendLine("0install " + Name + " " + possibleSubCommand);
+                    builder.AppendLine("0install " + FullName + " " + possibleSubCommand);
                 return builder.ToString();
             }
         }
@@ -49,18 +49,18 @@ namespace ZeroInstall.Commands
         public abstract IEnumerable<string> SubCommandNames { get; }
 
         /// <summary>
-        /// Creates a new <see cref="CliSubCommand"/> based on a name.
+        /// Creates a new sub-<see cref="CliCommand"/> based on a name.
         /// </summary>
         /// <param name="commandName">The command name to look for; case-insensitive.</param>
-        /// <returns>The requested <see cref="CliSubCommand"/>.</returns>
+        /// <returns>The requested sub-<see cref="CliCommand"/>.</returns>
         /// <exception cref="OptionException"><paramref name="commandName"/> is an unknown command.</exception>
         /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
-        public abstract CliSubCommand GetCommand(string commandName);
+        public abstract CliCommand GetCommand(string commandName);
 
         /// <summary>The sub-command selected in <see cref="Parse"/> and used in <see cref="Execute"/>.</summary>
-        private CliSubCommand? _subCommand;
+        private CliCommand? _subCommand;
 
         /// <inheritdoc/>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]

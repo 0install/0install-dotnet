@@ -22,7 +22,7 @@ namespace ZeroInstall.Commands.Desktop
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "deploy";
+            public const string Name = "deploy";
 
             public override string Description => Resources.DescriptionMaintenanceDeploy;
 

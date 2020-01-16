@@ -20,7 +20,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "digest";
+        public const string Name = "digest";
 
         /// <inheritdoc/>
         public override string Description => Resources.DescriptionDigest;

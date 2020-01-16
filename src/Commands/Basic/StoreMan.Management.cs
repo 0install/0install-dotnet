@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "manage";
+            public const string Name = "manage";
 
             public override string Description => Resources.DescriptionStoreManage;
 
@@ -40,7 +40,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "list-implementations";
+            public const string Name = "list-implementations";
 
             public override string Description => Resources.DescriptionStoreListImplementations;
 
@@ -81,7 +81,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "audit";
+            public const string Name = "audit";
 
             public override string Description => Resources.DescriptionStoreAudit;
 
@@ -105,7 +105,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "optimise";
+            public const string Name = "optimise";
 
             public const string AltName = "optimize";
 
@@ -130,7 +130,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "purge";
+            public const string Name = "purge";
 
             public override string Description => Resources.DescriptionStorePurge;
 

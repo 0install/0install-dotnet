@@ -51,7 +51,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "add-dir";
+            public const string Name = "add-dir";
 
             public override string Description => Resources.DescriptionStoreAddDir;
 
@@ -85,7 +85,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "remove-dir";
+            public const string Name = "remove-dir";
 
             public override string Description => Resources.DescriptionStoreRemoveDir;
 
@@ -115,7 +115,7 @@ namespace ZeroInstall.Commands.Basic
         public class List : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "list";
+            public const string Name = "list";
 
             public override string Description => Resources.DescriptionStoreList;
 

@@ -17,7 +17,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "catalog";
+        public const string Name = "catalog";
 
         /// <inheritdoc/>
         public CatalogMan(ICommandHandler handler)
@@ -29,10 +29,10 @@ namespace ZeroInstall.Commands.Basic
         public override IEnumerable<string> SubCommandNames => new[] {Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name};
 
         /// <inheritdoc/>
-        public override CliSubCommand GetCommand(string commandName)
+        public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Search.Name => (CliSubCommand)new Search(Handler),
+                Search.Name => (CliCommand)new Search(Handler),
                 Refresh.Name => new Refresh(Handler),
                 Add.Name => new Add(Handler),
                 Remove.Name => new Remove(Handler),
@@ -41,9 +41,9 @@ namespace ZeroInstall.Commands.Basic
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
 
-        private abstract class CatalogSubCommand : CliSubCommand
+        private abstract class CatalogSubCommand : CliCommand, ICliSubCommand
         {
-            protected override string ParentName => CatalogMan.Name;
+            public string ParentName => CatalogMan.Name;
 
             protected CatalogSubCommand(ICommandHandler handler)
                 : base(handler)

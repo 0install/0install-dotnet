@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Desktop
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "sync";
+        public const string Name = "sync";
 
         /// <inheritdoc/>
         public override string Description => Resources.DescriptionSync;

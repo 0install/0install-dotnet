@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "reset";
+            public const string Name = "reset";
 
             public override string Description => Resources.DescriptionCatalogReset;
 

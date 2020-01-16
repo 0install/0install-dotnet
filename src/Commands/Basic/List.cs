@@ -15,7 +15,7 @@ namespace ZeroInstall.Commands.Basic
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "list";
+        public const string Name = "list";
 
         /// <inheritdoc/>
         public override string Description => Resources.DescriptionList;

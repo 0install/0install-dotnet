@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
-            public new const string Name = "search";
+            public const string Name = "search";
 
             public override string Description => Resources.DescriptionCatalogSearch;
 

@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Desktop
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "repair-all";
+        public const string Name = "repair-all";
 
         /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "repair-apps";

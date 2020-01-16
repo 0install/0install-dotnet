@@ -22,7 +22,7 @@ namespace ZeroInstall.Commands.Basic
         public class Add : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "add";
+            public const string Name = "add";
 
             public override string Description => Resources.DescriptionStoreAdd;
 
@@ -79,7 +79,7 @@ namespace ZeroInstall.Commands.Basic
         public class Copy : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "copy";
+            public const string Name = "copy";
 
             public override string Description => Resources.DescriptionStoreCopy;
 
@@ -127,7 +127,7 @@ namespace ZeroInstall.Commands.Basic
         public class Export : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "export";
+            public const string Name = "export";
 
             public override string Description => Resources.DescriptionStoreExport;
 
@@ -164,7 +164,7 @@ namespace ZeroInstall.Commands.Basic
         public class Find : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "find";
+            public const string Name = "find";
 
             public override string Description => Resources.DescriptionStoreFind;
 
@@ -193,7 +193,7 @@ namespace ZeroInstall.Commands.Basic
         public class Remove : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "remove";
+            public const string Name = "remove";
 
             public override string Description => Resources.DescriptionStoreRemove;
 
@@ -220,7 +220,7 @@ namespace ZeroInstall.Commands.Basic
         public class Verify : StoreSubCommand
         {
             #region Metadata
-            public new const string Name = "verify";
+            public const string Name = "verify";
 
             public override string Description => Resources.DescriptionStoreVerify;
 

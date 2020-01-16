@@ -18,7 +18,7 @@ namespace ZeroInstall.Commands.Desktop
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
-        public new const string Name = "maintenance";
+        public const string Name = "maintenance";
 
         /// <inheritdoc/>
         public MaintenanceMan(ICommandHandler handler)
@@ -30,18 +30,18 @@ namespace ZeroInstall.Commands.Desktop
         public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name};
 
         /// <inheritdoc/>
-        public override CliSubCommand GetCommand(string commandName)
+        public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Deploy.Name => (CliSubCommand)new Deploy(Handler),
+                Deploy.Name => (CliCommand)new Deploy(Handler),
                 Remove.Name => new Remove(Handler),
                 RemoveHelper.Name => new RemoveHelper(Handler),
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
 
-        public abstract class MaintenanceSubCommand : CliSubCommand
+        public abstract class MaintenanceSubCommand : CliCommand, ICliSubCommand
         {
-            protected override string ParentName => MaintenanceMan.Name;
+            public string ParentName => MaintenanceMan.Name;
 
             protected MaintenanceSubCommand(ICommandHandler handler)
                 : base(handler)
