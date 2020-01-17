@@ -13,7 +13,7 @@ mkdir ..\artifacts\Documentation | Out-Null
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 Invoke-WebRequest https://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
-0install run --batch http://repo.roscidus.com/devel/doxygen
+0install run --batch https://apps.0install.net/devel/doxygen.xml
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 cp .nojekyll,CNAME ..\artifacts\Documentation\

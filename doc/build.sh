@@ -8,6 +8,6 @@ mkdir -p ../artifacts/Documentation
 # Download tag files for external references
 curl -o nanobyte-common.tag https://common.nano-byte.net/nanobyte-common.tag
 
-0install run http://repo.roscidus.com/devel/doxygen
+0install run https://apps.0install.net/devel/doxygen.xml
 
 cp .nojekyll CNAME ../artifacts/Documentation/
