@@ -31,7 +31,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <summary>
-        /// Generates a manifest for a directory in the filesystem and writes the manifest to a file named Manifest.ManifestFile in that directory.
+        /// Generates a manifest for a directory in the filesystem and writes the manifest to a file named <see cref="Manifest.ManifestFile"/> in that directory.
         /// </summary>
         /// <param name="path">The path of the directory to analyze.</param>
         /// <param name="format">The format of the manifest (which file details are listed, which digest method is used, etc.).</param>

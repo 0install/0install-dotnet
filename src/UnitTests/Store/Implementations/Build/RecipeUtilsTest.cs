@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Implementations.Build
     public class RecipeUtilsTest
     {
         [Fact]
-        public void TestApplyRecipeArchiv()
+        public void TestApplyRecipeArchive()
         {
             using var archiveFile = new TemporaryFile("0install-unit-tests");
             typeof(ArchiveExtractorTest).CopyEmbeddedToFile("testArchive.zip", archiveFile);

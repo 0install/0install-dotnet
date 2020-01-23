@@ -18,13 +18,13 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// Creates a new non-executable file entry.
         /// </summary>
-        /// <param name="hash">The hash of the content of the file calculated using the selected digest algorithm.</param>
+        /// <param name="digest">The digest of the content of the file calculated using the selected digest algorithm.</param>
         /// <param name="modifiedTime">The time this file was last modified.</param>
         /// <param name="size">The size of the file in bytes.</param>
         /// <param name="name">The name of the file without the containing directory.</param>
         /// <exception cref="NotSupportedException"><paramref name="name"/> contains a newline character.</exception>
-        public ManifestNormalFile(string hash, DateTime modifiedTime, long size, string name)
-            : base(hash, modifiedTime, size, name)
+        public ManifestNormalFile(string digest, DateTime modifiedTime, long size, string name)
+            : base(digest, modifiedTime, size, name)
         {}
 
         #region Factory methods
