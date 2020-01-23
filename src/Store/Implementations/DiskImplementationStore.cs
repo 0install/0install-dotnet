@@ -302,16 +302,26 @@ namespace ZeroInstall.Store.Implementations
 
             var generator = new ManifestGenerator(directory, format) {Tag = expectedDigest};
             handler.RunTask(generator);
-            var actualManifest = generator.Manifest;
-            string actualDigestValue = actualManifest.CalculateDigest();
+            var manifest = generator.Manifest;
+            string digest = manifest.CalculateDigest();
 
-            string manifestFilePath = Path.Combine(directory, Manifest.ManifestFile);
-            var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
+            if (digest != expectedDigestValue)
+            {
+                var roundedManifest = manifest.WithRoundedTimestamps();
+                if (roundedManifest.CalculateDigest() == expectedDigestValue)
+                {
+                    Log.Info($"Expected digest {expectedDigestValue} but got {digest}. Rounding down timestamps to even numbers of seconds made the digests match.");
+                    return roundedManifest;
+                }
+                else
+                {
+                    string manifestFilePath = Path.Combine(directory, Manifest.ManifestFile);
+                    var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
+                    throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
+                }
+            }
 
-            if (actualDigestValue != expectedDigestValue)
-                throw new DigestMismatchException(expectedDigestValue, actualDigestValue, expectedManifest, actualManifest);
-
-            return actualManifest;
+            return manifest;
         }
         #endregion
 

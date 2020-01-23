@@ -111,6 +111,20 @@ namespace ZeroInstall.Store.Implementations.Manifests
             return result;
         }
 
+        /// <summary>
+        /// Creates a copy of the manifest with all timestamps rounded up to an even number of seconds.
+        /// </summary>
+        public Manifest WithRoundedTimestamps()
+            => new Manifest(Format, _nodes.Select(node => node switch
+            {
+                ManifestNormalFile normal => new ManifestNormalFile(normal.Digest, Round(normal.ModifiedTime), normal.Size, normal.Name),
+                ManifestExecutableFile executable => new ManifestExecutableFile(executable.Digest, Round(executable.ModifiedTime), executable.Size, executable.Name),
+                _ => node
+            }));
+
+        private static DateTime Round(DateTime timestamp)
+            => FileUtils.FromUnixTime((timestamp.ToUnixTime() + 1) / 2 * 2);
+
         #region Storage
         /// <summary>
         /// Writes the manifest to a file and calculates its digest.

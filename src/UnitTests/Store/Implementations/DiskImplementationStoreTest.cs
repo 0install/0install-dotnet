@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Threading;
 using FluentAssertions;
 using NanoByte.Common;
@@ -224,6 +225,23 @@ namespace ZeroInstall.Store.Implementations
             _implementationStore.AddDirectory(testDir, digest, _handler);
 
             _implementationStore.Verify(digest, _handler);
+            _handler.LastQuestion.Should().BeNull();
+        }
+
+        [Fact]
+        public void TestAuditPassDespiteTimestampRoundingError()
+        {
+            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            var file = new TestFile("file") {Contents = "AAA", LastWrite = new DateTime(2000, 1, 1, 0, 0, 1, DateTimeKind.Utc)};
+            new TestRoot {file}.Build(testDir);
+
+            var manifest = new Manifest(ManifestFormat.Sha1New,
+                new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite.AddSeconds(1), file.Contents.Length, file.Name));
+            var digest = new ManifestDigest(manifest.CalculateDigest());
+
+            _implementationStore.AddDirectory(testDir, digest, _handler);
+            _implementationStore.Verify(digest, _handler);
+
             _handler.LastQuestion.Should().BeNull();
         }
 
