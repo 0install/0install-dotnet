@@ -102,10 +102,10 @@ namespace ZeroInstall.Store.Model.Selection
 
             _implementationPreferences = feedPreferences[implementation.ID];
 
-            CheckSuitabilty(requirements ?? throw new ArgumentNullException(nameof(requirements)), offlineUncached);
+            CheckSuitability(requirements ?? throw new ArgumentNullException(nameof(requirements)), offlineUncached);
         }
 
-        private void CheckSuitabilty(Requirements requirements, bool offlineUncached)
+        private void CheckSuitability(Requirements requirements, bool offlineUncached)
         {
             if (Implementation.Architecture.Cpu == Cpu.Source && requirements.Architecture.Cpu != Cpu.Source)
                 Notes = Resources.SelectionCandidateNoteSource;
