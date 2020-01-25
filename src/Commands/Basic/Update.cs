@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Diagnostics;
 using System.Linq;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
@@ -24,7 +25,7 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         #region State
-        private Selections _oldSelections = default!;
+        private Selections? _oldSelections;
 
         /// <inheritdoc/>
         public Update(ICommandHandler handler)
@@ -75,6 +76,8 @@ namespace ZeroInstall.Commands.Basic
         /// </summary>
         protected override ExitCode ShowOutput()
         {
+            Debug.Assert(_oldSelections != null && Selections != null);
+
             var diff = SelectionsManager.GetDiff(_oldSelections, Selections).ToList();
 
             if (diff.Count == 0)

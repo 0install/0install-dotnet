@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using NanoByte.Common;
@@ -31,7 +32,7 @@ namespace ZeroInstall.Commands.Basic
         private bool _show;
 
         /// <summary><see cref="Implementation"/>s referenced in <see cref="Selection.Selections"/> that are not available in the <see cref="IImplementationStore"/>.</summary>
-        protected ICollection<Implementation> UncachedImplementations = default!;
+        protected ICollection<Implementation>? UncachedImplementations;
 
         /// <inheritdoc/>
         public Download(ICommandHandler handler)
@@ -80,6 +81,7 @@ namespace ZeroInstall.Commands.Basic
         protected override void Solve()
         {
             base.Solve();
+            Debug.Assert(Selections != null);
 
             try
             {
@@ -100,6 +102,8 @@ namespace ZeroInstall.Commands.Basic
         /// <remarks>Makes sure <see cref="ISolver"/> ran with up-to-date feeds before downloading any implementations.</remarks>
         protected void DownloadUncachedImplementations()
         {
+            Debug.Assert(UncachedImplementations != null);
+
             if (UncachedImplementations.Count != 0 && !FeedManager.Refresh)
             {
                 Log.Info("Running Refresh Solve because there are un-cached implementations");

@@ -64,7 +64,7 @@ namespace ZeroInstall.Services.Solvers
             if (requirements.InterfaceUri == null) throw new ArgumentException(Resources.MissingInterfaceUri, nameof(requirements));
             #endregion
 
-            Selections selections = default!;
+            Selections? selections = null;
             _handler.RunTask(new SimpleTask(Resources.ExternalSolverRunning, () =>
             {
                 using var control = new ExternalSolverSession(GetStartInfo())
@@ -89,6 +89,7 @@ namespace ZeroInstall.Services.Solvers
                 }
                 control.HandleStderr();
             }));
+            Debug.Assert(selections != null);
 
             // Invalidate in-memory feed cache, because external solver may have modified on-disk feed cache
             _feedManager.Clear();

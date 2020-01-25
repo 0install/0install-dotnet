@@ -169,7 +169,7 @@ namespace ZeroInstall.Services.Fetchers
 
             // Fail fast on unsupported Archive types
             foreach (var archive in recipe.Steps.OfType<Archive>())
-                ArchiveExtractor.VerifySupport(archive.MimeType);
+                ArchiveExtractor.VerifySupport(archive.MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."));
 
             var downloadedFiles = new List<TemporaryFile>();
             try
@@ -240,7 +240,7 @@ namespace ZeroInstall.Services.Fetchers
             var archiveFileInfos = new ArchiveFileInfo[archives.Count];
             for (int i = 0; i < archiveFileInfos.Length; i++)
             {
-                archiveFileInfos[i] = new ArchiveFileInfo(files[i].Path, archives[i].MimeType)
+                archiveFileInfos[i] = new ArchiveFileInfo(files[i].Path, archives[i].MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."))
                 {
                     Extract = archives[i].Extract,
                     Destination = archives[i].Destination,

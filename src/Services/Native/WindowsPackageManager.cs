@@ -146,8 +146,11 @@ namespace ZeroInstall.Services.Native
                 string regPrefix = $@"HKEY_LOCAL_MACHINE\SOFTWARE\{(wow6432 ? @"Wow6432Node\" : "")}Microsoft\PowerShell\{baseVersion}";
                 if (RegistryUtils.GetDword(regPrefix, "Install") != 1) return null;
 
+                string? version = RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "PowerShellVersion");
+                if (string.IsNullOrEmpty(version)) return null;
+
                 return new ExternalImplementation(DistributionName, "powershell",
-                    version: new ImplementationVersion(RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "PowerShellVersion")),
+                    version: new ImplementationVersion(version),
                     cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
                 {
                     Commands =

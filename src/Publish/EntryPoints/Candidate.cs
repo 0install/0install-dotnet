@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Implementations.Build;
@@ -42,6 +43,8 @@ namespace ZeroInstall.Publish.EntryPoints
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
+            Debug.Assert(BaseDirectory != null);
+
             return
                 FileUtils.IsExecutable(path) ||
                 FlagUtils.GetFiles(FlagUtils.XbitFile, BaseDirectory.FullName).Contains(path);
@@ -51,13 +54,13 @@ namespace ZeroInstall.Publish.EntryPoints
         /// The base directory containing the entire application.
         /// </summary>
         [Browsable(false)]
-        protected DirectoryInfo BaseDirectory { get; private set; }
+        protected DirectoryInfo? BaseDirectory { get; private set; }
 
         /// <summary>
         /// The path of this entry point relative to <see cref="BaseDirectory"/> using Unix-style directory separators.
         /// </summary>
         [Browsable(false)]
-        public string RelativePath { get; internal set; }
+        public string? RelativePath { get; internal set; }
 
         /// <summary>
         /// The application's name.

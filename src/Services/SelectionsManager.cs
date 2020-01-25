@@ -101,7 +101,7 @@ namespace ZeroInstall.Services
                 }
             }
 
-            string GetPath(ImplementationBase implementation)
+            string? GetPath(ImplementationBase implementation)
                 => implementation.LocalPath
                 ?? (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
                        ? "(" + implementation.ID + ")"

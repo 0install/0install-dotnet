@@ -36,6 +36,8 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         private void ApplyBindings()
         {
+            Debug.Assert(_selections != null);
+
             foreach (var implementation in _selections.Implementations)
             {
                 // Self-bindings used by implementations to find their own resources
@@ -59,6 +61,8 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         private void ApplyDependencyBindings(IDependencyContainer dependencyContainer)
         {
+            Debug.Assert(_selections != null);
+
             foreach (var dependency in dependencyContainer.Dependencies.Where(x => x.Importance == Importance.Essential || _selections.ContainsImplementation(x.InterfaceUri)))
                 ApplyBindings(dependency, _selections[dependency.InterfaceUri]);
         }

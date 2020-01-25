@@ -249,7 +249,7 @@ namespace ZeroInstall.Store.Implementations
 
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
 
-            Exception exception = null;
+            Exception? exception = null;
             var threads = new Thread[100];
             for (int i = 0; i < threads.Length; i++)
             {

@@ -67,7 +67,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last <see cref="Selections"/> passed to <see cref="ShowSelections"/>.
         /// </summary>
-        public Selections LastSelections { get; private set; }
+        public Selections? LastSelections { get; private set; }
 
         /// <summary>
         /// Fakes showing <see cref="Selections"/> to the user.

@@ -156,7 +156,7 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// The value used for <see cref="ImplementationBase.ID"/>.
         /// </summary>
-        public string ID { get; private set; }
+        public string? ID { get; private set; }
 
         /// <summary>
         /// The value used for <see cref="ImplementationBase.ManifestDigest"/>.
@@ -187,7 +187,7 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Set to configure <see cref="Feed.Uri"/>.
         /// </summary>
-        public FeedUri Uri { get; set; }
+        public FeedUri? Uri { get; set; }
 
         private readonly List<Icon> _icons = new List<Icon>();
 
@@ -231,9 +231,9 @@ namespace ZeroInstall.Publish
 
             var feed = new Feed
             {
-                Name = MainCandidate.Name,
+                Name = MainCandidate.Name ?? throw new InvalidOperationException("Name is not set."),
                 Uri = Uri,
-                Summaries = {MainCandidate.Summary},
+                Summaries = {MainCandidate.Summary ?? throw new InvalidOperationException("Summary is not set.")},
                 NeedsTerminal = MainCandidate.NeedsTerminal,
                 Elements = {implementation}
             };

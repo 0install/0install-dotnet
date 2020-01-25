@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using NanoByte.Common.Collections;
 using ZeroInstall.Commands.Basic.Exporters;
@@ -53,7 +54,7 @@ namespace ZeroInstall.Commands.Basic
         }
         #endregion
 
-        private string _outputPath = default!;
+        private string? _outputPath;
 
         public override void Parse(IEnumerable<string> args)
         {
@@ -81,8 +82,9 @@ namespace ZeroInstall.Commands.Basic
         public override ExitCode Execute()
         {
             Solve();
+            Debug.Assert(Selections != null);
 
-            var exporter = new Exporter(Selections, Requirements, _outputPath);
+            var exporter = new Exporter(Selections, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
 
             exporter.ExportFeeds(FeedCache, OpenPgp);
             if (!_noImplementations)
@@ -110,6 +112,7 @@ namespace ZeroInstall.Commands.Basic
         protected override void Solve()
         {
             base.Solve();
+            Debug.Assert(Selections != null && UncachedImplementations != null);
 
             if (_includeZeroInstall)
             {
@@ -135,6 +138,8 @@ namespace ZeroInstall.Commands.Basic
 
         protected override ExitCode ShowOutput()
         {
+            Debug.Assert(Selections != null && _outputPath != null);
+
             Handler.OutputLow(
                 title: Resources.ExportComplete,
                 message: string.Format(Resources.AllComponentsExported, Selections.Name ?? "app", _outputPath));

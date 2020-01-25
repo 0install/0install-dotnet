@@ -99,7 +99,7 @@ namespace ZeroInstall.Services.Solvers
 
             return (implementationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
                        ? _externalImplementations[implementationSelection.ID]
-                       : _feeds[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri][implementationSelection.ID])
+                       : _feeds[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri]?[implementationSelection.ID])
                 ?? throw new KeyNotFoundException();
         }
 

@@ -178,7 +178,7 @@ namespace ZeroInstall.DesktopIntegration
                 }
             };
 
-            appList.TryResolveAlias("foobar", out string command).Should().Be(uri);
+            appList.TryResolveAlias("foobar", out string? command).Should().Be(uri);
             command.Should().Be(Command.NameTest);
 
             appList.TryResolveAlias("other", out command).Should().BeNull();

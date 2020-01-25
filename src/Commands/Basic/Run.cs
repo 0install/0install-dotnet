@@ -122,6 +122,8 @@ namespace ZeroInstall.Commands.Basic
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1820:TestForEmptyStringsUsingStringLength", Justification = "Explicit test for empty but non-null strings is intended")]
         protected Process? LaunchImplementation()
         {
+            Debug.Assert(Selections != null);
+
             if (Requirements.Command == "") throw new OptionException(Resources.NoRunWithEmptyCommand, "command");
 
             return Executor.Inject(Selections, _overrideMain)

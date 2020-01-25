@@ -146,7 +146,7 @@ namespace ZeroInstall.Store.Model
             if (string.IsNullOrEmpty(Sha256New)) Sha256New = GetIfPrefixed(id, "sha256new_");
         }
 
-        private static string GetIfPrefixed(string value, string prefix)
+        private static string? GetIfPrefixed(string value, string prefix)
             => value.StartsWith(prefix) ? value.Substring(prefix.Length) : null;
         #endregion
 

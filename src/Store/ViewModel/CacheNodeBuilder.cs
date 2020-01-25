@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -43,14 +44,14 @@ namespace ZeroInstall.Store.ViewModel
         /// <summary>
         /// All generated nodes.
         /// </summary>
-        public NamedCollection<CacheNode> Nodes { get; private set; }
+        public NamedCollection<CacheNode>? Nodes { get; private set; }
 
         /// <summary>
         /// The total size of all <see cref="Implementation"/>s in bytes.
         /// </summary>
         public long TotalSize { get; private set; }
 
-        private IEnumerable<Feed> _feeds;
+        private IEnumerable<Feed>? _feeds;
 
         /// <inheritdoc/>
         protected override void Execute()
@@ -71,6 +72,8 @@ namespace ZeroInstall.Store.ViewModel
 
         private void Add(ManifestDigest digest)
         {
+            Debug.Assert(_feeds != null);
+
             try
             {
                 var implementation = _feeds.GetImplementation(digest, out var feed);
@@ -105,6 +108,8 @@ namespace ZeroInstall.Store.ViewModel
 
         private void Add(CacheNode entry)
         {
+            Debug.Assert(Nodes != null);
+
             // Avoid name collisions by incrementing suffix
             while (Nodes.Contains(entry.Name)) entry.SuffixCounter++;
 

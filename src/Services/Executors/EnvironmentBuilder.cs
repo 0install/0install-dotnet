@@ -47,12 +47,12 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to hold the command-line of the main implementation while it is being built.
         /// </summary>
-        private List<ArgBase> _mainCommandLine = default!;
+        private List<ArgBase>? _mainCommandLine;
 
         /// <summary>
         /// The set of <see cref="Implementation"/>s be injected into the execution environment.
         /// </summary>
-        private Selections _selections = default!;
+        private Selections? _selections;
 
         /// <summary>
         /// Adds an environment variable to the execution environment.
@@ -120,7 +120,7 @@ namespace ZeroInstall.Services.Executors
         public IEnvironmentBuilder AddWrapper(string? wrapper)
         {
             #region Sanity checks
-            if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
+            if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
             #endregion
 
             if (!string.IsNullOrEmpty(wrapper))
@@ -148,7 +148,7 @@ namespace ZeroInstall.Services.Executors
         public ProcessStartInfo ToStartInfo()
         {
             #region Sanity checks
-            if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
+            if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
             #endregion
 
             try
@@ -183,6 +183,8 @@ namespace ZeroInstall.Services.Executors
         /// <param name="overrideMain">An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
         private ImplementationSelection GetMainImplementation(string? overrideMain)
         {
+            Debug.Assert(_selections != null);
+
             if (string.IsNullOrEmpty(overrideMain)) return _selections.MainImplementation;
 
             // Clone the first implementation so the command can replaced without affecting Selections
@@ -217,6 +219,8 @@ namespace ZeroInstall.Services.Executors
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
             if (commandName == null) throw new ArgumentNullException(nameof(commandName));
             #endregion
+
+            Debug.Assert(_selections != null);
 
             if (commandName.Length == 0) throw new ExecutorException(string.Format(Resources.CommandNotSpecified, implementation.InterfaceUri));
             var command = implementation[commandName];
