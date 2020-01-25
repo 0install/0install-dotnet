@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

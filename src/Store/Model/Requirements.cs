@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +28,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
         [XmlIgnore, JsonProperty("interface")]
-        public FeedUri InterfaceUri { get; set; } = default!;
+        public FeedUri InterfaceUri { get; set; }
 
         /// <summary>
         /// The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.

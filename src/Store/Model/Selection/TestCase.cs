@@ -1,9 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+
 namespace ZeroInstall.Store.Model.Selection
 {
     /// <summary>
@@ -28,7 +31,7 @@ namespace ZeroInstall.Store.Model.Selection
         /// The input requirements for the solver.
         /// </summary>
         [XmlElement("requirements")]
-        public Requirements Requirements { get; set; } = default!;
+        public Requirements Requirements { get; set; }
 
         /// <summary>
         /// The expected output of the solver.

@@ -1,9 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+
 namespace ZeroInstall.Store.Model
 {
     #region Enumerations
