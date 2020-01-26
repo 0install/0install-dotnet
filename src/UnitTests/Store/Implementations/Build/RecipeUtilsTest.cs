@@ -37,11 +37,11 @@ namespace ZeroInstall.Store.Implementations.Build
                     new TestSymlink("symlink", "subdir1/regular"),
                     new TestDirectory("subdir1")
                     {
-                        new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                        new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                     },
                     new TestDirectory("subdir2")
                     {
-                        new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                        new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                     }
                 }
             }.Verify(recipeDir);
@@ -112,7 +112,7 @@ namespace ZeroInstall.Store.Implementations.Build
                 new TestDeletedFile("symlink"),
                 new TestDirectory("subdir1")
                 {
-                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 },
                 new TestDeletedDirectory("subdir2")
             }.Verify(recipeDir);
@@ -141,12 +141,12 @@ namespace ZeroInstall.Store.Implementations.Build
                 new TestDeletedFile("symlink"),
                 new TestDirectory("subdir1")
                 {
-                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)},
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)},
                 },
                 new TestDirectory("subdir2")
                 {
                     new TestDeletedFile("executable"),
-                    new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 },
                 new TestDirectory("subdir3")
                 {

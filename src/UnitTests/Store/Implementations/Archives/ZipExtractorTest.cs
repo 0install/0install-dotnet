@@ -57,11 +57,11 @@ namespace ZeroInstall.Store.Implementations.Archives
                 new TestSymlink("symlink", "subdir1/regular"),
                 new TestDirectory("subdir1")
                 {
-                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 },
                 new TestDirectory("subdir2")
                 {
-                    new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 }
             }.Verify(_sandbox);
         }
@@ -142,7 +142,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 new TestDirectory("subdir2")
                 {
-                    new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("executable") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 }
             }.Verify(_sandbox);
         }
@@ -161,7 +161,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 new TestSymlink("symlink", target: "subdir1/regular"),
                 new TestDirectory("subdir1")
                 {
-                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 13, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
                 }
             }.Verify(_sandbox);
         }

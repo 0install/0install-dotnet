@@ -88,9 +88,9 @@ namespace ZeroInstall.Services.Fetchers
             TestDownload(
                 new TestRoot
                 {
-                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)},
+                    new TestFile("regular") {LastWrite = new DateTime(2000, 1, 1, 11, 0, 0, DateTimeKind.Utc)},
                     new TestFile("regular2") {LastWrite = UnixEpoch},
-                    new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)}
+                    new TestFile("executable2") {IsExecutable = true, LastWrite = new DateTime(2000, 1, 1, 11, 0, 0, DateTimeKind.Utc)}
                 },
                 new Recipe
                 {

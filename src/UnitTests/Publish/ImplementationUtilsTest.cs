@@ -23,7 +23,7 @@ namespace ZeroInstall.Publish
     /// </summary>
     public class ImplementationUtilsTest
     {
-        private const string ArchiveSha256Digest = "AQCBCMCZVBAQO4SKOSVHF4AWO3QOSYORL5YJC2MTP5PXJMSF5C2A";
+        private const string ArchiveSha256Digest = "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ";
 
         private const string SingleFileData = "data";
         private const string SingleFileName = "file.dat";
