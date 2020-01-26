@@ -80,7 +80,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// The default value for <see cref="SelfUpdateUri"/>.
         /// </summary>
-        public const string DefaultSelfUpdateUri = "http://0install.de/feeds/ZeroInstall.xml";
+        public const string DefaultSelfUpdateUri = "https://apps.0install.net/0install/0install-win.xml";
 
         /// <summary>
         /// The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.
