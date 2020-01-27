@@ -88,6 +88,11 @@ namespace ZeroInstall.Commands.Basic
                 UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections);
             }
             #region Error handling
+            catch (KeyNotFoundException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new SolverException(ex.Message, ex);
+            }
             catch (InvalidDataException ex)
             {
                 // Wrap exception since only certain exception types are allowed
