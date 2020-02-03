@@ -106,11 +106,11 @@ namespace ZeroInstall.Publish
 
             implementation.UpdateDigest(directoryPath, handler, executor);
 
-            using var generator = ArchiveGenerator.Create(
+            using (var generator = ArchiveGenerator.Create(
                 directoryPath,
                 archiveHref.LocalPath,
-                archive.MimeType ?? Archive.GuessMimeType(archiveHref.LocalPath));
-            handler.RunTask(generator);
+                archive.MimeType ?? Archive.GuessMimeType(archiveHref.LocalPath)))
+                handler.RunTask(generator);
 
             executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
             executor.Execute(SetValueCommand.For<string?>(() => implementation.LocalPath, newValue: null));
