@@ -112,13 +112,13 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <summary>
-        /// Creates a copy of the manifest with all timestamps rounded up to an even number of seconds.
+        /// Creates a copy of the manifest with all timestamps shifted by the specified <paramref name="offset"/> and rounded up to an even number of seconds.
         /// </summary>
-        public Manifest WithRoundedTimestamps()
+        public Manifest WithOffset(TimeSpan offset)
             => new Manifest(Format, _nodes.Select(node => node switch
             {
-                ManifestNormalFile normal => new ManifestNormalFile(normal.Digest, Round(normal.ModifiedTime), normal.Size, normal.Name),
-                ManifestExecutableFile executable => new ManifestExecutableFile(executable.Digest, Round(executable.ModifiedTime), executable.Size, executable.Name),
+                ManifestNormalFile normal => new ManifestNormalFile(normal.Digest, Round(normal.ModifiedTime) + offset, normal.Size, normal.Name),
+                ManifestExecutableFile executable => new ManifestExecutableFile(executable.Digest, Round(executable.ModifiedTime) + offset, executable.Size, executable.Name),
                 _ => node
             }));
 

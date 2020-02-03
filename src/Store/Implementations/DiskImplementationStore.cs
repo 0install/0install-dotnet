@@ -307,21 +307,31 @@ namespace ZeroInstall.Store.Implementations
 
             if (digest != expectedDigestValue)
             {
-                var roundedManifest = manifest.WithRoundedTimestamps();
-                if (roundedManifest.CalculateDigest() == expectedDigestValue)
-                {
-                    Log.Info($"Expected digest {expectedDigestValue} but got {digest}. Rounding down timestamps to even numbers of seconds made the digests match.");
-                    return roundedManifest;
-                }
-                else
-                {
-                    string manifestFilePath = Path.Combine(directory, Manifest.ManifestFile);
-                    var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
-                    throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
-                }
+                var offsetManifest = TryFindOffset(manifest, expectedDigestValue);
+                if (offsetManifest != null) return offsetManifest;
+
+                string manifestFilePath = Path.Combine(directory, Manifest.ManifestFile);
+                var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
+                throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
             }
 
             return manifest;
+        }
+
+        private static Manifest? TryFindOffset(Manifest manifest, string expectedDigest)
+        {
+            // Walk through all conceivable timezone differences
+            for (var offset = TimeSpan.FromHours(-27); offset <= TimeSpan.FromHours(27); offset += TimeSpan.FromMinutes(15))
+            {
+                Log.Debug($"Attempting to correct digest mismatch by shifting timestamps by {offset} and rounding.");
+                var offsetManifest = manifest.WithOffset(offset);
+                if (offsetManifest.CalculateDigest() == expectedDigest)
+                {
+                    Log.Info($"Expected digest {expectedDigest} but got mismatch. Fixed by shifting timestamps by {offset} and rounding.");
+                    return offsetManifest;
+                }
+            }
+            return null;
         }
         #endregion
 
