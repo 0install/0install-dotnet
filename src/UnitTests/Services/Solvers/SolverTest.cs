@@ -10,7 +10,9 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.Services.Feeds;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Model.Preferences;
 using ZeroInstall.Store.Model.Selection;
@@ -128,9 +130,10 @@ namespace ZeroInstall.Services.Solvers
                 else throw new WebException($"Unable to fetch {feedUri}.");
             });
 
-            return BuildSolver(feedManagerMock.Object).Solve(requirements);
+            var candidateProvider = new SelectionCandidateProvider(new Config(), feedManagerMock.Object, new Mock<IImplementationStore>(MockBehavior.Loose).Object, new StubPackageManager());
+            return BuildSolver(candidateProvider).Solve(requirements);
         }
 
-        protected abstract ISolver BuildSolver(IFeedManager feedManager);
+        protected abstract ISolver BuildSolver(ISelectionCandidateProvider candidateProvider);
     }
 }
