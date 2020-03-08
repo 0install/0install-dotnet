@@ -18,8 +18,8 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Provides <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/>.
         /// </summary>
-        /// <param name="requirements">A set of requirements/restrictions imposed by the user on the implementation selection process.</param>
-        /// <returns>The <see cref="ImplementationSelection"/>s chosen for the feed.</returns>
+        /// <param name="requirements">The requirements to satisfy.</param>
+        /// <returns>The selected <see cref="ImplementationSelection"/>s.</returns>
         /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>

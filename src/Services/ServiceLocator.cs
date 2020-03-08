@@ -118,7 +118,7 @@ namespace ZeroInstall.Services
         {
             get => Get(ref _solver, () =>
             {
-                var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider, Handler);
+                var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider);
                 if (Config.ExternalSolverUri == null) return backtrackingSolver;
                 else
                 {
