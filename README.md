@@ -14,7 +14,7 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
 - If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET Core version of the `0install` command like this:
 
-      0install run http://0install.de/feeds/0install-dotnet.xml
+      0install run https://apps.0install.net/0install/0install-dotnet.xml
 
 - You can also manually install [.NET Core](https://www.microsoft.com/net/download) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
 
