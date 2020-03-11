@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Model
     /// </remarks>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    public struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
+    public readonly struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
     {
         /// <summary>
         /// The individual decimals.

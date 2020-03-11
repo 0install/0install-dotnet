@@ -10,7 +10,7 @@ namespace ZeroInstall.Store
     /// Associates a <see cref="FeedUri"/> with the <see cref="Feed"/> data acquired from there.
     /// </summary>
     /// <remarks><see cref="Model.Feed.Uri"/> is only mandatory for remote feeds. This structure associates a <see cref="FeedUri"/> with all kinds of feeds, local and remote.</remarks>
-    public struct FeedTarget
+    public readonly struct FeedTarget
     {
         /// <summary>
         /// The URI or local path (must be absolute) the feed was acquired from.

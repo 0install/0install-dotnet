@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration
     /// <summary>
     /// Stores information about an <see cref="AccessPoint"/> conflict.
     /// </summary>
-    public struct ConflictData : IEquatable<ConflictData>
+    public readonly struct ConflictData : IEquatable<ConflictData>
     {
         /// <summary>
         /// The <see cref="AccessPoints.AccessPoint"/> causing the conflict.

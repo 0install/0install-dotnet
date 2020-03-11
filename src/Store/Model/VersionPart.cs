@@ -11,7 +11,7 @@ namespace ZeroInstall.Store.Model
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    public struct VersionPart : IEquatable<VersionPart>, IComparable<VersionPart>
+    public readonly struct VersionPart : IEquatable<VersionPart>, IComparable<VersionPart>
     {
         #region Constants
         /// <summary>
