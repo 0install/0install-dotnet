@@ -1,0 +1,27 @@
+# Generate and publish source documentation
+name: Documentation
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up 0install
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends 0install-core
+      - name: Clone repo
+        uses: actions/checkout@v2
+      - name: Build documentation
+        run: doc/build.sh
+      - name: Upload documentation
+        uses: actions/upload-artifact@v1
+        with:
+          name: Documentation
+          path: artifacts/Documentation
+      - name: Publish documentation
+        uses: peaceiris/actions-gh-pages@v3
+        if: startsWith(github.event.ref, 'refs/tags')
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true
+          publish_dir: artifacts/Documentation
+          cname: dotnet.0install.net

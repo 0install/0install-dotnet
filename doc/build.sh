@@ -9,5 +9,3 @@ mkdir -p ../artifacts/Documentation
 curl -o nanobyte-common.tag https://common.nano-byte.net/nanobyte-common.tag
 
 0install run https://apps.0install.net/devel/doxygen.xml
-
-cp .nojekyll CNAME ../artifacts/Documentation/
