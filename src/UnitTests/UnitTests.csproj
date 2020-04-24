@@ -38,7 +38,7 @@
     <PackageReference Include="Moq" Version="4.13.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
-    <PackageReference Include="Xunit.SkippableFact" Version="1.3.12" />
+    <PackageReference Include="Xunit.SkippableFact" Version="1.4.8" />
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
