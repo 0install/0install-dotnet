@@ -86,8 +86,8 @@ namespace ZeroInstall.Services
             if (selections == null) throw new ArgumentNullException(nameof(selections));
             #endregion
 
-            var visited = new HashSet<FeedUri>();
-            var result = new List<SelectionsTreeNode>();
+            HashSet<FeedUri> visited = new HashSet<FeedUri>();
+            List<SelectionsTreeNode> result = new List<SelectionsTreeNode>();
 
             ImplementationSelection? TryGetImplementation(IInterfaceUri target)
             {
