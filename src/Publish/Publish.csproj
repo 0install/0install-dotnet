@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ELFSharp" Version="2.8.1" />
+    <PackageReference Include="ELFSharp" Version="2.9.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(MSBuildRuntimeType)'!='Mono'">
