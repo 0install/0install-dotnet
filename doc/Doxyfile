@@ -1,6 +1,8 @@
-PROJECT_NAME = "Zero Install .NET"
+PROJECT_NAME = "Zero Install .NET API"
+PROJECT_LOGO = ../logo.svg
 
 INPUT = . ../src
+IMAGE_PATH = img
 USE_MDFILE_AS_MAINPAGE = main.md
 STRIP_FROM_PATH = ../src
 RECURSIVE = YES

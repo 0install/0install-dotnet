@@ -1,16 +1,16 @@
-# Zero Install .NET
+# ![Logo](logo.svg) Zero Install .NET
 
-[![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](https://dotnet.0install.de/)
+[![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](https://dotnet.0install.net/)
 [![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)  
-This is the .NET implementation of Zero Install. It can be used as a [command-line tool](#command-line) on various platforms or be embedded into .NET applications as a set of [libraries](#libraries). It provides the basis for [Zero Install for Windows](https://github.com/0install/0install-win).
-
 Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](http://0install.net/).
+
+This is the .NET implementation of Zero Install. It can be used as a [command-line tool](#command-line) on various platforms or be embedded into .NET applications as a set of [libraries](#libraries). It provides the basis for [Zero Install for Windows](https://github.com/0install/0install-win).
 
 ## Command-line
 
 Zero Install .NET provides the `0install` command-line tool. There are a number of ways you can get it:
 
-- You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://0install.de/downloads/). (recommended)
+- You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://0install.net/injector.html#windows-current). (recommended)
 
 - If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET Core version of the `0install` command like this:
 
@@ -20,16 +20,16 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
       dotnet 0install.dll
 
-## Libraries
+## NuGet packages
 
-You can use the following NuGet packages to integrate Zero Install features into your own application:
+You can use these NuGet packages to integrate Zero Install features into your own application:
 
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Data model for the [feed format](https://docs.0install.de/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.de/details/cache/).  
+Data model for the [feed format](https://docs.0install.net/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.net/details/cache/).  
 This provides a common basis for the packages `ZeroInstall.Services` and `ZeroInstall.Publish`. You will usually get this package indirectly as a dependency from there.
 
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)  
-Core services like [solving dependencies](https://docs.0install.de/developers/solver/), downloading implementations and execution selections.  
+Core services like [solving dependencies](https://docs.0install.net/developers/solver/), downloading implementations and execution selections.  
 Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
 
 [![ZeroInstall.Services.Interfaces](https://img.shields.io/nuget/v/ZeroInstall.Services.Interfaces.svg?label=ZeroInstall.Services.Interfaces)](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)  
@@ -47,12 +47,12 @@ The binary in this package serves both as an actual CLI and a library for buildi
 Utilities for creating and modifying feed files.  
 The [Zero Install Publishing Tools](https://github.com/0install/0publish-win) (including the Feed Editor) are built upon this library. You can use this to automate complex feed creation/update tasks.
 
-For more information read the [Zero Install .NET API documentation](https://docs.0install.de/developers/dotnet-api/).
+For more information read the [Zero Install .NET API documentation](https://dotnet.0install.net/).
 
 ## Building
 
 The source code is in [`src/`](src/), a project for API documentation is in [`doc/`](doc/) and generated build artifacts are placed in `artifacts/`.  
-There is a template in [`feed/`](feed/) for generating a [Zero Install feed](https://0install.github.io/docs/packaging/) from the artifacts. For official releases this is published at: http://0install.de/feeds/0install-dotnet.xml
+There is a template in [`feed/`](feed/) for generating a [Zero Install feed](https://0install.github.io/docs/packaging/) from the artifacts. For official releases this is published at: https://apps.0install.net/0install/0install-dotnet.xml
 
 You need [Visual Studio 2019](https://www.visualstudio.com/downloads/) to perform a full build of this project.  
 You can build for .NET Standard on Linux using just the [.NET Core SDK 3.1+](https://www.microsoft.com/net/download). Additionally installing [Mono 6.4+](https://www.mono-project.com/download/stable/) allows you to also build for .NET Framework. The build scripts will automatically adjust accordingly.

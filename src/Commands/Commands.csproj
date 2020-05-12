@@ -24,7 +24,7 @@
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <PackageProjectUrl>https://docs.0install.net/developers/dotnet-api/</PackageProjectUrl>
+    <PackageProjectUrl>https://dotnet.0install.net/</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>

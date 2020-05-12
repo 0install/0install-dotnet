@@ -1,19 +1,16 @@
-# Zero Install .NET
+Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](http://0install.net/).  
+This website documents the Zero Install .NET API. You can use this to integrate Zero Install features into your own application.
 
-This website documents the API provided by Zero Install .NET.
+Take a look at the [**Namespace List**](namespaces.html) to get an overview of the available functionality.
 
-Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](http://0install.net/).
-
-## Packages
-
-You can use the following NuGet packages to integrate Zero Install features into your own application:
+**NuGet packages**
 
 [ZeroInstall.Store](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Data model for the [feed format](https://docs.0install.de/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.de/details/cache/).  
+Data model for the [feed format](https://docs.0install.net/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.net/details/cache/).  
 This provides a common basis for the packages `ZeroInstall.Services` and `ZeroInstall.Publish`. You will usually get this package indirectly as a dependency from there.
 
 [ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services/)  
-Core services like [solving dependencies](https://docs.0install.de/developers/solver/), downloading implementations and execution selections.  
+Core services like [solving dependencies](https://docs.0install.net/developers/solver/), downloading implementations and execution selections.  
 Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
 
 [ZeroInstall.Services.Interfaces](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)  
@@ -31,6 +28,15 @@ The binary in this package serves both as an actual CLI and a library for buildi
 Utilities for creating and modifying feed files.  
 The [Zero Install Publishing Tools](https://github.com/0install/0publish-win) (including the Feed Editor) are built upon this library. You can use this to automate complex feed creation/update tasks.
 
-## Building and contributing
+The following graph shows the dependencies between the NuGet packages:
 
-See the **[GitHub project](https://github.com/0install/0install-dotnet)** for information on how to build the source yourself and how to contribute.
+\image html nuget-dependencies.svg
+
+**Sample code**
+
+- [C#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs)
+- [Visual Basic .NET](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb)
+- [F#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.fs)
+- [IronPython](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.py)
+
+[**GitHub repository**](https://github.com/0install/0install-dotnet)
