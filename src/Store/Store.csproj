@@ -71,11 +71,11 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.0" />
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0' And '$(TargetFramework)'!='netstandard2.1'">
