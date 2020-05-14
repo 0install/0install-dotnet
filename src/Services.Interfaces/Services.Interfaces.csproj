@@ -1,22 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Build config -->
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Services.Interfaces</AssemblyName>
     <RootNamespace>ZeroInstall.Services</RootNamespace>
     <LangVersion>8.0</LangVersion>
+    <TargetFrameworks>net40;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <RunCodeAnalysis>False</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <OutputType>Library</OutputType>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
+  <!-- NuGet package metadata -->
   <PropertyGroup>
-    <Version>1.0.0-pre</Version>
+    <Version>1.0.0-pre</Version><!-- overridden by build scripts -->
     <Description>Zero Install interfaces/abstractions for types from ZeroInstall.Services package</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
@@ -26,39 +33,17 @@
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
-  <!-- Auto-select supported target frameworks based on MSBuild version -->
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0;netstandard2.1</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' and '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' and '$(OS)'!='Windows_NT'">
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
+  <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'!='Mono'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
-    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

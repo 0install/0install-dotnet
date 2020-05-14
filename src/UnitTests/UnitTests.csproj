@@ -1,29 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Build config -->
   <PropertyGroup>
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
     <LangVersion>8.0</LangVersion>
+    <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
     <OutputType>Library</OutputType>
     <IsPackable>False</IsPackable>
     <NoWarn>$(NoWarn);xUnit1013</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <Nullable>annotations</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <!-- Auto-select supported target frameworks based on MSBuild version -->
-  <PropertyGroup Condition="'$(OS)'=='Windows_NT' Or '$(MSBuildRuntimeType)'=='Mono'">
-    <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(OS)'!='Windows_NT' And '$(MSBuildRuntimeType)'=='Core'">
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
-
+  <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" PrivateAssets="None" />
@@ -31,9 +23,9 @@
     <ProjectReference Include="..\Commands\Commands.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Publish\Publish.csproj" PrivateAssets="None" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="Moq" Version="4.14.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -41,8 +33,13 @@
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.8" />
   </ItemGroup>
 
+  <!-- Handle native libs that would be copied via a NuGet .targets file when consumed externally -->
+  <ItemGroup>
+    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
   <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp3.1'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net461'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
@@ -51,6 +48,7 @@
     <Compile Remove="Commands\Desktop\**" />
   </ItemGroup>
 
+  <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Include="**\testArchive.*" />
     <EmbeddedResource Include="Store\Trust\*.gpg" />
@@ -64,11 +62,7 @@
     <EmbeddedResource Include="Publish\EntryPoints\windows*.exe" />
   </ItemGroup>
 
-  <ItemGroup>
-    <!-- Handle native libs that would be copied via A NuGet .targets file when consumed externally -->
-    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-
+  <!-- Mark as unit test project -->
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>

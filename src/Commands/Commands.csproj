@@ -1,25 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Build config -->
   <PropertyGroup>
     <AssemblyName>0install</AssemblyName>
-    <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
     <LangVersion>8.0</LangVersion>
+    <TargetFrameworks>net40;netcoreapp3.1</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <RunCodeAnalysis>False</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <OutputType>Exe</OutputType>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
+  <!-- NuGet package metadata -->
   <PropertyGroup>
-    <Version>1.0.0-pre</Version>
+    <Version>1.0.0-pre</Version><!-- overridden by build scripts -->
     <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
     <Product>Zero Install</Product>
     <Authors>Bastian Eicher</Authors>
@@ -29,65 +36,40 @@
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
-  <!-- Auto-select supported target frameworks based on MSBuild version -->
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <TargetFrameworks>net20;net35;net40;net45;netcoreapp3.1</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Mono' Or ('$(MSBuildRuntimeType)'=='Core' And '$(OS)'=='Windows_NT')">
-    <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core' And '$(OS)'!='Windows_NT'">
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
+  <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp3.1'">
-    <Reference Include="System.Web" Pack="False" />
-    <Reference Include="System.ServiceProcess" Pack="False" />
-  </ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'!='Mono'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+    <Reference Include="System.Web" Pack="False" />
+    <Reference Include="System.ServiceProcess" Pack="False" />
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
     <Compile Remove="Desktop\**" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'!='netcoreapp3.1'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
     <EmbeddedResource Include="Desktop\SelfManagement\legacy.manifest" />
   </ItemGroup>
 
+  <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
-    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml" />
+    <None Include="*.targets" Pack="true" PackagePath="build/net40" />
+    <None Include="App.config" Pack="true" PackagePath="build/net40/$(AssemblyName).exe.config" />
   </ItemGroup>
 
-  <ItemGroup>
-    <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
-    <None Include="*.targets" Pack="true" PackagePath="build/net20" />
-    <None Include="App.config" Pack="true" PackagePath="build/net20/$(AssemblyName).exe.config" />
-  </ItemGroup>
-
+  <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
