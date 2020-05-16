@@ -33,7 +33,7 @@ namespace ZeroInstall.Commands.Basic
         public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Add.Name => (CliCommand)new Add(Handler),
+                Add.Name => new Add(Handler),
                 Audit.Name => new Audit(Handler),
                 Copy.Name => new Copy(Handler),
                 Export.Name => new Export(Handler),

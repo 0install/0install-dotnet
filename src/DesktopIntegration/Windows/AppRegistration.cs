@@ -84,6 +84,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 var icon = target.Feed.GetIcon(Icon.MimeTypeIco);
                 if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, iconStore.GetPath(icon, machineWide) + ",0");
 
+                verbCapabilities = verbCapabilities.ToArray();
+
                 using (var fileAssocsKey = capabilitiesKey.CreateSubKeyChecked(RegSubKeyFileAssocs))
                 {
                     foreach (var fileType in verbCapabilities.OfType<Store.Model.Capabilities.FileType>().Except(x => string.IsNullOrEmpty(x.ID)))

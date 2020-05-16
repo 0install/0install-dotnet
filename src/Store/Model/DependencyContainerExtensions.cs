@@ -15,6 +15,6 @@ namespace ZeroInstall.Store.Model
         /// A combination of <see cref="IDependencyContainer.Restrictions"/> and <see cref="IDependencyContainer.Dependencies"/>.
         /// </summary>
         public static IEnumerable<Restriction> GetEffectiveRestrictions(this IDependencyContainer container)
-            => container.Restrictions.Concat(container.Dependencies.Cast<Restriction>());
+            => container.Restrictions.Concat(container.Dependencies);
     }
 }

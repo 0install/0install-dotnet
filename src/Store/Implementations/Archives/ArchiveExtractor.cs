@@ -4,13 +4,16 @@
 using System;
 using System.ComponentModel;
 using System.IO;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
+
+#if NETFRAMEWORK
+using NanoByte.Common.Native;
+#endif
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -114,7 +117,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             return mimeType switch
             {
-                Archive.MimeTypeZip => (ArchiveExtractor)new ZipExtractor(stream, targetPath),
+                Archive.MimeTypeZip => new ZipExtractor(stream, targetPath),
                 Archive.MimeTypeTar => new TarExtractor(stream, targetPath),
                 Archive.MimeTypeTarGzip => new TarGzExtractor(stream, targetPath),
                 Archive.MimeTypeTarBzip => new TarBz2Extractor(stream, targetPath),

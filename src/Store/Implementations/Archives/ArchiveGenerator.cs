@@ -56,7 +56,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             return mimeType switch
             {
-                Archive.MimeTypeZip => (ArchiveGenerator)new ZipGenerator(sourceDirectory, stream),
+                Archive.MimeTypeZip => new ZipGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTar => new TarGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarGzip => new TarGzGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarBzip => new TarBz2Generator(sourceDirectory, stream),

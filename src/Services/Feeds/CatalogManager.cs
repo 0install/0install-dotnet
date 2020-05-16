@@ -32,7 +32,7 @@ namespace ZeroInstall.Services.Feeds
         /// </summary>
         public static readonly FeedUri DefaultSource = new FeedUri("https://apps.0install.net/catalog.xml");
 
-        private static readonly FeedUri OldDefaultSource = new FeedUri("http://0install.de/catalog/");
+        private static readonly FeedUri _oldDefaultSource = new FeedUri("http://0install.de/catalog/");
         #endregion
 
         #region Dependencies
@@ -179,7 +179,7 @@ namespace ZeroInstall.Services.Feeds
             return ReadAllLines().Except(string.IsNullOrEmpty)
                                  .Except(line => line.StartsWith("#"))
                                  .Select(line => new FeedUri(line))
-                                 .Select(uri => uri == OldDefaultSource ? DefaultSource : uri)
+                                 .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
                                  .ToArray();
         }
 

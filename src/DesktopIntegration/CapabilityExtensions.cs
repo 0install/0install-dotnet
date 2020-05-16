@@ -19,7 +19,7 @@ namespace ZeroInstall.DesktopIntegration
         public static AccessPoint ToAccessPoint(this Store.Model.Capabilities.DefaultCapability capability)
             => (capability ?? throw new ArgumentNullException(nameof(capability))) switch
             {
-                Store.Model.Capabilities.AutoPlay x => (AccessPoint)new AutoPlay {Capability = x.ID},
+                Store.Model.Capabilities.AutoPlay x => new AutoPlay {Capability = x.ID},
                 Store.Model.Capabilities.ContextMenu x => new ContextMenu {Capability = x.ID},
                 Store.Model.Capabilities.DefaultProgram x => new DefaultProgram {Capability = x.ID},
                 Store.Model.Capabilities.FileType x => new FileType {Capability = x.ID},

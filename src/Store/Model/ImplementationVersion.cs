@@ -149,7 +149,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationVersion other)
+        public bool Equals(ImplementationVersion? other)
         {
             if (ReferenceEquals(null, other)) return false;
 

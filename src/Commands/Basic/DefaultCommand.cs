@@ -43,9 +43,9 @@ namespace ZeroInstall.Commands.Basic
             {
                 Handler.Output(Resources.VersionInformation,
 #if NETCOREAPP
-                    "Zero Install (.NET Core) "
+                    @"Zero Install (.NET Core) "
 #else
-                    "Zero Install (.NET Framework) "
+                    @"Zero Install (.NET Framework) "
 #endif
                   + ImplementationVersion.ZeroInstall
                   + (Locations.IsPortable ? " - " + Resources.PortableMode : "") + Environment.NewLine

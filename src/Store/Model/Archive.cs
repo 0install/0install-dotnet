@@ -163,7 +163,7 @@ namespace ZeroInstall.Store.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Archive other)
+        public bool Equals(Archive? other)
             => other != null
             && base.Equals(other)
             && StringUtils.EqualsIgnoreCase(other.MimeType, MimeType)

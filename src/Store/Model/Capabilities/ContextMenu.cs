@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ContextMenu other)
+        public bool Equals(ContextMenu? other)
             => other != null && base.Equals(other) && other.Target == Target && Equals(other.Verb, Verb);
 
         /// <inheritdoc/>

@@ -5,10 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Properties;
+
+#if !NETSTANDARD2_1
+using NanoByte.Common.Collections;
+#endif
 
 namespace ZeroInstall.Store.Implementations.Build
 {
@@ -43,8 +46,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <see cref="TargetPath"/> and <see cref="TargetSuffix"/> combined.
         /// </summary>
         public string EffectiveTargetPath
-            => _effectiveTargetPath
-            ?? (_effectiveTargetPath = string.IsNullOrEmpty(TargetSuffix) ? TargetPath : Path.Combine(TargetPath, TargetSuffix));
+            => _effectiveTargetPath ??= string.IsNullOrEmpty(TargetSuffix) ? TargetPath : Path.Combine(TargetPath, TargetSuffix);
 
         /// <summary>
         /// Indicates whether <see cref="TargetPath"/> is located on a filesystem with support for Unixoid features such as executable bits.

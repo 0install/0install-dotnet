@@ -15,7 +15,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// </summary>
     public sealed class StubBuilderTest
     {
-        private readonly Mock<IIconStore> iconStoreMock = new Mock<IIconStore>();
+        private readonly Mock<IIconStore> _iconStoreMock = new Mock<IIconStore>();
 
         [SkippableFact]
         public void TestBuildStubGui()
@@ -24,7 +24,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             using var tempFile = new TemporaryFile("0install-unit-tests");
-            StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: false);
+            StubBuilder.BuildRunStub(target, tempFile, _iconStoreMock.Object, needsTerminal: false);
         }
 
         [SkippableFact]
@@ -34,7 +34,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             using var tempFile = new TemporaryFile("0install-unit-tests");
-            StubBuilder.BuildRunStub(target, tempFile, iconStoreMock.Object, needsTerminal: true);
+            StubBuilder.BuildRunStub(target, tempFile, _iconStoreMock.Object, needsTerminal: true);
         }
     }
 }

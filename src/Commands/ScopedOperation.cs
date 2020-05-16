@@ -6,7 +6,6 @@ using System.IO;
 using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services;
@@ -16,6 +15,7 @@ using ZeroInstall.Store.Model;
 
 #if NETFRAMEWORK
 using System.Linq;
+using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;

@@ -90,7 +90,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Get path
         /// <inheritdoc/>
-        public string GetPath(ManifestDigest manifestDigest)
+        public string? GetPath(ManifestDigest manifestDigest)
             // Use the first store that contains the implementation
             => _innerStores.Select(store => store.GetPathSafe(manifestDigest))
                       .WhereNotNull()
@@ -157,6 +157,7 @@ namespace ZeroInstall.Store.Implementations
 
             // Find the last store the implementation can be added to (some might be write-protected)
             Exception? innerException = null;
+            archiveInfos = archiveInfos.ToArray();
             foreach (var store in _innerStores.Reverse())
             {
                 try

@@ -2,10 +2,13 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Security.AccessControl;
-using System.Security.Principal;
 using System.Threading;
 using NanoByte.Common.Tasks;
+
+#if NETFRAMEWORK
+using System.Security.AccessControl;
+using System.Security.Principal;
+#endif
 
 namespace ZeroInstall.Store
 {

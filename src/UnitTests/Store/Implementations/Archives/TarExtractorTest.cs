@@ -15,7 +15,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     [Collection("WorkingDir")]
     public class TarExtractorTest : IDisposable
     {
-        private static readonly byte[] GarbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        private static readonly byte[] _garbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
         private readonly TemporaryDirectory _sandbox = new TemporaryWorkingDirectory("0install-unit-tests");
         public void Dispose() => _sandbox.Dispose();
@@ -26,7 +26,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestPlainError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTar, new MemoryStream(GarbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTar, new MemoryStream(_garbageData)));
 
         [Fact]
         public void TestGzCompressed()
@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestGzCompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarGzip, new MemoryStream(GarbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarGzip, new MemoryStream(_garbageData)));
 
         [Fact]
         public void TestBz2Compressed()
@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestBz2CompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(GarbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
 
 #if NETFRAMEWORK
         [SkippableFact]
@@ -69,7 +69,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestLzmaCompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(GarbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
 #endif
 
         [Fact]

@@ -162,7 +162,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AppEntry other)
+        public bool Equals(AppEntry? other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri

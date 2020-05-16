@@ -314,6 +314,7 @@ namespace ZeroInstall.Commands
             }
         }
 
+#if NETFRAMEWORK
         /// <summary>
         /// Tries to run a command in another instance of Zero Install deployed on this system.
         /// </summary>
@@ -333,5 +334,6 @@ namespace ZeroInstall.Commands
             handler.DisableUI();
             return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
         }
+#endif
     }
 }

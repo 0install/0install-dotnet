@@ -59,6 +59,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
 
         private static IEnumerable<string> GetPrototypes(Option option)
         {
+            // ReSharper disable once RedundantEnumerableCastCall
             var parameters = _descriptionParameterRegex.Matches(option.Description).Cast<Match>().Select(x => x.Captures[0].Value).ToList();
             var prototypes = option.Prototype.TrimEnd('=').Split('|').Select(x => (x.Length == 1 ? $"-{x}" : $"--{x}"));
             if (parameters.Count > 0) prototypes = prototypes.Select(x => x + " " + StringUtils.Join(" ", parameters));

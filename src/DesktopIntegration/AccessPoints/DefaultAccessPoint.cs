@@ -29,7 +29,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string Capability { get; set; }
 
         #region Equality
-        protected bool Equals(DefaultAccessPoint other) => other != null && base.Equals(other) && other.Capability == Capability;
+        protected bool Equals(DefaultAccessPoint? other)
+            => other != null && base.Equals(other) && other.Capability == Capability;
 
         /// <inheritdoc/>
         public override int GetHashCode()

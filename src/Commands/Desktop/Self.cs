@@ -36,7 +36,7 @@ namespace ZeroInstall.Commands.Desktop
         public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Deploy.Name => (CliCommand)new Deploy(Handler),
+                Deploy.Name => new Deploy(Handler),
                 Remove.Name => new Remove(Handler),
                 RemoveHelper.Name => new RemoveHelper(Handler),
                 Update.Name => new Update(Handler),

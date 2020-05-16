@@ -271,6 +271,7 @@ namespace ZeroInstall.DesktopIntegration
 
             if (appEntry.AccessPoints == null) return;
 
+            accessPoints = accessPoints.ToArray();
             foreach (var accessPoint in accessPoints)
                 accessPoint.Unapply(appEntry, MachineWide);
 

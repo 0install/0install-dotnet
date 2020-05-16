@@ -32,7 +32,7 @@ namespace ZeroInstall.Commands.Basic
         public override CliCommand GetCommand(string commandName)
             => (commandName ?? throw new ArgumentNullException(nameof(commandName))) switch
             {
-                Search.Name => (CliCommand)new Search(Handler),
+                Search.Name => new Search(Handler),
                 Refresh.Name => new Refresh(Handler),
                 Add.Name => new Add(Handler),
                 Remove.Name => new Remove(Handler),

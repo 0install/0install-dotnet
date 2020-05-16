@@ -7,8 +7,11 @@ using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Cli;
-using NanoByte.Common.Streams;
 using ZeroInstall.Store.Properties;
+
+#if !NETSTANDARD2_1
+using NanoByte.Common.Streams;
+#endif
 
 namespace ZeroInstall.Store.Trust
 {

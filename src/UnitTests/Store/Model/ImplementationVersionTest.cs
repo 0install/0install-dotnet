@@ -27,7 +27,7 @@ namespace ZeroInstall.Store.Model
 
             var invalidVersions = new[] {"", "a", "pre-1", "1.0-1post"};
             foreach (string version in invalidVersions)
-                ImplementationVersion.TryCreate(version, out var result).Should().BeFalse(because: version);
+                ImplementationVersion.TryCreate(version, out _).Should().BeFalse(because: version);
         }
 
         /// <summary>

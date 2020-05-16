@@ -40,7 +40,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #endregion
 
         #region Equality
-        protected bool Equals(CommandAccessPoint other) => other != null && base.Equals(other) && other.Name == Name && other.Command == Command;
+        protected bool Equals(CommandAccessPoint? other)
+            => other != null && base.Equals(other) && other.Name == Name && other.Command == Command;
 
         /// <inheritdoc/>
         public override int GetHashCode()
