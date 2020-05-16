@@ -8,6 +8,7 @@
     <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
     <OutputType>Library</OutputType>
     <IsPackable>False</IsPackable>
+    <DeterministicSourcePaths>False</DeterministicSourcePaths>
     <NoWarn>$(NoWarn);xUnit1013</NoWarn>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <Nullable>annotations</Nullable>

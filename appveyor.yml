@@ -26,7 +26,7 @@ for:
     artifacts:
       - path: feed\*.xml
       - path: feed\*.tar.gz
-      - path: artifacts\Release\*.nupkg
+      - path: artifacts\Release\*.*nupkg
       - path: artifacts\Schemas
         name: schemas
 

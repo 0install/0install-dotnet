@@ -9,7 +9,8 @@ if (Test-Path "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswher
   throw "Needs Visual Studio 2019 v16.5 or newer"
 }
 
-. $msBuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=$Version
+if ($env:CI) { $ci = "-p:ContinuousIntegrationBuild=True" }
+. $msBuild -v:Quiet -t:Restore -t:Build $ci -p:Configuration=Release -p:Version=$Version
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 . $msBuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=netcoreapp3.1 -p:Version=$Version Commands
