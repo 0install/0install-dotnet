@@ -52,7 +52,7 @@
   <ItemGroup Condition="'$(TargetFramework)'=='net461'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' Or '$(TargetFramework)'=='netstandard2.1'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net461'">
     <Compile Remove="Capture\**" />
   </ItemGroup>
 

@@ -48,15 +48,15 @@
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.3" />
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' Or '$(TargetFramework)'=='netstandard2.1'">
-    <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net40'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <PackageReference Include="SevenZipSharp.Interop" Version="19.0.0" PrivateAssets="None" />
     <PackageReference Include="wix-libs" Version="3.11.1" />
     <PackageReference Include="XZ.NET-netstandard" Version="2.0.0.2" PrivateAssets="None" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'!='net40'">
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
   </ItemGroup>
 
   <!-- XML Serialization assembly -->
