@@ -111,7 +111,6 @@ namespace ZeroInstall.Store.Model
             Languages = {"en-US"},
             Commands = {CommandTest.CreateTestCommand1()},
             DocDir = "doc",
-            Stability = Stability.Developer,
             Dependencies =
             {
                 new Dependency

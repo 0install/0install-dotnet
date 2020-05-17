@@ -17,12 +17,11 @@ namespace ZeroInstall.Store.Model
         internal static PackageImplementation CreateTestImplementation() => new PackageImplementation
         {
             Distributions = {"RPM"},
-            Version = new ImplementationVersion("1.0"),
+            Version = new VersionRange("1..!2"),
             Architecture = new Architecture(OS.Windows, Cpu.I586),
             Languages = {"en-US"},
             Main = "executable",
             DocDir = "doc",
-            Stability = Stability.Developer,
             Bindings = {EnvironmentBindingTest.CreateTestBinding()}
         };
 

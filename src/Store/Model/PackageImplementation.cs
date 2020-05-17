@@ -26,25 +26,55 @@ namespace ZeroInstall.Store.Model
         internal override IEnumerable<Implementation> Implementations => Enumerable.Empty<Implementation>();
 
         /// <summary>
-        /// The version number as provided by the operating system.
-        /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
-        public VersionRange VersionRange { get; set; }
-
-        #region Constants
-        /// <summary>
         /// Well-known values for <see cref="Distributions"/>.
         /// </summary>
         public static readonly string[] DistributionNames = {"Arch", "Cygwin", "Darwin", "Debian", "Gentoo", "MacPorts", "Ports", "RPM", "Slack", "Windows"};
+
+        /// <summary>
+        /// The name of the package in the distribution-specific package manager.
+        /// </summary>
+        [Category("Identity"), Description("The name of the package in the distribution-specific package manager.")]
+        [XmlAttribute("package")]
+        public string? Package { get; set; }
+
+        // Order is not important (but is preserved), duplicate string entries are not allowed (but not enforced)
+
+        /// <summary>
+        /// A list of distribution names (e.g. Debian, RPM) where <see cref="Package"/> applies. Applies everywhere if empty.
+        /// </summary>
+        [Browsable(false)]
+        [XmlIgnore]
+        public List<string> Distributions { get; } = new List<string>();
+
+        /// <summary>
+        /// The range of versions to accept for the specified <see cref="Package"/>.
+        /// </summary>
+        [Category("Release"), Description("The range of versions to accept for the specified Package.")]
+        [XmlIgnore]
+        public new VersionRange Version { get; set; }
+
+        #region XML serialization
+        /// <summary>Used for XML serialization.</summary>
+        /// <seealso cref="Distributions"/>
+        [Category("Identity"), DisplayName(@"Distributions"), Description("A space-separated list of distribution names (e.g. Debian, RPM) where Package applies. Applies everywhere if empty.")]
+        [TypeConverter(typeof(DistributionNameConverter))]
+        [XmlAttribute("distributions"), DefaultValue("")]
+        public string DistributionsString
+        {
+            get => StringUtils.Join(" ", Distributions);
+            set
+            {
+                Distributions.Clear();
+                if (string.IsNullOrEmpty(value)) return;
+                Distributions.AddRange(value.Split(' '));
+            }
+        }
+
+        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        public override string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
         #endregion
 
         #region Disabled Properties
-        /// <summary>Not used.</summary>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        [XmlIgnore]
-        public override ImplementationVersion Version { get => null; set {} }
-
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("version-modifier")]
@@ -65,40 +95,6 @@ namespace ZeroInstall.Store.Model
         [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
         public override Stability Stability { get => Stability.Unset; set {} }
         #endregion
-
-        /// <summary>
-        /// The name of the package in the distribution-specific package manager.
-        /// </summary>
-        [Category("Identity"), Description("The name of the package in the distribution-specific package manager.")]
-        [XmlAttribute("package")]
-        public string? Package { get; set; }
-
-        // Order is not important (but is preserved), duplicate string entries are not allowed (but not enforced)
-
-        /// <summary>
-        /// A list of distribution names (e.g. Debian, RPM) where <see cref="Package"/> applies. Applies everywhere if empty.
-        /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
-        public List<string> Distributions { get; } = new List<string>();
-
-        /// <summary>
-        /// A space-separated list of distribution names (e.g. Debian, RPM) where <see cref="Package"/> applies. Applies everywhere if empty.
-        /// </summary>
-        /// <seealso cref="Distributions"/>
-        [Category("Identity"), DisplayName(@"Distributions"), Description("A space-separated list of distribution names (e.g. Debian, RPM) where Package applies. Applies everywhere if empty.")]
-        [TypeConverter(typeof(DistributionNameConverter))]
-        [XmlAttribute("distributions"), DefaultValue("")]
-        public string DistributionsString
-        {
-            get => StringUtils.Join(" ", Distributions);
-            set
-            {
-                Distributions.Clear();
-                if (string.IsNullOrEmpty(value)) return;
-                Distributions.AddRange(value.Split(' '));
-            }
-        }
 
         #region Conversion
         /// <summary>

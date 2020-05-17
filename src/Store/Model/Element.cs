@@ -83,7 +83,7 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Category("Release"), Description("The version number of the implementation.")]
         [XmlIgnore]
-        public virtual ImplementationVersion Version { get; set; }
+        public ImplementationVersion Version { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>

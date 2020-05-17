@@ -32,7 +32,7 @@ namespace ZeroInstall.Services.Native
 
             if (!distributions.ContainsOrEmpty(DistributionName) || !package.Distributions.ContainsOrEmpty(DistributionName) || string.IsNullOrEmpty(package.Package)) yield break;
 
-            var range = package.VersionRange ?? new VersionRange();
+            var range = package.Version ?? new VersionRange();
             var implementations = GetImplementations(package.Package).Where(x => range.Match(x.Version));
 
             foreach (var implementation in implementations)
