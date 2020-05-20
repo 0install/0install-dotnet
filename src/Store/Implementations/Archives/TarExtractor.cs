@@ -31,7 +31,12 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            UnitsTotal = stream.Length;
+            try
+            {
+                UnitsTotal = stream.Length;
+            }
+            catch (NotSupportedException)
+            {}
 
             try
             {
