@@ -34,7 +34,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// The current version of the Zero Install itself.
         /// </summary>
-        public static ImplementationVersion ZeroInstall { get; } = new ImplementationVersion(AppInfo.CurrentLibrary.Version);
+        public static ImplementationVersion ZeroInstall { get; } = new ImplementationVersion(AppInfo.CurrentLibrary.Version!);
 
         /// <summary>
         /// The first part of the version number.
