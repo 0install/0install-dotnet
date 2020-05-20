@@ -32,7 +32,7 @@ namespace ZeroInstall.Commands.Basic
         private bool _show;
 
         /// <summary><see cref="Implementation"/>s referenced in <see cref="Selection.Selections"/> that are not available in the <see cref="IImplementationStore"/>.</summary>
-        protected ICollection<Implementation>? UncachedImplementations;
+        protected List<Implementation>? UncachedImplementations;
 
         /// <inheritdoc/>
         public Download(ICommandHandler handler)

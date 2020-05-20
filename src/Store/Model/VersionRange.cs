@@ -35,7 +35,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// The individual ranges.
         /// </summary>
-        public IList<VersionRangePart> Parts { get; }
+        public IReadOnlyList<VersionRangePart> Parts { get; }
 
         /// <summary>
         /// Creates an empty version range (matches everything).

@@ -26,7 +26,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// The individual decimals.
         /// </summary>
-        public IList<long> Decimals { get; }
+        public IReadOnlyList<long> Decimals { get; }
 
         /// <summary>
         /// Creates a new dotted-list from a a string.

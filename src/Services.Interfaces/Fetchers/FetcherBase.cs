@@ -236,7 +236,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        private void ApplyArchives(IList<Archive> archives, IList<TemporaryFile> files, ManifestDigest manifestDigest)
+        private void ApplyArchives(IReadOnlyList<Archive> archives, IReadOnlyList<TemporaryFile> files, ManifestDigest manifestDigest)
         {
             var archiveFileInfos = new ArchiveFileInfo[archives.Count];
             for (int i = 0; i < archiveFileInfos.Length; i++)

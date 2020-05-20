@@ -71,7 +71,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <inheritdoc/>
-        public IList<SelectionCandidate> GetSortedCandidates(Requirements requirements)
+        public IReadOnlyList<SelectionCandidate> GetSortedCandidates(Requirements requirements)
         {
             #region Sanity checks
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));

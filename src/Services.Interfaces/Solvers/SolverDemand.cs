@@ -21,7 +21,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// All candidates for the <see cref="Requirements"/>, including those that are not suitable.
         /// </summary>
-        public IList<SelectionCandidate> Candidates { get; }
+        public IReadOnlyList<SelectionCandidate> Candidates { get; }
 
         /// <summary>
         /// Describes how important the demand is (i.e. whether ignoring it is an option).

@@ -86,9 +86,13 @@ namespace ZeroInstall.Store.Implementations.Manifests
 #if NETSTANDARD
         [System.Diagnostics.Contracts.Pure]
 #endif
-        public IList<KeyValuePair<string, ManifestNode>> ListPaths()
+        public IReadOnlyDictionary<string, ManifestNode> ListPaths()
         {
-            var result = new List<KeyValuePair<string, ManifestNode>>();
+#if NETSTANDARD
+            var result = new SortedDictionary<string, ManifestNode>();
+#else
+            var result = new Dictionary<string, ManifestNode>();
+#endif
 
             string dirPath = "";
             foreach (var node in this)
@@ -97,11 +101,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
                 {
                     case ManifestDirectory dir:
                         dirPath = FileUtils.UnifySlashes(dir.FullPath).Substring(1);
-                        result.Add(new KeyValuePair<string, ManifestNode>(dirPath, dir));
+                        result.Add(dirPath, dir);
                         break;
                     case ManifestDirectoryElement element:
                         string elementPath = Path.Combine(dirPath, element.Name);
-                        result.Add(new KeyValuePair<string, ManifestNode>(elementPath, element));
+                        result.Add(elementPath, element);
                         break;
                 }
             }

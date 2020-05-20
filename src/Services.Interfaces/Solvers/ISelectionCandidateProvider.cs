@@ -16,7 +16,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Gets all <see cref="SelectionCandidate"/>s for a specific set of <see cref="Requirements"/> sorted from best to worst.
         /// </summary>
-        IList<SelectionCandidate> GetSortedCandidates(Requirements requirements);
+        IReadOnlyList<SelectionCandidate> GetSortedCandidates(Requirements requirements);
 
         /// <summary>
         /// Retrieves the original <see cref="Implementation"/> an <see cref="ImplementationSelection"/> was based ofF.

@@ -199,7 +199,6 @@ namespace ZeroInstall.Store.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
-        // Note: Can not use ICollection<T> interface with XML Serialization
         public List<CapabilityList> CapabilityLists { get; } = new List<CapabilityList>();
 
         /// <summary>

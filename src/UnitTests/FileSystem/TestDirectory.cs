@@ -24,7 +24,7 @@ namespace ZeroInstall.FileSystem
         /// The <seealso cref="TestElement"/>s contained within the directory.
         /// Walked recursively by <seealso cref="Build"/> and <seealso cref="Verify"/>.
         /// </summary>
-        public ICollection<TestElement> Children { get; } = new List<TestElement>();
+        public List<TestElement> Children { get; } = new List<TestElement>();
 
         public IEnumerator<TestElement> GetEnumerator() => Children.GetEnumerator();
 

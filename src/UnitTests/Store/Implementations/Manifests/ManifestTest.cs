@@ -139,12 +139,14 @@ namespace ZeroInstall.Store.Implementations.Manifests
             var symlink = new ManifestSymlink("123", 10, "symlink");
             var manifest = new Manifest(ManifestFormat.Sha256New, normalFile, dir1, executableFile, dir2, symlink);
 
-            manifest.ListPaths().Should().Equal(
-                new KeyValuePair<string, ManifestNode>("normal", normalFile),
-                new KeyValuePair<string, ManifestNode>("dir1", dir1),
-                new KeyValuePair<string, ManifestNode>(Path.Combine("dir1", "executable"), executableFile),
-                new KeyValuePair<string, ManifestNode>("dir2", dir2),
-                new KeyValuePair<string, ManifestNode>(Path.Combine("dir2", "symlink"), symlink));
+            manifest.ListPaths().Should().BeEquivalentTo(new Dictionary<string, ManifestNode>
+            {
+                ["normal"] = normalFile,
+                ["dir1"] = dir1,
+                [Path.Combine("dir1", "executable")] = executableFile,
+                ["dir2"] = dir2,
+                [Path.Combine("dir2", "symlink")] = symlink
+            });
         }
 
         // ReSharper disable AssignNullToNotNullAttribute

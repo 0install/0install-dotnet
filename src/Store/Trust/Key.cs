@@ -22,7 +22,6 @@ namespace ZeroInstall.Store.Trust
         [XmlAttribute("fingerprint")]
         public string Fingerprint { get; set; }
 
-        // Note: Can not use ICollection<T> interface with XML Serialization
         /// <summary>
         /// A list of <see cref="Domain"/>s this key is valid for.
         /// </summary>

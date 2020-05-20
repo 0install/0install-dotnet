@@ -8,7 +8,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Services.Properties;
@@ -256,7 +255,7 @@ namespace ZeroInstall.Services.Executors
         /// Expands any Unix-style environment variables.
         /// </summary>
         /// <param name="commandLine">The command-line to expand.</param>
-        private IList<string> ExpandCommandLine(IEnumerable<ArgBase> commandLine)
+        private List<string> ExpandCommandLine(IEnumerable<ArgBase> commandLine)
         {
             var result = new List<string>();
 
@@ -311,7 +310,7 @@ namespace ZeroInstall.Services.Executors
         /// Splits a command-line into a file name and an arguments part.
         /// </summary>
         /// <param name="commandLine">The command-line to split.</param>
-        private static CommandLineSplit SplitCommandLine(IList<string> commandLine)
+        private static CommandLineSplit SplitCommandLine(IReadOnlyList<string> commandLine)
         {
             if (commandLine.Count == 0) throw new ExecutorException(Resources.CommandLineEmpty);
 

@@ -36,7 +36,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <summary>
         /// The paths of all <see cref="ManifestNode"/>s in <see cref="Manifest"/> relative to the manifest root.
         /// </summary>
-        protected readonly IList<KeyValuePair<string, ManifestNode>> ElementPaths;
+        protected readonly IReadOnlyDictionary<string, ManifestNode> ElementPaths;
 
         /// <summary>
         /// Creates a new manifest directory task.

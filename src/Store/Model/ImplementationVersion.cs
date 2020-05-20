@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// All additional parts of the version number.
         /// </summary>
-        public IList<VersionPart> AdditionalParts { get; }
+        public IReadOnlyList<VersionPart> AdditionalParts { get; }
 
         /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
         private readonly string? _verbatimString;
@@ -78,9 +78,10 @@ namespace ZeroInstall.Store.Model
             FirstPart = new VersionDottedList(parts[0]);
 
             // Iterate through all additional parts
-            AdditionalParts = new VersionPart[parts.Length - 1];
+            var additionalParts = new VersionPart[parts.Length - 1];
             for (int i = 1; i < parts.Length; i++)
-                AdditionalParts[i - 1] = new VersionPart(parts[i]);
+                additionalParts[i - 1] = new VersionPart(parts[i]);
+            AdditionalParts = additionalParts;
         }
 
         /// <summary>

@@ -122,7 +122,7 @@ namespace ZeroInstall.Store.Model
         /// <remarks>Used internally by solvers, copied from <see cref="Restriction.Distributions"/>, not set directly by user, not serialized.</remarks>
         [Browsable(false)]
         [XmlIgnore, JsonIgnore]
-        public ICollection<string> Distributions { get; } = new List<string>();
+        public List<string> Distributions { get; } = new List<string>();
 
         /// <summary>
         /// Creates an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.

@@ -19,7 +19,7 @@ namespace ZeroInstall.Services
         /// </summary>
         /// <param name="selectionsManager">The <see cref="ISelectionsManager"/></param>
         /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
-        public static ICollection<Implementation> GetUncachedImplementations(this ISelectionsManager selectionsManager, Selections selections)
+        public static List<Implementation> GetUncachedImplementations(this ISelectionsManager selectionsManager, Selections selections)
         {
             #region Sanity checks
             if (selectionsManager == null) throw new ArgumentNullException(nameof(selectionsManager));
