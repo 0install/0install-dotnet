@@ -5,7 +5,7 @@
     <AssemblyName>ZeroInstall.Store</AssemblyName>
     <RootNamespace>ZeroInstall.Store</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net40;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591;8632</NoWarn>
@@ -48,19 +48,19 @@
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.3" />
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <PackageReference Include="SevenZipSharp.Interop" Version="19.0.0" PrivateAssets="None" />
     <PackageReference Include="wix-libs" Version="3.11.1" />
     <PackageReference Include="XZ.NET-netstandard" Version="2.0.0.2" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'!='net40'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net45'">
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
   </ItemGroup>
 
   <!-- XML Serialization assembly -->
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='net40'">
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='net45'">
     <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
@@ -71,7 +71,7 @@
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" PrivateAssets="All" />
   </ItemGroup> -->
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
     <!-- <None Include="..\..\artifacts\$(Configuration)\netstandard2.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.0" /> -->
   </ItemGroup>
 

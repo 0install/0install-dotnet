@@ -3,7 +3,7 @@ pushd $PSScriptRoot
 
 # Ensure 0install is in PATH
 if (!(Get-Command 0install -ErrorAction SilentlyContinue)) {
-    $env:PATH = "$(Resolve-Path ..\artifacts\Release\net40);$env:PATH"
+    $env:PATH = "$(Resolve-Path ..\artifacts\Release\net45);$env:PATH"
 }
 
 if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Documentation}

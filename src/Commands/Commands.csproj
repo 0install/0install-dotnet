@@ -6,7 +6,7 @@
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net40;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
@@ -50,7 +50,7 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.1" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <Reference Include="System.Web" Pack="False" />
     <Reference Include="System.ServiceProcess" Pack="False" />
   </ItemGroup>
@@ -59,15 +59,15 @@
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
     <Compile Remove="Desktop\**" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net40'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
     <EmbeddedResource Include="Desktop\SelfManagement\legacy.manifest" />
   </ItemGroup>
 
   <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
-    <None Include="*.targets" Pack="true" PackagePath="build/net40" />
-    <None Include="App.config" Pack="true" PackagePath="build/net40/$(AssemblyName).exe.config" />
+    <None Include="*.targets" Pack="true" PackagePath="build/net45" />
+    <None Include="App.config" Pack="true" PackagePath="build/net45/$(AssemblyName).exe.config" />
   </ItemGroup>
 
   <!-- Embedded resources -->

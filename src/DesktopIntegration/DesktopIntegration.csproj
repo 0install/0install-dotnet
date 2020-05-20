@@ -5,7 +5,7 @@
     <AssemblyName>ZeroInstall.DesktopIntegration</AssemblyName>
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFramework>net40</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
@@ -50,7 +50,7 @@
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <None Include="..\..\artifacts\$(Configuration)\net40\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net40" />
+    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
   </ItemGroup>
 
   <!-- Embedded resources -->
