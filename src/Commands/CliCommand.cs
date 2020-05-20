@@ -149,9 +149,7 @@ namespace ZeroInstall.Commands
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
         public virtual void Parse(IEnumerable<string> args)
         {
-            #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
-            #endregion
 
             // Automatically show help for missing args
             if (AdditionalArgsMin > 0 && !args.Any()) args = new[] {"--help"};

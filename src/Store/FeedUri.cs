@@ -123,12 +123,8 @@ namespace ZeroInstall.Store
 #endif
         public static string Escape(string value)
         {
-            #region Sanity checks
-            if (value == null) throw new ArgumentNullException(nameof(value));
-            #endregion
-
             var builder = new StringBuilder();
-            foreach (char t in value)
+            foreach (char t in value ?? throw new ArgumentNullException(nameof(value)))
             {
                 switch (t)
                 {

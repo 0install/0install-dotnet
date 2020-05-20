@@ -105,10 +105,8 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// <exception cref="IOException">An implementation archive could not be creates.</exception>
         public void ExportImplementations(IImplementationStore implementationStore, ITaskHandler handler)
         {
-            #region Sanity checks
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
 
             string contentDir = Path.Combine(_destination, "content");
             Directory.CreateDirectory(contentDir);
@@ -145,26 +143,14 @@ namespace ZeroInstall.Commands.Basic.Exporters
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         public void DeployBootstrapRun(ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            DeployBootstrap(handler, mode: "run");
-        }
+            => DeployBootstrap(handler ?? throw new ArgumentNullException(nameof(handler)), mode: "run");
 
         /// <summary>
         /// Deploys a bootstrap file for importing exported feeds and implementations.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         public void DeployBootstrapIntegrate(ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            DeployBootstrap(handler, mode: "integrate");
-        }
+            => DeployBootstrap(handler ?? throw new ArgumentNullException(nameof(handler)), mode: "integrate");
 
         private void DeployBootstrap(ITaskHandler handler, string mode)
         {

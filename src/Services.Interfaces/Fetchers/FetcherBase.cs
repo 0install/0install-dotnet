@@ -186,7 +186,8 @@ namespace ZeroInstall.Services.Fetchers
             }
             finally
             {
-                foreach (var downloadedFile in downloadedFiles) downloadedFile.Dispose();
+                foreach (var downloadedFile in downloadedFiles)
+                    downloadedFile.Dispose();
             }
         }
 

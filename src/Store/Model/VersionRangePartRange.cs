@@ -63,13 +63,9 @@ namespace ZeroInstall.Store.Model
         /// <inheritdoc/>
         public override bool Match(ImplementationVersion version)
         {
-            #region Sanity checks
             if (version == null) throw new ArgumentNullException(nameof(version));
-            #endregion
-
-            if (LowerInclusive != null && version < LowerInclusive) return false;
-            if (UpperExclusive != null && version >= UpperExclusive) return false;
-            return true;
+            return (LowerInclusive == null || version >= LowerInclusive)
+                && (UpperExclusive == null || version < UpperExclusive);
         }
 
         /// <inheritdoc/>

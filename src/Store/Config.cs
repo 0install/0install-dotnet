@@ -38,13 +38,10 @@ namespace ZeroInstall.Store
         [DefaultValue(typeof(NetworkLevel), "Full"), Category("Policy"), DisplayName(@"Network use"), Description("Controls how liberally network access is attempted.")]
         public NetworkLevel NetworkUse
         {
-            get { return _networkLevel; }
+            get => _networkLevel;
             set
             {
-                #region Sanity checks
                 if (!Enum.IsDefined(typeof(NetworkLevel), value)) throw new ArgumentOutOfRangeException(nameof(value));
-                #endregion
-
                 _networkLevel = value;
             }
         }
@@ -61,7 +58,7 @@ namespace ZeroInstall.Store
         public const string DefaultFeedMirror = "http://roscidus.com/0mirror";
 
         /// <summary>
-        /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.
+        /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactivate use of feed mirror.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.")]
         public FeedUri? FeedMirror { get; set; } = new FeedUri(DefaultFeedMirror);

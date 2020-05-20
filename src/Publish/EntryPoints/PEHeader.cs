@@ -231,7 +231,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public ImageOptionalHeader64 OptionalHeader64 { get; private set; }
 
         [CLSCompliant(false)]
-        public Subsystem Subsystem { get { return Is32BitHeader ? OptionalHeader32.Subsystem : OptionalHeader64.Subsystem; } }
+        public Subsystem Subsystem => Is32BitHeader ? OptionalHeader32.Subsystem : OptionalHeader64.Subsystem;
         #endregion
 
         #region Constructor

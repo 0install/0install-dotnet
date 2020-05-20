@@ -27,13 +27,7 @@ namespace ZeroInstall.Store
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
         public static T FromJsonString<T>(string data)
-        {
-            #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
-            #endregion
-
-            return JsonConvert.DeserializeObject<T>(data);
-        }
+            => JsonConvert.DeserializeObject<T>(data ?? throw new ArgumentNullException(nameof(data)));
 
         /// <summary>
         /// Loads an object from an JSON string using an anonymous type as the target.
@@ -43,14 +37,9 @@ namespace ZeroInstall.Store
         /// <param name="anonymousType">An instance of the anonymous type to parse to.</param>
         /// <returns>The deserialized object.</returns>
         public static T FromJsonString<T>(string data, T anonymousType)
-        {
-            #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
-            if (anonymousType == null) throw new ArgumentNullException(nameof(anonymousType));
-            #endregion
-
-            return JsonConvert.DeserializeAnonymousType(data, anonymousType);
-        }
+            => JsonConvert.DeserializeAnonymousType(
+                data ?? throw new ArgumentNullException(nameof(data)),
+                anonymousType ?? throw new ArgumentNullException(nameof(anonymousType)));
 
         /// <summary>
         /// Reparses an object previously deserialized from JSON into a different representation.

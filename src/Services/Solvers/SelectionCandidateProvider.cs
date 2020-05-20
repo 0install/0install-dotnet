@@ -42,15 +42,10 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
         public SelectionCandidateProvider(Config config, IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager)
         {
-            #region Sanity checks
-            if (config == null) throw new ArgumentNullException(nameof(config));
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             if (feedManager == null) throw new ArgumentNullException(nameof(feedManager));
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
-            if (packageManager == null) throw new ArgumentNullException(nameof(packageManager));
-            #endregion
-
-            _config = config;
-            _packageManager = packageManager;
+            _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
 
             _interfacePreferences = new TransparentCache<FeedUri, InterfacePreferences>(InterfacePreferences.LoadForSafe);
             _externalImplementations = new Dictionary<string, ExternalImplementation>();
