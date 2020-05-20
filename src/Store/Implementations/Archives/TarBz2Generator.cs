@@ -6,7 +6,7 @@ using ICSharpCode.SharpZipLib.BZip2;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates a GZip-compressed TAR archive from a directory. Preserves executable bits, symlinks, hardlinks and timestamps.
+    /// Creates a BZip2-compressed TAR archive from a directory. Preserves executable bits, symlinks, hardlinks and timestamps.
     /// </summary>
     public class TarBz2Generator : TarGenerator
     {
