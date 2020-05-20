@@ -79,24 +79,23 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     string tempPath = Randomize(destinationPath);
                     _pendingFileRenames.Push(new KeyValuePair<string, string>(tempPath, destinationPath));
 
-                    if (pair.Value is ManifestFileBase file)
+                    switch (pair.Value)
                     {
-                        File.Copy(sourcePath, tempPath);
-                        File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
+                        case ManifestFileBase file:
+                            File.Copy(sourcePath, tempPath);
+                            File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
 
-                        if (UnixUtils.IsUnix)
-                            FileUtils.SetExecutable(tempPath, file is ManifestExecutableFile);
-                    }
-                    else
-                    {
-                        if (pair.Value is ManifestSymlink)
-                        {
+                            if (UnixUtils.IsUnix)
+                                FileUtils.SetExecutable(tempPath, file is ManifestExecutableFile);
+                            break;
+
+                        case ManifestSymlink _:
                             if (UnixUtils.IsUnix)
                             {
                                 if (UnixUtils.IsSymlink(sourcePath, out string? symlinkTarget))
                                     UnixUtils.CreateSymlink(tempPath, symlinkTarget);
                             }
-                        }
+                            break;
                     }
                 }
             }));

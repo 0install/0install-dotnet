@@ -103,16 +103,15 @@ namespace ZeroInstall.Store.Implementations.Build
             {
                 CancellationToken.ThrowIfCancellationRequested();
 
-                if (entry is FileInfo file)
+                switch (entry)
                 {
-                    if (file.Name == Manifest.ManifestFile || file.Name == FlagUtils.XbitFile || file.Name == FlagUtils.SymlinkFile) continue;
-
-                    HandleEntry(file, externalXbits, externalSymlinks);
-                    UnitsProcessed += file.Length;
-                }
-                else
-                {
-                    if (entry is DirectoryInfo directory) HandleEntry(directory);
+                    case FileInfo file when file.Name != Manifest.ManifestFile && file.Name != FlagUtils.XbitFile && file.Name != FlagUtils.SymlinkFile:
+                        HandleEntry(file, externalXbits, externalSymlinks);
+                        UnitsProcessed += file.Length;
+                        break;
+                    case DirectoryInfo directory:
+                        HandleEntry(directory);
+                        break;
                 }
             }
         }

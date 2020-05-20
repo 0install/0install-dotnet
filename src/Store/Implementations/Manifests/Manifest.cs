@@ -93,18 +93,16 @@ namespace ZeroInstall.Store.Implementations.Manifests
             string dirPath = "";
             foreach (var node in this)
             {
-                if (node is ManifestDirectory dir)
+                switch (node)
                 {
-                    dirPath = FileUtils.UnifySlashes(dir.FullPath).Substring(1);
-                    result.Add(new KeyValuePair<string, ManifestNode>(dirPath, dir));
-                }
-                else
-                {
-                    if (node is ManifestDirectoryElement element)
-                    {
+                    case ManifestDirectory dir:
+                        dirPath = FileUtils.UnifySlashes(dir.FullPath).Substring(1);
+                        result.Add(new KeyValuePair<string, ManifestNode>(dirPath, dir));
+                        break;
+                    case ManifestDirectoryElement element:
                         string elementPath = Path.Combine(dirPath, element.Name);
                         result.Add(new KeyValuePair<string, ManifestNode>(elementPath, element));
-                    }
+                        break;
                 }
             }
 
