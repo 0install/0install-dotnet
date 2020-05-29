@@ -126,24 +126,14 @@ namespace ZeroInstall.Store
             var builder = new StringBuilder();
             foreach (char t in value ?? throw new ArgumentNullException(nameof(value)))
             {
-                switch (t)
+                builder.Append(t switch
                 {
-                    case '-':
-                    case '_':
-                    case '.':
-                        builder.Append(t);
-                        break;
-
-                    default:
-                        if (char.IsLetterOrDigit(t))
-                            builder.Append(t);
-                        else
-                        {
-                            builder.Append('%');
-                            builder.Append(((int)t).ToString("x"));
-                        }
-                        break;
-                }
+                    '-' => '-',
+                    '_' => '_',
+                    '.' => '.',
+                    _ when char.IsLetterOrDigit(t) => t,
+                    _ => "%" + ((int)t).ToString("x")
+                });
             }
             return builder.ToString();
         }
