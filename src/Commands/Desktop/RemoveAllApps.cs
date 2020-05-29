@@ -39,18 +39,16 @@ namespace ZeroInstall.Commands.Desktop
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            if (Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
-            {
-                using (var integrationManager = new IntegrationManager(Handler, MachineWide))
-                {
-                    Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
+            if (!Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
+                return ExitCode.NoChanges;
 
-                    // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
-                    File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
-                }
-                return ExitCode.OK;
-            }
-            else return ExitCode.NoChanges;
+            using var integrationManager = new IntegrationManager(Handler, MachineWide);
+            Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
+
+            // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
+            File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
+
+            return ExitCode.OK;
         }
     }
 }

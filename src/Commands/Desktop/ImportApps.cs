@@ -43,18 +43,16 @@ namespace ZeroInstall.Commands.Desktop
         {
             var importList = XmlStorage.LoadXml<AppList>(AdditionalArgs[0]);
 
-            using (var integrationManager = new IntegrationManager(Handler, MachineWide))
+            using var integrationManager = new IntegrationManager(Handler, MachineWide);
+            foreach (var importEntry in importList.Entries)
             {
-                foreach (var importEntry in importList.Entries)
-                {
-                    var interfaceUri = importEntry.InterfaceUri;
-                    var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
+                var interfaceUri = importEntry.InterfaceUri;
+                var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
 
-                    if (importEntry.AccessPoints != null)
-                    {
-                        var feed = FeedManager[interfaceUri];
-                        integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
-                    }
+                if (importEntry.AccessPoints != null)
+                {
+                    var feed = FeedManager[interfaceUri];
+                    integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
                 }
             }
 

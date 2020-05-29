@@ -44,33 +44,31 @@ namespace ZeroInstall.Store.Implementations.Build
 
             try
             {
-                using (var downloadedEnum = downloadedFiles.GetEnumerator())
+                using var downloadedEnum = downloadedFiles.GetEnumerator();
+                foreach (var step in recipe.Steps)
                 {
-                    foreach (var step in recipe.Steps)
+                    switch (step)
                     {
-                        switch (step)
-                        {
-                            case Archive archive:
-                                downloadedEnum.MoveNext();
-                                if (downloadedEnum.Current == null) throw new ArgumentException(Resources.RecipeFileNotDownloaded, nameof(downloadedFiles));
-                                archive.Apply(downloadedEnum.Current, workingDir, handler, tag);
-                                break;
-                            case SingleFile file:
-                                downloadedEnum.MoveNext();
-                                if (downloadedEnum.Current == null) throw new ArgumentException(Resources.RecipeFileNotDownloaded, nameof(downloadedFiles));
-                                file.Apply(downloadedEnum.Current, workingDir);
-                                break;
-                            case RemoveStep x:
-                                x.Apply(workingDir);
-                                break;
-                            case RenameStep x:
-                                x.Apply(workingDir);
-                                break;
-                            case CopyFromStep x:
-                                x.Apply(workingDir, handler, tag);
-                                break;
-                            default: throw new NotSupportedException($"Unknown recipe step: ${step}");
-                        }
+                        case Archive archive:
+                            downloadedEnum.MoveNext();
+                            if (downloadedEnum.Current == null) throw new ArgumentException(Resources.RecipeFileNotDownloaded, nameof(downloadedFiles));
+                            archive.Apply(downloadedEnum.Current, workingDir, handler, tag);
+                            break;
+                        case SingleFile file:
+                            downloadedEnum.MoveNext();
+                            if (downloadedEnum.Current == null) throw new ArgumentException(Resources.RecipeFileNotDownloaded, nameof(downloadedFiles));
+                            file.Apply(downloadedEnum.Current, workingDir);
+                            break;
+                        case RemoveStep x:
+                            x.Apply(workingDir);
+                            break;
+                        case RenameStep x:
+                            x.Apply(workingDir);
+                            break;
+                        case CopyFromStep x:
+                            x.Apply(workingDir, handler, tag);
+                            break;
+                        default: throw new NotSupportedException($"Unknown recipe step: ${step}");
                     }
                 }
                 return workingDir;

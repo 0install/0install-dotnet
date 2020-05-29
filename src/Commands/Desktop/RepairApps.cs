@@ -39,8 +39,8 @@ namespace ZeroInstall.Commands.Desktop
         {
             CheckInstallBase();
 
-            using (var integrationManager = new IntegrationManager(Handler, MachineWide))
-                integrationManager.Repair(FeedManager.GetFresh);
+            using var integrationManager = new IntegrationManager(Handler, MachineWide);
+            integrationManager.Repair(FeedManager.GetFresh);
 
             return ExitCode.OK;
         }

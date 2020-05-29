@@ -155,8 +155,8 @@ namespace ZeroInstall.Commands.Basic
 
                 string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : Archive.GuessMimeType(outputArchive);
 
-                using (var generator = ArchiveGenerator.Create(sourceDirectory, outputArchive, mimeType))
-                    Handler.RunTask(generator);
+                using var generator = ArchiveGenerator.Create(sourceDirectory, outputArchive, mimeType);
+                Handler.RunTask(generator);
                 return ExitCode.OK;
             }
         }

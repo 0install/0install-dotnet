@@ -52,8 +52,8 @@ namespace ZeroInstall.Store.Implementations.Archives
         private static TemporaryFile Deploy(Stream stream)
         {
             var tempFile = new TemporaryFile("0install-unit-tests");
-            using (var fileStream = File.Create(tempFile))
-                stream.CopyToEx(fileStream);
+            using var fileStream = File.Create(tempFile);
+            stream.CopyToEx(fileStream);
             return tempFile;
         }
     }

@@ -46,17 +46,15 @@ namespace ZeroInstall.Publish.EntryPoints
 
         private static bool HasMagicBytes(FileInfo file)
         {
-            using (var stream = file.OpenRead())
+            using var stream = file.OpenRead();
+            try
             {
-                try
-                {
-                    var magic = stream.Read(4);
-                    if (magic[0] != 0x7f || magic[1] != 0x45 || magic[2] != 0x4c || magic[3] != 0x46) return false;
-                }
-                catch (IOException)
-                {
-                    return false;
-                }
+                var magic = stream.Read(4);
+                if (magic[0] != 0x7f || magic[1] != 0x45 || magic[2] != 0x4c || magic[3] != 0x46) return false;
+            }
+            catch (IOException)
+            {
+                return false;
             }
 
             return true;
