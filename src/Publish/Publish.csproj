@@ -43,7 +43,7 @@
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ELFSharp" Version="2.10.0" />
+    <PackageReference Include="ELFSharp" Version="2.11.0" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
