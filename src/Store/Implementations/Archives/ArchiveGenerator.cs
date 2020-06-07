@@ -60,9 +60,6 @@ namespace ZeroInstall.Store.Implementations.Archives
                 Archive.MimeTypeTar => new TarGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarGzip => new TarGzGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarBzip => new TarBz2Generator(sourceDirectory, stream),
-#if NETFRAMEWORK
-                Archive.MimeTypeTarLzma => new TarLzmaGenerator(sourceDirectory, stream),
-#endif
                 _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
             };
         }
