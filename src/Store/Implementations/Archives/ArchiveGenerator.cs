@@ -20,7 +20,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <summary>
         /// All supported MIME types for creating archives. This is a subset of <see cref="Archive.KnownMimeTypes"/>
         /// </summary>
-        public static readonly string[] SupportedMimeTypes = {Archive.MimeTypeZip, Archive.MimeTypeTar, Archive.MimeTypeTarGzip, Archive.MimeTypeTarBzip, Archive.MimeTypeTarLzma};
+        public static readonly string[] SupportedMimeTypes = {Archive.MimeTypeZip, Archive.MimeTypeTar, Archive.MimeTypeTarGzip, Archive.MimeTypeTarBzip};
 
         /// <inheritdoc/>
         public override string Name => string.Format(Resources.CreatingArchive, OutputArchive);
@@ -60,9 +60,6 @@ namespace ZeroInstall.Store.Implementations.Archives
                 Archive.MimeTypeTar => new TarGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarGzip => new TarGzGenerator(sourceDirectory, stream),
                 Archive.MimeTypeTarBzip => new TarBz2Generator(sourceDirectory, stream),
-#if NETFRAMEWORK
-                Archive.MimeTypeTarLzma => new TarLzmaGenerator(sourceDirectory, stream),
-#endif
                 _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
             };
         }
