@@ -101,15 +101,16 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Creates a subdirectory.
         /// </summary>
         /// <param name="relativePath">The path of the directory to create (relative to <see cref="EffectiveTargetPath"/>).</param>
-        /// <param name="lastWriteTime">The last write time to set for the directory.</param>
-        public void CreateDirectory(string relativePath, DateTime lastWriteTime)
+        /// <param name="lastWriteTime">The last write time to set for the directory. This value is optional.</param>
+        public void CreateDirectory(string relativePath, DateTime? lastWriteTime)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));
             #endregion
 
             Directory.CreateDirectory(GetFullPath(relativePath));
-            _pendingDirectoryWriteTimes.Add(new KeyValuePair<string, DateTime>(relativePath, lastWriteTime));
+            if (lastWriteTime.HasValue)
+                _pendingDirectoryWriteTimes.Add(new KeyValuePair<string, DateTime>(relativePath, lastWriteTime.Value));
         }
 
         /// <summary>

@@ -77,10 +77,10 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTar:
                 case Archive.MimeTypeTarGzip:
                 case Archive.MimeTypeTarBzip:
-#if NETFRAMEWORK
                 case Archive.MimeTypeTarLzma:
                 case Archive.MimeTypeTarXz:
                 case Archive.MimeType7Z:
+#if NETFRAMEWORK
                 case Archive.MimeTypeCab:
                 case Archive.MimeTypeMsi:
                     if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
@@ -121,10 +121,10 @@ namespace ZeroInstall.Store.Implementations.Archives
                 Archive.MimeTypeTar => new TarExtractor(stream, targetPath),
                 Archive.MimeTypeTarGzip => new TarGzExtractor(stream, targetPath),
                 Archive.MimeTypeTarBzip => new TarBz2Extractor(stream, targetPath),
-#if NETFRAMEWORK
                 Archive.MimeTypeTarLzma => new TarLzmaExtractor(stream, targetPath),
                 Archive.MimeTypeTarXz => new TarXzExtractor(stream, targetPath),
                 Archive.MimeType7Z => new SevenZipExtractor(stream, targetPath),
+#if NETFRAMEWORK
                 Archive.MimeTypeCab => NewCabExtractor(),
                 Archive.MimeTypeMsi => throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!"),
 #endif

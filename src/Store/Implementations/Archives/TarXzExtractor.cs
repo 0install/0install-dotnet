@@ -1,13 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using System;
 using System.IO;
-using NanoByte.Common.Native;
-using NanoByte.Common.Streams;
-using XZ.NET;
-using ZeroInstall.Store.Properties;
+using SharpCompress.Compressors.Xz;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -25,33 +20,10 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
         internal TarXzExtractor(Stream stream, string targetPath)
-            : base(GetDecompressionStream(stream), targetPath)
+            : base(new XZStream(stream), targetPath)
         {
-            if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
-
             _stream = stream;
             UnitsTotal = stream.Length;
-        }
-
-        /// <summary>
-        /// Adds a XZ-extraction layer around a stream.
-        /// </summary>
-        /// <param name="stream">The stream containing the XZ-compressed data.</param>
-        /// <returns>A stream representing the uncompressed data.</returns>
-        /// <exception cref="IOException">The compressed stream contains invalid data.</exception>
-        internal static Stream GetDecompressionStream(Stream stream)
-        {
-            try
-            {
-                return new DisposeWarpperStream(new XZInputStream(stream), stream.Dispose);
-            }
-            #region Error handling
-            catch (Exception ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
         }
 
         /// <inheritdoc/>
@@ -59,4 +31,3 @@ namespace ZeroInstall.Store.Implementations.Archives
             => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
     }
 }
-#endif
