@@ -1,11 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
 using System;
 using System.IO;
 using FluentAssertions;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
@@ -18,8 +16,6 @@ namespace ZeroInstall.Store.Implementations.Archives
         [SkippableFact]
         public void TestExtract()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "7z extraction relies on a Win32 DLL and therefore will not work on non-Windows platforms");
-
             using var sandbox = new TemporaryDirectory("0install-unit-tests");
             using var extractor = ArchiveExtractor.Create(typeof(SevenZipExtractorTest).GetEmbeddedStream("testArchive.7z"), sandbox, Archive.MimeType7Z);
             extractor.Run();
@@ -38,8 +34,6 @@ namespace ZeroInstall.Store.Implementations.Archives
         [SkippableFact]
         public void TestExtractSubDir()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "7z extraction relies on a Win32 DLL and therefore will not work on non-Windows platforms");
-
             using var sandbox = new TemporaryDirectory("0install-unit-tests");
             using var extractor = ArchiveExtractor.Create(typeof(SevenZipExtractorTest).GetEmbeddedStream("testArchive.7z"), sandbox, Archive.MimeType7Z);
             extractor.Extract = "folder1";
@@ -58,11 +52,8 @@ namespace ZeroInstall.Store.Implementations.Archives
         [SkippableFact]
         public void TestExtractInvalidData()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "7z extraction relies on a Win32 DLL and therefore will not work on non-Windows platforms");
-
             using var sandbox = new TemporaryDirectory("0install-unit-tests");
-            Assert.Throws<IOException>(() => ArchiveExtractor.Create(new MemoryStream(_garbageData), sandbox, Archive.MimeType7Z).Run());
+            Assert.Throws<EndOfStreamException>(() => ArchiveExtractor.Create(new MemoryStream(_garbageData), sandbox, Archive.MimeType7Z).Run());
         }
     }
 }
-#endif

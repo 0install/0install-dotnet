@@ -95,6 +95,11 @@ namespace ZeroInstall.Store.Implementations.Archives
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(Resources.ArchiveInvalid, ex);
             }
+            catch (Exception ex) when (ex.Message == "Data Error") // SharpCompress DataError
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(Resources.ArchiveInvalid);
+            }
             catch (InvalidDataException ex)
             {
                 // Wrap exception since only certain exception types are allowed

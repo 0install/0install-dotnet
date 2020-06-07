@@ -44,33 +44,17 @@ namespace ZeroInstall.Store.Implementations.Archives
         public void TestBz2CompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
 
-#if NETFRAMEWORK
         [SkippableFact]
         public void TestXzCompressed()
-        {
-            Skip.IfNot(WindowsUtils.IsWindows, ".xz decompression is currently only available on Windows");
-
-            TestExtract(Model.Archive.MimeTypeTarXz, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.xz"));
-        }
+            => TestExtract(Model.Archive.MimeTypeTarXz, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.xz"));
 
         [Fact]
         public void TestLzmaCompressed()
             => TestExtract(Model.Archive.MimeTypeTarLzma, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma"));
 
         [Fact]
-        public void TestLzmaCompressedOnDisk()
-        {
-            using var tempFile = new TemporaryFile("0install-unit-tests");
-            typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma").CopyToFile(tempFile);
-
-            using var stream = File.OpenRead(tempFile);
-            TestExtract(Model.Archive.MimeTypeTarLzma, stream);
-        }
-
-        [Fact]
         public void TestLzmaCompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
-#endif
 
         [Fact]
         public void TestRubyGem()

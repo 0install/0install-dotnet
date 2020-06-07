@@ -1,16 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
 using System;
-using System.Collections.Generic;
 using System.IO;
-using NanoByte.Common;
-using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using SevenZip;
-using ZeroInstall.Store.Properties;
+using SharpCompress.Archives;
+using SharpCompress.Archives.SevenZip;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -19,7 +14,6 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class SevenZipExtractor : ArchiveExtractor
     {
-        #region Stream
         private readonly Stream _stream;
 
         /// <summary>
@@ -31,8 +25,6 @@ namespace ZeroInstall.Store.Implementations.Archives
         internal SevenZipExtractor(Stream stream, string targetPath)
             : base(targetPath)
         {
-            if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
-
             _stream = stream ?? throw new ArgumentNullException(nameof(stream));
         }
 
@@ -40,7 +32,6 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             if (disposing) _stream.Dispose();
         }
-        #endregion
 
         private bool _unitsByte;
 
@@ -50,99 +41,28 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <inheritdoc/>
         protected override void ExtractArchive()
         {
-            try
-            {
-                // NOTE: Must do initialization here since the constructor may be called on a different thread and SevenZipSharp is thread-affine
-                SevenZipBase.SetLibraryPath(Locations.GetInstalledFilePath(OSUtils.Is64BitProcess ? @"x64\7z.dll" : @"x86\7z.dll"));
-
-                using var extractor = new SevenZip.SevenZipExtractor(_stream);
-                State = TaskState.Data;
-                if (extractor.IsSolid || string.IsNullOrEmpty(Extract)) ExtractComplete(extractor);
-                else ExtractIndividual(extractor);
-            }
-            #region Error handling
-            catch (ObjectDisposedException ex)
-            {
-                // Async cancellation may cause underlying file stream to be closed
-                Log.Warn(ex);
-                throw new OperationCanceledException();
-            }
-            catch (SevenZipException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (ArgumentException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (NullReferenceException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Extracts all files from the archive in one go.
-        /// </summary>
-        private void ExtractComplete(SevenZip.SevenZipExtractor extractor)
-        {
-            _unitsByte = false;
-            UnitsTotal = 100;
-            extractor.Extracting += (sender, e) => UnitsProcessed = e.PercentDone;
-
-            CancellationToken.ThrowIfCancellationRequested();
-            if (string.IsNullOrEmpty(Extract)) extractor.ExtractArchive(DirectoryBuilder.EffectiveTargetPath);
-            else
-            {
-                // Use an intermediate temp directory (on the same filesystem)
-                string tempDir = Path.Combine(TargetPath, Path.GetRandomFileName());
-                extractor.ExtractArchive(tempDir);
-
-                // Get only a specific subdir even though we extracted everything
-                string subDir = FileUtils.UnifySlashes(Extract);
-                string tempSubDir = Path.Combine(tempDir, subDir);
-                if (!FileUtils.IsBreakoutPath(subDir) && Directory.Exists(tempSubDir))
-                    new MoveDirectory(tempSubDir, DirectoryBuilder.EffectiveTargetPath, overwrite: true).Run(CancellationToken);
-                Directory.Delete(tempDir, recursive: true);
-            }
-            CancellationToken.ThrowIfCancellationRequested();
-        }
-
-        /// <summary>
-        /// Extracts files from the archive one-by-one.
-        /// </summary>
-        private void ExtractIndividual(SevenZip.SevenZipExtractor extractor)
-        {
+            using var archive = SevenZipArchive.Open(_stream);
+            State = TaskState.Data;
             _unitsByte = true;
-            UnitsTotal = extractor.UnpackedSize;
+            UnitsTotal = archive.TotalUncompressSize;
 
-            foreach (var entry in extractor.ArchiveFileData)
+            foreach (var entry in archive.Entries)
             {
-                string relativePath = GetRelativePath(entry.FileName.Replace('\\', '/'));
+                string? relativePath = GetRelativePath(entry.Key.Replace('\\', '/'));
                 if (relativePath == null) continue;
 
-                if (entry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, entry.LastWriteTime);
+                if (entry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, entry.LastModifiedTime?.ToUniversalTime());
                 else
                 {
                     CancellationToken.ThrowIfCancellationRequested();
 
-                    string absolutePath = DirectoryBuilder.NewFilePath(relativePath, entry.LastWriteTime);
+                    string absolutePath = DirectoryBuilder.NewFilePath(relativePath, entry.LastModifiedTime?.ToUniversalTime());
                     using (var fileStream = File.Create(absolutePath))
-                        extractor.ExtractFile(entry.Index, fileStream);
+                        entry.WriteTo(fileStream);
 
-                    UnitsProcessed += (long)entry.Size;
+                    UnitsProcessed += entry.Size;
                 }
             }
         }
     }
 }
-#endif
