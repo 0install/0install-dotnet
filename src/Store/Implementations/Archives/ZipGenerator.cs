@@ -46,7 +46,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 Size = file.Length,
                 DateTime = file.LastWriteTimeUtc,
-                HostSystem = HostSystemID.Unix,
+                HostSystem = (int)HostSystemID.Unix,
                 ExtraData = GetUnixTimestamp(file.LastWriteTimeUtc)
             };
             if (executable)
@@ -84,7 +84,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             _zipStream.PutNextEntry(new ZipEntry(symlink.RelativeTo(SourceDirectory))
             {
                 Size = data.Length,
-                HostSystem = HostSystemID.Unix,
+                HostSystem = (int)HostSystemID.Unix,
                 ExternalFileAttributes = ZipExtractor.DefaultAttributes | ZipExtractor.SymlinkAttributes
             });
             data.WriteTo(_zipStream);

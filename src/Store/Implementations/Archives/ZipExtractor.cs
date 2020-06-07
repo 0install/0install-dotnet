@@ -124,7 +124,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Determines whether a <see cref="ZipEntry"/> was created on a Unix-system with the symlink flag set.
         /// </summary>
         private static bool IsSymlink(ZipEntry entry)
-            => (entry.HostSystem == HostSystemID.Unix)
+            => (entry.HostSystem == (int)HostSystemID.Unix)
             && entry.ExternalFileAttributes.HasFlag(SymlinkAttributes);
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Determines whether a <see cref="ZipEntry"/> was created on a Unix-system with the executable flag set.
         /// </summary>
         private static bool IsExecutable(ZipEntry entry)
-            => (entry.HostSystem == HostSystemID.Unix)
+            => (entry.HostSystem == (int)HostSystemID.Unix)
             && (entry.ExternalFileAttributes & ExecuteAttributes) > 0; // Check if anybody is allowed to execute
     }
 }
