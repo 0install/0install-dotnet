@@ -37,6 +37,8 @@ namespace ZeroInstall.Store.Implementations.Archives
             }
             catch (NotSupportedException)
             {}
+            catch (NotImplementedException)
+            {}
 
             try
             {

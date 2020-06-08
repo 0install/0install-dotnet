@@ -57,6 +57,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
 
         [Fact]
+        public void TestLzipCompressed()
+            => TestExtract(Model.Archive.MimeTypeTarLzip, "testArchive.tar.lz");
+
+        [Fact]
         public void TestRubyGem()
             => TestExtract(Model.Archive.MimeTypeRubyGem, "testArchive.gem");
 

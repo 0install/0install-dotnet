@@ -78,6 +78,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTarGzip:
                 case Archive.MimeTypeTarBzip:
                 case Archive.MimeTypeTarLzma:
+                case Archive.MimeTypeTarLzip:
                 case Archive.MimeTypeTarXz:
                 case Archive.MimeTypeRubyGem:
                 case Archive.MimeType7Z:
@@ -124,6 +125,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 Archive.MimeTypeTarGzip => new TarGzExtractor(stream, targetPath),
                 Archive.MimeTypeTarBzip => new TarBz2Extractor(stream, targetPath),
                 Archive.MimeTypeTarLzma => new TarLzmaExtractor(stream, targetPath),
+                Archive.MimeTypeTarLzip => new TarLzipExtractor(stream, targetPath),
                 Archive.MimeTypeTarXz => new TarXzExtractor(stream, targetPath),
                 Archive.MimeType7Z => new SevenZipExtractor(stream, targetPath),
                 Archive.MimeTypeRar => new RarExtractor(stream, targetPath),
