@@ -68,10 +68,10 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         /// <param name="mimeType">The MIME type of archive format of the stream.</param>
         /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
-        /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type or is <c>null</c>.</exception>
+        /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
         public static void VerifySupport(string mimeType)
         {
-            switch (mimeType ?? throw new ArgumentNullException(nameof(mimeType)))
+            switch (mimeType)
             {
                 case Archive.MimeTypeZip:
                 case Archive.MimeTypeTar:
@@ -79,15 +79,16 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTarBzip:
                 case Archive.MimeTypeTarLzma:
                 case Archive.MimeTypeTarXz:
+                case Archive.MimeTypeRubyGem:
                 case Archive.MimeType7Z:
+                    return;
+
 #if NETFRAMEWORK
                 case Archive.MimeTypeCab:
                 case Archive.MimeTypeMsi:
                     if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
                     return;
 #endif
-                case Archive.MimeTypeRubyGem:
-                    return;
 
                 default:
                     throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
