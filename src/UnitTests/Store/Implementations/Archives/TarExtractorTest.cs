@@ -22,7 +22,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestPlain()
-            => TestExtract(Model.Archive.MimeTypeTar, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"));
+            => TestExtract(Model.Archive.MimeTypeTar, "testArchive.tar");
 
         [Fact]
         public void TestPlainError()
@@ -30,7 +30,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestGzCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarGzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.gz"));
+            => TestExtract(Model.Archive.MimeTypeTarGzip, "testArchive.tar.gz");
 
         [Fact]
         public void TestGzCompressedError()
@@ -38,7 +38,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestBz2Compressed()
-            => TestExtract(Model.Archive.MimeTypeTarBzip, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.bz2"));
+            => TestExtract(Model.Archive.MimeTypeTarBzip, "testArchive.tar.bz2");
 
         [Fact]
         public void TestBz2CompressedError()
@@ -46,11 +46,11 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [SkippableFact]
         public void TestXzCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarXz, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.xz"));
+            => TestExtract(Model.Archive.MimeTypeTarXz, "testArchive.tar.xz");
 
         [Fact]
         public void TestLzmaCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarLzma, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar.lzma"));
+            => TestExtract(Model.Archive.MimeTypeTarLzma, "testArchive.tar.lzma");
 
         [Fact]
         public void TestLzmaCompressedError()
@@ -58,7 +58,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestRubyGem()
-            => TestExtract(Model.Archive.MimeTypeRubyGem, typeof(TarExtractorTest).GetEmbeddedStream("testArchive.gem"));
+            => TestExtract(Model.Archive.MimeTypeRubyGem, "testArchive.gem");
 
         private void TestExtract(string mimeType, Stream archive)
         {
@@ -71,6 +71,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             File.Exists("subdir2/executable").Should().BeTrue(because: "Should extract file 'executable'");
             File.GetLastWriteTimeUtc("subdir2/executable").Should().Be(new DateTime(2000, 1, 1, 12, 0, 0), because: "Correct last write time for file 'executable' should be set");
         }
+
+        private void TestExtract(string mimeType, string fileName)
+            => TestExtract(mimeType, typeof(TarExtractorTest).GetEmbeddedStream(fileName));
     }
 
     public class TarExtractorTestCornerCases : IDisposable
