@@ -32,6 +32,7 @@ namespace ZeroInstall.Store.Model
             MimeTypeTarXz = "application/x-xz-compressed-tar",
             MimeTypeRubyGem = "application/x-ruby-gem",
             MimeType7Z = "application/x-7z-compressed",
+            MimeTypeRar = "application/vnd.rar",
             MimeTypeCab = "application/vnd.ms-cab-compressed",
             MimeTypeMsi = "application/x-msi",
             MimeTypeDeb = "application/x-deb",
@@ -41,7 +42,7 @@ namespace ZeroInstall.Store.Model
         /// <summary>
         /// All known <see cref="MimeType"/> values for archives.
         /// </summary>
-        public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarXz, MimeTypeRubyGem, MimeType7Z, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
+        public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarXz, MimeTypeRubyGem, MimeType7Z, MimeTypeRar, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
 
         /// <summary>
         /// Tries to guess the MIME type of an archive file by looking at its file extension.
@@ -62,6 +63,7 @@ namespace ZeroInstall.Store.Model
             if (fileName.EndsWithIgnoreCase(".tar.xz") || fileName.EndsWithIgnoreCase(".txz")) return MimeTypeTarXz;
             if (fileName.EndsWithIgnoreCase(".gem")) return MimeTypeRubyGem;
             if (fileName.EndsWithIgnoreCase(".7z")) return MimeType7Z;
+            if (fileName.EndsWithIgnoreCase(".rar")) return MimeTypeRar;
             if (fileName.EndsWithIgnoreCase(".cab")) return MimeTypeCab;
             if (fileName.EndsWithIgnoreCase(".msi")) return MimeTypeMsi;
             if (fileName.EndsWithIgnoreCase(".deb")) return MimeTypeDeb;
@@ -86,6 +88,7 @@ namespace ZeroInstall.Store.Model
                 MimeTypeTarLzma => ".tar.lzma",
                 MimeTypeRubyGem => ".gem",
                 MimeType7Z => ".7z",
+                MimeTypeRar => ".rar",
                 MimeTypeCab => ".cab",
                 MimeTypeMsi => ".msi",
                 _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))

@@ -81,6 +81,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 case Archive.MimeTypeTarXz:
                 case Archive.MimeTypeRubyGem:
                 case Archive.MimeType7Z:
+                case Archive.MimeTypeRar:
                     return;
 
 #if NETFRAMEWORK
@@ -125,6 +126,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 Archive.MimeTypeTarLzma => new TarLzmaExtractor(stream, targetPath),
                 Archive.MimeTypeTarXz => new TarXzExtractor(stream, targetPath),
                 Archive.MimeType7Z => new SevenZipExtractor(stream, targetPath),
+                Archive.MimeTypeRar => new RarExtractor(stream, targetPath),
 #if NETFRAMEWORK
                 Archive.MimeTypeCab => NewCabExtractor(),
                 Archive.MimeTypeMsi => throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!"),
