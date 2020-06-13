@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +23,7 @@ namespace ZeroInstall.Store.Feeds
         /// The URI of the feed.
         /// </summary>
         [XmlIgnore]
-        public FeedUri Uri { get; set; }
+        public FeedUri Uri { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
@@ -33,14 +31,14 @@ namespace ZeroInstall.Store.Feeds
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        public string UriString { get => Uri.ToStringRfc(); set => Uri = new FeedUri(value); }
         #endregion
 
         /// <summary>
         /// A short name to identify the interface (e.g. "Foo").
         /// </summary>
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// A value between 0 and 100 indicating how good this result matches the query.
@@ -52,7 +50,7 @@ namespace ZeroInstall.Store.Feeds
         /// Short one-line description for different languages; the first word should not be upper-case unless it is a proper noun (e.g. "cures all ills").
         /// </summary>
         [XmlElement("summary")]
-        public string Summary { get; set; }
+        public string Summary { get; set; } = default!;
 
         /// <summary>
         /// A list of well-known categories the applications fits into.

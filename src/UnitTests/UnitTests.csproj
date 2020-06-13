@@ -34,11 +34,6 @@
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.8" />
   </ItemGroup>
 
-  <!-- Handle native libs that would be copied via a NuGet .targets file when consumed externally -->
-  <ItemGroup>
-    <None Include="..\..\lib\7zxa*.dll;..\..\lib\liblzma*.dll" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-
   <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />

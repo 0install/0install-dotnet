@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Xml.Serialization;
 using NanoByte.Common;
@@ -20,7 +18,7 @@ namespace ZeroInstall.Store.Trust
         /// The cryptographic fingerprint of this key.
         /// </summary>
         [XmlAttribute("fingerprint")]
-        public string Fingerprint { get; set; }
+        public string Fingerprint { get; set; } = default!;
 
         /// <summary>
         /// A list of <see cref="Domain"/>s this key is valid for.
