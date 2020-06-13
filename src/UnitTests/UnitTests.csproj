@@ -34,6 +34,9 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2" />
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.8" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5" />
+  </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
