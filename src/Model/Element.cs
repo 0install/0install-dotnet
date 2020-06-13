@@ -374,8 +374,10 @@ namespace ZeroInstall.Model
             && other.VersionModifier == VersionModifier
             && other.Released == Released
             && other.ReleasedVerbatim == ReleasedVerbatim
+            && other.Stability == Stability
             && other.License == License
-            && other.Main == Main && other.SelfTest == SelfTest
+            && other.Main == Main
+            && other.SelfTest == SelfTest
             && other.DocDir == DocDir
             && Commands.SequencedEquals(other.Commands)
             && Dependencies.SequencedEquals(other.Dependencies)
@@ -391,6 +393,7 @@ namespace ZeroInstall.Model
             hash.Add(VersionModifier);
             hash.Add(Released);
             hash.Add(ReleasedVerbatim);
+            hash.Add(Stability);
             hash.Add(License);
             hash.Add(Main);
             hash.Add(SelfTest);

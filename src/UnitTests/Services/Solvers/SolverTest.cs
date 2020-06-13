@@ -27,7 +27,7 @@ namespace ZeroInstall.Services.Solvers
         [Fact]
         public void TestCases()
         {
-            TestCaseSet Load()
+            static TestCaseSet Load()
             {
                 using var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml");
                 return XmlStorage.LoadXml<TestCaseSet>(stream);
@@ -37,6 +37,8 @@ namespace ZeroInstall.Services.Solvers
             {
                 if (testCase.Problem == null)
                 {
+                    testCase.Selections?.Normalize();
+
                     this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements)
                                         .Should().Be(testCase.Selections, testCase.ToString()))
                         .Should().NotThrow(testCase.ToString());
@@ -76,7 +78,15 @@ namespace ZeroInstall.Services.Solvers
                 Command = Command.NameRun,
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/prog1.xml"), FromFeed = new FeedUri("http://example.com/prog2.xml"), Version = new ImplementationVersion("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}
+                    new ImplementationSelection
+                    {
+                        InterfaceUri = new FeedUri("http://example.com/prog1.xml"),
+                        FromFeed = new FeedUri("http://example.com/prog2.xml"),
+                        Version = new ImplementationVersion("2.0"),
+                        Stability = Stability.Testing,
+                        ID = "app2",
+                        Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}
+                    }
                 }
             });
         }
@@ -108,7 +118,14 @@ namespace ZeroInstall.Services.Solvers
                 Command = Command.NameRun,
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/prog.xml"), Version = new ImplementationVersion("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}
+                    new ImplementationSelection
+                    {
+                        InterfaceUri = new FeedUri("http://example.com/prog.xml"),
+                        Version = new ImplementationVersion("1.0"),
+                        Stability = Stability.Testing,
+                        ID = "app1",
+                        Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}
+                    }
                 }
             });
         }
