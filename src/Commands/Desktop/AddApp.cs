@@ -7,8 +7,8 @@ using NanoByte.Common.Native;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop
 {

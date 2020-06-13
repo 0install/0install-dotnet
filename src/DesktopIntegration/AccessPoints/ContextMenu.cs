@@ -5,15 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Integrates an application into a file manager's context menu.
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Capabilities.ContextMenu"/>
+    /// <seealso cref="Model.Capabilities.ContextMenu"/>
     [XmlType("context-menu", Namespace = AppList.XmlNamespace)]
     public class ContextMenu : DefaultAccessPoint, IEquatable<ContextMenu>
     {
@@ -24,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.ContextMenu>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
             return new[] {$@"context-menu-{capability.Target}:{capability.ID}\{capability.Verb}"};
         }
 
@@ -36,7 +35,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.ContextMenu>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
             if (WindowsUtils.IsWindows) Windows.ContextMenu.Apply(target, capability, iconStore, machineWide);
             else if (UnixUtils.IsUnix) Unix.ContextMenu.Apply(target, capability, iconStore, machineWide);
@@ -49,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.ContextMenu>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
             if (WindowsUtils.IsWindows) Windows.ContextMenu.Remove(capability, machineWide);
             else if (UnixUtils.IsUnix) Unix.ContextMenu.Remove(capability, machineWide);
         }

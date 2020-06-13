@@ -9,10 +9,10 @@ using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish
 {

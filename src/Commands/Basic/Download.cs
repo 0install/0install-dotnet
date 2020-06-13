@@ -7,10 +7,10 @@ using System.IO;
 using System.Net;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

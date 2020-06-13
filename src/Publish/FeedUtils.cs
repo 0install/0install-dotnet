@@ -8,8 +8,8 @@ using System.IO;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Streams;
+using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
 using StoreFeedUtils = ZeroInstall.Store.Feeds.FeedUtils;
 

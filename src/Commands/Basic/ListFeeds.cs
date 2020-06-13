@@ -3,7 +3,7 @@
 
 using System.Linq;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store.Model.Preferences;
+using ZeroInstall.Model.Preferences;
 
 namespace ZeroInstall.Commands.Basic
 {

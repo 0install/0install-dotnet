@@ -6,16 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Indicates that all compatible capabilities should be registered.
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Capabilities"/>
+    /// <seealso cref="ZeroInstall.Model.Capabilities"/>
     [XmlType("capability-registration", Namespace = AppList.XmlNamespace)]
     public class CapabilityRegistration : AccessPoint, IEquatable<CapabilityRegistration>
     {
@@ -51,17 +50,17 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             {
                 switch (capability)
                 {
-                    case Store.Model.Capabilities.FileType fileType:
+                    case Model.Capabilities.FileType fileType:
                         if (WindowsUtils.IsWindows) Windows.FileType.Register(target, fileType, iconStore, machineWide);
                         else if (UnixUtils.IsUnix) Unix.FileType.Register(target, fileType, iconStore, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.UrlProtocol urlProtocol:
+                    case Model.Capabilities.UrlProtocol urlProtocol:
                         if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
                         else if (UnixUtils.IsUnix) Unix.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.AutoPlay autoPlay:
+                    case Model.Capabilities.AutoPlay autoPlay:
                         if (WindowsUtils.IsWindows) Windows.AutoPlay.Register(target, autoPlay, iconStore, machineWide);
                         break;
 
@@ -69,7 +68,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
                         if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.AppRegistration.Register(target, appRegistration, capabilities.OfType<VerbCapability>(), iconStore, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.DefaultProgram defaultProgram:
+                    case Model.Capabilities.DefaultProgram defaultProgram:
                         if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, defaultProgram, iconStore);
                         else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                         break;
@@ -92,17 +91,17 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             {
                 switch (capability)
                 {
-                    case Store.Model.Capabilities.FileType fileType:
+                    case Model.Capabilities.FileType fileType:
                         if (WindowsUtils.IsWindows) Windows.FileType.Unregister(fileType, machineWide);
                         else if (UnixUtils.IsUnix) Unix.FileType.Unregister(fileType, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.UrlProtocol urlProtocol:
+                    case Model.Capabilities.UrlProtocol urlProtocol:
                         if (WindowsUtils.IsWindows) Windows.UrlProtocol.Unregister(urlProtocol, machineWide);
                         else if (UnixUtils.IsUnix) Unix.UrlProtocol.Unregister(urlProtocol, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.AutoPlay autoPlay:
+                    case Model.Capabilities.AutoPlay autoPlay:
                         if (WindowsUtils.IsWindows) Windows.AutoPlay.Unregister(autoPlay, machineWide);
                         break;
 
@@ -110,7 +109,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
                         if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.AppRegistration.Unregister(appRegistration, machineWide);
                         break;
 
-                    case Store.Model.Capabilities.DefaultProgram defaultProgram:
+                    case Model.Capabilities.DefaultProgram defaultProgram:
                         if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Unregister(defaultProgram);
                         else if (UnixUtils.IsUnix) Unix.DefaultProgram.Unregister(defaultProgram, machineWide);
                         break;

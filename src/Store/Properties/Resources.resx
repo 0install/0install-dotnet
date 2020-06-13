@@ -117,17 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>The string must be in the form "os-cpu".</value>
-  </data>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>The archive file is invalid or damaged.</value>
   </data>
   <data name="ArchiveInvalidPath" xml:space="preserve">
     <value>The archive contains an invalid path (potentially a security risk): {0}</value>
-  </data>
-  <data name="CommandNotFound" xml:space="preserve">
-    <value>Unable to find command '{0}'.</value>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copying files</value>
@@ -178,12 +172,6 @@ Alternatively you can use the graphical user interface for managing the caches:
   <data name="DirectoryNotFound" xml:space="preserve">
     <value>The directory '{0}' could not be found.</value>
   </data>
-  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Error loading feed preferences for '{0}'. Reverting to default values.</value>
-  </data>
-  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error loading interface preferences for '{0}'. Reverting to default values.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Error loading the trust database. Reverting to default values.</value>
   </data>
@@ -198,9 +186,6 @@ Alternatively you can use the graphical user interface for managing the caches:
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' could not be located in the feed cache. Looked for file at: {1}</value>
-  </data>
-  <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Unable to find feed '{0}' in catalog.</value>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Usage of the feed mirror, which is required for search, is disabled.
@@ -242,17 +227,8 @@ Run '0install config feed_mirror default' to enable it.</value>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Run '0install store remove {0}' to remove it. A new copy will be automatically downloaded again when needed.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>'{0}' in {1} has no ID.</value>
-  </data>
-  <data name="ImplementationMissingVersion" xml:space="preserve">
-    <value>'{0}' in {1} has no version.</value>
-  </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>The implementation '{0}' could not be located.</value>
-  </data>
-  <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Unable to find implementation for interface '{0}' in the selection.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>The underlying file system does not store file change times with sufficient accuracy.
@@ -260,9 +236,6 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Digest '{0}' is not in the form 'algorithm=value'.</value>
-  </data>
-  <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' is not a valid 'http(s):' URI and is not a valid local path either.</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>The manifest file contains invalid lines.</value>
@@ -279,29 +252,17 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   <data name="MissingNameTagInFeed" xml:space="preserve">
     <value>Missing &lt;name&gt; tag in feed {0}.</value>
   </data>
-  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Missing '{0}' attribute on &lt;{1}&gt; tag.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Only administrators can optimise a shared store.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Only administrators can remove elements from a shared store.</value>
   </data>
-  <data name="MustBeDottedList" xml:space="preserve">
-    <value>The dot-separated list may only contain decimal numbers.</value>
-  </data>
   <data name="MustBeSpecificCPU" xml:space="preserve">
     <value>The value must be a specific CPU (not "All" or "Unknown").</value>
   </data>
   <data name="MustBeSpecificOS" xml:space="preserve">
     <value>The value must be a specific operating system (not "All" or "Unknown").</value>
-  </data>
-  <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>The version number may only contain dot-separated decimals and modifier strings.</value>
-  </data>
-  <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>The version number must begin with a list of dot-separated decimals.</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>The file or directory name must not contain a newline character.</value>
@@ -361,38 +322,11 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>A recipe step contains an invalid path (potentially a security risk): {0}</value>
   </data>
-  <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>The relative path '{0}' could not be resolved. Only feeds saved as local files may contain relative paths.</value>
-  </data>
-  <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>The relative URI '{0}' could not be resolved. Only feeds saved as local files may contain relative URIs.</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>A fully qualified/rooted path is required.</value>
   </data>
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Unable to find data.tar.gz inside Ruby Gem file.</value>
-  </data>
-  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Buggy implementation</value>
-  </data>
-  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Does not provide command '{0}'.</value>
-  </data>
-  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Incompatible operating system or CPU</value>
-  </data>
-  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Insecure implementation</value>
-  </data>
-  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementation not in cache (currently in off-line mode)</value>
-  </data>
-  <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Non-executable source implementation</value>
-  </data>
-  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Implementation version too old or too new</value>
   </data>
   <data name="SignatureAldreadyExists" xml:space="preserve">
     <value>Signature file already exists.</value>
@@ -412,17 +346,11 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Unable to enable write protection for '{0}'.</value>
   </data>
-  <data name="UnknownArchiveType" xml:space="preserve">
-    <value>The file extension '{0}' does not correspond to a known archive type.</value>
-  </data>
   <data name="UnknownCpu" xml:space="preserve">
     <value>Unknown CPU.</value>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>Unknown interface</value>
-  </data>
-  <data name="UnknownModifier" xml:space="preserve">
-    <value>Unknown modifier.</value>
+    <value>Unknown interface.</value>
   </data>
   <data name="UnknownOS" xml:space="preserve">
     <value>Unknown operating system.</value>
@@ -432,9 +360,6 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>The archive MIME type '{0}' is not supported.</value>
-  </data>
-  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>End of version range must be exclusive. Use '..!{0}', not '..{0}'.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>The passphrase you entered is incorrect.</value>
@@ -446,6 +371,6 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
     <value>The XML signature does not start in a new line.</value>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>The signature is not valid base 64: </value>
+    <value>The signature is not valid base 64:</value>
   </data>
 </root>

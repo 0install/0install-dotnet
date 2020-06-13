@@ -4,8 +4,8 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Services.Solvers

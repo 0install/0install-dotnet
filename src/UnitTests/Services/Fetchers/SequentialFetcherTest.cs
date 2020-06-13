@@ -4,8 +4,7 @@
 using System;
 using NanoByte.Common.Net;
 using Xunit;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Services.Fetchers
 {

@@ -9,8 +9,8 @@ using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Commands.Desktop
 {

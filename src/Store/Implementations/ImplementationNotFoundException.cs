@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations

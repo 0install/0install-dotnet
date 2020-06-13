@@ -3,7 +3,7 @@
 
 using FluentAssertions;
 using Xunit;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
@@ -20,8 +20,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             {
                 CapabilityLists =
                 {
-                    new CapabilityList {Entries = {new Store.Model.Capabilities.FileType {ID = "test1"}}},
-                    new CapabilityList {Entries = {new Store.Model.Capabilities.FileType {ID = "test2"}}}
+                    new CapabilityList {Entries = {new Model.Capabilities.FileType {ID = "test1"}}},
+                    new CapabilityList {Entries = {new Model.Capabilities.FileType {ID = "test2"}}}
                 }
             };
 

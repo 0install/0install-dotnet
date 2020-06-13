@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.Trust;
 
@@ -133,7 +133,7 @@ namespace ZeroInstall.Store.Feeds
             #region Error handling
             catch (FormatException ex)
             {
-                throw new SignatureException(Resources.XmlSignatureNotBase64 + ex.Message, ex);
+                throw new SignatureException(Resources.XmlSignatureNotBase64 + " " + ex.Message, ex);
             }
             #endregion
         }

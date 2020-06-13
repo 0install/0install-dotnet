@@ -7,8 +7,8 @@ using System.IO;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Build;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK

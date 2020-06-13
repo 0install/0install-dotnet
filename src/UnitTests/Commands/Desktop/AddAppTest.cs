@@ -2,9 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 using Xunit;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop
 {

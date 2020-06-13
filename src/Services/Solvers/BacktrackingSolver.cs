@@ -7,8 +7,8 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Services.Solvers
 {

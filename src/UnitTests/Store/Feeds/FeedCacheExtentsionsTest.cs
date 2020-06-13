@@ -7,7 +7,7 @@ using System.Text;
 using FluentAssertions;
 using Moq;
 using Xunit;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Store.Feeds

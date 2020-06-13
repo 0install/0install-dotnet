@@ -4,7 +4,7 @@
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

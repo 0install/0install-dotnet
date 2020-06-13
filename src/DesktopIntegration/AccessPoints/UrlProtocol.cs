@@ -6,15 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Makes an application the default handler for a specific URL protocol.
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Capabilities.UrlProtocol"/>
+    /// <seealso cref="Model.Capabilities.UrlProtocol"/>
     [XmlType("url-protocol", Namespace = AppList.XmlNamespace)]
     public class UrlProtocol : DefaultAccessPoint, IEquatable<UrlProtocol>
     {
@@ -25,7 +24,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.UrlProtocol>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
             return (capability.KnownPrefixes.Count == 0)
                 ? new[] {$"protocol:{capability.ID}"}
                 : capability.KnownPrefixes.Select(prefix => $"protocol:{prefix.Value}");
@@ -39,7 +38,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.UrlProtocol>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
             if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, capability, iconStore, machineWide, accessPoint: true);
         }
@@ -51,7 +50,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.UrlProtocol>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
             if (WindowsUtils.IsWindows) Windows.UrlProtocol.Unregister(capability, machineWide, accessPoint: true);
         }
 

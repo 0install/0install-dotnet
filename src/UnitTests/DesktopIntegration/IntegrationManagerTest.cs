@@ -7,11 +7,10 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Services;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
-using FileType = ZeroInstall.Store.Model.Capabilities.FileType;
+using FileType = ZeroInstall.Model.Capabilities.FileType;
 
 namespace ZeroInstall.DesktopIntegration
 {

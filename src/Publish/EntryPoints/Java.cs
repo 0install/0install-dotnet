@@ -3,8 +3,8 @@
 
 using System;
 using System.ComponentModel;
+using ZeroInstall.Model;
 using ZeroInstall.Publish.EntryPoints.Design;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

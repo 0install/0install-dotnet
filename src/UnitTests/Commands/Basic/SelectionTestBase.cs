@@ -5,12 +5,12 @@ using FluentAssertions;
 using NanoByte.Common.Tasks;
 using NDesk.Options;
 using Xunit;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Commands.Basic
 {

@@ -9,9 +9,9 @@ using Moq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using Xunit;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Model;
 
 #if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration;

@@ -4,8 +4,8 @@
 using System;
 using System.IO;
 using Microsoft.Win32;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture
 {

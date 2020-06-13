@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

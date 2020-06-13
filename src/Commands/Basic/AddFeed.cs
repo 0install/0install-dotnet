@@ -7,9 +7,8 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Preferences;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Preferences;
 
 namespace ZeroInstall.Commands.Basic
 {

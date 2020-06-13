@@ -6,8 +6,8 @@ using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Text;
 using NanoByte.Common.Dispatch;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations

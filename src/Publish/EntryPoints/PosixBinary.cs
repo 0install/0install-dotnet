@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using ELFSharp.ELF;
 using NanoByte.Common.Streams;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

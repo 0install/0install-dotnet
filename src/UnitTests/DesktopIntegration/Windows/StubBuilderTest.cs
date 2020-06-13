@@ -5,8 +5,7 @@ using Moq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using Xunit;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

@@ -9,9 +9,9 @@ using System.Linq;
 using NanoByte.Common;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

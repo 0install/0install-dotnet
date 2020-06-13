@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using NanoByte.Common.Storage;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Design;
 using ZeroInstall.Store.Implementations.Build;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Design;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

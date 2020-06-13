@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

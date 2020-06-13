@@ -9,11 +9,11 @@ using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Services.Fetchers
 {

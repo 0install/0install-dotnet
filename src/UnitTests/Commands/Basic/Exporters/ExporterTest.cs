@@ -7,9 +7,9 @@ using FluentAssertions;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using Xunit;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands.Basic.Exporters

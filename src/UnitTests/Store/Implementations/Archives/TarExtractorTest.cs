@@ -8,6 +8,7 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations.Archives
@@ -22,47 +23,47 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         [Fact]
         public void TestPlain()
-            => TestExtract(Model.Archive.MimeTypeTar, "testArchive.tar");
+            => TestExtract(Archive.MimeTypeTar, "testArchive.tar");
 
         [Fact]
         public void TestPlainError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTar, new MemoryStream(_garbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTar, new MemoryStream(_garbageData)));
 
         [Fact]
         public void TestGzCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarGzip, "testArchive.tar.gz");
+            => TestExtract(Archive.MimeTypeTarGzip, "testArchive.tar.gz");
 
         [Fact]
         public void TestGzCompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarGzip, new MemoryStream(_garbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarGzip, new MemoryStream(_garbageData)));
 
         [Fact]
         public void TestBz2Compressed()
-            => TestExtract(Model.Archive.MimeTypeTarBzip, "testArchive.tar.bz2");
+            => TestExtract(Archive.MimeTypeTarBzip, "testArchive.tar.bz2");
 
         [Fact]
         public void TestBz2CompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
 
         [SkippableFact]
         public void TestXzCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarXz, "testArchive.tar.xz");
+            => TestExtract(Archive.MimeTypeTarXz, "testArchive.tar.xz");
 
         [Fact]
         public void TestLzmaCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarLzma, "testArchive.tar.lzma");
+            => TestExtract(Archive.MimeTypeTarLzma, "testArchive.tar.lzma");
 
         [Fact]
         public void TestLzmaCompressedError()
-            => Assert.Throws<IOException>(() => TestExtract(Model.Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
+            => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
 
         [Fact]
         public void TestLzipCompressed()
-            => TestExtract(Model.Archive.MimeTypeTarLzip, "testArchive.tar.lz");
+            => TestExtract(Archive.MimeTypeTarLzip, "testArchive.tar.lz");
 
         [Fact]
         public void TestRubyGem()
-            => TestExtract(Model.Archive.MimeTypeRubyGem, "testArchive.gem");
+            => TestExtract(Archive.MimeTypeRubyGem, "testArchive.gem");
 
         private void TestExtract(string mimeType, Stream archive)
         {

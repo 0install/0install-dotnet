@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using NanoByte.Common.Native;
 using Xunit;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Store
 {

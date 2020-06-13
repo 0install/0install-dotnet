@@ -4,11 +4,11 @@
 using System;
 using NanoByte.Common.Storage;
 using Xunit;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic

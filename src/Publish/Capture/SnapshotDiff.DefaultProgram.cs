@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using Microsoft.Win32;
 using NanoByte.Common;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Publish.Properties;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture
 {

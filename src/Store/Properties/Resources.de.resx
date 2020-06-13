@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,17 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Der String muss die Form "os-cpu" haben.</value>
-  </data>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>Die Archivdatei ist ungültig oder beschädigt.</value>
   </data>
   <data name="ArchiveInvalidPath" xml:space="preserve">
     <value>Das Archiv enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
-  </data>
-  <data name="CommandNotFound" xml:space="preserve">
-    <value>Der Command '{0}' konnte nicht gefunden werden.</value>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Kopiere Dateien</value>
@@ -158,7 +152,7 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
     <value>Lösche Implementierung {0}</value>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Lösche nicht mehr benötigte Dateien...</value>
+    <value>Lösche nicht mehr benötigte Dateien</value>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Der Manifest-Hash einer Implementierung entspricht nicht dem erwarteten Wert.</value>
@@ -178,12 +172,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   <data name="DirectoryNotFound" xml:space="preserve">
     <value>Das Verzeichnis '{0}' konnte nicht gefunden werden.</value>
   </data>
-  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Fehler beim Laden der Feed-Präfernzen für '{0}'. Falle auf Standardwerte zurück.</value>
-  </data>
-  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Fehler beim Laden der Interface-Präfernzen für '{0}'. Falle auf Standardwerte zurück.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Falle auf Standardwerte zurück.</value>
   </data>
@@ -198,9 +186,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' konnte nicht im Feed Cache gefunden werden. Nach folgender Datei wurde gesucht: {1}</value>
-  </data>
-  <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Verwendung des Feed Mirror, welcher für die Suche benötigt wird, ist deaktiviert.
@@ -234,7 +219,7 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
     <value>Die Implementierung '{0}' ist bereits im Store.</value>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Die Implementierung '{0}' ist beschädigt</value>
+    <value>Die Implementierung '{0}' ist beschädigt.</value>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Möchten Sie sie entfernen? Eine neue Kopie wird automatisch heruntergeladen, wenn sie wieder benötigt wird.</value>
@@ -242,17 +227,8 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Führen Sie '0install store remove {0}' aus, um sie zu entfernen. Eine neue Kopie wird automatisch heruntergeladen, wenn sie wieder benötigt wird.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>'{0}' in {1} hat keine ID.</value>
-  </data>
-  <data name="ImplementationMissingVersion" xml:space="preserve">
-    <value>'{0}' in {1} hat keine Version.</value>
-  </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Die Implementierung '{0}' konnte nicht gefunden werden.</value>
-  </data>
-  <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Die Implementierung für das Interface '{0}' konnte in den Selections nicht gefunden werden.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Das zugrundeliegende Dateisystem speichert Daten und Uhrzeiten mit unzureichender Genauigkeit.
@@ -260,9 +236,6 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Der Digest '{0}' hat nicht die Form 'Algorithmus=Wert'.</value>
-  </data>
-  <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' ist keine gültige 'http(s):' URI und ist auch kein absoluter lokaler Pfad.</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Die Manifest-Datei enthält ungültige Zeilen.</value>
@@ -279,29 +252,17 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
   <data name="MissingNameTagInFeed" xml:space="preserve">
     <value>Fehlender &lt;name&gt; Tag im Feed {0}.</value>
   </data>
-  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Fehlendes '{0}' Attribut auf dem &lt;{1}&gt; Tag.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Nur Administratoren können einen gemeinsam genutzen Store optimieren.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Nur Administratoren können Elemente aus einem gemeinsam genutzen Store entfernen.</value>
   </data>
-  <data name="MustBeDottedList" xml:space="preserve">
-    <value>Die Punkt-getrennten Liste darf nur Dezimalzahlen enthalten.</value>
-  </data>
   <data name="MustBeSpecificCPU" xml:space="preserve">
     <value>Der Wert muss eine spezifische CPU sein (nicht "All" oder "Unknown").</value>
   </data>
   <data name="MustBeSpecificOS" xml:space="preserve">
     <value>Der Wert muss ein spezifisches Betriebssystem sein (nicht "All" oder "Unknown").</value>
-  </data>
-  <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Die Versionsnummer darf ausschließlich aus Punkt-getrennten Listen  von Dezimalzahlen und Modifizierer-Strings bestehen.</value>
-  </data>
-  <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Die Versionsnummer muss mit einer Punkt-getrennten Liste von Dezimalzahlen beginnen.</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Der Datei- oder Verzeichnisname darf keinen Zeilenumbruch enthalten.</value>
@@ -322,16 +283,13 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
   <data name="NoSuitableIconFound" xml:space="preserve">
     <value>Es wurde kein geeignetes Icon gefunden.</value>
   </data>
-  <data name="NotCache" xml:space="preserve">
-    <value>(nicht gecacht)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Der Zahlenwert ist zu groß.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Diese Einstellung wird durch eine Gruppenrichtlinie kontrolliert und kann daher nicht modifiziert werden.</value>
   </data>
-<data name="PathNotRelative" xml:space="preserve">
+  <data name="PathNotRelative" xml:space="preserve">
     <value>Der Pfad sollte relativ sein.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -361,38 +319,11 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>Das Recipe enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
   </data>
-  <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Der relative Pfad '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
-  </data>
-  <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Die relative URI '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Ein vollständig qualifizierter/gewurzelter Pfad wird benötigt.</value>
   </data>
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Konnte data.tar.gz in der Ruby Gem Datei nicht finden.</value>
-  </data>
-  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Fehlerhafte Implementierung</value>
-  </data>
-  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Bietet den Command '{0}' nicht.</value>
-  </data>
-  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Inkompatibles Betriebsystem oder CPU</value>
-  </data>
-  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Unsichere Implementierung</value>
-  </data>
-  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementierung nicht im Cache (derzeit im Off-Line Modus)</value>
-  </data>
-  <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Nicht ausführbare Quellcode Implementierung</value>
-  </data>
-  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Implementierungsversion zu alt oder zu neu</value>
   </data>
   <data name="SignatureAldreadyExists" xml:space="preserve">
     <value>Die Signaturdatei existiert bereits.</value>
@@ -412,17 +343,11 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Konnte den Schreibschutz für '{0}' nicht aktivieren.</value>
   </data>
-  <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Die Dateiendung '{0}' entspricht keinem bekannten Archivtyp.</value>
-  </data>
   <data name="UnknownCpu" xml:space="preserve">
     <value>Unbekannte CPU.</value>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>Unbekanntes Interface</value>
-  </data>
-  <data name="UnknownModifier" xml:space="preserve">
-    <value>Unbekannter Modifizierer.</value>
+    <value>Unbekanntes Interface.</value>
   </data>
   <data name="UnknownOS" xml:space="preserve">
     <value>Unbekanntes Betriebssystem.</value>
@@ -432,9 +357,6 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>Der Archiv MIME Typ '{0}' wird nicht unterstützt.</value>
-  </data>
-  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Ende des Versionsbereich muss exklusiv sein. Verwenden Sie '..!{0}' anstelle von '..{0}'.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Die Passphrase die Sie eingegeben haben ist inkorrekt.</value>
@@ -446,6 +368,9 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
     <value>Die XML-Signatur beginnt nicht auf einer neuen Zeile.</value>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Die Signatur ist nicht gültiges Base 64: </value>
+    <value>Die Signatur ist nicht gültiges Base 64:</value>
+  </data>
+  <data name="NotCached" xml:space="preserve">
+    <value>(nicht gecacht)</value>
   </data>
 </root>

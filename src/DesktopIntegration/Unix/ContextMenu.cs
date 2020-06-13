@@ -4,12 +4,12 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Unix
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> on GNOME systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> on GNOME systems.
     /// </summary>
     public static class ContextMenu
     {
@@ -26,7 +26,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
-        public static void Apply(FeedTarget target, Store.Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
+        public static void Apply(FeedTarget target, Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
@@ -49,7 +49,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
-        public static void Remove(Store.Model.Capabilities.ContextMenu contextMenu, bool machineWide)
+        public static void Remove(Model.Capabilities.ContextMenu contextMenu, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));

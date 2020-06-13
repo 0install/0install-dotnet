@@ -6,8 +6,7 @@ using FluentAssertions;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -28,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     AutoUpdate = true,
-                    CapabilityLists = {Store.Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()}
+                    CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()}
                 }
             }
         };
@@ -44,7 +43,7 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     AutoUpdate = true,
-                    CapabilityLists = {Store.Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()},
+                    CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()},
                     AccessPoints = CreateTestAccessPointList()
                 }
             }

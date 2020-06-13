@@ -3,7 +3,7 @@
 
 using System;
 using NanoByte.Common.Storage;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

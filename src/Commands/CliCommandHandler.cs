@@ -5,11 +5,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model.Selection;
 
 #if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration.ViewModel;

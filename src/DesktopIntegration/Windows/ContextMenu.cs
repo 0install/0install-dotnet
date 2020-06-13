@@ -8,12 +8,13 @@ using System.IO;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> on Windows systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> on Windows systems.
     /// </summary>
     public static class ContextMenu
     {
@@ -39,13 +40,13 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>
         /// Gets the registry key name relevant for the specified context menu <paramref name="target"/>.
         /// </summary>
-        private static IEnumerable<string> GetKeyName(Store.Model.Capabilities.ContextMenuTarget target)
+        private static IEnumerable<string> GetKeyName(ContextMenuTarget target)
             => target switch
             {
-                Store.Model.Capabilities.ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
-                Store.Model.Capabilities.ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
-                Store.Model.Capabilities.ContextMenuTarget.Directories => new[] {RegKeyClassesDirectories},
-                Store.Model.Capabilities.ContextMenuTarget.All => new[] {RegKeyClassesAll},
+                ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
+                ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
+                ContextMenuTarget.Directories => new[] {RegKeyClassesDirectories},
+                ContextMenuTarget.All => new[] {RegKeyClassesAll},
                 _ => new[] {RegKeyClassesFiles}
             };
         #endregion
@@ -63,7 +64,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
-        public static void Apply(FeedTarget target, Store.Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
+        public static void Apply(FeedTarget target, Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
@@ -96,7 +97,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
-        public static void Remove(Store.Model.Capabilities.ContextMenu contextMenu, bool machineWide)
+        public static void Remove(Model.Capabilities.ContextMenu contextMenu, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));

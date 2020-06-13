@@ -5,10 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NanoByte.Common.Collections;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Properties;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Services.Native
 {

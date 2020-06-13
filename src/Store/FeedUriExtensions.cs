@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Store
 {

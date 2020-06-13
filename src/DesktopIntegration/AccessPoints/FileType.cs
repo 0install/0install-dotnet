@@ -6,15 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Makes an application the default handler for a specific file type.
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Capabilities.FileType"/>
+    /// <seealso cref="Model.Capabilities.FileType"/>
     [XmlType("file-type", Namespace = AppList.XmlNamespace)]
     public class FileType : DefaultAccessPoint, IEquatable<FileType>
     {
@@ -25,7 +24,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.FileType>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.FileType>(Capability);
             return capability.Extensions.Select(extension => $"extension:{extension.Value}");
         }
 
@@ -37,7 +36,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.FileType>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.FileType>(Capability);
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
             if (WindowsUtils.IsWindows) Windows.FileType.Register(target, capability, iconStore, machineWide, accessPoint: true);
         }
@@ -49,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.FileType>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.FileType>(Capability);
             if (WindowsUtils.IsWindows) Windows.FileType.Unregister(capability, machineWide, accessPoint: true);
         }
 

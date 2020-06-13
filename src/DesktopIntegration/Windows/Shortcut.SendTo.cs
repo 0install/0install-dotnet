@@ -4,7 +4,7 @@
 using System;
 using System.IO;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

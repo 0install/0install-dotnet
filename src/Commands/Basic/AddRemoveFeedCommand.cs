@@ -6,10 +6,10 @@ using System.Linq;
 using NanoByte.Common.Collections;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Preferences;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Preferences;
 
 namespace ZeroInstall.Commands.Basic
 {

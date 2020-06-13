@@ -8,8 +8,9 @@ using System.Linq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
+using DefaultProgram = ZeroInstall.Model.Capabilities.DefaultProgram;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -158,7 +159,7 @@ namespace ZeroInstall.DesktopIntegration
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<Store.Model.Capabilities.DefaultProgram>())
+            foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<DefaultProgram>())
                 Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, iconsVisible);
         }
         #endregion

@@ -11,8 +11,8 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.ViewModel;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
 
 namespace ZeroInstall.Commands.Desktop
 {

@@ -3,7 +3,7 @@
 
 using System;
 using System.ComponentModel;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {

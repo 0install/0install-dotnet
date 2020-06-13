@@ -2,9 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Services.Native
 {

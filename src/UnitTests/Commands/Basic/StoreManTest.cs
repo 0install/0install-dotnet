@@ -7,10 +7,10 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic
@@ -53,7 +53,7 @@ namespace ZeroInstall.Commands.Basic
                 File.WriteAllText(path, "xyz");
                 StoreMock.Setup(x => x.AddArchives(new[]
                 {
-                    new ArchiveFileInfo(path, Store.Model.Archive.MimeTypeZip)
+                    new ArchiveFileInfo(path, Model.Archive.MimeTypeZip)
                 }, digest, Handler)).Returns("");
 
                 RunAndAssert(null, ExitCode.OK,

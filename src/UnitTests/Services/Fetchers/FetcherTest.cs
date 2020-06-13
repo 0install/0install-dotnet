@@ -11,11 +11,11 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.FileSystem;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Services.Fetchers
 {

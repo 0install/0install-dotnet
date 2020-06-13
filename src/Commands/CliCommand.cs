@@ -14,11 +14,11 @@ using NanoByte.Common.Tasks;
 using NanoByte.Common.Values;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands

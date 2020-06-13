@@ -4,12 +4,12 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Unix
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on FreeDesktop.org systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on FreeDesktop.org systems.
     /// </summary>
     public static class FileType
     {
@@ -27,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Register(FeedTarget target, Store.Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
@@ -50,7 +50,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Unregister(Store.Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));

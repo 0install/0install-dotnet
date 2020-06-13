@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using NanoByte.Common.Undo;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Publish

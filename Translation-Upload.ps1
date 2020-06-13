@@ -10,6 +10,7 @@ function upload($slug, $pathBase) {
     put "resource/$slug/translation/de/" "$pathBase.de.resx"
 }
 
+upload model "$PSScriptRoot\src\Model\Properties\Resources"
 upload store "$PSScriptRoot\src\Store\Properties\Resources"
 upload services "$PSScriptRoot\src\Services\Properties\Resources"
 upload desktopintegration "$PSScriptRoot\src\DesktopIntegration\Properties\Resources"

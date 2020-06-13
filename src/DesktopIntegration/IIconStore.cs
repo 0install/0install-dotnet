@@ -4,7 +4,7 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration
 {

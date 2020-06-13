@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.Implementations
 {

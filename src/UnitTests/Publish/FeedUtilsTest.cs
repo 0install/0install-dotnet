@@ -8,7 +8,7 @@ using Moq;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Publish

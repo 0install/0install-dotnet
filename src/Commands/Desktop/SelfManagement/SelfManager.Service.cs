@@ -128,7 +128,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             "0store-service.exe",
             "ZeroInstall.exe",
             "ZeroInstall.OneGet.dll",
-            "ZeroInstall.Store.XmlSerializers.dll",
+            "ZeroInstall.Model.XmlSerializers.dll",
             "ZeroInstall.DesktopIntegration.XmlSerializers.dll"
         };
 

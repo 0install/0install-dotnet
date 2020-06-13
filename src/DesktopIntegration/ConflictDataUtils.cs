@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using NanoByte.Common.Collections;
 using ZeroInstall.DesktopIntegration.AccessPoints;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -19,7 +20,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appList">The <see cref="AppList"/> containing the existing <see cref="AccessPoint"/>s.</param>
         /// <param name="accessPoints">The set of <see cref="AccessPoint"/>s candidates to check.</param>
         /// <param name="appEntry">The <see cref="AppEntry"/> the <paramref name="accessPoints"/> are intended for.</param>
-        /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Store.Model.Capabilities.Capability"/> is invalid.</exception>
+        /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
         /// <exception cref="ConflictException">One or more of the <paramref name="accessPoints"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="AppList"/>.</exception>
         public static void CheckForConflicts(this AppList appList, IEnumerable<AccessPoint> accessPoints, AppEntry appEntry)
         {

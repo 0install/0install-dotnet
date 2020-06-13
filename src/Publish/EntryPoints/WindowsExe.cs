@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

@@ -4,8 +4,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Services
 {

@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Services.Fetchers
 {

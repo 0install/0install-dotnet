@@ -3,8 +3,8 @@
 
 using System;
 using System.IO;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.ViewModel

@@ -6,8 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Commands.Basic
 {

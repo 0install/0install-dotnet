@@ -3,7 +3,7 @@
 
 using System;
 using System.IO;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

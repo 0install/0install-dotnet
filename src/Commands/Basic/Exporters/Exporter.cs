@@ -11,11 +11,11 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands.Basic.Exporters

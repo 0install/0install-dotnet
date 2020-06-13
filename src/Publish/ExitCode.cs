@@ -4,8 +4,8 @@
 using System;
 using System.IO;
 using System.Net;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish
 {

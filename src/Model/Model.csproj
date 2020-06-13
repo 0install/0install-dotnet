@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build config -->
+  <PropertyGroup>
+    <AssemblyName>ZeroInstall.Model</AssemblyName>
+    <RootNamespace>ZeroInstall.Model</RootNamespace>
+    <LangVersion>8.0</LangVersion>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591;8632</NoWarn>
+    <Nullable>annotations</Nullable>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <OutputType>Library</OutputType>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- NuGet package metadata -->
+  <PropertyGroup>
+    <Version>1.0.0-pre</Version><!-- overridden by build scripts -->
+    <Description>Zero Install data model for the feed format</Description>
+    <Product>Zero Install</Product>
+    <Authors>Bastian Eicher</Authors>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
+    <PackageProjectUrl>https://dotnet.0install.net/</PackageProjectUrl>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="NanoByte.Common" Version="2.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <!-- XML Serialization assembly -->
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='net45'">
+    <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
+    <SgenUseProxyTypes>False</SgenUseProxyTypes>
+  </PropertyGroup>
+  <!--<ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" PrivateAssets="All" />
+  </ItemGroup>-->
+  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
+    <!--<None Include="..\..\artifacts\$(Configuration)\netstandard2.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.0" />-->
+  </ItemGroup>
+
+  <!-- Embedded resources -->
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

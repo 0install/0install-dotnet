@@ -7,8 +7,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Build

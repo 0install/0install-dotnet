@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using FluentAssertions;
 using NanoByte.Common.Collections;
 using Xunit;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Preferences;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Preferences;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Services.Solvers
 {

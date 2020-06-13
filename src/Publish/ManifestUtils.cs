@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish
 {

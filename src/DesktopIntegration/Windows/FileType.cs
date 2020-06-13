@@ -11,14 +11,13 @@ using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on Windows systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on Windows systems.
     /// </summary>
     public static class FileType
     {
@@ -59,7 +58,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>The registry value name for the flag indicating a menu entry should only appear when the SHIFT key is pressed.</summary>
         public const string RegValueExtended = "extended";
 
-        /// <summary>The registry subkey containing <see cref="Store.Model.Capabilities.FileType"/> references.</summary>
+        /// <summary>The registry subkey containing <see cref="Model.Capabilities.FileType"/> references.</summary>
         public const string RegSubKeyIcon = "DefaultIcon";
 
         /// <summary>The registry subkey containing "open with" ProgID references.</summary>
@@ -86,7 +85,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Register(FeedTarget target, Store.Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
@@ -165,7 +164,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
-        public static void Unregister(Store.Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
@@ -247,7 +246,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
         #region Helpers
         /// <summary>
-        /// Registers a <see cref="Store.Model.Capabilities.VerbCapability"/> in a registry key.
+        /// Registers a <see cref="VerbCapability"/> in a registry key.
         /// </summary>
         /// <param name="registryKey">The registry key to write the new data to.</param>
         /// <param name="target">The application being integrated.</param>
@@ -266,7 +265,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (capability is Store.Model.Capabilities.UrlProtocol) registryKey.SetValue(UrlProtocol.ProtocolIndicator, "");
+            if (capability is Model.Capabilities.UrlProtocol) registryKey.SetValue(UrlProtocol.ProtocolIndicator, "");
 
             string description = capability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
             if (description != null) registryKey.SetValue("", description);
@@ -299,7 +298,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         }
 
         /// <summary>
-        /// Generates a command-line string for launching a <see cref="Store.Model.Capabilities.Verb"/>.
+        /// Generates a command-line string for launching a <see cref="Verb"/>.
         /// </summary>
         /// <param name="target">The application being integrated.</param>
         /// <param name="verb">The verb to get to launch command for.</param>

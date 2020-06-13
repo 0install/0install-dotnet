@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.Trust;
 

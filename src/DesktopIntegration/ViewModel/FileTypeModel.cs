@@ -3,7 +3,7 @@
 
 using System.Linq;
 using NanoByte.Common;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {

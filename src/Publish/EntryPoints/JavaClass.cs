@@ -3,8 +3,7 @@
 
 using System.IO;
 using NanoByte.Common;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

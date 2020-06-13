@@ -5,8 +5,8 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using NanoByte.Common.Values.Design;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.ViewModel
 {

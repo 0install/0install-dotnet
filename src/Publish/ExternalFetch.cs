@@ -8,8 +8,8 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish
 {

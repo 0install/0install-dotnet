@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Services.Fetchers
 {

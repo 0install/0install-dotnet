@@ -11,12 +11,12 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -112,7 +112,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Sets <see cref="Store.Model.Requirements.InterfaceUri"/> and applies <see cref="Requirements"/> options that need to be deferred to the end of the parsing process.
+        /// Sets <see cref="Model.Requirements.InterfaceUri"/> and applies <see cref="Requirements"/> options that need to be deferred to the end of the parsing process.
         /// </summary>
         protected void SetInterfaceUri(FeedUri uri)
         {
@@ -145,7 +145,7 @@ namespace ZeroInstall.Commands.Basic
         protected Selections? Selections;
 
         /// <summary>
-        /// Tries to parse <see cref="Store.Model.Requirements.InterfaceUri"/> as a pre-computed <see cref="Selection.Selections"/> document.
+        /// Tries to parse <see cref="Model.Requirements.InterfaceUri"/> as a pre-computed <see cref="Selection.Selections"/> document.
         /// </summary>
         /// <seealso cref="SelectionsDocument"/>
         private void TryParseSelectionsDocument()

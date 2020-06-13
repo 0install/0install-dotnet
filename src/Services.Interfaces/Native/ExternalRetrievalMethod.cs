@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Services.Native
 {

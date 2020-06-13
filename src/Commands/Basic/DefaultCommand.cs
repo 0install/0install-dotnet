@@ -6,7 +6,7 @@ using System.Text;
 using NanoByte.Common.Info;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

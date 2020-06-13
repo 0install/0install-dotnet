@@ -7,8 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.Implementations
 {

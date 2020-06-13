@@ -4,7 +4,7 @@
 using FluentAssertions;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration
 {

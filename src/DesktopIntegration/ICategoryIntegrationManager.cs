@@ -5,8 +5,8 @@ using System;
 using System.IO;
 using System.Net;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration
 {

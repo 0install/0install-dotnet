@@ -9,8 +9,8 @@ using System.Runtime.Remoting;
 using System.Runtime.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.Implementations
 {

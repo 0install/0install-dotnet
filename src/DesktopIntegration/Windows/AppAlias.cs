@@ -10,7 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.Properties;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

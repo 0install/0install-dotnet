@@ -9,8 +9,8 @@ using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Streams;
+using ZeroInstall.Model;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Services.Solvers
 {

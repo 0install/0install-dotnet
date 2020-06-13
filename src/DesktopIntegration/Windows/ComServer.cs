@@ -4,12 +4,12 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.Store;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.ComServer"/> on Windows systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.ComServer"/> on Windows systems.
     /// </summary>
     public static class ComServer
     {
@@ -31,7 +31,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="comServer"/> is invalid.</exception>
-        public static void Register(FeedTarget target, Store.Model.Capabilities.ComServer comServer, IIconStore iconStore, bool machineWide)
+        public static void Register(FeedTarget target, Model.Capabilities.ComServer comServer, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (comServer == null) throw new ArgumentNullException(nameof(comServer));
@@ -53,7 +53,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="comServer"/> is invalid.</exception>
-        public static void Unregister(Store.Model.Capabilities.ComServer comServer, bool machineWide)
+        public static void Unregister(Model.Capabilities.ComServer comServer, bool machineWide)
         {
             #region Sanity checks
             if (comServer == null) throw new ArgumentNullException(nameof(comServer));

@@ -10,9 +10,9 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
 using ZeroInstall.FileSystem;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations

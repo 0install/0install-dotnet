@@ -4,7 +4,7 @@
 using System.IO;
 using FluentAssertions;
 using Xunit;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.Capture
 {

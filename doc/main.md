@@ -5,8 +5,11 @@ Take a look at the [**Namespace List**](namespaces.html) to get an overview of t
 
 **NuGet packages**
 
+[ZeroInstall.Model](https://www.nuget.org/packages/ZeroInstall.Model/)  
+Data model for the [feed format](https://docs.0install.net/specifications/feed/).
+
 [ZeroInstall.Store](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Data model for the [feed format](https://docs.0install.net/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.net/details/cache/).  
+Management of [on-disk caches](https://docs.0install.net/details/cache/), [signature verification](https://docs.0install.net/specifications/feed/#digital-signatures), etc..  
 This provides a common basis for the packages `ZeroInstall.Services` and `ZeroInstall.Publish`. You will usually get this package indirectly as a dependency from there.
 
 [ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services/)  

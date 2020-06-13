@@ -7,6 +7,7 @@ using FluentAssertions;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Storage;
 using Xunit;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -29,14 +30,14 @@ namespace ZeroInstall.Store.Implementations.Archives
                 zipStream.CloseEntry();
             }
 
-            using var extractor = ArchiveExtractor.Create(File.OpenRead(path), tempDir, Model.Archive.MimeTypeZip);
+            using var extractor = ArchiveExtractor.Create(File.OpenRead(path), tempDir, Archive.MimeTypeZip);
             extractor.Should().BeOfType<ZipExtractor>();
         }
 
         [Fact] // Ensures ArchiveExtractor.VerifySupport() correctly distinguishes between supported and not supported archive MIME types.
         public void TestVerifySupport()
         {
-            ArchiveExtractor.VerifySupport(Model.Archive.MimeTypeZip);
+            ArchiveExtractor.VerifySupport(Archive.MimeTypeZip);
             Assert.Throws<NotSupportedException>(() => ArchiveExtractor.VerifySupport("test/format"));
         }
     }

@@ -9,13 +9,13 @@ using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.DefaultProgram"/> and <see cref="AccessPoints.DefaultProgram"/> on Windows systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.DefaultProgram"/> and <see cref="AccessPoints.DefaultProgram"/> on Windows systems.
     /// </summary>
     public static class DefaultProgram
     {
@@ -55,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
-        public static void Register(FeedTarget target, Store.Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool accessPoint = false)
+        public static void Register(FeedTarget target, Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
@@ -85,9 +85,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     installInfoKey.SetValue(RegValueIconsVisible, 0, RegistryValueKind.DWord);
                 }
 
-                if (defaultProgram.Service == Store.Model.Capabilities.DefaultProgram.ServiceMail)
+                if (defaultProgram.Service == Model.Capabilities.DefaultProgram.ServiceMail)
                 {
-                    var mailToProtocol = new Store.Model.Capabilities.UrlProtocol {Verbs = {new Verb {Name = Verb.NameOpen}}};
+                    var mailToProtocol = new Model.Capabilities.UrlProtocol {Verbs = {new Verb {Name = Verb.NameOpen}}};
                     using var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto");
                     FileType.RegisterVerbCapability(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
                 }
@@ -101,7 +101,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="defaultProgram">The default program information to be modified.</param>
         /// <param name="iconsVisible"><c>true</c> if the icons are currently visible, <c>false</c> if the icons are currently not visible.</param>
-        internal static void ToggleIconsVisible(Store.Model.Capabilities.DefaultProgram defaultProgram, bool iconsVisible)
+        internal static void ToggleIconsVisible(Model.Capabilities.DefaultProgram defaultProgram, bool iconsVisible)
         {
             using var installInfoKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service + @"\" + defaultProgram.ID + @"\" + RegSubKeyInstallInfo, writable: true);
             installInfoKey.SetValue(RegValueIconsVisible, iconsVisible ? 1 : 0, RegistryValueKind.DWord);
@@ -117,7 +117,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
-        public static void Unregister(Store.Model.Capabilities.DefaultProgram defaultProgram, bool accessPoint = false)
+        public static void Unregister(Model.Capabilities.DefaultProgram defaultProgram, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));

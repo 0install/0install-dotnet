@@ -5,15 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Makes an application a default program of some kind (e.g. default web-browser, default e-mail client, ...).
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Capabilities.DefaultProgram"/>
+    /// <seealso cref="Model.Capabilities.DefaultProgram"/>
     [XmlType("default-program", Namespace = AppList.XmlNamespace)]
     public class DefaultProgram : DefaultAccessPoint, IEquatable<DefaultProgram>
     {
@@ -24,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.DefaultProgram>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
             return new[] {$"clients:{capability.Service}"};
         }
 
@@ -36,7 +35,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.DefaultProgram>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
             if (WindowsUtils.IsWindows && machineWide)
                 Windows.DefaultProgram.Register(target, capability, iconStore, accessPoint: true);
@@ -49,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
 
-            var capability = appEntry.LookupCapability<Store.Model.Capabilities.DefaultProgram>(Capability);
+            var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
             if (WindowsUtils.IsWindows && machineWide)
                 Windows.DefaultProgram.Unregister(capability, accessPoint: true);
         }

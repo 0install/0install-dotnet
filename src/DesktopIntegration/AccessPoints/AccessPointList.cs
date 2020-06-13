@@ -8,7 +8,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {

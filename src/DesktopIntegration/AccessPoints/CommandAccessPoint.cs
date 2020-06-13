@@ -4,12 +4,13 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
     /// <summary>
     /// Adds a way to explicitly launch the application to the desktop environment.
     /// </summary>
-    /// <seealso cref="ZeroInstall.Store.Model.Command"/>
+    /// <seealso cref="Model.Command"/>
     [XmlType("command-access-point", Namespace = AppList.XmlNamespace)]
     public abstract class CommandAccessPoint : AccessPoint
     {
@@ -21,7 +22,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string Name { get; set; }
 
         /// <summary>
-        /// The name of the <see cref="Store.Model.Command"/> to use when launching via this access point. Leave empty to use default.
+        /// The name of the <see cref="Model.Command"/> to use when launching via this access point. Leave empty to use default.
         /// </summary>
         [Description("The name of the Command to use when launching via this access point. Leave empty to use default.")]
         [XmlAttribute("command")]

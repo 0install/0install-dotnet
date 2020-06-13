@@ -8,7 +8,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.FileSystem;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {

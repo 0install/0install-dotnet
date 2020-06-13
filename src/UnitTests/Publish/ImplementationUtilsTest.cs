@@ -12,9 +12,9 @@ using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
 using Xunit;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Manifests;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Publish
 {

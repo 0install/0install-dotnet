@@ -8,10 +8,10 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
 
 #if NETFRAMEWORK
 using System.Linq;
@@ -140,7 +140,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Uses <see cref="Catalog.FindByShortName"/> to find a <see cref="Feed"/> matching a specific short name.
         /// </summary>
-        /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Store.Model.Command.NameRun"/>.</param>
+        /// <param name="shortName">The short name to look for. Must match either <see cref="Feed.Name"/> or <see cref="EntryPoint.BinaryName"/> of <see cref="Command.NameRun"/>.</param>
         /// <returns>The first matching <see cref="Feed"/>; <c>null</c> if no match was found.</returns>
         /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
         protected Feed? FindByShortName(string shortName)

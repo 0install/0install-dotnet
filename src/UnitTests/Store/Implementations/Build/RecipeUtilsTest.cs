@@ -9,9 +9,9 @@ using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.FileSystem;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Store.Implementations.Build
 {

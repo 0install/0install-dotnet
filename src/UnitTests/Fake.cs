@@ -2,9 +2,8 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall
 {

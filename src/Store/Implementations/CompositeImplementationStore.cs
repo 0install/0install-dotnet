@@ -9,8 +9,8 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Model;
 
 #if NETFRAMEWORK
 using System.Runtime.Remoting;
@@ -23,7 +23,7 @@ namespace ZeroInstall.Store.Implementations
     /// </summary>
     /// <remarks>
     ///   <para>When adding new <see cref="Implementation"/>s the last child <see cref="IImplementationStore"/> that doesn't throw an <see cref="UnauthorizedAccessException"/> is used.</para>
-    ///   <para>When when retrieving existing <see cref="Implementation"/>s the first child <see cref="IImplementationStore"/> that returns <c>true</c> for <see cref="IImplementationStore.Contains(ZeroInstall.Store.Model.ManifestDigest)"/> is used.</para>
+    ///   <para>When when retrieving existing <see cref="Implementation"/>s the first child <see cref="IImplementationStore"/> that returns <c>true</c> for <see cref="IImplementationStore.Contains(ManifestDigest)"/> is used.</para>
     /// </remarks>
     public class CompositeImplementationStore : MarshalByRefObject, IImplementationStore
     {

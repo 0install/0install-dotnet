@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,15 +61,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The string must be in the form &quot;os-cpu&quot;..
-        /// </summary>
-        internal static string ArchitectureStringFormat {
-            get {
-                return ResourceManager.GetString("ArchitectureStringFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The archive file is invalid or damaged..
         /// </summary>
         internal static string ArchiveInvalid {
@@ -84,15 +75,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string ArchiveInvalidPath {
             get {
                 return ResourceManager.GetString("ArchiveInvalidPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find command &apos;{0}&apos;..
-        /// </summary>
-        internal static string CommandNotFound {
-            get {
-                return ResourceManager.GetString("CommandNotFound", resourceCulture);
             }
         }
         
@@ -224,24 +206,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error loading feed preferences for &apos;{0}&apos;. Reverting to default values..
-        /// </summary>
-        internal static string ErrorLoadingFeedPrefs {
-            get {
-                return ResourceManager.GetString("ErrorLoadingFeedPrefs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error loading interface preferences for &apos;{0}&apos;. Reverting to default values..
-        /// </summary>
-        internal static string ErrorLoadingInterfacePrefs {
-            get {
-                return ResourceManager.GetString("ErrorLoadingInterfacePrefs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Error loading the trust database. Reverting to default values..
         /// </summary>
         internal static string ErrorLoadingTrustDB {
@@ -293,15 +257,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string FeedNotInCache {
             get {
                 return ResourceManager.GetString("FeedNotInCache", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find feed &apos;{0}&apos; in catalog..
-        /// </summary>
-        internal static string FeedNotInCatalog {
-            get {
-                return ResourceManager.GetString("FeedNotInCatalog", resourceCulture);
             }
         }
         
@@ -414,38 +369,11 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; in {1} has no ID..
-        /// </summary>
-        internal static string ImplementationMissingID {
-            get {
-                return ResourceManager.GetString("ImplementationMissingID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; in {1} has no version..
-        /// </summary>
-        internal static string ImplementationMissingVersion {
-            get {
-                return ResourceManager.GetString("ImplementationMissingVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The implementation &apos;{0}&apos; could not be located..
         /// </summary>
         internal static string ImplementationNotFound {
             get {
                 return ResourceManager.GetString("ImplementationNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find implementation for interface &apos;{0}&apos; in the selection..
-        /// </summary>
-        internal static string ImplementationNotInSelection {
-            get {
-                return ResourceManager.GetString("ImplementationNotInSelection", resourceCulture);
             }
         }
         
@@ -465,15 +393,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string InvalidDigest {
             get {
                 return ResourceManager.GetString("InvalidDigest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid &apos;http(s):&apos; URI and is not a valid local path either..
-        /// </summary>
-        internal static string InvalidFeedUri {
-            get {
-                return ResourceManager.GetString("InvalidFeedUri", resourceCulture);
             }
         }
         
@@ -523,15 +442,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Missing &apos;{0}&apos; attribute on &lt;{1}&gt; tag..
-        /// </summary>
-        internal static string MissingXmlAttributeOnTag {
-            get {
-                return ResourceManager.GetString("MissingXmlAttributeOnTag", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Only administrators can optimise a shared store..
         /// </summary>
         internal static string MustBeAdminToOptimise {
@@ -550,15 +460,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The dot-separated list may only contain decimal numbers..
-        /// </summary>
-        internal static string MustBeDottedList {
-            get {
-                return ResourceManager.GetString("MustBeDottedList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The value must be a specific CPU (not &quot;All&quot; or &quot;Unknown&quot;)..
         /// </summary>
         internal static string MustBeSpecificCPU {
@@ -573,24 +474,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string MustBeSpecificOS {
             get {
                 return ResourceManager.GetString("MustBeSpecificOS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The version number may only contain dot-separated decimals and modifier strings..
-        /// </summary>
-        internal static string MustBeValidVersionPart {
-            get {
-                return ResourceManager.GetString("MustBeValidVersionPart", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The version number must begin with a list of dot-separated decimals..
-        /// </summary>
-        internal static string MustStartWithDottedList {
-            get {
-                return ResourceManager.GetString("MustStartWithDottedList", resourceCulture);
             }
         }
         
@@ -761,24 +644,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The relative path &apos;{0}&apos; could not be resolved. Only feeds saved as local files may contain relative paths..
-        /// </summary>
-        internal static string RelativePathUnresolvable {
-            get {
-                return ResourceManager.GetString("RelativePathUnresolvable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The relative URI &apos;{0}&apos; could not be resolved. Only feeds saved as local files may contain relative URIs..
-        /// </summary>
-        internal static string RelativeUriUnresolvable {
-            get {
-                return ResourceManager.GetString("RelativeUriUnresolvable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A fully qualified/rooted path is required..
         /// </summary>
         internal static string RootedPathRequired {
@@ -793,69 +658,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string RubyGemInvalid {
             get {
                 return ResourceManager.GetString("RubyGemInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Buggy implementation.
-        /// </summary>
-        internal static string SelectionCandidateNoteBuggy {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteBuggy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does not provide command &apos;{0}&apos;..
-        /// </summary>
-        internal static string SelectionCandidateNoteCommand {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Incompatible operating system or CPU.
-        /// </summary>
-        internal static string SelectionCandidateNoteIncompatibleArchitecture {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteIncompatibleArchitecture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Insecure implementation.
-        /// </summary>
-        internal static string SelectionCandidateNoteInsecure {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteInsecure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Implementation not in cache (currently in off-line mode).
-        /// </summary>
-        internal static string SelectionCandidateNoteNotCached {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteNotCached", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Non-executable source implementation.
-        /// </summary>
-        internal static string SelectionCandidateNoteSource {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteSource", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Implementation version too old or too new.
-        /// </summary>
-        internal static string SelectionCandidateNoteVersionMismatch {
-            get {
-                return ResourceManager.GetString("SelectionCandidateNoteVersionMismatch", resourceCulture);
             }
         }
         
@@ -914,15 +716,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown archive type..
-        /// </summary>
-        internal static string UnknownArchiveType {
-            get {
-                return ResourceManager.GetString("UnknownArchiveType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unknown CPU..
         /// </summary>
         internal static string UnknownCpu {
@@ -932,20 +725,11 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown interface.
+        ///   Looks up a localized string similar to Unknown interface..
         /// </summary>
         internal static string UnknownInterface {
             get {
                 return ResourceManager.GetString("UnknownInterface", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unknown modifier..
-        /// </summary>
-        internal static string UnknownModifier {
-            get {
-                return ResourceManager.GetString("UnknownModifier", resourceCulture);
             }
         }
         
@@ -977,15 +761,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to End of version range must be exclusive. Use &apos;..!{0}&apos;, not &apos;..{0}&apos;..
-        /// </summary>
-        internal static string VersionRangeEndNotExclusive {
-            get {
-                return ResourceManager.GetString("VersionRangeEndNotExclusive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The passphrase you entered is incorrect..
         /// </summary>
         internal static string WrongPassphrase {
@@ -1013,7 +788,7 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The signature is not valid base 64: .
+        ///   Looks up a localized string similar to The signature is not valid base 64:.
         /// </summary>
         internal static string XmlSignatureNotBase64 {
             get {

@@ -24,8 +24,11 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
 You can use these NuGet packages to integrate Zero Install features into your own application:
 
+[![ZeroInstall.Model](https://img.shields.io/nuget/v/ZeroInstall.Model.svg?label=ZeroInstall.Model)](https://www.nuget.org/packages/ZeroInstall.Model/)  
+Data model for the [feed format](https://docs.0install.net/specifications/feed/).
+
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Data model for the [feed format](https://docs.0install.net/specifications/feed/), signature verification, management of [on-disk caches](https://docs.0install.net/details/cache/).  
+Management of [on-disk caches](https://docs.0install.net/details/cache/), [signature verification](https://docs.0install.net/specifications/feed/#digital-signatures), etc..  
 This provides a common basis for the packages `ZeroInstall.Services` and `ZeroInstall.Publish`. You will usually get this package indirectly as a dependency from there.
 
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)  

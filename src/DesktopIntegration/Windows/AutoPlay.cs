@@ -9,13 +9,12 @@ using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Contains control logic for applying <see cref="Store.Model.Capabilities.AutoPlay"/> and <see cref="AccessPoints.AutoPlay"/> on Windows systems.
+    /// Contains control logic for applying <see cref="Model.Capabilities.AutoPlay"/> and <see cref="AccessPoints.AutoPlay"/> on Windows systems.
     /// </summary>
     public static class AutoPlay
     {
@@ -53,13 +52,13 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="autoPlay">The AutoPlay handler information to be applied.</param>
         /// <param name="machineWide">Register the handler machine-wide instead of just for the current user.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
-        /// <param name="accessPoint">Indicates that the handler should become the default handler for all <see cref="Store.Model.Capabilities.AutoPlay.Events"/>.</param>
+        /// <param name="accessPoint">Indicates that the handler should become the default handler for all <see cref="Model.Capabilities.AutoPlay.Events"/>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
-        public static void Register(FeedTarget target, Store.Model.Capabilities.AutoPlay autoPlay, IIconStore iconStore, bool machineWide, bool accessPoint = false)
+        public static void Register(FeedTarget target, Model.Capabilities.AutoPlay autoPlay, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));
@@ -111,11 +110,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="autoPlay">The AutoPlay handler information to be removed.</param>
         /// <param name="machineWide">Remove the handler machine-wide instead of just for the current user.</param>
-        /// <param name="accessPoint">Indicates that the handler should was the default handler for all <see cref="Store.Model.Capabilities.AutoPlay.Events"/>.</param>
+        /// <param name="accessPoint">Indicates that the handler should was the default handler for all <see cref="Model.Capabilities.AutoPlay.Events"/>.</param>
         /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
-        public static void Unregister(Store.Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)
+        public static void Unregister(Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));

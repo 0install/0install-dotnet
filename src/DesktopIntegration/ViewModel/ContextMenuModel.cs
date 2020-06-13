@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Globalization;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {

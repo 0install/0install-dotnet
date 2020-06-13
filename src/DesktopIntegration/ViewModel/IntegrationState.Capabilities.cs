@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using ZeroInstall.Store.Model.Capabilities;
+using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {
@@ -27,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         private readonly List<CapabilityModel> _capabilityModels = new List<CapabilityModel>();
 
         /// <summary>
-        /// Reads the <see cref="DefaultCapability"/>s from <see cref="Store.Model.Feed.CapabilityLists"/> and creates a corresponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.
+        /// Reads the <see cref="DefaultCapability"/>s from <see cref="Model.Feed.CapabilityLists"/> and creates a corresponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.
         /// </summary>
         private void LoadDefaultAccessPoints()
         {

@@ -2,8 +2,8 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections.Generic;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Services.Solvers
 {

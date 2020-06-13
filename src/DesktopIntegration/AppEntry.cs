@@ -13,9 +13,9 @@ using NanoByte.Common.Dispatch;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration
 {

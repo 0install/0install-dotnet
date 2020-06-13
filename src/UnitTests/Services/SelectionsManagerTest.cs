@@ -5,12 +5,11 @@ using FluentAssertions;
 using Moq;
 using NanoByte.Common.Storage;
 using Xunit;
+using ZeroInstall.Model;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Native;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model;
-using ZeroInstall.Store.Model.Selection;
 using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.ViewModel;
 

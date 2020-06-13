@@ -7,9 +7,9 @@ using System.Diagnostics;
 using System.IO;
 using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Basic
 {

@@ -8,11 +8,11 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Model.Selection;
 
 #if NETFRAMEWORK
 using ZeroInstall.DesktopIntegration.ViewModel;

@@ -117,17 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Η σειρά πρέπει να είναι σε μορφή "os-CPU".</value>
-  </data>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>Το αρχείο αρχειοθέτησης δεν είναι έγκυρο ή κατεστραμμένο.</value>
   </data>
   <data name="ArchiveInvalidPath" xml:space="preserve">
     <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
-  </data>
-  <data name="CommandNotFound" xml:space="preserve">
-    <value>Αδυναμία εύρεσης εντολής '{0}'.</value>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Αντιγραφή αρχείων</value>
@@ -158,7 +152,7 @@
     <value>Διαγραφή εφαρμογής {0}</value>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Διαγραφή παλιων αρχείων...</value>
+    <value>Διαγραφή παλιων αρχείων</value>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Μια εφαρμογή δηλωτικου δίεσης δεν ταιριάζει με την αναμενόμενη τιμή.</value>
@@ -178,12 +172,6 @@
   <data name="DirectoryNotFound" xml:space="preserve">
     <value>Ο κατάλογος '{0}' δεν μπορεσε να βρεθεί.</value>
   </data>
-  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Σφάλμα κατά τη φόρτωση των προτιμήσεων τροφοδοσίας για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
-  </data>
-  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Προτιμήσεις διεπαφής Σφάλμα κατά τη φόρτωση για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
   </data>
@@ -198,9 +186,6 @@
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' δεν ήταν δυνατό να εντοπιστεί στην προσωρινή μνήμη τροφοδοσίας. Κοίταξtε για το αρχείο στο: {1}</value>
-  </data>
-  <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Αδυναμία εύρεσης τροφοδοσίας '{0}' στον κατάλογο.</value>
   </data>
   <data name="FileMissingDest" xml:space="preserve">
     <value>Ένα &lt;αρχείο&gt; ετικέτας λείπει ένα χαρακτηριστικό προορισμού.</value>
@@ -235,14 +220,8 @@
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Θέλετε να το καταργήσετε {0}' ; Ένα νέο αντίγραφο θα γίνει αυτόματα και πάλι όταν χρειαστεί.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>'{0}' {1} δεν έχει ID.</value>
-  </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Η εφαρμογή '{0}' δεν μπορεσε να βρεθεί.</value>
-  </data>
-  <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Αδυναμία εύρεσης εφαρμογής για διασύνδεση '{0}' στην επιλογή.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Το υποκείμενικο σύστημα αρχείων δεν αποθηκεύει χρόνους αλλαγής αρχείου με επαρκή ακρίβεια.
@@ -250,9 +229,6 @@
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Αφομοίωση '{0}' δεν έχει τη μορφή «αλγόριθμος = τιμή».</value>
-  </data>
-  <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' δεν είναι έγκυρο 'http (s): «URI και δεν είναι έγκυρη τοπική διαδρομή.</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Το αρχείο δήλωσης περιέχει μη έγκυρες γραμμές.</value>
@@ -272,20 +248,11 @@
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να αφαιρέσουν στοιχεία από ένα κοινό κατάστημα.</value>
   </data>
-  <data name="MustBeDottedList" xml:space="preserve">
-    <value>Η λίστα διαχωρισμένη με τελείες μπορεί να περιέχει μόνο δεκαδικούς αριθμούς.</value>
-  </data>
   <data name="MustBeSpecificCPU" xml:space="preserve">
     <value>Η τιμή πρέπει να είναι ένας ειδικός επεξεργαστής (όχι "Όλα" ή "Αγνωστο").</value>
   </data>
   <data name="MustBeSpecificOS" xml:space="preserve">
     <value>Η τιμή πρέπει να είναι ένας ειδικό λειτουργικό σύστημα (όχι "Όλα" ή "Αγνωστο").</value>
-  </data>
-  <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Ο αριθμός έκδοσης μπορεί να περιέχει μόνο διαχωρισμένα με τελείες δεκαδικά ψηφία και συμβολοσειρές τροποποίησης.</value>
-  </data>
-  <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Ο αριθμός έκδοσης πρέπει να αρχίζει με μια λίστα διαχωρισμένη με τελείες δεκαδικά ψηφία.</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Το όνομα του αρχείου ή του καταλόγου δεν πρέπει να περιέχει έναν χαρακτήρα νέας γραμμής.</value>
@@ -301,7 +268,7 @@
     <value>Καμμια επιλεγμενη έκδοση</value>
   </data>
   <data name="NoSuitableIconFound" xml:space="preserve">
-    <value>Δεν βρέθηκε καμία κατάλληλη εικόνα. </value>
+    <value>Δεν βρέθηκε καμία κατάλληλη εικόνα.</value>
   </data>
   <data name="NotCached" xml:space="preserve">
     <value>(όχι προσωρινή αποθήκευση)</value>
@@ -333,38 +300,11 @@
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>Ένα recipe περιέχει μια έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
   </data>
-  <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Η σχετική διαδρομή '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσία. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές διαδρομές.</value>
-  </data>
-  <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Η σχετική HREF '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσίας. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές HREFs.</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Μια πλήρως αναγνωρισμένη/ριζωμένη διαδρομή απαιτείται.</value>
   </data>
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Αδυναμία εύρεσης data.tar.gz εσωτερικό αρχείου Ruby Gem.</value>
-  </data>
-  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Προβληματικη εφαρμογή </value>
-  </data>
-  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Δεν παρέχει την εντολή '{0}'.</value>
-  </data>
-  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Ασυμβίβαστο λειτουργικό σύστημα ή CPU</value>
-  </data>
-  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Ανασφαλής εφαρμογή</value>
-  </data>
-  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Εφαρμογή όχι στην προσωρινή μνήμη (επί του παρόντος σε λειτουργία εκτός σύνδεσης)</value>
-  </data>
-  <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Μη εκτελέσιμη εφαρμογή πηγής</value>
-  </data>
-  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Η εκδοση εφαρμογής ειναι πολύ παλιά ή πολύ νέα</value>
   </data>
   <data name="SignatureAldreadyExists" xml:space="preserve">
     <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
@@ -381,17 +321,11 @@
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Δεν είναι δυνατή η ενεργοποιήση της προστασίας εγγραφής για '{0}'.</value>
   </data>
-  <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Άγνωστος τύπος αρχείου.</value>
-  </data>
   <data name="UnknownCpu" xml:space="preserve">
     <value>Άγνωστο CPU.</value>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>Άγνωστη διεπαφή</value>
-  </data>
-  <data name="UnknownModifier" xml:space="preserve">
-    <value>Άγνωστος τροποποιητής</value>
+    <value>Άγνωστη διεπαφή.</value>
   </data>
   <data name="UnknownOS" xml:space="preserve">
     <value>Άγνωστο λειτουργικό σύστημα.</value>
@@ -401,9 +335,6 @@
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>Ο τύπος MIME του αρχείου '{0}' δεν υποστηρίζεται.</value>
-  </data>
-  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Το τέλος της σειράς έκδοσης πρέπει να είναι αποκλειστική χρήση »..! {0} ', όχι' .. {0} '.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Η φράση πρόσβασης που έχετε εισάγει είναι λάθος.</value>

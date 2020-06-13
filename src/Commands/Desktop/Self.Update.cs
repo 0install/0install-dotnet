@@ -9,8 +9,8 @@ using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store.Model;
 
 namespace ZeroInstall.Commands.Desktop
 {
