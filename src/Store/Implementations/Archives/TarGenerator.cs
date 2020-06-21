@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using ICSharpCode.SharpZipLib.Tar;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -31,7 +32,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            _tarStream = new TarOutputStream(stream);
+            _tarStream = new TarOutputStream(stream, Encoding.UTF8);
         }
 
         protected override void Dispose(bool disposing) => _tarStream.Dispose();

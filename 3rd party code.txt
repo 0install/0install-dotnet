@@ -1,9 +1,9 @@
-ICSharpCode.SharpZipLib (patched)
-http://www.icsharpcode.net/OpenSource/SharpZipLib/ + https://github.com/nano-byte/SharpZipLib
+ICSharpCode.SharpZipLib
+http://www.icsharpcode.net/OpenSource/SharpZipLib/
 GNU GPL with GNU Classpath exception
 NuGet package: ICSharpCode.SharpZipLib.Patched
 
-NDesk.Options (patched)
+NDesk.Options (with custom patches)
 http://ndesk.org/Options + https://github.com/nano-byte/NDesk.Options
 MIT license: http://opensource.org/licenses/MIT
 NuGet package: NDesk.Options.Patched

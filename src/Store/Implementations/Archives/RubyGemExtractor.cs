@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
 using ZeroInstall.Store.Properties;
@@ -34,7 +35,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             try
             {
-                var tar = new TarInputStream(stream);
+                var tar = new TarInputStream(stream, Encoding.UTF8);
                 while (true)
                 {
                     var entry = tar.GetNextEntry();

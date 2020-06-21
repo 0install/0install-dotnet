@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
 using NanoByte.Common.Tasks;
@@ -42,7 +43,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             try
             {
-                _tarStream = new TarInputStream(stream);
+                _tarStream = new TarInputStream(stream, Encoding.UTF8);
             }
             catch (SharpZipBaseException ex)
             {

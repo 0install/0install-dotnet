@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using System.Text;
 using FluentAssertions;
 using ICSharpCode.SharpZipLib.Tar;
 using NanoByte.Common.Storage;
@@ -22,7 +23,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             var stream = BuildArchive(new TestRoot {new TestFile("x"), new TestFile("y"), new TestFile("Z")});
 
-            using var archive = new TarInputStream(stream);
+            using var archive = new TarInputStream(stream, Encoding.UTF8);
             archive.GetNextEntry().Name.Should().Be("Z");
             archive.GetNextEntry().Name.Should().Be("x");
             archive.GetNextEntry().Name.Should().Be("y");
@@ -39,7 +40,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 new TestDirectory("dir") {new TestFile("sub")}
             });
 
-            using var archive = new TarInputStream(stream);
+            using var archive = new TarInputStream(stream, Encoding.UTF8);
             var executable = archive.GetNextEntry();
             executable.Name.Should().Be("executable");
             executable.ModTime.Should().Be(TestFile.DefaultLastWrite);
@@ -78,7 +79,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 stream = BuildArchive(tempDir);
             }
 
-            using var archive = new TarInputStream(stream);
+            using var archive = new TarInputStream(stream, Encoding.UTF8);
             var file = archive.GetNextEntry();
             file.Name.Should().Be("file");
 
