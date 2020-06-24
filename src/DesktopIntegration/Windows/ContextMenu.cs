@@ -78,9 +78,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
             foreach (string keyName in GetKeyName(contextMenu.Target))
             {
                 using var verbKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + keyName + @"\shell\" + RegKeyPrefix + contextMenu.Verb.Name);
+
                 string description = contextMenu.Verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
                 if (description != null) verbKey.SetValue("", description);
+
                 if (contextMenu.Verb.Extended) verbKey.SetValue(FileType.RegValueExtended, "");
+
+                var icon = target.Feed.GetIcon(Icon.MimeTypeIco, contextMenu.Verb.Command);
+                if (icon != null) verbKey.SetValue("icon", iconStore.GetPath(icon, machineWide));
 
                 using var commandKey = verbKey.CreateSubKeyChecked("command");
                 commandKey.SetValue("", FileType.GetLaunchCommandLine(target, contextMenu.Verb, iconStore, machineWide));
