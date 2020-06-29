@@ -24,7 +24,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
-            return new[] {$@"context-menu-{capability.Target}:{capability.ID}\{capability.Verb}"};
+            return new[] {$@"context-menu-{capability.Target}:{capability.ID}"};
         }
 
         /// <inheritdoc/>
