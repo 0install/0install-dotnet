@@ -17,10 +17,6 @@ namespace ZeroInstall.Model.Capabilities
     {
         /// <inheritdoc/>
         [XmlIgnore]
-        public override bool WindowsMachineWideOnly => false;
-
-        /// <inheritdoc/>
-        [XmlIgnore]
         public override IEnumerable<string> ConflictIDs => new[] {"classes:" + ID};
 
         #region Conversion

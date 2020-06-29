@@ -40,10 +40,6 @@ namespace ZeroInstall.Model.Capabilities
     [Serializable, XmlRoot("context-menu", Namespace = CapabilityList.XmlNamespace), XmlType("context-menu", Namespace = CapabilityList.XmlNamespace)]
     public sealed class ContextMenu : DefaultCapability, ISingleVerb, IEquatable<ContextMenu>
     {
-        /// <inheritdoc/>
-        [XmlIgnore]
-        public override bool WindowsMachineWideOnly => false;
-
         /// <summary>
         /// Controls which file system object types this context menu entry is displayed for.
         /// </summary>

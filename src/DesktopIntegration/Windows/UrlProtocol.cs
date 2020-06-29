@@ -56,6 +56,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 { // Can only be registered invasively by registering protocol ProgID (will replace existing and become default)
                     using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + urlProtocol.ID);
                     FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                    progIDKey.SetValue(ProtocolIndicator, "");
                 }
             }
             else
@@ -66,6 +67,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     progIDKey.SetValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, "");
 
                     FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                    progIDKey.SetValue(ProtocolIndicator, "");
                 }
 
                 if (accessPoint)
@@ -82,6 +84,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                             // Setting default invasively by registering protocol ProgID
                             using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + prefix.Value);
                             FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                            progIDKey.SetValue(ProtocolIndicator, "");
                         }
                     }
                 }

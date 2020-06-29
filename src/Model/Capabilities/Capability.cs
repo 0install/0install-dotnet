@@ -22,7 +22,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public abstract bool WindowsMachineWideOnly { get; }
+        public virtual bool WindowsMachineWideOnly => false;
 
         /// <summary>
         /// An ID that differentiates this capability from other capabilities of the same type within the feed.

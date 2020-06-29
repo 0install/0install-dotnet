@@ -265,8 +265,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (capability is Model.Capabilities.UrlProtocol) registryKey.SetValue(UrlProtocol.ProtocolIndicator, "");
-
             string description = capability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
             if (description != null) registryKey.SetValue("", description);
 

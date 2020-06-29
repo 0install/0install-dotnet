@@ -16,10 +16,6 @@ namespace ZeroInstall.Model.Capabilities
     [Serializable, XmlRoot("url-protocol", Namespace = CapabilityList.XmlNamespace), XmlType("url-protocol", Namespace = CapabilityList.XmlNamespace)]
     public sealed class UrlProtocol : VerbCapability, IEquatable<UrlProtocol>
     {
-        /// <inheritdoc/>
-        [XmlIgnore]
-        public override bool WindowsMachineWideOnly => false;
-
         /// <summary>
         /// A well-known protocol prefix such as "http". Should be empty and set in <see cref="Capability.ID"/> instead if it is a custom protocol.
         /// </summary>

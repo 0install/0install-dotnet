@@ -16,10 +16,6 @@ namespace ZeroInstall.Model.Capabilities
     [Serializable, XmlRoot("file-type", Namespace = CapabilityList.XmlNamespace), XmlType("file-type", Namespace = CapabilityList.XmlNamespace)]
     public sealed class FileType : VerbCapability, IEquatable<FileType>
     {
-        /// <inheritdoc/>
-        [XmlIgnore]
-        public override bool WindowsMachineWideOnly => false;
-
         /// <summary>
         /// A list of all file extensions associated with this file type.
         /// </summary>

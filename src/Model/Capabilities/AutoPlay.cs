@@ -18,10 +18,6 @@ namespace ZeroInstall.Model.Capabilities
     [Serializable, XmlRoot("auto-play", Namespace = CapabilityList.XmlNamespace), XmlType("auto-play", Namespace = CapabilityList.XmlNamespace)]
     public sealed class AutoPlay : IconCapability, ISingleVerb, IEquatable<AutoPlay>
     {
-        /// <inheritdoc/>
-        [XmlIgnore]
-        public override bool WindowsMachineWideOnly => false;
-
         /// <summary>
         /// The name of the application as shown in the AutoPlay selection list.
         /// </summary>
