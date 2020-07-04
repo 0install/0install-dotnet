@@ -244,7 +244,7 @@ namespace ZeroInstall.Model
         /// <returns>The identified <see cref="EntryPoint"/>; <c>null</c> no matching one was found.</returns>
         public EntryPoint? GetEntryPoint(string? command = null)
         {
-            if (command == null) command = Command.NameRun;
+            command ??= Command.NameRun;
 
             return EntryPoints.FirstOrDefault(entryPoint => entryPoint.Command == command);
         }
@@ -261,7 +261,7 @@ namespace ZeroInstall.Model
             if (language == null) throw new ArgumentNullException(nameof(language));
             #endregion
 
-            if (command == null) command = Command.NameRun;
+            command ??= Command.NameRun;
 
             var entryPoint = GetEntryPoint(command);
             string? name = entryPoint?.Names.GetBestLanguage(language);
@@ -282,13 +282,11 @@ namespace ZeroInstall.Model
             if (language == null) throw new ArgumentNullException(nameof(language));
             #endregion
 
-            if (command == null) command = Command.NameRun;
+            command ??= Command.NameRun;
 
             var entryPoint = GetEntryPoint(command);
             string? summary = entryPoint?.Summaries.GetBestLanguage(language);
-            if (!string.IsNullOrEmpty(summary)) return summary;
-
-            return Summaries.GetBestLanguage(language);
+            return string.IsNullOrEmpty(summary) ? Summaries.GetBestLanguage(language) : summary;
         }
 
         /// <summary>
@@ -303,13 +301,9 @@ namespace ZeroInstall.Model
             if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
             #endregion
 
-            if (command == null) command = Command.NameRun;
-
             var entryPoint = GetEntryPoint(command);
             var commandIcon = entryPoint?.Icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
-            if (commandIcon != null) return commandIcon;
-
-            return Icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
+            return commandIcon ?? Icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
         }
 
         #region Normalize
