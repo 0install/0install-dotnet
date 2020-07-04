@@ -36,7 +36,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <param name="machineWide">Apply the configuration machine-wide instead of just for the current user.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The access point's data or a referenced <see cref="Capability"/>'s data are invalid.</exception>
@@ -48,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <param name="appEntry">The application entry containing this access point.</param>
         /// <param name="machineWide">Apply the configuration machine-wide instead of just for the current user.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public abstract void Unapply(AppEntry appEntry, bool machineWide);
 

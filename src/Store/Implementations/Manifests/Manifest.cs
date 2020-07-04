@@ -133,7 +133,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="path">The path of the file to write.</param>
         /// <returns>The manifest digest.</returns>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html

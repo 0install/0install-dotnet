@@ -54,7 +54,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the handler should become the default handler for all <see cref="Model.Capabilities.AutoPlay.Events"/>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
@@ -111,7 +111,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="autoPlay">The AutoPlay handler information to be removed.</param>
         /// <param name="machineWide">Remove the handler machine-wide instead of just for the current user.</param>
         /// <param name="accessPoint">Indicates that the handler should was the default handler for all <see cref="Model.Capabilities.AutoPlay.Events"/>.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)

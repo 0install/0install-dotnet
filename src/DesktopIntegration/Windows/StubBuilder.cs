@@ -33,7 +33,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <returns>The path to the generated stub EXE.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
         public static string GetRunStub(FeedTarget target, string? command, IIconStore iconStore, bool machineWide = false)
@@ -69,7 +69,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         private static void CreateOrUpdateRunStub(FeedTarget target, string path, string? command, bool needsTerminal, IIconStore iconStore)
@@ -118,7 +118,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         internal static void BuildRunStub(FeedTarget target, string path, IIconStore iconStore, bool needsTerminal, string? command = null)

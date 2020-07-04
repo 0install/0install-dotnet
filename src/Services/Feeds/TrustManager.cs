@@ -194,7 +194,7 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="localPath">The local file path the signed data came from. May be <c>null</c> for in-memory data.</param>
         /// <exception cref="WebException">A key file could not be downloaded from the internet.</exception>
         /// <exception cref="SignatureException">A downloaded key file is damaged.</exception>
-        /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
+        /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
         private void AcquireMissingKey(MissingKeySignature signature, Uri uri, string? localPath = null)
         {
@@ -233,7 +233,7 @@ namespace ZeroInstall.Services.Feeds
         /// </summary>
         /// <exception cref="WebException">The key file could not be downloaded from the internet.</exception>
         /// <exception cref="SignatureException">The downloaded key file is damaged.</exception>
-        /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
+        /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
         private void DownloadKey(Uri keyUri)
         {

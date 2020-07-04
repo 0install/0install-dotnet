@@ -56,7 +56,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/> or <paramref name="verbCapabilities"/> is invalid.</exception>
@@ -119,7 +119,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="appRegistration">The registration information to be removed.</param>
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/>.</exception>
         public static void Unregister(Model.Capabilities.AppRegistration appRegistration, bool machineWide)

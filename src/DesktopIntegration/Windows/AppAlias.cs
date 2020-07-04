@@ -34,7 +34,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Create the alias machine-wide instead of just for the current user.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public static void Create(FeedTarget target, string? command, string aliasName, IIconStore iconStore, bool machineWide)
@@ -79,7 +79,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="aliasName">The name of the alias to be removed.</param>
         /// <param name="machineWide">The alias was created machine-wide instead of just for the current user.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public static void Remove(string aliasName, bool machineWide)
         {

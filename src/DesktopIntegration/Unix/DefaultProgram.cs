@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the program should be set as the current default for the service it provides.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
@@ -48,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="defaultProgram">The default program information to be removed.</param>
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
         /// <param name="accessPoint">Indicates that the program was set as the current default for the service it provides.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, bool accessPoint = false)

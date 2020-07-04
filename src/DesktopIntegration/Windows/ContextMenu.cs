@@ -60,7 +60,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconStore">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Add the context menu entry machine-wide instead of just for the current user.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
@@ -99,7 +99,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="contextMenu">The context menu entry to remove.</param>
         /// <param name="machineWide">Remove the context menu entry machine-wide instead of just for the current user.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
         public static void Remove(Model.Capabilities.ContextMenu contextMenu, bool machineWide)

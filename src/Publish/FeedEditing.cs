@@ -56,7 +56,7 @@ namespace ZeroInstall.Publish
         /// </summary>
         /// <remarks>Writing and signing the feed file are performed as an atomic operation (i.e. if signing fails an existing file remains unchanged).</remarks>
         /// <param name="path">The file to save to.</param>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <exception cref="KeyNotFoundException">The specified <see cref="Publish.SignedFeed.SecretKey"/> could not be found on the system.</exception>
         /// <exception cref="WrongPassphraseException"><see cref="Passphrase"/> was incorrect.</exception>
@@ -73,9 +73,9 @@ namespace ZeroInstall.Publish
         /// </summary>
         /// <param name="path">The file to load from.</param>
         /// <returns>A <see cref="FeedEditing"/> containing the loaded feed.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
+        /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
         public new static FeedEditing Load(string path)
             => new FeedEditing(SignedFeed.Load(path)) {Path = path};
     }

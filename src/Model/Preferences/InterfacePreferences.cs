@@ -59,9 +59,9 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         /// <param name="interfaceUri">The interface to load the preferences for.</param>
         /// <returns>The loaded <see cref="InterfacePreferences"/>.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
+        /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
         public static InterfacePreferences LoadFor(FeedUri interfaceUri)
         {
             #region Sanity checks
@@ -116,7 +116,7 @@ namespace ZeroInstall.Model.Preferences
         /// Saves these <see cref="InterfacePreferences"/> for a specific interface.
         /// </summary>
         /// <param name="interfaceUri">The interface to save the preferences for.</param>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         public void SaveFor(FeedUri interfaceUri)
         {

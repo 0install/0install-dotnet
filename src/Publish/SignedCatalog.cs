@@ -47,9 +47,9 @@ namespace ZeroInstall.Publish
         /// </summary>
         /// <param name="path">The file to load from.</param>
         /// <returns>The loaded <see cref="SignedCatalog"/>.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the XML data.</exception>
+        /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
         public static SignedCatalog Load(string path)
         {
             #region Sanity checks
@@ -66,7 +66,7 @@ namespace ZeroInstall.Publish
         /// <remarks>Writing and signing the catalog file are performed as an atomic operation (i.e. if signing fails an existing file remains unchanged).</remarks>
         /// <param name="path">The file to save in.</param>
         /// <param name="passphrase">The passphrase to use to unlock the secret key; can be <c>null</c> if <see cref="SecretKey"/> is <c>null</c>.</param>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <exception cref="KeyNotFoundException">The specified <see cref="SecretKey"/> could not be found on the system.</exception>
         /// <exception cref="WrongPassphraseException"><paramref name="passphrase"/> was incorrect.</exception>

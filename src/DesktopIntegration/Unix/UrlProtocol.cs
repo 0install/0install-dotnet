@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the handler shall become the default handler for the protocol.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
@@ -47,7 +47,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="urlProtocol">The URL protocol to remove.</param>
         /// <param name="machineWide">Unregister the URL protocol machine-wide instead of just for the current user.</param>
         /// <param name="accessPoint">Indicates that the handler was the default handler for the protocol.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, bool accessPoint = false)

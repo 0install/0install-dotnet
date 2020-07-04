@@ -81,7 +81,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the file associations shall become default handlers for their respective types.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem or registry.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>

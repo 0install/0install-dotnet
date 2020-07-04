@@ -83,9 +83,9 @@ namespace ZeroInstall.Store
         /// Aggregates the settings from all applicable INI files listed by <see cref="Locations.GetLoadConfigPaths"/>.
         /// </summary>
         /// <returns>The loaded <see cref="Config"/>.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the config data.</exception>
+        /// <exception cref="InvalidDataException">A problem occurred while deserializing the config data.</exception>
         public static Config Load()
         {
             var config = new Config();
@@ -133,9 +133,9 @@ namespace ZeroInstall.Store
         /// Loads the settings from a single INI file.
         /// </summary>
         /// <returns>The loaded <see cref="Config"/>.</returns>
-        /// <exception cref="IOException">A problem occurs while reading the file.</exception>
+        /// <exception cref="IOException">A problem occurred while reading the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurs while deserializing the config data.</exception>
+        /// <exception cref="InvalidDataException">A problem occurred while deserializing the config data.</exception>
         public static Config Load(string path)
         {
             Log.Debug("Loading Config from: " + path);
@@ -149,7 +149,7 @@ namespace ZeroInstall.Store
         /// Saves the settings to an INI file in the default location in the user profile.
         /// </summary>
         /// <remarks>This method performs an atomic write operation when possible.</remarks>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         public void Save() => Save(Locations.GetSaveConfigPath("0install.net", true, "injector", "global"));
 
@@ -157,7 +157,7 @@ namespace ZeroInstall.Store
         /// Saves the settings to an INI file.
         /// </summary>
         /// <remarks>This method performs an atomic write operation when possible.</remarks>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         public void Save(string path)
         {

@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
         /// <param name="accessPoint">Indicates that the file associations shall become default handlers for their respective types.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
@@ -47,7 +47,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="fileType">The file type to remove.</param>
         /// <param name="machineWide">Unregister the file type machine-wide instead of just for the current user.</param>
         /// <param name="accessPoint">Indicates that the file associations were default handlers for their respective types.</param>
-        /// <exception cref="IOException">A problem occurs while writing to the filesystem.</exception>
+        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
         /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)

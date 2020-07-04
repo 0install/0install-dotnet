@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="format">The format of the manifest (which file details are listed, which digest method is used, etc.).</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
         /// <returns>The manifest digest.</returns>
-        /// <exception cref="IOException">A problem occurs while writing the file.</exception>
+        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <remarks>
         /// The exact format is specified here: http://0install.net/manifest-spec.html
         /// </remarks>

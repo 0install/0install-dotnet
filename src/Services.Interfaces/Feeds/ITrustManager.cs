@@ -25,7 +25,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="WebException">A key file could not be downloaded from the internet.</exception>
         /// <exception cref="SignatureException">No trusted signature was found.</exception>
-        /// <exception cref="IOException">A problem occurs while writing trust configuration.</exception>
+        /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
         ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null);
     }
