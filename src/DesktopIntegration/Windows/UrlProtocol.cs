@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -48,25 +49,25 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             if (string.IsNullOrEmpty(urlProtocol.ID)) throw new InvalidDataException("Missing ID");
 
-            var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+            using var classesKey = RegistryClasses.OpenHive(machineWide);
 
             if (urlProtocol.KnownPrefixes.Count == 0)
             {
                 if (accessPoint)
                 { // Can only be registered invasively by registering protocol ProgID (will replace existing and become default)
-                    using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + urlProtocol.ID);
-                    FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                    using var progIDKey = classesKey.CreateSubKeyChecked(urlProtocol.ID);
+                    progIDKey.SetValue("", urlProtocol.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? urlProtocol.ID);
+                    RegistryClasses.Register(progIDKey, target, urlProtocol, iconStore, machineWide);
                     progIDKey.SetValue(ProtocolIndicator, "");
                 }
             }
             else
             { // Can be registered non-invasively by registering custom ProgID (without becoming default)
-                using (var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + FileType.RegKeyPrefix + urlProtocol.ID))
+                using (var progIDKey = classesKey.CreateSubKeyChecked(RegistryClasses.Prefix + urlProtocol.ID))
                 {
-                    // Add flag to remember whether created for capability or access point
-                    progIDKey.SetValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, "");
-
-                    FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                    progIDKey.SetValue("", urlProtocol.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? urlProtocol.ID);
+                    progIDKey.SetValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, "");
+                    RegistryClasses.Register(progIDKey, target, urlProtocol, iconStore, machineWide);
                     progIDKey.SetValue(ProtocolIndicator, "");
                 }
 
@@ -76,14 +77,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     {
                         if (WindowsUtils.IsWindowsVista && !machineWide)
                         {
-                            using var someKey = Registry.CurrentUser.CreateSubKeyChecked(RegKeyUserVistaUrlAssoc + @"\" + prefix.Value + @"\UserChoice");
-                            someKey.SetValue("ProgID", FileType.RegKeyPrefix + urlProtocol.ID);
+                            using var userChoiceKey = Registry.CurrentUser.CreateSubKeyChecked($@"{RegKeyUserVistaUrlAssoc}\{prefix.Value}\UserChoice");
+                            userChoiceKey.SetValue("ProgID", RegistryClasses.Prefix + urlProtocol.ID);
                         }
                         else
                         {
                             // Setting default invasively by registering protocol ProgID
-                            using var progIDKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + prefix.Value);
-                            FileType.RegisterVerbCapability(progIDKey, target, urlProtocol, iconStore, machineWide);
+                            using var progIDKey = classesKey.CreateSubKeyChecked(prefix.Value);
+                            RegistryClasses.Register(progIDKey, target, urlProtocol, iconStore, machineWide);
                             progIDKey.SetValue(ProtocolIndicator, "");
                         }
                     }
@@ -110,23 +111,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             if (string.IsNullOrEmpty(urlProtocol.ID)) throw new InvalidDataException("Missing ID");
 
-            var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+            using var classesKey = RegistryClasses.OpenHive(machineWide);
 
             if (urlProtocol.KnownPrefixes.Count == 0)
             {
-                if (accessPoint)
-                { // Was registered invasively by registering protocol ProgID
-                    try
-                    {
-                        hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + urlProtocol.ID);
-                    }
-                    #region Error handling
-                    catch (ArgumentException)
-                    {
-                        // Ignore missing registry keys
-                    }
-                    #endregion
-                }
+                if (accessPoint) // Was registered invasively by registering protocol ProgID
+                    classesKey.DeleteSubKeyTree(urlProtocol.ID, throwOnMissingSubKey: false);
             }
             else
             { // Was registered non-invasively by registering custom ProgID
@@ -140,30 +130,19 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 // Remove appropriate purpose flag and check if there are others
                 bool otherFlags;
-                using (var progIDKey = hive.OpenSubKey(FileType.RegKeyClasses + @"\" + FileType.RegKeyPrefix + urlProtocol.ID, writable: true))
+                using (var progIDKey = classesKey.OpenSubKey(RegistryClasses.Prefix + urlProtocol.ID, writable: true))
                 {
                     if (progIDKey == null) otherFlags = false;
                     else
                     {
-                        progIDKey.DeleteValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, throwOnMissingValue: false);
-                        otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWith(FileType.PurposeFlagPrefix));
+                        progIDKey.DeleteValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, throwOnMissingValue: false);
+                        otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWith(RegistryClasses.PurposeFlagPrefix));
                     }
                 }
 
                 // Delete ProgID if there are no other references
                 if (!otherFlags)
-                {
-                    try
-                    {
-                        hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + FileType.RegKeyPrefix + urlProtocol.ID);
-                    }
-                    #region Error handling
-                    catch (ArgumentException)
-                    {
-                        // Ignore missing registry keys
-                    }
-                    #endregion
-                }
+                    classesKey.DeleteSubKeyTree(RegistryClasses.Prefix + urlProtocol.ID, throwOnMissingSubKey: false);
             }
             #endregion
         }

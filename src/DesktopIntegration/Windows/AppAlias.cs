@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
@@ -101,9 +100,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         private static void RemoveFromAppPaths(string exeName, bool machineWide)
         {
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using var appPathsKey = hive.OpenSubKey(RegKeyAppPaths, writable: true);
-            if (appPathsKey != null && appPathsKey.GetSubKeyNames().Contains(exeName))
-                appPathsKey.DeleteSubKey(exeName);
+            hive.DeleteSubKeyTree($@"{RegKeyAppPaths}\{exeName}", throwOnMissingSubKey: false);
         }
         #endregion
 

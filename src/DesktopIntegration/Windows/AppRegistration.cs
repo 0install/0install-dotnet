@@ -90,7 +90,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     foreach (var fileType in verbCapabilities.OfType<Model.Capabilities.FileType>().Except(x => string.IsNullOrEmpty(x.ID)))
                     {
                         foreach (var extension in fileType.Extensions.Except(x => string.IsNullOrEmpty(x.Value)))
-                            fileAssocsKey.SetValue(extension.Value, FileType.RegKeyPrefix + fileType.ID);
+                            fileAssocsKey.SetValue(extension.Value, RegistryClasses.Prefix + fileType.ID);
                     }
                 }
 
@@ -99,7 +99,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     foreach (var urlProtocol in verbCapabilities.OfType<Model.Capabilities.UrlProtocol>())
                     {
                         foreach (var prefix in urlProtocol.KnownPrefixes)
-                            urlAssocsKey.SetValue(prefix.Value, FileType.RegKeyPrefix + urlProtocol.ID);
+                            urlAssocsKey.SetValue(prefix.Value, RegistryClasses.Prefix + urlProtocol.ID);
                     }
                 }
 
@@ -137,16 +137,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 regAppsKey?.DeleteValue(appRegistration.ID, throwOnMissingValue: false);
 
             // TODO: Handle appRegistration.X64
-            try
-            {
-                hive.DeleteSubKeyTree( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath);
-            }
-            #region Error handling
-            catch (ArgumentException)
-            {
-                // Ignore missing registry keys
-            }
-            #endregion
+            hive.DeleteSubKeyTree( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath, throwOnMissingSubKey: false);
         }
         #endregion
     }

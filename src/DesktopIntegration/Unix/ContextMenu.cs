@@ -33,8 +33,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(contextMenu.Verb.Name)) throw new InvalidDataException("Missing verb name");
+            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }
@@ -55,8 +54,7 @@ namespace ZeroInstall.DesktopIntegration.Unix
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
             #endregion
 
-            if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(contextMenu.Verb.Name)) throw new InvalidDataException("Missing verb name");
+            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }

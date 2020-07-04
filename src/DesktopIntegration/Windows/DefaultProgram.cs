@@ -65,15 +65,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
             if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
-            using var serviceKey = Registry.LocalMachine.CreateSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service);
+            using var serviceKey = Registry.LocalMachine.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}");
             using (var appKey = serviceKey.CreateSubKeyChecked(defaultProgram.ID))
             {
-                // Add flag to remember whether created for capability or access point
-                appKey.SetValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, "");
-
                 appKey.SetValue("", target.Feed.Name);
-
-                FileType.RegisterVerbCapability(appKey, target, defaultProgram, iconStore, machineWide: true);
+                appKey.SetValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, "");
+                RegistryClasses.Register(appKey, target, defaultProgram, iconStore, machineWide: true);
 
                 // Set callbacks for Windows SPAD
                 using (var installInfoKey = appKey.CreateSubKeyChecked(RegSubKeyInstallInfo))
@@ -89,7 +86,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 {
                     var mailToProtocol = new Model.Capabilities.UrlProtocol {Verbs = {new Verb {Name = Verb.NameOpen}}};
                     using var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto");
-                    FileType.RegisterVerbCapability(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
+                    RegistryClasses.Register(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
                 }
             }
 
@@ -103,7 +100,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="iconsVisible"><c>true</c> if the icons are currently visible, <c>false</c> if the icons are currently not visible.</param>
         internal static void ToggleIconsVisible(Model.Capabilities.DefaultProgram defaultProgram, bool iconsVisible)
         {
-            using var installInfoKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service + @"\" + defaultProgram.ID + @"\" + RegSubKeyInstallInfo, writable: true);
+            using var installInfoKey = Registry.LocalMachine.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}\{defaultProgram.ID}\{RegSubKeyInstallInfo}");
             installInfoKey.SetValue(RegValueIconsVisible, iconsVisible ? 1 : 0, RegistryValueKind.DWord);
         }
         #endregion
@@ -126,7 +123,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
             if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
-            using var serviceKey = Registry.LocalMachine.OpenSubKeyChecked(RegKeyMachineClients + @"\" + defaultProgram.Service, writable: true);
+            using var serviceKey = Registry.LocalMachine.OpenSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}", writable: true);
             if (accessPoint)
             {
                 // TODO: Restore previous default
@@ -139,25 +136,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 if (appKey == null) otherFlags = false;
                 else
                 {
-                    appKey.DeleteValue(accessPoint ? FileType.PurposeFlagAccessPoint : FileType.PurposeFlagCapability, throwOnMissingValue: false);
-                    otherFlags = appKey.GetValueNames().Any(name => name.StartsWith(FileType.PurposeFlagPrefix));
+                    appKey.DeleteValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, throwOnMissingValue: false);
+                    otherFlags = appKey.GetValueNames().Any(name => name.StartsWith(RegistryClasses.PurposeFlagPrefix));
                 }
             }
 
             // Delete app key if there are no other references
             if (!otherFlags)
-            {
-                try
-                {
-                    serviceKey.DeleteSubKeyTree(defaultProgram.ID);
-                }
-                #region Error handling
-                catch (ArgumentException)
-                {
-                    // Ignore missing registry keys
-                }
-                #endregion
-            }
+                serviceKey.DeleteSubKeyTree(defaultProgram.ID, throwOnMissingSubKey: false);
         }
         #endregion
     }

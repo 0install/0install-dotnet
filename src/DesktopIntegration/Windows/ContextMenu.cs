@@ -3,10 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Net;
-using Microsoft.Win32;
 using NanoByte.Common;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
@@ -19,8 +17,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
     public static class ContextMenu
     {
         #region Constants
-        /// <summary>Prepended before any verb name used by Zero Install in the registry. This prevents conflicts with non-Zero Install installations.</summary>
-        internal const string RegKeyPrefix = "ZeroInstall.";
+        /// <summary>Prepended before programmatic identifiers used by Zero Install in the registry. This prevents conflicts with non-Zero Install installations.</summary>
+        public const string Prefix = RegistryClasses.Prefix + "ContextMenu.";
 
         /// <summary>The HKCU registry key for registering things for all files.</summary>
         public const string RegKeyClassesFiles = "*";
@@ -33,9 +31,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
         /// <summary>The HKCU registry key for registering things for all filesystem objects (files and directories).</summary>
         public const string RegKeyClassesAll = "AllFilesystemObjects";
-
-        /// <summary>The registry key postfix for registering simple context menu entries.</summary>
-        public const string RegKeyPostfix = @"shell";
 
         /// <summary>
         /// Gets the registry key name relevant for the specified context menu <paramref name="target"/>.
@@ -71,24 +66,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(contextMenu.Verb.Name)) throw new InvalidDataException("Missing verb name");
+            var verb = contextMenu.Verb ?? throw new InvalidDataException("Missing verb");
+            if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
 
-            var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+            using var classesKey = RegistryClasses.OpenHive(machineWide);
             foreach (string keyName in GetKeyName(contextMenu.Target))
             {
-                using var verbKey = hive.CreateSubKeyChecked(FileType.RegKeyClasses + @"\" + keyName + @"\shell\" + RegKeyPrefix + contextMenu.Verb.Name);
-
-                string description = contextMenu.Verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
-                if (description != null) verbKey.SetValue("", description);
-
-                if (contextMenu.Verb.Extended) verbKey.SetValue(FileType.RegValueExtended, "");
-
-                var icon = target.Feed.GetIcon(Icon.MimeTypeIco, contextMenu.Verb.Command);
-                if (icon != null) verbKey.SetValue("icon", iconStore.GetPath(icon, machineWide));
-
-                using var commandKey = verbKey.CreateSubKeyChecked("command");
-                commandKey.SetValue("", FileType.GetLaunchCommandLine(target, contextMenu.Verb, iconStore, machineWide));
+                using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
+                RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
             }
         }
         #endregion
@@ -108,23 +93,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
             #endregion
 
+            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
             if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(contextMenu.Verb.Name)) throw new InvalidDataException("Missing verb name");
 
-            var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+            using var classesKey = RegistryClasses.OpenHive(machineWide);
             foreach (string keyName in GetKeyName(contextMenu.Target))
-            {
-                try
-                {
-                    hive.DeleteSubKeyTree(FileType.RegKeyClasses + @"\" + keyName + @"\shell\" + RegKeyPrefix + contextMenu.Verb.Name);
-                }
-                #region Error handling
-                catch (ArgumentException)
-                {
-                    // Ignore missing registry keys
-                }
-                #endregion
-            }
+                classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verb.Name}");
         }
         #endregion
     }
