@@ -95,8 +95,8 @@ namespace ZeroInstall.DesktopIntegration
 
             appList.GetConflictData().Should().Equal(new Dictionary<string, ConflictData>
             {
-                {"mock:a", new ConflictData(appList[0].AccessPoints.Entries[0], appList[0])},
-                {"mock:b", new ConflictData(appList[1].AccessPoints.Entries[0], appList[1])}
+                {"mock:a", new ConflictData(appList[0].AccessPoints!.Entries[0], appList[0])},
+                {"mock:b", new ConflictData(appList[1].AccessPoints!.Entries[0], appList[1])}
             });
         }
 

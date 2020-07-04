@@ -94,7 +94,7 @@ namespace ZeroInstall.Services.Executors
             var execArgs = new[]
             {
                 selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                selections.Implementations[1].Commands[1].Runner.Arguments[0].ToString(),
+                selections.Implementations[1].Commands[1].Runner!.Arguments[0].ToString(),
                 Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[1].Path)),
                 selections.Implementations[1].Commands[1].Arguments[0].ToString()
             };
@@ -133,7 +133,7 @@ namespace ZeroInstall.Services.Executors
                 new[]
                 {
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[0].Path)),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                     "--custom$arg"
@@ -166,7 +166,7 @@ namespace ZeroInstall.Services.Executors
                     "--wrapper",
                     Path.Combine(Test2Path, FileUtils.UnifySlashes(selections.Implementations[2].Commands[0].Path)),
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[0].Path)),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                     "--custom"
@@ -196,7 +196,7 @@ namespace ZeroInstall.Services.Executors
                 new[]
                 {
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     Path.Combine(Test1Path, "dir 1", "main"),
                     "--custom"
                 }.JoinEscapeArguments(),
@@ -225,7 +225,7 @@ namespace ZeroInstall.Services.Executors
                 new[]
                 {
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     Path.Combine(Test1Path, "main"),
                     "--custom"
                 }.JoinEscapeArguments(),
@@ -254,7 +254,7 @@ namespace ZeroInstall.Services.Executors
                 new[]
                 {
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                     "--custom"
                 }.JoinEscapeArguments());
@@ -288,7 +288,7 @@ namespace ZeroInstall.Services.Executors
                 new[]
                 {
                     selections.Implementations[2].Commands[0].Arguments[0].ToString(),
-                    selections.Implementations[1].Commands[0].Runner.Arguments[0].ToString(),
+                    selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
                     Path.Combine(Test1Path, FileUtils.UnifySlashes(selections.Implementations[1].Commands[0].Path)),
                     selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                     "pre1 split1 post1",

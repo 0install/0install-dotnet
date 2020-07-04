@@ -36,7 +36,7 @@ namespace ZeroInstall.DesktopIntegration
         public void TestAddedLocal()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
-            using var apUnapplied = new TemporaryFlagFile("ap-unapplied");
+            using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
             var appListLocal = new AppList
             {
                 Entries =
@@ -44,7 +44,7 @@ namespace ZeroInstall.DesktopIntegration
                     new AppEntry
                     {
                         InterfaceUri = FeedTest.Test1Uri,
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                     }
                 }
             };
@@ -52,14 +52,14 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, appListLocal, new AppList(), new AppList());
 
             apApplied.Set.Should().BeFalse(because: "Locally existing access point should not be reapplied");
-            apUnapplied.Set.Should().BeFalse(because: "Locally existing access point should not be removed");
+            apNotApplied.Set.Should().BeFalse(because: "Locally existing access point should not be removed");
         }
 
         [Fact]
         public void TestRemovedLocal()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
-            using var apUnapplied = new TemporaryFlagFile("ap-unapplied");
+            using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
             var appListServer = new AppList
             {
                 Entries =
@@ -67,7 +67,7 @@ namespace ZeroInstall.DesktopIntegration
                     new AppEntry
                     {
                         InterfaceUri = FeedTest.Test1Uri,
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                     }
                 }
             };
@@ -75,16 +75,16 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, new AppList(), appListServer.Clone(), appListServer);
 
             apApplied.Set.Should().BeFalse(because: "Locally removed access point should not be reapplied");
-            apUnapplied.Set.Should().BeFalse(because: "Locally removed access point should not be unapplied again");
+            apNotApplied.Set.Should().BeFalse(because: "Locally removed access point should not be not-applied again");
         }
 
         [Fact]
         public void TestModifiedLocal()
         {
             using var apLocalApplied = new TemporaryFlagFile("ap-local-applied");
-            using var apLocalUnapplied = new TemporaryFlagFile("ap-local-unapplied");
+            using var apLocalNotApplied = new TemporaryFlagFile("ap-local-not-applied");
             using var apRemoteApplied = new TemporaryFlagFile("ap-remote-applied");
-            using var apRemoteUnapplied = new TemporaryFlagFile("ap-remote-unapplied");
+            using var apRemoteNotApplied = new TemporaryFlagFile("ap-remote-not-applied");
             var appListLocal = new AppList
             {
                 Entries =
@@ -94,7 +94,7 @@ namespace ZeroInstall.DesktopIntegration
                         InterfaceUri = FeedTest.Test1Uri,
                         AutoUpdate = true,
                         Timestamp = new DateTime(2001, 1, 1),
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
                     }
                 }
             };
@@ -108,7 +108,7 @@ namespace ZeroInstall.DesktopIntegration
                         InterfaceUri = FeedTest.Test1Uri,
                         AutoUpdate = false,
                         Timestamp = new DateTime(2000, 1, 1),
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
                     }
                 }
             };
@@ -116,16 +116,16 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, appListLocal, null, appListServer);
 
             apLocalApplied.Set.Should().BeFalse(because: "Up-to-date access point should not be reapplied");
-            apLocalUnapplied.Set.Should().BeFalse(because: "Up-to-date access point should not be removed");
+            apLocalNotApplied.Set.Should().BeFalse(because: "Up-to-date access point should not be removed");
             apRemoteApplied.Set.Should().BeFalse(because: "Outdated access point should not be reapplied");
-            apRemoteUnapplied.Set.Should().BeFalse(because: "Outdated access point should not be removed");
+            apRemoteNotApplied.Set.Should().BeFalse(because: "Outdated access point should not be removed");
         }
 
         [Fact]
         public void TestAddedRemote()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
-            using var apUnapplied = new TemporaryFlagFile("ap-unapplied");
+            using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
             var appListRemote = new AppList
             {
                 Entries =
@@ -133,7 +133,7 @@ namespace ZeroInstall.DesktopIntegration
                     new AppEntry
                     {
                         InterfaceUri = FeedTest.Test1Uri,
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apUnapplied}, new MockAccessPoint()}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}, new MockAccessPoint()}}
                     }
                 }
             };
@@ -141,14 +141,14 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, new AppList(), new AppList(), appListRemote);
 
             apApplied.Set.Should().BeTrue(because: "New access point should be applied");
-            apUnapplied.Set.Should().BeFalse(because: "New access point should not be unapplied");
+            apNotApplied.Set.Should().BeFalse(because: "New access point should not be not-applied");
         }
 
         [Fact]
         public void TestRemovedRemote()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
-            using var apUnapplied = new TemporaryFlagFile("ap-unapplied");
+            using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
             var appListLocal = new AppList
             {
                 Entries =
@@ -156,7 +156,7 @@ namespace ZeroInstall.DesktopIntegration
                     new AppEntry
                     {
                         InterfaceUri = FeedTest.Test1Uri,
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                     }
                 }
             };
@@ -164,16 +164,16 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, appListLocal, appListLocal.Clone(), new AppList());
 
             apApplied.Set.Should().BeFalse(because: "Removed access point should not be reapplied");
-            apUnapplied.Set.Should().BeTrue(because: "Removed point should be unapplied");
+            apNotApplied.Set.Should().BeTrue(because: "Removed point should be not-applied");
         }
 
         [Fact]
         public void TestModifiedRemote()
         {
             using var apLocalApplied = new TemporaryFlagFile("ap-local-applied");
-            using var apLocalUnapplied = new TemporaryFlagFile("ap-local-unapplied");
+            using var apLocalNotApplied = new TemporaryFlagFile("ap-local-not-applied");
             using var apRemoteApplied = new TemporaryFlagFile("ap-remote-applied");
-            using var apRemoteUnapplied = new TemporaryFlagFile("ap-remote-unapplied");
+            using var apRemoteNotApplied = new TemporaryFlagFile("ap-remote-not-applied");
             var appListLocal = new AppList
             {
                 Entries =
@@ -183,7 +183,7 @@ namespace ZeroInstall.DesktopIntegration
                         InterfaceUri = FeedTest.Test1Uri,
                         AutoUpdate = true,
                         Timestamp = new DateTime(1999, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
                     }
                 }
             };
@@ -197,7 +197,7 @@ namespace ZeroInstall.DesktopIntegration
                         InterfaceUri = FeedTest.Test1Uri,
                         AutoUpdate = false,
                         Timestamp = new DateTime(2001, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteUnapplied}}}
+                        AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
                     }
                 }
             };
@@ -205,9 +205,9 @@ namespace ZeroInstall.DesktopIntegration
             TestSync(SyncResetMode.None, appListLocal, null, appListServer);
 
             apLocalApplied.Set.Should().BeFalse(because: "Outdated access point should not be reapplied");
-            apLocalUnapplied.Set.Should().BeTrue(because: "Outdated access point should be removed");
+            apLocalNotApplied.Set.Should().BeTrue(because: "Outdated access point should be removed");
             apRemoteApplied.Set.Should().BeTrue(because: "New access point should be applied");
-            apRemoteUnapplied.Set.Should().BeFalse(because: "New access point should not be unapplied");
+            apRemoteNotApplied.Set.Should().BeFalse(because: "New access point should not be not-applied");
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appListLocal">The current local <see cref="AppList"/>.</param>
         /// <param name="appListLast">The state of the <see cref="AppList"/> after the last successful sync.</param>
         /// <param name="appListServer">The current server-side <see cref="AppList"/>.</param>
-        private void TestSync(SyncResetMode resetMode, AppList appListLocal, AppList appListLast, AppList appListServer)
+        private void TestSync(SyncResetMode resetMode, AppList appListLocal, AppList? appListLast, AppList appListServer)
         {
             appListLocal.SaveXml(_appListPath);
             appListLast?.SaveXml(_appListPath + SyncIntegrationManager.AppListLastSyncSuffix);
@@ -246,66 +246,66 @@ namespace ZeroInstall.DesktopIntegration
         public void TestMixed()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
-            using var ap1Unapplied = new TemporaryFlagFile("ap1-unapplied");
+            using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");
             using var ap2Applied = new TemporaryFlagFile("ap2-applied");
-            using var ap2Unapplied = new TemporaryFlagFile("ap2-unapplied");
+            using var ap2NotApplied = new TemporaryFlagFile("ap2-not-applied");
             using var ap3Applied = new TemporaryFlagFile("ap3-applied");
-            using var ap3Unapplied = new TemporaryFlagFile("ap3-unapplied");
+            using var ap3NotApplied = new TemporaryFlagFile("ap3-not-applied");
             using var ap4Applied = new TemporaryFlagFile("ap4-applied");
-            using var ap4Unapplied = new TemporaryFlagFile("ap4-unapplied");
-            TestSync(SyncResetMode.None, ap1Applied, ap1Unapplied, ap2Applied, ap2Unapplied, ap3Applied, ap3Unapplied, ap4Applied, ap4Unapplied);
+            using var ap4NotApplied = new TemporaryFlagFile("ap4-not-applied");
+            TestSync(SyncResetMode.None, ap1Applied, ap1NotApplied, ap2Applied, ap2NotApplied, ap3Applied, ap3NotApplied, ap4Applied, ap4NotApplied);
             ap1Applied.Set.Should().BeFalse();
-            ap1Unapplied.Set.Should().BeFalse();
+            ap1NotApplied.Set.Should().BeFalse();
             ap2Applied.Set.Should().BeFalse();
-            ap2Unapplied.Set.Should().BeFalse();
+            ap2NotApplied.Set.Should().BeFalse();
             ap3Applied.Set.Should().BeTrue(because: "remote add: appEntry3");
-            ap3Unapplied.Set.Should().BeFalse();
+            ap3NotApplied.Set.Should().BeFalse();
             ap4Applied.Set.Should().BeFalse();
-            ap4Unapplied.Set.Should().BeTrue(because: "remote remove: appEntry4");
+            ap4NotApplied.Set.Should().BeTrue(because: "remote remove: appEntry4");
         }
 
         [Fact]
         public void TestResetClient()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
-            using var ap1Unapplied = new TemporaryFlagFile("ap1-unapplied");
+            using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");
             using var ap2Applied = new TemporaryFlagFile("ap2-applied");
-            using var ap2Unapplied = new TemporaryFlagFile("ap2-unapplied");
+            using var ap2NotApplied = new TemporaryFlagFile("ap2-not-applied");
             using var ap3Applied = new TemporaryFlagFile("ap3-applied");
-            using var ap3Unapplied = new TemporaryFlagFile("ap3-unapplied");
+            using var ap3NotApplied = new TemporaryFlagFile("ap3-not-applied");
             using var ap4Applied = new TemporaryFlagFile("ap4-applied");
-            using var ap4Unapplied = new TemporaryFlagFile("ap4-unapplied");
-            TestSync(SyncResetMode.Client, ap1Applied, ap1Unapplied, ap2Applied, ap2Unapplied, ap3Applied, ap3Unapplied, ap4Applied, ap4Unapplied);
+            using var ap4NotApplied = new TemporaryFlagFile("ap4-not-applied");
+            TestSync(SyncResetMode.Client, ap1Applied, ap1NotApplied, ap2Applied, ap2NotApplied, ap3Applied, ap3NotApplied, ap4Applied, ap4NotApplied);
             ap1Applied.Set.Should().BeFalse();
-            ap1Unapplied.Set.Should().BeTrue(because: "undo: local add: appEntry1");
+            ap1NotApplied.Set.Should().BeTrue(because: "undo: local add: appEntry1");
             ap2Applied.Set.Should().BeTrue(because: "undo: local remove: appEntry2");
-            ap2Unapplied.Set.Should().BeFalse();
+            ap2NotApplied.Set.Should().BeFalse();
             ap3Applied.Set.Should().BeTrue(because: "remote add: appEntry3");
-            ap3Unapplied.Set.Should().BeFalse();
+            ap3NotApplied.Set.Should().BeFalse();
             ap4Applied.Set.Should().BeFalse();
-            ap4Unapplied.Set.Should().BeTrue(because: "remote remove: appEntry4");
+            ap4NotApplied.Set.Should().BeTrue(because: "remote remove: appEntry4");
         }
 
         [Fact]
         public void TestResetServer()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
-            using var ap1Unapplied = new TemporaryFlagFile("ap1-unapplied");
+            using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");
             using var ap2Applied = new TemporaryFlagFile("ap2-applied");
-            using var ap2Unapplied = new TemporaryFlagFile("ap2-unapplied");
+            using var ap2NotApplied = new TemporaryFlagFile("ap2-not-applied");
             using var ap3Applied = new TemporaryFlagFile("ap3-applied");
-            using var ap3Unapplied = new TemporaryFlagFile("ap3-unapplied");
+            using var ap3NotApplied = new TemporaryFlagFile("ap3-not-applied");
             using var ap4Applied = new TemporaryFlagFile("ap4-applied");
-            using var ap4Unapplied = new TemporaryFlagFile("ap4-unapplied");
-            TestSync(SyncResetMode.Server, ap1Applied, ap1Unapplied, ap2Applied, ap2Unapplied, ap3Applied, ap3Unapplied, ap4Applied, ap4Unapplied);
+            using var ap4NotApplied = new TemporaryFlagFile("ap4-not-applied");
+            TestSync(SyncResetMode.Server, ap1Applied, ap1NotApplied, ap2Applied, ap2NotApplied, ap3Applied, ap3NotApplied, ap4Applied, ap4NotApplied);
             ap1Applied.Set.Should().BeFalse();
-            ap1Unapplied.Set.Should().BeFalse();
+            ap1NotApplied.Set.Should().BeFalse();
             ap2Applied.Set.Should().BeFalse();
-            ap2Unapplied.Set.Should().BeFalse();
+            ap2NotApplied.Set.Should().BeFalse();
             ap3Applied.Set.Should().BeFalse();
-            ap3Unapplied.Set.Should().BeFalse();
+            ap3NotApplied.Set.Should().BeFalse();
             ap4Applied.Set.Should().BeFalse();
-            ap4Unapplied.Set.Should().BeFalse();
+            ap4NotApplied.Set.Should().BeFalse();
         }
 
         /// <summary>
@@ -314,42 +314,42 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="resetMode">The <see cref="SyncResetMode"/> to pass to <see cref="SyncIntegrationManager.Sync"/>.</param>
         /// <param name="ap1Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry1.</param>
-        /// <param name="ap1Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry1.</param>
+        /// <param name="ap1NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry1.</param>
         /// <param name="ap2Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry2.</param>
-        /// <param name="ap2Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry2.</param>
+        /// <param name="ap2NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry2.</param>
         /// <param name="ap3Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry3.</param>
-        /// <param name="ap3Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry3.</param>
+        /// <param name="ap3NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry3.</param>
         /// <param name="ap4Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry4.</param>
-        /// <param name="ap4Unapplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry4.</param>
+        /// <param name="ap4NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry4.</param>
         private void TestSync(SyncResetMode resetMode,
                               TemporaryFlagFile ap1Applied,
-                              TemporaryFlagFile ap1Unapplied,
+                              TemporaryFlagFile ap1NotApplied,
                               TemporaryFlagFile ap2Applied,
-                              TemporaryFlagFile ap2Unapplied,
+                              TemporaryFlagFile ap2NotApplied,
                               TemporaryFlagFile ap3Applied,
-                              TemporaryFlagFile ap3Unapplied,
+                              TemporaryFlagFile ap3NotApplied,
                               TemporaryFlagFile ap4Applied,
-                              TemporaryFlagFile ap4Unapplied)
+                              TemporaryFlagFile ap4NotApplied)
         {
             var appEntry1 = new AppEntry
             {
                 InterfaceUri = FeedTest.Test1Uri,
-                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap1Applied, UnapplyFlagPath = ap1Unapplied}}}
+                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap1Applied, UnapplyFlagPath = ap1NotApplied}}}
             };
             var appEntry2 = new AppEntry
             {
                 InterfaceUri = FeedTest.Test2Uri,
-                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap2Applied, UnapplyFlagPath = ap2Unapplied}}}
+                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap2Applied, UnapplyFlagPath = ap2NotApplied}}}
             };
             var appEntry3 = new AppEntry
             {
                 InterfaceUri = FeedTest.Test3Uri,
-                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap3Applied, UnapplyFlagPath = ap3Unapplied}}}
+                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap3Applied, UnapplyFlagPath = ap3NotApplied}}}
             };
             var appEntry4 = new AppEntry
             {
                 InterfaceUri = new FeedUri("http://example.com/test4.xml"),
-                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4Unapplied}}}
+                AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4NotApplied}}}
             };
             var appListLocal = new AppList {Entries = {appEntry1, appEntry4}};
             var appListLast = new AppList {Entries = {appEntry2, appEntry4}};

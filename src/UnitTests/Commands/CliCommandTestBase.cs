@@ -45,7 +45,7 @@ namespace ZeroInstall.Commands
 
         protected CliCommandTestBase()
         {
-            Sut = (TCommand)(typeof(TCommand).GetConstructor(new[] {typeof(ICommandHandler)}).Invoke(new object[] {Handler}));
+            Sut = (TCommand)typeof(TCommand).GetConstructor(new[] {typeof(ICommandHandler)})!.Invoke(new object[] {Handler});
 
             T BuildMock<T>() where T : class
             {

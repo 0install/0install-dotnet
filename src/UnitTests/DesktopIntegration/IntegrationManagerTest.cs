@@ -112,7 +112,7 @@ namespace ZeroInstall.DesktopIntegration
             appEntry.AccessPoints = new AccessPointList {Entries = {accessPoint}};
 
             _integrationManager.RemoveAccessPoints(appEntry, new[] {accessPoint});
-            _integrationManager.AppList.Entries[0].AccessPoints.Entries.Should().BeEmpty();
+            _integrationManager.AppList.Entries[0].AccessPoints!.Entries.Should().BeEmpty();
 
             unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
 
@@ -133,7 +133,7 @@ namespace ZeroInstall.DesktopIntegration
 
             var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed));
             _integrationManager.AddAccessPoints(appEntry, feed, accessPoints);
-            _integrationManager.AppList.Entries[0].AccessPoints.Entries
+            _integrationManager.AppList.Entries[0].AccessPoints!.Entries
                                .Should().Equal(accessPoints, because: "All access points should be applied.");
 
             // Modify feed
@@ -142,7 +142,7 @@ namespace ZeroInstall.DesktopIntegration
 
             _integrationManager.UpdateApp(appEntry, feed);
             appEntry.Name.Should().Be("Test 2");
-            _integrationManager.AppList.Entries[0].AccessPoints.Entries
+            _integrationManager.AppList.Entries[0].AccessPoints!.Entries
                                .Should().Equal(new[] {accessPoints[0]}, because: "Only the first access point should be left.");
         }
 
