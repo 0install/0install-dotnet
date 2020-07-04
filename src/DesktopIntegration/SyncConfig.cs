@@ -49,7 +49,9 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="InvalidDataException">Not all required sync options are set.</exception>
         public static SyncConfig From(Config config)
         {
-            if (config.SyncServer == null || string.IsNullOrEmpty(config.SyncServerUsername) || string.IsNullOrEmpty(config.SyncServerPassword) || string.IsNullOrEmpty(config.SyncCryptoKey))
+            if (config.SyncServer == null)
+                throw new InvalidDataException(Resources.PleaseConfigSync);
+            if (!config.SyncServer.IsFile && (string.IsNullOrEmpty(config.SyncServerUsername) || string.IsNullOrEmpty(config.SyncServerPassword) || string.IsNullOrEmpty(config.SyncCryptoKey)))
                 throw new InvalidDataException(Resources.PleaseConfigSync);
 
             return new SyncConfig(
