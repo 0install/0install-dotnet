@@ -3,7 +3,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using NanoByte.Common;
 using ZeroInstall.Model;
@@ -66,14 +68,40 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var verb = contextMenu.Verb ?? throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
+            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
-            foreach (string keyName in GetKeyName(contextMenu.Target))
-            {
-                using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
-                RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
+
+            if (contextMenu.Verbs.Count == 1)
+            { // Simple context menu entry
+                var verb = contextMenu.Verbs.Single();
+                if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
+
+                foreach (string keyName in GetKeyName(contextMenu.Target))
+                {
+                    using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
+                    RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
+
+                    var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
+                    if (icon != null)
+                        verbKey.SetValue("Icon", iconStore.GetPath(icon, machineWide));
+                }
+            }
+            else
+            { // Cascading context menu
+                using (var menuKey = classesKey.CreateSubKeyChecked(Prefix + contextMenu.ID))
+                    RegistryClasses.Register(menuKey, target, contextMenu, iconStore, machineWide);
+
+                foreach (string keyName in GetKeyName(contextMenu.Target))
+                {
+                    using var menuKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.ID}");
+
+                    menuKey.SetValue("ExtendedSubCommandsKey", Prefix + contextMenu.ID);
+                    menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
+
+                    var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco);
+                    if (icon != null) menuKey.SetValue("Icon", iconStore.GetPath(icon, machineWide));
+                }
             }
         }
         #endregion
@@ -94,11 +122,21 @@ namespace ZeroInstall.DesktopIntegration.Windows
             #endregion
 
             if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
-            if (contextMenu.Verb == null) throw new InvalidDataException("Missing verb");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
-            foreach (string keyName in GetKeyName(contextMenu.Target))
-                classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verb.Name}");
+
+            if (contextMenu.Verbs.Count == 1)
+            { // Simple context menu entry
+                foreach (string keyName in GetKeyName(contextMenu.Target))
+                    classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verbs.Single().Name}", throwOnMissingSubKey: false);
+            }
+            else
+            { // Cascading context menu
+                classesKey.DeleteSubKeyTree(Prefix + contextMenu.ID, throwOnMissingSubKey: false);
+
+                foreach (string keyName in GetKeyName(contextMenu.Target))
+                    classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.ID}", throwOnMissingSubKey: false);
+            }
         }
         #endregion
     }

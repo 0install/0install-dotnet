@@ -34,7 +34,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "files-" + entry,
                         Target = ContextMenuTarget.Files,
-                        Verb = GetVerb(progIDKey, commandMapper, entry)
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
                     });
                 }
             }
@@ -48,7 +48,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "executable-files-" + entry,
                         Target = ContextMenuTarget.ExecutableFiles,
-                        Verb = GetVerb(progIDKey, commandMapper, entry)
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
                     });
                 }
             }
@@ -62,7 +62,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "directories-" + entry,
                         Target = ContextMenuTarget.Directories,
-                        Verb = GetVerb(progIDKey, commandMapper, entry)
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
                     });
                 }
             }
@@ -76,7 +76,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "all-" + entry,
                         Target = ContextMenuTarget.Directories,
-                        Verb = GetVerb(progIDKey, commandMapper, entry)
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
                     });
                 }
             }

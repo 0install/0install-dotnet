@@ -16,7 +16,7 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("An application's ability to handle one or more AutoPlay events.")]
     [Serializable, XmlRoot("auto-play", Namespace = CapabilityList.XmlNamespace), XmlType("auto-play", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class AutoPlay : IconCapability, ISingleVerb, IEquatable<AutoPlay>
+    public sealed class AutoPlay : IconCapability, IEquatable<AutoPlay>
     {
         /// <summary>
         /// The name of the application as shown in the AutoPlay selection list.

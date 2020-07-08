@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Globalization;
+using System.Linq;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
@@ -9,14 +10,22 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
     /// <summary>
     /// Wraps a <see cref="ContextMenu"/> for data binding.
     /// </summary>
-    public class ContextMenuModel : CapabilityModel
+    public class ContextMenuModel : IconCapabilityModel
     {
         private readonly ContextMenu _contextMenu;
 
         /// <summary>
-        /// The name of the stored <see cref="ContextMenu.Verb"/>.
+        /// The name of the first entry in <see cref="VerbCapability.Verbs"/>.
         /// </summary>
-        public string Name => _contextMenu.Verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? _contextMenu.Verb.Name;
+        public string? Name
+        {
+            get
+            {
+                var verb = _contextMenu.Verbs.FirstOrDefault();
+                return verb?.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture)
+                    ?? verb?.Name;
+            }
+        }
 
         /// <inheritdoc/>
         public ContextMenuModel(ContextMenu contextMenu, bool used)

@@ -101,7 +101,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         public static void Register(RegistryKey verbKey, FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
             string description = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
-            if (description != null) verbKey.SetValue("", description);
+            if (description != null)
+            {
+                verbKey.SetValue("", description);
+                verbKey.SetValue("MUIVerb", description);
+            }
 
             if (verb.Extended) verbKey.SetValue("Extended", "");
 

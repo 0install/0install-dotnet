@@ -371,16 +371,7 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="caps:default-capability">
-        <xsd:choice minOccurs="0" maxOccurs="unbounded">
-          <xsd:element name="verb" type="caps:verb" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>
-                The command to execute when the context menu entry is clicked. Required!
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:choice>
+      <xsd:extension base="caps:verb-capability">
         <xsd:attribute name="target" type="caps:context-menu-target" default="files">
           <xsd:annotation>
             <xsd:documentation>

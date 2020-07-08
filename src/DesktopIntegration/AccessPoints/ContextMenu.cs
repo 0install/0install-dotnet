@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
@@ -24,7 +25,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #endregion
 
             var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
-            return new[] {$@"context-menu-{capability.Target}:{capability.ID}"};
+            return new[] {$@"context-menu-{capability.Target}:{(capability.Verbs.Count == 1 ? capability.Verbs.Single().Name : capability.ID)}"};
         }
 
         /// <inheritdoc/>
