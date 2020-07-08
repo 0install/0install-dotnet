@@ -4,6 +4,7 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
@@ -75,11 +76,20 @@ namespace ZeroInstall.Model.Capabilities
         public string? Command { get; set; }
 
         /// <summary>
-        /// A custom arguments list to be passed to the command. %1 will be replaced with the path of the file being opened.
+        /// Command-line arguments to be passed to the command. Will be automatically escaped to allow proper concatenation of multiple arguments containing spaces.
+        /// "${item}" gets replaced with the path of the file being opened.
         /// </summary>
-        [Description("A custom arguments list to be passed to the command. %1 will be replaced with the path of the file being opened.")]
+        [Browsable(false)]
+        [XmlElement("arg")]
+        public List<Arg> Arguments { get; } = new List<Arg>();
+
+        /// <summary>
+        /// Command-line arguments to be passed to the command in escaped form. "%V" gets replaced with the path of the file being opened.
+        /// This is ignored if <see cref="Arguments"/> has elements.
+        /// </summary>
+        [Description("Command-line arguments to be passed to the command in escaped form. \"%V\" gets replaced with the path of the file being opened. This is ignored if Arguments has elements.")]
         [XmlAttribute("args"), DefaultValue("")]
-        public string? Arguments { get; set; }
+        public string? ArgumentsLiteral { get; set; }
 
         /// <summary>
         /// Set this to <c>true</c> to hide the verb in the Windows context menu unless the Shift key is pressed when opening the menu.
@@ -107,8 +117,9 @@ namespace ZeroInstall.Model.Capabilities
         /// <returns>The new copy of the <see cref="Verb"/>.</returns>
         public Verb Clone()
         {
-            var newVerb = new Verb {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, Arguments = Arguments, Extended = Extended};
+            var newVerb = new Verb {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, ArgumentsLiteral = ArgumentsLiteral, Extended = Extended};
             newVerb.Descriptions.AddRange(Descriptions.CloneElements());
+            newVerb.Arguments.AddRange(Arguments.CloneElements());
             return newVerb;
         }
         #endregion
@@ -118,10 +129,11 @@ namespace ZeroInstall.Model.Capabilities
         public bool Equals(Verb other)
             => other != null
             && base.Equals(other)
-            && other.Name == Name
-            && other.Command == Command
-            && other.Arguments == Arguments
-            && other.Extended == Extended
+            && Name == other.Name
+            && Command == other.Command
+            && ArgumentsLiteral == other.ArgumentsLiteral
+            && Arguments.SequencedEquals(other.Arguments)
+            && Extended == other.Extended
             && Descriptions.SequencedEquals(other.Descriptions);
 
         /// <inheritdoc/>
@@ -138,7 +150,8 @@ namespace ZeroInstall.Model.Capabilities
                 base.GetHashCode(),
                 Name,
                 Command,
-                Arguments,
+                Arguments.GetSequencedHashCode(),
+                ArgumentsLiteral,
                 Extended,
                 Descriptions.GetSequencedHashCode());
         #endregion

@@ -5,9 +5,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 
@@ -126,21 +128,33 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
-        private static string GetLaunchCommandLine(FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
+        internal static string GetLaunchCommandLine(FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
-            try
+            string GetRunStub()
             {
-                string launchCommand = StubBuilder.GetRunStub(target, verb.Command, iconStore, machineWide).EscapeArgument();
-                if (!string.IsNullOrEmpty(verb.Arguments)) launchCommand += " " + verb.Arguments;
-                return launchCommand;
+                try
+                {
+                    return StubBuilder.GetRunStub(target, verb.Command, iconStore, machineWide);
+                }
+                #region Error handling
+                catch (InvalidOperationException ex)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException(ex.Message, ex);
+                }
+                #endregion
             }
-            #region Error handling
-            catch (InvalidOperationException ex)
+
+            if (verb.Arguments.Count == 0)
             {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
+                string arguments = string.IsNullOrEmpty(verb.ArgumentsLiteral) ? "\"%V\"" : verb.ArgumentsLiteral;
+                return GetRunStub().EscapeArgument() + " " + arguments;
             }
-            #endregion
+
+            return verb.Arguments.Select(x => x.Value)
+                       .Prepend(GetRunStub())
+                       .JoinEscapeArguments()
+                       .Replace("${item}", "\"%V\"");
         }
     }
 }

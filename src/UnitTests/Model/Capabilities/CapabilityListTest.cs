@@ -20,7 +20,7 @@ namespace ZeroInstall.Model.Capabilities
         public static CapabilityList CreateTestCapabilityList()
         {
             var testIcon = new Icon {Href = new Uri("http://example.com/icons/test.ico"), MimeType = "image/vnd.microsoft.icon"};
-            var testVerb = new Verb {Name = Verb.NameOpen, Descriptions = {"Verb description"}, Command = Command.NameRun, Arguments = "--open"};
+            var testVerb = new Verb {Name = Verb.NameOpen, Descriptions = {"Verb description"}, Command = Command.NameRun, Arguments = {"--open"}};
             return new CapabilityList
             {
                 OS = Architecture.CurrentSystem.OS,

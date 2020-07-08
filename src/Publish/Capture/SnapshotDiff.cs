@@ -121,7 +121,7 @@ namespace ZeroInstall.Publish.Capture
             {
                 Name = verbName,
                 Command = (command.Name == Command.NameRun) ? null : command.Name,
-                Arguments = additionalArgs
+                ArgumentsLiteral = additionalArgs
             };
             if (!string.IsNullOrEmpty(description)) verb.Descriptions.Add(description);
             return verb;
