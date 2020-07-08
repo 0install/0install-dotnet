@@ -150,6 +150,14 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="arg" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+            Command-line argument to be passed to the command. Will be automatically escaped to allow proper concatenation of multiple arguments containing spaces.
+            &quot;${item}&quot; gets replaced with the path of the file being opened.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:choice>
     <xsd:attribute name="name" type="xsd:string" use="required">
       <xsd:annotation>
@@ -168,7 +176,8 @@
     <xsd:attribute name="args" type="xsd:string">
       <xsd:annotation>
         <xsd:documentation>
-          A custom arguments list to be passed to the command. %1 will be replaced with the path of the file being opened.
+          Command-line arguments to be passed to the command in escaped form. &quot;%V&quot; gets replaced with the path of the file being opened.
+          This is ignored if any &lt;arg&gt; elements are specified.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
