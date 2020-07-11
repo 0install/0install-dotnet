@@ -1,5 +1,6 @@
 PROJECT_NAME = "Zero Install .NET API"
 PROJECT_LOGO = ../logo.svg
+PROJECT_NUMBER = $(VERSION)
 
 INPUT = . ../src
 IMAGE_PATH = img

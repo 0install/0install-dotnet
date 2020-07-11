@@ -1,4 +1,5 @@
-﻿$ErrorActionPreference = "Stop"
+﻿Param ($Version = "1.0.0-pre")
+$ErrorActionPreference = "Stop"
 pushd $PSScriptRoot
 
 # Ensure 0install is in PATH
@@ -10,10 +11,10 @@ if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Docum
 mkdir ..\artifacts\Documentation | Out-Null
 
 # Download tag files for external references
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls11,Tls12'
 Invoke-WebRequest https://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
-0install run --batch https://apps.0install.net/devel/doxygen.xml
+$env:VERSION = $Version; 0install run --batch https://apps.0install.net/devel/doxygen.xml
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 popd
