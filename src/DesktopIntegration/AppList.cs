@@ -293,7 +293,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AppList other)
+        public bool Equals(AppList? other)
             => other != null && (base.Equals(other) && Entries.SequencedEquals(other.Entries));
 
         /// <inheritdoc/>

@@ -22,7 +22,7 @@ namespace ZeroInstall.Model
             foreach (string version in validVersions)
             {
                 ImplementationVersion.TryCreate(version, out var result).Should().BeTrue(because: version);
-                result.ToString().Should().Be(version);
+                result!.ToString().Should().Be(version);
             }
 
             var invalidVersions = new[] {"", "a", "pre-1", "1.0-1post"};

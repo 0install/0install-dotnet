@@ -23,7 +23,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="appDescription">Is set to a user-friendly description of the application; unchanged if the name was not found.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        public AppRegistration GetAppRegistration(CommandMapper commandMapper, CapabilityList capabilities, ref string appName, ref string appDescription)
+        public AppRegistration? GetAppRegistration(CommandMapper commandMapper, CapabilityList capabilities, ref string? appName, ref string? appDescription)
         {
             #region Sanity checks
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));

@@ -129,7 +129,7 @@ namespace ZeroInstall.Publish.Capture
             _feedBuilder.ImplementationDirectory = InstallationDir;
             _feedBuilder.GenerateDigest(handler);
 
-            string mimeType = Archive.GuessMimeType(archivePath) ?? Archive.MimeTypeZip;
+            string mimeType = Archive.GuessMimeType(archivePath);
             using (var generator = ArchiveGenerator.Create(InstallationDir, archivePath, mimeType))
                 handler.RunTask(generator);
             _feedBuilder.RetrievalMethod = new Archive {Href = archiveUrl, MimeType = mimeType, Size = new FileInfo(archivePath).Length};

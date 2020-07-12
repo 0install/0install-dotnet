@@ -21,7 +21,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="appName">Is set to the name of the application as displayed to the user; unchanged if the name was not found.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        public void CollectDefaultPrograms(CommandMapper commandMapper, CapabilityList capabilities, ref string appName)
+        public void CollectDefaultPrograms(CommandMapper commandMapper, CapabilityList capabilities, ref string? appName)
         {
             #region Sanity checks
             if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));

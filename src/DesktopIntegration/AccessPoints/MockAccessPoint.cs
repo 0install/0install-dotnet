@@ -94,7 +94,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(MockAccessPoint other)
+        public bool Equals(MockAccessPoint? other)
             => other != null && other.ID == ID;
 
         /// <inheritdoc/>

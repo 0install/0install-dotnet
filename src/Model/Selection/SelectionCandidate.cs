@@ -136,7 +136,7 @@ namespace ZeroInstall.Model.Selection
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(SelectionCandidate other)
+        public bool Equals(SelectionCandidate? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
