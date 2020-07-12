@@ -145,17 +145,15 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestGetAppAlias()
+        public void TestFindAppAlias()
         {
             var appAlias = new AppAlias {Name = "foobar"};
             var appEntry = new AppEntry {AccessPoints = new AccessPointList {Entries = {appAlias}}};
             var appList = new AppList {Entries = {appEntry}};
 
-            appList.GetAppAlias("foobar", out var foundAppEntry)
-                   .Should().Be(appAlias);
-            foundAppEntry.Should().Be(appEntry);
+            appList.FindAppAlias("foobar").Should().Be((appAlias, appEntry));
 
-            appList.GetAppAlias("other", out _).Should().BeNull();
+            appList.FindAppAlias("other").Should().BeNull();
         }
 
         [Fact]
@@ -177,11 +175,8 @@ namespace ZeroInstall.DesktopIntegration
                 }
             };
 
-            appList.TryResolveAlias("foobar", out string? command).Should().Be(uri);
-            command.Should().Be(Command.NameTest);
-
-            appList.TryResolveAlias("other", out command).Should().BeNull();
-            command.Should().BeNull();
+            appList.ResolveAlias("foobar").Should().Be(uri);
+            appList.ResolveAlias("other").Should().BeNull();
         }
     }
 }

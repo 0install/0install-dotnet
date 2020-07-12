@@ -72,24 +72,19 @@ namespace ZeroInstall.Publish.Capture
             using var installInfoKey = clientKey.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo);
             if (installInfoKey == null) return default;
 
-            string IsolateCommand(string regValueName, out string additionalArguments)
+            (string? commandLine, string? arguments) IsolateCommand(string regValueName)
             {
                 string commandLine = installInfoKey.GetValue(regValueName)?.ToString();
                 if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
-                {
-                    additionalArguments = null;
-                    return null;
-                }
+                    return (null, null);
 
                 commandLine = commandLine.Substring(installationDir.Length + 2);
-
-                additionalArguments = commandLine.GetRightPartAtFirstOccurrence("\" ");
-                return commandLine.GetLeftPartAtFirstOccurrence('"');
+                return (commandLine.GetLeftPartAtFirstOccurrence('"'), commandLine.GetRightPartAtFirstOccurrence("\" "));
             }
 
-            string reinstall = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand, out string reinstallArgs);
-            string showIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand, out string showIconsArgs);
-            string hideIcons = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand, out string hideIconsArgs);
+            (string? reinstall, string? reinstallArgs) = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueReinstallCommand);
+            (string? showIcons, string? showIconsArgs) = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand);
+            (string? hideIcons, string? hideIconsArgs) = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand);
 
             return new InstallCommands
             {

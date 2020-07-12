@@ -56,22 +56,23 @@ namespace ZeroInstall.Commands.Desktop
             {
                 if (AdditionalArgs.Count > 1) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs[1].EscapeArgument(), null);
 
-                var appAlias = IntegrationManager.AppList.GetAppAlias(aliasName, out var appEntry);
-                if (appAlias == null)
+                var match = IntegrationManager.AppList.FindAppAlias(aliasName);
+                if (!match.HasValue)
                 {
                     Handler.Output(Resources.AppAlias, string.Format(Resources.AliasNotFound, aliasName));
                     return ExitCode.InvalidArguments;
                 }
+                var (alias, appEntry) = match.Value;
 
                 if (_resolve)
                 {
                     string result = appEntry.InterfaceUri.ToStringRfc();
-                    if (!string.IsNullOrEmpty(appAlias.Command)) result += Environment.NewLine + "Command: " + appAlias.Command;
+                    if (!string.IsNullOrEmpty(alias.Command)) result += Environment.NewLine + "Command: " + alias.Command;
                     Handler.OutputLow(Resources.AppAlias, result);
                 }
                 if (_remove)
                 {
-                    IntegrationManager.RemoveAccessPoints(appEntry, new AccessPoint[] {appAlias});
+                    IntegrationManager.RemoveAccessPoints(appEntry, new AccessPoint[] {alias});
 
                     Handler.OutputLow(Resources.AppAlias, string.Format(Resources.AliasRemoved, aliasName, appEntry.Name));
                 }

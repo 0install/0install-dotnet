@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Dispatch;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
@@ -63,12 +62,7 @@ namespace ZeroInstall.Services.Solvers
 
             protected override bool TryFulfill(IEnumerable<SolverDemand> demands)
             {
-                var essential = new List<SolverDemand>();
-                var recommended = new List<SolverDemand>();
-                demands.Bucketize(x => x.Importance)
-                       .Add(Importance.Essential, essential)
-                       .Add(Importance.Recommended, recommended)
-                       .Run();
+                var (essential, recommended) = Bucketize(demands);
 
                 // Quickly reject impossible sets of demands
                 if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;

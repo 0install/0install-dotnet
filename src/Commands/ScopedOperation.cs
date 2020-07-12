@@ -95,7 +95,7 @@ namespace ZeroInstall.Commands
             if (uri.StartsWith(aliasPrefix))
             {
                 string aliasName = uri.Substring(aliasPrefix.Length);
-                var result = appList.TryResolveAlias(aliasName, out _);
+                var result = appList.ResolveAlias(aliasName);
 
                 if (result == null)
                     throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
@@ -104,7 +104,7 @@ namespace ZeroInstall.Commands
             else
             {
                 string aliasName = uri;
-                var result = appList.TryResolveAlias(aliasName, out _);
+                var result = appList.ResolveAlias(aliasName);
 
                 if (result != null)
                     Log.Info(string.Format(Resources.ResolvedUsingAlias, aliasName, result));

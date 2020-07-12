@@ -13,10 +13,10 @@ namespace ZeroInstall.Store.Feeds
     public class FeedExtensionsTest
     {
         /// <summary>
-        /// Ensures <see cref="Feeds.FeedExtensions.GetImplementation"/> correctly locates <see cref="Implementation"/> in a list of <see cref="Feed"/>s.
+        /// Ensures <see cref="FeedExtensions.FindImplementation"/> correctly locates <see cref="Implementation"/> in a list of <see cref="Feed"/>s.
         /// </summary>
         [Fact]
-        public void TestGetImplementation()
+        public void TestFindImplementation()
         {
             var digest1 = new ManifestDigest(sha256: "123");
             var implementation1 = new Implementation {ManifestDigest = digest1};
@@ -26,14 +26,9 @@ namespace ZeroInstall.Store.Feeds
             var feed2 = new Feed {Elements = {implementation2}};
             var feeds = new[] {feed1, feed2};
 
-            feeds.GetImplementation(digest1, out var feed).Should().Be(implementation1);
-            feed.Should().Be(feed1);
-
-            feeds.GetImplementation(digest2, out feed).Should().Be(implementation2);
-            feed.Should().Be(feed2);
-
-            feeds.GetImplementation(new ManifestDigest(sha256: "invalid"), out feed).Should().BeNull(because: "No implementation should have been found");
-            feed.Should().BeNull(because: "No feed should have been found");
+            feeds.FindImplementation(digest1).Should().Be((implementation1, feed1));
+            feeds.FindImplementation(digest2).Should().Be((implementation2, feed2));
+            feeds.FindImplementation(new ManifestDigest(sha256: "invalid")).Should().BeNull(because: "No implementation should have been found");
         }
     }
 }

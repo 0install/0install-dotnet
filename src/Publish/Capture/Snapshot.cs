@@ -89,7 +89,7 @@ namespace ZeroInstall.Publish.Capture
             AutoPlayHandlersMachine = RegUtils.GetSubKeyNames(Registry.LocalMachine, AutoPlay.RegKeyHandlers);
             AutoPlayAssocsUser = GetAutoPlayAssocs(Registry.CurrentUser);
             AutoPlayAssocsMachine = GetAutoPlayAssocs(Registry.LocalMachine);
-            GetFileAssocData(out FileAssocs, out ProgIDs);
+            (FileAssocs, ProgIDs) = GetFileAssocData();
             ProtocolAssocs = GetProtocolAssoc();
             ClassIDs = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs);
             RegisteredApplications = RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications);
@@ -121,7 +121,7 @@ namespace ZeroInstall.Publish.Capture
         /// <summary>
         /// Retrieves a list of file associations and programmatic identifiers the registry.
         /// </summary>
-        private static void GetFileAssocData(out ComparableTuple<string>[] fileAssocs, out string[] progIDs)
+        private static (ComparableTuple<string>[] fileAssocs, string[] progIDs) GetFileAssocData()
         {
             var fileAssocsList = new List<ComparableTuple<string>>();
             var progIDsList = new List<string>();
@@ -142,8 +142,7 @@ namespace ZeroInstall.Publish.Capture
                 else progIDsList.Add(keyName);
             }
 
-            fileAssocs = fileAssocsList.ToArray();
-            progIDs = progIDsList.ToArray();
+            return (fileAssocsList.ToArray(), progIDsList.ToArray());
         }
 
         /// <summary>

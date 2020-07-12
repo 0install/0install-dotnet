@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NanoByte.Common.Collections;
+using NanoByte.Common.Dispatch;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Native;
@@ -234,6 +235,17 @@ namespace ZeroInstall.Services.Solvers
             requirements.AddRestrictions(_requirements);
             requirements.Languages.AddRange(_requirements.Languages);
             return requirements;
+        }
+
+        protected static (List<SolverDemand> essential, List<SolverDemand> recommended) Bucketize(IEnumerable<SolverDemand> demands)
+        {
+            var essential = new List<SolverDemand>();
+            var recommended = new List<SolverDemand>();
+            demands.Bucketize(x => x.Importance)
+                   .Add(Importance.Essential, essential)
+                   .Add(Importance.Recommended, recommended)
+                   .Run();
+            return (essential, recommended);
         }
     }
 }

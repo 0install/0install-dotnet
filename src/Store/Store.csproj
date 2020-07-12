@@ -49,6 +49,7 @@
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="1.2.0.9" />
     <PackageReference Include="BouncyCastle.OpenPgp" Version="1.8.1.1" />
     <PackageReference Include="SharpCompress" Version="0.24.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <Reference Include="System.Configuration" Pack="False" />

@@ -18,9 +18,8 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="feeds">The list of <see cref="Feed"/>s to search in.</param>
         /// <param name="digest">The digest to search for.</param>
-        /// <param name="feed">Returns the <see cref="Feed"/> a match was found in; <c>null</c> if no match found.</param>
-        /// <returns>The matching <see cref="Implementation"/>; <c>null</c> if no match found.</returns>
-        public static Implementation? GetImplementation(this IEnumerable<Feed> feeds, ManifestDigest digest, out Feed? feed)
+        /// <returns>The matching <see cref="Implementation"/> and the <see cref="Feed"/> it was found in; <c>null</c> if no match found.</returns>
+        public static (Implementation implementation, Feed feed)? FindImplementation(this IEnumerable<Feed> feeds, ManifestDigest digest)
         {
             #region Sanity checks
             if (feeds == null) throw new ArgumentNullException(nameof(feeds));
@@ -30,13 +29,9 @@ namespace ZeroInstall.Store.Feeds
             {
                 var impl = curFeed.Implementations.FirstOrDefault(implementation => implementation.ManifestDigest.PartialEquals(digest));
                 if (impl != null)
-                {
-                    feed = curFeed;
-                    return impl;
-                }
+                    return (impl, curFeed);
             }
 
-            feed = null;
             return null;
         }
     }

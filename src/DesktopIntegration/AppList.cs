@@ -132,50 +132,32 @@ namespace ZeroInstall.DesktopIntegration
         /// Retrieves a specific <see cref="AppAlias"/>.
         /// </summary>
         /// <param name="aliasName">The name of the alias to search for.</param>
-        /// <param name="foundAppEntry">Returns the <see cref="AppEntry"/> containing the found <see cref="AppAlias"/>; <c>null</c> if none was found.</param>
-        /// <returns>The first <see cref="AppAlias"/> matching <paramref name="aliasName"/>; <c>null</c> if none was found.</returns>
-        public AppAlias? GetAppAlias(string aliasName, out AppEntry? foundAppEntry)
+        /// <returns>The first <see cref="AppAlias"/> matching <paramref name="aliasName"/> and the <see cref="AppEntry"/> containing it; <c>null</c> if none was found.</returns>
+        public (AppAlias alias, AppEntry appEntry)? FindAppAlias(string aliasName)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
             #endregion
 
-            var results =
-                from entry in Entries
-                where entry.AccessPoints != null
-                from alias in entry.AccessPoints.Entries.OfType<AppAlias>()
-                where alias.Name == aliasName
-                select new {entry, alias};
-
-            var result = results.FirstOrDefault();
-            if (result == null)
+            foreach (var appEntry in Entries)
             {
-                foundAppEntry = null;
-                return null;
+                if (appEntry.AccessPoints == null) continue;
+                foreach (var alias in appEntry.AccessPoints.Entries.OfType<AppAlias>())
+                {
+                    if (alias.Name == aliasName)
+                        return (alias, appEntry);
+                }
             }
-            else
-            {
-                foundAppEntry = result.entry;
-                return result.alias;
-            }
+            return null;
         }
 
         /// <summary>
         /// Retrieves the target URI of a specific <see cref="AppAlias"/>.
         /// </summary>
         /// <param name="aliasName">The name of the alias to search for.</param>
-        /// <param name="command">The name of the command within the target feed the alias points to; <c>null</c> for default.</param>
         /// <returns>The target feed of the alias; <c>null</c> if none was found.</returns>
-        public FeedUri? TryResolveAlias(string aliasName, out string? command)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
-            #endregion
-
-            var alias = GetAppAlias(aliasName, out var appEntry);
-            command = alias?.Command;
-            return appEntry?.InterfaceUri;
-        }
+        public FeedUri? ResolveAlias(string aliasName)
+            => FindAppAlias(aliasName ?? throw new ArgumentNullException(nameof(aliasName)))?.appEntry.InterfaceUri;
 
         #region Storage
         /// <summary>

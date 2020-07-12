@@ -60,60 +60,74 @@ namespace ZeroInstall.Store.ViewModel
             _feeds = _feedCache.GetAll();
 
             foreach (var feed in _feeds)
+                Add(GetFeedNode(feed));
+
+            foreach (var digest in _implementationStore.ListAll())
             {
-                feed.Normalize(feed.Uri);
-                Add(feed);
+                var node = GetImplementationNode(digest);
+                if (node != null)
+                {
+                    TotalSize += node.Size;
+                    Add(node);
+                }
             }
-            foreach (var digest in _implementationStore.ListAll()) Add(digest);
-            foreach (string path in _implementationStore.ListAllTemp()) Add(path);
+
+            foreach (string path in _implementationStore.ListAllTemp())
+                Add(GetTempNode(path));
         }
 
-        private void Add(Feed feed) => Add(new FeedNode(feed, _feedCache));
+        private FeedNode GetFeedNode(Feed feed)
+        {
+            feed.Normalize(feed.Uri);
+            var node = new FeedNode(feed, _feedCache);
+            return node;
+        }
 
-        private void Add(ManifestDigest digest)
+        private ImplementationNode? GetImplementationNode(ManifestDigest digest)
         {
             Debug.Assert(_feeds != null);
 
             try
             {
-                var implementation = _feeds.GetImplementation(digest, out var feed);
-
-                ImplementationNode implementationNode;
-                if (implementation == null || feed == null) implementationNode = new OrphanedImplementationNode(digest, _implementationStore);
-                else implementationNode = new OwnedImplementationNode(digest, implementation, new FeedNode(feed, _feedCache), _implementationStore);
-
-                TotalSize += implementationNode.Size;
-                Add(implementationNode);
+                var found = _feeds.FindImplementation(digest);
+                if (found.HasValue)
+                    return new OwnedImplementationNode(digest, found.Value.implementation, new FeedNode(found.Value.feed, _feedCache), _implementationStore);
+                else
+                    return new OrphanedImplementationNode(digest, _implementationStore);
             }
             #region Error handling
             catch (FormatException ex)
             {
                 Log.Error($"Problem processing the manifest file for '{digest}'.");
                 Log.Error(ex);
+                return null;
             }
             catch (IOException ex)
             {
                 Log.Error($"Problem processing '{digest}'.");
                 Log.Error(ex);
+                return null;
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Error($"Problem processing '{digest}'.");
                 Log.Error(ex);
+                return null;
             }
             #endregion
         }
 
-        private void Add(string path) => Add(new TempDirectoryNode(path, _implementationStore));
+        private TempDirectoryNode GetTempNode(string path)
+            => new TempDirectoryNode(path, _implementationStore);
 
-        private void Add(CacheNode entry)
+        private void Add(CacheNode node)
         {
             Debug.Assert(Nodes != null);
 
             // Avoid name collisions by incrementing suffix
-            while (Nodes.Contains(entry.Name)) entry.SuffixCounter++;
+            while (Nodes.Contains(node.Name)) node.SuffixCounter++;
 
-            Nodes.Add(entry);
+            Nodes.Add(node);
         }
     }
 }

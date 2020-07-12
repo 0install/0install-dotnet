@@ -123,7 +123,7 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         private bool AskKeyApproval(FeedUri uri, string fingerprint, Domain domain)
         {
-            string keyInformation = GetKeyInformation(fingerprint, out bool goodVote) ?? Resources.NoKeyInfoServerData;
+            (bool goodVote, string? keyInformation) = GetKeyInformation(fingerprint);
 
             // Automatically trust key for _new_ feeds if voted good by key server
             if (_config.AutoApproveKeys && goodVote && !_feedCache.Contains(uri))
@@ -134,7 +134,7 @@ namespace ZeroInstall.Services.Feeds
 
             // Otherwise ask user
             return _handler.Ask(
-                string.Format(Resources.AskKeyTrust, uri.ToStringRfc(), fingerprint, keyInformation, domain),
+                string.Format(Resources.AskKeyTrust, uri.ToStringRfc(), fingerprint, keyInformation ?? Resources.NoKeyInfoServerData, domain),
                 defaultAnswer: false, alternateMessage: Resources.UntrustedKeys);
         }
 
@@ -142,15 +142,11 @@ namespace ZeroInstall.Services.Feeds
         /// Retrieves information about a OpenPGP key from the <see cref="Config.KeyInfoServer"/>.
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
-        /// <param name="goodVote">Returns <c>true</c> if the server indicated that the key is trustworthy.</param>
-        /// <returns>Human-readable information about the key or <c>null</c> if the server failed to provide a response.</returns>
-        private string? GetKeyInformation(string fingerprint, out bool goodVote)
+        /// <returns>Indication whether server considers the key is trustworthy, plus human-readable information about the key if available.</returns>
+        private (bool goodVode, string? keyInformation) GetKeyInformation(string fingerprint)
         {
             if (_config.KeyInfoServer == null)
-            {
-                goodVote = false;
-                return null;
-            }
+                return (false, null);
 
             try
             {
@@ -159,29 +155,25 @@ namespace ZeroInstall.Services.Feeds
                 var xmlReader = XmlReader.Create(keyInfoUri.AbsoluteUri);
                 _handler.CancellationToken.ThrowIfCancellationRequested();
                 if (!xmlReader.ReadToFollowing("item"))
-                {
-                    goodVote = false;
-                    return null;
-                }
+                    return (false, null);
 
-                goodVote = xmlReader.MoveToAttribute("vote") && (xmlReader.Value == "good");
+                bool goodVote = xmlReader.MoveToAttribute("vote") && (xmlReader.Value == "good");
                 xmlReader.MoveToContent();
-                return xmlReader.ReadElementContentAsString();
+                string keyInformation = xmlReader.ReadElementContentAsString();
+                return (goodVote, keyInformation);
             }
             #region Error handling
             catch (XmlException ex)
             {
                 Log.Error(string.Format(Resources.UnableToParseKeyInfo, fingerprint));
                 Log.Error(ex);
-                goodVote = false;
-                return null;
+                return (false, null);
             }
             catch (WebException ex)
             {
                 Log.Error(string.Format(Resources.UnableToRetrieveKeyInfo, fingerprint));
                 Log.Error(ex);
-                goodVote = false;
-                return null;
+                return (false, null);
             }
             #endregion
         }

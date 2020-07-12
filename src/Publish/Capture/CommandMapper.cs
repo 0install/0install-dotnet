@@ -15,31 +15,8 @@ namespace ZeroInstall.Publish.Capture
     /// </summary>
     public class CommandMapper
     {
-        /// <summary>
-        /// An association of a command-line with a <see cref="Command"/>.
-        /// </summary>
-        private struct CommandTuple
-        {
-            /// <summary>The full command-line rooted in the filesystem.</summary>
-            public readonly string CommandLine;
-
-            /// <summary>The command corresponding to the execution of the command-line.</summary>
-            public readonly Command Command;
-
-            /// <summary>
-            /// Creates a new command tuple.
-            /// </summary>
-            /// <param name="commandLine">The full command-line rooted in the filesystem.</param>
-            /// <param name="command">The command corresponding to the execution of the command-line.</param>
-            public CommandTuple(string commandLine, Command command)
-            {
-                CommandLine = commandLine;
-                Command = command;
-            }
-        }
-
         /// <summary>A list of command-lines and corresponding <see cref="Command"/>s.</summary>
-        private readonly List<CommandTuple> _commands = new List<CommandTuple>();
+        private readonly List<(string commandLine, Command command)> _commands = new List<(string commandLine, Command command)>();
 
         /// <summary>
         /// The fully qualified path to the installation directory.
@@ -74,17 +51,17 @@ namespace ZeroInstall.Publish.Capture
             }
 
             // Sort backwards to make sure the most specific matches are selected first
-            _commands.Sort((tuple1, tuple2) => string.CompareOrdinal(tuple2.CommandLine, tuple1.CommandLine));
+            _commands.Sort((tuple1, tuple2) => string.CompareOrdinal(tuple2.commandLine, tuple1.commandLine));
         }
 
-        private static CommandTuple GetCommandTuple(string installationDir, Command command, bool escapePath)
+        private static (string commandLine, Command command) GetCommandTuple(string installationDir, Command command, bool escapePath)
         {
             string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
             string arguments = command.Arguments.Select(arg => arg.ToString()).JoinEscapeArguments();
 
             string commandLine = escapePath ? ("\"" + path + "\"") : path;
             if (!string.IsNullOrEmpty(arguments)) commandLine += " " + arguments;
-            return new CommandTuple(commandLine, command);
+            return (commandLine, command);
         }
 
         /// <summary>
@@ -99,10 +76,13 @@ namespace ZeroInstall.Publish.Capture
             if (commandLine == null) throw new ArgumentNullException(nameof(commandLine));
             #endregion
 
-            foreach (var tuple in _commands.Where(tuple => commandLine.StartsWithIgnoreCase(tuple.CommandLine)))
+            foreach ((string commandCommandLine, var command) in _commands)
             {
-                additionalArgs = commandLine.Substring(tuple.CommandLine.Length).TrimStart();
-                return tuple.Command;
+                if (commandLine.StartsWithIgnoreCase(commandCommandLine))
+                {
+                    additionalArgs = commandLine.Substring(commandCommandLine.Length).TrimStart();
+                    return command;
+                }
             }
 
             // No match found
