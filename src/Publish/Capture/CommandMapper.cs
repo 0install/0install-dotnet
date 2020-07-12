@@ -39,7 +39,7 @@ namespace ZeroInstall.Publish.Capture
         }
 
         /// <summary>A list of command-lines and corresponding <see cref="Command"/>s.</summary>
-        private readonly List<CommandTuple> _commmands = new List<CommandTuple>();
+        private readonly List<CommandTuple> _commands = new List<CommandTuple>();
 
         /// <summary>
         /// The fully qualified path to the installation directory.
@@ -50,31 +50,31 @@ namespace ZeroInstall.Publish.Capture
         /// Creates a new command provider.
         /// </summary>
         /// <param name="installationDir">The fully qualified path to the installation directory.</param>
-        /// <param name="commmands">A list of all known-commands available within the installation directory.</param>
-        public CommandMapper(string installationDir, IEnumerable<Command> commmands)
+        /// <param name="commands">A list of all known-commands available within the installation directory.</param>
+        public CommandMapper(string installationDir, IEnumerable<Command> commands)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(installationDir)) throw new ArgumentNullException(nameof(installationDir));
-            if (commmands == null) throw new ArgumentNullException(nameof(commmands));
+            if (commands == null) throw new ArgumentNullException(nameof(commands));
             #endregion
 
             InstallationDir = installationDir;
 
             // Associate each command with its command-line
-            foreach (var command in commmands)
+            foreach (var command in commands)
             {
                 string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
                 string arguments = command.Arguments.Select(arg => arg.ToString()).JoinEscapeArguments();
 
-                _commmands.Add(GetCommandTuple(installationDir, command, escapePath: true));
+                _commands.Add(GetCommandTuple(installationDir, command, escapePath: true));
 
                 // Only add a version without escaping if it causes no ambiguities
                 if (!path.ContainsWhitespace() || string.IsNullOrEmpty(arguments))
-                    _commmands.Add(GetCommandTuple(installationDir, command, escapePath: false));
+                    _commands.Add(GetCommandTuple(installationDir, command, escapePath: false));
             }
 
             // Sort backwards to make sure the most specific matches are selected first
-            _commmands.Sort((tuple1, tuple2) => string.CompareOrdinal(tuple2.CommandLine, tuple1.CommandLine));
+            _commands.Sort((tuple1, tuple2) => string.CompareOrdinal(tuple2.CommandLine, tuple1.CommandLine));
         }
 
         private static CommandTuple GetCommandTuple(string installationDir, Command command, bool escapePath)
@@ -82,9 +82,9 @@ namespace ZeroInstall.Publish.Capture
             string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
             string arguments = command.Arguments.Select(arg => arg.ToString()).JoinEscapeArguments();
 
-            string commmandLine = escapePath ? ("\"" + path + "\"") : path;
-            if (!string.IsNullOrEmpty(arguments)) commmandLine += " " + arguments;
-            return new CommandTuple(commmandLine, command);
+            string commandLine = escapePath ? ("\"" + path + "\"") : path;
+            if (!string.IsNullOrEmpty(arguments)) commandLine += " " + arguments;
+            return new CommandTuple(commandLine, command);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace ZeroInstall.Publish.Capture
             if (commandLine == null) throw new ArgumentNullException(nameof(commandLine));
             #endregion
 
-            foreach (var tuple in _commmands.Where(tuple => commandLine.StartsWithIgnoreCase(tuple.CommandLine)))
+            foreach (var tuple in _commands.Where(tuple => commandLine.StartsWithIgnoreCase(tuple.CommandLine)))
             {
                 additionalArgs = commandLine.Substring(tuple.CommandLine.Length).TrimStart();
                 return tuple.Command;
