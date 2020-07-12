@@ -14,7 +14,6 @@ using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Properties;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Services.Solvers

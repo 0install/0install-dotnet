@@ -10,7 +10,6 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Streams;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
 
 namespace ZeroInstall.Services.Solvers
 {

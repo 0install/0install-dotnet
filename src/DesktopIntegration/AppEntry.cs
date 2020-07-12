@@ -15,7 +15,6 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
-using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration
 {
