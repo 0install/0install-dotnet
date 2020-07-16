@@ -70,7 +70,7 @@ namespace ZeroInstall.Model
         #endregion
 
         #region Equality
-        protected bool Equals(TargetBase other)
+        protected bool Equals(TargetBase? other)
             => other != null
             && base.Equals(other)
             && _languages.SetEquals(other._languages)

@@ -126,7 +126,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Verb other)
+        public bool Equals(Verb? other)
             => other != null
             && base.Equals(other)
             && Name == other.Name

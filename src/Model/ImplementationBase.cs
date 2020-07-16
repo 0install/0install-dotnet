@@ -117,7 +117,7 @@ namespace ZeroInstall.Model
         #endregion
 
         #region Equality
-        protected bool Equals(ImplementationBase other)
+        protected bool Equals(ImplementationBase? other)
             => other != null
             && base.Equals(other)
             && other.ID == ID

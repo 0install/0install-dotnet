@@ -440,7 +440,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Feed other)
+        public bool Equals(Feed? other)
             => other != null
             && base.Equals(other)
             && Uri == other.Uri

@@ -82,7 +82,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Implementation other)
+        public bool Equals(Implementation? other)
             => other != null && base.Equals(other) && RetrievalMethods.SequencedEquals(other.RetrievalMethods);
 
         /// <inheritdoc/>

@@ -66,7 +66,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FeedReference other)
+        public bool Equals(FeedReference? other)
             => other != null && base.Equals(other) && other.Source == Source;
 
         /// <inheritdoc/>

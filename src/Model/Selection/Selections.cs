@@ -208,7 +208,7 @@ namespace ZeroInstall.Model.Selection
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Selections other)
+        public bool Equals(Selections? other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri

@@ -149,7 +149,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Command other)
+        public bool Equals(Command? other)
             => other != null
             && base.Equals(other)
             && Name == other.Name

@@ -58,7 +58,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Constraint other)
+        public bool Equals(Constraint? other)
             => other != null && base.Equals(other) && other.NotBefore == NotBefore && other.Before == Before;
 
         /// <inheritdoc/>

@@ -100,7 +100,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(EnvironmentBinding other)
+        public bool Equals(EnvironmentBinding? other)
             => other != null
             && base.Equals(other)
             && other.Name == Name

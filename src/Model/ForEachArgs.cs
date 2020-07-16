@@ -73,7 +73,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ForEachArgs other)
+        public bool Equals(ForEachArgs? other)
             => other != null
             && base.Equals(other)
             && other.ItemFrom == ItemFrom

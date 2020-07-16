@@ -126,7 +126,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(EntryPoint other)
+        public bool Equals(EntryPoint? other)
             => other != null
             && base.Equals(other)
             && Command == other.Command

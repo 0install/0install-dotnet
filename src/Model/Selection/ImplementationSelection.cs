@@ -116,7 +116,7 @@ namespace ZeroInstall.Model.Selection
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationSelection other)
+        public bool Equals(ImplementationSelection? other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri
@@ -138,7 +138,7 @@ namespace ZeroInstall.Model.Selection
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(ImplementationSelection other)
+        public int CompareTo(ImplementationSelection? other)
             => StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other.InterfaceUri.ToStringRfc());
         #endregion
     }

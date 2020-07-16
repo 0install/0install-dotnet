@@ -104,7 +104,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DefaultProgram other) => other != null && base.Equals(other) && other.Service == Service;
+        public bool Equals(DefaultProgram? other) => other != null && base.Equals(other) && other.Service == Service;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

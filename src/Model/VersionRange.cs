@@ -103,7 +103,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Intersects another version range set with this one and returns a new set as the result.
         /// </summary>
-        public VersionRange Intersect(VersionRange other)
+        public VersionRange Intersect(VersionRange? other)
         {
             #region Sanity checks
             if (other == null) throw new ArgumentNullException(nameof(other));
@@ -135,7 +135,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(VersionRange other)
+        public bool Equals(VersionRange? other)
         {
             // Cancel if the number of parts don't match
             if (Parts.Count != other?.Parts.Count)

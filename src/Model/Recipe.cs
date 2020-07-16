@@ -90,7 +90,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Recipe other)
+        public bool Equals(Recipe? other)
             => other != null
             && base.Equals(other)
             && Steps.SequencedEquals(other.Steps);

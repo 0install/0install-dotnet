@@ -21,7 +21,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// The entries that are in conflict with each other.
         /// </summary>
-        public IEnumerable<ConflictData> Entries { get; private set; }
+        public IEnumerable<ConflictData>? Entries { get; private set; }
 
         /// <summary>
         /// Creates an exception indicating a new desktop integration conflict.

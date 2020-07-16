@@ -54,7 +54,7 @@ namespace ZeroInstall.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ImplementationPreferences other)
+        public bool Equals(ImplementationPreferences? other)
             => other != null
             && base.Equals(other)
             && ID == other.ID

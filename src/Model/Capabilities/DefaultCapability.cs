@@ -22,7 +22,7 @@ namespace ZeroInstall.Model.Capabilities
         public bool ExplicitOnly { get; set; }
 
         #region Equality
-        protected bool Equals(DefaultCapability other) => other != null && base.Equals(other) && other.ExplicitOnly == ExplicitOnly;
+        protected bool Equals(DefaultCapability? other) => other != null && base.Equals(other) && other.ExplicitOnly == ExplicitOnly;
 
         /// <inheritdoc/>
         public override int GetHashCode()

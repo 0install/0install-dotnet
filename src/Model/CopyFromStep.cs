@@ -65,7 +65,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(CopyFromStep other)
+        public bool Equals(CopyFromStep? other)
             => other != null
             && base.Equals(other)
             && other.ID == ID

@@ -50,7 +50,7 @@ namespace ZeroInstall.Model.Capabilities
         #endregion
 
         #region Equality
-        protected bool Equals(Capability other) => other != null && base.Equals(other) && other.ID == ID;
+        protected bool Equals(Capability? other) => other != null && base.Equals(other) && other.ID == ID;
 
         /// <inheritdoc/>
         public override int GetHashCode()

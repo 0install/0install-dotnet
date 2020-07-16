@@ -50,7 +50,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(UrlProtocol other) => other != null && base.Equals(other) && KnownPrefixes.SequencedEquals(other.KnownPrefixes);
+        public bool Equals(UrlProtocol? other) => other != null && base.Equals(other) && KnownPrefixes.SequencedEquals(other.KnownPrefixes);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

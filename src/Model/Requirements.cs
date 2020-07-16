@@ -230,7 +230,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Requirements other)
+        public bool Equals(Requirements? other)
             => other != null
             && InterfaceUri == other.InterfaceUri
             && Command == other.Command

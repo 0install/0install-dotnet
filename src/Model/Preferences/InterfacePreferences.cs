@@ -154,7 +154,7 @@ namespace ZeroInstall.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(InterfacePreferences other)
+        public bool Equals(InterfacePreferences? other)
             => other != null
             && base.Equals(other)
             && Uri == other.Uri

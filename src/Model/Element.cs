@@ -367,7 +367,7 @@ namespace ZeroInstall.Model
         #endregion
 
         #region Equality
-        protected bool Equals(Element other)
+        protected bool Equals(Element? other)
             => other != null
             && base.Equals(other)
             && other.Version == Version

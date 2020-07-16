@@ -49,7 +49,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(SingleFile other) => other != null && base.Equals(other) && other.Destination == Destination && other.Executable == Executable;
+        public bool Equals(SingleFile? other) => other != null && base.Equals(other) && other.Destination == Destination && other.Executable == Executable;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

@@ -75,7 +75,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Runner other)
+        public bool Equals(Runner? other)
             => other != null
             && base.Equals(other)
             && Command == other.Command

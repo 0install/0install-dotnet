@@ -65,7 +65,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AutoPlay other)
+        public bool Equals(AutoPlay? other)
             => other != null
             && base.Equals(other)
             && other.Provider == Provider

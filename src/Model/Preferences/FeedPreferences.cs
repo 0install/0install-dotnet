@@ -169,7 +169,7 @@ namespace ZeroInstall.Model.Preferences
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FeedPreferences other)
+        public bool Equals(FeedPreferences? other)
             => other != null
             && base.Equals(other)
             && LastChecked == other.LastChecked

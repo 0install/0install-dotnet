@@ -46,7 +46,8 @@ namespace ZeroInstall.Model
         #endregion
 
         #region Equality
-        protected bool Equals(FeedElement other) => other != null && base.Equals(other) && IfZeroInstallVersion == other.IfZeroInstallVersion;
+        protected bool Equals(FeedElement? other)
+            => other != null && base.Equals(other) && IfZeroInstallVersion == other.IfZeroInstallVersion;
 
         /// <inheritdoc/>
         public override int GetHashCode()

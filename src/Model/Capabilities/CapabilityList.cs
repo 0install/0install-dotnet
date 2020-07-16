@@ -82,7 +82,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(CapabilityList other)
+        public bool Equals(CapabilityList? other)
             => other != null
             && base.Equals(other)
             && OS == other.OS

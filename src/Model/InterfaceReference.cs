@@ -62,7 +62,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(InterfaceReference other)
+        public bool Equals(InterfaceReference? other)
             => other != null && base.Equals(other) && other.Target == Target;
 
         /// <inheritdoc/>

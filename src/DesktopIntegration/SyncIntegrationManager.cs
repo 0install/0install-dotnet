@@ -148,7 +148,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 try
                 {
-                    byte[] data = null;
+                    byte[] data = null!;
                     Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () => { data = webClient.DownloadData(uri); }));
                     return data;
                 }

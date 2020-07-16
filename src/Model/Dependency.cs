@@ -114,7 +114,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Dependency other)
+        public bool Equals(Dependency? other)
             => other != null
             && base.Equals(other)
             && Importance == other.Importance

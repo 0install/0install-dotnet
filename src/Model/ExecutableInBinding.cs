@@ -23,7 +23,7 @@ namespace ZeroInstall.Model
         public string? Command { get; set; }
 
         #region Equality
-        protected bool Equals(ExecutableInBinding other) => other != null && base.Equals(other) && Command == other.Command;
+        protected bool Equals(ExecutableInBinding? other) => other != null && base.Equals(other) && Command == other.Command;
 
         /// <inheritdoc/>
         public override int GetHashCode()

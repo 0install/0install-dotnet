@@ -41,7 +41,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(GenericBinding other)
+        public bool Equals(GenericBinding? other)
             => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>

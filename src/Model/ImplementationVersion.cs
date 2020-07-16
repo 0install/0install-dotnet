@@ -176,7 +176,7 @@ namespace ZeroInstall.Model
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(ImplementationVersion other)
+        public int CompareTo(ImplementationVersion? other)
         {
             #region Sanity checks
             if (ReferenceEquals(null, other)) throw new ArgumentNullException(nameof(other));

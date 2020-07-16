@@ -52,7 +52,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Category other)
+        public bool Equals(Category? other)
             => other != null
             && base.Equals(other)
             && other.Name == Name

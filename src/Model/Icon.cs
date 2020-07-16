@@ -95,7 +95,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Icon other) => other != null && base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
+        public bool Equals(Icon? other) => other != null && base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

@@ -50,7 +50,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(FileType other)
+        public bool Equals(FileType? other)
             => other != null && base.Equals(other) && Extensions.SequencedEquals(other.Extensions);
 
         /// <inheritdoc/>

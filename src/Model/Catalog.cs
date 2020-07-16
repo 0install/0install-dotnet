@@ -184,7 +184,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Catalog other)
+        public bool Equals(Catalog? other)
             => other != null && base.Equals(other) && Feeds.SequencedEquals(other.Feeds);
 
         /// <inheritdoc/>

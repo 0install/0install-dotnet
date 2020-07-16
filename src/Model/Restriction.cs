@@ -158,7 +158,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Restriction other)
+        public bool Equals(Restriction? other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri

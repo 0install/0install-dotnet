@@ -46,7 +46,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(RemoveStep other)
+        public bool Equals(RemoveStep? other)
             => other != null && base.Equals(other) && other.Path == Path;
 
         /// <inheritdoc/>

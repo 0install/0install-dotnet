@@ -91,7 +91,7 @@ namespace ZeroInstall.Model
         #endregion
 
         #region Equality
-        protected bool Equals(XmlUnknown other)
+        protected bool Equals(XmlUnknown? other)
         {
             if (other == null) return false;
             // ReSharper disable once InvokeAsExtensionMethod

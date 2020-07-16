@@ -56,7 +56,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(OverlayBinding other)
+        public bool Equals(OverlayBinding? other)
             => other != null && base.Equals(other) && other.Source == Source && other.MountPoint == MountPoint;
 
         /// <inheritdoc/>

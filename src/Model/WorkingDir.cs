@@ -41,7 +41,7 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(WorkingDir other)
+        public bool Equals(WorkingDir? other)
             => other != null && base.Equals(other) && other.Source == Source;
 
         /// <inheritdoc/>

@@ -44,7 +44,7 @@ namespace ZeroInstall.Model.Capabilities
         }
 
         #region Equality
-        protected bool Equals(IconCapability other)
+        protected bool Equals(IconCapability? other)
             => other != null
             && base.Equals(other)
             && Descriptions.SequencedEquals(other.Descriptions)

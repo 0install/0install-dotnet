@@ -44,7 +44,8 @@ namespace ZeroInstall.Model
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Arg other) => other != null && (base.Equals(other) && other.Value == Value);
+        public bool Equals(Arg other)
+            => other != null && (base.Equals(other) && other.Value == Value);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

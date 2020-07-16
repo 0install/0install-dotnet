@@ -59,7 +59,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AutoPlayEvent other) => other != null && base.Equals(other) && other.Name == Name;
+        public bool Equals(AutoPlayEvent? other) => other != null && base.Equals(other) && other.Name == Name;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

@@ -125,7 +125,7 @@ namespace ZeroInstall.Model
 
         #region Equals
         /// <inheritdoc/>
-        public bool Equals(PackageImplementation other)
+        public bool Equals(PackageImplementation? other)
             => other != null
             && base.Equals(other)
             && Package == other.Package

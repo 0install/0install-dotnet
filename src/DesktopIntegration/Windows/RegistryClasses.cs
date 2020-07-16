@@ -102,8 +102,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="InvalidDataException">The data in <paramref name="verb"/> is invalid.</exception>
         public static void Register(RegistryKey verbKey, FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
-            string description = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
-            if (description != null)
+            string? description = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
+            if (!string.IsNullOrEmpty(description))
             {
                 verbKey.SetValue("", description);
                 verbKey.SetValue("MUIVerb", description);

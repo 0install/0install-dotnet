@@ -47,7 +47,7 @@ namespace ZeroInstall.Model.Capabilities
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AppRegistration other)
+        public bool Equals(AppRegistration? other)
             => other != null && base.Equals(other) && other.CapabilityRegPath == CapabilityRegPath;
 
         /// <inheritdoc/>
