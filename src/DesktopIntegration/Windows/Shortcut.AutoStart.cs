@@ -6,6 +6,7 @@ using System.IO;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

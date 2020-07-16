@@ -12,6 +12,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -81,7 +82,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 // Set icon if available
                 var icon = target.Feed.GetIcon(Icon.MimeTypeIco);
-                if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, iconStore.GetPath(icon, machineWide) + ",0");
+                if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, iconStore.GetPath(icon) + ",0");
 
                 verbCapabilities = verbCapabilities.ToArray();
 

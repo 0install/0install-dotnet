@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -25,7 +26,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             #endregion
 
             string filePath = GetQuickLaunchPath(quickLaunch.Name);
-            Create(filePath, target, quickLaunch.Command, iconStore, machineWide: false);
+            Create(filePath, target, quickLaunch.Command, iconStore);
         }
 
         /// <summary>

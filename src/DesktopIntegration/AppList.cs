@@ -165,11 +165,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="machineWide">Store the <see cref="AppList"/> machine-wide instead of just for the current user.</param>
         public static string GetDefaultPath(bool machineWide = false)
-            => Path.Combine(
-                machineWide
-                    ? Locations.GetIntegrationDirPath("0install.net", true, "desktop-integration") // Machine-wide storage cannot be portable
-                    : Locations.GetSaveConfigPath("0install.net", false, "desktop-integration"), // Per-user storage can be portable
-                "app-list.xml");
+            => Path.Combine(IntegrationManager.GetDir(machineWide), "app-list.xml");
 
         /// <summary>
         /// Tries to load the <see cref="AppList"/> from its default location. Automatically falls back to an empty list on errors.

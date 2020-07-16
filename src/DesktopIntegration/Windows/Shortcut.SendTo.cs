@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -24,7 +25,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             #endregion
 
             string filePath = GetSendToPath(sendTo.Name);
-            Create(filePath, target, sendTo.Command, iconStore, machineWide: false);
+            Create(filePath, target, sendTo.Command, iconStore);
         }
 
         /// <summary>

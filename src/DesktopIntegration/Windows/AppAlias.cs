@@ -7,9 +7,9 @@ using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -109,6 +109,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// </summary>
         /// <param name="machineWide"><c>true</c> for a machine-wide directory; <c>false</c> for a directory just for the current user.</param>
         public static string GetStubDir(bool machineWide)
-            => Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "aliases");
+            => IntegrationManager.GetDir(machineWide, "aliases");
     }
 }

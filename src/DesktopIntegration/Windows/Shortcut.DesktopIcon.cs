@@ -6,6 +6,7 @@ using System.IO;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -26,7 +27,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             #endregion
 
             string filePath = GetDesktopPath(desktopIcon.Name, machineWide);
-            Create(filePath, target, desktopIcon.Command, iconStore, machineWide);
+            Create(filePath, target, desktopIcon.Command, iconStore);
         }
 
         /// <summary>

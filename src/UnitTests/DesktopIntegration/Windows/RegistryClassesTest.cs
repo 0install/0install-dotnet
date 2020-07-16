@@ -6,6 +6,7 @@ using NanoByte.Common.Native;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

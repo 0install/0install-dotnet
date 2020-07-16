@@ -10,32 +10,29 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.DesktopIntegration
+namespace ZeroInstall.Store
 {
     /// <summary>
     /// Stores icon files downloaded from the web as local files.
     /// </summary>
     public sealed class IconStore : IIconStore
     {
+        private readonly Config _config;
         private readonly ITaskHandler _handler;
-
-        private readonly string? _pathOverride;
+        private readonly string _path;
 
         /// <summary>
-        /// Creates a new icon cache.
+        /// Creates a new icon store.
         /// </summary>
+        /// <param name="config">User settings controlling network behaviour.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about icon downloading.</param>
-        /// <param name="pathOverride">An alternative on-disk path to use for storage. Only set for testing, leave <c>null</c> otherwise.</param>
-        public IconStore(ITaskHandler handler, string? pathOverride = null)
+        /// <param name="path">The path of the directory used to store icon files. Leave <c>null</c> for the default cache location.</param>
+        public IconStore(Config config, ITaskHandler handler, string? path = null)
         {
+            _config = config ?? throw new ArgumentNullException(nameof(config));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            _pathOverride = pathOverride;
+            _path = path ?? Locations.GetCacheDirPath("0install.net", false, "icons");
         }
-
-        private readonly object _lock = new object();
-
-        /// <summary>How long to keep cached icons files before refreshing them.</summary>
-        private static readonly TimeSpan _freshness = TimeSpan.FromDays(1);
 
         /// <summary>
         /// The maximum number of bytes to download for a single icon.
@@ -43,26 +40,23 @@ namespace ZeroInstall.DesktopIntegration
         private const long MaximumIconSize = 2 * 1024 * 1024;
 
         /// <inheritdoc/>
-        public string GetPath(Icon icon, bool machineWide = false)
+        public string GetPath(Icon icon)
         {
-            string path = BuildPath(icon ?? throw new ArgumentNullException(nameof(icon)), machineWide);
+            #region Sanity checks
+            if (icon == null) throw new ArgumentNullException(nameof(icon));
+            #endregion
 
-            void Download()
-            {
-                using var atomic = new AtomicWrite(path);
-                _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
-                atomic.Commit();
-            }
+            string path = BuildPath(icon);
 
-            lock (_lock) // Prevent concurrent downloads
+            using (new MutexLock("ZeroInstall.DesktopIntegration.IconStore." + path.GetHashCode())) // Prevent concurrent updates of same icon
             {
                 if (File.Exists(path))
-                {
-                    if (DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _freshness && NetUtils.IsInternetConnected)
-                    {
+                { // Existing file
+                    if (_config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected && IsFresh(path))
+                    { // Outdated
                         try
                         {
-                            Download();
+                            Download(icon.Href, path);
                         }
                         #region Error handling
                         catch (WebException ex)
@@ -76,17 +70,18 @@ namespace ZeroInstall.DesktopIntegration
                         #endregion
                     }
                 }
-                else Download();
+                else
+                { // No existing file
+                    Download(icon.Href, path);
+                }
             }
 
             return path;
         }
 
-        internal string BuildPath(Icon icon, bool machineWide)
+        internal string BuildPath(Icon icon)
         {
-            string path = Path.Combine(
-                _pathOverride ?? Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "icons"),
-                FeedUri.Escape(icon.Href.AbsoluteUri));
+            string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
 
             void EnsureExtension(string mimeType, string extension)
             {
@@ -100,5 +95,15 @@ namespace ZeroInstall.DesktopIntegration
 
             return path;
         }
+
+        private void Download(Uri href, string path)
+        {
+            using var atomic = new AtomicWrite(path);
+            _handler.RunTask(new DownloadFile(href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+            atomic.Commit();
+        }
+
+        private bool IsFresh(string path)
+            => DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
     }
 }

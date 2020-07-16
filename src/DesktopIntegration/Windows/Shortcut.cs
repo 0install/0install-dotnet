@@ -9,6 +9,7 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -24,8 +25,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="target">The target the shortcut shall point to.</param>
         /// <param name="command">The command within <paramref name="target"/> the shortcut shall point to; can be <c>null</c>.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
-        /// <param name="machineWide">Create the shortcut machine-wide instead of just for the current user.</param>
-        private static void Create(string path, FeedTarget target, string? command, IIconStore iconStore, bool machineWide)
+        private static void Create(string path, FeedTarget target, string? command, IIconStore iconStore)
         {
             if (string.IsNullOrEmpty(command)) command = Command.NameRun;
 
@@ -42,7 +42,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
 
             Create(path, targetPath, arguments,
-                iconLocation: (icon == null) ? null : iconStore.GetPath(icon, machineWide),
+                iconLocation: (icon == null) ? null : iconStore.GetPath(icon),
                 description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command));
         }
 

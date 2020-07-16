@@ -10,6 +10,7 @@ using System.Net;
 using NanoByte.Common;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -84,7 +85,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
                     if (icon != null)
-                        verbKey.SetValue("Icon", iconStore.GetPath(icon, machineWide));
+                        verbKey.SetValue("Icon", iconStore.GetPath(icon));
                 }
             }
             else
@@ -100,7 +101,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco);
-                    if (icon != null) menuKey.SetValue("Icon", iconStore.GetPath(icon, machineWide));
+                    if (icon != null) menuKey.SetValue("Icon", iconStore.GetPath(icon));
                 }
             }
         }

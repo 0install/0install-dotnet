@@ -12,6 +12,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -73,7 +74,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (icon != null)
             {
                 using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
-                iconKey.SetValue("", iconStore.GetPath(icon, machineWide) + ",0");
+                iconKey.SetValue("", iconStore.GetPath(icon) + ",0");
             }
 
             foreach (var verb in capability.Verbs)
@@ -112,7 +113,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (verb.Extended) verbKey.SetValue("Extended", "");
 
             var icon = target.Feed.GetIcon(Icon.MimeTypeIco, verb.Command);
-            if (icon != null) verbKey.SetValue("Icon", iconStore.GetPath(icon, machineWide));
+            if (icon != null) verbKey.SetValue("Icon", iconStore.GetPath(icon));
 
             using var commandKey = verbKey.CreateSubKeyChecked("command");
             commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));

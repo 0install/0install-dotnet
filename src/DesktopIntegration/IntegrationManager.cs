@@ -14,6 +14,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -37,6 +38,20 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         public static readonly int ChangedWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.DesktopIntegration");
         #endregion
+
+        /// <summary>
+        /// Returns a path for a directory that can be used for desktop integration.
+        /// </summary>
+        /// <param name="machineWide"><c>true</c> if the directory should be machine-wide and machine-specific instead of roaming with the user profile.</param>
+        /// <param name="resource">The directory name of the resource to be stored.</param>
+        /// <returns>A fully qualified directory path. The directory is guaranteed to already exist.</returns>
+        /// <exception cref="IOException">A problem occurred while creating a directory.</exception>
+        /// <exception cref="UnauthorizedAccessException">Creating a directory is not permitted.</exception>
+        /// <remarks>If a new directory is created with <paramref name="machineWide"/> set to <c>true</c> on Windows, ACLs are set to deny write access for non-Administrator users.</remarks>
+        public static string GetDir(bool machineWide, params string[] resource)
+            => machineWide
+                ? Locations.GetSaveSystemConfigPath("0install.net", isFile: false, resource.Prepend("desktop-integration"))
+                : Locations.GetSaveConfigPath("0install.net", isFile: false, resource.Prepend("desktop-integration"));
 
         /// <summary>
         /// The storage location of the <see cref="AppList"/> file.
@@ -245,7 +260,8 @@ namespace ZeroInstall.DesktopIntegration
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 
-            var iconStore = new IconStore(Handler);
+            var iconStore = new IconStore(Config.LoadSafe(), Handler, GetDir(MachineWide, "icons"));
+
             accessPoints.ApplyWithRollback(
                 accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
                 accessPoint =>

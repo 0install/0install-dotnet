@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Net;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Unix
 {

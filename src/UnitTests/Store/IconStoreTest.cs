@@ -11,7 +11,7 @@ using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.DesktopIntegration
+namespace ZeroInstall.Store
 {
     /// <summary>
     /// Contains test methods for <see cref="IconStore"/>.
@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration
 
         public IconStoreTest()
         {
-            _store = new IconStore(new SilentTaskHandler(), _tempDir);
+            _store = new IconStore(new Config(), new SilentTaskHandler(), _tempDir);
         }
 
         public void Dispose() => _tempDir.Dispose();
@@ -31,7 +31,7 @@ namespace ZeroInstall.DesktopIntegration
         [Fact]
         public void ShouldEnsureCorrectFileExtension()
         {
-            string path = _store.BuildPath(PngIcon(new Uri("http://host/file")), machineWide: false);
+            string path = _store.BuildPath(PngIcon(new Uri("http://host/file")));
             Path.GetExtension(path).Should().Be(".png");
         }
 
@@ -75,7 +75,7 @@ namespace ZeroInstall.DesktopIntegration
 
         private void Inject(Icon icon, string iconData, DateTime? timestamp = null)
         {
-            string path = _store.BuildPath(icon, machineWide: false);
+            string path = _store.BuildPath(icon);
             File.WriteAllText(path, iconData);
             if (timestamp.HasValue) File.SetLastWriteTimeUtc(path, timestamp.Value);
         }

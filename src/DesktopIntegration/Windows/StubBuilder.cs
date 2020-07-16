@@ -14,6 +14,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -49,7 +50,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
             bool needsTerminal = (entryPoint != null && entryPoint.NeedsTerminal);
 
             string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
-            string path = Path.Combine(Locations.GetIntegrationDirPath("0install.net", machineWide, "desktop-integration", "stubs", hash), exeName + ".exe");
+            string path = Path.Combine(
+                IntegrationManager.GetDir(machineWide, "stubs", hash),
+                exeName + ".exe");
 
             CreateOrUpdateRunStub(target, path, command, needsTerminal, iconStore);
             return path;

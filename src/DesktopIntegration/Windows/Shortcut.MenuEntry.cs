@@ -8,6 +8,7 @@ using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -31,7 +32,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
 
             string filePath = GetStartMenuPath(menuEntry.Category, menuEntry.Name, machineWide);
-            Create(filePath, target, menuEntry.Command, iconStore, machineWide);
+            Create(filePath, target, menuEntry.Command, iconStore);
         }
 
         /// <summary>
