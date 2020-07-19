@@ -1,5 +1,23 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["Microsoft.NET.Test.Sdk", "[Xx]unit.*", "FluentAssertions", "Moq"],
+      "groupName": "testing",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "packagePatterns": ["ELFSharp"],
+      "groupName": "elfsharp",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "packagePatterns": ["NanoByte.*"],
+      "groupName": "nanobyte"
+    }
   ]
 }
