@@ -1,5 +1,24 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["Test", "Assert", "Mock", "[Xx]unit", "Moq"],
+      "groupName": "Testing deps",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "packagePatterns": ["NanoByte"],
+      "groupName": "NanoByte deps",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "packagePatterns": ["SourceLink", "ValueTuple", "ELFSharp"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
   ]
 }
