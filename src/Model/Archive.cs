@@ -31,6 +31,7 @@ namespace ZeroInstall.Model
             MimeTypeTarLzma = "application/x-lzma-compressed-tar",
             MimeTypeTarLzip = "application/x-lzip-compressed-tar",
             MimeTypeTarXz = "application/x-xz-compressed-tar",
+            MimeTypeTarZstandard = "application/x-zstd-compressed-tar",
             MimeTypeRubyGem = "application/x-ruby-gem",
             MimeType7Z = "application/x-7z-compressed",
             MimeTypeRar = "application/vnd.rar",
@@ -43,7 +44,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// All known <see cref="MimeType"/> values for archives.
         /// </summary>
-        public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarLzip, MimeTypeTarXz, MimeTypeRubyGem, MimeType7Z, MimeTypeRar, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
+        public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarLzip, MimeTypeTarXz, MimeTypeTarZstandard, MimeTypeRubyGem, MimeType7Z, MimeTypeRar, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
 
         /// <summary>
         /// Tries to guess the MIME type of an archive file by looking at its file extension.
@@ -63,6 +64,7 @@ namespace ZeroInstall.Model
             if (fileName.EndsWithIgnoreCase(".tar.lzma") || fileName.EndsWithIgnoreCase(".tlzma")) return MimeTypeTarLzma;
             if (fileName.EndsWithIgnoreCase(".tar.lz") || fileName.EndsWithIgnoreCase(".tlz")) return MimeTypeTarLzma;
             if (fileName.EndsWithIgnoreCase(".tar.xz") || fileName.EndsWithIgnoreCase(".txz")) return MimeTypeTarXz;
+            if (fileName.EndsWithIgnoreCase(".tar.zst")) return MimeTypeTarZstandard;
             if (fileName.EndsWithIgnoreCase(".gem")) return MimeTypeRubyGem;
             if (fileName.EndsWithIgnoreCase(".7z")) return MimeType7Z;
             if (fileName.EndsWithIgnoreCase(".rar")) return MimeTypeRar;

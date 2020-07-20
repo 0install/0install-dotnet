@@ -62,6 +62,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             => TestExtract(Archive.MimeTypeTarLzip, "testArchive.tar.lz");
 
         [Fact]
+        public void TestZstandardCompressed()
+            => TestExtract(Model.Archive.MimeTypeTarZstandard, "testArchive.tar.zst");
+
+        [Fact]
         public void TestRubyGem()
             => TestExtract(Archive.MimeTypeRubyGem, "testArchive.gem");
 
