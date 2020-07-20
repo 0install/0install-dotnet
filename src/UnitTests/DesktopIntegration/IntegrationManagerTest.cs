@@ -10,6 +10,7 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Services;
+using ZeroInstall.Store;
 using FileType = ZeroInstall.Model.Capabilities.FileType;
 
 namespace ZeroInstall.DesktopIntegration
@@ -17,22 +18,19 @@ namespace ZeroInstall.DesktopIntegration
     /// <summary>
     /// Contains test methods for <see cref="IntegrationManager"/>.
     /// </summary>
-    public sealed class IntegrationManagerTest : IDisposable
+    public sealed class IntegrationManagerTest : TestWithRedirect
     {
-        private readonly TemporaryFile _appListFile;
         private readonly IntegrationManager _integrationManager;
 
         public IntegrationManagerTest()
         {
-            _appListFile = new TemporaryFile("0install-unit-tests");
-            new AppList().SaveXml(_appListFile);
-            _integrationManager = new IntegrationManager(_appListFile, new MockTaskHandler());
+            _integrationManager = new IntegrationManager(new Config(), new MockTaskHandler());
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             _integrationManager.Dispose();
-            _appListFile.Dispose();
+            base.Dispose();
         }
 
         [Fact]

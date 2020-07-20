@@ -40,6 +40,11 @@ namespace ZeroInstall.DesktopIntegration
         #endregion
 
         /// <summary>
+        /// User settings controlling network behaviour.
+        /// </summary>
+        protected readonly Config Config;
+
+        /// <summary>
         /// Returns a path for a directory that can be used for desktop integration.
         /// </summary>
         /// <param name="machineWide"><c>true</c> if the directory should be machine-wide and machine-specific instead of roaming with the user profile.</param>
@@ -62,17 +67,16 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Creates a new integration manager using the default <see cref="DesktopIntegration.AppList"/> (creating a new one if missing). Performs Mutex-based locking!
         /// </summary>
+        /// <param name="config">User settings controlling network behaviour.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
-        public IntegrationManager(ITaskHandler handler, bool machineWide = false)
+        public IntegrationManager(Config config, ITaskHandler handler, bool machineWide = false)
             : base(handler, machineWide)
         {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
+            Config = config ?? throw new ArgumentNullException(nameof(config));
 
             try
             {
@@ -106,23 +110,6 @@ namespace ZeroInstall.DesktopIntegration
                 throw;
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Creates a new integration manager using a custom <see cref="DesktopIntegration.AppList"/>. Uses no mutex!
-        /// </summary>
-        /// <param name="appListPath">The storage location of the <see cref="AppList"/> file.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
-        /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-        /// <exception cref="FileNotFoundException"><paramref name="appListPath"/> does not existing.</exception>
-        /// <exception cref="IOException">A problem occurred while accessing <paramref name="appListPath"/>.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read or write access to <paramref name="appListPath"/> file is not permitted.</exception>
-        /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
-        public IntegrationManager(string appListPath, ITaskHandler handler, bool machineWide = false)
-            : base(handler, machineWide)
-        {
-            AppListPath = appListPath ?? throw new ArgumentNullException(nameof(appListPath));
-            AppList = XmlStorage.LoadXml<AppList>(AppListPath);
         }
         #endregion
 
@@ -260,7 +247,7 @@ namespace ZeroInstall.DesktopIntegration
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 
-            var iconStore = new IconStore(Config.LoadSafe(), Handler, GetDir(MachineWide, "icons"));
+            var iconStore = new IconStore(Config, Handler, GetDir(MachineWide, "icons"));
 
             accessPoints.ApplyWithRollback(
                 accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),

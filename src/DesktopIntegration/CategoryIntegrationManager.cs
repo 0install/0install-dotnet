@@ -10,6 +10,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 using DefaultProgram = ZeroInstall.Model.Capabilities.DefaultProgram;
 
 namespace ZeroInstall.DesktopIntegration
@@ -33,13 +34,8 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Constructor
         /// <inheritdoc/>
-        public CategoryIntegrationManager(ITaskHandler handler, bool machineWide = false)
-            : base(handler, machineWide)
-        {}
-
-        /// <inheritdoc/>
-        public CategoryIntegrationManager(string appListPath, ITaskHandler handler, bool machineWide = false)
-            : base(appListPath, handler, machineWide)
+        public CategoryIntegrationManager(Config config, ITaskHandler handler, bool machineWide = false)
+            : base(config, handler, machineWide)
         {}
         #endregion
 

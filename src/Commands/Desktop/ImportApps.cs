@@ -43,7 +43,7 @@ namespace ZeroInstall.Commands.Desktop
         {
             var importList = XmlStorage.LoadXml<AppList>(AdditionalArgs[0]);
 
-            using var integrationManager = new IntegrationManager(Handler, MachineWide);
+            using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
             foreach (var importEntry in importList.Entries)
             {
                 var interfaceUri = importEntry.InterfaceUri;

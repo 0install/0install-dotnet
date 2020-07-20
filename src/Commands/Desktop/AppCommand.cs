@@ -45,7 +45,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 InterfaceUri = GetCanonicalUri((AdditionalArgs.Count > 1) ? AdditionalArgs[1] : AdditionalArgs[0]);
 
-                using (IntegrationManager = new CategoryIntegrationManager(Handler, MachineWide))
+                using (IntegrationManager = new CategoryIntegrationManager(Config, Handler, MachineWide))
                     return ExecuteHelper();
             }
             finally

@@ -10,26 +10,16 @@ using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration
 {
     /// <summary>
     /// Contains test methods for <see cref="SyncIntegrationManager"/>.
     /// </summary>
-    public sealed class SyncIntegrationManagerTest : IDisposable
+    public sealed class SyncIntegrationManagerTest : TestWithRedirect
     {
-        #region Common
-        private readonly TemporaryDirectory _tempDir;
-        private readonly string _appListPath;
-
-        public SyncIntegrationManagerTest()
-        {
-            _tempDir = new TemporaryDirectory("0install-unit-tests");
-            _appListPath = Path.Combine(_tempDir, "app-list.xml");
-        }
-
-        public void Dispose() => _tempDir.Dispose();
-        #endregion
+        private const string CryptoKey = "abc123";
 
         #region Individual
         [Fact]
@@ -217,25 +207,36 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appListLocal">The current local <see cref="AppList"/>.</param>
         /// <param name="appListLast">The state of the <see cref="AppList"/> after the last successful sync.</param>
         /// <param name="appListServer">The current server-side <see cref="AppList"/>.</param>
-        private void TestSync(SyncResetMode resetMode, AppList appListLocal, AppList? appListLast, AppList appListServer)
+        private static void TestSync(SyncResetMode resetMode, AppList appListLocal, AppList? appListLast, AppList appListServer)
         {
-            appListLocal.SaveXml(_appListPath);
-            appListLast?.SaveXml(_appListPath + SyncIntegrationManager.AppListLastSyncSuffix);
+            string appListLocalPath = AppList.GetDefaultPath();
+            appListLocal.SaveXml(appListLocalPath);
+            appListLast?.SaveXml(appListLocalPath + SyncIntegrationManager.AppListLastSyncSuffix);
 
-            using (var stream = File.Create(_appListPath + ".zip"))
-                appListServer.SaveXmlZip(stream);
-
-            using (var appListServerFile = File.OpenRead(_appListPath + ".zip"))
+            using var appListServerPath = new TemporaryFile("0install-unit-tests");
             {
-                using var syncServer = new MicroServer("app-list", appListServerFile);
-                using (var integrationManager = new SyncIntegrationManager(_appListPath, new SyncConfig(syncServer.ServerUri), interfaceId => new Feed(), new SilentTaskHandler()))
-                    integrationManager.Sync(resetMode);
+                using (var stream = File.Create(appListServerPath))
+                    appListServer.SaveXmlZip(stream, CryptoKey);
 
-                appListServer = AppList.LoadXmlZip(syncServer.FileContent);
+                using (var appListServerFile = File.OpenRead(appListServerPath))
+                {
+                    using var syncServer = new MicroServer("app-list", appListServerFile);
+                    var config = new Config
+                    {
+                        SyncServer = new FeedUri(syncServer.ServerUri),
+                        SyncServerUsername = "dummy",
+                        SyncServerPassword = "dummy",
+                        SyncCryptoKey = CryptoKey
+                    };
+                    using (var integrationManager = new SyncIntegrationManager(config, interfaceId => new Feed(), new SilentTaskHandler()))
+                        integrationManager.Sync(resetMode);
+
+                    appListServer = AppList.LoadXmlZip(syncServer.FileContent, CryptoKey);
+                }
             }
 
-            appListLocal = XmlStorage.LoadXml<AppList>(_appListPath);
-            appListLast = XmlStorage.LoadXml<AppList>(_appListPath + SyncIntegrationManager.AppListLastSyncSuffix);
+            appListLocal = XmlStorage.LoadXml<AppList>(appListLocalPath);
+            appListLast = XmlStorage.LoadXml<AppList>(appListLocalPath + SyncIntegrationManager.AppListLastSyncSuffix);
             appListServer.Should().Be(appListLocal, because: "Server and local data should be equal after sync");
             appListLast.Should().Be(appListLocal, because: "Last sync snapshot and local data should be equal after sync");
         }
@@ -321,15 +322,15 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="ap3NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry3.</param>
         /// <param name="ap4Applied">The flag file used to indicate that <see cref="MockAccessPoint.Apply"/> was called for appEntry4.</param>
         /// <param name="ap4NotApplied">The flag file used to indicate that <see cref="MockAccessPoint.Unapply"/> was called for appEntry4.</param>
-        private void TestSync(SyncResetMode resetMode,
-                              TemporaryFlagFile ap1Applied,
-                              TemporaryFlagFile ap1NotApplied,
-                              TemporaryFlagFile ap2Applied,
-                              TemporaryFlagFile ap2NotApplied,
-                              TemporaryFlagFile ap3Applied,
-                              TemporaryFlagFile ap3NotApplied,
-                              TemporaryFlagFile ap4Applied,
-                              TemporaryFlagFile ap4NotApplied)
+        private static void TestSync(SyncResetMode resetMode,
+                                     TemporaryFlagFile ap1Applied,
+                                     TemporaryFlagFile ap1NotApplied,
+                                     TemporaryFlagFile ap2Applied,
+                                     TemporaryFlagFile ap2NotApplied,
+                                     TemporaryFlagFile ap3Applied,
+                                     TemporaryFlagFile ap3NotApplied,
+                                     TemporaryFlagFile ap4Applied,
+                                     TemporaryFlagFile ap4NotApplied)
         {
             var appEntry1 = new AppEntry
             {

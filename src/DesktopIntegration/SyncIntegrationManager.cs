@@ -17,6 +17,7 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -34,9 +35,6 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         public const string AppListLastSyncSuffix = ".last-sync";
 
-        /// <summary>Configuration for communicating with a sync server.</summary>
-        private readonly SyncConfig _config;
-
         /// <summary>Callback method used to retrieve additional <see cref="Feed"/>s on demand.</summary>
         private readonly Converter<FeedUri, Feed> _feedRetriever;
 
@@ -53,35 +51,12 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
-        public SyncIntegrationManager(SyncConfig config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
-            : base(handler, machineWide)
+        public SyncIntegrationManager(Config config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
+            : base(config, handler, machineWide)
         {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
-            _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
+            if (!Config.IsSyncConfigured)
+                throw new InvalidDataException(Resources.PleaseConfigSync);
 
-            if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
-            else
-            {
-                _appListLastSync = new AppList();
-                _appListLastSync.SaveXml(AppListPath + AppListLastSyncSuffix);
-            }
-        }
-
-        /// <summary>
-        /// Creates a new sync manager for a custom <see cref="AppList"/> file. Used for testing. Uses no mutex!
-        /// </summary>
-        /// <param name="appListPath">The storage location of the <see cref="AppList"/> file.</param>
-        /// <param name="config">Configuration for communicating with a sync server.</param>
-        /// <param name="feedRetriever">Callback method used to retrieve additional <see cref="Feed"/>s on demand.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
-        /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-        /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
-        /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
-        public SyncIntegrationManager(string appListPath, SyncConfig config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
-            : base(appListPath, handler, machineWide)
-        {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
             _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
             if (File.Exists(AppListPath + AppListLastSyncSuffix)) _appListLastSync = XmlStorage.LoadXml<AppList>(AppListPath + AppListLastSyncSuffix);
@@ -107,10 +82,10 @@ namespace ZeroInstall.DesktopIntegration
         {
             using var webClient = new WebClientTimeout
             {
-                Credentials = _config.Credentials,
+                Credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword),
                 CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore)
             };
-            var uri = new Uri(_config.Uri, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
+            var uri = new Uri(Config.SyncServer!, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
 
             ExceptionUtils.Retry<SyncRaceException>(delegate
             {
@@ -170,7 +145,7 @@ namespace ZeroInstall.DesktopIntegration
             if (resetMode == SyncResetMode.Client) return;
 
             var memoryStream = new MemoryStream();
-            AppList.SaveXmlZip(memoryStream, _config.CryptoKey);
+            AppList.SaveXmlZip(memoryStream, Config.SyncCryptoKey);
 
             if (uri.IsFile)
             {
@@ -207,7 +182,7 @@ namespace ZeroInstall.DesktopIntegration
             AppList serverList;
             try
             {
-                serverList = AppList.LoadXmlZip(new MemoryStream(appListData), _config.CryptoKey);
+                serverList = AppList.LoadXmlZip(new MemoryStream(appListData), Config.SyncCryptoKey);
             }
             #region Error handling
             catch (ZipException ex)

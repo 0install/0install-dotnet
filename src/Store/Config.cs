@@ -131,6 +131,13 @@ namespace ZeroInstall.Store
         [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the sync server.")]
         public string SyncCryptoKey { get; set; } = "";
 
+        /// <summary>
+        /// Indicates whether the sync-related configuration is complete.
+        /// </summary>
+        public bool IsSyncConfigured
+            => SyncServer != null
+            && (SyncServer.IsFile || (!string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword) && !string.IsNullOrEmpty(SyncCryptoKey)));
+
         /// <summary>Provides meta-data for loading and saving settings properties.</summary>
         private readonly Dictionary<string, PropertyPointer<string>> _metaData;
 
