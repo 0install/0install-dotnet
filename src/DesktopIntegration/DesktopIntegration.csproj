@@ -44,15 +44,6 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <!-- XML Serialization assembly -->
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
-    <SgenUseProxyTypes>False</SgenUseProxyTypes>
-  </PropertyGroup>
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
-  </ItemGroup>
-
   <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
