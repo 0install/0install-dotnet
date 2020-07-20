@@ -22,7 +22,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Contains common code for testing specific <see cref="ISolver"/> implementations.
     /// </summary>
-    public abstract class SolverTest : TestWithMocksAndRedirect
+    public abstract class SolverTest : TestWithRedirect
     {
         [Fact]
         public void TestCases()
@@ -140,7 +140,7 @@ namespace ZeroInstall.Services.Solvers
                     return feed;
                 });
 
-            var feedManagerMock = CreateMock<IFeedManager>();
+            var feedManagerMock = new Mock<IFeedManager>();
             feedManagerMock.Setup(x => x[It.IsAny<FeedUri>()]).Returns((FeedUri feedUri) =>
             {
                 if (feedLookup.TryGetValue(feedUri, out var feed)) return feed;

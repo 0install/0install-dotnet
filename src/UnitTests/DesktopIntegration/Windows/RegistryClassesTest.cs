@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using FluentAssertions;
+using Moq;
 using NanoByte.Common.Native;
 using Xunit;
 using ZeroInstall.Model;
@@ -10,7 +11,7 @@ using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
-    public class RegistryClassesTest : TestWithMocksAndRedirect
+    public class RegistryClassesTest : TestWithRedirect
     {
         [SkippableFact]
         public void TestCommandLineEscaping()
@@ -44,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                .Should().EndWith("\"%V\"");
         }
 
-        private string GetLaunchCommandLine(Verb verb)
-            => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, CreateMock<IIconStore>().Object, machineWide: false);
+        private static string GetLaunchCommandLine(Verb verb)
+            => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, new Mock<IIconStore>().Object, machineWide: false);
     }
 }

@@ -19,7 +19,7 @@ namespace ZeroInstall.Services.Executors
     /// <summary>
     /// Contains test methods for <see cref="EnvironmentBuilder"/>.
     /// </summary>
-    public class EnvironmentBuilderTest : TestWithMocksAndRedirect
+    public class EnvironmentBuilderTest : TestWithRedirect
     {
         private const string Test1Path = "test1 path", Test2Path = "test2 path";
 

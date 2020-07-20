@@ -15,7 +15,7 @@ namespace ZeroInstall.Store
     /// <summary>
     /// Contains test methods for <see cref="Config"/>.
     /// </summary>
-    public class ConfigTest : TestWithMocksAndRedirect
+    public class ConfigTest : TestWithRedirect
     {
         /// <summary>
         /// Creates test <see cref="Config"/>.
