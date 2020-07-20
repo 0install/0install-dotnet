@@ -6,6 +6,7 @@
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <TargetFramework>net45</TargetFramework>
+    <RuntimeIdentifier>win</RuntimeIdentifier>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>

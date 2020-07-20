@@ -15,6 +15,9 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net48'">
+    <RuntimeIdentifier>win</RuntimeIdentifier>
+  </PropertyGroup>
 
   <!-- Dependencies -->
   <ItemGroup>

@@ -18,6 +18,9 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+    <RuntimeIdentifier>win</RuntimeIdentifier>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -58,7 +61,7 @@
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" PrivateAssets="All" />
   </ItemGroup>-->
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
-    <None Include="..\..\artifacts\$(Configuration)\net45\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
+    <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
     <!--<None Include="..\..\artifacts\$(Configuration)\netstandard2.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.0" />-->
   </ItemGroup>
 
