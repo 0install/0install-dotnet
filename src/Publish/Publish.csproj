@@ -5,7 +5,7 @@
     <AssemblyName>ZeroInstall.Publish</AssemblyName>
     <RootNamespace>ZeroInstall.Publish</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net461;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
@@ -43,16 +43,16 @@
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ELFSharp" Version="2.11.0" />
+    <PackageReference Include="ELFSharp" Version="2.5.0" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'=='net461'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'!='net461'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net45'">
     <Compile Remove="Capture\**" />
   </ItemGroup>
 

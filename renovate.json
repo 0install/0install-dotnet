@@ -16,9 +16,13 @@
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["SourceLink", "ValueTuple", "ELFSharp"],
+      "packagePatterns": ["SourceLink", "ValueTuple"],
       "automerge": true,
       "automergeType": "branch"
+    },
+    {
+      "packagePatterns": ["SharpCompress", "ELFSharp"],
+      "enabled": false
     }
   ]
 }
