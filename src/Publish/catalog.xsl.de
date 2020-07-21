@@ -17,7 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
         <script>
           window.addEventListener("keydown",function (e) {
-            if (e.keyCode === 114 || (e.ctrlKey &amp;&amp; e.keyCode === 70)) { 
+            if (e.keyCode === 114 || (e.ctrlKey &amp;&amp; e.keyCode === 70)) {
               document.getElementById("search").focus();
               e.preventDefault();
             }
@@ -59,13 +59,13 @@
                   </p>
                 </div>
                 <div class="actions">
-                  <form action="https://0install.de/bootstrap/" method="get">
+                  <form action="https://get.0install.net/bootstrap/" method="get">
                     <input type="hidden" name="name" value="{interface:name}"/>
                     <input type="hidden" name="uri" value="{@uri}"/>
                     <input type="hidden" name="mode" value="run"/>
                     <input type="submit" value="Start"/>
                   </form>
-                  <form action="https://0install.de/bootstrap/" method="get">
+                  <form action="https://get.0install.net/bootstrap/" method="get">
                     <input type="hidden" name="name" value="{interface:name}"/>
                     <input type="hidden" name="uri" value="{@uri}"/>
                     <input type="hidden" name="mode" value="integrate"/>

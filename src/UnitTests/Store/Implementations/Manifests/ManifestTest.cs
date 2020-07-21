@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <returns>The manifest digest.</returns>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <remarks>
-        /// The exact format is specified here: http://0install.net/manifest-spec.html
+        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
         /// </remarks>
         public static string CreateDotFile(string path, ManifestFormat format, ITaskHandler handler)
         {

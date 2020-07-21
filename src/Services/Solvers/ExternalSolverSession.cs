@@ -14,7 +14,7 @@ using ZeroInstall.Model;
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
-    /// An external solver process controlled via a JSON API (http://0install.net/json-api.html).
+    /// An external solver process controlled via a JSON API (https://docs.0install.net/developers/json-api/).
     /// </summary>
     /// <seealso cref="ExternalSolver"/>
     internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], object?>>, IDisposable

@@ -1,4 +1,4 @@
-Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](http://0install.net/).  
+Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](https://0install.net/).  
 This website documents the Zero Install .NET API. You can use this to integrate Zero Install features into your own application.
 
 Take a look at the [**Namespace List**](namespaces.html) to get an overview of the available functionality.

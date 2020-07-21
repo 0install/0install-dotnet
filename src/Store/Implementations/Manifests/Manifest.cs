@@ -136,7 +136,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         /// <remarks>
-        /// The exact format is specified here: http://0install.net/manifest-spec.html
+        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
         /// </remarks>
         public string Save(string path)
         {
@@ -158,7 +158,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="stream">The stream to write to.</param>
         /// <returns>The manifest digest.</returns>
         /// <remarks>
-        /// The exact format is specified here: http://0install.net/manifest-spec.html
+        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
         /// </remarks>
         public void Save(Stream stream)
         {
@@ -195,7 +195,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <returns>A set of <see cref="ManifestNode"/>s containing the parsed content of the file.</returns>
         /// <exception cref="FormatException">The file specified is not a valid manifest file.</exception>
         /// <remarks>
-        /// The exact format is specified here: http://0install.net/manifest-spec.html
+        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
         /// </remarks>
         public static Manifest Load(Stream stream, ManifestFormat format)
         {
@@ -231,7 +231,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <exception cref="IOException">The manifest file could not be read.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <remarks>
-        /// The exact format is specified here: http://0install.net/manifest-spec.html
+        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
         /// </remarks>
         public static Manifest Load(string path, ManifestFormat format)
         {

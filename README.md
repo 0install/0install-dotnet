@@ -2,7 +2,7 @@
 
 [![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](https://dotnet.0install.net/)
 [![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)  
-Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](http://0install.net/).
+Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](https://0install.net/).
 
 This is the .NET implementation of Zero Install. It can be used as a [command-line tool](#command-line) on various platforms or be embedded into .NET applications as a set of [libraries](#libraries). It provides the basis for [Zero Install for Windows](https://github.com/0install/0install-win).
 
@@ -63,6 +63,6 @@ To build on Linux or MacOS X install [.NET Core SDK 3.1 or newer](https://www.mi
 
 ## Contributing
 
-We welcome contributions to this project such as bug reports, recommendations, pull requests and [translations](https://www.transifex.com/eicher/0install-win/). If you have any questions feel free to pitch in on our [friendly mailing list](http://0install.net/support.html#lists).
+We welcome contributions to this project such as bug reports, recommendations, pull requests and [translations](https://www.transifex.com/eicher/0install-win/). If you have any questions feel free to pitch in on our [friendly mailing list](https://0install.net/support.html#lists).
 
 This repository contains an [EditorConfig](http://editorconfig.org/) file. Please make sure to use an editor that supports it to ensure consistent code style, file encoding, etc.. For full tooling support for all style and naming conventions consider using JetBrain's [ReSharper](https://www.jetbrains.com/resharper/) or [Rider](https://www.jetbrains.com/rider/) products.

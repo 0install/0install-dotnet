@@ -159,7 +159,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
                 ? mode + " " + appName + ".exe"
                 : mode + "-" + appName.ToLowerInvariant().Replace(" ", "-") + ".sh";
 
-            var source = new Uri("https://0install.de/bootstrap/" +
+            var source = new Uri("https://get.0install.net/bootstrap/" +
                                  "?platform=" + (_architecture.OS == OS.Windows ? "windows" : "linux") +
                                  "&mode=" + mode +
                                  "&name=" + HttpUtility.UrlEncode(appName) +

@@ -63,8 +63,8 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 if (uninstallKey == null) return;
 
                 uninstallKey.SetValue("InstallLocation", TargetDir + @"\");
-                uninstallKey.SetValue("Publisher", "0install.de");
-                uninstallKey.SetValue("URLInfoAbout", "http://0install.de/");
+                uninstallKey.SetValue("Publisher", "0install.net");
+                uninstallKey.SetValue("URLInfoAbout", "https://0install.net/");
                 uninstallKey.SetValue("DisplayName", MachineWide ? "Zero Install" : "Zero Install (current user)");
                 uninstallKey.SetValue("DisplayVersion", ImplementationVersion.ZeroInstall.ToString());
                 uninstallKey.DeleteValue("MajorVersion", throwOnMissingValue: false);
