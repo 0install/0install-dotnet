@@ -27,19 +27,19 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// An identifier that controls the result of <see cref="GetConflictIDs"/>.
         /// </summary>
         [XmlAttribute("id")]
-        public string ID { get; set; }
+        public string? ID { get; set; }
 
         /// <summary>
         /// The path to a file to create when <see cref="Apply"/> is called.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flag"), XmlAttribute("apply-flag-path")]
-        public string ApplyFlagPath { get; set; }
+        public string? ApplyFlagPath { get; set; }
 
         /// <summary>
         /// The path to a file to create when <see cref="Unapply"/> is called.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flag"), XmlAttribute("unapply-flag-path")]
-        public string UnapplyFlagPath { get; set; }
+        public string? UnapplyFlagPath { get; set; }
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

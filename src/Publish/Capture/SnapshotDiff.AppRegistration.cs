@@ -38,7 +38,7 @@ namespace ZeroInstall.Publish.Capture
 
             // Get registry path pointer
             string appRegName = RegisteredApplications[0];
-            string capabilitiesRegPath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\" + DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications, appRegName);
+            string? capabilitiesRegPath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\" + DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications, appRegName);
             if (string.IsNullOrEmpty(capabilitiesRegPath))
                 return null;
 
@@ -79,7 +79,7 @@ namespace ZeroInstall.Publish.Capture
 
             foreach (string protocol in urlAssocKey.GetValueNames())
             {
-                string progID = urlAssocKey.GetValue(protocol)?.ToString();
+                string? progID = urlAssocKey.GetValue(protocol)?.ToString();
                 if (string.IsNullOrEmpty(progID)) continue;
                 using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
                 if (progIDKey == null) continue;
@@ -122,7 +122,7 @@ namespace ZeroInstall.Publish.Capture
 
             foreach (string extension in fileAssocKey.GetValueNames())
             {
-                string progID = fileAssocKey.GetValue(extension, "") as string;
+                string? progID = fileAssocKey.GetValue(extension)?.ToString();
                 if (!string.IsNullOrEmpty(progID)) AddExtensionToFileType(extension, progID, capabilities);
             }
         }

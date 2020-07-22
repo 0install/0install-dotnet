@@ -50,7 +50,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             CheckName(name);
 
             string startupDir = machineWide
-                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Startup")
+                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Startup", @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup")
                 : Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             return Path.Combine(startupDir, name + ".lnk");
         }

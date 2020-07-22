@@ -22,42 +22,42 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Description("The path (relative to the installation directory) to the executable used to set an application as the default program without any arguments.")]
         [XmlAttribute("reinstall"), DefaultValue("")]
-        public string Reinstall { get; set; }
+        public string? Reinstall { get; set; }
 
         /// <summary>
         /// Additional arguments for the executable specified in <see cref="Reinstall"/>.
         /// </summary>
         [Description("Additional arguments for the executable specified in Reinstall.")]
         [XmlAttribute("reinstall-args"), DefaultValue("")]
-        public string ReinstallArgs { get; set; }
+        public string? ReinstallArgs { get; set; }
 
         /// <summary>
         /// The path (relative to the installation directory) to the executable used to create icons/shortcuts to the application without any arguments.
         /// </summary>
         [Description("The path (relative to the installation directory) to the executable used to create icons/shortcuts to the application without any arguments.")]
         [XmlAttribute("show-icons"), DefaultValue("")]
-        public string ShowIcons { get; set; }
+        public string? ShowIcons { get; set; }
 
         /// <summary>
         /// Additional arguments for the executable specified in <see cref="ShowIcons"/>.
         /// </summary>
         [Description("Additional arguments for the executable specified in ShowIcons.")]
         [XmlAttribute("show-icons-args"), DefaultValue("")]
-        public string ShowIconsArgs { get; set; }
+        public string? ShowIconsArgs { get; set; }
 
         /// <summary>
         /// The path (relative to the installation directory) to the executable used to remove icons/shortcuts to the application without any arguments.
         /// </summary>
         [Description("The path (relative to the installation directory) to the executable used to remove icons/shortcuts to the application without any arguments.")]
         [XmlAttribute("hide-icons"), DefaultValue("")]
-        public string HideIcons { get; set; }
+        public string? HideIcons { get; set; }
 
         /// <summary>
         /// Additional arguments for the executable specified in <see cref="HideIcons"/>.
         /// </summary>
         [Description("Additional arguments for the executable specified in HideIcons.")]
         [XmlAttribute("hide-icons-args"), DefaultValue("")]
-        public string HideIconsArgs { get; set; }
+        public string? HideIconsArgs { get; set; }
 
         #region Conversion
         /// <summary>

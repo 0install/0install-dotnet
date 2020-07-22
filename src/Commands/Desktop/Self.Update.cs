@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
@@ -102,6 +103,7 @@ namespace ZeroInstall.Commands.Desktop
                 if (UpdateFound())
                 {
                     DownloadUncachedImplementations();
+                    Debug.Assert(Selections != null);
 
                     Handler.CancellationToken.ThrowIfCancellationRequested();
                     if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections.MainImplementation.Version), defaultAnswer: true))
@@ -113,7 +115,8 @@ namespace ZeroInstall.Commands.Desktop
                 else return ExitCode.OK;
             }
 
-            private bool UpdateFound() => _force || (Selections.MainImplementation.Version > ImplementationVersion.ZeroInstall);
+            private bool UpdateFound()
+                => _force || (Selections != null && Selections.MainImplementation.Version > ImplementationVersion.ZeroInstall);
         }
     }
 }

@@ -60,7 +60,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 if (!WindowsUtils.IsWindows) return null;
 
-                string installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation", machineWide);
+                string? installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation", machineWide);
                 if (string.IsNullOrEmpty(installLocation)) return null;
                 if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
                 return installLocation;

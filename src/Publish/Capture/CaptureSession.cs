@@ -88,7 +88,7 @@ namespace ZeroInstall.Publish.Capture
         private static CapabilityList GetCapabilityList(CommandMapper commandMapper, SnapshotDiff diff)
         {
             var capabilities = new CapabilityList {OS = OS.Windows};
-            string appName = null, appDescription = null;
+            string? appName = null, appDescription = null;
 
             diff.CollectFileTypes(commandMapper, capabilities);
             diff.CollectContextMenus(commandMapper, capabilities);

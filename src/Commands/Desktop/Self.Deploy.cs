@@ -57,7 +57,7 @@ namespace ZeroInstall.Commands.Desktop
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
                 if (!_portable)
                 {
-                    string existing = FindExistingInstance(_machineWide) ?? FindExistingInstance(machineWide: true);
+                    string? existing = FindExistingInstance(_machineWide) ?? FindExistingInstance(machineWide: true);
                     if (existing != null && existing != targetDir)
                     {
                         string hint = string.Format(Resources.ExistingInstance, existing);

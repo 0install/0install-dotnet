@@ -105,8 +105,8 @@ namespace ZeroInstall.Publish.Capture
             using var verbKey = typeKey.OpenSubKey(@"shell\" + verbName);
             if (verbKey == null) return null;
 
-            string description = verbKey.GetValue("")?.ToString();
-            string commandLine;
+            string? description = verbKey.GetValue("")?.ToString();
+            string? commandLine;
             using (var commandKey = verbKey.OpenSubKey("command"))
             {
                 if (commandKey == null) return null;
@@ -114,7 +114,7 @@ namespace ZeroInstall.Publish.Capture
             }
 
             if (string.IsNullOrEmpty(commandLine)) return null;
-            var command = commandMapper.GetCommand(commandLine, out string additionalArgs);
+            var command = commandMapper.GetCommand(commandLine, out string? additionalArgs);
             if (command == null) return null;
 
             var verb = new Verb

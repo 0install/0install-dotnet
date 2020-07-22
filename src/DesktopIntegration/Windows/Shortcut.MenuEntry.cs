@@ -78,7 +78,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         private static string GetStartMenuCategoryPath(string? category, bool machineWide)
         {
             string menuDir = machineWide
-                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Programs")
+                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Programs", @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs")
                 : Environment.GetFolderPath(Environment.SpecialFolder.Programs);
 
             if (string.IsNullOrEmpty(category)) return menuDir;

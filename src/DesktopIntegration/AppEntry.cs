@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,14 +54,14 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.")]
         [XmlAttribute("hostname"), DefaultValue("")]
-        public string? Hostname { get; set; }
+        public string Hostname { get; set; }
 
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process.
         /// </summary>
         [Description("A set of requirements/restrictions imposed by the user on the implementation selection process.")]
         [XmlIgnore]
-        public Requirements? Requirements { get; set; }
+        public Requirements Requirements { get; set; }
 
         /// <summary>
         /// The <see cref="Requirements"/> if it is set, otherwise a basic reference to <see cref="InterfaceUri"/>.
@@ -93,7 +95,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A set of AccessPoints to be registered in the desktop environment. Is null if no desktop integration has been performed yet.")]
         [XmlElement("access-points")]
-        public AccessPointList? AccessPoints { get; set; }
+        public AccessPointList AccessPoints { get; set; }
 
         /// <inheritdoc/>
         [Browsable(false)]
@@ -160,7 +162,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AppEntry? other)
+        public bool Equals(AppEntry other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri
@@ -171,7 +173,7 @@ namespace ZeroInstall.DesktopIntegration
             && Equals(AccessPoints, other.AccessPoints);
 
         /// <inheritdoc/>
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

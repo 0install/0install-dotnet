@@ -74,7 +74,7 @@ namespace ZeroInstall.Publish.Capture
 
             (string? commandLine, string? arguments) IsolateCommand(string regValueName)
             {
-                string commandLine = installInfoKey.GetValue(regValueName)?.ToString();
+                string? commandLine = installInfoKey.GetValue(regValueName)?.ToString();
                 if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
                     return (null, null);
 

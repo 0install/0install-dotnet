@@ -81,7 +81,7 @@ namespace ZeroInstall.Commands.Desktop
             else
             {
                 if (AdditionalArgs.Count < 2 || string.IsNullOrEmpty(AdditionalArgs[1])) throw new OptionException(Resources.MissingArguments, null);
-                string command = (AdditionalArgs.Count >= 3) ? AdditionalArgs[2] : null;
+                string? command = (AdditionalArgs.Count >= 3) ? AdditionalArgs[2] : null;
 
                 var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
                 CreateAlias(appEntry, aliasName, command);

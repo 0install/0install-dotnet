@@ -22,7 +22,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Stores a list of applications and their desktop integrations. Only use for read-access externally! Use this class' methods for any modifications.
         /// </summary>
-        public AppList AppList { get; protected set; }
+        public AppList AppList { get; protected set; } = default!;
 
         /// <summary>
         /// Creates a new integration manager.

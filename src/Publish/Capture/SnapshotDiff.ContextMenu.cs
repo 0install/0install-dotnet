@@ -34,7 +34,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "files-" + entry,
                         Target = ContextMenuTarget.Files,
-                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                     });
                 }
             }
@@ -48,7 +48,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "executable-files-" + entry,
                         Target = ContextMenuTarget.ExecutableFiles,
-                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                     });
                 }
             }
@@ -62,7 +62,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "directories-" + entry,
                         Target = ContextMenuTarget.Directories,
-                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                     });
                 }
             }
@@ -76,7 +76,7 @@ namespace ZeroInstall.Publish.Capture
                     {
                         ID = "all-" + entry,
                         Target = ContextMenuTarget.Directories,
-                        Verbs = {GetVerb(progIDKey, commandMapper, entry)}
+                        Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                     });
                 }
             }

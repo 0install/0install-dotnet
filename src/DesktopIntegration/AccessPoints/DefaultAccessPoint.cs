@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -29,7 +31,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         public string Capability { get; set; }
 
         #region Equality
-        protected bool Equals(DefaultAccessPoint? other)
+        protected bool Equals(DefaultAccessPoint other)
             => other != null && base.Equals(other) && other.Capability == Capability;
 
         /// <inheritdoc/>

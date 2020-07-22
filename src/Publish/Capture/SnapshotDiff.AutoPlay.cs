@@ -56,10 +56,10 @@ namespace ZeroInstall.Publish.Capture
             #endregion
 
             using var handlerKey = hive.OpenSubKey(DesktopIntegration.Windows.AutoPlay.RegKeyHandlers + @"\" + handler);
-            string progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
+            string? progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
             if (string.IsNullOrEmpty(progID)) return null;
 
-            string verbName = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
+            string? verbName = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
             if (string.IsNullOrEmpty(verbName)) return null;
 
             using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
@@ -67,8 +67,8 @@ namespace ZeroInstall.Publish.Capture
             var autoPlay = new AutoPlay
             {
                 ID = handler,
-                Provider = handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString(),
-                Descriptions = {handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString()},
+                Provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString(),
+                Descriptions = {handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
                 Verb = GetVerb(progIDKey, commandMapper, verbName)
             };
 

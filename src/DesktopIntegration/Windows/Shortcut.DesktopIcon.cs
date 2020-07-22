@@ -56,7 +56,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             CheckName(name);
 
             string desktopDir = machineWide
-                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Desktop")
+                ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Desktop", @"C:\Users\Public\Desktop")
                 : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             return Path.Combine(desktopDir, name + ".lnk");
         }

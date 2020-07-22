@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#nullable disable
+
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -26,7 +28,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         [Description("The name of the Command to use when launching via this access point. Leave empty to use default.")]
         [XmlAttribute("command")]
-        public string? Command { get; set; }
+        public string Command { get; set; }
 
         #region Conversion
         /// <summary>
@@ -41,7 +43,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #endregion
 
         #region Equality
-        protected bool Equals(CommandAccessPoint? other)
+        protected bool Equals(CommandAccessPoint other)
             => other != null && base.Equals(other) && other.Name == Name && other.Command == Command;
 
         /// <inheritdoc/>
