@@ -33,7 +33,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         public const string RegKeyClassesDirectories = "Directory";
         
         /// <summary>The HKCU registry key for registering things for all directories backgrounds.</summary>
-        public const string RegKeyClassesDirectoriesBackground = RegKeyClassesDirectories + @"\Background";
+        public const string RegKeyClassesBackground = RegKeyClassesDirectories + @"\Background";
 
         /// <summary>The HKCU registry key for registering things for all filesystem objects (files and directories).</summary>
         public const string RegKeyClassesAll = "AllFilesystemObjects";
@@ -47,7 +47,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
                 ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
                 ContextMenuTarget.Directories => RegKeyClassesDirectories,
-                ContextMenuTarget.DirectoriesBackground => RegKeyClassesDirectoriesBackground,
+                ContextMenuTarget.Background => RegKeyClassesBackground,
                 ContextMenuTarget.All => new[] {RegKeyClassesAll},
                 _ => new[] {RegKeyClassesFiles}
             };
