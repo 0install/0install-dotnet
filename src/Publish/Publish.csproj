@@ -44,19 +44,12 @@
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ELFSharp" Version="2.5.0" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
-  <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'!='net45'">
-    <Compile Remove="Capture\**" />
   </ItemGroup>
 
   <!-- Embedded resources -->

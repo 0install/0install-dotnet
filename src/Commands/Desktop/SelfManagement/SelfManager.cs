@@ -85,8 +85,10 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             if (newManifest == null) throw new IOException(Resources.MaintenanceMissingManifest);
             var oldManifest = LoadManifest(TargetDir) ?? LegacyManifest;
 
+#if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)
                 ServiceStop();
+#endif
 
             try
             {
@@ -116,12 +118,14 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
                 TargetMutexRelease();
 
+#if NETFRAMEWORK
                 if (WindowsUtils.IsWindows && MachineWide)
                 {
                     NgenApply();
                     ServiceInstall();
                     ServiceStart();
                 }
+#endif
             }
             catch
             {
@@ -140,12 +144,14 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             var targetManifest = LoadManifest(TargetDir);
             if (targetManifest == null) throw new IOException(Resources.MaintenanceMissingManifest);
 
+#if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)
             {
                 ServiceStop();
                 ServiceUninstall();
                 NgenRemove();
             }
+#endif
 
             try
             {
@@ -154,7 +160,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
                 {
                     clearDir.Stage();
+#if NETFRAMEWORK
                     DeleteServiceLogFiles();
+#endif
                     if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
                     clearDir.Commit();
                 }

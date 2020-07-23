@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if NETFRAMEWORK
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -162,3 +163,4 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         }
     }
 }
+#endif

@@ -5,17 +5,14 @@ using System;
 using System.IO;
 using System.Net;
 using NDesk.Options;
+using ZeroInstall.DesktopIntegration;
+using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
-
-#if NETFRAMEWORK
-using ZeroInstall.DesktopIntegration;
-using ZeroInstall.DesktopIntegration.AccessPoints;
-#endif
 
 namespace ZeroInstall.Commands
 {
@@ -42,11 +39,9 @@ namespace ZeroInstall.Commands
         /// <seealso cref="IOException"/>
         IOError = 12,
 
-#if NETFRAMEWORK
         /// <summary>A desktop integration operation could not be completed due to conflicting <see cref="AccessPoint"/>s.</summary>
         /// <seealso cref="ConflictException"/>
         Conflict = 15,
-#endif
 
         /// <summary>The <see cref="ISolver"/> was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>. This can be caused by a problem with the feed, an impossible request (e.g., non-existing version) or your local configuration.</summary>
         /// <seealso cref="SolverException"/>

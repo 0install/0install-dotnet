@@ -5,15 +5,12 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
-
-#if NETFRAMEWORK
-using ZeroInstall.DesktopIntegration.ViewModel;
-#endif
 
 namespace ZeroInstall.Commands
 {
@@ -49,10 +46,8 @@ namespace ZeroInstall.Commands
         /// <inheritdoc/>
         public void CustomizeSelections(Func<Selections> solveCallback) => throw new NeedsGuiException(Resources.NoCustomizeSelectionsInCli);
 
-#if NETFRAMEWORK
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
-#endif
 
         /// <inheritdoc/>
         public void ShowFeedSearch(SearchQuery query)

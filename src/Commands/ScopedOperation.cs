@@ -3,23 +3,20 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Native;
+using NanoByte.Common.Net;
+using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
-
-#if NETFRAMEWORK
-using System.Linq;
-using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
-using ZeroInstall.Commands.Desktop;
-using ZeroInstall.DesktopIntegration;
-#endif
 
 namespace ZeroInstall.Commands
 {
@@ -86,9 +83,6 @@ namespace ZeroInstall.Commands
 
         private static FeedUri? TryResolveAlias(string uri)
         {
-#if NETCOREAPP
-            return null;
-#else
             var appList = AppList.LoadSafe();
 
             const string aliasPrefix = "alias:";
@@ -110,7 +104,6 @@ namespace ZeroInstall.Commands
                     Log.Info(string.Format(Resources.ResolvedUsingAlias, aliasName, result));
                 return result;
             }
-#endif
         }
 
         private FeedUri? TryResolveCatalog(string shortName)
@@ -160,7 +153,6 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected void SelfUpdateCheck()
         {
-#if NETFRAMEWORK
             if (!ZeroInstallInstance.IsRunningFromCache
              && NetUtils.IsInternetConnected
              && Handler.Verbosity != Verbosity.Batch
@@ -174,7 +166,6 @@ namespace ZeroInstall.Commands
                 Log.Info("Starting periodic background self-update check");
                 StartCommandBackground(Self.Name, Self.Update.Name);
             }
-#endif
         }
 
         /// <summary>
@@ -184,7 +175,6 @@ namespace ZeroInstall.Commands
         /// <param name="args">Additional arguments to pass to the command.</param>
         protected static void StartCommandBackground(string command, params string[] args)
         {
-#if NETFRAMEWORK
             #region Sanity checks
             if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
             #endregion
@@ -209,7 +199,6 @@ namespace ZeroInstall.Commands
                 Log.Warn(ex);
             }
             #endregion
-#endif
         }
     }
 }

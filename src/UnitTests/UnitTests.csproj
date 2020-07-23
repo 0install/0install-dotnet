@@ -25,6 +25,7 @@
     <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Commands\Commands.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Publish\Publish.csproj" PrivateAssets="None" />
   </ItemGroup>
@@ -39,16 +40,6 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
-  </ItemGroup>
-
-  <!-- Restrict desktop integration support to .NET Framework builds -->
-  <ItemGroup Condition="'$(TargetFramework)'=='net48'">
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
-    <Compile Remove="DesktopIntegration\**" />
-    <Compile Remove="Publish\Capture\**" />
-    <Compile Remove="Commands\Desktop\**" />
   </ItemGroup>
 
   <!-- Embedded resources -->

@@ -46,6 +46,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(aliasName) || aliasName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
                 throw new IOException(string.Format(Resources.NameInvalidChars, aliasName));
 
+#if NETFRAMEWORK
             string stubDirPath = GetStubDir(machineWide);
             PathEnv.AddDir(stubDirPath, machineWide);
 
@@ -59,6 +60,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 using var exeKey = appPathsKey.CreateSubKeyChecked(aliasName + ".exe");
                 exeKey.SetValue("", stubFilePath);
             }
+#else
+            throw new PlatformNotSupportedException("Generating Windows aliases is not supported by the .NET Core version of Zero Install.");
+#endif
         }
         #endregion
 

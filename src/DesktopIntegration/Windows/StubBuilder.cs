@@ -2,22 +2,25 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using NanoByte.Common.Storage;
+using ZeroInstall.Model;
+using ZeroInstall.Store;
+
+#if NETFRAMEWORK
+using System.CodeDom.Compiler;
+using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using ZeroInstall.DesktopIntegration.Properties;
-using ZeroInstall.Model;
-using ZeroInstall.Store;
+#endif
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -56,6 +59,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             try
             {
+#if NETFRAMEWORK
                 if (WindowsUtils.IsWindows)
                 {
                     string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
@@ -69,6 +73,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     CreateOrUpdateRunStub(path, target, gui, command);
                     return new[] {path};
                 }
+#endif
 
                 return GetArguments(target.Uri, command, gui)
                       .Prepend(GetBinary(gui))
@@ -98,6 +103,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             yield return uri.ToStringRfc();
         }
 
+#if NETFRAMEWORK
         /// <summary>The point in time when the library file containing this code was installed.</summary>
         private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
 
@@ -226,5 +232,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
         private static string EscapeForCode(string value)
             => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
+#endif
     }
 }

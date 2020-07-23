@@ -5,8 +5,7 @@
     <AssemblyName>ZeroInstall.DesktopIntegration</AssemblyName>
     <RootNamespace>ZeroInstall.DesktopIntegration</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFramework>net45</TargetFramework>
-    <RuntimeIdentifier>win</RuntimeIdentifier>
+    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
@@ -18,6 +17,12 @@
     <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+    <RuntimeIdentifier>win</RuntimeIdentifier>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <!-- NuGet package metadata -->

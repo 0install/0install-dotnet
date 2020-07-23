@@ -8,15 +8,12 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
+using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
-
-#if NETFRAMEWORK
-using ZeroInstall.DesktopIntegration.ViewModel;
-#endif
 
 namespace ZeroInstall.Commands
 {
@@ -80,13 +77,11 @@ namespace ZeroInstall.Commands
             // No UI, so nothing to do
         }
 
-#if NETFRAMEWORK
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state)
         {
             // No UI, so nothing to do
         }
-#endif
 
         public void ShowFeedSearch(SearchQuery query)
         {

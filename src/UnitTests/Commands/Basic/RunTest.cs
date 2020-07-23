@@ -9,14 +9,11 @@ using Moq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using Xunit;
+using ZeroInstall.DesktopIntegration;
+using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
-
-#if NETFRAMEWORK
-using ZeroInstall.DesktopIntegration;
-using ZeroInstall.DesktopIntegration.AccessPoints;
-#endif
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -110,7 +107,6 @@ namespace ZeroInstall.Commands.Basic
             if (WindowsUtils.IsWindows) Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri(":::"));
         }
 
-#if NETFRAMEWORK
         [Fact]
         public void TestGetCanonicalUriAliases()
         {
@@ -130,7 +126,6 @@ namespace ZeroInstall.Commands.Basic
             Sut.GetCanonicalUri("alias:test").Should().Be(Fake.Feed1Uri);
             Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("alias:invalid"));
         }
-#endif
 
         [Fact]
         public void TestGetCanonicalUriCatalogCached()
