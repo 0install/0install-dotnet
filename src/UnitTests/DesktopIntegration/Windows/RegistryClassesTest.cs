@@ -3,7 +3,6 @@
 
 using FluentAssertions;
 using Moq;
-using NanoByte.Common.Native;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
@@ -13,10 +12,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
 {
     public class RegistryClassesTest : TestWithRedirect
     {
-        [SkippableFact]
+        [Fact]
         public void TestCommandLineEscaping()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
             GetLaunchCommandLine(new Verb {Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
                .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
         }
@@ -24,7 +22,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         [SkippableFact]
         public void TestCommandLinePrecedence()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
             GetLaunchCommandLine(new Verb {Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
                .Should().EndWith("a b");
         }
@@ -32,7 +29,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         [SkippableFact]
         public void TestCommandLineLiteral()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
             GetLaunchCommandLine(new Verb {ArgumentsLiteral = "x"})
                .Should().EndWith("x");
         }
@@ -40,7 +36,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         [SkippableFact]
         public void TestCommandLineDefaultValue()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
             GetLaunchCommandLine(new Verb())
                .Should().EndWith("\"%V\"");
         }

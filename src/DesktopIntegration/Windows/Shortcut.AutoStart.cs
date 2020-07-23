@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
@@ -27,7 +28,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             #endregion
 
             string filePath = GetStartupPath(autoStart.Name, machineWide);
-            Create(filePath, targetPath: StubBuilder.GetRunStub(target, autoStart.Command, iconStore));
+            var commandLine = new StubBuilder(iconStore).GetRunCommandLine(target, autoStart.Command, machineWide);
+            Create(filePath, commandLine.First(), commandLine.Skip(1).JoinEscapeArguments());
         }
 
         /// <summary>

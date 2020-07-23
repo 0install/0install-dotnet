@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
@@ -9,7 +10,6 @@ using System.Linq;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store;
@@ -131,11 +131,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
         internal static string GetLaunchCommandLine(FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
-            string GetRunStub()
+            IEnumerable<string> GetCommandLine()
             {
                 try
                 {
-                    return StubBuilder.GetRunStub(target, verb.Command, iconStore, machineWide);
+                    return new StubBuilder(iconStore).GetRunCommandLine(target, verb.Command, machineWide);
                 }
                 #region Error handling
                 catch (InvalidOperationException ex)
@@ -149,13 +149,13 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (verb.Arguments.Count == 0)
             {
                 string arguments = string.IsNullOrEmpty(verb.ArgumentsLiteral) ? "\"%V\"" : verb.ArgumentsLiteral;
-                return GetRunStub().EscapeArgument() + " " + arguments;
+                return GetCommandLine().JoinEscapeArguments() + " " + arguments;
             }
 
-            return verb.Arguments.Select(x => x.Value)
-                       .Prepend(GetRunStub())
-                       .JoinEscapeArguments()
-                       .Replace("${item}", "\"%V\"");
+            return GetCommandLine()
+                  .Concat(verb.Arguments.Select(x => x.Value))
+                  .JoinEscapeArguments()
+                  .Replace("${item}", "\"%V\"");
         }
     }
 }

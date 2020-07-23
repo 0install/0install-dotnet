@@ -50,25 +50,15 @@ namespace ZeroInstall.DesktopIntegration.Windows
             PathEnv.AddDir(stubDirPath, machineWide);
 
             string stubFilePath = Path.Combine(stubDirPath, aliasName + ".exe");
-            StubBuilder.BuildRunStub(target, stubFilePath, iconStore, needsTerminal: true, command: command);
-            AddToAppPaths(aliasName + ".exe", stubFilePath, machineWide);
-        }
+            new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command);
 
-        /// <summary>
-        /// Adds an EXE to the AppPath registry key.
-        /// </summary>
-        /// <param name="exeName">The name of the EXE file to add (including the file ending).</param>
-        /// <param name="exePath">The full path to the EXE file.</param>
-        /// <param name="machineWide"><c>true</c> to use the machine-wide registry key; <c>false</c> for the per-user variant.</param>
-        private static void AddToAppPaths(string exeName, string exePath, bool machineWide)
-        {
-            // Only Windows 7 and newer support per-user AppPaths
-            if (!machineWide && !WindowsUtils.IsWindows7) return;
-
-            var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-            using var appPathsKey = hive.CreateSubKeyChecked(RegKeyAppPaths);
-            using var exeKey = appPathsKey.CreateSubKeyChecked(exeName);
-            exeKey.SetValue("", exePath);
+            if (machineWide || WindowsUtils.IsWindows7)
+            {
+                var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+                using var appPathsKey = hive.CreateSubKeyChecked(RegKeyAppPaths);
+                using var exeKey = appPathsKey.CreateSubKeyChecked(aliasName + ".exe");
+                exeKey.SetValue("", stubFilePath);
+            }
         }
         #endregion
 

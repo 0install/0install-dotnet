@@ -3,12 +3,15 @@
 
 using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -19,63 +22,86 @@ using ZeroInstall.Store;
 namespace ZeroInstall.DesktopIntegration.Windows
 {
     /// <summary>
-    /// Utility class for building stub EXEs that execute "0install" commands. Provides persistent local paths.
+    /// Builds stub EXEs that execute "0install" commands.
     /// </summary>
-    public static class StubBuilder
+    internal class StubBuilder
     {
-        #region Get
+        private readonly IIconStore _iconStore;
+
         /// <summary>
-        /// Builds a stub EXE in a well-known location. Future calls with the same arguments will return the same EXE.
+        /// Creates a new stub builder.
         /// </summary>
-        /// <param name="target">The application to be launched via the stub.</param>
-        /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
-        /// <param name="machineWide">Store the stub in a machine-wide directory instead of just for the current user.</param>
         /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
-        /// <returns>The path to the generated stub EXE.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
-        /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
-        /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
-        /// <exception cref="InvalidOperationException">Write access to the filesystem is not permitted.</exception>
-        public static string GetRunStub(FeedTarget target, string? command, IIconStore iconStore, bool machineWide = false)
+        public StubBuilder(IIconStore iconStore)
         {
-            #region Sanity checks
-            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
-            #endregion
-
-            var entryPoint = target.Feed.GetEntryPoint(command);
-            string exeName = (entryPoint != null)
-                ? entryPoint.BinaryName ?? entryPoint.Command
-                : FeedUri.Escape(target.Feed.Name);
-            bool needsTerminal = (entryPoint != null && entryPoint.NeedsTerminal);
-
-            string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
-            string path = Path.Combine(
-                IntegrationManager.GetDir(machineWide, "stubs", hash),
-                exeName + ".exe");
-
-            CreateOrUpdateRunStub(target, path, command, needsTerminal, iconStore);
-            return path;
+            _iconStore = iconStore;
         }
 
-        /// <summary>The point in time when the library file containing this code was installed.</summary>
-        private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-
         /// <summary>
-        /// Creates a new or updates an existing stub EXE that executes the "0install run" command.
+        /// Returns a command-line for executing the "0install run" command. Generates and returns a stub EXE if possible, falls back to directly pointing to the "0install" binary otherwise.
         /// </summary>
-        /// <seealso cref="BuildRunStub"/>
-        /// <param name="target">The application to be launched via the stub.</param>
-        /// <param name="path">The target path to store the generated EXE file.</param>
+        /// <param name="target">The application to be launched.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
-        /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
-        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
+        /// <param name="machineWide"></param>
+        /// <returns></returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        private static void CreateOrUpdateRunStub(FeedTarget target, string path, string? command, bool needsTerminal, IIconStore iconStore)
+        public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command = null, bool machineWide = false)
+        {
+            var entryPoint = target.Feed.GetEntryPoint(command);
+            bool gui = entryPoint == null || !entryPoint.NeedsTerminal;
+
+            try
+            {
+                if (WindowsUtils.IsWindows)
+                {
+                    string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
+                    string exeName = (entryPoint == null)
+                        ? FeedUri.Escape(target.Feed.Name)
+                        : entryPoint.BinaryName ?? entryPoint.Command;
+                    string path = Path.Combine(
+                        IntegrationManager.GetDir(machineWide, "stubs", hash),
+                        exeName + ".exe");
+
+                    CreateOrUpdateRunStub(path, target, gui, command);
+                    return new[] {path};
+                }
+
+                return GetArguments(target.Uri, command, gui)
+                      .Prepend(GetBinary(gui))
+                      .ToList();
+            }
+            #region Error handling
+            catch (InvalidOperationException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(ex.Message, ex);
+            }
+            #endregion
+        }
+
+        private static string GetBinary(bool gui)
+            => Path.Combine(Locations.InstallBase, gui ? "0install-win.exe" : "0install.exe");
+
+        private static IEnumerable<string> GetArguments(FeedUri uri, string? command, bool gui)
+        {
+            yield return "run";
+            if (gui) yield return "--no-wait";
+            if (!string.IsNullOrEmpty(command))
+            {
+                yield return "--command";
+                yield return command;
+            }
+            yield return uri.ToStringRfc();
+        }
+
+        /// <summary>The point in time when the library file containing this code was installed.</summary>
+        private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+
+        private void CreateOrUpdateRunStub(string path, FeedTarget target, bool gui, string? command)
         {
             if (File.Exists(path))
             { // Existing stub
@@ -100,35 +126,31 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     }
                     #endregion
 
-                    BuildRunStub(target, path, iconStore, needsTerminal, command);
+                    BuildRunStub(path, target, command, gui);
                 }
             }
             else
             { // No existing stub, build new one
-                BuildRunStub(target, path, iconStore, needsTerminal, command);
+                BuildRunStub(path, target, command, gui);
             }
         }
-        #endregion
 
-        #region Build
         /// <summary>
-        /// Builds a stub EXE that executes the "0install run" command.
+        /// Builds a stub EXE that executes the "0install run" command at a specific path.
         /// </summary>
-        /// <param name="target">The application to be launched via the stub.</param>
-        /// <param name="path">The target path to store the generated EXE file.</param>
-        /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
-        /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
+        /// <param name="path">The path to store the generated EXE file.</param>
+        /// <param name="target">The application to be launched.</param>
         /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
+        /// <param name="gui"><c>true</c> to build a GUI stub, <c>false</c> to build a CLI stub.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        internal static void BuildRunStub(FeedTarget target, string path, IIconStore iconStore, bool needsTerminal, string? command = null)
+        public void BuildRunStub(string path, FeedTarget target, string? command = null, bool gui = false)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
             var compilerParameters = new CompilerParameters
@@ -137,76 +159,72 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 GenerateExecutable = true,
                 TreatWarningsAsErrors = true,
                 ReferencedAssemblies = {"System.dll"},
-                CompilerOptions = needsTerminal ? "/target:exe" : "/target:winexe"
+                CompilerOptions = gui ? "/target:winexe" : "/target:exe"
             };
 
-            var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
-            if (icon != null)
-            {
-                try
-                {
-                    string iconPath = iconStore.GetPath(icon);
-                    new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
-                    compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
-                }
-                #region Error handling
-                catch (UriFormatException ex)
-                {
-                    Log.Warn(ex);
-                }
-                catch (WebException ex)
-                {
-                    Log.Warn(ex);
-                }
-                catch (IOException ex)
-                {
-                    Log.Warn($"Failed to store {icon}");
-                    Log.Warn(ex);
-                }
-                catch (UnauthorizedAccessException ex)
-                {
-                    Log.Warn($"Failed to store {icon}");
-                    Log.Warn(ex);
-                }
-                catch (ArgumentException ex)
-                {
-                    Log.Warn($"Failed to parse {icon}");
-                    Log.Warn(ex);
-                }
-                #endregion
-            }
+            string? iconPath = GetIconPath(target, command);
+            if (iconPath != null)
+                compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
 
             compilerParameters.CompileCSharp(
-                code: GetRunStubCode(target, needsTerminal, command),
-                manifest: typeof(StubBuilder).GetEmbeddedString("Stub.manifest"));
+                GetCode(
+                    exe: GetBinary(gui),
+                    arguments: GetArguments(target.Uri, command, gui),
+                    title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command)),
+                Manifest);
         }
 
-        /// <summary>
-        /// Generates the C# to be compiled for the stub EXE.
-        /// </summary>
-        /// <param name="target">The application to be launched via the stub.</param>
-        /// <param name="needsTerminal"><c>true</c> to build a CLI stub, <c>false</c> to build a GUI stub.</param>
-        /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
-        /// <returns>Generated C# code.</returns>
-        private static string GetRunStubCode(FeedTarget target, bool needsTerminal, string? command = null)
+        private string? GetIconPath(FeedTarget target, string? command)
         {
-            // Build command-line
-            string args = needsTerminal ? "run " : "run --no-wait ";
-            if (!string.IsNullOrEmpty(command)) args += "--command " + command.EscapeArgument() + " ";
-            args += target.Uri.ToStringRfc().EscapeArgument();
+            var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
+            if (icon == null) return null;
 
-            // Load the template code and insert variables
-            return typeof(StubBuilder)
-                  .GetEmbeddedString("stub.template.cs")
-                  .Replace("[EXE]", Path.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe").Replace(@"\", @"\\"))
-                  .Replace("[ARGUMENTS]", EscapeForCode(args))
-                  .Replace("[TITLE]", EscapeForCode(target.Feed.GetBestName(CultureInfo.CurrentUICulture, command)));
+            try
+            {
+                string iconPath = _iconStore.GetPath(icon);
+                new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
+                return iconPath;
+            }
+            #region Error handling
+            catch (UriFormatException ex)
+            {
+                Log.Warn(ex);
+            }
+            catch (WebException ex)
+            {
+                Log.Warn(ex);
+            }
+            catch (IOException ex)
+            {
+                Log.Warn($"Failed to store {icon}");
+                Log.Warn(ex);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Warn($"Failed to store {icon}");
+                Log.Warn(ex);
+            }
+            catch (ArgumentException ex)
+            {
+                Log.Warn($"Failed to parse {icon}");
+                Log.Warn(ex);
+            }
+            #endregion
+
+            return null;
         }
 
-        /// <summary>
-        /// Escapes a string so that is safe for substitution inside C# code
-        /// </summary>
-        private static string EscapeForCode(string value) => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
-        #endregion
+        private static string GetCode(string exe, IEnumerable<string> arguments, string title)
+            => typeof(StubBuilder)
+              .GetEmbeddedString("stub.template.cs")
+              .Replace("[EXE]", EscapeForCode(exe))
+              .Replace("[ARGUMENTS]", EscapeForCode(arguments.JoinEscapeArguments()))
+              .Replace("[TITLE]", EscapeForCode(title));
+
+        private static string Manifest
+            => typeof(StubBuilder).GetEmbeddedString("Stub.manifest");
+
+        private static string EscapeForCode(string value)
+            => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
     }
 }
