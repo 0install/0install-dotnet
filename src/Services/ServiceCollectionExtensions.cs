@@ -3,6 +3,7 @@
 
 #if NETSTANDARD
 using System;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NanoByte.Common.Net;
@@ -30,10 +31,11 @@ namespace ZeroInstall.Services
         /// </summary>
         /// <typeparam name="TTaskHandler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</typeparam>
         /// <param name="services">The service collection to add the services to.</param>
-        public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services)
+        /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
+        public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services, IConfiguration? configuration = null)
             where TTaskHandler : class, ITaskHandler
             => services.AddScoped<ITaskHandler, TTaskHandler>()
-                       .AddScoped(x => Config.Load())
+                       .AddScoped(x => (configuration == null) ? Config.Load() : Config.From(configuration))
                        .AddScoped(x => ImplementationStores.Default())
                        .AddScoped(x => OpenPgp.Verifying())
                        .AddScoped(x => FeedCaches.Default(x.GetService<IOpenPgp>()))
@@ -53,9 +55,10 @@ namespace ZeroInstall.Services
         /// Automatically uses <see cref="ILogger{TCategoryName}"/> and <see cref="ICredentialProvider"/> if registered in <paramref name="services"/>.
         /// </summary>
         /// <param name="services">The service collection to add the services to.</param>
+        /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
         /// <seealso cref="ConfigurationCredentialProviderRegisration.ConfigureCredentials"/>
-        public static IServiceCollection AddZeroInstall(this IServiceCollection services)
-            => services.AddZeroInstall<ServiceTaskHandler>();
+        public static IServiceCollection AddZeroInstall(this IServiceCollection services, IConfiguration? configuration = null)
+            => services.AddZeroInstall<ServiceTaskHandler>(configuration);
     }
 }
 #endif

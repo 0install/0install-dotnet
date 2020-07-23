@@ -10,6 +10,10 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
 
+#if NETCOREAPP
+using Microsoft.Extensions.Configuration;
+#endif
+
 namespace ZeroInstall.Store
 {
     /// <summary>
@@ -96,6 +100,21 @@ namespace ZeroInstall.Store
             Config.Load(tempFile).Save(tempFile);
             File.ReadAllText(tempFile).Should().Be(testIniData);
         }
+
+        #if NETCOREAPP
+        [Fact]
+        public void TestFromExtensionsConfiguration()
+        {
+            var config = Config.From(new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string>
+            {
+                ["network_use"] = "minimal",
+                ["auto_approve_keys"] = "false"
+            }).Build());
+
+            config.NetworkUse.Should().Be(NetworkLevel.Minimal);
+            config.AutoApproveKeys.Should().BeFalse();
+        }
+        #endif
 
         [Fact]
         public void StressTest()
