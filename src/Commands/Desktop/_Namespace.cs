@@ -1,2 +1,2 @@
 //! \namespace ZeroInstall.Commands.Desktop
-//! \brief CLI commands that require desktop integration functionality.
+//! \brief CLI commands for Zero Install's \ref ZeroInstall.DesktopIntegration "desktop integration" features.

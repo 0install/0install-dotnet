@@ -1,2 +1,2 @@
 //! \namespace ZeroInstall.Commands.Basic
-//! \brief Basic set of CLI commands that work cross-platform.
+//! \brief CLI commands for Zero Install's core features.
