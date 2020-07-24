@@ -6,22 +6,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Prepare
       - name: Set up 0install
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends 0install-core
-      - name: Clone repo
+      - name: Set up GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.4
+        with:
+          versionSpec: '5.3.x'
+      - name: Check out repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: GitVersion
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.4
+
+      # Build
       - name: Build documentation
-        run: doc/build.sh
-      - name: Upload documentation
-        uses: actions/upload-artifact@v1
-        with:
-          name: Documentation
-          path: artifacts/Documentation
+        run: doc/build.sh ${{steps.gitversion.outputs.nuGetVersion}}
+
+      # Publish (release only)
       - name: Publish documentation
+        if: github.event_name == 'push' && steps.gitversion.outputs.preReleaseLabel == ''
         uses: peaceiris/actions-gh-pages@v3
-        if: startsWith(github.event.ref, 'refs/tags')
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{secrets.GITHUB_TOKEN}}
           force_orphan: true
           publish_dir: artifacts/Documentation
           cname: dotnet.0install.net
