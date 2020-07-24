@@ -46,8 +46,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
                 ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
-                ContextMenuTarget.Directories => RegKeyClassesDirectories,
-                ContextMenuTarget.Background => RegKeyClassesBackground,
+                ContextMenuTarget.Directories => new[] {RegKeyClassesDirectories},
+                ContextMenuTarget.Background => new[] {RegKeyClassesBackground},
                 ContextMenuTarget.All => new[] {RegKeyClassesAll},
                 _ => new[] {RegKeyClassesFiles}
             };
