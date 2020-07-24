@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
@@ -16,10 +15,11 @@ using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using ZeroInstall.DesktopIntegration.Properties;
+#else
+using System.Linq;
 #endif
 
 namespace ZeroInstall.DesktopIntegration.Windows
@@ -60,24 +60,21 @@ namespace ZeroInstall.DesktopIntegration.Windows
             try
             {
 #if NETFRAMEWORK
-                if (WindowsUtils.IsWindows)
-                {
-                    string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
-                    string exeName = (entryPoint == null)
-                        ? FeedUri.Escape(target.Feed.Name)
-                        : entryPoint.BinaryName ?? entryPoint.Command;
-                    string path = Path.Combine(
-                        IntegrationManager.GetDir(machineWide, "stubs", hash),
-                        exeName + ".exe");
+                string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
+                string exeName = (entryPoint == null)
+                    ? FeedUri.Escape(target.Feed.Name)
+                    : entryPoint.BinaryName ?? entryPoint.Command;
+                string path = Path.Combine(
+                    IntegrationManager.GetDir(machineWide, "stubs", hash),
+                    exeName + ".exe");
 
-                    CreateOrUpdateRunStub(path, target, gui, command);
-                    return new[] {path};
-                }
-#endif
-
+                CreateOrUpdateRunStub(path, target, gui, command);
+                return new[] {path};
+#else
                 return GetArguments(target.Uri, command, gui)
                       .Prepend(GetBinary(gui))
                       .ToList();
+#endif
             }
             #region Error handling
             catch (InvalidOperationException ex)
