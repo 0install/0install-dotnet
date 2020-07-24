@@ -19,21 +19,21 @@ namespace ZeroInstall.DesktopIntegration.Windows
                .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
         }
 
-        [SkippableFact]
+        [Fact]
         public void TestCommandLinePrecedence()
         {
             GetLaunchCommandLine(new Verb {Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
                .Should().EndWith("a b");
         }
 
-        [SkippableFact]
+        [Fact]
         public void TestCommandLineLiteral()
         {
             GetLaunchCommandLine(new Verb {ArgumentsLiteral = "x"})
                .Should().EndWith("x");
         }
 
-        [SkippableFact]
+        [Fact]
         public void TestCommandLineDefaultValue()
         {
             GetLaunchCommandLine(new Verb())
