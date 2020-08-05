@@ -7,14 +7,16 @@ if (!(Get-Command 0install -ErrorAction SilentlyContinue)) {
     $env:PATH = "$(Resolve-Path ..\artifacts\Release\net45\win);$env:PATH"
 }
 
-if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Documentation}
-mkdir ..\artifacts\Documentation | Out-Null
-
-# Download tag files for external references
+echo "Downloading references to other documentation..."
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls11,Tls12'
 Invoke-WebRequest https://common.nano-byte.net/nanobyte-common.tag -OutFile nanobyte-common.tag
 
-$env:VERSION = $Version; 0install run --batch https://apps.0install.net/devel/doxygen.xml
+if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Documentation}
+mkdir ..\artifacts\Documentation | Out-Null
+
+echo "Generating API documentation..."
+$env:VERSION = $Version
+0install run --batch https://apps.0install.net/devel/doxygen.xml
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 popd
