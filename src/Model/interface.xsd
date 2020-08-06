@@ -343,7 +343,7 @@
         <xsd:attribute name="self-test" type="xsd:string">
           <xsd:annotation>
             <xsd:documentation>
-              The relative path of an executable inside the implementation that can be executed to test the program. The program must be non-interactive (e.g. it can't open any windows or prompt for input). It should return with an exit status of zero if the tests pass. Any other status indicates failure.
+              The relative path of an executable inside the implementation that can be executed to test the program. The program must be non-interactive (e.g. it can't open any windows or prompt for input). It should return with an exit status of 0 if the tests pass. Any other status indicates failure.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>

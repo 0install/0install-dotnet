@@ -704,7 +704,7 @@ namespace ZeroInstall.Commands.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Selects a version of the program identified by URI, and compatible versions of all of its dependencies.
-        ///Returns an exit status of zero if it selected a set of versions, and a status of 1 if it could not find a consistent set..
+        ///Returns an exit status of 0 if it selected a set of versions, and a status of 1 if it could not find a consistent set..
         /// </summary>
         public static string DescriptionSelect {
             get {

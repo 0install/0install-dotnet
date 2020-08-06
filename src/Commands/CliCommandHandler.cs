@@ -39,9 +39,7 @@ namespace ZeroInstall.Commands
 
         /// <inheritdoc/>
         public void ShowSelections(Selections selections, IFeedManager feedManager)
-        {
-            // Stub to be overriden
-        }
+        {}
 
         /// <inheritdoc/>
         public void CustomizeSelections(Func<Selections> solveCallback) => throw new NeedsGuiException(Resources.NoCustomizeSelectionsInCli);

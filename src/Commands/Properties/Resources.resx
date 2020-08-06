@@ -341,7 +341,7 @@ Returns an exit status of 1 if the download step failed. Otherwise, the exit sta
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Selects a version of the program identified by URI, and compatible versions of all of its dependencies.
-Returns an exit status of zero if it selected a set of versions, and a status of 1 if it could not find a consistent set.</value>
+Returns an exit status of 0 if it selected a set of versions, and a status of 1 if it could not find a consistent set.</value>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
     <value>Updates Zero Install itself to the most recent version.</value>
