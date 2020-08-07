@@ -29,5 +29,19 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <inheritdoc/>
         protected override void UpdateProgress()
             => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
+
+        /// <inheritdoc />
+        protected override void Dispose(bool disposing)
+        {
+            try
+            {
+                base.Dispose(disposing);
+            }
+            finally
+            {
+                // Note: XZStream does not automatically dispose the inner stream so we need to do it here ourselves
+                _stream.Dispose();
+            }
+        }
     }
 }
