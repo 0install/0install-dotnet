@@ -2,4 +2,12 @@
 set -e
 cd `dirname $0`
 
-dotnet test --no-build --configuration Release --framework netcoreapp3.1 UnitTests/UnitTests.csproj
+# Find dotnet
+if command -v dotnet2 > /dev/null 2> /dev/null; then
+    dotnet="dotnet"
+else
+    dotnet="../_0install.sh run --version 3.1..!3.2 https://apps.0install.net/dotnet/core-sdk.xml"
+fi
+
+# Unit tests (without .NET Framework)
+$dotnet test --no-build --configuration Release --framework netcoreapp3.1 UnitTests/UnitTests.csproj
