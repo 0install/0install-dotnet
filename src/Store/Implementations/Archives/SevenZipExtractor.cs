@@ -2,16 +2,22 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using NanoByte.Common.Tasks;
+using SharpCompress.Archives;
 using SharpCompress.Archives.SevenZip;
+using SharpCompress.Common;
 using SharpCompress.Readers;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
     /// Extracts a 7z archive.
     /// </summary>
-    public class SevenZipExtractor : SharpCompressArchiveExtractor
+    public class SevenZipExtractor : ArchiveExtractor
     {
+        private readonly SevenZipArchive _archive;
+
         /// <summary>
         /// Prepares to extract a 7z archive contained in a stream.
         /// </summary>
@@ -19,7 +25,50 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <exception cref="IOException">The archive is damaged.</exception>
         internal SevenZipExtractor(Stream stream, string targetPath)
-            : base(SevenZipArchive.Open(stream, new ReaderOptions {LeaveStreamOpen = false}), targetPath)
-        {}
+            : base(targetPath)
+        {
+            _archive = SevenZipArchive.Open(stream, new ReaderOptions {LeaveStreamOpen = false});
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) _archive.Dispose();
+        }
+
+        /// <inheritdoc/>
+        protected override void ExtractArchive()
+        {
+            State = TaskState.Data;
+
+            try
+            {
+                UnitsTotal = _archive.TotalUncompressSize;
+
+                foreach (var entry in _archive.Entries)
+                {
+                    string? relativePath = GetRelativePath(entry.Key.Replace('\\', '/'));
+                    if (relativePath == null) continue;
+
+                    if (entry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, entry.LastModifiedTime?.ToUniversalTime());
+                    else
+                    {
+                        CancellationToken.ThrowIfCancellationRequested();
+
+                        string absolutePath = DirectoryBuilder.NewFilePath(relativePath, entry.LastModifiedTime?.ToUniversalTime());
+                        using (var fileStream = File.Create(absolutePath))
+                            entry.WriteTo(fileStream);
+
+                        UnitsProcessed += entry.Size;
+                    }
+                }
+            }
+            #region Error handling
+            catch (ExtractionException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(Resources.ArchiveInvalid, ex);
+            }
+            #endregion
+        }
     }
 }
