@@ -134,6 +134,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Indicates whether the sync-related configuration is complete.
         /// </summary>
+        [Browsable(false)]
         public bool IsSyncConfigured
             => SyncServer != null
             && (SyncServer.IsFile || (!string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword) && !string.IsNullOrEmpty(SyncCryptoKey)));
