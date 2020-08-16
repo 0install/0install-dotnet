@@ -11,4 +11,4 @@ else
 fi
 
 # Build feed and archive
-../_0install.sh run http://0install.net/tools/0template.xml 0install-dotnet.xml.template version=$version stability=$stability
+../0install.sh run http://0install.net/tools/0template.xml 0install-dotnet.xml.template version=$version stability=$stability

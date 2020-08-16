@@ -10,7 +10,7 @@ if (Test-Path ..\artifacts\Documentation) {rm -Recurse -Force ..\artifacts\Docum
 mkdir ..\artifacts\Documentation | Out-Null
 
 $env:VERSION = $Version
-..\_0install.ps1 run --batch https://apps.0install.net/devel/doxygen.xml
+..\0install.ps1 run --batch https://apps.0install.net/devel/doxygen.xml
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 popd

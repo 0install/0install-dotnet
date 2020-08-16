@@ -8,7 +8,7 @@ echo "WARNING: You need Visual Studio 2019 v16.5+ to perform a full build of thi
 if command -v dotnet > /dev/null 2> /dev/null; then
     dotnet="dotnet"
 else
-    dotnet="../_0install.sh run --version 3.1..!3.2 https://apps.0install.net/dotnet/core-sdk.xml"
+    dotnet="../0install.sh run --version 3.1..!3.2 https://apps.0install.net/dotnet/core-sdk.xml"
 fi
 
 # Run build
