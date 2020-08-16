@@ -13,7 +13,11 @@ TAGFILES = nanobyte-common.tag=https://common.nano-byte.net/
 OUTPUT_DIRECTORY = ../artifacts/Documentation
 GENERATE_TAGFILE = ../artifacts/Documentation/0install-dotnet.tag
 HTML_OUTPUT = .
+HTML_COLORSTYLE_HUE = 203
+HTML_COLORSTYLE_SAT = 77
+HTML_COLORSTYLE_GAMMA = 72
 
+GENERATE_TREEVIEW = YES
 GENERATE_LATEX = NO
 CASE_SENSE_NAMES = NO
 

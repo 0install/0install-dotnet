@@ -1,7 +1,14 @@
 Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](https://0install.net/).  
 This website documents the Zero Install .NET API. You can use this to integrate Zero Install features into your own application.
 
-Take a look at the [**Namespace List**](namespaces.html) to get an overview of the available functionality.
+[**GitHub repository**](https://github.com/0install/0install-dotnet)
+
+**Sample code**
+
+- [C#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs)
+- [Visual Basic .NET](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb)
+- [F#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.fs)
+- [IronPython](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.py)
 
 **NuGet packages**
 
@@ -34,12 +41,3 @@ The [Zero Install Publishing Tools](https://github.com/0install/0publish-win) (i
 The following graph shows the dependencies between the NuGet packages:
 
 \image html nuget-dependencies.svg
-
-**Sample code**
-
-- [C#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs)
-- [Visual Basic .NET](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb)
-- [F#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.fs)
-- [IronPython](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.py)
-
-[**GitHub repository**](https://github.com/0install/0install-dotnet)
