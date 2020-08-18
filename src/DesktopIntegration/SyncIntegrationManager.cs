@@ -165,13 +165,15 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     Handler.RunTask(new SimpleTask(Resources.SyncUploading, () => webClient.UploadData(uri, "PUT", memoryStream.ToArray())));
                 }
-                #region Error handling
                 catch (WebException ex) when (ex.Status == WebExceptionStatus.ProtocolError && (ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.PreconditionFailed)
                 {
                     Handler.CancellationToken.ThrowIfCancellationRequested();
                     throw new SyncRaceException(ex);
                 }
-                #endregion
+                finally
+                {
+                    webClient.Headers.Remove(HttpRequestHeader.IfMatch);
+                }
             }
         }
 
