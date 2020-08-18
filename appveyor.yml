@@ -27,8 +27,6 @@ for:
       - path: feed\*.xml
       - path: feed\*.tar.gz
       - path: artifacts\Release\*.*nupkg
-      - path: artifacts\Schemas
-        name: schemas
 
     deploy:
       - provider: Environment

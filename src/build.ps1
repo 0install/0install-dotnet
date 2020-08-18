@@ -38,8 +38,4 @@ Run-MSBuild /v:Quiet /t:Restore /t:Build $ci /p:Configuration=Release /p:Version
 # Package .NET Core distribution
 Run-MSBuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences=False /p:Configuration=Release /p:TargetFramework=netcoreapp3.1 /p:Version=$Version Commands
 
-# Snapshot of XML Schemas
-if (!(Test-Path ..\artifacts\Schemas)) { mkdir ..\artifacts\Schemas | Out-Null }
-cp *\*.xsd,*\*\*.xsd ..\artifacts\Schemas
-
 popd

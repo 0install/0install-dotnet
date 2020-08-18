@@ -27,7 +27,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <summary>
         /// The URI to retrieve an XSD containing the XML Schema information for this class in serialized form.
         /// </summary>
-        public const string XsdLocation = XmlNamespace + "/capabilities.xsd";
+        public const string XsdLocation = "https://docs.0install.net/specifications/capabilities.xsd";
         #endregion
 
         /// <summary>

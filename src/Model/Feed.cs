@@ -42,7 +42,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// The URI to retrieve an XSD containing the XML Schema information for this class in serialized form.
         /// </summary>
-        public const string XsdLocation = "http://0install.de/schema/injector/interface/interface.xsd";
+        public const string XsdLocation = "https://docs.0install.net/specifications/feed.xsd";
 
         /// <summary>
         /// Provides XML Editors with location hints for XSD files.
