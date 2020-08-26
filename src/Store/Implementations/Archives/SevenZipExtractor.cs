@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.IO;
 using NanoByte.Common.Tasks;
 using SharpCompress.Archives;
@@ -63,6 +64,11 @@ namespace ZeroInstall.Store.Implementations.Archives
                 }
             }
             #region Error handling
+            catch (InvalidOperationException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(Resources.ArchiveInvalid, ex);
+            }
             catch (ExtractionException ex)
             {
                 // Wrap exception since only certain exception types are allowed
