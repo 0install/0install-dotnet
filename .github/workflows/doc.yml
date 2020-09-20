@@ -33,7 +33,7 @@ jobs:
 
       # Publish
       - name: Publish documentation
-        if: github.event_name == 'push' && steps.gitversion.outputs.preReleaseLabel == ''
+        if: steps.gitversion.outputs.preReleaseLabel == ''
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{github.token}}
