@@ -25,6 +25,7 @@ namespace ZeroInstall.Services.Feeds
     /// Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.
     /// </summary>
     /// <remarks>Provides an in-memory cache in addition to the (usually disk-backed <see cref="IFeedCache"/>).</remarks>
+    #pragma warning disable 8766
     public class FeedManager : TransparentCacheBase<FeedUri, Feed>, IFeedManager
     {
         #region Dependencies
