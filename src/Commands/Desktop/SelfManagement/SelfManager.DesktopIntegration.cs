@@ -23,7 +23,8 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 {
                     Shortcut.Create(
                         path: Shortcut.GetStartMenuPath("", "Zero Install", MachineWide),
-                        targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"));
+                        targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
+                        appId: "ZeroInstall");
 
                     PathEnv.AddDir(TargetDir, MachineWide);
                 }));
