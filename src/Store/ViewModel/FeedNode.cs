@@ -68,7 +68,7 @@ namespace ZeroInstall.Store.ViewModel
         /// A short one-line description of the application.
         /// </summary>
         [Description("A short one-line description of the application.")]
-        public string? Summary => _feed.GetBestSummary(CultureInfo.CurrentUICulture);
+        public string? Summary => _feed.Summaries.GetBestLanguage(CultureInfo.CurrentUICulture);
 
         /// <summary>
         /// A comma-separated list of categories the applications fits into.

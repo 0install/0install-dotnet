@@ -70,7 +70,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var icon = capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco);
+            var icon = capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
             if (icon != null)
             {
                 using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
@@ -112,7 +112,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             if (verb.Extended) verbKey.SetValue("Extended", "");
 
-            var icon = target.Feed.GetIcon(Icon.MimeTypeIco, verb.Command);
+            var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
             if (icon != null) verbKey.SetValue("Icon", iconStore.GetPath(icon));
 
             using var commandKey = verbKey.CreateSubKeyChecked("command");

@@ -281,7 +281,7 @@ namespace ZeroInstall.Model
         {
             var feed = CreateTestFeed();
 
-            feed.GetEntryPoint().Should().Be(CreateTestFeed().EntryPoints[0]);
+            feed.GetEntryPoint(null).Should().Be(CreateTestFeed().EntryPoints[0]);
             feed.GetEntryPoint("unknown").Should().BeNull();
         }
 
@@ -293,7 +293,7 @@ namespace ZeroInstall.Model
         {
             var feed = CreateTestFeed();
 
-            feed.GetBestName(CultureInfo.InvariantCulture).Should().Be("Entry name");
+            feed.GetBestName(CultureInfo.InvariantCulture, null).Should().Be("Entry name");
             feed.GetBestName(CultureInfo.InvariantCulture, "unknown").Should().Be(feed.Name + " unknown");
         }
 
@@ -305,24 +305,24 @@ namespace ZeroInstall.Model
         {
             var feed = CreateTestFeed();
 
-            feed.GetBestSummary(CultureInfo.InvariantCulture).Should().Be("Entry summary");
+            feed.GetBestSummary(CultureInfo.InvariantCulture, null).Should().Be("Entry summary");
             feed.GetBestSummary(CultureInfo.InvariantCulture, "unknown").Should().Be("Default summary");
         }
 
         /// <summary>
-        /// Ensures that <see cref="Feed.GetIcon"/> correctly finds best matching <see cref="Icon"/>s for <see cref="Command"/>s/<see cref="EntryPoint"/>s.
+        /// Ensures that <see cref="Feed.GetBestIcon"/> correctly finds best matching <see cref="Icon"/>s for <see cref="Command"/>s/<see cref="EntryPoint"/>s.
         /// </summary>
         [Fact]
-        public void TestGetIcon()
+        public void TestGetBestIcon()
         {
             var feed = CreateTestFeed();
 
             var feedIcon = new Icon {Href = new Uri("http://example.com/test.png"), MimeType = Icon.MimeTypePng};
             var commandIcon = new Icon {Href = new Uri("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng};
 
-            feed.GetIcon(Icon.MimeTypePng).Should().Be(commandIcon);
-            feed.GetIcon(Icon.MimeTypePng, "unknown").Should().Be(feedIcon);
-            feed.GetIcon("wrong", "unknown").Should().Be(null);
+            feed.GetBestIcon(Icon.MimeTypePng, null).Should().Be(commandIcon);
+            feed.GetBestIcon(Icon.MimeTypePng, "unknown").Should().Be(feedIcon);
+            feed.GetBestIcon("wrong", "unknown").Should().Be(null);
         }
     }
 }

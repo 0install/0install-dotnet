@@ -179,7 +179,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
         private string? GetIconPath(FeedTarget target, string? command)
         {
-            var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
+            var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
             if (icon == null) return null;
 
             try

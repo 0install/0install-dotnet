@@ -100,7 +100,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     menuKey.SetValue("ExtendedSubCommandsKey", Prefix + contextMenu.ID);
                     menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
-                    var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.GetIcon(Icon.MimeTypeIco);
+                    var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
                     if (icon != null) menuKey.SetValue("Icon", iconStore.GetPath(icon));
                 }
             }

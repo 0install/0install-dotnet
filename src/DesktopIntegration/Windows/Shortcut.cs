@@ -39,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (command != Command.NameRun) arguments += "--command " + command.EscapeArgument() + " ";
             arguments += target.Uri.ToStringRfc().EscapeArgument();
 
-            var icon = target.Feed.GetIcon(Icon.MimeTypeIco, command);
+            var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
 
             Create(path, targetPath, arguments,
                 iconLocation: (icon == null) ? null : iconStore.GetPath(icon),

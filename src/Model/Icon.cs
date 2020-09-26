@@ -4,9 +4,11 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Net;
@@ -109,5 +111,20 @@ namespace ZeroInstall.Model
         public override int GetHashCode()
             => HashCode.Combine(base.GetHashCode(), Href, MimeType);
         #endregion
+    }
+
+    /// <summary>
+    /// Provides extensions methods related to <see cref="Icon"/>s.
+    /// </summary>
+    public static class IconExtensions
+    {
+        /// <summary>
+        /// Returns an icon with a specific mime type if available.
+        /// </summary>
+        /// <param name="icons">The list of icons to search</param>
+        /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
+        /// <returns>The first matching icon that was found or <c>null</c> if no matching icon was found.</returns>
+        public static Icon? GetIcon(this IEnumerable<Icon> icons, string mimeType)
+            => icons?.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
     }
 }
