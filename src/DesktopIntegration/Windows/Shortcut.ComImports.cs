@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -9,14 +10,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
 {
     partial class Shortcut
     {
-        [ComImport]
-        [Guid("00021401-0000-0000-C000-000000000046")]
+        [ComImport, Guid("00021401-0000-0000-C000-000000000046")]
         internal class ShellLink
         {}
 
-        [ComImport]
-        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-        [Guid("000214F9-0000-0000-C000-000000000046")]
+        [ComImport, Guid("000214F9-0000-0000-C000-000000000046"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         internal interface IShellLink
         {
             void GetPath([Out, MarshalAs(UnmanagedType.LPWStr)] StringBuilder pszFile, int cchMaxPath, out IntPtr pfd, int fFlags);
@@ -37,6 +35,35 @@ namespace ZeroInstall.DesktopIntegration.Windows
             void SetRelativePath([MarshalAs(UnmanagedType.LPWStr)] string pszPathRel, int dwReserved);
             void Resolve(IntPtr hwnd, int fFlags);
             void SetPath([MarshalAs(UnmanagedType.LPWStr)] string pszFile);
+        }
+
+        [ComImport, Guid("886D8EEB-8CF2-4446-8D02-CDBA1DBDCF99"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        internal interface IPropertyStore
+        {
+            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+            void GetCount([Out] out uint cProps);
+
+            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+            void GetAt([In] uint iProp, out PropertyKey pkey);
+
+            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+            void GetValue([In] ref PropertyKey key, out object pv);
+
+            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+            void SetValue([In] ref PropertyKey key, [In] ref object pv);
+
+            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
+            void Commit();
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 4)]
+        internal struct PropertyKey
+        {
+            public Guid formatID;
+            public uint propID;
+
+            public static PropertyKey AppUserModelID
+                => new PropertyKey {formatID = Guid.Parse("9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3"), propID = 5};
         }
     }
 }

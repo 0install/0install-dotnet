@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
@@ -54,19 +55,21 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="arguments">Additional arguments to pass to the target; can be <c>null</c>.</param>
         /// <param name="iconLocation">The path of the icon to use for the shortcut; leave <c>null</c> ot get the icon from <paramref name="targetPath"/>.</param>
         /// <param name="description">A short human-readable description; can be <c>null</c>.</param>
-        public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null)
+        /// <param name="appId">Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.</param>
+        [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global", Justification = "COM interfaces")]
+        public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null, string? appId = null)
         {
             if (File.Exists(path)) File.Delete(path);
 
-            // ReSharper disable once SuspiciousTypeConversion.Global
             var link = (IShellLink)new ShellLink();
-
             link.SetPath(targetPath);
             if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
             if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
             if (!string.IsNullOrEmpty(description)) link.SetDescription(description.Substring(0, Math.Min(description.Length, 256)));
 
-            // ReSharper disable once SuspiciousTypeConversion.Global
+            if (!string.IsNullOrEmpty(appId))
+                ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
+
             ((IPersistFile)link).Save(path, fRemember: false);
         }
 
