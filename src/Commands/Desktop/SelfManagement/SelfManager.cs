@@ -83,7 +83,8 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
             var newManifest = LoadManifest(Locations.InstallBase);
             if (newManifest == null) throw new IOException(Resources.MaintenanceMissingManifest);
-            var oldManifest = LoadManifest(TargetDir) ?? LegacyManifest;
+            var oldManifest = LoadManifest(TargetDir)
+                           ?? LegacyManifest;
 
 #if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)

@@ -57,7 +57,8 @@ namespace ZeroInstall.Commands.Desktop
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
                 if (!_portable)
                 {
-                    string? existing = FindExistingInstance(_machineWide) ?? FindExistingInstance(machineWide: true);
+                    string? existing = FindExistingInstance(_machineWide)
+                                    ?? FindExistingInstance(machineWide: true);
                     if (existing != null && existing != targetDir)
                     {
                         string hint = string.Format(Resources.ExistingInstance, existing);
@@ -87,7 +88,8 @@ namespace ZeroInstall.Commands.Desktop
                 if (AdditionalArgs.Count == 0)
                 {
                     if (_portable) throw new OptionException(Resources.DeployMissingTargetForPortable, "portable");
-                    return FindExistingInstance(_machineWide) ?? GetDefaultTargetDir();
+                    return FindExistingInstance(_machineWide)
+                        ?? GetDefaultTargetDir();
                 }
                 else return GetCustomTargetDir();
             }

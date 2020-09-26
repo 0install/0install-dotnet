@@ -466,7 +466,8 @@ namespace ZeroInstall.Store.Implementations
                     #region Error handling
                     catch (IOException ex)
                     {
-                        string source = archiveInfo.OriginalSource?.ToStringRfc() ?? archiveInfo.Path;
+                        string source = archiveInfo.OriginalSource?.ToStringRfc()
+                                     ?? archiveInfo.Path;
                         throw new IOException(string.Format(Resources.FailedToExtractArchive, source), ex);
                     }
                     #endregion

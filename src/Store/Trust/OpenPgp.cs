@@ -37,8 +37,8 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <remarks>This matches the normal GnuPG home directory.</remarks>
         public static string SigningHomeDir
-            => Environment.GetEnvironmentVariable("GNUPGHOME") ??
-               (WindowsUtils.IsWindows
+            => Environment.GetEnvironmentVariable("GNUPGHOME")
+            ?? (WindowsUtils.IsWindows
                    ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gnupg")
                    : Path.Combine(Locations.HomeDir, ".gnupg"));
     }

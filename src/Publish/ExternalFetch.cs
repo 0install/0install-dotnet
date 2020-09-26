@@ -41,7 +41,8 @@ namespace ZeroInstall.Publish
         /// <inheritdoc/>
         protected override void Execute()
         {
-            string externalFetcher = Environment.GetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER") ?? "0install fetch";
+            string externalFetcher = Environment.GetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER")
+                                  ?? "0install fetch";
             var parts = WindowsUtils.IsWindows ? WindowsUtils.SplitArgs(externalFetcher) : externalFetcher.Split(new[] {' '}, count: 2);
 
             var process = new ProcessStartInfo(parts[0], parts.Skip(1).JoinEscapeArguments())
