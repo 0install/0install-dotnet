@@ -38,9 +38,9 @@ namespace ZeroInstall.Model
         public string? BinaryName { get; set; }
 
         /// <summary>
-        /// Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.
+        /// The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.
         /// </summary>
-        [Description("Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.")]
+        [Description("The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.")]
         [XmlAttribute("app-id")]
         public string? AppId { get; set; }
 

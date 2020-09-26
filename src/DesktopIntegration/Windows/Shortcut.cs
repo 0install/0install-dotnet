@@ -72,7 +72,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="arguments">Additional arguments to pass to the target; can be <c>null</c>.</param>
         /// <param name="iconLocation">The path of the icon to use for the shortcut; leave <c>null</c> ot get the icon from <paramref name="targetPath"/>.</param>
         /// <param name="description">A short human-readable description; can be <c>null</c>.</param>
-        /// <param name="appId">Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.</param>
+        /// <param name="appId">The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.</param>
         [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global", Justification = "COM interfaces")]
         public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null, string? appId = null)
         {
