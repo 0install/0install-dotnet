@@ -5,12 +5,14 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
@@ -44,7 +46,22 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             Create(path, targetPath, arguments,
                 iconLocation: (icon == null) ? null : iconStore.GetPath(icon),
-                description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command));
+                description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command),
+                appId: entryPoint?.AppId ?? GuessAppExePath(target.Feed, entryPoint));
+        }
+
+        private static string? GuessAppExePath(Feed feed, EntryPoint? entryPoint)
+        {
+            if (entryPoint == null || string.IsNullOrEmpty(entryPoint.BinaryName)) return null;
+
+            string? referenceDigest =
+                feed.Implementations
+                    .OrderByDescending(x => x.Version)
+                    .FirstOrDefault(x => x.Architecture.IsCompatible(Architecture.CurrentSystem))
+                   ?.ManifestDigest.Best;
+            if (referenceDigest == null) return null;
+
+            return Path.Combine(ImplementationStores.GetDirectories().Last(), referenceDigest, entryPoint.BinaryName + ".exe");
         }
 
         /// <summary>

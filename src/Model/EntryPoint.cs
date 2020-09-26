@@ -38,6 +38,13 @@ namespace ZeroInstall.Model
         public string? BinaryName { get; set; }
 
         /// <summary>
+        /// Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.
+        /// </summary>
+        [Description("Application User Model ID (AUMID) used by Windows to associate processes, files, and windows with a particular application.")]
+        [XmlAttribute("app-id")]
+        public string? AppId { get; set; }
+
+        /// <summary>
         /// If <c>true</c>, indicates that the <see cref="Command"/> represented by this entry point requires a terminal in order to run.
         /// </summary>
         [Description("If true, indicates that the Command represented by this entry point requires a terminal in order to run.")]
@@ -131,6 +138,7 @@ namespace ZeroInstall.Model
             && base.Equals(other)
             && Command == other.Command
             && BinaryName == other.BinaryName
+            && AppId == other.AppId
             && NeedsTerminal == other.NeedsTerminal
             && Names.SequencedEquals(other.Names)
             && Summaries.SequencedEquals(other.Summaries)
@@ -147,15 +155,19 @@ namespace ZeroInstall.Model
 
         /// <inheritdoc/>
         public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Command,
-                BinaryName,
-                NeedsTerminal,
-                Names.GetSequencedHashCode(),
-                Summaries.GetSequencedHashCode(),
-                Descriptions.GetSequencedHashCode(),
-                Icons.GetSequencedHashCode());
+        {
+            var hash = new HashCode();
+            hash.Add(base.GetHashCode());
+            hash.Add(Command);
+            hash.Add(BinaryName);
+            hash.Add(AppId);
+            hash.Add(NeedsTerminal);
+            hash.Add(Names.GetSequencedHashCode());
+            hash.Add(Summaries.GetSequencedHashCode());
+            hash.Add(Descriptions.GetSequencedHashCode());
+            hash.Add(Icons.GetSequencedHashCode());
+            return hash.ToHashCode();
+        }
         #endregion
     }
 }
