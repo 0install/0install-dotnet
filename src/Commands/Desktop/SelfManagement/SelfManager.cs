@@ -105,16 +105,12 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (!Portable)
+                if (WindowsUtils.IsWindows && !Portable)
                 {
                     DesktopIntegrationApply();
-
-                    if (WindowsUtils.IsWindows)
-                    {
-                        RegistryApply(newManifest.TotalSize);
-                        WindowsUtils.BroadcastMessage(PerformedWindowMessageID);
-                        RemoveOneGetBootstrap();
-                    }
+                    RegistryApply(newManifest.TotalSize);
+                    WindowsUtils.BroadcastMessage(PerformedWindowMessageID);
+                    RemoveOneGetBootstrap();
                 }
 
                 TargetMutexRelease();
@@ -168,9 +164,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (!Portable)
+                if (WindowsUtils.IsWindows && !Portable)
                 {
-                    if (WindowsUtils.IsWindows) RegistryRemove();
+                    RegistryRemove();
                     DesktopIntegrationRemove();
                 }
             }
