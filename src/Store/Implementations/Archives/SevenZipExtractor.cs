@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using NanoByte.Common.Tasks;
-using SharpCompress.Archives;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
 using SharpCompress.Readers;
@@ -45,8 +44,11 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 UnitsTotal = _archive.TotalUncompressSize;
 
-                foreach (var entry in _archive.Entries)
+                var reader = _archive.ExtractAllEntries();
+                while (reader.MoveToNextEntry())
                 {
+                    var entry = reader.Entry;
+
                     string? relativePath = GetRelativePath(entry.Key.Replace('\\', '/'));
                     if (relativePath == null) continue;
 
@@ -57,7 +59,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
                         string absolutePath = DirectoryBuilder.NewFilePath(relativePath, entry.LastModifiedTime?.ToUniversalTime());
                         using (var fileStream = File.Create(absolutePath))
-                            entry.WriteTo(fileStream);
+                            reader.WriteEntryTo(fileStream);
 
                         UnitsProcessed += entry.Size;
                     }
@@ -67,12 +69,12 @@ namespace ZeroInstall.Store.Implementations.Archives
             catch (InvalidOperationException ex)
             {
                 // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
+                throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
             }
             catch (ExtractionException ex)
             {
                 // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
+                throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
             }
             #endregion
         }
