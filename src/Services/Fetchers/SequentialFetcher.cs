@@ -134,7 +134,7 @@ namespace ZeroInstall.Services.Fetchers
                 catch (WebException)
                 {
                     // Report the original problem instead of mirror errors
-                    throw ex.PreserveStack();
+                    throw ex.Rethrow();
                 }
             }
         }

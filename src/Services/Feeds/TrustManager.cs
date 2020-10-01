@@ -215,7 +215,7 @@ namespace ZeroInstall.Services.Feeds
                 catch (WebException)
                 {
                     // Report the original problem instead of mirror errors
-                    throw ex.PreserveStack();
+                    ex.Rethrow();
                 }
             }
         }

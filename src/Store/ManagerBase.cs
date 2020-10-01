@@ -3,7 +3,6 @@
 
 using System;
 using System.Threading;
-using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 
 #if NETFRAMEWORK
@@ -63,11 +62,7 @@ namespace ZeroInstall.Store
 #endif
                 _mutex = new Mutex(false, MutexName);
 
-            var timeout = TimeSpan.FromSeconds((Handler.Verbosity == Verbosity.Batch) ? 30 : 1);
-            if (WindowsUtils.IsWindows)
-                _mutex.WaitOne(timeout, Handler.CancellationToken);
-            else
-                _mutex.WaitOne();
+            _mutex.WaitOne(Handler.CancellationToken, (Handler.Verbosity == Verbosity.Batch) ? 30 : 1);
         }
 
         /// <inheritdoc/>

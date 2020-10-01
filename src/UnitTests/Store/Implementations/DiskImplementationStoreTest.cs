@@ -293,7 +293,7 @@ namespace ZeroInstall.Store.Implementations
 
             foreach (var thread in threads)
                 thread.Join();
-            if (exception != null) throw exception.PreserveStack();
+            exception?.Rethrow();
 
             _implementationStore.Contains(digest).Should().BeFalse();
         }

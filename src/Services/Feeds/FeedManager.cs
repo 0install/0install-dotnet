@@ -204,7 +204,6 @@ namespace ZeroInstall.Services.Feeds
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
-        [SuppressMessage("Microsoft.Usage", "CA2200:RethrowToPreserveStackDetails", Justification = "Rethrow the outer instead of the inner exception")]
         private void Download(FeedUri feedUri)
         {
             SetLastCheckAttempt(feedUri);
@@ -233,7 +232,7 @@ namespace ZeroInstall.Services.Feeds
                 catch (WebException)
                 {
                     // Report the original problem instead of mirror errors
-                    throw ex.PreserveStack();
+                    ex.Rethrow();
                 }
             }
         }

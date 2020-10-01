@@ -53,7 +53,7 @@ namespace ZeroInstall.Services.Solvers
                     Log.Info(ex2);
 
                     // Report the original problem instead of inability to launch secondary solver
-                    throw ex.PreserveStack();
+                    throw ex.Rethrow();
                 }
             }
 
