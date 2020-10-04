@@ -153,7 +153,8 @@ namespace ZeroInstall.Publish
 
             retrievalMethod.Validate();
 
-            if (executor == null) executor = new SimpleCommandExecutor();
+            executor ??= new SimpleCommandExecutor();
+
             switch (retrievalMethod)
             {
                 case Archive archive:
@@ -209,7 +210,7 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (executor == null) executor = new SimpleCommandExecutor();
+            executor ??= new SimpleCommandExecutor();
 
             UpdateSize(retrievalMethod, localPath, executor);
 

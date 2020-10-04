@@ -77,7 +77,7 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (executor == null) executor = new SimpleCommandExecutor();
+            executor ??= new SimpleCommandExecutor();
 
             ConvertSha256ToSha256New(implementation, executor);
             GenerateMissingArchive(implementation, handler, executor);
