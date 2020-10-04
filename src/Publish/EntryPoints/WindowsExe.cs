@@ -70,10 +70,11 @@ namespace ZeroInstall.Publish.EntryPoints
                 _ => Cpu.Unknown
             };
 
-#if NETFRAMEWORK
         /// <inheritdoc/>
         public System.Drawing.Icon ExtractIcon()
-            => System.Drawing.Icon.ExtractAssociatedIcon(Path.Combine(BaseDirectory.FullName, RelativePath));
-#endif
+        {
+            if (BaseDirectory == null || RelativePath == null) throw new InvalidOperationException($"{nameof(Analyze)}() must be called first.");
+            return System.Drawing.Icon.ExtractAssociatedIcon(Path.Combine(BaseDirectory.FullName, RelativePath));
+        }
     }
 }
