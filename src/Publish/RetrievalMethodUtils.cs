@@ -148,6 +148,7 @@ namespace ZeroInstall.Publish
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
+            if (retrievalMethod.Href == null) throw new ArgumentException("Missing href.", nameof(retrievalMethod));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
@@ -161,7 +162,7 @@ namespace ZeroInstall.Publish
                     // Guess MIME types now because the file ending is not known later
                     if (string.IsNullOrEmpty(archive.MimeType))
                     {
-                        string mimeType = Archive.GuessMimeType(archive.Href.OriginalString);
+                        string mimeType = Archive.GuessMimeType(archive.Href!.OriginalString);
                         executor.Execute(SetValueCommand.For(() => archive.MimeType, newValue: mimeType));
                     }
                     break;
@@ -170,7 +171,7 @@ namespace ZeroInstall.Publish
                     // Guess file name based on URL
                     if (string.IsNullOrEmpty(file.Destination))
                     {
-                        string destination = file.Href.GetLocalFileName();
+                        string destination = file.Href!.GetLocalFileName();
                         executor.Execute(SetValueCommand.For(() => file.Destination, newValue: destination));
                     }
                     break;

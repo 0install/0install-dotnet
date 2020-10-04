@@ -112,6 +112,7 @@ namespace ZeroInstall.Services.Fetchers
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
+            if (retrievalMethod.Href == null) throw new ArgumentException("Missing href.", nameof(retrievalMethod));
             #endregion
 
             retrievalMethod.Validate();

@@ -44,6 +44,7 @@ namespace ZeroInstall.Store
         {
             #region Sanity checks
             if (icon == null) throw new ArgumentNullException(nameof(icon));
+            if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
             #endregion
 
             string path = BuildPath(icon);
@@ -81,7 +82,7 @@ namespace ZeroInstall.Store
 
         internal string BuildPath(Icon icon)
         {
-            string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
+            string path = Path.Combine(_path, FeedUri.Escape(icon.Href!.AbsoluteUri));
 
             void EnsureExtension(string mimeType, string extension)
             {

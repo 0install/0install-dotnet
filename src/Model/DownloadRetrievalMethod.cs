@@ -24,7 +24,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public Uri Href { get; set; }
+        public Uri? Href { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
