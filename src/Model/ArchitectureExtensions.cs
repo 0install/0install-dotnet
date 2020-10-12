@@ -66,6 +66,7 @@ namespace ZeroInstall.Model
         /// </summary>
         public static bool Is64Bit(this Cpu cpu)
             => cpu == Cpu.X64
-            || cpu == Cpu.Ppc64;
+            || cpu == Cpu.Ppc64
+            || cpu == Cpu.AArch64;
     }
 }

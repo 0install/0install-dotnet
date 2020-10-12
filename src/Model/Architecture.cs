@@ -126,6 +126,8 @@ namespace ZeroInstall.Model
                     "armv6l" => Cpu.ArmV6L,
                     "armv7l" => Cpu.ArmV7L,
                     "armhf" => Cpu.ArmV7L,
+                    "aarch64" => Cpu.AArch64,
+                    "arm64" => Cpu.AArch64,
                     _ => Cpu.Unknown
                 }
                 : RuntimeInformation.OSArchitecture switch
@@ -133,6 +135,7 @@ namespace ZeroInstall.Model
                     System.Runtime.InteropServices.Architecture.X86 => Cpu.I686,
                     System.Runtime.InteropServices.Architecture.X64 => Cpu.X64,
                     System.Runtime.InteropServices.Architecture.Arm => Cpu.ArmV7L,
+                    System.Runtime.InteropServices.Architecture.Arm64 => Cpu.AArch64,
                     _ => Cpu.Unknown
                 };
 

@@ -53,6 +53,10 @@ namespace ZeroInstall.Model
         [XmlEnum("armv7l")]
         ArmV7L,
 
+        /// <summary>Supports ARMv8 CPUs in 64-bit mode.</summary>
+        [XmlEnum("aarch64")]
+        AArch64,
+
         /// <summary>This is a source release and therefore architecture-independent.</summary>
         [XmlEnum("src")]
         Source = 99,
