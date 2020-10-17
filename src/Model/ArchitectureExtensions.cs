@@ -12,7 +12,14 @@ namespace ZeroInstall.Model
         /// Determines whether an <paramref name="implementation"/> architecture (the current instance) can run on a <paramref name="system"/> architecture.
         /// </summary>
         public static bool IsCompatible(this Architecture implementation, Architecture system)
-            => implementation.OS.IsCompatible(system.OS) && implementation.Cpu.IsCompatible(system.Cpu);
+        {
+            if (implementation.OS.IsCompatible(system.OS) && implementation.Cpu.IsCompatible(system.Cpu)) return true;
+
+            // Windows on ARM x86 emulation
+            if (system.OS == OS.Windows && system.Cpu == Cpu.AArch64 && implementation.Cpu >= Cpu.I386 && implementation.Cpu <= Cpu.I686) return true;
+
+            return false;
+        }
 
         /// <summary>
         /// Determines whether an <paramref name="implementation"/> OS is compatible with a <paramref name="system"/> OS.

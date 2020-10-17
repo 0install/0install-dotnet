@@ -57,32 +57,8 @@ namespace ZeroInstall.Model
             var architectureArray = architecture.Split('-');
             if (architectureArray.Length != 2) throw new FormatException(Resources.ArchitectureStringFormat);
 
-            OS = architectureArray[0] switch
-            {
-                "*" => OS.All,
-                "Linux" => OS.Linux,
-                "Solaris" => OS.Solaris,
-                "FreeBSD" => OS.FreeBsd,
-                "MacOSX" => OS.MacOSX,
-                "Darwin" => OS.Darwin,
-                "Cygwin" => OS.Cygwin,
-                "POSIX" => OS.Posix,
-                "Windows" => OS.Windows,
-                _ => OS.Unknown
-            };
-            Cpu = architectureArray[1] switch
-            {
-                "*" => Cpu.All,
-                "i386" => Cpu.I386,
-                "i486" => Cpu.I486,
-                "i586" => Cpu.I586,
-                "i686" => Cpu.I686,
-                "x86_64" => Cpu.X64,
-                "ppc" => Cpu.Ppc,
-                "ppc64" => Cpu.Ppc64,
-                "src" => Cpu.Source,
-                _ => Cpu.Unknown
-            };
+            OS = ToOS(architectureArray[0]);
+            Cpu = ToCpu(architectureArray[1]);
         }
 
         /// <summary>
@@ -96,41 +72,17 @@ namespace ZeroInstall.Model
             {
                 if (WindowsUtils.IsWindows) return OS.Windows;
                 if (UnixUtils.IsMacOSX) return OS.MacOSX;
-                if (UnixUtils.IsUnix)
-                {
-                    return UnixUtils.OSName switch
-                    {
-                        "Linux" => OS.Linux,
-                        "Solaris" => OS.Solaris,
-                        "FreeBsd" => OS.FreeBsd,
-                        "Darwin" => OS.Darwin,
-                        _ => OS.Posix
-                    };
-                }
+                if (UnixUtils.IsUnix) return ToOS(UnixUtils.OSName);
                 return OS.Unknown;
             }
         }
 
-        private static Cpu CurrentCpu =>
-            UnixUtils.IsUnix
-                ? UnixUtils.CpuType switch
-                {
-                    "i386" => Cpu.I386,
-                    "i486" => Cpu.I486,
-                    "i586" => Cpu.I586,
-                    "i686" => Cpu.I686,
-                    "x86_64" => Cpu.X64,
-                    "ppc" => Cpu.Ppc,
-                    "ppc32" => Cpu.Ppc,
-                    "ppc64" => Cpu.Ppc64,
-                    "armv6l" => Cpu.ArmV6L,
-                    "armv7l" => Cpu.ArmV7L,
-                    "armhf" => Cpu.ArmV7L,
-                    "aarch64" => Cpu.AArch64,
-                    "arm64" => Cpu.AArch64,
-                    _ => Cpu.Unknown
-                }
-                : RuntimeInformation.OSArchitecture switch
+        private static Cpu CurrentCpu
+        {
+            get
+            {
+                if (UnixUtils.IsUnix) return ToCpu(UnixUtils.CpuType);
+                return RuntimeInformation.OSArchitecture switch
                 {
                     System.Runtime.InteropServices.Architecture.X86 => Cpu.I686,
                     System.Runtime.InteropServices.Architecture.X64 => Cpu.X64,
@@ -138,11 +90,60 @@ namespace ZeroInstall.Model
                     System.Runtime.InteropServices.Architecture.Arm64 => Cpu.AArch64,
                     _ => Cpu.Unknown
                 };
+            }
+        }
+
+        private static OS ToOS(string value) => value switch
+        {
+            "*" => OS.All,
+            "all" => OS.All,
+            "any" => OS.All,
+            "(none)" => OS.All,
+            "Linux" => OS.Linux,
+            "Solaris" => OS.Solaris,
+            "FreeBSD" => OS.FreeBsd,
+            "MacOSX" => OS.MacOSX,
+            "Darwin" => OS.Darwin,
+            "Cygwin" => OS.Cygwin,
+            "POSIX" => OS.Posix,
+            "Windows" => OS.Windows,
+            _ => OS.Unknown
+        };
+
+        private static Cpu ToCpu(string value) => value switch
+        {
+            "*" => Cpu.All,
+            "all" => Cpu.All,
+            "any" => Cpu.All,
+            "noarch" => Cpu.All,
+            "(none)" => Cpu.All,
+            "i386" => Cpu.I386,
+            "x86" => Cpu.I386,
+            "i486" => Cpu.I486,
+            "i586" => Cpu.I586,
+            "i686" => Cpu.I686,
+            "i86pc" => Cpu.I686,
+            "x86_64" => Cpu.X64,
+            "amd64" => Cpu.X64,
+            "ppc" => Cpu.Ppc,
+            "ppc32" => Cpu.Ppc,
+            "Power Macintosh" => Cpu.Ppc,
+            "ppc64" => Cpu.Ppc64,
+            "armv6l" => Cpu.ArmV6L,
+            "armv6h" => Cpu.ArmV6L,
+            "armhf" => Cpu.ArmV6L,
+            "armv7l" => Cpu.ArmV7L,
+            "aarch64" => Cpu.AArch64,
+            "arm64" => Cpu.AArch64,
+            "src" => Cpu.Source,
+            _ => Cpu.Unknown
+        };
 
         /// <summary>
         /// Returns the architecture in the form "os-cpu". Safe for parsing!
         /// </summary>
-        public override string ToString() => OS.ConvertToString() + "-" + Cpu.ConvertToString();
+        public override string ToString()
+            => OS.ConvertToString() + "-" + Cpu.ConvertToString();
 
         /// <inheritdoc/>
         public bool Equals(Architecture other)
@@ -152,7 +153,8 @@ namespace ZeroInstall.Model
         public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object? obj) => obj != null && obj is Architecture architecture && Equals(architecture);
+        public override bool Equals(object? obj)
+            => obj != null && obj is Architecture architecture && Equals(architecture);
 
         /// <inheritdoc/>
         public override int GetHashCode()
