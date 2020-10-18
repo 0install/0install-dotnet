@@ -90,10 +90,10 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// </summary>
         private void RemoveOneGetBootstrap()
         {
-            RemoveOneGetBootstrap(FileUtils.PathCombine(
+            RemoveOneGetBootstrap(Path.Combine(
                 Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
                 "PackageManagement", "ProviderAssemblies", "0install"));
-            RemoveOneGetBootstrap(FileUtils.PathCombine(
+            RemoveOneGetBootstrap(Path.Combine(
                 Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
                 "WindowsPowerShell", "Modules", "0install"));
         }

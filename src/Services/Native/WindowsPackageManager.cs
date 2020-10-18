@@ -105,7 +105,7 @@ namespace ZeroInstall.Services.Native
                 yield return new KeyValuePair<Cpu, string>(Architecture.CurrentSystem.Cpu, path);
 
             // Check for 32-bit on a 64-bit system
-            if (OSUtils.Is64BitProcess)
+            if (Environment.Is64BitProcess)
             {
                 path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\" + registrySuffix, valueName);
                 if (!string.IsNullOrEmpty(path))
@@ -131,7 +131,7 @@ namespace ZeroInstall.Services.Native
                 yield return Impl(Architecture.CurrentSystem.Cpu);
 
             // Check for 32-bit on a 64-bit system
-            if (OSUtils.Is64BitProcess)
+            if (Environment.Is64BitProcess)
             {
                 install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
                 release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
@@ -169,7 +169,7 @@ namespace ZeroInstall.Services.Native
             var impl = Impl(baseVersion: "3", wow6432: false) ?? Impl(baseVersion: "1", wow6432: false);
             if (impl != null) yield return impl;
 
-            if (OSUtils.Is64BitProcess)
+            if (Environment.Is64BitProcess)
             {
                 impl = Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true);
                 if (impl != null) yield return impl;
@@ -212,7 +212,7 @@ namespace ZeroInstall.Services.Native
             var impl = Impl(wow6432: false);
             if (impl != null) yield return impl;
 
-            if (OSUtils.Is64BitProcess)
+            if (Environment.Is64BitProcess)
             {
                 impl = Impl(wow6432: true);
                 if (impl != null) yield return impl;
