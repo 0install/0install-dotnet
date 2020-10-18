@@ -110,7 +110,7 @@ namespace ZeroInstall.Model
             if (requirements == null) throw new ArgumentNullException(nameof(requirements));
             #endregion
 
-            return OS.IsCompatible(requirements.Architecture.OS);
+            return OS.RunsOn(requirements.Architecture.OS);
         }
 
         #region Normalize

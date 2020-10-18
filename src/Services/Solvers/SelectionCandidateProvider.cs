@@ -123,7 +123,7 @@ namespace ZeroInstall.Services.Solvers
 
                 dictionary.Add(feedUri, feed);
                 foreach (var reference in feed.Feeds.Where(x =>
-                    x.Architecture.IsCompatible(requirements.Architecture) &&
+                    x.Architecture.RunsOn(requirements.Architecture) &&
                     (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
                     AddFeedToDict(reference.Source);
             }

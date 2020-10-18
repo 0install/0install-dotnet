@@ -21,65 +21,65 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestIsCompatible()
+        public void TestRunsOn()
         {
-            new Architecture(OS.Windows, Cpu.I486).IsCompatible(new Architecture(OS.Windows, Cpu.I486)).Should().BeTrue();
-            new Architecture(OS.Linux, Cpu.I586).IsCompatible(new Architecture(OS.Linux, Cpu.I586)).Should().BeTrue();
-            new Architecture(OS.MacOSX, Cpu.I686).IsCompatible(new Architecture(OS.MacOSX, Cpu.I686)).Should().BeTrue();
+            new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Windows, Cpu.I486)).Should().BeTrue();
+            new Architecture(OS.Linux, Cpu.I586).RunsOn(new Architecture(OS.Linux, Cpu.I586)).Should().BeTrue();
+            new Architecture(OS.MacOSX, Cpu.I686).RunsOn(new Architecture(OS.MacOSX, Cpu.I686)).Should().BeTrue();
 
-            new Architecture(OS.Windows, Cpu.I486).IsCompatible(new Architecture(OS.Linux, Cpu.I486)).Should().BeFalse();
-            new Architecture(OS.Windows, Cpu.I486).IsCompatible(new Architecture(OS.Linux, Cpu.Ppc)).Should().BeFalse();
+            new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Linux, Cpu.I486)).Should().BeFalse();
+            new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Linux, Cpu.Ppc)).Should().BeFalse();
         }
 
         [Fact]
-        public void TestIsCompatibleOS()
+        public void TestRunsOnOS()
         {
             // Wildcard
-            OS.All.IsCompatible(OS.Windows).Should().BeTrue();
-            OS.All.IsCompatible(OS.Linux).Should().BeTrue();
-            OS.All.IsCompatible(OS.MacOSX).Should().BeTrue();
+            OS.All.RunsOn(OS.Windows).Should().BeTrue();
+            OS.All.RunsOn(OS.Linux).Should().BeTrue();
+            OS.All.RunsOn(OS.MacOSX).Should().BeTrue();
 
             // Mismatch
-            OS.Windows.IsCompatible(OS.Linux).Should().BeFalse();
-            OS.Linux.IsCompatible(OS.Windows).Should().BeFalse();
-            OS.MacOSX.IsCompatible(OS.Linux).Should().BeFalse();
-            OS.Linux.IsCompatible(OS.MacOSX).Should().BeFalse();
+            OS.Windows.RunsOn(OS.Linux).Should().BeFalse();
+            OS.Linux.RunsOn(OS.Windows).Should().BeFalse();
+            OS.MacOSX.RunsOn(OS.Linux).Should().BeFalse();
+            OS.Linux.RunsOn(OS.MacOSX).Should().BeFalse();
 
             // Superset
-            OS.Windows.IsCompatible(OS.Cygwin).Should().BeTrue();
-            OS.Cygwin.IsCompatible(OS.Windows).Should().BeFalse();
-            OS.Darwin.IsCompatible(OS.MacOSX).Should().BeTrue();
-            OS.MacOSX.IsCompatible(OS.Darwin).Should().BeFalse();
-            OS.Posix.IsCompatible(OS.Linux).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.Solaris).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.FreeBsd).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.Darwin).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.MacOSX).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.Posix).Should().BeTrue();
-            OS.Posix.IsCompatible(OS.Windows).Should().BeFalse();
+            OS.Windows.RunsOn(OS.Cygwin).Should().BeTrue();
+            OS.Cygwin.RunsOn(OS.Windows).Should().BeFalse();
+            OS.Darwin.RunsOn(OS.MacOSX).Should().BeTrue();
+            OS.MacOSX.RunsOn(OS.Darwin).Should().BeFalse();
+            OS.Posix.RunsOn(OS.Linux).Should().BeTrue();
+            OS.Posix.RunsOn(OS.Solaris).Should().BeTrue();
+            OS.Posix.RunsOn(OS.FreeBsd).Should().BeTrue();
+            OS.Posix.RunsOn(OS.Darwin).Should().BeTrue();
+            OS.Posix.RunsOn(OS.MacOSX).Should().BeTrue();
+            OS.Posix.RunsOn(OS.Posix).Should().BeTrue();
+            OS.Posix.RunsOn(OS.Windows).Should().BeFalse();
         }
 
         [Fact]
-        public void TestIsCompatibleCpu()
+        public void TestRunsOnCpu()
         {
             // Wildcard
-            Cpu.All.IsCompatible(Cpu.I486).Should().BeTrue();
-            Cpu.All.IsCompatible(Cpu.I586).Should().BeTrue();
-            Cpu.All.IsCompatible(Cpu.I686).Should().BeTrue();
+            Cpu.All.RunsOn(Cpu.I486).Should().BeTrue();
+            Cpu.All.RunsOn(Cpu.I586).Should().BeTrue();
+            Cpu.All.RunsOn(Cpu.I686).Should().BeTrue();
 
             // Mismatch
-            Cpu.I686.IsCompatible(Cpu.Ppc).Should().BeFalse();
-            Cpu.Ppc.IsCompatible(Cpu.I586).Should().BeFalse();
+            Cpu.I686.RunsOn(Cpu.Ppc).Should().BeFalse();
+            Cpu.Ppc.RunsOn(Cpu.I586).Should().BeFalse();
 
             // x86-series backwards-compatibility
-            Cpu.I386.IsCompatible(Cpu.I686).Should().BeTrue();
-            Cpu.I686.IsCompatible(Cpu.I386).Should().BeFalse();
+            Cpu.I386.RunsOn(Cpu.I686).Should().BeTrue();
+            Cpu.I686.RunsOn(Cpu.I386).Should().BeFalse();
 
             // 32bit/64bit compatibility
-            Cpu.I386.IsCompatible(Cpu.X64).Should().BeTrue();
-            Cpu.X64.IsCompatible(Cpu.I686).Should().BeFalse();
-            Cpu.Ppc.IsCompatible(Cpu.Ppc64).Should().BeTrue();
-            Cpu.Ppc64.IsCompatible(Cpu.Ppc).Should().BeFalse();
+            Cpu.I386.RunsOn(Cpu.X64).Should().BeTrue();
+            Cpu.X64.RunsOn(Cpu.I686).Should().BeFalse();
+            Cpu.Ppc.RunsOn(Cpu.Ppc64).Should().BeTrue();
+            Cpu.Ppc64.RunsOn(Cpu.Ppc).Should().BeFalse();
         }
     }
 }

@@ -57,7 +57,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             string? referenceDigest =
                 feed.Implementations
                     .OrderByDescending(x => x.Version)
-                    .FirstOrDefault(x => x.Architecture.IsCompatible(Architecture.CurrentSystem))
+                    .FirstOrDefault(x => x.Architecture.RunsOn(Architecture.CurrentSystem))
                    ?.ManifestDigest.Best;
             if (referenceDigest == null) return null;
 

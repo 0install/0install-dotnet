@@ -109,7 +109,7 @@ namespace ZeroInstall.Model.Selection
         {
             if (Implementation.Architecture.Cpu == Cpu.Source && requirements.Architecture.Cpu != Cpu.Source)
                 Notes = Resources.SelectionCandidateNoteSource;
-            else if (!Implementation.Architecture.IsCompatible(requirements.Architecture))
+            else if (!Implementation.Architecture.RunsOn(requirements.Architecture))
                 Notes = Resources.SelectionCandidateNoteIncompatibleArchitecture;
             else if (!Match(requirements, Version))
                 Notes = Resources.SelectionCandidateNoteVersionMismatch;

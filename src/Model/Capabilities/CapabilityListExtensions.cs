@@ -15,7 +15,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Flattens a set of <see cref="CapabilityList"/>s into a single stream of <see cref="Capability"/>s, filtering out <see cref="CapabilityList.OS"/>es that do not match <see cref="Architecture.CurrentSystem"/>.
         /// </summary>
         public static IEnumerable<Capability> CompatibleCapabilities(this IEnumerable<CapabilityList> capabilityLists)
-            => capabilityLists.Where(x => x.OS.IsCompatible(Architecture.CurrentSystem.OS))
+            => capabilityLists.Where(x => x.OS.RunsOn(Architecture.CurrentSystem.OS))
                               .SelectMany(x => x.Entries);
     }
 }
