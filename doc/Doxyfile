@@ -7,7 +7,7 @@ IMAGE_PATH = img
 USE_MDFILE_AS_MAINPAGE = main.md
 STRIP_FROM_PATH = ../src
 RECURSIVE = YES
-EXCLUDE_PATTERNS = */UnitTests/* */Properties/* */obj/* */bin/*
+EXCLUDE_PATTERNS = */UnitTests/* */Properties/* */obj/* */bin/* *.template.cs runenv.cs
 TAGFILES = nanobyte-common.tag=https://common.nano-byte.net/
 
 OUTPUT_DIRECTORY = ../artifacts/Documentation
