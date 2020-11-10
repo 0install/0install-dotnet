@@ -21,6 +21,16 @@
       "automergeType": "branch"
     },
     {
+      "packagePatterns": ["^Microsoft\\.Extensions"],
+      "groupName": "Microsoft Extensions",
+      "separateMinorPatch": true
+    },
+    {
+      "packagePatterns": ["^Microsoft\\.Extensions"],
+      "updateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
       "packagePatterns": ["SharpCompress", "ELFSharp"],
       "enabled": false
     }
