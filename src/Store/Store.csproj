@@ -5,7 +5,7 @@
     <AssemblyName>ZeroInstall.Store</AssemblyName>
     <RootNamespace>ZeroInstall.Store</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net45;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
