@@ -52,6 +52,14 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <!-- Generate XML serialization assembly -->
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
+    <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
+    <None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />
+  </ItemGroup>
+
   <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

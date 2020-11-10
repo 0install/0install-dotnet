@@ -54,20 +54,12 @@
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
   </ItemGroup>
 
-  <!-- XML Serialization assembly -->
-  <PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='net45'">
-    <GenerateSerializationAssemblies>True</GenerateSerializationAssemblies>
-    <SgenUseProxyTypes>False</SgenUseProxyTypes>
-  </PropertyGroup>
-  <!--<ItemGroup>
+  <!-- Generate XML serialization assembly -->
+  <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='netstandard2.1'">
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
-  </ItemGroup>-->
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
-    <!--<None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />-->
+    <None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />
   </ItemGroup>
 
   <!-- Embedded resources -->
