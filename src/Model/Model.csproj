@@ -60,10 +60,10 @@
     <SgenUseProxyTypes>False</SgenUseProxyTypes>
   </PropertyGroup>
   <!--<ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" />
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full' And '$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="2.2.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
   </ItemGroup>-->
   <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
     <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />

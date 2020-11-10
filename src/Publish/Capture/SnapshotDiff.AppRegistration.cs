@@ -91,7 +91,7 @@ namespace ZeroInstall.Publish.Capture
                     var capability = new UrlProtocol
                     {
                         ID = progID,
-                        Descriptions = {progIDKey.GetValue("", defaultValue: "").ToString()},
+                        Descriptions = {progIDKey.GetValue("", defaultValue: "")?.ToString() ?? ""},
                         KnownPrefixes = {prefix}
                     };
                     capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
