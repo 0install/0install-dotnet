@@ -87,10 +87,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Pure]
         public IReadOnlyDictionary<string, ManifestNode> ListPaths()
         {
-#if NETSTANDARD
-            var result = new SortedDictionary<string, ManifestNode>();
-#else
+#if NETFRAMEWORK
             var result = new Dictionary<string, ManifestNode>();
+#else
+            var result = new SortedDictionary<string, ManifestNode>();
 #endif
 
             string dirPath = "";

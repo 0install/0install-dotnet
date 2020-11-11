@@ -1,7 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETCOREAPP
+#if NET
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using ZeroInstall.Services.Executors;

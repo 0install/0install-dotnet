@@ -4,9 +4,12 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using ZeroInstall.Services.Properties;
+
 using ZeroInstall.Store.Feeds;
+#if !NET
+using System.Security.Permissions;
+#endif
 
 namespace ZeroInstall.Services.Feeds
 {
@@ -62,7 +65,9 @@ namespace ZeroInstall.Services.Feeds
         }
 
         /// <inheritdoc/>
+#if !NET
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+#endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             #region Sanity checks

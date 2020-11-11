@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -83,10 +84,7 @@ namespace ZeroInstall.Model
         /// <returns><c>true</c> if the <see cref="VersionRange"/> was successfully created; <c>false</c> otherwise.</returns>
         public static bool TryCreate(
             string value,
-#if NETSTANDARD2_1
-            [System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
-#endif
-            out VersionRange? result)
+            [NotNullWhen(true)] out VersionRange? result)
         {
             try
             {

@@ -5,10 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
+
+#if !NET
+using System.Security.Permissions;
+#endif
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -88,7 +91,9 @@ namespace ZeroInstall.DesktopIntegration
         {}
 
         /// <inheritdoc/>
+#if !NET
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+#endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context) => base.GetObjectData(info, context);
         #endregion
     }

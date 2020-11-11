@@ -7,13 +7,16 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Properties;
 using ZeroInstall.Model.Selection;
+
+#if !NET
+using System.Security.Permissions;
+#endif
 
 namespace ZeroInstall.Model
 {
@@ -321,7 +324,9 @@ namespace ZeroInstall.Model
             IsFromDistribution = serializationInfo.GetBoolean("IsFromDistribution");
         }
 
+#if !NET
         [SecurityPermission(SecurityAction.LinkDemand, SerializationFormatter = true)]
+#endif
         void ISerializable.GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
         {
             #region Sanity checks

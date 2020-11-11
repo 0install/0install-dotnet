@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -39,10 +40,7 @@ namespace ZeroInstall.Model
         /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
         // ReSharper disable once UnusedParameter.Global
         protected static void EnsureNotNull(
-#if NETSTANDARD2_1
-            [System.Diagnostics.CodeAnalysis.NotNull]
-#endif
-            object? value,
+            [NotNull] object? value,
             string xmlAttribute,
             string xmlTag)
         {

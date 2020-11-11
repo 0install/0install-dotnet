@@ -5,7 +5,7 @@
     <AssemblyName>ZeroInstall.Model</AssemblyName>
     <RootNamespace>ZeroInstall.Model</RootNamespace>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net45;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.1;net5.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591;8632</NoWarn>
@@ -22,7 +22,7 @@
     <!-- Include native dependencies in output -->
     <RuntimeIdentifier>win</RuntimeIdentifier>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0'">
     <!-- Run nullability analysis only on annotated frameworks -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -45,9 +45,8 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="NanoByte.Common" Version="2.4.3" />
+    <PackageReference Include="NanoByte.Common" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
@@ -60,6 +59,7 @@
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
     <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
     <None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />
+    <None Include="..\..\artifacts\$(Configuration)\net5.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net5.0" />
   </ItemGroup>
 
   <!-- Embedded resources -->

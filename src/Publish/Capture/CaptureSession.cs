@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if NETFRAMEWORK
 using System;
 using System.IO;
 using NanoByte.Common.Storage;
@@ -171,3 +172,4 @@ namespace ZeroInstall.Publish.Capture
         #endregion
     }
 }
+#endif

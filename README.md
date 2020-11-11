@@ -16,7 +16,7 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
       0install run https://apps.0install.net/0install/0install-dotnet.xml
 
-- You can also manually install [.NET Core](https://www.microsoft.com/net/download) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
+- You can also manually install [.NET](https://www.microsoft.com/net/download) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
 
       dotnet 0install.dll
 
@@ -58,8 +58,8 @@ The source code is in [`src/`](src/), config for building the API documentation 
 There is a template in [`feed/`](feed/) for generating a [Zero Install feed](https://0install.github.io/docs/packaging/) from the artifacts. For official releases this is published at: https://apps.0install.net/0install/0install-dotnet.xml  
 The source code does not contain version numbers. Instead the version is determined during CI using [GitVersion](http://gitversion.readthedocs.io/).
 
-To build on Windows install [Visual Studio 2019 v16.5 or newer](https://www.visualstudio.com/downloads/) and run `.\build.ps1`.  
-To build on Linux or MacOS X install [.NET Core SDK 3.1 or newer](https://www.microsoft.com/net/download) and run `./build.sh`. Note: Some parts of the code can only be built on Windows.
+To build on Windows install [Visual Studio 2019 v16.8 or newer](https://www.visualstudio.com/downloads/) and run `.\build.ps1`.  
+To build on Linux or MacOS X install [.NET SDK 5.0 or newer](https://www.microsoft.com/net/download) and run `./build.sh`. Note: Some parts of the code can only be built on Windows.
 
 ## Contributing
 

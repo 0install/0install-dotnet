@@ -3,8 +3,11 @@
 
 using System;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using NanoByte.Common.Storage;
+
+#if !NET
+using System.Security.Permissions;
+#endif
 
 namespace ZeroInstall.Commands
 {
@@ -58,7 +61,9 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
+#if !NET
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+#endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             #region Sanity checks

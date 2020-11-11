@@ -20,9 +20,7 @@ using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK
 using System.Configuration;
-#endif
-
-#if NETSTANDARD
+#else
 using Microsoft.Extensions.Configuration;
 #endif
 
@@ -149,7 +147,7 @@ namespace ZeroInstall.Store
             return config;
         }
 
-#if NETSTANDARD
+#if !NETFRAMEWORK
         /// <summary>
         /// Gets the settings from a .NET Extensions <see cref="IConfiguration"/> provider.
         /// </summary>

@@ -10,7 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
 
-#if NETCOREAPP
+#if NET
 using Microsoft.Extensions.Configuration;
 #endif
 
@@ -101,7 +101,7 @@ namespace ZeroInstall.Store
             File.ReadAllText(tempFile).Should().Be(testIniData);
         }
 
-        #if NETCOREAPP
+        #if NET
         [Fact]
         public void TestFromExtensionsConfiguration()
         {

@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Info;
@@ -110,10 +111,7 @@ namespace ZeroInstall.Model
         /// <returns><c>true</c> if the <see cref="ImplementationVersion"/> was successfully created; <c>false</c> otherwise.</returns>
         public static bool TryCreate(
             string value,
-#if NETSTANDARD2_1
-            [System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
-#endif
-            out ImplementationVersion? result)
+            [NotNullWhen(true)] out ImplementationVersion? result)
         {
             try
             {

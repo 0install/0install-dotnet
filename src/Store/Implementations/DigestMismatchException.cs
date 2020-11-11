@@ -3,12 +3,15 @@
 
 using System;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using System.Text;
 using NanoByte.Common.Dispatch;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
+
+#if !NET
+using System.Security.Permissions;
+#endif
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -118,7 +121,9 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
+#if !NET
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+#endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             #region Sanity checks
