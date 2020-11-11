@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
@@ -117,9 +118,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Escapes an identifier using URL encoding.
         /// </summary>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public static string Escape(string value)
         {
             var builder = new StringBuilder();
@@ -176,9 +175,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Escapes an identifier using URL encoding except for slashes (encoded as #) and colons (left as-is on POSIX systems).
         /// </summary>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public static string PrettyEscape(string value)
         {
             #region Sanity checks
@@ -227,9 +224,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Unescapes an identifier using URL encoding except for slashes (encoded as #).
         /// </summary>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public static FeedUri PrettyUnescape(string escaped)
         {
             #region Sanity checks

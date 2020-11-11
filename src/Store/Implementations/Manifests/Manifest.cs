@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -83,9 +84,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <returns>A mapping of relative paths to <see cref="ManifestNode"/>s.</returns>
         /// <remarks>This handles the fact that <see cref="ManifestDirectoryElement"/>s inherit their location from the last <see cref="ManifestDirectory"/> that precedes them.</remarks>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public IReadOnlyDictionary<string, ManifestNode> ListPaths()
         {
 #if NETSTANDARD

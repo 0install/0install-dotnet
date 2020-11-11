@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -37,7 +38,7 @@ namespace ZeroInstall.Commands
         /// Converts an interface or feed URI to its canonical representation.
         /// </summary>
         /// <exception cref="UriFormatException"><paramref name="uri"/> is an invalid interface URI.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "This method handles a number of non-standard URI types which cannot be represented by the regular Uri class.")]
+        [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "This method handles a number of non-standard URI types which cannot be represented by the regular Uri class.")]
         public FeedUri GetCanonicalUri(string uri)
         {
             if (string.IsNullOrEmpty(uri)) throw new UriFormatException();
@@ -120,7 +121,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
         /// <exception cref="WebException">Attempted to download catalog and failed.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO")]
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO")]
         protected Catalog GetCatalog()
         {
             Catalog? result = null;

@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Diagnostics.Contracts;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
@@ -26,9 +27,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public static string CalculateDigest(string path, ManifestFormat format, ITaskHandler handler)
         {
             var manifestGenerator = new ManifestGenerator(path, format);
@@ -45,9 +44,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There is a problem access a temporary file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
-#if NETSTANDARD
-        [System.Diagnostics.Contracts.Pure]
-#endif
+        [Pure]
         public static ManifestDigest GenerateDigest(string path, ITaskHandler handler)
         {
             #region Sanity checks

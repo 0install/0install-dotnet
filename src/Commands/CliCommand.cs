@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -106,7 +107,7 @@ namespace ZeroInstall.Commands
         public new ICommandHandler Handler { get; }
 
         /// <summary>Feeds to add, terms to search for, etc.</summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Using a List<T> for performance reasons")]
+        [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Using a List<T> for performance reasons")]
         protected readonly List<string> AdditionalArgs = new List<string>();
 
         /// <summary>
@@ -146,7 +147,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="IOException">An IO operation failed.</exception>
         /// <exception cref="UnauthorizedAccessException">More privileges are required.</exception>
         /// <exception cref="UriFormatException">The URI or local path specified is invalid.</exception>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
+        [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
         public virtual void Parse(IEnumerable<string> args)
         {
             if (args == null) throw new ArgumentNullException(nameof(args));

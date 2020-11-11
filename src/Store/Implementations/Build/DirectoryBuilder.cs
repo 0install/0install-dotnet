@@ -9,7 +9,7 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Properties;
 
-#if !NETSTANDARD2_1
+#if NET45
 using NanoByte.Common.Collections;
 #endif
 

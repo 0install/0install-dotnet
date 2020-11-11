@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using NDesk.Options;
@@ -63,7 +64,7 @@ namespace ZeroInstall.Commands
         private CliCommand? _subCommand;
 
         /// <inheritdoc/>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
+        [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
         public override void Parse(IEnumerable<string> args)
         {
             base.Parse(args);

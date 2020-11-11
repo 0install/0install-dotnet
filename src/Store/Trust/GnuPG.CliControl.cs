@@ -9,7 +9,7 @@ using NanoByte.Common;
 using NanoByte.Common.Cli;
 using ZeroInstall.Store.Properties;
 
-#if !NETSTANDARD2_1
+#if NET45
 using NanoByte.Common.Streams;
 #endif
 
