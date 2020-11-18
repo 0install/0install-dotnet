@@ -21,16 +21,15 @@ for:
       - ps: src\test.ps1
 
     artifacts:
+      - path: artifacts
       - path: artifacts\0install-dotnet-*.tar.gz
       - path: artifacts\Release\*.*nupkg
 
     deploy:
-      - provider: Environment
-        name: GitHub Releases
-        on:
-          appveyor_repo_tag: true
-      - provider: Environment
-        name: NuGet
+      - provider: Webhook
+        url: https://app.signpath.io/API/v1/0e70cf92-49a1-4427-a800-b6bc5b497936/Integrations/AppVeyor?ProjectSlug=dotnet&SigningPolicySlug=release-signing
+        authorization:
+           secure: 1lrrvByUN3qR7P/QQN6XXy4LWmh8ls/veOESoeVffvyF4kOqo28JxoZtIxYOZZpAZKlbAv8tWQaLFZiUxXFHmA==
         on:
           appveyor_repo_tag: true
 
