@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
@@ -150,19 +151,31 @@ namespace ZeroInstall.Store
         {
             _metaData = new Dictionary<string, PropertyPointer<string>>
             {
-                {"freshness", PropertyPointer.For(() => Freshness, value => Freshness = value, defaultValue: _defaultFreshness).ToStringPointer()},
+                {"freshness", PropertyPointer.For(() => Freshness, defaultValue: _defaultFreshness).ToStringPointer()},
                 {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
                 {"network_use", NetworkUsePropertyPointer},
-                {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, value => AutoApproveKeys = value, defaultValue: true).ToStringPointer()},
-                {"feed_mirror", PropertyPointer.For(() => FeedMirror, value => FeedMirror = value, defaultValue: new FeedUri(DefaultFeedMirror)).ToStringPointer()},
-                {"key_info_server", PropertyPointer.For(() => KeyInfoServer, value => KeyInfoServer = value, defaultValue: new FeedUri(DefaultKeyInfoServer)).ToStringPointer()},
-                {"self_update_uri", PropertyPointer.For(() => SelfUpdateUri, value => SelfUpdateUri = value, defaultValue: new FeedUri(DefaultSelfUpdateUri)).ToStringPointer()},
-                {"external_solver_uri", PropertyPointer.For(() => ExternalSolverUri, value => ExternalSolverUri = value, defaultValue: new FeedUri(DefaultExternalSolverUri)).ToStringPointer()},
-                {"sync_server", PropertyPointer.For(() => SyncServer, value => SyncServer = value, defaultValue: new FeedUri(DefaultSyncServer)).ToStringPointer()},
-                {"sync_server_user", PropertyPointer.For(() => SyncServerUsername, value => SyncServerUsername = value, defaultValue: "")},
-                {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, value => SyncServerPassword = value, defaultValue: "", needsEncoding: true)},
-                {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, value => SyncCryptoKey = value, defaultValue: "", needsEncoding: true)},
+                {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, defaultValue: true).ToStringPointer()},
+                {"feed_mirror", FeedUriPropertyPointer(() => FeedMirror, DefaultFeedMirror)},
+                {"key_info_server", FeedUriPropertyPointer(() => KeyInfoServer, DefaultKeyInfoServer)},
+                {"self_update_uri", FeedUriPropertyPointer(() => SelfUpdateUri, DefaultSelfUpdateUri)},
+                {"external_solver_uri", FeedUriPropertyPointer(() => ExternalSolverUri, DefaultExternalSolverUri)},
+                {"sync_server", FeedUriPropertyPointer(() => SyncServer, DefaultSyncServer)},
+                {"sync_server_user", PropertyPointer.For(() => SyncServerUsername, defaultValue: "")},
+                {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true)},
+                {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true)},
             };
+        }
+
+        /// <summary>
+        /// Wraps a <see cref="FeedUri"/> pointer in a <see cref="string"/> pointer. Maps empty strings to <c>null</c> URIs.
+        /// </summary>
+        private static PropertyPointer<string> FeedUriPropertyPointer(Expression<Func<FeedUri?>> expression, string defaultValue)
+        {
+            var property = PropertyPointer.For(expression);
+            return PropertyPointer.For(
+                () => property.Value?.ToStringRfc() ?? "",
+                value => property.Value = string.IsNullOrEmpty(value) ? default : new FeedUri(value),
+                defaultValue);
         }
 
         /// <summary>

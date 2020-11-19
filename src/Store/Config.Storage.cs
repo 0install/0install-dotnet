@@ -233,24 +233,25 @@ namespace ZeroInstall.Store
 
             if (!_iniData.Sections.ContainsSection(GlobalSection)) return;
             var global = _iniData[GlobalSection];
-            foreach (var property in _metaData)
+            foreach (var (key, property) in _metaData)
             {
-                string key = property.Key;
-                if (property.Value.NeedsEncoding) key += Base64Suffix;
+                string effectiveKey = property.NeedsEncoding
+                    ? key + Base64Suffix
+                    : key;
 
-                if (global.ContainsKey(key))
+                if (global.ContainsKey(effectiveKey))
                 {
                     try
                     {
-                        property.Value.Value = property.Value.NeedsEncoding
-                            ? global[key].Base64Utf8Decode()
-                            : global[key];
+                        property.Value = property.NeedsEncoding
+                            ? global[effectiveKey].Base64Utf8Decode()
+                            : global[effectiveKey];
                     }
                     #region Error handling
                     catch (FormatException ex)
                     {
                         // Wrap exception to add context information
-                        throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, property.Key, path), ex);
+                        throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, key, path), ex);
                     }
                     #endregion
                 }
