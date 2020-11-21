@@ -271,8 +271,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Manifest other)
-            => other != null && Format == other.Format && _nodes.SequencedEquals(other._nodes);
+        public bool Equals(Manifest? other)
+            => other != null
+            && Format == other.Format
+            && _nodes.SequencedEquals(other._nodes);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

@@ -28,8 +28,7 @@ namespace ZeroInstall.Services.Solvers
 
         public ExternalSolverSession(ProcessStartInfo startInfo)
         {
-            _process = startInfo.Start();
-            Debug.Assert(_process != null);
+            _process = startInfo.Start() ?? throw new IOException($"Failed to start {startInfo.FileName}.");
 
             _stdin = _process.StandardInput.BaseStream;
             _stdout = _process.StandardOutput.BaseStream;
@@ -136,7 +135,7 @@ namespace ZeroInstall.Services.Solvers
                             break;
                         case "ok+xml":
                             // ReSharper disable once AssignNullToNotNullAttribute
-                            string xml = Encoding.UTF8.GetString(GetChunk());
+                            string xml = Encoding.UTF8.GetString(GetChunk() ?? throw new IOException("Error parsing external solver response."));
                             Log.Debug("XML from external solver: " + xml);
                             _callbacks[ticket](args.ReparseAsJson<object[]>().Append(xml));
                             break;

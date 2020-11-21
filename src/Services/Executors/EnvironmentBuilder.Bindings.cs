@@ -135,7 +135,7 @@ namespace ZeroInstall.Services.Executors
             // Set the default value if the variable is not already set on the system
             if (!environmentVariables.ContainsKey(binding.Name)) environmentVariables.Add(binding.Name, binding.Default);
 
-            string previousValue = environmentVariables[binding.Name];
+            string? previousValue = environmentVariables[binding.Name];
             string separator = (string.IsNullOrEmpty(binding.Separator) ? Path.PathSeparator.ToString(CultureInfo.InvariantCulture) : binding.Separator);
 
             environmentVariables[binding.Name] = binding.Mode switch

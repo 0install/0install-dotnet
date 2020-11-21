@@ -58,7 +58,7 @@ namespace ZeroInstall.Store.Implementations
             if (info == null) throw new ArgumentNullException(nameof(info));
             #endregion
 
-            ManifestDigest = (ManifestDigest)info.GetValue("ManifestDigest", typeof(ManifestDigest));
+            ManifestDigest = (ManifestDigest)info.GetValue("ManifestDigest", typeof(ManifestDigest))!;
         }
         #endregion
 

@@ -112,9 +112,9 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             ExpectedDigest = info.GetString("ExpectedDigest");
-            ExpectedManifest = (Manifest)info.GetValue("ExpectedManifest", typeof(Manifest));
+            ExpectedManifest = (Manifest?)info.GetValue("ExpectedManifest", typeof(Manifest));
             ActualDigest = info.GetString("ActualDigest");
-            ActualManifest = (Manifest)info.GetValue("ActualManifest", typeof(Manifest));
+            ActualManifest = (Manifest?)info.GetValue("ActualManifest", typeof(Manifest));
         }
 
         /// <inheritdoc/>

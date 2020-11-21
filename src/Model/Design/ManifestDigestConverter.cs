@@ -15,9 +15,10 @@ namespace ZeroInstall.Model.Design
         /// <summary>The number of arguments <see cref="ManifestDigest"/> has.</summary>
         protected override int NoArguments => 4;
 
+        private static readonly ConstructorInfo _constructor = typeof(ManifestDigest).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)})!;
+
         /// <returns>The constructor used to create new instances of <see cref="ManifestDigest"/> (deserialization).</returns>
-        protected override ConstructorInfo GetConstructor()
-            => typeof(ManifestDigest).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)});
+        protected override ConstructorInfo GetConstructor() => _constructor;
 
         /// <returns>The unconverted arguments of <see cref="ManifestDigest"/>.</returns>
         protected override object[] GetArguments(ManifestDigest value)
@@ -44,7 +45,11 @@ namespace ZeroInstall.Model.Design
             if (propertyValues == null) throw new ArgumentNullException(nameof(propertyValues));
             #endregion
 
-            return new ManifestDigest((string)propertyValues["Sha1"], (string)propertyValues["Sha1New"], (string)propertyValues["Sha256"], (string)propertyValues["Sha256New"]);
+            return new ManifestDigest(
+                (string?)propertyValues["Sha1"],
+                (string?)propertyValues["Sha1New"],
+                (string?)propertyValues["Sha256"],
+                (string?)propertyValues["Sha256New"]);
         }
     }
 }

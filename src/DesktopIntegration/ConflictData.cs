@@ -28,8 +28,8 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appEntry">The application containing the <paramref name="accessPoint"/>.</param>
         public ConflictData(AccessPoint accessPoint, AppEntry appEntry)
         {
-            AppEntry = appEntry;
-            AccessPoint = accessPoint;
+            AppEntry = appEntry ?? throw new ArgumentNullException(nameof(accessPoint));
+            AccessPoint = accessPoint ?? throw new ArgumentNullException(nameof(appEntry));
         }
 
         /// <summary>
@@ -41,8 +41,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <inheritdoc/>
         public bool Equals(ConflictData other)
         {
-            if (AppEntry == null || other.AppEntry == null || AccessPoint == null) return false;
-
             return
                 AccessPoint.Equals(other.AccessPoint) &&
                 AppEntry.InterfaceUri == other.AppEntry.InterfaceUri;
@@ -60,7 +58,7 @@ namespace ZeroInstall.DesktopIntegration
 
         /// <inheritdoc/>
         public override int GetHashCode()
-            => HashCode.Combine(AccessPoint, AppEntry?.InterfaceUri);
+            => HashCode.Combine(AccessPoint, AppEntry.InterfaceUri);
         #endregion
     }
 }

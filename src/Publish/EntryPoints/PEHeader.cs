@@ -257,7 +257,7 @@ namespace ZeroInstall.Publish.EntryPoints
         {
             byte[] bytes = reader.ReadBytes(Marshal.SizeOf(typeof(T)));
             var handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
-            var structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+            var structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T))!;
             handle.Free();
             return structure;
         }

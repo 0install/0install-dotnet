@@ -82,7 +82,7 @@ namespace ZeroInstall.Model.Preferences
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            string path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault();
+            string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault();
             if (string.IsNullOrEmpty(path)) return new FeedPreferences();
 
             Log.Debug("Loading feed preferences for " + feedUri.ToStringRfc() + " from: " + path);

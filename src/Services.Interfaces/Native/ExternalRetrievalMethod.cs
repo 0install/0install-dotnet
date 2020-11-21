@@ -53,7 +53,7 @@ namespace ZeroInstall.Services.Native
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ExternalRetrievalMethod other)
+        public bool Equals(ExternalRetrievalMethod? other)
             => other != null
             && base.Equals(other)
             && Distro == other.Distro

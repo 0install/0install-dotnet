@@ -29,7 +29,7 @@ namespace ZeroInstall.Publish
         /// Indicates whether there are changes to the feed that have not yet been saved to a file.
         /// </summary>
         public bool UnsavedChanges => UndoEnabled
-                                   || (string.IsNullOrEmpty(Path) && Target.Elements.Count != 0); // Generated programmatically
+                                   || (string.IsNullOrEmpty(Path) && Target?.Elements.Count != 0); // Generated programmatically
 
         /// <summary>
         /// Starts with an existing feed.
@@ -41,7 +41,7 @@ namespace ZeroInstall.Publish
             SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
 
             // Keep Target and SignedFeed in sync even if Target is replaced with a new object
-            TargetUpdated += () => SignedFeed = new SignedFeed(Target, SignedFeed.SecretKey);
+            TargetUpdated += () => SignedFeed = new SignedFeed(Target!, SignedFeed.SecretKey);
         }
 
         /// <summary>

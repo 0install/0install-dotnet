@@ -26,7 +26,10 @@ namespace ZeroInstall.Store.ViewModel
             foreach (var key in trustDB.Keys)
             {
                 foreach (var domain in key.Domains)
-                    nodes.Add(new TrustNode(key.Fingerprint, domain));
+                {
+                    if (key.Fingerprint != null)
+                        nodes.Add(new TrustNode(key.Fingerprint, domain));
+                }
             }
             return nodes;
         }

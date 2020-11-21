@@ -157,7 +157,7 @@ namespace ZeroInstall.DesktopIntegration
                 // Prevent "lost updates" (race conditions) with HTTP ETags
                 if (resetMode == SyncResetMode.None && (uri.Scheme == "http" || uri.Scheme == "https"))
                 {
-                    if (!string.IsNullOrEmpty(webClient.ResponseHeaders[HttpResponseHeader.ETag]))
+                    if (!string.IsNullOrEmpty(webClient.ResponseHeaders?[HttpResponseHeader.ETag]))
                         webClient.Headers[HttpRequestHeader.IfMatch] = webClient.ResponseHeaders[HttpResponseHeader.ETag];
                 }
 

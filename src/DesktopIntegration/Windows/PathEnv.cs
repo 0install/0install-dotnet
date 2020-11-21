@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <returns>The individual directories listed in the search path.</returns>
         public static string[] Get(bool machineWide)
         {
-            string value = Environment.GetEnvironmentVariable(
+            string? value = Environment.GetEnvironmentVariable(
                 variable: "Path",
                 target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
             return string.IsNullOrEmpty(value) ? new string[0] : value.Split(Path.PathSeparator);

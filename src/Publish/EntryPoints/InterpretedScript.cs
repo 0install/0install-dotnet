@@ -69,7 +69,7 @@ namespace ZeroInstall.Publish.EntryPoints
         #endregion
 
         #region Equality
-        protected bool Equals(InterpretedScript other)
+        protected bool Equals(InterpretedScript? other)
             => other != null && base.Equals(other) && Equals(InterpreterVersions, other.InterpreterVersions);
 
         public override bool Equals(object? obj)

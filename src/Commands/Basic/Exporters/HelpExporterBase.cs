@@ -67,9 +67,9 @@ namespace ZeroInstall.Commands.Basic.Exporters
         }
 
         protected abstract string CommandListHeader();
-        protected abstract string CommandListEntry(string name, string description);
+        protected abstract string CommandListEntry(string? name, string description);
         protected abstract string CommandListFooter();
-        protected abstract string CommandDetails(string name, string description, string usage);
+        protected abstract string CommandDetails(string? name, string description, string usage);
         protected abstract string OptionListHeader();
         protected abstract string OptionListEntry(IEnumerable<string> prototypes, string description);
         protected abstract string OptionListFooter();

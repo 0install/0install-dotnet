@@ -61,7 +61,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ManifestDirectory other)
+        public bool Equals(ManifestDirectory? other)
             => other != null && FullPath == other.FullPath;
 
         /// <inheritdoc/>

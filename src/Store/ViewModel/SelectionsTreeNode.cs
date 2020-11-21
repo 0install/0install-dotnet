@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(SelectionsTreeNode other)
+        public bool Equals(SelectionsTreeNode? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -98,8 +98,8 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(SelectionsTreeNode other)
-            => string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
+        public int CompareTo(SelectionsTreeNode? other)
+            => string.Compare(Name, other?.Name ?? "", StringComparison.OrdinalIgnoreCase);
         #endregion
     }
 }

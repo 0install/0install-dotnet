@@ -23,7 +23,7 @@ namespace ZeroInstall.Store.Feeds
         /// The URI of the feed.
         /// </summary>
         [XmlIgnore]
-        public FeedUri Uri { get; set; } = default!;
+        public FeedUri? Uri { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
@@ -31,14 +31,14 @@ namespace ZeroInstall.Store.Feeds
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string UriString { get => Uri.ToStringRfc(); set => Uri = new FeedUri(value); }
+        public string? UriString { get => Uri?.ToStringRfc(); set => Uri = value == null ? null : new FeedUri(value); }
         #endregion
 
         /// <summary>
         /// A short name to identify the interface (e.g. "Foo").
         /// </summary>
         [XmlAttribute("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// A value between 0 and 100 indicating how good this result matches the query.
@@ -50,7 +50,7 @@ namespace ZeroInstall.Store.Feeds
         /// Short one-line description for different languages; the first word should not be upper-case unless it is a proper noun (e.g. "cures all ills").
         /// </summary>
         [XmlElement("summary")]
-        public string Summary { get; set; } = default!;
+        public string? Summary { get; set; }
 
         /// <summary>
         /// A list of well-known categories the applications fits into.
@@ -71,7 +71,8 @@ namespace ZeroInstall.Store.Feeds
         /// <returns>A pseudo-<see cref="Feed"/>; not a complete feed that can be used to launch an implementation.</returns>
         public Feed ToPseudoFeed()
         {
-            var feed = new Feed {Uri = Uri, Name = Name, Summaries = {Summary}};
+            var feed = new Feed {Uri = Uri, Name = Name};
+            if (!string.IsNullOrEmpty(Summary)) feed.Summaries.Add(Summary);
             feed.Categories.AddRange(Categories.CloneElements());
             return feed;
         }
@@ -79,6 +80,6 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// Returns the result in the form "Uri NEWLINE Name - Summary [Score]". Not safe for parsing!
         /// </summary>
-        public override string ToString() => Uri.ToStringRfc() + Environment.NewLine + $"{Name} - {Summary} [{Score}%]";
+        public override string ToString() => Uri?.ToStringRfc() + Environment.NewLine + $"{Name} - {Summary} [{Score}%]";
     }
 }

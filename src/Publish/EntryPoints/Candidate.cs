@@ -30,7 +30,7 @@ namespace ZeroInstall.Publish.EntryPoints
         internal virtual bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
         {
             BaseDirectory = baseDirectory ?? throw new ArgumentNullException(nameof(baseDirectory));
-            RelativePath = file?.RelativeTo(BaseDirectory) ?? throw new ArgumentNullException(nameof(file));
+            RelativePath = (file ?? throw new ArgumentNullException(nameof(file))).RelativeTo(BaseDirectory);
             return true;
         }
 
@@ -114,7 +114,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public override string ToString() => RelativePath + " (" + GetType().Name + ")";
 
         #region Equality
-        protected bool Equals(Candidate other)
+        protected bool Equals(Candidate? other)
             => other != null
             && RelativePath == other.RelativePath
             && Name == other.Name

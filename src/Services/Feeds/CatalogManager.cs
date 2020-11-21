@@ -166,7 +166,7 @@ namespace ZeroInstall.Services.Feeds
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
         public static FeedUri[] GetSources()
         {
-            string path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
+            string? path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
             if (string.IsNullOrEmpty(path)) return new[] {DefaultSource};
 
             string[] ReadAllLines()

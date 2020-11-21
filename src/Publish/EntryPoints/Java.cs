@@ -35,7 +35,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public bool GuiOnly { get => !NeedsTerminal; set => NeedsTerminal = !value; }
 
         #region Equality
-        protected bool Equals(Java other)
+        protected bool Equals(Java? other)
             => other != null
             && base.Equals(other)
             && Equals(MinimumRuntimeVersion, other.MinimumRuntimeVersion)

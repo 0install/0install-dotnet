@@ -35,7 +35,7 @@ namespace ZeroInstall.Model
         private ManifestDigestPartialEqualityComparer() {}
 
         /// <inheritdoc/>
-        public bool Equals(T x, T y)
+        public bool Equals(T? x, T? y)
         {
             if (x == null || y == null) return false;
             return x.ManifestDigest.PartialEquals(y.ManifestDigest);

@@ -369,7 +369,7 @@ namespace ZeroInstall.Store
         }
 
         /// <inheritdoc/>
-        public bool Equals(Config other)
+        public bool Equals(Config? other)
             => other != null
             && _metaData.All(property => property.Value.Value == other.GetOption(property.Key));
 

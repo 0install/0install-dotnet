@@ -37,7 +37,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <inheritdoc/>
-        public int Compare(SelectionCandidate x, SelectionCandidate y)
+        public int Compare(SelectionCandidate? x, SelectionCandidate? y)
         {
             if (ReferenceEquals(
                 x ?? throw new ArgumentNullException(nameof(x)),

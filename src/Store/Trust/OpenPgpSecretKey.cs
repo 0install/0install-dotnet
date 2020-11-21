@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(OpenPgpSecretKey other)
+        public bool Equals(OpenPgpSecretKey? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;

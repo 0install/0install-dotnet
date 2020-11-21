@@ -64,12 +64,12 @@ namespace ZeroInstall.Commands.Basic
                     if (uri.IsFile && !File.Exists(uri.LocalPath))
                         throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, uri.LocalPath), uri.LocalPath);
 
-                    var nodes = nodeBuilder.Nodes.OfType<OwnedImplementationNode>().Where(x => x.FeedUri == uri);
+                    var nodes = nodeBuilder.Nodes!.OfType<OwnedImplementationNode>().Where(x => x.FeedUri == uri);
                     Handler.Output(Resources.CachedImplementations, nodes);
                 }
                 else
                 {
-                    var nodes = nodeBuilder.Nodes.OfType<ImplementationNode>();
+                    var nodes = nodeBuilder.Nodes!.OfType<ImplementationNode>();
                     Handler.Output(Resources.CachedImplementations, nodes);
                 }
 

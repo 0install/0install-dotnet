@@ -85,7 +85,7 @@ namespace ZeroInstall.Services.Native
                where File.Exists(mainPath) && File.Exists(secondaryPath)
                select new ExternalImplementation(DistributionName,
                    package: "openjdk-" + version + "-" + typeShort,
-                   version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion.GetLeftPartAtLastOccurrence(".")), // Trim patch level
+                   version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
                    cpu: javaHome.Key)
                {
                    Commands =
@@ -148,7 +148,8 @@ namespace ZeroInstall.Services.Native
                 if (RegistryUtils.GetDword(regPrefix, "Install") != 1) return null;
 
                 string? version = RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "PowerShellVersion");
-                if (string.IsNullOrEmpty(version)) return null;
+                string? path = RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "ApplicationBase");
+                if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
                 return new ExternalImplementation(DistributionName, "powershell",
                     version: new ImplementationVersion(version),
@@ -159,7 +160,7 @@ namespace ZeroInstall.Services.Native
                         new Command
                         {
                             Name = Command.NameRun,
-                            Path = Path.Combine(RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "ApplicationBase"), "powershell.exe")
+                            Path = Path.Combine(path, "powershell.exe")
                         }
                     },
                     IsInstalled = true

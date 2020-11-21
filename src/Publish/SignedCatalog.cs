@@ -90,7 +90,7 @@ namespace ZeroInstall.Publish
                 FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
                 stream.CopyToFile(path);
             }
-            string directory = Path.GetDirectoryName(path);
+            string directory = Path.GetDirectoryName(path)!;
             _openPgp.DeployPublicKey(SecretKey, directory);
             FeedUtils.DeployStylesheet(directory, @"catalog");
         }

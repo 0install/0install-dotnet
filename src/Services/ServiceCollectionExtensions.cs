@@ -38,7 +38,7 @@ namespace ZeroInstall.Services
                        .AddScoped(x => (configuration == null) ? Config.Load() : Config.From(configuration))
                        .AddScoped(x => ImplementationStores.Default())
                        .AddScoped(x => OpenPgp.Verifying())
-                       .AddScoped(x => FeedCaches.Default(x.GetService<IOpenPgp>()))
+                       .AddScoped(x => FeedCaches.Default(x.GetRequiredService<IOpenPgp>()))
                        .AddScoped(x => TrustDB.LoadSafe())
                        .AddScoped<ITrustManager, TrustManager>()
                        .AddScoped<IFeedManager, FeedManager>()

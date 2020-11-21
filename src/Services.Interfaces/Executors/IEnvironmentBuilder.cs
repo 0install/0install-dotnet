@@ -45,6 +45,6 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/> or the main executable could not be launched.</exception>
         /// <exception cref="IOException">A problem occurred while writing a file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-        Process Start();
+        Process? Start();
     }
 }

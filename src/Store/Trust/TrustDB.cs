@@ -215,7 +215,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(TrustDB other)
+        public bool Equals(TrustDB? other)
             => other != null && Keys.UnsequencedEquals(other.Keys);
 
         /// <inheritdoc/>

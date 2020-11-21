@@ -49,7 +49,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         #region Equality
-        protected bool Equals(ManifestDirectoryElement other) => other != null && other.Digest == Digest && other.Size == Size && other.Name == Name;
+        protected bool Equals(ManifestDirectoryElement? other)
+            => other != null
+            && other.Digest == Digest
+            && other.Size == Size
+            && other.Name == Name;
 
         /// <inheritdoc/>
         public override int GetHashCode()

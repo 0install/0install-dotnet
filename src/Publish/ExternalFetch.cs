@@ -3,6 +3,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -50,7 +51,7 @@ namespace ZeroInstall.Publish
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 CreateNoWindow = true
-            }.Start();
+            }.Start() ?? throw new IOException($"Failed to start external fetcher.");
 
             using (CancellationToken.Register(process.Kill))
             {

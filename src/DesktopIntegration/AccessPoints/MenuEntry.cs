@@ -65,8 +65,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(MenuEntry other)
-            => other != null && (base.Equals(other) && other.Category == Category);
+        public bool Equals(MenuEntry? other)
+            => other != null && base.Equals(other) && other.Category == Category;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

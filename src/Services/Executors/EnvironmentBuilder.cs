@@ -173,7 +173,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <inheritdoc/>
-        public Process Start() => ToStartInfo().Start();
+        public Process? Start() => ToStartInfo().Start();
 
         /// <summary>
         /// Returns the main (first) implementation of the selection.
@@ -268,7 +268,7 @@ namespace ZeroInstall.Services.Executors
                         break;
 
                     case ForEachArgs forEach:
-                        string valueToSplit = _startInfo.EnvironmentVariables[forEach.ItemFrom];
+                        string? valueToSplit = _startInfo.EnvironmentVariables[forEach.ItemFrom];
                         if (!string.IsNullOrEmpty(valueToSplit))
                         {
                             var items = valueToSplit.Split(

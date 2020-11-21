@@ -41,7 +41,7 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(CacheNode other)
+        public bool Equals(CacheNode? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -58,13 +58,13 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
+        public override int GetHashCode() => Name.GetHashCode();
         #endregion
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(CacheNode other)
-            => string.Compare(Name, other.Name, StringComparison.OrdinalIgnoreCase);
+        public int CompareTo(CacheNode? other)
+            => string.Compare(Name, other?.Name, StringComparison.OrdinalIgnoreCase);
         #endregion
     }
 }

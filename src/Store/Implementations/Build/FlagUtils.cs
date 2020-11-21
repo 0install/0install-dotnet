@@ -99,7 +99,7 @@ namespace ZeroInstall.Store.Implementations.Build
                 // Each line in the file signals a flagged file
                 while (!reader.EndOfStream)
                 {
-                    string line = reader.ReadLine();
+                    string? line = reader.ReadLine();
                     if (line != null && line.StartsWith("/"))
                     {
                         // Trim away the first slash and then replace Unix-style slashes
@@ -131,7 +131,7 @@ namespace ZeroInstall.Store.Implementations.Build
             if (!Path.IsPathRooted(filePath)) throw new ArgumentException($"'{filePath}' is not an absolute path.", nameof(filePath));
             #endregion
 
-            string directoryPath = Path.GetDirectoryName(filePath);
+            string directoryPath = Path.GetDirectoryName(filePath)!;
             if (directoryPath == null) throw new ArgumentException($"'{filePath}' is not an absolute path.", nameof(filePath));
             return GetFiles(flagName, directoryPath).Contains(filePath);
         }
@@ -150,7 +150,7 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             // Start searching for the flag file in the target directory and then move upwards
-            string flagDir = Path.GetFullPath(directoryPath);
+            string? flagDir = Path.GetFullPath(directoryPath);
             while (!File.Exists(Path.Combine(flagDir, flagName)))
             {
                 // Go up one level in the directory hierarchy
@@ -221,7 +221,7 @@ namespace ZeroInstall.Store.Implementations.Build
             if (!Path.IsPathRooted(filePath)) throw new ArgumentException($"'{filePath}' is not an absolute path.", nameof(filePath));
             #endregion
 
-            string directoryPath = Path.GetDirectoryName(filePath);
+            string directoryPath = Path.GetDirectoryName(filePath)!;
             if (directoryPath == null) throw new ArgumentException($"'{filePath}' is not an absolute path.", nameof(filePath));
             string flagDir = FindRootDir(flagName, directoryPath) ?? directoryPath;
 
@@ -257,7 +257,7 @@ namespace ZeroInstall.Store.Implementations.Build
             // Each line in the file signals a flagged file
             while (!oldFlagFile.EndOfStream)
             {
-                string line = oldFlagFile.ReadLine();
+                string? line = oldFlagFile.ReadLine();
                 if (line != null && line.StartsWith("/"))
                 {
                     if (line == unixPath || line.StartsWith(unixPath + "/")) continue; // Filter out removed files
@@ -299,7 +299,7 @@ namespace ZeroInstall.Store.Implementations.Build
             // Each line in the file signals a flagged file
             while (!oldFlagFile.EndOfStream)
             {
-                string line = oldFlagFile.ReadLine();
+                string? line = oldFlagFile.ReadLine();
                 if (line != null && line.StartsWith("/"))
                 {
                     if (line == source || line.StartsWith(source + "/"))

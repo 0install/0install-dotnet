@@ -74,7 +74,8 @@ namespace ZeroInstall.Publish.EntryPoints
         public System.Drawing.Icon ExtractIcon()
         {
             if (BaseDirectory == null || RelativePath == null) throw new InvalidOperationException($"{nameof(Analyze)}() must be called first.");
-            return System.Drawing.Icon.ExtractAssociatedIcon(Path.Combine(BaseDirectory.FullName, RelativePath));
+            string path = Path.Combine(BaseDirectory.FullName, RelativePath);
+            return System.Drawing.Icon.ExtractAssociatedIcon(path) ?? throw new IOException($"Failed to extract icon from '{path}'.");
         }
     }
 }

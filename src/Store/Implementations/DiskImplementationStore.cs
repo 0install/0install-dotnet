@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -346,7 +345,6 @@ namespace ZeroInstall.Store.Implementations
             var result = new List<ManifestDigest>();
             foreach (string path in Directory.GetDirectories(DirectoryPath))
             {
-                Debug.Assert(path != null);
                 var digest = new ManifestDigest();
                 digest.ParseID(Path.GetFileName(path));
                 if (digest.Best != null) result.Add(new ManifestDigest(Path.GetFileName(path)));
@@ -362,7 +360,6 @@ namespace ZeroInstall.Store.Implementations
             var result = new List<string>();
             foreach (string path in Directory.GetDirectories(DirectoryPath))
             {
-                Debug.Assert(path != null);
                 try
                 {
                     // ReSharper disable once ObjectCreationAsStatement
@@ -393,7 +390,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Get
         /// <inheritdoc/>
-        public string GetPath(ManifestDigest manifestDigest)
+        public string? GetPath(ManifestDigest manifestDigest)
             => manifestDigest.AvailableDigests.Select(digest => Path.Combine(DirectoryPath, digest)).FirstOrDefault(Directory.Exists);
         #endregion
 
@@ -490,7 +487,7 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            string path = GetPath(manifestDigest);
+            string? path = GetPath(manifestDigest);
             if (path == null) return false;
             if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
             if (path == Locations.InstallBase && WindowsUtils.IsWindows)
@@ -630,7 +627,9 @@ namespace ZeroInstall.Store.Implementations
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DiskImplementationStore other) => other != null && DirectoryPath == other.DirectoryPath;
+        public bool Equals(DiskImplementationStore? other)
+            => other != null
+            && DirectoryPath == other.DirectoryPath;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

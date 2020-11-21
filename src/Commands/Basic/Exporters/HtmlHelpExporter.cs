@@ -20,14 +20,14 @@ namespace ZeroInstall.Commands.Basic.Exporters
   <th>{Resources.Description}</th>
 </tr>";
 
-        protected override string CommandListEntry(string name, string description) => $@"<tr>
+        protected override string CommandListEntry(string? name, string description) => $@"<tr>
   <td><a href='#{name?.Replace(" ", "_")}'><nobr><code>{name}</code></nobr></a></td>
   <td>{HtmlEncode(description)}</td>
 </tr>";
 
         protected override string CommandListFooter() => @"</table>";
 
-        protected override string CommandDetails(string name, string description, string usage) => $@"<a name='{name?.Replace(" ", "_")}'></a><h1>{name}</h1>
+        protected override string CommandDetails(string? name, string description, string usage) => $@"<a name='{name?.Replace(" ", "_")}'></a><h1>{name}</h1>
 <p>{HtmlEncode(description)}</p>
 <p><b>{Resources.Usage}</b> <code>0install {name} {usage}</code></p>";
 

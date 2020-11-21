@@ -19,8 +19,10 @@ namespace ZeroInstall.Model.Design
         /// <inheritdoc/>
         protected override int NoArguments => 2;
 
+        private static readonly ConstructorInfo _constructor = typeof(Architecture).GetConstructor(new[] {typeof(OS), typeof(Cpu)})!;
+
         /// <inheritdoc/>
-        protected override ConstructorInfo GetConstructor() => typeof(Architecture).GetConstructor(new[] {typeof(OS), typeof(Cpu)});
+        protected override ConstructorInfo GetConstructor() => _constructor;
 
         /// <inheritdoc/>
         protected override object[] GetArguments(Architecture value) => new object[] {value.OS, value.Cpu};
@@ -48,8 +50,8 @@ namespace ZeroInstall.Model.Design
             #endregion
 
             return new Architecture(
-                propertyValues["OS"].ToString().ConvertFromString<OS>(),
-                propertyValues["Cpu"].ToString().ConvertFromString<Cpu>());
+                propertyValues["OS"]?.ToString()?.ConvertFromString<OS>() ?? OS.All,
+                propertyValues["Cpu"]?.ToString()?.ConvertFromString<Cpu>() ?? Cpu.All);
         }
     }
 }

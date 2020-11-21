@@ -69,7 +69,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(UrlProtocol other) => base.Equals(other);
+        public bool Equals(UrlProtocol? other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

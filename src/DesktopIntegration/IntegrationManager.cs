@@ -290,9 +290,7 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            var toReAdd = (appEntry.AccessPoints == null)
-                ? Enumerable.Empty<AccessPoint>()
-                : appEntry.AccessPoints.Entries.ToList();
+            var toReAdd = appEntry.AccessPoints?.Entries.ToList() ?? Enumerable.Empty<AccessPoint>();
             AddAccessPointsInternal(appEntry, feed, toReAdd);
 
             WriteAppDir(appEntry);

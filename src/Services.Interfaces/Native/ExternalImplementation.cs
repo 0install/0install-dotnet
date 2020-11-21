@@ -96,7 +96,7 @@ namespace ZeroInstall.Services.Native
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ExternalImplementation other)
+        public bool Equals(ExternalImplementation? other)
             => other != null
             && base.Equals(other)
             && Distribution == other.Distribution

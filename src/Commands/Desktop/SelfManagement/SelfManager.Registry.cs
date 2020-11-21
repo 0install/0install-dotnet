@@ -23,8 +23,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             var hive = MachineWide ? Registry.LocalMachine : Registry.CurrentUser;
             using (var uninstallKey = hive.CreateSubKey(UninstallRegistryKey + @"\Zero Install_is1"))
             {
-                if (uninstallKey == null) return;
-
                 uninstallKey.SetValue("InstallLocation", TargetDir + @"\");
                 uninstallKey.SetValue("Publisher", "0install.net");
                 uninstallKey.SetValue("URLInfoAbout", "https://0install.net/");
@@ -56,7 +54,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
             var hive = MachineWide ? Registry.LocalMachine : Registry.CurrentUser;
             using var uninstallKey = hive.CreateSubKey(UninstallRegistryKey);
-            uninstallKey?.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
+            uninstallKey.DeleteSubKey("Zero Install_is1", throwOnMissingSubKey: false);
         }
     }
 }

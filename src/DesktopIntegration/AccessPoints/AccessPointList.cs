@@ -43,13 +43,15 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <summary>
         /// Returns the access point list in the form "Entry; Entry; ...". Not safe for parsing!
         /// </summary>
-        public override string ToString() => StringUtils.Join("; ", Entries.Select(x => x.ToString()));
+        public override string ToString() => StringUtils.Join("; ", Entries.Select(x => x.ToString()!));
         #endregion
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AccessPointList other)
-            => other != null && (base.Equals(other) && Entries.SequencedEquals(other.Entries));
+        public bool Equals(AccessPointList? other)
+            => other != null
+            && base.Equals(other)
+            && Entries.SequencedEquals(other.Entries);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

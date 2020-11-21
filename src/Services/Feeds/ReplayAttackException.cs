@@ -56,7 +56,7 @@ namespace ZeroInstall.Services.Feeds
             if (info == null) throw new ArgumentNullException(nameof(info));
             #endregion
 
-            FeedUrl = new Uri(info.GetString("FeedUrl"));
+            FeedUrl = new Uri(info.GetString("FeedUrl")!);
             OldTime = info.GetDateTime("OldTime");
             NewTime = info.GetDateTime("NewTime");
         }

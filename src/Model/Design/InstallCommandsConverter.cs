@@ -16,9 +16,10 @@ namespace ZeroInstall.Model.Design
         /// <summary>The number of arguments <see cref="InstallCommands"/> has.</summary>
         protected override int NoArguments => 6;
 
+        private static readonly ConstructorInfo _constructor = typeof(InstallCommands).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)})!;
+
         /// <returns>The constructor used to create new instances of <see cref="InstallCommands"/> (deserialization).</returns>
-        protected override ConstructorInfo GetConstructor()
-            => typeof(InstallCommands).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)});
+        protected override ConstructorInfo GetConstructor() => _constructor;
 
         /// <returns>The unconverted arguments of <see cref="InstallCommands"/>.</returns>
         protected override object[] GetArguments(InstallCommands value)
@@ -55,12 +56,12 @@ namespace ZeroInstall.Model.Design
 
             return new InstallCommands
             {
-                Reinstall = (string)propertyValues["Reinstall"],
-                ReinstallArgs = (string)propertyValues["ReinstallArgs"],
-                ShowIcons = (string)propertyValues["ShowIcons"],
-                ShowIconsArgs = (string)propertyValues["ShowIconsArgs"],
-                HideIcons = (string)propertyValues["HideIcons"],
-                HideIconsArgs = (string)propertyValues["HideIconsArgs"]
+                Reinstall = (string?)propertyValues["Reinstall"],
+                ReinstallArgs = (string?)propertyValues["ReinstallArgs"],
+                ShowIcons = (string?)propertyValues["ShowIcons"],
+                ShowIconsArgs = (string?)propertyValues["ShowIconsArgs"],
+                HideIcons = (string?)propertyValues["HideIcons"],
+                HideIconsArgs = (string?)propertyValues["HideIconsArgs"]
             };
         }
     }

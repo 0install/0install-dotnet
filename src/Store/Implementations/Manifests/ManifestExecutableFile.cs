@@ -63,7 +63,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(ManifestExecutableFile other) => base.Equals(other);
+        public bool Equals(ManifestExecutableFile? other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

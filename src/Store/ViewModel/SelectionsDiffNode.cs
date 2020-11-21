@@ -54,7 +54,7 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(SelectionsDiffNode other)
+        public bool Equals(SelectionsDiffNode? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;

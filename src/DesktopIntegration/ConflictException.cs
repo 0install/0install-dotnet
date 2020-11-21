@@ -45,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration
             #endregion
 
             string message = string.Format(Resources.AccessPointInnerConflict, entries[0].AppEntry) + Environment.NewLine +
-                             StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()));
+                             StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()!));
             return new ConflictException(message) {Entries = entries};
         }
 

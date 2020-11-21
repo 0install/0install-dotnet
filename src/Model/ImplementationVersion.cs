@@ -135,13 +135,10 @@ namespace ZeroInstall.Model
             output.Append(FirstPart);
 
             // Separate additional parts with hyphens
-            if (AdditionalParts != null)
+            foreach (var part in AdditionalParts)
             {
-                foreach (var part in AdditionalParts)
-                {
-                    output.Append('-');
-                    output.Append(part);
-                }
+                output.Append('-');
+                output.Append(part);
             }
 
             return output.ToString();

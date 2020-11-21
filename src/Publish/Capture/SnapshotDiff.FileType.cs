@@ -76,10 +76,9 @@ namespace ZeroInstall.Publish.Capture
                 capability = new UrlProtocol {ID = progID};
             }
 
-            var description = progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName)
-                           ?? progIDKey.GetValue("");
-            if (description != null)
-                capability.Descriptions.Add(description.ToString());
+            string? description = (progIDKey.GetValue(DesktopIntegration.Windows.FileType.RegValueFriendlyName) ?? progIDKey.GetValue(""))?.ToString();
+            if (!string.IsNullOrEmpty(description))
+                capability.Descriptions.Add(description);
 
             capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
 

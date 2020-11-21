@@ -34,7 +34,7 @@ namespace ZeroInstall.Commands.Basic
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
             if (string.IsNullOrEmpty(input)) return ExitCode.InvalidData;
 
             var feedFragment = XmlStorage.FromXmlString<Feed>(input);

@@ -38,7 +38,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         #region Equality
-        protected bool Equals(ManifestFileBase other) => other != null && ModifiedTimeUnix == other.ModifiedTimeUnix && base.Equals(other);
+        protected bool Equals(ManifestFileBase? other)
+            => other != null
+            && ModifiedTimeUnix == other.ModifiedTimeUnix
+            && base.Equals(other);
 
         /// <inheritdoc/>
         public override int GetHashCode()

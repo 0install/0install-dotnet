@@ -67,7 +67,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AutoPlay other) => base.Equals(other);
+        public bool Equals(AutoPlay? other) => base.Equals(other);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)

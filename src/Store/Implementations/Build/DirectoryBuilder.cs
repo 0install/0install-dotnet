@@ -127,7 +127,7 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             string fullPath = GetFullPath(relativePath);
-            string directoryPath = Path.GetDirectoryName(fullPath);
+            string directoryPath = Path.GetDirectoryName(fullPath)!;
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             // Delete any preexisting file to reset xbits, etc.
@@ -154,7 +154,7 @@ namespace ZeroInstall.Store.Implementations.Build
             DeleteFile(source);
 
             string sourceAbsolute = GetFullPath(source);
-            string sourceDirectory = Path.GetDirectoryName(sourceAbsolute);
+            string sourceDirectory = Path.GetDirectoryName(sourceAbsolute)!;
             if (!Directory.Exists(sourceDirectory)) Directory.CreateDirectory(sourceDirectory);
 
             if (_targetIsUnixFS) FileUtils.CreateSymlink(sourceAbsolute, target);
@@ -212,8 +212,8 @@ namespace ZeroInstall.Store.Implementations.Build
             foreach ((string source, string target) in _pendingHardlinks.ToList()) // NOTE: Must clone list because it may be modified during enumeration
             {
                 string sourceAbsolute = GetFullPath(source);
-                string sourceDirectory = Path.GetDirectoryName(sourceAbsolute);
-                if (sourceDirectory != null && !Directory.Exists(sourceDirectory)) Directory.CreateDirectory(sourceDirectory);
+                string sourceDirectory = Path.GetDirectoryName(sourceAbsolute)!;
+                if (!Directory.Exists(sourceDirectory)) Directory.CreateDirectory(sourceDirectory);
                 string targetAbsolute = GetFullPath(target);
 
                 try

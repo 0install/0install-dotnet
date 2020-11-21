@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(TrustNode other)
+        public bool Equals(TrustNode? other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -71,10 +71,10 @@ namespace ZeroInstall.Store.ViewModel
 
         #region Comparison
         /// <inheritdoc/>
-        int IComparable<TrustNode>.CompareTo(TrustNode other)
+        int IComparable<TrustNode>.CompareTo(TrustNode? other)
         {
-            int fingerprintCompare = string.CompareOrdinal(Fingerprint, other.Fingerprint);
-            return (fingerprintCompare == 0) ? string.CompareOrdinal(Domain.Value, other.Domain.Value) : fingerprintCompare;
+            int fingerprintCompare = string.CompareOrdinal(Fingerprint, other?.Fingerprint);
+            return (fingerprintCompare == 0) ? string.CompareOrdinal(Domain.Value, other?.Domain.Value) : fingerprintCompare;
         }
         #endregion
     }

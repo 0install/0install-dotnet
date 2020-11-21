@@ -41,7 +41,7 @@ namespace ZeroInstall.Publish.Capture
             foreach (var command in commands)
             {
                 string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
-                string arguments = command.Arguments.Select(arg => arg.ToString()).JoinEscapeArguments();
+                string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
 
                 _commands.Add(GetCommandTuple(installationDir, command, escapePath: true));
 
@@ -57,7 +57,7 @@ namespace ZeroInstall.Publish.Capture
         private static (string commandLine, Command command) GetCommandTuple(string installationDir, Command command, bool escapePath)
         {
             string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
-            string arguments = command.Arguments.Select(arg => arg.ToString()).JoinEscapeArguments();
+            string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
 
             string commandLine = escapePath ? ("\"" + path + "\"") : path;
             if (!string.IsNullOrEmpty(arguments)) commandLine += " " + arguments;

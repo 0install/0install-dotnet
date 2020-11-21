@@ -70,9 +70,9 @@ namespace ZeroInstall.Store.Implementations.Archives
         #region Directories
         private class MsiDirectory
         {
-            public string Name;
-            public string ParentID;
-            public string FullPath;
+            public string? Name;
+            public string? ParentID;
+            public string? FullPath;
 
             public override string ToString() => FullPath;
         }
@@ -127,12 +127,12 @@ namespace ZeroInstall.Store.Implementations.Archives
         #region Files
         private class MsiFile
         {
-            public string Name;
+            public string? Name;
             public int Size;
-            public string DirectoryId;
-            public string FullPath;
+            public string? DirectoryId;
+            public string? FullPath;
 
-            public override string ToString() => FullPath;
+            public override string? ToString() => FullPath;
         }
 
         private readonly Dictionary<string, MsiFile> _files = new Dictionary<string, MsiFile>();
@@ -161,7 +161,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         #endregion
 
         #region Cabinets
-        private List<string> _cabinets;
+        private List<string>? _cabinets;
 
         private void ReadCabinets()
         {
@@ -217,7 +217,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         /// <inheritdoc/>
-        protected override string GetRelativePath(string entryName)
+        protected override string? GetRelativePath(string entryName)
         {
             try
             {

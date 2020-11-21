@@ -18,7 +18,7 @@ namespace ZeroInstall.Store.Trust
         /// The cryptographic fingerprint of this key.
         /// </summary>
         [XmlAttribute("fingerprint")]
-        public string Fingerprint { get; set; } = default!;
+        public string? Fingerprint { get; set; }
 
         /// <summary>
         /// A list of <see cref="Domain"/>s this key is valid for.
@@ -46,7 +46,7 @@ namespace ZeroInstall.Store.Trust
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Key other)
+        public bool Equals(Key? other)
             => other != null
             && Fingerprint == other.Fingerprint
             && Domains.SetEquals(other.Domains);

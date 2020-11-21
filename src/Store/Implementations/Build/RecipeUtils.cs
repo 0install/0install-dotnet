@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException">The <see cref="Archive"/>s in <paramref name="recipe"/> and the files in <paramref name="downloadedFiles"/> do not match up.</exception>
         /// <exception cref="NotSupportedException"><paramref name="recipe"/> contains unknown step types.</exception>
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positivie due to usage inside lamda")]
-        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile> downloadedFiles, ITaskHandler handler, object? tag = null)
+        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, object? tag = null)
         {
             #region Sanity checks
             if (recipe == null) throw new ArgumentNullException(nameof(recipe));
@@ -217,7 +217,7 @@ namespace ZeroInstall.Store.Implementations.Build
 
             string sourcePath = Path.Combine(workingDir, source);
             string destinationPath = Path.Combine(workingDir, destination);
-            string parentDir = Path.GetDirectoryName(destinationPath);
+            string parentDir = Path.GetDirectoryName(destinationPath)!;
             if (!string.IsNullOrEmpty(parentDir) && !Directory.Exists(parentDir)) Directory.CreateDirectory(parentDir);
 
             if (Directory.Exists(sourcePath)) Directory.Move(sourcePath, destinationPath);

@@ -245,7 +245,8 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Returns the names of the child stores. Not safe for parsing!
         /// </summary>
-        public override string ToString() => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()));
+        public override string ToString()
+            => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()!));
         #endregion
     }
 }
