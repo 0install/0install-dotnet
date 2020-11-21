@@ -16,7 +16,7 @@
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["SourceLink", "ValueTuple"],
+      "packagePatterns": ["SourceLink", "ValueTuple", "SharpZipLib"],
       "automerge": true,
       "automergeType": "branch"
     },
