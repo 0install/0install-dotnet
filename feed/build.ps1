@@ -2,16 +2,11 @@
 $ErrorActionPreference = "Stop"
 pushd $PSScriptRoot
 
-# Ensure 0install is in PATH
-if (!(Get-Command 0install -ErrorAction SilentlyContinue)) {
-    $env:PATH = "$(Resolve-Path ..\artifacts\Release\net45\win);$env:PATH"
-}
-
 # Inspect version number
 $stability = if($Version.Contains("-")) {"developer"} else {"stable"}
 
 # Build feed and archive
-cmd /c "0install run --batch http://0install.net/tools/0template.xml 0install-dotnet.xml.template version=$Version stability=$stability 2>&1" # Redirect stderr to stdout
+..\0install.ps1 run --batch http://0install.net/tools/0template.xml 0install-dotnet.xml.template version=$Version stability=$stability
 if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 
 # Patch archive URL for release builds
