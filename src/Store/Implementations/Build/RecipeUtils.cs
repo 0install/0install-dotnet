@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <returns>A <see cref="TemporaryDirectory"/> with the resulting directory content.</returns>
         /// <exception cref="ArgumentException">The <see cref="Archive"/>s in <paramref name="recipe"/> and the files in <paramref name="downloadedFiles"/> do not match up.</exception>
         /// <exception cref="NotSupportedException"><paramref name="recipe"/> contains unknown step types.</exception>
-        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positivie due to usage inside lamda")]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positive due to usage inside lamda")]
         public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, object? tag = null)
         {
             #region Sanity checks
