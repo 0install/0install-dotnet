@@ -239,12 +239,12 @@ namespace ZeroInstall.DesktopIntegration
                     added: toAdd, removed: toRemove);
             }
 
-            void AddApp(AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
+            void AddAppHelper(AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
 
             Handler.RunTask(new SimpleTask(Resources.ApplyingChanges, () =>
             {
-                toRemove.ApplyWithRollback(RemoveAppInternal, AddApp);
-                toAdd.ApplyWithRollback(AddApp, RemoveAppInternal);
+                toRemove.ApplyWithRollback(RemoveAppInternal, AddAppHelper);
+                toAdd.ApplyWithRollback(AddAppHelper, RemoveAppInternal);
             }));
         }
     }

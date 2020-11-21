@@ -231,7 +231,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region AccessPoint
         /// <inheritdoc/>
-        protected override void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IEnumerable<AccessPoint> accessPoints)
+        protected override void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IReadOnlyCollection<AccessPoint> accessPoints)
         {
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
@@ -290,8 +290,8 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            var toReAdd = appEntry.AccessPoints?.Entries.ToList() ?? Enumerable.Empty<AccessPoint>();
-            AddAccessPointsInternal(appEntry, feed, toReAdd);
+            var toReAdd = appEntry.AccessPoints?.Entries ?? Enumerable.Empty<AccessPoint>();
+            AddAccessPointsInternal(appEntry, feed, toReAdd.ToList());
 
             WriteAppDir(appEntry);
         }

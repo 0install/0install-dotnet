@@ -3,9 +3,12 @@
 
 using System;
 using System.Collections.Generic;
-using NanoByte.Common.Collections;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model.Capabilities;
+
+#if NETFRAMEWORK
+using NanoByte.Common.Collections;
+#endif
 
 namespace ZeroInstall.DesktopIntegration
 {

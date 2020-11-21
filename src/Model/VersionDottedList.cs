@@ -82,7 +82,10 @@ namespace ZeroInstall.Model
         public bool Equals(VersionDottedList other)
         {
             if (Decimals == null || other.Decimals == null)
+            {
+                // ReSharper disable once PossibleUnintendedReferenceComparison
                 return (Decimals == other.Decimals);
+            }
 
             return Decimals.SequencedEquals(other.Decimals);
         }

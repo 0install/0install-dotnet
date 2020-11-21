@@ -45,6 +45,12 @@ namespace ZeroInstall.Model
         /// All additional parts of the version number.
         /// </summary>
         public IReadOnlyList<VersionPart> AdditionalParts { get; }
+#if NETFRAMEWORK
+            = new VersionPart[0];
+#else
+            = Array.Empty<VersionPart>();
+#endif
+
 
         /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
         private readonly string? _verbatimString;
@@ -67,7 +73,6 @@ namespace ZeroInstall.Model
             if (ModelUtils.ContainsTemplateVariables(value))
             {
                 _verbatimString = value;
-                AdditionalParts = new VersionPart[0];
                 return;
             }
 
@@ -95,7 +100,6 @@ namespace ZeroInstall.Model
             #endregion
 
             FirstPart = new VersionDottedList(version.ToString());
-            AdditionalParts = new VersionPart[0];
         }
 
         /// <summary>

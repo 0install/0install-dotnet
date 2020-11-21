@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
@@ -140,7 +141,7 @@ namespace ZeroInstall.DesktopIntegration
 
             try
             {
-                AddAccessPointsInternal(appEntry, feed, accessPoints);
+                AddAccessPointsInternal(appEntry, feed, accessPoints.ToList());
             }
             catch (KeyNotFoundException ex)
             {
@@ -263,7 +264,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        protected abstract void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IEnumerable<AccessPoint> accessPoints);
+        protected abstract void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IReadOnlyCollection<AccessPoint> accessPoints);
 
         /// <summary>
         /// Removes already applied <see cref="AccessPoint"/>s for an application.
