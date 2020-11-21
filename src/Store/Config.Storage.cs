@@ -233,7 +233,7 @@ namespace ZeroInstall.Store
 
             if (!_iniData.Sections.ContainsSection(GlobalSection)) return;
             var global = _iniData[GlobalSection];
-            foreach (var (key, property) in _metaData)
+            foreach ((string key, var property) in _metaData)
             {
                 string effectiveKey = property.NeedsEncoding
                     ? key + Base64Suffix
@@ -263,24 +263,25 @@ namespace ZeroInstall.Store
         /// </summary>
         private void TransferToIni()
         {
-            if (_iniData == null) _iniData = new IniData();
+            _iniData ??= new IniData();
             _iniData.Sections.RemoveSection("__global__section__"); // Throw away section-less data
 
             if (!_iniData.Sections.ContainsSection(GlobalSection)) _iniData.Sections.AddSection(GlobalSection);
             var global = _iniData[GlobalSection];
 
-            foreach (var property in _metaData)
+            foreach ((string key, var property) in _metaData)
             {
-                string key = property.Key;
-                if (property.Value.NeedsEncoding) key += Base64Suffix;
+                string effectiveKey = property.NeedsEncoding
+                    ? key + Base64Suffix
+                    : key;
 
-                if (property.Value.IsDefaultValue || property.Value.Value == null)
-                    global.RemoveKey(key);
+                if (property.IsDefaultValue || property.Value == null)
+                    global.RemoveKey(effectiveKey);
                 else
                 {
-                    global[key] = property.Value.NeedsEncoding
-                        ? property.Value.Value.Base64Utf8Encode()
-                        : property.Value.Value;
+                    global[effectiveKey] = property.NeedsEncoding
+                        ? property.Value.Base64Utf8Encode()
+                        : property.Value;
                 }
             }
         }
@@ -291,11 +292,11 @@ namespace ZeroInstall.Store
         /// </summary>
         private void ReadFromAppSettings()
         {
-            foreach (var property in _metaData)
+            foreach ((string key, var property) in _metaData)
             {
-                string value = ConfigurationManager.AppSettings[property.Key];
+                string value = ConfigurationManager.AppSettings[key];
                 if (!string.IsNullOrEmpty(value))
-                    property.Value.Value = value;
+                    property.Value = value;
             }
         }
 #endif
@@ -323,25 +324,22 @@ namespace ZeroInstall.Store
         {
             Log.Debug("Loading config from: " + registryKey);
 
-            foreach (var property in _metaData)
+            foreach ((string key, var property) in _metaData)
             {
-                string key = property.Key;
-                var data = registryKey.GetValue(key);
-                if (data != null)
+                string? value = registryKey.GetValue(key)?.ToString();
+                if (value == null) continue;
+
+                try
                 {
-                    string value = data.ToString();
-                    try
-                    {
-                        property.Value.Value = value;
-                    }
-                    #region Error handling
-                    catch (FormatException ex)
-                    {
-                        // Wrap exception to add context information
-                        throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, property.Key, registryKey.Name), ex);
-                    }
-                    #endregion
+                    property.Value = value;
                 }
+                #region Error handling
+                catch (FormatException ex)
+                {
+                    // Wrap exception to add context information
+                    throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, key, registryKey.Name), ex);
+                }
+                #endregion
             }
         }
 
@@ -352,8 +350,8 @@ namespace ZeroInstall.Store
         public Config Clone()
         {
             var newConfig = new Config();
-            foreach (var property in _metaData)
-                newConfig.SetOption(property.Key, GetOption(property.Key));
+            foreach ((string key, var property) in _metaData)
+                newConfig._metaData[key].Value = property.Value;
             return newConfig;
         }
 
@@ -363,8 +361,8 @@ namespace ZeroInstall.Store
         public override string ToString()
         {
             var builder = new StringBuilder();
-            foreach (var property in _metaData)
-                builder.AppendLine(property.Key + " = " + (property.Value.NeedsEncoding ? "***" : property.Value.Value));
+            foreach ((string key, var property) in _metaData)
+                builder.AppendLine(key + " = " + (property.NeedsEncoding ? "***" : property.Value));
             return builder.ToString();
         }
 
