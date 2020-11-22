@@ -1,50 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Build config -->
+  <!-- Project properties -->
   <PropertyGroup>
     <AssemblyName>0install</AssemblyName>
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
-    <LangVersion>8.0</LangVersion>
+    <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
     <TargetFrameworks>net45;net5.0</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591;CA1416</NoWarn>
-    <Nullable>annotations</Nullable>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <OutputType>Exe</OutputType>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
     <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
-    <!-- Include native dependencies in output -->
-    <RuntimeIdentifier>win</RuntimeIdentifier>
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
-    <!-- Run nullability analysis only on annotated frameworks -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <!-- NuGet package metadata -->
-  <PropertyGroup>
-    <Version>1.0.0-pre</Version><!-- overridden by build scripts -->
-    <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
-    <Product>Zero Install</Product>
-    <Authors>Bastian Eicher</Authors>
-    <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <PackageProjectUrl>https://dotnet.0install.net/</PackageProjectUrl>
-    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
 
   <!-- Dependencies -->
   <ItemGroup>

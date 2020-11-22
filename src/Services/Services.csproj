@@ -1,47 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Build config -->
+  <!-- Project properties -->
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Services</AssemblyName>
     <RootNamespace>ZeroInstall.Services</RootNamespace>
-    <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net45;netstandard2.1;net5.0</TargetFrameworks>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-    <Nullable>annotations</Nullable>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <OutputType>Library</OutputType>
+    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
-    <!-- Include native dependencies in output -->
-    <RuntimeIdentifier>win</RuntimeIdentifier>
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0'">
-    <!-- Run nullability analysis only on annotated frameworks -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <!-- NuGet package metadata -->
-  <PropertyGroup>
-    <Version>1.0.0-pre</Version><!-- overridden by build scripts -->
-    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
-    <Product>Zero Install</Product>
-    <Authors>Bastian Eicher</Authors>
-    <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <PackageProjectUrl>https://dotnet.0install.net/</PackageProjectUrl>
-    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
 
   <!-- Dependencies -->
   <ItemGroup>

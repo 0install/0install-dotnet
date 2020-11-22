@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Build config -->
+  <!-- Project properties -->
   <PropertyGroup>
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
-    <LangVersion>8.0</LangVersion>
     <TargetFrameworks>net48;net5.0</TargetFrameworks>
-    <OutputType>Library</OutputType>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>False</IsPackable>
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
-    <NoWarn>$(NoWarn);xUnit1013</NoWarn>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <Nullable>annotations</Nullable>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\sgKey.snk</AssemblyOriginatorKeyFile>
+    <NoWarn>$(NoWarn);xUnit1013</NoWarn><!-- Dispose() not marked as [Fact] -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net48'">
-    <RuntimeIdentifier>win</RuntimeIdentifier>
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
+
+  <!-- Mark as unit test project -->
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
 
   <!-- Dependencies -->
   <ItemGroup>
@@ -54,11 +54,6 @@
     <EmbeddedResource Include="Publish\EntryPoints\python*" />
     <EmbeddedResource Include="Publish\EntryPoints\sh" />
     <EmbeddedResource Include="Publish\EntryPoints\windows*.exe" />
-  </ItemGroup>
-
-  <!-- Mark as unit test project -->
-  <ItemGroup>
-    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
 
 </Project>
