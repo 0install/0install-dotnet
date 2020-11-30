@@ -37,28 +37,28 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
                 {
                     case FileType fileType:
                     {
-                        var model = new FileTypeModel(fileType, IsCapabillityUsed<AccessPoints.FileType>(fileType));
+                        var model = new FileTypeModel(fileType, IsCapabilityUsed<AccessPoints.FileType>(fileType));
                         FileTypes.Add(model);
                         _capabilityModels.Add(model);
                         break;
                     }
                     case UrlProtocol urlProtocol:
                     {
-                        var model = new UrlProtocolModel(urlProtocol, IsCapabillityUsed<AccessPoints.UrlProtocol>(urlProtocol));
+                        var model = new UrlProtocolModel(urlProtocol, IsCapabilityUsed<AccessPoints.UrlProtocol>(urlProtocol));
                         UrlProtocols.Add(model);
                         _capabilityModels.Add(model);
                         break;
                     }
                     case AutoPlay autoPlay:
                     {
-                        var model = new AutoPlayModel(autoPlay, IsCapabillityUsed<AccessPoints.AutoPlay>(autoPlay));
+                        var model = new AutoPlayModel(autoPlay, IsCapabilityUsed<AccessPoints.AutoPlay>(autoPlay));
                         AutoPlay.Add(model);
                         _capabilityModels.Add(model);
                         break;
                     }
                     case ContextMenu contextMenu:
                     {
-                        var model = new ContextMenuModel(contextMenu, IsCapabillityUsed<AccessPoints.ContextMenu>(contextMenu));
+                        var model = new ContextMenuModel(contextMenu, IsCapabilityUsed<AccessPoints.ContextMenu>(contextMenu));
                         ContextMenu.Add(model);
                         _capabilityModels.Add(model);
                         break;
@@ -66,7 +66,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
                     case DefaultProgram defaultProgram:
                     {
                         if (!_integrationManager.MachineWide) break;
-                        var model = new DefaultProgramModel(defaultProgram, IsCapabillityUsed<AccessPoints.DefaultProgram>(defaultProgram));
+                        var model = new DefaultProgramModel(defaultProgram, IsCapabilityUsed<AccessPoints.DefaultProgram>(defaultProgram));
                         DefaultProgram.Add(model);
                         _capabilityModels.Add(model);
                         break;
@@ -74,7 +74,7 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
                 }
             }
 
-            bool IsCapabillityUsed<T>(Capability toCheck) where T : AccessPoints.DefaultAccessPoint
+            bool IsCapabilityUsed<T>(Capability toCheck) where T : AccessPoints.DefaultAccessPoint
                 => AppEntry.AccessPoints != null && AppEntry.AccessPoints.Entries.OfType<T>().Any(accessPoint => accessPoint.Capability == toCheck.ID);
         }
 
