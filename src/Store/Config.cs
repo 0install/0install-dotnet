@@ -152,7 +152,7 @@ namespace ZeroInstall.Store
             _metaData = new Dictionary<string, PropertyPointer<string>>
             {
                 {"freshness", PropertyPointer.For(() => Freshness, defaultValue: _defaultFreshness).ToStringPointer()},
-                {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value).ToStringPointer()},
+                {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value, defaultValue: false).ToStringPointer()},
                 {"network_use", NetworkUsePropertyPointer},
                 {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, defaultValue: true).ToStringPointer()},
                 {"feed_mirror", FeedUriPropertyPointer(() => FeedMirror, DefaultFeedMirror)},
@@ -171,7 +171,7 @@ namespace ZeroInstall.Store
         /// </summary>
         private static PropertyPointer<string> FeedUriPropertyPointer(Expression<Func<FeedUri?>> expression, string defaultValue)
         {
-            var property = PropertyPointer.For(expression);
+            var property = PropertyPointer.For(expression, null);
             return PropertyPointer.For(
                 () => property.Value?.ToStringRfc() ?? "",
                 value => property.Value = string.IsNullOrEmpty(value) ? default : new FeedUri(value),

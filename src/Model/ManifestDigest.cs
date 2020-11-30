@@ -88,7 +88,7 @@ namespace ZeroInstall.Model
         /// Contains any unknown hash algorithms specified as pure XML attributes.
         /// </summary>
         [XmlAnyAttribute, NonSerialized]
-        public XmlAttribute[] UnknownAlgorithms;
+        public XmlAttribute[]? UnknownAlgorithms;
 
         /// <summary>
         /// Creates a new manifest digest structure with pre-set values.

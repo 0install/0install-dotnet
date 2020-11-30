@@ -273,7 +273,7 @@ namespace ZeroInstall.Store
                     ? key + Base64Suffix
                     : key;
 
-                if (property.IsDefaultValue || property.Value == null)
+                if (property.IsDefaultValue)
                     global.RemoveKey(effectiveKey);
                 else
                 {

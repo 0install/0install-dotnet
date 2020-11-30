@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -38,11 +37,7 @@ namespace ZeroInstall.Model
         /// <param name="xmlAttribute">The name of the XML attribute.</param>
         /// <param name="xmlTag">The name of the XML tag containing the attribute.</param>
         /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
-        // ReSharper disable once UnusedParameter.Global
-        protected static void EnsureNotNull(
-            [NotNull] object? value,
-            string xmlAttribute,
-            string xmlTag)
+        protected static void EnsureNotNull(object? value, string xmlAttribute, string xmlTag)
         {
             if (value == null) throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, xmlAttribute, xmlTag));
         }

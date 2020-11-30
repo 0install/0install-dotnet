@@ -33,8 +33,8 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             if (service?.Status != ServiceControllerStatus.Running) return;
 
             // Determine whether the service is installed in the target directory we are updating
-            string imagePath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath").Trim('"');
-            if (!imagePath.StartsWith(TargetDir)) return;
+            string? imagePath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"');
+            if (imagePath == null || !imagePath.StartsWith(TargetDir)) return;
 
             Handler.RunTask(new SimpleTask(Resources.StopService, () =>
             {
