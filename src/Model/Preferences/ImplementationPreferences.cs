@@ -42,7 +42,7 @@ namespace ZeroInstall.Model.Preferences
         /// Creates a deep copy of this <see cref="ImplementationPreferences"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="ImplementationPreferences"/>.</returns>
-        public ImplementationPreferences Clone() => new ImplementationPreferences {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, UserStability = UserStability};
+        public ImplementationPreferences Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, UserStability = UserStability};
         #endregion
 
         #region Conversion

@@ -35,7 +35,7 @@ namespace ZeroInstall.Store.Implementations
 
                 public override bool Equals(object? obj)
                 {
-                    if (!(obj is DedupKey)) return false;
+                    if (obj is not DedupKey) return false;
                     var other = (DedupKey)obj;
                     return Size == other.Size && LastModified == other.LastModified && Format.Equals(other.Format) && string.Equals(Digest, other.Digest);
                 }
@@ -58,8 +58,8 @@ namespace ZeroInstall.Store.Implementations
                 public static implicit operator string(StoreFile file) => Path.Combine(file.ImplementationPath, file.RelativePath);
             }
 
-            private readonly Dictionary<DedupKey, StoreFile> _fileHashes = new Dictionary<DedupKey, StoreFile>();
-            private readonly HashSet<string> _unsealedImplementations = new HashSet<string>();
+            private readonly Dictionary<DedupKey, StoreFile> _fileHashes = new();
+            private readonly HashSet<string> _unsealedImplementations = new();
             private readonly string _storePath;
 
             /// <summary>

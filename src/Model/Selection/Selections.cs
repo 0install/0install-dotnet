@@ -67,7 +67,7 @@ namespace ZeroInstall.Model.Selection
         [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Used for XML serialization")]
         [Description("A list of implementations chosen in this selection.")]
         [XmlElement("selection")]
-        public List<ImplementationSelection> Implementations { get; } = new List<ImplementationSelection>();
+        public List<ImplementationSelection> Implementations { get; } = new();
 
         /// <summary>
         /// The main implementation in the selection (the actual program to launch). Identified by <see cref="InterfaceUri"/>.

@@ -34,7 +34,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Convenience cast for turning strings into plain <see cref="Arg"/>s.
         /// </summary>
-        public static implicit operator Arg(string value) => new Arg {Value = value};
+        public static implicit operator Arg(string value) => new() {Value = value};
 
         /// <summary>
         /// Returns <see cref="Value"/> directly. Safe for parsing!
@@ -65,7 +65,7 @@ namespace ZeroInstall.Model
         /// Creates a deep copy of this <see cref="Arg"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="Arg"/>.</returns>
-        Arg ICloneable<Arg>.Clone() => new Arg {Value = Value};
+        Arg ICloneable<Arg>.Clone() => new() {Value = Value};
 
         /// <summary>
         /// Creates a deep copy of this <see cref="Arg"/> instance.

@@ -41,8 +41,8 @@ namespace ZeroInstall.Store.Implementations.Deployment
             DestinationPath = destinationPath;
         }
 
-        private readonly Stack<string> _createdDirectories = new Stack<string>();
-        private readonly Stack<KeyValuePair<string, string>> _pendingFileRenames = new Stack<KeyValuePair<string, string>>();
+        private readonly Stack<string> _createdDirectories = new();
+        private readonly Stack<KeyValuePair<string, string>> _pendingFileRenames = new();
 
         /// <inheritdoc/>
         protected override void OnStage()

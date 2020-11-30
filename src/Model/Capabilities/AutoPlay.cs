@@ -37,7 +37,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("event")]
-        public List<AutoPlayEvent> Events { get; } = new List<AutoPlayEvent>();
+        public List<AutoPlayEvent> Events { get; } = new();
 
         /// <inheritdoc/>
         [XmlIgnore]

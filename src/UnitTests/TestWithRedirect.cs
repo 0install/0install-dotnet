@@ -12,7 +12,7 @@ namespace ZeroInstall
     [Collection("LocationsRedirect")]
     public abstract class TestWithRedirect
     {
-        private readonly LocationsRedirect _redirect = new LocationsRedirect("0install-unit-tests");
+        private readonly LocationsRedirect _redirect = new("0install-unit-tests");
 
         public virtual void Dispose() => _redirect.Dispose();
     }

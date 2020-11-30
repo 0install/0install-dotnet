@@ -53,7 +53,7 @@ namespace ZeroInstall.Model
         /// Creates a copy of this <see cref="Constraint"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="Constraint"/>.</returns>
-        public Constraint Clone() => new Constraint {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, NotBefore = NotBefore, Before = Before};
+        public Constraint Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, NotBefore = NotBefore, Before = Before};
         #endregion
 
         #region Equality

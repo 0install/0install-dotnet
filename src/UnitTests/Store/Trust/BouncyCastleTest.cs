@@ -13,7 +13,7 @@ namespace ZeroInstall.Store.Trust
     /// </summary>
     public class BouncyCastleTest : OpenPgpTest, IDisposable
     {
-        private readonly TemporaryDirectory _homeDir = new TemporaryDirectory("0install-unit-test");
+        private readonly TemporaryDirectory _homeDir = new("0install-unit-test");
 
         public void Dispose() => _homeDir?.Dispose();
 

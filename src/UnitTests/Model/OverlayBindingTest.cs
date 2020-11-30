@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="OverlayBinding"/>.
         /// </summary>
-        internal static OverlayBinding CreateTestBinding() => new OverlayBinding
+        internal static OverlayBinding CreateTestBinding() => new()
         {
             Source = @"somedir",
             MountPoint = @"/usr/share/somedir"

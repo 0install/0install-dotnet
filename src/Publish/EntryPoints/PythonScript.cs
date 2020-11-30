@@ -37,10 +37,10 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        protected override FeedUri InterpreterInterface => new FeedUri("https://apps.0install.net/python/python.xml");
+        protected override FeedUri InterpreterInterface => new("https://apps.0install.net/python/python.xml");
 
         /// <inheritdoc/>
-        public override Command CreateCommand() => new Command
+        public override Command CreateCommand() => new()
         {
             Name = CommandName,
             Path = RelativePath,

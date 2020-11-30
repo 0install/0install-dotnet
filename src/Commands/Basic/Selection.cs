@@ -46,7 +46,7 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process as parsed from the command-line arguments.
         /// </summary>
-        protected Requirements Requirements { get; } = new Requirements();
+        protected Requirements Requirements { get; } = new();
 
         // Intermediate variables, transferred to Requirements after parsing
         private VersionRange? _version;

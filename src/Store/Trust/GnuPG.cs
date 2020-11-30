@@ -179,7 +179,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         private static OpenPgpSecretKey ParseSecretKey(string[] sec, string[] fpr, string[] uid)
-            => new OpenPgpSecretKey(
+            => new(
                 keyID: OpenPgpUtils.ParseKeyID(sec[4]),
                 fingerprint: OpenPgpUtils.ParseFingerprint(fpr[9]),
                 userID: uid[9]);

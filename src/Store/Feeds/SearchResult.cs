@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         [Browsable(false)]
         [XmlElement("category")]
-        public List<Category> Categories { get; } = new List<Category>();
+        public List<Category> Categories { get; } = new();
 
         /// <summary>Used for DataGrid rendering.</summary>
         /// <seealso cref="Categories"/>

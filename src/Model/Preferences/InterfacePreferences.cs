@@ -51,7 +51,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("Zero ore more additional feeds containing implementations of this interface.")]
         [XmlElement("feed")]
-        public List<FeedReference> Feeds { get; } = new List<FeedReference>();
+        public List<FeedReference> Feeds { get; } = new();
 
         #region Storage
         /// <summary>

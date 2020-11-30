@@ -64,7 +64,7 @@ namespace ZeroInstall.Publish
         #endregion
 
         #region Candidates
-        private readonly List<Candidate> _candidates = new List<Candidate>();
+        private readonly List<Candidate> _candidates = new();
 
         /// <summary>
         /// Lists auto-detected candidates for <see cref="EntryPoint"/>s.
@@ -105,12 +105,12 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Lists the <see cref="Command"/> derived from <see cref="Candidates"/> and <see cref="MainCandidate"/>.
         /// </summary>
-        public List<Command> Commands { get; } = new List<Command>();
+        public List<Command> Commands { get; } = new();
 
         /// <summary>
         /// Lists the <see cref="EntryPoint"/>s accompanying <see cref="Commands"/>.
         /// </summary>
-        public List<EntryPoint> EntryPoints { get; } = new List<EntryPoint>();
+        public List<EntryPoint> EntryPoints { get; } = new();
 
         /// <summary>
         /// Generates <see cref="Commands"/> and <see cref="EntryPoints"/> bases on <see cref="Candidates"/> and <see cref="MainCandidate"/>.
@@ -188,7 +188,7 @@ namespace ZeroInstall.Publish
         /// </summary>
         public FeedUri? Uri { get; set; }
 
-        private readonly List<Icon> _icons = new List<Icon>();
+        private readonly List<Icon> _icons = new();
 
         /// <summary>
         /// Set to configure <see cref="Feed.Icons"/>.

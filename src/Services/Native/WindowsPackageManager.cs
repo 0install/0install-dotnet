@@ -116,7 +116,7 @@ namespace ZeroInstall.Services.Native
         // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
         private IEnumerable<ExternalImplementation> FindNetFx(string version, string clrVersion, string registryVersion, int releaseNumber = 0)
         {
-            ExternalImplementation Impl(Cpu cpu) => new ExternalImplementation(DistributionName, "netfx", new ImplementationVersion(version), cpu)
+            ExternalImplementation Impl(Cpu cpu) => new(DistributionName, "netfx", new ImplementationVersion(version), cpu)
             {
                 // .NET executables do not need a runner on Windows
                 Commands = {new Command {Name = Command.NameRun, Path = ""}},

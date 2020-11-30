@@ -11,6 +11,6 @@ namespace ZeroInstall.Model.Design
 
         public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new StandardValuesCollection(Icon.KnownMimeTypes);
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new(Icon.KnownMimeTypes);
     }
 }

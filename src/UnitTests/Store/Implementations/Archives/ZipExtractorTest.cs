@@ -14,7 +14,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 {
     public class ZipExtractorTest : IDisposable
     {
-        private static TestRoot SamplePackageHierarchy => new TestRoot
+        private static TestRoot SamplePackageHierarchy => new()
         {
             new TestFile("file") {Contents = "First file"},
             new TestFile("file2") {Contents = ""},
@@ -33,7 +33,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         };
 
         private readonly byte[] _archiveData = BuildArchive();
-        private readonly TemporaryDirectory _sandbox = new TemporaryDirectory("0install-unit-tests");
+        private readonly TemporaryDirectory _sandbox = new("0install-unit-tests");
         public void Dispose() => _sandbox.Dispose();
 
         private static byte[] BuildArchive()

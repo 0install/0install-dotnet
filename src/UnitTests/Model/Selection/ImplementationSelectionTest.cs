@@ -14,7 +14,7 @@ namespace ZeroInstall.Model.Selection
         /// <summary>
         /// Creates a fictive test <see cref="ImplementationSelection"/>.
         /// </summary>
-        internal static ImplementationSelection CreateTestImplementation1() => new ImplementationSelection
+        internal static ImplementationSelection CreateTestImplementation1() => new()
         {
             InterfaceUri = FeedTest.Test1Uri,
             FromFeed = FeedTest.Sub1Uri,
@@ -45,7 +45,7 @@ namespace ZeroInstall.Model.Selection
         /// <summary>
         /// Creates a fictive test <see cref="ImplementationSelection"/>.
         /// </summary>
-        internal static ImplementationSelection CreateTestImplementation2() => new ImplementationSelection
+        internal static ImplementationSelection CreateTestImplementation2() => new()
         {
             InterfaceUri = FeedTest.Test2Uri,
             FromFeed = FeedTest.Sub2Uri,

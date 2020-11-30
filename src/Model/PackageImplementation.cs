@@ -44,7 +44,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public List<string> Distributions { get; } = new List<string>();
+        public List<string> Distributions { get; } = new();
 
         /// <summary>
         /// The range of versions to accept for the specified <see cref="Package"/>.
@@ -83,7 +83,7 @@ namespace ZeroInstall.Model
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlIgnore]
-        public override DateTime Released { get => new DateTime(); set {} }
+        public override DateTime Released { get => new(); set {} }
 
         /// <summary>Not used.</summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]

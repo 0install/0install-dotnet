@@ -153,7 +153,7 @@ namespace ZeroInstall.DesktopIntegration
             using var applyFlag = new TemporaryFlagFile("0install-unit-tests");
             // Inject access point into AppEntry (without running integration)
             appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
-            _integrationManager.Repair(uri => new Feed());
+            _integrationManager.Repair(_ => new Feed());
 
             applyFlag.Set.Should().BeTrue(because: "Access points should be reapplied");
         }

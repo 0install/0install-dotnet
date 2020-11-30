@@ -57,7 +57,7 @@ namespace ZeroInstall.Services.Feeds
             _sut.GetCached().Should().Be(catalog);
         }
 
-        private static readonly FeedUri _testSource = new FeedUri("http://localhost/test/");
+        private static readonly FeedUri _testSource = new("http://localhost/test/");
 
         [Fact]
         public void TestAddSourceExisting()

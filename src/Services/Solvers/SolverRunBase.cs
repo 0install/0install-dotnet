@@ -222,7 +222,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="requirements">The requirements.</param>
         /// <param name="importance">Describes how important the demand is (i.e. whether ignoring it is an option).</param>
         private SolverDemand Demand(Requirements requirements, Importance importance = Importance.Essential)
-            => new SolverDemand(requirements, CandidateProvider, importance);
+            => new(requirements, CandidateProvider, importance);
 
         /// <summary>
         /// Creates new <see cref="Requirements"/>, inheriting restrictions from <see cref="_requirements"/>.

@@ -16,7 +16,7 @@ namespace ZeroInstall.Publish.Capture
     public class CommandMapper
     {
         /// <summary>A list of command-lines and corresponding <see cref="Command"/>s.</summary>
-        private readonly List<(string commandLine, Command command)> _commands = new List<(string commandLine, Command command)>();
+        private readonly List<(string commandLine, Command command)> _commands = new();
 
         /// <summary>
         /// The fully qualified path to the installation directory.

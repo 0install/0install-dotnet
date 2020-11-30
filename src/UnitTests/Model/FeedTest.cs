@@ -18,17 +18,17 @@ namespace ZeroInstall.Model
     public class FeedTest
     {
         #region Helpers
-        public static readonly FeedUri Test1Uri = new FeedUri("http://example.com/test1.xml");
-        public static readonly FeedUri Test2Uri = new FeedUri("http://example.com/test2.xml");
-        public static readonly FeedUri Test3Uri = new FeedUri("http://example.com/test3.xml");
-        public static readonly FeedUri Sub1Uri = new FeedUri("http://example.com/sub1.xml");
-        public static readonly FeedUri Sub2Uri = new FeedUri("http://example.com/sub2.xml");
-        public static readonly FeedUri Sub3Uri = new FeedUri("http://example.com/sub3.xml");
+        public static readonly FeedUri Test1Uri = new("http://example.com/test1.xml");
+        public static readonly FeedUri Test2Uri = new("http://example.com/test2.xml");
+        public static readonly FeedUri Test3Uri = new("http://example.com/test3.xml");
+        public static readonly FeedUri Sub1Uri = new("http://example.com/sub1.xml");
+        public static readonly FeedUri Sub2Uri = new("http://example.com/sub2.xml");
+        public static readonly FeedUri Sub3Uri = new("http://example.com/sub3.xml");
 
         /// <summary>
         /// Creates a fictive test <see cref="Feed"/>.
         /// </summary>
-        public static Feed CreateTestFeed() => new Feed
+        public static Feed CreateTestFeed() => new()
         {
             Uri = Test1Uri,
             Name = "MyApp",
@@ -57,7 +57,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Implementation"/>.
         /// </summary>
-        public static Implementation CreateTestImplementation() => new Implementation
+        public static Implementation CreateTestImplementation() => new()
         {
             ID = "id1",
             ManifestDigest = new ManifestDigest(sha256: "123"),
@@ -102,7 +102,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="PackageImplementation"/>.
         /// </summary>
-        public static PackageImplementation CreateTestPackageImplementation() => new PackageImplementation
+        public static PackageImplementation CreateTestPackageImplementation() => new()
         {
             Package = "firefox",
             Distributions = {"RPM"},
@@ -125,7 +125,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Group"/>.
         /// </summary>
-        private static Group CreateTestGroup() => new Group
+        private static Group CreateTestGroup() => new()
         {
             Languages = {"de"},
             Architecture = new Architecture(OS.FreeBsd, Cpu.I586),

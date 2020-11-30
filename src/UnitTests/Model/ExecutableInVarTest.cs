@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="ExecutableInVar"/>.
         /// </summary>
-        internal static ExecutableInVar CreateTestBinding() => new ExecutableInVar {Name = "name", Command = "command"};
+        internal static ExecutableInVar CreateTestBinding() => new() {Name = "name", Command = "command"};
 
         /// <summary>
         /// Ensures that the class can be correctly cloned.

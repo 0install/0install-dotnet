@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="GenericBinding"/>.
         /// </summary>
-        internal static GenericBinding CreateTestBinding() => new GenericBinding {Path = "path", Command = "command"};
+        internal static GenericBinding CreateTestBinding() => new() {Path = "path", Command = "command"};
 
         /// <summary>
         /// Ensures that the class can be correctly cloned.

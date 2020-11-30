@@ -64,7 +64,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// An architecture representing the currently running system.
         /// </summary>
-        public static readonly Architecture CurrentSystem = new Architecture(CurrentOS, CurrentCpu);
+        public static readonly Architecture CurrentSystem = new(CurrentOS, CurrentCpu);
 
         private static OS CurrentOS
         {
@@ -95,10 +95,7 @@ namespace ZeroInstall.Model
 
         private static OS ToOS(string value) => value switch
         {
-            "*" => OS.All,
-            "all" => OS.All,
-            "any" => OS.All,
-            "(none)" => OS.All,
+            "*" or "all" or "any" or "(none)" => OS.All,
             "Linux" => OS.Linux,
             "Solaris" => OS.Solaris,
             "FreeBSD" => OS.FreeBsd,
@@ -112,11 +109,7 @@ namespace ZeroInstall.Model
 
         private static Cpu ToCpu(string value) => value switch
         {
-            "*" => Cpu.All,
-            "all" => Cpu.All,
-            "any" => Cpu.All,
-            "noarch" => Cpu.All,
-            "(none)" => Cpu.All,
+            "*" or "all" or "any" or "noarch" or "(none)" => Cpu.All,
             "i386" => Cpu.I386,
             "x86" => Cpu.I386,
             "i486" => Cpu.I486,
@@ -129,12 +122,9 @@ namespace ZeroInstall.Model
             "ppc32" => Cpu.Ppc,
             "Power Macintosh" => Cpu.Ppc,
             "ppc64" => Cpu.Ppc64,
-            "armv6l" => Cpu.ArmV6L,
-            "armv6h" => Cpu.ArmV6L,
-            "armhf" => Cpu.ArmV6L,
+            "armv6l" or "armv6h" or "armhf" => Cpu.ArmV6L,
             "armv7l" => Cpu.ArmV7L,
-            "aarch64" => Cpu.AArch64,
-            "arm64" => Cpu.AArch64,
+            "aarch64" or "arm64" => Cpu.AArch64,
             "src" => Cpu.Source,
             _ => Cpu.Unknown
         };
@@ -154,7 +144,7 @@ namespace ZeroInstall.Model
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
-            => obj != null && obj is Architecture architecture && Equals(architecture);
+            => obj is Architecture architecture && Equals(architecture);
 
         /// <inheritdoc/>
         public override int GetHashCode()

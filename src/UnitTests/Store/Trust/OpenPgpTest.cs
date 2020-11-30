@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Trust
     {
         protected abstract IOpenPgp OpenPgp { get; }
 
-        private readonly OpenPgpSecretKey _secretKey = new OpenPgpSecretKey(
+        private readonly OpenPgpSecretKey _secretKey = new(
             keyID: OpenPgpUtils.ParseKeyID("DEED44B49BE24661"),
             fingerprint: OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
             userID: "Test User <test@0install.de>");

@@ -19,7 +19,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Creates a fictive test <see cref="AppList"/> without <see cref="AccessPoint"/>s.
         /// </summary>
-        private static AppList CreateTestAppListWithoutAPs() => new AppList
+        private static AppList CreateTestAppListWithoutAPs() => new()
         {
             Entries =
             {
@@ -35,7 +35,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Creates a fictive test <see cref="AppList"/> with <see cref="AccessPoint"/>s.
         /// </summary>
-        private static AppList CreateTestAppListWithAPs() => new AppList
+        private static AppList CreateTestAppListWithAPs() => new()
         {
             Entries =
             {
@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// Creates a fictive test <see cref="AccessPoints.AccessPointList"/>.
         /// </summary>
-        private static AccessPointList CreateTestAccessPointList() => new AccessPointList
+        private static AccessPointList CreateTestAccessPointList() => new()
         {
             Entries =
             {

@@ -25,12 +25,12 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         public ManifestFormat Format { get; }
 
-        private readonly List<ManifestNode> _nodes = new List<ManifestNode>();
+        private readonly List<ManifestNode> _nodes = new();
 
         /// <summary>
         /// If <see cref="TaskBase.State"/> is <see cref="TaskState.Complete"/> this property contains the generated <see cref="Manifests.Manifest"/>; otherwise it's <c>null</c>.
         /// </summary>
-        public Manifest Manifest => new Manifest(Format, _nodes);
+        public Manifest Manifest => new(Format, _nodes);
 
         /// <summary>
         /// Prepares to generate a manifest for a directory in the filesystem.

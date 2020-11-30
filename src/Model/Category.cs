@@ -42,7 +42,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Convenience cast for turning strings into <see cref="Category"/>s.
         /// </summary>
-        public static implicit operator Category(string value) => new Category {Name = value};
+        public static implicit operator Category(string value) => new() {Name = value};
 
         /// <summary>
         /// Returns <see cref="Name"/> directly. Safe for parsing!
@@ -76,7 +76,7 @@ namespace ZeroInstall.Model
         /// Creates a plain copy of this category.
         /// </summary>
         /// <returns>The cloned category.</returns>
-        public Category Clone() => new Category {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, TypeNamespace = TypeNamespace};
+        public Category Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, TypeNamespace = TypeNamespace};
         #endregion
     }
 }

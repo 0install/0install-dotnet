@@ -15,6 +15,6 @@ namespace ZeroInstall.Model.Design
 
         public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new StandardValuesCollection(new[] {Verb.NameOpen, Verb.NameOpenNew, Verb.NameOpenAs, Verb.NameEdit, Verb.NamePlay, Verb.NamePrint, Verb.NamePreview});
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new(new[] {Verb.NameOpen, Verb.NameOpenNew, Verb.NameOpenAs, Verb.NameEdit, Verb.NamePlay, Verb.NamePrint, Verb.NamePreview});
     }
 }

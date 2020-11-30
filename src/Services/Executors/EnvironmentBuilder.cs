@@ -41,7 +41,7 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to hold the process launch environment while it is being built.
         /// </summary>
-        private readonly ProcessStartInfo _startInfo = new ProcessStartInfo {ErrorDialog = false, UseShellExecute = false};
+        private readonly ProcessStartInfo _startInfo = new() {ErrorDialog = false, UseShellExecute = false};
 
         /// <summary>
         /// Used to hold the command-line of the main implementation while it is being built.
@@ -128,7 +128,7 @@ namespace ZeroInstall.Services.Executors
             return this;
         }
 
-        private readonly List<string> _userArguments = new List<string>();
+        private readonly List<string> _userArguments = new();
 
         /// <inheritdoc/>
         public IEnvironmentBuilder AddArguments(params string[] arguments)

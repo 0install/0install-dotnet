@@ -36,7 +36,7 @@ namespace ZeroInstall.Model
         /// Creates a deep copy of this <see cref="WorkingDir"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="WorkingDir"/>.</returns>
-        public WorkingDir Clone() => new WorkingDir {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source};
+        public WorkingDir Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source};
         #endregion
 
         #region Equality

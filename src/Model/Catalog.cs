@@ -53,7 +53,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
-        public List<Feed> Feeds { get; } = new List<Feed>();
+        public List<Feed> Feeds { get; } = new();
 
         /// <summary>
         /// Determines whether this catalog contains a <see cref="Feed"/> with a specific URI.

@@ -42,7 +42,7 @@ namespace ZeroInstall.Services.Native
         /// Creates a deep copy of this <see cref="ExternalRetrievalMethod"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="ExternalRetrievalMethod"/>.</returns>
-        private ExternalRetrievalMethod CloneNativeRetrievalMethod() => new ExternalRetrievalMethod {Distro = Distro, PackageID = PackageID, Size = Size, ConfirmationQuestion = ConfirmationQuestion, Install = Install};
+        private ExternalRetrievalMethod CloneNativeRetrievalMethod() => new() {Distro = Distro, PackageID = PackageID, Size = Size, ConfirmationQuestion = ConfirmationQuestion, Install = Install};
 
         /// <summary>
         /// Creates a deep copy of this <see cref="ExternalRetrievalMethod"/> instance.

@@ -86,7 +86,7 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        protected static Requirements CreateTestRequirements() => new Requirements(Fake.Feed1Uri, "command", new Architecture(OS.Windows, Cpu.I586))
+        protected static Requirements CreateTestRequirements() => new(Fake.Feed1Uri, "command", new Architecture(OS.Windows, Cpu.I586))
         {
             ExtraRestrictions =
             {

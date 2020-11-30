@@ -24,7 +24,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// Creates test <see cref="Config"/>.
         /// </summary>
-        public static Config CreateTestConfig() => new Config
+        public static Config CreateTestConfig() => new()
         {
             HelpWithTesting = true,
             Freshness = TimeSpan.FromHours(12),

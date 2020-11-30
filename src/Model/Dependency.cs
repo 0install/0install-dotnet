@@ -54,7 +54,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
-        public List<Binding> Bindings { get; } = new List<Binding>();
+        public List<Binding> Bindings { get; } = new();
 
         /// <inheritdoc/>
         public override bool IsApplicable(Requirements requirements)

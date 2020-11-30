@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Restriction"/>.
         /// </summary>
-        public static Restriction CreateTestRestriction() => new Restriction
+        public static Restriction CreateTestRestriction() => new()
         {
             Versions = new VersionRange("1.0..!2.0"),
             OS = OS.Windows,

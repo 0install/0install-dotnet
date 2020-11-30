@@ -16,7 +16,7 @@ namespace ZeroInstall.Model
             if (architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)) return true;
 
             // Windows on ARM x86 emulation
-            if (target.OS == OS.Windows && target.Cpu == Cpu.AArch64 && architecture.Cpu >= Cpu.I386 && architecture.Cpu <= Cpu.I686) return true;
+            if (target.OS == OS.Windows && target.Cpu == Cpu.AArch64 && architecture.Cpu is (>= Cpu.I386 and <= Cpu.I686)) return true;
 
             return false;
         }
@@ -25,53 +25,58 @@ namespace ZeroInstall.Model
         /// Determines whether an implementation for <paramref name="os"/> can run on <paramref name="target"/>.
         /// </summary>
         public static bool RunsOn(this OS os, OS target)
-        {
-            if (os == OS.Unknown || target == OS.Unknown) return false;
+            => os switch
+            {
+                OS.Unknown or OS.Unknown => false,
 
-            // Exact OS match or platform-neutral implementation
-            if (os == target || os == OS.All || target == OS.All) return true;
+                // Exact match
+                _ when os == target => true,
 
-            // Compatible supersets
-            if (os == OS.Windows && target == OS.Cygwin) return true;
-            if (os == OS.Darwin && target == OS.MacOSX) return true;
-            if (os == OS.Posix && target <= OS.Cygwin) return true;
+                // Platform-neutral implementation
+                OS.All => true,
+                _ when target == OS.All => true,
 
-            return false;
-        }
+                // Compatible supersets
+                OS.Windows when target == OS.Cygwin => true,
+                OS.Darwin when target == OS.MacOSX => true,
+                OS.Posix when target <= OS.Cygwin => true,
+
+                _ => false
+            };
 
         /// <summary>
         /// Determines whether an implementation for <paramref name="cpu"/> can run on <paramref name="target"/>.
         /// </summary>
         public static bool RunsOn(this Cpu cpu, Cpu target)
-        {
-            if (cpu == Cpu.Unknown || target == Cpu.Unknown) return false;
+            => cpu switch
+            {
+                Cpu.Unknown or Cpu.Unknown => false,
 
-            // Exact CPU match or platform-neutral implementation
-            if (cpu == target || cpu == Cpu.All || target == Cpu.All) return true;
+                // Exact match
+                _ when cpu == target => true,
 
-            // Compatible supersets
-            if (cpu >= Cpu.I386 && cpu <= Cpu.X64 && target >= cpu && target <= Cpu.X64) return true;
-            if (cpu >= Cpu.Ppc && cpu <= Cpu.Ppc64 && target >= cpu && target <= Cpu.Ppc64) return true;
-            if (cpu >= Cpu.ArmV6L && cpu <= Cpu.AArch64 && target >= cpu && target <= Cpu.AArch64) return true;
+                // Platform-neutral implementation
+                Cpu.All => true,
+                _ when target == Cpu.All => true,
 
-            return false;
-        }
+                // Compatible supersets
+                >= Cpu.I386 and <= Cpu.X64 when target >= cpu && target <= Cpu.X64 => true,
+                >= Cpu.Ppc and <= Cpu.Ppc64 when target >= cpu && target <= Cpu.Ppc64 => true,
+                >= Cpu.ArmV6L and <= Cpu.AArch64 when target >= cpu && target <= Cpu.AArch64 => true,
+
+                _ => false
+            };
 
         /// <summary>
         /// Indicates whether the CPU architecture is 32-bit.
         /// </summary>
         public static bool Is32Bit(this Cpu cpu)
-            => cpu >= Cpu.I386 && cpu <= Cpu.I686
-            || cpu == Cpu.Ppc
-            || cpu == Cpu.ArmV6L
-            || cpu == Cpu.ArmV7L;
+            => cpu is ((>= Cpu.I386 and <= Cpu.I686) or Cpu.Ppc or Cpu.ArmV6L or Cpu.ArmV7L);
 
         /// <summary>
         /// Indicates whether the CPU architecture is 64-bit.
         /// </summary>
         public static bool Is64Bit(this Cpu cpu)
-            => cpu == Cpu.X64
-            || cpu == Cpu.Ppc64
-            || cpu == Cpu.AArch64;
+            => cpu is (Cpu.X64 or Cpu.Ppc64 or Cpu.AArch64);
     }
 }

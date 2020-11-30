@@ -36,81 +36,40 @@ namespace ZeroInstall.Commands
         public static CliCommand Create(string? commandName, ICommandHandler handler)
         {
             if (string.IsNullOrEmpty(commandName)) return new DefaultCommand(handler);
-            switch (commandName.ToLowerInvariant())
+            return commandName.ToLowerInvariant() switch
             {
-                case ExportHelp.Name:
-                    return new ExportHelp(handler);
-                case Selection.Name:
-                    return new Selection(handler);
-                case Download.Name:
-                    return new Download(handler);
-                case Fetch.Name:
-                    return new Fetch(handler);
-                case Update.Name:
-                    return new Update(handler);
-                case Run.Name:
-                    return new Run(handler);
-                case Import.Name:
-                    return new Import(handler);
-                case Export.Name:
-                    return new Export(handler);
-                case Search.Name:
-                    return new Search(handler);
-                case List.Name:
-                    return new List(handler);
-                case CatalogMan.Name:
-                    return new CatalogMan(handler);
-                case Configure.Name:
-                    return new Configure(handler);
-                case AddFeed.Name:
-                    return new AddFeed(handler);
-                case RemoveFeed.Name:
-                    return new RemoveFeed(handler);
-                case ListFeeds.Name:
-                    return new ListFeeds(handler);
-                case Digest.Name:
-                    return new Digest(handler);
-                case StoreMan.Name:
-                    return new StoreMan(handler);
-                case Central.Name:
-                    return new Central(handler);
-                case AddApp.Name:
-                case AddApp.AltName:
-                    return new AddApp(handler);
-                case RemoveApp.Name:
-                case RemoveApp.AltName:
-                case RemoveApp.AltName2:
-                    return new RemoveApp(handler);
-                case RemoveAllApps.Name:
-                case RemoveAllApps.AltName:
-                    return new RemoveAllApps(handler);
-                case IntegrateApp.Name:
-                case IntegrateApp.AltName:
-                case IntegrateApp.AltName2:
-                    return new IntegrateApp(handler);
-                case AddAlias.Name:
-                case AddAlias.AltName:
-                    return new AddAlias(handler);
-                case ListApps.Name:
-                    return new ListApps(handler);
-                case UpdateApps.Name:
-                case UpdateApps.AltName:
-                    return new UpdateApps(handler);
-                case RepairApps.Name:
-                case RepairApps.AltName:
-                    return new RepairApps(handler);
-                case ImportApps.Name:
-                    return new ImportApps(handler);
-                case SyncApps.Name:
-                    return new SyncApps(handler);
-                case Self.Name:
-                case Self.AltName:
-                    return new Self(handler);
-                case Self.Update.TopLevelName:
-                    return new Self.Update(handler);
-                default:
-                    throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName);
-            }
+                ExportHelp.Name => new ExportHelp(handler),
+                Selection.Name => new Selection(handler),
+                Download.Name => new Download(handler),
+                Fetch.Name => new Fetch(handler),
+                Update.Name => new Update(handler),
+                Run.Name => new Run(handler),
+                Import.Name => new Import(handler),
+                Export.Name => new Export(handler),
+                Search.Name => new Search(handler),
+                List.Name => new List(handler),
+                CatalogMan.Name => new CatalogMan(handler),
+                Configure.Name => new Configure(handler),
+                AddFeed.Name => new AddFeed(handler),
+                RemoveFeed.Name => new RemoveFeed(handler),
+                ListFeeds.Name => new ListFeeds(handler),
+                Digest.Name => new Digest(handler),
+                StoreMan.Name => new StoreMan(handler),
+                Central.Name => new Central(handler),
+                AddApp.Name or AddApp.AltName => new AddApp(handler),
+                RemoveApp.Name or RemoveApp.AltName or RemoveApp.AltName2 => new RemoveApp(handler),
+                RemoveAllApps.Name or RemoveAllApps.AltName => new RemoveAllApps(handler),
+                IntegrateApp.Name or IntegrateApp.AltName  or IntegrateApp.AltName2 => new IntegrateApp(handler),
+                AddAlias.Name or AddAlias.AltName => new AddAlias(handler),
+                ListApps.Name => new ListApps(handler),
+                UpdateApps.Name or UpdateApps.AltName => new UpdateApps(handler),
+                RepairApps.Name or RepairApps.AltName => new RepairApps(handler),
+                ImportApps.Name => new ImportApps(handler),
+                SyncApps.Name => new SyncApps(handler),
+                Self.Name or Self.AltName => new Self(handler),
+                Self.Update.TopLevelName => new Self.Update(handler),
+                _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
+            };
         }
 
         /// <summary>

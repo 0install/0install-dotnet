@@ -16,7 +16,7 @@ namespace ZeroInstall.Model.Selection
         /// <summary>
         /// Creates a <see cref="Selections"/> with two implementations, one using the other as a runner plus a number of bindings.
         /// </summary>
-        public static Selections CreateTestSelections() => new Selections
+        public static Selections CreateTestSelections() => new()
         {
             InterfaceUri = FeedTest.Test1Uri,
             Command = Command.NameRun,

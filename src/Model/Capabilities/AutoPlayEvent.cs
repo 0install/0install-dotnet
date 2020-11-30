@@ -54,7 +54,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Creates a deep copy of this <see cref="AutoPlayEvent"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="AutoPlayEvent"/>.</returns>
-        public AutoPlayEvent Clone() => new AutoPlayEvent {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name};
+        public AutoPlayEvent Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name};
         #endregion
 
         #region Equality

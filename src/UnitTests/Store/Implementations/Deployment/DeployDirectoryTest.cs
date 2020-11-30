@@ -16,7 +16,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
     /// </summary>
     public class DeployDirectoryTest : DirectoryOperationTestBase
     {
-        private readonly TemporaryDirectory _destinationDirectory = new TemporaryDirectory("0install-unit-tests");
+        private readonly TemporaryDirectory _destinationDirectory = new("0install-unit-tests");
 
         public override void Dispose()
         {

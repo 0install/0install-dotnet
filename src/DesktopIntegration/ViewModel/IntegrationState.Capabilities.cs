@@ -15,16 +15,16 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// </summary>
         public bool CapabilityRegistration { get; set; }
 
-        public readonly BindingList<FileTypeModel> FileTypes = new BindingList<FileTypeModel>();
-        public readonly BindingList<UrlProtocolModel> UrlProtocols = new BindingList<UrlProtocolModel>();
-        public readonly BindingList<AutoPlayModel> AutoPlay = new BindingList<AutoPlayModel>();
-        public readonly BindingList<ContextMenuModel> ContextMenu = new BindingList<ContextMenuModel>();
-        public readonly BindingList<DefaultProgramModel> DefaultProgram = new BindingList<DefaultProgramModel>();
+        public readonly BindingList<FileTypeModel> FileTypes = new();
+        public readonly BindingList<UrlProtocolModel> UrlProtocols = new();
+        public readonly BindingList<AutoPlayModel> AutoPlay = new();
+        public readonly BindingList<ContextMenuModel> ContextMenu = new();
+        public readonly BindingList<DefaultProgramModel> DefaultProgram = new();
 
         /// <summary>
         /// List of all <see cref="CapabilityModel"/>s handled by this View-Model.
         /// </summary>
-        private readonly List<CapabilityModel> _capabilityModels = new List<CapabilityModel>();
+        private readonly List<CapabilityModel> _capabilityModels = new();
 
         /// <summary>
         /// Reads the <see cref="DefaultCapability"/>s from <see cref="Model.Feed.CapabilityLists"/> and creates a corresponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.

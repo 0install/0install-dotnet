@@ -11,8 +11,8 @@ namespace ZeroInstall.Store.Implementations.Build
     /// </summary>
     public abstract class CloneTestBase : IDisposable
     {
-        protected readonly TemporaryDirectory SourceDirectory = new TemporaryDirectory("0install-unit-tests");
-        protected readonly TemporaryDirectory TargetDirectory = new TemporaryDirectory("0install-unit-tests");
+        protected readonly TemporaryDirectory SourceDirectory = new("0install-unit-tests");
+        protected readonly TemporaryDirectory TargetDirectory = new("0install-unit-tests");
 
         public void Dispose()
         {

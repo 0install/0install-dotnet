@@ -27,7 +27,7 @@ namespace ZeroInstall.Store.Feeds
         /// A list of results matching the <see cref="Keywords"/>.
         /// </summary>
         [XmlElement("result")]
-        public List<SearchResult> Results { get; } = new List<SearchResult>();
+        public List<SearchResult> Results { get; } = new();
 
         /// <summary>
         /// Performs a feed search query using the <see cref="Config.FeedMirror"/>.

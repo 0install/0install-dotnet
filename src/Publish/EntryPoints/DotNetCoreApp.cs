@@ -27,10 +27,10 @@ namespace ZeroInstall.Publish.EntryPoints
         [Category("Details (.NET Core)"), DisplayName(@"Minimum .NET Core version"), Description("The minimum version of the .NET Core Runtime required by the application.")]
         [DefaultValue("")]
         [TypeConverter(typeof(StringConstructorConverter<ImplementationVersion>))]
-        public ImplementationVersion? MinimumRuntimeVersion { get; set; } = new ImplementationVersion("2.0");
+        public ImplementationVersion? MinimumRuntimeVersion { get; set; } = new("2.0");
 
         /// <inheritdoc/>
-        public override Command CreateCommand() => new Command
+        public override Command CreateCommand() => new()
         {
             Name = CommandName,
             Path = RelativePath,

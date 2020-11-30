@@ -38,7 +38,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("arg")]
-        public List<Arg> Arguments { get; } = new List<Arg>();
+        public List<Arg> Arguments { get; } = new();
 
         #region Normalize
         /// <inheritdoc/>

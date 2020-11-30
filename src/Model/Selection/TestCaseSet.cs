@@ -18,6 +18,6 @@ namespace ZeroInstall.Model.Selection
         /// A list of input <see cref="Feed"/>s for the solver.
         /// </summary>
         [XmlElement("test", typeof(TestCase), Namespace = Feed.XmlNamespace)]
-        public List<TestCase> TestCases { get; } = new List<TestCase>();
+        public List<TestCase> TestCases { get; } = new();
     }
 }

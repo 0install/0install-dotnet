@@ -88,7 +88,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
-        public List<CapabilityList> CapabilityLists { get; } = new List<CapabilityList>();
+        public List<CapabilityList> CapabilityLists { get; } = new();
 
         /// <summary>
         /// A set of <see cref="AccessPoints"/>s to be registered in the desktop environment. Is <c>null</c> if no desktop integration has been performed yet.

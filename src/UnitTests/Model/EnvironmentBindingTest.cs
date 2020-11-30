@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="EnvironmentBinding"/>.
         /// </summary>
-        internal static EnvironmentBinding CreateTestBinding() => new EnvironmentBinding
+        internal static EnvironmentBinding CreateTestBinding() => new()
         {
             Name = "name",
             Value = "value",

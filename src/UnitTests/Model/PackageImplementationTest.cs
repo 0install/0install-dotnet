@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="PackageImplementation"/>.
         /// </summary>
-        internal static PackageImplementation CreateTestImplementation() => new PackageImplementation
+        internal static PackageImplementation CreateTestImplementation() => new()
         {
             Distributions = {"RPM"},
             Version = new VersionRange("1..!2"),

@@ -17,7 +17,7 @@ namespace ZeroInstall.Model
     public abstract class TargetBase : FeedElement
     {
         // Order is always alphabetical, duplicate entries are not allowed
-        private LanguageSet _languages = new LanguageSet();
+        private LanguageSet _languages = new();
 
         /// <summary>
         /// The natural language(s) which an <see cref="Implementation"/> supports.

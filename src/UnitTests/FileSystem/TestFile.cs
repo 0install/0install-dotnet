@@ -21,7 +21,7 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The default value for <see cref="LastWrite"/>.
         /// </summary>
-        public static readonly DateTime DefaultLastWrite = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        public static readonly DateTime DefaultLastWrite = new(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
         /// The last write time of the file.

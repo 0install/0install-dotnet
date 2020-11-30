@@ -46,7 +46,7 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
         [Description("The preferred languages for the implementation.")]
         [XmlIgnore, JsonIgnore]
-        public LanguageSet Languages { get; private set; } = new LanguageSet();
+        public LanguageSet Languages { get; private set; } = new();
 
         /// <summary>
         /// The architecture to find executables for. Find for the current system if left at default value.
@@ -101,7 +101,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
         [XmlIgnore, JsonProperty("extra_restrictions")]
-        public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new Dictionary<FeedUri, VersionRange>();
+        public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new();
 
         /// <summary>
         /// Adds version restriction for a specific feeds. Merges with any existing restrictions for that feed.
@@ -122,7 +122,7 @@ namespace ZeroInstall.Model
         /// <remarks>Used internally by solvers, copied from <see cref="Restriction.Distributions"/>, not set directly by user, not serialized.</remarks>
         [Browsable(false)]
         [XmlIgnore, JsonIgnore]
-        public List<string> Distributions { get; } = new List<string>();
+        public List<string> Distributions { get; } = new();
 
         /// <summary>
         /// Creates an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.

@@ -18,7 +18,7 @@ namespace ZeroInstall.Store
     /// </summary>
     public class IconStoreTest : IDisposable
     {
-        private readonly TemporaryDirectory _tempDir = new TemporaryDirectory("0install-unit-tests");
+        private readonly TemporaryDirectory _tempDir = new("0install-unit-tests");
         private readonly IconStore _store;
 
         public IconStoreTest()
@@ -71,7 +71,7 @@ namespace ZeroInstall.Store
             Verify(icon, "data");
         }
 
-        private static Icon PngIcon(Uri href) => new Icon {Href = href, MimeType = Icon.MimeTypePng};
+        private static Icon PngIcon(Uri href) => new() {Href = href, MimeType = Icon.MimeTypePng};
 
         private void Inject(Icon icon, string iconData, DateTime? timestamp = null)
         {

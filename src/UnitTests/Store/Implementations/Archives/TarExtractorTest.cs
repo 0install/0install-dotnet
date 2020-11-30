@@ -87,7 +87,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
     public class TarExtractorTestCornerCases : IDisposable
     {
-        private readonly TemporaryDirectory _sandbox = new TemporaryDirectory("0install-unit-tests");
+        private readonly TemporaryDirectory _sandbox = new("0install-unit-tests");
         public void Dispose() => _sandbox.Dispose();
 
         /// <summary>

@@ -79,7 +79,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         private int _nextTicket;
-        private readonly Dictionary<string, Action<object[]>> _callbacks = new Dictionary<string, Action<object[]>>();
+        private readonly Dictionary<string, Action<object[]>> _callbacks = new();
 
         public void Invoke(Action<object[]> onSuccess, string operation, params object[] args)
         {

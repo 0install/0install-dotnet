@@ -228,7 +228,7 @@ namespace ZeroInstall.DesktopIntegration
                         SyncServerPassword = "dummy",
                         SyncCryptoKey = CryptoKey
                     };
-                    using (var integrationManager = new SyncIntegrationManager(config, interfaceId => new Feed(), new SilentTaskHandler()))
+                    using (var integrationManager = new SyncIntegrationManager(config, _ => new Feed(), new SilentTaskHandler()))
                         integrationManager.Sync(resetMode);
 
                     appListServer = AppList.LoadXmlZip(syncServer.FileContent, CryptoKey);

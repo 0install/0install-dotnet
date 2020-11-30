@@ -51,7 +51,7 @@ namespace ZeroInstall.Model
             Decimals = decimals;
         }
 
-        private static readonly Regex _dottedListPattern = new Regex(@"^(\d+(\.\d+)*)$");
+        private static readonly Regex _dottedListPattern = new(@"^(\d+(\.\d+)*)$");
 
         /// <summary>
         /// Checks whether a string represents a valid dotted-list.

@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Trust
         /// Creates a deep copy of this <see cref="Domain"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="Domain"/>.</returns>
-        public Domain Clone() => new Domain(Value);
+        public Domain Clone() => new(Value);
         #endregion
 
         #region Equality

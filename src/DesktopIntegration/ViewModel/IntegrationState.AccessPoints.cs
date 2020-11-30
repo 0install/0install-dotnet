@@ -11,11 +11,11 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
 {
     partial class IntegrationState
     {
-        public readonly BindingList<MenuEntry> MenuEntries = new BindingList<MenuEntry>();
-        public readonly BindingList<DesktopIcon> DesktopIcons = new BindingList<DesktopIcon>();
-        public readonly BindingList<SendTo> SendTo = new BindingList<SendTo>();
-        public readonly BindingList<AppAlias> Aliases = new BindingList<AppAlias>();
-        public readonly BindingList<AutoStart> AutoStarts = new BindingList<AutoStart>();
+        public readonly BindingList<MenuEntry> MenuEntries = new();
+        public readonly BindingList<DesktopIcon> DesktopIcons = new();
+        public readonly BindingList<SendTo> SendTo = new();
+        public readonly BindingList<AppAlias> Aliases = new();
+        public readonly BindingList<AutoStart> AutoStarts = new();
 
         /// <summary>
         /// Reads the <see cref="CommandAccessPoint"/>s from <see cref="DesktopIntegration.AppEntry.AccessPoints"/> or uses suggestion methods to fill in defaults.

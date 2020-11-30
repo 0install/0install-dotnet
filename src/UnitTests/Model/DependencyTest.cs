@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Dependency"/>.
         /// </summary>
-        public static Dependency CreateTestDependency() => new Dependency
+        public static Dependency CreateTestDependency() => new()
         {
             Versions = new VersionRange("1.0..!2.0"),
             OS = OS.Windows,

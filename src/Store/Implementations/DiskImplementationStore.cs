@@ -219,7 +219,7 @@ namespace ZeroInstall.Store.Implementations
         #endregion
 
         #region Verify and add
-        private readonly object _renameLock = new object();
+        private readonly object _renameLock = new();
 
         /// <summary>
         /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the cache and moves it to the final location if it passes.

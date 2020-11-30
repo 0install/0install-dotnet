@@ -45,7 +45,7 @@ namespace ZeroInstall.Model
         #region Comparers
         private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>
         {
-            public static readonly XmlAttributeComparer Instance = new XmlAttributeComparer();
+            public static readonly XmlAttributeComparer Instance = new();
 
             public bool Equals(XmlAttribute? x, XmlAttribute? y)
             {
@@ -59,7 +59,7 @@ namespace ZeroInstall.Model
 
         private class XmlElementComparer : IEqualityComparer<XmlElement>
         {
-            public static readonly XmlElementComparer Instance = new XmlElementComparer();
+            public static readonly XmlElementComparer Instance = new();
 
             public bool Equals(XmlElement? x, XmlElement? y)
             {

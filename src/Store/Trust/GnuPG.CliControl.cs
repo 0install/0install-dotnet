@@ -25,7 +25,7 @@ namespace ZeroInstall.Store.Trust
             /// <inheritdoc/>
             protected override string AppBinary => "gpg";
 
-            private static readonly object _gpgLock = new object();
+            private static readonly object _gpgLock = new();
 
             private readonly string? _homeDir;
 

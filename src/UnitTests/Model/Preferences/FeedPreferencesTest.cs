@@ -16,7 +16,7 @@ namespace ZeroInstall.Model.Preferences
         /// <summary>
         /// Creates a fictive test <see cref="FeedPreferences"/>.
         /// </summary>
-        public static FeedPreferences CreateTestFeedPreferences() => new FeedPreferences
+        public static FeedPreferences CreateTestFeedPreferences() => new()
         {
             LastChecked = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc),
             Implementations = {new ImplementationPreferences {ID = "test_id", UserStability = Stability.Testing}}

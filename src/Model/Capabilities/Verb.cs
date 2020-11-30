@@ -81,7 +81,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("arg")]
-        public List<Arg> Arguments { get; } = new List<Arg>();
+        public List<Arg> Arguments { get; } = new();
 
         /// <summary>
         /// Command-line arguments to be passed to the command in escaped form. "%V" gets replaced with the path of the file being opened.
@@ -101,7 +101,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
-        public LocalizableStringCollection Descriptions { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Descriptions { get; } = new();
 
         #region Conversion
         /// <summary>

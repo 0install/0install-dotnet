@@ -29,7 +29,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
-        public List<Element> Elements { get; } = new List<Element>();
+        public List<Element> Elements { get; } = new();
 
         #region Normalize
         /// <summary>

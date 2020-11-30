@@ -15,7 +15,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Creates a fictive test <see cref="TrustDB"/>.
         /// </summary>
-        private static TrustDB CreateTestTrust() => new TrustDB
+        private static TrustDB CreateTestTrust() => new()
         {
             Keys =
             {

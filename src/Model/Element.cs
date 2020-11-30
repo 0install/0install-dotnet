@@ -191,21 +191,21 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("requires")]
-        public List<Dependency> Dependencies { get; } = new List<Dependency>();
+        public List<Dependency> Dependencies { get; } = new();
 
         /// <summary>
         /// A list of interfaces that are restricted to specific versions when used.
         /// </summary>
         [Browsable(false)]
         [XmlElement("restricts")]
-        public List<Restriction> Restrictions { get; } = new List<Restriction>();
+        public List<Restriction> Restrictions { get; } = new();
 
         /// <summary>
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
-        public List<Binding> Bindings { get; } = new List<Binding>();
+        public List<Binding> Bindings { get; } = new();
 
         /// <summary>
         /// A list of commands that can be used to launch this implementation.
@@ -213,7 +213,7 @@ namespace ZeroInstall.Model
         /// <remarks>This will eventually replace <see cref="Main"/> and <see cref="SelfTest"/>.</remarks>
         [Browsable(false)]
         [XmlElement("command")]
-        public List<Command> Commands { get; } = new List<Command>();
+        public List<Command> Commands { get; } = new();
 
         /// <summary>
         /// Determines whether <see cref="Commands"/> contains a <see cref="Command"/> with a specific name.

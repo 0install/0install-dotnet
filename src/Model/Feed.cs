@@ -90,12 +90,12 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("summary")]
-        public LocalizableStringCollection Summaries { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Summaries { get; } = new();
 
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
-        public LocalizableStringCollection Descriptions { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Descriptions { get; } = new();
 
         /// <summary>
         /// The main website of the application.
@@ -109,14 +109,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon")]
-        public List<Icon> Icons { get; } = new List<Icon>();
+        public List<Icon> Icons { get; } = new();
 
         /// <summary>
         /// A list of well-known categories the applications fits into. May influence the placement in the application menu.
         /// </summary>
         [Browsable(false)]
         [XmlElement("category")]
-        public List<Category> Categories { get; } = new List<Category>();
+        public List<Category> Categories { get; } = new();
 
         /// <summary>
         /// If <c>true</c>, indicates that the program requires a terminal in order to run. Graphical launchers should therefore run this program in a suitable terminal emulator.
@@ -163,14 +163,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("feed")]
-        public List<FeedReference> Feeds { get; } = new List<FeedReference>();
+        public List<FeedReference> Feeds { get; } = new();
 
         /// <summary>
         /// The implementations in this feed are implementations of the given interface. This is used when adding a third-party feed.
         /// </summary>
         [Browsable(false)]
         [XmlElement("feed-for")]
-        public List<InterfaceReference> FeedFor { get; } = new List<InterfaceReference>();
+        public List<InterfaceReference> FeedFor { get; } = new();
 
         /// <summary>
         /// This interface <see cref="Uri"/> of the feed has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
@@ -185,21 +185,21 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
-        public List<Element> Elements { get; } = new List<Element>();
+        public List<Element> Elements { get; } = new();
 
         /// <summary>
         /// A list of <see cref="EntryPoint"/>s for starting this interface.
         /// </summary>
         [Browsable(false)]
         [XmlElement("entry-point")]
-        public List<EntryPoint> EntryPoints { get; } = new List<EntryPoint>();
+        public List<EntryPoint> EntryPoints { get; } = new();
 
         /// <summary>
         /// A set of <see cref="Capability"/> lists for different architectures.
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
-        public List<CapabilityList> CapabilityLists { get; } = new List<CapabilityList>();
+        public List<CapabilityList> CapabilityLists { get; } = new();
 
         /// <summary>
         /// A flat list of all <see cref="Implementation"/>s contained in this feed.

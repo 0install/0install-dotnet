@@ -16,7 +16,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class TarGeneratorTest : ArchiveGeneratorTest<TarGenerator>
     {
-        protected override TarGenerator CreateGenerator(string sourceDirectory, Stream stream) => new TarGenerator(sourceDirectory, stream);
+        protected override TarGenerator CreateGenerator(string sourceDirectory, Stream stream) => new(sourceDirectory, stream);
 
         [Fact]
         public void TestFileOrder()

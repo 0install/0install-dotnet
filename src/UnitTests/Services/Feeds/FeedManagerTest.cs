@@ -24,7 +24,7 @@ namespace ZeroInstall.Services.Feeds
     /// </summary>
     public class FeedManagerTest : TestWithMocksAndRedirect
     {
-        private readonly Config _config = new Config();
+        private readonly Config _config = new();
         private readonly Mock<IFeedCache> _feedCacheMock;
         private readonly Mock<ITrustManager> _trustManagerMock;
         private readonly IFeedManager _feedManager;

@@ -20,14 +20,14 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
-        public LocalizableStringCollection Descriptions { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Descriptions { get; } = new();
 
         /// <summary>
         /// Zero or more icons to represent the capability. Used for things like file icons.
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon", Namespace = Feed.XmlNamespace)]
-        public List<Icon> Icons { get; } = new List<Icon>();
+        public List<Icon> Icons { get; } = new();
 
         /// <summary>
         /// Returns the first icon with a specific MIME type.

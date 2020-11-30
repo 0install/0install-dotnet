@@ -16,7 +16,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Catalog"/>.
         /// </summary>
-        public static Catalog CreateTestCatalog() => new Catalog {Feeds = {FeedTest.CreateTestFeed()}};
+        public static Catalog CreateTestCatalog() => new() {Feeds = {FeedTest.CreateTestFeed()}};
 
         /// <summary>
         /// Ensures that <see cref="Catalog.GetFeed"/> and <see cref="Catalog.this"/> correctly find contained <see cref="Feed"/>s.

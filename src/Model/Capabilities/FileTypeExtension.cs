@@ -57,7 +57,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Creates a deep copy of this <see cref="FileTypeExtension"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="FileTypeExtension"/>.</returns>
-        public FileTypeExtension Clone() => new FileTypeExtension {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value, MimeType = MimeType, PerceivedType = PerceivedType};
+        public FileTypeExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value, MimeType = MimeType, PerceivedType = PerceivedType};
         #endregion
 
         #region Equality

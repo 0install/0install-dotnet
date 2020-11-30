@@ -31,7 +31,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
-        public List<ArgBase> Arguments { get; } = new List<ArgBase>();
+        public List<ArgBase> Arguments { get; } = new();
 
         #region Normalize
         protected override string XmlTagName => "runner";

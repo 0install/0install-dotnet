@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="SingleFile"/>.
         /// </summary>
-        internal static SingleFile CreateTestSingleFile() => new SingleFile
+        internal static SingleFile CreateTestSingleFile() => new()
         {
             Href = new Uri("http://example.com/test.exe"),
             Size = 128,

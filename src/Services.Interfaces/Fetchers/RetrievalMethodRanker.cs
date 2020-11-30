@@ -15,7 +15,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <summary>
         /// Singleton pattern.
         /// </summary>
-        public static readonly RetrievalMethodRanker Instance = new RetrievalMethodRanker();
+        public static readonly RetrievalMethodRanker Instance = new();
 
         private RetrievalMethodRanker() {}
         #endregion

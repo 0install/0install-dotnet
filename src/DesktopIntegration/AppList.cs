@@ -49,7 +49,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A list of application entries.")]
         [XmlElement("app")]
-        public List<AppEntry> Entries { get; } = new List<AppEntry>();
+        public List<AppEntry> Entries { get; } = new();
 
         /// <summary>
         /// Checks whether an <see cref="AppEntry"/> for a specific interface URI exists.

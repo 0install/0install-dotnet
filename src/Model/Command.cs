@@ -63,14 +63,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
-        public List<ArgBase> Arguments { get; } = new List<ArgBase>();
+        public List<ArgBase> Arguments { get; } = new();
 
         /// <summary>
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
-        public List<Binding> Bindings { get; } = new List<Binding>();
+        public List<Binding> Bindings { get; } = new();
 
         /// <summary>
         /// Switches the working directory of a process on startup to a location within an implementation.
@@ -84,14 +84,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("requires")]
-        public List<Dependency> Dependencies { get; } = new List<Dependency>();
+        public List<Dependency> Dependencies { get; } = new();
 
         /// <summary>
         /// A list of interfaces that are restricted to specific versions when used.
         /// </summary>
         [Browsable(false)]
         [XmlElement("restricts")]
-        public List<Restriction> Restrictions { get; } = new List<Restriction>();
+        public List<Restriction> Restrictions { get; } = new();
 
         /// <summary>
         /// A special kind of dependency: the program that is used to run this one. For example, a Python program might specify Python as its runner.

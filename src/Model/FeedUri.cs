@@ -103,16 +103,8 @@ namespace ZeroInstall.Model
         {
             if (string.IsNullOrEmpty(value)) throw new UriFormatException();
 
-            switch (Scheme)
-            {
-                case "http":
-                case "https":
-                case "file":
-                    break;
-
-                default:
-                    throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
-            }
+            if (Scheme is not ("http" or "https" or "file"))
+                throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
 
             DetectPrefix(value);
         }

@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Implementations
             IpcAcl = new CommonSecurityDescriptor(false, false, ControlFlags.GroupDefaulted | ControlFlags.OwnerDefaulted | ControlFlags.DiscretionaryAclPresent, null, null, null, dacl);
         }
 
-        private static readonly object _lock = new object();
+        private static readonly object _lock = new();
         private static volatile IImplementationStore _proxy;
 
         /// <summary>

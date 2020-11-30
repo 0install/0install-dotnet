@@ -29,9 +29,9 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// The default <see cref="Catalog"/> source used if no other is specified.
         /// </summary>
-        public static readonly FeedUri DefaultSource = new FeedUri("https://apps.0install.net/catalog.xml");
+        public static readonly FeedUri DefaultSource = new("https://apps.0install.net/catalog.xml");
 
-        private static readonly FeedUri _oldDefaultSource = new FeedUri("http://0install.de/catalog/");
+        private static readonly FeedUri _oldDefaultSource = new("http://0install.de/catalog/");
         #endregion
 
         #region Dependencies

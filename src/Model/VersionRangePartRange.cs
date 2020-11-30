@@ -78,7 +78,7 @@ namespace ZeroInstall.Model
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
 
-            if (!(obj is VersionRangePartRange other)) return false;
+            if (obj is not VersionRangePartRange other) return false;
             return Equals(LowerInclusive, other.LowerInclusive) && Equals(UpperExclusive, other.UpperExclusive);
         }
 

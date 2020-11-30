@@ -113,7 +113,7 @@ namespace ZeroInstall.Services.Solvers
         private Stability ApplyPolicy(Stability stability)
             => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
 
-        private static readonly LanguageSet _englishSet = new LanguageSet {"en", "en_US"};
+        private static readonly LanguageSet _englishSet = new() {"en", "en_US"};
 
         private int GetLanguageRank(LanguageSet languages)
         {

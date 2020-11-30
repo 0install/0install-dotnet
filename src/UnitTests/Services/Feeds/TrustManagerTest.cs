@@ -33,14 +33,14 @@ namespace ZeroInstall.Services.Feeds
         private const string KeyInfoResponse = @"<?xml version='1.0'?><key-lookup><item vote=""good"">Key information</item></key-lookup>";
         #endregion
 
-        private readonly Config _config = new Config
+        private readonly Config _config = new()
         {
             KeyInfoServer = null,
             AutoApproveKeys = false
         };
 
-        private readonly TrustDB _trustDB = new TrustDB();
-        private readonly MockTaskHandler _handler = new MockTaskHandler();
+        private readonly TrustDB _trustDB = new();
+        private readonly MockTaskHandler _handler = new();
         private readonly Mock<IOpenPgp> _openPgpMock;
         private readonly Mock<IFeedCache> _feedCacheMock;
         private readonly ITrustManager _trustManager;

@@ -11,7 +11,7 @@ namespace ZeroInstall.Model
     public sealed class ManifestDigestPartialEqualityComparer : IEqualityComparer<ManifestDigest>
     {
         /// <summary>A singleton instance of the comparer.</summary>
-        public static readonly ManifestDigestPartialEqualityComparer Instance = new ManifestDigestPartialEqualityComparer();
+        public static readonly ManifestDigestPartialEqualityComparer Instance = new();
 
         private ManifestDigestPartialEqualityComparer() {}
 
@@ -30,7 +30,7 @@ namespace ZeroInstall.Model
     public sealed class ManifestDigestPartialEqualityComparer<T> : IEqualityComparer<T> where T : ImplementationBase
     {
         /// <summary>A singleton instance of the comparer.</summary>
-        public static readonly ManifestDigestPartialEqualityComparer<T> Instance = new ManifestDigestPartialEqualityComparer<T>();
+        public static readonly ManifestDigestPartialEqualityComparer<T> Instance = new();
 
         private ManifestDigestPartialEqualityComparer() {}
 

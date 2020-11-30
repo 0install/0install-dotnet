@@ -21,7 +21,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("known-prefix")]
-        public List<KnownProtocolPrefix> KnownPrefixes { get; } = new List<KnownProtocolPrefix>();
+        public List<KnownProtocolPrefix> KnownPrefixes { get; } = new();
 
         /// <inheritdoc/>
         [XmlIgnore]

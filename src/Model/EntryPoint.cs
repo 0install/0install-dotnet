@@ -87,24 +87,24 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("name")]
-        public LocalizableStringCollection Names { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Names { get; } = new();
 
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("summary")]
-        public LocalizableStringCollection Summaries { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Summaries { get; } = new();
 
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
-        public LocalizableStringCollection Descriptions { get; } = new LocalizableStringCollection();
+        public LocalizableStringCollection Descriptions { get; } = new();
 
         /// <summary>
         /// Zero or more icons representing the command. Used for desktop icons, menu entries, etc..
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon")]
-        public List<Icon> Icons { get; } = new List<Icon>();
+        public List<Icon> Icons { get; } = new();
 
         #region Conversion
         /// <summary>

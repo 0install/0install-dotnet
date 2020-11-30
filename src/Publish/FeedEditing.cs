@@ -77,6 +77,6 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
         public new static FeedEditing Load(string path)
-            => new FeedEditing(SignedFeed.Load(path)) {Path = path};
+            => new(SignedFeed.Load(path)) {Path = path};
     }
 }

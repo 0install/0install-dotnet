@@ -15,7 +15,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class ZipGeneratorTest : ArchiveGeneratorTest<ZipGenerator>
     {
-        protected override ZipGenerator CreateGenerator(string sourceDirectory, Stream stream) => new ZipGenerator(sourceDirectory, stream);
+        protected override ZipGenerator CreateGenerator(string sourceDirectory, Stream stream) => new(sourceDirectory, stream);
 
         [Fact]
         public void TestFileOrder()

@@ -25,7 +25,7 @@ namespace ZeroInstall.Publish.EntryPoints
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
             => base.Analyze(baseDirectory, file) && StringUtils.EqualsIgnoreCase(file.Extension, @".ps1");
 
-        public override Command CreateCommand() => new Command
+        public override Command CreateCommand() => new()
         {
             Name = CommandName,
             Path = RelativePath,

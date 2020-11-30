@@ -15,7 +15,7 @@ namespace ZeroInstall.Model.Preferences
         /// <summary>
         /// Creates a fictive test <see cref="InterfacePreferences"/>.
         /// </summary>
-        public static InterfacePreferences CreateTestInterfacePreferences() => new InterfacePreferences
+        public static InterfacePreferences CreateTestInterfacePreferences() => new()
         {
             Uri = new FeedUri("http://somedomain/someapp.xml"),
             StabilityPolicy = Stability.Testing,

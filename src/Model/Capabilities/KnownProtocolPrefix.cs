@@ -38,7 +38,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Creates a deep copy of this <see cref="KnownProtocolPrefix"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="KnownProtocolPrefix"/>.</returns>
-        public KnownProtocolPrefix Clone() => new KnownProtocolPrefix {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value};
+        public KnownProtocolPrefix Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value};
         #endregion
 
         #region Equality

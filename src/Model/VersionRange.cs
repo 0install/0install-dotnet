@@ -31,7 +31,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// An "impossible" range matching no versions.
         /// </summary>
-        public static readonly VersionRange None = new VersionRange(new VersionRangePartRange(new ImplementationVersion("0"), new ImplementationVersion("0")));
+        public static readonly VersionRange None = new(new VersionRangePartRange(new ImplementationVersion("0"), new ImplementationVersion("0")));
 
         /// <summary>
         /// The individual ranges.

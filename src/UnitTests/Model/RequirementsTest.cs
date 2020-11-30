@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates test <see cref="Requirements"/>.
         /// </summary>
-        public static Requirements CreateTestRequirements() => new Requirements(FeedTest.Test1Uri, "command", new Architecture(OS.Windows, Cpu.I586))
+        public static Requirements CreateTestRequirements() => new(FeedTest.Test1Uri, "command", new Architecture(OS.Windows, Cpu.I586))
         {
             //Languages = {"de-DE", "en-US"},
             ExtraRestrictions =

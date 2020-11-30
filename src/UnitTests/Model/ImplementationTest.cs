@@ -18,7 +18,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Implementation"/>.
         /// </summary>
-        public static Implementation CreateTestImplementation() => new Implementation
+        public static Implementation CreateTestImplementation() => new()
         {
             ID = "id",
             ManifestDigest = new ManifestDigest(sha256: "123"),

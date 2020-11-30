@@ -26,7 +26,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(Recipe))]
-        public List<RetrievalMethod> RetrievalMethods { get; } = new List<RetrievalMethod>();
+        public List<RetrievalMethod> RetrievalMethods { get; } = new();
 
         #region Normalize
         /// <summary>

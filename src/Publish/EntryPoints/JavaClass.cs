@@ -24,7 +24,7 @@ namespace ZeroInstall.Publish.EntryPoints
         }
 
         /// <inheritdoc/>
-        public override Command CreateCommand() => new Command
+        public override Command CreateCommand() => new()
         {
             Name = CommandName,
             Path = RelativePath,

@@ -55,7 +55,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
             }
         }
 
-        private static readonly Regex _descriptionParameterRegex = new Regex("{([A-Z]*)}");
+        private static readonly Regex _descriptionParameterRegex = new("{([A-Z]*)}");
 
         private static IEnumerable<string> GetPrototypes(Option option)
         {

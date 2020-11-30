@@ -19,8 +19,8 @@ namespace ZeroInstall.Publish
     /// </summary>
     public class FeedBuilderTest : IDisposable
     {
-        private readonly FeedBuilder _builder = new FeedBuilder();
-        private readonly TemporaryDirectory _implementationDir = new TemporaryDirectory("0install-unit-tests");
+        private readonly FeedBuilder _builder = new();
+        private readonly TemporaryDirectory _implementationDir = new("0install-unit-tests");
 
         public void Dispose()
         {

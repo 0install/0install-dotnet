@@ -86,16 +86,16 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for directory write times. Preserves the order.</summary>
-        private readonly List<KeyValuePair<string, DateTime>> _pendingDirectoryWriteTimes = new List<KeyValuePair<string, DateTime>>();
+        private readonly List<KeyValuePair<string, DateTime>> _pendingDirectoryWriteTimes = new();
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for file write times.</summary>
-        private readonly Dictionary<string, DateTime> _pendingFileWriteTimes = new Dictionary<string, DateTime>();
+        private readonly Dictionary<string, DateTime> _pendingFileWriteTimes = new();
 
         /// <summary>Lists paths relative to <see cref="EffectiveTargetPath"/> for files to be marked as executable.</summary>
-        private readonly HashSet<string> _pendingExecutableFiles = new HashSet<string>();
+        private readonly HashSet<string> _pendingExecutableFiles = new();
 
         /// <summary>Maps from and to paths relative to <see cref="EffectiveTargetPath"/>. The key is a new hardlink to be created. The value is the existing file to point to.</summary>
-        private readonly Dictionary<string, string> _pendingHardlinks = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> _pendingHardlinks = new();
 
         /// <summary>
         /// Creates a subdirectory.

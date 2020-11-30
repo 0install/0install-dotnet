@@ -65,7 +65,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("version")]
-        public List<Constraint> Constraints { get; } = new List<Constraint>();
+        public List<Constraint> Constraints { get; } = new();
 
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
 
@@ -80,7 +80,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public List<string> Distributions { get; } = new List<string>();
+        public List<string> Distributions { get; } = new();
 
         /// <summary>
         /// Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).

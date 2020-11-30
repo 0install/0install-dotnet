@@ -25,9 +25,9 @@ namespace ZeroInstall.Services.Fetchers
     public abstract class FetcherTest : TestWithMocks
     {
         protected static readonly Stream ZipArchiveStream = typeof(FetcherTest).GetEmbeddedStream("testArchive.zip");
-        protected static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        protected static readonly DateTime UnixEpoch = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        protected readonly Config Config = new Config();
+        protected readonly Config Config = new();
         protected readonly Mock<IImplementationStore> StoreMock;
 
         protected FetcherTest()
@@ -35,7 +35,7 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock = CreateMock<IImplementationStore>();
         }
 
-        protected readonly MockTaskHandler Handler = new MockTaskHandler();
+        protected readonly MockTaskHandler Handler = new();
 
         protected abstract IFetcher BuildFetcher();
 

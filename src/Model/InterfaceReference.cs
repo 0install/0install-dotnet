@@ -57,7 +57,7 @@ namespace ZeroInstall.Model
         /// Creates a deep copy of this <see cref="InterfaceReference"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="InterfaceReference"/>.</returns>
-        public InterfaceReference Clone() => new InterfaceReference {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Target = Target};
+        public InterfaceReference Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Target = Target};
         #endregion
 
         #region Equality

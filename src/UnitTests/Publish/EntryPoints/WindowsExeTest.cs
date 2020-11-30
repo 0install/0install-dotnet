@@ -13,7 +13,7 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public class WindowsExeTest : CandidateTest
     {
-        public static readonly WindowsExe Reference32 = new WindowsExe
+        public static readonly WindowsExe Reference32 = new()
         {
             RelativePath = "windows32.exe",
             Architecture = new Architecture(OS.Windows, Cpu.All),
@@ -22,7 +22,7 @@ namespace ZeroInstall.Publish.EntryPoints
             Version = new ImplementationVersion("1.2.3.0")
         };
 
-        public static readonly WindowsExe Reference64 = new WindowsExe
+        public static readonly WindowsExe Reference64 = new()
         {
             RelativePath = "windows64.exe",
             Architecture = new Architecture(OS.Windows, Cpu.X64),
@@ -31,7 +31,7 @@ namespace ZeroInstall.Publish.EntryPoints
             Version = new ImplementationVersion("1.2.3.0")
         };
 
-        public static readonly WindowsExe ReferenceTerminal = new WindowsExe
+        public static readonly WindowsExe ReferenceTerminal = new()
         {
             RelativePath = "windows32_terminal.exe",
             Architecture = new Architecture(OS.Windows, Cpu.All),

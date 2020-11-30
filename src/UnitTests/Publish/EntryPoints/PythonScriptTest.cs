@@ -11,9 +11,9 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public class PythonScriptTest : CandidateTest
     {
-        public static readonly PythonScript Reference = new PythonScript {RelativePath = "python", Name = "python", NeedsTerminal = true};
-        public static readonly PythonScript ReferenceWithExtension = new PythonScript {RelativePath = "python.py", Name = "python", NeedsTerminal = true};
-        public static readonly PythonScript ReferenceWithExtensionWindows = new PythonScript {RelativePath = "python.pyw", Name = "python", NeedsTerminal = false};
+        public static readonly PythonScript Reference = new() {RelativePath = "python", Name = "python", NeedsTerminal = true};
+        public static readonly PythonScript ReferenceWithExtension = new() {RelativePath = "python.py", Name = "python", NeedsTerminal = true};
+        public static readonly PythonScript ReferenceWithExtensionWindows = new() {RelativePath = "python.pyw", Name = "python", NeedsTerminal = false};
 
         [Fact]
         public void NoExtension() => TestAnalyze(Reference, executable: true);

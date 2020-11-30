@@ -38,7 +38,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         protected override void Dispose(bool disposing) => _tarStream.Dispose();
         #endregion
 
-        private readonly List<FileInfo> _previousFiles = new List<FileInfo>();
+        private readonly List<FileInfo> _previousFiles = new();
 
         /// <inheritdoc/>
         protected override void HandleFile(FileInfo file, bool executable = false)

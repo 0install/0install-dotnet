@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Command"/>.
         /// </summary>
-        public static Command CreateTestCommand1() => new Command
+        public static Command CreateTestCommand1() => new()
         {
             Name = Command.NameRun,
             Path = "dir 1/executable1",
@@ -33,7 +33,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Command"/> using <see cref="Command.NameTest"/>.
         /// </summary>
-        public static Command CreateTestCommand1Test() => new Command
+        public static Command CreateTestCommand1Test() => new()
         {
             Name = Command.NameTest,
             Path = "dir 1/test1",
@@ -48,7 +48,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Command"/>.
         /// </summary>
-        public static Command CreateTestCommand2() => new Command
+        public static Command CreateTestCommand2() => new()
         {
             Name = Command.NameRun,
             Path = "dir 2/executable2",

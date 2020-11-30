@@ -20,7 +20,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// </summary>
     public class StubBuilderTest : TestWithRedirect
     {
-        private readonly StubBuilder _stubBuilder = new StubBuilder(new Mock<IIconStore>().Object);
+        private readonly StubBuilder _stubBuilder = new(new Mock<IIconStore>().Object);
 
         [SkippableFact]
         public void TestGetRunCommandLineCli()

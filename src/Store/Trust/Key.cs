@@ -24,7 +24,7 @@ namespace ZeroInstall.Store.Trust
         /// A list of <see cref="Domain"/>s this key is valid for.
         /// </summary>
         [XmlElement("domain")]
-        public DomainSet Domains { get; } = new DomainSet();
+        public DomainSet Domains { get; } = new();
 
         #region Conversion
         /// <inheritdoc/>

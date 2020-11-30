@@ -20,7 +20,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("verb")]
-        public List<Verb> Verbs { get; } = new List<Verb>();
+        public List<Verb> Verbs { get; } = new();
 
         #region Equality
         protected bool Equals(VerbCapability? other) => other != null && base.Equals(other) && Verbs.SequencedEquals(other.Verbs);

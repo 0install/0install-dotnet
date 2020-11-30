@@ -40,10 +40,10 @@ namespace ZeroInstall.Commands.Desktop
 
         #region State
         /// <summary>A list of all <see cref="AccessPoint"/> categories to be added to the already applied ones.</summary>
-        private readonly List<string> _addCategories = new List<string>();
+        private readonly List<string> _addCategories = new();
 
         /// <summary>A list of all <see cref="AccessPoint"/> categories to be removed from the already applied ones.</summary>
-        private readonly List<string> _removeCategories = new List<string>();
+        private readonly List<string> _removeCategories = new();
 
         /// <inheritdoc/>
         public IntegrateApp(ICommandHandler handler)

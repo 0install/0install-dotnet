@@ -96,7 +96,7 @@ namespace ZeroInstall.Commands
 
         /// <summary>The command-line argument parser used to evaluate user input.</summary>
         [CLSCompliant(false)]
-        protected internal readonly OptionSet Options = new OptionSet();
+        protected internal readonly OptionSet Options = new();
         #endregion
 
         #region State
@@ -108,7 +108,7 @@ namespace ZeroInstall.Commands
 
         /// <summary>Feeds to add, terms to search for, etc.</summary>
         [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Using a List<T> for performance reasons")]
-        protected readonly List<string> AdditionalArgs = new List<string>();
+        protected readonly List<string> AdditionalArgs = new();
 
         /// <summary>
         /// Creates a new command.

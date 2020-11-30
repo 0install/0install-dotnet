@@ -25,7 +25,7 @@ namespace ZeroInstall.Model.Selection
         /// A list of input <see cref="Feed"/>s for the solver.
         /// </summary>
         [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
-        public List<Feed> Feeds { get; } = new List<Feed>();
+        public List<Feed> Feeds { get; } = new();
 
         /// <summary>
         /// The input requirements for the solver.

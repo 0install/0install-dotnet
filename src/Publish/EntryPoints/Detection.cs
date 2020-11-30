@@ -15,7 +15,7 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public static class Detection
     {
-        private static readonly List<Func<Candidate>> _candidateCreators = new List<Func<Candidate>>
+        private static readonly List<Func<Candidate>> _candidateCreators = new()
         {
             () => new JavaClass(),
             () => new JavaJar(),

@@ -39,7 +39,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("A list of implementation-specific user-overrides.")]
         [XmlElement("implementation")]
-        public List<ImplementationPreferences> Implementations { get; } = new List<ImplementationPreferences>();
+        public List<ImplementationPreferences> Implementations { get; } = new();
 
         /// <summary>
         /// Retrieves an existing entry from <see cref="Implementations"/> by ID or creates a new one if no appropriate one exists.

@@ -70,7 +70,7 @@ namespace ZeroInstall.Services.Solvers
                 {
                     {"confirm", args => DoConfirm((string)args[0])},
                     {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
-                    {"update-key-info", args => null}
+                    {"update-key-info", _ => null}
                 };
                 control.Invoke(args =>
                 {

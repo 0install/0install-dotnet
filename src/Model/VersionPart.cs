@@ -18,7 +18,7 @@ namespace ZeroInstall.Model
         /// A version number with the value -1.
         /// </summary>
         /// <remarks>-1 or "not set" has an even lower value than a set "0".</remarks>
-        public static readonly VersionPart Default = new VersionPart("-1");
+        public static readonly VersionPart Default = new("-1");
         #endregion
 
         /// <summary>

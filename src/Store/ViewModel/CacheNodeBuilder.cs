@@ -118,7 +118,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         private TempDirectoryNode GetTempNode(string path)
-            => new TempDirectoryNode(path, _implementationStore);
+            => new(path, _implementationStore);
 
         private void Add(CacheNode node)
         {

@@ -17,7 +17,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Archive"/>.
         /// </summary>
-        internal static Archive CreateTestArchive() => new Archive
+        internal static Archive CreateTestArchive() => new()
         {
             Href = new Uri("http://example.com/test.exe"),
             MimeType = Archive.MimeTypeZip,

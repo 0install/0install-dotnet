@@ -77,7 +77,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             public override string ToString() => FullPath;
         }
 
-        private readonly Dictionary<string, MsiDirectory> _directories = new Dictionary<string, MsiDirectory>();
+        private readonly Dictionary<string, MsiDirectory> _directories = new();
 
         private void ReadDirectories()
         {
@@ -135,7 +135,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             public override string? ToString() => FullPath;
         }
 
-        private readonly Dictionary<string, MsiFile> _files = new Dictionary<string, MsiFile>();
+        private readonly Dictionary<string, MsiFile> _files = new();
 
         private void ReadFiles()
         {

@@ -19,8 +19,8 @@ namespace ZeroInstall.Store.Implementations
     public class CompositeImplementationStoreTest : TestWithMocks
     {
         #region Constants
-        private static readonly ManifestDigest _digest1 = new ManifestDigest(sha1New: "abc");
-        private static readonly ManifestDigest _digest2 = new ManifestDigest(sha1New: "123");
+        private static readonly ManifestDigest _digest1 = new(sha1New: "abc");
+        private static readonly ManifestDigest _digest2 = new(sha1New: "123");
         private static readonly IEnumerable<ArchiveFileInfo> _archives = new[]
         {
             new ArchiveFileInfo("path1", Archive.MimeTypeZip),

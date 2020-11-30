@@ -16,7 +16,7 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public abstract class CandidateTest : IDisposable
     {
-        private readonly TemporaryDirectory _temporaryDirectory = new TemporaryDirectory("unit-tests");
+        private readonly TemporaryDirectory _temporaryDirectory = new("unit-tests");
         public void Dispose() => _temporaryDirectory.Dispose();
 
         protected readonly DirectoryInfo Directory;

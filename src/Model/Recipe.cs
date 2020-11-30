@@ -23,7 +23,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("An ordered list of archives to extract.")]
         [XmlIgnore]
-        public List<IRecipeStep> Steps { get; } = new List<IRecipeStep>();
+        public List<IRecipeStep> Steps { get; } = new();
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>

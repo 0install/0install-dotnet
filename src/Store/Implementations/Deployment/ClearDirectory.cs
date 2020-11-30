@@ -17,7 +17,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
     /// </summary>
     public class ClearDirectory : DirectoryOperation
     {
-        private readonly Stack<string> _pendingDirectoryDeletes = new Stack<string>();
+        private readonly Stack<string> _pendingDirectoryDeletes = new();
 
         /// <summary>
         /// Creates a new directory clear task.
@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
             : base(path, manifest, handler)
         {}
 
-        private readonly Stack<KeyValuePair<string, string>> _pendingFilesDeletes = new Stack<KeyValuePair<string, string>>();
+        private readonly Stack<KeyValuePair<string, string>> _pendingFilesDeletes = new();
 
         /// <inheritdoc/>
         protected override void OnStage()

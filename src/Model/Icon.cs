@@ -92,7 +92,7 @@ namespace ZeroInstall.Model
         /// Creates a deep copy of this <see cref="Icon"/> instance.
         /// </summary>
         /// <returns>The new copy of the <see cref="Icon"/>.</returns>
-        public Icon Clone() => new Icon {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Href = Href, MimeType = MimeType};
+        public Icon Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Href = Href, MimeType = MimeType};
         #endregion
 
         #region Equality

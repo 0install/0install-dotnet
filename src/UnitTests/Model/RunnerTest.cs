@@ -14,7 +14,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Creates a fictive test <see cref="Runner"/>.
         /// </summary>
-        private static Runner CreateTestRunner() => new Runner
+        private static Runner CreateTestRunner() => new()
         {
             InterfaceUri = FeedTest.Test1Uri,
             Command = "run2",

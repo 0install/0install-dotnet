@@ -12,7 +12,7 @@ namespace ZeroInstall.Publish.EntryPoints
     /// </summary>
     public class PosixScriptTest : CandidateTest
     {
-        public static readonly PosixScript Reference = new PosixScript
+        public static readonly PosixScript Reference = new()
         {
             RelativePath = "sh",
             Architecture = new Architecture(OS.Posix, Cpu.All),

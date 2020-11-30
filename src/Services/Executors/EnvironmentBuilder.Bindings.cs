@@ -24,7 +24,7 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Used to track <see cref="IBindingContainer"/> that have already been applied to avoid cycles.
         /// </summary>
-        private readonly HashSet<IBindingContainer> _appliedBindingContainers = new HashSet<IBindingContainer>();
+        private readonly HashSet<IBindingContainer> _appliedBindingContainers = new();
 
         /// <summary>
         /// Applies all specified <see cref="Binding"/>s.
@@ -175,7 +175,7 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// A list of run-environment executables pending to be configured.
         /// </summary>
-        private readonly List<RunEnvPending> _runEnvPendings = new List<RunEnvPending>();
+        private readonly List<RunEnvPending> _runEnvPendings = new();
 
         /// <summary>
         /// Applies an <see cref="ExecutableInVar"/> binding by creating a run-environment executable.

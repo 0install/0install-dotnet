@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Trust
         /// A list of known <see cref="Key"/>s.
         /// </summary>
         [XmlElement("key")]
-        public List<Key> Keys { get; } = new List<Key>();
+        public List<Key> Keys { get; } = new();
 
         /// <summary>
         /// Determines whether a key is trusted for a specific domain.

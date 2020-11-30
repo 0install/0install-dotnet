@@ -113,7 +113,7 @@ namespace ZeroInstall.Services.Solvers
         /// <returns>A dictionary mapping <see cref="FeedUri"/>s to the actual <see cref="Feed"/>s loaded from there.</returns>
         private IDictionary<FeedUri, Feed> GetFeeds(Requirements requirements)
         {
-            Dictionary<FeedUri,Feed> dictionary = new Dictionary<FeedUri, Feed>();
+            Dictionary<FeedUri,Feed> dictionary = new();
 
             void AddFeedToDict(FeedUri feedUri)
             {

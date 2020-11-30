@@ -13,6 +13,6 @@ namespace ZeroInstall.Publish.EntryPoints.Design
 
         public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new StandardValuesCollection(new[] {"", @"6.0", @"7.0", @"8.0"});
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new(new[] {"", @"6.0", @"7.0", @"8.0"});
     }
 }

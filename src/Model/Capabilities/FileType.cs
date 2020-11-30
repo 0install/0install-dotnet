@@ -21,7 +21,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("extension")]
-        public List<FileTypeExtension> Extensions { get; } = new List<FileTypeExtension>();
+        public List<FileTypeExtension> Extensions { get; } = new();
 
         /// <inheritdoc/>
         [XmlIgnore]
