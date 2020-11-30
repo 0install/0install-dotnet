@@ -28,7 +28,7 @@ namespace ZeroInstall.Services.Solvers
 
         public ExternalSolverSession(ProcessStartInfo startInfo)
         {
-            _process = startInfo.Start() ?? throw new IOException($"Failed to start {startInfo.FileName}.");
+            _process = startInfo.Start();
 
             _stdin = _process.StandardInput.BaseStream;
             _stdout = _process.StandardOutput.BaseStream;

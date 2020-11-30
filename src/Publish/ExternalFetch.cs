@@ -51,7 +51,7 @@ namespace ZeroInstall.Publish
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 CreateNoWindow = true
-            }.Start() ?? throw new IOException($"Failed to start external fetcher.");
+            }.Start();
 
             using (CancellationToken.Register(process.Kill))
             {
