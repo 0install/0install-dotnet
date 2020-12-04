@@ -18,14 +18,12 @@ for:
 
     build_script:
       - ps: src\build.ps1 $env:GitVersion_NuGetVersion
-      - ps: feed\build.ps1 $env:GitVersion_NuGetVersion
 
     test_script:
       - ps: src\test.ps1
 
     artifacts:
-      - path: feed\*.xml
-      - path: feed\*.tar.gz
+      - path: artifacts\0install-dotnet-*.tar.gz
       - path: artifacts\Release\*.*nupkg
 
     deploy:

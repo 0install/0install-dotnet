@@ -16,3 +16,5 @@ $dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version
 
 # Package .NET Core distribution
 $dotnet msbuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=net5.0 -p:Version=${1:-1.0.0-pre} Commands
+cd ../artifacts/Release/net5.0/publish
+tar -czf ../../../0install-dotnet-${1:-1.0.0-pre}.tar.gz --exclude '*.pdb' *

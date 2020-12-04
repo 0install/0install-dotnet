@@ -15,9 +15,7 @@
       <runner interface="https://apps.0install.net/dotnet/core.xml" version="5.0..!5.1"/>
     </command>
 
-    <implementation version="{version}" stability="{stability}" local-path="../artifacts/Release/net5.0/publish">
-      <manifest-digest/>
-      <archive href="0install-dotnet-{version}.tar.gz"/>
-    </implementation>
+    <!-- Use very high version number to treat local build as newer than any public version. -->
+    <implementation id="./artifacts/Release/net5.0/publish" version="100-pre"/>
   </group>
 </interface>

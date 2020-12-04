@@ -37,5 +37,6 @@ Run-MSBuild /v:Quiet /t:Restore /t:Build $ci /p:Configuration=Release /p:Version
 
 # Package .NET Core distribution
 Run-MSBuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences=False /p:Configuration=Release /p:TargetFramework=net5.0 /p:Version=$Version Commands
+tar -czf ..\artifacts\0install-dotnet-$env:GitVersion_NuGetVersion.tar.gz -C ..\artifacts\Release\net5.0\publish --exclude *.pdb *
 
 popd
