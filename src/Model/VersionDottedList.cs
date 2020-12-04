@@ -45,7 +45,7 @@ namespace ZeroInstall.Model
             for (int i = 0; i < parts.Length; i++)
             {
                 if (!long.TryParse(parts[i], out decimals[i]))
-                    throw new FormatException(Resources.MustBeDottedList);
+                    throw new FormatException(Resources.MustBeDottedList + Environment.NewLine + value);
             }
 
             Decimals = decimals;
