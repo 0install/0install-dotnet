@@ -12,11 +12,11 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
 - You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://0install.net/injector.html#windows-current). (recommended)
 
-- If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET Core version of the `0install` command like this:
+- If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET 5 version of the `0install` command like this:
 
       0install run https://apps.0install.net/0install/0install-dotnet.xml
 
-- You can also manually install [.NET](https://www.microsoft.com/net/download) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
+- You can also manually install [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
 
       dotnet 0install.dll
 
@@ -54,12 +54,12 @@ For more information read the [Zero Install .NET API documentation](https://dotn
 
 ## Building
 
-The source code is in [`src/`](src/), config for building the API documentation is in [`doc/`](doc/) and generated build artifacts are placed in `artifacts/`.  
-There is a template in [`feed/`](feed/) for generating a [Zero Install feed](https://0install.github.io/docs/packaging/) from the artifacts. For official releases this is published at: https://apps.0install.net/0install/0install-dotnet.xml  
+The source code is in [`src/`](src/), config for building the API documentation is in [`doc/`](doc/) and generated artifacts are placed in `artifacts/`.  
 The source code does not contain version numbers. Instead the version is determined during CI using [GitVersion](http://gitversion.readthedocs.io/).
 
 To build on Windows install [Visual Studio 2019 v16.8 or newer](https://www.visualstudio.com/downloads/) and run `.\build.ps1`.  
-To build on Linux or MacOS X install [.NET SDK 5.0 or newer](https://www.microsoft.com/net/download) and run `./build.sh`. Note: Some parts of the code can only be built on Windows.
+To build on Linux or macOS run `./build.sh`.  
+Note: Some parts of the project can only be built on Windows and are skipped in Linux/macOS builds.
 
 ## Contributing
 
