@@ -1161,16 +1161,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The .manifest file is missing.
-        ///Run &apos;0install self-update --force&apos; to fix this..
-        /// </summary>
-        public static string MaintenanceMissingManifest {
-            get {
-                return ResourceManager.GetString("MaintenanceMissingManifest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Missing arguments..
         /// </summary>
         public static string MissingArguments {

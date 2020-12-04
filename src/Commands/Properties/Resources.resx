@@ -497,10 +497,6 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
   <data name="LocalPathOf" xml:space="preserve">
     <value>Local path of {0}</value>
   </data>
-  <data name="MaintenanceMissingManifest" xml:space="preserve">
-    <value>The .manifest file is missing.
-Run '0install self-update --force' to fix this.</value>
-  </data>
   <data name="MissingArguments" xml:space="preserve">
     <value>Missing arguments.</value>
   </data>

@@ -6,7 +6,6 @@ using System.IO;
 using System.Threading;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations.Manifests;
@@ -19,26 +18,18 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// Loads the <see cref="Manifest"/> file in a directory.
         /// </summary>
         /// <param name="dirPath">The directory to check for a manifest file.</param>
-        /// <returns>The loaded <see cref="Manifest"/>; <c>null</c> if no <see cref="Manifest"/> file was found.</returns>
-        private static Manifest? LoadManifest(string dirPath)
+        /// <returns>The loaded <see cref="Manifest"/>.</returns>
+        private Manifest LoadManifest(string dirPath)
         {
             string manifestPath = Path.Combine(dirPath, Manifest.ManifestFile);
-            if (!File.Exists(manifestPath)) return null;
-
-            return Manifest.Load(
-                Path.Combine(dirPath, Manifest.ManifestFile),
-                ManifestFormat.Sha256New); // The digests are not checked so the format does not matter
-        }
-
-        /// <summary>
-        /// Provides a fake <see cref="Manifest"/> listing the files usually present in older deployments.
-        /// </summary>
-        private static Manifest LegacyManifest
-        {
-            get
+            if (File.Exists(manifestPath))
+                return Manifest.Load(manifestPath, ManifestFormat.Sha256New);
+            else
             {
-                using var stream = typeof(SelfManager).GetEmbeddedStream("legacy.manifest");
-                return Manifest.Load(stream, ManifestFormat.Sha256New); // The digests are not checked so the format does not matter
+                Log.Warn($"No .manifest file found in '{dirPath}'. Assuming directory is clean.");
+                var generator = new ManifestGenerator(dirPath, ManifestFormat.Sha256New);
+                Handler.RunTask(generator);
+                return generator.Manifest;
             }
         }
 

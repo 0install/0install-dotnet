@@ -52,7 +52,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Basic\Exporters\import.*" />
-    <EmbeddedResource Include="Desktop\SelfManagement\legacy.manifest" />
   </ItemGroup>
 
 </Project>

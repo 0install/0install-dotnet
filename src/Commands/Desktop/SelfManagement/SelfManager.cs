@@ -82,9 +82,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 throw new IOException(string.Format(Resources.AlreadyDeployedTo, TargetDir));
 
             var newManifest = LoadManifest(Locations.InstallBase);
-            if (newManifest == null) throw new IOException(Resources.MaintenanceMissingManifest);
-            var oldManifest = LoadManifest(TargetDir)
-                           ?? LegacyManifest;
+            var oldManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)
@@ -139,7 +137,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         public void Remove()
         {
             var targetManifest = LoadManifest(TargetDir);
-            if (targetManifest == null) throw new IOException(Resources.MaintenanceMissingManifest);
 
 #if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)
