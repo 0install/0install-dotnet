@@ -36,7 +36,7 @@ namespace ZeroInstall.Model
         {
             if (element == null) return false;
 
-            return element.IfZeroInstallVersion != null && !element.IfZeroInstallVersion.Match(ImplementationVersion.ZeroInstall);
+            return element.IfZeroInstallVersion != null && !element.IfZeroInstallVersion.Match(ModelUtils.Version);
         }
 
         /// <summary>

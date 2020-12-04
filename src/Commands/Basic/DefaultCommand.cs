@@ -6,7 +6,6 @@ using System.Text;
 using NanoByte.Common.Info;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -47,7 +46,7 @@ namespace ZeroInstall.Commands.Basic
 #else
                     @"Zero Install (.NET Framework) "
 #endif
-                  + ImplementationVersion.ZeroInstall
+                  + AppInfo.CurrentLibrary.Version
                   + (Locations.IsPortable ? " - " + Resources.PortableMode : "") + Environment.NewLine
                   + AppInfo.Current.Copyright + Environment.NewLine
                   + Resources.LicenseInfo);

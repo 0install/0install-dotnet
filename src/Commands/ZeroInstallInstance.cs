@@ -70,7 +70,7 @@ namespace ZeroInstall.Commands
             {
                 var selections = services.Solver.Solve(requirements);
                 var newVersion = selections.MainImplementation.Version;
-                return (newVersion > ImplementationVersion.ZeroInstall) ? newVersion : null;
+                return (newVersion > ModelUtils.Version) ? newVersion : null;
             }
             #region Error handling
             catch (OperationCanceledException)

@@ -116,7 +116,7 @@ namespace ZeroInstall.Commands.Desktop
             }
 
             private bool UpdateFound()
-                => _force || (Selections != null && Selections.MainImplementation.Version > ImplementationVersion.ZeroInstall);
+                => _force || (Selections != null && Selections.MainImplementation.Version > ModelUtils.Version);
         }
     }
 }

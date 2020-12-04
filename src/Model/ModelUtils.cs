@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using NanoByte.Common.Info;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model.Properties;
 
@@ -13,6 +14,11 @@ namespace ZeroInstall.Model
     /// </summary>
     public static class ModelUtils
     {
+        /// <summary>
+        /// The current version of Zero Install.
+        /// </summary>
+        public static ImplementationVersion Version { get; } = new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+
         /// <summary>
         /// Determines whether a string contains a template variable (a substring enclosed in curly brackets, e.g {var}).
         /// </summary>

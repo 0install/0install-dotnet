@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Info;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Properties;
 
@@ -32,11 +31,6 @@ namespace ZeroInstall.Model
     [Serializable]
     public sealed class ImplementationVersion : IEquatable<ImplementationVersion>, IComparable<ImplementationVersion>
     {
-        /// <summary>
-        /// The current version of the Zero Install itself.
-        /// </summary>
-        public static ImplementationVersion ZeroInstall { get; } = new(AppInfo.CurrentLibrary.Version!);
-
         /// <summary>
         /// The first part of the version number.
         /// </summary>
