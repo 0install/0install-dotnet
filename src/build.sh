@@ -11,5 +11,8 @@ else
     dotnet="../0install.sh run --version 5.0..!5.1 https://apps.0install.net/dotnet/core-sdk.xml"
 fi
 
-# Run build
+# Build
 $dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=${1:-1.0.0-pre}
+
+# Package .NET Core distribution
+$dotnet msbuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=net5.0 -p:Version=${1:-1.0.0-pre} Commands
