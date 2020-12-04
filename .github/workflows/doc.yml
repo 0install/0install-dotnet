@@ -24,11 +24,7 @@ jobs:
           key: 0install-${{hashFiles('**/build.ps1')}}
 
       # Build
-      - name: Build documentation (pre-release)
-        if: steps.gitversion.outputs.preReleaseLabel != ''
-        run: doc\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}-${{steps.gitversion.outputs.shortSha}}
-      - name: Build documentation (release)
-        if: steps.gitversion.outputs.preReleaseLabel == ''
+      - name: Build documentation
         run: doc\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}
 
       # Publish
