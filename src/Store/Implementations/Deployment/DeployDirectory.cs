@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         }
 
         private readonly Stack<string> _createdDirectories = new();
-        private readonly Stack<KeyValuePair<string, string>> _pendingFileRenames = new();
+        private readonly Stack<(string source, string destination)> _pendingFileRenames = new();
 
         /// <inheritdoc/>
         protected override void OnStage()
@@ -58,15 +58,16 @@ namespace ZeroInstall.Store.Implementations.Deployment
 
             string manifestPath = System.IO.Path.Combine(DestinationPath, Manifest.ManifestFile);
             string tempManifestPath = Randomize(manifestPath);
-            _pendingFileRenames.Push(new KeyValuePair<string, string>(tempManifestPath, manifestPath));
+            _pendingFileRenames.Push((tempManifestPath, manifestPath));
             Manifest.Save(tempManifestPath);
 
             Handler.RunTask(ForEachTask.Create(Resources.CopyFiles, ElementPaths, pair =>
             {
-                string sourcePath = System.IO.Path.Combine(Path, pair.Key);
-                string destinationPath = System.IO.Path.Combine(DestinationPath, pair.Key);
+                (string path, var node) = pair;
+                string sourcePath = System.IO.Path.Combine(Path, path);
+                string destinationPath = System.IO.Path.Combine(DestinationPath, path);
 
-                if (pair.Value is ManifestDirectory)
+                if (node is ManifestDirectory)
                 {
                     if (!Directory.Exists(destinationPath))
                     {
@@ -77,9 +78,9 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 else
                 {
                     string tempPath = Randomize(destinationPath);
-                    _pendingFileRenames.Push(new KeyValuePair<string, string>(tempPath, destinationPath));
+                    _pendingFileRenames.Push((tempPath, destinationPath));
 
-                    switch (pair.Value)
+                    switch (node)
                     {
                         case ManifestFileBase file:
                             File.Copy(sourcePath, tempPath);
@@ -104,15 +105,15 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <inheritdoc/>
         protected override void OnCommit()
         {
-            UnlockFiles(_pendingFileRenames.Select(x => x.Value).Where(File.Exists));
+            UnlockFiles(_pendingFileRenames.Select(x => x.destination).Where(File.Exists));
 
             Handler.RunTask(new SimpleTask(Resources.CopyFiles, () =>
             {
                 _pendingFileRenames.PopEach(x =>
                 {
-                    if (File.Exists(x.Value))
-                        File.Delete(x.Value);
-                    File.Move(x.Key, x.Value);
+                    if (File.Exists(x.destination))
+                        File.Delete(x.destination);
+                    File.Move(x.source, x.destination);
                 });
             }));
         }
@@ -122,8 +123,8 @@ namespace ZeroInstall.Store.Implementations.Deployment
         {
             _pendingFileRenames.PopEach(x =>
             {
-                if (File.Exists(x.Key))
-                    File.Delete(x.Key);
+                if (File.Exists(x.source))
+                    File.Delete(x.source);
             });
 
             _createdDirectories.PopEach(path =>

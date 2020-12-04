@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
             : base(path, manifest, handler)
         {}
 
-        private readonly Stack<KeyValuePair<string, string>> _pendingFilesDeletes = new();
+        private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = new();
 
         /// <inheritdoc/>
         protected override void OnStage()
@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 {
                     string tempPath = Randomize(path);
                     File.Move(path, tempPath);
-                    _pendingFilesDeletes.Push(new KeyValuePair<string, string>(path, tempPath));
+                    _pendingFilesDeletes.Push((path, tempPath));
                 }));
             }
         }
@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         protected override void OnCommit()
             => Handler.RunTask(new SimpleTask(Resources.DeletingObsoleteFiles, () =>
             {
-                _pendingFilesDeletes.PopEach(x => File.Delete(x.Value));
+                _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
                 _pendingDirectoryDeletes.PopEach(path =>
                 {
                     if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
@@ -90,7 +90,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
             {
                 try
                 {
-                    File.Move(x.Value, x.Key);
+                    File.Move(x.backupPath, x.path);
                 }
                 #region Error handling
                 catch (Exception ex)

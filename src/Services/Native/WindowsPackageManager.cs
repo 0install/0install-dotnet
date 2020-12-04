@@ -80,13 +80,13 @@ namespace ZeroInstall.Services.Native
 
         private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
             => from javaHome in GetRegisteredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
-               let mainPath = Path.Combine(javaHome.Value, @"bin\" + mainExe + ".exe")
-               let secondaryPath = Path.Combine(javaHome.Value, @"bin\" + secondaryExe + ".exe")
+               let mainPath = Path.Combine(javaHome.path, @"bin\" + mainExe + ".exe")
+               let secondaryPath = Path.Combine(javaHome.path, @"bin\" + secondaryExe + ".exe")
                where File.Exists(mainPath) && File.Exists(secondaryPath)
                select new ExternalImplementation(DistributionName,
                    package: "openjdk-" + version + "-" + typeShort,
                    version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
-                   cpu: javaHome.Key)
+                   cpu: javaHome.cpu)
                {
                    Commands =
                    {
@@ -97,19 +97,19 @@ namespace ZeroInstall.Services.Native
                    QuickTestFile = mainPath
                };
 
-        private static IEnumerable<KeyValuePair<Cpu, string>> GetRegisteredPaths(string registrySuffix, string valueName)
+        private static IEnumerable<(Cpu cpu, string path)> GetRegisteredPaths(string registrySuffix, string valueName)
         {
             // Check for system native architecture (may be 32-bit or 64-bit)
             string? path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\" + registrySuffix, valueName);
             if (!string.IsNullOrEmpty(path))
-                yield return new KeyValuePair<Cpu, string>(Architecture.CurrentSystem.Cpu, path);
+                yield return (Architecture.CurrentSystem.Cpu, path);
 
             // Check for 32-bit on a 64-bit system
             if (Environment.Is64BitProcess)
             {
                 path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\" + registrySuffix, valueName);
                 if (!string.IsNullOrEmpty(path))
-                    yield return new KeyValuePair<Cpu, string>(Cpu.I486, path);
+                    yield return (Cpu.I486, path);
             }
         }
 

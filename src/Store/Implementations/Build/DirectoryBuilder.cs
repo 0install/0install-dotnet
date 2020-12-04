@@ -86,7 +86,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for directory write times. Preserves the order.</summary>
-        private readonly List<KeyValuePair<string, DateTime>> _pendingDirectoryWriteTimes = new();
+        private readonly List<(string path, DateTime time)> _pendingDirectoryWriteTimes = new();
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for file write times.</summary>
         private readonly Dictionary<string, DateTime> _pendingFileWriteTimes = new();
@@ -110,7 +110,7 @@ namespace ZeroInstall.Store.Implementations.Build
 
             Directory.CreateDirectory(GetFullPath(relativePath));
             if (lastWriteTime.HasValue)
-                _pendingDirectoryWriteTimes.Add(new KeyValuePair<string, DateTime>(relativePath, lastWriteTime.Value));
+                _pendingDirectoryWriteTimes.Add((relativePath, lastWriteTime.Value));
         }
 
         /// <summary>
@@ -262,8 +262,8 @@ namespace ZeroInstall.Store.Implementations.Build
             // Run through list backwards to ensure directories are handled "from the inside out"
             for (int index = _pendingDirectoryWriteTimes.Count - 1; index >= 0; index--)
             {
-                var pair = _pendingDirectoryWriteTimes[index];
-                Directory.SetLastWriteTimeUtc(GetFullPath(pair.Key), DateTime.SpecifyKind(pair.Value, DateTimeKind.Utc));
+                (string path, var time) = _pendingDirectoryWriteTimes[index];
+                Directory.SetLastWriteTimeUtc(GetFullPath(path), DateTime.SpecifyKind(time, DateTimeKind.Utc));
             }
             _pendingDirectoryWriteTimes.Clear();
         }
