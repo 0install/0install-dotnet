@@ -27,7 +27,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 uninstallKey.SetValue("Publisher", "0install.net");
                 uninstallKey.SetValue("URLInfoAbout", "https://0install.net/");
                 uninstallKey.SetValue("DisplayName", MachineWide ? "Zero Install" : "Zero Install (current user)");
-                uninstallKey.SetValue("DisplayVersion", AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+                uninstallKey.SetValue("DisplayVersion", AppInfo.Current.Version ?? "1.0.0-pre");
                 uninstallKey.DeleteValue("MajorVersion", throwOnMissingValue: false);
                 uninstallKey.DeleteValue("MinorVersion", throwOnMissingValue: false);
                 uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
