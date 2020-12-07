@@ -41,10 +41,10 @@ namespace ZeroInstall.Commands.Basic
             Options.Add("V|version", () => Resources.OptionVersion, _ =>
             {
                 Handler.Output(Resources.VersionInformation,
-#if NET
-                    @"Zero Install (.NET Core) "
-#else
+#if NETFRAMEWORK
                     @"Zero Install (.NET Framework) "
+#else
+                    @"Zero Install (.NET) "
 #endif
                   + AppInfo.Current.Version
                   + (Locations.IsPortable ? " - " + Resources.PortableMode : "") + Environment.NewLine
