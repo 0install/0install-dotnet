@@ -23,7 +23,6 @@ namespace ZeroInstall.Services
     /// <summary>
     /// Provides extension methods for <see cref="IServiceCollection"/>.
     /// </summary>
-    [CLSCompliant(false)]
     public static class ServiceCollectionExtensions
     {
         /// <summary>

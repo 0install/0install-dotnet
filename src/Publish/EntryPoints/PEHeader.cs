@@ -13,7 +13,6 @@ namespace ZeroInstall.Publish.EntryPoints
 {
     #region File header structures
     [StructLayout(LayoutKind.Sequential)]
-    [CLSCompliant(false)]
     public struct ImageDosHeader
     {
         public UInt16 e_magic; // Magic number
@@ -50,7 +49,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    [CLSCompliant(false)]
     public struct ImageDataDirectory
     {
         public UInt32 VirtualAddress;
@@ -58,7 +56,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32")]
-    [CLSCompliant(false)]
     public enum MachineType : ushort
     {
         Native = 0,
@@ -68,7 +65,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [SuppressMessage("Microsoft.Design", "CA1028:EnumStorageShouldBeInt32"), SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue")]
-    [CLSCompliant(false)]
     public enum Subsystem : ushort
     {
         Native = 1,
@@ -79,7 +75,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    [CLSCompliant(false)]
     public struct ImageOptionalHeader32
     {
         public UInt16 Magic;
@@ -135,7 +130,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    [CLSCompliant(false)]
     public struct ImageOptionalHeader64
     {
         public UInt16 Magic;
@@ -190,7 +184,6 @@ namespace ZeroInstall.Publish.EntryPoints
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    [CLSCompliant(false)]
     public struct ImageFileHeader
     {
         public MachineType Machine;
@@ -218,20 +211,15 @@ namespace ZeroInstall.Publish.EntryPoints
             }
         }
 
-        [CLSCompliant(false)]
-        public ImageDosHeader DosHeader { get; private set; }
+            public ImageDosHeader DosHeader { get; private set; }
 
-        [CLSCompliant(false)]
-        public ImageFileHeader FileHeader { get; private set; }
+            public ImageFileHeader FileHeader { get; private set; }
 
-        [CLSCompliant(false)]
-        public ImageOptionalHeader32 OptionalHeader32 { get; private set; }
+            public ImageOptionalHeader32 OptionalHeader32 { get; private set; }
 
-        [CLSCompliant(false)]
-        public ImageOptionalHeader64 OptionalHeader64 { get; private set; }
+            public ImageOptionalHeader64 OptionalHeader64 { get; private set; }
 
-        [CLSCompliant(false)]
-        public Subsystem Subsystem => Is32BitHeader ? OptionalHeader32.Subsystem : OptionalHeader64.Subsystem;
+            public Subsystem Subsystem => Is32BitHeader ? OptionalHeader32.Subsystem : OptionalHeader64.Subsystem;
         #endregion
 
         #region Constructor

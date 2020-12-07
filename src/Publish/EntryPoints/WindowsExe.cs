@@ -61,7 +61,6 @@ namespace ZeroInstall.Publish.EntryPoints
                 : (peHeader.OptionalHeader64.CLRRuntimeHeader.VirtualAddress == 0);
         }
 
-        [CLSCompliant(false)]
         protected static Cpu GetCpu(MachineType machine)
             => machine switch
             {

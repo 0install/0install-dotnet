@@ -152,7 +152,6 @@ namespace ZeroInstall.Store
         /// Gets the settings from a .NET Extensions <see cref="IConfiguration"/> provider.
         /// </summary>
         /// <returns>The loaded <see cref="Config"/>.</returns>
-        [CLSCompliant(false)]
         public static Config From(IConfiguration configuration)
         {
             var config = new Config();
