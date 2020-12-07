@@ -22,6 +22,7 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// The URI of the feed.
         /// </summary>
+        [DisplayName("URI")]
         [XmlIgnore]
         public FeedUri? Uri { get; set; }
 
@@ -61,6 +62,7 @@ namespace ZeroInstall.Store.Feeds
 
         /// <summary>Used for DataGrid rendering.</summary>
         /// <seealso cref="Categories"/>
+        [DisplayName("Categories")]
         [XmlIgnore, DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         public string CategoriesString
             => StringUtils.Join(", ", Categories.Select(x => x.Name).WhereNotNull());
