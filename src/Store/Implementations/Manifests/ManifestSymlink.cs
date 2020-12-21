@@ -8,24 +8,12 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations.Manifests
 {
     /// <summary>
-    /// A symlink entry in a <see cref="Manifest"/>.
+    /// A symlink entry in a manifest.
     /// </summary>
-    /// <remarks>This class is immutable. It should only be used as a part of a <see cref="Manifest"/>.</remarks>
     [Serializable]
-    public sealed class ManifestSymlink : ManifestDirectoryElement, IEquatable<ManifestSymlink>
+    public sealed record ManifestSymlink(string Digest, long Size, string Name)
+        : ManifestDirectoryElement(Digest, Size, Name)
     {
-        /// <summary>
-        /// Creates a new symlink-entry.
-        /// </summary>
-        /// <param name="digest">The digest of the link target path.</param>
-        /// <param name="size">The length of the link target path.</param>
-        /// <param name="name">The name of the symlink without the containing directory.</param>
-        /// <exception cref="ArgumentException"><paramref name="name"/> contains a newline character.</exception>
-        internal ManifestSymlink(string digest, long size, string name)
-            : base(digest, size, name)
-        {}
-
-        #region Factory methods
         /// <summary>
         /// Creates a new node from a string representation as created by <see cref="ToString"/>.
         /// </summary>
@@ -35,7 +23,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         internal static ManifestSymlink FromString(string line)
         {
             const int numberOfParts = 4;
-            var parts = line.Split(new[] {' '}, numberOfParts);
+            string[] parts = line.Split(new[] {' '}, numberOfParts);
             if (parts.Length != numberOfParts) throw new FormatException(Resources.InvalidNumberOfLineParts);
 
             try
@@ -49,31 +37,12 @@ namespace ZeroInstall.Store.Implementations.Manifests
             }
             #endregion
         }
-        #endregion
 
-        #region Conversion
         /// <summary>
         /// Returns the string representation of this node for the manifest format.
         /// </summary>
         /// <returns><c>"S", space, hash, space, size, space, symlink name, newline</c></returns>
-        public override string ToString() => string.Format(CultureInfo.InvariantCulture, "S {0} {1} {2}", Digest, Size, Name);
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ManifestSymlink? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ManifestSymlink symlink && Equals(symlink);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => base.GetHashCode();
-        #endregion
+        public override string ToString()
+            => string.Format(CultureInfo.InvariantCulture, "S {0} {1} {2}", Digest, Size, Name);
     }
 }

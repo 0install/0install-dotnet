@@ -151,26 +151,7 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Represents a run-environment executable configuration pending to be applied via environment variables.
         /// </summary>
-        private struct RunEnvPending
-        {
-            /// <summary>
-            /// The executable file name without any file ending.
-            /// </summary>
-            public readonly string ExeName;
-
-            /// <summary>
-            /// The command-line the executable should run.
-            /// </summary>
-            public readonly List<ArgBase> CommandLine;
-
-            /// <param name="name">The executable file name without any file ending.</param>
-            /// <param name="commandLine">The command-line the executable should run.</param>
-            public RunEnvPending(string name, List<ArgBase> commandLine)
-            {
-                ExeName = name;
-                CommandLine = commandLine;
-            }
-        }
+        private sealed record RunEnvPending(string ExeName, IEnumerable<ArgBase> CommandLine);
 
         /// <summary>
         /// A list of run-environment executables pending to be configured.

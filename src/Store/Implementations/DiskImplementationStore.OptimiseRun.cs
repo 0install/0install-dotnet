@@ -18,43 +18,10 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         private class OptimiseRun : IDisposable
         {
-            private struct DedupKey
+            private sealed record DedupKey(long Size, DateTime LastModified, ManifestFormat Format, string Digest);
+
+            private sealed record StoreFile(string ImplementationPath, string RelativePath)
             {
-                public readonly long Size;
-                public readonly DateTime LastModified;
-                public readonly ManifestFormat Format;
-                public readonly string Digest;
-
-                public DedupKey(long size, DateTime lastModified, ManifestFormat format, string digest)
-                {
-                    Size = size;
-                    LastModified = lastModified;
-                    Format = format;
-                    Digest = digest;
-                }
-
-                public override bool Equals(object? obj)
-                {
-                    if (obj is not DedupKey) return false;
-                    var other = (DedupKey)obj;
-                    return Size == other.Size && LastModified == other.LastModified && Format.Equals(other.Format) && string.Equals(Digest, other.Digest);
-                }
-
-                public override int GetHashCode()
-                    => HashCode.Combine(Size, LastModified, Format, Digest);
-            }
-
-            private struct StoreFile
-            {
-                public readonly string ImplementationPath;
-                public readonly string RelativePath;
-
-                public StoreFile(string implementationPath, string relativePath)
-                {
-                    ImplementationPath = implementationPath;
-                    RelativePath = relativePath;
-                }
-
                 public static implicit operator string(StoreFile file) => Path.Combine(file.ImplementationPath, file.RelativePath);
             }
 

@@ -145,10 +145,16 @@ namespace ZeroInstall.Services.Fetchers
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {GetRetrievalMethod(archives)}};
 
             StoreMock.Setup(x => x.GetPath(digest)).Returns(() => null);
-            StoreMock.Setup(x => x.AddArchives(archiveInfos, digest, Handler)).Returns("");
+            StoreMock.Setup(x => x.AddArchives(
+                // Exclude Path from comparison to allow easy testing with randomized TemporaryFiles
+                It.Is<ArchiveFileInfo[]>(files => files.Select(WithDummyPath).SequenceEqual(archiveInfos)),
+                digest, Handler)).Returns("");
 
             BuildFetcher().Fetch(new[] {testImplementation});
         }
+
+        private static ArchiveFileInfo WithDummyPath(ArchiveFileInfo file)
+            => file with {Path = "dummy"};
 
         private static RetrievalMethod GetRetrievalMethod(Archive[] archives)
         {

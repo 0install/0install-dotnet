@@ -293,18 +293,7 @@ namespace ZeroInstall.Services.Executors
         /// <summary>
         /// Represents a command-line split into a path and arguments part.
         /// </summary>
-        private struct CommandLineSplit
-        {
-            public readonly string Path;
-
-            public readonly string Arguments;
-
-            public CommandLineSplit(string path, string arguments)
-            {
-                Path = path;
-                Arguments = arguments;
-            }
-        }
+        private sealed record CommandLineSplit(string Path, string Arguments);
 
         /// <summary>
         /// Splits a command-line into a file name and an arguments part.
@@ -322,7 +311,7 @@ namespace ZeroInstall.Services.Executors
             for (int i = 0; i < arguments.Length; i++)
                 arguments[i] = commandLine[i + 1];
 
-            return new CommandLineSplit(fileName, arguments.JoinEscapeArguments());
+            return new(fileName, arguments.JoinEscapeArguments());
         }
     }
 }

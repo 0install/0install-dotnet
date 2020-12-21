@@ -132,9 +132,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void TestListPaths()
         {
-            var normalFile = new ManifestNormalFile("123", new DateTime(), 10, "normal");
+            var normalFile = new ManifestNormalFile("123", 0, 10, "normal");
             var dir1 = new ManifestDirectory("/dir1");
-            var executableFile = new ManifestExecutableFile("123", new DateTime(), 10, "executable");
+            var executableFile = new ManifestExecutableFile("123", 0, 10, "executable");
             var dir2 = new ManifestDirectory("/dir2");
             var symlink = new ManifestSymlink("123", 10, "symlink");
             var manifest = new Manifest(ManifestFormat.Sha256New, normalFile, dir1, executableFile, dir2, symlink);

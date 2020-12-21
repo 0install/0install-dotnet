@@ -48,6 +48,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             #region Sanity checks
             if (file == null) throw new ArgumentNullException(nameof(file));
+            if (file.Name.Contains("\n")) throw new ArgumentException(Resources.NewlineInName, nameof(file));
             #endregion
 
             using var stream = file.OpenRead();
@@ -61,6 +62,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             #region Sanity checks
             if (symlink == null) throw new ArgumentNullException(nameof(symlink));
             if (target == null) throw new ArgumentNullException(nameof(target));
+            if (symlink.Name.Contains("\n")) throw new ArgumentException(Resources.NewlineInName, nameof(symlink));
             #endregion
 
             var data = target.ToStream();
