@@ -32,7 +32,9 @@ namespace ZeroInstall.Services.Executors
 
         /// <inheritdoc/>
         public Process? Start(Selections selections)
-            => new EnvironmentBuilder(_implementationStore).Inject(selections).Start();
+            => new EnvironmentBuilder(_implementationStore)
+              .Inject(selections)
+              .Start();
 
         /// <inheritdoc/>
         public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null) => new EnvironmentBuilder(_implementationStore).Inject(selections, overrideMain);

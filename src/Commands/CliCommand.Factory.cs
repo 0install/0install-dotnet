@@ -34,10 +34,9 @@ namespace ZeroInstall.Commands
         /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         public static CliCommand Create(string? commandName, ICommandHandler handler)
-        {
-            if (string.IsNullOrEmpty(commandName)) return new DefaultCommand(handler);
-            return commandName.ToLowerInvariant() switch
+            => (commandName ?? "").ToLowerInvariant() switch
             {
+                "" => new DefaultCommand(handler),
                 ExportHelp.Name => new ExportHelp(handler),
                 Selection.Name => new Selection(handler),
                 Download.Name => new Download(handler),
@@ -59,7 +58,7 @@ namespace ZeroInstall.Commands
                 AddApp.Name or AddApp.AltName => new AddApp(handler),
                 RemoveApp.Name or RemoveApp.AltName or RemoveApp.AltName2 => new RemoveApp(handler),
                 RemoveAllApps.Name or RemoveAllApps.AltName => new RemoveAllApps(handler),
-                IntegrateApp.Name or IntegrateApp.AltName  or IntegrateApp.AltName2 => new IntegrateApp(handler),
+                IntegrateApp.Name or IntegrateApp.AltName or IntegrateApp.AltName2 => new IntegrateApp(handler),
                 AddAlias.Name or AddAlias.AltName => new AddAlias(handler),
                 ListApps.Name => new ListApps(handler),
                 UpdateApps.Name or UpdateApps.AltName => new UpdateApps(handler),
@@ -70,7 +69,6 @@ namespace ZeroInstall.Commands
                 Self.Update.TopLevelName => new Self.Update(handler),
                 _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
             };
-        }
 
         /// <summary>
         /// Parses command-line arguments, automatically creating an appropriate <see cref="CliCommand"/>.

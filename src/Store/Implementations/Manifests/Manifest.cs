@@ -38,8 +38,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
         private readonly ManifestNode[] _nodes;
 
-        // ReSharper restore ReturnTypeCanBeEnumerable.Global
-
         private long _totalSize = -1;
 
         /// <summary>

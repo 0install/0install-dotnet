@@ -36,12 +36,12 @@ namespace ZeroInstall.Publish
         {
             var original = new Manifest(ManifestFormat.Sha256,
                 new ManifestDirectory("dir"),
-                new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1), 10, "file1"),
-                new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1), 10, "file2"));
+                new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc), 10, "file1"),
+                new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc), 10, "file2"));
             var offset = new Manifest(ManifestFormat.Sha256,
                 new ManifestDirectory("dir"),
-                new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2), 10, "file1"),
-                new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2), 10, "file2"));
+                new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc), 10, "file1"),
+                new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc), 10, "file2"));
             original.WithOffset(TimeSpan.FromHours(1)).Should().Equal(offset);
         }
     }

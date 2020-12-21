@@ -44,8 +44,14 @@ namespace ZeroInstall.Services.Fetchers
         {
             StoreMock.Setup(x => x.Flush());
             using var server = new MicroServer("archive.zip", ZipArchiveStream);
-            TestDownloadArchives(
-                new Archive {Href = server.FileUri, MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
+            TestDownloadArchives(new Archive
+            {
+                Href = server.FileUri,
+                MimeType = Archive.MimeTypeZip,
+                Size = ZipArchiveStream.Length,
+                Extract = "extract",
+                Destination = "destination"
+            });
         }
 
         [Fact]
@@ -54,8 +60,14 @@ namespace ZeroInstall.Services.Fetchers
             StoreMock.Setup(x => x.Flush());
             using var tempFile = new TemporaryFile("0install-unit-tests");
             ZipArchiveStream.CopyToFile(tempFile);
-            TestDownloadArchives(
-                new Archive {Href = new Uri(tempFile), MimeType = Archive.MimeTypeZip, Size = ZipArchiveStream.Length, Extract = "extract", Destination = "destination"});
+            TestDownloadArchives(new Archive
+            {
+                Href = new Uri(tempFile),
+                MimeType = Archive.MimeTypeZip,
+                Size = ZipArchiveStream.Length,
+                Extract = "extract",
+                Destination = "destination"
+            });
         }
 
         [Fact]
@@ -123,7 +135,7 @@ namespace ZeroInstall.Services.Fetchers
         protected void TestDownloadArchives(params Archive[] archives)
         {
             var digest = new ManifestDigest(sha256New: "test123");
-            var archiveInfos = archives.Select(archive => new ArchiveFileInfo("dummy", archive.MimeType)
+            var archiveInfos = archives.Select(archive => new ArchiveFileInfo("dummy", archive.MimeType!)
             {
                 Extract = archive.Extract,
                 Destination = archive.Destination,

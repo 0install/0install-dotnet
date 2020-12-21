@@ -173,7 +173,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <inheritdoc/>
-        public Process? Start() => ToStartInfo().Start();
+        public Process Start() => ToStartInfo().Start();
 
         /// <summary>
         /// Returns the main (first) implementation of the selection.

@@ -124,16 +124,12 @@ namespace ZeroInstall.Store.Trust
 
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
-        {
-            foreach (PgpSecretKeyRing ring in SecretBundle.GetKeyRings())
-            {
-                var key = ring.GetSecretKey();
-                yield return new OpenPgpSecretKey(
-                    key.KeyId,
-                    key.PublicKey.GetFingerprint(),
-                    key.UserIds.Cast<string>().First());
-            }
-        }
+            => from PgpSecretKeyRing ring in SecretBundle.GetKeyRings()
+               select ring.GetSecretKey() into key
+               select new OpenPgpSecretKey(
+                   key.KeyId,
+                   key.PublicKey.GetFingerprint(),
+                   key.UserIds.Cast<string>().First());
 
         private static T ParseObject<T>(Stream stream) where T : PgpObject
         {

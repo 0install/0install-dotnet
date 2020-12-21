@@ -114,8 +114,8 @@ namespace ZeroInstall.Store.Implementations
         {
             string package1Path = DeployPackage("sha256=1", new TestRoot
             {
-                new TestFile("fileA") {Contents = "abc", LastWrite = new DateTime(2000, 1, 1)},
-                new TestFile("fileX") {Contents = "abc", LastWrite = new DateTime(2000, 2, 2)}
+                new TestFile("fileA") {Contents = "abc", LastWrite = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc)},
+                new TestFile("fileX") {Contents = "abc", LastWrite = new DateTime(2000, 2, 2, 0, 0, 0, DateTimeKind.Utc)},
             });
 
             _implementationStore.Optimise(_handler).Should().Be(0);

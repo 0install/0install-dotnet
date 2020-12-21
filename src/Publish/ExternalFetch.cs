@@ -3,7 +3,6 @@
 
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Native;

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 #if !NETFRAMEWORK
-using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
