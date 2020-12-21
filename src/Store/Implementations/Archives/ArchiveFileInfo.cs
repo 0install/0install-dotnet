@@ -38,23 +38,23 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <summary>
         /// The name of the subdirectory in the archive to extract (with Unix-style slashes); <c>null</c> to extract entire archive.
         /// </summary>
-        public string? Extract { get; set; }
+        public string? Extract { get; init; }
 
         /// <summary>
         /// The subdirectory within the implementation directory to extract this archive to; <c>null</c> for none.
         /// </summary>
-        public string? Destination { get; set; }
+        public string? Destination { get; init; }
 
         /// <summary>
         /// The number of bytes at the beginning of the file which should be ignored.
         /// </summary>
-        public long StartOffset { get; set; }
+        public long StartOffset { get; init; }
 
         /// <summary>
         /// The URL the file was originally downloaded from.
         /// </summary>
         /// <remarks>This is used to provide additional information in case of an exception.</remarks>
-        public Uri? OriginalSource { get; set; }
+        public Uri? OriginalSource { get; init; }
 
         /// <summary>
         /// Returns the archive in the form "ArchiveFileInfo: Path (MimeType, + StartOffset, SubDir) => Destination". Not safe for parsing!

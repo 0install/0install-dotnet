@@ -38,7 +38,7 @@ namespace ZeroInstall.Model
         /// Indicates whether this is a fake identifier meant for demo data and should not be used to actually fetch a feed.
         /// </summary>
         /// <seealso cref="FakePrefix"/>
-        public bool IsFake { get; private set; }
+        public bool IsFake { get; }
 
         /// <summary>
         /// This is prepended to <see cref="ImplementationSelection.FromFeed"/> if data was pulled from a native package manager rather than the feed itself.
@@ -51,19 +51,13 @@ namespace ZeroInstall.Model
         /// Indicates that an <see cref="ImplementationSelection"/> was generated with data from a native package manager rather than the feed itself.
         /// </summary>
         /// <seealso cref="FromDistributionPrefix"/>
-        public bool IsFromDistribution { get; private set; }
+        public bool IsFromDistribution { get; }
 
         private static string TrimPrefix(string value)
         {
             if (value.StartsWith(FakePrefix)) return value.Substring(FakePrefix.Length);
             else if (value.StartsWith(FromDistributionPrefix)) return value.Substring(FromDistributionPrefix.Length);
             else return value;
-        }
-
-        private void DetectPrefix(string value)
-        {
-            IsFake = value.StartsWith(FakePrefix);
-            IsFromDistribution = value.StartsWith(FromDistributionPrefix);
         }
 
         private string PrependPrefix(string result)
@@ -106,7 +100,8 @@ namespace ZeroInstall.Model
             if (Scheme is not ("http" or "https" or "file"))
                 throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
 
-            DetectPrefix(value);
+            IsFake = value.StartsWith(FakePrefix);
+            IsFromDistribution = value.StartsWith(FromDistributionPrefix);
         }
 
         #region Escaping
