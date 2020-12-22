@@ -109,7 +109,7 @@ namespace ZeroInstall.Model
         {
             try
             {
-                result = new ImplementationVersion(value);
+                result = new(value);
                 return true;
             }
             catch (FormatException)

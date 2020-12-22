@@ -23,7 +23,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             // TODO: Parse MacOS plist
             Name = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
-            Architecture = new Architecture(OS.MacOSX, Cpu.All);
+            Architecture = new(OS.MacOSX, Cpu.All);
             return true;
         }
     }

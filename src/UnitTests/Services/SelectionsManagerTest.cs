@@ -50,9 +50,9 @@ namespace ZeroInstall.Services
         public void TestGetUncachedSelectionsPackageManager()
         {
             using var tempFile = new TemporaryFile("0install-unit-tests");
-            var impl1 = new ExternalImplementation("RPM", "firefox", new ImplementationVersion("1.0")) {IsInstalled = false};
-            var impl2 = new ExternalImplementation("RPM", "thunderbird", new ImplementationVersion("1.0")) {IsInstalled = true};
-            var impl3 = new ExternalImplementation("RPM", "vlc", new ImplementationVersion("1.0")) {IsInstalled = true, QuickTestFile = tempFile};
+            var impl1 = new ExternalImplementation("RPM", "firefox", new("1.0")) {IsInstalled = false};
+            var impl2 = new ExternalImplementation("RPM", "thunderbird", new("1.0")) {IsInstalled = true};
+            var impl3 = new ExternalImplementation("RPM", "vlc", new("1.0")) {IsInstalled = true, QuickTestFile = tempFile};
 
             var selections = new Selections
             {
@@ -80,7 +80,7 @@ namespace ZeroInstall.Services
         {
             var impl1 = new Implementation {ID = "test123"};
             var impl2 = new Implementation {ID = "test456"};
-            var impl3 = new ExternalImplementation("RPM", "firefox", new ImplementationVersion("1.0"))
+            var impl3 = new ExternalImplementation("RPM", "firefox", new("1.0"))
             {
                 RetrievalMethods = {new ExternalRetrievalMethod {PackageID = "test"}}
             };
@@ -118,7 +118,7 @@ namespace ZeroInstall.Services
                         InterfaceUri = new FeedUri("http://root/"),
                         ID = "a",
                         ManifestDigest = digest1,
-                        Version = new ImplementationVersion("1.0"),
+                        Version = new("1.0"),
                         Dependencies =
                         {
                             new Dependency {InterfaceUri = new FeedUri("http://dependency/")},
@@ -130,19 +130,19 @@ namespace ZeroInstall.Services
                         InterfaceUri = new FeedUri("http://dependency/"),
                         ID = "b",
                         ManifestDigest = digest2,
-                        Version = new ImplementationVersion("2.0"),
+                        Version = new("2.0"),
                         Dependencies = {new Dependency {InterfaceUri = new FeedUri("http://root/")}} // Exercise cycle detection
                     }
                 }
             });
 
-            var node1 = new SelectionsTreeNode(new FeedUri("http://root/"), new ImplementationVersion("1.0"), "fake/path", parent: null);
+            var node1 = new SelectionsTreeNode(new("http://root/"), new("1.0"), "fake/path", parent: null);
             node1.ToString().Should().Be("- URI: http://root/\n  Version: 1.0\n  Path: fake/path");
 
-            var node2 = new SelectionsTreeNode(new FeedUri("http://dependency/"), new ImplementationVersion("2.0"), path: null, parent: node1);
+            var node2 = new SelectionsTreeNode(new("http://dependency/"), new("2.0"), path: null, parent: node1);
             node2.ToString().Should().Be($"  - URI: http://dependency/\n    Version: 2.0\n    {Resources.NotCached}");
 
-            var node3 = new SelectionsTreeNode(new FeedUri("http://missing/"), version: null, path: null, parent: node1);
+            var node3 = new SelectionsTreeNode(new("http://missing/"), version: null, path: null, parent: node1);
             node3.ToString().Should().Be($"  - URI: http://missing/\n    {Resources.NoSelectedVersion}");
 
             tree.Should().Equal(node1, node2, node3);
@@ -154,19 +154,19 @@ namespace ZeroInstall.Services
             {
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new ImplementationVersion("1.0")},
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed2"), Version = new ImplementationVersion("1.0")}
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new("1.0")},
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed2"), Version = new("1.0")}
                 }
             }, newSelections: new Selections
             {
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new ImplementationVersion("2.0")},
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new ImplementationVersion("2.0")}
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new("2.0")},
+                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new("2.0")}
                 }
             }).Should().BeEquivalentTo(
-            new SelectionsDiffNode(new FeedUri("http://feed1"), oldVersion: new ImplementationVersion("1.0"), newVersion: new ImplementationVersion("2.0")),
-            new SelectionsDiffNode(new FeedUri("http://feed2"), oldVersion: new ImplementationVersion("1.0")),
-            new SelectionsDiffNode(new FeedUri("http://feed3"), newVersion: new ImplementationVersion("2.0")));
+            new SelectionsDiffNode(new("http://feed1"), oldVersion: new("1.0"), newVersion: new("2.0")),
+            new SelectionsDiffNode(new("http://feed2"), oldVersion: new("1.0")),
+            new SelectionsDiffNode(new("http://feed3"), newVersion: new("2.0")));
     }
 }

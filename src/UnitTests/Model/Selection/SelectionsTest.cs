@@ -38,7 +38,7 @@ namespace ZeroInstall.Model.Selection
             implementation.GetImplementation(FeedTest.Test1Uri).Should().Be(implementation.Implementations[0]);
             implementation[FeedTest.Test1Uri].Should().Be(implementation.Implementations[0]);
 
-            implementation.GetImplementation(new FeedUri("http://invalid/")).Should().BeNull();
+            implementation.GetImplementation(new("http://invalid/")).Should().BeNull();
 
             Assert.Throws<KeyNotFoundException>(() => implementation[new FeedUri("http://invalid/")]);
         }

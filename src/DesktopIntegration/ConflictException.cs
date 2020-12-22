@@ -32,40 +32,33 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="existingEntry">The existing entry that is preventing <paramref name="newEntry"/> from being applied.</param>
         /// <param name="newEntry">The new entry that is in conflict with <paramref name="existingEntry"/>.</param>
         public static ConflictException NewConflict(ConflictData existingEntry, ConflictData newEntry)
-        {
-            string message = string.Format(Resources.AccessPointNewConflict, existingEntry, newEntry);
-            return new ConflictException(message) {Entries = new[] {existingEntry, newEntry}};
-        }
+            => new(string.Format(Resources.AccessPointNewConflict, existingEntry, newEntry))
+            {
+                Entries = new[] {existingEntry, newEntry}
+            };
 
         /// <summary>
         /// Creates an exception indicating an inner desktop integration conflict.
         /// </summary>
         /// <param name="entries">The entries that are in conflict with each other.</param>
         public static ConflictException InnerConflict(params ConflictData[] entries)
-        {
-            #region Sanity checks
-            if (entries == null) throw new ArgumentNullException(nameof(entries));
-            #endregion
-
-            string message = string.Format(Resources.AccessPointInnerConflict, entries[0].AppEntry) + Environment.NewLine +
-                             StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()!));
-            return new ConflictException(message) {Entries = entries};
-        }
+            => new(
+                string.Format(Resources.AccessPointInnerConflict, entries[0].AppEntry) + Environment.NewLine +
+                StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()!)))
+            {
+                Entries = entries
+            };
 
         /// <summary>
         /// Creates an exception indicating an existing desktop integration conflict.
         /// </summary>
         /// <param name="entries">The entries that are in conflict with each other.</param>
         public static ConflictException ExistingConflict(params ConflictData[] entries)
-        {
-            #region Sanity checks
-            if (entries == null) throw new ArgumentNullException(nameof(entries));
-            #endregion
-
-            string message = Resources.AccessPointExistingConflict + Environment.NewLine +
-                             StringUtils.Join(Environment.NewLine, entries.Select(x => x.ToString()));
-            return new ConflictException(message) {Entries = entries};
-        }
+            => new(Resources.AccessPointExistingConflict + Environment.NewLine +
+                   StringUtils.Join(Environment.NewLine, entries.Select(x => x.ToString())))
+            {
+                Entries = entries
+            };
 
         /// <inheritdoc/>
         public ConflictException()

@@ -18,7 +18,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (!base.Analyze(baseDirectory, file)) return false;
             if (!StringUtils.EqualsIgnoreCase(file.Extension, @".bat") && !StringUtils.EqualsIgnoreCase(file.Extension, @".cmd")) return false;
 
-            Architecture = new Architecture(OS.Windows, Cpu.All);
+            Architecture = new(OS.Windows, Cpu.All);
             Name = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
             NeedsTerminal = true;
             return true;

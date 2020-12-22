@@ -83,7 +83,7 @@ namespace ZeroInstall.Model.Preferences
             #endregion
 
             string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault();
-            if (string.IsNullOrEmpty(path)) return new FeedPreferences();
+            if (string.IsNullOrEmpty(path)) return new();
 
             Log.Debug("Loading feed preferences for " + feedUri.ToStringRfc() + " from: " + path);
             return XmlStorage.LoadXml<FeedPreferences>(path);
@@ -109,19 +109,19 @@ namespace ZeroInstall.Model.Preferences
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
                 Log.Warn(ex);
-                return new FeedPreferences();
+                return new();
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
                 Log.Warn(ex);
-                return new FeedPreferences();
+                return new();
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
                 Log.Warn(ex);
-                return new FeedPreferences();
+                return new();
             }
             #endregion
         }

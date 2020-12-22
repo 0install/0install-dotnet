@@ -140,7 +140,7 @@ namespace ZeroInstall.Publish
             Directory.CreateDirectory(Path.Combine(tempDir, "impl"));
             FileUtils.Touch(Path.Combine(tempDir, "impl", "file"));
 
-            var archive = new Archive {Href = new Uri("archive.zip", UriKind.Relative)};
+            var archive = new Archive {Href = new("archive.zip", UriKind.Relative)};
             var implementation = new Implementation {LocalPath = "impl", RetrievalMethods = {archive}};
 
             implementation.AddMissing(new SilentTaskHandler(), new SimpleCommandExecutor {Path = feedPath});

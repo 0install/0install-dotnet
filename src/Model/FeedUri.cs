@@ -159,7 +159,7 @@ namespace ZeroInstall.Model
                         break;
                 }
             }
-            return new FeedUri(builder.ToString());
+            return new(builder.ToString());
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace ZeroInstall.Model
                         break;
                 }
             }
-            return new FeedUri(builder.ToString());
+            return new(builder.ToString());
         }
 
         /// <summary>

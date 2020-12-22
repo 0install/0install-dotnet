@@ -62,7 +62,7 @@ namespace ZeroInstall.Services.Fetchers
             ZipArchiveStream.CopyToFile(tempFile);
             TestDownloadArchives(new Archive
             {
-                Href = new Uri(tempFile),
+                Href = new(tempFile),
                 MimeType = Archive.MimeTypeZip,
                 Size = ZipArchiveStream.Length,
                 Extract = "extract",

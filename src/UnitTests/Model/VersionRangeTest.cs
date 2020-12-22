@@ -18,15 +18,15 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestParse()
         {
-            new VersionRange("2.6").Parts.Should().Equal(new VersionRangePartExact(new ImplementationVersion("2.6")));
-            new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(lowerInclusive: null, upperExclusive: new ImplementationVersion("3")));
-            new VersionRange("!3").Parts.Should().Equal(new VersionRangePartExclude(new ImplementationVersion("3")));
+            new VersionRange("2.6").Parts.Should().Equal(new VersionRangePartExact(new("2.6")));
+            new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(lowerInclusive: null, upperExclusive: new("3")));
+            new VersionRange("!3").Parts.Should().Equal(new VersionRangePartExclude(new("3")));
             new VersionRange("2.6..!3 | 3.2.2..").Parts.Should().Equal(
-                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("2.6"), upperExclusive: new ImplementationVersion("3")),
-                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("3.2.2"), upperExclusive: null));
+                new VersionRangePartRange(lowerInclusive: new("2.6"), upperExclusive: new("3")),
+                new VersionRangePartRange(lowerInclusive: new("3.2.2"), upperExclusive: null));
             new VersionRange("..!3 | 3.2.2..").Parts.Should().Equal(
-                new VersionRangePartRange(lowerInclusive: null, upperExclusive: new ImplementationVersion("3")),
-                new VersionRangePartRange(lowerInclusive: new ImplementationVersion("3.2.2"), upperExclusive: null));
+                new VersionRangePartRange(lowerInclusive: null, upperExclusive: new("3")),
+                new VersionRangePartRange(lowerInclusive: new("3.2.2"), upperExclusive: null));
         }
 
         /// <summary>
@@ -133,18 +133,18 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestMatch()
         {
-            new VersionRange("1.2").Match(new ImplementationVersion("1.2")).Should().BeTrue();
-            new VersionRange("1.2").Match(new ImplementationVersion("1.3")).Should().BeFalse();
-            new VersionRange("!1.2").Match(new ImplementationVersion("1.3")).Should().BeTrue();
-            new VersionRange("!1.2").Match(new ImplementationVersion("1.2")).Should().BeFalse();
-            new VersionRange("1.2..").Match(new ImplementationVersion("1.2")).Should().BeTrue();
-            new VersionRange("1.2..").Match(new ImplementationVersion("1.1")).Should().BeFalse();
-            new VersionRange("..!1.2").Match(new ImplementationVersion("1.1")).Should().BeTrue();
-            new VersionRange("..!1.2").Match(new ImplementationVersion("1.2")).Should().BeFalse();
-            new VersionRange("1.0..!1.2").Match(new ImplementationVersion("1.0")).Should().BeTrue();
-            new VersionRange("1.0..!1.2").Match(new ImplementationVersion("1.1")).Should().BeTrue();
-            new VersionRange("1.0..!1.2").Match(new ImplementationVersion("0.9")).Should().BeFalse();
-            new VersionRange("1.0..!1.2").Match(new ImplementationVersion("1.2")).Should().BeFalse();
+            new VersionRange("1.2").Match(new("1.2")).Should().BeTrue();
+            new VersionRange("1.2").Match(new("1.3")).Should().BeFalse();
+            new VersionRange("!1.2").Match(new("1.3")).Should().BeTrue();
+            new VersionRange("!1.2").Match(new("1.2")).Should().BeFalse();
+            new VersionRange("1.2..").Match(new("1.2")).Should().BeTrue();
+            new VersionRange("1.2..").Match(new("1.1")).Should().BeFalse();
+            new VersionRange("..!1.2").Match(new("1.1")).Should().BeTrue();
+            new VersionRange("..!1.2").Match(new("1.2")).Should().BeFalse();
+            new VersionRange("1.0..!1.2").Match(new("1.0")).Should().BeTrue();
+            new VersionRange("1.0..!1.2").Match(new("1.1")).Should().BeTrue();
+            new VersionRange("1.0..!1.2").Match(new("0.9")).Should().BeFalse();
+            new VersionRange("1.0..!1.2").Match(new("1.2")).Should().BeFalse();
         }
     }
 }

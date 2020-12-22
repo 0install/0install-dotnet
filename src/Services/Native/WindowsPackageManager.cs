@@ -85,7 +85,7 @@ namespace ZeroInstall.Services.Native
                where File.Exists(mainPath) && File.Exists(secondaryPath)
                select new ExternalImplementation(DistributionName,
                    package: "openjdk-" + version + "-" + typeShort,
-                   version: new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
+                   version: new(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
                    cpu: javaHome.cpu)
                {
                    Commands =
@@ -116,7 +116,7 @@ namespace ZeroInstall.Services.Native
         // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
         private IEnumerable<ExternalImplementation> FindNetFx(string version, string clrVersion, string registryVersion, int releaseNumber = 0)
         {
-            ExternalImplementation Impl(Cpu cpu) => new(DistributionName, "netfx", new ImplementationVersion(version), cpu)
+            ExternalImplementation Impl(Cpu cpu) => new(DistributionName, "netfx", new(version), cpu)
             {
                 // .NET executables do not need a runner on Windows
                 Commands = {new Command {Name = Command.NameRun, Path = ""}},
@@ -152,7 +152,7 @@ namespace ZeroInstall.Services.Native
                 if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
                 return new ExternalImplementation(DistributionName, "powershell",
-                    version: new ImplementationVersion(version),
+                    version: new(version),
                     cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
                 {
                     Commands =
@@ -187,7 +187,7 @@ namespace ZeroInstall.Services.Native
                 if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
                 return new ExternalImplementation(DistributionName, "git",
-                    version: new ImplementationVersion(version),
+                    version: new(version),
                     cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
                 {
                     Commands =

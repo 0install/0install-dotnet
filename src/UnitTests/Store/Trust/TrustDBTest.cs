@@ -19,13 +19,13 @@ namespace ZeroInstall.Store.Trust
         {
             Keys =
             {
-                new Key
+                new()
                 {
                     Fingerprint = "abc",
                     Domains =
                     {
-                        new Domain {Value = "0install.de"},
-                        new Domain {Value = "eicher.net"}
+                        new() {Value = "0install.de"},
+                        new() {Value = "eicher.net"}
                     }
                 }
             }
@@ -35,14 +35,14 @@ namespace ZeroInstall.Store.Trust
         public void TestAddRemoveTrust()
         {
             var trust = new TrustDB();
-            trust.IsTrusted("abc", new Domain("domain")).Should().BeFalse();
+            trust.IsTrusted("abc", new("domain")).Should().BeFalse();
 
-            trust.TrustKey("abc", new Domain("domain"));
-            trust.Keys.Should().Equal(new Key {Fingerprint = "abc", Domains = {new Domain("domain")}});
+            trust.TrustKey("abc", new("domain"));
+            trust.Keys.Should().Equal(new Key {Fingerprint = "abc", Domains = {new("domain")}});
             trust.IsTrusted("abc", new Domain("domain")).Should().BeTrue();
 
-            trust.UntrustKey("abc", new Domain("domain"));
-            trust.IsTrusted("abc", new Domain("domain")).Should().BeFalse();
+            trust.UntrustKey("abc", new("domain"));
+            trust.IsTrusted("abc", new("domain")).Should().BeFalse();
         }
 
         [Fact] // Ensures that the class is correctly serialized and deserialized.

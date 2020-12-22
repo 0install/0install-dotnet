@@ -50,7 +50,7 @@ namespace ZeroInstall.Publish.Capture
             CollectFileAssocsEx(capsKey, capabilities);
             // Note: Contenders for StartMenu entries are detected elsewhere
 
-            return new AppRegistration
+            return new()
             {
                 ID = appRegName,
                 CapabilityRegPath = capabilitiesRegPath

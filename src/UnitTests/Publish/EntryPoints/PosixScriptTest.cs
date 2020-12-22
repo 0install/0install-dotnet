@@ -15,7 +15,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public static readonly PosixScript Reference = new()
         {
             RelativePath = "sh",
-            Architecture = new Architecture(OS.Posix, Cpu.All),
+            Architecture = new(OS.Posix, Cpu.All),
             Name = "sh",
             NeedsTerminal = true
         };

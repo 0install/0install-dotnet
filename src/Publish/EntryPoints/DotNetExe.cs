@@ -27,7 +27,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (peHeader == null) throw new ArgumentNullException(nameof(peHeader));
             #endregion
 
-            Architecture = new Architecture(OS.All, GetCpu(peHeader.FileHeader.Machine));
+            Architecture = new(OS.All, GetCpu(peHeader.FileHeader.Machine));
             if (peHeader.Subsystem >= Subsystem.WindowsCui) NeedsTerminal = true;
             return peHeader.Is32BitHeader
                 ? (peHeader.OptionalHeader32.CLRRuntimeHeader.VirtualAddress != 0)
@@ -66,23 +66,23 @@ namespace ZeroInstall.Publish.EntryPoints
                     case DotNetRuntimeType.Any:
                     default:
                         return ExternalDependencies
-                            ? new FeedUri("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new FeedUri("https://apps.0install.net/dotnet/clr.xml");
+                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
+                            : new("https://apps.0install.net/dotnet/clr.xml");
 
                     case DotNetRuntimeType.MicrosoftOnlyClientProfile:
-                        Architecture = new Architecture(OS.Windows, Architecture.Cpu);
+                        Architecture = new(OS.Windows, Architecture.Cpu);
                         return ExternalDependencies
-                            ? new FeedUri("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new FeedUri("https://apps.0install.net/dotnet/framework-client-profile.xml");
+                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
+                            : new("https://apps.0install.net/dotnet/framework-client-profile.xml");
 
                     case DotNetRuntimeType.MicrosoftOnlyFullProfile:
-                        Architecture = new Architecture(OS.Windows, Architecture.Cpu);
+                        Architecture = new(OS.Windows, Architecture.Cpu);
                         return ExternalDependencies
-                            ? new FeedUri("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new FeedUri("https://apps.0install.net/dotnet/framework.xml");
+                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
+                            : new("https://apps.0install.net/dotnet/framework.xml");
 
                     case DotNetRuntimeType.MonoOnly:
-                        return new FeedUri("https://apps.0install.net/dotnet/mono.xml");
+                        return new("https://apps.0install.net/dotnet/mono.xml");
                 }
             }
 

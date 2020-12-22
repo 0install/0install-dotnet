@@ -106,7 +106,7 @@ namespace ZeroInstall.Services.Feeds
         public void ExistingKeyAndNoAutoTrust()
         {
             RegisterKey();
-            _feedCacheMock.Setup(x => x.Contains(new FeedUri("http://localhost/test.xml"))).Returns(true);
+            _feedCacheMock.Setup(x => x.Contains(new("http://localhost/test.xml"))).Returns(true);
             _handler.AnswerQuestionWith = false;
 
             using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
@@ -121,7 +121,7 @@ namespace ZeroInstall.Services.Feeds
         public void ExistingKeyAndAutoTrust()
         {
             RegisterKey();
-            _feedCacheMock.Setup(x => x.Contains(new FeedUri("http://localhost/test.xml"))).Returns(false);
+            _feedCacheMock.Setup(x => x.Contains(new("http://localhost/test.xml"))).Returns(false);
 
             using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
             {

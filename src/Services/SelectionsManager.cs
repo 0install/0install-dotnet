@@ -156,7 +156,7 @@ namespace ZeroInstall.Services
                 var interfaceUri = newImplementation.InterfaceUri;
                 if (!oldSelections.ContainsImplementation(interfaceUri))
                 { // Implementation added
-                    yield return new SelectionsDiffNode(interfaceUri, newVersion: newImplementation.Version);
+                    yield return new(interfaceUri, newVersion: newImplementation.Version);
                 }
             }
 
@@ -167,11 +167,11 @@ namespace ZeroInstall.Services
                 var newImplementation = newSelections.GetImplementation(interfaceUri);
                 if (newImplementation == null)
                 { // Implementation removed
-                    yield return new SelectionsDiffNode(interfaceUri, oldVersion: oldImplementation.Version);
+                    yield return new(interfaceUri, oldVersion: oldImplementation.Version);
                 }
                 else if (oldImplementation.Version != newImplementation.Version)
                 { // Implementation updated
-                    yield return new SelectionsDiffNode(interfaceUri, oldVersion: oldImplementation.Version, newVersion: newImplementation.Version);
+                    yield return new(interfaceUri, oldVersion: oldImplementation.Version, newVersion: newImplementation.Version);
                 }
             }
         }

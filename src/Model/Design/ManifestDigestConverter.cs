@@ -35,7 +35,7 @@ namespace ZeroInstall.Model.Design
             if (values == null) throw new ArgumentNullException(nameof(values));
             #endregion
 
-            return new ManifestDigest(values[0], values[1], values[2], values[3]);
+            return new(values[0], values[1], values[2], values[3]);
         }
 
         /// <returns>A new instance of <see cref="ManifestDigest"/>.</returns>
@@ -45,7 +45,7 @@ namespace ZeroInstall.Model.Design
             if (propertyValues == null) throw new ArgumentNullException(nameof(propertyValues));
             #endregion
 
-            return new ManifestDigest(
+            return new(
                 (string?)propertyValues["Sha1"],
                 (string?)propertyValues["Sha1New"],
                 (string?)propertyValues["Sha256"],

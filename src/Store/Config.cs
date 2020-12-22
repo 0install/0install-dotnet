@@ -149,7 +149,7 @@ namespace ZeroInstall.Store
         [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Key-value dispatcher")]
         public Config()
         {
-            _metaData = new Dictionary<string, PropertyPointer<string>>
+            _metaData = new()
             {
                 {"freshness", PropertyPointer.For(() => Freshness, defaultValue: _defaultFreshness).ToStringPointer()},
                 {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value, defaultValue: false).ToStringPointer()},

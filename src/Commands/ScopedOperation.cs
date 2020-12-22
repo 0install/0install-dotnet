@@ -45,23 +45,23 @@ namespace ZeroInstall.Commands
 
             try
             {
-                if (uri.StartsWith("file://")) return new FeedUri(uri);
+                if (uri.StartsWith("file://")) return new(uri);
                 if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
-                if (uri.StartsWith("file:")) return new FeedUri(Path.GetFullPath(uri.Substring("file:".Length)));
-                if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new FeedUri(uri);
+                if (uri.StartsWith("file:")) return new(Path.GetFullPath(uri.Substring("file:".Length)));
+                if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
                 var result = TryResolveAlias(uri);
                 if (result != null) return result;
 
-                if (Path.IsPathRooted(uri)) return new FeedUri(uri);
+                if (Path.IsPathRooted(uri)) return new(uri);
 
                 string path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
-                if (File.Exists(path)) return new FeedUri(path);
+                if (File.Exists(path)) return new(path);
 
                 result = TryResolveCatalog(uri);
                 if (result != null) return result;
 
-                return new FeedUri(path);
+                return new(path);
             }
             #region Error handling
             catch (ArgumentException ex)

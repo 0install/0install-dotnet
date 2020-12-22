@@ -19,8 +19,8 @@ namespace ZeroInstall.Commands.Basic
             var selections = ExpectSolve();
 
             ExpectFetchUncached(selections,
-                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new ImplementationVersion("1.0")},
-                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new ImplementationVersion("1.0")});
+                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
+                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
 
             RunAndAssert(Resources.AllComponentsDownloaded, 0, selections,
                 "http://example.com/test1.xml", "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0");
@@ -32,8 +32,8 @@ namespace ZeroInstall.Commands.Basic
             var selections = Fake.Selections;
 
             ExpectFetchUncached(selections,
-                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new ImplementationVersion("1.0")},
-                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new ImplementationVersion("1.0")});
+                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
+                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
 
             using var tempFile = new TemporaryFile("0install-unit-tests");
             selections.SaveXml(tempFile);

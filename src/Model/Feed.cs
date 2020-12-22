@@ -144,13 +144,13 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="MinInjectorVersion"/>
         [XmlAttribute("min-injector-version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? MinInjectorVersionString { get => MinInjectorVersion?.ToString(); set => MinInjectorVersion = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
+        public string? MinInjectorVersionString { get => MinInjectorVersion?.ToString(); set => MinInjectorVersion = string.IsNullOrEmpty(value) ? null : new(value); }
 
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="Homepage"/>
         [DisplayName(@"Homepage"), Category("Interface"), Description("The main website of the application.")]
         [XmlElement("homepage"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? HomepageString { get => Homepage?.ToStringRfc(); set => Homepage = (string.IsNullOrEmpty(value) ? null : new Uri(value, UriKind.Absolute)); }
+        public string? HomepageString { get => Homepage?.ToStringRfc(); set => Homepage = (string.IsNullOrEmpty(value) ? null : new(value, UriKind.Absolute)); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NeedsTerminal"/>

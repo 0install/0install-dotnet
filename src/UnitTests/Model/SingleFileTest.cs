@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using FluentAssertions;
 using Xunit;
 
@@ -17,7 +16,7 @@ namespace ZeroInstall.Model
         /// </summary>
         internal static SingleFile CreateTestSingleFile() => new()
         {
-            Href = new Uri("http://example.com/test.exe"),
+            Href = new("http://example.com/test.exe"),
             Size = 128,
             Destination = "dest",
             Executable = true

@@ -221,7 +221,7 @@ namespace ZeroInstall.Services.Feeds
                     Log.Warn(string.Format(Resources.FeedDownloadError, feedUri) + " " + Resources.TryingFeedMirror);
                 try
                 {
-                    var download = new DownloadMemory(new Uri($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}feeds/{feedUri.Scheme}/{feedUri.Host}/{string.Concat(feedUri.Segments).TrimStart('/').Replace("/", "%23")}/latest.xml"))
+                    var download = new DownloadMemory(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}feeds/{feedUri.Scheme}/{feedUri.Host}/{string.Concat(feedUri.Segments).TrimStart('/').Replace("/", "%23")}/latest.xml"))
                     {
                         NoCache = Refresh
                     };

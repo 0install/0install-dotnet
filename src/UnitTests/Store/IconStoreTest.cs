@@ -31,14 +31,14 @@ namespace ZeroInstall.Store
         [Fact]
         public void ShouldEnsureCorrectFileExtension()
         {
-            string path = _store.BuildPath(PngIcon(new Uri("http://host/file")));
+            string path = _store.BuildPath(PngIcon(new("http://host/file")));
             Path.GetExtension(path).Should().Be(".png");
         }
 
         [Fact]
         public void ShouldReturnCached()
         {
-            var icon = PngIcon(new Uri("http://example.com/test1.png"));
+            var icon = PngIcon(new("http://example.com/test1.png"));
             Inject(icon, iconData: "icon");
             Verify(icon, iconData: "icon");
         }
@@ -66,7 +66,7 @@ namespace ZeroInstall.Store
         public void ShouldReturnStaleOnRefreshFailure()
         {
             using var server = new MicroServer("_", new MemoryStream());
-            var icon = PngIcon(new Uri(server.FileUri + "-invalid"));
+            var icon = PngIcon(new(server.FileUri + "-invalid"));
             Inject(icon, "data", timestamp: new DateTime(1980, 1, 1));
             Verify(icon, "data");
         }

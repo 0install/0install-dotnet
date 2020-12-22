@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 }
                 stream.Seek(0, SeekOrigin.Begin);
 
-                _zipStream = new ZipInputStream(stream);
+                _zipStream = new(stream);
             }
             #region Error handling
             catch (ZipException ex)

@@ -116,17 +116,17 @@ namespace ZeroInstall.Store
             catch (IOException ex)
             {
                 Log.Error(ex);
-                return new Config();
+                return new();
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Error(ex);
-                return new Config();
+                return new();
             }
             catch (InvalidDataException ex)
             {
                 Log.Error(ex);
-                return new Config();
+                return new();
             }
             #endregion
         }
@@ -260,7 +260,7 @@ namespace ZeroInstall.Store
         /// </summary>
         private void TransferToIni()
         {
-            _iniData ??= new IniData();
+            _iniData ??= new();
             _iniData.Sections.RemoveSection("__global__section__"); // Throw away section-less data
 
             if (!_iniData.Sections.ContainsSection(GlobalSection)) _iniData.Sections.AddSection(GlobalSection);

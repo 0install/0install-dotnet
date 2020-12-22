@@ -37,7 +37,7 @@ namespace ZeroInstall.Model.Design
             if (values == null) throw new ArgumentNullException(nameof(values));
             #endregion
 
-            return new Architecture(
+            return new(
                 values[0].ConvertFromString<OS>(),
                 values[1].ConvertFromString<Cpu>());
         }
@@ -49,7 +49,7 @@ namespace ZeroInstall.Model.Design
             if (propertyValues == null) throw new ArgumentNullException(nameof(propertyValues));
             #endregion
 
-            return new Architecture(
+            return new(
                 propertyValues["OS"]?.ToString()?.ConvertFromString<OS>() ?? OS.All,
                 propertyValues["Cpu"]?.ToString()?.ConvertFromString<Cpu>() ?? Cpu.All);
         }

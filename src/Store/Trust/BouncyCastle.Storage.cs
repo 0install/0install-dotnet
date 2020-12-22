@@ -47,22 +47,22 @@ namespace ZeroInstall.Store.Trust
                     using (new AtomicRead(_publicBundlePath))
                     {
                         using var stream = File.OpenRead(_publicBundlePath);
-                        return _publicBundle = new PgpPublicKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
+                        return _publicBundle = new(PgpUtilities.GetDecoderStream(stream));
                     }
                 }
                 #region Error handling
                 catch (DirectoryNotFoundException)
                 {
-                    return new PgpPublicKeyRingBundle(Enumerable.Empty<PgpPublicKeyRing>());
+                    return new(Enumerable.Empty<PgpPublicKeyRing>());
                 }
                 catch (FileNotFoundException)
                 {
-                    return new PgpPublicKeyRingBundle(Enumerable.Empty<PgpPublicKeyRing>());
+                    return new(Enumerable.Empty<PgpPublicKeyRing>());
                 }
                 catch (IOException ex)
                 {
                     Log.Warn(ex);
-                    return new PgpPublicKeyRingBundle(Enumerable.Empty<PgpPublicKeyRing>());
+                    return new(Enumerable.Empty<PgpPublicKeyRing>());
                 }
                 #endregion
             }
@@ -95,21 +95,21 @@ namespace ZeroInstall.Store.Trust
                 try
                 {
                     using var stream = File.OpenRead(_secretBundlePath);
-                    return _secretBundle = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(stream));
+                    return _secretBundle = new(PgpUtilities.GetDecoderStream(stream));
                 }
                 #region Error handling
                 catch (DirectoryNotFoundException)
                 {
-                    return new PgpSecretKeyRingBundle(Enumerable.Empty<PgpSecretKeyRing>());
+                    return new(Enumerable.Empty<PgpSecretKeyRing>());
                 }
                 catch (FileNotFoundException)
                 {
-                    return new PgpSecretKeyRingBundle(Enumerable.Empty<PgpSecretKeyRing>());
+                    return new(Enumerable.Empty<PgpSecretKeyRing>());
                 }
                 catch (IOException ex)
                 {
                     Log.Warn(ex);
-                    return new PgpSecretKeyRingBundle(Enumerable.Empty<PgpSecretKeyRing>());
+                    return new(Enumerable.Empty<PgpSecretKeyRing>());
                 }
                 #endregion
             }

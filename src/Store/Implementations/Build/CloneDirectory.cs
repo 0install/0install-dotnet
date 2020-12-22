@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.Implementations.Build
         public CloneDirectory(string sourcePath, string targetPath)
             : base(sourcePath)
         {
-            DirectoryBuilder = new DirectoryBuilder(targetPath ?? throw new ArgumentNullException(targetPath));
+            DirectoryBuilder = new(targetPath ?? throw new ArgumentNullException(targetPath));
         }
 
         /// <inheritdoc/>

@@ -50,7 +50,7 @@ namespace ZeroInstall.Model
         {
             var absoluteHref = WindowsUtils.IsWindows ? new Uri("file:///C:/local/subdir/file") : new Uri("file:///local/subdir/file");
 
-            var result = ModelUtils.GetAbsoluteHref(new Uri("subdir/file", UriKind.Relative), new FeedUri(WindowsUtils.IsWindows ? @"C:\local\feed.xml" : "/local/feed.xml"));
+            var result = ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative), new FeedUri(WindowsUtils.IsWindows ? @"C:\local\feed.xml" : "/local/feed.xml"));
             result.IsAbsoluteUri.Should().BeTrue();
             result.Should().Be(absoluteHref);
 
@@ -61,8 +61,8 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestGetAbsoluteHrefException()
         {
-            Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new Uri("subdir/file", UriKind.Relative)));
-            Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new Uri("subdir/file", UriKind.Relative), new FeedUri("http://remote/")));
+            Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative)));
+            Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative), new FeedUri("http://remote/")));
         }
     }
 }

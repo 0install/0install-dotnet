@@ -89,9 +89,9 @@ namespace ZeroInstall.Commands.Basic
             Options.Add("s|source", () => Resources.OptionSource,
                 _ => Requirements.Source = true);
             Options.Add("os=", () => Resources.OptionOS + Environment.NewLine + SupportedValues<OS>(),
-                (OS os) => Requirements.Architecture = new Architecture(os, Requirements.Architecture.Cpu));
+                (OS os) => Requirements.Architecture = new(os, Requirements.Architecture.Cpu));
             Options.Add("cpu=", () => Resources.OptionCpu + Environment.NewLine + SupportedValues<Cpu>(),
-                (Cpu cpu) => Requirements.Architecture = new Architecture(Requirements.Architecture.OS, cpu));
+                (Cpu cpu) => Requirements.Architecture = new(Requirements.Architecture.OS, cpu));
             Options.Add("language=", () => Resources.OptionLanguage,
                 (CultureInfo lang) => Requirements.Languages.Add(lang));
 

@@ -19,7 +19,7 @@ namespace ZeroInstall.Model.Preferences
         {
             Uri = new FeedUri("http://somedomain/someapp.xml"),
             StabilityPolicy = Stability.Testing,
-            Feeds = {new FeedReference {Source = new FeedUri("http://invalid/")}}
+            Feeds = {new() {Source = new FeedUri("http://invalid/")}}
         };
 
         [Fact] // Ensures that the class is correctly serialized and deserialized.

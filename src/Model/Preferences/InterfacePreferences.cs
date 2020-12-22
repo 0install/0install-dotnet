@@ -69,7 +69,7 @@ namespace ZeroInstall.Model.Preferences
             #endregion
 
             string path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
-            if (string.IsNullOrEmpty(path)) return new InterfacePreferences();
+            if (string.IsNullOrEmpty(path)) return new();
 
             Log.Debug("Loading interface preferences for " + interfaceUri.ToStringRfc() + " from: " + path);
             return XmlStorage.LoadXml<InterfacePreferences>(path);
@@ -95,19 +95,19 @@ namespace ZeroInstall.Model.Preferences
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri));
                 Log.Warn(ex);
-                return new InterfacePreferences();
+                return new();
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri));
                 Log.Warn(ex);
-                return new InterfacePreferences();
+                return new();
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri));
                 Log.Warn(ex);
-                return new InterfacePreferences();
+                return new();
             }
             #endregion
         }

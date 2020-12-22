@@ -17,7 +17,7 @@ namespace ZeroInstall.Model.Selection
         [Fact]
         public void TestRejectsMissingId()
         {
-            ShouldThrow(new Implementation {Version = new ImplementationVersion("1")});
+            ShouldThrow(new Implementation {Version = new("1")});
         }
 
         [Fact]

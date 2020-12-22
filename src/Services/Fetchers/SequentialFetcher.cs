@@ -129,7 +129,7 @@ namespace ZeroInstall.Services.Fetchers
                 try
                 {
                     var mirrored = (DownloadRetrievalMethod)retrievalMethod.Clone();
-                    mirrored.Href = new Uri($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{retrievalMethod.Href.Scheme}/{retrievalMethod.Href.Host}/{string.Concat(retrievalMethod.Href.Segments).TrimStart('/').Replace("/", "%23")}");
+                    mirrored.Href = new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{retrievalMethod.Href.Scheme}/{retrievalMethod.Href.Host}/{string.Concat(retrievalMethod.Href.Segments).TrimStart('/').Replace("/", "%23")}");
                     return base.Download(mirrored, tag);
                 }
                 catch (WebException)

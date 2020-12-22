@@ -35,17 +35,17 @@ namespace ZeroInstall.Services.Feeds
             catch (IOException ex)
             {
                 Log.Warn(ex.Message);
-                return new Catalog();
+                return new();
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(ex.Message);
-                return new Catalog();
+                return new();
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(ex.Message);
-                return new Catalog();
+                return new();
             }
             #endregion
         }
@@ -69,27 +69,27 @@ namespace ZeroInstall.Services.Feeds
             catch (IOException ex)
             {
                 Log.Warn(ex);
-                return new Catalog();
+                return new();
             }
             catch (WebException ex)
             {
                 Log.Warn(ex);
-                return new Catalog();
+                return new();
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(ex);
-                return new Catalog();
+                return new();
             }
             catch (SignatureException ex)
             {
                 Log.Warn(ex);
-                return new Catalog();
+                return new();
             }
             catch (UriFormatException ex)
             {
                 Log.Warn(ex);
-                return new Catalog();
+                return new();
             }
             #endregion
         }

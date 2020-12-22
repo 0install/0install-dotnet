@@ -76,7 +76,7 @@ namespace ZeroInstall.Model
 
             if (href.IsAbsoluteUri) return href;
             if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
-            return new Uri(new Uri(source.LocalPath, UriKind.Absolute), href);
+            return new(new(source.LocalPath, UriKind.Absolute), href);
         }
 
         /// <summary>

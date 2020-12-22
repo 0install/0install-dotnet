@@ -141,25 +141,25 @@ namespace ZeroInstall.Store.Trust
             }
             catch (FileNotFoundException)
             {
-                return new TrustDB {_filePath = DefaultLocation}; // Start empty and save new file
+                return new() {_filePath = DefaultLocation}; // Start empty and save new file
             }
             catch (IOException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB(); // Start empty but do not overwrite existing file
+                return new(); // Start empty but do not overwrite existing file
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB(); // Start empty but do not overwrite existing file
+                return new(); // Start empty but do not overwrite existing file
             }
             catch (InvalidDataException ex)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);
-                return new TrustDB(); // Start empty but do not overwrite existing file
+                return new(); // Start empty but do not overwrite existing file
             }
         }
 

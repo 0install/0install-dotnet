@@ -24,8 +24,8 @@ namespace ZeroInstall.Commands.Basic
             var requirements = CreateTestRequirements();
             var selectionsOld = Fake.Selections;
             var selectionsNew = Fake.Selections;
-            selectionsNew.Implementations[1].Version = new ImplementationVersion("2.0");
-            selectionsNew.Implementations.Add(new ImplementationSelection {InterfaceUri = Fake.SubFeed3Uri, ID = "id3", Version = new ImplementationVersion("0.1")});
+            selectionsNew.Implementations[1].Version = new("2.0");
+            selectionsNew.Implementations.Add(new ImplementationSelection {InterfaceUri = Fake.SubFeed3Uri, ID = "id3", Version = new("0.1")});
 
             GetMock<ISolver>().SetupSequence(x => x.Solve(requirements))
                               .Returns(selectionsOld)

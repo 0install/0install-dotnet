@@ -26,7 +26,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             string[] parts = line.Split(new[] {' '}, numberOfParts);
             if (parts.Length != numberOfParts) throw new FormatException(Resources.InvalidNumberOfLineParts);
 
-            return new ManifestDirectory(parts[1]);
+            return new(parts[1]);
         }
 
         /// <summary>

@@ -20,44 +20,44 @@ namespace ZeroInstall.Services.Solvers
         [Fact]
         public void PreferStability() => TestSort(
             new SelectionCandidateComparer(Stability.Stable, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-            better: new Implementation {ID = "1", Version = new ImplementationVersion("1"), Stability = Stability.Stable},
-            worse: new Implementation {ID = "2", Version = new ImplementationVersion("2"), Stability = Stability.Testing});
+            better: new Implementation {ID = "1", Version = new("1"), Stability = Stability.Stable},
+            worse: new Implementation {ID = "2", Version = new("2"), Stability = Stability.Testing});
 
         [Fact]
         public void IgnoreStabilityAbovePolicy() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-            better: new Implementation {ID = "2", Version = new ImplementationVersion("2"), Stability = Stability.Testing},
-            worse: new Implementation {ID = "1", Version = new ImplementationVersion("1"), Stability = Stability.Stable});
+            better: new Implementation {ID = "2", Version = new("2"), Stability = Stability.Testing},
+            worse: new Implementation {ID = "1", Version = new("1"), Stability = Stability.Stable});
 
         [Fact]
         public void PreferNativePackagesIgnoringVersionModifiers() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-            better: new Implementation {ID = "1-1", Version = new ImplementationVersion("2"), Stability = Stability.Packaged},
-            worse: new Implementation {ID = "1-2", Version = new ImplementationVersion("1"), Stability = Stability.Stable});
+            better: new Implementation {ID = "1-1", Version = new("2"), Stability = Stability.Packaged},
+            worse: new Implementation {ID = "1-2", Version = new("1"), Stability = Stability.Stable});
 
         [Fact]
         public void PreferCached() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: x => x.ID == "1a"),
-            better: new Implementation {ID = "1a", Version = new ImplementationVersion("1")},
-            worse: new Implementation {ID = "1b", Version = new ImplementationVersion("1")});
+            better: new Implementation {ID = "1a", Version = new("1")},
+            worse: new Implementation {ID = "1b", Version = new("1")});
 
         [Fact]
         public void PreferCachedForLimitedNetwork() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Minimal, new LanguageSet(), isCached: x => x.ID == "1"),
-            better: new Implementation {ID = "1", Version = new ImplementationVersion("1")},
-            worse: new Implementation {ID = "2", Version = new ImplementationVersion("2")});
+            better: new Implementation {ID = "1", Version = new("1")},
+            worse: new Implementation {ID = "2", Version = new("2")});
 
         [Fact]
         public void PreferSpecificOS() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-            better: new Implementation {ID = "1a", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.Linux, Cpu.All)},
-            worse: new Implementation {ID = "1b", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.Posix, Cpu.All)});
+            better: new Implementation {ID = "1a", Version = new("1"), Architecture = new(OS.Linux, Cpu.All)},
+            worse: new Implementation {ID = "1b", Version = new("1"), Architecture = new(OS.Posix, Cpu.All)});
 
         [Fact]
         public void PreferSpecificCpu() => TestSort(
             new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-            better: new Implementation {ID = "1a", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.All, Cpu.I686)},
-            worse: new Implementation {ID = "1b", Version = new ImplementationVersion("1"), Architecture = new Architecture(OS.All, Cpu.I486)});
+            better: new Implementation {ID = "1a", Version = new("1"), Architecture = new(OS.All, Cpu.I686)},
+            worse: new Implementation {ID = "1b", Version = new("1"), Architecture = new(OS.All, Cpu.I486)});
 
         private static void TestSort(SelectionCandidateComparer comparer, Implementation better, Implementation worse)
         {

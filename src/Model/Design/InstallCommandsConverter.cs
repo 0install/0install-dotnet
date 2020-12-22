@@ -36,7 +36,7 @@ namespace ZeroInstall.Model.Design
             if (values == null) throw new ArgumentNullException(nameof(values));
             #endregion
 
-            return new InstallCommands
+            return new()
             {
                 Reinstall = values[0],
                 ReinstallArgs = values[1],

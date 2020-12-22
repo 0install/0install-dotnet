@@ -86,7 +86,7 @@ namespace ZeroInstall.Publish.Capture
             (string? showIcons, string? showIconsArgs) = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueShowIconsCommand);
             (string? hideIcons, string? hideIconsArgs) = IsolateCommand(DesktopIntegration.Windows.DefaultProgram.RegValueHideIconsCommand);
 
-            return new InstallCommands
+            return new()
             {
                 Reinstall = reinstall,
                 ReinstallArgs = reinstallArgs,

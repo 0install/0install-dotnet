@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             try
             {
-                _tarStream = new TarInputStream(stream, Encoding.UTF8);
+                _tarStream = new(stream, Encoding.UTF8);
             }
             catch (SharpZipBaseException ex)
             {

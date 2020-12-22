@@ -20,7 +20,7 @@ namespace ZeroInstall.Model
             var reference1 = new FeedReference
             {
                 Source = FeedTest.Test1Uri,
-                Architecture = new Architecture(OS.Windows, Cpu.I586),
+                Architecture = new(OS.Windows, Cpu.I586),
                 Languages = {"en-US"}
             };
             var reference2 = reference1.Clone();
@@ -40,13 +40,13 @@ namespace ZeroInstall.Model
             var reference1 = new FeedReference
             {
                 Source = FeedTest.Test1Uri,
-                Architecture = new Architecture(OS.Windows, Cpu.I586),
+                Architecture = new(OS.Windows, Cpu.I586),
                 Languages = {"en-US"}
             };
             var reference2 = new FeedReference
             {
                 Source = FeedTest.Test1Uri,
-                Architecture = new Architecture(OS.Windows, Cpu.I586),
+                Architecture = new(OS.Windows, Cpu.I586),
                 Languages = {"en-US"}
             };
             reference2.Should().Be(reference1);
@@ -54,7 +54,7 @@ namespace ZeroInstall.Model
             reference2 = new FeedReference
             {
                 Source = FeedTest.Test1Uri,
-                Architecture = new Architecture(OS.Windows, Cpu.I586),
+                Architecture = new(OS.Windows, Cpu.I586),
                 Languages = {"de-DE"}
             };
             reference2.Should().NotBe(reference1);

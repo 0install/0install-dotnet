@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using NanoByte.Common.Net;
 using Xunit;
 using ZeroInstall.Model;
@@ -23,7 +22,7 @@ namespace ZeroInstall.Services.Fetchers
             Config.FeedMirror = new FeedUri(mirrorServer.ServerUri);
             TestDownloadArchives(new Archive
             {
-                Href = new Uri("http://invalid/directory/archive.zip"),
+                Href = new("http://invalid/directory/archive.zip"),
                 MimeType = Archive.MimeTypeZip,
                 Size = ZipArchiveStream.Length,
                 Extract = "extract",

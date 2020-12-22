@@ -69,7 +69,7 @@ namespace ZeroInstall.Services.Native
             if (cpu != Cpu.All)
             {
                 ID += ":" + cpu.ConvertToString();
-                Architecture = new Architecture(OS.All, cpu);
+                Architecture = new(OS.All, cpu);
             }
         }
 
@@ -88,8 +88,8 @@ namespace ZeroInstall.Services.Native
             if (parts.Length < 4 || parts[0] + ":" != PackagePrefix)
                 throw new FormatException();
 
-            var implementation = new ExternalImplementation(distribution: parts[1], package: parts[2], version: new ImplementationVersion(parts[3])) {ID = id};
-            if (parts.Length >= 5) implementation.Architecture = new Architecture(OS.All, parts[4].ConvertFromString<Cpu>());
+            var implementation = new ExternalImplementation(distribution: parts[1], package: parts[2], version: new(parts[3])) {ID = id};
+            if (parts.Length >= 5) implementation.Architecture = new(OS.All, parts[4].ConvertFromString<Cpu>());
 
             return implementation;
         }

@@ -57,7 +57,7 @@ namespace ZeroInstall.Publish
             #endregion
 
             var openPgp = OpenPgp.Signing();
-            return new SignedCatalog(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, openPgp), openPgp);
+            return new(XmlStorage.LoadXml<Catalog>(path), FeedUtils.GetKey(path, openPgp), openPgp);
         }
 
         /// <summary>

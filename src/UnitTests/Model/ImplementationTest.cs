@@ -22,8 +22,8 @@ namespace ZeroInstall.Model
         {
             ID = "id",
             ManifestDigest = new ManifestDigest(sha256: "123"),
-            Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Version = new("1.0"),
+            Architecture = new(OS.Windows, Cpu.I586),
             Languages = {"en-US"},
             Main = "executable",
             DocDir = "doc",
@@ -130,8 +130,8 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestNormalizeRejectRelativeHref()
         {
-            var relative = new Archive {Href = new Uri("relative", UriKind.Relative)};
-            var absolute = new Archive {Href = new Uri("http://server/absolute.zip", UriKind.Absolute)};
+            var relative = new Archive {Href = new("relative", UriKind.Relative)};
+            var absolute = new Archive {Href = new("http://server/absolute.zip", UriKind.Absolute)};
             var implementation = new Implementation {RetrievalMethods = {relative, absolute}};
 
             implementation.Normalize(FeedTest.Test1Uri);

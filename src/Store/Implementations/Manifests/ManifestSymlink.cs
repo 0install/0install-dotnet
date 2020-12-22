@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
             try
             {
-                return new ManifestSymlink(parts[1], long.Parse(parts[2]), parts[3]);
+                return new(parts[1], long.Parse(parts[2]), parts[3]);
             }
             #region Error handling
             catch (OverflowException ex)

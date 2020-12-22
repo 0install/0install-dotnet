@@ -19,7 +19,7 @@ namespace ZeroInstall.Model
             Versions = new VersionRange("1.0..!2.0"),
             OS = OS.Windows,
             Distributions = {Restriction.DistributionZeroInstall},
-            Constraints = {new Constraint {NotBefore = new ImplementationVersion("1.0"), Before = new ImplementationVersion("2.0")}}
+            Constraints = {new Constraint {NotBefore = new("1.0"), Before = new("2.0")}}
         };
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestNormalizeNotBefore()
         {
-            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new ImplementationVersion("1.0")}}};
+            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new("1.0")}}};
             restriction.Normalize();
             restriction.Versions.Should().Be(new VersionRange("1.0.."));
         }
@@ -58,7 +58,7 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestNormalizeBefore()
         {
-            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {Before = new ImplementationVersion("2.0")}}};
+            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {Before = new("2.0")}}};
             restriction.Normalize();
             restriction.Versions.Should().Be(new VersionRange("..!2.0"));
         }
@@ -69,7 +69,7 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestNormalizeRange()
         {
-            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new ImplementationVersion("1.0"), Before = new ImplementationVersion("2.0")}}};
+            var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new("1.0"), Before = new("2.0")}}};
             restriction.Normalize();
             restriction.Versions.Should().Be(new VersionRange("1.0..!2.0"));
         }
@@ -85,8 +85,8 @@ namespace ZeroInstall.Model
                 InterfaceUri = FeedTest.Test1Uri,
                 Constraints =
                 {
-                    new Constraint {NotBefore = new ImplementationVersion("1.0"), Before = new ImplementationVersion("2.0")},
-                    new Constraint {NotBefore = new ImplementationVersion("0.9"), Before = new ImplementationVersion("1.9")}
+                    new Constraint {NotBefore = new("1.0"), Before = new("2.0")},
+                    new Constraint {NotBefore = new("0.9"), Before = new("1.9")}
                 }
             };
             restriction.Normalize();

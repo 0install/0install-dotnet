@@ -66,7 +66,7 @@ namespace ZeroInstall.Commands.Basic
                 var archives = new ArchiveFileInfo[(AdditionalArgs.Count + 1) / 3];
                 for (int i = 0; i < archives.Length; i++)
                 {
-                    archives[i] = new ArchiveFileInfo(
+                    archives[i] = new(
                         Path: Path.GetFullPath(AdditionalArgs[i * 3 + 1]),
                         MimeType: (AdditionalArgs.Count > i * 3 + 3) ? AdditionalArgs[i * 3 + 3] : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]))
                     {

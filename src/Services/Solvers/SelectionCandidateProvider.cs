@@ -47,10 +47,10 @@ namespace ZeroInstall.Services.Solvers
             if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
 
-            _interfacePreferences = new TransparentCache<FeedUri, InterfacePreferences>(InterfacePreferences.LoadForSafe);
-            _externalImplementations = new Dictionary<string, ExternalImplementation>();
-            _storeContains = new TransparentCache<ManifestDigest, bool>(implementationStore.Contains);
-            _feeds = new TransparentCache<FeedUri, Feed?>(feedUri =>
+            _interfacePreferences = new(InterfacePreferences.LoadForSafe);
+            _externalImplementations = new();
+            _storeContains = new(implementationStore.Contains);
+            _feeds = new(feedUri =>
             {
                 try
                 {
@@ -130,9 +130,9 @@ namespace ZeroInstall.Services.Solvers
 
             AddFeedToDict(requirements.InterfaceUri);
             foreach (string path in GetNativeFeedPaths(requirements.InterfaceUri))
-                AddFeedToDict(new FeedUri(path));
+                AddFeedToDict(new(path));
             foreach (string path in GetSitePackagePaths(requirements.InterfaceUri))
-                AddFeedToDict(new FeedUri(path));
+                AddFeedToDict(new(path));
             foreach (var reference in _interfacePreferences[requirements.InterfaceUri].Feeds)
             {
                 try
@@ -172,7 +172,7 @@ namespace ZeroInstall.Services.Solvers
                     foreach (var externalImplementation in externalImplementations)
                     {
                         _externalImplementations[externalImplementation.ID] = externalImplementation;
-                        yield return new SelectionCandidate(new FeedUri(FeedUri.FromDistributionPrefix + feedUri), feedPreferences, externalImplementation, requirements);
+                        yield return new SelectionCandidate(new(FeedUri.FromDistributionPrefix + feedUri), feedPreferences, externalImplementation, requirements);
                     }
                 }
                 else if (requirements.Distributions.ContainsOrEmpty(Restriction.DistributionZeroInstall))

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -33,12 +32,12 @@ namespace ZeroInstall.Model
             Uri = Test1Uri,
             Name = "MyApp",
             Categories = {"Category1", "Category2"},
-            Homepage = new Uri("http://example.com/"),
-            Feeds = {new FeedReference {Source = Sub1Uri}},
-            FeedFor = {new InterfaceReference {Target = new FeedUri("http://example.com/super1.xml")}},
+            Homepage = new("http://example.com/"),
+            Feeds = {new() {Source = Sub1Uri}},
+            FeedFor = {new() {Target = new FeedUri("http://example.com/super1.xml")}},
             Summaries = {"Default summary", {"de-DE", "German summary"}},
             Descriptions = {"Default description", {"de-DE", "German description"}},
-            Icons = {new Icon {Href = new Uri("http://example.com/test.png"), MimeType = Icon.MimeTypePng}},
+            Icons = {new Icon {Href = new("http://example.com/test.png"), MimeType = Icon.MimeTypePng}},
             Elements = {CreateTestImplementation(), CreateTestPackageImplementation(), CreateTestGroup()},
             CapabilityLists = {CapabilityListTest.CreateTestCapabilityList()},
             EntryPoints =
@@ -49,7 +48,7 @@ namespace ZeroInstall.Model
                     BinaryName = "myapp",
                     Names = {"Entry name", {"de-DE", "German entry name"}},
                     Summaries = {"Entry summary", {"de-DE", "German entry summary"}},
-                    Icons = {new Icon {Href = new Uri("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng}}
+                    Icons = {new Icon {Href = new("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng}}
                 }
             }
         };
@@ -61,8 +60,8 @@ namespace ZeroInstall.Model
         {
             ID = "id1",
             ManifestDigest = new ManifestDigest(sha256: "123"),
-            Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Version = new("1.0"),
+            Architecture = new(OS.Windows, Cpu.I586),
             Languages = {"en-US"},
             Commands = {CommandTest.CreateTestCommand1()},
             DocDir = "doc",
@@ -72,7 +71,7 @@ namespace ZeroInstall.Model
                 new Dependency
                 {
                     InterfaceUri = Test1Uri,
-                    Constraints = {new Constraint {NotBefore = new ImplementationVersion("1.0"), Before = new ImplementationVersion("2.0")}},
+                    Constraints = {new Constraint {NotBefore = new("1.0"), Before = new("2.0")}},
                     Bindings = {EnvironmentBindingTest.CreateTestBinding(), OverlayBindingTest.CreateTestBinding(), ExecutableInVarTest.CreateTestBinding(), ExecutableInPathTest.CreateTestBinding()}
                 }
             },
@@ -81,7 +80,7 @@ namespace ZeroInstall.Model
                 new Restriction
                 {
                     InterfaceUri = Test2Uri,
-                    Constraints = {new Constraint {Before = new ImplementationVersion("2.0")}}
+                    Constraints = {new Constraint {Before = new("2.0")}}
                 }
             },
             RetrievalMethods =
@@ -90,8 +89,8 @@ namespace ZeroInstall.Model
                 {
                     Steps =
                     {
-                        new Archive {Href = new Uri("http://example.com/test.zip"), Size = 1024},
-                        new SingleFile {Href = new Uri("http://example.com/test.dat"), Size = 1024, Destination = "test.dat"},
+                        new Archive {Href = new("http://example.com/test.zip"), Size = 1024},
+                        new SingleFile {Href = new("http://example.com/test.dat"), Size = 1024, Destination = "test.dat"},
                         new RenameStep {Source = "a", Destination = "b"},
                         new RemoveStep {Path = "c"}
                     }
@@ -106,8 +105,8 @@ namespace ZeroInstall.Model
         {
             Package = "firefox",
             Distributions = {"RPM"},
-            Version = new ImplementationVersion("1.0"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Version = new("1.0"),
+            Architecture = new(OS.Windows, Cpu.I586),
             Languages = {"en-US"},
             Commands = {CommandTest.CreateTestCommand1()},
             DocDir = "doc",
@@ -128,7 +127,7 @@ namespace ZeroInstall.Model
         private static Group CreateTestGroup() => new()
         {
             Languages = {"de"},
-            Architecture = new Architecture(OS.FreeBsd, Cpu.I586),
+            Architecture = new(OS.FreeBsd, Cpu.I586),
             License = "GPL",
             Stability = Stability.Developer,
             Elements =
@@ -215,8 +214,8 @@ namespace ZeroInstall.Model
             feed.SaveXml(tempFile);
             var feedReload = XmlStorage.LoadXml<Feed>(tempFile);
 
-            feed.Normalize(new FeedUri(tempFile));
-            feedReload.Normalize(new FeedUri(tempFile));
+            feed.Normalize(new(tempFile));
+            feedReload.Normalize(new(tempFile));
             feedReload.GetHashCode().Should().Be(feed.GetHashCode());
         }
 
@@ -317,8 +316,8 @@ namespace ZeroInstall.Model
         {
             var feed = CreateTestFeed();
 
-            var feedIcon = new Icon {Href = new Uri("http://example.com/test.png"), MimeType = Icon.MimeTypePng};
-            var commandIcon = new Icon {Href = new Uri("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng};
+            var feedIcon = new Icon {Href = new("http://example.com/test.png"), MimeType = Icon.MimeTypePng};
+            var commandIcon = new Icon {Href = new("http://example.com/test_command.png"), MimeType = Icon.MimeTypePng};
 
             feed.GetBestIcon(Icon.MimeTypePng, null).Should().Be(commandIcon);
             feed.GetBestIcon(Icon.MimeTypePng, "unknown").Should().Be(feedIcon);

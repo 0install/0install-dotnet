@@ -57,7 +57,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             _innerStores = innerStores.ToArray();
-            _containsCache = new TransparentCache<ManifestDigest, bool>(manifestDigest => _innerStores.Any(x => x.Contains(manifestDigest)));
+            _containsCache = new(manifestDigest => _innerStores.Any(x => x.Contains(manifestDigest)));
         }
         #endregion
 

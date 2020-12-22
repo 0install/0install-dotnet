@@ -21,7 +21,7 @@ namespace ZeroInstall.Publish.EntryPoints
             string? firstLine = file.ReadFirstLine(Encoding.ASCII);
             if (string.IsNullOrEmpty(firstLine) || !firstLine.StartsWith(@"#!")) return false;
 
-            Architecture = new Architecture(OS.Posix, Cpu.All);
+            Architecture = new(OS.Posix, Cpu.All);
             Name = file.Name;
             NeedsTerminal = true;
             return true;

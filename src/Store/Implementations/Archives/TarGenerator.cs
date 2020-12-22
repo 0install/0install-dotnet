@@ -32,7 +32,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            _tarStream = new TarOutputStream(stream, Encoding.UTF8);
+            _tarStream = new(stream, Encoding.UTF8);
         }
 
         protected override void Dispose(bool disposing) => _tarStream.Dispose();

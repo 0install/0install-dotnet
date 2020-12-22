@@ -203,14 +203,14 @@ namespace ZeroInstall.Services.Feeds
 
             try
             {
-                DownloadKey(new Uri(uri, signature.FormatKeyID() + ".gpg"));
+                DownloadKey(new(uri, signature.FormatKeyID() + ".gpg"));
             }
             catch (WebException ex) when (_config.FeedMirror != null)
             {
                 Log.Warn(string.Format(Resources.UnableToLoadKeyFile, uri) + " " + Resources.TryingFeedMirror);
                 try
                 {
-                    DownloadKey(new Uri(_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri + "keys/" + signature.FormatKeyID() + ".gpg"));
+                    DownloadKey(new(_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri + "keys/" + signature.FormatKeyID() + ".gpg"));
                 }
                 catch (WebException)
                 {

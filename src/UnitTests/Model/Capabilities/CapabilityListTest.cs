@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using FluentAssertions;
 using NanoByte.Common.Storage;
 using Xunit;
@@ -19,7 +18,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         public static CapabilityList CreateTestCapabilityList()
         {
-            var testIcon = new Icon {Href = new Uri("http://example.com/icons/test.ico"), MimeType = "image/vnd.microsoft.icon"};
+            var testIcon = new Icon {Href = new("http://example.com/icons/test.ico"), MimeType = "image/vnd.microsoft.icon"};
             var testVerb = new Verb {Name = Verb.NameOpen, Descriptions = {"Verb description"}, Command = Command.NameRun, Arguments = {"--open"}};
             return new CapabilityList
             {

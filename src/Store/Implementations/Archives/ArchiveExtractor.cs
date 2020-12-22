@@ -59,7 +59,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
             #endregion
 
-            DirectoryBuilder = new DirectoryBuilder(targetPath);
+            DirectoryBuilder = new(targetPath);
         }
 
         #region Factory methods

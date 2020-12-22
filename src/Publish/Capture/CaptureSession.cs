@@ -44,7 +44,7 @@ namespace ZeroInstall.Publish.Capture
             if (feedBuilder == null) throw new ArgumentNullException(nameof(feedBuilder));
             #endregion
 
-            return new CaptureSession(Snapshot.Take(), feedBuilder);
+            return new(Snapshot.Take(), feedBuilder);
         }
 
         private SnapshotDiff? _diff;
@@ -152,7 +152,7 @@ namespace ZeroInstall.Publish.Capture
             if (feedBuilder == null) throw new ArgumentNullException(nameof(feedBuilder));
             #endregion
 
-            return new CaptureSession(BinaryStorage.LoadBinary<Snapshot>(path), feedBuilder);
+            return new(BinaryStorage.LoadBinary<Snapshot>(path), feedBuilder);
         }
 
         /// <summary>

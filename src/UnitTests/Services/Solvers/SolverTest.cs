@@ -54,7 +54,7 @@ namespace ZeroInstall.Services.Solvers
         [Fact]
         public void CustomFeedReference()
         {
-            new InterfacePreferences {Feeds = {new FeedReference {Source = new FeedUri("http://example.com/prog2.xml")}}}.SaveFor(new FeedUri("http://example.com/prog1.xml"));
+            new InterfacePreferences {Feeds = {new() {Source = new FeedUri("http://example.com/prog2.xml")}}}.SaveFor(new("http://example.com/prog1.xml"));
 
             var actual = Solve(
                 feeds: new[]
@@ -62,12 +62,12 @@ namespace ZeroInstall.Services.Solvers
                     new Feed
                     {
                         Uri = new FeedUri("http://example.com/prog1.xml"),
-                        Elements = {new Implementation {Version = new ImplementationVersion("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}}
+                        Elements = {new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}}
                     },
                     new Feed
                     {
                         Uri = new FeedUri("http://example.com/prog2.xml"),
-                        Elements = {new Implementation {Version = new ImplementationVersion("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
+                        Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
                     }
                 },
                 requirements: new Requirements("http://example.com/prog1.xml", Command.NameRun));
@@ -82,7 +82,7 @@ namespace ZeroInstall.Services.Solvers
                     {
                         InterfaceUri = new FeedUri("http://example.com/prog1.xml"),
                         FromFeed = new FeedUri("http://example.com/prog2.xml"),
-                        Version = new ImplementationVersion("2.0"),
+                        Version = new("2.0"),
                         Stability = Stability.Testing,
                         ID = "app2",
                         Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}
@@ -102,8 +102,8 @@ namespace ZeroInstall.Services.Solvers
                         Uri = new FeedUri("http://example.com/prog.xml"),
                         Elements =
                         {
-                            new Implementation {Version = new ImplementationVersion("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}},
-                            new Implementation {Version = new ImplementationVersion("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}
+                            new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}},
+                            new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}
                         }
                     }
                 },
@@ -121,7 +121,7 @@ namespace ZeroInstall.Services.Solvers
                     new ImplementationSelection
                     {
                         InterfaceUri = new FeedUri("http://example.com/prog.xml"),
-                        Version = new ImplementationVersion("1.0"),
+                        Version = new("1.0"),
                         Stability = Stability.Testing,
                         ID = "app1",
                         Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}

@@ -66,7 +66,7 @@ namespace ZeroInstall.Model
                 new Restriction
                 {
                     InterfaceUri = FeedTest.Test2Uri,
-                    Constraints = {new Constraint {Before = new ImplementationVersion("2.0")}}
+                    Constraints = {new Constraint {Before = new("2.0")}}
                 }
             }
         };

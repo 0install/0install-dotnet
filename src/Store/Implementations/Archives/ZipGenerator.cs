@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            _zipStream = new ZipOutputStream(stream);
+            _zipStream = new(stream);
         }
 
         protected override void Dispose(bool disposing) => _zipStream.Dispose();

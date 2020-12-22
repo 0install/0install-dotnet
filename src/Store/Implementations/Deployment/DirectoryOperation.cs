@@ -80,9 +80,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 {
                     try
                     {
-                        if (_restartManager == null)
-                            _restartManager = new WindowsRestartManager();
-
+                        _restartManager ??= new();
                         _restartManager.RegisterResources(fileArray);
                         if (_restartManager.ListApps(Handler).Length == 0) NoRestart = true;
                         _restartManager.ShutdownApps(Handler);

@@ -79,7 +79,7 @@ namespace ZeroInstall.Model
             get => Architecture.Cpu == Cpu.Source;
             set
             {
-                if (value) Architecture = new Architecture(Architecture.OS, Cpu.Source);
+                if (value) Architecture = new(Architecture.OS, Cpu.Source);
             }
         }
 
@@ -87,13 +87,13 @@ namespace ZeroInstall.Model
         /// <seealso cref="Architecture"/>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [DefaultValue("*"), XmlAttribute("os"), JsonProperty("os", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = new Architecture(value.ConvertFromString<OS>(), Architecture.Cpu); }
+        public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = new(value.ConvertFromString<OS>(), Architecture.Cpu); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Architecture"/>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [DefaultValue("*"), XmlAttribute("machine"), JsonProperty("cpu", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = new Architecture(Architecture.OS, value.ConvertFromString<Cpu>()); }
+        public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = new(Architecture.OS, value.ConvertFromString<Cpu>()); }
         #endregion
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace ZeroInstall.Model
             var cloned = Clone();
 
             cloned.Command = Command ?? (Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun);
-            cloned.Architecture = new Architecture(
+            cloned.Architecture = new(
                 (Architecture.OS == OS.All) ? Architecture.CurrentSystem.OS : Architecture.OS,
                 (Architecture.Cpu == Cpu.All) ? Architecture.CurrentSystem.Cpu : Architecture.Cpu);
             if (Languages.Count == 0) cloned.Languages.Add(CultureInfo.CurrentUICulture);

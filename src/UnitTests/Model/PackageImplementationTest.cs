@@ -18,7 +18,7 @@ namespace ZeroInstall.Model
         {
             Distributions = {"RPM"},
             Version = new VersionRange("1..!2"),
-            Architecture = new Architecture(OS.Windows, Cpu.I586),
+            Architecture = new(OS.Windows, Cpu.I586),
             Languages = {"en-US"},
             Main = "executable",
             DocDir = "doc",

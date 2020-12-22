@@ -29,7 +29,7 @@ namespace ZeroInstall.Model
             catalog.GetFeed(FeedTest.Test1Uri).Should().Be(FeedTest.CreateTestFeed());
             catalog[FeedTest.Test1Uri].Should().Be(FeedTest.CreateTestFeed());
 
-            catalog.GetFeed(new FeedUri("http://invalid/")).Should().BeNull();
+            catalog.GetFeed(new("http://invalid/")).Should().BeNull();
             Assert.Throws<KeyNotFoundException>(() => catalog[new FeedUri("http://invalid/")]);
         }
 

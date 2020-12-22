@@ -89,7 +89,7 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new ImplementationVersion(value); }
+        public virtual string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new(value); }
         #endregion
 
         /// <summary>

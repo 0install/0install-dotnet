@@ -40,7 +40,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
             try
             {
-                return new ManifestExecutableFile(parts[1], long.Parse(parts[2]), long.Parse(parts[3]), parts[4]);
+                return new(parts[1], long.Parse(parts[2]), long.Parse(parts[3]), parts[4]);
             }
             #region Error handling
             catch (OverflowException ex)

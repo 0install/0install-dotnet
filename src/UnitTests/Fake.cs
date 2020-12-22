@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
@@ -19,7 +18,7 @@ namespace ZeroInstall
         {
             Uri = Feed1Uri,
             Name = "MyApp",
-            Homepage = new Uri("http://example.com/"),
+            Homepage = new("http://example.com/"),
             Summaries = {"Summary"},
             Elements =
             {
@@ -27,7 +26,7 @@ namespace ZeroInstall
                 {
                     ID = "id1",
                     ManifestDigest = new ManifestDigest(sha256: "123"),
-                    Version = new ImplementationVersion("1.0")
+                    Version = new("1.0")
                 }
             }
         };
@@ -44,7 +43,7 @@ namespace ZeroInstall
                     FromFeed = SubFeed1Uri,
                     ID = "id1",
                     ManifestDigest = new ManifestDigest(sha256: "123"),
-                    Version = new ImplementationVersion("1.0")
+                    Version = new("1.0")
                 },
                 new ImplementationSelection
                 {
@@ -52,7 +51,7 @@ namespace ZeroInstall
                     FromFeed = SubFeed2Uri,
                     ID = "id2",
                     ManifestDigest = new ManifestDigest(sha256: "abc"),
-                    Version = new ImplementationVersion("1.0")
+                    Version = new("1.0")
                 }
             }
         };

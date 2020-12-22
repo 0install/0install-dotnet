@@ -56,7 +56,7 @@ namespace ZeroInstall.Model
             // Merge the version modifier into the normal version attribute
             if (!string.IsNullOrEmpty(VersionModifier))
             {
-                Version = new ImplementationVersion(Version + VersionModifier);
+                Version = new(Version + VersionModifier);
                 VersionModifier = null;
             }
 

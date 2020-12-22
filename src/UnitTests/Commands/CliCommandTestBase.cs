@@ -13,7 +13,6 @@ using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
@@ -34,7 +33,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected readonly TCommand Sut;
 
-        private readonly IDictionary<Type, Mock> _mocks = new Dictionary<Type, Mock>();
+        private readonly Dictionary<Type, Mock> _mocks = new();
 
         /// <summary>
         /// Retrieves a <see cref="Mock"/> for a specific type. Multiple requests for the same type return the same mock instance.
@@ -54,11 +53,11 @@ namespace ZeroInstall.Commands
                 return mock.Object;
             }
 
-            Sut.Config = new Config {SelfUpdateUri = null};
+            Sut.Config = new() {SelfUpdateUri = null};
             Sut.FeedCache = BuildMock<IFeedCache>();
             Sut.CatalogManager = BuildMock<ICatalogManager>();
             Sut.OpenPgp = BuildMock<IOpenPgp>();
-            Sut.TrustDB = new TrustDB();
+            Sut.TrustDB = new();
             Sut.ImplementationStore = BuildMock<IImplementationStore>();
             Sut.PackageManager = BuildMock<IPackageManager>();
             Sut.Solver = BuildMock<ISolver>();

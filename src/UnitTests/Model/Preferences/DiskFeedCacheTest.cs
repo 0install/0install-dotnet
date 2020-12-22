@@ -56,20 +56,20 @@ namespace ZeroInstall.Model.Preferences
             using (var localFeed = new TemporaryFile("0install-unit-tests"))
             {
                 _feed1.SaveXml(localFeed);
-                _cache.Contains(new FeedUri(localFeed))
+                _cache.Contains(new(localFeed))
                       .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
             }
 
             using var tempDir = new TemporaryDirectory("0install-unit-tests");
-            _cache.Contains(new FeedUri(Path.Combine(tempDir, "feed.xml")))
+            _cache.Contains(new(Path.Combine(tempDir, "feed.xml")))
                   .Should().BeFalse(because: "Should not detect phantom local feed files");
         }
 
         [Fact]
         public void TestContainsCaseSensitive()
         {
-            _cache.Contains(new FeedUri("http://example.com/test1.xml")).Should().BeTrue();
-            _cache.Contains(new FeedUri("http://example.com/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
+            _cache.Contains(new("http://example.com/test1.xml")).Should().BeTrue();
+            _cache.Contains(new("http://example.com/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
         }
 
         [Fact]
@@ -83,8 +83,8 @@ namespace ZeroInstall.Model.Preferences
         [Fact]
         public void TestGetFeedCaseSensitive()
         {
-            _cache.Invoking(x => x.GetFeed(new FeedUri("http://example.com/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
-            Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new FeedUri("http://example.com/Test1.xml")));
+            _cache.Invoking(x => x.GetFeed(new("http://example.com/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
+            Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new("http://example.com/Test1.xml")));
         }
 
         [Fact]

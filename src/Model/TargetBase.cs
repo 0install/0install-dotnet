@@ -47,7 +47,7 @@ namespace ZeroInstall.Model
         /// <seealso cref="Architecture"/>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("arch"), DefaultValue("*-*")]
-        public string ArchitectureString { get => Architecture.ToString(); set => Architecture = new Architecture(value); }
+        public string ArchitectureString { get => Architecture.ToString(); set => Architecture = new(value); }
         #endregion
 
         #region Clone

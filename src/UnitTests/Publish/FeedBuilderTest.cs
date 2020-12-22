@@ -52,8 +52,8 @@ namespace ZeroInstall.Publish
                 RelativePath = "test",
                 Name = "TestApp",
                 Summary = "a test app",
-                Version = new ImplementationVersion("1.0"),
-                Architecture = new Architecture(OS.Windows, Cpu.All)
+                Version = new("1.0"),
+                Architecture = new(OS.Windows, Cpu.All)
             };
             _builder.GenerateCommands();
         }
@@ -67,8 +67,8 @@ namespace ZeroInstall.Publish
 
             _builder.RetrievalMethod = new Archive();
             _builder.Uri = new FeedUri("http://example.com/test1.xml");
-            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new Uri("http://example.com/test.png")});
-            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new Uri("http://example.com/test.ico")});
+            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new("http://example.com/test.png")});
+            _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new("http://example.com/test.ico")});
             _builder.SecretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
             var signedFeed = _builder.Build();
 

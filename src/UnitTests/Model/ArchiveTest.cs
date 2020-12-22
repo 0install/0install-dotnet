@@ -19,7 +19,7 @@ namespace ZeroInstall.Model
         /// </summary>
         internal static Archive CreateTestArchive() => new()
         {
-            Href = new Uri("http://example.com/test.exe"),
+            Href = new("http://example.com/test.exe"),
             MimeType = Archive.MimeTypeZip,
             Size = 128,
             StartOffset = 16,
@@ -45,16 +45,16 @@ namespace ZeroInstall.Model
         [Fact]
         public void TestNormalizeGuessMimeType()
         {
-            var archive = new Archive {Href = new Uri("http://example.com/test.tar.gz"), Size = 128};
-            archive.Normalize(new FeedUri("http://example.com/"));
+            var archive = new Archive {Href = new("http://example.com/test.tar.gz"), Size = 128};
+            archive.Normalize(new("http://example.com/"));
             archive.MimeType.Should().Be(Archive.MimeTypeTarGzip, because: "Normalize() should guess missing MIME type");
         }
 
         [Fact]
         public void TestNormalizeLocalPath()
         {
-            var archive = new Archive {Href = new Uri("test.zip", UriKind.Relative), MimeType = Archive.MimeTypeZip, Size = 128};
-            archive.Normalize(new FeedUri(Path.Combine(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir", "feed.xml")));
+            var archive = new Archive {Href = new("test.zip", UriKind.Relative), MimeType = Archive.MimeTypeZip, Size = 128};
+            archive.Normalize(new(Path.Combine(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir", "feed.xml")));
             archive.Href.Should().Be(
                 new Uri(WindowsUtils.IsWindows ? "file:///C:/some/dir/test.zip" : "file:///some/dir/test.zip"),
                 because: "Normalize() should make relative local paths absolute");

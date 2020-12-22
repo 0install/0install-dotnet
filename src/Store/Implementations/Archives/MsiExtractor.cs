@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             try
             {
-                _database = new Database(archivePath, DatabaseOpenMode.ReadOnly);
+                _database = new(archivePath, DatabaseOpenMode.ReadOnly);
                 ReadDirectories();
                 ReadFiles();
                 ReadCabinets();

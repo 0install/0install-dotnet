@@ -40,7 +40,7 @@ namespace ZeroInstall.Store.Implementations.Build
             if (string.IsNullOrEmpty(sourcePath)) throw new ArgumentNullException(nameof(sourcePath));
             #endregion
 
-            SourceDirectory = new DirectoryInfo(Path.GetFullPath(sourcePath));
+            SourceDirectory = new(Path.GetFullPath(sourcePath));
             _sourceIsUnixFS = FlagUtils.IsUnixFS(sourcePath);
         }
 

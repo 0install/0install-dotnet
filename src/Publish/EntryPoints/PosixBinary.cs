@@ -22,7 +22,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (!HasMagicBytes(file)) return false;
 
             Name = file.Name;
-            Architecture = new Architecture(OS.Linux, Cpu.All);
+            Architecture = new(OS.Linux, Cpu.All);
 
             IELF? elfData = null;
             try
@@ -31,7 +31,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 {
                     if (elfData.Class == Class.NotELF || elfData.Type != FileType.Executable) return false;
 
-                    Architecture = new Architecture(OS.Linux, GetCpu(elfData));
+                    Architecture = new(OS.Linux, GetCpu(elfData));
                 }
             }
             catch (NullReferenceException)
@@ -83,7 +83,7 @@ namespace ZeroInstall.Publish.EntryPoints
             set
             {
                 if (value is (< OS.Linux or >= OS.Cygwin)) throw new ArgumentOutOfRangeException(nameof(value), "Must be a specific POSIX OS!");
-                Architecture = new Architecture(value, Architecture.Cpu);
+                Architecture = new(value, Architecture.Cpu);
             }
         }
     }

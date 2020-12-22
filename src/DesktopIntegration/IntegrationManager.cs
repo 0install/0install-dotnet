@@ -243,7 +243,7 @@ namespace ZeroInstall.DesktopIntegration
             // Skip entries with mismatching hostname
             if (appEntry.Hostname != null && !Regex.IsMatch(Environment.MachineName, appEntry.Hostname)) return;
 
-            appEntry.AccessPoints ??= new AccessPointList();
+            appEntry.AccessPoints ??= new();
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 

@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Feeds
 
             if (config.FeedMirror == null) throw new UriFormatException(Resources.FeedMirrorDisabled);
 
-            if (string.IsNullOrEmpty(keywords)) return new SearchQuery();
+            if (string.IsNullOrEmpty(keywords)) return new();
 
             var url = new Uri(
                 config.FeedMirror.EnsureTrailingSlash(),
