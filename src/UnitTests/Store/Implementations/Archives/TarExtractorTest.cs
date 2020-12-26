@@ -13,7 +13,7 @@ using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
-    [Collection("WorkingDir")]
+    [Collection("Static state")]
     public class TarExtractorTest : IDisposable
     {
         private static readonly byte[] _garbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
@@ -61,14 +61,9 @@ namespace ZeroInstall.Store.Implementations.Archives
         public void TestLzipCompressed()
             => TestExtract(Archive.MimeTypeTarLzip, "testArchive.tar.lz");
 
-        [Fact(Skip = "Flaky in CI")]
+        [Fact]
         public void TestZstandardCompressed()
-        {
-            for (int i = 0; i < 1000; i++)
-            {
-                TestExtract(Archive.MimeTypeTarZstandard, "testArchive.tar.zst");
-            }
-        }
+            => TestExtract(Archive.MimeTypeTarZstandard, "testArchive.tar.zst");
 
         [Fact]
         public void TestRubyGem()

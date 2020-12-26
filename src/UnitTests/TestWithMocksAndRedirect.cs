@@ -9,7 +9,7 @@ namespace ZeroInstall
     /// <summary>
     /// Common base class for test fixtures that use a <see cref="Moq.MockRepository"/> and <see cref="LocationsRedirect"/>.
     /// </summary>
-    [Collection("LocationsRedirect")]
+    [Collection("Static state")]
     public abstract class TestWithMocksAndRedirect : TestWithMocks
     {
         private readonly LocationsRedirect _redirect = new("0install-unit-tests");

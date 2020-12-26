@@ -10,7 +10,7 @@ namespace ZeroInstall
     /// <summary>
     /// Common base class for test fixtures that use a <see cref="LocationsRedirect"/>.
     /// </summary>
-    [Collection("LocationsRedirect")]
+    [Collection("Static state")]
     public abstract class TestWithRedirect : IDisposable
     {
         private readonly LocationsRedirect _redirect = new("0install-unit-tests");
