@@ -22,6 +22,7 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Contains test methods for <see cref="IFetcher"/> implementations.
     /// </summary>
+    [Collection("Static state")]
     public abstract class FetcherTest : TestWithMocks
     {
         protected static readonly Stream ZipArchiveStream = typeof(FetcherTest).GetEmbeddedStream("testArchive.zip");

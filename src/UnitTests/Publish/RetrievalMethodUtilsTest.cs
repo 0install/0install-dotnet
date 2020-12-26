@@ -16,6 +16,7 @@ namespace ZeroInstall.Publish
     /// <summary>
     /// Contains test methods for <see cref="RetrievalMethodUtils"/>.
     /// </summary>
+    [Collection("Static state")]
     public class RetrievalMethodUtilsTest
     {
         private const string SingleFileData = "data";

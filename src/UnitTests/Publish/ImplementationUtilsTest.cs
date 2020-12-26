@@ -21,6 +21,7 @@ namespace ZeroInstall.Publish
     /// <summary>
     /// Contains test methods for <see cref="ImplementationUtils"/>.
     /// </summary>
+    [Collection("Static state")]
     public class ImplementationUtilsTest
     {
         private const string ArchiveSha256Digest = "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ";

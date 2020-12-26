@@ -19,6 +19,7 @@ namespace ZeroInstall.Services.Feeds
     /// <summary>
     /// Contains test methods for <see cref="TrustManager"/>.
     /// </summary>
+    [Collection("Static state")]
     public class TrustManagerTest : TestWithMocks
     {
         #region Constants

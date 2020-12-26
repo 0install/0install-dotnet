@@ -20,7 +20,7 @@ namespace ZeroInstall.Store.Implementations
     /// <summary>
     /// Contains test methods for <see cref="DiskImplementationStore"/>.
     /// </summary>
-    [Collection("WorkingDir")]
+    [Collection("Static state")]
     public class DiskImplementationStoreTest : IDisposable
     {
         private readonly MockTaskHandler _handler;
