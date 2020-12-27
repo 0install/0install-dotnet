@@ -17,7 +17,6 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>

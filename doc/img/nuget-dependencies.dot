@@ -8,7 +8,7 @@ digraph {
     model [label="ZeroInstall.Model"];
 
     commands -> {services desktop_integration};
-    publish -> {services desktop_integration};
+    publish -> desktop_integration;
     services -> services_interfaces -> store;
     desktop_integration -> store;
     store -> model;
