@@ -9,8 +9,6 @@ for:
 
     cache:
       - '%USERPROFILE%\.nuget\packages -> **\*.csproj'
-      - '%LOCALAPPDATA%\0install.net'
-      - '%APPDATA%\0install.net'
 
     before_build:
       - choco install GitVersion.Portable --version 4.0.0
