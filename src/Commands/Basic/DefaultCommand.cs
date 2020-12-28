@@ -46,7 +46,7 @@ namespace ZeroInstall.Commands.Basic
 #else
                     @"Zero Install (.NET) "
 #endif
-                  + AppInfo.Current.Version
+                  + ZeroInstallInstance.Version
                   + (Locations.IsPortable ? " - " + Resources.PortableMode : "") + Environment.NewLine
                   + AppInfo.Current.Copyright + Environment.NewLine
                   + Resources.LicenseInfo);

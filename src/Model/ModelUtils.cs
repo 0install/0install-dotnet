@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
     public static class ModelUtils
     {
         /// <summary>
-        /// The current version of Zero Install.
+        /// The version of Zero Install feed model (used for compatibility checks).
         /// </summary>
         public static ImplementationVersion Version { get; } = new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
 

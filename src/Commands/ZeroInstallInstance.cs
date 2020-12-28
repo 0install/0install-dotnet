@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Net;
 using NanoByte.Common;
+using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -16,6 +17,10 @@ using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
+#if NETFRAMEWORK
+using System.Diagnostics;
+#endif
+
 namespace ZeroInstall.Commands
 {
     /// <summary>
@@ -23,6 +28,26 @@ namespace ZeroInstall.Commands
     /// </summary>
     public static class ZeroInstallInstance
     {
+        /// <summary>
+        /// The current version of Zero Install.
+        /// </summary>
+        public static ImplementationVersion Version { get; } = GetVersion();
+
+        private static ImplementationVersion GetVersion()
+        {
+#if NETFRAMEWORK
+            try
+            {
+                // Allow GUI version (e.g., Zero Install for Windows) to override version number
+                return new(FileVersionInfo.GetVersionInfo(Path.Combine(Locations.InstallBase, ProgramUtils.GuiAssemblyName + ".exe")).ProductVersion.GetLeftPartAtFirstOccurrence('+'));
+            }
+            catch
+#endif
+            {
+                return new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+            }
+        }
+
         /// <summary>
         /// Indicates whether Zero Install is running from an implementation cache.
         /// </summary>
@@ -70,7 +95,7 @@ namespace ZeroInstall.Commands
             {
                 var selections = services.Solver.Solve(requirements);
                 var newVersion = selections.MainImplementation.Version;
-                return (newVersion > ModelUtils.Version) ? newVersion : null;
+                return (newVersion > Version) ? newVersion : null;
             }
             #region Error handling
             catch (OperationCanceledException)
