@@ -24,13 +24,15 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             string manifestPath = Path.Combine(dirPath, Manifest.ManifestFile);
             if (File.Exists(manifestPath))
                 return Manifest.Load(manifestPath, ManifestFormat.Sha256New);
-            else
+            else if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)
             {
                 Log.Warn($"No .manifest file found in '{dirPath}'. Assuming directory is clean.");
                 var generator = new ManifestGenerator(dirPath, ManifestFormat.Sha256New);
                 Handler.RunTask(generator);
                 return generator.Manifest;
             }
+            else
+                return new Manifest(ManifestFormat.Sha256);
         }
 
         /// <summary>A mutex that prevents Zero Install instances from being launched while an update is in progress.</summary>
