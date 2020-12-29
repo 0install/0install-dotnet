@@ -22,8 +22,9 @@ for:
 
     artifacts:
       - path: artifacts
-      - path: artifacts\0install-dotnet-*.tar.gz
       - path: artifacts\Release\*.*nupkg
+      - path: artifacts\0install-dotnet-*.tar.gz
+        name: 0install-dotnet
 
     deploy:
       - provider: Environment
