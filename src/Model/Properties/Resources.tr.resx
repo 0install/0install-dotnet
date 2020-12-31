@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Dizge formda "os-cpu" biçiminde olmalı.</value>
+    <value>Dizge "os-cpu" biçiminde olmalı.</value>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>'{0}' komutu tanınmıyor.</value>
+    <value>'{0}' komutu bulunamadı.</value>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>'{0}' için akış yükleme ayarları hatalı. Varsayılan ayarlara geri dönülüyor.</value>
+    <value>'{0}' için akış ayarları yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>'{0}' için arabirim yükleme ayarları hatalı. Varsayılan ayarlara geri dönülüyor.</value>
+    <value>'{0}' için arabirim ayarları yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Katalogda '{0}' akışı bulunamadı.</value>
   </data>
   <data name="ImplementationMissingID" xml:space="preserve">
-    <value>{1} içindeki '{0}' kodu yok.</value>
+    <value>{1} içinde '{0}' kodu yok.</value>
   </data>
   <data name="ImplementationMissingVersion" xml:space="preserve">
-    <value>{1} içindeki '{0}' için bir sürüm yok.</value>
+    <value>{1} içinde '{0}' için bir sürüm yok.</value>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Seçimde '{0}' arabirimi için uygulama bulunamıyor.</value>
+    <value>Seçimde '{0}' arabirimi için uygulama bulunamadı.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' geçerli bir 'http(s):' adresi ya da yerel hedef değil.</value>
+    <value>'{0}' geçerli bir 'http(s):' adresi ya da bir yerel yol değil.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>&lt;{1}&gt; kod iminde '{0}' özniteliği eksik.</value>
@@ -169,10 +169,10 @@
     <value>Uygulama hatalı</value>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>'{0}' komutu sağlamadı.</value>
+    <value>'{0}' komutu sağlanmadı.</value>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Uyumsuz işletim sistemi ya da CPU</value>
+    <value>İşletim sistemi ya da CPU uyumsuz</value>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
     <value>Güvenilmeyen uygulama</value>
