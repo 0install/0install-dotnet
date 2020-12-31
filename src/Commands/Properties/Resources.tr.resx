@@ -137,7 +137,7 @@
 Alma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka bir bilgisayara alabilirsiniz..</value>
   </data>
   <data name="AlreadyDeployedTo" xml:space="preserve">
-    <value>Zero Install zaten '{0}' uygulamasını yüklemiş. Yüklenmiş sürümü değiştirmek için '0install self-update' komutunu kullanın.</value>
+    <value>Zero Install zaten '{0}' uygulamasını yüklemiş. Yüklenmiş sürümü değiştirmek için '0install self update' komutunu kullanın.</value>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' zaten özel uygulama ön bellekleri listesinde var.</value>

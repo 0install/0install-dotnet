@@ -116,7 +116,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zero Install is already deployed to &apos;{0}&apos;. Use &apos;0install self-update&apos; to change the deployed version..
+        ///   Looks up a localized string similar to Zero Install is already deployed to &apos;{0}&apos;. Use &apos;0install self update&apos; to change the deployed version..
         /// </summary>
         public static string AlreadyDeployedTo {
             get {

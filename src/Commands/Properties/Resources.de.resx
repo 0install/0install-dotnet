@@ -137,7 +137,7 @@
 Sie können das Import Skript oder das Bootstrap Programm in '{1}' verwenden, um diese Dateien auf einem anderen Rechner zu importieren.</value>
   </data>
   <data name="AlreadyDeployedTo" xml:space="preserve">
-    <value>Zero Install ist bereits in '{0}' eingerichtet. Verwenden Sie '0install self-update' um die eingerichtete Version zu ändern.</value>
+    <value>Zero Install ist bereits in '{0}' eingerichtet. Verwenden Sie '0install self update' um die eingerichtete Version zu ändern.</value>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' ist bereits in der Liste der benutzerdefinierten Implementierungscaches.</value>
