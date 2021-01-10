@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic
 {
     partial class StoreMan
     {
-        private class Manage : StoreSubCommand
+        public class Manage : StoreSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass

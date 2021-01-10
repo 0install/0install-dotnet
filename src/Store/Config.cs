@@ -86,7 +86,7 @@ namespace ZeroInstall.Store
 #endif
 
         /// <summary>
-        /// The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.
+        /// The feed URI used to search for updates for Zero Install itself. Set to empty to deactive self-update.
         /// </summary>
         [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.")]
         public FeedUri? SelfUpdateUri { get; set; } = new(DefaultSelfUpdateUri);
