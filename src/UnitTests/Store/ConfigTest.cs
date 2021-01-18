@@ -37,7 +37,7 @@ namespace ZeroInstall.Store
         public void TestClone()
         {
             var config1 = CreateTestConfig();
-            var config2 = config1.Clone();
+            object config2 = config1.Clone();
 
             // Ensure data stayed the same
             config2.Should().Be(config1, because: "Cloned objects should be equal.");
@@ -51,7 +51,8 @@ namespace ZeroInstall.Store
         [Fact]
         public void TestSaveLoad()
         {
-            Config config1, config2;
+            Config config1;
+            object config2;
             using (var tempFile = new TemporaryFile("0install-unit-tests"))
             {
                 // Write and read file

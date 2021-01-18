@@ -8,7 +8,6 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 
@@ -46,16 +45,6 @@ namespace ZeroInstall.Commands
 
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
-
-        /// <inheritdoc/>
-        public void ShowConfig(Config config, ConfigTab configTab)
-        {
-            #region Sanity checks
-            if (config == null) throw new ArgumentNullException(nameof(config));
-            #endregion
-
-            Console.Write(config.ToString());
-        }
 
         /// <inheritdoc/>
         public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache) => throw new NeedsGuiException();

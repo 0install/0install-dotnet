@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -9,14 +10,23 @@ using System.Linq.Expressions;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
+#if NET45
+using NanoByte.Common.Collections;
+#endif
+
 namespace ZeroInstall.Store
 {
     /// <summary>
     /// User settings controlling network behaviour, solving, etc.
     /// </summary>
     [Serializable]
-    public sealed partial class Config : ICloneable<Config>, IEquatable<Config>
+    public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, ICloneable<Config>, IEquatable<Config>
     {
+        /// <summary>
+        /// The initial tab to show in GUI representations.
+        /// </summary>
+        public ConfigTab InitialTab { get; set; }
+
         private static readonly TimeSpan _defaultFreshness = TimeSpan.FromDays(7);
 
         /// <summary>
@@ -169,6 +179,16 @@ namespace ZeroInstall.Store
                 {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true)},
                 {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true)},
             };
+        }
+
+        /// <inheritdoc/>
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        /// <inheritdoc/>
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+        {
+            foreach ((string key, var property) in _metaData)
+                yield return new KeyValuePair<string, string>(key, property.NeedsEncoding ? "***" : property.Value);
         }
 
         /// <summary>

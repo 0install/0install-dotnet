@@ -352,17 +352,6 @@ namespace ZeroInstall.Store
             return newConfig;
         }
 
-        /// <summary>
-        /// Returns the keys and values of all contained settings.
-        /// </summary>
-        public override string ToString()
-        {
-            var builder = new StringBuilder();
-            foreach ((string key, var property) in _metaData)
-                builder.AppendLine(key + " = " + (property.NeedsEncoding ? "***" : property.Value));
-            return builder.ToString();
-        }
-
         /// <inheritdoc/>
         public bool Equals(Config? other)
             => other != null

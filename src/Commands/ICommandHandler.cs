@@ -6,7 +6,6 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 
@@ -55,15 +54,6 @@ namespace ZeroInstall.Commands
         /// <exception cref="OperationCanceledException">The user does not want any changes to be applied.</exception>
         /// <remarks>The caller is responsible for saving any changes.</remarks>
         void ShowIntegrateApp(IntegrationState state);
-
-        /// <summary>
-        /// Displays the configuration settings to the user.
-        /// </summary>
-        /// <param name="config">The configuration to show.</param>
-        /// <param name="configTab">Switch to a specific tab in the configuration GUI. Has no effect in text-mode.</param>
-        /// <exception cref="OperationCanceledException">The user does not want any changes to be applied.</exception>
-        /// <remarks>The caller is responsible for saving any changes.</remarks>
-        void ShowConfig(Config config, ConfigTab configTab);
 
         /// <summary>
         /// Displays a user interface for managing <see cref="IImplementationStore"/>s.

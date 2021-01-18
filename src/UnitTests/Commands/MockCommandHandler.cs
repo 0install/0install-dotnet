@@ -11,7 +11,6 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 
@@ -79,12 +78,6 @@ namespace ZeroInstall.Commands
 
         /// <inheritdoc/>
         public void ShowIntegrateApp(IntegrationState state)
-        {
-            // No UI, so nothing to do
-        }
-
-        /// <inheritdoc/>
-        public void ShowConfig(Config config, ConfigTab configTab)
         {
             // No UI, so nothing to do
         }

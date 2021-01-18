@@ -29,13 +29,11 @@ namespace ZeroInstall.Commands.Basic
         #endregion
 
         #region State
-        private ConfigTab _configTab;
-
         /// <inheritdoc/>
         public Configure(ICommandHandler handler)
             : base(handler)
         {
-            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => _configTab = tab);
+            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
         }
         #endregion
 
@@ -45,8 +43,7 @@ namespace ZeroInstall.Commands.Basic
             switch (AdditionalArgs.Count)
             {
                 case 0:
-                    Handler.ShowConfig(Config, _configTab);
-                    Config.Save();
+                    Handler.Output(Resources.Configuration, Config);
                     break;
 
                 case 1:
