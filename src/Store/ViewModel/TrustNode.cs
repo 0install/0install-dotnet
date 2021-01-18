@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common;
 using ZeroInstall.Store.Trust;
 
@@ -12,70 +11,19 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Represents a <see cref="Key"/>-<see cref="Domain"/> pair in a <see cref="TrustDB"/> for display in a UI.
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for string sorting in UI lists")]
-    public class TrustNode : INamed<TrustNode>, IEquatable<TrustNode>
+    public sealed record TrustNode(string Fingerprint, Domain Domain) : INamed<TrustNode>
     {
-        /// <summary>
-        /// Creates a new <see cref="Key"/>-<see cref="Domain"/> pair.
-        /// </summary>
-        /// <param name="fingerprint">The <see cref="Key.Fingerprint"/>.</param>
-        /// <param name="domain">The domain the fingerprint is valid for.</param>
-        public TrustNode(string fingerprint, Domain domain)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
-            #endregion
-
-            Fingerprint = fingerprint;
-            Domain = domain;
-        }
-
         /// <summary>
         /// The UI path name of this node. Uses a backslash as the separator in hierarchical names.
         /// </summary>
         [Browsable(false)]
         public string Name { get => Fingerprint + "\\" + Domain.Value; set => throw new NotSupportedException(); }
 
-        /// <summary>
-        /// The <see cref="Key.Fingerprint"/>.
-        /// </summary>
-        public string Fingerprint { get; }
-
-        /// <summary>
-        /// The domain the fingerprint is valid for.
-        /// </summary>
-        public Domain Domain { get; }
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(TrustNode? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Fingerprint == other.Fingerprint && Domain == other.Domain;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((TrustNode)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(Fingerprint, Domain);
-        #endregion
-
-        #region Comparison
         /// <inheritdoc/>
         int IComparable<TrustNode>.CompareTo(TrustNode? other)
         {
             int fingerprintCompare = string.CompareOrdinal(Fingerprint, other?.Fingerprint);
             return (fingerprintCompare == 0) ? string.CompareOrdinal(Domain.Value, other?.Domain.Value) : fingerprintCompare;
         }
-        #endregion
     }
 }
