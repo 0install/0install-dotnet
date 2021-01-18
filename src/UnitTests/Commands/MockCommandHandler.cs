@@ -83,11 +83,6 @@ namespace ZeroInstall.Commands
             // No UI, so nothing to do
         }
 
-        public void ShowFeedSearch(SearchQuery query)
-        {
-            // No UI, so nothing to do
-        }
-
         /// <inheritdoc/>
         public void ShowConfig(Config config, ConfigTab configTab)
         {

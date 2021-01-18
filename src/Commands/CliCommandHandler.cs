@@ -48,16 +48,6 @@ namespace ZeroInstall.Commands
         public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
 
         /// <inheritdoc/>
-        public void ShowFeedSearch(SearchQuery query)
-        {
-            #region Sanity checks
-            if (query == null) throw new ArgumentNullException(nameof(query));
-            #endregion
-
-            Output(query.ToString(), query.Results);
-        }
-
-        /// <inheritdoc/>
         public void ShowConfig(Config config, ConfigTab configTab)
         {
             #region Sanity checks

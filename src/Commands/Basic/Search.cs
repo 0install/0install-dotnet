@@ -35,7 +35,7 @@ namespace ZeroInstall.Commands.Basic
         public override ExitCode Execute()
         {
             string keywords = StringUtils.Join(" ", AdditionalArgs);
-            Handler.ShowFeedSearch(SearchQuery.Perform(Config, keywords));
+            Handler.Output(keywords, SearchResults.Query(Config, keywords));
             return ExitCode.OK;
         }
     }

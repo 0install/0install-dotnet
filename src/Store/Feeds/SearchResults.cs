@@ -12,19 +12,13 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
-    /// Performs a feed search query and stores the response.
+    /// Holds results of a feed search query.
     /// </summary>
     [Serializable, XmlRoot("results"), XmlType("results")]
-    public class SearchQuery
+    public class SearchResults
     {
         /// <summary>
-        /// The keywords the search was performed for.
-        /// </summary>
-        [XmlIgnore]
-        public string? Keywords { get; private set; }
-
-        /// <summary>
-        /// A list of results matching the <see cref="Keywords"/>.
+        /// A list of results matching the specified keywords.
         /// </summary>
         [XmlElement("result")]
         public List<SearchResult> Results { get; } = new();
@@ -34,7 +28,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="config">The current configuration determining which mirror server to query.</param>
         /// <param name="keywords">The keywords to search for.</param>
-        public static SearchQuery Perform(Config config, string? keywords)
+        public static List<SearchResult> Query(Config config, string? keywords)
         {
             #region Sanity checks
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -50,14 +44,7 @@ namespace ZeroInstall.Store.Feeds
 
             Log.Info("Performing search query: " + url.ToStringRfc());
             using var webClient = new WebClientTimeout();
-            var result = XmlStorage.FromXmlString<SearchQuery>(webClient.DownloadString(url));
-            result.Keywords = keywords;
-            return result;
+            return XmlStorage.FromXmlString<SearchResults>(webClient.DownloadString(url)).Results;
         }
-
-        /// <summary>
-        /// Returns the query in the form "Feed search: Keywords". Not safe for parsing!
-        /// </summary>
-        public override string ToString() => $"Feed search: {Keywords}";
     }
 }
