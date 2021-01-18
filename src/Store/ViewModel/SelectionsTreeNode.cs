@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
@@ -14,8 +13,12 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Models an <see cref="ImplementationSelection"/> element of a <see cref="Selections"/> document for display in a tree-like UI.
     /// </summary>
-    [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
-    public sealed class SelectionsTreeNode : INamed<SelectionsTreeNode>, IEquatable<SelectionsTreeNode>
+    public sealed record SelectionsTreeNode(
+            [property: DisplayName("URI")] FeedUri Uri,
+            ImplementationVersion? Version,
+            string? Path,
+            [property: Browsable(false)] SelectionsTreeNode? Parent)
+        : INamed<SelectionsTreeNode>
     {
         private string NameBase => (Parent == null)
             ? Uri.ToStringRfc()
@@ -28,40 +31,10 @@ namespace ZeroInstall.Store.ViewModel
         public string Name { get => $"{NameBase}#{Version}"; set {} }
 
         /// <summary>
-        /// The parent element of this node in the tree structure. <c>null</c> for the root element.
-        /// </summary>
-        [Browsable(false)]
-        public SelectionsTreeNode? Parent { get; }
-
-        /// <summary>
         /// A prefix used to indicate the indentation level inside the tree structure.
         /// </summary>
-        [DisplayName(" ")]
-        public string Prefix => (Parent == null) ? "- " : "  " + Parent.Prefix;
-
-        /// <summary>
-        /// The feed URI of the selected implementation.
-        /// </summary>
-        [DisplayName("URI")]
-        public FeedUri Uri { get; }
-
-        /// <summary>
-        /// The version of the selected implementation. <c>null</c> for a missing selection.
-        /// </summary>
-        public ImplementationVersion? Version { get; }
-
-        /// <summary>
-        /// The local path of the cached implementation. <c>null</c> for an uncached implementation.
-        /// </summary>
-        public string? Path { get; }
-
-        public SelectionsTreeNode(FeedUri uri, ImplementationVersion? version, string? path, SelectionsTreeNode? parent)
-        {
-            Uri = uri ?? throw new ArgumentNullException(nameof(uri));
-            Version = version;
-            Path = path;
-            Parent = parent;
-        }
+        [Browsable(false)]
+        private string Prefix => (Parent == null) ? "- " : "  " + Parent.Prefix;
 
         /// <summary>
         /// Creates string representation with indentation suitable for console output.
@@ -74,32 +47,8 @@ namespace ZeroInstall.Store.ViewModel
             else return $"{Prefix}URI: {Uri}\n{indent}Version: {Version}\n{indent}Path: {Path}";
         }
 
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(SelectionsTreeNode? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Uri == other.Uri && Version == other.Version && Path == other.Path && Equals(Parent, other.Parent);
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is SelectionsTreeNode node && Equals(node);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(Uri, Version, Path, Parent);
-        #endregion
-
-        #region Comparison
         /// <inheritdoc/>
         public int CompareTo(SelectionsTreeNode? other)
             => string.Compare(Name, other?.Name ?? "", StringComparison.OrdinalIgnoreCase);
-        #endregion
     }
 }
