@@ -32,10 +32,6 @@
       "packageNames": ["System.Drawing.Common"],
       "updateTypes": ["major", "minor"],
       "enabled": false
-    },
-    {
-      "packagePatterns": ["SharpCompress", "ELFSharp"],
-      "enabled": false
     }
   ]
 }
