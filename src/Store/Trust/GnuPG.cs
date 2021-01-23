@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Trust
             using (var signatureFile = new TemporaryFile("0install-sig"))
             {
                 File.WriteAllBytes(signatureFile, signature);
-                result = new CliControl(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
+                result = new GpgProcess(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
             }
             var lines = result.SplitMultilineText();
 
@@ -116,7 +116,7 @@ namespace ZeroInstall.Store.Trust
             #endregion
 
             return Convert.FromBase64String(
-                new CliControl(_homeDir, data)
+                new GpgProcess(_homeDir, data)
                    .Execute("--batch", "--no-secmem-warning", "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
                    .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
                    .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
@@ -130,7 +130,7 @@ namespace ZeroInstall.Store.Trust
             if (data == null) throw new ArgumentNullException(nameof(data));
             #endregion
 
-            new CliControl(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
+            new GpgProcess(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
         }
 
         /// <inheritdoc/>
@@ -140,14 +140,14 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            string result = new CliControl(_homeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
+            string result = new GpgProcess(_homeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
             return result.Replace(Environment.NewLine, "\n") + "\n";
         }
 
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
         {
-            string result = new CliControl(_homeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
+            string result = new GpgProcess(_homeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
             string[]? sec = null, fpr = null, uid = null;
             foreach (string line in result.SplitMultilineText())
@@ -189,8 +189,10 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <returns>A handle that can be used to wait for the process to finish.</returns>
         /// <exception cref="IOException">The OpenPGP implementation could not be launched.</exception>
-        public static Process GenerateKey()
-            => new CliControl().StartInteractive("--gen-key")
-            ?? throw new IOException("Failed to launch GnuPG.");
+        public static Process GenerateKey() => new ProcessStartInfo
+        {
+            FileName =  "gpg",
+            Arguments = "--gen-key"
+        }.Start();
     }
 }

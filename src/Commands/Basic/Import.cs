@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Cli;
+using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Basic
@@ -34,7 +34,7 @@ namespace ZeroInstall.Commands.Basic
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            foreach (var file in ArgumentUtils.GetFiles(AdditionalArgs, "*.xml"))
+            foreach (var file in Paths.ResolveFiles(AdditionalArgs, "*.xml"))
                 FeedManager.ImportFeed(file.FullName);
 
             return ExitCode.OK;

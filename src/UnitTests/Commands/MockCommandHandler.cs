@@ -54,7 +54,7 @@ namespace ZeroInstall.Commands
         /// Fakes asking the user a question.
         /// </summary>
         /// <returns>The current value of <see cref="AnswerQuestionWith"/>.</returns>
-        protected override bool Ask(string question, MsgSeverity severity)
+        public override bool Ask(string question, bool? defaultAnswer = null, string? alternateMessage = null)
         {
             LastQuestion = question;
             return AnswerQuestionWith;

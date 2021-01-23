@@ -30,11 +30,8 @@ namespace ZeroInstall.Services
         /// <inheritdoc/>
         public override void RunTask(ITask task) => task.Run(CancellationToken, CredentialProvider);
 
-        /// <summary>
-        /// Fakes asking the user a question.
-        /// </summary>
-        /// <returns>The current value of <see cref="AnswerQuestionWith"/>.</returns>
-        protected override bool Ask(string question, MsgSeverity severity)
+        /// <inheritdoc/>
+        public override bool Ask(string question, bool? defaultAnswer = null, string? alternateMessage = null)
         {
             LastQuestion = question;
             return AnswerQuestionWith;

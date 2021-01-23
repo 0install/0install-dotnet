@@ -3,6 +3,7 @@
 
 using System;
 using NanoByte.Common;
+using NanoByte.Common.Tasks;
 using NDesk.Options;
 using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Properties;

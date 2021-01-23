@@ -82,7 +82,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific result.
         /// </summary>
-        /// <param name="expectedOutput">The expected tabular data for a <see cref="ITaskHandler.Output{T}"/> call.</param>
+        /// <param name="expectedOutput">The expected tabular data for a <see cref="ITaskHandler.Output{T}(string,IEnumerable{T})"/> call.</param>
         /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
         /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
         protected void RunAndAssert<T>(IEnumerable<T> expectedOutput, ExitCode expectedExitCode, params string[] args)

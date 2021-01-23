@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using NanoByte.Common;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Properties;
@@ -27,6 +28,6 @@ namespace ZeroInstall.Store.ViewModel
         {}
 
         /// <inheritdoc/>
-        public override string Name { get => Resources.UnknownInterface + "\\" + Digest + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
+        public override string Name { get => Resources.UnknownInterface + Named.TreeSeparator + Digest + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
     }
 }

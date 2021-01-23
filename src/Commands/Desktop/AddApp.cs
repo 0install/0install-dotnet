@@ -4,6 +4,7 @@
 using System;
 using System.Net;
 using NanoByte.Common.Native;
+using NanoByte.Common.Tasks;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;

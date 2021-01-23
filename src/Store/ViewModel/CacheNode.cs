@@ -15,10 +15,10 @@ namespace ZeroInstall.Store.ViewModel
     /// Models information about elements in a cache for display in a UI.
     /// </summary>
     [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
-    public abstract class CacheNode : INamed<CacheNode>, IEquatable<CacheNode>
+    public abstract class CacheNode : INamed, IEquatable<CacheNode>
     {
         /// <summary>
-        /// The UI path name of this node. Uses a backslash as the separator in hierarchical names.
+        /// The full name of the node used for tree hierarchies.
         /// </summary>
         [Browsable(false)]
         public abstract string Name { get; set; }
@@ -39,7 +39,6 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
         public abstract void Delete(ITaskHandler handler);
 
-        #region Equality
         /// <inheritdoc/>
         public bool Equals(CacheNode? other)
         {
@@ -59,12 +58,5 @@ namespace ZeroInstall.Store.ViewModel
 
         /// <inheritdoc/>
         public override int GetHashCode() => Name.GetHashCode();
-        #endregion
-
-        #region Comparison
-        /// <inheritdoc/>
-        public int CompareTo(CacheNode? other)
-            => string.Compare(Name, other?.Name, StringComparison.OrdinalIgnoreCase);
-        #endregion
     }
 }

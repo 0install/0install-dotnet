@@ -6,12 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
-using NanoByte.Common.Cli;
-using ZeroInstall.Store.Properties;
-
-#if NET45
 using NanoByte.Common.Streams;
-#endif
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -20,7 +16,7 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Manages the interaction with the command-line interface of the external process.
         /// </summary>
-        private class CliControl : CliAppControl
+        private class GpgProcess : ChildProcess
         {
             /// <inheritdoc/>
             protected override string AppBinary => "gpg";
@@ -31,7 +27,7 @@ namespace ZeroInstall.Store.Trust
 
             private readonly byte[]? _stdinBytes;
 
-            public CliControl(string? homeDir = null, byte[]? stdinBytes = null)
+            public GpgProcess(string? homeDir = null, byte[]? stdinBytes = null)
             {
                 _homeDir = homeDir;
                 _stdinBytes = stdinBytes;

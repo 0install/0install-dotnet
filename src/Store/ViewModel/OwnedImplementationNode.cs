@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using NanoByte.Common;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
@@ -37,7 +38,7 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <inheritdoc/>
-        public override string Name { get => _parent.Name + "\\" + Version + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
+        public override string Name { get => _parent.Name + Named.TreeSeparator + Version + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
 
         /// <summary>
         /// The URI of the feed describing the implementation.

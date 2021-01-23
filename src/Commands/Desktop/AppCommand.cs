@@ -3,6 +3,7 @@
 
 using System;
 using NanoByte.Common.Native;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.DesktopIntegration.AccessPoints;

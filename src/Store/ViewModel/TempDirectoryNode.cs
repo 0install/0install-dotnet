@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Properties;
@@ -35,7 +36,7 @@ namespace ZeroInstall.Store.ViewModel
         /// <inheritdoc/>
         public override string Name
         {
-            get => Resources.TemporaryDirectories + "\\" + System.IO.Path.GetFileName(Path) + (SuffixCounter == 0 ? "" : " " + SuffixCounter);
+            get => Resources.TemporaryDirectories + Named.TreeSeparator + System.IO.Path.GetFileName(Path) + (SuffixCounter == 0 ? "" : " " + SuffixCounter);
             set => throw new NotSupportedException();
         }
 

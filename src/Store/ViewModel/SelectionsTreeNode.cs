@@ -18,17 +18,21 @@ namespace ZeroInstall.Store.ViewModel
             ImplementationVersion? Version,
             string? Path,
             [property: Browsable(false)] SelectionsTreeNode? Parent)
-        : INamed<SelectionsTreeNode>
+        : INamed
     {
         private string NameBase => (Parent == null)
             ? Uri.ToStringRfc()
-            : $"{Parent.NameBase}#{Uri.ToStringRfc()}";
+            : Parent.NameBase + Named.TreeSeparator + Uri.ToStringRfc();
 
         /// <summary>
-        /// The UI path name of this node. Uses a hash (#) as the separator in hierarchical names.
+        /// The full name of the node used for tree hierarchies.
         /// </summary>
         [Browsable(false)]
-        public string Name { get => $"{NameBase}#{Version}"; set {} }
+        public string Name
+        {
+            get => NameBase + Named.TreeSeparator + Version;
+            set => throw new NotSupportedException();
+        }
 
         /// <summary>
         /// A prefix used to indicate the indentation level inside the tree structure.
@@ -46,9 +50,5 @@ namespace ZeroInstall.Store.ViewModel
             else if (Path == null) return $"{Prefix}URI: {Uri}\n{indent}Version: {Version}\n{indent}{Resources.NotCached}";
             else return $"{Prefix}URI: {Uri}\n{indent}Version: {Version}\n{indent}Path: {Path}";
         }
-
-        /// <inheritdoc/>
-        public int CompareTo(SelectionsTreeNode? other)
-            => string.Compare(Name, other?.Name ?? "", StringComparison.OrdinalIgnoreCase);
     }
 }

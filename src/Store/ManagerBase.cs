@@ -3,6 +3,7 @@
 
 using System;
 using System.Threading;
+using NanoByte.Common;
 using NanoByte.Common.Tasks;
 
 #if NETFRAMEWORK

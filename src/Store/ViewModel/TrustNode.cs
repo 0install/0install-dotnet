@@ -11,19 +11,16 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Represents a <see cref="Key"/>-<see cref="Domain"/> pair in a <see cref="TrustDB"/> for display in a UI.
     /// </summary>
-    public sealed record TrustNode(string Fingerprint, Domain Domain) : INamed<TrustNode>
+    public sealed record TrustNode(string Fingerprint, Domain Domain) : INamed
     {
         /// <summary>
-        /// The UI path name of this node. Uses a backslash as the separator in hierarchical names.
+        /// The full name of the node used for tree hierarchies.
         /// </summary>
         [Browsable(false)]
-        public string Name { get => Fingerprint + "\\" + Domain.Value; set => throw new NotSupportedException(); }
-
-        /// <inheritdoc/>
-        int IComparable<TrustNode>.CompareTo(TrustNode? other)
+        public string Name
         {
-            int fingerprintCompare = string.CompareOrdinal(Fingerprint, other?.Fingerprint);
-            return (fingerprintCompare == 0) ? string.CompareOrdinal(Domain.Value, other?.Domain.Value) : fingerprintCompare;
+            get => Fingerprint + Named.TreeSeparator + Domain.Value;
+            set => throw new NotSupportedException();
         }
     }
 }

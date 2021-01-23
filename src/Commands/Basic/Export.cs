@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
