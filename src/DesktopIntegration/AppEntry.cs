@@ -29,7 +29,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// The URI or local path of the interface defining the application or the pet-name if <see cref="Requirements"/> is set.
         /// </summary>
-        [Description("The URI or local path of the interface defining the application or the pet-name if Requirements is set.")]
+        [DisplayName("URI"), Description("The URI or local path of the interface defining the application or the pet-name if Requirements is set.")]
         [XmlIgnore]
         public FeedUri InterfaceUri { get; set; }
 
@@ -43,23 +43,9 @@ namespace ZeroInstall.DesktopIntegration
         public string Name { get; set; }
 
         /// <summary>
-        /// Set to <c>true</c> to automatically download the newest available version of the application as a regular background task. Update checks will still be performed when the application is launched when set to <c>false</c>.
-        /// </summary>
-        [Description("Set to true to automatically download the newest available version of the application as a regular background task. Update checks will still be performed when the application is launched when set to false.")]
-        [XmlAttribute("auto-update"), DefaultValue(true)]
-        public bool AutoUpdate { get; set; } = true;
-
-        /// <summary>
-        /// A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.
-        /// </summary>
-        [Description("A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.")]
-        [XmlAttribute("hostname"), DefaultValue("")]
-        public string Hostname { get; set; }
-
-        /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process.
         /// </summary>
-        [Description("A set of requirements/restrictions imposed by the user on the implementation selection process.")]
+        [Browsable(false)]
         [XmlIgnore]
         public Requirements Requirements { get; set; }
 
@@ -96,6 +82,20 @@ namespace ZeroInstall.DesktopIntegration
         [Description("A set of AccessPoints to be registered in the desktop environment. Is null if no desktop integration has been performed yet.")]
         [XmlElement("access-points")]
         public AccessPointList AccessPoints { get; set; }
+
+        /// <summary>
+        /// Set to <c>true</c> to automatically download the newest available version of the application as a regular background task. Update checks will still be performed when the application is launched when set to <c>false</c>.
+        /// </summary>
+        [DisplayName("Auto-update"), Description("Set to true to automatically download the newest available version of the application as a regular background task. Update checks will still be performed when the application is launched when set to false.")]
+        [XmlAttribute("auto-update"), DefaultValue(true)]
+        public bool AutoUpdate { get; set; } = true;
+
+        /// <summary>
+        /// A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.
+        /// </summary>
+        [Description("A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.")]
+        [XmlAttribute("hostname"), DefaultValue("")]
+        public string Hostname { get; set; }
 
         /// <inheritdoc/>
         [Browsable(false)]
@@ -167,10 +167,11 @@ namespace ZeroInstall.DesktopIntegration
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri
             && Name == other.Name
-            && AutoUpdate == other.AutoUpdate
             && Equals(Requirements, other.Requirements)
             && CapabilityLists.SequencedEquals(other.CapabilityLists)
-            && Equals(AccessPoints, other.AccessPoints);
+            && Equals(AccessPoints, other.AccessPoints)
+            && AutoUpdate == other.AutoUpdate
+            && Hostname == other.Hostname;
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -186,10 +187,11 @@ namespace ZeroInstall.DesktopIntegration
                 base.GetHashCode(),
                 InterfaceUri,
                 Name,
-                AutoUpdate,
                 Requirements,
                 CapabilityLists.GetSequencedHashCode(),
-                AccessPoints);
+                AccessPoints,
+                AutoUpdate,
+                Hostname);
         #endregion
     }
 }

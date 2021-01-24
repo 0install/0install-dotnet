@@ -148,12 +148,5 @@ namespace ZeroInstall.Store.Feeds
             Log.Debug("Removing feed " + feedUri.ToStringRfc() + " from disk cache: " + path);
             File.Delete(path);
         }
-
-        #region Conversion
-        /// <summary>
-        /// Returns the store in the form "DiskFeedCache: Path". Not safe for parsing!
-        /// </summary>
-        public override string ToString() => $"DiskFeedCache: {Path}";
-        #endregion
     }
 }
