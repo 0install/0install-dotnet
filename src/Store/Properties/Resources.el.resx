@@ -270,9 +270,6 @@
   <data name="NoSuitableIconFound" xml:space="preserve">
     <value>Δεν βρέθηκε καμία κατάλληλη εικόνα.</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(όχι προσωρινή αποθήκευση)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Η αριθμητική τιμή είναι πολύ μεγάλη.</value>
   </data>

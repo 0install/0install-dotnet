@@ -64,10 +64,5 @@ namespace ZeroInstall.Store.ViewModel
         /// </summary>
         [Description("A unique identifier for the implementation. Used when storing implementation-specific user preferences.")]
         public string ID => _implementation.ID;
-
-        /// <summary>
-        /// Returns the Node in the form "Digest URI Version Architecture". Safe for parsing!
-        /// </summary>
-        public override string ToString() => Digest + " " + _parent.Uri.ToStringRfc() + " " + Version + " " + Architecture;
     }
 }

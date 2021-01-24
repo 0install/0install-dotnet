@@ -44,14 +44,6 @@ namespace ZeroInstall.Store.ViewModel
             NewVersion = newVersion;
         }
 
-        /// <inheritdoc/>
-        public override string ToString()
-        {
-            if (OldVersion == null) return $"{Uri}: new -> {NewVersion}";
-            else if (NewVersion == null) return $"{Uri}: removed";
-            else return $"{Uri}: {OldVersion} -> {NewVersion}";
-        }
-
         #region Equality
         /// <inheritdoc/>
         public bool Equals(SelectionsDiffNode? other)

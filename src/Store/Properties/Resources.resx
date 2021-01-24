@@ -283,9 +283,6 @@ Specified in the configuration file '{1}'.</value>
   <data name="NoSuitableIconFound" xml:space="preserve">
     <value>No suitable icon was found.</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(not cached)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>The number value is too large.</value>
   </data>

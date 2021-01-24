@@ -81,7 +81,7 @@ namespace ZeroInstall.Commands.Basic
 
             if (diff.Count == 0)
             {
-                Handler.OutputLow(Resources.NoUpdatesFound, Resources.NoUpdatesFound);
+                Handler.OutputLow(Resources.NoUpdatesFound, "");
                 return ExitCode.NoChanges;
             }
             else

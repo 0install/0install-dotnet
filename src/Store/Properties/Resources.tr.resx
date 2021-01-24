@@ -283,9 +283,6 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   <data name="NoSuitableIconFound" xml:space="preserve">
     <value>Uygun bir simge bulunamadı.</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(ön belleğe alınmamış)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Numara değeri çok büyük.</value>
   </data>

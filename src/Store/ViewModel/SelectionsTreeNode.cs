@@ -35,22 +35,5 @@ namespace ZeroInstall.Store.ViewModel
             }
             set => throw new NotSupportedException();
         }
-
-        /// <summary>
-        /// A prefix used to indicate the indentation level inside the tree structure.
-        /// </summary>
-        [Browsable(false)]
-        private string Prefix => (Parent == null) ? "- " : "  " + Parent.Prefix;
-
-        /// <summary>
-        /// Creates string representation with indentation suitable for console output.
-        /// </summary>
-        public override string ToString()
-        {
-            string indent = "".PadRight(Prefix.Length);
-            if (Version == null) return $"{Prefix}URI: {Uri}\n{indent}{Resources.NoSelectedVersion}";
-            else if (Path == null) return $"{Prefix}URI: {Uri}\n{indent}Version: {Version}\n{indent}{Resources.NotCached}";
-            else return $"{Prefix}URI: {Uri}\n{indent}Version: {Version}\n{indent}Path: {Path}";
-        }
     }
 }

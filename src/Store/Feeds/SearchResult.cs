@@ -78,10 +78,5 @@ namespace ZeroInstall.Store.Feeds
             feed.Categories.AddRange(Categories.CloneElements());
             return feed;
         }
-
-        /// <summary>
-        /// Returns the result in the form "Uri NEWLINE Name - Summary [Score]". Not safe for parsing!
-        /// </summary>
-        public override string ToString() => Uri?.ToStringRfc() + Environment.NewLine + $"{Name} - {Summary} [{Score}%]";
     }
 }

@@ -533,15 +533,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (not cached).
-        /// </summary>
-        internal static string NotCached {
-            get {
-                return ResourceManager.GetString("NotCached", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The number value is too large..
         /// </summary>
         internal static string NumberTooLarge {

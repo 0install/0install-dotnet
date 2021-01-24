@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
@@ -54,8 +55,14 @@ namespace ZeroInstall.Store.ViewModel
         /// <summary>
         /// The total size of the implementation in bytes.
         /// </summary>
-        [Description("The total size of the implementation in bytes.")]
+        [Browsable(false)]
         public long Size { get; }
+
+        /// <summary>
+        /// The total size of the implementation in human-readable form.
+        /// </summary>
+        [DisplayName("Size"), Description("The total size of the implementation.")]
+        public string SizeHuman => Size.FormatBytes();
 
         /// <inheritdoc/>
         public override string? Path => ImplementationStore.GetPath(_digest);
@@ -91,10 +98,5 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="IOException">The entry's directory could not be processed.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
         public void Verify(ITaskHandler handler) => ImplementationStore.Verify(_digest, handler);
-
-        /// <summary>
-        /// Returns the Node in the form "Digest". Safe for parsing!
-        /// </summary>
-        public override string ToString() => Digest;
     }
 }

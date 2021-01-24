@@ -10,7 +10,6 @@ using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Services
@@ -137,14 +136,8 @@ namespace ZeroInstall.Services
             });
 
             var node1 = new SelectionsTreeNode(new("http://root/"), new("1.0"), "fake/path", Parent: null);
-            node1.ToString().Should().Be("- URI: http://root/\n  Version: 1.0\n  Path: fake/path");
-
             var node2 = new SelectionsTreeNode(new("http://dependency/"), new("2.0"), Path: null, Parent: node1);
-            node2.ToString().Should().Be($"  - URI: http://dependency/\n    Version: 2.0\n    {Resources.NotCached}");
-
             var node3 = new SelectionsTreeNode(new("http://missing/"), Version: null, Path: null, Parent: node1);
-            node3.ToString().Should().Be($"  - URI: http://missing/\n    {Resources.NoSelectedVersion}");
-
             tree.Should().Equal(node1, node2, node3);
         }
 
