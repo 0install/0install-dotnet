@@ -42,13 +42,20 @@ namespace ZeroInstall.Publish.Capture
             if (string.IsNullOrEmpty(capabilitiesRegPath))
                 return null;
 
-            using var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out _);
-            if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName)?.ToString();
-            if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription)?.ToString();
+            try
+            {
+                using var capsKey = RegistryUtils.OpenHklmKey(capabilitiesRegPath, out _);
+                if (string.IsNullOrEmpty(appName)) appName = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppName)?.ToString();
+                if (string.IsNullOrEmpty(appDescription)) appDescription = capsKey.GetValue(DesktopIntegration.Windows.AppRegistration.RegValueAppDescription)?.ToString();
 
-            CollectProtocolAssocsEx(capsKey, commandMapper, capabilities);
-            CollectFileAssocsEx(capsKey, capabilities);
-            // Note: Contenders for StartMenu entries are detected elsewhere
+                CollectProtocolAssocsEx(capsKey, commandMapper, capabilities);
+                CollectFileAssocsEx(capsKey, capabilities);
+                // Note: Contenders for StartMenu entries are detected elsewhere
+            }
+            catch (IOException ex)
+            {
+                Log.Warn(ex);
+            }
 
             return new()
             {
