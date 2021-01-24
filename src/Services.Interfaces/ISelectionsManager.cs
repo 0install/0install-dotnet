@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Implementations;
@@ -36,7 +37,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Generates a tree representation of the dependencies within the selections.
         /// </summary>
-        IEnumerable<SelectionsTreeNode> GetTree(Selections selections);
+        NamedCollection<SelectionsTreeNode> GetTree(Selections selections);
 
         /// <summary>
         /// Generates a list of differences between two selections.

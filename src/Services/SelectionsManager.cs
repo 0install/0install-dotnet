@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
@@ -79,14 +80,14 @@ namespace ZeroInstall.Services
         }
 
         /// <inheritdoc/>
-        public IEnumerable<SelectionsTreeNode> GetTree(Selections selections)
+        public NamedCollection<SelectionsTreeNode> GetTree(Selections selections)
         {
             #region Sanity checks
             if (selections == null) throw new ArgumentNullException(nameof(selections));
             #endregion
 
-            HashSet<FeedUri> visited = new();
-            List<SelectionsTreeNode> result = new();
+            var visited = new HashSet<FeedUri>();
+            var result = new NamedCollection<SelectionsTreeNode>();
 
             ImplementationSelection? TryGetImplementation(IInterfaceUri target)
             {

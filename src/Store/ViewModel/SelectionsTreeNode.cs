@@ -20,17 +20,19 @@ namespace ZeroInstall.Store.ViewModel
             [property: Browsable(false)] SelectionsTreeNode? Parent)
         : INamed
     {
-        private string NameBase => (Parent == null)
-            ? Uri.ToStringRfc()
-            : Parent.NameBase + Named.TreeSeparator + Uri.ToStringRfc();
-
         /// <summary>
         /// The full name of the node used for tree hierarchies.
         /// </summary>
         [Browsable(false)]
         public string Name
         {
-            get => NameBase + Named.TreeSeparator + Version;
+            get
+            {
+                string name = $"{Uri.ToStringRfc()} ({(Version?.ToString() ?? Resources.NoSelectedVersion)})";
+                return Parent == null
+                    ? name
+                    : Parent.Name + Named.TreeSeparator + name;
+            }
             set => throw new NotSupportedException();
         }
 
