@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
-#if NET45
+#if NETFRAMEWORK
 using NanoByte.Common.Collections;
 #endif
 
