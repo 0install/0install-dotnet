@@ -16,17 +16,20 @@
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["SourceLink", "ValueTuple", "SharpZipLib"],
+      "packagePatterns": ["SourceLink"],
+      "packageNames": ["System.ValueTuple", "SharpZipLib"],
       "automerge": true,
       "automergeType": "branch"
     },
     {
       "packagePatterns": ["^Microsoft\\.Extensions"],
+      "packageNames": ["System.Drawing.Common"],
       "groupName": "Microsoft Extensions",
       "separateMinorPatch": true
     },
     {
       "packagePatterns": ["^Microsoft\\.Extensions"],
+      "packageNames": ["System.Drawing.Common"],
       "updateTypes": ["major", "minor"],
       "enabled": false
     },
