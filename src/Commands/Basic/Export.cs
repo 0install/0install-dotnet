@@ -82,9 +82,8 @@ namespace ZeroInstall.Commands.Basic
         public override ExitCode Execute()
         {
             Solve();
-            Debug.Assert(Selections != null);
 
-            var exporter = new Exporter(Selections, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
+            var exporter = new Exporter(Selections!, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
 
             exporter.ExportFeeds(FeedCache, OpenPgp);
             if (!_noImplementations)

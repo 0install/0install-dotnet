@@ -82,11 +82,10 @@ namespace ZeroInstall.Commands.Basic
         protected override void Solve()
         {
             base.Solve();
-            Debug.Assert(Selections != null);
 
             try
             {
-                UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections);
+                UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections!);
             }
             #region Error handling
             catch (KeyNotFoundException ex)
@@ -116,9 +115,9 @@ namespace ZeroInstall.Commands.Basic
                 RefreshSolve();
             }
 
-            if (CustomizeSelections || UncachedImplementations.Count != 0) ShowSelections();
+            if (CustomizeSelections || UncachedImplementations!.Count != 0) ShowSelections();
 
-            if (UncachedImplementations.Count != 0)
+            if (UncachedImplementations!.Count != 0)
             {
                 try
                 {

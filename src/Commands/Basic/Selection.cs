@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net;
@@ -220,9 +219,7 @@ namespace ZeroInstall.Commands.Basic
         /// </summary>
         protected void ShowSelections()
         {
-            Debug.Assert(Selections != null);
-
-            Handler.ShowSelections(Selections, FeedManager);
+            Handler.ShowSelections(Selections!, FeedManager);
             if (CustomizeSelections && !SelectionsDocument) Handler.CustomizeSelections(SolveCallback);
             Handler.CancellationToken.ThrowIfCancellationRequested();
         }
@@ -232,8 +229,6 @@ namespace ZeroInstall.Commands.Basic
         /// </summary>
         private Selections SolveCallback()
         {
-            Debug.Assert(Selections != null);
-
             // Temporarily change configuration to make additional Solver calls as non-intrusive as possible
             bool backupRefresh = FeedManager.Refresh;
             FeedManager.Refresh = false;
@@ -248,16 +243,14 @@ namespace ZeroInstall.Commands.Basic
                 FeedManager.Refresh = backupRefresh;
             }
 
-            Handler.ShowSelections(Selections, FeedManager);
-            return Selections;
+            Handler.ShowSelections(Selections!, FeedManager);
+            return Selections!;
         }
 
         protected virtual ExitCode ShowOutput()
         {
-            Debug.Assert(Selections != null);
-
-            if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections.ToXmlString());
-            else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections));
+            if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections!.ToXmlString());
+            else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections!));
             return ExitCode.OK;
         }
     }

@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
@@ -103,10 +102,9 @@ namespace ZeroInstall.Commands.Desktop
                 if (UpdateFound())
                 {
                     DownloadUncachedImplementations();
-                    Debug.Assert(Selections != null);
 
                     Handler.CancellationToken.ThrowIfCancellationRequested();
-                    if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections.MainImplementation.Version), defaultAnswer: true))
+                    if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))
                         throw new OperationCanceledException();
 
                     LaunchImplementation();
