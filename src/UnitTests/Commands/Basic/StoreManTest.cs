@@ -29,6 +29,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Add : StoreSubCommand<StoreMan.Add>
         {
+            protected override StoreMan.Add Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Archive()
             {
@@ -107,6 +109,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Audit : StoreSubCommand<StoreMan.Audit>
         {
+            protected override StoreMan.Audit Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void TestAudit()
             {
@@ -120,6 +124,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Copy : StoreSubCommand<StoreMan.Copy>
         {
+            protected override StoreMan.Copy Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Normal()
             {
@@ -146,6 +152,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Find : StoreSubCommand<StoreMan.Find>
         {
+            protected override StoreMan.Find Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Test()
             {
@@ -159,12 +167,16 @@ namespace ZeroInstall.Commands.Basic
 
         public class List : StoreSubCommand<StoreMan.List>
         {
+            protected override StoreMan.List Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Test() => RunAndAssert(new[] {StoreMock.Object}, ExitCode.OK);
         }
 
         public class ListImplementations : StoreSubCommand<StoreMan.ListImplementations>
         {
+            protected override StoreMan.ListImplementations Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void ListAll()
             {
@@ -188,6 +200,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Optimise : StoreSubCommand<StoreMan.Optimise>
         {
+            protected override StoreMan.Optimise Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Test()
             {
@@ -199,6 +213,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Purge : StoreSubCommand<StoreMan.Purge>
         {
+            protected override StoreMan.Purge Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Test()
             {
@@ -213,6 +229,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Remove : StoreSubCommand<StoreMan.Remove>
         {
+            protected override StoreMan.Remove Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Test()
             {
@@ -226,6 +244,8 @@ namespace ZeroInstall.Commands.Basic
 
         public class Verify : StoreSubCommand<StoreMan.Verify>
         {
+            protected override StoreMan.Verify Instantiate(ICommandHandler handler) => new(handler);
+
             [Fact]
             public void Pass()
             {

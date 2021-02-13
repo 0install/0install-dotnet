@@ -12,6 +12,8 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class ListTest : CliCommandTestBase<List>
     {
+        protected override List Instantiate(ICommandHandler handler) => new(handler);
+
         private Mock<IFeedCache> FeedCacheMock => GetMock<IFeedCache>();
 
         [Fact] // Ensures calling with no arguments returns all feeds in the cache.

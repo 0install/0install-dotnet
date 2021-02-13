@@ -29,9 +29,14 @@ namespace ZeroInstall.Commands
         protected readonly MockCommandHandler Handler = new() {Verbosity = Verbosity.Verbose};
 
         /// <summary>
-        /// The object to be tested (system under test).
+        /// The command to be tested (system under test).
         /// </summary>
         protected readonly TCommand Sut;
+
+        /// <summary>
+        /// Template method called to instantiate the command to be tested.
+        /// </summary>
+        protected abstract TCommand Instantiate(ICommandHandler handler);
 
         private readonly Dictionary<Type, Mock> _mocks = new();
 
@@ -44,7 +49,8 @@ namespace ZeroInstall.Commands
 
         protected CliCommandTestBase()
         {
-            Sut = (TCommand)typeof(TCommand).GetConstructor(new[] {typeof(ICommandHandler)})!.Invoke(new object[] {Handler});
+            // ReSharper disable once VirtualMemberCallInConstructor
+            Sut = Instantiate(Handler);
 
             T BuildMock<T>() where T : class
             {
