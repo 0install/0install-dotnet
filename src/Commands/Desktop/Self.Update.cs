@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// Updates Zero Install itself to the most recent version.
         /// </summary>
-        public class Update : Run, ICliSubCommand
+        public class Update : Download, ICliSubCommand
         {
             #region Metadata
             // ReSharper disable once MemberHidesStaticFromOuterClass
@@ -47,10 +47,8 @@ namespace ZeroInstall.Commands.Desktop
             public Update(ICommandHandler handler)
                 : base(handler)
             {
-                NoWait = true;
                 FeedManager.Refresh = true;
 
-                //Options.Remove("no-wait");
                 //Options.Remove("refresh");
 
                 Options.Add("force", () => Resources.OptionForceSelfUpdate, _ => _force = true);
@@ -63,21 +61,17 @@ namespace ZeroInstall.Commands.Desktop
             {
                 // NOTE: Does not call base method
 
-                AdditionalArgs.AddRange(Options.Parse(args));
-                if (AdditionalArgs.Count != 0) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.JoinEscapeArguments(), null);
+                if (Options.Parse(args).Count != 0) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.JoinEscapeArguments(), null);
 
                 SetInterfaceUri(Config.SelfUpdateUri ?? throw new UriFormatException(Resources.SelfUpdateDisabled));
                 if (ProgramUtils.GuiAssemblyName != null) Requirements.Command = Command.NameRunGui;
-
-                // Instruct new version of Zero Install in the cache to deploy itself over the location of the current version
-                AdditionalArgs.AddRange(new[] {Self.AltName, Deploy.Name, "--batch", Locations.InstallBase});
-
-                if (_restartCentral) AdditionalArgs.Add("--restart-central");
             }
 
             /// <inheritdoc/>
             public override ExitCode Execute()
             {
+                // NOTE: Does not call base method
+
                 if (ZeroInstallInstance.IsRunningFromCache) throw new NotSupportedException(Resources.SelfUpdateBlocked);
 
                 try
@@ -107,7 +101,10 @@ namespace ZeroInstall.Commands.Desktop
                     if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))
                         throw new OperationCanceledException();
 
-                    LaunchImplementation();
+                    var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
+                    if (_restartCentral) builder.AddArguments("--restart-central");
+                    builder.Start();
+
                     return ExitCode.OK;
                 }
                 else return ExitCode.OK;

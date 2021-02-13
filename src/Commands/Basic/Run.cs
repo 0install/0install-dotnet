@@ -8,10 +8,7 @@ using NanoByte.Common.Net;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
-using ZeroInstall.Model.Selection;
-using ZeroInstall.Services.Executors;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -42,7 +39,7 @@ namespace ZeroInstall.Commands.Basic
         private string? _wrapper;
 
         /// <summary>Immediately returns once the chosen program has been launched instead of waiting for it to finish executing.</summary>
-        protected bool NoWait;
+        private bool _noWait;
 
         /// <inheritdoc/>
         public Run(ICommandHandler handler)
@@ -53,7 +50,7 @@ namespace ZeroInstall.Commands.Basic
 
             Options.Add("m|main=", () => Resources.OptionMain, newMain => _overrideMain = newMain);
             Options.Add("w|wrapper=", () => Resources.OptionWrapper, newWrapper => _wrapper = newWrapper);
-            Options.Add("no-wait", () => Resources.OptionNoWait, _ => NoWait = true);
+            Options.Add("no-wait", () => Resources.OptionNoWait, _ => _noWait = true);
 
             // Work-around to disable interspersed arguments (needed for passing arguments through to sub-processes)
             Options.Add("<>", value =>
@@ -77,14 +74,19 @@ namespace ZeroInstall.Commands.Basic
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             Handler.DisableUI();
-            var process = LaunchImplementation();
+
+            var process = Executor.Inject(Selections!, _overrideMain)
+                                  .AddWrapper(_wrapper)
+                                  .AddArguments(AdditionalArgs.ToArray())
+                                  .Start();
+
             Handler.CloseUI();
 
             BackgroundUpdate();
             SelfUpdateCheck();
 
             if (process == null) return ExitCode.OK;
-            if (NoWait) return (WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK);
+            if (_noWait) return (WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK);
             else
             {
                 Log.Debug("Waiting for application to exit");
@@ -113,18 +115,6 @@ namespace ZeroInstall.Commands.Basic
             }
             else base.Solve();
         }
-
-        /// <summary>
-        /// Launches the selected implementation.
-        /// </summary>
-        /// <returns>The newly created <see cref="Process"/>; <c>null</c> if no external process was started.</returns>
-        /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
-        /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
-        protected Process? LaunchImplementation()
-            => Executor.Inject(Selections!, _overrideMain)
-                       .AddWrapper(_wrapper)
-                       .AddArguments(AdditionalArgs.ToArray())
-                       .Start();
 
         /// <summary>
         /// Updates the application in a background process.
