@@ -524,7 +524,7 @@ namespace ZeroInstall.Store.Implementations
                 restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
                 restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
 
-                var apps = restartManager.ListApps(handler);
+                var apps = restartManager.ListApps(handler.CancellationToken);
                 if (apps.Length != 0)
                 {
                     string appsList = string.Join(Environment.NewLine, apps);

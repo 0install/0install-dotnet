@@ -7,8 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Microsoft.Win32;
-using NanoByte.Common;
 using NanoByte.Common.Collections;
+using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store;
 

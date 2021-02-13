@@ -82,8 +82,10 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     {
                         _restartManager ??= new();
                         _restartManager.RegisterResources(fileArray);
-                        if (_restartManager.ListApps(Handler).Length == 0) NoRestart = true;
-                        _restartManager.ShutdownApps(Handler);
+                        if (_restartManager.ListApps(Handler.CancellationToken).Length == 0)
+                            NoRestart = true;
+                        else
+                            _restartManager.ShutdownApps(Handler);
                     }
                     #region Error handling
                     catch (IOException ex)

@@ -3,7 +3,7 @@
 
 using System;
 using System.IO;
-using NanoByte.Common;
+using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;

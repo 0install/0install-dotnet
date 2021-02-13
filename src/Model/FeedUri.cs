@@ -4,17 +4,17 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Properties;
 using ZeroInstall.Model.Selection;
 
-#if !NET
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -311,7 +311,7 @@ namespace ZeroInstall.Model
             IsFromDistribution = serializationInfo.GetBoolean("IsFromDistribution");
         }
 
-#if !NET
+#if NETFRAMEWORK
         [SecurityPermission(SecurityAction.LinkDemand, SerializationFormatter = true)]
 #endif
         void ISerializable.GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)

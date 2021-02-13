@@ -5,7 +5,7 @@ using System;
 using System.Runtime.Serialization;
 using NanoByte.Common.Storage;
 
-#if !NET
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -61,7 +61,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <inheritdoc/>
-#if !NET
+#if NETFRAMEWORK
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 #endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)

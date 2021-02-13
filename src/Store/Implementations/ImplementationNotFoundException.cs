@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 
-#if !NET
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -70,7 +70,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Serialization
         /// <inheritdoc/>
-#if !NET
+#if NETFRAMEWORK
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 #endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
