@@ -123,7 +123,8 @@ namespace ZeroInstall.Commands
                 Handler.Output(Resources.CommandLineArguments, HelpText);
                 throw new OperationCanceledException(); // Don't handle any of the other arguments
             });
-            Options.Add("background", () => Resources.OptionBackground, _ => Handler.Background = true);
+            if (handler.IsGui)
+                Options.Add("background", () => Resources.OptionBackground, _ => Handler.Background = true);
             Options.Add("batch", () => Resources.OptionBatch, _ =>
             {
                 if (Handler.Verbosity >= Verbosity.Verbose) throw new OptionException(string.Format(Resources.ExclusiveOptions, "--batch", "--verbose"), "verbose");

@@ -28,15 +28,13 @@ namespace ZeroInstall.Commands.Basic
         #region State
         private Selections? _oldSelections;
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Creates a new update command.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         public Update(ICommandHandler handler)
-            : base(handler)
-        {
-            //Options.Remove("o|offline");
-            //Options.Remove("r|refresh");
-            //Options.Remove("xml");
-            //Options.Remove("show");
-        }
+            : base(handler, outputOptions: false, refreshOptions: false)
+        {}
         #endregion
 
         /// <inheritdoc/>

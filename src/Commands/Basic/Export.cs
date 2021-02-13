@@ -41,13 +41,13 @@ namespace ZeroInstall.Commands.Basic
         private bool _includeZeroInstall;
         private BootstrapMode _bootstrapType = BootstrapMode.Run;
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Creates a new export command.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         public Export(ICommandHandler handler)
-            : base(handler)
+            : base(handler, outputOptions: false)
         {
-            //Options.Remove("xml");
-            //Options.Remove("show");
-
             Options.Add("no-implementations", () => Resources.OptionExportNoImplementations, _ => _noImplementations = true);
             Options.Add("include-zero-install", () => Resources.OptionExportIncludeZeroInstall, _ => _includeZeroInstall = true);
             Options.Add("bootstrap=", () => Resources.OptionExportBootstrap + Environment.NewLine + SupportedValues<BootstrapMode>(), (BootstrapMode x) => _bootstrapType = x);

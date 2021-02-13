@@ -567,7 +567,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <value>Belirtilen kısaltma için arabirimin adresini görüntüler.</value>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Görsel kullanıcı arabirimini gizler ve yerine sistem tepsisi simgesi gibi bir öge kullanılmasını sağlar. Komut satırı kipi üzerinde bir etkisi yoktur.</value>
+    <value>Görsel kullanıcı arabirimini gizler ve yerine sistem tepsisi simgesi gibi bir öge kullanılmasını sağlar.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Toplu işlem kipinde çalışır: İlerleme durumları kullanıcıya görüntülenmez ve sorulara varsayılan yanıtlar verilir.</value>

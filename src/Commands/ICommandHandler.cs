@@ -18,7 +18,12 @@ namespace ZeroInstall.Commands
     public interface ICommandHandler : ITaskHandler
     {
         /// <summary>
-        /// Hides the GUI and uses something like a tray icon instead. Has no effect in CLI mode.
+        /// Indicates whether this handler is a GUI.
+        /// </summary>
+        bool IsGui { get; }
+
+        /// <summary>
+        /// Hides the GUI and uses something like a tray icon instead. Has no effect when <see cref="IsGui"/> is <c>false</c>.
         /// </summary>
         bool Background { get; set; }
 

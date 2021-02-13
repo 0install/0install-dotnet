@@ -24,6 +24,11 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Always returns <c>false</c>.
         /// </summary>
+        public bool IsGui => false;
+
+        /// <summary>
+        /// Always returns <c>false</c>.
+        /// </summary>
         public bool Background { get => false; set {} }
 
         /// <inheritdoc/>

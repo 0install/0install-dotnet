@@ -1368,7 +1368,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide the graphical user interface and use something like a tray icon instead. Has no effect in command-line mode..
+        ///   Looks up a localized string similar to Hide the graphical user interface and use something like a tray icon instead..
         /// </summary>
         public static string OptionBackground {
             get {

@@ -60,23 +60,16 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>Indicates the user wants a machine-readable output.</summary>
         protected bool ShowXml;
 
-        /// <inheritdoc/>
-        public Selection(ICommandHandler handler)
+        /// <summary>
+        /// Creates a new select command.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+        /// <param name="outputOptions">Whether to add command-line options controlling output.</param>
+        /// <param name="refreshOptions">Whether to add command-line options controlling refresh behavior.</param>
+        /// <param name="customizeOptions">Whether to add command-line options for customizing selected implementations.</param>
+        public Selection(ICommandHandler handler, bool outputOptions = true, bool refreshOptions = true, bool customizeOptions = true)
             : base(handler)
         {
-            Options.Add("customize", () => Resources.OptionCustomize, _ => CustomizeSelections = true);
-
-            Options.Add("o|offline", () => Resources.OptionOffline, _ => Config.NetworkUse = NetworkLevel.Offline);
-            Options.Add("r|refresh", () => Resources.OptionRefresh, _ => FeedManager.Refresh = true);
-
-            Options.Add("with-store=", () => Resources.OptionWithStore, delegate(string path)
-            {
-                if (string.IsNullOrEmpty(path)) throw new OptionException(string.Format(Resources.MissingOptionValue, "--with-store"), "with-store");
-                ImplementationStore = new CompositeImplementationStore(new[] {new DiskImplementationStore(path), ImplementationStore});
-            });
-
-            Options.Add("command=", () => Resources.OptionCommand,
-                command => Requirements.Command = command);
             Options.Add("before=", () => Resources.OptionBefore,
                 (ImplementationVersion version) => _before = version);
             Options.Add("not-before=", () => Resources.OptionNotBefore,
@@ -85,16 +78,36 @@ namespace ZeroInstall.Commands.Basic
                 (VersionRange range) => _version = range);
             Options.Add("version-for==", () => Resources.OptionVersionRangeFor,
                 (FeedUri interfaceUri, VersionRange range) => Requirements.ExtraRestrictions[interfaceUri] = range);
-            Options.Add("s|source", () => Resources.OptionSource,
-                _ => Requirements.Source = true);
-            Options.Add("os=", () => Resources.OptionOS + Environment.NewLine + SupportedValues<OS>(),
-                (OS os) => Requirements.Architecture = new(os, Requirements.Architecture.Cpu));
-            Options.Add("cpu=", () => Resources.OptionCpu + Environment.NewLine + SupportedValues<Cpu>(),
-                (Cpu cpu) => Requirements.Architecture = new(Requirements.Architecture.OS, cpu));
             Options.Add("language=", () => Resources.OptionLanguage,
                 (CultureInfo lang) => Requirements.Languages.Add(lang));
 
-            Options.Add("xml", () => Resources.OptionXml, _ => ShowXml = true);
+            if (customizeOptions)
+            {
+                Options.Add("command=", () => Resources.OptionCommand,
+                    command => Requirements.Command = command);
+                Options.Add("s|source", () => Resources.OptionSource,
+                    _ => Requirements.Source = true);
+                Options.Add("os=", () => Resources.OptionOS + Environment.NewLine + SupportedValues<OS>(),
+                    (OS os) => Requirements.Architecture = new(os, Requirements.Architecture.Cpu));
+                Options.Add("cpu=", () => Resources.OptionCpu + Environment.NewLine + SupportedValues<Cpu>(),
+                    (Cpu cpu) => Requirements.Architecture = new(Requirements.Architecture.OS, cpu));
+                Options.Add("customize", () => Resources.OptionCustomize, _ => CustomizeSelections = true);
+            }
+
+            if (refreshOptions)
+            {
+                Options.Add("o|offline", () => Resources.OptionOffline, _ => Config.NetworkUse = NetworkLevel.Offline);
+                Options.Add("r|refresh", () => Resources.OptionRefresh, _ => FeedManager.Refresh = true);
+            }
+
+            if (outputOptions)
+                Options.Add("xml", () => Resources.OptionXml, _ => ShowXml = true);
+
+            Options.Add("with-store=", () => Resources.OptionWithStore, delegate(string path)
+            {
+                if (string.IsNullOrEmpty(path)) throw new OptionException(string.Format(Resources.MissingOptionValue, "--with-store"), "with-store");
+                ImplementationStore = new CompositeImplementationStore(new[] {new DiskImplementationStore(path), ImplementationStore});
+            });
         }
         #endregion
 

@@ -567,7 +567,7 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
     <value>Print the interface URI for the given alias.</value>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Hide the graphical user interface and use something like a tray icon instead. Has no effect in command-line mode.</value>
+    <value>Hide the graphical user interface and use something like a tray icon instead.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Automatically answer questions with defaults when possible. Avoid unnecessary console output (e.g. progress bars).</value>

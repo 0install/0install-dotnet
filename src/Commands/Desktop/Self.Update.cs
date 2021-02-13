@@ -43,13 +43,14 @@ namespace ZeroInstall.Commands.Desktop
             /// <summary>Restart the <see cref="Central"/> GUI after the update.</summary>
             private bool _restartCentral;
 
-            /// <inheritdoc/>
+            /// <summary>
+            /// Creates a new self update command.
+            /// </summary>
+            /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
             public Update(ICommandHandler handler)
-                : base(handler)
+                : base(handler, outputOptions: false, refreshOptions: false, customizeOptions: false)
             {
                 FeedManager.Refresh = true;
-
-                //Options.Remove("refresh");
 
                 Options.Add("force", () => Resources.OptionForceSelfUpdate, _ => _force = true);
                 Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);

@@ -567,7 +567,7 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
     <value>Gebe die Interface URI für den angegebenen Alias aus.</value>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Versteckt die grafische Benutzeroberfläche und verwendet stattdessen etwas wie ein Tray Icon. Hat keine Auswirkung im Befehlszeilenmodus.</value>
+    <value>Versteckt die grafische Benutzeroberfläche und verwendet stattdessen etwas wie ein Tray Icon.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Automatisch Fragen mit Standardantworten beantworten wenn möglich. Unnötige Konsolenausgaben (z.B. Fortschrittsbalken) vermeiden.</value>

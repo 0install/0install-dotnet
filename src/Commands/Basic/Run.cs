@@ -41,13 +41,13 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>Immediately returns once the chosen program has been launched instead of waiting for it to finish executing.</summary>
         private bool _noWait;
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Creates a new run command.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         public Run(ICommandHandler handler)
-            : base(handler)
+            : base(handler, outputOptions: false)
         {
-            //Options.Remove("xml");
-            //Options.Remove("show");
-
             Options.Add("m|main=", () => Resources.OptionMain, newMain => _overrideMain = newMain);
             Options.Add("w|wrapper=", () => Resources.OptionWrapper, newWrapper => _wrapper = newWrapper);
             Options.Add("no-wait", () => Resources.OptionNoWait, _ => _noWait = true);
