@@ -8,7 +8,7 @@ using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Store;
 
-#if !NETFRAMEWORK
+#if NET
 using System.IO;
 using NanoByte.Common.Storage;
 #endif

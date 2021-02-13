@@ -10,7 +10,6 @@ using ZeroInstall.Model;
 using ZeroInstall.Store;
 
 #if NETFRAMEWORK
-using NanoByte.Common;
 using NanoByte.Common.Native;
 #endif
 

@@ -7,7 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using NanoByte.Common;
+using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store;

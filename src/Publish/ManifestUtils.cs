@@ -2,8 +2,8 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Diagnostics.Contracts;
 using System.IO;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;

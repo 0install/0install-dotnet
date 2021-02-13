@@ -147,7 +147,7 @@ namespace ZeroInstall.Store
             return config;
         }
 
-#if !NETFRAMEWORK
+#if NET
         /// <summary>
         /// Gets the settings from a .NET Extensions <see cref="IConfiguration"/> provider.
         /// </summary>

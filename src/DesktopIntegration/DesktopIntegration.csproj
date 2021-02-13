@@ -8,10 +8,10 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -24,8 +24,7 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" />
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
-    <None Include="..\..\artifacts\$(Configuration)\net45\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net45" />
-    <None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/netstandard2.1" />
+    <None Include="..\..\artifacts\$(Configuration)\net472\win\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net472" />
     <None Include="..\..\artifacts\$(Configuration)\net5.0\$(AssemblyName).XmlSerializers.dll" Pack="true" PackagePath="lib/net5.0" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ using NanoByte.Common;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 
-#if !NET
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -84,7 +84,7 @@ namespace ZeroInstall.DesktopIntegration
         {}
 
         /// <inheritdoc/>
-#if !NET
+#if NETFRAMEWORK
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 #endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context) => base.GetObjectData(info, context);

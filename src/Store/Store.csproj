@@ -8,10 +8,10 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -27,12 +27,12 @@
     <PackageReference Include="SharpCompress" Version="0.24.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <PackageReference Include="wix-libs" Version="3.11.1" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'!='net45'">
+  <ItemGroup Condition="'$(TargetFramework)'!='net472'">
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
   </ItemGroup>
 

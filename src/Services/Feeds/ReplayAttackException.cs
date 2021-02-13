@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using ZeroInstall.Services.Properties;
 
 using ZeroInstall.Store.Feeds;
-#if !NET
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -65,7 +65,7 @@ namespace ZeroInstall.Services.Feeds
         }
 
         /// <inheritdoc/>
-#if !NET
+#if NETFRAMEWORK
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 #endif
         public override void GetObjectData(SerializationInfo info, StreamingContext context)

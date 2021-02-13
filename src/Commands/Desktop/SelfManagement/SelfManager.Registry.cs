@@ -6,6 +6,7 @@ using System.IO;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Info;
+using NanoByte.Common.Native;
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement
 {

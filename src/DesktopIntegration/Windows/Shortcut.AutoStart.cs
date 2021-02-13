@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using NanoByte.Common;
+using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Store;

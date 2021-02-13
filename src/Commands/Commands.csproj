@@ -6,14 +6,14 @@
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
     <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
-    <TargetFrameworks>net45;net5.0</TargetFrameworks>
+    <TargetFrameworks>net472;net5.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
@@ -28,7 +28,7 @@
   <ItemGroup>
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web">
       <Pack>False</Pack>
     </Reference>
@@ -40,11 +40,11 @@
   <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
     <None Include="*.targets">
-      <PackagePath>build\net45</PackagePath>
+      <PackagePath>build\net472</PackagePath>
       <Pack>true</Pack>
     </None>
     <None Include="App.config">
-      <PackagePath>build\net45\$(AssemblyName).exe.config</PackagePath>
+      <PackagePath>build\net472\$(AssemblyName).exe.config</PackagePath>
       <Pack>true</Pack>
     </None>
   </ItemGroup>

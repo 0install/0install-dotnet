@@ -7,10 +7,10 @@
     <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -18,7 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web">
       <Pack>False</Pack>
     </Reference>

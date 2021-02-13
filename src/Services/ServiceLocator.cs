@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
@@ -150,7 +151,7 @@ namespace ZeroInstall.Services
         /// </summary>
         public ISelectionsManager SelectionsManager { get => Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, ImplementationStore, PackageManager)); set => _selectionsManager = value; }
 
-        private static T Get<T>(ref T? value, Func<T> build) where T : class
+        private static T Get<T>(ref T? value, [InstantHandle] Func<T> build) where T : class
         {
             if (value == null)
             {

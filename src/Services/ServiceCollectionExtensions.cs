@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NETFRAMEWORK
+#if NET
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -54,7 +54,7 @@ namespace ZeroInstall.Services
         /// </summary>
         /// <param name="services">The service collection to add the services to.</param>
         /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
-        /// <seealso cref="ConfigurationCredentialProviderRegisration.ConfigureCredentials"/>
+        /// <seealso cref="ConfigurationCredentialProviderRegistration.ConfigureCredentials"/>
         public static IServiceCollection AddZeroInstall(this IServiceCollection services, IConfiguration? configuration = null)
             => services.AddZeroInstall<ServiceTaskHandler>(configuration);
     }

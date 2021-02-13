@@ -5,8 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NanoByte.Common;
-using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
@@ -52,8 +50,6 @@ namespace ZeroInstall.Commands
         /// Last question passed to <see cref="Ask"/>.
         /// </summary>
         public string? LastQuestion { get; private set; }
-
-        protected override void LogHandler(LogSeverity severity, string message) {}
 
         /// <summary>
         /// Fakes asking the user a question.
@@ -114,7 +110,5 @@ namespace ZeroInstall.Commands
         public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data.ToArray();
 
         public override void Error(Exception exception) {}
-
-        public override ICredentialProvider? CredentialProvider => null;
     }
 }

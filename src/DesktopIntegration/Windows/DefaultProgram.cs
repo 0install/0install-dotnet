@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
+using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;

@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
-using NanoByte.Common;
+using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 
