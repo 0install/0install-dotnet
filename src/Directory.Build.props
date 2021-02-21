@@ -5,6 +5,7 @@
     <LangVersion>9.0</LangVersion>
     <TargetFrameworks>net45;netstandard2.1;net5.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
+    <AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <OutputType>Library</OutputType>
     <SignAssembly>True</SignAssembly>
