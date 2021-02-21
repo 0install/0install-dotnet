@@ -26,6 +26,15 @@ namespace ZeroInstall.Store.Implementations.Archives
             UnitsTotal = stream.Length;
         }
 
+        /// <inheritdoc />
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            // Manually dispose inner stream because ZStdDecompressStream.Dispose() does not take care of it
+            _stream.Dispose();
+        }
+
         /// <inheritdoc/>
         protected override void UpdateProgress()
             => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
