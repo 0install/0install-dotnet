@@ -26,18 +26,27 @@
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <Reference Include="System.Web" Pack="False" />
-    <Reference Include="System.ServiceProcess" Pack="False" />
+    <Reference Include="System.Web">
+      <Pack>False</Pack>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Pack>False</Pack>
+    </Reference>
   </ItemGroup>
 
   <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
-    <None Include="*.targets" Pack="true" PackagePath="build/net45" />
-    <None Include="App.config" Pack="true" PackagePath="build/net45/$(AssemblyName).exe.config" />
+    <None Include="*.targets">
+      <PackagePath>build\net45</PackagePath>
+      <Pack>true</Pack>
+    </None>
+    <None Include="App.config">
+      <PackagePath>build\net45\$(AssemblyName).exe.config</PackagePath>
+      <Pack>true</Pack>
+    </None>
   </ItemGroup>
 
   <!-- Embedded resources -->

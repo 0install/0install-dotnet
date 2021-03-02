@@ -18,11 +18,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Services.Interfaces\Services.Interfaces.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <Reference Include="System.Web" Pack="False" />
+    <Reference Include="System.Web">
+      <Pack>False</Pack>
+    </Reference>
   </ItemGroup>
 
   <!-- Embedded resources -->

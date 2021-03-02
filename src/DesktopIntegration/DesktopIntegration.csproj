@@ -19,9 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
 
   <!-- Generate XML serialization assembly -->
   <ItemGroup>
