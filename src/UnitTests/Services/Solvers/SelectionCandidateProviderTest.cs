@@ -29,8 +29,16 @@ namespace ZeroInstall.Services.Solvers
         public SelectionCandidateProviderTest()
         {
             _feedManagerMock = CreateMock<IFeedManager>();
+            _feedManagerMock.Setup(x => x.GetPreferences(It.IsAny<FeedUri>()))
+                            .Returns(new FeedPreferences());
+
             _packageManagerMock = CreateMock<IPackageManager>();
-            _provider = new SelectionCandidateProvider(new Config(), _feedManagerMock.Object, new Mock<IImplementationStore>(MockBehavior.Loose).Object, _packageManagerMock.Object);
+
+            _provider = new SelectionCandidateProvider(
+                new Config(),
+                _feedManagerMock.Object,
+                new Mock<IImplementationStore>(MockBehavior.Loose).Object,
+                _packageManagerMock.Object);
         }
 
         [Fact]

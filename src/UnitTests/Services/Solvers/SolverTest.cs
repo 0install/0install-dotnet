@@ -146,6 +146,8 @@ namespace ZeroInstall.Services.Solvers
                 if (feedLookup.TryGetValue(feedUri, out var feed)) return feed;
                 else throw new WebException($"Unable to fetch {feedUri}.");
             });
+            feedManagerMock.Setup(x => x.GetPreferences(It.IsAny<FeedUri>()))
+                           .Returns(new FeedPreferences());
 
             var candidateProvider = new SelectionCandidateProvider(new Config(), feedManagerMock.Object, new Mock<IImplementationStore>(MockBehavior.Loose).Object, new StubPackageManager());
             return BuildSolver(candidateProvider).Solve(requirements);

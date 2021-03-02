@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Net;
 using ZeroInstall.Model;
+using ZeroInstall.Model.Preferences;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Trust;
@@ -35,7 +36,7 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Returns a specific <see cref="Feed"/>. Automatically handles downloading, calling <see cref="Feed.Normalize"/> and caching. Updates the <see cref="Stale"/> indicator.
         /// </summary>
-        /// <param name="feedUri">The canonical ID used to identify the feed.</param>
+        /// <param name="feedUri">The URI of the feed.</param>
         /// <returns>The parsed <see cref="Feed"/> object.</returns>
         /// <remarks><see cref="Feed"/>s are always served from the <see cref="IFeedCache"/> if possible, unless <see cref="Refresh"/> is set to <c>true</c>.</remarks>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
@@ -47,16 +48,22 @@ namespace ZeroInstall.Services.Feeds
         Feed this[FeedUri feedUri] { get; }
 
         /// <summary>
+        /// Returns <see cref="FeedPreferences"/> for a specific feed.
+        /// </summary>
+        /// <param name="feedUri">The URI of the feed.</param>
+        FeedPreferences GetPreferences(FeedUri feedUri);
+
+        /// <summary>
         /// Determines whether there is a stale cached copy of a particular feed.
         /// </summary>
-        /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
+        /// <param name="feedUri">The URI of the feed.</param>
         /// <returns><c>true</c> if there is a stale copy in the cache or no copy at all; <c>false</c> if there is a fresh copy in the cache.</returns>
         bool IsStale(FeedUri feedUri);
 
         /// <summary>
         /// Ensures that operations regarding a specific feed do not happen to often in a row.
         /// </summary>
-        /// <param name="feedUri">The ID of the feed to apply rate limiting for.</param>
+        /// <param name="feedUri">The URI of the feed.</param>
         /// <returns><c>true</c> if the operation should be skipped due to rate limiting; <c>false</c> if the operation may proceed.</returns>
         bool RateLimit(FeedUri feedUri);
 

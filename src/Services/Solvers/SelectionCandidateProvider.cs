@@ -26,12 +26,13 @@ namespace ZeroInstall.Services.Solvers
     public class SelectionCandidateProvider : ISelectionCandidateProvider
     {
         private readonly Config _config;
+        private readonly IFeedManager _feedManager;
         private readonly IPackageManager _packageManager;
 
-        private readonly TransparentCache<FeedUri, InterfacePreferences> _interfacePreferences;
-        private readonly Dictionary<string, ExternalImplementation> _externalImplementations;
-        private readonly TransparentCache<FeedUri, Feed?> _feeds;
         private readonly TransparentCache<ManifestDigest, bool> _storeContains;
+        private readonly TransparentCache<FeedUri, InterfacePreferences> _interfacePreferences = new(InterfacePreferences.LoadForSafe);
+        private readonly Dictionary<string, ExternalImplementation> _externalImplementations = new();
+        private readonly HashSet<FeedUri> _failedFeeds = new();
 
         /// <summary>
         /// Creates a new <see cref="SelectionCandidate"/> provider.
@@ -43,31 +44,11 @@ namespace ZeroInstall.Services.Solvers
         public SelectionCandidateProvider(Config config, IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
-            if (feedManager == null) throw new ArgumentNullException(nameof(feedManager));
-            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
+            _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
             _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
 
-            _interfacePreferences = new(InterfacePreferences.LoadForSafe);
-            _externalImplementations = new();
+            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
             _storeContains = new(implementationStore.Contains);
-            _feeds = new(feedUri =>
-            {
-                try
-                {
-                    var feed = feedManager[feedUri];
-                    if (feed.MinInjectorVersion != null && ModelUtils.Version < feed.MinInjectorVersion)
-                    {
-                        Log.Warn($"The Zero Install version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
-                        return null;
-                    }
-                    return feed;
-                }
-                catch (WebException ex)
-                {
-                    Log.Warn(ex);
-                    return null;
-                }
-            });
         }
 
         /// <inheritdoc/>
@@ -94,17 +75,18 @@ namespace ZeroInstall.Services.Solvers
 
             return (implementationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
                        ? _externalImplementations[implementationSelection.ID]
-                       : _feeds[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri]?[implementationSelection.ID])
+                       : _feedManager[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri][implementationSelection.ID])
                 ?? throw new KeyNotFoundException();
         }
 
         /// <inheritdoc/>
         public void Clear()
         {
+            _feedManager.Clear();
+            _storeContains.Clear();
             _interfacePreferences.Clear();
             _externalImplementations.Clear();
-            _feeds.Clear();
-            _storeContains.Clear();
+            _failedFeeds.Clear();
         }
 
         /// <summary>
@@ -113,19 +95,32 @@ namespace ZeroInstall.Services.Solvers
         /// <returns>A dictionary mapping <see cref="FeedUri"/>s to the actual <see cref="Feed"/>s loaded from there.</returns>
         private IDictionary<FeedUri, Feed> GetFeeds(Requirements requirements)
         {
-            Dictionary<FeedUri,Feed> dictionary = new();
+            var dictionary = new Dictionary<FeedUri, Feed>();
 
             void AddFeedToDict(FeedUri feedUri)
             {
-                if (feedUri == null || dictionary.ContainsKey(feedUri)) return;
-                var feed = _feeds[feedUri];
-                if (feed == null) return;
+                try
+                {
+                    if (dictionary.ContainsKey(feedUri) || _failedFeeds.Contains(feedUri)) return;
+                    var feed = _feedManager[feedUri];
+                    if (feed.MinInjectorVersion != null && ModelUtils.Version < feed.MinInjectorVersion)
+                    {
+                        _failedFeeds.Add(feedUri);
+                        Log.Warn($"The Zero Install version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
+                        return;
+                    }
 
-                dictionary.Add(feedUri, feed);
-                foreach (var reference in feed.Feeds.Where(x =>
-                    x.Architecture.RunsOn(requirements.Architecture) &&
-                    (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
-                    AddFeedToDict(reference.Source);
+                    dictionary.Add(feedUri, feed);
+                    foreach (var reference in feed.Feeds.Where(x =>
+                        x.Architecture.RunsOn(requirements.Architecture) &&
+                        (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
+                        AddFeedToDict(reference.Source);
+                }
+                catch (WebException ex)
+                {
+                    _failedFeeds.Add(feedUri);
+                    Log.Warn(ex);
+                }
             }
 
             AddFeedToDict(requirements.InterfaceUri);
@@ -162,7 +157,7 @@ namespace ZeroInstall.Services.Solvers
 
         private IEnumerable<SelectionCandidate> GetCandidates(FeedUri feedUri, Feed feed, Requirements requirements)
         {
-            var feedPreferences = FeedPreferences.LoadForSafe(feedUri);
+            var feedPreferences = _feedManager.GetPreferences(feedUri);
 
             foreach (var element in feed.Elements)
             {

@@ -25,13 +25,16 @@ namespace ZeroInstall.Services.Feeds
     /// </summary>
     /// <remarks>Provides an in-memory cache in addition to the (usually disk-backed <see cref="IFeedCache"/>).</remarks>
     #pragma warning disable 8766
-    public class FeedManager : TransparentCacheBase<FeedUri, Feed>, IFeedManager
+    public class FeedManager : IFeedManager
     {
         #region Dependencies
         private readonly Config _config;
         private readonly IFeedCache _feedCache;
         private readonly ITrustManager _trustManager;
         private readonly ITaskHandler _handler;
+
+        private readonly TransparentCache<FeedUri, Feed> _feeds;
+        private readonly TransparentCache<FeedUri, FeedPreferences> _preferences = new(FeedPreferences.LoadForSafe);
 
         /// <summary>
         /// Creates a new feed manager.
@@ -46,6 +49,13 @@ namespace ZeroInstall.Services.Feeds
             _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
             _trustManager = trustManager ?? throw new ArgumentNullException(nameof(trustManager));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
+
+            _feeds = new(feedUri =>
+            {
+                var feed = GetFeed(feedUri);
+                feed.Normalize(feedUri);
+                return feed;
+            });
         }
         #endregion
 
@@ -71,16 +81,11 @@ namespace ZeroInstall.Services.Feeds
         /// <inheritdoc/>
         public bool ShouldRefresh => Stale && _config.NetworkUse == NetworkLevel.Full;
 
-        protected override Feed Retrieve(FeedUri key)
-        {
-            #region Sanity checks
-            if (key == null) throw new ArgumentNullException(nameof(key));
-            #endregion
+        /// <inheritdoc/>
+        public Feed this[FeedUri feedUri] => _feeds[feedUri];
 
-            var feed = GetFeed(key);
-            feed.Normalize(key);
-            return feed;
-        }
+        /// <inheritdoc/>
+        public FeedPreferences GetPreferences(FeedUri feedUri) => _preferences[feedUri];
 
         /// <summary>
         /// Returns a specific <see cref="Feed"/>. Automatically handles downloading and caching. Updates the <see cref="Stale"/> indicator.
@@ -160,8 +165,7 @@ namespace ZeroInstall.Services.Feeds
         public bool IsStale(FeedUri feedUri)
         {
             if (IsCheckAttemptDelayed(feedUri ?? throw new ArgumentNullException(nameof(feedUri)))) return false;
-            var preferences = FeedPreferences.LoadForSafe(feedUri);
-            return (DateTime.UtcNow - preferences.LastChecked) > _config.Freshness;
+            return (DateTime.UtcNow - _preferences[feedUri].LastChecked) > _config.Freshness;
         }
 
         /// <inheritdoc/>
@@ -248,6 +252,13 @@ namespace ZeroInstall.Services.Feeds
             ImportFeed(File.ReadAllBytes(path), feed.Uri, path);
         }
 
+        /// <inheritdoc/>
+        public void Clear()
+        {
+            _feeds.Clear();
+            _preferences.Clear();
+        }
+
         /// <summary>
         /// Imports a <see cref="Feed"/> into the <see cref="IFeedCache"/> after verifying its signature.
         /// </summary>
@@ -271,7 +282,7 @@ namespace ZeroInstall.Services.Feeds
         {
             _feedCache.Add(feedUri, data);
 
-            var preferences = FeedPreferences.LoadForSafe(feedUri);
+            var preferences = _preferences[feedUri];
             preferences.LastChecked = DateTime.UtcNow;
             preferences.Normalize();
             preferences.SaveFor(feedUri);
