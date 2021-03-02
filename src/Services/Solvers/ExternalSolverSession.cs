@@ -105,7 +105,7 @@ namespace ZeroInstall.Services.Solvers
         public void HandleNextChunk()
         {
             var apiRequest = GetJsonChunk();
-            if (apiRequest == null) throw new IOException("External solver exited unexpectedly.");
+            if (apiRequest == null) return;
 
             string type = (string)apiRequest[0];
             string ticket = (string)apiRequest[1];
