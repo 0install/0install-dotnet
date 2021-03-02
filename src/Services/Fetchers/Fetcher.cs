@@ -3,8 +3,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -36,17 +38,25 @@ namespace ZeroInstall.Services.Fetchers
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
+        /// <summary>
+        /// Maximum number of <see cref="Implementation"/>s to fetch in parallel.
+        /// </summary>
+        public int MaxParallel { get; set; } = 4;
+
         /// <inheritdoc/>
         public override void Fetch(IEnumerable<Implementation> implementations)
         {
-            #region Sanity checks
-            if (implementations == null) throw new ArgumentNullException(nameof(implementations));
-            #endregion
-
-            foreach (var implementation in implementations)
+            try
             {
-                Handler.CancellationToken.ThrowIfCancellationRequested();
-                Fetch(implementation, tag: implementation.ManifestDigest);
+                Parallel.ForEach(
+                    implementations ?? throw new ArgumentNullException(nameof(implementations)),
+                    new() {CancellationToken = Handler.CancellationToken, MaxDegreeOfParallelism = MaxParallel},
+                    implementation => Fetch(implementation, tag: implementation.ManifestDigest));
+            }
+            catch (AggregateException ex)
+            {
+                ex.InnerExceptions.FirstOrDefault()?.Rethrow();
+                throw;
             }
         }
 
