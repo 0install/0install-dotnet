@@ -44,7 +44,7 @@ namespace ZeroInstall.Services
                        .AddScoped(_ => PackageManagers.Default())
                        .AddScoped<ISelectionsManager, SelectionsManager>()
                        .AddScoped<ISolver, BacktrackingSolver>()
-                       .AddScoped<IFetcher, SequentialFetcher>()
+                       .AddScoped<IFetcher, Fetcher>()
                        .AddScoped<IExecutor, Executor>()
                        .AddScoped<ISelectionCandidateProvider, SelectionCandidateProvider>();
 

@@ -134,7 +134,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Used to download missing <see cref="Implementation"/>s.
         /// </summary>
-        public IFetcher Fetcher { get => Get(ref _fetcher, () => new SequentialFetcher(Config, ImplementationStore, Handler)); set => _fetcher = value; }
+        public IFetcher Fetcher { get => Get(ref _fetcher, () => new Fetcher(Config, ImplementationStore, Handler)); set => _fetcher = value; }
 
         private IExecutor? _executor;
 

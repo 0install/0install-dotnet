@@ -18,25 +18,23 @@ using ZeroInstall.Store.Implementations;
 namespace ZeroInstall.Services.Fetchers
 {
     /// <summary>
-    /// Downloads <see cref="Implementation"/>s sequentially.
+    /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
     /// </summary>
-    public class SequentialFetcher : FetcherBase
+    public class Fetcher : FetcherBase
     {
-        #region Dependencies
         private readonly Config _config;
 
         /// <summary>
-        /// Creates a new sequential download fetcher.
+        /// Creates a new fetcher.
         /// </summary>
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
         /// <param name="implementationStore">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public SequentialFetcher(Config config, IImplementationStore implementationStore, ITaskHandler handler)
+        public Fetcher(Config config, IImplementationStore implementationStore, ITaskHandler handler)
             : base(implementationStore, handler)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
-        #endregion
 
         /// <inheritdoc/>
         public override void Fetch(IEnumerable<Implementation> implementations)
