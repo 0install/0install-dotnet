@@ -10,13 +10,9 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
-    /// Provides access to a cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
+    /// A disk-based cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
     /// </summary>
-    /// <remarks>
-    ///   <para>All methods are thread-safe.</para>
-    ///   <para>Local feed files may be simply passed through the cache.</para>
-    ///   <para>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</para>
-    /// </remarks>
+    /// <remarks>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</remarks>
     public interface IFeedCache
     {
         /// <summary>

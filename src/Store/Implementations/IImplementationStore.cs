@@ -11,9 +11,8 @@ using ZeroInstall.Store.Implementations.Archives;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Describes an object that allows the storage and retrieval of <see cref="Implementation"/> directories.
+    /// Manages directories that store extracted <see cref="Implementation"/>s. Also known as the implementation caches.
     /// </summary>
-    /// <remarks>A store caches <see cref="Implementation"/>s identified by their <see cref="ManifestDigest"/>s.</remarks>
     public interface IImplementationStore
     {
         /// <summary>

@@ -15,19 +15,19 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Model.Preferences
 {
     /// <summary>
-    /// Contains test methods for <see cref="DiskFeedCache"/>.
+    /// Contains test methods for <see cref="FeedCache"/>.
     /// </summary>
     public class DiskFeedCacheTest : TestWithMocks
     {
         private readonly TemporaryDirectory _tempDir;
-        private readonly DiskFeedCache _cache;
+        private readonly FeedCache _cache;
         private readonly Feed _feed1;
 
         public DiskFeedCacheTest()
         {
             // Create a temporary cache
             _tempDir = new TemporaryDirectory("0install-unit-tests");
-            _cache = new DiskFeedCache(_tempDir, new Mock<IOpenPgp>().Object);
+            _cache = new FeedCache(_tempDir, new Mock<IOpenPgp>().Object);
 
             // Add some dummy feeds to the cache
             _feed1 = FeedTest.CreateTestFeed();
@@ -113,7 +113,7 @@ namespace ZeroInstall.Model.Preferences
         }
 
         /// <summary>
-        /// Ensures <see cref="DiskFeedCache"/> can handle feed URIs longer than the OSes maximum supported file path length.
+        /// Ensures <see cref="FeedCache"/> can handle feed URIs longer than the OSes maximum supported file path length.
         /// </summary>
         [SkippableFact(Skip = "Slow")]
         public void TestTooLongFilename()

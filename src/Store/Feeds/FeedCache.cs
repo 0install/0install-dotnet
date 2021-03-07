@@ -16,13 +16,10 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
-    /// Provides access to a disk-based cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
+    /// A disk-based cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
     /// </summary>
-    /// <remarks>
-    ///   <para>Local feed files are simply passed through this cache.</para>
-    ///   <para>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</para>
-    /// </remarks>
-    public sealed class DiskFeedCache : IFeedCache
+    /// <remarks>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</remarks>
+    public sealed class FeedCache : IFeedCache
     {
         #region Dependencies
         private readonly IOpenPgp _openPgp;
@@ -32,7 +29,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         /// <param name="path">A fully qualified directory path.</param>
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-        public DiskFeedCache(string path, IOpenPgp openPgp)
+        public FeedCache(string path, IOpenPgp openPgp)
         {
             Path = path ?? throw new ArgumentNullException(nameof(path));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));

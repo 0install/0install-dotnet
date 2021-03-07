@@ -35,7 +35,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 try
                 {
-                    stores.Add(new DiskImplementationStore(path));
+                    stores.Add(new ImplementationStore(path));
                 }
                 #region Error handling
                 catch (IOException ex)

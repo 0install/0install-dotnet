@@ -11,7 +11,7 @@ using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Store.Implementations
 {
-    partial class DiskImplementationStore
+    partial class ImplementationStore
     {
         /// <summary>
         /// Manages state during a single <see cref="IImplementationStore.Optimise"/> run.

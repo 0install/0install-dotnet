@@ -18,20 +18,20 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Contains test methods for <see cref="DiskImplementationStore"/>.
+    /// Contains test methods for <see cref="ImplementationStore"/>.
     /// </summary>
     [Collection("Static state")]
     public class DiskImplementationStoreTest : IDisposable
     {
         private readonly MockTaskHandler _handler;
         private readonly TemporaryDirectory _tempDir;
-        private DiskImplementationStore _implementationStore;
+        private ImplementationStore _implementationStore;
 
         public DiskImplementationStoreTest()
         {
             _handler = new MockTaskHandler();
             _tempDir = new TemporaryDirectory("0install-unit-tests");
-            _implementationStore = new DiskImplementationStore(_tempDir);
+            _implementationStore = new ImplementationStore(_tempDir);
         }
 
         public void Dispose()
@@ -183,7 +183,7 @@ namespace ZeroInstall.Store.Implementations
 
             try
             {
-                _implementationStore = new DiskImplementationStore(".");
+                _implementationStore = new ImplementationStore(".");
                 ShouldAllowToAddFolder();
             }
             finally

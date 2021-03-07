@@ -131,17 +131,17 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
         /// </summary>
         public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler) => false;
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
         /// </summary>
         public long Optimise(ITaskHandler handler) => 0;
 
         /// <summary>
-        /// Does nothing. Should be handled by an <see cref="DiskImplementationStore"/> directly instead of using the service.
+        /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
         /// </summary>
         public void Verify(ManifestDigest manifestDigest, ITaskHandler handler) {}
 

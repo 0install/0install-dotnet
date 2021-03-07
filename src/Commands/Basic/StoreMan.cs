@@ -74,7 +74,7 @@ namespace ZeroInstall.Commands.Basic
                     }
 
                     return new CompositeImplementationStore(
-                        AdditionalArgs.Select(x => (IImplementationStore)new DiskImplementationStore(x, useWriteProtection: false)));
+                        AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, useWriteProtection: false)));
                 }
             }
         }

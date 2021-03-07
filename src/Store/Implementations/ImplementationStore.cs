@@ -22,10 +22,9 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Manages a cache directory that stores <see cref="Implementation"/>s, each in its own sub-directory named by its <see cref="ManifestDigest"/>.
+    /// Manages a directory that stores extracted <see cref="Implementation"/>s. Also known as the implementation cache.
     /// </summary>
-    /// <remarks>The represented store data is mutable but the class itself is immutable.</remarks>
-    public partial class DiskImplementationStore : MarshalNoTimeout, IImplementationStore, IEquatable<DiskImplementationStore>
+    public partial class ImplementationStore : MarshalNoTimeout, IImplementationStore, IEquatable<ImplementationStore>
     {
         /// <inheritdoc/>
         public ImplementationStoreKind Kind { get; }
@@ -33,7 +32,7 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public string Path { get; }
 
-        /// <summary>Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</summary>
+        /// <summary>Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</summary>
         private readonly bool _useWriteProtection;
 
         /// <summary>Indicates whether <see cref="Path"/> is located on a filesystem with support for Unixoid features such as executable bits.</summary>
@@ -41,13 +40,13 @@ namespace ZeroInstall.Store.Implementations
 
         #region Constructor
         /// <summary>
-        /// Creates a new store using a specific path to a cache directory.
+        /// Creates a new store using a specific path to a directory.
         /// </summary>
         /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
-        /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</param>
+        /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
         /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
-        public DiskImplementationStore(string path, bool useWriteProtection = true)
+        public ImplementationStore(string path, bool useWriteProtection = true)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -190,7 +189,7 @@ namespace ZeroInstall.Store.Implementations
         /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
         /// </summary>
         /// <param name="path">The directory to unprotect.</param>
-        public static void DisableWriteProtection(string path)
+        internal static void DisableWriteProtection(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -222,9 +221,9 @@ namespace ZeroInstall.Store.Implementations
         private readonly object _renameLock = new();
 
         /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the cache and moves it to the final location if it passes.
+        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the store and moves it to the final location if it passes.
         /// </summary>
-        /// <param name="tempID">The temporary identifier of the directory inside the cache.</param>
+        /// <param name="tempID">The temporary identifier of the directory inside the store.</param>
         /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
         /// <returns>The final location of the directory.</returns>
@@ -407,11 +406,11 @@ namespace ZeroInstall.Store.Implementations
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
             Log.Info($"Caching implementation {manifestDigest} in {this}");
 
-            // Copy to temporary directory inside the cache so it can be validated safely (no manipulation of directory while validating)
+            // Copy to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
             try
             {
-                // Copy the source directory inside the cache so it can be validated safely (no manipulation of directory while validating)
+                // Copy the source directory inside the store so it can be validated safely (no manipulation of directory while validating)
                 try
                 {
                     handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest});
@@ -445,7 +444,7 @@ namespace ZeroInstall.Store.Implementations
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
             Log.Info($"Caching implementation {manifestDigest} in {this}");
 
-            // Extract to temporary directory inside the cache so it can be validated safely (no manipulation of directory while validating)
+            // Extract to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
             try
             {
@@ -624,7 +623,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(DiskImplementationStore? other)
+        public bool Equals(ImplementationStore? other)
             => other != null
             && Path == other.Path;
 
@@ -633,7 +632,7 @@ namespace ZeroInstall.Store.Implementations
         {
             if (obj == null) return false;
             if (obj == this) return true;
-            return obj.GetType() == typeof(DiskImplementationStore) && Equals((DiskImplementationStore)obj);
+            return obj.GetType() == typeof(ImplementationStore) && Equals((ImplementationStore)obj);
         }
 
         /// <inheritdoc/>

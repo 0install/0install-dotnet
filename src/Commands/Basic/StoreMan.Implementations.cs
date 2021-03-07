@@ -111,7 +111,7 @@ namespace ZeroInstall.Commands.Basic
                 }
                 #endregion
 
-                var store = (AdditionalArgs.Count == 2) ? new DiskImplementationStore(AdditionalArgs[1]) : ImplementationStore;
+                var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1]) : ImplementationStore;
                 try
                 {
                     store.AddDirectory(path, manifestDigest, Handler);
@@ -249,7 +249,7 @@ namespace ZeroInstall.Commands.Basic
 
                         case 2:
                             // Verify an arbitrary directory
-                            DiskImplementationStore.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
+                            Store.Implementations.ImplementationStore.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
                             break;
                     }
                 }

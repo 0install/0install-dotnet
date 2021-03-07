@@ -65,7 +65,7 @@ namespace ZeroInstall.Commands.Basic
                 string path = GetPath();
 
                 // Init new store to ensure the target is suitable
-                ImplementationStore = new DiskImplementationStore(path);
+                ImplementationStore = new ImplementationStore(path);
 
                 var dirs = GetImplementationDirs().ToList();
                 if (dirs.AddIfNew(path))
