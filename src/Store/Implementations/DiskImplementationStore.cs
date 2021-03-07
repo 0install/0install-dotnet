@@ -500,15 +500,12 @@ namespace ZeroInstall.Store.Implementations
                 if (!UseRestartManager(path, handler)) return false;
             }
 
-            handler.RunTask(new SimpleTask(string.Format(Resources.DeletingImplementation, manifestDigest), () =>
-            {
-                DisableWriteProtection(path);
+            Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
 
-                string tempDir = Path.Combine(DirectoryPath, Path.GetRandomFileName());
-                Log.Info("Attempting atomic delete: " + path);
-                Directory.Move(path, tempDir);
-                Directory.Delete(tempDir, recursive: true);
-            }));
+            DisableWriteProtection(path);
+            string tempDir = Path.Combine(DirectoryPath, Path.GetRandomFileName());
+            Directory.Move(path, tempDir);
+            Directory.Delete(tempDir, recursive: true);
 
             return true;
         }

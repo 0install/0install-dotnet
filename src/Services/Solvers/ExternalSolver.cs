@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -63,31 +64,31 @@ namespace ZeroInstall.Services.Solvers
             if (requirements.InterfaceUri == null) throw new ArgumentException(Resources.MissingInterfaceUri, nameof(requirements));
             #endregion
 
-            Selections? selections = null;
-            _handler.RunTask(new SimpleTask(Resources.ExternalSolverRunning, () =>
+            Log.Info(Resources.ExternalSolverRunning);
+
+            using var control = new ExternalSolverSession(GetStartInfo())
             {
-                using var control = new ExternalSolverSession(GetStartInfo())
+                {"confirm", args => DoConfirm((string)args[0])},
+                {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
+                {"update-key-info", _ => null}
+            };
+
+            Selections? selections = null;
+            control.Invoke(args =>
+            {
+                if ((string)args[0] == "ok")
                 {
-                    {"confirm", args => DoConfirm((string)args[0])},
-                    {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
-                    {"update-key-info", _ => null}
-                };
-                control.Invoke(args =>
-                {
-                    if ((string)args[0] == "ok")
-                    {
-                        _feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
-                        selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
-                    }
-                    else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
-                }, "select", GetEffectiveRequirements(requirements), false /*_feedManager.Refresh*/); // Pretend refresh is always false to avoid downloading feeds in external process (could cause problems with HTTPS and GPG validation)
-                while (selections == null)
-                {
-                    control.HandleStderr();
-                    control.HandleNextChunk();
+                    _feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
+                    selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
                 }
+                else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
+            }, "select", GetEffectiveRequirements(requirements), false /*_feedManager.Refresh*/); // Pretend refresh is always false to avoid downloading feeds in external process (could cause problems with HTTPS and GPG validation)
+            while (selections == null)
+            {
                 control.HandleStderr();
-            }));
+                control.HandleNextChunk();
+            }
+            control.HandleStderr();
 
             // Invalidate in-memory feed cache, because external solver may have modified on-disk feed cache
             _feedManager.Clear();

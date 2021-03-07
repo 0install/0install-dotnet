@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -47,6 +48,8 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <inheritdoc/>
         protected override void OnStage()
         {
+            Log.Debug($"Preparing atomic deployment from {Path} to {DestinationPath}");
+
             if (!Directory.Exists(DestinationPath))
             {
                 Directory.CreateDirectory(DestinationPath);
@@ -105,22 +108,23 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <inheritdoc/>
         protected override void OnCommit()
         {
+            Log.Debug($"Committing atomic deployment to {DestinationPath}");
+
             UnlockFiles(_pendingFileRenames.Select(x => x.destination).Where(File.Exists));
 
-            Handler.RunTask(new SimpleTask(Resources.CopyFiles, () =>
+            _pendingFileRenames.PopEach(x =>
             {
-                _pendingFileRenames.PopEach(x =>
-                {
-                    if (File.Exists(x.destination))
-                        File.Delete(x.destination);
-                    File.Move(x.source, x.destination);
-                });
-            }));
+                if (File.Exists(x.destination))
+                    File.Delete(x.destination);
+                File.Move(x.source, x.destination);
+            });
         }
 
         /// <inheritdoc/>
         protected override void OnRollback()
         {
+            Log.Debug($"Rolling back atomic deployment to {DestinationPath}");
+
             _pendingFileRenames.PopEach(x =>
             {
                 if (File.Exists(x.source))

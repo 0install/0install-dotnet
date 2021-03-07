@@ -34,6 +34,8 @@ namespace ZeroInstall.Store.Implementations.Deployment
         /// <inheritdoc/>
         protected override void OnStage()
         {
+            Log.Debug($"Preparing atomic clearing of directory {Path}");
+
             _pendingDirectoryDeletes.Push(Path);
 
             var filesToDelete = new List<string>();
@@ -73,19 +75,22 @@ namespace ZeroInstall.Store.Implementations.Deployment
 
         /// <inheritdoc/>
         protected override void OnCommit()
-            => Handler.RunTask(new SimpleTask(Resources.DeletingObsoleteFiles, () =>
+        {
+            Log.Debug($"Committing atomic clearing of directory {Path}");
+
+            _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
+            _pendingDirectoryDeletes.PopEach(path =>
             {
-                _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
-                _pendingDirectoryDeletes.PopEach(path =>
-                {
-                    if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
-                        Directory.Delete(path);
-                });
-            }));
+                if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
+                    Directory.Delete(path);
+            });
+        }
 
         /// <inheritdoc/>
         protected override void OnRollback()
         {
+            Log.Debug($"Rolling back atomic clearing of directory {Path}");
+
             _pendingFilesDeletes.PopEach(x =>
             {
                 try

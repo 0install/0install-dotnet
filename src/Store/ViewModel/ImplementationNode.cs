@@ -10,6 +10,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.ViewModel
 {
@@ -70,7 +71,9 @@ namespace ZeroInstall.Store.ViewModel
         {
             try
             {
-                ImplementationStore.Remove(_digest, handler);
+                handler.RunTask(new SimpleTask(
+                    string.Format(Resources.DeletingImplementation, _digest),
+                    () => ImplementationStore.Remove(_digest, handler)));
             }
             #region Error handling
             catch (ImplementationNotFoundException ex)
