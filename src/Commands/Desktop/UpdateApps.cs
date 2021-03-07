@@ -54,8 +54,11 @@ namespace ZeroInstall.Commands.Desktop
             DownloadUncachedImplementations(selectedImplementations);
             SelfUpdateCheck();
 
-            Handler.CancellationToken.ThrowIfCancellationRequested();
-            if (_clean) Clean(selectedImplementations.Select(impl => impl.ManifestDigest));
+            if (_clean)
+            {
+                Handler.CancellationToken.ThrowIfCancellationRequested();
+                Clean(selectedImplementations);
+            }
 
             return ExitCode.OK;
         }
@@ -119,10 +122,14 @@ namespace ZeroInstall.Commands.Desktop
             #endregion
         }
 
-        private void Clean(IEnumerable<ManifestDigest> digestsToKeep)
+        private void Clean(IEnumerable<ImplementationSelection> implementations)
         {
-            var toDelete = ImplementationStore.ListAll().Except(digestsToKeep, ManifestDigestPartialEqualityComparer.Instance).ToList();
-            Handler.RunTask(ForEachTask.Create(Resources.RemovingOutdated, toDelete, x => ImplementationStore.Remove(x, Handler)));
+            var digestsToKeep = implementations.Select(x => x.ManifestDigest);
+            var digestsToRemove = ImplementationStore.ListAll().Except(digestsToKeep, ManifestDigestPartialEqualityComparer.Instance);
+            Handler.RunTask(ForEachTask.Create(
+                Resources.RemovingOutdated,
+                digestsToRemove.ToList(),
+                digest => ImplementationStore.Remove(digest, Handler)));
         }
     }
 }
