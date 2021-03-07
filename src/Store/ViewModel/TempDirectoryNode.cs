@@ -56,11 +56,13 @@ namespace ZeroInstall.Store.ViewModel
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            handler.RunTask(new SimpleTask(string.Format(Resources.DeletingDirectory, Path), () =>
-            {
-                DiskImplementationStore.DisableWriteProtection(Path);
-                Directory.Delete(Path, recursive: true);
-            }));
+            handler.RunTask(new SimpleTask(
+                string.Format(Resources.DeletingDirectory, Path),
+                () =>
+                {
+                    DiskImplementationStore.DisableWriteProtection(Path);
+                    Directory.Delete(Path, recursive: true);
+                }));
         }
     }
 }

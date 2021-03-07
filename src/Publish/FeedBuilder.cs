@@ -94,7 +94,8 @@ namespace ZeroInstall.Publish
 
             _candidates.Clear();
 
-            handler.RunTask(new SimpleTask(Resources.DetectingCandidates,
+            handler.RunTask(new SimpleTask(
+                Resources.DetectingCandidates,
                 () => _candidates.AddRange(Detection.ListCandidates(new DirectoryInfo(ImplementationDirectory)))));
 
             MainCandidate = _candidates.FirstOrDefault();

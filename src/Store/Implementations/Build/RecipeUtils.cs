@@ -138,7 +138,9 @@ namespace ZeroInstall.Store.Implementations.Build
             // Use a copy of the original file because the source file is moved
             using var tempFile = new TemporaryFile("0install");
             // ReSharper disable once AccessToDisposedClosure
-            handler.RunTask(new SimpleTask(Resources.CopyFiles, () => File.Copy(localPath, tempFile, overwrite: true)));
+            handler.RunTask(new SimpleTask(
+                Resources.CopyFiles,
+                () => File.Copy(localPath, tempFile, overwrite: true)));
             step.Apply(tempFile, workingDir);
         }
 
