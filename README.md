@@ -55,7 +55,7 @@ For more information read the [Zero Install .NET API documentation](https://dotn
 ## Building
 
 The source code is in [`src/`](src/), config for building the API documentation is in [`doc/`](doc/) and generated artifacts are placed in `artifacts/`.  
-The source code does not contain version numbers. Instead the version is determined during CI using [GitVersion](http://gitversion.readthedocs.io/).
+The source code does not contain version numbers. Instead the version is determined during CI using [GitVersion](https://gitversion.net/).
 
 To build on Windows install [Visual Studio 2019 v16.8 or newer](https://www.visualstudio.com/downloads/) and run `.\build.ps1`.  
 To build on Linux or macOS run `./build.sh`.  
