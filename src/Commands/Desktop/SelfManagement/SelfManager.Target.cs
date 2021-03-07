@@ -62,14 +62,20 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             {
                 // Wait for existing instances to terminate
                 while (AppMutex.Probe(targetMutex))
+                {
                     Thread.Sleep(1000);
+                    Handler.CancellationToken.ThrowIfCancellationRequested();
+                }
 
                 // Prevent new instances from starting
                 _targetMutex = AppMutex.Create(targetMutex + "-update");
 
                 // Detect any new instances that started in the short time between detecting existing ones and blocking new ones
                 while (AppMutex.Probe(targetMutex))
+                {
                     Thread.Sleep(1000);
+                    Handler.CancellationToken.ThrowIfCancellationRequested();
+                }
             }));
         }
 
