@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
         /// <inheritdoc/>
-        public string? DirectoryPath => null;
+        public string? Path => null;
         #endregion
 
         #region Constructor

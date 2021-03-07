@@ -30,11 +30,11 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// Creates a new disk-based cache.
         /// </summary>
-        /// <param name="directoryPath">A fully qualified directory path.</param>
+        /// <param name="path">A fully qualified directory path.</param>
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-        public DiskFeedCache(string directoryPath, IOpenPgp openPgp)
+        public DiskFeedCache(string path, IOpenPgp openPgp)
         {
-            DirectoryPath = directoryPath ?? throw new ArgumentNullException(nameof(directoryPath));
+            Path = path ?? throw new ArgumentNullException(nameof(path));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
         }
         #endregion
@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Feeds
         /// <summary>
         /// The directory containing the cached <see cref="Feed"/>s.
         /// </summary>
-        public string DirectoryPath { get; }
+        public string Path { get; }
 
         /// <inheritdoc/>
         public bool Contains(FeedUri feedUri)
@@ -54,17 +54,17 @@ namespace ZeroInstall.Store.Feeds
             // Local files are passed through directly
             if (feedUri.IsFile) return File.Exists(feedUri.LocalPath);
 
-            return FileUtils.ExistsCaseSensitive(Path.Combine(DirectoryPath, feedUri.Escape()));
+            return FileUtils.ExistsCaseSensitive(System.IO.Path.Combine(Path, feedUri.Escape()));
         }
 
         /// <inheritdoc/>
         public IEnumerable<FeedUri> ListAll()
         {
-            if (!Directory.Exists(DirectoryPath)) return Enumerable.Empty<FeedUri>();
+            if (!Directory.Exists(Path)) return Enumerable.Empty<FeedUri>();
 
             // ReSharper disable once AssignNullToNotNullAttribute
-            return Directory.GetFiles(DirectoryPath)
-                            .TrySelect<string, FeedUri, UriFormatException>(x => FeedUri.Unescape(Path.GetFileName(x)));
+            return Directory.GetFiles(Path)
+                            .TrySelect<string, FeedUri, UriFormatException>(x => FeedUri.Unescape(System.IO.Path.GetFileName(x)));
         }
 
         /// <inheritdoc/>
@@ -100,7 +100,7 @@ namespace ZeroInstall.Store.Feeds
             if (feedUri.IsFile) throw new KeyNotFoundException("Feed cache does not handle local files: " + feedUri.ToStringRfc());
 
             string fileName = feedUri.Escape();
-            string path = Path.Combine(DirectoryPath, fileName);
+            string path = System.IO.Path.Combine(Path, fileName);
             if (FileUtils.ExistsCaseSensitive(path)) return path;
             else throw new KeyNotFoundException(string.Format(Resources.FeedNotInCache, feedUri, path));
         }
@@ -113,18 +113,18 @@ namespace ZeroInstall.Store.Feeds
             if (data == null) throw new ArgumentNullException(nameof(data));
             #endregion
 
-            if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
+            if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
 
             try
             {
-                string path = Path.Combine(DirectoryPath, feedUri.Escape());
+                string path = System.IO.Path.Combine(Path, feedUri.Escape());
                 Log.Debug("Adding feed " + feedUri.ToStringRfc() + " to disk cache: " + path);
                 WriteToFile(data, path);
             }
             catch (PathTooLongException)
             {
                 Log.Info("File path in feed cache too long. Using hash of feed URI to shorten path.");
-                WriteToFile(data, Path.Combine(DirectoryPath, feedUri.AbsoluteUri.Hash(SHA256.Create())));
+                WriteToFile(data, System.IO.Path.Combine(Path, feedUri.AbsoluteUri.Hash(SHA256.Create())));
             }
         }
 
@@ -154,9 +154,9 @@ namespace ZeroInstall.Store.Feeds
 
         #region Conversion
         /// <summary>
-        /// Returns the store in the form "DiskFeedCache: DirectoryPath". Not safe for parsing!
+        /// Returns the store in the form "DiskFeedCache: Path". Not safe for parsing!
         /// </summary>
-        public override string ToString() => $"DiskFeedCache: {DirectoryPath}";
+        public override string ToString() => $"DiskFeedCache: {Path}";
         #endregion
     }
 }

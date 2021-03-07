@@ -22,7 +22,7 @@ namespace ZeroInstall.Store.Implementations
 
             private sealed record StoreFile(string ImplementationPath, string RelativePath)
             {
-                public static implicit operator string(StoreFile file) => Path.Combine(file.ImplementationPath, file.RelativePath);
+                public static implicit operator string(StoreFile file) => System.IO.Path.Combine(file.ImplementationPath, file.RelativePath);
             }
 
             private readonly Dictionary<DedupKey, StoreFile> _fileHashes = new();
@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Implementations
             /// <summary>
             /// Creates a new optimise run.
             /// </summary>
-            /// <param name="storePath">The <see cref="IImplementationStore.DirectoryPath"/>.</param>
+            /// <param name="storePath">The <see cref="IImplementationStore.Path"/>.</param>
             public OptimiseRun(string storePath)
             {
                 _storePath = storePath;
@@ -50,8 +50,8 @@ namespace ZeroInstall.Store.Implementations
             {
                 string? digestString = manifestDigest.Best;
                 if (digestString == null) return;
-                string implementationPath = Path.Combine(_storePath, digestString);
-                var manifest = Manifest.Load(Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
+                string implementationPath = System.IO.Path.Combine(_storePath, digestString);
+                var manifest = Manifest.Load(System.IO.Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
 
                 string currentDirectory = "";
                 foreach (var node in manifest)
@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations
                             if (x.Size == 0) return;
 
                             var key = new DedupKey(x.Size, x.ModifiedTime, manifest.Format, x.Digest);
-                            var file = new StoreFile(implementationPath, Path.Combine(currentDirectory, x.Name));
+                            var file = new StoreFile(implementationPath, System.IO.Path.Combine(currentDirectory, x.Name));
 
                             if (_fileHashes.TryGetValue(key, out var existingFile))
                             {
@@ -91,7 +91,7 @@ namespace ZeroInstall.Store.Implementations
                 if (_unsealedImplementations.Add(file2.ImplementationPath))
                     FileUtils.DisableWriteProtection(file2.ImplementationPath);
 
-                string tempFile = Path.Combine(_storePath, Path.GetRandomFileName());
+                string tempFile = System.IO.Path.Combine(_storePath, System.IO.Path.GetRandomFileName());
                 try
                 {
                     Log.Info("Hard link: " + file1 + " <=> " + file2);

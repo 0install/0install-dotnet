@@ -31,32 +31,32 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind { get; }
 
         /// <inheritdoc/>
-        public string DirectoryPath { get; }
+        public string Path { get; }
 
         /// <summary>Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</summary>
         private readonly bool _useWriteProtection;
 
-        /// <summary>Indicates whether <see cref="DirectoryPath"/> is located on a filesystem with support for Unixoid features such as executable bits.</summary>
+        /// <summary>Indicates whether <see cref="Path"/> is located on a filesystem with support for Unixoid features such as executable bits.</summary>
         private readonly bool _isUnixFS;
 
         #region Constructor
         /// <summary>
         /// Creates a new store using a specific path to a cache directory.
         /// </summary>
-        /// <param name="directoryPath">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
+        /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
         /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the cache to prevent unintentional modification (which would invalidate the manifest digests).</param>
-        /// <exception cref="IOException">The <paramref name="directoryPath"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
-        /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="directoryPath"/> is not permitted.</exception>
-        public DiskImplementationStore(string directoryPath, bool useWriteProtection = true)
+        /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
+        /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
+        public DiskImplementationStore(string path, bool useWriteProtection = true)
         {
             #region Sanity checks
-            if (string.IsNullOrEmpty(directoryPath)) throw new ArgumentNullException(nameof(directoryPath));
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
             try
             {
-                DirectoryPath = Path.GetFullPath(directoryPath);
-                if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
+                Path = System.IO.Path.GetFullPath(path);
+                if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
             }
             #region Error handling
             catch (ArgumentException ex)
@@ -71,16 +71,16 @@ namespace ZeroInstall.Store.Implementations
             }
             #endregion
 
-            Kind = DetermineKind(DirectoryPath);
+            Kind = DetermineKind(Path);
             _useWriteProtection = useWriteProtection;
-            _isUnixFS = FlagUtils.IsUnixFS(DirectoryPath);
+            _isUnixFS = FlagUtils.IsUnixFS(Path);
 
             if (Kind == ImplementationStoreKind.ReadWrite)
             {
                 try
                 {
-                    if (!_isUnixFS) FlagUtils.MarkAsNoUnixFS(DirectoryPath);
-                    if (_useWriteProtection && WindowsUtils.IsWindowsNT) WriteDeleteInfoFile(DirectoryPath);
+                    if (!_isUnixFS) FlagUtils.MarkAsNoUnixFS(Path);
+                    if (_useWriteProtection && WindowsUtils.IsWindowsNT) WriteDeleteInfoFile(Path);
                 }
                 #region Error handling
                 catch (IOException ex)
@@ -117,7 +117,7 @@ namespace ZeroInstall.Store.Implementations
 
         private static void WriteDeleteInfoFile(string path)
             => File.WriteAllText(
-                path: Path.Combine(path, Resources.DeleteInfoFileName + ".txt"),
+                path: System.IO.Path.Combine(path, Resources.DeleteInfoFileName + ".txt"),
                 contents: string.Format(Resources.DeleteInfoFileContent, path),
                 encoding: Encoding.UTF8);
         #endregion
@@ -126,13 +126,13 @@ namespace ZeroInstall.Store.Implementations
 
         #region Temp dir
         /// <summary>
-        /// Creates a temporary directory within <see cref="DirectoryPath"/>.
+        /// Creates a temporary directory within <see cref="Path"/>.
         /// </summary>
         /// <returns>The path to the new temporary directory.</returns>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Returns a new value on each call")]
         protected virtual string GetTempDir()
         {
-            string path = Path.Combine(DirectoryPath, Path.GetRandomFileName());
+            string path = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
             Log.Debug("Creating temp directory for extracting: " + path);
             Directory.CreateDirectory(path);
             return path;
@@ -244,13 +244,13 @@ namespace ZeroInstall.Store.Implementations
             if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
 
             // Determine the source and target directories
-            string source = Path.Combine(DirectoryPath, tempID);
-            string target = Path.Combine(DirectoryPath, expectedDigestValue);
+            string source = System.IO.Path.Combine(Path, tempID);
+            string target = System.IO.Path.Combine(Path, expectedDigestValue);
 
             if (_isUnixFS) FlagUtils.ConvertToFS(source);
 
             // Calculate the actual digest, compare it with the expected one and create a manifest file
-            VerifyDirectory(source, expectedDigest, handler).Save(Path.Combine(source, Manifest.ManifestFile));
+            VerifyDirectory(source, expectedDigest, handler).Save(System.IO.Path.Combine(source, Manifest.ManifestFile));
 
             lock (_renameLock) // Prevent race-conditions when adding the same digest twice
             {
@@ -309,7 +309,7 @@ namespace ZeroInstall.Store.Implementations
                 var offsetManifest = TryFindOffset(manifest, expectedDigestValue);
                 if (offsetManifest != null) return offsetManifest;
 
-                string manifestFilePath = Path.Combine(directory, Manifest.ManifestFile);
+                string manifestFilePath = System.IO.Path.Combine(directory, Manifest.ManifestFile);
                 var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
                 throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
             }
@@ -340,14 +340,14 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public IEnumerable<ManifestDigest> ListAll()
         {
-            if (!Directory.Exists(DirectoryPath)) return Enumerable.Empty<ManifestDigest>();
+            if (!Directory.Exists(Path)) return Enumerable.Empty<ManifestDigest>();
 
             var result = new List<ManifestDigest>();
-            foreach (string path in Directory.GetDirectories(DirectoryPath))
+            foreach (string path in Directory.GetDirectories(Path))
             {
                 var digest = new ManifestDigest();
-                digest.ParseID(Path.GetFileName(path));
-                if (digest.Best != null) result.Add(new ManifestDigest(Path.GetFileName(path)));
+                digest.ParseID(System.IO.Path.GetFileName(path));
+                if (digest.Best != null) result.Add(new ManifestDigest(System.IO.Path.GetFileName(path)));
             }
             return result;
         }
@@ -355,15 +355,15 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public IEnumerable<string> ListAllTemp()
         {
-            if (!Directory.Exists(DirectoryPath)) return Enumerable.Empty<string>();
+            if (!Directory.Exists(Path)) return Enumerable.Empty<string>();
 
             var result = new List<string>();
-            foreach (string path in Directory.GetDirectories(DirectoryPath))
+            foreach (string path in Directory.GetDirectories(Path))
             {
                 try
                 {
                     // ReSharper disable once ObjectCreationAsStatement
-                    new ManifestDigest(Path.GetFileName(path));
+                    new ManifestDigest(System.IO.Path.GetFileName(path));
                 }
                 catch (NotSupportedException)
                 {
@@ -378,11 +378,11 @@ namespace ZeroInstall.Store.Implementations
         #region Contains
         /// <inheritdoc/>
         public bool Contains(ManifestDigest manifestDigest)
-            => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(Path.Combine(DirectoryPath, digest)));
+            => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
 
         /// <inheritdoc/>
         public bool Contains(string directory)
-            => Directory.Exists(Path.Combine(DirectoryPath, directory));
+            => Directory.Exists(System.IO.Path.Combine(Path, directory));
 
         /// <inheritdoc/>
         public void Flush() {} // No internal caching
@@ -391,7 +391,7 @@ namespace ZeroInstall.Store.Implementations
         #region Get
         /// <inheritdoc/>
         public string? GetPath(ManifestDigest manifestDigest)
-            => manifestDigest.AvailableDigests.Select(digest => Path.Combine(DirectoryPath, digest)).FirstOrDefault(Directory.Exists);
+            => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
         #endregion
 
         #region Add
@@ -425,7 +425,7 @@ namespace ZeroInstall.Store.Implementations
                 }
                 #endregion
 
-                return VerifyAndAdd(Path.GetFileName(tempDir), manifestDigest, handler);
+                return VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
             }
             finally
             {
@@ -470,7 +470,7 @@ namespace ZeroInstall.Store.Implementations
                     #endregion
                 }
 
-                return VerifyAndAdd(Path.GetFileName(tempDir), manifestDigest, handler);
+                return VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
             }
             finally
             {
@@ -503,7 +503,7 @@ namespace ZeroInstall.Store.Implementations
             Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
 
             DisableWriteProtection(path);
-            string tempDir = Path.Combine(DirectoryPath, Path.GetRandomFileName());
+            string tempDir = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
             Directory.Move(path, tempDir);
             Directory.Delete(tempDir, recursive: true);
 
@@ -569,12 +569,12 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (!Directory.Exists(DirectoryPath)) return 0;
+            if (!Directory.Exists(Path)) return 0;
             if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
-            using var run = new OptimiseRun(DirectoryPath);
+            using var run = new OptimiseRun(Path);
             handler.RunTask(ForEachTask.Create(
-                name: string.Format(Resources.FindingDuplicateFiles, DirectoryPath),
+                name: string.Format(Resources.FindingDuplicateFiles, Path),
                 target: ListAll(),
                 work: run.Work));
             return run.SavedBytes;
@@ -594,7 +594,7 @@ namespace ZeroInstall.Store.Implementations
 
             string? digest = manifestDigest.Best;
             if (digest == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            string target = Path.Combine(DirectoryPath, digest);
+            string target = System.IO.Path.Combine(Path, digest);
             try
             {
                 VerifyDirectory(target, manifestDigest, handler);
@@ -617,16 +617,16 @@ namespace ZeroInstall.Store.Implementations
 
         #region Conversion
         /// <summary>
-        /// Returns <see cref="Kind"/> and <see cref="DirectoryPath"/>. Not safe for parsing!
+        /// Returns <see cref="Kind"/> and <see cref="Path"/>. Not safe for parsing!
         /// </summary>
-        public override string ToString() => $"{Kind}: {DirectoryPath}";
+        public override string ToString() => $"{Kind}: {Path}";
         #endregion
 
         #region Equality
         /// <inheritdoc/>
         public bool Equals(DiskImplementationStore? other)
             => other != null
-            && DirectoryPath == other.DirectoryPath;
+            && Path == other.Path;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
@@ -637,7 +637,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() => DirectoryPath.GetHashCode();
+        public override int GetHashCode() => Path.GetHashCode();
         #endregion
     }
 }

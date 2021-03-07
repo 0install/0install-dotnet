@@ -24,7 +24,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// The directory containing the cached <see cref="Implementation"/>s. May be <c>null</c> for some <see cref="IImplementationStore"/> types.
         /// </summary>
-        string? DirectoryPath { get; }
+        string? Path { get; }
 
         /// <summary>
         /// Returns a list of all implementations currently in the store.

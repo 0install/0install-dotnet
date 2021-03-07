@@ -23,13 +23,13 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.Service;
 
         /// <inheritdoc/>
-        public string DirectoryPath
+        public string? Path
         {
             get
             {
                 try
                 {
-                    return GetProxy().DirectoryPath;
+                    return GetProxy().Path;
                 }
                 #region Error handling
                 catch (RemotingException ex)
@@ -82,7 +82,7 @@ namespace ZeroInstall.Store.Implementations
         /// Always returns <c>null</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-        public string GetPath(ManifestDigest manifestDigest) => null;
+        public string? GetPath(ManifestDigest manifestDigest) => null;
 
         /// <inheritdoc/>
         public string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler)

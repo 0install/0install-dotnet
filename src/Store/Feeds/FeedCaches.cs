@@ -20,12 +20,12 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="IOException">A problem occurred while creating a directory.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating a directory is not permitted.</exception>
         public static IFeedCache Default(IOpenPgp openPgp)
-            => new DiskFeedCache(DefaultDirectoryPath, openPgp);
+            => new DiskFeedCache(DefaultPath, openPgp);
 
         /// <summary>
         /// The default feed cache location in the user profile.
         /// </summary>
-        public static string DefaultDirectoryPath
+        public static string DefaultPath
             => Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "interfaces");
     }
 }

@@ -5,7 +5,6 @@
 using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
@@ -44,7 +43,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         private static readonly object _lock = new();
-        private static volatile IImplementationStore _proxy;
+        private static volatile IImplementationStore? _proxy;
 
         /// <summary>
         /// Provides a proxy object for accessing the <see cref="IImplementationStore"/> in the store service.
@@ -91,7 +90,7 @@ namespace ZeroInstall.Store.Implementations
                 new Hashtable
                 {
                     {"name", IpcPortName + ".Callback"},
-                    {"portName", IpcPortName + ".Callback." + Path.GetRandomFileName()} // Random port to allow multiple instances
+                    {"portName", IpcPortName + ".Callback." + System.IO.Path.GetRandomFileName()} // Random port to allow multiple instances
                 },
                 new BinaryServerFormatterSinkProvider {TypeFilterLevel = TypeFilterLevel.Full}, // Allow deserialization of custom types
                 IpcAcl), ensureSecurity: false);
