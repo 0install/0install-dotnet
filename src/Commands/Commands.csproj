@@ -41,11 +41,11 @@
   <ItemGroup>
     <None Include="*.targets">
       <PackagePath>build\net472</PackagePath>
-      <Pack>true</Pack>
+      <Pack>True</Pack>
     </None>
     <None Include="App.config">
       <PackagePath>build\net472\$(AssemblyName).exe.config</PackagePath>
-      <Pack>true</Pack>
+      <Pack>True</Pack>
     </None>
   </ItemGroup>
 
