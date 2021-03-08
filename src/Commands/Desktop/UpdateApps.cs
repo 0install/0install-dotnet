@@ -127,9 +127,9 @@ namespace ZeroInstall.Commands.Desktop
             var digestsToKeep = implementations.Select(x => x.ManifestDigest);
             var digestsToRemove = ImplementationStore.ListAll().Except(digestsToKeep, ManifestDigestPartialEqualityComparer.Instance);
             Handler.RunTask(ForEachTask.Create(
-                Resources.RemovingOutdated,
-                digestsToRemove.ToList(),
-                digest => ImplementationStore.Remove(digest, Handler)));
+                name: Resources.RemovingOutdated,
+                target: digestsToRemove.ToList(),
+                work: digest => ImplementationStore.Remove(digest, Handler)));
         }
     }
 }

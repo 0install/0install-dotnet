@@ -186,8 +186,10 @@ namespace ZeroInstall.DesktopIntegration
 
             try
             {
-                Handler.RunTask(ForEachTask.Create(Resources.RepairingIntegration, AppList.Entries,
-                    x => RepairAppInternal(x, feedRetriever(x.InterfaceUri))));
+                Handler.RunTask(ForEachTask.Create(
+                    name: Resources.RepairingIntegration,
+                    target: AppList.Entries,
+                    work: app => RepairAppInternal(app, feedRetriever(app.InterfaceUri))));
             }
             catch (KeyNotFoundException ex)
             {
