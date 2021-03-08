@@ -23,7 +23,7 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.Service;
 
         /// <inheritdoc/>
-        public string? Path
+        public string Path
         {
             get
             {

@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
         /// <inheritdoc/>
-        public string? Path => null;
+        public string Path => string.Join(System.IO.Path.PathSeparator.ToString(), Stores.Select(x => x.Path));
         #endregion
 
         #region Constructor
