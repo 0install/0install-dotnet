@@ -143,9 +143,6 @@
   <data name="CachedImplementations" xml:space="preserve">
     <value>Αποθηκευμενη εφαρμογή</value>
   </data>
-  <data name="CachedInterfaces" xml:space="preserve">
-    <value>Αποθηκευμένες διεπαφές</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>

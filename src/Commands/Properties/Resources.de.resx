@@ -171,9 +171,6 @@ Wenn Sie 'Nein' wählen arbeitet Zero Install weiter mit den alten Fähigkeiten.
   <data name="CachedImplementations" xml:space="preserve">
     <value>Gecachte Implementierungen</value>
   </data>
-  <data name="CachedInterfaces" xml:space="preserve">
-    <value>Gecachte Interfaces</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>

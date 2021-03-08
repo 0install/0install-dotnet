@@ -171,9 +171,6 @@ Alma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka b
   <data name="CachedImplementations" xml:space="preserve">
     <value>Ön bellekteki uygulamalar</value>
   </data>
-  <data name="CachedInterfaces" xml:space="preserve">
-    <value>Ön bellekteki arabirimler</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
