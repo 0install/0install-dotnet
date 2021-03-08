@@ -9,6 +9,7 @@ using System.Text;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -146,8 +147,10 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            foreach (var manifestDigest in implementationStore.ListAll())
-                implementationStore.Remove(manifestDigest, handler);
+            handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.DeletingDirectory, implementationStore.Path),
+                target: implementationStore.ListAll(),
+                work: digest => implementationStore.Remove(digest, handler)));
         }
     }
 }

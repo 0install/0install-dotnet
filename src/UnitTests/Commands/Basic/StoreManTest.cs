@@ -221,6 +221,7 @@ namespace ZeroInstall.Commands.Basic
                 var digest = new ManifestDigest(sha256New: "abc");
                 StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest});
                 StoreMock.Setup(x => x.Remove(digest, Handler)).Returns(true);
+                StoreMock.SetupGet(x => x.Path).Returns("dummy");
 
                 Handler.AnswerQuestionWith = true;
                 RunAndAssert(null, ExitCode.OK);
