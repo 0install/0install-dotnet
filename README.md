@@ -58,8 +58,7 @@ The source code is in [`src/`](src/), config for building the API documentation 
 The source code does not contain version numbers. Instead the version is determined during CI using [GitVersion](https://gitversion.net/).
 
 To build on Windows install [Visual Studio 2019 v16.8 or newer](https://www.visualstudio.com/downloads/) and run `.\build.ps1`.  
-To build on Linux or macOS run `./build.sh`.  
-Note: Some parts of the project can only be built on Windows and are skipped in Linux/macOS builds.
+To build on Linux or macOS run `./build.sh`.
 
 ## Contributing
 
