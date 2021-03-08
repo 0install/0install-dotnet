@@ -404,7 +404,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Info($"Caching implementation {manifestDigest} in {this}");
+            Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
 
             // Copy to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
@@ -442,7 +442,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Info($"Caching implementation {manifestDigest} in {this}");
+            Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
 
             // Extract to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();

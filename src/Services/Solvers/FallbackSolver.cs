@@ -41,7 +41,7 @@ namespace ZeroInstall.Services.Solvers
             Selections Handle(Exception ex)
             {
                 Log.Info("Primary solver failed, falling back to secondary solver.");
-                Log.Info(ex);
+                Log.Debug(ex);
 
                 try
                 {
