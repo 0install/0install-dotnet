@@ -96,8 +96,7 @@ namespace ZeroInstall.Commands.Basic
             public override ExitCode Execute()
             {
                 var store = GetEffectiveStore();
-                foreach (var manifestDigest in store.ListAll())
-                    store.Verify(manifestDigest, Handler);
+                Handler.RunTask(ForEachTask.Create(Resources.StoreAudit, store.ListAll(), digest => store.Verify(digest, Handler)));
                 return ExitCode.OK;
             }
         }
