@@ -1983,15 +1983,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &quot;0store audit&quot; instead to check all implementations in the store..
-        /// </summary>
-        public static string StoreVerfiyTryAuditInstead {
-            get {
-                return ResourceManager.GetString("StoreVerfiyTryAuditInstead", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Successfully removed {0}..
         /// </summary>
         public static string SuccessfullyRemoved {

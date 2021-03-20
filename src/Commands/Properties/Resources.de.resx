@@ -779,9 +779,6 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
   <data name="StoreAudit" xml:space="preserve">
     <value>Store Überprüfung</value>
   </data>
-  <data name="StoreVerfiyTryAuditInstead" xml:space="preserve">
-    <value>Verwenden Sie stattdessen "0store audit" um alle Implementierungen im Store zu überprüfen.</value>
-  </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
     <value>{0} wurde erfolgreich entfernt.</value>
   </data>

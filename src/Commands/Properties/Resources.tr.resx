@@ -779,9 +779,6 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
   <data name="StoreAudit" xml:space="preserve">
     <value>Depo denetimi</value>
   </data>
-  <data name="StoreVerfiyTryAuditInstead" xml:space="preserve">
-    <value>Depodaki tüm uygulamaları denetlemek yerine "0store audit" kullanın.</value>
-  </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
     <value>{0} başarıyla kaldırıldı.</value>
   </data>
