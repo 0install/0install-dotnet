@@ -104,7 +104,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// The default value for <see cref="ExternalSolverUri"/>.
         /// </summary>
-        public const string DefaultExternalSolverUri = "http://0install.net/tools/0install.xml";
+        public const string DefaultExternalSolverUri = "https://apps.0install.net/0install/0install-ocaml.xml";
 
         /// <summary>
         /// The feed URI used to get the external solver. Set to empty to deactivate use of external solver.
