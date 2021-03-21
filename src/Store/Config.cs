@@ -71,7 +71,7 @@ namespace ZeroInstall.Store
         /// <summary>
         /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactivate use of feed mirror.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactive use of feed mirror.")]
+        [DefaultValue(typeof(FeedUri), DefaultFeedMirror), Category("Sources"), DisplayName(@"Feed mirror"), Description("The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactivate use of feed mirror.")]
         public FeedUri? FeedMirror { get; set; } = new(DefaultFeedMirror);
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace ZeroInstall.Store
         public const string DefaultKeyInfoServer = "https://keylookup.0install.net/";
 
         /// <summary>
-        /// The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.
+        /// The key information server used to get information about who signed a feed. Set to empty to deactivate use of key information server.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed. Set to empty to deactive use of key information server.")]
+        [DefaultValue(typeof(FeedUri), DefaultKeyInfoServer), Category("Sources"), DisplayName(@"Key info server"), Description("The key information server used to get information about who signed a feed. Set to empty to deactivate use of key information server.")]
         public FeedUri? KeyInfoServer { get; set; } = new(DefaultKeyInfoServer);
 
         /// <summary>
@@ -96,9 +96,9 @@ namespace ZeroInstall.Store
 #endif
 
         /// <summary>
-        /// The feed URI used to search for updates for Zero Install itself. Set to empty to deactive self-update.
+        /// The feed URI used to search for updates for Zero Install itself. Set to empty to deactivate self-update.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactive self-update.")]
+        [DefaultValue(typeof(FeedUri), DefaultSelfUpdateUri), Category("Sources"), DisplayName(@"Self-update URI"), Description("The feed URI used by the solver to search for updates for Zero Install itself. Set to empty to deactivate self-update.")]
         public FeedUri? SelfUpdateUri { get; set; } = new(DefaultSelfUpdateUri);
 
         /// <summary>
@@ -107,9 +107,9 @@ namespace ZeroInstall.Store
         public const string DefaultExternalSolverUri = "http://0install.net/tools/0install.xml";
 
         /// <summary>
-        /// The feed URI used to get the external solver. Set to empty to deactive use of external solver.
+        /// The feed URI used to get the external solver. Set to empty to deactivate use of external solver.
         /// </summary>
-        [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver. Set to empty to deactive use of external solver.")]
+        [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver. Set to empty to deactivate use of external solver.")]
         public FeedUri? ExternalSolverUri { get; set; } = new(DefaultExternalSolverUri);
 
         /// <summary>
