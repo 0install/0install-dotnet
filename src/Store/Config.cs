@@ -64,6 +64,17 @@ namespace ZeroInstall.Store
         public bool AutoApproveKeys { get; set; } = true;
 
         /// <summary>
+        /// The default value for <see cref="MaxParallelDownloads"/>.
+        /// </summary>
+        public const int DefaultMaxParallelDownloads = 4;
+
+        /// <summary>
+        /// Maximum number of <see cref="Implementation"/>s to download in parallel.
+        /// </summary>
+        [DefaultValue(DefaultMaxParallelDownloads), Category("Fetcher"), DisplayName(@"Maximum parallel downloads"), Description("Maximum number of implementations to download in parallel.")]
+        public int MaxParallelDownloads { get; set; } = DefaultMaxParallelDownloads;
+
+        /// <summary>
         /// The default value for <see cref="FeedMirror"/>.
         /// </summary>
         public const string DefaultFeedMirror = "http://roscidus.com/0mirror";
@@ -170,6 +181,7 @@ namespace ZeroInstall.Store
                 {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value, defaultValue: false).ToStringPointer()},
                 {"network_use", NetworkUsePropertyPointer},
                 {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, defaultValue: true).ToStringPointer()},
+                {"max_parallel_downloads", PropertyPointer.For(() => MaxParallelDownloads, DefaultMaxParallelDownloads).ToStringPointer()},
                 {"feed_mirror", FeedUriPropertyPointer(() => FeedMirror, DefaultFeedMirror)},
                 {"key_info_server", FeedUriPropertyPointer(() => KeyInfoServer, DefaultKeyInfoServer)},
                 {"self_update_uri", FeedUriPropertyPointer(() => SelfUpdateUri, DefaultSelfUpdateUri)},

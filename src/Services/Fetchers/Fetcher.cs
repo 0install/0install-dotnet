@@ -38,11 +38,6 @@ namespace ZeroInstall.Services.Fetchers
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
-        /// <summary>
-        /// Maximum number of <see cref="Implementation"/>s to fetch in parallel.
-        /// </summary>
-        public int MaxParallel { get; set; } = 4;
-
         /// <inheritdoc/>
         public override void Fetch(IEnumerable<Implementation> implementations)
         {
@@ -50,7 +45,7 @@ namespace ZeroInstall.Services.Fetchers
             {
                 Parallel.ForEach(
                     implementations ?? throw new ArgumentNullException(nameof(implementations)),
-                    new() {CancellationToken = Handler.CancellationToken, MaxDegreeOfParallelism = MaxParallel},
+                    new() {CancellationToken = Handler.CancellationToken, MaxDegreeOfParallelism = _config.MaxParallelDownloads},
                     implementation => Fetch(implementation, tag: implementation.ManifestDigest));
             }
             catch (AggregateException ex)
