@@ -48,7 +48,6 @@ namespace ZeroInstall.Services.Fetchers
         /// Downloads a single <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
         /// </summary>
         /// <param name="implementation">The implementation to download.</param>
-        /// <param name="tag">The <see cref="ITask.Tag"/> to set for the download process.</param>
         /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
@@ -56,7 +55,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        protected abstract string? Fetch(Implementation implementation, object tag);
+        protected abstract string? Fetch(Implementation implementation);
 
         /// <summary>
         /// Determines the local path of an implementation.
@@ -121,7 +120,7 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 // Enable Recipe steps to call back to Fetcher
-                using (FetchHandle.Register(impl => Fetch(impl, tag: manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest)))
+                using (FetchHandle.Register(Fetch))
                     Cook(recipe, manifestDigest);
             }
             #region Error handling
@@ -176,7 +175,7 @@ namespace ZeroInstall.Services.Fetchers
             {
                 // Download any files or archives required by the recipe
                 foreach (var downloadStep in recipe.Steps.OfType<DownloadRetrievalMethod>())
-                    downloadedFiles.Add(Download(downloadStep, tag: manifestDigest));
+                    downloadedFiles.Add(Download(downloadStep, tag: manifestDigest.Best));
 
                 // More efficient special-case handling for Archive-only Recipes
                 if (recipe.Steps.All(step => step is Archive))
@@ -195,13 +194,13 @@ namespace ZeroInstall.Services.Fetchers
         /// Downloads a <see cref="DownloadRetrievalMethod"/> to a temporary file.
         /// </summary>
         /// <param name="retrievalMethod">The file to download.</param>
-        /// <param name="tag">The <see cref="ITask.Tag"/> to set for the download process.</param>
+        /// <param name="tag">The <see cref="ITask.Tag"/> to use for correlation.</param>
         /// <returns>The downloaded temporary file.</returns>
         /// <exception cref="OperationCanceledException">A download was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
-        protected virtual TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, object? tag = null)
+        protected virtual TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, string? tag = null)
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
@@ -268,7 +267,7 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void ApplyRecipe(Recipe recipe, IEnumerable<TemporaryFile> files, ManifestDigest manifestDigest)
         {
-            using var recipeDir = recipe.Apply(files, Handler, manifestDigest);
+            using var recipeDir = recipe.Apply(files, Handler, manifestDigest.Best);
             _implementationStore.AddDirectory(recipeDir, manifestDigest, Handler);
         }
     }

@@ -24,12 +24,12 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="recipe">The <see cref="Recipe"/> to apply.</param>
         /// <param name="downloadedFiles">Files downloaded for the the <paramref name="recipe"/>. Must be in same order as <see cref="DownloadRetrievalMethod"/> elements in <paramref name="recipe"/>.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        /// <param name="tag">A tag used to associate composite task with a specific operation; can be null.</param>
+        /// <param name="tag">The <see cref="ITask.Tag"/> to use for correlation.</param>
         /// <returns>A <see cref="TemporaryDirectory"/> with the resulting directory content.</returns>
         /// <exception cref="ArgumentException">The <see cref="Archive"/>s in <paramref name="recipe"/> and the files in <paramref name="downloadedFiles"/> do not match up.</exception>
         /// <exception cref="NotSupportedException"><paramref name="recipe"/> contains unknown step types.</exception>
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positive due to usage inside lambda")]
-        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, object? tag = null)
+        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, string? tag = null)
         {
             #region Sanity checks
             if (recipe == null) throw new ArgumentNullException(nameof(recipe));
@@ -89,10 +89,10 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="localPath">The local path of the archive.</param>
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        /// <param name="tag">A tag used to associate composite task with a specific operation; can be null.</param>
+        /// <param name="tag">The <see cref="ITask.Tag"/> to use for correlation.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
         /// <exception cref="ArgumentException"><see cref="Archive.Normalize"/> was not called for <paramref name="step"/>.</exception>
-        public static void Apply(this Archive step, string localPath, TemporaryDirectory workingDir, ITaskHandler handler, object? tag = null)
+        public static void Apply(this Archive step, string localPath, TemporaryDirectory workingDir, ITaskHandler handler, string? tag = null)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));
@@ -236,11 +236,11 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="step">The <see cref="Archive"/> to apply.</param>
         /// <param name="workingDir">The <see cref="TemporaryDirectory"/> to apply the changes to.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        /// <param name="tag">A tag used to associate composite task with a specific operation; can be null.</param>
+        /// <param name="tag">The <see cref="ITask.Tag"/> to use for correlation.</param>
         /// <exception cref="IOException">A path specified in <paramref name="step"/> is illegal.</exception>
         /// <exception cref="ArgumentException"><see cref="CopyFromStep.Implementation"/> is <c>null</c>. Please call <see cref="Feed.ResolveInternalReferences"/> first.</exception>
         /// <exception cref="InvalidOperationException"><see cref="FetchHandle.Register"/> was not called first.</exception>
-        public static void Apply(this CopyFromStep step, TemporaryDirectory workingDir, ITaskHandler handler, object? tag = null)
+        public static void Apply(this CopyFromStep step, TemporaryDirectory workingDir, ITaskHandler handler, string? tag = null)
         {
             #region Sanity checks
             if (step == null) throw new ArgumentNullException(nameof(step));

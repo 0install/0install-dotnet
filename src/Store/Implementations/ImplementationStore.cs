@@ -298,7 +298,7 @@ namespace ZeroInstall.Store.Implementations
             if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             var format = ManifestFormat.FromPrefix(expectedDigestValue);
 
-            var generator = new ManifestGenerator(directory, format) {Tag = expectedDigest};
+            var generator = new ManifestGenerator(directory, format) {Tag = expectedDigestValue};
             handler.RunTask(generator);
             var manifest = generator.Manifest;
             string digest = manifest.CalculateDigest();
@@ -413,7 +413,7 @@ namespace ZeroInstall.Store.Implementations
                 // Copy the source directory inside the store so it can be validated safely (no manipulation of directory while validating)
                 try
                 {
-                    handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest});
+                    handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest.Best});
                 }
                 #region Error handling
                 catch (IOException ex)
@@ -456,7 +456,7 @@ namespace ZeroInstall.Store.Implementations
                         using var extractor = ArchiveExtractor.Create(archiveInfo.Path, tempDir, archiveInfo.MimeType, archiveInfo.StartOffset);
                         extractor.Extract = archiveInfo.Extract;
                         extractor.TargetSuffix = archiveInfo.Destination;
-                        extractor.Tag = manifestDigest;
+                        extractor.Tag = manifestDigest.Best;
                         handler.RunTask(extractor);
                     }
                     #region Error handling

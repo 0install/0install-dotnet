@@ -46,7 +46,7 @@ namespace ZeroInstall.Services.Fetchers
                 Parallel.ForEach(
                     implementations ?? throw new ArgumentNullException(nameof(implementations)),
                     new() {CancellationToken = Handler.CancellationToken, MaxDegreeOfParallelism = _config.MaxParallelDownloads},
-                    implementation => Fetch(implementation, tag: implementation.ManifestDigest));
+                    implementation => Fetch(implementation));
             }
             catch (AggregateException ex)
             {
@@ -56,7 +56,7 @@ namespace ZeroInstall.Services.Fetchers
         }
 
         /// <inheritdoc/>
-        protected override string? Fetch(Implementation implementation, object tag)
+        protected override string? Fetch(Implementation implementation)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -67,7 +67,7 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
-                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag}); // Wait for mutex to be released
+                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = implementation.ManifestDigest});
             }
             #region Error handling
             catch (AbandonedMutexException ex)
@@ -111,7 +111,7 @@ namespace ZeroInstall.Services.Fetchers
         }
 
         /// <inheritdoc/>
-        protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, object? tag = null)
+        protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, string? tag = null)
         {
             #region Sanity checks
             if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));

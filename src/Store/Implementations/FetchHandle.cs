@@ -14,14 +14,14 @@ namespace ZeroInstall.Store.Implementations
     public static class FetchHandle
     {
         [ThreadStatic]
-        private static Func<Implementation, string>? _callback;
+        private static Func<Implementation, string?>? _callback;
 
         /// <summary>
         /// Registers an <see cref="Implementation"/> fetch callback for the current thread.
         /// </summary>
         /// <param name="callback">A callback that downloads an implementation to a local cache if missing and returns its path.</param>
         /// <returns>A handle that can be used to remove the registration.</returns>
-        public static IDisposable Register(Func<Implementation, string> callback)
+        public static IDisposable Register(Func<Implementation, string?> callback)
         {
             #region Sanity checks
             if (callback == null) throw new ArgumentNullException(nameof(callback));
@@ -38,10 +38,15 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="implementation">The implementation to be downloaded.</param>
         /// <returns>A fully qualified path to the directory containing the implementation.</returns>
         /// <exception cref="InvalidOperationException"><see cref="Register"/> was not called first.</exception>
+        /// <exception cref="ImplementationNotFoundException">Unable to find <paramref name="implementation"/> in cache after fetching.</exception>
         public static string Use(Implementation implementation)
         {
+            #region Sanity checks
+            if (implementation == null) throw new ArgumentNullException(nameof(implementation));
+            #endregion
+
             if (_callback == null) throw new InvalidOperationException("Implementation provider must be registered first on the same thread.");
-            return _callback(implementation ?? throw new ArgumentNullException(nameof(implementation)));
+            return _callback(implementation) ?? throw new ImplementationNotFoundException(implementation.ManifestDigest);
         }
     }
 }
