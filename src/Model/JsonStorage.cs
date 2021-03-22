@@ -3,6 +3,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace ZeroInstall.Model
@@ -27,7 +28,8 @@ namespace ZeroInstall.Model
         /// <returns>The deserialized object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter", Justification = "The type parameter is used to determine the type of returned object")]
         public static T FromJsonString<T>(string data)
-            => JsonConvert.DeserializeObject<T>(data ?? throw new ArgumentNullException(nameof(data)));
+            => JsonConvert.DeserializeObject<T>(data ?? throw new ArgumentNullException(nameof(data)))
+            ?? throw new InvalidDataException("JSON deserialized to null");
 
         /// <summary>
         /// Loads an object from an JSON string using an anonymous type as the target.
@@ -39,7 +41,8 @@ namespace ZeroInstall.Model
         public static T FromJsonString<T>(string data, T anonymousType)
             => JsonConvert.DeserializeAnonymousType(
                 data ?? throw new ArgumentNullException(nameof(data)),
-                anonymousType ?? throw new ArgumentNullException(nameof(anonymousType)));
+                anonymousType ?? throw new ArgumentNullException(nameof(anonymousType)))
+            ?? throw new InvalidDataException("JSON deserialized to null");
 
         /// <summary>
         /// Reparses an object previously deserialized from JSON into a different representation.
