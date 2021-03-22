@@ -34,17 +34,17 @@ namespace ZeroInstall.Services.Feeds
             #region Error handling
             catch (IOException ex)
             {
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
                 return new();
             }
             catch (UnauthorizedAccessException ex)
             {
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
                 return new();
             }
             catch (InvalidDataException ex)
             {
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
                 return new();
             }
             #endregion

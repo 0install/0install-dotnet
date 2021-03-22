@@ -82,12 +82,12 @@ namespace ZeroInstall.Services.Feeds
             catch (IOException ex)
             {
                 Log.Warn(Resources.UnableToCacheCatalog);
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
             }
             catch (UnauthorizedAccessException ex)
             {
                 Log.Warn(Resources.UnableToCacheCatalog);
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
             }
             #endregion
         }

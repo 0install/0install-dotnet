@@ -73,7 +73,7 @@ namespace ZeroInstall.Services.Fetchers
             catch (AbandonedMutexException ex)
             {
                 // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere
-                Log.Warn(ex.Message);
+                Log.Warn(ex);
             }
             #endregion
 
