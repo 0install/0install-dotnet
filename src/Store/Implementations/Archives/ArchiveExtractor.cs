@@ -23,7 +23,10 @@ namespace ZeroInstall.Store.Implementations.Archives
     public abstract class ArchiveExtractor : TaskBase, IDisposable
     {
         /// <inheritdoc/>
-        public override string Name => Resources.ExtractingArchive;
+        public override string Name
+            => Tag == null
+                ? Resources.ExtractingArchive
+                : $"{Resources.ExtractingArchive} ({Tag})";
 
         /// <inheritdoc/>
         protected override bool UnitsByte => true;

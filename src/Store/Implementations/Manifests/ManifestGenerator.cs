@@ -18,7 +18,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
     public class ManifestGenerator : DirectoryTaskBase
     {
         /// <inheritdoc/>
-        public override string Name => string.Format(Resources.GeneratingManifest, Format);
+        public override string Name
+            => Tag == null
+                ? string.Format(Resources.GeneratingManifest, Format)
+                : $"{string.Format(Resources.GeneratingManifest, Format)} ({Tag})";
 
         /// <summary>
         /// The format of the manifest to generate.
