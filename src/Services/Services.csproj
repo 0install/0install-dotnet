@@ -27,6 +27,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Archives\Archives.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NanoByte.SatSolver" Version="0.3.0" />
+  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
     <Reference Include="System.Net.Http" Pack="False" />
     <Reference Include="System.Web" Pack="False" />

@@ -126,17 +126,6 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     public FeedUri? SelfUpdateUri { get; set; } = new(DefaultSelfUpdateUri);
 
     /// <summary>
-    /// The default value for <see cref="ExternalSolverUri"/>.
-    /// </summary>
-    public const string DefaultExternalSolverUri = "https://apps.0install.net/0install/0install-ocaml.xml";
-
-    /// <summary>
-    /// The feed URI used to get the external solver. Set to empty to deactivate use of external solver.
-    /// </summary>
-    [DefaultValue(typeof(FeedUri), DefaultExternalSolverUri), Category("Sources"), DisplayName(@"External Solver URI"), Description("The feed URI used to get the external solver. Set to empty to deactivate use of external solver.")]
-    public FeedUri? ExternalSolverUri { get; set; } = new(DefaultExternalSolverUri);
-
-    /// <summary>
     /// The default value for <see cref="SyncServer"/>.
     /// </summary>
     public const string DefaultSyncServer = "https://0install.de/sync/";
@@ -220,7 +209,6 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             ["feed_mirror"] = ConfigProperty.For(() => FeedMirror, DefaultFeedMirror),
             ["key_info_server"] = ConfigProperty.For(() => KeyInfoServer, DefaultKeyInfoServer),
             ["self_update_uri"] = ConfigProperty.For(() => SelfUpdateUri, DefaultSelfUpdateUri),
-            ["external_solver_uri"] = ConfigProperty.For(() => ExternalSolverUri, DefaultExternalSolverUri),
             ["sync_server"] = ConfigProperty.For(() => SyncServer, DefaultSyncServer),
             ["sync_server_user"] = ConfigProperty.For(() => SyncServerUsername, defaultValue: ""),
             ["sync_server_pw"] = ConfigProperty.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true),
