@@ -74,13 +74,13 @@ namespace ZeroInstall.Model.Selection
         /// Human-readable notes about the implementation, e.g. "not suitable for this architecture".
         /// </summary>
         [Description("Human-readable notes about the implementation, e.g. \"not suitable for this architecture\".")]
-        public string? Notes { get; set; }
+        public string? Notes { get; }
 
         /// <summary>
         /// Indicates whether this implementation fulfills all specified <see cref="Requirements"/>.
         /// </summary>
         [Browsable(false)]
-        public bool IsSuitable { get; set; }
+        public bool IsSuitable { get; }
 
         /// <summary>
         /// Creates a new selection candidate.
@@ -102,11 +102,6 @@ namespace ZeroInstall.Model.Selection
 
             _implementationPreferences = feedPreferences[implementation.ID];
 
-            CheckSuitability(requirements ?? throw new ArgumentNullException(nameof(requirements)), offlineUncached);
-        }
-
-        private void CheckSuitability(Requirements requirements, bool offlineUncached)
-        {
             if (Implementation.Architecture.Cpu == Cpu.Source && requirements.Architecture.Cpu != Cpu.Source)
                 Notes = Resources.SelectionCandidateNoteSource;
             else if (!Implementation.Architecture.RunsOn(requirements.Architecture))
@@ -137,14 +132,9 @@ namespace ZeroInstall.Model.Selection
         #region Equality
         /// <inheritdoc/>
         public bool Equals(SelectionCandidate? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Equals(Implementation, other.Implementation)
-                && FeedUri.Equals(other.FeedUri)
-                && IsSuitable == other.IsSuitable
-                && Notes == other.Notes;
-        }
+            => other != null
+            && FeedUri.Equals(other.FeedUri)
+            && Implementation.ID == other.Implementation.ID;
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
@@ -156,7 +146,7 @@ namespace ZeroInstall.Model.Selection
 
         /// <inheritdoc/>
         public override int GetHashCode()
-            => HashCode.Combine(Implementation, FeedUri, IsSuitable, Notes);
+            => HashCode.Combine(FeedUri, Implementation.ID);
         #endregion
     }
 }
