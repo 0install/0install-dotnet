@@ -68,11 +68,11 @@ namespace ZeroInstall.Services.Solvers
                 if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
 
                 var selectionsSnapshot = Selections.Clone(); // Create snapshot
-                foreach (var permutation in essential.Permutate())
+                foreach (var essentialPermutation in essential.Permutate())
                 {
-                    if (permutation.All(TryFulfill))
+                    if (essentialPermutation.All(TryFulfill))
                     {
-                        recommended.ForEach(x => TryFulfill(x));
+                        recommended.ForEach(demand => TryFulfill(demand));
                         return true;
                     }
                     else Selections = selectionsSnapshot.Clone(); // Revert to snapshot

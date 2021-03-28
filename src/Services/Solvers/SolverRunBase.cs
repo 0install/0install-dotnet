@@ -239,8 +239,7 @@ namespace ZeroInstall.Services.Solvers
 
         protected static (List<SolverDemand> essential, List<SolverDemand> recommended) Bucketize(IEnumerable<SolverDemand> demands)
         {
-            var essential = new List<SolverDemand>();
-            var recommended = new List<SolverDemand>();
+            List<SolverDemand> essential = new(), recommended = new();
             demands.Bucketize(x => x.Importance)
                    .Add(Importance.Essential, essential)
                    .Add(Importance.Recommended, recommended)

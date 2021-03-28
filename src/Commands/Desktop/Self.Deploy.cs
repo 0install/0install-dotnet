@@ -153,14 +153,13 @@ namespace ZeroInstall.Commands.Desktop
 
             private static void RestartCentral(string targetDir)
             {
-                if (ProgramUtils.GuiAssemblyName != null)
-                {
-                    var startInfo = WindowsUtils.IsWindowsVista
-                        // Use explorer.exe to return to standard user privileges after UAC elevation
-                        ? new ProcessStartInfo("explorer.exe", Path.Combine(targetDir, "ZeroInstall.exe").EscapeArgument())
-                        : ProcessUtils.Assembly(Path.Combine(targetDir, ProgramUtils.GuiAssemblyName), Central.Name);
-                    startInfo.Start();
-                }
+                if (ProgramUtils.GuiAssemblyName == null) return;
+
+                var startInfo = WindowsUtils.IsWindowsVista
+                    // Use explorer.exe to return to standard user privileges after UAC elevation
+                    ? new ProcessStartInfo("explorer.exe", Path.Combine(targetDir, "ZeroInstall.exe").EscapeArgument())
+                    : ProcessUtils.Assembly(Path.Combine(targetDir, ProgramUtils.GuiAssemblyName), Central.Name);
+                startInfo.Start();
             }
         }
     }
