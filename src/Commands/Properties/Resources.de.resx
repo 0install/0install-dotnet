@@ -567,7 +567,7 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
     <value>Versteckt die grafische Benutzeroberfläche und verwendet stattdessen etwas wie ein Tray Icon.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatisch Fragen mit Standardantworten beantworten wenn möglich. Unnötige Konsolenausgaben (z.B. Fortschrittsbalken) vermeiden.</value>
+    <value>Fragen, wenn möglich, automatisch mit Standardantworten beantworten und Konsolenausgaben vereinfachen (keine Tabellen oder Fortschrittsbalken).</value>
   </data>
   <data name="OptionBefore" xml:space="preserve">
     <value>Die Version der ausgewählten Implementierung muss vor {VERSION} liegen. Zum Beispiel können Sie damit die Verwendung einer älteren Version des Programmes erzwingen.</value>

@@ -567,7 +567,7 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
     <value>Hide the graphical user interface and use something like a tray icon instead.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatically answer questions with defaults when possible. Avoid unnecessary console output (e.g. progress bars).</value>
+    <value>Automatically answer questions with defaults when possible and simplify console output (no tables or progress bars).</value>
   </data>
   <data name="OptionBefore" xml:space="preserve">
     <value>Require a version of the main program earlier than {VERSION}. i.e., force the use of an old version the program.</value>

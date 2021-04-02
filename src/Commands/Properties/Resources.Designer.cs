@@ -1368,7 +1368,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Automatically answer questions with defaults when possible. Avoid unnecessary console output (e.g. progress bars)..
+        ///   Looks up a localized string similar to Automatically answer questions with defaults when possible and simplify console output (no tables or progress bars)..
         /// </summary>
         public static string OptionBatch {
             get {
