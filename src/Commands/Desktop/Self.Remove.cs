@@ -110,7 +110,7 @@ namespace ZeroInstall.Commands.Desktop
 
                 var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
                 if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
-                if (Handler.Background) args = args.Append("--background");
+                if (Handler.Background && ProgramUtils.GuiAssemblyName != null) args = args.Append("--background");
 
                 ProcessUtils.Assembly(assembly, args).Start();
             }
