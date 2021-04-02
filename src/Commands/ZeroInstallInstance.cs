@@ -31,20 +31,24 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The current version of Zero Install.
         /// </summary>
-        public static ImplementationVersion Version { get; } = GetVersion();
+        public static ImplementationVersion Version { get; }
+            = GetZeroInstallForWindowsVersion()
+           ?? new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
 
-        private static ImplementationVersion GetVersion()
+        private static ImplementationVersion? GetZeroInstallForWindowsVersion()
         {
 #if NETFRAMEWORK
+            string path = Path.Combine(Locations.InstallBase, "0install-win.exe");
+            if (!File.Exists(path)) return null;
+
             try
             {
-                // Allow GUI version (e.g., Zero Install for Windows) to override version number
-                return new(FileVersionInfo.GetVersionInfo(Path.Combine(Locations.InstallBase, ProgramUtils.GuiAssemblyName + ".exe")).ProductVersion.GetLeftPartAtFirstOccurrence('+'));
+                return new(FileVersionInfo.GetVersionInfo(path).ProductVersion.GetLeftPartAtFirstOccurrence('+'));
             }
             catch
 #endif
             {
-                return new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+                return null;
             }
         }
 
