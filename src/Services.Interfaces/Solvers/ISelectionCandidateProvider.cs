@@ -21,12 +21,7 @@ namespace ZeroInstall.Services.Solvers
         /// <summary>
         /// Retrieves the original <see cref="Implementation"/> an <see cref="ImplementationSelection"/> was based ofF.
         /// </summary>
-        /// <exception cref="KeyNotFoundException">The <paramref name="implementationSelection"/> was not provided by <see cref="GetSortedCandidates"/> or <see cref="Clear"/> was called in between.</exception>
+        /// <exception cref="KeyNotFoundException">The <paramref name="implementationSelection"/> was not provided by <see cref="GetSortedCandidates"/>.</exception>
         Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection);
-
-        /// <summary>
-        /// Clears all internal caches.
-        /// </summary>
-        void Clear();
     }
 }

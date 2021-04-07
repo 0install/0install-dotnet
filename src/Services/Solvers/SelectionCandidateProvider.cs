@@ -79,16 +79,6 @@ namespace ZeroInstall.Services.Solvers
                 ?? throw new KeyNotFoundException();
         }
 
-        /// <inheritdoc/>
-        public void Clear()
-        {
-            _feedManager.Clear();
-            _storeContains.Clear();
-            _interfacePreferences.Clear();
-            _externalImplementations.Clear();
-            _failedFeeds.Clear();
-        }
-
         /// <summary>
         /// Loads the main feed for the specified <paramref name="requirements"/>, additional feeds added by local configuration and <see cref="Feed.Feeds"/> references.
         /// </summary>

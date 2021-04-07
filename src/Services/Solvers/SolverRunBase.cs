@@ -58,7 +58,6 @@ namespace ZeroInstall.Services.Solvers
         /// <exception cref="SolverException">The solver was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.</exception>
         public Selections Solve()
         {
-            CandidateProvider.Clear();
             try
             {
                 if (!TryFulfill(Demand(_requirements)))
