@@ -567,7 +567,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <value>Görsel kullanıcı arabirimini gizler ve yerine sistem tepsisi simgesi gibi bir öge kullanılmasını sağlar.</value>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Toplu işlem kipinde çalışır: İlerleme durumları kullanıcıya görüntülenmez ve sorulara varsayılan yanıtlar verilir.</value>
+    <value>Yapılabildiğinde, sorulara varsayılan yanıtlar verilir ve konsol çıktısı basitleştirilir (tablolar ya da ilerleme çubukları görüntülenmez).</value>
   </data>
   <data name="OptionBefore" xml:space="preserve">
     <value>Ana yazılımın daha önceki bir sürümü {VERSION} istenir. Örneğin bir yazılımın eski sürümü kullanılmak istendiğinde.</value>
