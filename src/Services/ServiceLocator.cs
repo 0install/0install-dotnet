@@ -147,7 +147,7 @@ namespace ZeroInstall.Services
         private ISelectionsManager? _selectionsManager;
 
         /// <summary>
-        /// Contains helper methods for filtering <see cref="Selections"/>.
+        /// Provides methods for filtering <see cref="Selections"/>.
         /// </summary>
         public ISelectionsManager SelectionsManager { get => Get(ref _selectionsManager, () => _selectionsManager = new SelectionsManager(FeedManager, ImplementationStore, PackageManager)); set => _selectionsManager = value; }
 

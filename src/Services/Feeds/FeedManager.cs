@@ -27,14 +27,10 @@ namespace ZeroInstall.Services.Feeds
     #pragma warning disable 8766
     public class FeedManager : IFeedManager
     {
-        #region Dependencies
         private readonly Config _config;
         private readonly IFeedCache _feedCache;
         private readonly ITrustManager _trustManager;
         private readonly ITaskHandler _handler;
-
-        private readonly TransparentCache<FeedUri, Feed> _feeds;
-        private readonly TransparentCache<FeedUri, FeedPreferences> _preferences = new(FeedPreferences.LoadForSafe);
 
         /// <summary>
         /// Creates a new feed manager.
@@ -57,7 +53,6 @@ namespace ZeroInstall.Services.Feeds
                 return feed;
             });
         }
-        #endregion
 
         private bool _refresh;
 
@@ -71,7 +66,7 @@ namespace ZeroInstall.Services.Feeds
             set
             {
                 _refresh = value;
-                if (Refresh) Clear();
+                if (value) Clear();
             }
         }
 
@@ -79,13 +74,20 @@ namespace ZeroInstall.Services.Feeds
         public bool Stale { get; set; }
 
         /// <inheritdoc/>
-        public bool ShouldRefresh => Stale && _config.NetworkUse == NetworkLevel.Full;
+        public bool ShouldRefresh
+            => Stale && _config.NetworkUse == NetworkLevel.Full;
+
+        private readonly TransparentCache<FeedUri, Feed> _feeds;
 
         /// <inheritdoc/>
-        public Feed this[FeedUri feedUri] => _feeds[feedUri];
+        public Feed this[FeedUri feedUri]
+            => _feeds[feedUri];
+
+        private readonly TransparentCache<FeedUri, FeedPreferences> _preferences = new(FeedPreferences.LoadForSafe);
 
         /// <inheritdoc/>
-        public FeedPreferences GetPreferences(FeedUri feedUri) => _preferences[feedUri];
+        public FeedPreferences GetPreferences(FeedUri feedUri)
+            => _preferences[feedUri];
 
         /// <summary>
         /// Returns a specific <see cref="Feed"/>. Automatically handles downloading and caching. Updates the <see cref="Stale"/> indicator.
@@ -144,7 +146,7 @@ namespace ZeroInstall.Services.Feeds
             try
             {
                 var feed = _feedCache.GetFeed(feedUri);
-                Stale |= IsStale(feedUri);
+                if (IsStale(feedUri)) Stale = true;
                 return feed;
             }
             #region Error handling
@@ -193,9 +195,10 @@ namespace ZeroInstall.Services.Feeds
             return file.Exists && ((DateTime.UtcNow - file.LastWriteTimeUtc) <= _checkAttemptDelay);
         }
 
-        private static string GetLastCheckAttemptPath(FeedUri feedUri) => Path.Combine(
-            Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
-            feedUri.PrettyEscape());
+        private static string GetLastCheckAttemptPath(FeedUri feedUri)
+            => Path.Combine(
+                Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
+                feedUri.PrettyEscape());
 
         /// <summary>
         /// Downloads a <see cref="Feed"/> into the <see cref="_feedCache"/> validating its signatures. Automatically falls back to the mirror server.
@@ -278,16 +281,6 @@ namespace ZeroInstall.Services.Feeds
             AddToCache(data, feedUri);
         }
 
-        private void AddToCache(byte[] data, FeedUri feedUri)
-        {
-            _feedCache.Add(feedUri, data);
-
-            var preferences = _preferences[feedUri];
-            preferences.LastChecked = DateTime.UtcNow;
-            preferences.Normalize();
-            preferences.SaveFor(feedUri);
-        }
-
         private static void CheckFeed(byte[] data, FeedUri feedUri)
         {
             // Detect feed substitution
@@ -303,12 +296,23 @@ namespace ZeroInstall.Services.Feeds
             try
             {
                 var oldSignature = _feedCache.GetSignatures(feedUri).OfType<ValidSignature>().FirstOrDefault();
-                if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp) throw new ReplayAttackException(feedUri, oldSignature.Timestamp, newSignature.Timestamp);
+                if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp)
+                    throw new ReplayAttackException(feedUri, oldSignature.Timestamp, newSignature.Timestamp);
             }
             catch (KeyNotFoundException)
             {
                 // No existing feed to be replaced
             }
+        }
+
+        private void AddToCache(byte[] data, FeedUri feedUri)
+        {
+            _feedCache.Add(feedUri, data);
+
+            var preferences = _preferences[feedUri];
+            preferences.LastChecked = DateTime.UtcNow;
+            preferences.Normalize();
+            preferences.SaveFor(feedUri);
         }
     }
 }

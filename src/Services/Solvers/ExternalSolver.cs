@@ -25,7 +25,6 @@ namespace ZeroInstall.Services.Solvers
     /// <remarks>The executable for external process is itself provided by another <see cref="ISolver"/>.</remarks>
     public class ExternalSolver : ISolver
     {
-        #region Dependencies
         private readonly ISolver _backingSolver;
         private readonly ISelectionsManager _selectionsManager;
         private readonly IFetcher _fetcher;
@@ -54,7 +53,6 @@ namespace ZeroInstall.Services.Solvers
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
             _solverRequirements = new Requirements(externalSolverUri ?? throw new ArgumentNullException(nameof(externalSolverUri)));
         }
-        #endregion
 
         /// <inheritdoc/>
         public Selections Solve(Requirements requirements)

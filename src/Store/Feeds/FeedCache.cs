@@ -21,7 +21,6 @@ namespace ZeroInstall.Store.Feeds
     /// <remarks>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</remarks>
     public sealed class FeedCache : IFeedCache
     {
-        #region Dependencies
         private readonly IOpenPgp _openPgp;
 
         /// <summary>
@@ -34,7 +33,6 @@ namespace ZeroInstall.Store.Feeds
             Path = path ?? throw new ArgumentNullException(nameof(path));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
         }
-        #endregion
 
         /// <summary>
         /// The directory containing the cached <see cref="Feed"/>s.

@@ -29,10 +29,8 @@ namespace ZeroInstall.Services.Solvers
         private readonly IFeedManager _feedManager;
         private readonly IPackageManager _packageManager;
 
+        /// <summary>Indicates whether a specific implementation is already cached in an <see cref="IImplementationStore"/>.</summary>
         private readonly TransparentCache<ManifestDigest, bool> _storeContains;
-        private readonly TransparentCache<FeedUri, InterfacePreferences> _interfacePreferences = new(InterfacePreferences.LoadForSafe);
-        private readonly Dictionary<string, ExternalImplementation> _externalImplementations = new();
-        private readonly HashSet<FeedUri> _failedFeeds = new();
 
         /// <summary>
         /// Creates a new <see cref="SelectionCandidate"/> provider.
@@ -51,6 +49,9 @@ namespace ZeroInstall.Services.Solvers
             _storeContains = new(implementationStore.Contains);
         }
 
+        /// <summary>Caches <see cref="InterfacePreferences"/>.</summary>
+        private readonly TransparentCache<FeedUri, InterfacePreferences> _interfacePreferences = new(InterfacePreferences.LoadForSafe);
+
         /// <inheritdoc/>
         public IReadOnlyList<SelectionCandidate> GetSortedCandidates(Requirements requirements)
         {
@@ -66,6 +67,9 @@ namespace ZeroInstall.Services.Solvers
             return candidates;
         }
 
+        /// <summary>Maps <see cref="ImplementationBase.ID"/>s to <see cref="ExternalImplementation"/>s.</summary>
+        private readonly Dictionary<string, ExternalImplementation> _externalImplementations = new();
+
         /// <inheritdoc/>
         public Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection)
         {
@@ -78,6 +82,9 @@ namespace ZeroInstall.Services.Solvers
                        : _feedManager[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri][implementationSelection.ID])
                 ?? throw new KeyNotFoundException();
         }
+
+        /// <summary>Records feeds that failed to download to prevent multiple attempts.</summary>
+        private readonly HashSet<FeedUri> _failedFeeds = new();
 
         /// <summary>
         /// Loads the main feed for the specified <paramref name="requirements"/>, additional feeds added by local configuration and <see cref="Feed.Feeds"/> references.

@@ -52,11 +52,8 @@ namespace ZeroInstall.Services.Feeds
         [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings")]
         public ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null)
         {
-            #region Sanity checks
             if (uri == null) throw new ArgumentNullException(nameof(uri));
             if (data == null) throw new ArgumentNullException(nameof(data));
-            #endregion
-
             if (uri.IsFile) throw new UriFormatException(Resources.FeedUriLocal);
 
             var domain = new Domain(uri.Host);
