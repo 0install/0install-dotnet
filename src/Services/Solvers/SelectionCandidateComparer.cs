@@ -7,35 +7,14 @@ using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
     /// Ranks <see cref="SelectionCandidate"/>s.
     /// </summary>
-    public class SelectionCandidateComparer : IComparer<SelectionCandidate>
+    public record SelectionCandidateComparer(Stability StabilityPolicy, NetworkLevel NetworkUse, LanguageSet Languages, Predicate<Implementation> IsCached) : IComparer<SelectionCandidate>
     {
-        private readonly Stability _stabilityPolicy;
-        private readonly NetworkLevel _networkUse;
-        private readonly LanguageSet _languages;
-        private readonly Predicate<Implementation> _isCached;
-
-        /// <summary>
-        /// Creates a new <see cref="SelectionCandidate"/> ranker.
-        /// </summary>
-        /// <param name="stabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
-        /// <param name="networkUse">Controls how liberally network access is attempted.</param>
-        /// <param name="languages">The preferred languages for the implementation.</param>
-        /// <param name="isCached">Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
-        public SelectionCandidateComparer(Stability stabilityPolicy, NetworkLevel networkUse, LanguageSet languages, Predicate<Implementation> isCached)
-        {
-            _stabilityPolicy = stabilityPolicy;
-            _networkUse = networkUse;
-            _languages = languages ?? throw new ArgumentNullException(nameof(languages));
-            _isCached = isCached ?? throw new ArgumentNullException(nameof(isCached));
-        }
-
         /// <inheritdoc/>
         public int Compare(SelectionCandidate? x, SelectionCandidate? y)
         {
@@ -54,10 +33,10 @@ namespace ZeroInstall.Services.Solvers
             if (xLanguageRank < yLanguageRank) return 1;
 
             // Cached implementations come next if we have limited network access
-            if (_networkUse != NetworkLevel.Full)
+            if (NetworkUse != NetworkLevel.Full)
             {
-                bool xCached = _isCached(x.Implementation);
-                bool yCached = _isCached(y.Implementation);
+                bool xCached = IsCached(x.Implementation);
+                bool yCached = IsCached(y.Implementation);
                 if (xCached && !yCached) return -1;
                 if (!xCached && yCached) return 1;
             }
@@ -98,10 +77,10 @@ namespace ZeroInstall.Services.Solvers
             if (xCountryRank < yCountryRank) return 1;
 
             // Slightly prefer cached versions
-            if (_networkUse == NetworkLevel.Full)
+            if (NetworkUse == NetworkLevel.Full)
             {
-                bool xCached = _isCached(x.Implementation);
-                bool yCached = _isCached(y.Implementation);
+                bool xCached = IsCached(x.Implementation);
+                bool yCached = IsCached(y.Implementation);
                 if (xCached && !yCached) return -1;
                 if (!xCached && yCached) return 1;
             }
@@ -111,14 +90,14 @@ namespace ZeroInstall.Services.Solvers
         }
 
         private Stability ApplyPolicy(Stability stability)
-            => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
+            => (stability <= StabilityPolicy) ? Stability.Preferred : stability;
 
         private static readonly LanguageSet _englishSet = new() {"en", "en_US"};
 
         private int GetLanguageRank(LanguageSet languages)
         {
             if (languages.Count == 0) return 1;
-            else if (languages.ContainsAny(_languages, ignoreCountry: true)) return 2;
+            else if (languages.ContainsAny(Languages, ignoreCountry: true)) return 2;
             else if (languages.ContainsAny(_englishSet)) return 0; // Prefer English over other languages we do not understand
             else return -1;
         }
@@ -126,7 +105,7 @@ namespace ZeroInstall.Services.Solvers
         private int GetCountryRank(LanguageSet languages)
         {
             if (languages.Count == 0) return 0;
-            else if (languages.ContainsAny(_languages)) return 1;
+            else if (languages.ContainsAny(Languages)) return 1;
             else return -1;
         }
     }

@@ -19,7 +19,7 @@ using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Executors
 {
-    public partial class EnvironmentBuilder
+    public partial record EnvironmentBuilder
     {
         /// <summary>
         /// Used to track <see cref="IBindingContainer"/> that have already been applied to avoid cycles.
@@ -129,7 +129,7 @@ namespace ZeroInstall.Services.Executors
             }
             else
             { // Path inside the implementation
-                newValue = Path.Combine(_implementationStore.GetPath(implementation), FileUtils.UnifySlashes(binding.Insert ?? ""));
+                newValue = Path.Combine(ImplementationStore.GetPath(implementation), FileUtils.UnifySlashes(binding.Insert ?? ""));
             }
 
             // Set the default value if the variable is not already set on the system
@@ -333,7 +333,7 @@ namespace ZeroInstall.Services.Executors
             // Only allow working directory to be changed once
             if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.Working);
 
-            _startInfo.WorkingDirectory = Path.Combine(_implementationStore.GetPath(implementation), source);
+            _startInfo.WorkingDirectory = Path.Combine(ImplementationStore.GetPath(implementation), source);
         }
     }
 }

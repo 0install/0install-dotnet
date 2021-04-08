@@ -16,7 +16,7 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Manages state during a single <see cref="IImplementationStore.Optimise"/> run.
         /// </summary>
-        private class OptimiseRun : IDisposable
+        private sealed record OptimiseRun(string StorePath) : IDisposable
         {
             private sealed record DedupKey(long Size, DateTime LastModified, ManifestFormat Format, string Digest);
 
@@ -27,21 +27,11 @@ namespace ZeroInstall.Store.Implementations
 
             private readonly Dictionary<DedupKey, StoreFile> _fileHashes = new();
             private readonly HashSet<string> _unsealedImplementations = new();
-            private readonly string _storePath;
 
             /// <summary>
             /// The number of bytes saved by deduplication.
             /// </summary>
             public long SavedBytes;
-
-            /// <summary>
-            /// Creates a new optimise run.
-            /// </summary>
-            /// <param name="storePath">The <see cref="IImplementationStore.Path"/>.</param>
-            public OptimiseRun(string storePath)
-            {
-                _storePath = storePath;
-            }
 
             /// <summary>
             /// Executes the work-step for a single implementation.
@@ -50,7 +40,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 string? digestString = manifestDigest.Best;
                 if (digestString == null) return;
-                string implementationPath = System.IO.Path.Combine(_storePath, digestString);
+                string implementationPath = System.IO.Path.Combine(StorePath, digestString);
                 var manifest = Manifest.Load(System.IO.Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
 
                 string currentDirectory = "";
@@ -91,7 +81,7 @@ namespace ZeroInstall.Store.Implementations
                 if (_unsealedImplementations.Add(file2.ImplementationPath))
                     FileUtils.DisableWriteProtection(file2.ImplementationPath);
 
-                string tempFile = System.IO.Path.Combine(_storePath, System.IO.Path.GetRandomFileName());
+                string tempFile = System.IO.Path.Combine(StorePath, System.IO.Path.GetRandomFileName());
                 try
                 {
                     Log.Info("Hard link: " + file1 + " <=> " + file2);
