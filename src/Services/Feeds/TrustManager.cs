@@ -24,9 +24,9 @@ namespace ZeroInstall.Services.Feeds
     public class TrustManager : ITrustManager
     {
         #region Dependencies
+        private readonly TrustDB _trustDB;
         private readonly Config _config;
         private readonly IOpenPgp _openPgp;
-        private readonly TrustDB _trustDB;
         private readonly IFeedCache _feedCache;
         private readonly ITaskHandler _handler;
 
@@ -38,11 +38,11 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="trustDB">A database of OpenPGP signature fingerprints the users trusts to sign <see cref="Feed"/>s coming from specific domains.</param>
         /// <param name="feedCache">Provides access to a cache of <see cref="Feed"/>s that were downloaded via HTTP(S).</param>
         /// <param name="handler">A callback object used when the the user needs to be asked questions.</param>
-        public TrustManager(Config config, IOpenPgp openPgp, TrustDB trustDB, IFeedCache feedCache, ITaskHandler handler)
+        public TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFeedCache feedCache, ITaskHandler handler)
         {
+            _trustDB = trustDB ?? throw new ArgumentNullException(nameof(trustDB));
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
-            _trustDB = trustDB ?? throw new ArgumentNullException(nameof(trustDB));
             _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
             _handler = handler ?? throw new ArgumentNullException(nameof(handler));
         }

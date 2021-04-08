@@ -50,7 +50,7 @@ namespace ZeroInstall.Services.Feeds
         {
             _feedCacheMock = CreateMock<IFeedCache>();
             _openPgpMock = CreateMock<IOpenPgp>();
-            _trustManager = new TrustManager(_config, _openPgpMock.Object, _trustDB, _feedCacheMock.Object, _handler);
+            _trustManager = new TrustManager(_trustDB, _config, _openPgpMock.Object, _feedCacheMock.Object, _handler);
         }
 
         [Fact]

@@ -63,7 +63,6 @@ namespace ZeroInstall.Commands
             Sut.FeedCache = BuildMock<IFeedCache>();
             Sut.CatalogManager = BuildMock<ICatalogManager>();
             Sut.OpenPgp = BuildMock<IOpenPgp>();
-            Sut.TrustDB = new();
             Sut.ImplementationStore = BuildMock<IImplementationStore>();
             Sut.PackageManager = BuildMock<IPackageManager>();
             Sut.Solver = BuildMock<ISolver>();
