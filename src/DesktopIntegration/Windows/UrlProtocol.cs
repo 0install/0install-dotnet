@@ -122,10 +122,10 @@ namespace ZeroInstall.DesktopIntegration.Windows
             { // Was registered non-invasively by registering custom ProgID
                 if (accessPoint)
                 {
-                    foreach (var prefix in urlProtocol.KnownPrefixes)
-                    {
-                        // TODO: Restore previous default
-                    }
+                    // TODO: Restore previous default
+                    // foreach (var prefix in urlProtocol.KnownPrefixes)
+                    // {
+                    // }
                 }
 
                 // Remove appropriate purpose flag and check if there are others

@@ -22,8 +22,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
     public static class AppRegistration
     {
         #region Constants
-        /// <summary>Prepended before <see cref="Model.Capabilities.AppRegistration.CapabilityRegPath"/>. This prevents conflicts with non-Zero Install installations.</summary>
-        private const string CapabilityPrefix = @"SOFTWARE\Zero Install\Applications\";
+        // /// <summary>Prepended before <see cref="Model.Capabilities.AppRegistration.CapabilityRegPath"/>. This prevents conflicts with non-Zero Install installations.</summary>
+        // private const string CapabilityPrefix = @"SOFTWARE\Zero Install\Applications\";
 
         /// <summary>The HKLM registry key for registering applications as candidates for default programs.</summary>
         public const string RegKeyMachineRegisteredApplications = @"SOFTWARE\RegisteredApplications";

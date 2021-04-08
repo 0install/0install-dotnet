@@ -138,7 +138,7 @@ namespace ZeroInstall.Model.Selection
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(ImplementationSelection? other)
+        public int CompareTo(ImplementationSelection other)
             => StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other.InterfaceUri.ToStringRfc());
         #endregion
     }

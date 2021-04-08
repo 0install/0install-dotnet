@@ -212,7 +212,7 @@ namespace ZeroInstall.Services.Fetchers
             var tempFile = new TemporaryFile("0install-fetcher");
             try
             {
-                Handler.RunTask(new DownloadFile(retrievalMethod.Href, tempFile, retrievalMethod.DownloadSize) {Tag = tag});
+                Handler.RunTask(new DownloadFile(retrievalMethod.Href!, tempFile, retrievalMethod.DownloadSize) {Tag = tag});
                 return tempFile;
             }
             #region Error handling

@@ -124,7 +124,7 @@ namespace ZeroInstall.Services.Fetchers
             {
                 return base.Download(retrievalMethod, tag);
             }
-            catch (WebException ex) when (!retrievalMethod.Href.IsLoopback && _config.FeedMirror != null)
+            catch (WebException ex) when (!retrievalMethod.Href!.IsLoopback && _config.FeedMirror != null)
             {
                 Log.Warn(ex);
                 Log.Info("Trying mirror");
@@ -132,7 +132,7 @@ namespace ZeroInstall.Services.Fetchers
                 try
                 {
                     var mirrored = (DownloadRetrievalMethod)retrievalMethod.Clone();
-                    mirrored.Href = new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{retrievalMethod.Href.Scheme}/{retrievalMethod.Href.Host}/{string.Concat(retrievalMethod.Href.Segments).TrimStart('/').Replace("/", "%23")}");
+                    mirrored.Href = new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{retrievalMethod.Href!.Scheme}/{retrievalMethod.Href.Host}/{string.Concat(retrievalMethod.Href.Segments).TrimStart('/').Replace("/", "%23")}");
                     return base.Download(mirrored, tag);
                 }
                 catch (WebException)

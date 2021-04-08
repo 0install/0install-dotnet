@@ -311,11 +311,13 @@ namespace ZeroInstall.DesktopIntegration
         #endregion
 
         #region AppDir
+        // ReSharper disable once UnusedParameter.Local
         private static void WriteAppDir(AppEntry appEntry)
         {
             // TODO: Implement
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private static void DeleteAppDir(AppEntry appEntry)
         {
             // TODO: Implement
