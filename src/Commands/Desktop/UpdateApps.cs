@@ -49,64 +49,44 @@ namespace ZeroInstall.Commands.Desktop
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            var selectedImplementations = SolveAll(GetTargets()).ToList();
-            DownloadUncachedImplementations(selectedImplementations);
+            var implementations = SolveAll(GetApps());
+            DownloadUncachedImplementations(implementations);
             SelfUpdateCheck();
 
             if (_clean)
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
-                Clean(selectedImplementations);
+                Clean(implementations);
             }
 
             return ExitCode.OK;
         }
 
-        /// <summary>
-        /// Returns a list of <see cref="Requirements"/> that describe the applications to be updated.
-        /// </summary>
-        private IEnumerable<Requirements> GetTargets()
-        {
-            var appList = AppList.LoadSafe(MachineWide);
+        private IEnumerable<Requirements> GetApps()
+            => from entry in AppList.LoadSafe(MachineWide).Entries
+               where entry.AutoUpdate
+               where entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)
+               select entry.Requirements ?? new Requirements(entry.InterfaceUri);
 
-            // Target every application in the AppList...
-            return from entry in appList.Entries
-                   // ... unless excluded from auto-update
-                   where entry.AutoUpdate
-                   // ... or excluded by a hostname filter
-                   where entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)
-                   // Use custom app restrictions if any
-                   select entry.Requirements ?? new Requirements(entry.InterfaceUri);
-        }
-
-        private IEnumerable<ImplementationSelection> SolveAll(IEnumerable<Requirements> targets)
+        private ICollection<ImplementationSelection> SolveAll(IEnumerable<Requirements> apps)
         {
             FeedManager.Refresh = true;
 
-            // Run solver for each app
-            var implementations = new List<ImplementationSelection>();
-            foreach (var requirements in targets)
-                implementations.AddRange(Solver.Solve(requirements).Implementations);
-
-            // Deduplicate selections
-            return implementations.Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance);
+            return apps.SelectMany(requirements => Solver.Solve(requirements).Implementations)
+                       .Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance)
+                       .ToList();
         }
 
-        private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> selectedImplementations)
+        private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> implementations)
         {
-            var selections = new Selections(selectedImplementations);
-            var uncachedImplementations = SelectionsManager.GetUncachedSelections(selections).ToList();
-
-            // Do not waste time on Fetcher subsystem if nothing is missing from cache
+            var uncachedImplementations = SelectionsManager.GetUncachedSelections(new Selections(implementations)).ToList();
             if (uncachedImplementations.Count == 0) return;
 
-            // Only show implementations in the UI that need to be downloaded
             Handler.ShowSelections(new Selections(uncachedImplementations), FeedManager);
 
             try
             {
-                var toDownload = SelectionsManager.GetImplementations(uncachedImplementations);
-                Fetcher.Fetch(toDownload);
+                Fetcher.Fetch(SelectionsManager.GetImplementations(uncachedImplementations));
             }
             #region Error handling
             catch
