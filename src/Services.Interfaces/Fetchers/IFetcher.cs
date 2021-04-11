@@ -13,6 +13,7 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface IFetcher
     {
         /// <summary>

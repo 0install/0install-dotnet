@@ -16,6 +16,7 @@ namespace ZeroInstall.Services.Native
     /// <summary>
     /// Detects common Windows software packages (such as Java and .NET) that are installed natively.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class WindowsPackageManager : PackageManagerBase
     {
         public WindowsPackageManager()

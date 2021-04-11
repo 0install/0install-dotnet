@@ -15,6 +15,7 @@ namespace ZeroInstall.Services.Native
     /// <summary>
     /// Base class for <see cref="IPackageManager"/> implementations using template methods.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public abstract class PackageManagerBase : IPackageManager
     {
         /// <summary>

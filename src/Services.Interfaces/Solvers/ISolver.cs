@@ -13,6 +13,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Chooses a set of <see cref="Implementation"/>s to satisfy the requirements of a program and its user.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface ISolver
     {
         /// <summary>

@@ -14,6 +14,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Uses limited backtracking to solve <see cref="Requirements"/>. Does not find all possible solutions!
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class BacktrackingSolver : ISolver
     {
         /// <summary>

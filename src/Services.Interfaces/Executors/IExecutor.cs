@@ -13,6 +13,7 @@ namespace ZeroInstall.Services.Executors
     /// <summary>
     /// Executes a <see cref="Selections"/> document as a program using dependency injection.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface IExecutor
     {
         /// <summary>

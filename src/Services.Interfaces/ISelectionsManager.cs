@@ -15,6 +15,7 @@ namespace ZeroInstall.Services
     /// <summary>
     /// Provides methods for filtering <see cref="Selections"/>.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface ISelectionsManager
     {
         /// <summary>

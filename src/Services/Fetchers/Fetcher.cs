@@ -22,6 +22,7 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class Fetcher : FetcherBase
     {
         private readonly Config _config;

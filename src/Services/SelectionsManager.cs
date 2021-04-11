@@ -18,6 +18,7 @@ namespace ZeroInstall.Services
     /// <summary>
     /// Provides methods for filtering <see cref="Selections"/>.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class SelectionsManager : ISelectionsManager
     {
         #region Dependencies

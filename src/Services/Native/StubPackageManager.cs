@@ -13,6 +13,7 @@ namespace ZeroInstall.Services.Native
     /// <summary>
     /// Stub implementation of <see cref="IPackageManager"/>, used when there is no native package manager support for the current platform.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class StubPackageManager : IPackageManager
     {
         /// <summary>

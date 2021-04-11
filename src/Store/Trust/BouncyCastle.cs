@@ -16,7 +16,6 @@ namespace ZeroInstall.Store.Trust
     /// <summary>
     /// Provides access to the OpenPGP signature functions of Bouncy Castle.
     /// </summary>
-    /// <remarks>This class is thread-safe.</remarks>
     public partial class BouncyCastle : IOpenPgp
     {
         /// <inheritdoc/>

@@ -8,7 +8,6 @@ namespace ZeroInstall.Store.Trust
     /// <summary>
     /// Provides access to an encryption/signature system compatible with the OpenPGP standard.
     /// </summary>
-    /// <remarks>Implementations of this interface are thread-safe.</remarks>
     public interface IOpenPgp
     {
         /// <summary>

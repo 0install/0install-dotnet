@@ -21,6 +21,7 @@ namespace ZeroInstall.Services.Fetchers
     /// <summary>
     /// Base class for <see cref="IFetcher"/> implementations using template methods.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public abstract class FetcherBase : IFetcher
     {
         #region Dependencies

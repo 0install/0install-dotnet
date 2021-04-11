@@ -12,6 +12,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Wraps two solvers always passing requests to the primary one initially and falling back to secondary one should the primary one fail.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public sealed class FallbackSolver : ISolver
     {
         /// <summary>

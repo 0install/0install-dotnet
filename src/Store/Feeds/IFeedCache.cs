@@ -11,8 +11,9 @@ namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
     /// A disk-based cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
+    /// Once a feed has been added to this cache it is considered trusted (signatures are not checked again).
     /// </summary>
-    /// <remarks>Once a feed has been added to this cache it is considered trusted (signatures are not checked again).</remarks>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface IFeedCache
     {
         /// <summary>

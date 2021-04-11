@@ -14,6 +14,7 @@ namespace ZeroInstall.Services.Native
     /// <seealso cref="PackageImplementation"/>
     /// <seealso cref="ExternalImplementation"/>
     /// <seealso cref="ExternalRetrievalMethod"/>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface IPackageManager
     {
         /// <summary>

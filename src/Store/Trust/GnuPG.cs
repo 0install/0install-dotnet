@@ -13,7 +13,6 @@ namespace ZeroInstall.Store.Trust
     /// <summary>
     /// Provides access to the signature functions of GnuPG.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
     public partial class GnuPG : IOpenPgp
     {
         private readonly string _homeDir;

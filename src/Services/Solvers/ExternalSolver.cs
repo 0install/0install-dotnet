@@ -21,8 +21,9 @@ namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
     /// Uses an external process to solve <see cref="Requirements"/>.
+    /// The executable for external process is itself provided by another <see cref="ISolver"/>.
     /// </summary>
-    /// <remarks>The executable for external process is itself provided by another <see cref="ISolver"/>.</remarks>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class ExternalSolver : ISolver
     {
         private readonly ISolver _backingSolver;
