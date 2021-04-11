@@ -21,6 +21,7 @@ namespace ZeroInstall.Services.Feeds
     /// <summary>
     /// Methods for verifying signatures and user trust.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class TrustManager : ITrustManager
     {
         #region Dependencies
@@ -48,6 +49,8 @@ namespace ZeroInstall.Services.Feeds
         }
         #endregion
 
+        private readonly object _lock = new();
+
         /// <inheritdoc/>
         [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings")]
         public ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null)
@@ -57,26 +60,29 @@ namespace ZeroInstall.Services.Feeds
             if (uri.IsFile) throw new UriFormatException(Resources.FeedUriLocal);
 
             var domain = new Domain(uri.Host);
-            KeyImported:
-            var signatures = FeedUtils.GetSignatures(_openPgp, data).ToList();
-
-            foreach (var signature in signatures.OfType<ValidSignature>())
+            lock (_lock)
             {
-                if (_trustDB.IsTrusted(signature.FormatFingerprint(), domain))
-                    return signature;
-            }
+                KeyImported:
+                var signatures = FeedUtils.GetSignatures(_openPgp, data).ToList();
 
-            foreach (var signature in signatures.OfType<ValidSignature>())
-            {
-                if (HandleNewKey(uri, signature.FormatFingerprint(), domain))
-                    return signature;
-            }
+                foreach (var signature in signatures.OfType<ValidSignature>())
+                {
+                    if (_trustDB.IsTrusted(signature.FormatFingerprint(), domain))
+                        return signature;
+                }
 
-            foreach (var signature in signatures.OfType<MissingKeySignature>())
-            {
-                Log.Info("Missing key for " + signature.FormatKeyID());
-                AcquireMissingKey(signature, uri, localPath);
-                goto KeyImported;
+                foreach (var signature in signatures.OfType<ValidSignature>())
+                {
+                    if (HandleNewKey(uri, signature.FormatFingerprint(), domain))
+                        return signature;
+                }
+
+                foreach (var signature in signatures.OfType<MissingKeySignature>())
+                {
+                    Log.Info("Missing key for " + signature.FormatKeyID());
+                    AcquireMissingKey(signature, uri, localPath);
+                    goto KeyImported;
+                }
             }
 
             throw new SignatureException(string.Format(Resources.FeedNoTrustedSignatures, uri));

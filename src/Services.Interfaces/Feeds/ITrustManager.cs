@@ -12,6 +12,7 @@ namespace ZeroInstall.Services.Feeds
     /// <summary>
     /// Methods for verifying signatures and user trust.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface ITrustManager
     {
         /// <summary>
