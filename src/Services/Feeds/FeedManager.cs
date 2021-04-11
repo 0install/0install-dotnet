@@ -21,9 +21,9 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Services.Feeds
 {
     /// <summary>
-    /// Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.
+    /// Provides access to remote and local <see cref="Feed"/>s. Handles downloading and signature verification.
     /// </summary>
-    /// <remarks>Provides an in-memory cache in addition to the (usually disk-backed <see cref="IFeedCache"/>).</remarks>
+    /// <remarks>This class performs in-memory caching of <see cref="Feed"/>s and <see cref="FeedPreferences"/>.</remarks>
     #pragma warning disable 8766
     public class FeedManager : IFeedManager
     {
@@ -105,32 +105,31 @@ namespace ZeroInstall.Services.Feeds
         {
             if (feedUri.IsFromDistribution)
                 throw new ArgumentException($"{feedUri.ToStringRfc()} is a virtual feed URI and therefore cannot be downloaded.");
-            if (feedUri.IsFile) return XmlStorage.LoadXml<Feed>(feedUri.LocalPath);
-            else
+            if (feedUri.IsFile)
+                return XmlStorage.LoadXml<Feed>(feedUri.LocalPath);
+
+            if (Refresh) Download(feedUri);
+            else if (!_feedCache.Contains(feedUri))
             {
-                try
-                {
-                    if (Refresh) Download(feedUri);
-                    else if (!_feedCache.Contains(feedUri))
-                    {
-                        // Do not download in offline mode
-                        if (_config.NetworkUse == NetworkLevel.Offline)
-                            throw new WebException(string.Format(Resources.FeedNotCachedOffline, feedUri));
+                // Do not download in offline mode
+                if (_config.NetworkUse == NetworkLevel.Offline)
+                    throw new WebException(string.Format(Resources.FeedNotCachedOffline, feedUri));
 
-                        // Try to download missing feed
-                        Download(feedUri);
-                    }
-
-                    return LoadCached(feedUri);
-                }
-                #region Error handling
-                catch (KeyNotFoundException ex)
-                {
-                    // Wrap exception since only certain exception types are allowed
-                    throw new IOException(ex.Message, ex);
-                }
-                #endregion
+                // Try to download missing feed
+                Download(feedUri);
             }
+
+            try
+            {
+                return LoadCached(feedUri);
+            }
+            #region Error handling
+            catch (KeyNotFoundException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(ex.Message, ex);
+            }
+            #endregion
         }
 
         /// <summary>
@@ -175,7 +174,7 @@ namespace ZeroInstall.Services.Feeds
         {
             // Double-checked locking
             if (IsCheckAttemptDelayed(feedUri)) return true;
-            using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.RateLimit"))
+            using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.RateLimit." + feedUri.GetHashCode()))
             {
                 if (IsCheckAttemptDelayed(feedUri)) return true;
                 SetLastCheckAttempt(feedUri);
