@@ -11,8 +11,6 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class SelectionTest : SelectionTestBase<Selection>
     {
-        protected override Selection Instantiate(ICommandHandler handler) => new(handler);
-
         [Fact] // Ensures all options are parsed and handled correctly.
         public virtual void TestNormal()
         {

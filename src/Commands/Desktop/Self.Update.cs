@@ -50,8 +50,6 @@ namespace ZeroInstall.Commands.Desktop
             public Update(ICommandHandler handler)
                 : base(handler, outputOptions: false, refreshOptions: false, customizeOptions: false)
             {
-                FeedManager.Refresh = true;
-
                 Options.Add("force", () => Resources.OptionForceSelfUpdate, _ => _force = true);
                 Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
             }
@@ -66,6 +64,8 @@ namespace ZeroInstall.Commands.Desktop
 
                 SetInterfaceUri(Config.SelfUpdateUri ?? throw new UriFormatException(Resources.SelfUpdateDisabled));
                 if (ProgramUtils.GuiAssemblyName != null) Requirements.Command = Command.NameRunGui;
+
+                FeedManager.Refresh = true;
             }
 
             /// <inheritdoc/>

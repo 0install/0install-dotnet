@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Add an application to the <see cref="AppList"/>.
     /// </summary>
-    public sealed class AddApp : AppCommand
+    public class AddApp : AppCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// View or change <see cref="Config"/>.
     /// </summary>
-    public sealed class Configure : CliCommand
+    public class Configure : CliCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

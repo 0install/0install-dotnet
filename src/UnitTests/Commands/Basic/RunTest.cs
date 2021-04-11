@@ -22,8 +22,6 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class RunTest : SelectionTestBase<Run>
     {
-        protected override Run Instantiate(ICommandHandler handler) => new(handler);
-
         private Mock<ICatalogManager> CatalogManagerMock => GetMock<ICatalogManager>();
 
         [Fact] // Ensures all options are parsed and handled correctly.

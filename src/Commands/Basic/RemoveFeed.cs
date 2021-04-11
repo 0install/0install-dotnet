@@ -15,7 +15,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Un-register a feed, reversing the effect of <see cref="AddFeed"/>.
     /// </summary>
-    public sealed class RemoveFeed : AddRemoveFeedCommand
+    public class RemoveFeed : AddRemoveFeedCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

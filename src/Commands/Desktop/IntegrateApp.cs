@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Add an application to the <see cref="AppList"/> (if missing) and integrate it into the desktop environment.
     /// </summary>
-    public sealed class IntegrateApp : AppCommand
+    public class IntegrateApp : AppCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

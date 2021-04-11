@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// List all current <see cref="AppEntry"/>s in the <see cref="AppList"/>.
     /// </summary>
-    public sealed class ListApps : IntegrationCommand
+    public class ListApps : IntegrationCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

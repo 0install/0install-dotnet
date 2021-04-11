@@ -13,8 +13,6 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class DownloadTest : SelectionTestBase<Download>
     {
-        protected override Download Instantiate(ICommandHandler handler) => new(handler);
-
         [Fact] // Ensures all options are parsed and handled correctly.
         public void TestNormal()
         {

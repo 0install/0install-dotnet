@@ -13,8 +13,6 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class AddAppTest : CliCommandTestBase<AddApp>
     {
-        protected override AddApp Instantiate(ICommandHandler handler) => new(handler);
-
         [Fact]
         public void TestWithoutAlias()
         {

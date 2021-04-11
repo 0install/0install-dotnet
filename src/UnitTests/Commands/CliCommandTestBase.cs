@@ -33,11 +33,6 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected readonly TCommand Sut;
 
-        /// <summary>
-        /// Template method called to instantiate the command to be tested.
-        /// </summary>
-        protected abstract TCommand Instantiate(ICommandHandler handler);
-
         private readonly Dictionary<Type, Mock> _mocks = new();
 
         /// <summary>
@@ -49,8 +44,7 @@ namespace ZeroInstall.Commands
 
         protected CliCommandTestBase()
         {
-            // ReSharper disable once VirtualMemberCallInConstructor
-            Sut = Instantiate(Handler);
+            Sut = new Mock<TCommand>(Handler) {CallBase = true}.Object;
 
             T BuildMock<T>() where T : class
             {

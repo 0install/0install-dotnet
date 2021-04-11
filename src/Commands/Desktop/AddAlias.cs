@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Create an alias for a <see cref="Run"/> command.
     /// </summary>
-    public sealed class AddAlias : AppCommand
+    public class AddAlias : AppCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

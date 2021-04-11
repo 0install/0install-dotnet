@@ -39,10 +39,18 @@ namespace ZeroInstall.Commands.Basic
         /// Creates a new download command.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+        public Download(ICommandHandler handler)
+            : this(handler, outputOptions: true)
+        {}
+
+        /// <summary>
+        /// Creates a new download command.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <param name="outputOptions">Whether to add command-line options controlling output.</param>
         /// <param name="refreshOptions">Whether to add command-line options controlling refresh behavior.</param>
         /// <param name="customizeOptions">Whether to add command-line options for customizing selected implementations.</param>
-        public Download(ICommandHandler handler, bool outputOptions = true, bool refreshOptions = true, bool customizeOptions = true)
+        protected Download(ICommandHandler handler, bool outputOptions = true, bool refreshOptions = true, bool customizeOptions = true)
             : base(handler, outputOptions, refreshOptions, customizeOptions)
         {
             if (outputOptions)

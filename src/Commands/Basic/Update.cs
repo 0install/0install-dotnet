@@ -15,7 +15,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Check for updates to the program and download them if found.
     /// </summary>
-    public sealed class Update : Download
+    public class Update : Download
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

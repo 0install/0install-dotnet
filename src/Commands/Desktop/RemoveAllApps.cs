@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Removes all applications from the <see cref="AppList"/> and undoes any desktop environment integration.
     /// </summary>
-    public sealed class RemoveAllApps : IntegrationCommand
+    public class RemoveAllApps : IntegrationCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

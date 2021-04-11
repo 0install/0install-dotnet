@@ -10,7 +10,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Reintegrate all applications in the <see cref="AppList"/> into the desktop environment.
     /// </summary>
-    public sealed class RepairApps : IntegrationCommand
+    public class RepairApps : IntegrationCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

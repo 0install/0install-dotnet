@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Updates all applications in the <see cref="AppList"/>.
     /// </summary>
-    public sealed class UpdateApps : IntegrationCommand
+    public class UpdateApps : IntegrationCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

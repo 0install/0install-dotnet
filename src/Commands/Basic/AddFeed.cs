@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Register an additional source of implementations (versions) of a program.
     /// </summary>
-    public sealed class AddFeed : AddRemoveFeedCommand
+    public class AddFeed : AddRemoveFeedCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

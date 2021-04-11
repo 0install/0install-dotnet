@@ -18,8 +18,6 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class UpdateTest : SelectionTestBase<Update>
     {
-        protected override Update Instantiate(ICommandHandler handler) => new(handler);
-
         [Fact] // Ensures local Selections XMLs are correctly detected and parsed.
         public void TestNormal()
         {

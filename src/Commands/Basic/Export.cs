@@ -17,7 +17,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Exports all feeds and implementations required to launch the program specified by URI.
     /// </summary>
-    public sealed class Export : Download
+    public class Export : Download
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

@@ -10,7 +10,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Synchronize the <see cref="AppList"/> with the server.
     /// </summary>
-    public sealed class SyncApps : IntegrationCommand
+    public class SyncApps : IntegrationCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>

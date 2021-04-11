@@ -11,7 +11,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Remove an application from the <see cref="AppList"/> and undoes any desktop environment integration.
     /// </summary>
-    public sealed class RemoveApp : AppCommand
+    public class RemoveApp : AppCommand
     {
         #region Metadata
         /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
