@@ -14,12 +14,12 @@ namespace ZeroInstall.Services
     public class MockTaskHandler : TaskHandlerBase
     {
         /// <summary>
-        /// The prerecorded result for <see cref="Ask"/>.
+        /// The prerecorded result for <see cref="AskInteractive"/>.
         /// </summary>
         public bool AnswerQuestionWith { get; set; }
 
         /// <summary>
-        /// Last question passed to <see cref="Ask"/>.
+        /// Last question passed to <see cref="AskInteractive"/>.
         /// </summary>
         public string? LastQuestion { get; private set; }
 
@@ -27,7 +27,7 @@ namespace ZeroInstall.Services
         public override void RunTask(ITask task) => task.Run(CancellationToken, CredentialProvider);
 
         /// <inheritdoc/>
-        public override bool Ask(string question, bool? defaultAnswer = null, string? alternateMessage = null)
+        protected override bool AskInteractive(string question, bool defaultAnswer)
         {
             LastQuestion = question;
             return AnswerQuestionWith;

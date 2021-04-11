@@ -72,8 +72,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The EXE name for the Command GUI best suited for the current system; <c>null</c> if no GUI is available.
         /// </summary>
-        public static readonly string? GuiAssemblyName =
-            WindowsUtils.IsWindows && OSUtils.IsInteractive ? "0install-win" : null;
+        public static string? GuiAssemblyName { get; } = WindowsUtils.IsGuiSession ? "0install-win" : null;
 
         private const string
             RegKeyFSPolicyMachine = @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem",
