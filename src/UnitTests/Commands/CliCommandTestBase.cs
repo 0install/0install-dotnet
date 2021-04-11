@@ -3,19 +3,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Moq;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Services;
-using ZeroInstall.Services.Executors;
-using ZeroInstall.Services.Feeds;
-using ZeroInstall.Services.Fetchers;
-using ZeroInstall.Services.Native;
-using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Trust;
+using ZeroInstall.Store;
 
 namespace ZeroInstall.Commands
 {
@@ -44,25 +37,32 @@ namespace ZeroInstall.Commands
 
         protected CliCommandTestBase()
         {
-            Sut = new Mock<TCommand>(Handler) {CallBase = true}.Object;
+            var commandMock = new Mock<TCommand>(Handler) {CallBase = true};
 
-            T BuildMock<T>() where T : class
+            void SetupGet<TProperty>(Expression<Func<TCommand, TProperty>> expression, TProperty? value = null)
+                where TProperty : class
             {
-                var mock = MockRepository.Create<T>();
-                _mocks[typeof(T)] = mock;
-                return mock.Object;
+                if (value == null)
+                {
+                    var mock = MockRepository.Create<TProperty>();
+                    _mocks[typeof(TProperty)] = mock;
+                    value = mock.Object;
+                }
+                commandMock.SetupGet(expression).Returns(value);
             }
 
-            Sut.Config = new() {SelfUpdateUri = null};
-            Sut.FeedCache = BuildMock<IFeedCache>();
-            Sut.CatalogManager = BuildMock<ICatalogManager>();
-            Sut.OpenPgp = BuildMock<IOpenPgp>();
-            Sut.ImplementationStore = BuildMock<IImplementationStore>();
-            Sut.PackageManager = BuildMock<IPackageManager>();
-            Sut.Solver = BuildMock<ISolver>();
-            Sut.Fetcher = BuildMock<IFetcher>();
-            Sut.Executor = BuildMock<IExecutor>();
-            Sut.SelectionsManager = BuildMock<ISelectionsManager>();
+            SetupGet(x => x.Config, new Config {SelfUpdateUri = null});
+            SetupGet(x => x.FeedCache);
+            SetupGet(x => x.CatalogManager);
+            SetupGet(x => x.OpenPgp);
+            SetupGet(x => x.ImplementationStore);
+            SetupGet(x => x.PackageManager);
+            SetupGet(x => x.Solver);
+            SetupGet(x => x.Fetcher);
+            SetupGet(x => x.Executor);
+            SetupGet(x => x.SelectionsManager);
+
+            Sut = commandMock.Object;
         }
 
         /// <summary>
