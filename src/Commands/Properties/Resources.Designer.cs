@@ -1727,7 +1727,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For any library or sub-component with the given {URI} specifies the version {RANGE} (as for --version)..
+        ///   Looks up a localized string similar to For any library or sub-component with the given {0:URI} specifies the version {1:RANGE} (as for --version)..
         /// </summary>
         public static string OptionVersionRangeFor {
             get {
