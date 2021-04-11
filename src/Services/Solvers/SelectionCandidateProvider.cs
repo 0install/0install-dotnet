@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Generates <see cref="SelectionCandidate"/>s for <see cref="ISolver"/>s to choose among.
     /// </summary>
-    /// <remarks>Caches loaded <see cref="Feed"/>s, preferences, etc..</remarks>
+    /// <remarks>This class performs in-memory caching of <see cref="InterfacePreferences"/>s and implementations and is thread-safe.</remarks>
     public class SelectionCandidateProvider : ISelectionCandidateProvider
     {
         private readonly Config _config;
@@ -68,7 +69,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <summary>Maps <see cref="ImplementationBase.ID"/>s to <see cref="ExternalImplementation"/>s.</summary>
-        private readonly Dictionary<string, ExternalImplementation> _externalImplementations = new();
+        private readonly ConcurrentDictionary<string, ExternalImplementation> _externalImplementations = new();
 
         /// <inheritdoc/>
         public Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection)
@@ -84,7 +85,10 @@ namespace ZeroInstall.Services.Solvers
         }
 
         /// <summary>Records feeds that failed to download to prevent multiple attempts.</summary>
-        private readonly HashSet<FeedUri> _failedFeeds = new();
+        private readonly ConcurrentSet<FeedUri> _failedFeeds = new();
+
+        /// <summary>Provides separate locks for each feed URI.</summary>
+        private readonly TransparentCache<FeedUri, object> _feedLocks = new(_ => new());
 
         /// <summary>
         /// Loads the main feed for the specified <paramref name="requirements"/>, additional feeds added by local configuration and <see cref="Feed.Feeds"/> references.
@@ -96,27 +100,30 @@ namespace ZeroInstall.Services.Solvers
 
             void AddFeedToDict(FeedUri feedUri)
             {
-                try
+                lock (_feedLocks[feedUri])
                 {
-                    if (dictionary.ContainsKey(feedUri) || _failedFeeds.Contains(feedUri)) return;
-                    var feed = _feedManager[feedUri];
-                    if (feed.MinInjectorVersion != null && ModelUtils.Version < feed.MinInjectorVersion)
+                    try
+                    {
+                        if (dictionary.ContainsKey(feedUri) || _failedFeeds.Contains(feedUri)) return;
+                        var feed = _feedManager[feedUri];
+                        if (feed.MinInjectorVersion != null && ModelUtils.Version < feed.MinInjectorVersion)
+                        {
+                            _failedFeeds.Add(feedUri);
+                            Log.Warn($"The Zero Install version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
+                            return;
+                        }
+
+                        dictionary.Add(feedUri, feed);
+                        foreach (var reference in feed.Feeds.Where(x =>
+                            x.Architecture.RunsOn(requirements.Architecture) &&
+                            (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
+                            AddFeedToDict(reference.Source);
+                    }
+                    catch (WebException ex)
                     {
                         _failedFeeds.Add(feedUri);
-                        Log.Warn($"The Zero Install version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
-                        return;
+                        Log.Warn(ex);
                     }
-
-                    dictionary.Add(feedUri, feed);
-                    foreach (var reference in feed.Feeds.Where(x =>
-                        x.Architecture.RunsOn(requirements.Architecture) &&
-                        (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
-                        AddFeedToDict(reference.Source);
-                }
-                catch (WebException ex)
-                {
-                    _failedFeeds.Add(feedUri);
-                    Log.Warn(ex);
                 }
             }
 

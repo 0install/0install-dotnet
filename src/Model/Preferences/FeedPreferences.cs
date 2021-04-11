@@ -50,13 +50,16 @@ namespace ZeroInstall.Model.Preferences
         {
             get
             {
-                var result = Implementations.FirstOrDefault(implementation => implementation.ID == id);
-                if (result == null)
+                lock (Implementations)
                 {
-                    result = new ImplementationPreferences {ID = id};
-                    Implementations.Add(result);
+                    var result = Implementations.FirstOrDefault(implementation => implementation.ID == id);
+                    if (result == null)
+                    {
+                        result = new ImplementationPreferences {ID = id};
+                        Implementations.Add(result);
+                    }
+                    return result;
                 }
-                return result;
             }
         }
 

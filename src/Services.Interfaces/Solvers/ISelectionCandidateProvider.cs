@@ -10,7 +10,7 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Generates <see cref="SelectionCandidate"/>s for <see cref="ISolver"/>s to choose among.
     /// </summary>
-    /// <remarks>Caches loaded <see cref="Feed"/>s, preferences, etc..</remarks>
+    /// <remarks>Implementations of this interface may perform in-memory caching and are thread-safe.</remarks>
     public interface ISelectionCandidateProvider
     {
         /// <summary>
