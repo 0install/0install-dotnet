@@ -36,13 +36,13 @@ namespace ZeroInstall.Store.Implementations
                 {
                     Log.Debug("Unable to connect to Store Service");
                     Log.Debug(ex);
-                    return null;
+                    return "";
                 }
                 catch (SerializationException ex)
                 {
                     Log.Debug("Incompatible version of Store Service");
                     Log.Debug(ex);
-                    return null;
+                    return "";
                 }
                 #endregion
             }
