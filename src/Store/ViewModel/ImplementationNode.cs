@@ -100,8 +100,9 @@ namespace ZeroInstall.Store.ViewModel
         public void Verify(ITaskHandler handler) => ImplementationStore.Verify(_digest, handler);
 
         /// <summary>
-        /// Returns the Node in the form "Digest". Safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
-        public override string ToString() => Digest;
+        public override string ToString()
+            => $"{Digest}: {Path}";
     }
 }

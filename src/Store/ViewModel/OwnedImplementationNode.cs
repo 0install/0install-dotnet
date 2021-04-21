@@ -66,8 +66,9 @@ namespace ZeroInstall.Store.ViewModel
         public string ID => _implementation.ID;
 
         /// <summary>
-        /// Returns the Node in the form "Digest URI Version Architecture". Safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
-        public override string ToString() => Digest + " " + _parent.Uri.ToStringRfc() + " " + Version + " " + Architecture;
+        public override string ToString()
+            => $"{_parent.Uri.ToStringRfc()} [{Version}, {Architecture}] - {Digest}: {Path}";
     }
 }

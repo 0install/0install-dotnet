@@ -80,8 +80,9 @@ namespace ZeroInstall.Store.Feeds
         }
 
         /// <summary>
-        /// Returns the result in the form "Uri NEWLINE Name - Summary [Score]". Not safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
-        public override string ToString() => Uri?.ToStringRfc() + Environment.NewLine + $"{Name} - {Summary} [{Score}%]";
+        public override string ToString()
+            => $"{Uri?.ToStringRfc()}: {Name} - {Summary} [{Score}%]";
     }
 }

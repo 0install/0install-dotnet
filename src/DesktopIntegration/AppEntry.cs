@@ -139,9 +139,10 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Conversion
         /// <summary>
-        /// Returns the entry in the form "Name (InterfaceUri)". Not safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
-        public override string ToString() => $"{Name} ({InterfaceUri})";
+        public override string ToString()
+            => $"{InterfaceUri}: {Name} [{AccessPoints}]";
         #endregion
 
         #region Clone

@@ -37,9 +37,11 @@ namespace ZeroInstall.Store.ViewModel
         }
 
         /// <summary>
-        /// Creates string representation with indentation suitable for console output.
+        /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
-            => Uri + "\t" + (Version?.ToString() ?? Resources.NoSelectedVersion) + "\t" + (Path ?? Resources.NotCached);
+            => Version == null
+                ? $"{Uri}: {Resources.NoSelectedVersion}"
+                : $"{Uri}: {Version} ({Path ?? Resources.NotCached})";
     }
 }

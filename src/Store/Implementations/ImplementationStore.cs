@@ -616,7 +616,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Conversion
         /// <summary>
-        /// Returns <see cref="Kind"/> and <see cref="Path"/>. Not safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString() => $"{Kind}: {Path}";
         #endregion

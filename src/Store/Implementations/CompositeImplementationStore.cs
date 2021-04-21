@@ -243,7 +243,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Conversion
         /// <summary>
-        /// Returns the names of the child stores. Not safe for parsing!
+        /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
             => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()!));
