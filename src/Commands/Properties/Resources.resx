@@ -205,7 +205,7 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
     <value>Command</value>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
-    <value>Command-line arguments:</value>
+    <value>Command-line arguments</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Configuration</value>

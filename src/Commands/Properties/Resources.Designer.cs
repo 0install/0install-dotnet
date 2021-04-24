@@ -316,7 +316,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Command-line arguments:.
+        ///   Looks up a localized string similar to Command-line arguments.
         /// </summary>
         public static string CommandLineArguments {
             get {

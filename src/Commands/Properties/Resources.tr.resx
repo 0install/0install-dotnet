@@ -205,7 +205,7 @@ Alma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka b
     <value>Komut</value>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
-    <value>Komut satırı değişkenleri:</value>
+    <value>Komut satırı değişkenleri</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Yapılandırma</value>

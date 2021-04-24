@@ -174,7 +174,7 @@
     <value>κάντε κλικ εδώ για να επιλέξετε.</value>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
-    <value>Επιχειρήματα της γραμμής εντολών:</value>
+    <value>Επιχειρήματα της γραμμής εντολών</value>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Ρύθμιση</value>
