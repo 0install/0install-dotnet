@@ -11,6 +11,7 @@ namespace ZeroInstall.Store
     /// <summary>
     /// Stores icon files downloaded from the web as local files.
     /// </summary>
+    /// <remarks>Implementations of this interface are immutable and thread-safe.</remarks>
     public interface IIconStore
     {
         /// <summary>

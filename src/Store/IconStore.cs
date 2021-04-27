@@ -15,6 +15,7 @@ namespace ZeroInstall.Store
     /// <summary>
     /// Stores icon files downloaded from the web as local files.
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public sealed class IconStore : IIconStore
     {
         private readonly Config _config;
