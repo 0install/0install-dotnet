@@ -3,8 +3,8 @@
 
 using System;
 using System.Threading;
-using NanoByte.Common;
 using NanoByte.Common.Tasks;
+using NanoByte.Common.Threading;
 
 #if NETFRAMEWORK
 using System.Security.AccessControl;
