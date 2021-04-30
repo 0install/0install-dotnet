@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using NanoByte.Common;
@@ -148,7 +147,6 @@ namespace ZeroInstall.Commands.Basic
                 var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
 
                 string outputArchive = AdditionalArgs[1];
-                Debug.Assert(outputArchive != null);
 
                 string? sourceDirectory = ImplementationStore.GetPath(manifestDigest);
                 if (sourceDirectory == null)

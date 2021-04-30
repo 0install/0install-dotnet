@@ -135,8 +135,10 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         public bool Equals(VersionRange? other)
         {
+            if (other == null) return false;
+
             // Cancel if the number of parts don't match
-            if (Parts.Count != other?.Parts.Count)
+            if (Parts.Count != other.Parts.Count)
                 return false;
 
             // Cancel if one of the parts does not match
