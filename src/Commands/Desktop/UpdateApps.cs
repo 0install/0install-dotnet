@@ -5,9 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -75,14 +73,14 @@ namespace ZeroInstall.Commands.Desktop
         {
             FeedManager.Refresh = true;
 
-            var result = new ConcurrentSet<ImplementationSelection>(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance);
-
             try
             {
-                Parallel.ForEach(
-                    apps,
-                    new() {CancellationToken = Handler.CancellationToken, MaxDegreeOfParallelism = Config.MaxParallelDownloads},
-                    requirements => result.AddRange(Solver.Solve(requirements).Implementations));
+                return apps.AsParallel()
+                           .WithDegreeOfParallelism(Config.MaxParallelDownloads)
+                           .WithCancellation(Handler.CancellationToken)
+                           .SelectMany(requirements => Solver.Solve(requirements).Implementations)
+                           .Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance)
+                           .ToList();
             }
             #region Error handling
             catch (AggregateException ex)
@@ -91,8 +89,6 @@ namespace ZeroInstall.Commands.Desktop
                 throw;
             }
             #endregion
-
-            return result;
         }
 
         private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> implementations)
