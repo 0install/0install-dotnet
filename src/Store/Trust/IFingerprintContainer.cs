@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics.CodeAnalysis;
+
 namespace ZeroInstall.Store.Trust
 {
     /// <summary>

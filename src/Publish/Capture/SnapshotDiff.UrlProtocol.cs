@@ -35,7 +35,7 @@ namespace ZeroInstall.Publish.Capture
                 {
                     ID = protocol,
                     Descriptions = {RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol, valueName: null, defaultValue: protocol)},
-                    Verbs = {GetVerb(protocolKey, commandMapper, "open") ?? throw new IOException($"Verb open not found.")}
+                    Verbs = {GetVerb(protocolKey, commandMapper, "open") ?? throw new IOException("Verb open not found.")}
                 });
             }
         }

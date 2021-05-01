@@ -44,7 +44,7 @@ namespace ZeroInstall.Commands.Desktop
 
         public abstract class SelfSubCommand : CliCommand, ICliSubCommand
         {
-            public string ParentName => Self.Name;
+            public string ParentName => Name;
 
             protected SelfSubCommand(ICommandHandler handler)
                 : base(handler)

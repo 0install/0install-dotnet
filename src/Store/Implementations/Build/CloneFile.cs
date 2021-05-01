@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+
 namespace ZeroInstall.Store.Implementations.Build
 {
     /// <summary>

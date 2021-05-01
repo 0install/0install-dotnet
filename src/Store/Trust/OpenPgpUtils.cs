@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using System.Text;
+
 namespace ZeroInstall.Store.Trust
 {
     /// <summary>

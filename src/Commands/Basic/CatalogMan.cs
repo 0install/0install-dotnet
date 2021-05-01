@@ -43,7 +43,7 @@ namespace ZeroInstall.Commands.Basic
 
         private abstract class CatalogSubCommand : CliCommand, ICliSubCommand
         {
-            public string ParentName => CatalogMan.Name;
+            public string ParentName => Name;
 
             protected CatalogSubCommand(ICommandHandler handler)
                 : base(handler)

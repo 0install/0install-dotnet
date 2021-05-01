@@ -53,7 +53,7 @@ namespace ZeroInstall.Commands.Basic
 
         public abstract class StoreSubCommand : CliCommand, ICliSubCommand
         {
-            public string ParentName => StoreMan.Name;
+            public string ParentName => Name;
 
             protected StoreSubCommand(ICommandHandler handler)
                 : base(handler)

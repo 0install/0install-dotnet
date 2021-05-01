@@ -8,6 +8,8 @@
 // "In Project Suppression File".
 // You do not need to add suppressions to this file manually.
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.DefaultProgram")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.FileType")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.UrlProtocol")]
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.DefaultProgram")]
+[assembly: SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.FileType")]
+[assembly: SuppressMessage("Microsoft.Maintainability", "CA1501:AvoidExcessiveInheritance", Scope = "type", Target = "ZeroInstall.Model.Capabilities.UrlProtocol")]

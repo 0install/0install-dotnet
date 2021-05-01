@@ -37,7 +37,7 @@ namespace ZeroInstall.Model
             set
             {
                 Steps.Clear();
-                if (value != null && value.Length > 0) Steps.AddRange(value.OfType<IRecipeStep>());
+                if (value is {Length: > 0}) Steps.AddRange(value.OfType<IRecipeStep>());
             }
         }
         #endregion
@@ -47,7 +47,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public bool ContainsUnknownSteps => (UnknownElements != null) && (UnknownElements.Length > 0);
+        public bool ContainsUnknownSteps => UnknownElements is {Length: > 0};
 
         #region Normalize
         /// <summary>

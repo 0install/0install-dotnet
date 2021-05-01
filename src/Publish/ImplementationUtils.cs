@@ -138,7 +138,7 @@ namespace ZeroInstall.Publish
                implementation.ManifestDigest.Sha256New == "";
 
         private static bool IsDownloadSizeMissing(this RetrievalMethod retrievalMethod)
-            => retrievalMethod is DownloadRetrievalMethod downloadRetrievalMethod && downloadRetrievalMethod.Size == 0;
+            => retrievalMethod is DownloadRetrievalMethod {Size: 0};
         #endregion
 
         #region Digest helpers

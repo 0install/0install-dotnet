@@ -3,6 +3,7 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
+
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>

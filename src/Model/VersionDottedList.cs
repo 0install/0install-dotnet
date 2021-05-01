@@ -92,7 +92,7 @@ namespace ZeroInstall.Model
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
-            => !ReferenceEquals(null, obj) && obj is VersionDottedList list && Equals(list);
+            => obj is VersionDottedList list && Equals(list);
 
         public static bool operator ==(VersionDottedList left, VersionDottedList right) => left.Equals(right);
         public static bool operator !=(VersionDottedList left, VersionDottedList right) => !left.Equals(right);

@@ -3,6 +3,7 @@
 
 using System.IO;
 using FluentAssertions;
+
 namespace ZeroInstall.FileSystem
 {
     /// <summary>

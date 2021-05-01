@@ -68,7 +68,7 @@ namespace ZeroInstall.DesktopIntegration
             var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "b"}};
             var appEntry = new AppEntry {Name = "App"};
 
-            accessPoints.GetConflictData(appEntry).Should().Equal(new Dictionary<string, ConflictData>()
+            accessPoints.GetConflictData(appEntry).Should().Equal(new Dictionary<string, ConflictData>
             {
                 {"mock:a", new ConflictData(accessPoints[0], appEntry)},
                 {"mock:b", new ConflictData(accessPoints[1], appEntry)}

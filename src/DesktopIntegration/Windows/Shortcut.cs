@@ -33,7 +33,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(command)) command = Command.NameRun;
 
             var entryPoint = target.Feed.GetEntryPoint(command);
-            bool needsTerminal = (entryPoint != null && entryPoint.NeedsTerminal);
+            bool needsTerminal = entryPoint is {NeedsTerminal: true};
 
             string targetPath = Path.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe");
 

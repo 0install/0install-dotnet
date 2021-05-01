@@ -9,7 +9,6 @@ using FluentAssertions;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
-
 #if NET
 using Microsoft.Extensions.Configuration;
 #endif
@@ -106,7 +105,7 @@ namespace ZeroInstall.Store
         [Fact]
         public void TestFromExtensionsConfiguration()
         {
-            var config = Config.From(new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string>()
+            var config = Config.From(new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string>
             {
                 ["network_use"] = "minimal",
                 ["auto_approve_keys"] = "false"
