@@ -55,17 +55,17 @@ namespace ZeroInstall.Publish.EntryPoints
             #endregion
 
             Architecture = new(OS.Windows, GetCpu(peHeader.FileHeader.Machine));
-            if (peHeader.Subsystem >= Subsystem.WindowsCui) NeedsTerminal = true;
+            if (peHeader.Subsystem >= PESubsystem.WindowsCui) NeedsTerminal = true;
             return peHeader.Is32BitHeader
                 ? (peHeader.OptionalHeader32.CLRRuntimeHeader.VirtualAddress == 0)
                 : (peHeader.OptionalHeader64.CLRRuntimeHeader.VirtualAddress == 0);
         }
 
-        protected static Cpu GetCpu(MachineType machine)
+        protected static Cpu GetCpu(PEMachineType machine)
             => machine switch
             {
-                MachineType.I386 => Cpu.All,
-                MachineType.X64 => Cpu.X64,
+                PEMachineType.I386 => Cpu.All,
+                PEMachineType.X64 => Cpu.X64,
                 _ => Cpu.Unknown
             };
 
