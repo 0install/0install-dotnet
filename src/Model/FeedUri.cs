@@ -55,8 +55,8 @@ namespace ZeroInstall.Model
 
         private static string TrimPrefix(string value)
         {
-            if (value.StartsWith(FakePrefix)) return value.Substring(FakePrefix.Length);
-            else if (value.StartsWith(FromDistributionPrefix)) return value.Substring(FromDistributionPrefix.Length);
+            if (value.StartsWith(FakePrefix, out string? trimmed)) return trimmed;
+            else if (value.StartsWith(FromDistributionPrefix, out trimmed)) return trimmed;
             else return value;
         }
 
@@ -296,9 +296,9 @@ namespace ZeroInstall.Model
         public string[] EscapeComponent()
             => Scheme switch
             {
-                "http" => new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))},
-                "https" => new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath.Substring(1))},
-                "file" => new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath.Substring(1))},
+                "http" => new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])},
+                "https" => new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])},
+                "file" => new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath[1..])},
                 _ => throw new InvalidOperationException()
             };
         #endregion

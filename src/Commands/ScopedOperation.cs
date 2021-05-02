@@ -47,7 +47,7 @@ namespace ZeroInstall.Commands
             {
                 if (uri.StartsWith("file://")) return new(uri);
                 if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
-                if (uri.StartsWith("file:")) return new(Path.GetFullPath(uri.Substring("file:".Length)));
+                if (uri.StartsWith("file:", out string? path)) return new(Path.GetFullPath(path));
                 if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
                 var result = TryResolveAlias(uri);
@@ -55,7 +55,7 @@ namespace ZeroInstall.Commands
 
                 if (Path.IsPathRooted(uri)) return new(uri);
 
-                string path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
+                path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
                 if (File.Exists(path)) return new(path);
 
                 result = TryResolveCatalog(uri);
@@ -87,9 +87,8 @@ namespace ZeroInstall.Commands
             var appList = AppList.LoadSafe();
 
             const string aliasPrefix = "alias:";
-            if (uri.StartsWith(aliasPrefix))
+            if (uri.StartsWith(aliasPrefix, out string? aliasName))
             {
-                string aliasName = uri.Substring(aliasPrefix.Length);
                 var result = appList.ResolveAlias(aliasName);
 
                 if (result == null)
@@ -98,7 +97,7 @@ namespace ZeroInstall.Commands
             }
             else
             {
-                string aliasName = uri;
+                aliasName = uri;
                 var result = appList.ResolveAlias(aliasName);
 
                 if (result != null)

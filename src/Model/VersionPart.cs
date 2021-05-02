@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using NanoByte.Common;
 using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model
@@ -38,27 +39,23 @@ namespace ZeroInstall.Model
         public VersionPart(string value)
             : this()
         {
-            // Detect and trim version modifiers
-            if (value.StartsWith("pre"))
-            {
-                value = value.Substring("pre".Length);
-                Modifier = VersionModifier.Pre;
-            }
-            else if (value.StartsWith("rc"))
-            {
-                value = value.Substring("rc".Length);
-                Modifier = VersionModifier.RC;
-            }
-            else if (value.StartsWith("post"))
-            {
-                value = value.Substring("post".Length);
-                Modifier = VersionModifier.Post;
-            }
-            else
-                Modifier = VersionModifier.None;
+            #region Sanity checks
+            if (value == null) throw new ArgumentNullException(nameof(value));
+            #endregion
 
-            // Parse any rest as dotted list
-            if (!string.IsNullOrEmpty(value)) DottedList = new VersionDottedList(value);
+            if (value.StartsWith("pre", out string? trimmed))
+                Modifier = VersionModifier.Pre;
+            else if (value.StartsWith("rc", out trimmed))
+                Modifier = VersionModifier.RC;
+            else if (value.StartsWith("post", out trimmed))
+                Modifier = VersionModifier.Post;
+            else
+            {
+                trimmed = value;
+                Modifier = VersionModifier.None;
+            }
+
+            if (!string.IsNullOrEmpty(trimmed)) DottedList = new VersionDottedList(trimmed);
         }
 
         #region Conversion

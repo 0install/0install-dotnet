@@ -18,7 +18,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (!base.Analyze(baseDirectory, file)) return false;
             if (!StringUtils.EqualsIgnoreCase(file.Extension, @".class")) return false;
 
-            Name = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
+            Name = file.Name[..^file.Extension.Length];
             GuiOnly = false;
             return true;
         }

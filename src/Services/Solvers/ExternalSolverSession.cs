@@ -94,10 +94,10 @@ namespace ZeroInstall.Services.Solvers
             string? message;
             while ((message = _stderr.ReadLine()) != null)
             {
-                if (message.StartsWith("error: ")) Log.Error("External solver: " + message.Substring("error: ".Length));
-                else if (message.StartsWith("warning: ")) Log.Warn("External solver: " + message.Substring("warning: ".Length));
-                else if (message.StartsWith("info: ")) Log.Info("External solver: " + message.Substring("info: ".Length));
-                else if (message.StartsWith("debug: ")) Log.Debug("External solver: " + message.Substring("debug: ".Length));
+                if (message.StartsWith("error: ", out string? error)) Log.Error("External solver: " + error);
+                else if (message.StartsWith("warning: ", out string? warning)) Log.Warn("External solver: " + warning);
+                else if (message.StartsWith("info: ", out string? info)) Log.Info("External solver: " + info);
+                else if (message.StartsWith("debug: ", out string? debug)) Log.Debug("External solver: " + debug);
                 else Log.Debug("External solver: " + message);
             }
         }

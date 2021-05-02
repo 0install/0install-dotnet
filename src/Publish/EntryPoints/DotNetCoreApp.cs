@@ -19,7 +19,7 @@ namespace ZeroInstall.Publish.EntryPoints
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
             => base.Analyze(baseDirectory, file)
             && StringUtils.EqualsIgnoreCase(file.Extension, @".dll")
-            && File.Exists(file.FullName.Substring(file.FullName.Length - file.Extension.Length) + @"deps.json");
+            && File.Exists(file.FullName[..^file.Extension.Length] + @"deps.json");
 
         /// <summary>
         /// The minimum version of the .NET Core Runtime required by the application.

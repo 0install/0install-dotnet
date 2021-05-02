@@ -36,7 +36,7 @@ namespace ZeroInstall.Model
                 else
                 {
                     if (!end.StartsWith("!")) throw new FormatException(string.Format(Resources.VersionRangeEndNotExclusive, end));
-                    endVersion = new ImplementationVersion(end.Substring(1));
+                    endVersion = new ImplementationVersion(end[1..]);
                 }
 
                 return new VersionRangePartRange(startVersion, endVersion);
@@ -44,7 +44,7 @@ namespace ZeroInstall.Model
             else if (value.StartsWith("!"))
             {
                 return new VersionRangePartExclude(
-                    new ImplementationVersion(value.Substring(1)));
+                    new ImplementationVersion(value[1..]));
             }
             else
             {

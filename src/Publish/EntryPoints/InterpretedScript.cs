@@ -20,7 +20,7 @@ namespace ZeroInstall.Publish.EntryPoints
         {
             if (!base.Analyze(baseDirectory, file)) return false;
 
-            Name = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
+            Name = file.Name[..^file.Extension.Length];
             NeedsTerminal = true;
             return true;
         }

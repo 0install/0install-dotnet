@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.IO;
+using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
@@ -213,7 +214,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
             // Remove leading slashes
             entryName = entryName.TrimStart(Path.DirectorySeparatorChar);
-            if (entryName.StartsWith("." + Path.DirectorySeparatorChar)) entryName = entryName.Substring(2);
+            if (entryName.StartsWith("." + Path.DirectorySeparatorChar)) entryName = entryName[2..];
 
             if (!string.IsNullOrEmpty(Extract))
             {
@@ -221,9 +222,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 string subDir = FileUtils.UnifySlashes(Extract)!.Trim(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
 
                 // Only extract objects within the selected sub-directory
-                if (!entryName.StartsWith(subDir)) return null;
-
-                entryName = entryName.Substring(subDir.Length);
+                if (!entryName.StartsWith(subDir, out entryName!)) return null;
             }
 
             // Remove leading slashes left over after trimming away the SubDir

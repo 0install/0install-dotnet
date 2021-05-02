@@ -121,10 +121,10 @@ namespace ZeroInstall.Model
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
             #endregion
 
-            if (id.StartsWith("sha1=")) Sha1 = id.Substring("sha1=".Length);
-            else if (id.StartsWith("sha1new=")) Sha1New = id.Substring("sha1new=".Length);
-            else if (id.StartsWith("sha256=")) Sha256 = id.Substring("sha256=".Length);
-            else if (id.StartsWith("sha256new_")) Sha256New = id.Substring("sha256new_".Length);
+            if (id.StartsWith("sha1=", out string? sha1)) Sha1 = sha1;
+            else if (id.StartsWith("sha1new=", out string? sha1New)) Sha1New = sha1New;
+            else if (id.StartsWith("sha256=", out string? sha256)) Sha256 = sha256;
+            else if (id.StartsWith("sha256new_", out string? sha256New)) Sha256New = sha256New;
             else throw new NotSupportedException(Resources.NoKnownDigestMethod);
         }
 
@@ -138,15 +138,18 @@ namespace ZeroInstall.Model
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
             #endregion
 
-            // Check for known prefixes (and don't overwrite existing values)
-            if (string.IsNullOrEmpty(Sha1)) Sha1 = GetIfPrefixed(id, "sha1=");
-            if (string.IsNullOrEmpty(Sha1New)) Sha1New = GetIfPrefixed(id, "sha1new=");
-            if (string.IsNullOrEmpty(Sha256)) Sha256 = GetIfPrefixed(id, "sha256=");
-            if (string.IsNullOrEmpty(Sha256New)) Sha256New = GetIfPrefixed(id, "sha256new_");
-        }
+            static string? GetIfPrefixed(string value, string prefix)
+            {
+                value.StartsWith(prefix, out string? result);
+                return result;
+            }
 
-        private static string? GetIfPrefixed(string value, string prefix)
-            => value.StartsWith(prefix) ? value.Substring(prefix.Length) : null;
+            // Check for known prefixes (and don't overwrite existing values)
+            Sha1 ??= GetIfPrefixed(id, "sha1=");
+            Sha1New ??= GetIfPrefixed(id, "sha1new=");
+            Sha256 ??= GetIfPrefixed(id, "sha256=");
+            Sha256New ??= GetIfPrefixed(id, "sha256new_");
+        }
         #endregion
 
         #region Conversion

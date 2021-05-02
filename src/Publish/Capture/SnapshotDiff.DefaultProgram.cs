@@ -78,7 +78,7 @@ namespace ZeroInstall.Publish.Capture
                 if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
                     return (null, null);
 
-                commandLine = commandLine.Substring(installationDir.Length + 2);
+                commandLine = commandLine[(installationDir.Length + 2)..];
                 return (commandLine.GetLeftPartAtFirstOccurrence('"'), commandLine.GetRightPartAtFirstOccurrence("\" "));
             }
 

@@ -82,7 +82,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             link.SetPath(targetPath);
             if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
             if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
-            if (!string.IsNullOrEmpty(description)) link.SetDescription(description.Substring(0, Math.Min(description.Length, 256)));
+            if (!string.IsNullOrEmpty(description)) link.SetDescription(description[..Math.Min(description.Length, 256)]);
 
             if (!string.IsNullOrEmpty(appId))
                 ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);

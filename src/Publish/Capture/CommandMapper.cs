@@ -80,7 +80,7 @@ namespace ZeroInstall.Publish.Capture
             {
                 if (commandLine.StartsWithIgnoreCase(commandCommandLine))
                 {
-                    additionalArgs = commandLine.Substring(commandCommandLine.Length).TrimStart();
+                    additionalArgs = commandLine[commandCommandLine.Length..].TrimStart();
                     return command;
                 }
             }

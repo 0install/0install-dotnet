@@ -19,7 +19,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (!StringUtils.EqualsIgnoreCase(file.Extension, @".jar")) return false;
 
             // TODO: Parse JAR metadata
-            Name = file.Name.Substring(0, file.Name.Length - file.Extension.Length);
+            Name = file.Name[..^file.Extension.Length];
             GuiOnly = false;
             return true;
         }

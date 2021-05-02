@@ -103,7 +103,7 @@ namespace ZeroInstall.Store.Implementations.Build
                     if (line != null && line.StartsWith("/"))
                     {
                         // Trim away the first slash and then replace Unix-style slashes
-                        string relativePath = FileUtils.UnifySlashes(line.Substring(1));
+                        string relativePath = FileUtils.UnifySlashes(line[1..]);
                         externalFlags.Add(Path.Combine(flagDir, relativePath));
                     }
                 }
@@ -303,7 +303,7 @@ namespace ZeroInstall.Store.Implementations.Build
                 if (line != null && line.StartsWith("/"))
                 {
                     if (line == source || line.StartsWith(source + "/"))
-                        newFlagFile.WriteLine(destination + line.Substring(source.Length));
+                        newFlagFile.WriteLine(destination + line[source.Length..]);
                     else newFlagFile.WriteLine(line);
                 }
             }

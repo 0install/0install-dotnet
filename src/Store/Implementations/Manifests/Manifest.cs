@@ -97,7 +97,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
                 switch (node)
                 {
                     case ManifestDirectory dir:
-                        dirPath = FileUtils.UnifySlashes(dir.FullPath).Substring(1);
+                        dirPath = FileUtils.UnifySlashes(dir.FullPath)[1..];
                         result.Add(dirPath, dir);
                         break;
                     case ManifestDirectoryElement element:
