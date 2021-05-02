@@ -17,7 +17,7 @@
     },
     {
       "packagePatterns": ["SourceLink"],
-      "packageNames": ["System.ValueTuple", "SharpZipLib", "SharpCompress"],
+      "packageNames": ["SharpZipLib", "SharpCompress"],
       "automerge": true,
       "automergeType": "branch"
     },
