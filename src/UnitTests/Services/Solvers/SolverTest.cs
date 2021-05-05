@@ -24,30 +24,31 @@ namespace ZeroInstall.Services.Solvers
     /// </summary>
     public abstract class SolverTest : TestWithRedirect
     {
-        [Fact]
-        public void TestCases()
+        public static List<object[]> TestCases
         {
-            static TestCaseSet Load()
+            get
             {
                 using var stream = typeof(SolverTest).GetEmbeddedStream("test-cases.xml");
-                return XmlStorage.LoadXml<TestCaseSet>(stream);
+                return XmlStorage.LoadXml<TestCaseSet>(stream).TestCases.Select(x => new object[] {x}).ToList();
             }
+        }
 
-            foreach (var testCase in Load().TestCases)
+        [Theory]
+        [MemberData(nameof(TestCases))]
+        public void TestCase(TestCase testCase)
+        {
+            if (testCase.Problem == null)
             {
-                if (testCase.Problem == null)
-                {
-                    testCase.Selections?.Normalize();
+                testCase.Selections?.Normalize();
 
-                    this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements)
-                                        .Should().Be(testCase.Selections, testCase.ToString()))
-                        .Should().NotThrow(testCase.ToString());
-                }
-                else
-                {
-                    this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
-                        .Should().Throw<SolverException>(testCase.ToString()) /*.WithMessage(testCase.Problem)*/;
-                }
+                this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements)
+                                    .Should().Be(testCase.Selections, testCase.ToString()))
+                    .Should().NotThrow(testCase.ToString());
+            }
+            else
+            {
+                this.Invoking(x => x.Solve(testCase.Feeds, testCase.Requirements))
+                    .Should().Throw<SolverException>(testCase.ToString()) /*.WithMessage(testCase.Problem)*/;
             }
         }
 

@@ -16,7 +16,7 @@ namespace ZeroInstall.Model.Selection
     public class TestCase
     {
         [XmlAttribute("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = default!;
 
         [DefaultValue(false), XmlAttribute("add-downloads")]
         public bool AddDownloads { get; set; }
@@ -46,6 +46,6 @@ namespace ZeroInstall.Model.Selection
         public string? Problem { get; set; }
 
         /// <inheritdoc/>
-        public override string ToString() => $"Test Case '{Name}'";
+        public override string ToString() => Name;
     }
 }

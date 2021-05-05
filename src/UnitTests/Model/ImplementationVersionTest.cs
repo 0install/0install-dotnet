@@ -13,22 +13,23 @@ namespace ZeroInstall.Model
     public class ImplementationVersionTest
     {
         /// <summary>
-        /// Ensures the <see cref="ImplementationVersion.TryCreate"/> correctly handles valid strings and rejects invalid ones.
+        /// Ensures the <see cref="ImplementationVersion.TryCreate"/> correctly parses valid strings.
         /// </summary>
-        [Fact]
-        public void TestTryCreate()
+        [Theory]
+        [InlineData("0.1"), InlineData("1"), InlineData("1.0"), InlineData("1.1"), InlineData("1.1-"), InlineData("1.2-pre"), InlineData("1.2-pre1"), InlineData("1.2-rc1"), InlineData("1.2"), InlineData("1.2-0"), InlineData("1.2--0"), InlineData("1.2-post"), InlineData("1.2-post1-pre"), InlineData("1.2-post1"), InlineData("1.2.1-pre"), InlineData("1.2.1.4"), InlineData("1.2.3"), InlineData("1.2.10"), InlineData("3")]
+        public void TestTryCreateValid(string version)
         {
-            var validVersions = new[] {"0.1", "1", "1.0", "1.1", "1.1-", "1.2-pre", "1.2-pre1", "1.2-rc1", "1.2", "1.2-0", "1.2--0", "1.2-post", "1.2-post1-pre", "1.2-post1", "1.2.1-pre", "1.2.1.4", "1.2.3", "1.2.10", "3"};
-            foreach (string version in validVersions)
-            {
-                ImplementationVersion.TryCreate(version, out var result).Should().BeTrue(because: version);
-                result!.ToString().Should().Be(version);
-            }
-
-            var invalidVersions = new[] {"", "a", "pre-1", "1.0-1post"};
-            foreach (string version in invalidVersions)
-                ImplementationVersion.TryCreate(version, out _).Should().BeFalse(because: version);
+            ImplementationVersion.TryCreate(version, out var result).Should().BeTrue();
+            result!.ToString().Should().Be(version);
         }
+
+        /// <summary>
+        /// Ensures the <see cref="ImplementationVersion.TryCreate"/> correctly rejects invalid strings.
+        /// </summary>
+        [Theory]
+        [InlineData(""), InlineData("a"), InlineData("pre-1"), InlineData("1.0-1post")]
+        public void TestTryCreateInvalid(string version)
+            => ImplementationVersion.TryCreate(version, out _).Should().BeFalse();
 
         /// <summary>
         /// Ensures the constructor correctly parses <see cref="string"/>s and <see cref="Version"/>s.
