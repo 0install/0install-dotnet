@@ -80,7 +80,7 @@ namespace ZeroInstall.Commands.Basic
             if (expectedSelections == null) selections.Should().BeNull();
             else
             {
-                selections.InterfaceUri.Should().Be(expectedSelections.InterfaceUri);
+                selections!.InterfaceUri.Should().Be(expectedSelections.InterfaceUri);
                 selections.Command.Should().Be(expectedSelections.Command);
                 selections.Implementations.Should().Equal(expectedSelections.Implementations);
             }

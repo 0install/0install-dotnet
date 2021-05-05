@@ -201,8 +201,8 @@ namespace ZeroInstall.Model
         /// </summary>
         public override string ToString()
             => string.IsNullOrEmpty(Command)
-                ? InterfaceUri.ToStringRfc() ?? ""
-                : InterfaceUri.ToStringRfc() + " (" + Command + ")";
+                ? InterfaceUri?.ToStringRfc() ?? ""
+                : InterfaceUri?.ToStringRfc() + " (" + Command + ")";
 
         /// <summary>
         /// Transforms the requirements into a command-line arguments.
