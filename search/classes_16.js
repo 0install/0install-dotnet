@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['waithandleextensions_2594',['WaitHandleExtensions',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_threading_1_1_wait_handle_extensions.html',1,'NanoByte::Common::Threading']]],
+  ['waittask_2595',['WaitTask',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_tasks_1_1_wait_task.html',1,'NanoByte::Common::Tasks']]],
+  ['webclienttimeout_2596',['WebClientTimeout',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_net_1_1_web_client_timeout.html',1,'NanoByte::Common::Net']]],
+  ['windowsbatch_2597',['WindowsBatch',['../class_zero_install_1_1_publish_1_1_entry_points_1_1_windows_batch.html',1,'ZeroInstall::Publish::EntryPoints']]],
+  ['windowsclicredentialprovider_2598',['WindowsCliCredentialProvider',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_net_1_1_windows_cli_credential_provider.html',1,'NanoByte::Common::Net']]],
+  ['windowscredentialprovider_2599',['WindowsCredentialProvider',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_net_1_1_windows_credential_provider.html',1,'NanoByte::Common::Net']]],
+  ['windowscredentials_2600',['WindowsCredentials',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_windows_credentials.html',1,'NanoByte::Common::Native']]],
+  ['windowsexe_2601',['WindowsExe',['../class_zero_install_1_1_publish_1_1_entry_points_1_1_windows_exe.html',1,'ZeroInstall::Publish::EntryPoints']]],
+  ['windowsguicredentialprovider_2602',['WindowsGuiCredentialProvider',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_net_1_1_windows_gui_credential_provider.html',1,'NanoByte::Common::Net']]],
+  ['windowsmutex_2603',['WindowsMutex',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_windows_mutex.html',1,'NanoByte::Common::Native']]],
+  ['windowspackagemanager_2604',['WindowsPackageManager',['../class_zero_install_1_1_services_1_1_native_1_1_windows_package_manager.html',1,'ZeroInstall::Services::Native']]],
+  ['windowsrestartmanager_2605',['WindowsRestartManager',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_windows_restart_manager.html',1,'NanoByte::Common::Native']]],
+  ['windowssilentcredentialprovider_2606',['WindowsSilentCredentialProvider',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_net_1_1_windows_silent_credential_provider.html',1,'NanoByte::Common::Net']]],
+  ['windowstaskbar_2607',['WindowsTaskbar',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_windows_taskbar.html',1,'NanoByte::Common::Native']]],
+  ['windowsutils_2608',['WindowsUtils',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_windows_utils.html',1,'NanoByte::Common::Native']]],
+  ['winformsutils_2609',['WinFormsUtils',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_native_1_1_win_forms_utils.html',1,'NanoByte::Common::Native']]],
+  ['workingdir_2610',['WorkingDir',['../class_zero_install_1_1_model_1_1_working_dir.html',1,'ZeroInstall::Model']]],
+  ['workingdirectory_2611',['WorkingDirectory',['https://common.nano-byte.net/class_nano_byte_1_1_common_1_1_storage_1_1_working_directory.html',1,'NanoByte::Common::Storage']]],
+  ['wrongpassphraseexception_2612',['WrongPassphraseException',['../class_zero_install_1_1_store_1_1_trust_1_1_wrong_passphrase_exception.html',1,'ZeroInstall::Store::Trust']]]
+];

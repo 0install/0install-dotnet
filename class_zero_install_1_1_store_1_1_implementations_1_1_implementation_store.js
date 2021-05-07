@@ -1,0 +1,27 @@
+var class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store =
+[
+    [ "ImplementationStore", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a6adb6733114efa5325967bfaaa79b3af", null ],
+    [ "AddArchives", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a416d28d3fc77628d06cdf40fcf1ed96e", null ],
+    [ "AddDirectory", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a538a2001120b44e925b845f752f2fe42", null ],
+    [ "Contains", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#aad0f6a868470144d1c7093afa9af72e0", null ],
+    [ "Contains", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a233e7329217ddde69577773886b0c0fd", null ],
+    [ "DeleteTempDir", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a30d918839d0c6263c3fafd89beab19b0", null ],
+    [ "DisableWriteProtection", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a181e8f44cac2ca034b6567e377751c2a", null ],
+    [ "EnableWriteProtection", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#adf350ddd0f15c4ea3847f140ea0e1f9c", null ],
+    [ "Equals", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#aceb9248e10e1ba63764cca11ceb0eba6", null ],
+    [ "Equals", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#af5ea5d1dde5524742e96610d6f46244a", null ],
+    [ "Flush", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a7bce3f0245b2059cc5e9ff95079642e8", null ],
+    [ "GetHashCode", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a85c2e56f6ff4f7d91d61d3b8c54ccad8", null ],
+    [ "GetPath", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a695f7bd5f552d22ab7fb31f70d38b95f", null ],
+    [ "GetTempDir", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a4db8ee41753949096edf367120ad5c52", null ],
+    [ "ListAll", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a432760d7a415968c248bcef56bdb1cf9", null ],
+    [ "ListAllTemp", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a39118c82d9fa5ed79cb0a4a4fd01d232", null ],
+    [ "Optimise", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#ad4c33caed9a9ee5d61799b48f57c1713", null ],
+    [ "Remove", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a27277830204566f517822653bb740d40", null ],
+    [ "ToString", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a78da942e1c58cd4cc41ea6a81626263a", null ],
+    [ "Verify", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#a68ef9df149b09e877ac357252b10b2dd", null ],
+    [ "VerifyAndAdd", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#af0213e5cc1e4f16d766dcb0f893e126f", null ],
+    [ "VerifyDirectory", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#afbc026946ff6e58f8c4393d1b74afe60", null ],
+    [ "Kind", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#af56c1f777e65b284c22cecaa5a4ce337", null ],
+    [ "Path", "class_zero_install_1_1_store_1_1_implementations_1_1_implementation_store.html#aad983cc52c7f4edc8f6f6f07f0eda75b", null ]
+];
