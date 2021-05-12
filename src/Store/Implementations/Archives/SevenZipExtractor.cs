@@ -30,9 +30,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             _archive = SevenZipArchive.Open(stream, new ReaderOptions {LeaveStreamOpen = false});
         }
 
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
-            if (disposing) _archive.Dispose();
+            _archive.Dispose();
         }
 
         /// <inheritdoc/>

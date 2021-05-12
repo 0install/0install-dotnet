@@ -119,13 +119,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <summary>
         /// Disposes the underlying <see cref="Stream"/>.
         /// </summary>
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected abstract void Dispose(bool disposing);
+        public abstract void Dispose();
         #endregion
     }
 }

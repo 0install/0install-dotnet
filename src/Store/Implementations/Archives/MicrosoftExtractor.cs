@@ -58,13 +58,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             UnitsProcessed += _bytesStaged;
         }
 
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
-            if (disposing)
-            {
-                CabStream?.Dispose();
-                CabEngine.Dispose();
-            }
+            CabStream?.Dispose();
+            CabEngine.Dispose();
         }
     }
 }

@@ -44,15 +44,6 @@ namespace ZeroInstall.Publish
         /// </summary>
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            // Do not trigger via GC
-            if (!disposing) return;
-
             _temporaryDirectory?.Dispose();
         }
 

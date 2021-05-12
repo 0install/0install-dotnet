@@ -61,35 +61,20 @@ namespace ZeroInstall.Store
             }
             else
 #endif
+            {
                 _mutex = new Mutex(false, MutexName);
+            }
 
             _mutex.WaitOne(Handler.CancellationToken, (Handler.Verbosity == Verbosity.Batch) ? 30 : 1);
-        }
-
-        /// <inheritdoc/>
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        /// <inheritdoc/>
-        ~ManagerBase()
-        {
-            Dispose(false);
         }
 
         /// <summary>
         /// Releases the mutex.
         /// </summary>
-        /// <param name="disposing"><c>true</c> if called manually and not by the garbage collector.</param>
-        protected virtual void Dispose(bool disposing)
+        public void Dispose()
         {
-            if (disposing && _mutex != null)
-            {
-                _mutex.ReleaseMutex();
-                _mutex.Close();
-            }
+            _mutex?.ReleaseMutex();
+            _mutex?.Close();
         }
     }
 }

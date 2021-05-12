@@ -30,9 +30,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             UnitsTotal = stream.Length;
         }
 
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
-            if (disposing) _reader.Dispose();
+            _reader.Dispose();
         }
 
         /// <inheritdoc/>

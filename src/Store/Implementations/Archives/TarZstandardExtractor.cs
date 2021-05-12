@@ -27,12 +27,17 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         /// <inheritdoc />
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
-            base.Dispose(disposing);
-
-            // Manually dispose inner stream because ZStdDecompressStream.Dispose() does not take care of it
-            _stream.Dispose();
+            try
+            {
+                base.Dispose();
+            }
+            finally
+            {
+                // ZStdDecompressStream does not automatically dispose the inner stream so we need to do it here ourselves
+                _stream.Dispose();
+            }
         }
 
         /// <inheritdoc/>

@@ -59,9 +59,9 @@ namespace ZeroInstall.Store.Implementations.Archives
             #endregion
         }
 
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
-            if (disposing) _zipStream.Dispose();
+            _zipStream.Dispose();
         }
         #endregion
 

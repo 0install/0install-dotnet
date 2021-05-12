@@ -32,7 +32,10 @@ namespace ZeroInstall.Store.Implementations.Archives
             _zipStream = new(stream);
         }
 
-        protected override void Dispose(bool disposing) => _zipStream.Dispose();
+        public override void Dispose()
+        {
+            _zipStream.Dispose();
+        }
         #endregion
 
         /// <inheritdoc/>
