@@ -68,13 +68,9 @@ namespace ZeroInstall.Store.Implementations.Archives
         #endregion
 
         #region Directories
-        private class MsiDirectory
+        private record MsiDirectory(string Name, string ParentId)
         {
-            public string? Name;
-            public string? ParentID;
             public string? FullPath;
-
-            public override string ToString() => FullPath;
         }
 
         private readonly Dictionary<string, MsiDirectory> _directories = new();
@@ -86,11 +82,12 @@ namespace ZeroInstall.Store.Implementations.Archives
                 directoryView.Execute();
                 foreach (var row in directoryView)
                 {
-                    _directories.Add(row["Directory"].ToString(), new MsiDirectory
-                    {
-                        Name = row["DefaultDir"].ToString().Split(':').Last().Split('|').Last(),
-                        ParentID = row["Directory_Parent"].ToString()
-                    });
+                    _directories.Add(
+                        row["Directory"].ToString(),
+                        new MsiDirectory(
+                            Name: row["DefaultDir"].ToString().Split(':').Last().Split('|').Last(),
+                            ParentId: row["Directory_Parent"].ToString()
+                        ));
                 }
             }
 
@@ -102,13 +99,13 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             if (directory.FullPath != null) return;
 
-            if (string.IsNullOrEmpty(directory.ParentID))
+            if (string.IsNullOrEmpty(directory.ParentId))
             { // Root directory
                 directory.FullPath = directory.Name;
             }
             else
             {
-                var parent = _directories[directory.ParentID];
+                var parent = _directories[directory.ParentId];
                 if (parent == directory)
                 { // Root directory
                     directory.FullPath = directory.Name;
@@ -125,14 +122,9 @@ namespace ZeroInstall.Store.Implementations.Archives
         #endregion
 
         #region Files
-        private class MsiFile
+        private record MsiFile(string Name, int Size, string DirectoryId)
         {
-            public string? Name;
-            public int Size;
-            public string? DirectoryId;
             public string? FullPath;
-
-            public override string? ToString() => FullPath;
         }
 
         private readonly Dictionary<string, MsiFile> _files = new();
@@ -144,12 +136,13 @@ namespace ZeroInstall.Store.Implementations.Archives
                 fileView.Execute();
                 foreach (var row in fileView)
                 {
-                    _files.Add(row["File"].ToString(), new MsiFile
-                    {
-                        Name = row["FileName"].ToString().Split(':').Last().Split('|').Last(),
-                        Size = (int)row["FileSize"],
-                        DirectoryId = row["Directory_"].ToString()
-                    });
+                    _files.Add(
+                        row["File"].ToString(),
+                        new MsiFile(
+                            Name: row["FileName"].ToString().Split(':').Last().Split('|').Last(),
+                            Size: (int)row["FileSize"],
+                            DirectoryId: row["Directory_"].ToString()
+                        ));
                 }
             }
 
@@ -169,7 +162,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             mediaView.Execute();
             _cabinets = mediaView.Select(row => row["Cabinet"].ToString())
                                  .Where(name => name.StartsWith("#"))
-                                 .Select(name => name.Substring(1))
+                                 .Select(name => name[1..])
                                  .ToList();
         }
         #endregion
@@ -179,7 +172,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             try
             {
-                foreach (string cabinet in _cabinets)
+                foreach (string cabinet in _cabinets ?? throw new InvalidOperationException($"Must run {nameof(ReadCabinets)}() first."))
                 {
                     using var streamsView = _database.OpenView("SELECT Data FROM _Streams WHERE Name = '{0}'", cabinet);
                     streamsView.Execute();
@@ -221,7 +214,8 @@ namespace ZeroInstall.Store.Implementations.Archives
         {
             try
             {
-                return base.GetRelativePath(_files[entryName].FullPath);
+                string? fullPath = _files[entryName].FullPath;
+                return fullPath == null ? null : base.GetRelativePath(fullPath);
             }
             catch (KeyNotFoundException)
             {

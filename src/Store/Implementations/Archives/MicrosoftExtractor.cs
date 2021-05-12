@@ -17,7 +17,7 @@ namespace ZeroInstall.Store.Implementations.Archives
     public abstract class MicrosoftExtractor : ArchiveExtractor, IUnpackStreamContext
     {
         protected readonly CabEngine CabEngine = new();
-        protected Stream CabStream;
+        protected Stream? CabStream;
 
         protected MicrosoftExtractor(string targetPath)
             : base(targetPath)
@@ -31,7 +31,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         private long _bytesStaged;
 
-        Stream IUnpackStreamContext.OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
+        Stream? IUnpackStreamContext.OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
