@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
+using JetBrains.Annotations;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model.Selection
@@ -77,7 +78,7 @@ namespace ZeroInstall.Model.Selection
         /// Creates a new implementation selection.
         /// </summary>
         /// <param name="candidates">All candidates that were considered for selection (including the selected one). These are used to present the user with possible alternatives.</param>
-        public ImplementationSelection(IEnumerable<SelectionCandidate> candidates)
+        public ImplementationSelection([InstantHandle] IEnumerable<SelectionCandidate> candidates)
         {
             Candidates = candidates.ToList();
         }

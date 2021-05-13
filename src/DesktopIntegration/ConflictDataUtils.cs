@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model.Capabilities;
 
@@ -25,7 +26,7 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appEntry">The <see cref="AppEntry"/> the <paramref name="accessPoints"/> are intended for.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
         /// <exception cref="ConflictException">One or more of the <paramref name="accessPoints"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="AppList"/>.</exception>
-        public static void CheckForConflicts(this AppList appList, IEnumerable<AccessPoint> accessPoints, AppEntry appEntry)
+        public static void CheckForConflicts(this AppList appList, [InstantHandle] IEnumerable<AccessPoint> accessPoints, AppEntry appEntry)
         {
             #region Sanity checks
             if (appList == null) throw new ArgumentNullException(nameof(appList));

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using JetBrains.Annotations;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
@@ -29,7 +30,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <exception cref="ArgumentException">The <see cref="Archive"/>s in <paramref name="recipe"/> and the files in <paramref name="downloadedFiles"/> do not match up.</exception>
         /// <exception cref="NotSupportedException"><paramref name="recipe"/> contains unknown step types.</exception>
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "False positive due to usage inside lambda")]
-        public static TemporaryDirectory Apply(this Recipe recipe, IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, string? tag = null)
+        public static TemporaryDirectory Apply(this Recipe recipe, [InstantHandle] IEnumerable<TemporaryFile?> downloadedFiles, ITaskHandler handler, string? tag = null)
         {
             #region Sanity checks
             if (recipe == null) throw new ArgumentNullException(nameof(recipe));

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using JetBrains.Annotations;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
@@ -23,6 +24,7 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         /// <param name="candidates">The selection candidates.</param>
         /// <param name="demand">The solver demand the candidates were chosen for.</param>
+        [LinqTunnel]
         public static IEnumerable<ImplementationSelection> ToSelections(this IEnumerable<SelectionCandidate> candidates, SolverDemand demand)
             => candidates.Select(x => x.ToSelection(demand.Requirements, allCandidates: demand.Candidates));
 
@@ -32,7 +34,7 @@ namespace ZeroInstall.Services.Solvers
         /// <param name="candidate">The selection candidate.</param>
         /// <param name="requirements">The requirements the candidate was chosen for.</param>
         /// <param name="allCandidates">All candidates that were considered for selection (including <paramref name="candidate"/>). These are used to present the user with possible alternatives.</param>
-        public static ImplementationSelection ToSelection(this SelectionCandidate candidate, Requirements requirements, IEnumerable<SelectionCandidate> allCandidates)
+        public static ImplementationSelection ToSelection(this SelectionCandidate candidate, Requirements requirements, [InstantHandle] IEnumerable<SelectionCandidate> allCandidates)
         {
             #region Sanity checks
             if (candidate == null) throw new ArgumentNullException(nameof(candidate));

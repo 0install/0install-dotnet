@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
@@ -28,7 +29,7 @@ namespace ZeroInstall.Publish.Capture
         /// </summary>
         /// <param name="installationDir">The fully qualified path to the installation directory.</param>
         /// <param name="commands">A list of all known-commands available within the installation directory.</param>
-        public CommandMapper(string installationDir, IEnumerable<Command> commands)
+        public CommandMapper(string installationDir, [InstantHandle] IEnumerable<Command> commands)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(installationDir)) throw new ArgumentNullException(nameof(installationDir));

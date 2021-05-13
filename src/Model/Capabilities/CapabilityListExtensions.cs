@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace ZeroInstall.Model.Capabilities
 {
@@ -14,6 +15,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <summary>
         /// Flattens a set of <see cref="CapabilityList"/>s into a single stream of <see cref="Capability"/>s, filtering out <see cref="CapabilityList.OS"/>es that do not match <see cref="Architecture.CurrentSystem"/>.
         /// </summary>
+        [LinqTunnel]
         public static IEnumerable<Capability> CompatibleCapabilities(this IEnumerable<CapabilityList> capabilityLists)
             => capabilityLists.Where(x => x.OS.RunsOn(Architecture.CurrentSystem.OS))
                               .SelectMany(x => x.Entries);
