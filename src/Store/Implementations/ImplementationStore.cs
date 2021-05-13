@@ -410,7 +410,6 @@ namespace ZeroInstall.Store.Implementations
             string tempDir = GetTempDir();
             try
             {
-                // Copy the source directory inside the store so it can be validated safely (no manipulation of directory while validating)
                 try
                 {
                     handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest.Best});

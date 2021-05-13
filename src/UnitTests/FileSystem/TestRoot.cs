@@ -37,12 +37,10 @@ namespace ZeroInstall.FileSystem
         /// Compares the structure against an existing on-disk directory using assertions.
         /// </summary>
         /// <param name="path">The full path of the directory to compare the structure against.</param>
-        /// <returns>Always <c>true</c>.</returns>
-        public bool Verify(string path)
+        public void Verify(string path)
         {
             foreach (var element in this)
                 element.Verify(path);
-            return true;
         }
     }
 }

@@ -9,6 +9,7 @@ using Moq;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
+using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Model;
@@ -172,8 +173,12 @@ namespace ZeroInstall.Services.Fetchers
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest};
             testImplementation.RetrievalMethods.AddRange(retrievalMethod);
 
-            _storeMock.Setup(x => x.GetPath(digest)).Returns(() => null);
-            _storeMock.Setup(x => x.AddDirectory(It.Is<string>(path => expected.Verify(path)), digest, _handler)).Returns("");
+            _storeMock.Setup(x => x.GetPath(digest))
+                      .Returns(() => null);
+
+            _storeMock.Setup(x => x.AddDirectory(It.IsAny<string>(), digest, _handler))
+                      .Callback((string path, ManifestDigest _, ITaskHandler _) => expected.Verify(path))
+                      .Returns("");
 
             _fetcher.Fetch(testImplementation);
         }

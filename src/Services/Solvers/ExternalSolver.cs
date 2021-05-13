@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
@@ -99,29 +98,24 @@ namespace ZeroInstall.Services.Solvers
 
         private ProcessStartInfo GetStartInfo()
         {
-            if (_solverSelections == null)
-                _solverSelections = _backingSolver.Solve(_solverRequirements);
+            _solverSelections ??= _backingSolver.Solve(_solverRequirements);
 
             foreach (var implementation in _selectionsManager.GetUncachedImplementations(_solverSelections))
                 _fetcher.Fetch(implementation);
 
-            var arguments = new[] {"--console", "slave", ExternalSolverSession.ApiVersion};
+            var builder = _executor.Inject(_solverSelections)
+                                   .AddArguments("--console", "slave", ExternalSolverSession.ApiVersion);
             for (int i = 0; i < (int)_handler.Verbosity; i++)
-                arguments = arguments.Append("--verbose");
-            var startInfo = _executor.Inject(_solverSelections)
-                                     .AddArguments(arguments)
-                                     .ToStartInfo();
+                builder.AddArguments("--verbose");
 
+            var startInfo = builder.ToStartInfo();
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardInput = true;
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
-
             startInfo.EnvironmentVariables["GNUPGHOME"] = OpenPgp.VerifyingHomeDir;
-
             if (Locations.IsPortable)
                 startInfo.EnvironmentVariables["ZEROINSTALL_PORTABLE_BASE"] = Locations.PortableBase;
-
             return startInfo;
         }
 
