@@ -102,8 +102,8 @@ namespace ZeroInstall.Services.Solvers
             if (_solverSelections == null)
                 _solverSelections = _backingSolver.Solve(_solverRequirements);
 
-            var missing = _selectionsManager.GetUncachedImplementations(_solverSelections);
-            _fetcher.Fetch(missing);
+            foreach (var implementation in _selectionsManager.GetUncachedImplementations(_solverSelections))
+                _fetcher.Fetch(implementation);
 
             var arguments = new[] {"--console", "slave", ExternalSolverSession.ApiVersion};
             for (int i = 0; i < (int)_handler.Verbosity; i++)

@@ -75,12 +75,10 @@ namespace ZeroInstall.Commands.Desktop
 
             try
             {
-                return apps.AsParallel()
-                           .WithDegreeOfParallelism(Config.MaxParallelDownloads)
-                           .WithCancellation(Handler.CancellationToken)
-                           .SelectMany(requirements => Solver.Solve(requirements).Implementations)
-                           .Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance)
-                           .ToList();
+                return AsParallel(apps)
+                      .SelectMany(requirements => Solver.Solve(requirements).Implementations)
+                      .Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance)
+                      .ToList();
             }
             #region Error handling
             catch (AggregateException ex)
@@ -97,19 +95,7 @@ namespace ZeroInstall.Commands.Desktop
             if (uncachedImplementations.Count == 0) return;
 
             Handler.ShowSelections(new Selections(uncachedImplementations), FeedManager);
-
-            try
-            {
-                Fetcher.Fetch(SelectionsManager.GetImplementations(uncachedImplementations));
-            }
-            #region Error handling
-            catch
-            {
-                // Suppress any left-over errors if the user canceled anyway
-                Handler.CancellationToken.ThrowIfCancellationRequested();
-                throw;
-            }
-            #endregion
+            FetchAll(SelectionsManager.GetImplementations(uncachedImplementations));
         }
 
         private void Clean(IEnumerable<ImplementationSelection> implementations)

@@ -133,20 +133,7 @@ namespace ZeroInstall.Commands.Basic
             if (CustomizeSelections || UncachedImplementations!.Count != 0) ShowSelections();
 
             if (UncachedImplementations!.Count != 0)
-            {
-                try
-                {
-                    Fetcher.Fetch(UncachedImplementations);
-                }
-                #region Error handling
-                catch
-                {
-                    // Suppress any left-over errors if the user canceled anyway
-                    Handler.CancellationToken.ThrowIfCancellationRequested();
-                    throw;
-                }
-                #endregion
-            }
+                FetchAll(UncachedImplementations);
         }
 
         protected override ExitCode ShowOutput()

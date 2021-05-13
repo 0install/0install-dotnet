@@ -39,7 +39,7 @@ namespace ZeroInstall.Commands.Basic
 
             var feedFragment = XmlStorage.FromXmlString<Feed>(input);
             feedFragment.Normalize();
-            Fetcher.Fetch(feedFragment.Implementations);
+            FetchAll(feedFragment.Implementations);
 
             return ExitCode.OK;
         }

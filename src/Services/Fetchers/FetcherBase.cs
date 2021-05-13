@@ -12,6 +12,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
+using ZeroInstall.Services.Properties;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Implementations.Build;
@@ -24,7 +25,6 @@ namespace ZeroInstall.Services.Fetchers
     /// <remarks>This class is immutable and thread-safe.</remarks>
     public abstract class FetcherBase : IFetcher
     {
-        #region Dependencies
         private readonly IImplementationStore _implementationStore;
 
         /// <summary>A callback object used when the the user needs to be informed about progress.</summary>
@@ -40,23 +40,9 @@ namespace ZeroInstall.Services.Fetchers
             _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
         }
-        #endregion
 
         /// <inheritdoc/>
-        public abstract void Fetch(IEnumerable<Implementation> implementations);
-
-        /// <summary>
-        /// Downloads a single <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
-        /// </summary>
-        /// <param name="implementation">The implementation to download.</param>
-        /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
-        /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
-        /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
-        /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        protected abstract string? Fetch(Implementation implementation);
+        public abstract string? Fetch(Implementation implementation);
 
         /// <summary>
         /// Determines the local path of an implementation.
@@ -65,10 +51,6 @@ namespace ZeroInstall.Services.Fetchers
         /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
         protected string? GetPathSafe(ImplementationBase implementation)
         {
-            #region Sanity checks
-            if (implementation == null) throw new ArgumentNullException(nameof(implementation));
-            #endregion
-
             if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return null;
 
             _implementationStore.Flush();
@@ -87,14 +69,35 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         protected void Retrieve(Implementation implementation)
-        {
-            #region Sanity checks
-            if (implementation == null) throw new ArgumentNullException(nameof(implementation));
-            #endregion
+            => implementation
+              .RetrievalMethods
+              .OrderBy(x => x, RetrievalMethodRanker.Instance)
+              .TryAny(retrievalMethod =>
+               {
+                   if (retrievalMethod is ExternalRetrievalMethod externalRetrievalMethod)
+                       Retrieve(externalRetrievalMethod);
+                   else
+                   {
+                       var digest = implementation.ManifestDigest;
+                       if (digest.Best == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
+                       Retrieve(retrievalMethod, implementation.ManifestDigest);
+                   }
+               });
 
-            implementation.RetrievalMethods
-                          .OrderBy(x => x, RetrievalMethodRanker.Instance)
-                          .TryAny(retrievalMethod => Retrieve(retrievalMethod, implementation.ManifestDigest));
+        /// <summary>
+        /// Handles the execution of <see cref="ExternalRetrievalMethod.Install"/>.
+        /// </summary>
+        private void Retrieve(ExternalRetrievalMethod externalRetrievalMethod)
+        {
+            if (externalRetrievalMethod.Install == null) throw new NotSupportedException("No installation callback registered for native package.");
+
+            if (!string.IsNullOrEmpty(externalRetrievalMethod.ConfirmationQuestion))
+            {
+                if (!Handler.Ask(externalRetrievalMethod.ConfirmationQuestion,
+                    defaultAnswer: false, alternateMessage: externalRetrievalMethod.ConfirmationQuestion)) throw new OperationCanceledException();
+            }
+
+            externalRetrievalMethod.Install();
         }
 
         /// <summary>
@@ -110,12 +113,6 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void Retrieve(RetrievalMethod retrievalMethod, ManifestDigest manifestDigest)
         {
-            if (retrievalMethod is ExternalRetrievalMethod externalRetrievalMethod)
-            {
-                RunNative(externalRetrievalMethod);
-                return;
-            }
-
             // Treat single steps as a Recipes for easier handling
             var recipe = retrievalMethod as Recipe ?? new Recipe {Steps = {(IRecipeStep)retrievalMethod}};
             try
@@ -133,22 +130,6 @@ namespace ZeroInstall.Services.Fetchers
                 throw;
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Handles the execution of <see cref="ExternalRetrievalMethod.Install"/>.
-        /// </summary>
-        private void RunNative(ExternalRetrievalMethod externalRetrievalMethod)
-        {
-            if (externalRetrievalMethod.Install == null) throw new NotSupportedException("No installation callback registered for native package.");
-
-            if (!string.IsNullOrEmpty(externalRetrievalMethod.ConfirmationQuestion))
-            {
-                if (!Handler.Ask(externalRetrievalMethod.ConfirmationQuestion,
-                    defaultAnswer: false, alternateMessage: externalRetrievalMethod.ConfirmationQuestion)) throw new OperationCanceledException();
-            }
-
-            externalRetrievalMethod.Install();
         }
 
         /// <summary>
@@ -175,8 +156,9 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 // Download any files or archives required by the recipe
-                foreach (var downloadStep in recipe.Steps.OfType<DownloadRetrievalMethod>())
-                    downloadedFiles.Add(Download(downloadStep, tag: manifestDigest.Best));
+                downloadedFiles.AddRange(
+                    recipe.Steps.OfType<DownloadRetrievalMethod>()
+                          .Select(downloadStep => Download(downloadStep, tag: manifestDigest.Best)));
 
                 // More efficient special-case handling for Archive-only Recipes
                 if (recipe.Steps.All(step => step is Archive))

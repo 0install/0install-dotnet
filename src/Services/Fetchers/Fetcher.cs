@@ -2,8 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading;
 using NanoByte.Common;
@@ -39,29 +37,7 @@ namespace ZeroInstall.Services.Fetchers
         }
 
         /// <inheritdoc/>
-        public override void Fetch(IEnumerable<Implementation> implementations)
-        {
-            #region Sanity checks
-            if (implementations == null) throw new ArgumentNullException(nameof(implementations));
-            #endregion
-
-            try
-            {
-                implementations.AsParallel()
-                               .WithDegreeOfParallelism(_config.MaxParallelDownloads)
-                               .WithCancellation(Handler.CancellationToken)
-                               .Select(Fetch)
-                               .ToList();
-            }
-            catch (AggregateException ex)
-            {
-                ex.InnerExceptions.FirstOrDefault()?.Rethrow();
-                throw;
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override string? Fetch(Implementation implementation)
+        public override string? Fetch(Implementation implementation)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
@@ -104,16 +80,9 @@ namespace ZeroInstall.Services.Fetchers
         /// </summary>
         /// <exception cref="NotSupportedException"><paramref name="implementation"/> does not specify manifest digests in any known formats.</exception>
         private static string GetDownloadID(Implementation implementation)
-        {
-            if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
-                return implementation.ID;
-            else
-            {
-                string? digest = implementation.ManifestDigest.Best;
-                if (digest == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
-                return digest;
-            }
-        }
+            => implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                ? implementation.ID
+                : implementation.ManifestDigest.Best ?? implementation.ID;
 
         /// <inheritdoc/>
         protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, string? tag = null)

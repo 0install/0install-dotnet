@@ -18,6 +18,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
+using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
@@ -195,5 +196,43 @@ namespace ZeroInstall.Commands
         /// <typeparam name="T">The enum type to list values for.</typeparam>
         protected static string SupportedValues<T>()
             => SupportedValues(Enum.GetValues(typeof(T)).Cast<T>().ToArray());
+
+        /// <summary>
+        /// Downloads a set of <see cref="Implementation"/>s to the <see cref="Store"/> in parallel.
+        /// </summary>
+        /// <param name="implementations">The <see cref="Implementation"/>s to be downloaded.</param>
+        /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
+        /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
+        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
+        /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
+        /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
+        protected void FetchAll(IEnumerable<Implementation> implementations)
+        {
+            #region Sanity checks
+            if (implementations == null) throw new ArgumentNullException(nameof(implementations));
+            #endregion
+
+            try
+            {
+                AsParallel(implementations).Select(Fetcher.Fetch).ToList();
+            }
+            catch (AggregateException ex)
+            {
+                // Suppress any left-over errors if the user canceled anyway
+                Handler.CancellationToken.ThrowIfCancellationRequested();
+
+                ex.InnerExceptions.FirstOrDefault()?.Rethrow();
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Prepares the <paramref name="elements"/> for parallel processing while respecting <see cref="Config.MaxParallelDownloads"/> and <see cref="ITaskHandler.CancellationToken"/>.
+        /// </summary>
+        protected ParallelQuery<T> AsParallel<T>(IEnumerable<T> elements)
+            => elements.AsParallel()
+                       .WithDegreeOfParallelism(Config.MaxParallelDownloads)
+                       .WithCancellation(Handler.CancellationToken);
     }
 }

@@ -5,7 +5,7 @@ using System;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.Store.Implementations
+namespace ZeroInstall.Store.Implementations.Build
 {
     /// <summary>
     /// Provides a way to share an <see cref="Implementation"/> fetch callback as per-thread ambient state.
