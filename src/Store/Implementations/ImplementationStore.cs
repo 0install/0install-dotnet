@@ -400,9 +400,9 @@ namespace ZeroInstall.Store.Implementations
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
-            if (manifestDigest.Best == null) throw new ArgumentException("No known digest method", nameof(manifestDigest));
             #endregion
 
+            if (manifestDigest.Best == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
             Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
 
@@ -438,9 +438,9 @@ namespace ZeroInstall.Store.Implementations
             #region Sanity checks
             if (archiveInfos == null) throw new ArgumentNullException(nameof(archiveInfos));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
-            if (manifestDigest.Best == null) throw new ArgumentException("No known digest method", nameof(manifestDigest));
             #endregion
 
+            if (manifestDigest.Best == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
             Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
 
