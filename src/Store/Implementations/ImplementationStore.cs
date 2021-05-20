@@ -378,10 +378,6 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public bool Contains(ManifestDigest manifestDigest)
             => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
-
-        /// <inheritdoc/>
-        public bool Contains(string directory)
-            => Directory.Exists(System.IO.Path.Combine(Path, directory));
         #endregion
 
         #region Get

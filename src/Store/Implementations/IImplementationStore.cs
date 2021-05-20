@@ -51,17 +51,6 @@ namespace ZeroInstall.Store.Implementations
         bool Contains(ManifestDigest manifestDigest);
 
         /// <summary>
-        /// Determines whether the store contains a specific directory.
-        /// </summary>
-        /// <param name="directory">The name of the directory to check for.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified directory is located in the store;
-        ///   <c>false</c> if the specified directory is not located in the store or if read access to the store is not permitted.
-        /// </returns>
-        /// <remarks>If read access to the store is not permitted, no exception is thrown.</remarks>
-        bool Contains(string directory);
-
-        /// <summary>
         /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>.
         /// </summary>
         /// <param name="manifestDigest">The digest the implementation to look for.</param>

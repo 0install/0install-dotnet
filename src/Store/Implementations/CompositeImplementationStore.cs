@@ -77,9 +77,6 @@ namespace ZeroInstall.Store.Implementations
         #region Contains
         /// <inheritdoc/>
         public bool Contains(ManifestDigest manifestDigest) => _innerStores.Any(x => x.Contains(manifestDigest));
-
-        /// <inheritdoc/>
-        public bool Contains(string directory) => _innerStores.Any(store => store.Contains(directory));
         #endregion
 
         #region Get path

@@ -65,9 +65,6 @@ namespace ZeroInstall.Store.Implementations
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
             _testStore.Contains(_digest1).Should().BeTrue();
-
-            _mockStore1.Setup(x => x.Contains("dir1")).Returns(true);
-            _testStore.Contains("dir1").Should().BeTrue();
         }
 
         [Fact]
@@ -76,10 +73,6 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(true);
             _testStore.Contains(_digest1).Should().BeTrue();
-
-            _mockStore1.Setup(x => x.Contains("dir1")).Returns(false);
-            _mockStore2.Setup(x => x.Contains("dir1")).Returns(true);
-            _testStore.Contains("dir1").Should().BeTrue();
         }
 
         [Fact]
@@ -88,10 +81,6 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
             _testStore.Contains(_digest1).Should().BeFalse();
-
-            _mockStore1.Setup(x => x.Contains("dir1")).Returns(false);
-            _mockStore2.Setup(x => x.Contains("dir1")).Returns(false);
-            _testStore.Contains("dir1").Should().BeFalse();
         }
         #endregion
 
