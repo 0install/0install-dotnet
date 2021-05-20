@@ -10,6 +10,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
     /// <summary>
     /// A symlink entry in a manifest.
     /// </summary>
+    /// <param name="Digest">The digest of the link target path.</param>
+    /// <param name="Size">The length of the link target path.</param>
+    /// <param name="Name">The name of the symlink without the containing directory.</param>
     [Serializable]
     public sealed record ManifestSymlink(string Digest, long Size, string Name)
         : ManifestDirectoryElement(Digest, Size, Name)

@@ -7,13 +7,18 @@ using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Solvers
 {
     /// <summary>
     /// Ranks <see cref="SelectionCandidate"/>s.
     /// </summary>
-    public record SelectionCandidateComparer(Stability StabilityPolicy, NetworkLevel NetworkUse, LanguageSet Languages, Predicate<Implementation> IsCached) : IComparer<SelectionCandidate>
+    /// <param name="StabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
+    /// <param name="NetworkUse">Controls how liberally network access is attempted.</param>
+    /// <param name="Languages">The preferred languages for the implementation.</param>
+    /// <param name="IsCached">Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
+    public sealed record SelectionCandidateComparer(Stability StabilityPolicy, NetworkLevel NetworkUse, LanguageSet Languages, Predicate<Implementation> IsCached) : IComparer<SelectionCandidate>
     {
         /// <inheritdoc/>
         public int Compare(SelectionCandidate? x, SelectionCandidate? y)

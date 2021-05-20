@@ -120,16 +120,16 @@ namespace ZeroInstall.Model
         public override long DownloadSize => Size + StartOffset;
 
         /// <summary>
-        /// The name of the subdirectory in the archive to extract; <c>null</c> or <see cref="string.Empty"/> for entire archive.
+        /// The directory to extract into relative to the implementation root as a Unix-style path; <c>null</c> or <see cref="string.Empty"/> for entire archive.
         /// </summary>
-        [Description("The name of the subdirectory in the archive to extract; null for entire archive.")]
+        [Description("The directory to extract into relative to the implementation root as a Unix-style path; unset or empty for entire archive.")]
         [XmlAttribute("extract"), DefaultValue("")]
         public string? Extract { get; set; }
 
         /// <summary>
-        /// The subdirectory within the implementation directory to extract this archive to; can be <c>null</c>.
+        /// The subdirectory below the implementation directory to extract the archive into as a Unix-style path; <c>null</c> or <see cref="string.Empty"/> for top-level.
         /// </summary>
-        [Description("The subdirectory within the implementation directory to extract this archive to; can be null.")]
+        [Description("The subdirectory below the implementation directory to extract the archive into as a Unix-style path; unset or empty for top-level.")]
         [XmlAttribute("dest")]
         public string? Destination { get; set; }
 

@@ -11,6 +11,10 @@ namespace ZeroInstall.Store.Implementations.Manifests
     /// <summary>
     /// An executable file entry in a manifest.
     /// </summary>
+    /// <param name="Digest">The digest of the content of the file calculated using the selected digest algorithm.</param>
+    /// <param name="ModifiedTimeUnix">The time this file was last modified in unix time.</param>
+    /// <param name="Size">The size of the file in bytes.</param>
+    /// <param name="Name">The name of the file without the containing directory.</param>
     [Serializable]
     public sealed record ManifestExecutableFile(string Digest, long ModifiedTimeUnix, long Size, string Name)
         : ManifestFileBase(Digest, ModifiedTimeUnix, Size, Name)

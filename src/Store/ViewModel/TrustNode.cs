@@ -11,6 +11,8 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Represents a <see cref="Key"/>-<see cref="Domain"/> pair in a <see cref="TrustDB"/> for display in a UI.
     /// </summary>
+    /// <param name="Fingerprint">The <see cref="Key.Fingerprint"/>.</param>
+    /// <param name="Domain">The domain the fingerprint is valid for.</param>
     public sealed record TrustNode(string Fingerprint, Domain Domain) : INamed
     {
         /// <summary>

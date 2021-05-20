@@ -20,6 +20,7 @@ namespace ZeroInstall.Services.Executors
     /// <summary>
     /// Fluent-style builder for a process execution environment for a <see cref="Selections"/> document.
     /// </summary>
+    /// <param name="ImplementationStore">Used to locate <see cref="Implementation"/>s.</param>
     public partial record EnvironmentBuilder(IImplementationStore ImplementationStore) : IEnvironmentBuilder
     {
         /// <summary>

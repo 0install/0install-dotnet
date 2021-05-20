@@ -24,16 +24,16 @@ namespace ZeroInstall.Model
         public string? ID { get; set; }
 
         /// <summary>
-        /// The source file or directory relative to the source implementation root as a Unix-style path. Leave <c>null</c> to copy the entire implementation.
+        /// The source file or directory relative to the source implementation root as a Unix-style path; <c>null</c> or <see cref="string.Empty"/> for entire implementation.
         /// </summary>
-        [Description("The source file or directory relative to the source implementation root as a Unix-style path. Leave unset to copy the entire implementation.")]
+        [Description("The source file or directory relative to the source implementation root as a Unix-style path; unset or empty for entire implementation.")]
         [XmlAttribute("source"), DefaultValue("")]
         public string? Source { get; set; }
 
         /// <summary>
-        /// The destination file or directory relative to the destination implementation root as a Unix-style path. Leave <c>null</c> to copy to the root of the new implementation. Must be set if <see cref="Source"/> points to a file rather than a directory.
+        /// The destination file or directory relative to the implementation root as a Unix-style path; <c>null</c> for top-level. Must be set if <see cref="Source"/> points to a file.
         /// </summary>
-        [Description("The destination file or directory relative to the destination implementation root as a Unix-style path. Leave unset to copy to the root of the new implementation. Must be set if Source points to a file rather than a directory.")]
+        [Description("The destination file or directory relative to the implementation root as a Unix-style path; unset or empty for top-level. Must be set if Source points to a file.")]
         [XmlAttribute("dest"), DefaultValue("")]
         public string? Destination { get; set; }
 
