@@ -72,12 +72,6 @@ namespace ZeroInstall.Store.Implementations
         /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
         public bool Contains(string directory) => false;
 
-        /// <inheritdoc/>
-        public void Flush()
-        {
-            // No internal caching
-        }
-
         /// <summary>
         /// Always returns <c>null</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
         /// </summary>

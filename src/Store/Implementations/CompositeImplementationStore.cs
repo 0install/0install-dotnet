@@ -57,7 +57,6 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             _innerStores = innerStores.ToArray();
-            _containsCache = new(manifestDigest => _innerStores.Any(x => x.Contains(manifestDigest)));
         }
         #endregion
 
@@ -76,16 +75,11 @@ namespace ZeroInstall.Store.Implementations
         #endregion
 
         #region Contains
-        private readonly TransparentCache<ManifestDigest, bool> _containsCache;
-
         /// <inheritdoc/>
-        public bool Contains(ManifestDigest manifestDigest) => _containsCache[manifestDigest];
+        public bool Contains(ManifestDigest manifestDigest) => _innerStores.Any(x => x.Contains(manifestDigest));
 
         /// <inheritdoc/>
         public bool Contains(string directory) => _innerStores.Any(store => store.Contains(directory));
-
-        /// <inheritdoc/>
-        public void Flush() => _containsCache.Clear();
         #endregion
 
         #region Get path
@@ -105,8 +99,6 @@ namespace ZeroInstall.Store.Implementations
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
-
-            Flush();
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
 
@@ -151,8 +143,6 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            Flush();
-
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
 
             // Find the last store the implementation can be added to (some might be write-protected)
@@ -195,8 +185,6 @@ namespace ZeroInstall.Store.Implementations
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
-
-            Flush();
 
             // Remove from _every_ store that contains the implementation
             bool removed = false;

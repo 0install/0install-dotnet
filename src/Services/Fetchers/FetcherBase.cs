@@ -50,12 +50,9 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="implementation">The implementation to be located.</param>
         /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
         protected string? GetPathSafe(ImplementationBase implementation)
-        {
-            if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return null;
-
-            _implementationStore.Flush();
-            return _implementationStore.GetPath(implementation.ManifestDigest);
-        }
+            => implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                ? null
+                : _implementationStore.GetPath(implementation.ManifestDigest);
 
         /// <summary>
         /// Executes the best possible <see cref="RetrievalMethod"/> for an <see cref="Implementation"/>.

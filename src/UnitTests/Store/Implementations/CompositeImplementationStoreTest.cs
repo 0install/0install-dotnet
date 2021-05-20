@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
@@ -93,24 +92,6 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains("dir1")).Returns(false);
             _mockStore2.Setup(x => x.Contains("dir1")).Returns(false);
             _testStore.Contains("dir1").Should().BeFalse();
-        }
-
-        [Fact]
-        public void TestContainsCache()
-        {
-            // First have underlying store report true
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
-            _testStore.Contains(_digest1).Should().BeTrue();
-
-            // Then check the composite cached the result
-            _mockStore1.Setup(x => x.Contains(_digest1)).Throws(new InvalidOperationException("Should not call underlying store when result is cached"));
-            _testStore.Contains(_digest1).Should().BeTrue();
-
-            // Then clear cache and report different result
-            _testStore.Flush();
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
-            _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
-            _testStore.Contains(_digest1).Should().BeFalse();
         }
         #endregion
 

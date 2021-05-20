@@ -42,7 +42,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadSingleArchive()
         {
-            _storeMock.Setup(x => x.Flush());
             using var server = new MicroServer("archive.zip", _zipArchiveStream);
             TestDownloadArchives(new Archive
             {
@@ -57,7 +56,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadLocalArchive()
         {
-            _storeMock.Setup(x => x.Flush());
             using var tempFile = new TemporaryFile("0install-unit-tests");
             _zipArchiveStream.CopyToFile(tempFile);
             TestDownloadArchives(new Archive
@@ -73,7 +71,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadMultipleArchives()
         {
-            _storeMock.Setup(x => x.Flush());
             using var server1 = new MicroServer("archive.zip", _zipArchiveStream);
             using var server2 = new MicroServer("archive.zip", _zipArchiveStream);
             TestDownloadArchives(
@@ -84,7 +81,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadSingleFile()
         {
-            _storeMock.Setup(x => x.Flush());
             using var server = new MicroServer("regular", TestFile.DefaultContents.ToStream());
             TestDownload(
                 new TestRoot {new TestFile("regular") {LastWrite = _unixEpoch}},
@@ -94,7 +90,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadRecipe()
         {
-            _storeMock.Setup(x => x.Flush());
             using var serverArchive = new MicroServer("archive.zip", _zipArchiveStream);
             using var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream());
             TestDownload(
@@ -118,7 +113,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void SkipBroken()
         {
-            _storeMock.Setup(x => x.Flush());
             using var serverArchive = new MicroServer("archive.zip", _zipArchiveStream);
             using var serverSingleFile = new MicroServer("regular", TestFile.DefaultContents.ToStream());
             TestDownload(
@@ -229,7 +223,6 @@ namespace ZeroInstall.Services.Fetchers
         {
             var digest = new ManifestDigest(sha256New: "test123");
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {new Recipe()}};
-            _storeMock.Setup(x => x.Flush());
             _storeMock.Setup(x => x.GetPath(digest)).Returns("dummy");
 
             _fetcher.Fetch(testImplementation);
@@ -239,7 +232,6 @@ namespace ZeroInstall.Services.Fetchers
         public void NoSuitableMethod()
         {
             var implementation = new Implementation {ID = "test", ManifestDigest = new ManifestDigest(sha256New: "test123")};
-            _storeMock.Setup(x => x.Flush());
             _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => _fetcher.Fetch(implementation));
@@ -254,7 +246,6 @@ namespace ZeroInstall.Services.Fetchers
                 ManifestDigest = new ManifestDigest(sha256New: "test123"),
                 RetrievalMethods = {new Archive {MimeType = "test/format"}}
             };
-            _storeMock.Setup(x => x.Flush());
             _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => _fetcher.Fetch(implementation));
@@ -269,7 +260,6 @@ namespace ZeroInstall.Services.Fetchers
                 ManifestDigest = new ManifestDigest(sha256New: "test123"),
                 RetrievalMethods = {new Recipe {Steps = {new Archive {MimeType = Archive.MimeTypeZip}, new Archive {MimeType = "test/format"}}}}
             };
-            _storeMock.Setup(x => x.Flush());
             _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
             Assert.Throws<NotSupportedException>(() => _fetcher.Fetch(implementation));
@@ -278,7 +268,6 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadSingleArchiveMirror()
         {
-            _storeMock.Setup(x => x.Flush());
             using var mirrorServer = new MicroServer("archive/http/invalid/directory%23archive.zip", _zipArchiveStream);
             _config.FeedMirror = new FeedUri(mirrorServer.ServerUri);
             TestDownloadArchives(new Archive

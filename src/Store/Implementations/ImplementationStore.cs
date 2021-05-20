@@ -382,9 +382,6 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public bool Contains(string directory)
             => Directory.Exists(System.IO.Path.Combine(Path, directory));
-
-        /// <inheritdoc/>
-        public void Flush() {} // No internal caching
         #endregion
 
         #region Get

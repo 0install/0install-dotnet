@@ -62,11 +62,6 @@ namespace ZeroInstall.Store.Implementations
         bool Contains(string directory);
 
         /// <summary>
-        /// Clears any in-memory caches.
-        /// </summary>
-        void Flush();
-
-        /// <summary>
         /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>.
         /// </summary>
         /// <param name="manifestDigest">The digest the implementation to look for.</param>
