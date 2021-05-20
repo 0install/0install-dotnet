@@ -66,12 +66,16 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public IEnumerable<ManifestDigest> ListAll()
             // Merge the lists from all contained stores, eliminating duplicates
-            => new HashSet<ManifestDigest>(_innerStores.SelectMany(x => x.ListAllSafe()));
+            => _innerStores.TrySelect<IImplementationStore, IEnumerable<ManifestDigest>, UnauthorizedAccessException>(x => x.ListAll())
+                           .SelectMany(x => x)
+                           .Distinct();
 
         /// <inheritdoc/>
         public IEnumerable<string> ListAllTemp()
             // Merge the lists from all contained stores, eliminating duplicates
-            => new HashSet<string>(_innerStores.SelectMany(x => x.ListAllTempSafe()), StringComparer.Ordinal);
+            => _innerStores.TrySelect<IImplementationStore, IEnumerable<string>, UnauthorizedAccessException>(x => x.ListAllTemp())
+                           .SelectMany(x => x)
+                           .Distinct(StringComparer.Ordinal);
         #endregion
 
         #region Contains
@@ -82,10 +86,9 @@ namespace ZeroInstall.Store.Implementations
         #region Get path
         /// <inheritdoc/>
         public string? GetPath(ManifestDigest manifestDigest)
-            // Use the first store that contains the implementation
-            => _innerStores.Select(store => store.GetPathSafe(manifestDigest))
-                      .WhereNotNull()
-                      .FirstOrDefault();
+            => _innerStores.TrySelect<IImplementationStore, string?, UnauthorizedAccessException>(store => store.GetPath(manifestDigest))
+                           .WhereNotNull()
+                           .FirstOrDefault();
         #endregion
 
         #region Add directory

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -41,71 +40,6 @@ namespace ZeroInstall.Store.Implementations
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Wrapper for <see cref="IImplementationStore.ListAll"/>, handling exceptions.
-        /// </summary>
-        public static IEnumerable<ManifestDigest> ListAllSafe(this IImplementationStore implementationStore)
-        {
-            #region Sanity checks
-            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
-            #endregion
-
-            try
-            {
-                return implementationStore.ListAll();
-            }
-            #region Error handling
-            catch (UnauthorizedAccessException)
-            {
-                // Ignore authorization errors since listing is not a critical task
-                return Enumerable.Empty<ManifestDigest>();
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Wrapper for <see cref="IImplementationStore.ListAllTemp"/>, handling exceptions.
-        /// </summary>
-        public static IEnumerable<string> ListAllTempSafe(this IImplementationStore implementationStore)
-        {
-            #region Sanity checks
-            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
-            #endregion
-
-            try
-            {
-                return implementationStore.ListAllTemp();
-            }
-            #region Error handling
-            catch (UnauthorizedAccessException)
-            {
-                // Ignore authorization errors since listing is not a critical task
-                return Enumerable.Empty<string>();
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Wrapper for <see cref="IImplementationStore.GetPath"/>, handling exceptions.
-        /// </summary>
-        public static string? GetPathSafe(this IImplementationStore implementationStore, ManifestDigest manifestDigest)
-        {
-            #region Sanity checks
-            if (implementationStore == null) throw new ArgumentNullException(nameof(implementationStore));
-            #endregion
-
-            try
-            {
-                return implementationStore.GetPath(manifestDigest);
-            }
-            #region Error handling
-            catch (UnauthorizedAccessException)
-            {
-                return null;
-            }
-            #endregion
         }
 
         /// <summary>
