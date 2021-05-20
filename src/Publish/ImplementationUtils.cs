@@ -12,6 +12,7 @@ using NanoByte.Common.Undo;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Publish
@@ -173,7 +174,7 @@ namespace ZeroInstall.Publish
             {
                 try
                 {
-                    keepDownloads.AddDirectory(path, digest, handler);
+                    keepDownloads.Add(digest, handler, new DirectoryImplementationSource(path));
                 }
                 #region Error handling
                 catch (Exception ex)

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NanoByte.Common;
@@ -11,6 +10,7 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -42,13 +42,13 @@ namespace ZeroInstall.Commands.Basic
                 {
                     if (File.Exists(path))
                     { // One or more archives (combined/overlay)
-                        ImplementationStore.AddArchives(GetArchiveFileInfos(), manifestDigest, Handler);
+                        ImplementationStore.Add(manifestDigest, Handler, GetImplementationSources());
                         return ExitCode.OK;
                     }
                     else if (Directory.Exists(path))
                     { // A single directory
                         if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
-                        ImplementationStore.AddDirectory(Path.GetFullPath(path), manifestDigest, Handler);
+                        ImplementationStore.Add(manifestDigest, Handler, new DirectoryImplementationSource(Path.GetFullPath(path)));
                         return ExitCode.OK;
                     }
                     else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path), path);
@@ -60,19 +60,19 @@ namespace ZeroInstall.Commands.Basic
                 }
             }
 
-            private IEnumerable<ArchiveFileInfo> GetArchiveFileInfos()
+            private IImplementationSource[] GetImplementationSources()
             {
-                var archives = new ArchiveFileInfo[(AdditionalArgs.Count + 1) / 3];
-                for (int i = 0; i < archives.Length; i++)
+                var steps = new IImplementationSource[(AdditionalArgs.Count + 1) / 3];
+                for (int i = 0; i < steps.Length; i++)
                 {
-                    archives[i] = new(
+                    steps[i] = new ArchiveImplementationSource(
                         Path: Path.GetFullPath(AdditionalArgs[i * 3 + 1]),
                         MimeType: (AdditionalArgs.Count > i * 3 + 3) ? AdditionalArgs[i * 3 + 3] : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]))
                     {
                         Extract = (AdditionalArgs.Count > i * 3 + 2) ? AdditionalArgs[i * 3 + 2] : null
                     };
                 }
-                return archives;
+                return steps;
             }
         }
 
@@ -113,7 +113,7 @@ namespace ZeroInstall.Commands.Basic
                 var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1]) : ImplementationStore;
                 try
                 {
-                    store.AddDirectory(path, manifestDigest, Handler);
+                    store.Add(manifestDigest, Handler, new DirectoryImplementationSource(path));
                     return ExitCode.OK;
                 }
                 catch (ImplementationAlreadyInStoreException ex)

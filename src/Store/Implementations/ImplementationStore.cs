@@ -10,11 +10,9 @@ using System.Linq;
 using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
@@ -217,63 +215,6 @@ namespace ZeroInstall.Store.Implementations
         }
         #endregion
 
-        #region Verify and add
-        private readonly object _renameLock = new();
-
-        /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the store and moves it to the final location if it passes.
-        /// </summary>
-        /// <param name="tempID">The temporary identifier of the directory inside the store.</param>
-        /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The final location of the directory.</returns>
-        /// <exception cref="DigestMismatchException">The temporary directory doesn't match the <paramref name="expectedDigest"/>.</exception>
-        /// <exception cref="IOException"><paramref name="tempID"/> cannot be moved or the digest cannot be calculated.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="expectedDigest"/> in the store.</exception>
-        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly")]
-        protected virtual string VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(tempID)) throw new ArgumentNullException(nameof(tempID));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            // Determine the digest method to use
-            string? expectedDigestValue = expectedDigest.Best;
-            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-
-            // Determine the source and target directories
-            string source = System.IO.Path.Combine(Path, tempID);
-            string target = System.IO.Path.Combine(Path, expectedDigestValue);
-
-            if (_isUnixFS) FlagUtils.ConvertToFS(source);
-
-            // Calculate the actual digest, compare it with the expected one and create a manifest file
-            VerifyDirectory(source, expectedDigest, handler).Save(System.IO.Path.Combine(source, Manifest.ManifestFile));
-
-            lock (_renameLock) // Prevent race-conditions when adding the same digest twice
-            {
-                if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(expectedDigest);
-
-                // Move directory to final store destination
-                try
-                {
-                    Directory.Move(source, target);
-                }
-                catch (IOException ex)
-                    // TODO: Make language independent
-                    when (ex.Message.Contains("already exists"))
-                {
-                    throw new ImplementationAlreadyInStoreException(expectedDigest);
-                }
-            }
-
-            // Prevent any further changes to the directory
-            if (_useWriteProtection) EnableWriteProtection(target);
-            return target;
-        }
-        #endregion
-
         #region Verify directory
         /// <summary>
         /// Verifies the <see cref="ManifestDigest"/> of a directory.
@@ -388,10 +329,10 @@ namespace ZeroInstall.Store.Implementations
 
         #region Add
         /// <inheritdoc/>
-        public string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler)
+        public string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
         {
             #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            if (sources == null) throw new ArgumentNullException(nameof(sources));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
@@ -399,64 +340,24 @@ namespace ZeroInstall.Store.Implementations
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
             Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
 
-            // Copy to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
+            // Build in a temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
             string tempDir = GetTempDir();
             try
             {
-                try
+                foreach (var source in sources)
                 {
-                    handler.RunTask(new CloneDirectory(path, tempDir) {Tag = manifestDigest.Best});
-                }
-                #region Error handling
-                catch (IOException ex)
-                    // TODO: Make language independent
-                    when (ex.Message.StartsWith("Access") && ex.Message.EndsWith("is denied."))
-                {
-                    throw new UnauthorizedAccessException(ex.Message, ex);
-                }
-                #endregion
-
-                return VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
-            }
-            finally
-            {
-                DeleteTempDir(tempDir);
-            }
-        }
-
-        /// <inheritdoc/>
-        public string AddArchives(IEnumerable<ArchiveFileInfo> archiveInfos, ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (archiveInfos == null) throw new ArgumentNullException(nameof(archiveInfos));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            if (manifestDigest.Best == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
-
-            // Extract to temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
-            string tempDir = GetTempDir();
-            try
-            {
-                // Extract archives "over each other" in order
-                foreach (var archiveInfo in archiveInfos)
-                {
+                    var task = source.GetApplyTask(tempDir);
+                    task.Tag = manifestDigest.Best;
                     try
                     {
-                        using var extractor = ArchiveExtractor.Create(archiveInfo.Path, tempDir, archiveInfo.MimeType, archiveInfo.StartOffset);
-                        extractor.Extract = archiveInfo.Extract;
-                        extractor.TargetSuffix = archiveInfo.Destination;
-                        extractor.Tag = manifestDigest.Best;
-                        handler.RunTask(extractor);
+                        using (task as IDisposable)
+                            handler.RunTask(task);
                     }
                     #region Error handling
                     catch (IOException ex)
                     {
-                        string source = archiveInfo.OriginalSource?.ToStringRfc()
-                                     ?? archiveInfo.Path;
-                        throw new IOException(string.Format(Resources.FailedToExtractArchive, source), ex);
+                        if (source is ArchiveImplementationSource archive)
+                            throw new IOException(string.Format(Resources.FailedToExtractArchive, archive.OriginalSource), ex);
                     }
                     #endregion
                 }
@@ -467,6 +368,53 @@ namespace ZeroInstall.Store.Implementations
             {
                 DeleteTempDir(tempDir);
             }
+        }
+
+        private readonly object _renameLock = new();
+
+        /// <summary>
+        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the store and moves it to the final location if it passes.
+        /// </summary>
+        /// <param name="tempID">The temporary identifier of the directory inside the store.</param>
+        /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
+        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+        /// <returns>The final location of the directory.</returns>
+        /// <exception cref="DigestMismatchException">The temporary directory doesn't match the <paramref name="expectedDigest"/>.</exception>
+        /// <exception cref="IOException"><paramref name="tempID"/> cannot be moved or the digest cannot be calculated.</exception>
+        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="expectedDigest"/> in the store.</exception>
+        private string VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
+        {
+            // Determine the digest method to use
+            string? expectedDigestValue = expectedDigest.Best;
+            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
+
+            // Determine the source and target directories
+            string source = System.IO.Path.Combine(Path, tempID);
+            string target = System.IO.Path.Combine(Path, expectedDigestValue);
+
+            if (_isUnixFS) FlagUtils.ConvertToFS(source);
+
+            // Calculate the actual digest, compare it with the expected one and create a manifest file
+            VerifyDirectory(source, expectedDigest, handler).Save(System.IO.Path.Combine(source, Manifest.ManifestFile));
+
+            lock (_renameLock) // Prevent race-conditions when adding the same digest twice
+            {
+                if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(expectedDigest);
+
+                // Move directory to final store destination
+                try
+                {
+                    Directory.Move(source, target);
+                }
+                catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
+                {
+                    throw new ImplementationAlreadyInStoreException(expectedDigest);
+                }
+            }
+
+            // Prevent any further changes to the directory
+            if (_useWriteProtection) EnableWriteProtection(target);
+            return target;
         }
         #endregion
 

@@ -10,7 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 #if NETFRAMEWORK
 using System.Runtime.Remoting;
@@ -91,12 +91,12 @@ namespace ZeroInstall.Store.Implementations
                            .FirstOrDefault();
         #endregion
 
-        #region Add directory
+        #region Add
         /// <inheritdoc/>
-        public string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler)
+        public string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
         {
             #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            if (sources == null) throw new ArgumentNullException(nameof(sources));
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
@@ -109,7 +109,7 @@ namespace ZeroInstall.Store.Implementations
                 try
                 {
                     // Try to add implementation to this store
-                    return store.AddDirectory(path, manifestDigest, handler);
+                    return store.Add(manifestDigest, handler, sources);
                 }
                 #region Error handling
                 catch (IOException ex)
@@ -130,50 +130,6 @@ namespace ZeroInstall.Store.Implementations
             }
 
             // If we reach this, the implementation could not be added to any store
-            throw innerException?.Rethrow() ?? new InvalidOperationException();
-        }
-        #endregion
-
-        #region Add archive
-        /// <inheritdoc/>
-        public string AddArchives(IEnumerable<ArchiveFileInfo> archiveInfos, ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (archiveInfos == null) throw new ArgumentNullException(nameof(archiveInfos));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-
-            // Find the last store the implementation can be added to (some might be write-protected)
-            Exception? innerException = null;
-            archiveInfos = archiveInfos.ToArray();
-            foreach (var store in _innerStores.Reverse())
-            {
-                try
-                {
-                    // Try to add implementation to this store
-                    return store.AddArchives(archiveInfos, manifestDigest, handler);
-                }
-                #region Error handling
-                catch (IOException ex)
-                {
-                    innerException = ex; // Remember the last error
-                }
-                catch (UnauthorizedAccessException ex)
-                {
-                    innerException = ex; // Remember the last error
-                }
-#if NETFRAMEWORK
-                catch (RemotingException ex)
-                {
-                    innerException = ex; // Remember the last error
-                }
-#endif
-                #endregion
-            }
-
-            // If we reach this, the implementation couldn't be added to any store
             throw innerException?.Rethrow() ?? new InvalidOperationException();
         }
         #endregion

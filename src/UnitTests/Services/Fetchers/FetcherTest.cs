@@ -16,7 +16,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Services.Fetchers
 {
@@ -129,26 +129,21 @@ namespace ZeroInstall.Services.Fetchers
         private void TestDownloadArchives(params Archive[] archives)
         {
             var digest = new ManifestDigest(sha256New: "test123");
-            var archiveInfos = archives.Select(archive => new ArchiveFileInfo("dummy", archive.MimeType!)
+            var archiveSources = archives.Select(archive => new ArchiveImplementationSource("dummy", archive.MimeType!)
             {
                 Extract = archive.Extract,
                 Destination = archive.Destination,
                 StartOffset = archive.StartOffset,
-                OriginalSource = archive.Href
-            }).ToList();
+                OriginalSource = archive.Href!.ToStringRfc()
+            });
             var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {GetRetrievalMethod(archives)}};
 
             _storeMock.Setup(x => x.GetPath(digest)).Returns(() => null);
-            _storeMock.Setup(x => x.AddArchives(
-                // Exclude Path from comparison to allow easy testing with randomized TemporaryFiles
-                It.Is<ArchiveFileInfo[]>(files => files.Select(WithDummyPath).SequenceEqual(archiveInfos)),
-                digest, _handler)).Returns("");
+
+            _storeMock.Setup(x => x.Add(digest, _handler, It.Is<IImplementationSource[]>(sources => sources.IsEquivalentTo(archiveSources)))).Returns("");
 
             _fetcher.Fetch(testImplementation);
         }
-
-        private static ArchiveFileInfo WithDummyPath(ArchiveFileInfo file)
-            => file with {Path = "dummy"};
 
         private static RetrievalMethod GetRetrievalMethod(Archive[] archives)
         {
@@ -170,12 +165,15 @@ namespace ZeroInstall.Services.Fetchers
             _storeMock.Setup(x => x.GetPath(digest))
                       .Returns(() => null);
 
-            _storeMock.Setup(x => x.AddDirectory(It.IsAny<string>(), digest, _handler))
-                      .Callback((string path, ManifestDigest _, ITaskHandler _) => expected.Verify(path))
+            _storeMock.Setup(x => x.Add(digest, _handler, It.IsAny<IImplementationSource[]>()))
+                      .Callback(VerifyDirectorySource(expected))
                       .Returns("");
 
             _fetcher.Fetch(testImplementation);
         }
+
+        private static Action<ManifestDigest, ITaskHandler, IImplementationSource[]> VerifyDirectorySource(TestRoot expected)
+            => (_, _, steps) => expected.Verify(((DirectoryImplementationSource)steps[0]).Path);
         #endregion
 
         [Fact]

@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -73,34 +73,11 @@ namespace ZeroInstall.Store.Implementations
         public string? GetPath(ManifestDigest manifestDigest) => null;
 
         /// <inheritdoc/>
-        public string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler)
+        public string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] steps)
         {
             try
             {
-                string result = GetProxy().AddDirectory(path, manifestDigest, handler);
-                Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
-                return result;
-            }
-            #region Error handling
-            catch (RemotingException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            catch (SerializationException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            #endregion
-        }
-
-        /// <inheritdoc/>
-        public string AddArchives(IEnumerable<ArchiveFileInfo> archiveInfos, ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            try
-            {
-                string result = GetProxy().AddArchives(archiveInfos, manifestDigest, handler);
+                string result = GetProxy().Add(manifestDigest, handler, steps);
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
                 return result;
             }

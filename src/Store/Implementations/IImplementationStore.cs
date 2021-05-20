@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -59,26 +59,11 @@ namespace ZeroInstall.Store.Implementations
         string? GetPath(ManifestDigest manifestDigest);
 
         /// <summary>
-        /// Copies a directory containing an implementation into the store if it matches the provided <see cref="ManifestDigest"/>.
+        /// Executes one or more steps to build an implementation and adds it to the store.
         /// </summary>
-        /// <param name="path">The directory containing the implementation.</param>
         /// <param name="manifestDigest">The digest the implementation is supposed to match.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The final location of the directory in the store.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="NotSupportedException">The <see cref="ManifestDigest"/> format is unknown or not supported.</exception>
-        /// <exception cref="IOException"><paramref name="path"/> cannot be moved or the digest cannot be calculated.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to <paramref name="path"/> or write access to the store is not permitted.</exception>
-        /// <exception cref="DigestMismatchException"><paramref name="path"/> doesn't match the <paramref name="manifestDigest"/>.</exception>
-        string AddDirectory(string path, ManifestDigest manifestDigest, ITaskHandler handler);
-
-        /// <summary>
-        /// Extracts multiple archives, that together contain the files of an implementation, into the same folder, compares that folder's manifest to <paramref name="manifestDigest"/> and adds it to the store.
-        /// </summary>
-        /// <param name="archiveInfos">Multiple parameter objects providing the information to extract each archive.</param>
-        /// <param name="manifestDigest">The digest the implementation is supposed to match.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+        /// <param name="sources">The sources providing content for the implementation.</param>
         /// <returns>The final location of the directory the archives were extracted into.</returns>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="NotSupportedException">An archive type or the <see cref="ManifestDigest"/> format is unknown or not supported.</exception>
@@ -86,7 +71,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to one of the archives or write access to the store is not permitted.</exception>
         /// <exception cref="DigestMismatchException">The archives content doesn't match the <paramref name="manifestDigest"/>.</exception>
-        string AddArchives(IEnumerable<ArchiveFileInfo> archiveInfos, ManifestDigest manifestDigest, ITaskHandler handler);
+        string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources);
 
         /// <summary>
         /// Removes a specific implementation from the cache.

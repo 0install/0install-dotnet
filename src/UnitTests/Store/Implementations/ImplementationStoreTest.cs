@@ -12,6 +12,7 @@ using Xunit;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
+using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
 
@@ -21,13 +22,13 @@ namespace ZeroInstall.Store.Implementations
     /// Contains test methods for <see cref="ImplementationStore"/>.
     /// </summary>
     [Collection("Static state")]
-    public class DiskImplementationStoreTest : IDisposable
+    public class ImplementationStoreTest : IDisposable
     {
         private readonly MockTaskHandler _handler;
         private readonly TemporaryDirectory _tempDir;
         private ImplementationStore _implementationStore;
 
-        public DiskImplementationStoreTest()
+        public ImplementationStoreTest()
         {
             _handler = new MockTaskHandler();
             _tempDir = new TemporaryDirectory("0install-test-store");
@@ -153,7 +154,7 @@ namespace ZeroInstall.Store.Implementations
         {
             using var testDir = new TemporaryDirectory("0install-test-store");
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
-            _implementationStore.AddDirectory(testDir, digest, _handler);
+            _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
             _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
@@ -166,7 +167,7 @@ namespace ZeroInstall.Store.Implementations
 
             using var testDir = new TemporaryDirectory("0install-test-store");
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
-            _implementationStore.AddDirectory(testDir, digest, _handler);
+            _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
             _implementationStore.ListAll().Should().Equal(new[] {digest}, because: "After adding, Store must show the added package in the complete list");
@@ -222,7 +223,7 @@ namespace ZeroInstall.Store.Implementations
             using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
-            _implementationStore.AddDirectory(testDir, digest, _handler);
+            _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Verify(digest, _handler);
             _handler.LastQuestion.Should().BeNull();
@@ -239,7 +240,7 @@ namespace ZeroInstall.Store.Implementations
                 new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite.AddSeconds(1), file.Contents.Length, file.Name));
             var digest = new ManifestDigest(manifest.CalculateDigest());
 
-            _implementationStore.AddDirectory(testDir, digest, _handler);
+            _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
             _implementationStore.Verify(digest, _handler);
 
             _handler.LastQuestion.Should().BeNull();
@@ -276,7 +277,7 @@ namespace ZeroInstall.Store.Implementations
                     try
                     {
                         // ReSharper disable once AccessToDisposedClosure
-                        _implementationStore.AddDirectory(testDir, digest, _handler);
+                        _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
                         _implementationStore.Remove(digest, _handler);
                     }
                     catch (ImplementationAlreadyInStoreException)

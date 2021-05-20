@@ -218,19 +218,21 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void ApplyArchives(IReadOnlyList<Archive> archives, IReadOnlyList<TemporaryFile> files, ManifestDigest manifestDigest)
         {
-            var archiveFileInfos = new ArchiveFileInfo[archives.Count];
-            for (int i = 0; i < archiveFileInfos.Length; i++)
+            var implementationSources = new IImplementationSource[archives.Count];
+            for (int i = 0; i < implementationSources.Length; i++)
             {
-                archiveFileInfos[i] = new ArchiveFileInfo(files[i].Path, archives[i].MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."))
+                implementationSources[i] = new ArchiveImplementationSource(
+                    files[i].Path,
+                    archives[i].MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."))
                 {
                     Extract = archives[i].Extract,
                     Destination = archives[i].Destination,
                     StartOffset = archives[i].StartOffset,
-                    OriginalSource = archives[i].Href
+                    OriginalSource = archives[i].Href!.ToStringRfc()
                 };
             }
 
-            _implementationStore.AddArchives(archiveFileInfos, manifestDigest, Handler);
+            _implementationStore.Add(manifestDigest, Handler, implementationSources);
         }
 
         /// <summary>
@@ -248,7 +250,7 @@ namespace ZeroInstall.Services.Fetchers
         private void ApplyRecipe(Recipe recipe, IEnumerable<TemporaryFile> files, ManifestDigest manifestDigest)
         {
             using var recipeDir = recipe.Apply(files, Handler, manifestDigest.Best);
-            _implementationStore.AddDirectory(recipeDir, manifestDigest, Handler);
+            _implementationStore.Add(manifestDigest, Handler, new DirectoryImplementationSource(recipeDir));
         }
     }
 }

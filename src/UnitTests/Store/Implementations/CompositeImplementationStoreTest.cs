@@ -1,14 +1,13 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
 using Moq;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -20,10 +19,10 @@ namespace ZeroInstall.Store.Implementations
         #region Constants
         private static readonly ManifestDigest _digest1 = new(sha1New: "abc");
         private static readonly ManifestDigest _digest2 = new(sha1New: "123");
-        private static readonly IEnumerable<ArchiveFileInfo> _archives = new[]
+        private static readonly IImplementationSource[] _archives =
         {
-            new ArchiveFileInfo("path1", Archive.MimeTypeZip),
-            new ArchiveFileInfo("path2", Archive.MimeTypeZip)
+            new ArchiveImplementationSource("path1", Archive.MimeTypeZip),
+            new ArchiveImplementationSource("path2", Archive.MimeTypeZip)
         };
         #endregion
 
@@ -109,87 +108,45 @@ namespace ZeroInstall.Store.Implementations
         }
         #endregion
 
-        #region Add directory
+        #region Add
         [Fact]
-        public void TestAddDirectoryFirst()
+        public void TestAddFirst()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.AddDirectory("path", _digest1, _handler)).Returns("");
-            _testStore.AddDirectory("path", _digest1, _handler);
+            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Returns("");
+            _testStore.Add(_digest1, _handler, _archives);
         }
 
         [Fact]
-        public void TestAddDirectorySecond()
+        public void TestAddSecond()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.AddDirectory("path", _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.AddDirectory("path", _digest1, _handler)).Returns("");
-            _testStore.AddDirectory("path", _digest1, _handler);
+            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
+            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives)).Returns("");
+            _testStore.Add(_digest1, _handler, _archives);
         }
 
         [Fact]
-        public void TestAddDirectoryFail()
+        public void TestAddFail()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.AddDirectory("path", _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.AddDirectory("path", _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            Assert.Throws<IOException>(() => _testStore.AddDirectory("path", _digest1, _handler));
+            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
+            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
+            Assert.Throws<IOException>(() => _testStore.Add(_digest1, _handler, _archives));
         }
 
         [Fact]
-        public void TestAddDirectoryFailAlreadyInStore()
+        public void TestAddFailAlreadyInStore()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
 
-            Assert.Throws<ImplementationAlreadyInStoreException>(() => _testStore.AddDirectory("path", _digest1, _handler));
-        }
-        #endregion
-
-        #region Add archive
-        [Fact]
-        public void TestAddArchivesFirst()
-        {
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
-            _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
-
-            _mockStore2.Setup(x => x.AddArchives(_archives, _digest1, _handler)).Returns("");
-            _testStore.AddArchives(_archives, _digest1, _handler);
-        }
-
-        [Fact]
-        public void TestAddArchivesSecond()
-        {
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
-            _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
-
-            _mockStore2.Setup(x => x.AddArchives(_archives, _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.AddArchives(_archives, _digest1, _handler)).Returns("");
-            _testStore.AddArchives(_archives, _digest1, _handler);
-        }
-
-        [Fact]
-        public void TestAddArchivesFail()
-        {
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
-            _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
-
-            _mockStore2.Setup(x => x.AddArchives(_archives, _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.AddArchives(_archives, _digest1, _handler)).Throws(new IOException("Fake IO exception for testing"));
-            Assert.Throws<IOException>(() => _testStore.AddArchives(_archives, _digest1, _handler));
-        }
-
-        [Fact]
-        public void TestAddArchivesFailAlreadyInStore()
-        {
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
-
-            Assert.Throws<ImplementationAlreadyInStoreException>(() => _testStore.AddArchives(_archives, _digest1, _handler));
+            Assert.Throws<ImplementationAlreadyInStoreException>(() => _testStore.Add(_digest1, _handler, _archives));
         }
         #endregion
 
