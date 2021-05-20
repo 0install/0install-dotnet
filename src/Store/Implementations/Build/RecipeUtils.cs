@@ -102,11 +102,8 @@ namespace ZeroInstall.Store.Implementations.Build
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (!string.IsNullOrEmpty(step.Destination))
-            {
-                string destination = FileUtils.UnifySlashes(step.Destination);
-                if (FileUtils.IsBreakoutPath(destination)) throw new IOException(string.Format(Resources.RecipeInvalidPath, destination));
-            }
+            if (!string.IsNullOrEmpty(step.Destination) && FileUtils.IsBreakoutPath(step.Destination))
+                throw new IOException(string.Format(Resources.RecipeInvalidPath, step.Destination));
 
             using var extractor = ArchiveExtractor.Create(
                 localPath,

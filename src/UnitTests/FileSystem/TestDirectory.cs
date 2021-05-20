@@ -19,7 +19,7 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The last write time of the directory.
         /// </summary>
-        public DateTime LastWrite { get; set; }
+        public DateTime LastWrite { get; init; }
 
         /// <summary>
         /// The <seealso cref="TestElement"/>s contained within the directory.

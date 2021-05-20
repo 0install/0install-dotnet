@@ -51,11 +51,9 @@ namespace ZeroInstall.Services.Executors
         /// <remarks>Must be called before using other methods on the object. May not be called more than once.</remarks>
         public void SetEnvironmentVariable(string key, string value)
         {
-            #region Sanity checks
             if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
             if (value == null) throw new ArgumentNullException(nameof(value));
             if (_selections != null) throw new InvalidOperationException($"Environment variables cannot be added after {nameof(Inject)}() has been called.");
-            #endregion
 
             _startInfo.EnvironmentVariables[key] = value;
         }
@@ -73,10 +71,8 @@ namespace ZeroInstall.Services.Executors
         /// <returns>The execution environment. Reference to self for fluent API use.</returns>
         public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null)
         {
-            #region Sanity checks
             if (selections == null) throw new ArgumentNullException(nameof(selections));
             if (_selections != null) throw new InvalidOperationException($"{nameof(Inject)}() may not be called more than once.");
-            #endregion
 
             if (string.IsNullOrEmpty(selections.Command)) throw new ExecutorException("The Selections document does not specify a start command.");
             if (selections.Implementations.Count == 0) throw new ExecutorException("The Selections document does not list any implementations.");
@@ -102,9 +98,7 @@ namespace ZeroInstall.Services.Executors
         /// <inheritdoc/>
         public IEnvironmentBuilder AddWrapper(string? wrapper)
         {
-            #region Sanity checks
             if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
-            #endregion
 
             if (!string.IsNullOrEmpty(wrapper))
                 _mainCommandLine.InsertRange(0, Array.ConvertAll(WindowsUtils.SplitArgs(wrapper), x => new Arg {Value = x}));
@@ -117,10 +111,8 @@ namespace ZeroInstall.Services.Executors
         /// <inheritdoc/>
         public IEnvironmentBuilder AddArguments(params string[] arguments)
         {
-            #region Sanity checks
             if (arguments == null) throw new ArgumentNullException(nameof(arguments));
             if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
-            #endregion
 
             _userArguments.AddRange(arguments);
 
@@ -130,9 +122,7 @@ namespace ZeroInstall.Services.Executors
         /// <inheritdoc/>
         public ProcessStartInfo ToStartInfo()
         {
-            #region Sanity checks
             if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
-            #endregion
 
             try
             {
@@ -141,9 +131,9 @@ namespace ZeroInstall.Services.Executors
                 var args = ExpandCommandLine(_mainCommandLine);
                 args.AddRange(_userArguments);
 
-                var split = SplitCommandLine(args);
-                _startInfo.FileName = split.Path;
-                _startInfo.Arguments = split.Arguments;
+                (string path, string arguments) = SplitCommandLine(args);
+                _startInfo.FileName = path;
+                _startInfo.Arguments = arguments;
             }
             #region Error handling
             catch (KeyNotFoundException ex)
@@ -167,7 +157,6 @@ namespace ZeroInstall.Services.Executors
         private ImplementationSelection GetMainImplementation(string? overrideMain)
         {
             Debug.Assert(_selections != null);
-
             if (string.IsNullOrEmpty(overrideMain)) return _selections.MainImplementation;
 
             // Clone the first implementation so the command can replaced without affecting Selections
@@ -198,14 +187,11 @@ namespace ZeroInstall.Services.Executors
         /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
         private List<ArgBase> GetCommandLine(ImplementationSelection implementation, string commandName)
         {
-            #region Sanity checks
+            Debug.Assert(_selections != null);
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
             if (commandName == null) throw new ArgumentNullException(nameof(commandName));
-            #endregion
-
-            Debug.Assert(_selections != null);
-
             if (commandName.Length == 0) throw new ExecutorException(string.Format(Resources.CommandNotSpecified, implementation.InterfaceUri));
+
             var command = implementation[commandName];
             Debug.Assert(command != null);
 
@@ -255,7 +241,7 @@ namespace ZeroInstall.Services.Executors
                         string? valueToSplit = _startInfo.EnvironmentVariables[forEach.ItemFrom];
                         if (!string.IsNullOrEmpty(valueToSplit))
                         {
-                            var items = valueToSplit.Split(
+                            string[] items = valueToSplit.Split(
                                 new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.None);
                             foreach (string item in items)
                             {

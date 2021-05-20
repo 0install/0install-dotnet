@@ -28,13 +28,13 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// Sub-path to be appended to <see cref="TargetPath"/> without affecting location of flag files; <c>null</c> for none.
         /// </summary>
-        public string? TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
+        public string? TargetSuffix { get => DirectoryBuilder.TargetSuffix; init => DirectoryBuilder.TargetSuffix = value; }
 
         /// <summary>
         /// Use hardlinks instead of copying files when possible.
         /// Only use this if you are sure the source files will not be modified!
         /// </summary>
-        public bool UseHardlinks { get; set; }
+        public bool UseHardlinks { get; init; }
 
         /// <summary>
         /// Creates a new directory cloning task.

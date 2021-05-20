@@ -26,7 +26,7 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The last write time of the file.
         /// </summary>
-        public DateTime LastWrite { get; set; } = DefaultLastWrite;
+        public DateTime LastWrite { get; init; } = DefaultLastWrite;
 
         /// <summary>
         /// The default value for <see cref="Contents"/>.
@@ -36,12 +36,12 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The contents of the file encoded in UTF8 without a BOM.
         /// </summary>
-        public string Contents { get; set; } = DefaultContents;
+        public string Contents { get; init; } = DefaultContents;
 
         /// <summary>
         /// Is the file marked as executable.
         /// </summary>
-        public bool IsExecutable { get; set; }
+        public bool IsExecutable { get; init; }
 
         /// <summary>
         /// Creates a new test file.

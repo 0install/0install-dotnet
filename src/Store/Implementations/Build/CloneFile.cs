@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The name of the new file to write without any directory information.
         /// </summary>
-        public string TargetFileName { get; set; }
+        public string TargetFileName { get; init; }
 
         /// <summary>
         /// Creates a new file cloning task.
