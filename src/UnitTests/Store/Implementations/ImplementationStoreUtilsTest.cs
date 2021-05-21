@@ -13,14 +13,26 @@ namespace ZeroInstall.Store.Implementations
     public class ImplementationStoreUtilsTest
     {
         [Fact]
-        public void TestDetectImplementationPath()
+        public void TestNotImplementationPath()
         {
-            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir")
-                      .Should().BeNull();
-            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123")
-                      .Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
-            ImplementationStoreUtils.DetectImplementationPath(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123\subdir" : "/some/dir/sha1new=123/subdir")
-                      .Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
+            ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir", out _)
+                                    .Should().BeFalse();
+        }
+
+        [Fact]
+        public void TestImplementationPath()
+        {
+            ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123", out string? path)
+                                    .Should().BeTrue();
+            path.Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
+        }
+
+        [Fact]
+        public void TestImplementationSubDirPath()
+        {
+            ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123\subdir" : "/some/dir/sha1new=123/subdir", out string? path)
+                                    .Should().BeTrue();
+            path.Should().Be(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123");
         }
     }
 }

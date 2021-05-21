@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,25 +22,29 @@ namespace ZeroInstall.Store.Implementations
         /// Determines whether a path looks like it is inside a store implementation known by <see cref="ManifestFormat"/>.
         /// </summary>
         /// <param name="path">A path to a directory that may or may not be inside a store implementation.</param>
-        /// <returns>The top-level of the detected store implementation directory if any; <c>null</c> otherwise.</returns>
+        /// <param name="implementationPath">The top-level of the detected store implementation directory if any; <c>null</c> otherwise.</param>
         /// <remarks>Performs no file system access. Only looks at the path string itself.</remarks>
-        public static string? DetectImplementationPath(string path)
+        public static bool IsImplementation(string path, [NotNullWhen(true)] out string? implementationPath)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             #endregion
 
-            var parts = Path.GetFullPath(path).Split(Path.DirectorySeparatorChar);
+            string[] parts = Path.GetFullPath(path).Split(Path.DirectorySeparatorChar);
             var builder = new StringBuilder();
             foreach (string part in parts)
             {
                 builder.Append(part);
                 if (ManifestFormat.All.Any(format => part.StartsWith(format.Prefix + format.Separator)))
-                    return builder.ToString();
+                {
+                    implementationPath = builder.ToString();
+                    return true;
+                }
                 builder.Append(Path.DirectorySeparatorChar);
             }
 
-            return null;
+            implementationPath = null;
+            return false;
         }
 
         /// <summary>

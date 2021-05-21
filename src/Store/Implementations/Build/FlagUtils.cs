@@ -48,13 +48,13 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             // Move up one level to avoid write-protection within implementation directories
-            string? implementationPath = ImplementationStoreUtils.DetectImplementationPath(directoryPath);
-            if (implementationPath != null) directoryPath = Path.Combine(implementationPath, "..");
+            if (ImplementationStoreUtils.IsImplementation(directoryPath, out string? implementationPath))
+                directoryPath = Path.Combine(implementationPath, "..");
 
             try
             {
-                if (FindRootDir(NoUnixFSFile, directoryPath) != null) return false;
-                else return FileUtils.IsUnixFS(directoryPath);
+                return FindRootDir(NoUnixFSFile, directoryPath) == null
+                    && FileUtils.IsUnixFS(directoryPath);
             }
             #region Error handling
             catch (IOException)

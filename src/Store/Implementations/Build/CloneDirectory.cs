@@ -64,8 +64,7 @@ namespace ZeroInstall.Store.Implementations.Build
             // Tries to remove write-protection on the directory, if it is located in a Store to allow creating hardlinks pointing into it.
             IDisposable? TryUnsealImplementation()
             {
-                string? path = ImplementationStoreUtils.DetectImplementationPath(SourceDirectory.FullName);
-                if (path == null) return null;
+                if (!ImplementationStoreUtils.IsImplementationPath(SourceDirectory.FullName, out string? path)) return null;
 
                 try
                 {
