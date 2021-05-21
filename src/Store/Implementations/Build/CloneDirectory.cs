@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -55,66 +54,13 @@ namespace ZeroInstall.Store.Implementations.Build
         {
             DirectoryBuilder.EnsureDirectory();
 
-            using (TryUnsealImplementation())
+            using (ImplementationStoreUtils.TryUnseal(SourceDirectory.FullName))
             {
                 base.HandleEntries(entries);
                 DirectoryBuilder.CompletePending();
             }
 
             // Tries to remove write-protection on the directory, if it is located in a Store to allow creating hardlinks pointing into it.
-            IDisposable? TryUnsealImplementation()
-            {
-                if (!ImplementationStoreUtils.IsImplementationPath(SourceDirectory.FullName, out string? path)) return null;
-
-                try
-                {
-                    FileUtils.DisableWriteProtection(path);
-                    return new Disposable(() =>
-                    {
-                        try
-                        {
-                            FileUtils.EnableWriteProtection(path);
-                        }
-                        #region Error handling
-                        catch (IOException ex)
-                        {
-                            Log.Info("Unable to restore write protection after creating hardlinks");
-                            Log.Error(ex);
-                        }
-                        catch (UnauthorizedAccessException ex)
-                        {
-                            Log.Info("Unable to restore write protection after creating hardlinks");
-                            Log.Error(ex);
-                        }
-                        catch (InvalidOperationException ex)
-                        {
-                            Log.Info("Unable to restore write protection after creating hardlinks");
-                            Log.Error(ex);
-                        }
-                        #endregion
-                    });
-                }
-                #region Error handling
-                catch (IOException ex)
-                {
-                    Log.Info("Unable to remove write protection for creating hardlinks");
-                    Log.Info(ex);
-                    return null;
-                }
-                catch (UnauthorizedAccessException ex)
-                {
-                    Log.Info("Unable to remove write protection for creating hardlinks");
-                    Log.Info(ex);
-                    return null;
-                }
-                catch (InvalidOperationException ex)
-                {
-                    Log.Info("Unable to remove write protection for creating hardlinks");
-                    Log.Info(ex);
-                    return null;
-                }
-                #endregion
-            }
         }
 
         /// <inheritdoc/>

@@ -6,6 +6,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
+using NanoByte.Common;
+using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
@@ -45,6 +47,62 @@ namespace ZeroInstall.Store.Implementations
 
             implementationPath = null;
             return false;
+        }
+
+        /// <summary>
+        /// Tries to temporarily remove the write protection of an implementation.
+        /// </summary>
+        /// <param name="path">A path inside an implementation store.</param>
+        /// <returns>A token that can be <see cref="IDisposable.Dispose"/>d to restore the write protection. <c>null</c> if the write protection could not be removed.</returns>
+        public static IDisposable? TryUnseal(string path)
+        {
+            if (!IsImplementation(path, out string? implementationPath)) return null;
+
+            try
+            {
+                FileUtils.DisableWriteProtection(implementationPath);
+                return new Disposable(() =>
+                {
+                    try { FileUtils.EnableWriteProtection(path); }
+                    #region Error handling
+                    catch (IOException ex)
+                    {
+                        Log.Info("Unable to restore write protection after creating hardlinks");
+                        Log.Error(ex);
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        Log.Info("Unable to restore write protection after creating hardlinks");
+                        Log.Error(ex);
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        Log.Info("Unable to restore write protection after creating hardlinks");
+                        Log.Error(ex);
+                    }
+                    #endregion
+                });
+            }
+            #region Error handling
+            catch (IOException ex)
+            {
+                Log.Info("Unable to remove write protection for creating hardlinks");
+                Log.Info(ex);
+                return null;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Log.Info("Unable to remove write protection for creating hardlinks");
+                Log.Info(ex);
+                return null;
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.Info("Unable to remove write protection for creating hardlinks");
+                Log.Info(ex);
+                return null;
+            }
+            #endregion
         }
 
         /// <summary>
