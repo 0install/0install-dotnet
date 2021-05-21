@@ -26,7 +26,7 @@ namespace ZeroInstall.Model.Preferences
         public DiskFeedCacheTest()
         {
             // Create a temporary cache
-            _tempDir = new TemporaryDirectory("0install-unit-tests");
+            _tempDir = new TemporaryDirectory("0install-test-feeds");
             _cache = new FeedCache(_tempDir, new Mock<IOpenPgp>().Object);
 
             // Add some dummy feeds to the cache
@@ -53,14 +53,14 @@ namespace ZeroInstall.Model.Preferences
             _cache.Contains(FeedTest.Test2Uri).Should().BeTrue();
             _cache.Contains(FeedTest.Test3Uri).Should().BeFalse();
 
-            using (var localFeed = new TemporaryFile("0install-unit-tests"))
+            using (var localFeed = new TemporaryFile("0install-test-feed"))
             {
                 _feed1.SaveXml(localFeed);
                 _cache.Contains(new(localFeed))
                       .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
             }
 
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-feeds");
             _cache.Contains(new(Path.Combine(tempDir, "feed.xml")))
                   .Should().BeFalse(because: "Should not detect phantom local feed files");
         }

@@ -35,8 +35,8 @@ namespace ZeroInstall.Commands.Basic.Exporters
         [Fact]
         public void TestExportFeeds()
         {
-            using var feedFile1 = new TemporaryFile("0install-unit-tests");
-            using var feedFile2 = new TemporaryFile("0install-unit-tests");
+            using var feedFile1 = new TemporaryFile("0install-test-feed");
+            using var feedFile2 = new TemporaryFile("0install-test-feed");
             var feedCacheMock = CreateMock<IFeedCache>();
 
             feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed1Uri)).Returns(feedFile1);
@@ -62,9 +62,9 @@ namespace ZeroInstall.Commands.Basic.Exporters
         [Fact]
         public void TestExportImplementations()
         {
-            using (var implDir1 = new TemporaryDirectory("0install-unit-tests"))
+            using (var implDir1 = new TemporaryDirectory("0install-test-impl"))
             {
-                using var implDir2 = new TemporaryDirectory("0install-unit-tests");
+                using var implDir2 = new TemporaryDirectory("0install-test-impl");
                 var storeMock = CreateMock<IImplementationStore>();
                 storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "123", null))).Returns(implDir1);
                 storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "abc", null))).Returns(implDir2);

@@ -33,12 +33,12 @@ namespace ZeroInstall.Store.Implementations.Archives
         };
 
         private readonly byte[] _archiveData = BuildArchive();
-        private readonly TemporaryDirectory _sandbox = new("0install-unit-tests");
+        private readonly TemporaryDirectory _sandbox = new("0install-test-archives");
         public void Dispose() => _sandbox.Dispose();
 
         private static byte[] BuildArchive()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-archives");
             using var archiveStream = new MemoryStream();
             SamplePackageHierarchy.Build(tempDir);
             using (var generator = new ZipGenerator(tempDir, archiveStream))

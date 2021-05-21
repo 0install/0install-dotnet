@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Implementations.Build
 
         public DirectoryBuilderTest()
         {
-            _tempDir = new TemporaryDirectory("0install-unit-tests");
+            _tempDir = new TemporaryDirectory("0install-test-builder");
             _builder = new DirectoryBuilder(_tempDir);
         }
 

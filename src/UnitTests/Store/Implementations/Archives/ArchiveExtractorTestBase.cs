@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         [Fact]
         public void TestExtract()
         {
-            using var sandbox = new TemporaryDirectory("0install-unit-tests");
+            using var sandbox = new TemporaryDirectory("0install-test-archives");
             using var extractor = ArchiveExtractor.Create(typeof(ArchiveExtractorTestBase).GetEmbeddedStream(FileName), sandbox, MimeType);
             extractor.Run();
 
@@ -39,7 +39,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         [Fact]
         public void TestExtractSubDir()
         {
-            using var sandbox = new TemporaryDirectory("0install-unit-tests");
+            using var sandbox = new TemporaryDirectory("0install-test-archives");
             using var extractor = ArchiveExtractor.Create(typeof(ArchiveExtractorTestBase).GetEmbeddedStream(FileName), sandbox, MimeType);
             extractor.Extract = "folder1";
             extractor.Run();
@@ -55,7 +55,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         [Fact]
         public void TestExtractInvalidData()
         {
-            using var sandbox = new TemporaryDirectory("0install-unit-tests");
+            using var sandbox = new TemporaryDirectory("0install-test-archives");
             ArchiveExtractor.Create(new MemoryStream(_garbageData), sandbox, MimeType).Invoking(x => x.Run()).Should().Throw<IOException>();
         }
     }

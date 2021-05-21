@@ -48,7 +48,7 @@ namespace ZeroInstall.Services
         [Fact]
         public void TestGetUncachedSelectionsPackageManager()
         {
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-quicktest");
             var impl1 = new ExternalImplementation("RPM", "firefox", new("1.0")) {IsInstalled = false};
             var impl2 = new ExternalImplementation("RPM", "thunderbird", new("1.0")) {IsInstalled = true};
             var impl3 = new ExternalImplementation("RPM", "vlc", new("1.0")) {IsInstalled = true, QuickTestFile = tempFile};

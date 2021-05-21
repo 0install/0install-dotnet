@@ -18,7 +18,7 @@ namespace ZeroInstall.Store.Implementations.Archives
 
         protected Stream BuildArchive(TestRoot root)
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-archives");
             root.Build(tempDir);
             return BuildArchive(tempDir);
         }

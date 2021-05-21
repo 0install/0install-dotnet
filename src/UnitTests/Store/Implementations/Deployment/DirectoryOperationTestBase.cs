@@ -13,7 +13,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
     /// </summary>
     public abstract class DirectoryOperationTestBase : IDisposable
     {
-        protected readonly TemporaryDirectory TempDir = new("0install-unit-tests");
+        protected readonly TemporaryDirectory TempDir = new("0install-test-dir");
         public virtual void Dispose() => TempDir.Dispose();
 
         protected readonly string File1Path;

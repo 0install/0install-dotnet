@@ -13,7 +13,7 @@ namespace ZeroInstall
     [Collection("Static state")]
     public abstract class TestWithRedirect : IDisposable
     {
-        private readonly LocationsRedirect _redirect = new("0install-unit-tests");
+        private readonly LocationsRedirect _redirect = new("0install-test-redirect");
 
         public virtual void Dispose() => _redirect.Dispose();
     }

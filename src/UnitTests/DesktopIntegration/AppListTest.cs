@@ -81,7 +81,7 @@ namespace ZeroInstall.DesktopIntegration
         private static void TestSaveLoad(AppList appList)
         {
             AppList appList2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-applist"))
             {
                 // Write and read file
                 appList.SaveXml(tempFile);

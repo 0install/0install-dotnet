@@ -35,7 +35,7 @@ namespace ZeroInstall.Commands.Basic
                 new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
                 new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
 
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-selections");
             selections.SaveXml(tempFile);
 
             selections.Normalize();

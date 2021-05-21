@@ -145,7 +145,7 @@ namespace ZeroInstall.Model
         public void TestSaveLoad()
         {
             Feed feed1 = CreateTestFeed(), feed2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-feed"))
             {
                 // Write and read file
                 feed1.SaveXml(tempFile);
@@ -210,7 +210,7 @@ namespace ZeroInstall.Model
         {
             var feed = CreateTestFeed();
 
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-feed");
             feed.SaveXml(tempFile);
             var feedReload = XmlStorage.LoadXml<Feed>(tempFile);
 

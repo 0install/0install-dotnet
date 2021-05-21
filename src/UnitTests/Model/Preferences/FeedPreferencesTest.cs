@@ -26,7 +26,7 @@ namespace ZeroInstall.Model.Preferences
         public void TestSaveLoad()
         {
             FeedPreferences preferences1 = CreateTestFeedPreferences(), preferences2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-prefs"))
             {
                 // Write and read file
                 preferences1.SaveXml(tempFile);

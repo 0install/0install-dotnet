@@ -52,7 +52,7 @@ namespace ZeroInstall.Store
         {
             Config config1;
             object config2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-config"))
             {
                 // Write and read file
                 config1 = CreateTestConfig();
@@ -95,7 +95,7 @@ namespace ZeroInstall.Store
         {
             string testIniData = "[global]" + Environment.NewLine + "test = test" + Environment.NewLine;
 
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-config");
             File.WriteAllText(tempFile, testIniData);
             Config.Load(tempFile).Save(tempFile);
             File.ReadAllText(tempFile).Should().Be(testIniData);

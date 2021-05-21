@@ -12,7 +12,7 @@ namespace ZeroInstall
     [Collection("Static state")]
     public abstract class TestWithMocksAndRedirect : TestWithMocks
     {
-        private readonly LocationsRedirect _redirect = new("0install-unit-tests");
+        private readonly LocationsRedirect _redirect = new("0install-test-redirect");
 
         public override void Dispose()
         {

@@ -73,7 +73,7 @@ namespace ZeroInstall.Publish
         [Fact]
         public void LocalApplyArchive()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-archive");
             string tempFile = Path.Combine(tempDir, "archive.zip");
             typeof(RetrievalMethodUtilsTest).CopyEmbeddedToFile("testArchive.zip", tempFile);
 
@@ -93,7 +93,7 @@ namespace ZeroInstall.Publish
         [Fact]
         public void LocalApplySingleFile()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-file");
             string tempFile = Path.Combine(tempDir, "file");
             File.WriteAllText(tempFile, @"abc");
 

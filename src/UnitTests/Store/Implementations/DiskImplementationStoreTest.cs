@@ -30,7 +30,7 @@ namespace ZeroInstall.Store.Implementations
         public DiskImplementationStoreTest()
         {
             _handler = new MockTaskHandler();
-            _tempDir = new TemporaryDirectory("0install-unit-tests");
+            _tempDir = new TemporaryDirectory("0install-test-store");
             _implementationStore = new ImplementationStore(_tempDir);
         }
 
@@ -151,7 +151,7 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void ShouldAllowToAddFolder()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-store");
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
             _implementationStore.AddDirectory(testDir, digest, _handler);
 
@@ -164,7 +164,7 @@ namespace ZeroInstall.Store.Implementations
         {
             Directory.Delete(_tempDir, recursive: true);
 
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-store");
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
             _implementationStore.AddDirectory(testDir, digest, _handler);
 
@@ -219,7 +219,7 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void TestAuditPass()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
             _implementationStore.AddDirectory(testDir, digest, _handler);
@@ -231,7 +231,7 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void TestAuditPassDespiteTimestampRoundingError()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-store");
             var file = new TestFile("file") {Contents = "AAA", LastWrite = new DateTime(2000, 1, 1, 0, 0, 1, DateTimeKind.Utc)};
             new TestRoot {file}.Build(testDir);
 
@@ -262,7 +262,7 @@ namespace ZeroInstall.Store.Implementations
         [Fact]
         public void StressTest()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
 
             var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));

@@ -19,7 +19,7 @@ namespace ZeroInstall.Store
     [Collection("Static state")]
     public class IconStoreTest : IDisposable
     {
-        private readonly TemporaryDirectory _tempDir = new("0install-unit-tests");
+        private readonly TemporaryDirectory _tempDir = new("0install-test-icons");
         private readonly IconStore _store;
 
         public IconStoreTest()

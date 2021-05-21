@@ -70,7 +70,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         public void TestHardlink()
         {
             Stream stream;
-            using (var tempDir = new TemporaryDirectory("0install-unit-tests"))
+            using (var tempDir = new TemporaryDirectory("0install-test-archives"))
             {
                 new TestRoot {new TestFile("file")}.Build(tempDir);
                 FileUtils.CreateHardlink(

@@ -59,7 +59,7 @@ namespace ZeroInstall.Commands.Basic
             envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
             envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
 
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-selections");
             selections.SaveXml(tempFile);
 
             selections.Normalize();

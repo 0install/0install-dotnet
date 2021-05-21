@@ -54,7 +54,7 @@ namespace ZeroInstall.DesktopIntegration
             var appEntry = _integrationManager.AddApp(target);
 
             // Inject access point into AppEntry (without running integration)
-            using var unapplyFlag = new TemporaryFlagFile("0install-unit-tests");
+            using var unapplyFlag = new TemporaryFlagFile("0install-test-flag");
             appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {UnapplyFlagPath = unapplyFlag}}};
 
             _integrationManager.RemoveApp(appEntry);
@@ -71,8 +71,8 @@ namespace ZeroInstall.DesktopIntegration
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var feed1 = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
             var feed2 = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
-            using var applyFlag1 = new TemporaryFlagFile("0install-unit-tests");
-            using var applyFlag2 = new TemporaryFlagFile("0install-unit-tests");
+            using var applyFlag1 = new TemporaryFlagFile("0install-test-flag");
+            using var applyFlag2 = new TemporaryFlagFile("0install-test-flag");
             var accessPoints1 = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1", ApplyFlagPath = applyFlag1}};
             var accessPoints2 = new AccessPoint[] {new MockAccessPoint {ID = "id2", Capability = "my_ext2", ApplyFlagPath = applyFlag2}};
 
@@ -102,7 +102,7 @@ namespace ZeroInstall.DesktopIntegration
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var testApp = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
 
-            using var unapplyFlag = new TemporaryFlagFile("0install-unit-tests");
+            using var unapplyFlag = new TemporaryFlagFile("0install-test-flag");
             var accessPoint = new MockAccessPoint {ID = "id1", Capability = "my_ext1", UnapplyFlagPath = unapplyFlag};
 
             // Inject access point into AppEntry (without running integration)
@@ -150,7 +150,7 @@ namespace ZeroInstall.DesktopIntegration
             var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test"});
             var appEntry = _integrationManager.AddApp(target);
 
-            using var applyFlag = new TemporaryFlagFile("0install-unit-tests");
+            using var applyFlag = new TemporaryFlagFile("0install-test-flag");
             // Inject access point into AppEntry (without running integration)
             appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
             _integrationManager.Repair(_ => new Feed());

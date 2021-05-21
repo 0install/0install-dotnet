@@ -19,7 +19,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         [Fact] // Ensures ArchiveExtractor.FromStream() correctly creates a ZipExtractor.
         public void TestCreateExtractor()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-archives");
             string path = Path.Combine(tempDir, "a.zip");
 
             using (var file = File.Create(path))

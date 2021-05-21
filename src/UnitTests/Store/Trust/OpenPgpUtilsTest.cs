@@ -50,7 +50,7 @@ namespace ZeroInstall.Store.Trust
         [Fact]
         public void TestDeployPublicKey()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-openpgp");
             const string publicKey = "public";
             var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
 

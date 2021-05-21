@@ -49,7 +49,7 @@ namespace ZeroInstall.Commands.Basic
         public void TestRejectImportSelections()
         {
             var selections = Fake.Selections;
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-selections");
             selections.SaveXml(tempFile);
             Sut.Parse(new string[] {tempFile});
             Assert.Throws<NotSupportedException>(() => Sut.Execute());

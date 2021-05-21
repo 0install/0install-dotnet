@@ -24,7 +24,7 @@ namespace ZeroInstall.Commands.Basic
         public virtual void TestImportSelections()
         {
             var selections = Fake.Selections;
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-selections");
             selections.SaveXml(tempFile);
 
             selections.Normalize();

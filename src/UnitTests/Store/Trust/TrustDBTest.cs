@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Trust
         public void TestSaveLoad()
         {
             TrustDB trust1 = CreateTestTrust(), trust2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-trustdb"))
             {
                 // Write and read file
                 trust1.Save(tempFile);
@@ -65,7 +65,7 @@ namespace ZeroInstall.Store.Trust
         [Fact]
         public void TestSave()
         {
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-trustdb");
             var original = new TrustDB();
             original.Save(tempFile);
 

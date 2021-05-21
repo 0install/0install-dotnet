@@ -213,7 +213,7 @@ namespace ZeroInstall.DesktopIntegration
             appListLocal.SaveXml(appListLocalPath);
             appListLast?.SaveXml(appListLocalPath + SyncIntegrationManager.AppListLastSyncSuffix);
 
-            using var appListServerPath = new TemporaryFile("0install-unit-tests");
+            using var appListServerPath = new TemporaryFile("0install-test-applist");
             {
                 using (var stream = File.Create(appListServerPath))
                     appListServer.SaveXmlZip(stream, CryptoKey);

@@ -50,7 +50,7 @@ namespace ZeroInstall.Model.Selection
         public void TestSaveLoad()
         {
             Selections selections1 = CreateTestSelections(), selections2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-feed"))
             {
                 // Write and read file
                 selections1.SaveXml(tempFile);

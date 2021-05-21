@@ -20,7 +20,7 @@ namespace ZeroInstall.Publish
     public class FeedBuilderTest : IDisposable
     {
         private readonly FeedBuilder _builder = new();
-        private readonly TemporaryDirectory _implementationDir = new("0install-unit-tests");
+        private readonly TemporaryDirectory _implementationDir = new("0install-test-impl");
 
         public void Dispose()
         {
@@ -93,8 +93,8 @@ namespace ZeroInstall.Publish
         [Fact]
         public void TestTemporaryDirectory()
         {
-            var tempDir1 = new TemporaryDirectory("0install-unit-tests");
-            var tempDir2 = new TemporaryDirectory("0install-unit-tests");
+            var tempDir1 = new TemporaryDirectory("0install-test-temp");
+            var tempDir2 = new TemporaryDirectory("0install-test-temp");
 
             _builder.TemporaryDirectory = tempDir1;
             Directory.Exists(tempDir1).Should().BeTrue(because: "Directory should exist");

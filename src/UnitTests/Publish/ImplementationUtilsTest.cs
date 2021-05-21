@@ -136,7 +136,7 @@ namespace ZeroInstall.Publish
         [Fact]
         public void GenerateMissingArchive()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-missing");
             string feedPath = Path.Combine(tempDir, "feed.xml");
             Directory.CreateDirectory(Path.Combine(tempDir, "impl"));
             FileUtils.Touch(Path.Combine(tempDir, "impl", "file"));

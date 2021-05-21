@@ -56,7 +56,7 @@ namespace ZeroInstall.Services.Fetchers
         [Fact]
         public void DownloadLocalArchive()
         {
-            using var tempFile = new TemporaryFile("0install-unit-tests");
+            using var tempFile = new TemporaryFile("0install-test-archive");
             _zipArchiveStream.CopyToFile(tempFile);
             TestDownloadArchives(new Archive
             {

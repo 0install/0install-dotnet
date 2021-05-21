@@ -42,7 +42,7 @@ namespace ZeroInstall.Model.Capabilities
         public void TestSaveLoad()
         {
             CapabilityList capabilityList1 = CreateTestCapabilityList(), capabilityList2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-capabilities"))
             {
                 // Write and read file
                 capabilityList1.SaveXml(tempFile);

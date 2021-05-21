@@ -40,7 +40,7 @@ namespace ZeroInstall.Model
         public void TestSaveLoad()
         {
             Catalog catalog1 = CreateTestCatalog(), catalog2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-catalog"))
             {
                 // Write and read file
                 catalog1.SaveXml(tempFile);

@@ -47,7 +47,7 @@ namespace ZeroInstall.Services.Feeds
         [Fact]
         public void Local()
         {
-            using var feedFile = new TemporaryFile("0install-unit-tests");
+            using var feedFile = new TemporaryFile("0install-test-feed");
             _feedPreNormalize.SaveXml(feedFile);
 
             var result = _feedManager[new FeedUri(feedFile)];
@@ -58,7 +58,7 @@ namespace ZeroInstall.Services.Feeds
         [Fact]
         public void LocalMissing()
         {
-            using var tempDir = new TemporaryDirectory("0install-unit-tests");
+            using var tempDir = new TemporaryDirectory("0install-test-missing");
             Assert.Throws<FileNotFoundException>(() => _feedManager[new FeedUri(Path.Combine(tempDir, "invalid"))]);
         }
 
@@ -225,7 +225,7 @@ namespace ZeroInstall.Services.Feeds
             _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
             _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
-            using var feedFile = new TemporaryFile("0install-unit-tests");
+            using var feedFile = new TemporaryFile("0install-test-feed");
             File.WriteAllBytes(feedFile, data);
             _feedManager.ImportFeed(feedFile);
         }
@@ -242,7 +242,7 @@ namespace ZeroInstall.Services.Feeds
                 new ValidSignature(OpenPgpUtilsTest.TestKeyID, OpenPgpUtilsTest.TestFingerprint, new DateTime(2002, 1, 1, 0, 0, 0, DateTimeKind.Utc))
             });
 
-            using var feedFile = new TemporaryFile("0install-unit-tests");
+            using var feedFile = new TemporaryFile("0install-test-feed");
             File.WriteAllBytes(feedFile, data);
             Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(feedFile));
         }

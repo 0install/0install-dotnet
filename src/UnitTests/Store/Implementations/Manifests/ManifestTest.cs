@@ -62,7 +62,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
                 new ManifestDirectory("subdir"),
                 new ManifestNormalFile("abc123", TestFile.DefaultLastWrite, 3, "file"));
             Manifest manifest2;
-            using (var tempFile = new TemporaryFile("0install-unit-tests"))
+            using (var tempFile = new TemporaryFile("0install-test-manifest"))
             {
                 // Generate manifest, write it to a file and read the file again
                 manifest1.Save(tempFile);
@@ -95,7 +95,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void TestCalculateDigest()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-impl");
             new TestRoot
             {
                 new TestDirectory("subdir") {new TestFile("file")}
@@ -118,7 +118,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact] // Ensures that ToXmlString() correctly outputs a serialized form of the manifest.
         public void TestToString()
         {
-            using var testDir = new TemporaryDirectory("0install-unit-tests");
+            using var testDir = new TemporaryDirectory("0install-test-impl");
             new TestRoot
             {
                 new TestDirectory("subdir") {new TestFile("file")}
@@ -153,7 +153,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldListNormalWindowsExeWithFlagF()
         {
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             string filePath = Path.Combine(package, "test.exe");
             string manifestPath = Path.Combine(package, Manifest.ManifestFile);
 
@@ -168,7 +168,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldListFilesInXbitWithFlagX()
         {
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             string filePath = Path.Combine(package, "test.exe");
             string manifestPath = Path.Combine(package, Manifest.ManifestFile);
 
@@ -189,7 +189,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldListFilesInSymlinkWithFlagS()
         {
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             string sourcePath = Path.Combine(package, "test");
             string manifestPath = Path.Combine(package, Manifest.ManifestFile);
 
@@ -210,7 +210,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldListNothingForEmptyPackage()
         {
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
             using var manifestFile = File.OpenRead(Path.Combine(package, Manifest.ManifestFile));
             manifestFile.Length.Should().Be(0, because: "Empty package directory should make an empty manifest");
@@ -219,7 +219,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         [Fact]
         public void ShouldHandleSubdirectoriesWithExecutables()
         {
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             string innerPath = Path.Combine(package, "inner");
             Directory.CreateDirectory(innerPath);
 
@@ -247,7 +247,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             Skip.IfNot(UnixUtils.IsUnix, "Can only test symlinks on Unixoid system");
 
-            using var package = new TemporaryDirectory("0install-unit-tests");
+            using var package = new TemporaryDirectory("0install-test-impl");
             Directory.CreateDirectory(Path.Combine(package, "target"));
             FileUtils.CreateSymlink(Path.Combine(package, "source"), "target");
             var manifest = GenerateManifest(package, ManifestFormat.Sha256New, new MockTaskHandler());

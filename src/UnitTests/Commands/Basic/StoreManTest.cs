@@ -32,7 +32,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Archive()
             {
-                using var tempFile = new TemporaryFile("0install-unit-tests");
+                using var tempFile = new TemporaryFile("0install-test-archive");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = tempFile;
                 StoreMock.Setup(x => x.AddArchives(new[]
@@ -47,7 +47,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void ArchiveRelativePathGuessMimeType()
             {
-                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryWorkingDirectory("0install-test-archive");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = Path.Combine(tempDir, "archive.zip");
                 File.WriteAllText(path, "xyz");
@@ -63,8 +63,8 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void MultipleArchives()
             {
-                using var tempFile1 = new TemporaryFile("0install-unit-tests");
-                using var tempFile2 = new TemporaryFile("0install-unit-tests");
+                using var tempFile1 = new TemporaryFile("0install-test-archive");
+                using var tempFile2 = new TemporaryFile("0install-test-archive");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path1 = tempFile1;
                 string path2 = tempFile2;
@@ -83,7 +83,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Directory()
             {
-                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryDirectory("0install-test-dir");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = tempDir;
                 StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
@@ -95,7 +95,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void DirectoryRelativePath()
             {
-                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryWorkingDirectory("0install-test-dir");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = tempDir;
                 StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
@@ -123,7 +123,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Normal()
             {
-                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryDirectory("0install-test-impl");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
                 StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
@@ -134,7 +134,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void RelativePath()
             {
-                using var tempDir = new TemporaryWorkingDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryWorkingDirectory("0install-test-impl");
                 var digest = new ManifestDigest(sha256New: "abc");
                 string path = Path.Combine(tempDir, "sha256new_" + digest.Sha256New);
                 StoreMock.Setup(x => x.AddDirectory(path, digest, Handler)).Returns("");
@@ -173,7 +173,7 @@ namespace ZeroInstall.Commands.Basic
                 var digest1 = testImplementation.ManifestDigest;
                 var digest2 = new ManifestDigest(sha256New: "2");
 
-                using var tempDir = new TemporaryDirectory("0install-unit-tests");
+                using var tempDir = new TemporaryDirectory("0install-test-impl");
                 GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
                 GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
                 StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
