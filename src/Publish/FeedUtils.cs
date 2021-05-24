@@ -74,7 +74,7 @@ namespace ZeroInstall.Publish
             #endregion
 
             // Calculate the signature in-memory
-            var signature = openPgp.Sign(stream.ToArray(), secretKey, passphrase);
+            var signature = openPgp.Sign(stream.AsArray(), secretKey, passphrase);
 
             // Add the signature to the end of the file
             var writer = new StreamWriter(stream, StoreFeedUtils.Encoding) {NewLine = "\n"};

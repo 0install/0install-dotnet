@@ -12,6 +12,7 @@ using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using NanoByte.Common.Threading;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;

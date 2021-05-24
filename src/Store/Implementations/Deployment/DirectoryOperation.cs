@@ -125,7 +125,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
         }
 
         /// <inheritdoc/>
-        protected override void Dispose(bool disposing)
+        public override void Dispose()
         {
             try
             {
@@ -154,7 +154,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
             }
             finally
             {
-                base.Dispose(disposing);
+                base.Dispose();
             }
         }
     }

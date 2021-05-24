@@ -11,6 +11,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
@@ -123,11 +124,14 @@ namespace ZeroInstall.Services.Feeds
 
             if (source.IsFile) return XmlStorage.LoadXml<Catalog>(source.LocalPath);
 
-            var download = new DownloadMemory(source);
-            _handler.RunTask(download);
-            var data = download.GetData();
-            _trustManager.CheckTrust(data, source);
-            return XmlStorage.LoadXml<Catalog>(new MemoryStream(data));
+            Catalog result = default!;
+            _handler.RunTask(new DownloadFile(source, stream =>
+            {
+                var memory = stream.ToMemory();
+                _trustManager.CheckTrust(memory.AsArray(), source);
+                result = XmlStorage.LoadXml<Catalog>(memory);
+            }));
+            return result;
         }
 
         /// <inheritdoc/>

@@ -267,7 +267,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="fileStream">Stream access to the file to write.</param>
         /// <remarks>Can be overwritten for archive formats that don't simply write a <see cref="Stream"/> to a file.</remarks>
         protected virtual void StreamToFile(Stream stream, FileStream fileStream)
-            => stream.CopyToEx(fileStream, cancellationToken: CancellationToken);
+            => stream.CopyToEx(fileStream);
 
         #region Dispose
         /// <summary>

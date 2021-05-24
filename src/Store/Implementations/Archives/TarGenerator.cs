@@ -71,7 +71,7 @@ namespace ZeroInstall.Store.Implementations.Archives
                 entry.Size = file.Length;
                 _tarStream.PutNextEntry(entry);
                 using var stream = file.OpenRead();
-                stream.CopyToEx(_tarStream, cancellationToken: CancellationToken);
+                stream.CopyToEx(_tarStream);
             }
             _tarStream.CloseEntry();
         }

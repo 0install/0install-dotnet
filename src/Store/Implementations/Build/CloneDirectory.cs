@@ -100,7 +100,7 @@ namespace ZeroInstall.Store.Implementations.Build
             {
                 using var readStream = File.OpenRead(existingPath);
                 using var writeStream = File.Create(newPath);
-                readStream.CopyToEx(writeStream, cancellationToken: CancellationToken);
+                readStream.CopyToEx(writeStream);
             }
         }
 

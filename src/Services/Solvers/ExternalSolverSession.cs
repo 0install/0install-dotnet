@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
+using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using ZeroInstall.Model;
 

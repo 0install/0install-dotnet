@@ -60,7 +60,9 @@ namespace ZeroInstall.Store.Feeds
 
             // ReSharper disable once AssignNullToNotNullAttribute
             return Directory.GetFiles(Path)
-                            .TrySelect<string, FeedUri, UriFormatException>(x => FeedUri.Unescape(System.IO.Path.GetFileName(x)));
+                            .TrySelect(
+                                 x => FeedUri.Unescape(System.IO.Path.GetFileName(x)),
+                                 (UriFormatException _) => {});
         }
 
         /// <inheritdoc/>

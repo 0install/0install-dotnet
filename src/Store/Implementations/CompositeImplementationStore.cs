@@ -66,14 +66,14 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public IEnumerable<ManifestDigest> ListAll()
             // Merge the lists from all contained stores, eliminating duplicates
-            => _innerStores.TrySelect<IImplementationStore, IEnumerable<ManifestDigest>, UnauthorizedAccessException>(x => x.ListAll())
+            => _innerStores.TrySelect(x => x.ListAll(), (UnauthorizedAccessException _) => {})
                            .SelectMany(x => x)
                            .Distinct();
 
         /// <inheritdoc/>
         public IEnumerable<string> ListAllTemp()
             // Merge the lists from all contained stores, eliminating duplicates
-            => _innerStores.TrySelect<IImplementationStore, IEnumerable<string>, UnauthorizedAccessException>(x => x.ListAllTemp())
+            => _innerStores.TrySelect(x => x.ListAllTemp(), (UnauthorizedAccessException _) => {})
                            .SelectMany(x => x)
                            .Distinct(StringComparer.Ordinal);
         #endregion
@@ -86,7 +86,7 @@ namespace ZeroInstall.Store.Implementations
         #region Get path
         /// <inheritdoc/>
         public string? GetPath(ManifestDigest manifestDigest)
-            => _innerStores.TrySelect<IImplementationStore, string?, UnauthorizedAccessException>(store => store.GetPath(manifestDigest))
+            => _innerStores.TrySelect(store => store.GetPath(manifestDigest), (UnauthorizedAccessException _) => {})
                            .WhereNotNull()
                            .FirstOrDefault();
         #endregion

@@ -10,6 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
@@ -216,9 +217,9 @@ namespace ZeroInstall.Services.Feeds
 
             try
             {
-                var download = new DownloadMemory(feedUri);
-                _handler.RunTask(download);
-                ImportFeed(download.GetData(), feedUri);
+                _handler.RunTask(new DownloadFile(
+                    feedUri,
+                    stream => ImportFeed(stream, feedUri)));
             }
             catch (WebException ex) when (!feedUri.IsLoopback && _config.FeedMirror != null)
             {
@@ -228,12 +229,12 @@ namespace ZeroInstall.Services.Feeds
                     Log.Warn(string.Format(Resources.FeedDownloadError, feedUri) + " " + Resources.TryingFeedMirror);
                 try
                 {
-                    var download = new DownloadMemory(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}feeds/{feedUri.Scheme}/{feedUri.Host}/{string.Concat(feedUri.Segments).TrimStart('/').Replace("/", "%23")}/latest.xml"))
+                    _handler.RunTask(new DownloadFile(
+                        new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}feeds/{feedUri.Scheme}/{feedUri.Host}/{string.Concat(feedUri.Segments).TrimStart('/').Replace("/", "%23")}/latest.xml"),
+                        stream => ImportFeed(stream, feedUri))
                     {
                         NoCache = Refresh
-                    };
-                    _handler.RunTask(download);
-                    ImportFeed(download.GetData(), feedUri);
+                    });
                 }
                 catch (WebException)
                 {
@@ -252,7 +253,9 @@ namespace ZeroInstall.Services.Feeds
 
             var feed = XmlStorage.LoadXml<Feed>(path);
             if (feed.Uri == null) throw new InvalidDataException(Resources.ImportNoSource);
-            ImportFeed(File.ReadAllBytes(path), feed.Uri, path);
+
+            using var stream = File.OpenRead(path);
+            ImportFeed(stream, feed.Uri, path);
         }
 
         /// <inheritdoc/>
@@ -265,17 +268,18 @@ namespace ZeroInstall.Services.Feeds
         /// <summary>
         /// Imports a <see cref="Feed"/> into the <see cref="IFeedCache"/> after verifying its signature.
         /// </summary>
-        /// <param name="data">The content of the feed.</param>
+        /// <param name="stream">The content of the feed.</param>
         /// <param name="feedUri">The URI the feed originally came from.</param>
         /// <param name="localPath">The local file path the feed data came from. May be <c>null</c> for in-memory data.</param>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
-        private void ImportFeed(byte[] data, FeedUri feedUri, string? localPath = null)
+        private void ImportFeed(Stream stream, FeedUri feedUri, string? localPath = null)
         {
             Log.Debug("Importing feed " + feedUri.ToStringRfc() + " from " + (localPath ?? "web"));
 
+            var data = stream.AsArray();
             CheckFeed(data, feedUri);
             CheckTrust(data, feedUri, localPath);
             AddToCache(data, feedUri);
