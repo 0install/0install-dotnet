@@ -29,14 +29,11 @@ namespace ZeroInstall.Publish.Capture
             #endregion
 
             // Ambiguity warnings
-            if (ServiceAssocs.Length > 1)
+            if (ServiceAssocs.Count > 1)
                 Log.Warn(Resources.MultipleDefaultProgramsDetected);
 
-            foreach (var serviceAssoc in ServiceAssocs)
+            foreach ((string service, string client) in ServiceAssocs)
             {
-                string service = serviceAssoc.Key;
-                string client = serviceAssoc.Value;
-
                 using var clientKey = Registry.LocalMachine.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client);
                 if (clientKey == null) continue;
 

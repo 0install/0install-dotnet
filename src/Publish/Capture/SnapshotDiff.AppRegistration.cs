@@ -32,9 +32,9 @@ namespace ZeroInstall.Publish.Capture
             #endregion
 
             // Ambiguity warnings
-            if (RegisteredApplications.Length == 0)
+            if (RegisteredApplications.Count == 0)
                 return null;
-            if (RegisteredApplications.Length > 1)
+            if (RegisteredApplications.Count > 1)
                 Log.Warn(Resources.MultipleRegisteredAppsDetected);
 
             // Get registry path pointer

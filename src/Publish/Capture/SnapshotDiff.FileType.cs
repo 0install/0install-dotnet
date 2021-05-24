@@ -56,14 +56,16 @@ namespace ZeroInstall.Publish.Capture
             { // Normal file type
                 var fileType = new FileType {ID = progID};
 
-                foreach (var fileAssoc in FileAssocs.Where(fileAssoc => fileAssoc.Value == progID && !string.IsNullOrEmpty(fileAssoc.Key)))
+                foreach ((string extension, string id) in FileAssocs)
                 {
-                    using var assocKey = Registry.ClassesRoot.OpenSubKey(fileAssoc.Key);
+                    if (id != progID || string.IsNullOrEmpty(extension)) continue;
+
+                    using var assocKey = Registry.ClassesRoot.OpenSubKey(extension);
                     if (assocKey == null) continue;
 
                     fileType.Extensions.Add(new FileTypeExtension
                     {
-                        Value = fileAssoc.Key,
+                        Value = extension,
                         MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType)?.ToString(),
                         PerceivedType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValuePerceivedType)?.ToString()
                     });

@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
 using Microsoft.Win32;
 
 namespace ZeroInstall.Publish.Capture
@@ -17,7 +18,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="root">The root key to look within.</param>
         /// <param name="key">The path of the subkey below <paramref name="root"/>.</param>
         /// <returns>A list of value names; an empty array if the key does not exist.</returns>
-        public static string[] GetValueNames(RegistryKey root, string key)
+        public static IEnumerable<string> GetValueNames(RegistryKey root, string key)
         {
             #region Sanity checks
             if (root == null) throw new ArgumentNullException(nameof(root));
@@ -34,7 +35,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="root">The root key to look within.</param>
         /// <param name="key">The path of the subkey below <paramref name="root"/>.</param>
         /// <returns>A list of key names; an empty array if the key does not exist.</returns>
-        public static string[] GetSubKeyNames(RegistryKey root, string key)
+        public static IEnumerable<string> GetSubKeyNames(RegistryKey root, string key)
         {
             #region Sanity checks
             if (root == null) throw new ArgumentNullException(nameof(root));

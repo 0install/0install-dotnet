@@ -1,15 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.Windows;
 using ZeroInstall.Publish.Properties;
@@ -23,43 +20,49 @@ namespace ZeroInstall.Publish.Capture
     public class Snapshot
     {
         /// <summary>A list of associations of services with clients (e.g. web browsers, mail readers, ...).</summary>
-        public ComparableTuple<string>[] ServiceAssocs;
+        public List<(string name, string client)> ServiceAssocs { get; } = new();
 
         /// <summary>A list of applications registered as AutoPlay handlers.</summary>
-        public string[] AutoPlayHandlersUser, AutoPlayHandlersMachine;
+        public List<string> AutoPlayHandlersUser { get; } = new();
 
-        /// <summary>A list of associations of an AutoPlay events with an AutoPlay handlers.</summary>
-        public ComparableTuple<string>[] AutoPlayAssocsUser, AutoPlayAssocsMachine;
+        /// <summary>A list of applications registered as AutoPlay handlers.</summary>
+        public List<string> AutoPlayHandlersMachine { get; } = new();
+
+        /// <summary>A list of associations of AutoPlay events with AutoPlay handlers.</summary>
+        public List<(string name, string handler)> AutoPlayAssocsUser { get; } = new();
+
+        /// <summary>A list of associations of AutoPlay events with AutoPlay handlers.</summary>
+        public List<(string name, string handler)> AutoPlayAssocsMachine { get; } = new();
 
         /// <summary>A list of associations of file extensions with programmatic identifiers.</summary>
-        public ComparableTuple<string>[] FileAssocs;
+        public List<(string extension, string progID)> FileAssocs { get; } = new();
 
         /// <summary>A list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).</summary>
-        public ComparableTuple<string>[] ProtocolAssocs;
+        public List<(string protocol, string progID)> ProtocolAssocs { get; } = new();
 
         /// <summary>A list of programmatic identifiers.</summary>
-        public string[] ProgIDs;
+        public List<string> ProgIDs { get; } = new();
 
         /// <summary>A list of COM class IDs.</summary>
-        public string[] ClassIDs;
+        public List<string> ClassIDs { get; } = new();
 
         /// <summary>A list of applications registered as candidates for default programs.</summary>
-        public string[] RegisteredApplications;
+        public List<string> RegisteredApplications { get; } = new();
 
         /// <summary>A list of context menu entries for all files.</summary>
-        public string[] ContextMenuFiles;
+        public List<string> ContextMenuFiles { get; } = new();
 
         /// <summary>A list of context menu entries for executable files.</summary>
-        public string[] ContextMenuExecutableFiles;
+        public List<string> ContextMenuExecutableFiles { get; } = new();
 
         /// <summary>A list of context menu entries for all directories.</summary>
-        public string[] ContextMenuDirectories;
+        public List<string> ContextMenuDirectories { get; } = new();
 
         /// <summary>A list of context menu entries for all filesystem objects (files and directories).</summary>
-        public string[] ContextMenuAll;
+        public List<string> ContextMenuAll { get; } = new();
 
         /// <summary>A list of program installation directories.</summary>
-        public string[] ProgramsDirs;
+        public List<string> ProgramsDirs { get; } = new();
 
         /// <summary>
         /// Takes a snapshot of the current system state.
@@ -86,20 +89,24 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
         private void TakeRegistry()
         {
-            ServiceAssocs = GetServiceAssocs();
-            AutoPlayHandlersUser = RegUtils.GetSubKeyNames(Registry.CurrentUser, AutoPlay.RegKeyHandlers);
-            AutoPlayHandlersMachine = RegUtils.GetSubKeyNames(Registry.LocalMachine, AutoPlay.RegKeyHandlers);
-            AutoPlayAssocsUser = GetAutoPlayAssocs(Registry.CurrentUser);
-            AutoPlayAssocsMachine = GetAutoPlayAssocs(Registry.LocalMachine);
-            (FileAssocs, ProgIDs) = GetFileAssocData();
-            ProtocolAssocs = GetProtocolAssoc();
-            ClassIDs = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs);
-            RegisteredApplications = RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications);
+            ServiceAssocs.AddRange(GetServiceAssocs());
+            AutoPlayHandlersUser.AddRange(RegUtils.GetSubKeyNames(Registry.CurrentUser, AutoPlay.RegKeyHandlers));
+            AutoPlayHandlersMachine.AddRange(RegUtils.GetSubKeyNames(Registry.LocalMachine, AutoPlay.RegKeyHandlers));
+            AutoPlayAssocsUser.AddRange(GetAutoPlayAssocs(Registry.CurrentUser));
+            AutoPlayAssocsMachine.AddRange(GetAutoPlayAssocs(Registry.LocalMachine));
 
-            ContextMenuFiles = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesFiles + @"\shell");
-            ContextMenuExecutableFiles = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesExecutableFiles + @"\shell");
-            ContextMenuDirectories = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesDirectories + @"\shell");
-            ContextMenuAll = RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesAll + @"\shell");
+            var (fileAssocs, progIDs) = GetFileAssocData();
+            FileAssocs.AddRange(fileAssocs);
+            ProgIDs.AddRange(progIDs);
+
+            ProtocolAssocs.AddRange(GetProtocolAssoc());
+            ClassIDs.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs));
+            RegisteredApplications.AddRange(RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications));
+
+            ContextMenuFiles.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesFiles + @"\shell"));
+            ContextMenuExecutableFiles.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesExecutableFiles + @"\shell"));
+            ContextMenuDirectories.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesDirectories + @"\shell"));
+            ContextMenuAll.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesAll + @"\shell"));
         }
 
         /// <summary>
@@ -107,25 +114,25 @@ namespace ZeroInstall.Publish.Capture
         /// </summary>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        private static ComparableTuple<string>[] GetServiceAssocs()
+        private static IEnumerable<(string serviceName, string clientName)> GetServiceAssocs()
         {
             using var clientsKey = Registry.LocalMachine.OpenSubKey(DefaultProgram.RegKeyMachineClients);
-            if (clientsKey == null) return new ComparableTuple<string>[0];
+            if (clientsKey == null) return Enumerable.Empty<(string, string)>();
 
             return (
                 from serviceName in clientsKey.GetSubKeyNames()
                 // ReSharper disable AccessToDisposedClosure
                 from clientName in RegUtils.GetSubKeyNames(clientsKey, serviceName)
                 // ReSharper restore AccessToDisposedClosure
-                select new ComparableTuple<string>(serviceName, clientName)).ToArray();
+                select (serviceName, clientName));
         }
 
         /// <summary>
         /// Retrieves a list of file associations and programmatic identifiers the registry.
         /// </summary>
-        private static (ComparableTuple<string>[] fileAssocs, string[] progIDs) GetFileAssocData()
+        private static (List<(string name, string handler)> fileAssocs, List<string> progIDs) GetFileAssocData()
         {
-            var fileAssocsList = new List<ComparableTuple<string>>();
+            var fileAssocsList = new List<(string name, string handler)>();
             var progIDsList = new List<string>();
 
             foreach (string keyName in Registry.ClassesRoot.GetSubKeyNames())
@@ -133,29 +140,30 @@ namespace ZeroInstall.Publish.Capture
                 if (keyName.StartsWith("."))
                 {
                     using var assocKey = Registry.ClassesRoot.OpenSubKey(keyName);
+                    if (assocKey == null) continue;
+
                     // Get the main ProgID
-                    string assocValue = assocKey?.GetValue("")?.ToString();
+                    string? assocValue = assocKey.GetValue("")?.ToString();
                     if (string.IsNullOrEmpty(assocValue)) continue;
-                    fileAssocsList.Add(new ComparableTuple<string>(keyName, assocValue));
+                    fileAssocsList.Add((keyName, assocValue));
 
                     // Get additional ProgIDs
-                    fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => new ComparableTuple<string>(keyName, progID)));
+                    fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => (keyName, progID)));
                 }
                 else progIDsList.Add(keyName);
             }
 
-            return (fileAssocsList.ToArray(), progIDsList.ToArray());
+            return (fileAssocsList, progIDsList);
         }
 
         /// <summary>
         /// Retrieves a list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).
         /// </summary>
-        private static ComparableTuple<string>[] GetProtocolAssoc()
+        private static IEnumerable<(string protocol, string command)> GetProtocolAssoc()
             => (from protocol in new[] {"ftp", "gopher", "http", "https"}
-                let command = RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol + @"\shell\open\command", valueName: null)
+                let command = RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol + @"\shell\open\command", valueName: null)!
                 where !string.IsNullOrEmpty(command)
-                select new ComparableTuple<string>(protocol, command))
-               .ToArray();
+                select (protocol, command))!;
 
         /// <summary>
         /// Retrieves a list of AutoPlay associations from the registry.
@@ -163,15 +171,15 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="hive">The registry hive to search in (usually HKCU or HKLM).</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        private static ComparableTuple<string>[] GetAutoPlayAssocs(RegistryKey hive)
+        private static IEnumerable<(string eventName, string handlerName)> GetAutoPlayAssocs(RegistryKey hive)
         {
             using var eventsKey = hive.OpenSubKey(AutoPlay.RegKeyAssocs);
-            if (eventsKey == null) return new ComparableTuple<string>[0];
+            if (eventsKey == null) return Enumerable.Empty<(string, string)>();
 
             return (
                 from eventName in eventsKey.GetSubKeyNames()
                 from handlerName in RegUtils.GetValueNames(eventsKey, eventName)
-                select new ComparableTuple<string>(eventName, handlerName)).ToArray();
+                select (eventName, handlerName));
         }
         #endregion
 
@@ -184,20 +192,18 @@ namespace ZeroInstall.Publish.Capture
         private void TakeFileSystem()
         {
             // Locate installation directories
-            string programFiles32Bit = Environment.Is64BitProcess
+            string? programFiles32Bit = Environment.Is64BitProcess
                 ? Environment.GetEnvironmentVariable("ProgramFiles(x86)")
                 : Environment.GetEnvironmentVariable("ProgramFiles");
-            string programFiles64Bit = Environment.Is64BitProcess
+            string? programFiles64Bit = Environment.Is64BitProcess
                 ? Environment.GetEnvironmentVariable("ProgramFiles")
                 : null;
 
             // Build a list of all installation directories
-            var programDirs = new List<string>();
             if (string.IsNullOrEmpty(programFiles32Bit)) Log.Warn(Resources.MissingProgramFiles32Bit);
-            else programDirs.AddRange(Directory.GetDirectories(programFiles32Bit));
+            else ProgramsDirs.AddRange(Directory.GetDirectories(programFiles32Bit));
             if (!string.IsNullOrEmpty(programFiles64Bit))
-                programDirs.AddRange(Directory.GetDirectories(programFiles64Bit));
-            ProgramsDirs = programDirs.ToArray();
+                ProgramsDirs.AddRange(Directory.GetDirectories(programFiles64Bit));
         }
         #endregion
     }

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
 using System;
 using System.IO;
 using NanoByte.Common.Storage;
@@ -18,7 +17,6 @@ namespace ZeroInstall.Publish.Capture
     public class CaptureSession
     {
         private readonly Snapshot _snapshot;
-
         private readonly FeedBuilder _feedBuilder;
 
         /// <summary>
@@ -39,13 +37,9 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="IOException">There was an error accessing the registry or file system.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the registry or the file system was not permitted.</exception>
         public static CaptureSession Start(FeedBuilder feedBuilder)
-        {
-            #region Sanity checks
-            if (feedBuilder == null) throw new ArgumentNullException(nameof(feedBuilder));
-            #endregion
-
-            return new(Snapshot.Take(), feedBuilder);
-        }
+            => new(
+                Snapshot.Take(),
+                feedBuilder ?? throw new ArgumentNullException(nameof(feedBuilder)));
 
         private SnapshotDiff? _diff;
 
@@ -136,7 +130,6 @@ namespace ZeroInstall.Publish.Capture
             _feedBuilder.RetrievalMethod = new Archive {Href = archiveUrl, MimeType = mimeType, Size = new FileInfo(archivePath).Length};
         }
 
-        #region Storage
         /// <summary>
         /// Loads a capture session from a snapshot file.
         /// </summary>
@@ -146,14 +139,9 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
         /// <exception cref="InvalidDataException">A problem occurred while deserializing the binary data.</exception>
         public static CaptureSession Load(string path, FeedBuilder feedBuilder)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (feedBuilder == null) throw new ArgumentNullException(nameof(feedBuilder));
-            #endregion
-
-            return new(BinaryStorage.LoadBinary<Snapshot>(path), feedBuilder);
-        }
+            => new(
+                JsonStorage.LoadJson<Snapshot>(path),
+                feedBuilder ?? throw new ArgumentNullException(nameof(feedBuilder)));
 
         /// <summary>
         /// Saves the capture session to a snapshot file.
@@ -162,14 +150,6 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
         public void Save(string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            _snapshot.SaveBinary(path);
-        }
-        #endregion
+            => _snapshot.SaveJson(path);
     }
 }
-#endif

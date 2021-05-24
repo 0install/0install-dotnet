@@ -33,21 +33,25 @@ namespace ZeroInstall.Publish.Capture
             if (after == null) throw new ArgumentNullException(nameof(after));
             #endregion
 
-            ServiceAssocs = after.ServiceAssocs.GetAddedElements(before.ServiceAssocs);
-            AutoPlayHandlersUser = after.AutoPlayHandlersUser.GetAddedElements(before.AutoPlayHandlersUser);
-            AutoPlayHandlersMachine = after.AutoPlayHandlersMachine.GetAddedElements(before.AutoPlayHandlersMachine);
-            AutoPlayAssocsUser = after.AutoPlayAssocsUser.GetAddedElements(before.AutoPlayAssocsUser);
-            AutoPlayAssocsMachine = after.AutoPlayAssocsMachine.GetAddedElements(before.AutoPlayAssocsMachine);
-            FileAssocs = after.FileAssocs.GetAddedElements(before.FileAssocs);
-            ProtocolAssocs = after.ProtocolAssocs.GetAddedElements(before.ProtocolAssocs);
-            ProgIDs = after.ProgIDs.GetAddedElements(before.ProgIDs, StringComparer.OrdinalIgnoreCase);
-            ClassIDs = after.ClassIDs.GetAddedElements(before.ClassIDs, StringComparer.OrdinalIgnoreCase);
-            RegisteredApplications = after.RegisteredApplications.GetAddedElements(before.RegisteredApplications);
-            ContextMenuFiles = after.ContextMenuFiles.GetAddedElements(before.ContextMenuFiles);
-            ContextMenuExecutableFiles = after.ContextMenuExecutableFiles.GetAddedElements(before.ContextMenuExecutableFiles);
-            ContextMenuDirectories = after.ContextMenuDirectories.GetAddedElements(before.ContextMenuDirectories);
-            ContextMenuAll = after.ContextMenuAll.GetAddedElements(before.ContextMenuAll);
-            ProgramsDirs = after.ProgramsDirs.GetAddedElements(before.ProgramsDirs, StringComparer.OrdinalIgnoreCase);
+            void FindDiff<T>(Func<Snapshot, List<T>> get, IComparer<T>? comparer = null)
+                where T : IComparable<T>
+                => get(this).AddRange(get(after).GetAddedElements(get(before), comparer ?? DefaultComparer<T>.Instance));
+
+            FindDiff(x => x.ServiceAssocs);
+            FindDiff(x => x.AutoPlayHandlersUser);
+            FindDiff(x => x.AutoPlayHandlersMachine);
+            FindDiff(x => x.AutoPlayAssocsUser);
+            FindDiff(x => x.AutoPlayAssocsMachine);
+            FindDiff(x => x.FileAssocs);
+            FindDiff(x => x.ProtocolAssocs);
+            FindDiff(x => x.ProgIDs, StringComparer.OrdinalIgnoreCase);
+            FindDiff(x => x.ClassIDs, StringComparer.OrdinalIgnoreCase);
+            FindDiff(x => x.RegisteredApplications);
+            FindDiff(x => x.ContextMenuFiles);
+            FindDiff(x => x.ContextMenuExecutableFiles);
+            FindDiff(x => x.ContextMenuDirectories);
+            FindDiff(x => x.ContextMenuAll);
+            FindDiff(x => x.ProgramsDirs, StringComparer.OrdinalIgnoreCase);
         }
 
         /// <summary>
@@ -57,11 +61,11 @@ namespace ZeroInstall.Publish.Capture
         public string GetInstallationDir()
         {
             string installationDir;
-            if (ProgramsDirs.Length == 0)
+            if (ProgramsDirs.Count == 0)
                 throw new InvalidOperationException(Resources.NoInstallationDirDetected);
             else
             {
-                if (ProgramsDirs.Length > 1)
+                if (ProgramsDirs.Count > 1)
                     Log.Warn(Resources.MultipleInstallationDirsDetected);
 
                 installationDir = new DirectoryInfo(ProgramsDirs[0]).WalkThroughPrefix().FullName;

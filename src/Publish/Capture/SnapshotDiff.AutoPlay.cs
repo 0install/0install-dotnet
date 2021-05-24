@@ -46,7 +46,7 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        private static Capability? GetAutoPlay(string handler, RegistryKey hive, IEnumerable<ComparableTuple<string>> autoPlayAssocs, CommandMapper commandMapper)
+        private static Capability? GetAutoPlay(string handler, RegistryKey hive, IEnumerable<(string name, string handler)> autoPlayAssocs, CommandMapper commandMapper)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -74,8 +74,8 @@ namespace ZeroInstall.Publish.Capture
 
             autoPlay.Events.AddRange(
                 from autoPlayAssoc in autoPlayAssocs
-                where autoPlayAssoc.Value == handler
-                select new AutoPlayEvent {Name = autoPlayAssoc.Key});
+                where autoPlayAssoc.handler == handler
+                select new AutoPlayEvent {Name = autoPlayAssoc.name});
 
             return autoPlay;
         }

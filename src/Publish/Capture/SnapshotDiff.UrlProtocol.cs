@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using Microsoft.Win32;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Publish.Capture
             if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
             #endregion
 
-            foreach (string protocol in ProtocolAssocs.Select(protocolAssoc => protocolAssoc.Key))
+            foreach ((string protocol, _) in ProtocolAssocs)
             {
                 using var protocolKey = Registry.ClassesRoot.OpenSubKey(protocol);
                 if (protocolKey == null) throw new IOException(protocol + " not found");
