@@ -27,7 +27,6 @@ namespace ZeroInstall.Store.Implementations
     /// </remarks>
     public class CompositeImplementationStore : MarshalByRefObject, IImplementationStore
     {
-        #region Properties
         private readonly IImplementationStore[] _innerStores;
 
         /// <summary>
@@ -35,14 +34,6 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         public IEnumerable<IImplementationStore> Stores => new ReadOnlyCollection<IImplementationStore>(_innerStores);
 
-        /// <inheritdoc/>
-        public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
-
-        /// <inheritdoc/>
-        public string Path => string.Join(System.IO.Path.PathSeparator.ToString(), Stores.Select(x => x.Path));
-        #endregion
-
-        #region Constructor
         /// <summary>
         /// Creates a new composite implementation store with a set of <see cref="IImplementationStore"/>s.
         /// </summary>
@@ -58,42 +49,12 @@ namespace ZeroInstall.Store.Implementations
 
             _innerStores = innerStores.ToArray();
         }
-        #endregion
-
-        //--------------------//
-
-        #region List all
-        /// <inheritdoc/>
-        public IEnumerable<ManifestDigest> ListAll()
-            // Merge the lists from all contained stores, eliminating duplicates
-            => _innerStores.TrySelect(x => x.ListAll(), (UnauthorizedAccessException _) => {})
-                           .SelectMany(x => x)
-                           .Distinct();
 
         /// <inheritdoc/>
-        public IEnumerable<string> ListAllTemp()
-            // Merge the lists from all contained stores, eliminating duplicates
-            => _innerStores.TrySelect(x => x.ListAllTemp(), (UnauthorizedAccessException _) => {})
-                           .SelectMany(x => x)
-                           .Distinct(StringComparer.Ordinal);
-        #endregion
+        public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
-        #region Contains
         /// <inheritdoc/>
-        public bool Contains(ManifestDigest manifestDigest) => _innerStores.Any(x => x.Contains(manifestDigest));
-        #endregion
-
-        #region Get path
-        /// <inheritdoc/>
-        public string? GetPath(ManifestDigest manifestDigest)
-            => _innerStores.TrySelect(store => store.GetPath(manifestDigest), (UnauthorizedAccessException _) => {})
-                           .WhereNotNull()
-                           .FirstOrDefault();
-        #endregion
-
-        #region Add
-        /// <inheritdoc/>
-        public string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
+        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
         {
             #region Sanity checks
             if (sources == null) throw new ArgumentNullException(nameof(sources));
@@ -109,7 +70,8 @@ namespace ZeroInstall.Store.Implementations
                 try
                 {
                     // Try to add implementation to this store
-                    return store.Add(manifestDigest, handler, sources);
+                    store.Add(manifestDigest, handler, sources);
+                    return;
                 }
                 #region Error handling
                 catch (IOException ex)
@@ -132,9 +94,35 @@ namespace ZeroInstall.Store.Implementations
             // If we reach this, the implementation could not be added to any store
             throw innerException?.Rethrow() ?? new InvalidOperationException();
         }
-        #endregion
 
-        #region Remove
+        /// <inheritdoc/>
+        public string Path
+            => string.Join(System.IO.Path.PathSeparator.ToString(), Stores.Select(x => x.Path));
+
+        /// <inheritdoc/>
+        public bool Contains(ManifestDigest manifestDigest)
+            => _innerStores.Any(x => x.Contains(manifestDigest));
+
+        /// <inheritdoc/>
+        public string? GetPath(ManifestDigest manifestDigest)
+            => _innerStores.TrySelect(store => store.GetPath(manifestDigest), (UnauthorizedAccessException _) => {})
+                           .WhereNotNull()
+                           .FirstOrDefault();
+
+        /// <inheritdoc/>
+        public IEnumerable<ManifestDigest> ListAll()
+            // Merge the lists from all contained stores, eliminating duplicates
+            => _innerStores.TrySelect(x => x.ListAll(), (UnauthorizedAccessException _) => {})
+                           .SelectMany(x => x)
+                           .Distinct();
+
+        /// <inheritdoc/>
+        public IEnumerable<string> ListAllTemp()
+            // Merge the lists from all contained stores, eliminating duplicates
+            => _innerStores.TrySelect(x => x.ListAllTemp(), (UnauthorizedAccessException _) => {})
+                           .SelectMany(x => x)
+                           .Distinct(StringComparer.Ordinal);
+
         /// <inheritdoc/>
         public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
         {
@@ -149,9 +137,7 @@ namespace ZeroInstall.Store.Implementations
 
             return removed;
         }
-        #endregion
 
-        #region Optimise
         /// <inheritdoc/>
         public long Optimise(ITaskHandler handler)
         {
@@ -162,9 +148,7 @@ namespace ZeroInstall.Store.Implementations
             // Try to optimize all contained stores
             return _innerStores.Reverse().Sum(x => x.Optimise(handler));
         }
-        #endregion
 
-        #region Verify
         /// <inheritdoc/>
         public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
         {
@@ -181,16 +165,11 @@ namespace ZeroInstall.Store.Implementations
             }
             if (!verified) throw new ImplementationNotFoundException(manifestDigest);
         }
-        #endregion
 
-        //--------------------//
-
-        #region Conversion
         /// <summary>
         /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
             => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()!));
-        #endregion
     }
 }

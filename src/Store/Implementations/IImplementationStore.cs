@@ -6,14 +6,13 @@ using System.Collections.Generic;
 using System.IO;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
     /// Manages directories that store extracted <see cref="Implementation"/>s. Also known as the implementation caches.
     /// </summary>
-    public interface IImplementationStore
+    public interface IImplementationStore : IImplementationSink
     {
         /// <summary>
         /// Indicates what kind of access to this store is possible.
@@ -24,20 +23,6 @@ namespace ZeroInstall.Store.Implementations
         /// The path to the underlying directory in the file system.
         /// </summary>
         string Path { get; }
-
-        /// <summary>
-        /// Returns a list of all implementations currently in the store.
-        /// </summary>
-        /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
-        /// <returns>A list of implementations formatted as "algorithm=digest" (e.g. "sha256=123abc").</returns>
-        IEnumerable<ManifestDigest> ListAll();
-
-        /// <summary>
-        /// Returns a list of temporary directories currently in the store.
-        /// </summary>
-        /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
-        /// <returns>A list of fully qualified paths.</returns>
-        IEnumerable<string> ListAllTemp();
 
         /// <summary>
         /// Determines whether the store contains a local copy of an implementation identified by a specific <see cref="ManifestDigest"/>.
@@ -59,19 +44,18 @@ namespace ZeroInstall.Store.Implementations
         string? GetPath(ManifestDigest manifestDigest);
 
         /// <summary>
-        /// Executes one or more steps to build an implementation and adds it to the store.
+        /// Returns a list of all implementations currently in the store.
         /// </summary>
-        /// <param name="manifestDigest">The digest the implementation is supposed to match.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <param name="sources">The sources providing content for the implementation.</param>
-        /// <returns>The final location of the directory the archives were extracted into.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="NotSupportedException">An archive type or the <see cref="ManifestDigest"/> format is unknown or not supported.</exception>
-        /// <exception cref="IOException">One of the archives cannot be extracted.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to one of the archives or write access to the store is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">The archives content doesn't match the <paramref name="manifestDigest"/>.</exception>
-        string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources);
+        /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
+        /// <returns>A list of implementations formatted as "algorithm=digest" (e.g. "sha256=123abc").</returns>
+        IEnumerable<ManifestDigest> ListAll();
+
+        /// <summary>
+        /// Returns a list of temporary directories currently in the store.
+        /// </summary>
+        /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
+        /// <returns>A list of fully qualified paths.</returns>
+        IEnumerable<string> ListAllTemp();
 
         /// <summary>
         /// Removes a specific implementation from the cache.

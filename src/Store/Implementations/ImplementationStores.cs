@@ -53,7 +53,7 @@ namespace ZeroInstall.Store.Implementations
 
 #if NETFRAMEWORK
             if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
-                stores.Add(new IpcImplementationStore());
+                stores.Add(new ServiceImplementationStore());
 #endif
 
             return new CompositeImplementationStore(stores);

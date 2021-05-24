@@ -140,7 +140,7 @@ namespace ZeroInstall.Services.Fetchers
 
             _storeMock.Setup(x => x.GetPath(digest)).Returns(() => null);
 
-            _storeMock.Setup(x => x.Add(digest, _handler, It.Is<IImplementationSource[]>(sources => sources.IsEquivalentTo(archiveSources)))).Returns("");
+            _storeMock.Setup(x => x.Add(digest, _handler, It.Is<IImplementationSource[]>(sources => sources.IsEquivalentTo(archiveSources))));
 
             _fetcher.Fetch(testImplementation);
         }
@@ -166,8 +166,7 @@ namespace ZeroInstall.Services.Fetchers
                       .Returns(() => null);
 
             _storeMock.Setup(x => x.Add(digest, _handler, It.IsAny<IImplementationSource[]>()))
-                      .Callback(VerifyDirectorySource(expected))
-                      .Returns("");
+                      .Callback(VerifyDirectorySource(expected));
 
             _fetcher.Fetch(testImplementation);
         }

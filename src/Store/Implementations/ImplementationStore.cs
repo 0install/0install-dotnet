@@ -330,7 +330,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Add
         /// <inheritdoc/>
-        public string Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
+        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
         {
             #region Sanity checks
             if (sources == null) throw new ArgumentNullException(nameof(sources));
@@ -363,7 +363,7 @@ namespace ZeroInstall.Store.Implementations
                     #endregion
                 }
 
-                return VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
+                VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
             }
             finally
             {
@@ -379,11 +379,10 @@ namespace ZeroInstall.Store.Implementations
         /// <param name="tempID">The temporary identifier of the directory inside the store.</param>
         /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The final location of the directory.</returns>
         /// <exception cref="DigestMismatchException">The temporary directory doesn't match the <paramref name="expectedDigest"/>.</exception>
         /// <exception cref="IOException"><paramref name="tempID"/> cannot be moved or the digest cannot be calculated.</exception>
         /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="expectedDigest"/> in the store.</exception>
-        private string VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
+        private void VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
         {
             // Determine the digest method to use
             string? expectedDigestValue = expectedDigest.Best;
@@ -415,7 +414,6 @@ namespace ZeroInstall.Store.Implementations
 
             // Prevent any further changes to the directory
             if (_useWriteProtection) EnableWriteProtection(target);
-            return target;
         }
         #endregion
 

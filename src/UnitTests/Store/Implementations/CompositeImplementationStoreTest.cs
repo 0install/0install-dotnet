@@ -115,7 +115,7 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Returns("");
+            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives));
             _testStore.Add(_digest1, _handler, _archives);
         }
 
@@ -126,7 +126,7 @@ namespace ZeroInstall.Store.Implementations
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
             _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives)).Returns("");
+            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives));
             _testStore.Add(_digest1, _handler, _archives);
         }
 

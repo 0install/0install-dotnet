@@ -15,7 +15,7 @@ using NanoByte.Common;
 
 namespace ZeroInstall.Store.Implementations
 {
-    public partial class IpcImplementationStore
+    public partial class ServiceImplementationStore
     {
         /// <summary>
         /// The port name to use to contact the store service.
@@ -33,7 +33,7 @@ namespace ZeroInstall.Store.Implementations
         public static readonly CommonSecurityDescriptor IpcAcl;
 
         [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "Must build ACL during init")]
-        static IpcImplementationStore()
+        static ServiceImplementationStore()
         {
             var dacl = new DiscretionaryAcl(false, false, 1);
             dacl.AddAccess(AccessControlType.Allow, new SecurityIdentifier(WellKnownSidType.CreatorOwnerSid, null), -1, InheritanceFlags.None, PropagationFlags.None);
@@ -43,7 +43,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         private static readonly object _lock = new();
-        private static volatile IImplementationStore? _proxy;
+        private static volatile IImplementationSink? _proxy;
 
         /// <summary>
         /// Provides a proxy object for accessing the <see cref="IImplementationStore"/> in the store service.
@@ -51,7 +51,7 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="RemotingException">There is a problem connecting with the store service.</exception>
         /// <remarks>Always returns the same instance. Opens named pipes on first call. Connection is only established on demand.</remarks>
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "May throw exceptions")]
-        private static IImplementationStore GetProxy()
+        private static IImplementationSink GetProxy()
         {
             // Thread-safe singleton with double-check
             if (_proxy == null)
@@ -69,7 +69,7 @@ namespace ZeroInstall.Store.Implementations
         /// Sets up named pipes and creates a proxy object for accessing the <see cref="IImplementationStore"/> in the store service.
         /// </summary>
         /// <remarks>Must only be called once per process!</remarks>
-        private static IImplementationStore CreateServiceProxy()
+        private static IImplementationSink CreateServiceProxy()
         {
             Log.Debug("Attempting to connect to Store Service");
 
@@ -96,7 +96,7 @@ namespace ZeroInstall.Store.Implementations
                 IpcAcl), ensureSecurity: false);
 
             // Create proxy object
-            return (IImplementationStore)Activator.GetObject(typeof(IImplementationStore), "ipc://" + IpcPortName + "/" + IpcObjectUri);
+            return (IImplementationSink)Activator.GetObject(typeof(IImplementationSink), "ipc://" + IpcPortName + "/" + IpcObjectUri);
         }
     }
 }
