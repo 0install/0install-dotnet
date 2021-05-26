@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.IO;
 using Moq;
 using NanoByte.Common;
@@ -174,7 +175,7 @@ namespace ZeroInstall.Commands.Basic
                 GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
                 GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
                 StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
-                StoreMock.Setup(x => x.ListAllTemp()).Returns(new string[0]);
+                StoreMock.Setup(x => x.ListAllTemp()).Returns(Array.Empty<string>());
                 StoreMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(tempDir);
                 FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
 

@@ -43,7 +43,7 @@ namespace ZeroInstall.Model
         /// </summary>
         public VersionRange()
         {
-            Parts = new VersionRangePart[0];
+            Parts = Array.Empty<VersionRangePart>();
         }
 
         /// <summary>

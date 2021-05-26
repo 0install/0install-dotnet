@@ -374,8 +374,8 @@ namespace ZeroInstall.Model
             CapabilityLists.Clear();
 
             SchemaLocation = null;
-            UnknownAttributes = new XmlAttribute[0];
-            UnknownElements = new XmlElement[0];
+            UnknownAttributes = Array.Empty<XmlAttribute>();
+            UnknownElements = Array.Empty<XmlElement>();
         }
         #endregion
 

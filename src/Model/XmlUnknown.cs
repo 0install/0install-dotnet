@@ -89,12 +89,12 @@ namespace ZeroInstall.Model
             if (other == null) return false;
             // ReSharper disable once InvokeAsExtensionMethod
             bool attributesEqual = EnumerableExtensions.UnsequencedEquals(
-                UnknownAttributes ?? new XmlAttribute[0],
-                other.UnknownAttributes ?? new XmlAttribute[0],
+                UnknownAttributes ?? Array.Empty<XmlAttribute>(),
+                other.UnknownAttributes ?? Array.Empty<XmlAttribute>(),
                 comparer: XmlAttributeComparer.Instance);
             bool elementsEqual = EnumerableExtensions.SequencedEquals(
-                UnknownElements ?? new XmlElement[0],
-                other.UnknownElements ?? new XmlElement[0],
+                UnknownElements ?? Array.Empty<XmlElement>(),
+                other.UnknownElements ?? Array.Empty<XmlElement>(),
                 comparer: XmlElementComparer.Instance);
             return attributesEqual && elementsEqual;
         }
@@ -102,8 +102,8 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         public override int GetHashCode()
             => HashCode.Combine(
-                (UnknownAttributes ?? new XmlAttribute[0]).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
-                (UnknownElements ?? new XmlElement[0]).GetSequencedHashCode(XmlElementComparer.Instance));
+                (UnknownAttributes ?? Array.Empty<XmlAttribute>()).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
+                (UnknownElements ?? Array.Empty<XmlElement>()).GetSequencedHashCode(XmlElementComparer.Instance));
         #endregion
     }
 }

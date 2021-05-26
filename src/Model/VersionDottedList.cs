@@ -106,8 +106,8 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         public int CompareTo(VersionDottedList other)
         {
-            var leftArray = Decimals ?? new long[0];
-            var rightArray = other.Decimals ?? new long[0];
+            var leftArray = Decimals ?? Array.Empty<long>();
+            var rightArray = other.Decimals ?? Array.Empty<long>();
 
             int upperBound = Math.Max(leftArray.Count, rightArray.Count);
             for (int i = 0; i < upperBound; ++i)

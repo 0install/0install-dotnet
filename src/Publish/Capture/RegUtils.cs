@@ -25,7 +25,7 @@ namespace ZeroInstall.Publish.Capture
             #endregion
 
             using var contextMenuExtendedKey = root.OpenSubKey(key);
-            return contextMenuExtendedKey?.GetValueNames() ?? new string[0];
+            return contextMenuExtendedKey?.GetValueNames() ?? Array.Empty<string>();
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace ZeroInstall.Publish.Capture
             #endregion
 
             using var contextMenuExtendedKey = root.OpenSubKey(key);
-            return contextMenuExtendedKey?.GetSubKeyNames() ?? new string[0];
+            return contextMenuExtendedKey?.GetSubKeyNames() ?? Array.Empty<string>();
         }
     }
 }

@@ -104,7 +104,7 @@ namespace ZeroInstall.DesktopIntegration
 
         private byte[] DownloadAppList(WebClient webClient, Uri uri, SyncResetMode resetMode)
         {
-            if (resetMode == SyncResetMode.Server) return new byte[0];
+            if (resetMode == SyncResetMode.Server) return Array.Empty<byte>();
 
             if (uri.IsFile)
             {
@@ -115,7 +115,7 @@ namespace ZeroInstall.DesktopIntegration
                 #region Error handling
                 catch (FileNotFoundException)
                 {
-                    return new byte[0];
+                    return Array.Empty<byte>();
                 }
                 #endregion
             }
@@ -149,8 +149,7 @@ namespace ZeroInstall.DesktopIntegration
 
             if (uri.IsFile)
             {
-                using var fileStream = File.OpenWrite(uri.LocalPath);
-                memoryStream.CopyToEx(fileStream);
+                memoryStream.CopyToFile(uri.LocalPath);
             }
             else
             {

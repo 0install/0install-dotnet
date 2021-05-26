@@ -55,7 +55,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             string? value = Environment.GetEnvironmentVariable(
                 variable: "Path",
                 target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
-            return string.IsNullOrEmpty(value) ? new string[0] : value.Split(Path.PathSeparator);
+            return string.IsNullOrEmpty(value) ? Array.Empty<string>() : value.Split(Path.PathSeparator);
         }
 
         /// <summary>

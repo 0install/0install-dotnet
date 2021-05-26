@@ -309,13 +309,13 @@ namespace ZeroInstall.Model
             #endregion
 
             // Check if values are unset and need inheritance)
-            if (Version == null) Version = parent.Version;
-            if (VersionModifier == null) VersionModifier = parent.VersionModifier;
+            Version ??= parent.Version;
+            VersionModifier ??= parent.VersionModifier;
             if (Released == default) Released = parent.Released;
-            if (Main == null) Main = parent.Main;
-            if (SelfTest == null) SelfTest = parent.SelfTest;
-            if (DocDir == null) DocDir = parent.DocDir;
-            if (License == null) License = parent.License;
+            Main ??= parent.Main;
+            SelfTest ??= parent.SelfTest;
+            DocDir ??= parent.DocDir;
+            License ??= parent.License;
             if (Stability == Stability.Unset) Stability = parent.Stability;
             if (Languages.Count == 0) Languages = new LanguageSet(parent.Languages);
             if (Architecture == default) Architecture = parent.Architecture;
@@ -327,8 +327,8 @@ namespace ZeroInstall.Model
             Bindings.AddRange(parent.Bindings);
 
             // Inherit unknown XML attributes and elements
-            UnknownAttributes = (UnknownAttributes ?? new XmlAttribute[0]).Concat(parent.UnknownAttributes ?? new XmlAttribute[0]).DistinctBy(x => x.Name).ToArray();
-            UnknownElements = (UnknownElements ?? new XmlElement[0]).Concat(parent.UnknownElements ?? new XmlElement[0]).ToArray();
+            UnknownAttributes = (UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()).DistinctBy(x => x.Name).ToArray();
+            UnknownElements = (UnknownElements ?? Array.Empty<XmlElement>()).Concat(parent.UnknownElements ?? Array.Empty<XmlElement>()).ToArray();
         }
         #endregion
 

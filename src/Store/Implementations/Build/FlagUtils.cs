@@ -88,7 +88,7 @@ namespace ZeroInstall.Store.Implementations.Build
             #endregion
 
             string? flagDir = FindRootDir(flagName, directoryPath);
-            if (flagDir == null) return new string[0];
+            if (flagDir == null) return Array.Empty<string>();
 
             string path = Path.Combine(flagDir, flagName);
             using (new AtomicRead(path))
