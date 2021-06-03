@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Streams;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -31,10 +32,9 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public IEnumerable<OpenPgpSignature> Verify(byte[] data, byte[] signature)
+        public IEnumerable<OpenPgpSignature> Verify(ArraySegment<byte> data, byte[] signature)
         {
             #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
             if (signature == null) throw new ArgumentNullException(nameof(signature));
             #endregion
 
@@ -42,7 +42,8 @@ namespace ZeroInstall.Store.Trust
             using (var signatureFile = new TemporaryFile("0install-sig"))
             {
                 File.WriteAllBytes(signatureFile, signature);
-                result = new GpgProcess(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
+                result = new GpgProcess(_homeDir, data)
+                   .Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
             }
             var lines = result.SplitMultilineText();
 
@@ -107,10 +108,9 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string? passphrase = null)
+        public byte[] Sign(ArraySegment<byte> data, OpenPgpSecretKey secretKey, string? passphrase = null)
         {
             #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
             if (secretKey == null) throw new ArgumentNullException(nameof(secretKey));
             #endregion
 
@@ -123,13 +123,14 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public void ImportKey(byte[] data)
+        public void ImportKey(Stream stream)
         {
             #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            new GpgProcess(_homeDir, data).Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
+            new GpgProcess(_homeDir, stream.ReadAll())
+               .Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
         }
 
         /// <inheritdoc/>
@@ -139,14 +140,16 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            string result = new GpgProcess(_homeDir).Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
+            string result = new GpgProcess(_homeDir)
+               .Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
             return result.Replace(Environment.NewLine, "\n") + "\n";
         }
 
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
         {
-            string result = new GpgProcess(_homeDir).Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
+            string result = new GpgProcess(_homeDir)
+               .Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
             string[]? sec = null, fpr = null, uid = null;
             foreach (string line in result.SplitMultilineText())

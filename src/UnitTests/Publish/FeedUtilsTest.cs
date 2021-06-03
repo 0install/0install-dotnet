@@ -30,7 +30,7 @@ namespace ZeroInstall.Publish
             var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
 
             var openPgpMock = CreateMock<IOpenPgp>();
-            openPgpMock.Setup(x => x.Sign(It.IsAny<byte[]>(), secretKey, passphrase))
+            openPgpMock.Setup(x => x.Sign(It.IsAny<ArraySegment<byte>>(), secretKey, passphrase))
                        .Returns(signature);
 
             string signedFeed;

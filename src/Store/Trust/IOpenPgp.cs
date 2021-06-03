@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -19,7 +20,7 @@ namespace ZeroInstall.Store.Trust
         /// <returns>A list of signatures found, both valid and invalid. <see cref="MissingKeySignature"/> results indicate you need to use <see cref="ImportKey"/>.</returns>
         /// <exception cref="InvalidDataException"><paramref name="signature"/> does not contain valid signature data.</exception>
         /// <seealso cref="Sign"/>
-        IEnumerable<OpenPgpSignature> Verify(byte[] data, byte[] signature);
+        IEnumerable<OpenPgpSignature> Verify(ArraySegment<byte> data, byte[] signature);
 
         /// <summary>
         /// Creates a detached OpenPGP signature using a specific secret key.
@@ -31,15 +32,15 @@ namespace ZeroInstall.Store.Trust
         /// <exception cref="KeyNotFoundException">The specified <paramref name="secretKey"/> could not be found in the keyring.</exception>
         /// <exception cref="WrongPassphraseException"><paramref name="passphrase"/> was incorrect.</exception>
         /// <seealso cref="Verify"/>
-        byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string? passphrase = null);
+        byte[] Sign(ArraySegment<byte> data, OpenPgpSecretKey secretKey, string? passphrase = null);
 
         /// <summary>
         /// Imports a public key into the keyring.
         /// </summary>
-        /// <param name="data">The public key in binary or ASCII Armored format.</param>
-        /// <exception cref="InvalidDataException"><paramref name="data"/> does not contain a valid public key.</exception>
+        /// <param name="stream">The public key in binary or ASCII Armored format.</param>
+        /// <exception cref="InvalidDataException"><paramref name="stream"/> does not contain a valid public key.</exception>
         /// <seealso cref="ExportKey"/>
-        void ImportKey(byte[] data);
+        void ImportKey(Stream stream);
 
         /// <summary>
         /// Exports the public key for a specific key in the keyring.

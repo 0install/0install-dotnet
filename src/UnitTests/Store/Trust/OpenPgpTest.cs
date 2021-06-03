@@ -24,9 +24,11 @@ namespace ZeroInstall.Store.Trust
             fingerprint: OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
             userID: "Test User <test@0install.de>");
 
-        private readonly byte[] _referenceData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        private readonly ArraySegment<byte> _referenceData = new(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
 
         private readonly byte[] _signatureData = typeof(OpenPgpTest).GetEmbeddedBytes("signature.dat");
+
+        private ArraySegment<byte> DummyData => new(new byte[] {1, 2, 3});
 
         [Fact]
         public void TestVerifyValidSignature()
@@ -40,7 +42,7 @@ namespace ZeroInstall.Store.Trust
         public void TestVerifyBadSignature()
         {
             TestImportKey();
-            OpenPgp.Verify(new byte[] {1, 2, 3}, _signatureData).Should().Equal(new BadSignature(_secretKey.KeyID));
+            OpenPgp.Verify(DummyData, _signatureData).Should().Equal(new BadSignature(_secretKey.KeyID));
         }
 
         [Fact]
@@ -49,7 +51,7 @@ namespace ZeroInstall.Store.Trust
 
         [Fact]
         public void TestVerifyInvalidData()
-            => Assert.Throws<InvalidDataException>(() => OpenPgp.Verify(new byte[] {1, 2, 3}, new byte[] {1, 2, 3}));
+            => Assert.Throws<InvalidDataException>(() => OpenPgp.Verify(DummyData, new byte[] {1, 2, 3}));
 
         [Fact]
         public void TestSign()
@@ -77,11 +79,11 @@ namespace ZeroInstall.Store.Trust
 
         [Fact]
         public void TestImportKey()
-            => OpenPgp.ImportKey(typeof(OpenPgpTest).GetEmbeddedBytes("pubkey.gpg"));
+            => OpenPgp.ImportKey(typeof(OpenPgpTest).GetEmbeddedStream("pubkey.gpg"));
 
         [Fact]
         public void TestImportKeyInvalidData()
-            => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new byte[] {1, 2, 3}));
+            => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new MemoryStream(new byte[] {1, 2, 3})));
 
         [Fact]
         public void TestExportKey()

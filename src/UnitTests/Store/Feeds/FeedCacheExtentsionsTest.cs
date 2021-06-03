@@ -37,7 +37,7 @@ namespace ZeroInstall.Store.Feeds
         }
 
         private const string FeedText = "Feed data\n";
-        private readonly byte[] _feedBytes = Encoding.UTF8.GetBytes(FeedText);
+        private readonly ArraySegment<byte> _feedBytes = new(Encoding.UTF8.GetBytes(FeedText));
         private static readonly byte[] _signatureBytes = Encoding.UTF8.GetBytes("Signature data");
         private static readonly string _signatureBase64 = Convert.ToBase64String(_signatureBytes).Insert(10, "\n");
 

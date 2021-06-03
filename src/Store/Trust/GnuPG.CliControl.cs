@@ -25,9 +25,9 @@ namespace ZeroInstall.Store.Trust
 
             private readonly string? _homeDir;
 
-            private readonly byte[]? _stdinBytes;
+            private readonly ArraySegment<byte>? _stdinBytes;
 
-            public GpgProcess(string? homeDir = null, byte[]? stdinBytes = null)
+            public GpgProcess(string? homeDir = null, ArraySegment<byte>? stdinBytes = null)
             {
                 _homeDir = homeDir;
                 _stdinBytes = stdinBytes;
@@ -55,9 +55,9 @@ namespace ZeroInstall.Store.Trust
                 if (writer == null) throw new ArgumentNullException(nameof(writer));
                 #endregion
 
-                if (_stdinBytes != null)
+                if (_stdinBytes.HasValue)
                 {
-                    writer.BaseStream.Write(_stdinBytes);
+                    writer.BaseStream.Write(_stdinBytes.Value.Array!, _stdinBytes.Value.Offset, _stdinBytes.Value.Count);
                     writer.BaseStream.Flush();
                 }
                 writer.Close();

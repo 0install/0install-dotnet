@@ -101,14 +101,12 @@ namespace ZeroInstall.Store.Feeds
         /// <param name="signatureStartIndex">The index of the first byte of the signature block.</param>
         /// <returns>The isolated feed.</returns>
         /// <exception cref="SignatureException">The signature block does not start on a new line.</exception>
-        private static byte[] IsolateFeed(byte[] feedData, int signatureStartIndex)
+        private static ArraySegment<byte> IsolateFeed(byte[] feedData, int signatureStartIndex)
         {
             if (signatureStartIndex <= 0 || feedData[signatureStartIndex - 1] != Encoding.GetBytes("\n")[0])
                 throw new SignatureException(Resources.XmlSignatureMissingNewLine);
 
-            var feed = new byte[signatureStartIndex];
-            Array.Copy(feedData, 0, feed, 0, signatureStartIndex);
-            return feed;
+            return new ArraySegment<byte>(feedData, 0, signatureStartIndex);
         }
 
         /// <summary>

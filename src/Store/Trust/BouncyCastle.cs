@@ -19,13 +19,8 @@ namespace ZeroInstall.Store.Trust
     public partial class BouncyCastle : IOpenPgp
     {
         /// <inheritdoc/>
-        public IEnumerable<OpenPgpSignature> Verify(byte[] data, byte[] signature)
+        public IEnumerable<OpenPgpSignature> Verify(ArraySegment<byte> data, byte[] signature)
         {
-            #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
-            if (signature == null) throw new ArgumentNullException(nameof(signature));
-            #endregion
-
             var signatureList = ParseObject<PgpSignatureList>(new MemoryStream(signature));
 
             var result = new OpenPgpSignature[signatureList.Count];
@@ -34,7 +29,7 @@ namespace ZeroInstall.Store.Trust
             return result;
         }
 
-        private OpenPgpSignature Verify(byte[] data, PgpSignature signature)
+        private OpenPgpSignature Verify(ArraySegment<byte> data, PgpSignature signature)
         {
             var key = PublicBundle.GetPublicKey(signature.KeyId);
 
@@ -43,7 +38,7 @@ namespace ZeroInstall.Store.Trust
             else
             {
                 signature.InitVerify(key);
-                signature.Update(data);
+                signature.Update(data.Array, data.Offset, data.Count);
 
                 if (signature.Verify())
                     return new ValidSignature(key.KeyId, key.GetFingerprint(), signature.CreationTime);
@@ -57,10 +52,9 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public byte[] Sign(byte[] data, OpenPgpSecretKey secretKey, string? passphrase = null)
+        public byte[] Sign(ArraySegment<byte> data, OpenPgpSecretKey secretKey, string? passphrase = null)
         {
             #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
             if (secretKey == null) throw new ArgumentNullException(nameof(secretKey));
             #endregion
 
@@ -70,7 +64,7 @@ namespace ZeroInstall.Store.Trust
 
             var signatureGenerator = new PgpSignatureGenerator(pgpSecretKey.PublicKey.Algorithm, HashAlgorithmTag.Sha1);
             signatureGenerator.InitSign(PgpSignature.BinaryDocument, pgpPrivateKey);
-            signatureGenerator.Update(data);
+            signatureGenerator.Update(data.Array, data.Offset, data.Count);
             return signatureGenerator.Generate().GetEncoded();
         }
 
@@ -87,14 +81,13 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public void ImportKey(byte[] data)
+        public void ImportKey(Stream stream)
         {
             #region Sanity checks
-            if (data == null) throw new ArgumentNullException(nameof(data));
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            var stream = PgpUtilities.GetDecoderStream(new MemoryStream(data));
-            var ring = ParseObject<PgpPublicKeyRing>(stream);
+            var ring = ParseObject<PgpPublicKeyRing>(PgpUtilities.GetDecoderStream(stream ?? throw new ArgumentNullException(nameof(stream))));
             try
             {
                 PublicBundle = PgpPublicKeyRingBundle.AddPublicKeyRing(PublicBundle, ring);

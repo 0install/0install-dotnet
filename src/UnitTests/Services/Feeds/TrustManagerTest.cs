@@ -24,14 +24,14 @@ namespace ZeroInstall.Services.Feeds
     {
         #region Constants
         private const string FeedText = "Feed data\n";
-        private readonly byte[] _feedBytes = Encoding.UTF8.GetBytes(FeedText);
+        private readonly ArraySegment<byte> _feedBytes = new(Encoding.UTF8.GetBytes(FeedText));
         private static readonly byte[] _signatureBytes = Encoding.UTF8.GetBytes("Signature data");
         private static readonly string _signatureBase64 = Convert.ToBase64String(_signatureBytes).Insert(10, "\n");
         private static readonly byte[] _combinedBytes = Encoding.UTF8.GetBytes(FeedText + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd);
 
-        private static readonly byte[] _keyData = Encoding.ASCII.GetBytes("key");
-
         private const string KeyInfoResponse = @"<?xml version='1.0'?><key-lookup><item vote=""good"">Key information</item></key-lookup>";
+
+        private static Stream KeyStream => "key".ToStream();
         #endregion
 
         private readonly Config _config = new()
@@ -139,7 +139,7 @@ namespace ZeroInstall.Services.Feeds
             ExpectKeyImport();
             _handler.AnswerQuestionWith = false;
 
-            using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
+            using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
                 Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml")));
             IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
         }
@@ -150,7 +150,7 @@ namespace ZeroInstall.Services.Feeds
             ExpectKeyImport();
             _handler.AnswerQuestionWith = true;
 
-            using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
+            using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
             {
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml"))
                              .Should().Be(OpenPgpUtilsTest.TestSignature);
@@ -164,7 +164,7 @@ namespace ZeroInstall.Services.Feeds
             ExpectKeyImport();
             _handler.AnswerQuestionWith = true;
 
-            using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", new MemoryStream(_keyData)))
+            using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
             {
                 _config.FeedMirror = new FeedUri(server.ServerUri);
                 _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost:9999/test/feed.xml"))
@@ -187,7 +187,7 @@ namespace ZeroInstall.Services.Feeds
             _openPgpMock.SetupSequence(x => x.Verify(_feedBytes, _signatureBytes))
                         .Returns(new OpenPgpSignature[] {new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)})
                         .Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
-            _openPgpMock.Setup(x => x.ImportKey(_keyData));
+            _openPgpMock.Setup(x => x.ImportKey(It.Is<Stream>(stream => stream.ReadToString(Encoding.UTF8) == "key")));
         }
 
         private void UseKeyInfoServer(MicroServer keyInfoServer)
