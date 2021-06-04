@@ -13,5 +13,14 @@ namespace ZeroInstall.Store.Implementations.Manifests
     /// <param name="Name">The name of the element without the containing directory.</param>
     [Serializable]
     public abstract record ManifestDirectoryElement(string Digest, long Size, string Name)
-        : ManifestNode;
+        : ManifestNode, IComparable<ManifestDirectoryElement>
+    {
+        /// <inheritdoc/>
+        public int CompareTo(ManifestDirectoryElement? other)
+        {
+            if (other == this) return 0;
+            else if (other == null) return 1;
+            else return string.Compare(Name, other.Name, StringComparison.Ordinal);
+        }
+    }
 }

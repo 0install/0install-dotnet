@@ -13,7 +13,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
     /// <param name="FullPath">The complete path of this directory relative to the tree root as a Unix-Path beginning with a slash.</param>
     [Serializable]
     public sealed record ManifestDirectory(string FullPath)
-        : ManifestNode
+        : ManifestNode, IComparable<ManifestDirectory>
     {
         /// <summary>
         /// Creates a new node from a string representation as created by <see cref="ToString"/>.
@@ -28,6 +28,14 @@ namespace ZeroInstall.Store.Implementations.Manifests
             if (parts.Length != numberOfParts) throw new FormatException(Resources.InvalidNumberOfLineParts);
 
             return new(parts[1]);
+        }
+
+        /// <inheritdoc/>
+        public int CompareTo(ManifestDirectory? other)
+        {
+            if (other == this) return 0;
+            else if (other == null) return 1;
+            else return string.Compare(FullPath, other.FullPath, StringComparison.Ordinal);
         }
 
         /// <summary>

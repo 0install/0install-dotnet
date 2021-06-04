@@ -93,7 +93,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                                 FileUtils.SetExecutable(tempPath, file is ManifestExecutableFile);
                             break;
 
-                        case ManifestSymlink _:
+                        case ManifestSymlink:
                             if (UnixUtils.IsUnix)
                             {
                                 if (UnixUtils.IsSymlink(sourcePath, out string? symlinkTarget))
