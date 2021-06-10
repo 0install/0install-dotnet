@@ -29,8 +29,13 @@ namespace ZeroInstall.Publish
         private const string SingleFileData = "data";
         private const string SingleFileName = "file.dat";
 
-        private static readonly string _singleFileSha256Digest = new Manifest(ManifestFormat.Sha256New,
-            new ManifestNormalFile(SingleFileData.Hash(SHA256.Create()), 0, SingleFileData.Length, SingleFileName)).CalculateDigest();
+        private static readonly string _singleFileSha256Digest = new Manifest(ManifestFormat.Sha256New)
+        {
+            [""] =
+            {
+                [SingleFileName] = new ManifestNormalFile(SingleFileData.Hash(SHA256.Create()), 0, SingleFileData.Length)
+            }
+        }.CalculateDigest();
 
         /// <summary>
         /// Ensures <see cref="ImplementationUtils.Build"/> works correctly with <see cref="Archive"/>s.

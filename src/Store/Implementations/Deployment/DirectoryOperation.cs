@@ -34,11 +34,6 @@ namespace ZeroInstall.Store.Implementations.Deployment
         protected readonly ITaskHandler Handler;
 
         /// <summary>
-        /// The paths of all <see cref="ManifestNode"/>s in <see cref="Manifest"/> relative to the manifest root.
-        /// </summary>
-        protected readonly IReadOnlyDictionary<string, ManifestNode> ElementPaths;
-
-        /// <summary>
         /// Creates a new manifest directory task.
         /// </summary>
         /// <param name="path">The path of the directory to operate on.</param>
@@ -49,8 +44,6 @@ namespace ZeroInstall.Store.Implementations.Deployment
             Path = path ?? throw new ArgumentNullException(nameof(path));
             Manifest = manifest ?? throw new ArgumentNullException(nameof(manifest));
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-
-            ElementPaths = Manifest.ListPaths();
         }
 
         /// <summary>

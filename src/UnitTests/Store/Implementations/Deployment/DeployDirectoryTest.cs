@@ -52,7 +52,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                 operation.Commit();
             }
 
-            Manifest.Load(_destinationManifestPath, Manifest.Format).Should().Equal(Manifest, because: "Destination manifest file should equal in-memory manifest used as copy instruction.");
+            Manifest.Load(_destinationManifestPath, Manifest.Format).Should().BeEquivalentTo(Manifest, because: "Destination manifest file should equal in-memory manifest used as copy instruction.");
             File.Exists(_destinationManifestPath).Should().BeTrue(because: "Final destination manifest file should exist after commit.");
             File.Exists(_destinationFile1Path).Should().BeTrue(because: "Final destination file should exist after commit.");
             File.Exists(_destinationFile2Path).Should().BeTrue(because: "Final destination file should exist after commit.");

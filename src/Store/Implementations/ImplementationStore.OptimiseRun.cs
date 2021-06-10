@@ -9,6 +9,10 @@ using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations.Manifests;
 
+#if NETFRAMEWORK
+using NanoByte.Common.Collections;
+#endif
+
 namespace ZeroInstall.Store.Implementations
 {
     partial class ImplementationStore
@@ -18,7 +22,7 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         private sealed record OptimiseRun(string StorePath) : IDisposable
         {
-            private sealed record DedupKey(long Size, DateTime LastModified, ManifestFormat Format, string Digest);
+            private sealed record DedupKey(long Size, long LastModified, ManifestFormat Format, string Digest);
 
             private sealed record StoreFile(string ImplementationPath, string RelativePath)
             {
@@ -43,20 +47,15 @@ namespace ZeroInstall.Store.Implementations
                 string implementationPath = System.IO.Path.Combine(StorePath, digestString);
                 var manifest = Manifest.Load(System.IO.Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
 
-                string currentDirectory = "";
-                foreach (var node in manifest)
+                foreach ((string directoryPath, var directory) in manifest)
                 {
-                    switch (node)
+                    string currentDirectory = FileUtils.UnifySlashes(directoryPath);
+                    foreach ((string elementName, var element) in directory)
                     {
-                        case ManifestDirectory x:
-                            currentDirectory = FileUtils.UnifySlashes(x.FullPath.TrimStart('/'));
-                            break;
-
-                        case ManifestFileBase x:
-                            if (x.Size == 0) return;
-
+                        if (element is ManifestFile x && x.Size != 0)
+                        {
                             var key = new DedupKey(x.Size, x.ModifiedTime, manifest.Format, x.Digest);
-                            var file = new StoreFile(implementationPath, System.IO.Path.Combine(currentDirectory, x.Name));
+                            var file = new StoreFile(implementationPath, System.IO.Path.Combine(currentDirectory, elementName));
 
                             if (_fileHashes.TryGetValue(key, out var existingFile))
                             {
@@ -67,7 +66,7 @@ namespace ZeroInstall.Store.Implementations
                                 }
                             }
                             else _fileHashes.Add(key, file);
-                            break;
+                        }
                     }
                 }
             }

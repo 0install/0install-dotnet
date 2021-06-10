@@ -1,66 +1,147 @@
-// Copyright Bastian Eicher et al.
+﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
 using FluentAssertions;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using Xunit;
-using ZeroInstall.FileSystem;
-using ZeroInstall.Services;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations.Manifests
 {
-    /// <summary>
-    /// Contains test methods for <see cref="Manifest"/>.
-    /// </summary>
-    public class ManifestTest : TestWithMocks
+    public class ManifestTest
     {
-        #region Helpers
-        private static Manifest GenerateManifest(string path, ManifestFormat format, ITaskHandler handler)
+        [Fact]
+        public void TestFileOrder()
         {
-            var generator = new ManifestGenerator(path, format);
-            handler.RunTask(generator);
-            return generator.Manifest;
+            var manifest = new Manifest(ManifestFormat.Sha256New);
+            var topLevel = manifest[""];
+            topLevel.Add("x", new ManifestNormalFile("", 0, 0));
+            topLevel.Add("y", new ManifestNormalFile("", 0, 0));
+            topLevel.Add("Z", new ManifestNormalFile("", 0, 0));
+            topLevel.Keys.Should().Equal("Z", "x", "y");
+        }
+
+        [Fact]
+        public void TestTotalSize()
+        {
+            var manifest = new Manifest(ManifestFormat.Sha256New)
+            {
+                ["dir1"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir2"] =
+                {
+                    ["file"] = new ManifestSymlink("abc", 5)
+                }
+            };
+            manifest.TotalSize.Should().Be(8);
+        }
+
+        [Fact]
+        public void TestRemoveRecursive()
+        {
+            var manifest = new Manifest(ManifestFormat.Sha256New)
+            {
+                ["dir1"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir1/subdir"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir1A"] =
+                {
+                    ["file"] = new ManifestSymlink("abc", 5)
+                }
+            };
+            manifest.RemoveRecursive("dir1");
+
+            manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha256New)
+            {
+                ["dir1A"] =
+                {
+                    ["file"] = new ManifestSymlink("abc", 5)
+                }
+            });
+        }
+
+        [Fact]
+        public void TestMoveRecursive()
+        {
+            var manifest = new Manifest(ManifestFormat.Sha256New)
+            {
+                ["dir1"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir1/subdir"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir1A"] =
+                {
+                    ["file"] = new ManifestSymlink("abc", 5)
+                }
+            };
+            manifest.RenameRecursive("dir1", "dir2");
+
+            manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha256New)
+            {
+                ["dir2"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir2/subdir"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc", 123, 3)
+                },
+                ["dir1A"] =
+                {
+                    ["file"] = new ManifestSymlink("abc", 5)
+                }
+            });
+        }
+
+        [Fact]
+        public void TestWithOffset()
+        {
+            var original = new Manifest(ManifestFormat.Sha256)
+            {
+                ["dir"] =
+                {
+                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc).ToUnixTime(), 10),
+                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc).ToUnixTime(), 10)
+                }
+            };
+
+            var offset = new Manifest(ManifestFormat.Sha256)
+            {
+                ["dir"] =
+                {
+                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc).ToUnixTime(), 10),
+                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc).ToUnixTime(), 10)
+                }
+            };
+
+            original.WithOffset(TimeSpan.FromHours(1)).Should().BeEquivalentTo(offset);
         }
 
         /// <summary>
-        /// Generates a manifest for a directory in the filesystem and writes the manifest to a file named <see cref="Manifest.ManifestFile"/> in that directory.
+        /// Ensures that Manifest is correctly generated, serialized and deserialized.
         /// </summary>
-        /// <param name="path">The path of the directory to analyze.</param>
-        /// <param name="format">The format of the manifest (which file details are listed, which digest method is used, etc.).</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The manifest digest.</returns>
-        /// <exception cref="IOException">A problem occurred while writing the file.</exception>
-        /// <remarks>
-        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
-        /// </remarks>
-        public static string CreateDotFile(string path, ManifestFormat format, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (format == null) throw new ArgumentNullException(nameof(format));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            var generator = new ManifestGenerator(path, format);
-            handler.RunTask(generator);
-            return generator.Manifest.Save(Path.Combine(path, Manifest.ManifestFile));
-        }
-        #endregion
-
-        [Fact] // Ensures that Manifest is correctly generated, serialized and deserialized.
+        [Fact]
         public void TestSaveLoad()
         {
-            var manifest1 = new Manifest(ManifestFormat.Sha1New,
-                new ManifestDirectory("subdir"),
-                new ManifestNormalFile("abc123", TestFile.DefaultLastWrite, 3, "file"));
+            var manifest1 = new Manifest(ManifestFormat.Sha1New)
+            {
+                ["subdir"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc123", 1337, 3)
+                }
+            };
             Manifest manifest2;
             using (var tempFile = new TemporaryFile("0install-test-manifest"))
             {
@@ -70,10 +151,13 @@ namespace ZeroInstall.Store.Implementations.Manifests
             }
 
             // Ensure data stayed the same
-            manifest2.Should().Equal(manifest1);
+            manifest2.Should().BeEquivalentTo(manifest1);
         }
 
-        [Fact] // Ensures damaged manifest lines are correctly identified.
+        /// <summary>
+        /// Ensures damaged manifest lines are correctly identified.
+        /// </summary>
+        [Fact]
         public void TestLoadException()
         {
             Assert.Throws<FormatException>(() => Manifest.Load("test".ToStream(), ManifestFormat.Sha1New));
@@ -92,170 +176,19 @@ namespace ZeroInstall.Store.Implementations.Manifests
             Assert.Throws<FormatException>(() => Manifest.Load("F abc123 128 test".ToStream(), ManifestFormat.Sha256New));
         }
 
-        [Fact]
-        public void TestCalculateDigest()
-        {
-            using var testDir = new TemporaryDirectory("0install-test-impl");
-            new TestRoot
-            {
-                new TestDirectory("subdir") {new TestFile("file")}
-            }.Build(testDir);
-
-            GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler())
-               .CalculateDigest()
-               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha1New, new MockTaskHandler()),
-                    because: "sha1new dot file and digest should match");
-            GenerateManifest(testDir, ManifestFormat.Sha256, new MockTaskHandler())
-               .CalculateDigest()
-               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256, new MockTaskHandler()),
-                    because: "sha256 dot file and digest should match");
-            GenerateManifest(testDir, ManifestFormat.Sha256New, new MockTaskHandler())
-               .CalculateDigest()
-               .Should().Be(CreateDotFile(testDir, ManifestFormat.Sha256New, new MockTaskHandler()),
-                    because: "sha256new dot file and digest should match");
-        }
-
         [Fact] // Ensures that ToXmlString() correctly outputs a serialized form of the manifest.
         public void TestToString()
         {
-            using var testDir = new TemporaryDirectory("0install-test-impl");
-            new TestRoot
+            var manifest = new Manifest(ManifestFormat.Sha1New)
             {
-                new TestDirectory("subdir") {new TestFile("file")}
-            }.Build(testDir);
+                ["subdir"] =
+                {
+                    ["file"] = new ManifestNormalFile("abc123", 1337, 3)
+                }
+            };
 
-            var manifest = GenerateManifest(testDir, ManifestFormat.Sha1New, new MockTaskHandler());
             manifest.ToString().Replace(Environment.NewLine, "\n")
-                    .Should().Be("D /subdir\nF 606ec6e9bd8a8ff2ad14e5fade3f264471e82251 946684800 3 file\n");
-        }
-
-        [Fact]
-        public void TestListPaths()
-        {
-            var normalFile = new ManifestNormalFile("123", 0, 10, "normal");
-            var dir1 = new ManifestDirectory("/dir1");
-            var executableFile = new ManifestExecutableFile("123", 0, 10, "executable");
-            var dir2 = new ManifestDirectory("/dir2");
-            var symlink = new ManifestSymlink("123", 10, "symlink");
-            var manifest = new Manifest(ManifestFormat.Sha256New, normalFile, dir1, executableFile, dir2, symlink);
-
-            manifest.ListPaths().Should().BeEquivalentTo(new Dictionary<string, ManifestNode>
-            {
-                ["normal"] = normalFile,
-                ["dir1"] = dir1,
-                [Path.Combine("dir1", "executable")] = executableFile,
-                ["dir2"] = dir2,
-                [Path.Combine("dir2", "symlink")] = symlink
-            });
-        }
-
-        // ReSharper disable AssignNullToNotNullAttribute
-        [Fact]
-        public void ShouldListNormalWindowsExeWithFlagF()
-        {
-            using var package = new TemporaryDirectory("0install-test-impl");
-            string filePath = Path.Combine(package, "test.exe");
-            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-
-            File.WriteAllText(filePath, @"xxxxxxx");
-            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-
-            using var manifest = File.OpenText(manifestPath);
-            string firstLine = manifest.ReadLine();
-            Assert.True(Regex.IsMatch(firstLine, @"^F \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
-        }
-
-        [Fact]
-        public void ShouldListFilesInXbitWithFlagX()
-        {
-            using var package = new TemporaryDirectory("0install-test-impl");
-            string filePath = Path.Combine(package, "test.exe");
-            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-
-            File.WriteAllText(filePath, "target");
-            if (WindowsUtils.IsWindows)
-            {
-                string flagPath = Path.Combine(package, FlagUtils.XbitFile);
-                File.WriteAllText(flagPath, @"/test.exe");
-            }
-            else FileUtils.SetExecutable(filePath, true);
-            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-
-            using var manifest = File.OpenText(manifestPath);
-            string? firstLine = manifest.ReadLine();
-            Assert.True(Regex.IsMatch(firstLine, @"^X \w+ \d+ \d+ test.exe$"), "Manifest didn't match expected format");
-        }
-
-        [Fact]
-        public void ShouldListFilesInSymlinkWithFlagS()
-        {
-            using var package = new TemporaryDirectory("0install-test-impl");
-            string sourcePath = Path.Combine(package, "test");
-            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-
-            if (WindowsUtils.IsWindows)
-            {
-                File.WriteAllText(sourcePath, "target");
-                string flagPath = Path.Combine(package, FlagUtils.SymlinkFile);
-                File.WriteAllText(flagPath, @"/test");
-            }
-            else FileUtils.CreateSymlink(sourcePath, "target");
-            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-
-            using var manifest = File.OpenText(manifestPath);
-            string? firstLine = manifest.ReadLine();
-            Assert.True(Regex.IsMatch(firstLine, @"^S \w+ \d+ test$"), "Manifest didn't match expected format");
-        }
-
-        [Fact]
-        public void ShouldListNothingForEmptyPackage()
-        {
-            using var package = new TemporaryDirectory("0install-test-impl");
-            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-            using var manifestFile = File.OpenRead(Path.Combine(package, Manifest.ManifestFile));
-            manifestFile.Length.Should().Be(0, because: "Empty package directory should make an empty manifest");
-        }
-
-        [Fact]
-        public void ShouldHandleSubdirectoriesWithExecutables()
-        {
-            using var package = new TemporaryDirectory("0install-test-impl");
-            string innerPath = Path.Combine(package, "inner");
-            Directory.CreateDirectory(innerPath);
-
-            string innerExePath = Path.Combine(innerPath, "inner.exe");
-            string manifestPath = Path.Combine(package, Manifest.ManifestFile);
-            File.WriteAllText(innerExePath, @"xxxxxxx");
-            if (WindowsUtils.IsWindows)
-            {
-                string flagPath = Path.Combine(package, FlagUtils.XbitFile);
-                File.WriteAllText(flagPath, @"/inner/inner.exe");
-            }
-            else FileUtils.SetExecutable(innerExePath, true);
-            CreateDotFile(package, ManifestFormat.Sha256, new MockTaskHandler());
-            using var manifestFile = File.OpenText(manifestPath);
-            string? currentLine = manifestFile.ReadLine();
-            Assert.True(Regex.IsMatch(currentLine, @"^D /inner$"), "Manifest didn't match expected format:\n" + currentLine);
-            currentLine = manifestFile.ReadLine();
-            Assert.True(Regex.IsMatch(currentLine, @"^X \w+ \w+ \d+ inner.exe$"), "Manifest didn't match expected format:\n" + currentLine);
-        }
-
-        // ReSharper restore AssignNullToNotNullAttribute
-
-        [SkippableFact]
-        public void ShouldNotFollowDirectorySymlinks()
-        {
-            Skip.IfNot(UnixUtils.IsUnix, "Can only test symlinks on Unixoid system");
-
-            using var package = new TemporaryDirectory("0install-test-impl");
-            Directory.CreateDirectory(Path.Combine(package, "target"));
-            FileUtils.CreateSymlink(Path.Combine(package, "source"), "target");
-            var manifest = GenerateManifest(package, ManifestFormat.Sha256New, new MockTaskHandler());
-
-            (manifest[0] is ManifestSymlink).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
-            ((ManifestSymlink)manifest[0]).Name.Should().Be("source", because: "Unexpected manifest:\n" + manifest);
-            (manifest[1] is ManifestDirectory).Should().BeTrue(because: "Unexpected manifest:\n" + manifest);
-            ((ManifestDirectory)manifest[1]).FullPath.Should().Be("/target", because: "Unexpected manifest:\n" + manifest);
+                    .Should().Be("D /subdir\nF abc123 1337 3 file\n");
         }
     }
 }

@@ -7,120 +7,170 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Text;
-using JetBrains.Annotations;
+using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Storage;
+using NanoByte.Common.Streams;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
 {
     /// <summary>
-    /// A manifest lists every file, directory and symlink in the tree and contains a digest of each file's content.
+    /// A manifest lists every directory, file and symlink in a directory and contains a digest of each file's content.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
-    [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix")]
+    /// <remarks>
+    /// See also: https://docs.0install.net/specifications/manifest/
+    /// </remarks>
     [Serializable]
-    public sealed class Manifest : IEquatable<Manifest>, IEnumerable<ManifestNode>
+    public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, ManifestElement>>
     {
-        #region Constants
         /// <summary>
         /// The well-known file name used to store manifest files in directories.
         /// </summary>
         public const string ManifestFile = ".manifest";
-        #endregion
 
         /// <summary>
         /// The format of the manifest (which file details are listed, which digest method is used, etc.).
         /// </summary>
         public ManifestFormat Format { get; }
 
-        private readonly ManifestNode[] _nodes;
-
-        private long _totalSize = -1;
+        private readonly SortedDictionary<string, SortedDictionary<string, ManifestElement>> _directories = new(StringComparer.Ordinal);
 
         /// <summary>
         /// The combined size of all files listed in the manifest in bytes.
         /// </summary>
         public long TotalSize
-        {
-            get
-            {
-                // Only calculate the total size if it hasn't been cached yet
-                if (_totalSize == -1)
-                    _totalSize = _nodes.OfType<ManifestFileBase>().Sum(node => node.Size);
+            => _directories.Values
+                           .SelectMany(x => x.Values)
+                           .Sum(x => x.Size);
 
-                return _totalSize;
+        /// <summary>
+        /// Creates a new manifest.
+        /// </summary>
+        /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestElement.Digest"/>.</param>
+        public Manifest(ManifestFormat format)
+        {
+            Format = format ?? throw new ArgumentNullException(nameof(format));
+            Add("");
+        }
+
+        #region IReadOnlyDictionary
+        /// <summary>
+        /// Gets or adds directory in the manifest.
+        /// </summary>
+        /// <param name="key">The Unix path of the directory relative to the implementation root. <see cref="string.Empty"/> for root.</param>
+        public IDictionary<string, ManifestElement> this[string key]
+            => Add(key);
+
+        /// <inheritdoc/>
+        public bool TryGetValue(string key, [NotNullWhen(true)] out IDictionary<string, ManifestElement>? value)
+        {
+            if (_directories.TryGetValue(key, out var dictionary))
+            {
+                value = dictionary;
+                return true;
+            }
+            else
+            {
+                value = null;
+                return false;
             }
         }
 
-        /// <summary>
-        /// Creates a new manifest.
-        /// </summary>
-        /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestDirectoryElement.Digest"/>.</param>
-        /// <param name="nodes">A list of all elements in the tree this manifest represents.</param>
-        public Manifest(ManifestFormat format, IEnumerable<ManifestNode> nodes)
+        /// <inheritdoc/>
+        IEnumerator<KeyValuePair<string, IDictionary<string, ManifestElement>>> IEnumerable<KeyValuePair<string, IDictionary<string, ManifestElement>>>.GetEnumerator()
         {
-            Format = format ?? throw new ArgumentNullException(nameof(format));
-            _nodes = (nodes ?? throw new ArgumentNullException(nameof(nodes))).ToArray(); // Make the collection immutable
+            foreach ((string directoryPath, var directory) in _directories)
+                yield return new(directoryPath, directory);
         }
 
-        /// <summary>
-        /// Creates a new manifest.
-        /// </summary>
-        /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestDirectoryElement.Digest"/>.</param>
-        /// <param name="nodes">A list of all elements in the tree this manifest represents.</param>
-        public Manifest(ManifestFormat format, params ManifestNode[] nodes)
-        {
-            Format = format ?? throw new ArgumentNullException(nameof(format));
-            _nodes = nodes ?? throw new ArgumentNullException(nameof(nodes));
-        }
+        /// <inheritdoc/>
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)_directories).GetEnumerator();
+
+        /// <inheritdoc/>
+        public int Count => _directories.Count;
+
+        /// <inheritdoc/>
+        public bool ContainsKey(string key) => _directories.ContainsKey(key);
+
+        /// <inheritdoc/>
+        public IEnumerable<string> Keys => _directories.Keys;
+
+        /// <inheritdoc/>
+        public IEnumerable<IDictionary<string, ManifestElement>> Values => _directories.Values;
+        #endregion
 
         /// <summary>
-        /// Lists the paths of all <see cref="ManifestNode"/>s relative to the manifest root.
+        /// Returns an existing directory or adds a new directory to the manifest.
         /// </summary>
-        /// <returns>A mapping of relative paths to <see cref="ManifestNode"/>s.</returns>
-        /// <remarks>This handles the fact that <see cref="ManifestDirectoryElement"/>s inherit their location from the last <see cref="ManifestDirectory"/> that precedes them.</remarks>
-        [Pure]
-        public IReadOnlyDictionary<string, ManifestNode> ListPaths()
-        {
-            var result = new SortedDictionary<string, ManifestNode>();
+        /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
+        /// <returns>A dictionary of elements inside the directory.</returns>
+        public SortedDictionary<string, ManifestElement> Add(string key)
+            => _directories.GetOrAdd(key, () => new(StringComparer.Ordinal));
 
-            string dirPath = "";
-            foreach (var node in this)
+        /// <summary>
+        /// Removes a directory and all its subdirectories from the manifest.
+        /// </summary>
+        /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
+        /// <returns><c>true</c> if the directory is successfully found and removed; <c>false</c> otherwise. </returns>
+        public bool RemoveRecursive(string key)
+            => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWith(key + '/'));
+
+        /// <summary>
+        /// Moves a directory and all its subdirectories to a new path.
+        /// </summary>
+        /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
+        /// <param name="newKey">The new Unix path of the directory relative to the implementation root.</param>
+        /// <returns><c>true</c> if the directory is successfully found and renamed; <c>false</c> otherwise. </returns>
+        public bool RenameRecursive(string key, string newKey)
+        {
+            bool found = false;
+
+            foreach ((string path, var dir) in _directories.ToList())
             {
-                switch (node)
+                void RenameTo(string newPath)
                 {
-                    case ManifestDirectory dir:
-                        dirPath = FileUtils.UnifySlashes(dir.FullPath)[1..];
-                        result.Add(dirPath, dir);
-                        break;
-                    case ManifestDirectoryElement element:
-                        string elementPath = Path.Combine(dirPath, element.Name);
-                        result.Add(elementPath, element);
-                        break;
+                    Add(newPath).AddRange(dir);
+                    _directories.Remove(path);
+                    found = true;
                 }
+
+                if (path == key)
+                    RenameTo(newKey);
+                else if (path.StartsWith(key + '/', out string? rest))
+                    RenameTo(newKey + '/' + rest);
             }
 
-            return result;
+            return found;
         }
 
         /// <summary>
         /// Creates a copy of the manifest with all timestamps shifted by the specified <paramref name="offset"/> and rounded up to an even number of seconds.
         /// </summary>
         public Manifest WithOffset(TimeSpan offset)
-            => new(Format, _nodes.Select(node => node switch
+        {
+            var newManifest = new Manifest(Format);
+
+            long Offset(long timestamp)
+                => (timestamp + 1) / 2 * 2 + (long)offset.TotalSeconds;
+
+            foreach ((string directoryPath, var directory) in _directories)
             {
-                ManifestNormalFile normal => new ManifestNormalFile(normal.Digest, Round(normal.ModifiedTime) + offset, normal.Size, normal.Name),
-                ManifestExecutableFile executable => new ManifestExecutableFile(executable.Digest, Round(executable.ModifiedTime) + offset, executable.Size, executable.Name),
-                _ => node
-            }));
+                var newDirectory = newManifest[directoryPath];
+                foreach ((string elementName, var element) in directory)
+                {
+                    newDirectory.Add(elementName, element switch
+                    {
+                        ManifestNormalFile file => file with {ModifiedTime = Offset(file.ModifiedTime)},
+                        ManifestExecutableFile file => file with {ModifiedTime = Offset(file.ModifiedTime)},
+                        _ => element
+                    });
+                }
+            }
 
-        private static DateTime Round(DateTime timestamp)
-            => FileUtils.FromUnixTime((timestamp.ToUnixTime() + 1) / 2 * 2);
+            return newManifest;
+        }
 
-        #region Storage
         /// <summary>
         /// Writes the manifest to a file and calculates its digest.
         /// </summary>
@@ -128,9 +178,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <returns>The manifest digest.</returns>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        /// <remarks>
-        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
-        /// </remarks>
         public string Save(string path)
         {
             #region Sanity checks
@@ -150,9 +197,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <returns>The manifest digest.</returns>
-        /// <remarks>
-        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
-        /// </remarks>
         public void Save(Stream stream)
         {
             #region Sanity checks
@@ -163,8 +207,21 @@ namespace ZeroInstall.Store.Implementations.Manifests
             var writer = new StreamWriter(stream, encoding: FeedUtils.Encoding) {NewLine = "\n"};
 
             // Write one line for each node
-            foreach (var node in _nodes)
-                writer.WriteLine(node.ToString());
+            foreach ((string directoryPath, var directory) in _directories)
+            {
+                if (directoryPath != "")
+                    writer.WriteLine("D /" + directoryPath);
+                foreach ((string elementName, var element) in directory)
+                {
+                    writer.WriteLine(element switch
+                    {
+                        ManifestNormalFile(var digest, var ModifiedTime, var size) => "F " + digest + " " + ModifiedTime + " " + size + " " + elementName,
+                        ManifestExecutableFile(var digest, var ModifiedTime, var size) => "X " + digest + " " + ModifiedTime + " " + size + " " + elementName,
+                        ManifestSymlink(var digest, var size) => "S " + digest + " " + size + " " + elementName,
+                        _ => throw new NotSupportedException($"Unknown {nameof(ManifestElement)} type {element.GetType()}.")
+                    });
+                }
+            }
 
             writer.Flush();
         }
@@ -174,10 +231,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         public override string ToString()
         {
-            var output = new StringBuilder();
-            foreach (var node in _nodes)
-                output.Append(node + "\n");
-            return output.ToString();
+            using var stream = new MemoryStream();
+            Save(stream);
+            return stream.ReadToString();
         }
 
         /// <summary>
@@ -185,11 +241,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="stream">The stream to load from.</param>
         /// <param name="format">The format of the file and the format of the created <see cref="Manifest"/>. Comprises the digest method used and the file's format.</param>
-        /// <returns>A set of <see cref="ManifestNode"/>s containing the parsed content of the file.</returns>
+        /// <returns>The parsed content of the file.</returns>
         /// <exception cref="FormatException">The file specified is not a valid manifest file.</exception>
-        /// <remarks>
-        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
-        /// </remarks>
         public static Manifest Load(Stream stream, ManifestFormat format)
         {
             #region Sanity checks
@@ -197,21 +250,45 @@ namespace ZeroInstall.Store.Implementations.Manifests
             if (format == null) throw new ArgumentNullException(nameof(format));
             #endregion
 
-            var nodes = new List<ManifestNode>();
-
+            var manifest = new Manifest(format);
+            var currentDirectory = manifest[""];
             var reader = new StreamReader(stream);
             while (!reader.EndOfStream)
             {
-                // Parse each line as a node
-                string line = reader.ReadLine() ?? "";
-                if (line.StartsWith("F")) nodes.Add(ManifestNormalFile.FromString(line));
-                else if (line.StartsWith("X")) nodes.Add(ManifestExecutableFile.FromString(line));
-                else if (line.StartsWith("S")) nodes.Add(ManifestSymlink.FromString(line));
-                else if (line.StartsWith("D")) nodes.Add(ManifestDirectory.FromString(line));
-                else throw new FormatException(Resources.InvalidLinesInManifest);
+                try
+                {
+                    string line = reader.ReadLine() ?? "";
+                    if (line.StartsWith("D /", out string? dirPath))
+                        currentDirectory = manifest[dirPath];
+                    else if (line.StartsWith("F "))
+                    {
+                        string[] parts = line.Split(new[] {' '}, 5);
+                        if (parts.Length < 5) throw new FormatException(Resources.InvalidNumberOfLineParts);
+                        currentDirectory.Add(parts[4], new ManifestNormalFile(parts[1], long.Parse(parts[2]), long.Parse(parts[3])));
+                    }
+                    else if (line.StartsWith("X "))
+                    {
+                        string[] parts = line.Split(new[] {' '}, 5);
+                        if (parts.Length < 5) throw new FormatException(Resources.InvalidNumberOfLineParts);
+                        currentDirectory.Add(parts[4], new ManifestExecutableFile(parts[1], long.Parse(parts[2]), long.Parse(parts[3])));
+                    }
+                    else if (line.StartsWith("S "))
+                    {
+                        string[] parts = line.Split(new[] {' '}, 4);
+                        if (parts.Length < 4) throw new FormatException(Resources.InvalidNumberOfLineParts);
+                        currentDirectory.Add(parts[3], new ManifestSymlink(parts[1], long.Parse(parts[2])));
+                    }
+                    else throw new FormatException(Resources.InvalidLinesInManifest);
+                }
+                #region Error handling
+                catch (OverflowException ex)
+                {
+                    throw new FormatException(Resources.NumberTooLarge, ex);
+                }
+                #endregion
             }
 
-            return new Manifest(format, nodes);
+            return manifest;
         }
 
         /// <summary>
@@ -219,13 +296,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <param name="path">The path of the file to load.</param>
         /// <param name="format">The format of the file and the format of the created <see cref="Manifest"/>. Comprises the digest method used and the file's format.</param>
-        /// <returns>A set of <see cref="ManifestNode"/>s containing the parsed content of the file.</returns>
+        /// <returns>The parsed content of the file.</returns>
         /// <exception cref="FormatException">The file specified is not a valid manifest file.</exception>
         /// <exception cref="IOException">The manifest file could not be read.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-        /// <remarks>
-        /// The exact format is specified here: https://docs.0install.net/specifications/manifest/
-        /// </remarks>
         public static Manifest Load(string path, ManifestFormat format)
         {
             #region Sanity checks
@@ -249,38 +322,5 @@ namespace ZeroInstall.Store.Implementations.Manifests
             stream.Position = 0;
             return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
         }
-        #endregion
-
-        #region Enumeration
-        IEnumerator<ManifestNode> IEnumerable<ManifestNode>.GetEnumerator() => ((IEnumerable<ManifestNode>)_nodes).GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => _nodes.GetEnumerator();
-
-        /// <summary>
-        /// Retrieves a specific <see cref="ManifestNode"/>.
-        /// </summary>
-        /// <param name="i">The index of the node to retreive.</param>
-        public ManifestNode this[int i] => _nodes[i];
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Manifest? other)
-            => other != null
-            && Format == other.Format
-            && _nodes.SequencedEquals(other._nodes);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Manifest manifest && Equals(manifest);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(Format, _nodes.GetSequencedHashCode());
-        #endregion
     }
 }

@@ -76,7 +76,7 @@ namespace ZeroInstall.Store.Implementations
         {
             string path = Path.Combine(_tempDir, id);
             root.Build(path);
-            ManifestTest.CreateDotFile(path, ManifestFormat.FromPrefix(id), _handler);
+            ManifestGeneratorTest.CreateDotFile(path, ManifestFormat.FromPrefix(id), _handler);
             FileUtils.EnableWriteProtection(path);
             return path;
         }
@@ -153,7 +153,7 @@ namespace ZeroInstall.Store.Implementations
         public void ShouldAllowToAddFolder()
         {
             using var testDir = new TemporaryDirectory("0install-test-store");
-            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+            var digest = new ManifestDigest(ManifestGeneratorTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
             _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
@@ -166,7 +166,7 @@ namespace ZeroInstall.Store.Implementations
             Directory.Delete(_tempDir, recursive: true);
 
             using var testDir = new TemporaryDirectory("0install-test-store");
-            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+            var digest = new ManifestDigest(ManifestGeneratorTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
             _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Contains(digest).Should().BeTrue(because: "After adding, Store must contain the added package");
@@ -222,7 +222,7 @@ namespace ZeroInstall.Store.Implementations
         {
             using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
-            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
+            var digest = new ManifestDigest(ManifestGeneratorTest.CreateDotFile(testDir, ManifestFormat.Sha1New, _handler));
             _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
 
             _implementationStore.Verify(digest, _handler);
@@ -236,8 +236,13 @@ namespace ZeroInstall.Store.Implementations
             var file = new TestFile("file") {Contents = "AAA", LastWrite = new DateTime(2000, 1, 1, 0, 0, 1, DateTimeKind.Utc)};
             new TestRoot {file}.Build(testDir);
 
-            var manifest = new Manifest(ManifestFormat.Sha1New,
-                new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite.AddSeconds(1), file.Contents.Length, file.Name));
+            var manifest = new Manifest(ManifestFormat.Sha1New)
+            {
+                [""] =
+                {
+                    [file.Name] = new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite.AddSeconds(1).ToUnixTime(), file.Contents.Length)
+                }
+            };
             var digest = new ManifestDigest(manifest.CalculateDigest());
 
             _implementationStore.Add(digest, _handler, new DirectoryImplementationSource(testDir));
@@ -266,7 +271,7 @@ namespace ZeroInstall.Store.Implementations
             using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
 
-            var digest = new ManifestDigest(ManifestTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
+            var digest = new ManifestDigest(ManifestGeneratorTest.CreateDotFile(testDir, ManifestFormat.Sha256, _handler));
 
             Exception? exception = null;
             var threads = new Thread[100];

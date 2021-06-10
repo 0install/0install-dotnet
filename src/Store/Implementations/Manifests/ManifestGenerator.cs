@@ -20,20 +20,15 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <inheritdoc/>
         public override string Name
             => Tag == null
-                ? string.Format(Resources.GeneratingManifest, Format)
-                : $"{string.Format(Resources.GeneratingManifest, Format)} ({Tag})";
-
-        /// <summary>
-        /// The format of the manifest to generate.
-        /// </summary>
-        public ManifestFormat Format { get; }
-
-        private readonly List<ManifestNode> _nodes = new();
+                ? string.Format(Resources.GeneratingManifest, Manifest.Format)
+                : $"{string.Format(Resources.GeneratingManifest, Manifest.Format)} ({Tag})";
 
         /// <summary>
         /// If <see cref="TaskBase.State"/> is <see cref="TaskState.Complete"/> this property contains the generated <see cref="Manifests.Manifest"/>; otherwise it's <c>null</c>.
         /// </summary>
-        public Manifest Manifest => new(Format, _nodes);
+        public Manifest Manifest { get; }
+
+        private IDictionary<string, ManifestElement> _currentDirectory;
 
         /// <summary>
         /// Prepares to generate a manifest for a directory in the filesystem.
@@ -43,7 +38,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
         public ManifestGenerator(string sourcePath, ManifestFormat format)
             : base(sourcePath)
         {
-            Format = format ?? throw new ArgumentNullException(nameof(format));
+            Manifest = new(format ?? throw new ArgumentNullException(nameof(format)));
+            _currentDirectory = Manifest[""];
         }
 
         /// <inheritdoc/>
@@ -55,8 +51,9 @@ namespace ZeroInstall.Store.Implementations.Manifests
             #endregion
 
             using var stream = file.OpenRead();
-            if (executable) _nodes.Add(new ManifestExecutableFile(Format.DigestContent(stream), file.LastWriteTimeUtc, file.Length, file.Name));
-            else _nodes.Add(new ManifestNormalFile(Format.DigestContent(stream), file.LastWriteTimeUtc, file.Length, file.Name));
+            _currentDirectory.Add(file.Name, executable
+                ? new ManifestExecutableFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc.ToUnixTime(), file.Length)
+                : new ManifestNormalFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc.ToUnixTime(), file.Length));
         }
 
         /// <inheritdoc/>
@@ -69,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             #endregion
 
             var data = target.ToStream();
-            _nodes.Add(new ManifestSymlink(Format.DigestContent(data), data.Length, symlink.Name));
+            _currentDirectory.Add(symlink.Name, new ManifestSymlink(Manifest.Format.DigestContent(data), data.Length));
         }
 
         /// <inheritdoc/>
@@ -79,7 +76,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             if (directory == null) throw new ArgumentNullException(nameof(directory));
             #endregion
 
-            _nodes.Add(new ManifestDirectory("/" + directory.RelativeTo(SourceDirectory)));
+            _currentDirectory = Manifest[directory.RelativeTo(SourceDirectory)];
         }
     }
 }

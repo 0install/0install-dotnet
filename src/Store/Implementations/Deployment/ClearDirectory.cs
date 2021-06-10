@@ -4,8 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
+using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
@@ -44,20 +46,17 @@ namespace ZeroInstall.Store.Implementations.Deployment
             if (File.Exists(manifestPath))
                 filesToDelete.Add(manifestPath);
 
-            foreach ((string relativePath, var node) in ElementPaths)
+            foreach ((string directoryPath, var directory) in Manifest)
             {
-                string elementPath = System.IO.Path.Combine(Path, relativePath);
+                string fullDirectoryPath = System.IO.Path.Combine(Path, FileUtils.UnifySlashes(directoryPath));
 
-                if (node is ManifestDirectory)
-                {
-                    if (Directory.Exists(elementPath))
-                        _pendingDirectoryDeletes.Push(elementPath);
-                }
-                else
-                {
-                    if (File.Exists(elementPath))
-                        filesToDelete.Add(elementPath);
-                }
+                if (Directory.Exists(fullDirectoryPath))
+                    _pendingDirectoryDeletes.Push(fullDirectoryPath);
+
+                filesToDelete.AddRange(
+                    directory.Keys
+                             .Select(elementName => System.IO.Path.Combine(fullDirectoryPath, elementName))
+                             .Where(File.Exists));
             }
 
             if (filesToDelete.Count != 0)
