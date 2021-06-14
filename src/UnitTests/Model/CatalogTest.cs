@@ -22,7 +22,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Catalog.GetFeed"/> and <see cref="Catalog.this"/> correctly find contained <see cref="Feed"/>s.
         /// </summary>
         [Fact]
-        public void TestGetFeed()
+        public void GetFeed()
         {
             var catalog = CreateTestCatalog();
 
@@ -37,7 +37,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class is correctly serialized and deserialized.
         /// </summary>
         [Fact]
-        public void TestSaveLoad()
+        public void SaveLoad()
         {
             Catalog catalog1 = CreateTestCatalog(), catalog2;
             using (var tempFile = new TemporaryFile("0install-test-catalog"))
@@ -57,7 +57,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var catalog1 = CreateTestCatalog();
             var catalog2 = catalog1.Clone();
@@ -72,7 +72,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Catalog.FindByShortName"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestFindByShortName()
+        public void FindByShortName()
         {
             var appA = new Feed
             {
@@ -99,7 +99,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Catalog.Search"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestSearch()
+        public void Search()
         {
             var appA = new Feed {Uri = FeedTest.Test1Uri, Name = "AppA"};
             var appB = new Feed {Uri = FeedTest.Test2Uri, Name = "AppB"};

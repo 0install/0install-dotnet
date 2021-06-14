@@ -12,7 +12,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
     public class ManifestFormatTest
     {
         [Fact]
-        public void TestFromPrefix()
+        public void FromPrefix()
         {
             ManifestFormat.FromPrefix("sha1new=abc").Should().BeSameAs(ManifestFormat.Sha1New);
             ManifestFormat.FromPrefix("sha256=abc").Should().BeSameAs(ManifestFormat.Sha256);

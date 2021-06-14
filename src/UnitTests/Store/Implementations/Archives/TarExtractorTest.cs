@@ -22,27 +22,27 @@ namespace ZeroInstall.Store.Implementations.Archives
         public void Dispose() => _sandbox.Dispose();
 
         [Fact]
-        public void TestPlain()
+        public void Plain()
             => TestExtract(Archive.MimeTypeTar, "testArchive.tar");
 
         [Fact]
-        public void TestPlainError()
+        public void PlainError()
             => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTar, new MemoryStream(_garbageData)));
 
         [Fact]
-        public void TestGzCompressed()
+        public void GzCompressed()
             => TestExtract(Archive.MimeTypeTarGzip, "testArchive.tar.gz");
 
         [Fact]
-        public void TestGzCompressedError()
+        public void GzCompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarGzip, new MemoryStream(_garbageData)));
 
         [Fact]
-        public void TestBz2Compressed()
+        public void Bz2Compressed()
             => TestExtract(Archive.MimeTypeTarBzip, "testArchive.tar.bz2");
 
         [Fact]
-        public void TestBz2CompressedError()
+        public void Bz2CompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarBzip, new MemoryStream(_garbageData)));
 
         [SkippableFact]
@@ -50,23 +50,23 @@ namespace ZeroInstall.Store.Implementations.Archives
             => TestExtract(Archive.MimeTypeTarXz, "testArchive.tar.xz");
 
         [Fact]
-        public void TestLzmaCompressed()
+        public void LzmaCompressed()
             => TestExtract(Archive.MimeTypeTarLzma, "testArchive.tar.lzma");
 
         [Fact]
-        public void TestLzmaCompressedError()
+        public void LzmaCompressedError()
             => Assert.Throws<IOException>(() => TestExtract(Archive.MimeTypeTarLzma, new MemoryStream(_garbageData)));
 
         [Fact]
-        public void TestLzipCompressed()
+        public void LzipCompressed()
             => TestExtract(Archive.MimeTypeTarLzip, "testArchive.tar.lz");
 
         [Fact]
-        public void TestZstandardCompressed()
+        public void ZstandardCompressed()
             => TestExtract(Archive.MimeTypeTarZstandard, "testArchive.tar.zst");
 
         [Fact]
-        public void TestRubyGem()
+        public void RubyGem()
             => TestExtract(Archive.MimeTypeRubyGem, "testArchive.gem");
 
         private void TestExtract(string mimeType, Stream archive)
@@ -94,7 +94,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Tests whether the extractor generates a correct <see cref="FlagUtils.XbitFile"/> for a sample TAR archive containing an executable file.
         /// </summary>
         [Fact]
-        public void TestExtractUnixArchiveWithExecutable()
+        public void ExtractUnixArchiveWithExecutable()
         {
             using (var extractor = new TarExtractor(typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"), _sandbox))
                 extractor.Run();
@@ -112,7 +112,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Tests whether the extractor generates a <see cref="FileUtils.IsSymlink(string)"/> entry for a sample TAR archive containing a symbolic link.
         /// </summary>
         [Fact]
-        public void TestExtractUnixArchiveWithSymlink()
+        public void ExtractUnixArchiveWithSymlink()
         {
             using (var extractor = new TarExtractor(typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"), _sandbox))
                 extractor.Run();
@@ -129,7 +129,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Tests whether the extractor creates an on-disk hardlink for a sample TAR archive containing a hardlink.
         /// </summary>
         [Fact]
-        public void TestExtractUnixArchiveWithHardlink()
+        public void ExtractUnixArchiveWithHardlink()
         {
             using (var extractor = new TarExtractor(typeof(TarExtractorTest).GetEmbeddedStream("testArchive.tar"), _sandbox))
                 extractor.Run();

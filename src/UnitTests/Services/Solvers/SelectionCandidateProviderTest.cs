@@ -42,7 +42,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestGetSortedCandidates()
+        public void GetSortedCandidates()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
@@ -55,7 +55,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestFeedReferences()
+        public void FeedReferences()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
@@ -73,7 +73,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestInterfacePreferences()
+        public void InterfacePreferences()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Elements.RemoveAt(1);
@@ -94,7 +94,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestNativeFeed()
+        public void NativeFeed()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Elements.RemoveAt(1);
@@ -116,7 +116,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestSitePackages()
+        public void SitePackages()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
@@ -142,7 +142,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestPackageManager()
+        public void PackageManager()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();
@@ -159,7 +159,7 @@ namespace ZeroInstall.Services.Solvers
         }
 
         [Fact]
-        public void TestLookupOriginalImplementation()
+        public void LookupOriginalImplementation()
         {
             var mainFeed = FeedTest.CreateTestFeed();
             mainFeed.Feeds.Clear();

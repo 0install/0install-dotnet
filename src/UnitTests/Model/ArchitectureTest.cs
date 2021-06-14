@@ -12,7 +12,7 @@ namespace ZeroInstall.Model
     public class ArchitectureTest
     {
         [Fact]
-        public void TestConstructor()
+        public void Constructor()
         {
             new Architecture("*-*").Should().Be(new Architecture(OS.All, Cpu.All));
             new Architecture("Linux-*").Should().Be(new Architecture(OS.Linux, Cpu.All));
@@ -21,7 +21,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestRunsOn()
+        public void RunsOn()
         {
             new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Windows, Cpu.I486)).Should().BeTrue();
             new Architecture(OS.Linux, Cpu.I586).RunsOn(new Architecture(OS.Linux, Cpu.I586)).Should().BeTrue();
@@ -32,7 +32,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestRunsOnOS()
+        public void RunsOnOS()
         {
             // Wildcard
             OS.All.RunsOn(OS.Windows).Should().BeTrue();
@@ -60,7 +60,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestRunsOnCpu()
+        public void RunsOnCpu()
         {
             // Wildcard
             Cpu.All.RunsOn(Cpu.I486).Should().BeTrue();

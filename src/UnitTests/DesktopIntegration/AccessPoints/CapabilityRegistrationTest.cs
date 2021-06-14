@@ -13,7 +13,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     public class CapabilityRegistrationTest
     {
         [Fact]
-        public void TestGetConflictIDs()
+        public void GetConflictIDs()
         {
             var capabilityRegistration = new CapabilityRegistration();
             var appEntry = new AppEntry

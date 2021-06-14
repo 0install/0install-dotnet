@@ -48,7 +48,7 @@ namespace ZeroInstall.Store
         /// Ensures that the class is correctly serialized and deserialized.
         /// </summary>
         [Fact]
-        public void TestSaveLoad()
+        public void SaveLoad()
         {
             Config config1;
             object config2;
@@ -70,7 +70,7 @@ namespace ZeroInstall.Store
         /// Ensures <see cref="Config.GetOption"/> and <see cref="Config.SetOption"/> properly access the settings properties.
         /// </summary>
         [Fact]
-        public void TestGetSetValue()
+        public void GetSetValue()
         {
             var config = new Config();
             Assert.Throws<KeyNotFoundException>(() => config.SetOption("Test", "Test"));
@@ -91,7 +91,7 @@ namespace ZeroInstall.Store
         /// Ensures <see cref="Config.Save(string)"/> preserves unknown properties loaded in <see cref="Config.Load(string)"/>.
         /// </summary>
         [Fact]
-        public void TestRetainUnknownProperties()
+        public void RetainUnknownProperties()
         {
             string testIniData = "[global]" + Environment.NewLine + "test = test" + Environment.NewLine;
 
@@ -103,7 +103,7 @@ namespace ZeroInstall.Store
 
         #if NET
         [Fact]
-        public void TestFromExtensionsConfiguration()
+        public void FromExtensionsConfiguration()
         {
             var config = Config.From(new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string>
             {

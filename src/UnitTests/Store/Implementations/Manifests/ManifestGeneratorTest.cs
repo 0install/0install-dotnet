@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         private readonly long _lastWriteTime = TestFile.DefaultLastWrite.ToUnixTime();
 
         [Fact]
-        public void TestFileTypes()
+        public void FileTypes()
         {
             var manifest = GenerateManifest(new TestRoot
             {
@@ -70,7 +70,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
-        public void TestCalculateDigest()
+        public void CalculateDigest()
         {
             using var testDir = new TemporaryDirectory("0install-test-impl");
             new TestRoot

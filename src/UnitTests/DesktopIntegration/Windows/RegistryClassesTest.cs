@@ -13,28 +13,28 @@ namespace ZeroInstall.DesktopIntegration.Windows
     public class RegistryClassesTest : TestWithRedirect
     {
         [Fact]
-        public void TestCommandLineEscaping()
+        public void CommandLineEscaping()
         {
             GetLaunchCommandLine(new Verb {Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
                .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
         }
 
         [Fact]
-        public void TestCommandLinePrecedence()
+        public void CommandLinePrecedence()
         {
             GetLaunchCommandLine(new Verb {Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
                .Should().EndWith("a b");
         }
 
         [Fact]
-        public void TestCommandLineLiteral()
+        public void CommandLineLiteral()
         {
             GetLaunchCommandLine(new Verb {ArgumentsLiteral = "x"})
                .Should().EndWith("x");
         }
 
         [Fact]
-        public void TestCommandLineDefaultValue()
+        public void CommandLineDefaultValue()
         {
             GetLaunchCommandLine(new Verb())
                .Should().EndWith("\"%V\"");

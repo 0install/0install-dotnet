@@ -47,7 +47,7 @@ namespace ZeroInstall.Model.Preferences
         }
 
         [Fact]
-        public void TestContains()
+        public void Contains()
         {
             _cache.Contains(FeedTest.Test1Uri).Should().BeTrue();
             _cache.Contains(FeedTest.Test2Uri).Should().BeTrue();
@@ -66,33 +66,33 @@ namespace ZeroInstall.Model.Preferences
         }
 
         [Fact]
-        public void TestContainsCaseSensitive()
+        public void ContainsCaseSensitive()
         {
             _cache.Contains(new("http://example.com/test1.xml")).Should().BeTrue();
             _cache.Contains(new("http://example.com/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
         }
 
         [Fact]
-        public void TestListAll()
+        public void ListAll()
             => _cache.ListAll().Should().BeEquivalentTo(FeedTest.Test1Uri, FeedTest.Test2Uri);
 
         [Fact]
-        public void TestGetFeed()
+        public void GetFeed()
             => _cache.GetFeed(_feed1.Uri).Should().Be(_feed1);
 
         [Fact]
-        public void TestGetFeedCaseSensitive()
+        public void GetFeedCaseSensitive()
         {
             _cache.Invoking(x => x.GetFeed(new("http://example.com/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
             Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new("http://example.com/Test1.xml")));
         }
 
         [Fact]
-        public void TestGetSignatures()
+        public void GetSignatures()
             => _cache.GetSignatures(FeedTest.Test1Uri).Should().BeEmpty();
 
         [Fact]
-        public void TestAdd()
+        public void Add()
         {
             var feed = FeedTest.CreateTestFeed();
             feed.Uri = FeedTest.Test3Uri;
@@ -104,7 +104,7 @@ namespace ZeroInstall.Model.Preferences
         }
 
         [Fact]
-        public void TestRemove()
+        public void Remove()
         {
             _cache.Contains(FeedTest.Test1Uri).Should().BeTrue();
             _cache.Remove(FeedTest.Test1Uri);

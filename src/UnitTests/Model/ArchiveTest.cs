@@ -31,7 +31,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var archive1 = CreateTestArchive();
             var archive2 = archive1.Clone();
@@ -43,7 +43,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestNormalizeGuessMimeType()
+        public void NormalizeGuessMimeType()
         {
             var archive = new Archive {Href = new("http://example.com/test.tar.gz"), Size = 128};
             archive.Normalize(new("http://example.com/"));
@@ -51,7 +51,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestNormalizeLocalPath()
+        public void NormalizeLocalPath()
         {
             var archive = new Archive {Href = new("test.zip", UriKind.Relative), MimeType = Archive.MimeTypeZip, Size = 128};
             archive.Normalize(new(Path.Combine(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir", "feed.xml")));

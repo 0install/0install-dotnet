@@ -12,7 +12,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
     public class ManifestTest
     {
         [Fact]
-        public void TestFileOrder()
+        public void FileOrder()
         {
             var manifest = new Manifest(ManifestFormat.Sha256New);
             var topLevel = manifest[""];
@@ -23,7 +23,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
-        public void TestTotalSize()
+        public void TotalSize()
         {
             var manifest = new Manifest(ManifestFormat.Sha256New)
             {
@@ -40,7 +40,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
-        public void TestRemoveRecursive()
+        public void RemoveRecursive()
         {
             var manifest = new Manifest(ManifestFormat.Sha256New)
             {
@@ -69,7 +69,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
-        public void TestMoveRecursive()
+        public void MoveRecursive()
         {
             var manifest = new Manifest(ManifestFormat.Sha256New)
             {
@@ -106,7 +106,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
-        public void TestWithOffset()
+        public void WithOffset()
         {
             var original = new Manifest(ManifestFormat.Sha256)
             {
@@ -133,7 +133,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// Ensures that Manifest is correctly generated, serialized and deserialized.
         /// </summary>
         [Fact]
-        public void TestSaveLoad()
+        public void SaveLoad()
         {
             var manifest1 = new Manifest(ManifestFormat.Sha1New)
             {
@@ -158,7 +158,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// Ensures damaged manifest lines are correctly identified.
         /// </summary>
         [Fact]
-        public void TestLoadException()
+        public void LoadException()
         {
             Assert.Throws<FormatException>(() => Manifest.Load("test".ToStream(), ManifestFormat.Sha1New));
             Assert.Throws<FormatException>(() => Manifest.Load("test".ToStream(), ManifestFormat.Sha256));

@@ -31,62 +31,62 @@ namespace ZeroInstall.Store.Trust
         private ArraySegment<byte> DummyData => new(new byte[] {1, 2, 3});
 
         [Fact]
-        public void TestVerifyValidSignature()
+        public void VerifyValidSignature()
         {
-            TestImportKey();
+            ImportKey();
             OpenPgp.Verify(_referenceData, _signatureData).Should().Equal(
                 new ValidSignature(_secretKey.KeyID, _secretKey.GetFingerprint(), new DateTime(2015, 7, 16, 17, 20, 7, DateTimeKind.Utc)));
         }
 
         [Fact]
-        public void TestVerifyBadSignature()
+        public void VerifyBadSignature()
         {
-            TestImportKey();
+            ImportKey();
             OpenPgp.Verify(DummyData, _signatureData).Should().Equal(new BadSignature(_secretKey.KeyID));
         }
 
         [Fact]
-        public void TestVerifyMissingKeySignature()
+        public void VerifyMissingKeySignature()
             => OpenPgp.Verify(_referenceData, _signatureData).Should().Equal(new MissingKeySignature(_secretKey.KeyID));
 
         [Fact]
-        public void TestVerifyInvalidData()
+        public void VerifyInvalidData()
             => Assert.Throws<InvalidDataException>(() => OpenPgp.Verify(DummyData, new byte[] {1, 2, 3}));
 
         [Fact]
-        public void TestSign()
+        public void Sign()
         {
             DeployKeyRings();
 
             var signatureData = OpenPgp.Sign(_referenceData, _secretKey, "passphrase");
             signatureData.Length.Should().BeGreaterThan(10);
 
-            TestImportKey();
+            ImportKey();
             var signature = (ValidSignature)OpenPgp.Verify(_referenceData, signatureData).Single();
             signature.GetFingerprint().Should().Equal(_secretKey.GetFingerprint());
         }
 
         [Fact]
-        public void TestSignMissingKey()
+        public void SignMissingKey()
             => Assert.Throws<KeyNotFoundException>(() => OpenPgp.Sign(_referenceData, _secretKey));
 
         [Fact]
-        public void TestSignWrongPassphrase()
+        public void SignWrongPassphrase()
         {
             DeployKeyRings();
             Assert.Throws<WrongPassphraseException>(() => OpenPgp.Sign(_referenceData, _secretKey, "wrong-passphrase"));
         }
 
         [Fact]
-        public void TestImportKey()
+        public void ImportKey()
             => OpenPgp.ImportKey(typeof(OpenPgpTest).GetEmbeddedStream("pubkey.gpg"));
 
         [Fact]
-        public void TestImportKeyInvalidData()
+        public void ImportKeyInvalidData()
             => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new MemoryStream(new byte[] {1, 2, 3})));
 
         [Fact]
-        public void TestExportKey()
+        public void ExportKey()
         {
             DeployKeyRings();
 
@@ -99,18 +99,18 @@ namespace ZeroInstall.Store.Trust
         }
 
         [Fact]
-        public void TestExportKeyMissingKey()
+        public void ExportKeyMissingKey()
             => Assert.Throws<KeyNotFoundException>(() => OpenPgp.ExportKey(_secretKey));
 
         [Fact]
-        public void TestListSecretKeys()
+        public void ListSecretKeys()
         {
             DeployKeyRings();
             OpenPgp.ListSecretKeys().Should().Equal(_secretKey);
         }
 
         [Fact]
-        public void TestGetSecretKey()
+        public void GetSecretKey()
         {
             DeployKeyRings();
 

@@ -13,7 +13,7 @@ namespace ZeroInstall.Services
     public class ServiceCollectionTest
     {
         [Fact]
-        public void TestDependencyResolution()
+        public void DependencyResolution()
         {
             var provider = new ServiceCollection().AddZeroInstall().BuildServiceProvider();
             provider.GetRequiredService<ISolver>();

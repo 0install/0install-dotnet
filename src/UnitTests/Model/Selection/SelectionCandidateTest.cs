@@ -15,13 +15,13 @@ namespace ZeroInstall.Model.Selection
     public class SelectionCandidateTest
     {
         [Fact]
-        public void TestRejectsMissingId()
+        public void RejectsMissingId()
         {
             ShouldThrow(new Implementation {Version = new("1")});
         }
 
         [Fact]
-        public void TestRejectsMissingVersion()
+        public void RejectsMissingVersion()
         {
             ShouldThrow(new Implementation {ID = "1"});
         }
@@ -34,7 +34,7 @@ namespace ZeroInstall.Model.Selection
         }
 
         [Fact]
-        public void TestIsSuitable()
+        public void IsSuitable()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
             new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
@@ -42,7 +42,7 @@ namespace ZeroInstall.Model.Selection
         }
 
         [Fact]
-        public void TestIsSuitableArchitecture()
+        public void IsSuitableArchitecture()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
             new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun, implementation.Architecture))
@@ -52,7 +52,7 @@ namespace ZeroInstall.Model.Selection
         }
 
         [Fact]
-        public void TestIsSuitableVersionMismatch()
+        public void IsSuitableVersionMismatch()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
             new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun)
@@ -66,7 +66,7 @@ namespace ZeroInstall.Model.Selection
         }
 
         [Fact]
-        public void TestIsSuitableBuggyInsecure()
+        public void IsSuitableBuggyInsecure()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
             new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Buggy}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))

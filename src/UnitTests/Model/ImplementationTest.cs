@@ -37,7 +37,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Element.ContainsCommand"/> correctly checks for commands.
         /// </summary>
         [Fact]
-        public void TestContainsCommand()
+        public void ContainsCommand()
         {
             var implementation = CreateTestImplementation();
             implementation.ContainsCommand(Command.NameRun).Should().BeTrue();
@@ -67,7 +67,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Implementation.Normalize"/> correctly identifies manifest digests in the ID tag.
         /// </summary>
         [Fact]
-        public void TestNormalizeID()
+        public void NormalizeID()
         {
             var implementation = new Implementation {ID = "sha256=123"};
             implementation.Normalize(FeedTest.Test1Uri);
@@ -98,7 +98,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Implementation.Normalize"/> correctly makes <see cref="ImplementationBase.LocalPath"/> absolute.
         /// </summary>
         [Fact]
-        public void TestNormalizeLocalPath()
+        public void NormalizeLocalPath()
         {
             var localUri = new FeedUri(WindowsUtils.IsWindows ? @"C:\local\feed.xml" : "/local/feed.xml");
 
@@ -117,7 +117,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Implementation.Normalize"/> rejects local paths in non-local feeds.
         /// </summary>
         [Fact]
-        public void TestNormalizeRejectLocalPath()
+        public void NormalizeRejectLocalPath()
         {
             var implementation = new Implementation {LocalPath = "subdir"};
             implementation.Normalize(FeedTest.Test1Uri);
@@ -128,7 +128,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Implementation.Normalize"/> rejects relative <see cref="DownloadRetrievalMethod.Href"/>s in non-local feeds.
         /// </summary>
         [Fact]
-        public void TestNormalizeRejectRelativeHref()
+        public void NormalizeRejectRelativeHref()
         {
             var relative = new Archive {Href = new("relative", UriKind.Relative)};
             var absolute = new Archive {Href = new("http://server/absolute.zip", UriKind.Absolute)};
@@ -142,7 +142,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var implementation1 = CreateTestImplementation();
             var implementation2 = implementation1.CloneImplementation();

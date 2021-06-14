@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures <see cref="FeedCacheExtensions.GetAll"/> correctly loads <see cref="Feed"/>s from an <see cref="IFeedCache"/>, skipping any exceptions.
         /// </summary>
         [Fact]
-        public void TestGetFeeds()
+        public void GetFeeds()
         {
             var feed1 = FeedTest.CreateTestFeed();
             var feed3 = FeedTest.CreateTestFeed();
@@ -45,7 +45,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures that <see cref="FeedUtils.GetSignatures"/> correctly separates an XML signature block from a signed feed.
         /// </summary>
         [Fact]
-        public void TestGetSignatures()
+        public void GetSignatures()
         {
             var openPgpMock = CreateMock<IOpenPgp>();
             var result = new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature};
@@ -59,7 +59,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures that <see cref="FeedUtils.GetSignatures"/> throws a <see cref="SignatureException"/> if the signature block does not start in a new line.
         /// </summary>
         [Fact]
-        public void TestGetSignaturesMissingNewLine()
+        public void GetSignaturesMissingNewLine()
         {
             string input = "Feed without newline" + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd;
             Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
@@ -69,7 +69,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures that <see cref="FeedUtils.GetSignatures" /> throws a <see cref="SignatureException"/> if the signature contains non-base 64 characters.
         /// </summary>
         [Fact]
-        public void TestGetSignaturesInvalidChars()
+        public void GetSignaturesInvalidChars()
         {
             const string input = FeedText + FeedUtils.SignatureBlockStart + "*!?#" + FeedUtils.SignatureBlockEnd;
             Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
@@ -79,7 +79,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures that <see cref="FeedUtils.GetSignatures" /> throws a <see cref="SignatureException"/> if the correct signature end is missing.
         /// </summary>
         [Fact]
-        public void TestGetSignaturesMissingEnd()
+        public void GetSignaturesMissingEnd()
         {
             string input = FeedText + FeedUtils.SignatureBlockStart + _signatureBase64;
             Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
@@ -89,7 +89,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures that <see cref="FeedUtils.GetSignatures" /> throws a <see cref="SignatureException"/> if there is additional data after the signature block.
         /// </summary>
         [Fact]
-        public void TestGetSignaturesDataAfterSignature()
+        public void GetSignaturesDataAfterSignature()
         {
             string input = FeedText + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd + "more data";
             Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));

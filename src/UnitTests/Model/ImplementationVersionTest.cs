@@ -35,7 +35,7 @@ namespace ZeroInstall.Model
         /// Ensures the constructor correctly parses <see cref="string"/>s and <see cref="Version"/>s.
         /// </summary>
         [Fact]
-        public void TestVersionConstructor()
+        public void VersionConstructor()
         {
             new ImplementationVersion(new Version(1, 2)).Should().Be(new ImplementationVersion("1.2"));
             new ImplementationVersion(new Version(1, 2, 3)).Should().Be(new ImplementationVersion("1.2.3"));
@@ -46,7 +46,7 @@ namespace ZeroInstall.Model
         /// Ensures the <see cref="Version"/> constructor correctly handles template variables.
         /// </summary>
         [Fact]
-        public void TestTemplateVariable()
+        public void TemplateVariable()
         {
             var version = new ImplementationVersion("1-pre{var}");
             version.ContainsTemplateVariables.Should().BeTrue();
@@ -61,7 +61,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="ImplementationVersion"/> objects are correctly compared.
         /// </summary>
         [Fact]
-        public void TestEquals()
+        public void Equality()
         {
             new ImplementationVersion("1.2-pre-3").Should().Be(new ImplementationVersion("1.2-pre-3"));
             new ImplementationVersion("1-pre-3").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
@@ -75,7 +75,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="ImplementationVersion"/> objects are sorted correctly.
         /// </summary>
         [Fact]
-        public void TestSort()
+        public void Sort()
         {
             var sortedVersions = new[] {"0.1", "1", "1.0", "1.1", "1.2-pre", "1.2-pre1", "1.2-rc1", "1.2", "1.2-0", "1.2-post", "1.2-post1-pre", "1.2-post1", "1.2.1-pre", "1.2.1.4", "1.2.3", "1.2.10", "3"};
             for (int i = 0; i < sortedVersions.Length - 1; i++)

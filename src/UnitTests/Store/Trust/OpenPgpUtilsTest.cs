@@ -21,34 +21,34 @@ namespace ZeroInstall.Store.Trust
         public static readonly ValidSignature TestSignature = new(TestKeyID, TestFingerprint, new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc));
 
         [Fact]
-        public void TestFormatKeyID()
+        public void FormatKeyID()
             => new ErrorSignature(TestKeyID)
               .FormatKeyID()
               .Should().Be(TestKeyIDString);
 
         [Fact]
-        public void TestFormatFingerprint()
+        public void FormatFingerprint()
             => new OpenPgpSecretKey(TestKeyID, TestFingerprint, "a@b.com")
               .FormatFingerprint()
               .Should().Be(TestFingerprintString);
 
         [Fact]
-        public void TestParseKeyID()
+        public void ParseKeyID()
             => OpenPgpUtils.ParseKeyID(TestKeyIDString)
                            .Should().Be(TestKeyID);
 
         [Fact]
-        public void TestParseFingerpint()
+        public void ParseFingerpint()
             => OpenPgpUtils.ParseFingerprint(TestFingerprintString)
                            .Should().Equal(TestFingerprint);
 
         [Fact]
-        public void TestFingerprintToKeyID()
+        public void FingerprintToKeyID()
             => OpenPgpUtils.FingerprintToKeyID(OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"))
                            .Should().Be(OpenPgpUtils.ParseKeyID("DEED44B49BE24661"));
 
         [Fact]
-        public void TestDeployPublicKey()
+        public void DeployPublicKey()
         {
             using var tempDir = new TemporaryDirectory("0install-test-openpgp");
             const string publicKey = "public";

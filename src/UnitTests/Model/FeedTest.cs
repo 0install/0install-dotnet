@@ -142,7 +142,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class is correctly serialized and deserialized.
         /// </summary>
         [Fact]
-        public void TestSaveLoad()
+        public void SaveLoad()
         {
             Feed feed1 = CreateTestFeed(), feed2;
             using (var tempFile = new TemporaryFile("0install-test-feed"))
@@ -162,7 +162,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned and compared.
         /// </summary>
         [Fact]
-        public void TestCloneEquals()
+        public void CloneEquals()
         {
             var feed1 = CreateTestFeed();
             feed1.Should().Be(feed1, because: "Equals() should be reflexive.");
@@ -206,7 +206,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.Normalize"/> correctly updates collection hash codes.
         /// </summary>
         [Fact]
-        public void TestNormalizeHash()
+        public void NormalizeHash()
         {
             var feed = CreateTestFeed();
 
@@ -223,7 +223,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.ResolveInternalReferences"/> correctly resolves <see cref="CopyFromStep.ID"/> references.
         /// </summary>
         [Fact]
-        public void TestResolveInternalReferences()
+        public void ResolveInternalReferences()
         {
             var step = new CopyFromStep {ID = "1"};
             var feed = new Feed
@@ -249,7 +249,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.Strip"/> correctly removes non-essential metadata.
         /// </summary>
         [Fact]
-        public void TestStrip()
+        public void Strip()
         {
             var feed = CreateTestFeed();
             feed.Strip();
@@ -264,7 +264,7 @@ namespace ZeroInstall.Model
         /// Ensures that contained <see cref="Implementation"/>s are correctly returned by ID.
         /// </summary>
         [Fact]
-        public void TestGetImplementation()
+        public void GetImplementation()
         {
             var feed = CreateTestFeed();
 
@@ -276,7 +276,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.GetEntryPoint"/> correctly identifies contained <see cref="EntryPoint"/>s.
         /// </summary>
         [Fact]
-        public void TestGetEntryPoint()
+        public void GetEntryPoint()
         {
             var feed = CreateTestFeed();
 
@@ -288,7 +288,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.GetBestName"/> correctly finds best matching names for <see cref="Command"/>s/<see cref="EntryPoint"/>s.
         /// </summary>
         [Fact]
-        public void TestGetName()
+        public void GetName()
         {
             var feed = CreateTestFeed();
 
@@ -300,7 +300,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.GetBestSummary"/> correctly finds best matching summaries for <see cref="Command"/>s/<see cref="EntryPoint"/>s.
         /// </summary>
         [Fact]
-        public void TestGetSummary()
+        public void GetSummary()
         {
             var feed = CreateTestFeed();
 
@@ -312,7 +312,7 @@ namespace ZeroInstall.Model
         /// Ensures that <see cref="Feed.GetBestIcon"/> correctly finds best matching <see cref="Icon"/>s for <see cref="Command"/>s/<see cref="EntryPoint"/>s.
         /// </summary>
         [Fact]
-        public void TestGetBestIcon()
+        public void GetBestIcon()
         {
             var feed = CreateTestFeed();
 

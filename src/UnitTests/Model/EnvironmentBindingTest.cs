@@ -27,7 +27,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var binding1 = CreateTestBinding();
             var binding2 = binding1.Clone();

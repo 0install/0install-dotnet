@@ -72,13 +72,13 @@ namespace ZeroInstall.Commands.Basic
         }
 
         [Fact]
-        public void TestGetCanonicalUriRemote()
+        public void GetCanonicalUriRemote()
             => Sut.GetCanonicalUri("http://example.com/test1.xml")
                   .ToStringRfc()
                   .Should().Be("http://example.com/test1.xml");
 
         [Fact]
-        public void TestGetCanonicalUriFile()
+        public void GetCanonicalUriFile()
         {
             CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
             CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
@@ -108,7 +108,7 @@ namespace ZeroInstall.Commands.Basic
         }
 
         [Fact]
-        public void TestGetCanonicalUriAliases()
+        public void GetCanonicalUriAliases()
         {
             // Fake an alias
             new AppList
@@ -128,14 +128,14 @@ namespace ZeroInstall.Commands.Basic
         }
 
         [Fact]
-        public void TestGetCanonicalUriCatalogCached()
+        public void GetCanonicalUriCatalogCached()
         {
             CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
             Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
         }
 
         [Fact]
-        public void TestGetCanonicalUriCatalogOnline()
+        public void GetCanonicalUriCatalogOnline()
         {
             CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
             CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});

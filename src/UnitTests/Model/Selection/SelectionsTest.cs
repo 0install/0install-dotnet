@@ -31,7 +31,7 @@ namespace ZeroInstall.Model.Selection
         /// Ensures that <see cref="Selections.GetImplementation"/> and <see cref="Selections.this"/> correctly retrieve implementations.
         /// </summary>
         [Fact]
-        public void TestGetImplementation()
+        public void GetImplementation()
         {
             var implementation = CreateTestSelections();
 
@@ -47,7 +47,7 @@ namespace ZeroInstall.Model.Selection
         /// Ensures that the class is correctly serialized and deserialized.
         /// </summary>
         [Fact]
-        public void TestSaveLoad()
+        public void SaveLoad()
         {
             Selections selections1 = CreateTestSelections(), selections2;
             using (var tempFile = new TemporaryFile("0install-test-feed"))
@@ -67,7 +67,7 @@ namespace ZeroInstall.Model.Selection
         /// Ensures that the class can be correctly cloned and compared.
         /// </summary>
         [Fact]
-        public void TestCloneEquals()
+        public void CloneEquals()
         {
             var selections1 = CreateTestSelections();
             selections1.Should().Be(selections1, because: "Equals() should be reflexive.");

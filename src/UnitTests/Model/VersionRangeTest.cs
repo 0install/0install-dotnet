@@ -16,7 +16,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="VersionRange"/> are correctly parsed from strings.
         /// </summary>
         [Fact]
-        public void TestParse()
+        public void Parse()
         {
             new VersionRange("2.6").Parts.Should().Equal(new VersionRangePartExact(new("2.6")));
             new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(lowerInclusive: null, upperExclusive: new("3")));
@@ -33,7 +33,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="VersionRange"/> objects are correctly compared.
         /// </summary>
         [Fact]
-        public void TestEquals()
+        public void Equality()
         {
             new VersionRange("2.6").Should().Be(new VersionRange("2.6"));
             new VersionRange("..!3").Should().Be(new VersionRange("..!3"));
@@ -65,7 +65,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="VersionRange.Intersect"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestIntersect()
+        public void Intersect()
         {
             IntersectShouldBe(VersionRange.None, new VersionRange("..!2"), expected: VersionRange.None);
             IntersectShouldBe(VersionRange.None, new VersionRange("1.."), expected: VersionRange.None);
@@ -131,7 +131,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="VersionRange.Match"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestMatch()
+        public void Match()
         {
             new VersionRange("1.2").Match(new("1.2")).Should().BeTrue();
             new VersionRange("1.2").Match(new("1.3")).Should().BeFalse();

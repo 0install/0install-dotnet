@@ -15,7 +15,7 @@ namespace ZeroInstall.Publish
     public class ManifestUtilsTest
     {
         [Fact]
-        public void TestCalculateDigest()
+        public void CalculateDigest()
         {
             using var testDir = new TemporaryDirectory("0install-test-manifest");
             string digest = ManifestUtils.CalculateDigest(testDir, ManifestFormat.Sha256New, new SilentTaskHandler());
@@ -23,7 +23,7 @@ namespace ZeroInstall.Publish
         }
 
         [Fact]
-        public void TestGenerateDigest()
+        public void GenerateDigest()
         {
             using var testDir = new TemporaryDirectory("0install-test-manifest");
             var digest = ManifestUtils.GenerateDigest(testDir, new SilentTaskHandler());

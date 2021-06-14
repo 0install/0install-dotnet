@@ -24,7 +24,7 @@ namespace ZeroInstall.Services.Executors
         private const string Test1Path = "test1 path", Test2Path = "test2 path";
 
         [Fact]
-        public void TestExceptions()
+        public void Exceptions()
         {
             var executor = new EnvironmentBuilder(new Mock<IImplementationStore>(MockBehavior.Loose).Object);
             executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
@@ -34,7 +34,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         [Fact]
-        public void TestExceptionMultipleInvalidBindings()
+        public void ExceptionMultipleInvalidBindings()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding()); // Missing name
@@ -54,7 +54,7 @@ namespace ZeroInstall.Services.Executors
         }
 
         [Fact]
-        public void TestExceptionMultipleWorkingDirs()
+        public void ExceptionMultipleWorkingDirs()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations[1].Commands[0].WorkingDir = new WorkingDir();
@@ -117,7 +117,7 @@ namespace ZeroInstall.Services.Executors
         /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles complex <see cref="Selections"/>.
         /// </summary>
         [Fact]
-        public void TestBaseline()
+        public void Baseline()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
@@ -180,7 +180,7 @@ namespace ZeroInstall.Services.Executors
         /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles complex <see cref="Selections"/> and "main" overrides with relative paths.
         /// </summary>
         [Fact]
-        public void TestMainRelative()
+        public void MainRelative()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
@@ -209,7 +209,7 @@ namespace ZeroInstall.Services.Executors
         /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles complex <see cref="Selections"/> and "main" overrides with absolute paths.
         /// </summary>
         [Fact]
-        public void TestMainAbsolute()
+        public void MainAbsolute()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
@@ -238,7 +238,7 @@ namespace ZeroInstall.Services.Executors
         /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles <see cref="Selections"/> with <see cref="Command.Path"/>s that are empty.
         /// </summary>
         [Fact]
-        public void TestPathlessCommand()
+        public void PathlessCommand()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor
@@ -266,7 +266,7 @@ namespace ZeroInstall.Services.Executors
         /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles <see cref="Selections"/> with <see cref="ForEachArgs"/>.
         /// </summary>
         [Fact]
-        public void TestForEachArgs()
+        public void ForEachArgs()
         {
             var selections = SelectionsTest.CreateTestSelections();
             selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new FeedUri("http://example.com/dummy.xml")}); // Should be ignored by Executor

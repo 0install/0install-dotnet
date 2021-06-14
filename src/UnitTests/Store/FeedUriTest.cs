@@ -20,7 +20,7 @@ namespace ZeroInstall.Store
         /// Ensures the <see cref="FeedUri"/> constructor correctly identify invalid interface URIs.
         /// </summary>
         [Fact]
-        public void TestValid()
+        public void Valid()
         {
             new FeedUri("http://example.com");
             new FeedUri("http://example.com/");
@@ -95,25 +95,25 @@ namespace ZeroInstall.Store
         }
 
         [Fact]
-        public void TestEscape()
+        public void Escape()
             => FeedTest.Test1Uri.Escape().Should().Be("http%3a%2f%2fexample.com%2ftest1.xml");
 
         [Fact]
-        public void TestUnescape()
+        public void Unescape()
             => FeedUri.Unescape("http%3a%2f%2fexample.com%2Ftest1.xml").Should().Be(FeedTest.Test1Uri);
 
         [Fact]
-        public void TestPrettyEscape()
+        public void PrettyEscape()
             => FeedTest.Test1Uri.PrettyEscape().Should().Be(
                 // Colon is preserved on POSIX systems but not on other OSes
                 UnixUtils.IsUnix ? "http:##example.com#test1.xml" : "http%3a##example.com#test1.xml");
 
         [Fact]
-        public void TestPrettyUnescape()
+        public void PrettyUnescape()
             => FeedUri.PrettyUnescape(UnixUtils.IsUnix ? "http:##example.com#test1.xml" : "http%3a##example.com#test1.xml").Should().Be(FeedTest.Test1Uri);
 
         [Fact]
-        public void TestEscapeComponent()
+        public void EscapeComponent()
         {
             new FeedUri("http://example.com/foo/bar.xml").EscapeComponent().Should().Equal("http", "example.com", "foo__bar.xml");
             new FeedUri("http://example.com/").EscapeComponent().Should().Equal("http", "example.com", "");
@@ -124,7 +124,7 @@ namespace ZeroInstall.Store
         }
 
         [Fact]
-        public void TestPrefixes()
+        public void Prefixes()
         {
             var fakeUri = new FeedUri("fake:http://example.com/");
             fakeUri.IsFake.Should().BeTrue();

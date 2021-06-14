@@ -33,7 +33,7 @@ namespace ZeroInstall.Services
         }
 
         [Fact]
-        public void TestGetUncachedSelections()
+        public void GetUncachedSelections()
         {
             var selections = SelectionsTest.CreateTestSelections();
 
@@ -46,7 +46,7 @@ namespace ZeroInstall.Services
         }
 
         [Fact]
-        public void TestGetUncachedSelectionsPackageManager()
+        public void GetUncachedSelectionsPackageManager()
         {
             using var tempFile = new TemporaryFile("0install-test-quicktest");
             var impl1 = new ExternalImplementation("RPM", "firefox", new("1.0")) {IsInstalled = false};
@@ -75,7 +75,7 @@ namespace ZeroInstall.Services
         }
 
         [Fact]
-        public void TestGetImplementations()
+        public void GetImplementations()
         {
             var impl1 = new Implementation {ID = "test123"};
             var impl2 = new Implementation {ID = "test456"};
@@ -99,7 +99,7 @@ namespace ZeroInstall.Services
         }
 
         [Fact]
-        public void TestGetTree()
+        public void GetTree()
         {
             var digest1 = new ManifestDigest(sha256New: "a");
             var digest2 = new ManifestDigest(sha256New: "b");
@@ -142,7 +142,7 @@ namespace ZeroInstall.Services
         }
 
         [Fact]
-        public void TestGetDiff() => _selectionsManager.GetDiff(
+        public void GetDiff() => _selectionsManager.GetDiff(
             oldSelections: new Selections
             {
                 Implementations =

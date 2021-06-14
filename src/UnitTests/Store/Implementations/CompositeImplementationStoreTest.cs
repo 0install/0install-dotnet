@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region List all
         [Fact]
-        public void TestListAll()
+        public void ListAll()
         {
             _mockStore1.Setup(x => x.ListAll()).Returns(new[] {_digest1});
             _mockStore2.Setup(x => x.ListAll()).Returns(new[] {_digest2});
@@ -50,7 +50,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestListAllTemp()
+        public void ListAllTemp()
         {
             _mockStore1.Setup(x => x.ListAllTemp()).Returns(new[] {"abc"});
             _mockStore2.Setup(x => x.ListAllTemp()).Returns(new[] {"def"});
@@ -60,14 +60,14 @@ namespace ZeroInstall.Store.Implementations
 
         #region Contains
         [Fact]
-        public void TestContainsFirst()
+        public void ContainsFirst()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
             _testStore.Contains(_digest1).Should().BeTrue();
         }
 
         [Fact]
-        public void TestContainsSecond()
+        public void ContainsSecond()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(true);
@@ -75,7 +75,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestContainsFalse()
+        public void ContainsFalse()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
@@ -85,14 +85,14 @@ namespace ZeroInstall.Store.Implementations
 
         #region Get path
         [Fact]
-        public void TestGetPathFirst()
+        public void GetPathFirst()
         {
             _mockStore1.Setup(x => x.GetPath(_digest1)).Returns("path");
             _testStore.GetPath(_digest1).Should().Be("path", because: "Should get path from first mock");
         }
 
         [Fact]
-        public void TestGetPathSecond()
+        public void GetPathSecond()
         {
             _mockStore1.Setup(x => x.GetPath(_digest1)).Returns(() => null);
             _mockStore2.Setup(x => x.GetPath(_digest1)).Returns("path");
@@ -100,7 +100,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestGetPathFail()
+        public void GetPathFail()
         {
             _mockStore1.Setup(x => x.GetPath(_digest1)).Returns(() => null);
             _mockStore2.Setup(x => x.GetPath(_digest1)).Returns(() => null);
@@ -110,7 +110,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Add
         [Fact]
-        public void TestAddFirst()
+        public void AddFirst()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
@@ -120,7 +120,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestAddSecond()
+        public void AddSecond()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
@@ -131,7 +131,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestAddFail()
+        public void AddFail()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
@@ -142,7 +142,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestAddFailAlreadyInStore()
+        public void AddFailAlreadyInStore()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
 
@@ -152,7 +152,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Remove
         [Fact]
-        public void TestRemoveTwo()
+        public void RemoveTwo()
         {
             _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
             _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
@@ -160,7 +160,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestRemoveOne()
+        public void RemoveOne()
         {
             _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
             _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
@@ -168,7 +168,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestRemoveNone()
+        public void RemoveNone()
         {
             _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
             _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
@@ -178,7 +178,7 @@ namespace ZeroInstall.Store.Implementations
 
         #region Verify
         [Fact]
-        public void TestVerify()
+        public void Verify()
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(true);

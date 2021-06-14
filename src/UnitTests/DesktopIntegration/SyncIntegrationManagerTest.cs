@@ -23,7 +23,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Individual
         [Fact]
-        public void TestAddedLocal()
+        public void AddedLocal()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
             using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
@@ -46,7 +46,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestRemovedLocal()
+        public void RemovedLocal()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
             using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
@@ -69,7 +69,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestModifiedLocal()
+        public void ModifiedLocal()
         {
             using var apLocalApplied = new TemporaryFlagFile("ap-local-applied");
             using var apLocalNotApplied = new TemporaryFlagFile("ap-local-not-applied");
@@ -112,7 +112,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestAddedRemote()
+        public void AddedRemote()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
             using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
@@ -135,7 +135,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestRemovedRemote()
+        public void RemovedRemote()
         {
             using var apApplied = new TemporaryFlagFile("ap-applied");
             using var apNotApplied = new TemporaryFlagFile("ap-not-applied");
@@ -158,7 +158,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestModifiedRemote()
+        public void ModifiedRemote()
         {
             using var apLocalApplied = new TemporaryFlagFile("ap-local-applied");
             using var apLocalNotApplied = new TemporaryFlagFile("ap-local-not-applied");
@@ -244,7 +244,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Composite
         [Fact]
-        public void TestMixed()
+        public void Mixed()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
             using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");
@@ -266,7 +266,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestResetClient()
+        public void ResetClient()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
             using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");
@@ -288,7 +288,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestResetServer()
+        public void ResetServer()
         {
             using var ap1Applied = new TemporaryFlagFile("ap1-applied");
             using var ap1NotApplied = new TemporaryFlagFile("ap1-not-applied");

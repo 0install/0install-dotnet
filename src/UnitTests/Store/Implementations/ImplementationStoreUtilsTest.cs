@@ -13,14 +13,14 @@ namespace ZeroInstall.Store.Implementations
     public class ImplementationStoreUtilsTest
     {
         [Fact]
-        public void TestNotImplementationPath()
+        public void NotImplementationPath()
         {
             ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir" : "/some/dir", out _)
                                     .Should().BeFalse();
         }
 
         [Fact]
-        public void TestImplementationPath()
+        public void ImplementationPath()
         {
             ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123" : "/some/dir/sha1new=123", out string? path)
                                     .Should().BeTrue();
@@ -28,7 +28,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestImplementationSubDirPath()
+        public void ImplementationSubDirPath()
         {
             ImplementationStoreUtils.IsImplementation(WindowsUtils.IsWindows ? @"C:\some\dir\sha1new=123\subdir" : "/some/dir/sha1new=123/subdir", out string? path)
                                     .Should().BeTrue();

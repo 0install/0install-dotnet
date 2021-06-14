@@ -76,7 +76,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned and compared.
         /// </summary>
         [Fact]
-        public void TestCloneEquals()
+        public void CloneEquals()
         {
             var command1 = CreateTestCommand1();
             command1.Should().Be(command1, because: "Equals() should be reflexive.");

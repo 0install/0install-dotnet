@@ -17,7 +17,7 @@ namespace ZeroInstall.Publish.Capture
         /// Ensures <see cref="CommandMapper.GetCommand"/> correctly finds the best possible <see cref="Command"/> matches for command-lines;
         /// </summary>
         [Fact]
-        public void TestGetCommand()
+        public void GetCommand()
         {
             var commandNoArgs = new Command {Name = "no-args", Path = "entry.exe"};
             var commandArgs1 = new Command {Name = "args1", Path = "entry.exe", Arguments = {"--arg1", "long argument"}};

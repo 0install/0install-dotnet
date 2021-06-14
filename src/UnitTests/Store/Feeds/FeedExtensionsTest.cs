@@ -16,7 +16,7 @@ namespace ZeroInstall.Store.Feeds
         /// Ensures <see cref="FeedExtensions.FindImplementation"/> correctly locates <see cref="Implementation"/> in a list of <see cref="Feed"/>s.
         /// </summary>
         [Fact]
-        public void TestFindImplementation()
+        public void FindImplementation()
         {
             var digest1 = new ManifestDigest(sha256: "123");
             var implementation1 = new Implementation {ManifestDigest = digest1};

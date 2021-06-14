@@ -29,7 +29,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var implementation1 = CreateTestImplementation();
             var implementation2 = implementation1.CloneImplementation();

@@ -26,7 +26,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var singleFile1 = CreateTestSingleFile();
             var singleFile2 = singleFile1.Clone();

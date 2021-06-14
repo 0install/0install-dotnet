@@ -27,7 +27,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var runner1 = CreateTestRunner();
             var runner2 = runner1.CloneRunner();

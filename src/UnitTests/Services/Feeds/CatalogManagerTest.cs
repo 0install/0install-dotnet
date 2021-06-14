@@ -28,7 +28,7 @@ namespace ZeroInstall.Services.Feeds
         }
 
         [Fact]
-        public void TestGetOnline()
+        public void GetOnline()
         {
             var catalog = CatalogTest.CreateTestCatalog();
             catalog.Normalize();
@@ -47,48 +47,48 @@ namespace ZeroInstall.Services.Feeds
         }
 
         [Fact]
-        public void TestGetCached()
+        public void GetCached()
         {
             var catalog = CatalogTest.CreateTestCatalog();
             catalog.Normalize();
 
             _sut.GetCached().Should().BeNull();
-            TestGetOnline();
+            GetOnline();
             _sut.GetCached().Should().Be(catalog);
         }
 
         private static readonly FeedUri _testSource = new("http://localhost/test/");
 
         [Fact]
-        public void TestAddSourceExisting()
+        public void AddSourceExisting()
         {
             _sut.AddSource(CatalogManager.DefaultSource).Should().BeFalse();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
         }
 
         [Fact]
-        public void TestAddSourceNew()
+        public void AddSourceNew()
         {
             _sut.AddSource(_testSource).Should().BeTrue();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource, _testSource);
         }
 
         [Fact]
-        public void TestRemoveSource()
+        public void RemoveSource()
         {
             _sut.RemoveSource(CatalogManager.DefaultSource).Should().BeTrue();
             CatalogManager.GetSources().Should().BeEmpty();
         }
 
         [Fact]
-        public void TestRemoveSourceMissing()
+        public void RemoveSourceMissing()
         {
             _sut.RemoveSource(_testSource).Should().BeFalse();
             CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
         }
 
         [Fact]
-        public void TestSetSources()
+        public void SetSources()
         {
             CatalogManager.SetSources(new[] {_testSource});
             CatalogManager.GetSources().Should().Equal(_testSource);

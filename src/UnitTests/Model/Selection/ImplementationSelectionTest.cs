@@ -80,7 +80,7 @@ namespace ZeroInstall.Model.Selection
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var implementation1 = CreateTestImplementation1();
             var implementation2 = implementation1.Clone();

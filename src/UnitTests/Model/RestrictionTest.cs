@@ -26,7 +26,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned and compared.
         /// </summary>
         [Fact]
-        public void TestCloneEquals()
+        public void CloneEquals()
         {
             var restriction1 = CreateTestRestriction();
             restriction1.Should().Be(restriction1, because: "Equals() should be reflexive.");
@@ -45,7 +45,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="Restriction.Normalize"/> correctly converts <see cref="Constraint.NotBefore"/> to <see cref="Restriction.Versions"/>.
         /// </summary>
         [Fact]
-        public void TestNormalizeNotBefore()
+        public void NormalizeNotBefore()
         {
             var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new("1.0")}}};
             restriction.Normalize();
@@ -56,7 +56,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="Restriction.Normalize"/> correctly converts <see cref="Constraint.Before"/> to <see cref="Restriction.Versions"/>.
         /// </summary>
         [Fact]
-        public void TestNormalizeBefore()
+        public void NormalizeBefore()
         {
             var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {Before = new("2.0")}}};
             restriction.Normalize();
@@ -67,7 +67,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="Restriction.Normalize"/> correctly converts <see cref="Constraint.NotBefore"/> and <see cref="Constraint.Before"/> to <see cref="Restriction.Versions"/>.
         /// </summary>
         [Fact]
-        public void TestNormalizeRange()
+        public void NormalizeRange()
         {
             var restriction = new Restriction {InterfaceUri = FeedTest.Test1Uri, Constraints = {new Constraint {NotBefore = new("1.0"), Before = new("2.0")}}};
             restriction.Normalize();
@@ -78,7 +78,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="Restriction.Normalize"/> deduces correct <see cref="Restriction.Versions"/> values from overlapping <see cref="Restriction.Constraints"/>.
         /// </summary>
         [Fact]
-        public void TestNormalizeOverlap()
+        public void NormalizeOverlap()
         {
             var restriction = new Restriction
             {

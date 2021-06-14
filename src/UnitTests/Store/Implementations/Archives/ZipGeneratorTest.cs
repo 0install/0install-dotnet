@@ -18,7 +18,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         protected override ZipGenerator CreateGenerator(string sourceDirectory, Stream stream) => new(sourceDirectory, stream);
 
         [Fact]
-        public void TestFileOrder()
+        public void FileOrder()
         {
             var stream = BuildArchive(new TestRoot {new TestFile("x"), new TestFile("y"), new TestFile("Z")});
 
@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         [Fact]
-        public void TestFileTypes()
+        public void FileTypes()
         {
             var stream = BuildArchive(new TestRoot
             {

@@ -95,7 +95,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestContainsEntry()
+        public void ContainsEntry()
         {
             var appList = CreateTestAppListWithAPs();
             appList.ContainsEntry(FeedTest.Test1Uri).Should().BeTrue();
@@ -103,7 +103,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestGetEntry()
+        public void GetEntry()
         {
             var appList = CreateTestAppListWithAPs();
 
@@ -115,7 +115,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestSearch()
+        public void Search()
         {
             var appA = new AppEntry {InterfaceUri = FeedTest.Test1Uri, Name = "AppA"};
             var appB = new AppEntry {InterfaceUri = FeedTest.Test2Uri, Name = "AppB"};
@@ -145,7 +145,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestFindAppAlias()
+        public void FindAppAlias()
         {
             var appAlias = new AppAlias {Name = "foobar"};
             var appEntry = new AppEntry {AccessPoints = new AccessPointList {Entries = {appAlias}}};
@@ -157,7 +157,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestResolveAppAlias()
+        public void ResolveAppAlias()
         {
             FeedUri uri = new FeedUri("http://example.com/test1.xml");
             var appList = new AppList

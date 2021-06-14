@@ -42,7 +42,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestContains()
+        public void Contains()
         {
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha256new_123ABC"));
             _implementationStore.Contains(new ManifestDigest(sha256New: "123ABC")).Should().BeTrue();
@@ -50,7 +50,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestListAll()
+        public void ListAll()
         {
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha1=test1"));
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha1new=test2"));
@@ -65,7 +65,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestListAllTemp()
+        public void ListAllTemp()
         {
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha1=test"));
             Directory.CreateDirectory(Path.Combine(_tempDir, "temp=stuff"));
@@ -218,7 +218,7 @@ namespace ZeroInstall.Store.Implementations
             => _implementationStore.GetPath(new ManifestDigest(sha256: "123")).Should().BeNull();
 
         [Fact]
-        public void TestAuditPass()
+        public void AuditPass()
         {
             using var testDir = new TemporaryDirectory("0install-test-store");
             new TestRoot {new TestFile("file") {Contents = "AAA"}}.Build(testDir);
@@ -230,7 +230,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestAuditPassDespiteTimestampRoundingError()
+        public void AuditPassDespiteTimestampRoundingError()
         {
             using var testDir = new TemporaryDirectory("0install-test-store");
             var file = new TestFile("file") {Contents = "AAA", LastWrite = new DateTime(2000, 1, 1, 0, 0, 1, DateTimeKind.Utc)};
@@ -252,7 +252,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void TestAuditFail()
+        public void AuditFail()
         {
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha1new=abc"));
             _implementationStore.Contains(new ManifestDigest(sha1New: "abc")).Should().BeTrue();

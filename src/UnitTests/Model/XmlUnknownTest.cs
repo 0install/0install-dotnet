@@ -27,7 +27,7 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void TestEquals()
+        public void Equality()
         {
             var dataBase = XmlStorage.FromXmlString<XmlUnknownStub>("<root key1=\"value1\" key2=\"value2\"><element key=\"value\">text<child1 key=\"value\" /><child2 key=\"value\" /></element></root>");
             var dataAttribSwap = XmlStorage.FromXmlString<XmlUnknownStub>("<root key2=\"value2\" key1=\"value1\"><element key=\"value\">text<child1 key=\"value\" /><child2 key=\"value\" /></element></root>");

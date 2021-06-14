@@ -63,7 +63,7 @@ namespace ZeroInstall.Store.Trust
         }
 
         [Fact]
-        public void TestSave()
+        public void Save()
         {
             using var tempFile = new TemporaryFile("0install-test-trustdb");
             var original = new TrustDB();

@@ -21,7 +21,7 @@ namespace ZeroInstall.Store.Implementations.Build
     public class RecipeUtilsTest
     {
         [Fact]
-        public void TestApplyRecipeArchive()
+        public void ApplyRecipeArchive()
         {
             using var archiveFile = new TemporaryFile("0install-unit-tests");
             typeof(ArchiveExtractorTest).CopyEmbeddedToFile("testArchive.zip", archiveFile);
@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeSingleFileOverwrite()
+        public void ApplyRecipeSingleFileOverwrite()
         {
             using var singleFile = new TemporaryFile("0install-unit-tests");
             using var archiveFile = new TemporaryFile("0install-unit-tests");
@@ -73,7 +73,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeSingleFileExecutable()
+        public void ApplyRecipeSingleFileExecutable()
         {
             using var singleFile = new TemporaryFile("0install-unit-tests");
             File.WriteAllText(singleFile, TestFile.DefaultContents);
@@ -90,7 +90,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeRemove()
+        public void ApplyRecipeRemove()
         {
             using var archiveFile = new TemporaryFile("0install-unit-tests");
             typeof(ArchiveExtractorTest).CopyEmbeddedToFile("testArchive.zip", archiveFile);
@@ -119,7 +119,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeRename()
+        public void ApplyRecipeRename()
         {
             using var archiveFile = new TemporaryFile("0install-unit-tests");
             typeof(ArchiveExtractorTest).CopyEmbeddedToFile("testArchive.zip", archiveFile);
@@ -156,7 +156,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeCopyFrom()
+        public void ApplyRecipeCopyFrom()
         {
             using var existingImplDir = new TemporaryDirectory("0install-unit-tests");
             using var archiveFile = new TemporaryFile("0install-unit-tests");
@@ -217,7 +217,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplyRecipeExceptions()
+        public void ApplyRecipeExceptions()
         {
             using (var tempArchive = new TemporaryFile("0install-unit-tests"))
             {
@@ -250,7 +250,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplySingleFilePath()
+        public void ApplySingleFilePath()
         {
             using var tempFile = new TemporaryFile("0install-unit-tests");
             using var workingDir = new TemporaryDirectory("0install-unit-tests");
@@ -263,7 +263,7 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         [Fact]
-        public void TestApplySingleFileTemp()
+        public void ApplySingleFileTemp()
         {
             using var tempFile = new TemporaryFile("0install-unit-tests");
             using var workingDir = new TemporaryDirectory("0install-unit-tests");

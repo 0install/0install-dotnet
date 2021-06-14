@@ -33,7 +33,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         }
 
         [Fact]
-        public void TestExportFeeds()
+        public void ExportFeeds()
         {
             using var feedFile1 = new TemporaryFile("0install-test-feed");
             using var feedFile2 = new TemporaryFile("0install-test-feed");
@@ -60,7 +60,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
         }
 
         [Fact]
-        public void TestExportImplementations()
+        public void ExportImplementations()
         {
             using (var implDir1 = new TemporaryDirectory("0install-test-impl"))
             {

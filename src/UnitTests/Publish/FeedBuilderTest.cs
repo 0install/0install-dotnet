@@ -29,7 +29,7 @@ namespace ZeroInstall.Publish
         }
 
         [Fact]
-        public void TestGenerateDigest()
+        public void GenerateDigest()
         {
             _builder.ImplementationDirectory = _implementationDir;
             _builder.GenerateDigest(new SilentTaskHandler());
@@ -38,14 +38,14 @@ namespace ZeroInstall.Publish
         }
 
         [Fact]
-        public void TestDetectCandidates()
+        public void DetectCandidates()
         {
             _builder.ImplementationDirectory = _implementationDir;
             _builder.DetectCandidates(new SilentTaskHandler());
         }
 
         [Fact]
-        public void TestGenerateCommands()
+        public void GenerateCommands()
         {
             _builder.MainCandidate = new WindowsExe
             {
@@ -59,11 +59,11 @@ namespace ZeroInstall.Publish
         }
 
         [Fact]
-        public void TestBuild()
+        public void Build()
         {
-            TestGenerateDigest();
-            TestDetectCandidates();
-            TestGenerateCommands();
+            GenerateDigest();
+            DetectCandidates();
+            GenerateCommands();
 
             _builder.RetrievalMethod = new Archive();
             _builder.Uri = new FeedUri("http://example.com/test1.xml");
@@ -91,7 +91,7 @@ namespace ZeroInstall.Publish
         }
 
         [Fact]
-        public void TestTemporaryDirectory()
+        public void TemporaryDirectory()
         {
             var tempDir1 = new TemporaryDirectory("0install-test-temp");
             var tempDir2 = new TemporaryDirectory("0install-test-temp");

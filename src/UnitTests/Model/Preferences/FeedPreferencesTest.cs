@@ -55,7 +55,7 @@ namespace ZeroInstall.Model.Preferences
         /// Ensures that <see cref="FeedPreferences.Normalize"/> correctly removes superfluous entries from <see cref="FeedPreferences.Implementations"/>.
         /// </summary>
         [Fact]
-        public void TestNormalize()
+        public void Normalize()
         {
             var keep = new ImplementationPreferences {ID = "id1", UserStability = Stability.Testing};
             var superfluous = new ImplementationPreferences {ID = "id2"};
@@ -66,7 +66,7 @@ namespace ZeroInstall.Model.Preferences
         }
 
         [Fact]
-        public void TestGetImplementationPreferences()
+        public void GetImplementationPreferences()
         {
             var preferences = new FeedPreferences();
             var preferences1 = preferences["id1"];

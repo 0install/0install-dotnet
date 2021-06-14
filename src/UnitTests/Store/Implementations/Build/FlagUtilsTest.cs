@@ -18,7 +18,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.IsUnixFS"/> and <see cref="FlagUtils.MarkAsNoUnixFS"/> work correctly.
         /// </summary>
         [Fact]
-        public void TestIsUnixFS()
+        public void IsUnixFS()
         {
             using var tempDir = new TemporaryDirectory("0install-test-unix");
             if (UnixUtils.IsUnix)
@@ -35,7 +35,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.GetFiles"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestGetFiles()
+        public void GetFiles()
         {
             using var flagDir = new TemporaryDirectory("0install-test-flag");
             File.WriteAllText(Path.Combine(flagDir, FlagUtils.XbitFile), "/dir1/file1\n/dir2/file2\n");
@@ -56,7 +56,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.IsFlagged"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestIsFlagged()
+        public void IsFlagged()
         {
             using var flagDir = new TemporaryDirectory("0install--flag");
             File.WriteAllText(Path.Combine(flagDir, FlagUtils.XbitFile), "/dir1/file1\n/dir2/file2\n");
@@ -71,7 +71,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.Set"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestSet()
+        public void Set()
         {
             using var flagFile = new TemporaryFile("0install-test-flag");
             FlagUtils.Set(flagFile, Path.Combine("dir1", "file1"));
@@ -85,7 +85,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.SetAuto"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestSetAuto()
+        public void SetAuto()
         {
             using var flagDir = new TemporaryDirectory("0install-test-flag");
             FlagUtils.SetAuto(FlagUtils.XbitFile, Path.Combine(flagDir, "file1"));
@@ -97,7 +97,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.Remove"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestRemove()
+        public void Remove()
         {
             using var flagFile = new TemporaryFile("0install-test-flag");
             File.WriteAllText(flagFile, "/dir1/file1\n/dir2/file2\n");
@@ -116,7 +116,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// Ensures <see cref="FlagUtils.Rename"/> works correctly.
         /// </summary>
         [Fact]
-        public void TestRename()
+        public void Rename()
         {
             using var flagFile = new TemporaryFile("0install-test-flag");
             File.WriteAllText(flagFile, "/dir/file1\n/dir/file2\n/dir2/file\n");

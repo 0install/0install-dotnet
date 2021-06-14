@@ -15,7 +15,7 @@ namespace ZeroInstall.Publish.EntryPoints
     public class DetectionTest : CandidateTest
     {
         [Fact]
-        public void TestListCandidates()
+        public void ListCandidates()
         {
             Deploy(DotNetExeTest.Reference, xbit: false);
             Deploy(PythonScriptTest.Reference, xbit: true);

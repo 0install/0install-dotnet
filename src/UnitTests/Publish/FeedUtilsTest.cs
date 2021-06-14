@@ -22,7 +22,7 @@ namespace ZeroInstall.Publish
         /// Ensures <see cref="FeedUtils.SignFeed"/> produces valid feed files.
         /// </summary>
         [Fact]
-        public void TestSignFeed()
+        public void SignFeed()
         {
             var feed = new Feed {Name = "Test"};
             const string passphrase = "passphrase123";

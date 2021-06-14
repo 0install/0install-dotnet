@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="ManifestDigest.ParseID"/> correctly extracts additional digests from ID strings.
         /// </summary>
         [Fact]
-        public void TestParseID()
+        public void ParseID()
         {
             new ManifestDigest("sha1=test").Sha1.Should().Be("test");
             new ManifestDigest("sha1new=test").Sha1New.Should().Be("test");
@@ -32,7 +32,7 @@ namespace ZeroInstall.Model
         /// Ensures <see cref="ManifestDigest.PartialEquals"/> correctly compares digests.
         /// </summary>
         [Fact]
-        public void TestPartialEqual()
+        public void PartialEqual()
         {
             var digest1 = new ManifestDigest(sha1: "test1");
             var digest2 = new ManifestDigest(sha1: "test1", sha1New: "test2");

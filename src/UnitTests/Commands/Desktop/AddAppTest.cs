@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Desktop
     public class AddAppTest : CliCommandTestBase<AddApp>
     {
         [Fact]
-        public void TestWithoutAlias()
+        public void WithoutAlias()
         {
             GetMock<IFeedCache>().Setup(x => x.Contains(Fake.Feed1Uri)).Returns(true);
             GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);

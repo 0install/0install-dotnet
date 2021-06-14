@@ -15,7 +15,7 @@ namespace ZeroInstall.Model
         /// Ensures that the class can be correctly cloned.
         /// </summary>
         [Fact]
-        public void TestClone()
+        public void Clone()
         {
             var reference1 = new FeedReference
             {
@@ -35,7 +35,7 @@ namespace ZeroInstall.Model
         /// Ensures that equal and unequal instances can be correctly differentiated.
         /// </summary>
         [Fact]
-        public void TestEquals()
+        public void Equality()
         {
             var reference1 = new FeedReference
             {

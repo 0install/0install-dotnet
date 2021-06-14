@@ -111,7 +111,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         [Fact]
-        public void TestExtractOverwritingExistingItems()
+        public void ExtractOverwritingExistingItems()
         {
             new TestRoot
             {
@@ -133,7 +133,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// Tests whether the extractor correctly handles a ZIP archive containing an executable file.
         /// </summary>
         [Fact]
-        public void TestExtractUnixArchiveWithExecutable()
+        public void ExtractUnixArchiveWithExecutable()
         {
             using (var extractor = new ZipExtractor(typeof(ZipExtractorTest).GetEmbeddedStream("testArchive.zip"), _sandbox))
                 extractor.Run();
@@ -151,7 +151,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// TTests whether the extractor correctly handles a ZIP archive containing containing a symbolic link.
         /// </summary>
         [Fact]
-        public void TestExtractUnixArchiveWithSymlink()
+        public void ExtractUnixArchiveWithSymlink()
         {
             using (var extractor = new ZipExtractor(typeof(ZipExtractorTest).GetEmbeddedStream("testArchive.zip"), _sandbox))
                 extractor.Run();

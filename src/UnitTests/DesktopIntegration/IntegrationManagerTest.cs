@@ -34,7 +34,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestAddApp()
+        public void AddApp()
         {
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test", CapabilityLists = {capabilityList}});
@@ -48,7 +48,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestRemoveApp()
+        public void RemoveApp()
         {
             var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test"});
             var appEntry = _integrationManager.AddApp(target);
@@ -66,7 +66,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestAddAccessPoints()
+        public void AddAccessPoints()
         {
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var feed1 = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
@@ -97,7 +97,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestRemoveAccessPoints()
+        public void RemoveAccessPoints()
         {
             var capabilityList = CapabilityListTest.CreateTestCapabilityList();
             var testApp = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
@@ -119,7 +119,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestUpdateApp()
+        public void UpdateApp()
         {
             var capabilityList = new CapabilityList
             {
@@ -145,7 +145,7 @@ namespace ZeroInstall.DesktopIntegration
         }
 
         [Fact]
-        public void TestRepair()
+        public void Repair()
         {
             var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test"});
             var appEntry = _integrationManager.AddApp(target);

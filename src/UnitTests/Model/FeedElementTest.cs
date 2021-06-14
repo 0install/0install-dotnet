@@ -12,7 +12,7 @@ namespace ZeroInstall.Model
     public class FeedElementTest
     {
         [Fact]
-        public void TestFilterMismatch()
+        public void FilterMismatch()
         {
             FeedElement.FilterMismatch(new EntryPoint()).Should().BeFalse();
             FeedElement.FilterMismatch(new EntryPoint {IfZeroInstallVersion = new VersionRange("0..")}).Should().BeFalse();
