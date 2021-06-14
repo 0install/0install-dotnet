@@ -169,9 +169,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Erwartetes Manifest: {0}</value>
   </data>
-  <data name="DirectoryNotFound" xml:space="preserve">
-    <value>Das Verzeichnis '{0}' konnte nicht gefunden werden.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Falle auf Standardwerte zurück.</value>
   </data>

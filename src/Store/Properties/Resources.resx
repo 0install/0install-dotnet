@@ -169,9 +169,6 @@ Alternatively you can use the graphical user interface for managing the caches:
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Expected manifest: {0}</value>
   </data>
-  <data name="DirectoryNotFound" xml:space="preserve">
-    <value>The directory '{0}' could not be found.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Error loading the trust database. Reverting to default values.</value>
   </data>

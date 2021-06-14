@@ -169,9 +169,6 @@
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Αναμενόμενο Δηλωτικό: {0}</value>
   </data>
-  <data name="DirectoryNotFound" xml:space="preserve">
-    <value>Ο κατάλογος '{0}' δεν μπορεσε να βρεθεί.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
   </data>

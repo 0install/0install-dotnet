@@ -169,9 +169,6 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Beklenen özet: {0}</value>
   </data>
-  <data name="DirectoryNotFound" xml:space="preserve">
-    <value>'{0}' klasörü bulunamadı.</value>
-  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Güvenlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
   </data>

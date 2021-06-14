@@ -197,15 +197,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The directory &apos;{0}&apos; could not be found..
-        /// </summary>
-        internal static string DirectoryNotFound {
-            get {
-                return ResourceManager.GetString("DirectoryNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Error loading the trust database. Reverting to default values..
         /// </summary>
         internal static string ErrorLoadingTrustDB {
