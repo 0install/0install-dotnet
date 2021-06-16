@@ -150,7 +150,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <param name="archivePath">The path of the archive file to be extracted.</param>
         /// <param name="targetPath">The path to the directory to extract into.</param>
         /// <param name="mimeType">The MIME type of archive format of the stream.</param>
-        /// <param name="startOffset"></param>
+        /// <param name="startOffset">The number of bytes at the beginning of the file which should be ignored.</param>
         /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
         /// <exception cref="IOException">The archive is damaged.</exception>
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>

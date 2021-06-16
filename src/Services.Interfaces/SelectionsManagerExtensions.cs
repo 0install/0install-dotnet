@@ -17,7 +17,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// Combines <see cref="ISelectionsManager.GetUncachedSelections"/> and <see cref="ISelectionsManager.GetImplementations"/>.
         /// </summary>
-        /// <param name="selectionsManager">The <see cref="ISelectionsManager"/></param>
+        /// <param name="selectionsManager">The <see cref="ISelectionsManager"/>.</param>
         /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
         public static List<Implementation> GetUncachedImplementations(this ISelectionsManager selectionsManager, Selections selections)
         {
