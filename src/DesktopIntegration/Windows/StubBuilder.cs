@@ -44,7 +44,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command = null, bool machineWide = false)
         {
             var entryPoint = target.Feed.GetEntryPoint(command);
-            bool gui = entryPoint == null || !entryPoint.NeedsTerminal;
+            bool gui = entryPoint is not {NeedsTerminal: true};
 
             try
             {

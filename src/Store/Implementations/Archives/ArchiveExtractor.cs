@@ -251,7 +251,7 @@ namespace ZeroInstall.Store.Implementations.Archives
             {
                 using var fileStream = File.Create(absolutePath);
                 if (fileSize != 0)
-                    StreamToFile(stream, fileStream);
+                    stream.CopyToEx(fileStream);
             }
             catch (DirectoryNotFoundException ex)
             {
@@ -259,15 +259,6 @@ namespace ZeroInstall.Store.Implementations.Archives
                 throw new PathTooLongException(ex.Message, ex);
             }
         }
-
-        /// <summary>
-        /// Helper method for <see cref="WriteFile"/>.
-        /// </summary>
-        /// <param name="stream">The stream to write to a file.</param>
-        /// <param name="fileStream">Stream access to the file to write.</param>
-        /// <remarks>Can be overwritten for archive formats that don't simply write a <see cref="Stream"/> to a file.</remarks>
-        protected virtual void StreamToFile(Stream stream, FileStream fileStream)
-            => stream.CopyToEx(fileStream);
 
         #region Dispose
         /// <summary>

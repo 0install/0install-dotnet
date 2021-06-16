@@ -136,13 +136,5 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// </summary>
         private static bool IsExecutable(TarEntry entry) =>
             (entry.TarHeader.Mode & ExecuteMode) > 0; // Check if anybody is allowed to execute
-
-        /// <summary>
-        /// Helper method for <see cref="ArchiveExtractor.WriteFile"/>.
-        /// </summary>
-        /// <param name="stream">The <see cref="TarInputStream"/> containing the entry data to write to a file.</param>
-        /// <param name="fileStream">Stream access to the file to write.</param>
-        protected override void StreamToFile(Stream stream, FileStream fileStream)
-            => _tarStream.CopyEntryContents(fileStream);
     }
 }
