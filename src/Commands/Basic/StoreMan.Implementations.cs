@@ -247,7 +247,7 @@ namespace ZeroInstall.Commands.Basic
 
                         case 2:
                             // Verify an arbitrary directory
-                            Store.Implementations.ImplementationStore.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
+                            ImplementationSink.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
                             break;
                     }
                 }

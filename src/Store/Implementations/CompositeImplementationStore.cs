@@ -19,7 +19,7 @@ using System.Runtime.Remoting;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Combines multiple <see cref="IImplementationStore"/>s as a composite. Adds memory caching for <see cref="IImplementationStore.Contains(ManifestDigest)"/>.
+    /// Combines multiple <see cref="IImplementationStore"/>s as a composite.
     /// </summary>
     /// <remarks>
     ///   <para>When adding new <see cref="Implementation"/>s the last child <see cref="IImplementationStore"/> that doesn't throw an <see cref="UnauthorizedAccessException"/> is used.</para>

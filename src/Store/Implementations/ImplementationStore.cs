@@ -4,280 +4,52 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using NanoByte.Common.Threading;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
-using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Manages a directory that stores extracted <see cref="Implementation"/>s. Also known as the implementation cache.
+    /// Manages a directory that stores implementations. Also known as an implementation cache.
     /// </summary>
-    public partial class ImplementationStore : MarshalNoTimeout, IImplementationStore, IEquatable<ImplementationStore>
+    public partial class ImplementationStore : ImplementationSink, IImplementationStore, IEquatable<ImplementationStore>
     {
         /// <inheritdoc/>
-        public ImplementationStoreKind Kind { get; }
+        public ImplementationStoreKind Kind => ReadOnly ? ImplementationStoreKind.ReadOnly : ImplementationStoreKind.ReadWrite;
 
-        /// <inheritdoc/>
-        public string Path { get; }
-
-        /// <summary>Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</summary>
-        private readonly bool _useWriteProtection;
-
-        /// <summary>Indicates whether <see cref="Path"/> is located on a filesystem with support for Unixoid features such as executable bits.</summary>
-        private readonly bool _isUnixFS;
-
-        #region Constructor
         /// <summary>
-        /// Creates a new store using a specific path to a directory.
+        /// Creates a new implementation store using a specific path to a directory.
         /// </summary>
         /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
         /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
         /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
         public ImplementationStore(string path, bool useWriteProtection = true)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            try
-            {
-                Path = System.IO.Path.GetFullPath(path);
-                if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
-            }
-            #region Error handling
-            catch (ArgumentException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            catch (NotSupportedException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            #endregion
-
-            Kind = DetermineKind(Path);
-            _useWriteProtection = useWriteProtection;
-            _isUnixFS = FlagUtils.IsUnixFS(Path);
-
-            if (Kind == ImplementationStoreKind.ReadWrite)
-            {
-                try
-                {
-                    if (!_isUnixFS) FlagUtils.MarkAsNoUnixFS(Path);
-                    if (_useWriteProtection && WindowsUtils.IsWindowsNT) WriteDeleteInfoFile(Path);
-                }
-                #region Error handling
-                catch (IOException ex)
-                {
-                    // Writing these files is not critical
-                    Log.Debug(ex);
-                }
-                catch (UnauthorizedAccessException ex)
-                {
-                    // Writing these files is not critical
-                    Log.Debug(ex);
-                }
-                #endregion
-            }
-        }
-
-        private static ImplementationStoreKind DetermineKind(string path)
-        {
-            try
-            {
-                // Ensure the store is backed by a filesystem that can store file-changed times accurate to the second (otherwise ManifestDigests will break)
-                if (FileUtils.DetermineTimeAccuracy(path) > 0)
-                    throw new IOException(Resources.InsufficientFSTimeAccuracy);
-
-                // As a side-effect the test above told us we have write access
-                return ImplementationStoreKind.ReadWrite;
-            }
-            catch (UnauthorizedAccessException)
-            {
-                // The test could not be performed because we have no write access, which is fine
-                return ImplementationStoreKind.ReadOnly;
-            }
-        }
-
-        private static void WriteDeleteInfoFile(string path)
-            => File.WriteAllText(
-                path: System.IO.Path.Combine(path, Resources.DeleteInfoFileName + ".txt"),
-                contents: string.Format(Resources.DeleteInfoFileContent, path),
-                encoding: Encoding.UTF8);
-        #endregion
-
-        //--------------------//
-
-        #region Temp dir
-        /// <summary>
-        /// Creates a temporary directory within <see cref="Path"/>.
-        /// </summary>
-        /// <returns>The path to the new temporary directory.</returns>
-        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Returns a new value on each call")]
-        protected virtual string GetTempDir()
-        {
-            string path = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
-            Log.Debug("Creating temp directory for extracting: " + path);
-            Directory.CreateDirectory(path);
-            return path;
-        }
+            : base(path, useWriteProtection)
+        {}
 
         /// <summary>
-        /// Deletes a temporary directory.
+        /// Determines whether the store contains a local copy of an implementation identified by a specific <see cref="ManifestDigest"/>.
         /// </summary>
-        /// <param name="path">The path to the temporary directory.</param>
-        protected virtual void DeleteTempDir(string path)
-        {
-            if (Directory.Exists(path))
-            {
-                Log.Debug("Deleting left-over temp directory: " + path);
-                Directory.Delete(path, recursive: true);
-            }
-        }
-        #endregion
+        /// <param name="manifestDigest">The digest of the implementation to check for.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified implementation is available in the store;
+        ///   <c>false</c> if the specified implementation is not available in the store or if read access to the store is not permitted.
+        /// </returns>
+        /// <remarks>If read access to the store is not permitted, no exception is thrown.</remarks>
+        public bool Contains(ManifestDigest manifestDigest)
+            => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
 
-        #region Write protection
-        /// <summary>
-        /// Makes a directory read-only using platform-specific mechanisms. Logs any errors and continues.
-        /// </summary>
-        /// <param name="path">The directory to protect.</param>
-        public static void EnableWriteProtection(string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
+        /// <inheritdoc/>
+        public string? GetPath(ManifestDigest manifestDigest)
+            => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 
-            try
-            {
-                Log.Debug("Enabling write protection for: " + path);
-                FileUtils.EnableWriteProtection(path);
-            }
-            #region Error handling
-            catch (IOException)
-            {
-                Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
-            }
-            catch (UnauthorizedAccessException)
-            {
-                // Only warn if even an Admin is unable to set ACLs
-                if (WindowsUtils.IsAdministrator) Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
-                else Log.Info(string.Format(Resources.UnableToWriteProtect, path));
-            }
-            catch (InvalidOperationException)
-            {
-                Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
-        /// </summary>
-        /// <param name="path">The directory to unprotect.</param>
-        internal static void DisableWriteProtection(string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            try
-            {
-                Log.Debug("Disabling write protection for: " + path);
-                FileUtils.DisableWriteProtection(path);
-            }
-            #region Error handling
-            catch (IOException ex)
-            {
-                Log.Error(ex);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Error(ex);
-            }
-            catch (InvalidOperationException ex)
-            {
-                Log.Error(ex);
-            }
-            #endregion
-        }
-        #endregion
-
-        #region Verify directory
-        /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory.
-        /// </summary>
-        /// <param name="directory">The directory to generate a <see cref="Manifest"/> for.</param>
-        /// <param name="expectedDigest">The digest the <see cref="Manifest"/> of the <paramref name="directory"/> should have.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The generated <see cref="Manifest"/>.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">The <paramref name="directory"/> could not be processed.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the <paramref name="directory"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">The <paramref name="directory"/> doesn't match the <paramref name="expectedDigest"/>.</exception>
-        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly")]
-        public static Manifest VerifyDirectory(string directory, ManifestDigest expectedDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            string? expectedDigestValue = expectedDigest.Best;
-            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            var format = ManifestFormat.FromPrefix(expectedDigestValue);
-
-            var generator = new ManifestGenerator(directory, format) {Tag = expectedDigestValue};
-            handler.RunTask(generator);
-            var manifest = generator.Manifest;
-            string digest = manifest.CalculateDigest();
-
-            if (digest != expectedDigestValue)
-            {
-                var offsetManifest = TryFindOffset(manifest, expectedDigestValue);
-                if (offsetManifest != null) return offsetManifest;
-
-                string manifestFilePath = System.IO.Path.Combine(directory, Manifest.ManifestFile);
-                var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
-                throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
-            }
-
-            return manifest;
-        }
-
-        private static Manifest? TryFindOffset(Manifest manifest, string expectedDigest)
-        {
-            // Walk through all conceivable timezone differences
-            for (var offset = TimeSpan.FromHours(-27); offset <= TimeSpan.FromHours(27); offset += TimeSpan.FromMinutes(15))
-            {
-                Log.Debug($"Attempting to correct digest mismatch by shifting timestamps by {offset} and rounding.");
-                var offsetManifest = manifest.WithOffset(offset);
-                if (offsetManifest.CalculateDigest() == expectedDigest)
-                {
-                    Log.Info($"Expected digest {expectedDigest} but got mismatch. Fixed by shifting timestamps by {offset} and rounding.");
-                    return offsetManifest;
-                }
-            }
-            return null;
-        }
-        #endregion
-
-        //--------------------//
-
-        #region List all
         /// <inheritdoc/>
         public IEnumerable<ManifestDigest> ListAll()
         {
@@ -314,112 +86,9 @@ namespace ZeroInstall.Store.Implementations
             }
             return result;
         }
-        #endregion
 
-        #region Contains
         /// <inheritdoc/>
-        public bool Contains(ManifestDigest manifestDigest)
-            => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
-        #endregion
-
-        #region Get
-        /// <inheritdoc/>
-        public string? GetPath(ManifestDigest manifestDigest)
-            => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
-        #endregion
-
-        #region Add
-        /// <inheritdoc/>
-        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
-        {
-            #region Sanity checks
-            if (sources == null) throw new ArgumentNullException(nameof(sources));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            if (manifestDigest.Best == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
-
-            // Build in a temporary directory inside the store so it can be validated safely (no manipulation of directory while validating)
-            string tempDir = GetTempDir();
-            try
-            {
-                foreach (var source in sources)
-                {
-                    var task = source.GetApplyTask(tempDir);
-                    task.Tag = manifestDigest.Best;
-                    try
-                    {
-                        using (task as IDisposable)
-                            handler.RunTask(task);
-                    }
-                    #region Error handling
-                    catch (IOException ex)
-                    {
-                        if (source is ArchiveImplementationSource archive)
-                            throw new IOException(string.Format(Resources.FailedToExtractArchive, archive.OriginalSource), ex);
-                    }
-                    #endregion
-                }
-
-                VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
-            }
-            finally
-            {
-                DeleteTempDir(tempDir);
-            }
-        }
-
-        private readonly object _renameLock = new();
-
-        /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the store and moves it to the final location if it passes.
-        /// </summary>
-        /// <param name="tempID">The temporary identifier of the directory inside the store.</param>
-        /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <exception cref="DigestMismatchException">The temporary directory doesn't match the <paramref name="expectedDigest"/>.</exception>
-        /// <exception cref="IOException"><paramref name="tempID"/> cannot be moved or the digest cannot be calculated.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="expectedDigest"/> in the store.</exception>
-        private void VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
-        {
-            // Determine the digest method to use
-            string? expectedDigestValue = expectedDigest.Best;
-            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-
-            // Determine the source and target directories
-            string source = System.IO.Path.Combine(Path, tempID);
-            string target = System.IO.Path.Combine(Path, expectedDigestValue);
-
-            if (_isUnixFS) FlagUtils.ConvertToFS(source);
-
-            // Calculate the actual digest, compare it with the expected one and create a manifest file
-            VerifyDirectory(source, expectedDigest, handler).Save(System.IO.Path.Combine(source, Manifest.ManifestFile));
-
-            lock (_renameLock) // Prevent race-conditions when adding the same digest twice
-            {
-                if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(expectedDigest);
-
-                // Move directory to final store destination
-                try
-                {
-                    Directory.Move(source, target);
-                }
-                catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
-                {
-                    throw new ImplementationAlreadyInStoreException(expectedDigest);
-                }
-            }
-
-            // Prevent any further changes to the directory
-            if (_useWriteProtection) EnableWriteProtection(target);
-        }
-        #endregion
-
-        #region Remove
-        /// <inheritdoc/>
-        public virtual bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
+        public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -427,7 +96,7 @@ namespace ZeroInstall.Store.Implementations
 
             string? path = GetPath(manifestDigest);
             if (path == null) return false;
-            if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
             if (path == Locations.InstallBase && WindowsUtils.IsWindows)
             {
                 Log.Warn(Resources.NoStoreSelfRemove);
@@ -497,32 +166,9 @@ namespace ZeroInstall.Store.Implementations
             }
             #endregion
         }
-        #endregion
 
-        #region Optimise
         /// <inheritdoc/>
-        public virtual long Optimise(ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            if (!Directory.Exists(Path)) return 0;
-            if (Kind == ImplementationStoreKind.ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
-
-            using var run = new OptimiseRun(Path);
-            handler.RunTask(ForEachTask.Create(
-                name: string.Format(Resources.FindingDuplicateFiles, Path),
-                target: ListAll(),
-                work: run.Work));
-            return run.SavedBytes;
-        }
-        #endregion
-
-        #region Verify
-        /// <inheritdoc/>
-        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly")]
-        public virtual void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
+        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
         {
             #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
@@ -538,7 +184,7 @@ namespace ZeroInstall.Store.Implementations
                 VerifyDirectory(target, manifestDigest, handler);
 
                 // Reseal the directory in case the write protection got lost
-                if (_useWriteProtection) EnableWriteProtection(target);
+                if (UseWriteProtection) EnableWriteProtection(target);
             }
             catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
             {
@@ -549,18 +195,31 @@ namespace ZeroInstall.Store.Implementations
                     Remove(new ManifestDigest(ex.ExpectedDigest), handler);
             }
         }
-        #endregion
 
-        //--------------------//
+        /// <inheritdoc/>
+        public long Optimise(ITaskHandler handler)
+        {
+            #region Sanity checks
+            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            #endregion
 
-        #region Conversion
+            if (!Directory.Exists(Path)) return 0;
+            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
+
+            using var run = new OptimiseRun(Path);
+            handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.FindingDuplicateFiles, Path),
+                target: ListAll(),
+                work: run.Work));
+            return run.SavedBytes;
+        }
+
         /// <summary>
         /// Creates string representation suitable for console output.
         /// </summary>
-        public override string ToString() => $"{Kind}: {Path}";
-        #endregion
+        public override string ToString()
+            => $"{Kind}: {Path}";
 
-        #region Equality
         /// <inheritdoc/>
         public bool Equals(ImplementationStore? other)
             => other != null
@@ -575,7 +234,7 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() => Path.GetHashCode();
-        #endregion
+        public override int GetHashCode()
+            => Path.GetHashCode();
     }
 }

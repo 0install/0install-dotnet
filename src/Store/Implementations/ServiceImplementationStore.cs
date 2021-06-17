@@ -15,7 +15,7 @@ using ZeroInstall.Store.Implementations.Build;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Forwards request to an <see cref="IImplementationSink"/> running in a Store Service.
+    /// Forwards request to an <see cref="IImplementationSink"/> running in a Store Service via IPC.
     /// </summary>
     public partial class ServiceImplementationStore : IImplementationStore
     {

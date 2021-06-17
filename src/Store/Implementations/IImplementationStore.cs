@@ -10,7 +10,7 @@ using ZeroInstall.Model;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Manages directories that store extracted <see cref="Implementation"/>s. Also known as the implementation caches.
+    /// Manages a directory that stores implementations. Also known as an implementation cache.
     /// </summary>
     public interface IImplementationStore : IImplementationSink
     {
@@ -69,18 +69,6 @@ namespace ZeroInstall.Store.Implementations
         bool Remove(ManifestDigest manifestDigest, ITaskHandler handler);
 
         /// <summary>
-        /// Reads in all the manifest files in the store and looks for duplicates (files with the same permissions, modification time and digest). When it finds a pair, it deletes one and replaces it with a hard-link to the other.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The number of bytes saved by deduplication.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">Two files could not be hard-linked together.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">A damaged implementation is encountered while optimizing.</exception>
-        /// <remarks>If the store does not support optimising this method call may be silently ignored.</remarks>
-        long Optimise(ITaskHandler handler);
-
-        /// <summary>
         /// Recalculates the digests for an entry in the store and ensures it is correct. Will delete damaged implementations after user confirmation.
         /// </summary>
         /// <param name="manifestDigest">The digest of the implementation to be verified.</param>
@@ -92,5 +80,17 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
         /// <remarks>If the store does not support verification this method call may be silently ignored.</remarks>
         void Verify(ManifestDigest manifestDigest, ITaskHandler handler);
+
+        /// <summary>
+        /// Reads in all the manifest files in the store and looks for duplicates (files with the same permissions, modification time and digest). When it finds a pair, it deletes one and replaces it with a hard-link to the other.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+        /// <returns>The number of bytes saved by deduplication.</returns>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="IOException">Two files could not be hard-linked together.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
+        /// <exception cref="DigestMismatchException">A damaged implementation is encountered while optimizing.</exception>
+        /// <remarks>If the store does not support optimising this method call may be silently ignored.</remarks>
+        long Optimise(ITaskHandler handler);
     }
 }

@@ -10,7 +10,7 @@ using ZeroInstall.Store.Implementations.Build;
 namespace ZeroInstall.Store.Implementations
 {
     /// <summary>
-    /// Takes <see cref="IImplementationSource"/>s and stores them.
+    /// Accepts implementations and stores them.
     /// </summary>
     public interface IImplementationSink
     {
