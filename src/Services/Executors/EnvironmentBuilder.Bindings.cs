@@ -129,7 +129,7 @@ namespace ZeroInstall.Services.Executors
             }
             else
             { // Path inside the implementation
-                newValue = Path.Combine(ImplementationStore.GetPath(implementation), FileUtils.UnifySlashes(binding.Insert ?? ""));
+                newValue = Path.Combine(ImplementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "");
             }
 
             // Set the default value if the variable is not already set on the system
@@ -327,7 +327,7 @@ namespace ZeroInstall.Services.Executors
         {
             Log.Debug("Applying " + binding + " for " + implementation);
 
-            string source = FileUtils.UnifySlashes(binding.Source) ?? "";
+            string source = binding.Source.ToNativePath() ?? "";
             if (Path.IsPathRooted(source) || source.Contains(".." + Path.DirectorySeparatorChar)) throw new ExecutorException(Resources.WorkingDirInvalidPath);
 
             // Only allow working directory to be changed once

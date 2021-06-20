@@ -57,7 +57,7 @@ namespace ZeroInstall.Publish.EntryPoints
         protected DirectoryInfo? BaseDirectory { get; private set; }
 
         /// <summary>
-        /// The path of this entry point relative to <see cref="BaseDirectory"/> using Unix-style directory separators.
+        /// The path of this entry point relative to <see cref="BaseDirectory"/>.
         /// </summary>
         [Browsable(false)]
         public string? RelativePath { get; internal set; }

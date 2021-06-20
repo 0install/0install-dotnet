@@ -66,7 +66,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
 
             foreach ((string directoryPath, var directory) in Manifest)
             {
-                string dirPath = FileUtils.UnifySlashes(directoryPath);
+                string dirPath = directoryPath.ToNativePath();
                 string sourceDir = System.IO.Path.Combine(Path, dirPath);
                 string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
                 if (!Directory.Exists(destinationDir))
@@ -88,7 +88,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                     {
                         case ManifestFile file:
                             File.Copy(sourcePath, tempPath);
-                            File.SetLastWriteTimeUtc(tempPath, FileUtils.FromUnixTime(file.ModifiedTime));
+                            File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
 
                             if (UnixUtils.IsUnix)
                                 FileUtils.SetExecutable(tempPath, file is ManifestExecutableFile);

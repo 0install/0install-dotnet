@@ -171,7 +171,12 @@ namespace ZeroInstall.Store.Implementations.Archives
 #endif
 
             Stream stream = File.OpenRead(archivePath);
-            if (startOffset != 0) stream = new OffsetStream(stream, startOffset);
+            if (startOffset != 0)
+            {
+                var offsetStream = new OffsetStream(stream);
+                offsetStream.ApplyOffset(startOffset);
+                stream = offsetStream;
+            }
 
             try
             {

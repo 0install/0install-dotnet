@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Text;
 using FluentAssertions;
+using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Implementations.Build;
@@ -21,12 +22,12 @@ namespace ZeroInstall.FileSystem
         /// <summary>
         /// The default value for <see cref="LastWrite"/>.
         /// </summary>
-        public static readonly DateTime DefaultLastWrite = new(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        public static readonly UnixTime DefaultLastWrite = new DateTime(2000, 1, 1, 0, 0, 0);
 
         /// <summary>
         /// The last write time of the file.
         /// </summary>
-        public DateTime LastWrite { get; init; } = DefaultLastWrite;
+        public UnixTime LastWrite { get; init; } = DefaultLastWrite;
 
         /// <summary>
         /// The default value for <see cref="Contents"/>.

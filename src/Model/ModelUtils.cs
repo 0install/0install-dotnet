@@ -48,7 +48,7 @@ namespace ZeroInstall.Model
 
             if (Path.IsPathRooted(path)) return path;
             if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
-            return Path.Combine(Path.GetDirectoryName(source.LocalPath) ?? "", FileUtils.UnifySlashes(path));
+            return Path.Combine(Path.GetDirectoryName(source.LocalPath) ?? "", path.ToNativePath());
         }
 
         /// <summary>

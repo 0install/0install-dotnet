@@ -84,7 +84,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(category)) return menuDir;
             else
             {
-                string categoryDir = FileUtils.UnifySlashes(category);
+                string categoryDir = category.ToNativePath();
                 if (categoryDir.IndexOfAny(Path.GetInvalidPathChars()) != -1 || FileUtils.IsBreakoutPath(categoryDir))
                     throw new IOException(string.Format(Resources.NameInvalidChars, category));
 
