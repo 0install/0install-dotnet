@@ -165,7 +165,7 @@ namespace ZeroInstall.Services.Executors
             var command = mainImplementation[_selections.Command ?? Command.NameRun];
             Debug.Assert(command != null);
 
-            string mainPath = FileUtils.UnifySlashes(overrideMain);
+            string mainPath = overrideMain.ToNativePath();
             command.Path = (mainPath[0] == Path.DirectorySeparatorChar)
                 // Relative to implementation root
                 ? mainPath.TrimStart(Path.DirectorySeparatorChar)
@@ -212,7 +212,7 @@ namespace ZeroInstall.Services.Executors
 
             if (!string.IsNullOrEmpty(command.Path))
             {
-                string path = FileUtils.UnifySlashes(command.Path);
+                string path = command.Path.ToNativePath();
 
                 // Fully qualified paths are used by package/native implementations, usually relative to the implementation
                 commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(ImplementationStore.GetPath(implementation), path));

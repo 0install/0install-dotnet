@@ -10,7 +10,6 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Streams;
-using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
@@ -204,7 +203,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
             #endregion
 
             // Use UTF-8 without BOM and Unix-style line breaks to ensure correct digest values
-            var writer = new StreamWriter(stream, encoding: FeedUtils.Encoding) {NewLine = "\n"};
+            var writer = new StreamWriter(stream, EncodingUtils.Utf8) {NewLine = "\n"};
 
             // Write one line for each node
             foreach ((string directoryPath, var directory) in _directories)

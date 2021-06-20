@@ -25,13 +25,13 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("The point in time this feed was last checked for updates.")]
         [XmlIgnore]
-        public DateTime LastChecked { get; set; }
+        public UnixTime LastChecked { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="LastChecked"/>
         [XmlAttribute("last-checked"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public long LastCheckedUnix { get => LastChecked.ToUnixTime(); set => LastChecked = FileUtils.FromUnixTime(value); }
+        public long LastCheckedUnix { get => LastChecked; set => LastChecked = value; }
         #endregion
 
         /// <summary>

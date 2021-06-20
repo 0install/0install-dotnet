@@ -112,8 +112,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
             {
                 ["dir"] =
                 {
-                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc).ToUnixTime(), 10),
-                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc).ToUnixTime(), 10)
+                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc), 10),
+                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 1, 0, 1, DateTimeKind.Utc), 10)
                 }
             };
 
@@ -121,8 +121,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
             {
                 ["dir"] =
                 {
-                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc).ToUnixTime(), 10),
-                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc).ToUnixTime(), 10)
+                    ["file1"] = new ManifestNormalFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc), 10),
+                    ["file2"] = new ManifestExecutableFile("abc123", new DateTime(2000, 1, 1, 2, 0, 2, DateTimeKind.Utc), 10)
                 }
             };
 

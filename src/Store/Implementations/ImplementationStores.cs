@@ -7,8 +7,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
+using NanoByte.Common;
 using NanoByte.Common.Storage;
-using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK
@@ -201,7 +201,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             using var atomic = new AtomicWrite(configPath);
-            using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
+            using (var configFile = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8) {NewLine = "\n"})
             {
                 foreach (string path in paths)
                     configFile.WriteLine(path);

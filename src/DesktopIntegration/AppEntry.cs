@@ -106,8 +106,8 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <remarks>This value is ignored by clone and equality methods.</remarks>
         [Browsable(false)]
-        [XmlAttribute("timestamp"), DefaultValue(0)]
-        public long TimestampUnix { get => Timestamp.ToUnixTime(); set => Timestamp = FileUtils.FromUnixTime(value); }
+        [XmlAttribute("timestamp")]
+        public long TimestampUnix { get => (UnixTime)Timestamp; set => Timestamp = (UnixTime)value; }
 
         /// <summary>
         /// Retrieves the first <see cref="Capability"/> that matches a specific type and ID and is compatible with <see cref="Architecture.CurrentSystem"/>.

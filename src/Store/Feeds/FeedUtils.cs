@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+using NanoByte.Common;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.Trust;
@@ -27,14 +27,7 @@ namespace ZeroInstall.Store.Feeds
         /// </summary>
         public const string SignatureBlockEnd = "\n-->\n";
 
-        /// <summary>
-        /// The encoding used when looking for signature blocks in feed files.
-        /// </summary>
-        public static readonly Encoding Encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
-
-        /// <summary>
-        /// <see cref="SignatureBlockStart"/> encoded with <see cref="Encoding"/>.</summary>
-        private static readonly byte[] _signatureBlockStartEncoded = Encoding.GetBytes(SignatureBlockStart);
+        private static readonly byte[] _signatureBlockStartEncoded = EncodingUtils.Utf8.GetBytes(SignatureBlockStart);
 
         /// <summary>
         /// Determines which signatures a feed is signed with.
@@ -103,7 +96,7 @@ namespace ZeroInstall.Store.Feeds
         /// <exception cref="SignatureException">The signature block does not start on a new line.</exception>
         private static ArraySegment<byte> IsolateFeed(byte[] feedData, int signatureStartIndex)
         {
-            if (signatureStartIndex <= 0 || feedData[signatureStartIndex - 1] != Encoding.GetBytes("\n")[0])
+            if (signatureStartIndex <= 0 || feedData[signatureStartIndex - 1] != EncodingUtils.Utf8.GetBytes("\n")[0])
                 throw new SignatureException(Resources.XmlSignatureMissingNewLine);
 
             return new ArraySegment<byte>(feedData, 0, signatureStartIndex);
@@ -119,7 +112,7 @@ namespace ZeroInstall.Store.Feeds
         private static byte[] IsolateAndDecodeSignature(byte[] feedData, int signatureStartIndex)
         {
             // Isolate and decode signature string
-            string signatureString = Encoding.GetString(feedData, signatureStartIndex, feedData.Length - signatureStartIndex);
+            string signatureString = EncodingUtils.Utf8.GetString(feedData, signatureStartIndex, feedData.Length - signatureStartIndex);
             if (!signatureString.EndsWith(SignatureBlockEnd)) throw new SignatureException(Resources.XmlSignatureInvalidEnd);
 
             // Concatenate Base64 lines and decode

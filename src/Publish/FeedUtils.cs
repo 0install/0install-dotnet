@@ -77,7 +77,7 @@ namespace ZeroInstall.Publish
             var signature = openPgp.Sign(stream.ReadAll(), secretKey, passphrase);
 
             // Add the signature to the end of the file
-            var writer = new StreamWriter(stream, StoreFeedUtils.Encoding) {NewLine = "\n"};
+            var writer = new StreamWriter(stream, EncodingUtils.Utf8) {NewLine = "\n"};
             writer.Write(StoreFeedUtils.SignatureBlockStart);
             writer.WriteLine(Convert.ToBase64String(signature));
             writer.Write(StoreFeedUtils.SignatureBlockEnd);

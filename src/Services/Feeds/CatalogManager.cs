@@ -16,7 +16,6 @@ using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Properties;
-using ZeroInstall.Store.Feeds;
 
 namespace ZeroInstall.Services.Feeds
 {
@@ -195,7 +194,7 @@ namespace ZeroInstall.Services.Feeds
             #endregion
 
             using var atomic = new AtomicWrite(Locations.GetSaveConfigPath("0install.net", true, "catalog-sources"));
-            using (var configFile = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding) {NewLine = "\n"})
+            using (var configFile = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8) {NewLine = "\n"})
             {
                 foreach (var uri in uris)
                     configFile.WriteLine(uri.ToStringRfc());

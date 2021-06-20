@@ -88,7 +88,7 @@ namespace ZeroInstall.Store.Trust
                     return new ValidSignature(
                         keyID: OpenPgpUtils.FingerprintToKeyID(fingerprint),
                         fingerprint: fingerprint,
-                        timestamp: FileUtils.FromUnixTime(long.Parse(signatureParts[timestampIndex])));
+                        timestamp: new UnixTime(long.Parse(signatureParts[timestampIndex])));
 
                 case "BADSIG":
                     if (signatureParts.Length < 3) throw new FormatException("Incorrect number of columns in BADSIG line.");

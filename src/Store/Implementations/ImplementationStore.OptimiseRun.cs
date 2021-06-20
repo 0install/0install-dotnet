@@ -49,12 +49,12 @@ namespace ZeroInstall.Store.Implementations
 
                 foreach ((string directoryPath, var directory) in manifest)
                 {
-                    string currentDirectory = FileUtils.UnifySlashes(directoryPath);
+                    string currentDirectory = directoryPath.ToNativePath();
                     foreach ((string elementName, var element) in directory)
                     {
-                        if (element is ManifestFile x && x.Size != 0)
+                        if (element is ManifestFile(var digest, var modifiedTime, var size) {Size: > 0})
                         {
-                            var key = new DedupKey(x.Size, x.ModifiedTime, manifest.Format, x.Digest);
+                            var key = new DedupKey(size, modifiedTime, manifest.Format, digest);
                             var file = new StoreFile(implementationPath, System.IO.Path.Combine(currentDirectory, elementName));
 
                             if (_fileHashes.TryGetValue(key, out var existingFile))
@@ -62,7 +62,7 @@ namespace ZeroInstall.Store.Implementations
                                 if (!FileUtils.AreHardlinked(file, existingFile))
                                 {
                                     if (JoinWithHardlink(file, existingFile))
-                                        SavedBytes += x.Size;
+                                        SavedBytes += size;
                                 }
                             }
                             else _fileHashes.Add(key, file);

@@ -52,8 +52,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
 
             using var stream = file.OpenRead();
             _currentDirectory.Add(file.Name, executable
-                ? new ManifestExecutableFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc.ToUnixTime(), file.Length)
-                : new ManifestNormalFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc.ToUnixTime(), file.Length));
+                ? new ManifestExecutableFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc, file.Length)
+                : new ManifestNormalFile(Manifest.Format.DigestContent(stream), file.LastWriteTimeUtc, file.Length));
         }
 
         /// <inheritdoc/>

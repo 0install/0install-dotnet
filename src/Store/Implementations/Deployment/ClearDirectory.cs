@@ -48,7 +48,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
 
             foreach ((string directoryPath, var directory) in Manifest)
             {
-                string fullDirectoryPath = System.IO.Path.Combine(Path, FileUtils.UnifySlashes(directoryPath));
+                string fullDirectoryPath = System.IO.Path.Combine(Path, directoryPath.ToNativePath());
 
                 if (Directory.Exists(fullDirectoryPath))
                     _pendingDirectoryDeletes.Push(fullDirectoryPath);

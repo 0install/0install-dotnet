@@ -40,7 +40,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         #endregion
 
         private static readonly string _hash = TestFile.DefaultContents.Hash(SHA1.Create());
-        private readonly long _lastWriteTime = TestFile.DefaultLastWrite.ToUnixTime();
+        private readonly UnixTime _lastWriteTime = TestFile.DefaultLastWrite;
 
         [Fact]
         public void FileTypes()

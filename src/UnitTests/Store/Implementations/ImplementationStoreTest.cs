@@ -242,7 +242,7 @@ namespace ZeroInstall.Store.Implementations
             {
                 [""] =
                 {
-                    [file.Name] = new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite.AddSeconds(1).ToUnixTime(), file.Contents.Length)
+                    [file.Name] = new ManifestNormalFile(file.Contents.Hash(SHA1.Create()), file.LastWrite + 1, file.Contents.Length)
                 }
             };
             var digest = new ManifestDigest(manifest.CalculateDigest());

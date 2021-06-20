@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Store.Properties;
@@ -86,10 +87,10 @@ namespace ZeroInstall.Store.Implementations.Build
         }
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for directory write times. Preserves the order.</summary>
-        private readonly List<(string path, DateTime time)> _pendingDirectoryWriteTimes = new();
+        private readonly List<(string path, UnixTime time)> _pendingDirectoryWriteTimes = new();
 
         /// <summary>Maps paths relative to <see cref="EffectiveTargetPath"/> to timestamps for file write times.</summary>
-        private readonly Dictionary<string, DateTime> _pendingFileWriteTimes = new();
+        private readonly Dictionary<string, UnixTime> _pendingFileWriteTimes = new();
 
         /// <summary>Lists paths relative to <see cref="EffectiveTargetPath"/> for files to be marked as executable.</summary>
         private readonly HashSet<string> _pendingExecutableFiles = new();
@@ -120,7 +121,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <param name="lastWriteTime">The last write time to set for the file later. This value is optional.</param>
         /// <param name="executable"><c>true</c> if the file's executable bit is to be set later; <c>false</c> otherwise.</param>
         /// <returns>An absolute file path.</returns>
-        public string NewFilePath(string relativePath, DateTime? lastWriteTime, bool executable = false)
+        public string NewFilePath(string relativePath, UnixTime? lastWriteTime, bool executable = false)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));

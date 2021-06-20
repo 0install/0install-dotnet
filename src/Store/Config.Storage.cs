@@ -15,7 +15,6 @@ using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Values;
-using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK
@@ -175,7 +174,7 @@ namespace ZeroInstall.Store
             Log.Debug("Saving Config to: " + path);
 
             using var atomic = new AtomicWrite(path);
-            using (var writer = new StreamWriter(atomic.WritePath, append: false, encoding: FeedUtils.Encoding))
+            using (var writer = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8))
                 new StreamIniDataParser().WriteData(writer, _iniData);
             atomic.Commit();
         }
