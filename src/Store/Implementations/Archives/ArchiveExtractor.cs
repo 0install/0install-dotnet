@@ -154,7 +154,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
         /// <exception cref="IOException">The archive is damaged.</exception>
         /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
-        public static ArchiveExtractor Create(string archivePath, string targetPath, string mimeType, long startOffset = 0)
+        public static ArchiveExtractor Create(string archivePath, string targetPath, string mimeType, int startOffset = 0)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(archivePath)) throw new ArgumentNullException(nameof(mimeType));

@@ -29,7 +29,7 @@ namespace ZeroInstall.Store.Implementations.Build
         /// <summary>
         /// The number of bytes at the beginning of the file which should be ignored.
         /// </summary>
-        public long StartOffset { get; init; }
+        public int StartOffset { get; init; }
 
         /// <summary>
         /// The path or URL the archive was originally acquired from.
