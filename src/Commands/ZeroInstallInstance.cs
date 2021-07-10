@@ -111,37 +111,7 @@ namespace ZeroInstall.Commands
                 Log.Debug(ex);
                 return null;
             }
-            catch (IOException ex)
-            {
-                Log.Warn("Problem with silent self-update check");
-                Log.Warn(ex);
-                return null;
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn("Problem with silent self-update check");
-                Log.Warn(ex);
-                return null;
-            }
-            catch (SignatureException ex)
-            {
-                Log.Warn("Problem with silent self-update check");
-                Log.Warn(ex);
-                return null;
-            }
-            catch (UriFormatException ex)
-            {
-                Log.Warn("Problem with silent self-update check");
-                Log.Warn(ex);
-                return null;
-            }
-            catch (SolverException ex)
-            {
-                Log.Warn("Problem with silent self-update check");
-                Log.Warn(ex);
-                return null;
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is UriFormatException or IOException or UnauthorizedAccessException or SignatureException or SolverException or InvalidDataException)
             {
                 Log.Warn("Problem with silent self-update check");
                 Log.Warn(ex);

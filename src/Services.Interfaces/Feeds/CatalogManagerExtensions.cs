@@ -32,17 +32,7 @@ namespace ZeroInstall.Services.Feeds
                 return manager.GetCached() ?? new Catalog();
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
                 Log.Warn(ex);
                 return new();
@@ -66,27 +56,7 @@ namespace ZeroInstall.Services.Feeds
                 return manager.GetOnline();
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (WebException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (InvalidDataException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (SignatureException ex)
-            {
-                Log.Warn(ex);
-                return new();
-            }
-            catch (UriFormatException ex)
+            catch (Exception ex) when (ex is UriFormatException or WebException or IOException or UnauthorizedAccessException or InvalidDataException or SignatureException)
             {
                 Log.Warn(ex);
                 return new();

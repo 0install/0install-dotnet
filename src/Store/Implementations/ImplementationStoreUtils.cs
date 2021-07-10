@@ -63,19 +63,12 @@ namespace ZeroInstall.Store.Implementations
                 FileUtils.DisableWriteProtection(implementationPath);
                 return new Disposable(() =>
                 {
-                    try { FileUtils.EnableWriteProtection(path); }
+                    try
+                    {
+                        FileUtils.EnableWriteProtection(path);
+                    }
                     #region Error handling
-                    catch (IOException ex)
-                    {
-                        Log.Info("Unable to restore write protection after creating hardlinks");
-                        Log.Error(ex);
-                    }
-                    catch (UnauthorizedAccessException ex)
-                    {
-                        Log.Info("Unable to restore write protection after creating hardlinks");
-                        Log.Error(ex);
-                    }
-                    catch (InvalidOperationException ex)
+                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
                     {
                         Log.Info("Unable to restore write protection after creating hardlinks");
                         Log.Error(ex);

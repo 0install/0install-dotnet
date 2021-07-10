@@ -43,12 +43,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     service.Stop();
                 }
                 #region Error handling
-                catch (InvalidOperationException ex)
-                {
-                    // Wrap exception since only certain exception types are allowed
-                    throw new IOException("Failed to stop service.", ex);
-                }
-                catch (Win32Exception ex)
+                catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
                 {
                     // Wrap exception since only certain exception types are allowed
                     throw new IOException("Failed to stop service.", ex);
@@ -70,12 +65,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 GetServiceController()?.Start();
             }
             #region Error handling
-            catch (InvalidOperationException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException("Failed to start service.", ex);
-            }
-            catch (Win32Exception ex)
+            catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException("Failed to start service.", ex);

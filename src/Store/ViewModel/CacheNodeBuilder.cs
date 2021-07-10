@@ -96,19 +96,7 @@ namespace ZeroInstall.Store.ViewModel
                     return new OrphanedImplementationNode(digest, _implementationStore);
             }
             #region Error handling
-            catch (FormatException ex)
-            {
-                Log.Error($"Problem processing the manifest file for '{digest}'.");
-                Log.Error(ex);
-                return null;
-            }
-            catch (IOException ex)
-            {
-                Log.Error($"Problem processing '{digest}'.");
-                Log.Error(ex);
-                return null;
-            }
-            catch (UnauthorizedAccessException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or FormatException)
             {
                 Log.Error($"Problem processing '{digest}'.");
                 Log.Error(ex);

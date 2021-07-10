@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,12 +32,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
             }
             #region Error handling
-            catch (RemotingException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            catch (SerializationException ex)
+            catch (Exception ex) when (ex is RemotingException or SerializationException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(ex.Message, ex);

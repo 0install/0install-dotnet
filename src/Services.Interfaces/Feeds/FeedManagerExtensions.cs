@@ -47,11 +47,7 @@ namespace ZeroInstall.Services.Feeds
                     feed = feedManager[feedUri];
                 }
                 #region Sanity checks
-                catch (IOException ex)
-                {
-                    Log.Warn(ex);
-                }
-                catch (WebException ex)
+                catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
                 {
                     Log.Warn(ex);
                 }

@@ -143,19 +143,7 @@ namespace ZeroInstall.Store.Trust
             {
                 return new() {_filePath = DefaultLocation}; // Start empty and save new file
             }
-            catch (IOException ex)
-            {
-                Log.Warn(Resources.ErrorLoadingTrustDB);
-                Log.Warn(ex);
-                return new(); // Start empty but do not overwrite existing file
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(Resources.ErrorLoadingTrustDB);
-                Log.Warn(ex);
-                return new(); // Start empty but do not overwrite existing file
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
                 Log.Warn(Resources.ErrorLoadingTrustDB);
                 Log.Warn(ex);

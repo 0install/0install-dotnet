@@ -104,13 +104,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                         File.Delete(path);
                     }
                     #region Error handling
-                    catch (IOException ex)
-                    {
-                        Log.Warn(string.Format(Resources.UnableToReplaceStub, path));
-                        Log.Warn(ex);
-                        return;
-                    }
-                    catch (UnauthorizedAccessException ex)
+                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                     {
                         Log.Warn(string.Format(Resources.UnableToReplaceStub, path));
                         Log.Warn(ex);
@@ -178,20 +172,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 return iconPath;
             }
             #region Error handling
-            catch (UriFormatException ex)
+            catch (Exception ex) when (ex is UriFormatException or WebException)
             {
                 Log.Warn(ex);
             }
-            catch (WebException ex)
-            {
-                Log.Warn(ex);
-            }
-            catch (IOException ex)
-            {
-                Log.Warn($"Failed to store {icon}");
-                Log.Warn(ex);
-            }
-            catch (UnauthorizedAccessException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
                 Log.Warn($"Failed to store {icon}");
                 Log.Warn(ex);

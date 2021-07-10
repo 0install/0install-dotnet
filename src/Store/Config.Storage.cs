@@ -113,17 +113,7 @@ namespace ZeroInstall.Store
                 return Load();
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Error(ex);
-                return new();
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Error(ex);
-                return new();
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
                 Log.Error(ex);
                 return new();

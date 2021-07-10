@@ -62,12 +62,9 @@ namespace ZeroInstall.Store
                             Download(icon.Href, path);
                         }
                         #region Error handling
-                        catch (WebException ex)
-                        { // Failure is not critical if there is already a cached file
-                            Log.Warn(ex);
-                        }
-                        catch (IOException ex)
-                        { // Failure is not critical if there is already a cached file
+                        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
+                        {
+                            // Failure is not critical if there is already a cached file
                             Log.Warn(ex);
                         }
                         #endregion

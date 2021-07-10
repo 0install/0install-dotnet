@@ -56,12 +56,7 @@ namespace ZeroInstall.Store.Implementations
                 if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
             }
             #region Error handling
-            catch (ArgumentException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            catch (NotSupportedException ex)
+            catch (Exception ex) when (ex is ArgumentException or NotSupportedException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(ex.Message, ex);
@@ -260,15 +255,7 @@ namespace ZeroInstall.Store.Implementations
                 FileUtils.DisableWriteProtection(path);
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Error(ex);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Error(ex);
-            }
-            catch (InvalidOperationException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
             {
                 Log.Error(ex);
             }

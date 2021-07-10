@@ -51,18 +51,11 @@ namespace ZeroInstall.Store.Trust
                     }
                 }
                 #region Error handling
-                catch (DirectoryNotFoundException)
-                {
-                    return new(Enumerable.Empty<PgpPublicKeyRing>());
-                }
-                catch (FileNotFoundException)
-                {
-                    return new(Enumerable.Empty<PgpPublicKeyRing>());
-                }
                 catch (IOException ex)
                 {
-                    Log.Warn(ex);
-                    return new(Enumerable.Empty<PgpPublicKeyRing>());
+                    if (ex is not (DirectoryNotFoundException or FileNotFoundException))
+                        Log.Warn(ex);
+                    return new(Enumerable.Empty<PgpSecretKeyRing>());
                 }
                 #endregion
             }
@@ -98,17 +91,10 @@ namespace ZeroInstall.Store.Trust
                     return _secretBundle = new(PgpUtilities.GetDecoderStream(stream));
                 }
                 #region Error handling
-                catch (DirectoryNotFoundException)
-                {
-                    return new(Enumerable.Empty<PgpSecretKeyRing>());
-                }
-                catch (FileNotFoundException)
-                {
-                    return new(Enumerable.Empty<PgpSecretKeyRing>());
-                }
                 catch (IOException ex)
                 {
-                    Log.Warn(ex);
+                    if (ex is not (DirectoryNotFoundException or FileNotFoundException))
+                        Log.Warn(ex);
                     return new(Enumerable.Empty<PgpSecretKeyRing>());
                 }
                 #endregion

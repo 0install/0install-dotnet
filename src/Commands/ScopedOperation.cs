@@ -64,17 +64,7 @@ namespace ZeroInstall.Commands
                 return new(path);
             }
             #region Error handling
-            catch (ArgumentException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new UriFormatException(ex.Message);
-            }
-            catch (InvalidOperationException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new UriFormatException(ex.Message);
-            }
-            catch (NotSupportedException ex)
+            catch (Exception ex) when (ex is ArgumentException or InvalidOperationException or NotSupportedException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new UriFormatException(ex.Message);

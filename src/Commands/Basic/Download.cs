@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -103,12 +104,7 @@ namespace ZeroInstall.Commands.Basic
                 UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections!);
             }
             #region Error handling
-            catch (KeyNotFoundException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new SolverException(ex.Message, ex);
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is KeyNotFoundException or InvalidDataException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new SolverException(ex.Message, ex);

@@ -128,7 +128,7 @@ namespace ZeroInstall.DesktopIntegration
                     return data;
                 }
                 #region Error handling
-                catch (WebException ex) when (ex.Status == WebExceptionStatus.ProtocolError && (ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.Unauthorized)
+                catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized})
                 {
                     Handler.CancellationToken.ThrowIfCancellationRequested();
                     throw new WebException(Resources.SyncCredentialsInvalid, ex, ex.Status, ex.Response);
@@ -164,7 +164,7 @@ namespace ZeroInstall.DesktopIntegration
                 {
                     Handler.RunTask(new SimpleTask(Resources.SyncUploading, () => webClient.UploadData(uri, "PUT", memoryStream.ToArray())));
                 }
-                catch (WebException ex) when (ex.Status == WebExceptionStatus.ProtocolError && (ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.PreconditionFailed)
+                catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})
                 {
                     Handler.CancellationToken.ThrowIfCancellationRequested();
                     throw new SyncRaceException(ex);

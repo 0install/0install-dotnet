@@ -81,12 +81,7 @@ namespace ZeroInstall.Services.Feeds
                     catalog.SaveXml(_cacheFilePath);
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(Resources.UnableToCacheCatalog);
-                Log.Warn(ex);
-            }
-            catch (UnauthorizedAccessException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
                 Log.Warn(Resources.UnableToCacheCatalog);
                 Log.Warn(ex);

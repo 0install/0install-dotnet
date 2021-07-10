@@ -81,15 +81,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                             _restartManager.ShutdownApps(Handler);
                     }
                     #region Error handling
-                    catch (IOException ex)
-                    {
-                        Log.Warn(ex);
-                    }
-                    catch (UnauthorizedAccessException ex)
-                    {
-                        Log.Warn(ex);
-                    }
-                    catch (TimeoutException ex)
+                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
                     {
                         Log.Warn(ex);
                     }
@@ -130,11 +122,7 @@ namespace ZeroInstall.Store.Implementations.Deployment
                         _restartManager.Dispose();
                     }
                     #region Error handling
-                    catch (IOException ex)
-                    {
-                        Log.Warn(ex);
-                    }
-                    catch (UnauthorizedAccessException ex)
+                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
                     {
                         Log.Warn(ex);
                     }

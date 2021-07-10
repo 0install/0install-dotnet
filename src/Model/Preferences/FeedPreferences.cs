@@ -108,19 +108,7 @@ namespace ZeroInstall.Model.Preferences
                 return LoadFor(feedUri);
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
-                Log.Warn(ex);
-                return new();
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
-                Log.Warn(ex);
-                return new();
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
                 Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
                 Log.Warn(ex);

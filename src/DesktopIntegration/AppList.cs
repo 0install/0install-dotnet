@@ -183,17 +183,7 @@ namespace ZeroInstall.DesktopIntegration
             {
                 return new AppList();
             }
-            catch (IOException ex)
-            {
-                Log.Warn(ex);
-                return new AppList();
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(ex);
-                return new AppList();
-            }
-            catch (InvalidDataException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
                 Log.Warn(ex);
                 return new AppList();

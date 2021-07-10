@@ -65,12 +65,7 @@ namespace ZeroInstall.Commands.Basic
                 _outputPath = Path.GetFullPath(AdditionalArgs[0]);
             }
             #region Error handling
-            catch (ArgumentException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new UriFormatException(ex.Message);
-            }
-            catch (NotSupportedException ex)
+            catch (Exception ex) when (ex is ArgumentException or NotSupportedException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new UriFormatException(ex.Message);

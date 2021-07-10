@@ -36,27 +36,7 @@ namespace ZeroInstall.Services.Solvers
                 return solver.Solve(requirements);
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(ex);
-                return null;
-            }
-            catch (WebException ex)
-            {
-                Log.Warn(ex);
-                return null;
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(ex);
-                return null;
-            }
-            catch (SignatureException ex)
-            {
-                Log.Warn(ex);
-                return null;
-            }
-            catch (SolverException ex)
+            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
             {
                 Log.Warn(ex);
                 return null;

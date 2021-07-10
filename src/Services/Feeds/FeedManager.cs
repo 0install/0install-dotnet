@@ -151,12 +151,7 @@ namespace ZeroInstall.Services.Feeds
                 return feed;
             }
             #region Error handling
-            catch (InvalidDataException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            catch (KeyNotFoundException ex)
+            catch (Exception ex) when (ex is InvalidDataException or KeyNotFoundException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(ex.Message, ex);

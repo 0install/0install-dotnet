@@ -144,17 +144,7 @@ namespace ZeroInstall.Store.Implementations
                 return true;
             }
             #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn(ex);
-                return false;
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Warn(ex);
-                return false;
-            }
-            catch (TimeoutException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
             {
                 Log.Warn(ex);
                 return false;
