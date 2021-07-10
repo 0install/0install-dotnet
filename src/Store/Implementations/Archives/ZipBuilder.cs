@@ -4,58 +4,59 @@
 using System;
 using System.IO;
 using ICSharpCode.SharpZipLib.Zip;
+using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Creates a ZIP archive from a directory. Preserves executable bits, symlinks and timestamps.
+    /// Builds a ZIP archive (.zip).
     /// </summary>
-    public class ZipGenerator : ArchiveGenerator
+    public class ZipBuilder : IArchiveBuilder
     {
-        #region Stream
         private readonly ZipOutputStream _zipStream;
 
         /// <summary>
-        /// Prepares to generate a ZIP archive from a directory.
+        /// Creates a ZIP archive builder.
         /// </summary>
-        /// <param name="sourcePath">The path of the directory to capture/store in the archive.</param>
-        /// <param name="stream">The stream to write the generated archive to. Will be disposed when the generator is disposed.</param>
-        internal ZipGenerator(string sourcePath, Stream stream)
-            : base(sourcePath)
+        /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+        public ZipBuilder(Stream stream)
+        {
+            _zipStream = new(stream ?? throw new ArgumentNullException(nameof(stream)));
+        }
+
+        public void Dispose()
+            => _zipStream.Dispose();
+
+        /// <inheritdoc/>
+        public void AddDirectory(string path)
         {
             #region Sanity checks
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            #endregion
+
+            _zipStream.PutNextEntry(new ZipEntry(path.ToUnixPath() + '/'));
+        }
+
+        /// <inheritdoc/>
+        public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             #endregion
 
-            _zipStream = new(stream);
-        }
-
-        public override void Dispose()
-        {
-            _zipStream.Dispose();
-        }
-        #endregion
-
-        /// <inheritdoc/>
-        protected override void HandleFile(FileInfo file, bool executable = false)
-        {
-            #region Sanity checks
-            if (file == null) throw new ArgumentNullException(nameof(file));
-            #endregion
-
-            var entry = new ZipEntry(file.RelativeTo(SourceDirectory))
+            var entry = new ZipEntry(path.ToUnixPath())
             {
-                Size = file.Length,
-                DateTime = file.LastWriteTimeUtc,
+                Size = stream.Length,
+                DateTime = modifiedTime,
                 HostSystem = (int)HostSystemID.Unix,
-                ExtraData = GetUnixTimestamp(file.LastWriteTimeUtc)
+                ExtraData = GetUnixTimestamp(modifiedTime)
             };
             if (executable)
                 entry.ExternalFileAttributes = ZipExtractor.DefaultAttributes | ZipExtractor.ExecuteAttributes;
             _zipStream.PutNextEntry(entry);
-            using var stream = file.OpenRead();
             stream.CopyToEx(_zipStream);
         }
 
@@ -76,15 +77,15 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         /// <inheritdoc/>
-        protected override void HandleSymlink(FileSystemInfo symlink, string target)
+        public void AddSymlink(string path, string target)
         {
             #region Sanity checks
-            if (symlink == null) throw new ArgumentNullException(nameof(symlink));
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
             if (target == null) throw new ArgumentNullException(nameof(target));
             #endregion
 
-            var data = target.ToStream();
-            _zipStream.PutNextEntry(new ZipEntry(symlink.RelativeTo(SourceDirectory))
+            var data = target.ToUnixPath().ToStream();
+            _zipStream.PutNextEntry(new ZipEntry(path.ToUnixPath())
             {
                 Size = data.Length,
                 HostSystem = (int)HostSystemID.Unix,
@@ -94,13 +95,7 @@ namespace ZeroInstall.Store.Implementations.Archives
         }
 
         /// <inheritdoc/>
-        protected override void HandleDirectory(DirectoryInfo directory)
-        {
-            #region Sanity checks
-            if (directory == null) throw new ArgumentNullException(nameof(directory));
-            #endregion
-
-            _zipStream.PutNextEntry(new ZipEntry(directory.RelativeTo(SourceDirectory) + '/'));
-        }
+        public void AddHardlink(string path, string target, bool executable = false)
+            => throw new NotSupportedException("ZIP archives do not support hardlinks.");
     }
 }

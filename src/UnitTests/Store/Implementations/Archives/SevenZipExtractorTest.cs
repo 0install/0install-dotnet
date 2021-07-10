@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using Xunit;
 using ZeroInstall.Model;
+using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -9,6 +11,28 @@ namespace ZeroInstall.Store.Implementations.Archives
     {
         protected override string MimeType => Archive.MimeType7Z;
 
-        protected override string FileName => "testArchive.7z";
+        [Fact]
+        public void Extract()
+        {
+            Test(
+                "testArchive.7z",
+                new Manifest(ManifestFormat.Sha1New)
+                {
+                    [""] = {["file"] = Normal("abc")},
+                    ["folder1"] = {["file"] = Normal("def")}
+                });
+        }
+
+        [Fact]
+        public void ExtractSubDir()
+        {
+            Test(
+                "testArchive.7z",
+                new Manifest(ManifestFormat.Sha1New)
+                {
+                    [""] = {["file"] = Normal("def")}
+                },
+                subDir: "folder1");
+        }
     }
 }

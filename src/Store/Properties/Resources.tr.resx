@@ -126,9 +126,6 @@
   <data name="CopyFiles" xml:space="preserve">
     <value>Dosyalar kopyalanıyor</value>
   </data>
-  <data name="CreatingArchive" xml:space="preserve">
-    <value>{0} arşivi oluşturuluyor</value>
-  </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Bu ön bellek içindeki alt dizinler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
 Bu korumanın yan etkisi olarak bu dosyalar Windows Gezgini kullanılarak silinemez.

@@ -7,6 +7,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
 
 namespace ZeroInstall.Publish.Capture
@@ -125,8 +126,8 @@ namespace ZeroInstall.Publish.Capture
             _feedBuilder.GenerateDigest(handler);
 
             string mimeType = Archive.GuessMimeType(archivePath);
-            using (var generator = ArchiveGenerator.Create(InstallationDir, archivePath, mimeType))
-                handler.RunTask(generator);
+            using (var builder = ArchiveBuilder.Create(archivePath, mimeType))
+                handler.RunTask(new ReadDirectory(InstallationDir, builder));
             _feedBuilder.RetrievalMethod = new Archive {Href = archiveUrl, MimeType = mimeType, Size = new FileInfo(archivePath).Length};
         }
 

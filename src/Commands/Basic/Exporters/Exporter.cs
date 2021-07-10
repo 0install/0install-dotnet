@@ -120,8 +120,8 @@ namespace ZeroInstall.Commands.Basic.Exporters
                     continue;
                 }
 
-                using var generator = ArchiveGenerator.Create(sourcePath, Path.Combine(contentDir, digest.Best + ".tbz2"), Archive.MimeTypeTarBzip);
-                handler.RunTask(generator);
+                using var builder = ArchiveBuilder.Create(Path.Combine(contentDir, digest.Best + ".tbz2"), Archive.MimeTypeTarBzip);
+                handler.RunTask(new ReadDirectory(sourcePath, builder));
             }
         }
 

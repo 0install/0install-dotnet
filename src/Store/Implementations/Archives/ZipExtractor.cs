@@ -2,112 +2,84 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Streams;
+using NanoByte.Common.Tasks;
 using NanoByte.Common.Values;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a ZIP archive.
+    /// Extracts ZIP archives (.zip).
     /// </summary>
     public class ZipExtractor : ArchiveExtractor
     {
-        #region Stream
-        /// <summary>Information about the files in the archive as stored in the central directory.</summary>
-        private readonly ZipEntry[] _centralDirectory;
-
-        private readonly ZipInputStream _zipStream;
-
         /// <summary>
-        /// Prepares to extract a ZIP archive contained in a stream.
+        /// Creates a ZIP extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal ZipExtractor(Stream stream, string targetPath)
-            : base(targetPath)
-        {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            UnitsTotal = stream.Length;
-
-            try
-            {
-                // Read the central directory
-                using (var zipFile = new ZipFile(stream) {IsStreamOwner = false})
-                {
-                    _centralDirectory = new ZipEntry[zipFile.Count];
-                    for (int i = 0; i < _centralDirectory.Length; i++)
-                        _centralDirectory[i] = zipFile[i];
-                }
-                stream.Seek(0, SeekOrigin.Begin);
-
-                _zipStream = new(stream);
-            }
-            #region Error handling
-            catch (ZipException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
-        }
-
-        public override void Dispose()
-        {
-            _zipStream.Dispose();
-        }
-        #endregion
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public ZipExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
         /// <inheritdoc/>
-        protected override void ExtractArchive()
+        public override void Extract(IImplementationBuilder builder, Stream stream, string? subDir = null)
         {
-            try
+            EnsureCanSeek(stream, seekableStream =>
             {
-                // Read ZIP file sequentially and reference central directory in parallel
-                foreach (var centralEntry in _centralDirectory)
+                try
                 {
-                    var localEntry = _zipStream.GetNextEntry();
-                    if (localEntry == null) break;
+                    var centralDirectory = ReadCentralDirectory(seekableStream);
+                    Extract(builder, new ZipInputStream(seekableStream), centralDirectory, subDir);
+                }
+                #region Error handling
+                catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException(Resources.ArchiveInvalid, ex);
+                }
+                #endregion
+            });
+        }
 
-                    string? relativePath = GetRelativePath(centralEntry.Name);
-                    if (string.IsNullOrEmpty(relativePath)) continue;
+        private static IEnumerable<ZipEntry> ReadCentralDirectory(Stream stream)
+        {
+            var zipFile = new ZipFile(stream);
+            var centralDirectory = new ZipEntry[zipFile.Count];
+            for (int i = 0; i < centralDirectory.Length; i++)
+                centralDirectory[i] = zipFile[i];
+            stream.Seek(0, SeekOrigin.Begin);
+            return centralDirectory;
+        }
 
-                    if (centralEntry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, localEntry.DateTime);
-                    else if (centralEntry.IsFile)
-                    {
-                        if (IsSymlink(centralEntry))
-                            DirectoryBuilder.CreateSymlink(relativePath, _zipStream.ReadToString());
-                        else
-                            WriteFile(relativePath, centralEntry.Size, localEntry.DateTime, _zipStream, IsExecutable(centralEntry));
-                    }
+        /// <summary>
+        /// Reads a ZIP file sequentially and references its central directory in parallel.
+        /// </summary>
+        private void Extract(IImplementationBuilder builder, ZipInputStream zipStream, IEnumerable<ZipEntry> centralDirectory, string? subDir)
+        {
+            foreach (var centralEntry in centralDirectory)
+            {
+                Handler.CancellationToken.ThrowIfCancellationRequested();
 
-                    UnitsProcessed += centralEntry.CompressedSize;
+                var localEntry = zipStream.GetNextEntry();
+                if (localEntry == null) break;
+
+                string? relativePath = NormalizePath(centralEntry.Name, subDir);
+                if (string.IsNullOrEmpty(relativePath)) continue;
+
+                if (centralEntry.IsDirectory) builder.AddDirectory(relativePath);
+                else if (centralEntry.IsFile)
+                {
+                    if (IsSymlink(centralEntry))
+                        builder.AddSymlink(relativePath, zipStream.ReadToString());
+                    else
+                        builder.AddFile(relativePath, zipStream, localEntry.DateTime, IsExecutable(centralEntry));
                 }
             }
-            #region Error handling
-            catch (SharpZipBaseException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (InvalidDataException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
         }
 
         /// <summary>

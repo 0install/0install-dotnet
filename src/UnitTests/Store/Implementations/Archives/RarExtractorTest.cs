@@ -1,7 +1,9 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using Xunit;
 using ZeroInstall.Model;
+using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -9,6 +11,28 @@ namespace ZeroInstall.Store.Implementations.Archives
     {
         protected override string MimeType => Archive.MimeTypeRar;
 
-        protected override string FileName => "testArchive.rar";
+        [Fact]
+        public void Extract()
+        {
+            Test(
+                "testArchive.rar",
+                new Manifest(ManifestFormat.Sha1New)
+                {
+                    [""] = {["file"] = Normal("abc")},
+                    ["folder1"] = {["file"] = Normal("def")}
+                });
+        }
+
+        [Fact]
+        public void ExtractSubDir()
+        {
+            Test(
+                "testArchive.rar",
+                new Manifest(ManifestFormat.Sha1New)
+                {
+                    [""] = {["file"] = Normal("def")}
+                },
+                subDir: "folder1");
+        }
     }
 }
