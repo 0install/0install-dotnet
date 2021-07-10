@@ -4,55 +4,51 @@
 #if NETFRAMEWORK
 using System;
 using System.IO;
-using System.Linq;
 using Microsoft.Deployment.Compression.Cab;
+using NanoByte.Common.Native;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a MS Cabinet archive.
+    /// Extracts MS Cabinets (.cab).
     /// </summary>
-    public class CabExtractor : MicrosoftExtractor
+    /// <remarks>This class is immutable and thread-safe.</remarks>
+    public class CabExtractor : ArchiveExtractor
     {
         /// <summary>
-        /// Prepares to extract a MS Cabinet archive contained in a stream.
+        /// Creates a CAB extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal CabExtractor(Stream stream, string targetPath)
-            : base(targetPath)
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        /// <exception cref="NotSupportedException">Extracting this archive type is only supported on Windows.</exception>
+        public CabExtractor(ITaskHandler handler)
+            : base(handler)
         {
-            CabStream = stream ?? throw new ArgumentNullException(nameof(stream));
-
-            try
-            {
-                UnitsTotal = CabEngine.GetFileInfo(this, _ => true).Sum(x => x.Length);
-            }
-            #region Error handling
-            catch (CabException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
+            if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
         }
 
         /// <inheritdoc/>
-        protected override void ExtractArchive()
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
-            try
+            using var engine = new CabEngine();
+
+            EnsureSeekable(stream, seekableStream =>
             {
-                CabEngine.Unpack(this, _ => true);
-            }
-            #region Error handling
-            catch (CabException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            #endregion
+                try
+                {
+                    engine.Unpack(
+                        new CabExtractorContext(builder, seekableStream, path => NormalizePath(path, subDir), Handler.CancellationToken),
+                        fileFilter: path => NormalizePath(path, subDir) != null);
+                }
+                #region Error handling
+                catch (CabException ex)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException(Resources.ArchiveInvalid, ex);
+                }
+                #endregion
+            });
         }
     }
 }

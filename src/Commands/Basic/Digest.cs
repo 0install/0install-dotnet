@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using NanoByte.Common;
-using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
@@ -89,17 +88,13 @@ namespace ZeroInstall.Commands.Basic
             }
             else if (File.Exists(path))
             {
-                using var tempDir = new TemporaryDirectory("0install");
+                var builder = new ManifestBuilder(_algorithm);
 
-                using (var extractor = ArchiveExtractor.Create(path, tempDir, Archive.GuessMimeType(path)))
-                {
-                    extractor.Extract = subdir;
-                    Handler.RunTask(extractor);
-                }
+                using var stream = File.OpenRead(path);
+                var extractor = ArchiveExtractor.For(Archive.GuessMimeType(path), Handler);
+                extractor.Extract(builder, stream, subdir);
 
-                var generator = new ManifestGenerator(tempDir, _algorithm);
-                Handler.RunTask(generator);
-                return generator.Manifest;
+                return builder.Manifest;
             }
             else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
         }

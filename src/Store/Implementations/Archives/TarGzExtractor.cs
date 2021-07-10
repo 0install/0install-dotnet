@@ -3,41 +3,31 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a GZip-compressed TAR archive.
+    /// Extracts GZip-compressed TAR archives (.tar.gz).
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class TarGzExtractor : TarExtractor
     {
-        private readonly Stream _stream;
-
         /// <summary>
-        /// Prepares to extract a TAR archive contained in a GZip-compressed stream.
+        /// Creates a TAR GZip extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarGzExtractor(Stream stream, string targetPath)
-            : base(GetDecompressionStream(stream), targetPath)
-        {
-            _stream = stream;
-            UnitsTotal = stream.Length;
-        }
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public TarGzExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
-        /// <summary>
-        /// Adds a GZip-extraction layer around a stream.
-        /// </summary>
-        /// <param name="stream">The stream containing the GZip-compressed data.</param>
-        /// <returns>A stream representing the uncompressed data.</returns>
-        /// <exception cref="IOException">The compressed stream contains invalid data.</exception>
-        internal static Stream GetDecompressionStream(Stream stream)
+        /// <inheritdoc/>
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
             try
             {
-                return new GZipInputStream(stream);
+                base.Extract(builder, new GZipInputStream(stream) {IsStreamOwner = false}, subDir);
             }
             #region Error handling
             catch (GZipException ex)
@@ -47,9 +37,5 @@ namespace ZeroInstall.Store.Implementations.Archives
             }
             #endregion
         }
-
-        /// <inheritdoc/>
-        protected override void UpdateProgress()
-            => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
     }
 }

@@ -3,80 +3,61 @@
 
 using System;
 using System.IO;
+using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
-using SharpCompress.Readers;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a 7z archive.
+    /// Extracts 7-zip archives (.7z).
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class SevenZipExtractor : ArchiveExtractor
     {
-        private readonly SevenZipArchive _archive;
-
         /// <summary>
-        /// Prepares to extract a 7z archive contained in a stream.
+        /// Creates a 7-zip extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal SevenZipExtractor(Stream stream, string targetPath)
-            : base(targetPath)
-        {
-            _archive = SevenZipArchive.Open(stream, new ReaderOptions {LeaveStreamOpen = false});
-        }
-
-        public override void Dispose()
-        {
-            _archive.Dispose();
-        }
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public SevenZipExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
         /// <inheritdoc/>
-        protected override void ExtractArchive()
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
-            State = TaskState.Data;
-
-            try
+            EnsureSeekable(stream, seekableStream =>
             {
-                UnitsTotal = _archive.TotalUncompressSize;
-
-                var reader = _archive.ExtractAllEntries();
-                while (reader.MoveToNextEntry())
+                try
                 {
-                    var entry = reader.Entry;
-
-                    string? relativePath = GetRelativePath(entry.Key.Replace('\\', '/'));
-                    if (relativePath == null) continue;
-
-                    if (entry.IsDirectory) DirectoryBuilder.CreateDirectory(relativePath, entry.LastModifiedTime?.ToUniversalTime());
-                    else
+                    var reader = SevenZipArchive.Open(seekableStream).ExtractAllEntries();
+                    while (reader.MoveToNextEntry())
                     {
-                        CancellationToken.ThrowIfCancellationRequested();
+                        Handler.CancellationToken.ThrowIfCancellationRequested();
 
-                        string absolutePath = DirectoryBuilder.NewFilePath(relativePath, entry.LastModifiedTime?.ToUniversalTime());
-                        using (var fileStream = File.Create(absolutePath))
-                            reader.WriteEntryTo(fileStream);
+                        var entry = reader.Entry;
 
-                        UnitsProcessed += entry.Size;
+                        string? relativePath = NormalizePath(entry.Key, subDir);
+                        if (relativePath == null) continue;
+
+                        if (entry.IsDirectory) builder.AddDirectory(relativePath);
+                        else
+                        {
+                            using var elementStream = reader.OpenEntryStream();
+                            builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? new UnixTime());
+                        }
                     }
                 }
-            }
-            #region Error handling
-            catch (InvalidOperationException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
-            }
-            catch (ExtractionException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
-            }
-            #endregion
+                #region Error handling
+                catch (Exception ex) when (ex is InvalidOperationException or ExtractionException)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
+                }
+                #endregion
+            });
         }
     }
 }

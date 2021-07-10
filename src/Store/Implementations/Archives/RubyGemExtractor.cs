@@ -6,55 +6,46 @@ using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a Ruby Gem archive.
+    /// Extracts Ruby Gem archives (.gem).
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class RubyGemExtractor : TarGzExtractor
     {
         /// <summary>
-        /// Prepares to extract a Ruby Gem archive.
+        /// Creates a Ruby Gem extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal RubyGemExtractor(Stream stream, string targetPath)
-            : base(GetPartialStream(stream), targetPath)
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public RubyGemExtractor(ITaskHandler handler)
+            : base(handler)
         {}
 
-        /// <summary>
-        /// Adds a layer around a stream that isolates the <c>data.tar.gz</c> file from a TAR stream.
-        /// </summary>
-        /// <param name="stream">The TAR stream.</param>
-        /// <returns>A stream representing the <c>data.tar.gz</c> data.</returns>
-        /// <exception cref="IOException">The compressed stream contains invalid data.</exception>
-        private static Stream GetPartialStream(Stream stream)
+        /// <inheritdoc/>
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
             try
             {
-                var tar = new TarInputStream(stream, Encoding.UTF8);
+                var tarStream = new TarInputStream(stream, Encoding.UTF8) {IsStreamOwner = false};
                 while (true)
                 {
-                    var entry = tar.GetNextEntry();
+                    Handler.CancellationToken.ThrowIfCancellationRequested();
+
+                    var entry = tarStream.GetNextEntry();
                     if (entry == null) throw new IOException(Resources.RubyGemInvalid);
-                    if (entry.Name == "data.tar.gz") return tar;
+                    if (entry.Name == "data.tar.gz")
+                    {
+                        base.Extract(builder, tarStream, subDir);
+                        return;
+                    }
                 }
             }
             #region Error handling
-            catch (SharpZipBaseException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (InvalidDataException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(Resources.ArchiveInvalid, ex);

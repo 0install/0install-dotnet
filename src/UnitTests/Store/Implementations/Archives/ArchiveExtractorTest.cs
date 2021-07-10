@@ -1,11 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using FluentAssertions;
-using ICSharpCode.SharpZipLib.Zip;
-using NanoByte.Common.Storage;
+using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Model;
 
@@ -16,29 +13,11 @@ namespace ZeroInstall.Store.Implementations.Archives
     /// </summary>
     public class ArchiveExtractorTest
     {
-        [Fact] // Ensures ArchiveExtractor.FromStream() correctly creates a ZipExtractor.
-        public void TestCreateExtractor()
+        [Fact]
+        public void TestForZip()
         {
-            using var tempDir = new TemporaryDirectory("0install-test-archives");
-            string path = Path.Combine(tempDir, "a.zip");
-
-            using (var file = File.Create(path))
-            {
-                using var zipStream = new ZipOutputStream(file) {IsStreamOwner = false};
-                var entry = new ZipEntry("file");
-                zipStream.PutNextEntry(entry);
-                zipStream.CloseEntry();
-            }
-
-            using var extractor = ArchiveExtractor.Create(File.OpenRead(path), tempDir, Archive.MimeTypeZip);
-            extractor.Should().BeOfType<ZipExtractor>();
-        }
-
-        [Fact] // Ensures ArchiveExtractor.VerifySupport() correctly distinguishes between supported and not supported archive MIME types.
-        public void TestVerifySupport()
-        {
-            ArchiveExtractor.VerifySupport(Archive.MimeTypeZip);
-            Assert.Throws<NotSupportedException>(() => ArchiveExtractor.VerifySupport("test/format"));
+            ArchiveExtractor.For(Archive.MimeTypeZip, new SilentTaskHandler())
+                            .Should().BeOfType<ZipExtractor>();
         }
     }
 }

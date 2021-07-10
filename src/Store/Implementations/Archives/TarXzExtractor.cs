@@ -2,46 +2,26 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using NanoByte.Common.Tasks;
 using SharpCompress.Compressors.Xz;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a XZ-compressed TAR archive.
+    /// Extracts XZ-compressed TAR archives (tar.xz).
     /// </summary>
     public class TarXzExtractor : TarExtractor
     {
-        private readonly Stream _stream;
-
         /// <summary>
-        /// Prepares to extract a TAR archive contained in a XZ-compressed stream.
+        /// Creates a TAR XZ extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarXzExtractor(Stream stream, string targetPath)
-            : base(new XZStream(stream), targetPath)
-        {
-            _stream = stream;
-            UnitsTotal = stream.Length;
-        }
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public TarXzExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
         /// <inheritdoc/>
-        protected override void UpdateProgress()
-            => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
-
-        /// <inheritdoc />
-        public override void Dispose()
-        {
-            try
-            {
-                base.Dispose();
-            }
-            finally
-            {
-                // XZStream does not automatically dispose the inner stream so we need to do it here ourselves
-                _stream.Dispose();
-            }
-        }
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
+            => base.Extract(builder, new XZStream(stream), subDir);
     }
 }

@@ -3,10 +3,13 @@
 
 using System;
 using System.IO;
+using System.Security.Cryptography;
 using FluentAssertions;
-using NanoByte.Common.Storage;
+using NanoByte.Common;
 using NanoByte.Common.Streams;
+using NanoByte.Common.Tasks;
 using Xunit;
+using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
@@ -14,49 +17,40 @@ namespace ZeroInstall.Store.Implementations.Archives
     {
         protected abstract string MimeType { get; }
 
-        protected abstract string FileName { get; }
+        private static readonly DateTime _defaultTimestamp = new(2000, 1, 1, 12, 0, 0);
 
-        private static readonly byte[] _garbageData = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        protected static ManifestNormalFile Normal(string content, DateTime? timestamp = null)
+            => new(content.Hash(SHA1.Create()), (timestamp ?? _defaultTimestamp), content.Length);
 
-        [Fact]
-        public void Extract()
+        protected static ManifestExecutableFile Executable(string content, DateTime? timestamp = null)
+            => new(content.Hash(SHA1.Create()), (timestamp ?? _defaultTimestamp), content.Length);
+
+        protected static ManifestSymlink Symlink(string destination)
+            => new(destination.Hash(SHA1.Create()), destination.Length);
+
+        protected void Test(string embeddedFile, Manifest expected, string? subDir = null)
         {
-            using var sandbox = new TemporaryDirectory("0install-test-archives");
-            using var extractor = ArchiveExtractor.Create(typeof(ArchiveExtractorTestBase).GetEmbeddedStream(FileName), sandbox, MimeType);
-            extractor.Run();
+            using var stream = typeof(ArchiveExtractorTestBase).GetEmbeddedStream(embeddedFile);
+            var builder = new ManifestBuilder(expected.Format);
+            ArchiveExtractor.For(MimeType, new SilentTaskHandler())
+                            .Extract(builder, new NonSeekableStream(stream), subDir);
 
-            string filePath = Path.Combine(sandbox, "file");
-            File.Exists(filePath).Should().BeTrue(because: "Should extract file 'file'");
-            File.GetLastWriteTimeUtc(filePath).Should().Be(new DateTime(2000, 1, 1, 12, 0, 0), because: "Correct last write time should be set");
-            File.ReadAllText(filePath).Should().Be("abc");
-
-            filePath = Path.Combine(sandbox, Path.Combine("folder1", "file"));
-            File.Exists(filePath).Should().BeTrue(because: "Should extract file 'dir/file'");
-            File.GetLastWriteTimeUtc(filePath).Should().Be(new DateTime(2000, 1, 1, 12, 0, 0), because: "Correct last write time should be set");
-            File.ReadAllText(filePath).Should().Be("def");
+            builder.Manifest.Should().BeEquivalentTo(expected);
         }
 
-        [Fact]
-        public void ExtractSubDir()
-        {
-            using var sandbox = new TemporaryDirectory("0install-test-archives");
-            using var extractor = ArchiveExtractor.Create(typeof(ArchiveExtractorTestBase).GetEmbeddedStream(FileName), sandbox, MimeType);
-            extractor.Extract = "folder1";
-            extractor.Run();
-
-            string filePath = Path.Combine(sandbox, "file");
-            File.Exists(filePath).Should().BeTrue(because: "Should extract file 'dir/file'");
-            File.GetLastWriteTimeUtc(filePath).Should().Be(new DateTime(2000, 1, 1, 12, 0, 0), because: "Correct last write time should be set");
-            File.ReadAllText(filePath).Should().Be("def");
-
-            Directory.GetDirectories(sandbox).Should().BeEmpty();
-        }
-
-        [Fact]
+        [SkippableFact]
         public void ExtractInvalidData()
         {
-            using var sandbox = new TemporaryDirectory("0install-test-archives");
-            ArchiveExtractor.Create(new MemoryStream(_garbageData), sandbox, MimeType).Invoking(x => x.Run()).Should().Throw<IOException>();
+            try
+            {
+                var extractor = ArchiveExtractor.For(MimeType, new SilentTaskHandler());
+                extractor.Invoking(x => x.Extract(new ManifestBuilder(ManifestFormat.Sha1New), new MemoryStream(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16})))
+                         .Should().Throw<IOException>();
+            }
+            catch (NotSupportedException)
+            {
+                Skip.If(true, "Archive type not supported on this platform");
+            }
         }
     }
 }

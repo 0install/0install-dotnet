@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib;
@@ -12,114 +13,72 @@ using ZeroInstall.Store.Properties;
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a TAR archive.
+    /// Extracts TAR archives (.tar).
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class TarExtractor : ArchiveExtractor
     {
-        #region Stream
-        private readonly TarInputStream _tarStream;
-
         /// <summary>
-        /// Prepares to extract a TAR archive contained in a stream.
+        /// Creates a TAR extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarExtractor(Stream stream, string targetPath)
-            : base(targetPath)
-        {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            try
-            {
-                UnitsTotal = stream.Length;
-            }
-            catch (NotSupportedException)
-            {}
-            catch (NotImplementedException)
-            {}
-
-            try
-            {
-                _tarStream = new(stream, Encoding.UTF8);
-            }
-            catch (SharpZipBaseException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-        }
-
-        public override void Dispose()
-        {
-            _tarStream.Dispose();
-        }
-        #endregion
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public TarExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
         /// <inheritdoc/>
-        protected override void ExtractArchive()
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
+            var symlinks = new List<(string path, string target)>();
+            var hardlinks = new List<(string path, string existingPath, bool executable)>();
+
             try
             {
+                using var tarStream = new TarInputStream(stream, Encoding.UTF8) {IsStreamOwner = false};
+
                 TarEntry entry;
-                while ((entry = _tarStream.GetNextEntry()) != null)
+                while ((entry = tarStream.GetNextEntry()) != null)
                 {
-                    string? relativePath = GetRelativePath(entry.Name);
+                    Handler.CancellationToken.ThrowIfCancellationRequested();
+
+                    string? relativePath = NormalizePath(entry.Name, subDir);
                     if (string.IsNullOrEmpty(relativePath)) continue;
 
                     switch (entry.TarHeader.TypeFlag)
                     {
-                        case TarHeader.LF_DIR:
-                            DirectoryBuilder.CreateDirectory(relativePath, entry.TarHeader.ModTime);
+                        case TarHeader.LF_SYMLINK:
+                            symlinks.Add((relativePath, entry.TarHeader.LinkName));
                             break;
                         case TarHeader.LF_LINK:
-                        {
-                            string? targetPath = GetRelativePath(entry.TarHeader.LinkName);
+                            string? targetPath = NormalizePath(entry.TarHeader.LinkName, subDir);
                             if (string.IsNullOrEmpty(targetPath)) throw new IOException(string.Format(Resources.HardlinkTargetMissing, relativePath, entry.TarHeader.LinkName));
-                            DirectoryBuilder.QueueHardlink(relativePath, targetPath, IsExecutable(entry));
+                            hardlinks.Add((relativePath, targetPath, IsExecutable(entry)));
                             break;
-                        }
-                        case TarHeader.LF_SYMLINK:
-                            DirectoryBuilder.CreateSymlink(relativePath, entry.TarHeader.LinkName);
+                        case TarHeader.LF_DIR:
+                            builder.AddDirectory(relativePath);
+                            break;
+                        case TarHeader.LF_NORMAL or TarHeader.LF_OLDNORM:
+                            builder.AddFile(relativePath, tarStream, entry.TarHeader.ModTime, IsExecutable(entry));
                             break;
                         default:
-                            WriteFile(relativePath, entry.Size, entry.TarHeader.ModTime, _tarStream, IsExecutable(entry));
-                            break;
+                            throw new NotSupportedException($"Archive entry '{entry.Name}' has unsupported type: {entry.TarHeader.TypeFlag}");
                     }
-
-                    UpdateProgress();
                 }
+
+                foreach ((string path, string target) in symlinks)
+                    builder.AddSymlink(path, target);
+
+                foreach ((string path, string existingPath, bool executable) in hardlinks)
+                    builder.AddHardlink(path, existingPath, executable);
             }
             #region Error handling
-            catch (SharpZipBaseException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (Exception ex) when (ex.Message == "Data Error") // SharpCompress DataError
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid);
-            }
-            catch (InvalidDataException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(Resources.ArchiveInvalid, ex);
-            }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException or {Message: "Data Error"})
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(Resources.ArchiveInvalid, ex);
             }
             #endregion
         }
-
-        /// <summary>
-        /// Updates <see cref="TaskBase.UnitsProcessed"/> to reflect the number of bytes extracted so far.
-        /// </summary>
-        protected virtual void UpdateProgress() => UnitsProcessed = _tarStream.Position;
 
         /// <summary>
         /// The default <see cref="TarHeader.Mode"/>.

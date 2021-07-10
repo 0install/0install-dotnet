@@ -126,9 +126,6 @@
   <data name="CopyFiles" xml:space="preserve">
     <value>Copying files</value>
   </data>
-  <data name="CreatingArchive" xml:space="preserve">
-    <value>Creating archive {0}</value>
-  </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>The subdirectories in this cache are protected from unintended modification using NTFS Permissions.
 As a side-effect this prevents them from being deleted using the Windows Explorer.
@@ -177,9 +174,6 @@ Alternatively you can use the graphical user interface for managing the caches:
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Extracting this archive type is only supported on Windows.</value>
-  </data>
-  <data name="FailedToExtractArchive" xml:space="preserve">
-    <value>Failed to extract the archive from '{0}'.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' could not be located in the feed cache. Looked for file at: {1}</value>

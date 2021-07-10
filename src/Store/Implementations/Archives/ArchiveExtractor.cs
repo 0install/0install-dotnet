@@ -2,274 +2,146 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Properties;
-
-#if NETFRAMEWORK
-using NanoByte.Common.Native;
-#endif
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts an archive.
+    /// Extracts implementation archives.
     /// </summary>
-    public abstract class ArchiveExtractor : TaskBase, IDisposable
+    public abstract class ArchiveExtractor : IArchiveExtractor
     {
-        /// <inheritdoc/>
-        public override string Name
-            => Tag == null
-                ? Resources.ExtractingArchive
-                : $"{Resources.ExtractingArchive} ({Tag})";
-
-        /// <inheritdoc/>
-        protected override bool UnitsByte => true;
+        private static readonly Dictionary<string, Func<ITaskHandler, IArchiveExtractor>> _factories = new();
 
         /// <summary>
-        /// The name of the subdirectory in the archive to extract (with Unix-style slashes); <c>null</c> to extract entire archive.
+        /// Registers an additional <see cref="IArchiveExtractor"/>.
         /// </summary>
-        [Description("The name of the subdirectory in the archive to extract (with Unix-style slashes); null to extract entire archive.")]
-        public string? Extract { get; set; }
+        /// <param name="mimeType">The MIME type of archive format the extractor handles.</param>
+        /// <param name="factory">Callback providing instances of the extractor.</param>
+        public static void Register(string mimeType, Func<ITaskHandler, IArchiveExtractor> factory)
+            => _factories.Add(mimeType, factory);
 
-        /// <summary>Used to build the target directory with support for flag files.</summary>
-        protected readonly DirectoryBuilder DirectoryBuilder;
-
-        /// <summary>
-        /// The path to the directory to extract into.
-        /// </summary>
-        [Description("The path to the directory to extract into.")]
-        public string TargetPath => DirectoryBuilder.TargetPath;
-
-        /// <summary>
-        /// Sub-path to be appended to <see cref="TargetPath"/> without affecting location of flag files; <c>null</c> for none.
-        /// </summary>
-        [Description("Sub-path to be appended to TargetDir without affecting location of flag files.")]
-        public string? TargetSuffix { get => DirectoryBuilder.TargetSuffix; set => DirectoryBuilder.TargetSuffix = value; }
-
-        /// <summary>
-        /// Prepares to extract an archive contained in a stream.
-        /// </summary>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        protected ArchiveExtractor(string targetPath)
+        static ArchiveExtractor()
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
-            #endregion
-
-            DirectoryBuilder = new(targetPath);
-        }
-
-        #region Factory methods
-        /// <summary>
-        /// Verifies that a archives of a specific MIME type are supported.
-        /// </summary>
-        /// <param name="mimeType">The MIME type of archive format of the stream.</param>
-        /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
-        /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
-        public static void VerifySupport(string mimeType)
-        {
-            switch (mimeType)
-            {
-                case Archive.MimeTypeZip:
-                case Archive.MimeTypeTar:
-                case Archive.MimeTypeTarGzip:
-                case Archive.MimeTypeTarBzip:
-                case Archive.MimeTypeTarLzma:
-                case Archive.MimeTypeTarLzip:
-                case Archive.MimeTypeTarXz:
-                case Archive.MimeTypeTarZstandard:
-                case Archive.MimeTypeRubyGem:
-                case Archive.MimeType7Z:
-                case Archive.MimeTypeRar:
-                    return;
-
+            Register(Archive.MimeTypeZip, handler => new ZipExtractor(handler));
+            Register(Archive.MimeTypeTar, handler => new TarExtractor(handler));
+            Register(Archive.MimeTypeTarGzip, handler => new TarGzExtractor(handler));
+            Register(Archive.MimeTypeTarBzip, handler => new TarBz2Extractor(handler));
+            Register(Archive.MimeTypeTarLzma, handler => new TarLzmaExtractor(handler));
+            Register(Archive.MimeTypeTarLzip, handler => new TarLzipExtractor(handler));
+            Register(Archive.MimeTypeTarXz, handler => new TarXzExtractor(handler));
+            Register(Archive.MimeTypeTarZstandard, handler => new TarZstandardExtractor(handler));
+            Register(Archive.MimeType7Z, handler => new SevenZipExtractor(handler));
+            Register(Archive.MimeTypeRar, handler => new RarExtractor(handler));
 #if NETFRAMEWORK
-                case Archive.MimeTypeCab:
-                case Archive.MimeTypeMsi:
-                    if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
-                    return;
+            Register(Archive.MimeTypeCab, handler => new CabExtractor(handler));
+            Register(Archive.MimeTypeMsi, handler => new MsiExtractor(handler));
 #endif
-
-                default:
-                    throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
-            }
+            Register(Archive.MimeTypeRubyGem, handler => new RubyGemExtractor(handler));
         }
 
         /// <summary>
-        /// Creates a new <see cref="ArchiveExtractor"/> for extracting from an archive stream.
+        /// Creates a new <see cref="IArchiveExtractor"/> for a specific type of archive.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <param name="mimeType">The MIME type of archive format of the stream.</param>
-        /// <exception cref="IOException">Failed to read the archive file.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the archive file was denied.</exception>
-        public static ArchiveExtractor Create(Stream stream, string targetPath, string mimeType)
+        /// <param name="mimeType">The MIME type of archive format to extract.</param>
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        /// <exception cref="NotSupportedException">No extractor registered for <paramref name="mimeType"/>.</exception>
+        public static IArchiveExtractor For(string mimeType, ITaskHandler handler)
         {
             #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
             if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
+            if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-#if NETFRAMEWORK
-            // Extracted to separate function delay loading of Microsoft.Deployment* DLLs
-            ArchiveExtractor NewCabExtractor() => new CabExtractor(stream, targetPath);
-#endif
+            if (!_factories.TryGetValue(mimeType, out var factory))
+                throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType));
 
-            return mimeType switch
-            {
-                Archive.MimeTypeZip => new ZipExtractor(stream, targetPath),
-                Archive.MimeTypeTar => new TarExtractor(stream, targetPath),
-                Archive.MimeTypeTarGzip => new TarGzExtractor(stream, targetPath),
-                Archive.MimeTypeTarBzip => new TarBz2Extractor(stream, targetPath),
-                Archive.MimeTypeTarLzma => new TarLzmaExtractor(stream, targetPath),
-                Archive.MimeTypeTarLzip => new TarLzipExtractor(stream, targetPath),
-                Archive.MimeTypeTarXz => new TarXzExtractor(stream, targetPath),
-                Archive.MimeTypeTarZstandard => new TarZstandardExtractor(stream, targetPath),
-                Archive.MimeType7Z => new SevenZipExtractor(stream, targetPath),
-                Archive.MimeTypeRar => new RarExtractor(stream, targetPath),
-#if NETFRAMEWORK
-                Archive.MimeTypeCab => NewCabExtractor(),
-                Archive.MimeTypeMsi => throw new NotSupportedException("MSIs can only be accessed as local files, not as streams!"),
-#endif
-                Archive.MimeTypeRubyGem => new RubyGemExtractor(stream, targetPath),
-                _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
-            };
+            return factory(handler);
         }
 
         /// <summary>
-        /// Creates a new <see cref="ArchiveExtractor"/> for extracting from an archive file.
+        /// A callback object used when the the user needs to be informed about IO tasks.
         /// </summary>
-        /// <param name="archivePath">The path of the archive file to be extracted.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <param name="mimeType">The MIME type of archive format of the stream.</param>
-        /// <param name="startOffset">The number of bytes at the beginning of the file which should be ignored.</param>
-        /// <returns>The newly created <see cref="ArchiveExtractor"/>.</returns>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
-        public static ArchiveExtractor Create(string archivePath, string targetPath, string mimeType, int startOffset = 0)
+        protected readonly ITaskHandler Handler;
+
+        /// <summary>
+        /// Creates an archive extractor.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        protected ArchiveExtractor(ITaskHandler handler)
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(archivePath)) throw new ArgumentNullException(nameof(mimeType));
-            if (string.IsNullOrEmpty(targetPath)) throw new ArgumentNullException(nameof(targetPath));
-            if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
-            #endregion
-
-#if NETFRAMEWORK
-            // Extracted to delay loading of Microsoft.Deployment* DLLs
-            ArchiveExtractor NewMsiExtractor() => new MsiExtractor(archivePath, targetPath);
-
-            // MSI Extractor does not support Stream-based access
-            if (mimeType == Archive.MimeTypeMsi) return NewMsiExtractor();
-#endif
-
-            Stream stream = File.OpenRead(archivePath);
-            if (startOffset != 0)
-            {
-                var offsetStream = new OffsetStream(stream);
-                offsetStream.ApplyOffset(startOffset);
-                stream = offsetStream;
-            }
-
-            try
-            {
-                return Create(stream, targetPath, mimeType);
-            }
-            catch
-            {
-                stream.Dispose();
-                throw;
-            }
+            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
         }
-        #endregion
 
         /// <inheritdoc/>
-        protected override void Execute()
-        {
-            State = TaskState.Data;
-            DirectoryBuilder.EnsureDirectory();
+        public abstract void Extract(IBuilder builder, Stream stream, string? subDir = null);
 
-            ExtractArchive();
-
-            DirectoryBuilder.CompletePending();
-        }
+        /// <inheritdoc/>
+        public object? Tag { get; set; }
 
         /// <summary>
-        /// Extracts the archive.
+        /// Ensures that a <see cref="Stream"/> is fully seekable, creating a temporary on-disk copy if necessary.
         /// </summary>
-        /// <exception cref="OperationCanceledException">The operation was canceled.</exception>
-        /// <exception cref="IOException">A problem occurred while extracting the archive.</exception>
-        protected abstract void ExtractArchive();
-
-        /// <summary>
-        /// Returns the path of an archive entry relative to <see cref="Extract"/>.
-        /// </summary>
-        /// <param name="entryName">The Unix-style path of the archive entry relative to the archive's root.</param>
-        /// <returns>The relative path or <c>null</c> if the <paramref name="entryName"/> doesn't lie within the <see cref="Extract"/>.</returns>
-        protected virtual string? GetRelativePath(string entryName)
+        /// <param name="stream">The stream to read.</param>
+        /// <param name="callback">Called with the original <paramref name="stream"/> or a temporary seekable copy.</param>
+        protected void EnsureSeekable(Stream stream, [InstantHandle] Action<Stream> callback)
         {
-            entryName = FileUtils.UnifySlashes(entryName);
-
-            // Remove leading slashes
-            entryName = entryName.TrimStart(Path.DirectorySeparatorChar);
-            if (entryName.StartsWith("." + Path.DirectorySeparatorChar)) entryName = entryName[2..];
-
-            if (!string.IsNullOrEmpty(Extract))
+            if (stream.CanSeek)
+                callback(stream);
+            else
             {
-                // Remove leading and trailing slashes
-                string subDir = FileUtils.UnifySlashes(Extract)!.Trim(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-                // Only extract objects within the selected sub-directory
-                if (!entryName.StartsWith(subDir, out entryName!)) return null;
-            }
-
-            // Remove leading slashes left over after trimming away the SubDir
-            return entryName.TrimStart(Path.DirectorySeparatorChar);
-        }
-
-        /// <summary>
-        /// Writes a file to the filesystem and sets its last write time.
-        /// </summary>
-        /// <param name="relativePath">A path relative to <see cref="Build.DirectoryBuilder.EffectiveTargetPath"/>.</param>
-        /// <param name="fileSize">The length of the zip entries uncompressed data, needed because stream's Length property is always 0.</param>
-        /// <param name="lastWriteTime">The last write time to set.</param>
-        /// <param name="stream">The stream containing the file data to be written.</param>
-        /// <param name="executable"><c>true</c> if the file's executable bit is set; <c>false</c> otherwise.</param>
-        protected void WriteFile(string relativePath, long fileSize, DateTime lastWriteTime, Stream stream, bool executable = false)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(relativePath)) throw new ArgumentNullException(nameof(relativePath));
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            CancellationToken.ThrowIfCancellationRequested();
-
-            string absolutePath = DirectoryBuilder.NewFilePath(relativePath, lastWriteTime, executable);
-            try
-            {
-                using var fileStream = File.Create(absolutePath);
-                if (fileSize != 0)
-                    stream.CopyToEx(fileStream);
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                // Missing directories usually indicate problems with long paths
-                throw new PathTooLongException(ex.Message, ex);
+                using var tempFile = new TemporaryFile("0install-archive");
+                stream.CopyToFile(tempFile);
+                Handler.RunTask(new ReadFile(tempFile, callback, Resources.ExtractingArchive) {Tag = Tag});
             }
         }
 
-        #region Dispose
         /// <summary>
-        /// Disposes the underlying <see cref="Stream"/>.
+        /// Ensures that a <see cref="Stream"/> represents an on-disk file, creating a temporary on-disk copy if necessary.
         /// </summary>
-        public abstract void Dispose();
-        #endregion
+        /// <param name="stream">The stream to read. May be <see cref="Stream.Close"/>d.</param>
+        /// <param name="callback">Called with the file path.</param>
+        protected static void EnsureFile(Stream stream, [InstantHandle] Action<string> callback)
+        {
+            if (stream is FileStream fileStream)
+            {
+                fileStream.Close();
+                callback(fileStream.Name);
+            }
+            else
+            {
+                using var tempFile = new TemporaryFile("0install-archive");
+                stream.CopyToFile(tempFile);
+                callback(tempFile);
+            }
+        }
+
+        /// <summary>
+        /// Normalizes the path of an archive entry.
+        /// </summary>
+        /// <param name="path">The Unix-style path of the archive entry relative to the archive's root.</param>
+        /// <param name="subDir">The Unix-style path of the subdirectory in the archive to extract; <c>null</c> to extract entire archive.</param>
+        /// <returns>The relative path without the <paramref name="subDir"/>; <c>null</c> if the <paramref name="path"/> doesn't lie within the <paramref name="subDir"/>.</returns>
+        protected static string? NormalizePath(string path, string? subDir)
+        {
+            path = path.ToNativePath().Trim(Path.DirectorySeparatorChar);
+            if (path.StartsWith("." + Path.DirectorySeparatorChar, out string? rest))
+                path = rest;
+            if (path == ".") return null;
+
+            if (string.IsNullOrEmpty(subDir)) return path;
+            subDir = subDir.ToNativePath().Trim(Path.DirectorySeparatorChar);
+            if (path.StartsWith(subDir + Path.DirectorySeparatorChar, out rest))
+                return rest;
+            return null;
+        }
     }
 }

@@ -2,33 +2,28 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using NanoByte.Common.Tasks;
 using SharpCompress.Compressors;
 using SharpCompress.Compressors.LZMA;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a Lzip-compressed TAR archive.
+    /// Extracts Lzip-compressed TAR archives (.tar.lz).
     /// </summary>
+    /// <remarks>This class is immutable and thread-safe.</remarks>
     public class TarLzipExtractor : TarExtractor
     {
-        private readonly Stream _stream;
-
         /// <summary>
-        /// Prepares to extract a TAR archive contained in a Lzip-compressed stream.
+        /// Creates a TAR Lzip extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarLzipExtractor(Stream stream, string targetPath)
-            : base(new LZipStream(stream, CompressionMode.Decompress), targetPath)
-        {
-            _stream = stream;
-            UnitsTotal = stream.Length;
-        }
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public TarLzipExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
         /// <inheritdoc/>
-        protected override void UpdateProgress()
-            => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
+            => base.Extract(builder, new LZipStream(stream, CompressionMode.Decompress), subDir);
     }
 }

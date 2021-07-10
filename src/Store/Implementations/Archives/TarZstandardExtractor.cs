@@ -3,45 +3,38 @@
 
 using System.IO;
 using ImpromptuNinjas.ZStd;
+using NanoByte.Common.Tasks;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Archives
 {
     /// <summary>
-    /// Extracts a Zstandard-compressed TAR archive.
+    /// Extracts Zstandard-compressed TAR archives (tar.zst).
     /// </summary>
     public class TarZstandardExtractor : TarExtractor
     {
-        private readonly Stream _stream;
-
         /// <summary>
-        /// Prepares to extract a TAR archive contained in a Zstandard-compressed stream.
+        /// Creates a TAR Zstandard extractor.
         /// </summary>
-        /// <param name="stream">The stream containing the archive data to be extracted. Will be disposed when the extractor is disposed.</param>
-        /// <param name="targetPath">The path to the directory to extract into.</param>
-        /// <exception cref="IOException">The archive is damaged.</exception>
-        internal TarZstandardExtractor(Stream stream, string targetPath)
-            : base(new ZStdDecompressStream(stream), targetPath)
-        {
-            _stream = stream;
-            UnitsTotal = stream.Length;
-        }
+        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+        public TarZstandardExtractor(ITaskHandler handler)
+            : base(handler)
+        {}
 
-        /// <inheritdoc />
-        public override void Dispose()
+        /// <inheritdoc/>
+        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
             try
             {
-                base.Dispose();
+                base.Extract(builder, new ZStdDecompressStream(stream), subDir);
             }
-            finally
+            #region Error handling
+            catch (ZStdException ex)
             {
-                // ZStdDecompressStream does not automatically dispose the inner stream so we need to do it here ourselves
-                _stream.Dispose();
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(Resources.ArchiveInvalid, ex);
             }
+            #endregion
         }
-
-        /// <inheritdoc/>
-        protected override void UpdateProgress()
-            => UnitsProcessed = _stream.Position; // Use original stream instead of decompressed stream to track progress
     }
 }

@@ -88,15 +88,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creating archive {0}.
-        /// </summary>
-        internal static string CreatingArchive {
-            get {
-                return ResourceManager.GetString("CreatingArchive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The subdirectories in this cache are protected from unintended modification using NTFS Permissions.
         ///As a side-effect this prevents them from being deleted using the Windows Explorer.
         ///
@@ -224,15 +215,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to extract the archive from &apos;{0}&apos;..
-        /// </summary>
-        internal static string FailedToExtractArchive {
-            get {
-                return ResourceManager.GetString("FailedToExtractArchive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Usage of the feed mirror, which is required for search, is disabled.
         ///Run &apos;0install config feed_mirror default&apos; to enable it..
         /// </summary>
@@ -263,7 +245,7 @@ namespace ZeroInstall.Store.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unable to find file or directory &apos;{0}&apos;..
         /// </summary>
-        public static string FileOrDirNotFound {
+        internal static string FileOrDirNotFound {
             get {
                 return ResourceManager.GetString("FileOrDirNotFound", resourceCulture);
             }

@@ -126,9 +126,6 @@
   <data name="CopyFiles" xml:space="preserve">
     <value>Dosyalar kopyalanıyor</value>
   </data>
-  <data name="CreatingArchive" xml:space="preserve">
-    <value>{0} arşivi oluşturuluyor</value>
-  </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Bu ön bellek içindeki alt dizinler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
 Bu korumanın yan etkisi olarak bu dosyalar Windows Gezgini kullanılarak silinemez.
@@ -177,9 +174,6 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Bu arşiv türü yalnız Windows üzerinde ayıklanabilir.</value>
-  </data>
-  <data name="FailedToExtractArchive" xml:space="preserve">
-    <value>Arşiv '{0}' üzerinden ayıklanamadı.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' akış ön belleğinde bulunamadı. Dosyya şuradan bakıldı: {1}</value>
