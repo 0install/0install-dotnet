@@ -72,10 +72,6 @@ namespace ZeroInstall.Store.Implementations.Build
             var files = Directory.GetFiles(path);
             var directories = Directory.GetDirectories(path);
 
-            // C-sort the lists
-            Array.Sort(files, StringComparer.Ordinal);
-            Array.Sort(directories, StringComparer.Ordinal);
-
             // Create the combined result list (files first, then sub-directories)
             var result = new List<FileSystemInfo>(files.Select(file => new FileInfo(file)));
             foreach (string directory in directories)

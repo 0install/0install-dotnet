@@ -10,8 +10,8 @@ using System.Runtime.Remoting;
 using System.Runtime.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
+using NanoByte.Common.Threading;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -24,11 +24,11 @@ namespace ZeroInstall.Store.Implementations
         public ImplementationStoreKind Kind => ImplementationStoreKind.Service;
 
         /// <inheritdoc/>
-        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] steps)
+        public void Add(ManifestDigest manifestDigest, Action<IImplementationBuilder> build)
         {
             try
             {
-                GetProxy().Add(manifestDigest, handler, steps);
+                GetProxy().Add(manifestDigest, build.ToMarshalByRef());
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
             }
             #region Error handling
@@ -76,12 +76,6 @@ namespace ZeroInstall.Store.Implementations
         /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
         /// </summary>
         public long Optimise(ITaskHandler handler) => 0;
-
-        /// <summary>
-        /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
-        /// </summary>
-        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
-        {}
 
         /// <summary>
         /// Returns a fixed string.

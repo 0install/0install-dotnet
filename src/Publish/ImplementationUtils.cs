@@ -174,7 +174,7 @@ namespace ZeroInstall.Publish
             {
                 try
                 {
-                    keepDownloads.Add(digest, handler, new DirectoryImplementationSource(path));
+                    keepDownloads.Add(digest, new DirectoryImplementationSource(path));
                 }
                 #region Error handling
                 catch (Exception ex)

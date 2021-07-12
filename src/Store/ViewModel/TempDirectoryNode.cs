@@ -60,7 +60,7 @@ namespace ZeroInstall.Store.ViewModel
                 string.Format(Resources.DeletingDirectory, Path),
                 () =>
                 {
-                    ImplementationSink.DisableWriteProtection(Path);
+                    Implementations.ImplementationStore.DisableWriteProtection(Path);
                     Directory.Delete(Path, recursive: true);
                 }));
         }

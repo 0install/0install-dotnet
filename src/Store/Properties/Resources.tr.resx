@@ -313,9 +313,6 @@ Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybol
   <data name="RecipeCopyFromSourceMissing" xml:space="preserve">
     <value>'{0}'. adımda belirtilen kaynak bulunamadı.</value>
   </data>
-  <data name="RecipeFileNotDownloaded" xml:space="preserve">
-    <value>&lt;recipe&gt; içinde belirtilen bir dosya indirilemedi.</value>
-  </data>
   <data name="RecipeInvalidPath" xml:space="preserve">
     <value>Bir tarif adımında geçersiz bir yol var (olası bir güvenlik açığı): {0}</value>
   </data>

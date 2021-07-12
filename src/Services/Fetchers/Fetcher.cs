@@ -102,7 +102,7 @@ namespace ZeroInstall.Services.Fetchers
             catch (WebException ex) when (!retrievalMethod.Href!.IsLoopback && _config.FeedMirror != null)
             {
                 Log.Warn(ex);
-                Log.Info("Trying mirror");
+                Log.Info("Trying mirror"); // TODO: Localize
 
                 try
                 {

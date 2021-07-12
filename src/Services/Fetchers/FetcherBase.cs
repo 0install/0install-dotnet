@@ -77,6 +77,8 @@ namespace ZeroInstall.Services.Fetchers
                    {
                        var digest = implementation.ManifestDigest;
                        if (digest.Best == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
+
+                       Handler.CancellationToken.ThrowIfCancellationRequested();
                        Retrieve(retrievalMethod, implementation.ManifestDigest);
                    }
                });
@@ -110,13 +112,30 @@ namespace ZeroInstall.Services.Fetchers
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
         private void Retrieve(RetrievalMethod retrievalMethod, ManifestDigest manifestDigest)
         {
-            // Treat single steps as a Recipes for easier handling
             var recipe = retrievalMethod as Recipe ?? new Recipe {Steps = {(IRecipeStep)retrievalMethod}};
+
+            // Fail fast on unsupported Archive types
+            foreach (var archive in recipe.Steps.OfType<Archive>())
+            {
+                if (string.IsNullOrEmpty(archive.MimeType))
+                    throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called.");
+                if (!ArchiveExtractor.IsSupported(archive.MimeType))
+                    throw new NotSupportedException($"Archive {archive.Href} of type {archive.MimeType} not supported."); // TODO: Localize
+            }
+
+            var downloadedFiles = new List<TemporaryFile>();
             try
             {
-                // Enable Recipe steps to call back to Fetcher
-                using (FetchHandle.Register(Fetch))
-                    Cook(recipe, manifestDigest);
+                var sources = recipe.GetImplementationSources(
+                    download: downloadRetrievalMethod =>
+                    {
+                        var file = Download(downloadRetrievalMethod);
+                        downloadedFiles.Add(file);
+                        return file;
+                    },
+                    implementationLookup: Fetch);
+
+                _implementationStore.Add(manifestDigest, sources);
             }
             #region Error handling
             catch (ImplementationAlreadyInStoreException)
@@ -127,42 +146,6 @@ namespace ZeroInstall.Services.Fetchers
                 throw;
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Executes a <see cref="Recipe"/>.
-        /// </summary>
-        /// <param name="recipe">The recipe to execute.</param>
-        /// <param name="manifestDigest">The digest the result of the recipe should produce.</param>
-        /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
-        /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
-        /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        private void Cook(Recipe recipe, ManifestDigest manifestDigest)
-        {
-            Handler.CancellationToken.ThrowIfCancellationRequested();
-
-            // Fail fast on unsupported Archive types
-            foreach (var archive in recipe.Steps.OfType<Archive>())
-                ArchiveExtractor.VerifySupport(archive.MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."));
-
-            var downloadedFiles = new List<TemporaryFile>();
-            try
-            {
-                // Download any files or archives required by the recipe
-                downloadedFiles.AddRange(
-                    recipe.Steps.OfType<DownloadRetrievalMethod>()
-                          .Select(downloadStep => Download(downloadStep, tag: manifestDigest.Best)));
-
-                // More efficient special-case handling for Archive-only Recipes
-                if (recipe.Steps.All(step => step is Archive))
-                    ApplyArchives(recipe.Steps.Cast<Archive>().ToList(), downloadedFiles, manifestDigest);
-                else
-                    ApplyRecipe(recipe, downloadedFiles, manifestDigest);
-            }
             finally
             {
                 foreach (var downloadedFile in downloadedFiles)
@@ -202,55 +185,6 @@ namespace ZeroInstall.Services.Fetchers
                 throw;
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Extracts <see cref="Archive"/>s to the <see cref="_implementationStore"/>.
-        /// </summary>
-        /// <param name="archives">The archives to extract over each other in order.</param>
-        /// <param name="files">The downloaded archive files, indexes matching those in <paramref name="archives"/>.</param>
-        /// <param name="manifestDigest">The digest the extracted archives should produce.</param>
-        /// <exception cref="OperationCanceledException">An IO task was canceled from another thread.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
-        /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        private void ApplyArchives(IReadOnlyList<Archive> archives, IReadOnlyList<TemporaryFile> files, ManifestDigest manifestDigest)
-        {
-            var implementationSources = new IImplementationSource[archives.Count];
-            for (int i = 0; i < implementationSources.Length; i++)
-            {
-                implementationSources[i] = new ArchiveImplementationSource(
-                    files[i].Path,
-                    archives[i].MimeType ?? throw new InvalidOperationException($"Archive is missing MIME type. {nameof(Archive.Normalize)}() has no not been called."))
-                {
-                    Extract = archives[i].Extract,
-                    Destination = archives[i].Destination,
-                    StartOffset = archives[i].StartOffset,
-                    OriginalSource = archives[i].Href!.ToStringRfc()
-                };
-            }
-
-            _implementationStore.Add(manifestDigest, Handler, implementationSources);
-        }
-
-        /// <summary>
-        /// Applies a <see cref="Recipe"/> and sends the result to the <see cref="_implementationStore"/>.
-        /// </summary>
-        /// <param name="recipe">The recipe to apply.</param>
-        /// <param name="files">The files downloaded for the <paramref name="recipe"/> steps, order matching the <see cref="DownloadRetrievalMethod"/> steps in <see cref="Recipe.Steps"/>.</param>
-        /// <param name="manifestDigest">The digest the result of the recipe should produce.</param>
-        /// <exception cref="OperationCanceledException">An IO task was canceled from another thread.</exception>
-        /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
-        /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="manifestDigest"/> in the store.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        private void ApplyRecipe(Recipe recipe, IEnumerable<TemporaryFile> files, ManifestDigest manifestDigest)
-        {
-            using var recipeDir = recipe.Apply(files, Handler, manifestDigest.Best);
-            _implementationStore.Add(manifestDigest, Handler, new DirectoryImplementationSource(recipeDir));
         }
     }
 }

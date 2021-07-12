@@ -617,15 +617,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A file referenced in the &lt;recipe&gt; was not downloaded..
-        /// </summary>
-        internal static string RecipeFileNotDownloaded {
-            get {
-                return ResourceManager.GetString("RecipeFileNotDownloaded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A recipe step contains an invalid path (potentially a security risk): {0}.
         /// </summary>
         internal static string RecipeInvalidPath {

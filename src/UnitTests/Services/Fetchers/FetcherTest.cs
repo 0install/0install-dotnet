@@ -140,7 +140,7 @@ namespace ZeroInstall.Services.Fetchers
 
             _storeMock.Setup(x => x.GetPath(digest)).Returns(() => null);
 
-            _storeMock.Setup(x => x.Add(digest, _handler, It.Is<IImplementationSource[]>(sources => sources.IsEquivalentTo(archiveSources))));
+            _storeMock.Setup(x => x.Add(digest, It.Is<IImplementationSource[]>(sources => sources.IsEquivalentTo(archiveSources))));
 
             _fetcher.Fetch(testImplementation);
         }
@@ -165,14 +165,24 @@ namespace ZeroInstall.Services.Fetchers
             _storeMock.Setup(x => x.GetPath(digest))
                       .Returns(() => null);
 
-            _storeMock.Setup(x => x.Add(digest, _handler, It.IsAny<IImplementationSource[]>()))
-                      .Callback(VerifyDirectorySource(expected));
+            _storeMock.Setup(x => x.Add(digest, It.IsAny<IImplementationSource[]>()))
+                      .Callback(Verify(expected));
 
             _fetcher.Fetch(testImplementation);
         }
 
-        private static Action<ManifestDigest, ITaskHandler, IImplementationSource[]> VerifyDirectorySource(TestRoot expected)
-            => (_, _, steps) => expected.Verify(((DirectoryImplementationSource)steps[0]).Path);
+        private static Action<ManifestDigest, ITaskHandler, IImplementationSource[]> Verify(TestRoot expected)
+            => (_, handler, sources) =>
+            {
+                using var tempDir = new TemporaryDirectory("0install-tests-fetcher");
+                foreach (var source in sources)
+                {
+                    var task = source.GetApplyTask(tempDir);
+                    using (task as IDisposable)
+                        handler.RunTask(task);
+                }
+                expected.Verify(tempDir);
+            };
         #endregion
 
         [Fact]
