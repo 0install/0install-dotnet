@@ -3,8 +3,7 @@
 
 using System.IO;
 using FluentAssertions;
-using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.FileSystem
 {
@@ -32,21 +31,14 @@ namespace ZeroInstall.FileSystem
         }
 
         public override void Build(string parentPath)
-        {
-            string path = Path.Combine(parentPath, Name);
-            if (UnixUtils.IsUnix) FileUtils.CreateSymlink(path, Target);
-            else CygwinUtils.CreateSymlink(path, Target);
-        }
+            => ImplFileUtils.CreateSymlink(Path.Combine(parentPath, Name), Target);
 
         public override void Verify(string parentPath)
         {
             string path = Path.Combine(parentPath, Name);
             (File.Exists(path) || Directory.Exists(path)).Should().BeTrue(because: $"Symlink '{path}' should exist.");
 
-            bool isSymlink = UnixUtils.IsUnix
-                ? FileUtils.IsSymlink(path, out string? target)
-                : CygwinUtils.IsSymlink(path, out target);
-            isSymlink.Should().BeTrue(because: $"'{path}' should be a symlink.");
+            ImplFileUtils.IsSymlink(path, out string? target).Should().BeTrue(because: $"'{path}' should be a symlink.");
             target.Should().Be(Target, because: $"Symlink '{path}' should point to correct target.");
         }
     }

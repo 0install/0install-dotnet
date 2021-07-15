@@ -3,8 +3,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using NanoByte.Common.Native;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.FileSystem
 {
@@ -25,9 +23,6 @@ namespace ZeroInstall.FileSystem
         {
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-
-            if (!UnixUtils.IsUnix)
-                File.WriteAllText(Path.Combine(path, FlagUtils.XbitFile), "");
 
             foreach (var element in this)
                 element.Build(path);
