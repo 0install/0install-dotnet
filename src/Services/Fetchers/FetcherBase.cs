@@ -126,16 +126,7 @@ namespace ZeroInstall.Services.Fetchers
             var downloadedFiles = new List<TemporaryFile>();
             try
             {
-                var sources = recipe.GetImplementationSources(
-                    download: downloadRetrievalMethod =>
-                    {
-                        var file = Download(downloadRetrievalMethod);
-                        downloadedFiles.Add(file);
-                        return file;
-                    },
-                    implementationLookup: Fetch);
-
-                _implementationStore.Add(manifestDigest, sources);
+                throw new NotImplementedException();
             }
             #region Error handling
             catch (ImplementationAlreadyInStoreException)
