@@ -17,11 +17,6 @@ namespace ZeroInstall.FileSystem
     public class TestDirectory : TestElement, IEnumerable<TestElement>
     {
         /// <summary>
-        /// The last write time of the directory.
-        /// </summary>
-        public DateTime LastWrite { get; init; }
-
-        /// <summary>
         /// The <seealso cref="TestElement"/>s contained within the directory.
         /// Walked recursively by <seealso cref="Build"/> and <seealso cref="Verify"/>.
         /// </summary>
@@ -51,17 +46,12 @@ namespace ZeroInstall.FileSystem
 
             foreach (var element in Children)
                 element.Build(path);
-
-            if (LastWrite != default)
-                Directory.SetLastWriteTimeUtc(path, LastWrite);
         }
 
         public override void Verify(string parentPath)
         {
             string path = Path.Combine(parentPath, Name);
             Directory.Exists(path).Should().BeTrue(because: $"Directory '{path}' should exist.");
-            if (LastWrite != default)
-                Directory.GetLastWriteTimeUtc(path).Should().Be(LastWrite, because: $"Directory '{path}' should have correct last-write time.");
 
             foreach (var element in Children)
                 element.Verify(path);

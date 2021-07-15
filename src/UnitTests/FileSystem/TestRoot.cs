@@ -26,9 +26,6 @@ namespace ZeroInstall.FileSystem
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
-            if (!UnixUtils.IsUnix)
-                File.WriteAllText(Path.Combine(path, FlagUtils.XbitFile), "");
-
             foreach (var element in this)
                 element.Build(path);
         }

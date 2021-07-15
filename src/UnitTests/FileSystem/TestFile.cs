@@ -8,7 +8,6 @@ using FluentAssertions;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.FileSystem
 {
@@ -58,11 +57,8 @@ namespace ZeroInstall.FileSystem
             File.WriteAllText(path, Contents, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
             File.SetLastWriteTimeUtc(path, LastWrite);
 
-            if (IsExecutable)
-            {
-                if (UnixUtils.IsUnix) FileUtils.SetExecutable(path, true);
-                else FlagUtils.SetAuto(FlagUtils.XbitFile, path);
-            }
+            if (IsExecutable && UnixUtils.IsUnix)
+                FileUtils.SetExecutable(path, true);
         }
 
         public override void Verify(string parentPath)
@@ -71,13 +67,8 @@ namespace ZeroInstall.FileSystem
             File.Exists(path).Should().BeTrue(because: $"File '{path}' should exist.");
             File.GetLastWriteTimeUtc(path).Should().Be(LastWrite, because: $"File '{path}' should have correct last-write time.");
 
-            if (IsExecutable)
-            {
-                bool isExecutable = UnixUtils.IsUnix
-                    ? FileUtils.IsExecutable(path)
-                    : FlagUtils.IsFlagged(FlagUtils.XbitFile, path);
-                isExecutable.Should().BeTrue(because: $"File '{path}' should be executable.");
-            }
+            if (IsExecutable && UnixUtils.IsUnix)
+                FileUtils.IsExecutable(path).Should().BeTrue(because: $"File '{path}' should be executable.");
         }
     }
 }
