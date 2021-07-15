@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Implementations.Manifests;
@@ -90,13 +89,13 @@ namespace ZeroInstall.Store.Implementations.Deployment
                             File.Copy(sourcePath, tempPath);
                             File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
 
-                            if (UnixUtils.IsUnix)
-                                FileUtils.SetExecutable(tempPath, file is ManifestExecutableFile);
+                            if (file is ManifestExecutableFile)
+                                ImplFileUtils.SetExecutable(tempPath);
                             break;
 
-                        case ManifestSymlink when UnixUtils.IsUnix:
-                            if (UnixUtils.IsSymlink(sourcePath, out string? symlinkTarget))
-                                UnixUtils.CreateSymlink(tempPath, symlinkTarget);
+                        case ManifestSymlink:
+                            if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
+                                ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
                             break;
                     }
                 }));

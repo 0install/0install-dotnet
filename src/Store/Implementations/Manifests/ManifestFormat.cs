@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Security.Cryptography;
 using NanoByte.Common;
+using NanoByte.Common.Streams;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Properties;
 
@@ -90,18 +91,11 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <summary>
-        /// Generates the digest of a manifest file as used for the implementation directory name.
+        /// Generates the digest of a manifest.
         /// </summary>
-        /// <param name="stream">The content of the manifest file.</param>
         /// <returns>A string representation of the digest.</returns>
-        public string DigestManifest(Stream stream)
-        {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            return SerializeManifestDigest(GetHashAlgorithm().ComputeHash(stream));
-        }
+        public string DigestManifest(Manifest manifest)
+            => SerializeManifestDigest(GetHashAlgorithm().ComputeHash(manifest.ToString().ToStream()));
 
         /// <summary>
         /// Retrieves a new instance of the hashing algorithm used for generating digests.

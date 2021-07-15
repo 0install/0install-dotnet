@@ -191,6 +191,9 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
   <data name="FileMissingDest" xml:space="preserve">
     <value>Einem &lt;file&gt; Tag fehlt ein Destination Attribut.</value>
   </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Konnte die Datei oder das Verzeichnis '{0}' nicht finden.</value>
+  </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Die Dateien die Sie löschen möchten werden gerade verwendet.</value>
   </data>
@@ -303,6 +306,9 @@ Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Es gab ein Problem beim Laden des Konfigurationswerts '{0}'.
 Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen womöglich auch andere Einstellungen verloren.</value>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Verarbeite Dateien</value>
   </data>
   <data name="RecipeCopyFromDestinationMissing" xml:space="preserve">
     <value>Das Ziel für den '{0}' Schritt muss gesetzt sein, da die Quelle eine Datei und kein Verzeichnis ist.</value>

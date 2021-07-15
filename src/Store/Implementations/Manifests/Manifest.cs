@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
-using NanoByte.Common.Streams;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations.Manifests
@@ -29,11 +29,27 @@ namespace ZeroInstall.Store.Implementations.Manifests
         public const string ManifestFile = ".manifest";
 
         /// <summary>
+        /// Determines whether a file <paramref name="path"/> may not be used in implementations.
+        /// </summary>
+        public static bool RejectPath(string path)
+            => path is ManifestFile or ".xbit" or ".symlink"
+            || path.Contains("\n");
+
+        /// <summary>
         /// The format of the manifest (which file details are listed, which digest method is used, etc.).
         /// </summary>
         public ManifestFormat Format { get; }
 
-        private readonly SortedDictionary<string, SortedDictionary<string, ManifestElement>> _directories = new(StringComparer.Ordinal);
+        private readonly SortedDictionary<string, SortedDictionary<string, ManifestElement>> _directories = new(new PathComparer());
+
+        /// <summary>Performs ordinal string comparison, but treats slashes as the first possible character.</summary>
+        private class PathComparer : IComparer<string>
+        {
+            public int Compare(string? x, string? y)
+                => StringComparer.Ordinal.Compare(
+                    x?.Replace('/', char.MinValue),
+                    y?.Replace('/', char.MinValue));
+        }
 
         /// <summary>
         /// The combined size of all files listed in the manifest in bytes.
@@ -46,7 +62,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <summary>
         /// Creates a new manifest.
         /// </summary>
-        /// <param name="format">The format used for <see cref="Save(Stream)"/>, also specifies the algorithm used in <see cref="ManifestElement.Digest"/>.</param>
+        /// <param name="format">The format used to calculate digests, also specifies the algorithm used in <see cref="ManifestElement.Digest"/>.</param>
         public Manifest(ManifestFormat format)
         {
             Format = format ?? throw new ArgumentNullException(nameof(format));
@@ -100,19 +116,27 @@ namespace ZeroInstall.Store.Implementations.Manifests
         #endregion
 
         /// <summary>
-        /// Returns an existing directory or adds a new directory to the manifest.
+        /// Returns an existing directory or adds a new directory (and any missing parents) to the manifest.
         /// </summary>
         /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
         /// <returns>A dictionary of elements inside the directory.</returns>
         public SortedDictionary<string, ManifestElement> Add(string key)
-            => _directories.GetOrAdd(key, () => new(StringComparer.Ordinal));
+        {
+            static SortedDictionary<string, ManifestElement> NewDict() => new(StringComparer.Ordinal);
+
+            string[] parts = key.Split('/');
+            for (int i = 1; i < parts.Length; i++)
+                _directories.GetOrAdd(StringUtils.Join("/", parts.Take(i)), NewDict);
+
+            return _directories.GetOrAdd(key, NewDict);
+        }
 
         /// <summary>
         /// Removes a directory and all its subdirectories from the manifest.
         /// </summary>
         /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
         /// <returns><c>true</c> if the directory is successfully found and removed; <c>false</c> otherwise. </returns>
-        public bool RemoveRecursive(string key)
+        public bool Remove(string key)
             => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWith(key + '/'));
 
         /// <summary>
@@ -121,7 +145,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
         /// <param name="newKey">The new Unix path of the directory relative to the implementation root.</param>
         /// <returns><c>true</c> if the directory is successfully found and renamed; <c>false</c> otherwise. </returns>
-        public bool RenameRecursive(string key, string newKey)
+        public bool Rename(string key, string newKey)
         {
             bool found = false;
 
@@ -171,69 +195,42 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         /// <summary>
-        /// Writes the manifest to a file and calculates its digest.
+        /// The directories and <see cref="ManifestElement"/>s comprising the manifest in line format.
+        /// </summary>
+        public IEnumerable<string> Lines
+        {
+            get
+            {
+                foreach ((string directoryPath, var directory) in _directories)
+                {
+                    if (directoryPath != "")
+                        yield return "D /" + directoryPath;
+                    foreach ((string name, var element) in directory)
+                        yield return element.ToLine(name);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The directories and <see cref="ManifestElement"/>s comprising the manifest in line format. Safe for parsing.
+        /// </summary>
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+            foreach (string line in Lines)
+                builder.Append(line + "\n");
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Writes the manifest to a file.
         /// </summary>
         /// <param name="path">The path of the file to write.</param>
         /// <returns>The manifest digest.</returns>
         /// <exception cref="IOException">A problem occurred while writing the file.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-        public string Save(string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            using (var stream = File.Create(path))
-                Save(stream);
-
-            // Calculate the digest of the completed manifest file
-            using (var stream = File.OpenRead(path))
-                return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
-        }
-
-        /// <summary>
-        /// Writes the manifest to a stream.
-        /// </summary>
-        /// <param name="stream">The stream to write to.</param>
-        /// <returns>The manifest digest.</returns>
-        public void Save(Stream stream)
-        {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            // Use UTF-8 without BOM and Unix-style line breaks to ensure correct digest values
-            var writer = new StreamWriter(stream, EncodingUtils.Utf8) {NewLine = "\n"};
-
-            // Write one line for each node
-            foreach ((string directoryPath, var directory) in _directories)
-            {
-                if (directoryPath != "")
-                    writer.WriteLine("D /" + directoryPath);
-                foreach ((string elementName, var element) in directory)
-                {
-                    writer.WriteLine(element switch
-                    {
-                        ManifestNormalFile(var digest, var ModifiedTime, var size) => "F " + digest + " " + ModifiedTime + " " + size + " " + elementName,
-                        ManifestExecutableFile(var digest, var ModifiedTime, var size) => "X " + digest + " " + ModifiedTime + " " + size + " " + elementName,
-                        ManifestSymlink(var digest, var size) => "S " + digest + " " + size + " " + elementName,
-                        _ => throw new NotSupportedException($"Unknown {nameof(ManifestElement)} type {element.GetType()}.")
-                    });
-                }
-            }
-
-            writer.Flush();
-        }
-
-        /// <summary>
-        /// Returns the manifest in the same format used by <see cref="Save(Stream)"/>.
-        /// </summary>
-        public override string ToString()
-        {
-            using var stream = new MemoryStream();
-            Save(stream);
-            return stream.ReadToString();
-        }
+        public void Save(string path)
+            => File.WriteAllText(path, ToString(), EncodingUtils.Utf8);
 
         /// <summary>
         /// Parses a manifest file stream.
@@ -314,12 +311,6 @@ namespace ZeroInstall.Store.Implementations.Manifests
         /// </summary>
         /// <returns>The manifest digest.</returns>
         public string CalculateDigest()
-        {
-            using var stream = new MemoryStream();
-            Save(stream);
-
-            stream.Position = 0;
-            return Format.Prefix + Format.Separator + Format.DigestManifest(stream);
-        }
+            => Format.Prefix + Format.Separator + Format.DigestManifest(this);
     }
 }

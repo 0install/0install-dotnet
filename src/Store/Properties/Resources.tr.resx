@@ -191,6 +191,9 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
   <data name="FileMissingDest" xml:space="preserve">
     <value>Bir &lt;file&gt; kod iminde hedef özniteliği eksik.</value>
   </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>'{0}' olarak dosya ya da dizin bulunamıyor.</value>
+  </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Silmek istediğiniz dosyalar şu anda kullanılıyor.</value>
   </data>

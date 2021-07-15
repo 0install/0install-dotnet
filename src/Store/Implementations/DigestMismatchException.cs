@@ -51,7 +51,7 @@ namespace ZeroInstall.Store.Implementations
                 var builder = new StringBuilder(Message);
                 if (ExpectedManifest != null && ActualManifest != null)
                 {
-                    Merge.TwoWay(ActualManifest, ExpectedManifest,
+                    Merge.TwoWay(ActualManifest.Lines, ExpectedManifest.Lines,
                         added: node => builder.Append(Environment.NewLine + "unexpected: " + node),
                         removed: node => builder.Append(Environment.NewLine + "missing: " + node));
                 }

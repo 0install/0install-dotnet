@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Linq;
 using FluentAssertions;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
@@ -12,14 +13,25 @@ namespace ZeroInstall.Store.Implementations.Manifests
     public class ManifestTest
     {
         [Fact]
-        public void FileOrder()
+        public void SortingDirs()
         {
-            var manifest = new Manifest(ManifestFormat.Sha256New);
-            var topLevel = manifest[""];
-            topLevel.Add("x", new ManifestNormalFile("", 0, 0));
-            topLevel.Add("y", new ManifestNormalFile("", 0, 0));
-            topLevel.Add("Z", new ManifestNormalFile("", 0, 0));
-            topLevel.Keys.Should().Equal("Z", "x", "y");
+            var manifest = new Manifest(ManifestFormat.Sha256New) {"b/y", "b-x", "b/x", "b", "a", "Z"};
+            manifest.Keys.ToArray().Should().Equal("", "Z", "a", "b", "b/x", "b/y", "b-x");
+        }
+
+        [Fact]
+        public void SortingFiles()
+        {
+            var manifest = new Manifest(ManifestFormat.Sha256New)
+            {
+                [""] =
+                {
+                    ["x"] = new ManifestNormalFile("", 0, 0),
+                    ["y"] = new ManifestNormalFile("", 0, 0),
+                    ["Z"] = new ManifestNormalFile("", 0, 0)
+                }
+            };
+            manifest[""].Keys.Should().Equal("Z", "x", "y");
         }
 
         [Fact]
@@ -40,6 +52,14 @@ namespace ZeroInstall.Store.Implementations.Manifests
         }
 
         [Fact]
+        public void AddRecursive()
+        {
+            var manifest = new Manifest(ManifestFormat.Sha256New) {"dir1/subdir"};
+            manifest.ContainsKey("dir1").Should().BeTrue();
+            manifest.ContainsKey("dir1/subdir").Should().BeTrue();
+        }
+
+        [Fact]
         public void RemoveRecursive()
         {
             var manifest = new Manifest(ManifestFormat.Sha256New)
@@ -57,7 +77,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
                     ["file"] = new ManifestSymlink("abc", 5)
                 }
             };
-            manifest.RemoveRecursive("dir1");
+            manifest.Remove("dir1");
 
             manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha256New)
             {
@@ -86,7 +106,7 @@ namespace ZeroInstall.Store.Implementations.Manifests
                     ["file"] = new ManifestSymlink("abc", 5)
                 }
             };
-            manifest.RenameRecursive("dir1", "dir2");
+            manifest.Rename("dir1", "dir2");
 
             manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha256New)
             {
@@ -181,14 +201,20 @@ namespace ZeroInstall.Store.Implementations.Manifests
         {
             var manifest = new Manifest(ManifestFormat.Sha1New)
             {
-                ["subdir"] =
+                ["subdir1"] =
                 {
-                    ["file"] = new ManifestNormalFile("abc123", 1337, 3)
+                    ["fileA"] = new ManifestNormalFile("abc123", 1337, 1),
+                    ["fileB"] = new ManifestNormalFile("abc123", 1337, 2)
+                },
+                ["subdir2"] =
+                {
+                    ["fileX"] = new ManifestNormalFile("abc123", 1337, 3),
+                    ["fileY"] = new ManifestNormalFile("abc123", 1337, 4)
                 }
             };
 
             manifest.ToString().Replace(Environment.NewLine, "\n")
-                    .Should().Be("D /subdir\nF abc123 1337 3 file\n");
+                    .Should().Be("D /subdir1\nF abc123 1337 1 fileA\nF abc123 1337 2 fileB\nD /subdir2\nF abc123 1337 3 fileX\nF abc123 1337 4 fileY\n");
         }
     }
 }

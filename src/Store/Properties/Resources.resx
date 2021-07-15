@@ -191,6 +191,9 @@ Run '0install config feed_mirror default' to enable it.</value>
   <data name="FileMissingDest" xml:space="preserve">
     <value>A &lt;file&gt; tag is missing a destination attribute.</value>
   </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Unable to find file or directory '{0}'.</value>
+  </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>The files you want to deleted are currently in use.</value>
   </data>
@@ -306,6 +309,9 @@ You can delete the file '{0}' to fix the problem.</value>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>There was a problem loading the configuration value '{0}'.
 You can delete the file '{1}' to fix the problem. Other settings may also be lost.</value>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Processing files</value>
   </data>
   <data name="RecipeCopyFromDestinationMissing" xml:space="preserve">
     <value>The destination for the '{0}' step must be specified because the source is a file and not a directory.</value>
