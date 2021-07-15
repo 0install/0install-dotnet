@@ -30,6 +30,12 @@ namespace ZeroInstall.Store.Implementations.Manifests
         public const string ManifestFile = ".manifest";
 
         /// <summary>
+        /// Determines whether <paramref name="name"/> is a reserved file name that may not be used in implementation root directories.
+        /// </summary>
+        public static bool IsReservedName(string name)
+            => name is ManifestFile or ".xbit" or ".symlink";
+
+        /// <summary>
         /// The format of the manifest (which file details are listed, which digest method is used, etc.).
         /// </summary>
         public ManifestFormat Format { get; }
@@ -215,8 +221,8 @@ namespace ZeroInstall.Store.Implementations.Manifests
                 {
                     writer.WriteLine(element switch
                     {
-                        ManifestNormalFile(var digest, var ModifiedTime, var size) => "F " + digest + " " + ModifiedTime + " " + size + " " + elementName,
-                        ManifestExecutableFile(var digest, var ModifiedTime, var size) => "X " + digest + " " + ModifiedTime + " " + size + " " + elementName,
+                        ManifestNormalFile(var digest, var modifiedTime, var size) => "F " + digest + " " + modifiedTime + " " + size + " " + elementName,
+                        ManifestExecutableFile(var digest, var modifiedTime, var size) => "X " + digest + " " + modifiedTime + " " + size + " " + elementName,
                         ManifestSymlink(var digest, var size) => "S " + digest + " " + size + " " + elementName,
                         _ => throw new NotSupportedException($"Unknown {nameof(ManifestElement)} type {element.GetType()}.")
                     });

@@ -261,6 +261,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find file or directory &apos;{0}&apos;..
+        /// </summary>
+        public static string FileOrDirNotFound {
+            get {
+                return ResourceManager.GetString("FileOrDirNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The files you want to deleted are currently in use..
         /// </summary>
         internal static string FilesInUse {

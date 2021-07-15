@@ -187,6 +187,9 @@
   <data name="FileMissingDest" xml:space="preserve">
     <value>Ένα &lt;αρχείο&gt; ετικέτας λείπει ένα χαρακτηριστικό προορισμού.</value>
   </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
+  </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Τα αρχεία που θέλετε να διαγραφούν χρησιμοποιούνται σήμερα.</value>
   </data>
