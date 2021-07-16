@@ -201,7 +201,7 @@ namespace ZeroInstall.DesktopIntegration
             // Temporarily remove capability-based access points but remember them for later reapplication
             var toReapply = new List<AccessPoint>();
             if (appEntry.AccessPoints != null)
-                toReapply.AddRange(appEntry.AccessPoints.Entries.Where(accessPoint => accessPoint is DefaultAccessPoint || accessPoint is CapabilityRegistration));
+                toReapply.AddRange(appEntry.AccessPoints.Entries.Where(accessPoint => accessPoint is DefaultAccessPoint or CapabilityRegistration));
             RemoveAccessPointsInternal(appEntry, toReapply);
 
             // Update metadata and capabilities

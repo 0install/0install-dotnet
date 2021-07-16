@@ -72,7 +72,7 @@ namespace ZeroInstall.Store.Trust
 
                 if (line == "gpg: no valid OpenPGP data found.")
                     throw new InvalidDataException(line);
-                if (line == "gpg: signing failed: secret key not available" || line == "gpg: WARNING: nothing exported")
+                if (line is "gpg: signing failed: secret key not available" or "gpg: WARNING: nothing exported")
                     throw new KeyNotFoundException(line);
 
                 if (line.StartsWith("gpg: Signature made ") ||
