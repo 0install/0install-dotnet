@@ -32,9 +32,9 @@ namespace ZeroInstall.Store.Implementations.Deployment
             File2Path = Path.Combine(SubdirPath, "file2");
             FileUtils.Touch(File2Path);
 
-            var generator = new ManifestGenerator(TempDir, ManifestFormat.Sha256New);
-            generator.Run();
-            Manifest = generator.Manifest;
+            var builder = new ManifestBuilder(ManifestFormat.Sha256New);
+            new ReadDirectory(TempDir, builder).Run();
+            Manifest = builder.Manifest;
         }
     }
 }

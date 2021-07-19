@@ -7,7 +7,6 @@ using FluentAssertions;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Publish.EntryPoints
 {
@@ -53,7 +52,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (xbit)
             {
                 if (UnixUtils.IsUnix) FileUtils.SetExecutable(file.FullName, true);
-                else FlagUtils.Set(Path.Combine(Directory.FullName, FlagUtils.XbitFile), reference.RelativePath);
+                // TODO: Also write a .manifest file
             }
 
             return file;

@@ -249,7 +249,9 @@ namespace ZeroInstall.Store.Implementations
         {
             string path = Path.Combine(_tempDir, id);
             root.Build(path);
-            ManifestGeneratorTest.CreateDotFile(path, ManifestFormat.FromPrefix(id), _handler);
+            var builder = new ManifestBuilder(ManifestFormat.FromPrefix(id));
+            new ReadDirectory(path, builder).Run();
+            builder.Manifest.Save(Path.Combine(path, Manifest.ManifestFile));
             FileUtils.EnableWriteProtection(path);
             return path;
         }
