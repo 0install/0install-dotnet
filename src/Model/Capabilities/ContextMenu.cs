@@ -27,6 +27,10 @@ namespace ZeroInstall.Model.Capabilities
         /// <summary>The context menu entry is displayed for all directories.</summary>
         [XmlEnum("directories")]
         Directories,
+        
+        /// <summary>The context menu entry is displayed for all directories.</summary>
+        [XmlEnum("background")]
+        Background,
 
         /// <summary>The context menu entry is displayed for all filesystem objects (files and directories).</summary>
         [XmlEnum("all")]
