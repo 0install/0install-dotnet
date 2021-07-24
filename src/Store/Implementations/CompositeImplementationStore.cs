@@ -10,7 +10,6 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
 
 #if NETFRAMEWORK
 using System.Runtime.Remoting;
@@ -53,12 +52,11 @@ namespace ZeroInstall.Store.Implementations
         /// <inheritdoc/>
         public ImplementationStoreKind Kind => ImplementationStoreKind.ReadWrite;
 
-        /// <inheritdoc/>
-        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
+        /// <inheritdoc />
+        public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
         {
             #region Sanity checks
-            if (sources == null) throw new ArgumentNullException(nameof(sources));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (build == null) throw new ArgumentNullException(nameof(build));
             #endregion
 
             if (Contains(manifestDigest)) throw new ImplementationAlreadyInStoreException(manifestDigest);
@@ -70,7 +68,7 @@ namespace ZeroInstall.Store.Implementations
                 try
                 {
                     // Try to add implementation to this store
-                    store.Add(manifestDigest, handler, sources);
+                    store.Add(manifestDigest, build);
                     return;
                 }
                 #region Error handling
@@ -123,6 +121,25 @@ namespace ZeroInstall.Store.Implementations
                            .SelectMany(x => x)
                            .Distinct(StringComparer.Ordinal);
 
+        /// <inheritdoc />
+        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
+        {
+            Exception? lastException = null;
+            foreach (var store in _innerStores.Where(x => x.Kind != ImplementationStoreKind.Service))
+            {
+                try
+                {
+                    store.Verify(manifestDigest, handler);
+                    return;
+                }
+                catch (ImplementationNotFoundException ex)
+                { // Ignore "not found" errors unless it was the last store
+                    lastException = ex;
+                }
+            }
+            lastException?.Rethrow();
+        }
+
         /// <inheritdoc/>
         public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
         {
@@ -147,23 +164,6 @@ namespace ZeroInstall.Store.Implementations
 
             // Try to optimize all contained stores
             return _innerStores.Reverse().Sum(x => x.Optimise(handler));
-        }
-
-        /// <inheritdoc/>
-        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            // Verify in every store that contains the implementation
-            bool verified = false;
-            foreach (var store in _innerStores.Where(store => store.Contains(manifestDigest)))
-            {
-                store.Verify(manifestDigest, handler);
-                verified = true;
-            }
-            if (!verified) throw new ImplementationNotFoundException(manifestDigest);
         }
 
         /// <summary>

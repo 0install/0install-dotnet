@@ -12,7 +12,6 @@ using NanoByte.Common.Undo;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Publish
@@ -107,14 +106,11 @@ namespace ZeroInstall.Publish
 
             implementation.UpdateDigest(directoryPath, handler, executor);
 
-            using (var generator = ArchiveGenerator.Create(
-                directoryPath,
-                archiveHref.LocalPath,
-                archive.MimeType ?? Archive.GuessMimeType(archiveHref.LocalPath)))
-                handler.RunTask(generator);
+            using (var builder = ArchiveBuilder.Create(archiveHref.LocalPath, archive.MimeType!))
+                handler.RunTask(new ReadDirectory(directoryPath, builder));
 
             executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
-            executor.Execute(SetValueCommand.For<string?>(() => implementation.LocalPath, newValue: null));
+            executor.Execute(SetValueCommand.For(() => implementation.LocalPath, newValue: null));
         }
 
         private static void ConvertSha256ToSha256New(Implementation implementation, ICommandExecutor executor)
@@ -174,7 +170,7 @@ namespace ZeroInstall.Publish
             {
                 try
                 {
-                    keepDownloads.Add(digest, handler, new DirectoryImplementationSource(path));
+                    keepDownloads.Add(digest, new DirectoryImplementationSource(path));
                 }
                 #region Error handling
                 catch (Exception ex)

@@ -2,17 +2,14 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Build;
 using ZeroInstall.Store.Implementations.Manifests;
 using ZeroInstall.Store.Properties;
 
@@ -25,9 +22,6 @@ namespace ZeroInstall.Store.Implementations
     {
         /// <summary>Controls whether implementation directories are made write-protected once added to prevent unintentional modification (which would invalidate the manifest digests).</summary>
         protected readonly bool UseWriteProtection;
-
-        /// <summary>Indicates whether <see cref="Path"/> is located on a filesystem with support for Unixoid features such as executable bits.</summary>
-        protected readonly bool IsUnixFS;
 
         /// <summary>Indicates whether this implementation sink does not support write access.</summary>
         protected readonly bool ReadOnly;
@@ -64,7 +58,6 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             UseWriteProtection = useWriteProtection;
-            IsUnixFS = FlagUtils.IsUnixFS(Path);
 
             try
             {
@@ -72,7 +65,6 @@ namespace ZeroInstall.Store.Implementations
                 if (FileUtils.DetermineTimeAccuracy(Path) > 0)
                     throw new IOException(Resources.InsufficientFSTimeAccuracy);
 
-                if (!IsUnixFS) FlagUtils.MarkAsNoUnixFS(Path);
                 if (UseWriteProtection && WindowsUtils.IsWindowsNT)
                 {
                     File.WriteAllText(
@@ -94,40 +86,51 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
-        public void Add(ManifestDigest manifestDigest, ITaskHandler handler, params IImplementationSource[] sources)
+        public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
         {
             #region Sanity checks
-            if (sources == null) throw new ArgumentNullException(nameof(sources));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            if (build == null) throw new ArgumentNullException(nameof(build));
             #endregion
 
-            if (manifestDigest.Best == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
             if (manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)))) throw new ImplementationAlreadyInStoreException(manifestDigest);
-            Log.Debug($"Storing implementation {manifestDigest.Best} in {this}");
+            string expectedDigest = manifestDigest.Best ?? throw new NotSupportedException(Resources.NoKnownDigestMethod);
+            Log.Debug($"Storing implementation {expectedDigest} in {this}");
+            var format = ManifestFormat.FromPrefix(manifestDigest.Best);
 
-            // Build in a temporary directory inside the sink so it can be validated safely (no manipulation of directory while validating)
+            // Place files in temp directory until digest is verified
             string tempDir = GetTempDir();
             try
             {
-                foreach (var source in sources)
+                var builder = new ManifestBuilder(format);
+                build(new DirectoryBuilder(tempDir, builder));
+                var manifest = ImplementationStoreUtils.Verify(builder.Manifest, expectedDigest);
+
+                if (manifest == null)
                 {
-                    var task = source.GetApplyTask(tempDir);
-                    task.Tag = manifestDigest.Best;
+                    throw new DigestMismatchException(
+                        expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
+                        actualManifest: builder.Manifest);
+                }
+                manifest.Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
+
+                string target = System.IO.Path.Combine(Path, expectedDigest);
+                lock (_renameLock) // Prevent race-conditions when adding the same digest twice
+                {
+                    if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
+
+                    // Move directory to final destination
                     try
                     {
-                        using (task as IDisposable)
-                            handler.RunTask(task);
+                        Directory.Move(tempDir, target);
                     }
-                    #region Error handling
-                    catch (IOException ex)
+                    catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
                     {
-                        if (source is ArchiveImplementationSource archive)
-                            throw new IOException(string.Format(Resources.FailedToExtractArchive, archive.OriginalSource), ex);
+                        throw new ImplementationAlreadyInStoreException(manifestDigest);
                     }
-                    #endregion
                 }
 
-                VerifyAndAdd(System.IO.Path.GetFileName(tempDir), manifestDigest, handler);
+                // Prevent any further changes to the directory
+                if (UseWriteProtection) EnableWriteProtection(target);
             }
             finally
             {
@@ -137,55 +140,7 @@ namespace ZeroInstall.Store.Implementations
 
         private readonly object _renameLock = new();
 
-        /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory temporarily stored inside the sink and moves it to the final location if it passes.
-        /// </summary>
-        /// <param name="tempID">The temporary identifier of the directory inside the sink.</param>
-        /// <param name="expectedDigest">The digest the <see cref="Implementation"/> is supposed to match.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <exception cref="DigestMismatchException">The temporary directory doesn't match the <paramref name="expectedDigest"/>.</exception>
-        /// <exception cref="IOException"><paramref name="tempID"/> cannot be moved or the digest cannot be calculated.</exception>
-        /// <exception cref="ImplementationAlreadyInStoreException">There is already an <see cref="Implementation"/> with the specified <paramref name="expectedDigest"/> in the store.</exception>
-        private void VerifyAndAdd(string tempID, ManifestDigest expectedDigest, ITaskHandler handler)
-        {
-            // Determine the digest method to use
-            string? expectedDigestValue = expectedDigest.Best;
-            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-
-            // Determine the source and target directories
-            string source = System.IO.Path.Combine(Path, tempID);
-            string target = System.IO.Path.Combine(Path, expectedDigestValue);
-
-            if (IsUnixFS) FlagUtils.ConvertToFS(source);
-
-            // Calculate the actual digest, compare it with the expected one and create a manifest file
-            VerifyDirectory(source, expectedDigest, handler).Save(System.IO.Path.Combine(source, Manifest.ManifestFile));
-
-            lock (_renameLock) // Prevent race-conditions when adding the same digest twice
-            {
-                if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(expectedDigest);
-
-                // Move directory to final destination
-                try
-                {
-                    Directory.Move(source, target);
-                }
-                catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
-                {
-                    throw new ImplementationAlreadyInStoreException(expectedDigest);
-                }
-            }
-
-            // Prevent any further changes to the directory
-            if (UseWriteProtection) EnableWriteProtection(target);
-        }
-
-        /// <summary>
-        /// Creates a temporary directory within <see cref="Path"/>.
-        /// </summary>
-        /// <returns>The path to the new temporary directory.</returns>
-        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Returns a new value on each call")]
-        protected string GetTempDir()
+        private string GetTempDir()
         {
             string path = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
             Log.Debug("Creating temp directory for extracting: " + path);
@@ -193,11 +148,7 @@ namespace ZeroInstall.Store.Implementations
             return path;
         }
 
-        /// <summary>
-        /// Deletes a temporary directory.
-        /// </summary>
-        /// <param name="path">The path to the temporary directory.</param>
-        protected void DeleteTempDir(string path)
+        private static void DeleteTempDir(string path)
         {
             if (Directory.Exists(path))
             {
@@ -210,7 +161,7 @@ namespace ZeroInstall.Store.Implementations
         /// Makes a directory read-only using platform-specific mechanisms. Logs any errors and continues.
         /// </summary>
         /// <param name="path">The directory to protect.</param>
-        public static void EnableWriteProtection(string path)
+        private static void EnableWriteProtection(string path)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -237,86 +188,6 @@ namespace ZeroInstall.Store.Implementations
                 Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
-        /// </summary>
-        /// <param name="path">The directory to unprotect.</param>
-        internal static void DisableWriteProtection(string path)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
-
-            try
-            {
-                Log.Debug("Disabling write protection for: " + path);
-                FileUtils.DisableWriteProtection(path);
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
-            {
-                Log.Error(ex);
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Verifies the <see cref="ManifestDigest"/> of a directory.
-        /// </summary>
-        /// <param name="directory">The directory to generate a <see cref="Manifest"/> for.</param>
-        /// <param name="expectedDigest">The digest the <see cref="Manifest"/> of the <paramref name="directory"/> should have.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <returns>The generated <see cref="Manifest"/>.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">The <paramref name="directory"/> could not be processed.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the <paramref name="directory"/> is not permitted.</exception>
-        /// <exception cref="DigestMismatchException">The <paramref name="directory"/> doesn't match the <paramref name="expectedDigest"/>.</exception>
-        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly")]
-        public static Manifest VerifyDirectory(string directory, ManifestDigest expectedDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            string? expectedDigestValue = expectedDigest.Best;
-            if (string.IsNullOrEmpty(expectedDigestValue)) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            var format = ManifestFormat.FromPrefix(expectedDigestValue);
-
-            var generator = new ManifestGenerator(directory, format) {Tag = expectedDigestValue};
-            handler.RunTask(generator);
-            var manifest = generator.Manifest;
-            string digest = manifest.CalculateDigest();
-
-            if (digest != expectedDigestValue)
-            {
-                var offsetManifest = TryFindOffset(manifest, expectedDigestValue);
-                if (offsetManifest != null) return offsetManifest;
-
-                string manifestFilePath = System.IO.Path.Combine(directory, Manifest.ManifestFile);
-                var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
-                throw new DigestMismatchException(expectedDigestValue, digest, expectedManifest, manifest);
-            }
-
-            return manifest;
-        }
-
-        private static Manifest? TryFindOffset(Manifest manifest, string expectedDigest)
-        {
-            // Walk through all conceivable timezone differences
-            for (var offset = TimeSpan.FromHours(-27); offset <= TimeSpan.FromHours(27); offset += TimeSpan.FromMinutes(15))
-            {
-                Log.Debug($"Attempting to correct digest mismatch by shifting timestamps by {offset} and rounding.");
-                var offsetManifest = manifest.WithOffset(offset);
-                if (offsetManifest.CalculateDigest() == expectedDigest)
-                {
-                    Log.Info($"Expected digest {expectedDigest} but got mismatch. Fixed by shifting timestamps by {offset} and rounding.");
-                    return offsetManifest;
-                }
-            }
-            return null;
         }
     }
 }

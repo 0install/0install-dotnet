@@ -161,7 +161,7 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
     <value>Das &lt;interface&gt; uri Attribut fehlt. Sollte '{0}' sein.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Der Solver ist auf ein unerwartetes Problem gestoßen.</value>
+    <value>Problem beim Runterladen von '{0}'.</value>
   </data>
   <data name="FileNotExpectedSize" xml:space="preserve">
     <value>Die Datei die von {0} runtergeladen wurde, hat nicht die erwartete Größe. Sollten {1} Bytes sein, waren aber {2} Bytes.</value>

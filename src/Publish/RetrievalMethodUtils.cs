@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -12,6 +11,7 @@ using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Publish
@@ -64,37 +64,7 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Read or write access to a temporary file is not permitted.</exception>
         /// <exception cref="NotSupportedException">A <see cref="Archive.MimeType"/> is not supported.</exception>
         public static TemporaryDirectory DownloadAndApply(this DownloadRetrievalMethod retrievalMethod, ITaskHandler handler, ICommandExecutor? executor = null)
-        {
-            #region Sanity checks
-            if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            using var downloadedFile = retrievalMethod.Download(handler, executor);
-            var extractionDir = new TemporaryDirectory("0publish");
-            try
-            {
-                switch (retrievalMethod)
-                {
-                    case Archive archive:
-                        archive.Apply(downloadedFile, extractionDir, handler);
-                        break;
-                    case SingleFile file:
-                        file.Apply(downloadedFile, extractionDir);
-                        break;
-                    default: throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
-                }
-            }
-            #region Error handling
-            catch
-            {
-                extractionDir.Dispose();
-                throw;
-            }
-            #endregion
-
-            return extractionDir;
-        }
+            => new Recipe {Steps = {retrievalMethod}}.DownloadAndApply(handler, executor);
 
         /// <summary>
         /// Downloads and applies a <see cref="Recipe"/> and adds missing properties.
@@ -116,20 +86,33 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
+            var workingDir = new TemporaryDirectory("0publish");
             var downloadedFiles = new List<TemporaryFile>();
             try
             {
-                foreach (var step in recipe.Steps.OfType<DownloadRetrievalMethod>())
-                    downloadedFiles.Add(step.Download(handler, executor));
+                var sources = recipe.GetImplementationSources(
+                    download: retrievalMethod =>
+                    {
+                        var file = Download(retrievalMethod, handler, executor);
+                        downloadedFiles.Add(file);
+                        return file;
+                    },
+                    implementationLookup: ImplementationStores.Default().GetPath);
 
-                // Apply the recipe
-                return recipe.Apply(downloadedFiles, handler);
+                foreach (var source in sources)
+                {
+                    var task = source.GetApplyTask(workingDir);
+                    using (task as IDisposable)
+                        handler.RunTask(task);
+                }
+
             }
             finally
             {
-                // Clean up temporary archive files
-                foreach (var downloadedFile in downloadedFiles) downloadedFile.Dispose();
+                foreach (var downloadedFile in downloadedFiles)
+                    downloadedFile.Dispose();
             }
+            return workingDir;
         }
 
         /// <summary>
@@ -225,8 +208,6 @@ namespace ZeroInstall.Publish
                             string mimeType = Archive.GuessMimeType(localPath);
                             executor.Execute(SetValueCommand.For(() => archive.MimeType, newValue:  mimeType));
                         }
-
-                        archive.Apply(localPath, extractionDir, handler);
                         break;
 
                     case SingleFile file:
@@ -236,13 +217,12 @@ namespace ZeroInstall.Publish
                             string destination = Path.GetFileName(localPath);
                             executor.Execute(SetValueCommand.For(() => file.Destination, newValue: destination));
                         }
-
-                        file.Apply(localPath, extractionDir, handler);
                         break;
-
-                    default:
-                        throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
                 }
+
+                var task = retrievalMethod.GetImplementationSource(localPath).GetApplyTask(extractionDir);
+                using (task as IDisposable)
+                    handler.RunTask(task);
             }
             #region Error handling
             catch

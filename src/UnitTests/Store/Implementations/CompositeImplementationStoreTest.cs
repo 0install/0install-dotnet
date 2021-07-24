@@ -1,13 +1,13 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using System.IO;
 using FluentAssertions;
 using Moq;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -19,11 +19,6 @@ namespace ZeroInstall.Store.Implementations
         #region Constants
         private static readonly ManifestDigest _digest1 = new(sha1New: "abc");
         private static readonly ManifestDigest _digest2 = new(sha1New: "123");
-        private static readonly IImplementationSource[] _archives =
-        {
-            new ArchiveImplementationSource("path1", Archive.MimeTypeZip),
-            new ArchiveImplementationSource("path2", Archive.MimeTypeZip)
-        };
         #endregion
 
         private readonly MockTaskHandler _handler;
@@ -115,8 +110,9 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives));
-            _testStore.Add(_digest1, _handler, _archives);
+            Action<IBuilder> build = _ => {};
+            _mockStore2.Setup(x => x.Add(_digest1, build));
+            _testStore.Add(_digest1, build);
         }
 
         [Fact]
@@ -125,9 +121,10 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives));
-            _testStore.Add(_digest1, _handler, _archives);
+            Action<IBuilder> build = _ => {};
+            _mockStore2.Setup(x => x.Add(_digest1, build)).Throws(new IOException("Fake IO exception for testing"));
+            _mockStore1.Setup(x => x.Add(_digest1, build));
+            _testStore.Add(_digest1, build);
         }
 
         [Fact]
@@ -136,9 +133,10 @@ namespace ZeroInstall.Store.Implementations
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
             _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
 
-            _mockStore2.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
-            _mockStore1.Setup(x => x.Add(_digest1, _handler, _archives)).Throws(new IOException("Fake IO exception for testing"));
-            Assert.Throws<IOException>(() => _testStore.Add(_digest1, _handler, _archives));
+            Action<IBuilder> build = _ => {};
+            _mockStore2.Setup(x => x.Add(_digest1, build)).Throws(new IOException("Fake IO exception for testing"));
+            _mockStore1.Setup(x => x.Add(_digest1, build)).Throws(new IOException("Fake IO exception for testing"));
+            Assert.Throws<IOException>(() => _testStore.Add(_digest1, build));
         }
 
         [Fact]
@@ -146,7 +144,7 @@ namespace ZeroInstall.Store.Implementations
         {
             _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
 
-            Assert.Throws<ImplementationAlreadyInStoreException>(() => _testStore.Add(_digest1, _handler, _archives));
+            Assert.Throws<ImplementationAlreadyInStoreException>(() => _testStore.Add(_digest1, _ => {}));
         }
         #endregion
 
@@ -178,13 +176,62 @@ namespace ZeroInstall.Store.Implementations
 
         #region Verify
         [Fact]
-        public void Verify()
+        public void VerifyExitsAfterFirstSuccess()
         {
-            _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
-            _mockStore2.Setup(x => x.Contains(_digest1)).Returns(true);
+            _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore1.Setup(x => x.Verify(_digest1, _handler));
+
+            _testStore.Verify(_digest1, _handler);
+        }
+
+        [Fact]
+        public void VerifySkipsServiceStore()
+        {
+            _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.Service);
+
+            _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
             _mockStore2.Setup(x => x.Verify(_digest1, _handler));
 
             _testStore.Verify(_digest1, _handler);
+        }
+
+        [Fact]
+        public void VerifyContinuesOnNotFound()
+        {
+            _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+                       .Throws<ImplementationNotFoundException>();
+
+            _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore2.Setup(x => x.Verify(_digest1, _handler));
+
+            _testStore.Verify(_digest1, _handler);
+        }
+
+        [Fact]
+        public void VerifyReportsIfAllNotFound()
+        {
+            _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+                       .Throws<ImplementationNotFoundException>();
+
+            _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore2.Setup(x => x.Verify(_digest1, _handler))
+                       .Throws<ImplementationNotFoundException>();
+
+            _testStore.Invoking(x => x.Verify(_digest1, _handler))
+                      .Should().Throw<ImplementationNotFoundException>();
+        }
+
+        [Fact]
+        public void VerifyReportsFailsFast()
+        {
+            _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
+            _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+                       .Throws<IOException>();
+
+            _testStore.Invoking(x => x.Verify(_digest1, _handler))
+                      .Should().Throw<IOException>();
         }
         #endregion
     }

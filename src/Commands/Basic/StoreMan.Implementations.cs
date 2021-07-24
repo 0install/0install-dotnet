@@ -5,12 +5,12 @@ using System;
 using System.IO;
 using System.Linq;
 using NanoByte.Common;
+using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Implementations.Build;
 
 namespace ZeroInstall.Commands.Basic
 {
@@ -42,13 +42,13 @@ namespace ZeroInstall.Commands.Basic
                 {
                     if (File.Exists(path))
                     { // One or more archives (combined/overlay)
-                        ImplementationStore.Add(manifestDigest, Handler, GetImplementationSources());
+                        ImplementationStore.Add(manifestDigest, BuildImplementation);
                         return ExitCode.OK;
                     }
                     else if (Directory.Exists(path))
                     { // A single directory
                         if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
-                        ImplementationStore.Add(manifestDigest, Handler, new DirectoryImplementationSource(Path.GetFullPath(path)));
+                        ImplementationStore.Add(manifestDigest, builder => Handler.RunTask(new ReadDirectory(Path.GetFullPath(path), builder)));
                         return ExitCode.OK;
                     }
                     else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path), path);
@@ -60,19 +60,19 @@ namespace ZeroInstall.Commands.Basic
                 }
             }
 
-            private IImplementationSource[] GetImplementationSources()
+            private void BuildImplementation(IBuilder builder)
             {
-                var steps = new IImplementationSource[(AdditionalArgs.Count + 1) / 3];
-                for (int i = 0; i < steps.Length; i++)
+                for (int i = 0; i < (AdditionalArgs.Count + 1) / 3; i++)
                 {
-                    steps[i] = new ArchiveImplementationSource(
-                        Path: Path.GetFullPath(AdditionalArgs[i * 3 + 1]),
-                        MimeType: (AdditionalArgs.Count > i * 3 + 3) ? AdditionalArgs[i * 3 + 3] : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]))
-                    {
-                        Extract = (AdditionalArgs.Count > i * 3 + 2) ? AdditionalArgs[i * 3 + 2] : null
-                    };
+                    string path = AdditionalArgs[i * 3 + 1];
+                    string mimeType = (AdditionalArgs.Count > i * 3 + 3)
+                        ? AdditionalArgs[i * 3 + 3]
+                        : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]);
+                    string? subDir = (AdditionalArgs.Count > i * 3 + 2) ? AdditionalArgs[i * 3 + 2] : null;
+
+                    var extractor = ArchiveExtractor.For(mimeType, Handler);
+                    Handler.RunTask(new ReadFile(path, stream => extractor.Extract(builder, stream, subDir)));
                 }
-                return steps;
             }
         }
 
@@ -96,24 +96,23 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                ManifestDigest manifestDigest;
+                ManifestDigest digest;
                 string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                string id = Path.GetFileName(path);
                 try
                 {
-                    manifestDigest = new ManifestDigest(Path.GetFileName(path));
+                    digest = new ManifestDigest(id);
                 }
-                #region Error handling
-                catch (ArgumentException ex)
+                catch (NotSupportedException ex)
                 {
-                    // Wrap exception since only certain exception types are allowed
-                    throw new IOException(ex.Message);
+                    Log.Error(ex);
+                    return ExitCode.NotSupported;
                 }
-                #endregion
 
                 var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1]) : ImplementationStore;
                 try
                 {
-                    store.Add(manifestDigest, Handler, new DirectoryImplementationSource(path));
+                    store.Add(digest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
                     return ExitCode.OK;
                 }
                 catch (ImplementationAlreadyInStoreException ex)
@@ -144,18 +143,17 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
-
                 string outputArchive = AdditionalArgs[1];
-
-                string? sourceDirectory = ImplementationStore.GetPath(manifestDigest);
-                if (sourceDirectory == null)
-                    throw new ImplementationNotFoundException(manifestDigest);
-
                 string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : Archive.GuessMimeType(outputArchive);
 
-                using var generator = ArchiveGenerator.Create(sourceDirectory, outputArchive, mimeType);
-                Handler.RunTask(generator);
+                var digest = new ManifestDigest(AdditionalArgs[0]);
+                string? sourceDirectory = ImplementationStore.GetPath(digest);
+                if (sourceDirectory == null)
+                    throw new ImplementationNotFoundException(digest);
+
+                using var builder = ArchiveBuilder.Create(outputArchive, mimeType);
+                Handler.RunTask(new ReadDirectory(sourceDirectory, builder));
+
                 return ExitCode.OK;
             }
         }
@@ -180,10 +178,10 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
-                var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
+                var digest = new ManifestDigest(AdditionalArgs[0]);
 
-                string? path = ImplementationStore.GetPath(manifestDigest);
-                if (path == null) throw new ImplementationNotFoundException(manifestDigest);
+                string? path = ImplementationStore.GetPath(digest);
+                if (path == null) throw new ImplementationNotFoundException(digest);
                 Handler.Output(string.Format(Resources.LocalPathOf, AdditionalArgs[0]), path);
                 return ExitCode.OK;
             }
@@ -247,7 +245,7 @@ namespace ZeroInstall.Commands.Basic
 
                         case 2:
                             // Verify an arbitrary directory
-                            ImplementationSink.VerifyDirectory(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
+                            ImplementationStoreUtils.Verify(AdditionalArgs[0], new ManifestDigest(AdditionalArgs[1]), Handler);
                             break;
                     }
                 }

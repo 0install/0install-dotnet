@@ -4,10 +4,9 @@
 using System;
 using System.IO;
 using FluentAssertions;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using ZeroInstall.Store.Implementations.Build;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Publish.EntryPoints
 {
@@ -50,11 +49,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             typeof(CandidateTest).CopyEmbeddedToFile(reference.RelativePath, file.FullName);
 
-            if (xbit)
-            {
-                if (UnixUtils.IsUnix) FileUtils.SetExecutable(file.FullName, true);
-                else FlagUtils.Set(Path.Combine(Directory.FullName, FlagUtils.XbitFile), reference.RelativePath);
-            }
+            if (xbit) ImplFileUtils.SetExecutable(file.FullName);
 
             return file;
         }

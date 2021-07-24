@@ -132,16 +132,6 @@ namespace ZeroInstall.Model
         [XmlAttribute("dest")]
         public string? Destination { get; set; }
 
-        #region Normalize
-        /// <inheritdoc/>
-        public override void Normalize(FeedUri? feedUri = null)
-        {
-            base.Normalize(feedUri);
-
-            MimeType ??= GuessMimeType(Href.OriginalString);
-        }
-        #endregion
-
         #region Conversion
         /// <summary>
         /// Returns the archive in the form "Location (MimeType, Size + StartOffset, Extract) => Destination". Not safe for parsing!

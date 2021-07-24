@@ -160,9 +160,6 @@
   <data name="FeedUriMissing" xml:space="preserve">
     <value>&lt;interface&gt; Adres özniteliği eksik. '{0}' olmalı.</value>
   </data>
-  <data name="FetcherProblem" xml:space="preserve">
-    <value>Çözümleyici beklenmedik bir sorunla karşılaştı.</value>
-  </data>
   <data name="FileNotExpectedSize" xml:space="preserve">
     <value>{0} üzerinden indirilen dosya beklenen boyutta değil. Dosyanın {1} bayt boyutunda olması beklenirken {2} bayt boyutunda.</value>
   </data>

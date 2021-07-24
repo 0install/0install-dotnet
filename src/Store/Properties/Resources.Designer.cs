@@ -599,42 +599,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The destination for the &apos;{0}&apos; step must be specified because the source is a file and not a directory..
-        /// </summary>
-        internal static string RecipeCopyFromDestinationMissing {
-            get {
-                return ResourceManager.GetString("RecipeCopyFromDestinationMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The source specified in the &apos;{0}&apos; step does not exist..
-        /// </summary>
-        internal static string RecipeCopyFromSourceMissing {
-            get {
-                return ResourceManager.GetString("RecipeCopyFromSourceMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A file referenced in the &lt;recipe&gt; was not downloaded..
-        /// </summary>
-        internal static string RecipeFileNotDownloaded {
-            get {
-                return ResourceManager.GetString("RecipeFileNotDownloaded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A recipe step contains an invalid path (potentially a security risk): {0}.
-        /// </summary>
-        internal static string RecipeInvalidPath {
-            get {
-                return ResourceManager.GetString("RecipeInvalidPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A fully qualified/rooted path is required..
         /// </summary>
         internal static string RootedPathRequired {

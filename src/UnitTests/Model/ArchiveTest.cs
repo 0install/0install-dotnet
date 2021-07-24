@@ -43,14 +43,6 @@ namespace ZeroInstall.Model
         }
 
         [Fact]
-        public void NormalizeGuessMimeType()
-        {
-            var archive = new Archive {Href = new("http://example.com/test.tar.gz"), Size = 128};
-            archive.Normalize(new("http://example.com/"));
-            archive.MimeType.Should().Be(Archive.MimeTypeTarGzip, because: "Normalize() should guess missing MIME type");
-        }
-
-        [Fact]
         public void NormalizeLocalPath()
         {
             var archive = new Archive {Href = new("test.zip", UriKind.Relative), MimeType = Archive.MimeTypeZip, Size = 128};

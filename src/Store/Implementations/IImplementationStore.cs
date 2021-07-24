@@ -58,6 +58,19 @@ namespace ZeroInstall.Store.Implementations
         IEnumerable<string> ListAllTemp();
 
         /// <summary>
+        /// Checks whether an implementation in the store still matches the expected digest.
+        /// Asks the user whether to delete the implementation if it does not match.
+        /// </summary>
+        /// <param name="manifestDigest">The digest of the implementation to be verified.</param>
+        /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="NotSupportedException"><paramref name="manifestDigest"/> does not list any supported digests.</exception>
+        /// <exception cref="IOException">The implementation's directory could not be processed.</exception>
+        /// <exception cref="UnauthorizedAccessException">Read access to the implementation's directory is not permitted.</exception>
+        /// <exception cref="ImplementationNotFoundException">No implementation matching <paramref name="manifestDigest"/> could be found in the store.</exception>
+        void Verify(ManifestDigest manifestDigest, ITaskHandler handler);
+
+        /// <summary>
         /// Removes a specific implementation from the cache.
         /// </summary>
         /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
@@ -67,19 +80,6 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="IOException">Thrown if the implementation could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
         bool Remove(ManifestDigest manifestDigest, ITaskHandler handler);
-
-        /// <summary>
-        /// Recalculates the digests for an entry in the store and ensures it is correct. Will delete damaged implementations after user confirmation.
-        /// </summary>
-        /// <param name="manifestDigest">The digest of the implementation to be verified.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="NotSupportedException"><paramref name="manifestDigest"/> does not list any supported digests.</exception>
-        /// <exception cref="ImplementationNotFoundException">No implementation matching <paramref name="manifestDigest"/> could be found in the store.</exception>
-        /// <exception cref="IOException">The entry's directory could not be processed.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
-        /// <remarks>If the store does not support verification this method call may be silently ignored.</remarks>
-        void Verify(ManifestDigest manifestDigest, ITaskHandler handler);
 
         /// <summary>
         /// Reads in all the manifest files in the store and looks for duplicates (files with the same permissions, modification time and digest). When it finds a pair, it deletes one and replaces it with a hard-link to the other.

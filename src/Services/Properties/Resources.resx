@@ -161,7 +161,7 @@ Do you want to trust this key to sign feeds from '{3}'?
     <value>The &lt;interface&gt; uri attribute missing. Should be '{0}'.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>The solver encountered an unexpected problem.</value>
+    <value>Problem fetching '{0}'.</value>
   </data>
   <data name="FileNotExpectedSize" xml:space="preserve">
     <value>The file downloaded from {0} doesn't have the expected size. Was supposed to be {1} bytes but was actually {2} bytes.</value>

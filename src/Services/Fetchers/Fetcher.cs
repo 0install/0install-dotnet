@@ -6,7 +6,6 @@ using System.Net;
 using System.Threading;
 using NanoByte.Common;
 using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
@@ -49,7 +48,7 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
-                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = implementation.ManifestDigest});
+                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = implementation.ManifestDigest.Best});
             }
             #region Error handling
             catch (AbandonedMutexException ex)
@@ -86,27 +85,24 @@ namespace ZeroInstall.Services.Fetchers
                 : implementation.ManifestDigest.Best ?? implementation.ID;
 
         /// <inheritdoc/>
-        protected override TemporaryFile Download(DownloadRetrievalMethod retrievalMethod, string? tag = null)
+        protected override void Download(IBuilder builder, DownloadRetrievalMethod download, object? tag)
         {
-            #region Sanity checks
-            if (retrievalMethod == null) throw new ArgumentNullException(nameof(retrievalMethod));
-            if (retrievalMethod.Href == null) throw new ArgumentException("Missing href.", nameof(retrievalMethod));
-            #endregion
-
             try
             {
-                return base.Download(retrievalMethod, tag);
+                base.Download(builder, download, tag);
             }
-            catch (WebException ex) when (!retrievalMethod.Href!.IsLoopback && _config.FeedMirror != null)
+            catch (WebException ex) when (!download.Href.IsLoopback && _config.FeedMirror != null)
             {
                 Log.Warn(ex);
                 Log.Info("Trying mirror");
 
                 try
                 {
-                    var mirrored = (DownloadRetrievalMethod)retrievalMethod.Clone();
-                    mirrored.Href = new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{retrievalMethod.Href!.Scheme}/{retrievalMethod.Href.Host}/{string.Concat(retrievalMethod.Href.Segments).TrimStart('/').Replace("/", "%23")}");
-                    return base.Download(mirrored, tag);
+                    Handler.RunTask(new DownloadFile(
+                        new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
+                        stream => builder.Apply(download, stream, Handler, tag),
+                        download.DownloadSize)
+                    {Tag = tag});
                 }
                 catch (WebException)
                 {

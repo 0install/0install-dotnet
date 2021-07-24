@@ -88,6 +88,27 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <inheritdoc/>
+        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
+        {
+            #region Sanity checks
+            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            #endregion
+
+            try
+            {
+                ImplementationStoreUtils.Verify(GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, handler);
+            }
+            catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
+            {
+                Log.Info(ex.LongMessage);
+                if (handler.Ask(
+                    question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
+                    defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
+                    Remove(new ManifestDigest(ex.ExpectedDigest), handler);
+            }
+        }
+
+        /// <inheritdoc/>
         public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
         {
             #region Sanity checks
@@ -115,6 +136,29 @@ namespace ZeroInstall.Store.Implementations
             Directory.Delete(tempDir, recursive: true);
 
             return true;
+        }
+
+        /// <summary>
+        /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
+        /// </summary>
+        /// <param name="path">The directory to unprotect.</param>
+        internal static void DisableWriteProtection(string path)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+            #endregion
+
+            try
+            {
+                Log.Debug("Disabling write protection for: " + path);
+                FileUtils.DisableWriteProtection(path);
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
+            {
+                Log.Error(ex);
+            }
+            #endregion
         }
 
         /// <summary>
@@ -155,35 +199,6 @@ namespace ZeroInstall.Store.Implementations
                 return false;
             }
             #endregion
-        }
-
-        /// <inheritdoc/>
-        public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            if (!Contains(manifestDigest)) throw new ImplementationNotFoundException(manifestDigest);
-
-            string? digest = manifestDigest.Best;
-            if (digest == null) throw new NotSupportedException(Resources.NoKnownDigestMethod);
-            string target = System.IO.Path.Combine(Path, digest);
-            try
-            {
-                VerifyDirectory(target, manifestDigest, handler);
-
-                // Reseal the directory in case the write protection got lost
-                if (UseWriteProtection) EnableWriteProtection(target);
-            }
-            catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
-            {
-                Log.Info(ex.LongMessage);
-                if (handler.Ask(
-                    question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
-                    defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
-                    Remove(new ManifestDigest(ex.ExpectedDigest), handler);
-            }
         }
 
         /// <inheritdoc/>

@@ -8,7 +8,7 @@ using System.IO;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Design;
-using ZeroInstall.Store.Implementations.Build;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Publish.EntryPoints
 {
@@ -45,9 +45,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             Debug.Assert(BaseDirectory != null);
 
-            return
-                FileUtils.IsExecutable(path) ||
-                FlagUtils.GetFiles(FlagUtils.XbitFile, BaseDirectory.FullName).Contains(path);
+            return ImplFileUtils.IsExecutable(path);
         }
 
         /// <summary>

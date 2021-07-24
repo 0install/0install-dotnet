@@ -162,9 +162,6 @@
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Οι &lt;interface&gt; uri ιδιότητες ειναι ελείπεις. Πρέπει να είναι '{0}'.</value>
   </data>
-  <data name="FetcherProblem" xml:space="preserve">
-    <value>Ο επιλυτής αντιμετώπισε ένα μη αναμενόμενο πρόβλημα.</value>
-  </data>
   <data name="FileNotExpectedSize" xml:space="preserve">
     <value>Το αρχείο που μεταφορτώνεται από {0} δεν έχει το αναμενόμενο μέγεθος. Ήταν υποτιθέμενο για να είναι {1} bytes, αλλά στην πραγματικότητα ήταν {2} bytes.</value>
   </data>

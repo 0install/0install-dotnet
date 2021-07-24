@@ -304,18 +304,6 @@ Sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
     <value>'{0}' yapılandırma değeri yüklenirken bir sorun çıktı.
 Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybolabilir.</value>
   </data>
-  <data name="RecipeCopyFromDestinationMissing" xml:space="preserve">
-    <value>Kaynak bir klasör değil dosya olduğundan '{0}'. adım için hedef belirtilmelidir.</value>
-  </data>
-  <data name="RecipeCopyFromSourceMissing" xml:space="preserve">
-    <value>'{0}'. adımda belirtilen kaynak bulunamadı.</value>
-  </data>
-  <data name="RecipeFileNotDownloaded" xml:space="preserve">
-    <value>&lt;recipe&gt; içinde belirtilen bir dosya indirilemedi.</value>
-  </data>
-  <data name="RecipeInvalidPath" xml:space="preserve">
-    <value>Bir tarif adımında geçersiz bir yol var (olası bir güvenlik açığı): {0}</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Tam belirtilmiş/kök klasöre göre yazılmış yol gereklidir.</value>
   </data>

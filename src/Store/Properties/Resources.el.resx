@@ -288,12 +288,6 @@
     <value>Υπήρξε ένα πρόβλημα κατά τη φόρτωση της τιμής ρύθμισης '{0}'.
 Μπορείτε να διαγράψετε το αρχείο '{1}' για να διορθώσετε το πρόβλημα. Άλλες ρυθμίσεις μπορούν επίσης να χαθούν.</value>
   </data>
-  <data name="RecipeFileNotDownloaded" xml:space="preserve">
-    <value>Ένα αρχείο που αναφέρεται στο &lt;recipe&gt; δεν μεταφορτώθηκε.</value>
-  </data>
-  <data name="RecipeInvalidPath" xml:space="preserve">
-    <value>Ένα recipe περιέχει μια έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Μια πλήρως αναγνωρισμένη/ριζωμένη διαδρομή απαιτείται.</value>
   </data>

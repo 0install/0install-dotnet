@@ -304,18 +304,6 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="ProcessingFiles" xml:space="preserve">
     <value>Verarbeite Dateien</value>
   </data>
-  <data name="RecipeCopyFromDestinationMissing" xml:space="preserve">
-    <value>Das Ziel für den '{0}' Schritt muss gesetzt sein, da die Quelle eine Datei und kein Verzeichnis ist.</value>
-  </data>
-  <data name="RecipeCopyFromSourceMissing" xml:space="preserve">
-    <value>Die Quelle, die im '{0}' Schritt angegeben ist, existiert nicht.</value>
-  </data>
-  <data name="RecipeFileNotDownloaded" xml:space="preserve">
-    <value>Eine Datei auf die im &lt;recipe&gt; verwießen wird wurde nicht heruntergeladen.</value>
-  </data>
-  <data name="RecipeInvalidPath" xml:space="preserve">
-    <value>Das Recipe enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
-  </data>
   <data name="RootedPathRequired" xml:space="preserve">
     <value>Ein vollständig qualifizierter/gewurzelter Pfad wird benötigt.</value>
   </data>

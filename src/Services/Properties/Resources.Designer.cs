@@ -182,7 +182,7 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The solver encountered an unexpected problem..
+        ///   Looks up a localized string similar to Problem fetching &apos;{0}&apos;..
         /// </summary>
         internal static string FetcherProblem {
             get {

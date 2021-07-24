@@ -8,6 +8,7 @@ using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Publish
@@ -30,9 +31,9 @@ namespace ZeroInstall.Publish
         [Pure]
         public static string CalculateDigest(string path, ManifestFormat format, ITaskHandler handler)
         {
-            var manifestGenerator = new ManifestGenerator(path, format);
-            handler.RunTask(manifestGenerator);
-            return manifestGenerator.Manifest.CalculateDigest();
+            var builder = new ManifestBuilder(format);
+            handler.RunTask(new ReadDirectory(path, builder));
+            return builder.Manifest.CalculateDigest();
         }
 
         /// <summary>

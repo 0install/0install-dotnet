@@ -7,6 +7,7 @@ using NanoByte.Common;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Archives;
 using ZeroInstall.Store.Implementations.Manifests;
 
@@ -78,18 +79,17 @@ namespace ZeroInstall.Commands.Basic
         #region Helpers
         private Manifest GenerateManifest(string path, string? subdir)
         {
+            var builder = new ManifestBuilder(_algorithm);
+
             if (Directory.Exists(path))
             {
                 if (!string.IsNullOrEmpty(subdir)) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + subdir.EscapeArgument(), null);
 
-                var generator = new ManifestGenerator(path, _algorithm);
-                Handler.RunTask(generator);
-                return generator.Manifest;
+                Handler.RunTask(new ReadDirectory(path, builder));
+                return builder.Manifest;
             }
             else if (File.Exists(path))
             {
-                var builder = new ManifestBuilder(_algorithm);
-
                 using var stream = File.OpenRead(path);
                 var extractor = ArchiveExtractor.For(Archive.GuessMimeType(path), Handler);
                 extractor.Extract(builder, stream, subdir);

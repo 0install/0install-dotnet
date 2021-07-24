@@ -9,6 +9,7 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Implementations.Manifests;
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement
@@ -28,9 +29,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             else if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)
             {
                 Log.Info($"No .manifest file found in '{dirPath}'. Assuming directory is clean.");
-                var generator = new ManifestGenerator(dirPath, ManifestFormat.Sha256New);
-                Handler.RunTask(generator);
-                return generator.Manifest;
+                var builder = new ManifestBuilder(ManifestFormat.Sha256New);
+                Handler.RunTask(new ReadDirectory(dirPath, builder));
+                return builder.Manifest;
             }
             else
                 return new Manifest(ManifestFormat.Sha256);

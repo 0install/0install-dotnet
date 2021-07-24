@@ -18,14 +18,14 @@ namespace ZeroInstall.Store.Implementations
     public partial class ServiceImplementationStore
     {
         /// <summary>
-        /// The port name to use to contact the store service.
+        /// The IPC port to use to contact the store service.
         /// </summary>
-        public const string IpcPortName = "ZeroInstall.Store.Service";
+        public const string IpcPort = "ZeroInstall.Store.Service";
 
         /// <summary>
-        /// The Uri fragment to use to request an <see cref="IImplementationStore"/> object from other processes.
+        /// The IPC port to use to contact the store service.
         /// </summary>
-        public const string IpcObjectUri = "Store";
+        public const string IpcCallbackPort = IpcPort + ".Callback";
 
         /// <summary>
         /// ACL for IPC named pipes. Allows object owners, normal users and the system write access.
@@ -78,7 +78,7 @@ namespace ZeroInstall.Store.Implementations
                 new IpcClientChannel(
                     new Hashtable
                     {
-                        {"name", IpcPortName},
+                        {"name", IpcPort},
                         {"secure", true},
                         {"tokenImpersonationLevel", "impersonation"} // Allow server to use identity of client
                     },
@@ -89,14 +89,14 @@ namespace ZeroInstall.Store.Implementations
             ChannelServices.RegisterChannel(new IpcServerChannel(
                 new Hashtable
                 {
-                    {"name", IpcPortName + ".Callback"},
-                    {"portName", IpcPortName + ".Callback." + System.IO.Path.GetRandomFileName()} // Random port to allow multiple instances
+                    {"name", IpcCallbackPort},
+                    {"portName", IpcCallbackPort + "." + System.IO.Path.GetRandomFileName()} // Random port to allow multiple instances
                 },
                 new BinaryServerFormatterSinkProvider {TypeFilterLevel = TypeFilterLevel.Full}, // Allow deserialization of custom types
                 IpcAcl), ensureSecurity: false);
 
             // Create proxy object
-            return (IImplementationSink)Activator.GetObject(typeof(IImplementationSink), "ipc://" + IpcPortName + "/" + IpcObjectUri);
+            return (IImplementationSink)Activator.GetObject(typeof(IImplementationSink), $"ipc://{IpcPort}/{nameof(IImplementationSink)}");
         }
     }
 }
