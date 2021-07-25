@@ -23,10 +23,6 @@ This provides a common basis for the packages `ZeroInstall.Services` and `ZeroIn
 Core services like [solving dependencies](https://docs.0install.net/developers/solver/), downloading implementations and execution selections.  
 Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application, e.g. for a plugin management system.
 
-[ZeroInstall.Services.Interfaces](https://www.nuget.org/packages/ZeroInstall.Services.Interfaces/)  
-Interfaces/abstractions for Zero Install services (contains no actual implementations).  
-You will usually get this package indirectly as a dependency of `ZeroInstall.Services`.
-
 [ZeroInstall.DesktopIntegration](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)  
 Methods for integrating applications with desktop environments (creating menu entries, etc.).
 
