@@ -78,17 +78,14 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Write access to temporary files was not permitted.</exception>
         public void DetectCandidates(ITaskHandler handler)
         {
-            #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             if (string.IsNullOrEmpty(ImplementationDirectory)) throw new InvalidOperationException("Implementation directory is not set.");
-            #endregion
+
+            var detect = new DetectCandidates(ImplementationDirectory);
+            handler.RunTask(detect);
 
             _candidates.Clear();
-
-            handler.RunTask(new SimpleTask(
-                Resources.DetectingCandidates,
-                () => _candidates.AddRange(Detection.ListCandidates(new DirectoryInfo(ImplementationDirectory)))));
-
+            _candidates.AddRange(detect.Candidates);
             MainCandidate = _candidates.FirstOrDefault();
         }
         #endregion
@@ -164,10 +161,8 @@ namespace ZeroInstall.Publish
         /// <exception cref="UnauthorizedAccessException">Write access to temporary files was not permitted.</exception>
         public void GenerateDigest(ITaskHandler handler)
         {
-            #region Sanity checks
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             if (string.IsNullOrEmpty(ImplementationDirectory)) throw new InvalidOperationException("Implementation directory is not set.");
-            #endregion
 
             ID = ManifestUtils.CalculateDigest(ImplementationDirectory, ManifestFormat.Sha1New, handler);
             ManifestDigest = ManifestUtils.GenerateDigest(ImplementationDirectory, handler);

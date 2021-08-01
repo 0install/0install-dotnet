@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
-using System.Linq;
 using FluentAssertions;
 using NanoByte.Common.Storage;
 using Xunit;
@@ -10,7 +9,7 @@ using Xunit;
 namespace ZeroInstall.Publish.EntryPoints
 {
     /// <summary>
-    /// Contains test methods for <see cref="Detection"/>.
+    /// Contains test methods for <see cref="DetectCandidates"/>.
     /// </summary>
     public class DetectionTest : CandidateTest
     {
@@ -22,8 +21,10 @@ namespace ZeroInstall.Publish.EntryPoints
             Deploy(PosixScriptTest.Reference, xbit: true);
             Deploy(PosixBinaryTest.Reference32, xbit: true);
 
-            var candidates = Detection.ListCandidates(Directory).ToList();
-            candidates.Should().BeEquivalentTo(new Candidate[]
+            var detect = new DetectCandidates(Directory.FullName);
+            detect.Run();
+
+            detect.Candidates.Should().BeEquivalentTo(new Candidate[]
             {
                 DotNetExeTest.Reference,
                 PythonScriptTest.Reference,
@@ -36,7 +37,11 @@ namespace ZeroInstall.Publish.EntryPoints
         public void TestEmpty()
         {
             FileUtils.Touch(Path.Combine(Directory.FullName, "empty"));
-            Detection.ListCandidates(Directory).Should().BeEmpty();
+
+            var detect = new DetectCandidates(Directory.FullName);
+            detect.Run();
+
+            detect.Candidates.Should().BeEmpty();
         }
     }
 }
