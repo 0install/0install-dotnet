@@ -58,9 +58,9 @@ namespace ZeroInstall.Model
         /// <returns>The new copy of the <see cref="FeedReference"/>.</returns>
         public FeedReference Clone()
         {
-            var feedRereference = new FeedReference {Source = Source};
-            CloneFromTo(this, feedRereference);
-            return feedRereference;
+            var feedReference = new FeedReference {Source = Source};
+            CloneFromTo(this, feedReference);
+            return feedReference;
         }
         #endregion
 
