@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -24,22 +22,23 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The URL or local path used to locate the feed.")]
         [XmlIgnore]
-        public FeedUri Source { get; set; }
+        public FeedUri Source { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Source"/>
         [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? SourceString { get => Source?.ToStringRfc(); set => Source = (value == null) ? null : new FeedUri(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string SourceString { get => Source?.ToStringRfc()!; set => Source = new FeedUri(value); }
         #endregion
 
         #region Normalize
         /// <summary>
-        /// Performs sanity checks.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize() => EnsureNotNull(Source, xmlAttribute: "src", xmlTag: "feed");
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        public void Normalize()
+            => EnsureTag(Source, "src");
         #endregion
 
         #region Conversion

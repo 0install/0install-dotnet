@@ -136,7 +136,7 @@ namespace ZeroInstall.Commands.Basic
 
             Handler.OutputLow(
                 title: Resources.ExportComplete,
-                message: string.Format(Resources.AllComponentsExported, Selections.Name ?? "app", _outputPath));
+                message: string.Format(Resources.AllComponentsExported, Selections.Name, _outputPath));
 
             return ExitCode.OK;
         }

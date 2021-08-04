@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -21,7 +19,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("A unique identifier for the implementation.")]
         [XmlAttribute("id")]
-        public string ID { get; set; }
+        public string ID { get; set; } = default!;
 
         /// <summary>
         /// A user-specified override for <see cref="Element.Stability"/> specified in the feed.

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,7 +61,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public FeedUri Uri { get; set; }
+        public FeedUri? Uri { get; set; }
 
         /// <summary>
         /// The URI of the <see cref="Catalog"/> this feed was stored within. Used as an implementation detail; not part of the official feed format!
@@ -85,7 +83,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Category("Interface"), Description("A short name to identify the interface (e.g. \"Foo\").")]
         [XmlElement("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <inheritdoc/>
         [Browsable(false)]
@@ -132,7 +130,8 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Uri"), Category("Feed"), Description("This attribute is only needed for remote feeds (fetched via HTTP). The value must exactly match the expected URL, to prevent an attacker replacing one correctly-signed feed with another (e.g., returning a feed for the shred program when the user asked for the backup program).")]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new FeedUri(value); }
 
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="CatalogUri"/>
@@ -277,13 +276,16 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <summary>
-        /// Flattens the <see cref="Group"/> inheritance structure and sets missing default values in <see cref="Implementation"/>s.
+        /// Prepares the feed for solver processing.
+        /// Flattens inheritance structures, converts legacy elements, sets default values and ensures required elements.
+        /// Do not call it if you plan on serializing the feed again since it may loose some of its structure.
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public void Normalize(FeedUri? feedUri = null)
         {
+            if (string.IsNullOrEmpty(Name)) throw new InvalidDataException(string.Format(Resources.MissingXmlTagOnFeed, "name", Uri));
+
             // Apply if-0install-version filter
             Elements.RemoveAll(FeedElement.FilterMismatch);
             Icons.RemoveAll(FeedElement.FilterMismatch);
@@ -295,6 +297,7 @@ namespace ZeroInstall.Model
             foreach (var icon in Icons) icon.Normalize();
             foreach (var feedReference in Feeds) feedReference.Normalize();
             foreach (var interfaceReference in FeedFor) interfaceReference.Normalize();
+            foreach (var entryPoint in EntryPoints) entryPoint.Normalize();
 
             NormalizeElements(feedUri);
             NormalizeEntryPoints();

@@ -152,8 +152,6 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            retrievalMethod.Validate();
-
             executor ??= new SimpleCommandExecutor();
 
             switch (retrievalMethod)

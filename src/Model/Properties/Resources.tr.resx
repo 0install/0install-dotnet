@@ -132,12 +132,6 @@
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Katalogda '{0}' akışı bulunamadı.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>{1} içinde '{0}' kodu yok.</value>
-  </data>
-  <data name="ImplementationMissingVersion" xml:space="preserve">
-    <value>{1} içinde '{0}' için bir sürüm yok.</value>
-  </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Seçimde '{0}' arabirimi için uygulama bulunamadı.</value>
   </data>

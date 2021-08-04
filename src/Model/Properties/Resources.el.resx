@@ -132,9 +132,6 @@
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Αδυναμία εύρεσης τροφοδοσίας '{0}' στον κατάλογο.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>'{0}' {1} δεν έχει ID.</value>
-  </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Αδυναμία εύρεσης εφαρμογής για διασύνδεση '{0}' στην επιλογή.</value>
   </data>

@@ -106,24 +106,6 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; in {1} has no ID..
-        /// </summary>
-        internal static string ImplementationMissingID {
-            get {
-                return ResourceManager.GetString("ImplementationMissingID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; in {1} has no version..
-        /// </summary>
-        internal static string ImplementationMissingVersion {
-            get {
-                return ResourceManager.GetString("ImplementationMissingVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unable to find implementation for interface &apos;{0}&apos; in the selection..
         /// </summary>
         internal static string ImplementationNotInSelection {
@@ -147,6 +129,15 @@ namespace ZeroInstall.Model.Properties {
         internal static string MissingXmlAttributeOnTag {
             get {
                 return ResourceManager.GetString("MissingXmlAttributeOnTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing &lt;{0}&gt; tag on feed {1}..
+        /// </summary>
+        internal static string MissingXmlTagOnFeed {
+            get {
+                return ResourceManager.GetString("MissingXmlTagOnFeed", resourceCulture);
             }
         }
         

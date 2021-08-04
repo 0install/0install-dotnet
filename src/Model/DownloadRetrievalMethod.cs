@@ -1,15 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
-using System.Net;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Net;
-using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model
 {
@@ -24,14 +20,15 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public Uri? Href { get; set; }
+        public Uri Href { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="Href"/>
         [DisplayName(@"Href"), Description("The URL to download the file from. Relative URLs are only allowed in local feed files.")]
         [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new(value, UriKind.RelativeOrAbsolute)); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.RelativeOrAbsolute); }
         #endregion
 
         /// <summary>
@@ -53,18 +50,8 @@ namespace ZeroInstall.Model
         {
             base.Normalize(feedUri);
 
-            if (Href != null) Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
-        }
-
-        protected abstract string XmlTagName { get; }
-
-        /// <summary>
-        /// Performs sanity checks.
-        /// </summary>
-        /// <exception cref="WebException"><see cref="Href"/> is not set.</exception>
-        public void Validate()
-        {
-            if (Href == null) throw new WebException(string.Format(Resources.MissingXmlAttributeOnTag, "href", XmlTagName));
+            EnsureTag(Href, "href");
+            Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
         }
         #endregion
 

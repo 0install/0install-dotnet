@@ -139,14 +139,8 @@ namespace ZeroInstall.Model
         {
             base.Normalize(feedUri);
 
-            // If the MIME type is already set or the location is missing, we have nothing to do here
-            if (!string.IsNullOrEmpty(MimeType) || Href == null) return;
-
-            // Guess the MIME type based on the file extension
-            MimeType = GuessMimeType(Href.OriginalString);
+            MimeType ??= GuessMimeType(Href.OriginalString);
         }
-
-        protected override string XmlTagName => "archive";
         #endregion
 
         #region Conversion
@@ -174,7 +168,7 @@ namespace ZeroInstall.Model
         public bool Equals(Archive? other)
             => other != null
             && base.Equals(other)
-            && StringUtils.EqualsIgnoreCase(other.MimeType, MimeType)
+            && other.MimeType == MimeType
             && other.StartOffset == StartOffset
             && other.Extract == Extract
             && other.Destination == Destination;
@@ -192,7 +186,7 @@ namespace ZeroInstall.Model
         {
             var hash = new HashCode();
             hash.Add(base.GetHashCode());
-            if (MimeType != null) hash.Add(MimeType, StringComparer.OrdinalIgnoreCase);
+            hash.Add(MimeType);
             hash.Add(StartOffset);
             hash.Add(Extract);
             hash.Add(Destination);

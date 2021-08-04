@@ -132,12 +132,6 @@
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Unable to find feed '{0}' in catalog.</value>
   </data>
-  <data name="ImplementationMissingID" xml:space="preserve">
-    <value>'{0}' in {1} has no ID.</value>
-  </data>
-  <data name="ImplementationMissingVersion" xml:space="preserve">
-    <value>'{0}' in {1} has no version.</value>
-  </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Unable to find implementation for interface '{0}' in the selection.</value>
   </data>
@@ -146,6 +140,9 @@
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>Missing '{0}' attribute on &lt;{1}&gt; tag.</value>
+  </data>
+  <data name="MissingXmlTagOnFeed" xml:space="preserve">
+    <value>Missing &lt;{0}&gt; tag on feed {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>The dot-separated list may only contain decimal numbers.</value>

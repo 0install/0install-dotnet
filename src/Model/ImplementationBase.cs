@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +23,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Category("Identity"), Description("A unique identifier for this implementation. Used when storing implementation-specific user preferences.")]
         [XmlAttribute("id"), DefaultValue("")]
-        public string ID { get; set; }
+        public string ID { get; set; } = default!;
 
         /// <summary>
         /// If the feed file is a local file (the interface 'uri' starts with /) then the local-path attribute may contain the pathname of a local directory (either an absolute path or a path relative to the directory containing the feed file).
@@ -44,11 +42,7 @@ namespace ZeroInstall.Model
         public ManifestDigest ManifestDigest { get => _manifestDigest; set => _manifestDigest = value; }
 
         #region Normalize
-        /// <summary>
-        /// Sets missing default values and handles legacy elements.
-        /// </summary>
-        /// <param name="feedUri">The feed the data was originally loaded from.</param>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <inheritdoc/>
         public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);
@@ -81,6 +75,8 @@ namespace ZeroInstall.Model
 
             // Parse manifest digest from ID if missing
             if (!string.IsNullOrEmpty(ID)) _manifestDigest.ParseID(ID);
+
+            EnsureTag(ID, "id");
         }
         #endregion
 
@@ -106,7 +102,7 @@ namespace ZeroInstall.Model
             var parts = new List<string>();
             if (!string.IsNullOrEmpty(ID)) parts.Add(ID);
             if (Architecture != default) parts.Add(Architecture.ToString());
-            if (Version != null) parts.Add(Version.ToString());
+            parts.Add(Version.ToString());
             if (Released != default) parts.Add(Released.ToString("d", CultureInfo.InvariantCulture));
             if (ReleasedVerbatim != null) parts.Add(ReleasedVerbatim);
             if (Stability != default) parts.Add(Stability.ToString());

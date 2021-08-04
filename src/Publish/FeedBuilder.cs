@@ -205,16 +205,16 @@ namespace ZeroInstall.Publish
         /// <summary>
         /// Generates a feed as described by the properties.
         /// </summary>
-        /// <exception cref="InvalidOperationException"><see cref="MainCandidate"/> is <c>null</c>.</exception>
+        /// <exception cref="InvalidOperationException">Required values have not been generated or set yet.</exception>
         public SignedFeed Build()
         {
             if (MainCandidate == null) throw new InvalidOperationException($"{nameof(MainCandidate)} is not set.");
 
             var implementation = new Implementation
             {
-                ID = ID,
+                ID = ID ?? throw new InvalidOperationException($"{nameof(GenerateDigest)}() has not been called yet."),
                 ManifestDigest = ManifestDigest,
-                Version = MainCandidate.Version,
+                Version = MainCandidate.Version ?? new ImplementationVersion("1"),
                 Architecture = MainCandidate.Architecture
             };
             implementation.Commands.AddRange(Commands);
@@ -223,11 +223,11 @@ namespace ZeroInstall.Publish
             var feed = new Feed
             {
                 Name = MainCandidate.Name ?? throw new InvalidOperationException("Name is not set."),
-                Uri = Uri,
                 Summaries = {MainCandidate.Summary ?? throw new InvalidOperationException("Summary is not set.")},
                 NeedsTerminal = MainCandidate.NeedsTerminal,
                 Elements = {implementation}
             };
+            if (Uri != null) feed.Uri = Uri;
             feed.Icons.AddRange(_icons);
             if (!string.IsNullOrEmpty(MainCandidate.Category)) feed.Categories.Add(new Category {Name = MainCandidate.Category});
             feed.EntryPoints.AddRange(EntryPoints);

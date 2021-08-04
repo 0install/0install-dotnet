@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using System.IO;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Model.Properties;
 
@@ -90,15 +89,11 @@ namespace ZeroInstall.Model.Selection
         /// <param name="implementation">The implementation this selection candidate references.</param>
         /// <param name="requirements">A set of requirements/restrictions the <paramref name="implementation"/> needs to fulfill for <see cref="IsSuitable"/> to be <c>true</c>.</param>
         /// <param name="offlineUncached">Mark this candidate as unsuitable because it is uncached and the network mode is set to offline.</param>
-        /// <exception cref="InvalidDataException"><paramref name="implementation"/>'s <see cref="ImplementationBase.ID"/> is empty.</exception>
         public SelectionCandidate(FeedUri feedUri, FeedPreferences feedPreferences, Implementation implementation, Requirements requirements, bool offlineUncached = false)
         {
             FeedUri = feedUri ?? throw new ArgumentNullException(nameof(feedUri));
             FeedPreferences = feedPreferences ?? throw new ArgumentNullException(nameof(feedPreferences));
             Implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
-
-            if (string.IsNullOrEmpty(implementation.ID)) throw new InvalidDataException(string.Format(Resources.ImplementationMissingID, implementation, feedUri));
-            if (implementation.Version == null) throw new InvalidDataException(string.Format(Resources.ImplementationMissingVersion, implementation, feedUri));
 
             _implementationPreferences = feedPreferences[implementation.ID];
 
@@ -112,7 +107,7 @@ namespace ZeroInstall.Model.Selection
                 Notes = Resources.SelectionCandidateNoteBuggy;
             else if (EffectiveStability == Stability.Insecure)
                 Notes = Resources.SelectionCandidateNoteInsecure;
-            else if (!Implementation.ContainsCommand(requirements.Command))
+            else if (!Implementation.ContainsCommand(requirements.Command ?? Command.NameRun))
                 Notes = string.Format(Resources.SelectionCandidateNoteCommand, requirements.Command);
             else if (offlineUncached)
                 Notes = Resources.SelectionCandidateNoteNotCached;

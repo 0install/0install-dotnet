@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -42,7 +40,7 @@ namespace ZeroInstall.Model
         [Description("The name of the environment variable.")]
         [XmlAttribute("name")]
         [Localizable(false)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// A static value to set the variable to.
@@ -80,6 +78,12 @@ namespace ZeroInstall.Model
         [Description("If the environment variable is not currently set then this value is used for prepending or appending.")]
         [XmlAttribute("default"), DefaultValue("")]
         public string? Default { get; set; }
+
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+            => EnsureTag(Name, "name");
+        #endregion
 
         #region Conversion
         /// <summary>

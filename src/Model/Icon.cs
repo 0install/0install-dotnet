@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +50,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public Uri? Href { get; set; }
+        public Uri Href { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
@@ -60,7 +58,8 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Href"), Description("The URL used to locate the icon.")]
         [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? HrefString { get => Href?.ToStringRfc(); set => Href = (string.IsNullOrEmpty(value) ? null : new(value, UriKind.Absolute)); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.Absolute); }
         #endregion
 
         /// <summary>
@@ -73,11 +72,11 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <summary>
-        /// Performs sanity checks.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize() => EnsureNotNull(Href, xmlAttribute: "href", xmlTag: "icon");
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        public void Normalize()
+            => EnsureTag(Href, "href");
         #endregion
 
         #region Conversion
@@ -125,6 +124,6 @@ namespace ZeroInstall.Model
         /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
         /// <returns>The first matching icon that was found or <c>null</c> if no matching icon was found.</returns>
         public static Icon? GetIcon(this IEnumerable<Icon> icons, string mimeType)
-            => icons?.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
+            => icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
     }
 }

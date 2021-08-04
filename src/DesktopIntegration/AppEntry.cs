@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +29,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [DisplayName("URI"), Description("The URI or local path of the interface defining the application or the pet-name if Requirements is set.")]
         [XmlIgnore]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         string IMergeable<AppEntry>.MergeID => InterfaceUri.ToStringRfc();
 
@@ -40,14 +38,14 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("The name of the application. Usually equal to the Name specified in the Feed.")]
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process.
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public Requirements Requirements { get; set; }
+        public Requirements? Requirements { get; set; }
 
         /// <summary>
         /// The <see cref="Requirements"/> if it is set, otherwise a basic reference to <see cref="InterfaceUri"/>.
@@ -61,12 +59,13 @@ namespace ZeroInstall.DesktopIntegration
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = string.IsNullOrEmpty(value) ? null : new FeedUri(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
 
         /// <summary>Used for XML+JSON serialization.</summary>
         /// <seealso cref="Requirements"/>
         [XmlElement("requirements-json"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string RequirementsJson { get => Requirements?.ToJsonString(); set => Requirements = JsonStorage.FromJsonString<Requirements>(value); }
+        public string? RequirementsJson { get => Requirements?.ToJsonString(); set => Requirements = value == null ? null : JsonStorage.FromJsonString<Requirements>(value); }
         #endregion
 
         /// <summary>
@@ -81,7 +80,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A set of AccessPoints to be registered in the desktop environment. Is null if no desktop integration has been performed yet.")]
         [XmlElement("access-points")]
-        public AccessPointList AccessPoints { get; set; }
+        public AccessPointList? AccessPoints { get; set; }
 
         /// <summary>
         /// Set to <c>true</c> to automatically download the newest available version of the application as a regular background task. Update checks will still be performed when the application is launched when set to <c>false</c>.
@@ -95,7 +94,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A regular expression a computer's hostname must match for this entry to be applied. Enables machine-specific entry filtering.")]
         [XmlAttribute("hostname"), DefaultValue("")]
-        public string Hostname { get; set; }
+        public string? Hostname { get; set; }
 
         /// <inheritdoc/>
         [Browsable(false)]
@@ -163,7 +162,7 @@ namespace ZeroInstall.DesktopIntegration
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(AppEntry other)
+        public bool Equals(AppEntry? other)
             => other != null
             && base.Equals(other)
             && InterfaceUri == other.InterfaceUri
@@ -175,7 +174,7 @@ namespace ZeroInstall.DesktopIntegration
             && Hostname == other.Hostname;
 
         /// <inheritdoc/>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             if (obj == this) return true;

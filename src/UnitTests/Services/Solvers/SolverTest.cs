@@ -63,11 +63,13 @@ namespace ZeroInstall.Services.Solvers
                     new Feed
                     {
                         Uri = new FeedUri("http://example.com/prog1.xml"),
+                        Name = "prog1",
                         Elements = {new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}}
                     },
                     new Feed
                     {
                         Uri = new FeedUri("http://example.com/prog2.xml"),
+                        Name = "prog2",
                         Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
                     }
                 },
@@ -101,6 +103,7 @@ namespace ZeroInstall.Services.Solvers
                     new Feed
                     {
                         Uri = new FeedUri("http://example.com/prog.xml"),
+                        Name = "prog1",
                         Elements =
                         {
                             new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}},

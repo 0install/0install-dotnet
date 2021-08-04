@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +26,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The URI or local path used to identify the interface.")]
         [XmlIgnore]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         /// <summary>
         /// Determines for which operating systems this dependency is required.
@@ -50,7 +48,8 @@ namespace ZeroInstall.Model
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = ((value == null) ? null : new FeedUri(value))!; }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Versions"/>
@@ -117,13 +116,12 @@ namespace ZeroInstall.Model
         protected virtual string XmlTagName => "restricts";
 
         /// <summary>
-        /// Handles legacy elements (converts <see cref="Constraints"/> to <see cref="Versions"/>).
+        /// Flattens inheritance structures, converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public virtual void Normalize()
         {
-            EnsureNotNull(InterfaceUri, xmlAttribute: "interface", xmlTag: XmlTagName);
+            EnsureTag(InterfaceUri, "interface");
 
             if (Constraints.Count != 0)
             {

@@ -17,10 +17,9 @@ namespace ZeroInstall.Model
     public abstract class ArgBase : FeedElement, ICloneable<ArgBase>
     {
         /// <summary>
-        /// Performs sanity checks.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public abstract void Normalize();
 
         /// <summary>

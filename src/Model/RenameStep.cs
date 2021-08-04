@@ -19,18 +19,22 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The source file or directory relative to the implementation root as a Unix-style path.")]
         [XmlAttribute("source"), DefaultValue("")]
-        public string? Source { get; set; }
+        public string Source { get; set; } = default!;
 
         /// <summary>
         /// The destination file or directory relative to the implementation root as a Unix-style path.
         /// </summary>
         [Description("The destination file or directory relative to the implementation root as a Unix-style path.")]
         [XmlAttribute("dest"), DefaultValue("")]
-        public string? Destination { get; set; }
+        public string Destination { get; set; } = default!;
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri? feedUri = null) {}
+        public void Normalize(FeedUri? feedUri = null)
+        {
+            EnsureTag(Source, "source");
+            EnsureTag(Destination, "dest");
+        }
         #endregion
 
         #region Conversion

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +26,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
         [XmlIgnore, JsonProperty("interface")]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         /// <summary>
         /// The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.
@@ -62,6 +60,7 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("interface"), JsonIgnore]
+        // ReSharper disable once ConstantConditionalAccessQualifier
         public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
@@ -201,8 +200,8 @@ namespace ZeroInstall.Model
         /// </summary>
         public override string ToString()
             => string.IsNullOrEmpty(Command)
-                ? InterfaceUri?.ToStringRfc() ?? ""
-                : InterfaceUri?.ToStringRfc() + " (" + Command + ")";
+                ? InterfaceUriString
+                : InterfaceUriString + " (" + Command + ")";
 
         /// <summary>
         /// Transforms the requirements into a command-line arguments.

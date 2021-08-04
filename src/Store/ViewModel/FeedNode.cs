@@ -56,7 +56,7 @@ namespace ZeroInstall.Store.ViewModel
         /// The URI identifying this feed.
         /// </summary>
         [Description("The URI identifying this feed.")]
-        public FeedUri Uri => _feed.Uri;
+        public FeedUri? Uri => _feed.Uri;
 
         /// <summary>
         /// The main website of the application.
@@ -83,6 +83,9 @@ namespace ZeroInstall.Store.ViewModel
         /// <exception cref="KeyNotFoundException">No matching feed could be found in the <see cref="IFeedCache"/>.</exception>
         /// <exception cref="IOException">The feed could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-        public override void Delete(ITaskHandler handler) => _cache.Remove(_feed.Uri);
+        public override void Delete(ITaskHandler handler)
+        {
+            if (_feed.Uri != null) _cache.Remove(_feed.Uri);
+        }
     }
 }

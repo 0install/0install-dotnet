@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +29,7 @@ namespace ZeroInstall.Model.Selection
         /// </summary>
         [Description("The URI or local path of the interface this implementation is for.")]
         [XmlIgnore]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         /// <summary>
         /// The URL or local path of the feed that contains this implementation.
@@ -47,7 +45,8 @@ namespace ZeroInstall.Model.Selection
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="FromFeed"/>
@@ -88,7 +87,7 @@ namespace ZeroInstall.Model.Selection
         {
             base.Normalize(feedUri);
 
-            EnsureNotNull(InterfaceUri, "interface", "selection");
+            EnsureTag(InterfaceUri, "interface");
         }
 
         #region Conversion
@@ -139,8 +138,8 @@ namespace ZeroInstall.Model.Selection
 
         #region Comparison
         /// <inheritdoc/>
-        public int CompareTo(ImplementationSelection other)
-            => StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other.InterfaceUri.ToStringRfc());
+        public int CompareTo(ImplementationSelection? other)
+            => StringComparer.Ordinal.Compare(InterfaceUri.ToStringRfc(), other?.InterfaceUri.ToStringRfc());
         #endregion
     }
 }

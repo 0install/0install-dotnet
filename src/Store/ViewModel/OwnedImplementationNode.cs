@@ -44,7 +44,7 @@ namespace ZeroInstall.Store.ViewModel
         /// The URI of the feed describing the implementation.
         /// </summary>
         [DisplayName("Feed URI"), Description("The URI of the feed describing the implementation.")]
-        public FeedUri FeedUri => _parent.Uri;
+        public FeedUri? FeedUri => _parent.Uri;
 
         /// <summary>
         /// The version number of the implementation.
@@ -69,6 +69,6 @@ namespace ZeroInstall.Store.ViewModel
         /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
-            => $"{_parent.Uri.ToStringRfc()} [{Version}, {Architecture}] - {Digest}: {Path}";
+            => $"{_parent.Uri?.ToStringRfc()} [{Version}, {Architecture}] - {Digest}: {Path}";
     }
 }

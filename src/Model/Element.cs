@@ -1,12 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
@@ -83,13 +82,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Category("Release"), Description("The version number of the implementation.")]
         [XmlIgnore]
-        public ImplementationVersion Version { get; set; }
+        public ImplementationVersion Version { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public virtual string VersionString { get => Version?.ToString()!; set => Version = new(value); }
         #endregion
 
         /// <summary>
@@ -248,7 +248,7 @@ namespace ZeroInstall.Model
                 if (name.Length == 0) return null;
                 try
                 {
-                    return Commands.First(command => command != null && command.Name == name);
+                    return Commands.First(command => command.Name == name);
                 }
                 #region Error handling
                 catch (InvalidOperationException)
@@ -271,15 +271,15 @@ namespace ZeroInstall.Model
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(name);
             #endregion
 
-            return Commands.FirstOrDefault(command => command != null && command.Name == name);
+            return Commands.FirstOrDefault(command => command.Name == name);
         }
 
         #region Normalize
         /// <summary>
-        /// Sets missing default values and handles legacy elements.
+        /// Flattens inheritance structures, converts legacy elements, sets default values and ensures required elements.
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public virtual void Normalize(FeedUri? feedUri = null)
         {
             // Apply if-0install-version filter
@@ -292,10 +292,20 @@ namespace ZeroInstall.Model
             if (Main != null) Commands.Add(new Command {Name = Command.NameRun, Path = Main});
             if (SelfTest != null) Commands.Add(new Command {Name = Command.NameTest, Path = SelfTest});
 
+            foreach (var binding in Bindings) binding.Normalize();
             foreach (var command in Commands) command.Normalize();
             foreach (var dependency in Dependencies) dependency.Normalize();
             foreach (var restriction in Restrictions) restriction.Normalize();
+
+            EnsureTags();
         }
+
+        /// <summary>
+        /// Ensures that required values deserialized from XML attributes are set (not <c>null</c>).
+        /// </summary>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        protected virtual void EnsureTags()
+            => EnsureTag(Version, "version");
 
         /// <summary>
         /// Transfers attributes from another <see cref="Element"/> object to this one.
@@ -308,7 +318,8 @@ namespace ZeroInstall.Model
             if (parent == null) throw new ArgumentNullException(nameof(parent));
             #endregion
 
-            // Check if values are unset and need inheritance)
+            // Check if values are unset and need inheritance
+            // ReSharper disable once ConstantNullCoalescingCondition
             Version ??= parent.Version;
             VersionModifier ??= parent.VersionModifier;
             if (Released == default) Released = parent.Released;

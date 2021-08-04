@@ -4,6 +4,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using FluentAssertions;
 using NanoByte.Common.Storage;
 using Xunit;
@@ -132,8 +134,24 @@ namespace ZeroInstall.Model
             Stability = Stability.Developer,
             Elements =
             {
-                new Implementation {Commands = {new Command {Name = "run", Path = "main1"}}},
-                new Group {Elements = {new Implementation {Commands = {new Command {Name = "run", Path = "main2"}}}}}
+                new Implementation
+                {
+                    ID = "a",
+                    Version = new("1.0"),
+                    Commands = {new Command {Name = "run", Path = "main1"}}
+                },
+                new Group
+                {
+                    Elements =
+                    {
+                        new Implementation
+                        {
+                            ID = "b",
+                            Version = new("1.0"),
+                            Commands = {new Command {Name = "run", Path = "main2"}}
+                        }
+                    }
+                }
             }
         };
         #endregion
@@ -217,6 +235,24 @@ namespace ZeroInstall.Model
             feed.Normalize(new(tempFile));
             feedReload.Normalize(new(tempFile));
             feedReload.GetHashCode().Should().Be(feed.GetHashCode());
+        }
+
+        [Fact]
+        public void NormalizeThrowsOnMissingName()
+        {
+            var feed = CreateTestFeed();
+            feed.Name = null!;
+            feed.Invoking(x => x.Normalize())
+                .Should().Throw<InvalidDataException>().WithMessage("*<name>*");
+        }
+
+        [Fact]
+        public void NormalizeThrowsOnMissingVersion()
+        {
+            var feed = CreateTestFeed();
+            feed.Implementations.First().Version = null!;
+            feed.Invoking(x => x.Normalize())
+                .Should().Throw<InvalidDataException>().WithMessage("*version*<implementation>*");
         }
 
         /// <summary>

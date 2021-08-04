@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -21,7 +19,13 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The name of the environment variable.")]
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
+
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+            => EnsureTag(Name, "name");
+        #endregion
 
         #region Conversion
         /// <summary>

@@ -69,15 +69,15 @@ namespace ZeroInstall.Model
         [Fact]
         public void NormalizeID()
         {
-            var implementation = new Implementation {ID = "sha256=123"};
+            var implementation = new Implementation {ID = "sha256=123", Version = new("1.0")};
             implementation.Normalize(FeedTest.Test1Uri);
             implementation.ManifestDigest.Sha256.Should().Be("123");
 
-            implementation = new Implementation {ID = "sha256=wrong", ManifestDigest = new ManifestDigest(sha256: "correct")};
+            implementation = new Implementation {ID = "sha256=wrong", Version = new("1.0"), ManifestDigest = new ManifestDigest(sha256: "correct")};
             implementation.Normalize(FeedTest.Test1Uri);
             implementation.ManifestDigest.Sha256.Should().Be("correct");
 
-            implementation = new Implementation {ID = "abc"};
+            implementation = new Implementation {ID = "abc", Version = new("1.0")};
             implementation.Normalize(FeedTest.Test1Uri);
         }
 
@@ -88,7 +88,12 @@ namespace ZeroInstall.Model
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public void TestNormalizeCommand()
         {
-            var implementation = new Implementation {Main = "main", SelfTest = "test"};
+            var implementation = new Implementation
+            {
+                ID = "abc", Version = new("1.0"),
+                Main = "main",
+                SelfTest = "test"
+            };
             implementation.Normalize(FeedTest.Test1Uri);
             implementation[Command.NameRun].Path.Should().Be("main");
             implementation[Command.NameTest].Path.Should().Be("test");
@@ -102,12 +107,13 @@ namespace ZeroInstall.Model
         {
             var localUri = new FeedUri(WindowsUtils.IsWindows ? @"C:\local\feed.xml" : "/local/feed.xml");
 
-            var implementation1 = new Implementation {ID = "./subdir"};
+            ImplementationVersion version = new("1.0");
+            var implementation1 = new Implementation {ID = "./subdir", Version = version};
             implementation1.Normalize(localUri);
             implementation1.ID.Should().Be(WindowsUtils.IsWindows ? @"C:\local\.\subdir" : "/local/./subdir");
             implementation1.LocalPath.Should().Be(WindowsUtils.IsWindows ? @"C:\local\.\subdir" : "/local/./subdir");
 
-            var implementation2 = new Implementation {ID = "./wrong", LocalPath = "subdir"};
+            var implementation2 = new Implementation {ID = "./wrong", Version = version, LocalPath = "subdir"};
             implementation2.Normalize(localUri);
             implementation2.ID.Should().Be("./wrong");
             implementation2.LocalPath.Should().Be(WindowsUtils.IsWindows ? @"C:\local\subdir" : "/local/subdir");
@@ -119,7 +125,11 @@ namespace ZeroInstall.Model
         [Fact]
         public void NormalizeRejectLocalPath()
         {
-            var implementation = new Implementation {LocalPath = "subdir"};
+            var implementation = new Implementation
+            {
+                ID = "abc", Version = new("1.0"),
+                LocalPath = "subdir"
+            };
             implementation.Normalize(FeedTest.Test1Uri);
             implementation.LocalPath.Should().BeNull();
         }
@@ -132,7 +142,11 @@ namespace ZeroInstall.Model
         {
             var relative = new Archive {Href = new("relative", UriKind.Relative)};
             var absolute = new Archive {Href = new("http://server/absolute.zip", UriKind.Absolute)};
-            var implementation = new Implementation {RetrievalMethods = {relative, absolute}};
+            var implementation = new Implementation
+            {
+                ID = "abc", Version = new("1.0"),
+                RetrievalMethods = {relative, absolute}
+            };
 
             implementation.Normalize(FeedTest.Test1Uri);
             implementation.RetrievalMethods.Should().Equal(absolute);

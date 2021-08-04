@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -23,11 +21,12 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("A single command-line arguments to be passed to an executable.\r\nWill be automatically escaped to allow proper concatenation of multiple arguments containing spaces.")]
         [XmlText]
-        public string Value { get; set; }
+        public string Value { get; set; } = default!;
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize() => EnsureNotNull(Value, xmlAttribute: "value", xmlTag: "arg");
+        public override void Normalize()
+            => EnsureTag(Value, "value");
         #endregion
 
         #region Conversion
@@ -37,14 +36,14 @@ namespace ZeroInstall.Model
         public static implicit operator Arg(string value) => new() {Value = value};
 
         /// <summary>
-        /// Returns <see cref="Value"/> directly. Safe for parsing!
+        /// Returns <see cref="Value"/>. Not safe for parsing!
         /// </summary>
-        public override string ToString() => Value ?? "(empty)";
+        public override string ToString() => Value;
         #endregion
 
         #region Equality
         /// <inheritdoc/>
-        public bool Equals(Arg other)
+        public bool Equals(Arg? other)
             => other != null && (base.Equals(other) && other.Value == Value);
 
         /// <inheritdoc/>

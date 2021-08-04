@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 
@@ -21,5 +22,12 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Binding"/>.</returns>
         public abstract Binding Clone();
+
+        /// <summary>
+        /// Converts legacy elements, sets default values and ensures required elements.
+        /// </summary>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        public virtual void Normalize()
+        {}
     }
 }

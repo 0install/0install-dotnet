@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
@@ -31,15 +32,18 @@ namespace ZeroInstall.Model
         public XmlElement[]? UnknownElements;
 
         /// <summary>
-        /// Ensures that a value mapped from an XML attribute is not null.
+        /// Ensures that a value deserialized from an XML attribute is set (not <c>null</c>).
         /// </summary>
         /// <param name="value">The mapped value to check.</param>
-        /// <param name="xmlAttribute">The name of the XML attribute.</param>
-        /// <param name="xmlTag">The name of the XML tag containing the attribute.</param>
+        /// <param name="attributeName">The name of the XML attribute.</param>
         /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
-        protected static void EnsureNotNull(object? value, string xmlAttribute, string xmlTag)
+        protected void EnsureTag(object? value, string attributeName)
         {
-            if (value == null) throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, xmlAttribute, xmlTag));
+            if (value == null)
+            {
+                string tagName = this.GetType().GetCustomAttribute<XmlTypeAttribute>()?.TypeName ?? "unknown";
+                throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, tagName));
+            }
         }
 
         #region Comparers

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
@@ -51,11 +52,11 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <summary>
-        /// Call <see cref="RetrievalMethod.Normalize"/> on all contained <see cref="IRecipeStep"/>s.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> is relative and <paramref name="feedUri"/> is a remote URI.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);

@@ -162,7 +162,7 @@ namespace ZeroInstall.Services.Executors
 
             // Clone the first implementation so the command can replaced without affecting Selections
             var mainImplementation = ((ICloneable<ImplementationSelection>)_selections.MainImplementation).Clone();
-            var command = mainImplementation[_selections.Command];
+            var command = mainImplementation[_selections.Command ?? Command.NameRun];
             Debug.Assert(command != null);
 
             string mainPath = FileUtils.UnifySlashes(overrideMain);

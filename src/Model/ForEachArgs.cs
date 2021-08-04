@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +22,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The name of the environment variable to be expanded.")]
         [XmlAttribute("item-from")]
-        public string ItemFrom { get; set; }
+        public string ItemFrom { get; set; } = default!;
 
         /// <summary>
         /// Overrides the default separator character (":" on POSIX and ";" on Windows).
@@ -42,14 +40,15 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <inheritdoc/>
-        public override void Normalize() => EnsureNotNull(ItemFrom, xmlAttribute: "item-from", xmlTag: "for-each");
+        public override void Normalize()
+            => EnsureTag(ItemFrom, "item-from");
         #endregion
 
         #region Conversion
         /// <summary>
         /// Returns the for-each instruction in the form "ItemFrom". Not safe for parsing!
         /// </summary>
-        public override string ToString() => ItemFrom ?? "(empty)";
+        public override string ToString() => ItemFrom;
         #endregion
 
         #region Clone

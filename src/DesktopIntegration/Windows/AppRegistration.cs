@@ -78,7 +78,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             // TODO: Handle appRegistration.X64
             using (var capabilitiesKey = hive.CreateSubKeyChecked( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath))
             {
-                capabilitiesKey.SetValue(RegValueAppName, target.Feed.Name ?? "");
+                capabilitiesKey.SetValue(RegValueAppName, target.Feed.Name);
                 capabilitiesKey.SetValue(RegValueAppDescription, target.Feed.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? "");
 
                 // Set icon if available

@@ -154,7 +154,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
 
         private void DeployBootstrap(ITaskHandler handler, string mode)
         {
-            string appName = _selections.Name ?? "application";
+            string appName = _selections.Name;
             string fileName = (_architecture.OS == OS.Windows)
                 ? mode + " " + appName + ".exe"
                 : mode + "-" + appName.ToLowerInvariant().Replace(" ", "-") + ".sh";

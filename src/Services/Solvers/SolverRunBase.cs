@@ -89,7 +89,7 @@ namespace ZeroInstall.Services.Solvers
                 // Ensure existing selection is one of the compatible candidates
                 if (candidates.All(x => x.Implementation.ID != existingSelection.ID)) return false;
 
-                if (!existingSelection.ContainsCommand(demand.Requirements.Command))
+                if (!existingSelection.ContainsCommand(demand.Requirements.Command ?? Command.NameRun))
                 { // Add additional command to selection if needed
                     var command = existingSelection.AddCommand(demand.Requirements, from: CandidateProvider.LookupOriginalImplementation(existingSelection));
                     return (command == null) || TryFulfill(DemandsFor(command, demand.Requirements.InterfaceUri));

@@ -41,28 +41,20 @@ namespace ZeroInstall.Publish.Capture
             // Associate each command with its command-line
             foreach (var command in commands)
             {
+                if (string.IsNullOrEmpty(command.Path)) continue;
+
                 string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
                 string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
 
-                _commands.Add(GetCommandTuple(installationDir, command, escapePath: true));
+                _commands.Add(((path.EscapeArgument() + " " + arguments).Trim(), command));
 
                 // Only add a version without escaping if it causes no ambiguities
                 if (!path.ContainsWhitespace() || string.IsNullOrEmpty(arguments))
-                    _commands.Add(GetCommandTuple(installationDir, command, escapePath: false));
+                    _commands.Add(((path + " " + arguments).Trim(), command));
             }
 
             // Sort backwards to make sure the most specific matches are selected first
             _commands.Sort((tuple1, tuple2) => string.CompareOrdinal(tuple2.commandLine, tuple1.commandLine));
-        }
-
-        private static (string commandLine, Command command) GetCommandTuple(string installationDir, Command command, bool escapePath)
-        {
-            string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
-            string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
-
-            string commandLine = escapePath ? ("\"" + path + "\"") : path;
-            if (!string.IsNullOrEmpty(arguments)) commandLine += " " + arguments;
-            return (commandLine, command);
         }
 
         /// <summary>

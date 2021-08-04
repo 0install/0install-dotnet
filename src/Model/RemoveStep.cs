@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -21,11 +19,12 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The file or directory to be removed relative to the implementation root as a Unix-style path.")]
         [XmlAttribute("path"), DefaultValue("")]
-        public string Path { get; set; }
+        public string Path { get; set; } = default!;
 
         #region Normalize
         /// <inheritdoc/>
-        public void Normalize(FeedUri? feedUri = null) {}
+        public void Normalize(FeedUri? feedUri = null)
+            => EnsureTag(Path, "path");
         #endregion
 
         #region Conversion
@@ -33,7 +32,7 @@ namespace ZeroInstall.Model
         /// Returns the remove step in the form "Path". Not safe for parsing!
         /// </summary>
         public override string ToString()
-            => Path ?? "";
+            => Path;
         #endregion
 
         #region Clone

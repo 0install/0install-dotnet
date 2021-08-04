@@ -67,12 +67,14 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Convenience cast for <see cref="ImplementationVersion"/>s into <see cref="VersionRange"/>s that match that exact version.
         /// </summary>
+        [return: NotNullIfNotNull("version")]
         public static implicit operator VersionRange?(ImplementationVersion? version)
             => (version == null) ? null : new VersionRange(new VersionRangePartExact(version));
 
         /// <summary>
         /// Convenience cast for <see cref="Constraint"/>s into <see cref="VersionRange"/>s.
         /// </summary>
+        [return: NotNullIfNotNull("constraint")]
         public static implicit operator VersionRange?(Constraint? constraint)
             => (constraint == null) ? null : new VersionRange(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
 

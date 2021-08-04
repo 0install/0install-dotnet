@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +49,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Category("Release"), Description("The range of versions to accept for the specified Package.")]
         [XmlIgnore]
-        public new VersionRange Version { get; set; }
+        public new VersionRange? Version { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
@@ -70,8 +68,17 @@ namespace ZeroInstall.Model
             }
         }
 
+        /// <summary>Used for XML serialization.</summary>
+        /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override string VersionString { get => Version?.ToString(); set => Version = string.IsNullOrEmpty(value) ? null : new VersionRange(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public override string VersionString { get => Version?.ToString()!; set => Version = new VersionRange(value); }
+        #endregion
+
+        #region Normalize
+        /// <inheritdoc/>
+        protected override void EnsureTags()
+        {}
         #endregion
 
         #region Disabled Properties

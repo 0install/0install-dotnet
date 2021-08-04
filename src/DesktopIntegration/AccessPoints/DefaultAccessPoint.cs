@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -28,11 +26,13 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         [Description("The ID of the Capability to be made the default handler.")]
         [XmlAttribute("capability")]
-        public string Capability { get; set; }
+        public string Capability { get; set; } = default!;
 
         #region Equality
-        protected bool Equals(DefaultAccessPoint other)
-            => other != null && base.Equals(other) && other.Capability == Capability;
+        protected bool Equals(DefaultAccessPoint? other)
+            => other != null
+            && base.Equals(other)
+            && other.Capability == Capability;
 
         /// <inheritdoc/>
         public override int GetHashCode()

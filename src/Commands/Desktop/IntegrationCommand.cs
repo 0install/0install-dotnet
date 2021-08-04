@@ -116,7 +116,8 @@ namespace ZeroInstall.Commands.Desktop
         {
             integrationManager.RemoveApp(entry);
             var newEntry = CreateAppEntry(integrationManager, newTarget);
-            integrationManager.AddAccessPoints(newEntry, newTarget.Feed, entry.AccessPoints.Entries);
+            if (entry.AccessPoints != null)
+                integrationManager.AddAccessPoints(newEntry, newTarget.Feed, entry.AccessPoints.Entries);
             return newEntry;
         }
 

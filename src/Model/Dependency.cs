@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,7 +45,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("This can be used to indicate that this dependency is only needed in some cases; depcreated use <command>s instead.")]
         [XmlAttribute("use"), DefaultValue("")]
-        public string Use { get; set; }
+        public string? Use { get; set; }
 
         /// <summary>
         /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.

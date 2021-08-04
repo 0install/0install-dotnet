@@ -1,11 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -27,7 +26,7 @@ namespace ZeroInstall.Model
         [Description("The name of the command this entry point represents.")]
         [TypeConverter(typeof(CommandNameConverter))]
         [XmlAttribute("command")]
-        public string Command { get; set; }
+        public string Command { get; set; } = default!;
 
         /// <summary>
         /// The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.
@@ -105,6 +104,15 @@ namespace ZeroInstall.Model
         [Browsable(false)]
         [XmlElement("icon")]
         public List<Icon> Icons { get; } = new();
+
+        #region Normalize
+        /// <summary>
+        /// Converts legacy elements, sets default values and ensures required elements.
+        /// </summary>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        public void Normalize()
+            => EnsureTag(Command, "command");
+        #endregion
 
         #region Conversion
         /// <summary>

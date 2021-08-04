@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,14 +29,15 @@ namespace ZeroInstall.Model.Selection
         /// </summary>
         [Description("The URI or local path of the interface this selection is based on.")]
         [XmlIgnore]
-        public FeedUri InterfaceUri { get; set; }
+        public FeedUri InterfaceUri { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null) ? null : new FeedUri(value); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
         #endregion
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace ZeroInstall.Model.Selection
         /// </summary>
         [Description("The name specified by the feed at InterfaceUri.")]
         [XmlElement("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Indicates whether the selection was generated for <see cref="Cpu.Source"/>.
@@ -59,7 +58,7 @@ namespace ZeroInstall.Model.Selection
         /// </summary>
         [Description("The name of the command in the interface to be started.")]
         [XmlAttribute("command")]
-        public string Command { get; set; }
+        public string? Command { get; set; }
 
         /// <summary>
         /// A list of <see cref="ImplementationSelection"/>s chosen in this selection.
@@ -175,11 +174,11 @@ namespace ZeroInstall.Model.Selection
         /// <summary>
         /// Calls <see cref="ImplementationBase.Normalize"/> for all <see cref="Implementations"/>.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public void Normalize()
         {
-            EnsureNotNull(InterfaceUri, xmlAttribute: "interface", xmlTag: "selections");
-            EnsureNotNull(Command, xmlAttribute: "command", xmlTag: "selections");
+            EnsureTag(InterfaceUri, "interface");
+            EnsureTag(Command, "command");
 
             foreach (var implementation in Implementations)
                 implementation.Normalize(implementation.FromFeed ?? implementation.InterfaceUri);

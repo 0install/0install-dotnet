@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -21,7 +19,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("If your binding needs a path within the selected implementation, it is suggested that the path attribute be used for this. Other attributes and child elements should be namespaced to avoid collisions. ")]
         [XmlAttribute("path")]
-        public string Path { get; set; }
+        public string? Path { get; set; }
 
         #region Conversion
         /// <summary>

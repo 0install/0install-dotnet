@@ -19,7 +19,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The file's target path relative to the implementation root as a Unix-style path.")]
         [XmlAttribute("dest")]
-        public string? Destination { get; set; }
+        public string Destination { get; set; } = default!;
 
         /// <summary>
         /// Set this to <c>true</c> to mark the file as executable.
@@ -29,7 +29,13 @@ namespace ZeroInstall.Model
         public bool Executable { get; set; }
 
         #region Normalize
-        protected override string XmlTagName => "file";
+        /// <inheritdoc/>
+        public override void Normalize(FeedUri? feedUri = null)
+        {
+            base.Normalize(feedUri);
+
+            EnsureTag(Destination, "dest");
+        }
         #endregion
 
         #region Conversion

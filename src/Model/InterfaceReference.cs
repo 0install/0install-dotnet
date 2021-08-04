@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -25,7 +23,7 @@ namespace ZeroInstall.Model
         /// The URI used to locate the interface.
         /// </summary>
         [XmlIgnore, Browsable(false)]
-        public FeedUri Target { get; set; }
+        public FeedUri Target { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
@@ -33,16 +31,17 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Target"), Description("The URI used to locate the interface.")]
         [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? TargetString { get => Target?.ToStringRfc(); set => Target = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string TargetString { get => Target?.ToStringRfc()!; set => Target = new FeedUri(value); }
         #endregion
 
         #region Normalize
         /// <summary>
-        /// Performs sanity checks.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required fields are not set.</exception>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
-        public void Normalize() => EnsureNotNull(Target, xmlAttribute: "interface", xmlTag: "feed-for");
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        public void Normalize()
+            => EnsureTag(Target, "target");
         #endregion
 
         #region Conversion

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -22,22 +20,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The name of the environment variable. The default is to publish everything.")]
         [XmlAttribute("src"), DefaultValue("")]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         /// <summary>
         /// The mount point on which src is to appear in the filesystem. If missing, '/' (on POSIX) or '%systemdrive%' (on Windows) is assumed.
         /// </summary>
         [Description("The mount point on which src is to appear in the filesystem. If missing, '/' (on POSIX) or '%systemdrive%' (on Windows) is assumed.")]
         [XmlAttribute("mount-point"), DefaultValue("")]
-        public string MountPoint { get; set; }
-
-        /// <summary>
-        /// Creates a new default overlay binding that publishes the entire implementation to the filesystem root.
-        /// </summary>
-        public OverlayBinding()
-        {
-            Source = ".";
-        }
+        public string? MountPoint { get; set; }
 
         #region Conversion
         /// <summary>

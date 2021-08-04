@@ -1,11 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -49,14 +48,14 @@ namespace ZeroInstall.Model
         [Description("The name of the command.")]
         [TypeConverter(typeof(CommandNameConverter))]
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The relative path of an executable inside the implementation that should be executed to run this command.
         /// </summary>
         [Description("The relative path of an executable inside the implementation that should be executed to run this command.")]
         [XmlAttribute("path")]
-        public string Path { get; set; }
+        public string? Path { get; set; }
 
         /// <summary>
         /// A list of command-line arguments to be passed to an implementation executable.
@@ -102,11 +101,13 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <summary>
-        /// Sets missing default values and handles legacy elements.
+        /// Converts legacy elements, sets default values and ensures required elements.
         /// </summary>
-        /// <remarks>This method should be called to prepare a <see cref="Feed"/> for solver processing. Do not call it if you plan on serializing the feed again since it may loose some of its structure.</remarks>
+        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public virtual void Normalize()
         {
+            EnsureTag(Name, "name");
+
             // Apply if-0install-version filter
             Arguments.RemoveAll(FilterMismatch);
             Dependencies.RemoveAll(FilterMismatch);
@@ -115,6 +116,7 @@ namespace ZeroInstall.Model
             if (FilterMismatch(WorkingDir)) WorkingDir = null;
 
             foreach (var argument in Arguments) argument.Normalize();
+            foreach (var binding in Bindings) binding.Normalize();
             Runner?.Normalize();
             foreach (var dependency in Dependencies) dependency.Normalize();
             foreach (var restriction in Restrictions) restriction.Normalize();

@@ -93,8 +93,6 @@ namespace ZeroInstall.Services.Fetchers
             if (retrievalMethod.Href == null) throw new ArgumentException("Missing href.", nameof(retrievalMethod));
             #endregion
 
-            retrievalMethod.Validate();
-
             try
             {
                 return base.Download(retrievalMethod, tag);

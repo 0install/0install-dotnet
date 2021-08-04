@@ -64,10 +64,9 @@ namespace ZeroInstall.Commands.Desktop
         }
 
         private IEnumerable<Requirements> GetApps()
-            => from entry in AppList.LoadSafe(MachineWide).Entries
-               where entry.AutoUpdate
-               where entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)
-               select entry.Requirements ?? new Requirements(entry.InterfaceUri);
+            => AppList.LoadSafe(MachineWide).Entries
+                      .Where(entry => entry.AutoUpdate && (entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)))
+                      .Select(entry => entry.Requirements ?? new Requirements(entry.InterfaceUri));
 
         private ICollection<ImplementationSelection> SolveAll(IEnumerable<Requirements> apps)
         {

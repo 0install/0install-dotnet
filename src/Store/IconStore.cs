@@ -81,7 +81,7 @@ namespace ZeroInstall.Store
 
         internal string BuildPath(Icon icon)
         {
-            string path = Path.Combine(_path, FeedUri.Escape(icon.Href!.AbsoluteUri));
+            string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
 
             void EnsureExtension(string mimeType, string extension)
             {

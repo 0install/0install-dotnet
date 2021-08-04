@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +26,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public FeedUri? Uri { get; set; }
+        public FeedUri Uri { get; set; } = default!;
 
         #region XML serialization
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
@@ -36,7 +34,8 @@ namespace ZeroInstall.Model.Preferences
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Uri"), Description("The URI of the interface to be configured.")]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string UriString { get => Uri?.ToStringRfc(); set => Uri = (string.IsNullOrEmpty(value) ? null : new FeedUri(value)); }
+        // ReSharper disable once ConstantConditionalAccessQualifier
+        public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new FeedUri(value); }
         #endregion
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace ZeroInstall.Model.Preferences
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
             #endregion
 
-            string path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
+            string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
             if (string.IsNullOrEmpty(path)) return new();
 
             Log.Debug("Loading interface preferences for " + interfaceUri.ToStringRfc() + " from: " + path);
