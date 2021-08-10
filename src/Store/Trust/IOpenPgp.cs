@@ -37,10 +37,10 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Imports a public key into the keyring.
         /// </summary>
-        /// <param name="stream">The public key in binary or ASCII Armored format.</param>
-        /// <exception cref="InvalidDataException"><paramref name="stream"/> does not contain a valid public key.</exception>
+        /// <param name="data">The public key in binary or ASCII Armored format.</param>
+        /// <exception cref="InvalidDataException"><paramref name="data"/> does not contain a valid public key.</exception>
         /// <seealso cref="ExportKey"/>
-        void ImportKey(Stream stream);
+        void ImportKey(ArraySegment<byte> data);
 
         /// <summary>
         /// Exports the public key for a specific key in the keyring.

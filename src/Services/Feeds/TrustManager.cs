@@ -9,6 +9,7 @@ using System.Net;
 using System.Xml;
 using NanoByte.Common;
 using NanoByte.Common.Net;
+using NanoByte.Common.Streams;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Properties;
@@ -199,8 +200,7 @@ namespace ZeroInstall.Services.Feeds
                 if (File.Exists(keyFile))
                 {
                     Log.Info("Importing key file: " + keyFile);
-                    using var stream = File.OpenRead(keyFile);
-                    _openPgp.ImportKey(stream);
+                    _openPgp.ImportKey(new(File.ReadAllBytes(keyFile)));
                     return;
                 }
             }
@@ -235,7 +235,7 @@ namespace ZeroInstall.Services.Feeds
         {
             try
             {
-                _handler.RunTask(new DownloadFile(keyUri, _openPgp.ImportKey));
+                _handler.RunTask(new DownloadFile(keyUri, stream => _openPgp.ImportKey(stream.ReadAll())));
             }
             #region Error handling
             catch (InvalidDataException ex)

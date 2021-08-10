@@ -3,9 +3,11 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using FluentAssertions;
 using Moq;
+using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
 using Xunit;
@@ -31,7 +33,8 @@ namespace ZeroInstall.Services.Feeds
 
         private const string KeyInfoResponse = @"<?xml version='1.0'?><key-lookup><item vote=""good"">Key information</item></key-lookup>";
 
-        private static Stream KeyStream => "key".ToStream();
+        private static readonly byte[] _keyBytes = EncodingUtils.Utf8.GetBytes("key");
+        private static Stream KeyStream => _keyBytes.ToStream();
         #endregion
 
         private readonly Config _config = new()
@@ -187,7 +190,7 @@ namespace ZeroInstall.Services.Feeds
             _openPgpMock.SetupSequence(x => x.Verify(_feedBytes, _signatureBytes))
                         .Returns(new OpenPgpSignature[] {new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)})
                         .Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
-            _openPgpMock.Setup(x => x.ImportKey(It.Is<Stream>(stream => stream.ReadToString(Encoding.UTF8) == "key")));
+            _openPgpMock.Setup(x => x.ImportKey(It.Is<ArraySegment<byte>>(segment => segment.SequenceEqual(_keyBytes))));
         }
 
         private void UseKeyInfoServer(MicroServer keyInfoServer)

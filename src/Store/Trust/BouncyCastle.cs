@@ -81,13 +81,9 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public void ImportKey(Stream stream)
+        public void ImportKey(ArraySegment<byte> data)
         {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            var ring = ParseObject<PgpPublicKeyRing>(PgpUtilities.GetDecoderStream(stream ?? throw new ArgumentNullException(nameof(stream))));
+            var ring = ParseObject<PgpPublicKeyRing>(PgpUtilities.GetDecoderStream(data.ToStream()));
             try
             {
                 PublicBundle = PgpPublicKeyRingBundle.AddPublicKeyRing(PublicBundle, ring);

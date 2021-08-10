@@ -79,11 +79,11 @@ namespace ZeroInstall.Store.Trust
 
         [Fact]
         public void ImportKey()
-            => OpenPgp.ImportKey(typeof(OpenPgpTest).GetEmbeddedStream("pubkey.gpg"));
+            => OpenPgp.ImportKey(typeof(OpenPgpTest).GetEmbeddedStream("pubkey.gpg").ReadAll());
 
         [Fact]
         public void ImportKeyInvalidData()
-            => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new MemoryStream(new byte[] {1, 2, 3})));
+            => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new(new byte[] {1, 2, 3})));
 
         [Fact]
         public void ExportKey()

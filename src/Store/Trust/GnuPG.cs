@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
-using NanoByte.Common.Streams;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -123,13 +122,9 @@ namespace ZeroInstall.Store.Trust
         }
 
         /// <inheritdoc/>
-        public void ImportKey(Stream stream)
+        public void ImportKey(ArraySegment<byte> data)
         {
-            #region Sanity checks
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
-
-            new GpgProcess(_homeDir, stream.ReadAll())
+            new GpgProcess(_homeDir, data)
                .Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
         }
 

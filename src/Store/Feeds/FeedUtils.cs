@@ -99,7 +99,7 @@ namespace ZeroInstall.Store.Feeds
             if (signatureStartIndex <= 0 || feedData[signatureStartIndex - 1] != EncodingUtils.Utf8.GetBytes("\n")[0])
                 throw new SignatureException(Resources.XmlSignatureMissingNewLine);
 
-            return new ArraySegment<byte>(feedData, 0, signatureStartIndex);
+            return new(feedData, 0, signatureStartIndex);
         }
 
         /// <summary>
