@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting;
 using System.Runtime.Serialization;
 using NanoByte.Common;
@@ -32,7 +33,7 @@ namespace ZeroInstall.Store.Implementations
                 Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
             }
             #region Error handling
-            catch (Exception ex) when (ex is RemotingException or SerializationException)
+            catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(ex.Message, ex);
