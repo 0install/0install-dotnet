@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.Trust
 
                 if (line.StartsWith("gpg: skipped ") && line.EndsWith(": bad passphrase")) throw new WrongPassphraseException();
                 if (line.StartsWith("gpg: signing failed: bad passphrase")) throw new WrongPassphraseException();
-                if (line.StartsWith("gpg: signing failed: file exists")) throw new IOException(Resources.SignatureAldreadyExists);
+                if (line.StartsWith("gpg: signing failed: file exists")) throw new IOException(Resources.SignatureAlreadyExists);
                 if (line.StartsWith("gpg: signing failed: ") ||
                     line.StartsWith("gpg: error") ||
                     line.StartsWith("gpg: critical"))

@@ -325,7 +325,7 @@ Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybol
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Ruby Gem dosyası içinde data.tar.gz bulunamadı.</value>
   </data>
-  <data name="SignatureAldreadyExists" xml:space="preserve">
+  <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>İmza dosyası zaten var.</value>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">

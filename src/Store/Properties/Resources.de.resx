@@ -322,7 +322,7 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Konnte data.tar.gz in der Ruby Gem Datei nicht finden.</value>
   </data>
-  <data name="SignatureAldreadyExists" xml:space="preserve">
+  <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Die Signaturdatei existiert bereits.</value>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">

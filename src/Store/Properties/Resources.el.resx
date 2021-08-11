@@ -303,7 +303,7 @@
   <data name="RubyGemInvalid" xml:space="preserve">
     <value>Αδυναμία εύρεσης data.tar.gz εσωτερικό αρχείου Ruby Gem.</value>
   </data>
-  <data name="SignatureAldreadyExists" xml:space="preserve">
+  <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">

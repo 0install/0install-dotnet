@@ -655,9 +655,9 @@ namespace ZeroInstall.Store.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Signature file already exists..
         /// </summary>
-        internal static string SignatureAldreadyExists {
+        internal static string SignatureAlreadyExists {
             get {
-                return ResourceManager.GetString("SignatureAldreadyExists", resourceCulture);
+                return ResourceManager.GetString("SignatureAlreadyExists", resourceCulture);
             }
         }
         
