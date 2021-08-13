@@ -9,7 +9,7 @@ using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

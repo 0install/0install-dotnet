@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveInvalid" xml:space="preserve">
-    <value>Die Archivdatei ist ungültig oder beschädigt.</value>
-  </data>
-  <data name="ArchiveInvalidPath" xml:space="preserve">
-    <value>Das Archiv enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
-  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Kopiere Dateien</value>
   </data>
@@ -169,12 +163,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Falle auf Standardwerte zurück.</value>
   </data>
-  <data name="ExtractingArchive" xml:space="preserve">
-    <value>Entpacke Archiv</value>
-  </data>
-  <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Entpacken dieses Archivtyps wird nur unter Windows unterstützt.</value>
-  </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' konnte nicht im Feed Cache gefunden werden. Nach folgender Datei wurde gesucht: {1}</value>
   </data>
@@ -203,9 +191,6 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
   <data name="GeneratingManifest" xml:space="preserve">
     <value>Generiere {0} Manifest</value>
   </data>
-  <data name="HardlinkTargetMissing" xml:space="preserve">
-    <value>Der Hardlink '{0}' im Archiv zeigt auf eine nicht existierende Datei '{1}'.</value>
-  </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Die Datei '{0}' ist weder ein symbolischer Link noch eine reguläre Datei.</value>
   </data>
@@ -230,6 +215,9 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Der Digest '{0}' hat nicht die Form 'Algorithmus=Wert'.</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Das Archiv enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Die Manifest-Datei enthält ungültige Zeilen.</value>
@@ -339,9 +327,6 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   </data>
   <data name="UnknownRecipeStepType" xml:space="preserve">
     <value>Der Recipe Schritt Typ '{0}' ist unbekannten.</value>
-  </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Der Archiv MIME Typ '{0}' wird nicht unterstützt.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Die Passphrase die Sie eingegeben haben ist inkorrekt.</value>

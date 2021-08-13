@@ -1,2 +1,3 @@
 //! \namespace ZeroInstall.Store.Implementations
-//! \brief Caches for implementations (called stores) and logic for manifest generation.
+//! \brief On-disk storage for implementations, i.e. implementation caches.
+//! \sa https://docs.0install.net/details/cache/

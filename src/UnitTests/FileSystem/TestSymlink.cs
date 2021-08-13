@@ -3,7 +3,7 @@
 
 using System.IO;
 using FluentAssertions;
-using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.FileSystem
 {

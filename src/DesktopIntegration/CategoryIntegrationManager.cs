@@ -10,7 +10,7 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using DefaultProgram = ZeroInstall.Model.Capabilities.DefaultProgram;
 
 namespace ZeroInstall.DesktopIntegration

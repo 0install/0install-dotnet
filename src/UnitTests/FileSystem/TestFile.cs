@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using FluentAssertions;
 using NanoByte.Common;
-using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.FileSystem
 {

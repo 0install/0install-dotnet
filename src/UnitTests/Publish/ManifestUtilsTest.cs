@@ -5,7 +5,7 @@ using FluentAssertions;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using Xunit;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Publish
 {

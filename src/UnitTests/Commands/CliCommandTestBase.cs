@@ -8,7 +8,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using Moq;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands
 {

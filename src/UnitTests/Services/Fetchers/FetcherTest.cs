@@ -14,9 +14,10 @@ using Xunit;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Services.Fetchers
 {

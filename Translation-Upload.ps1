@@ -12,6 +12,7 @@ function upload($slug, $pathBase) {
 
 upload model "$PSScriptRoot\src\Model\Properties\Resources"
 upload store "$PSScriptRoot\src\Store\Properties\Resources"
+upload archives "$PSScriptRoot\src\Archives\Properties\Resources"
 upload services "$PSScriptRoot\src\Services\Properties\Resources"
 upload desktopintegration "$PSScriptRoot\src\DesktopIntegration\Properties\Resources"
 upload commands "$PSScriptRoot\src\Commands\Properties\Resources"

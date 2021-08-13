@@ -8,7 +8,7 @@ using System.IO;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Design;
-using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

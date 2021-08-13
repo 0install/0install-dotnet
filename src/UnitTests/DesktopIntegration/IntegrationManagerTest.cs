@@ -10,7 +10,7 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Services;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using FileType = ZeroInstall.Model.Capabilities.FileType;
 
 namespace ZeroInstall.DesktopIntegration

@@ -17,7 +17,7 @@ using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands
 {

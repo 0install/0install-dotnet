@@ -9,11 +9,13 @@ using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Archives;
+using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Properties;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Archives;
 
 namespace ZeroInstall.Services.Fetchers
 {
@@ -144,13 +146,13 @@ namespace ZeroInstall.Services.Fetchers
                             Download(builder, download, manifestDigest.Best);
                             break;
                         case RemoveStep remove:
-                            builder.Apply(remove);
+                            builder.Remove(remove);
                             break;
                         case RenameStep rename:
-                            builder.Apply(rename);
+                            builder.Rename(rename);
                             break;
                         case CopyFromStep copyFrom:
-                            builder.Apply(copyFrom, Fetch(copyFrom.Implementation) ?? throw new IOException($"Unable to process {copyFrom}."), Handler);
+                            builder.CopyFrom(copyFrom, Fetch(copyFrom.Implementation) ?? throw new IOException($"Unable to process {copyFrom}."), Handler);
                             break;
                         default:
                             throw new NotSupportedException($"Unknown recipe step: ${step}");
@@ -183,6 +185,6 @@ namespace ZeroInstall.Services.Fetchers
         /// <param name="download">The retrieval method used to download data.</param>
         /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars. Usually <see cref="ManifestDigest.Best"/>.</param>
         protected virtual void Download(IBuilder builder, DownloadRetrievalMethod download, object? tag)
-            => Handler.RunTask(new DownloadFile(download.Href, stream => builder.Apply(download, stream, Handler, tag), download.DownloadSize) {Tag = tag});
+            => Handler.RunTask(new DownloadFile(download.Href, stream => builder.Add(download, stream, Handler, tag), download.DownloadSize) {Tag = tag});
     }
 }

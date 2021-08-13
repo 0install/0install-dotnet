@@ -6,7 +6,7 @@ using System.IO;
 using FluentAssertions;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Publish.EntryPoints
 {

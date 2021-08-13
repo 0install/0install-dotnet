@@ -3,12 +3,14 @@ digraph {
     publish [label="ZeroInstall.Publish"];
     services [label="ZeroInstall.Services"];
     desktop_integration [label="ZeroInstall.DesktopIntegration"];
+    archives [label="ZeroInstall.Archives"];
     store [label="ZeroInstall.Store"];
     model [label="ZeroInstall.Model"];
 
     commands -> {services desktop_integration};
-    publish -> desktop_integration;
-    services -> store;
+    publish -> {archives desktop_integration};
+    services -> archives;
+    archives -> store;
     desktop_integration -> store;
     store -> model;
 }

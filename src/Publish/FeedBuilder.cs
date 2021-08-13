@@ -12,7 +12,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Publish.EntryPoints;
 using ZeroInstall.Publish.Properties;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Publish

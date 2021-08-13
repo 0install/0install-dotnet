@@ -10,6 +10,7 @@ using Xunit;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 

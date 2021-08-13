@@ -10,7 +10,7 @@ using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;

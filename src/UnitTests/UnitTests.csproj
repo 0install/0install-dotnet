@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
     <ProjectReference Include="..\Commands\Commands.csproj" PrivateAssets="None" />

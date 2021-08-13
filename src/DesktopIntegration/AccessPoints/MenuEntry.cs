@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {

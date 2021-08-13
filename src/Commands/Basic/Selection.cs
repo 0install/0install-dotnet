@@ -14,7 +14,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic

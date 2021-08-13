@@ -18,7 +18,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 

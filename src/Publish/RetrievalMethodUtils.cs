@@ -9,6 +9,7 @@ using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
+using ZeroInstall.Archives;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
 using ZeroInstall.Store.Implementations;

@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using System.Net;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

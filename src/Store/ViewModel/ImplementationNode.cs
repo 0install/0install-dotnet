@@ -10,7 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.ViewModel

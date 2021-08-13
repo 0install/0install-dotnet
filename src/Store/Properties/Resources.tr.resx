@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveInvalid" xml:space="preserve">
-    <value>Arşiv dosyası geçersiz ya da bozuk.</value>
-  </data>
-  <data name="ArchiveInvalidPath" xml:space="preserve">
-    <value>Arşiv geçersiz bir yol içeriyor (olası bir güvenlik açığı): {0}</value>
-  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Dosyalar kopyalanıyor</value>
   </data>
@@ -169,12 +163,6 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Güvenlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
   </data>
-  <data name="ExtractingArchive" xml:space="preserve">
-    <value>Arşiv ayıklanıyor</value>
-  </data>
-  <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Bu arşiv türü yalnız Windows üzerinde ayıklanabilir.</value>
-  </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' akış ön belleğinde bulunamadı. Dosyya şuradan bakıldı: {1}</value>
   </data>
@@ -203,9 +191,6 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
   <data name="GeneratingManifest" xml:space="preserve">
     <value>{0} özeti oluşturuluyor</value>
   </data>
-  <data name="HardlinkTargetMissing" xml:space="preserve">
-    <value>Arşivdeki '{0}' sabit bağlantısının gösterdiği '{1}' dosyası yok.</value>
-  </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>'{0}' dosyası ne bir sembolik bağlantı ne de normal bir dosya.</value>
   </data>
@@ -230,6 +215,9 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>'{0}' özeti 'algoritma=değer' biçiminde değil.</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Arşiv geçersiz bir yol içeriyor (olası bir güvenlik açığı): {0}</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyasında geçersiz satırlar var.</value>
@@ -339,9 +327,6 @@ Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybol
   </data>
   <data name="UnknownRecipeStepType" xml:space="preserve">
     <value>'{0}'. tarif adımı türü bilinmiyor.</value>
-  </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>'{0}' arşiv MIME türü desteklenmiyor.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Yazdığınız parola geçersiz.</value>

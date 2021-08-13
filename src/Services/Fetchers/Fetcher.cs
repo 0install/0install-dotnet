@@ -8,10 +8,12 @@ using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
+using ZeroInstall.Archives;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Properties;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Fetchers
@@ -100,7 +102,7 @@ namespace ZeroInstall.Services.Fetchers
                 {
                     Handler.RunTask(new DownloadFile(
                         new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
-                        stream => builder.Apply(download, stream, Handler, tag),
+                        stream => builder.Add(download, stream, Handler, tag),
                         download.DownloadSize)
                     {Tag = tag});
                 }

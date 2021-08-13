@@ -8,6 +8,7 @@ using Moq;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations
 {

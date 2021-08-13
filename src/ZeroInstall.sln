@@ -22,6 +22,8 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.props = Directory.Build.props
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archives", "Archives\Archives.csproj", "{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996B5E17-68C8-4901-990F-7D3660A78AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

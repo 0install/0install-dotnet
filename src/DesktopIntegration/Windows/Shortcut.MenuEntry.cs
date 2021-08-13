@@ -8,7 +8,7 @@ using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

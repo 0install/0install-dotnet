@@ -7,8 +7,7 @@ using System.IO;
 using System.Net;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
-
+using ZeroInstall.Store.Icons;
 #if NETFRAMEWORK
 using System.CodeDom.Compiler;
 using System.Globalization;

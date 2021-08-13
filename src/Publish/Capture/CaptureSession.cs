@@ -5,10 +5,10 @@ using System;
 using System.IO;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Archives.Builders;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
-using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Archives;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Publish.Capture
 {

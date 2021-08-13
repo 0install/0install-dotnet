@@ -10,7 +10,8 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.FileSystem;
+using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations

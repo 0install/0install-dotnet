@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using NDesk.Options;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic
 {

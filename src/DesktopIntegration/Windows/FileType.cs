@@ -11,7 +11,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {

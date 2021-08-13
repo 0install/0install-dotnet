@@ -12,6 +12,7 @@ function download($slug, $pathBase) {
 
 download model "$PSScriptRoot\src\Model\Properties\Resources"
 download store "$PSScriptRoot\src\Store\Properties\Resources"
+download archives "$PSScriptRoot\src\Archives\Properties\Resources"
 download services "$PSScriptRoot\src\Services\Properties\Resources"
 download desktopintegration "$PSScriptRoot\src\DesktopIntegration\Properties\Resources"
 download commands "$PSScriptRoot\src\Commands\Properties\Resources"

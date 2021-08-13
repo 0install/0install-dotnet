@@ -61,24 +61,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The archive file is invalid or damaged..
-        /// </summary>
-        internal static string ArchiveInvalid {
-            get {
-                return ResourceManager.GetString("ArchiveInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The archive contains an invalid path (potentially a security risk): {0}.
-        /// </summary>
-        internal static string ArchiveInvalidPath {
-            get {
-                return ResourceManager.GetString("ArchiveInvalidPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Copying files.
         /// </summary>
         internal static string CopyFiles {
@@ -197,24 +179,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Extracting archive.
-        /// </summary>
-        internal static string ExtractingArchive {
-            get {
-                return ResourceManager.GetString("ExtractingArchive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Extracting this archive type is only supported on Windows..
-        /// </summary>
-        internal static string ExtractionOnlyOnWindows {
-            get {
-                return ResourceManager.GetString("ExtractionOnlyOnWindows", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Usage of the feed mirror, which is required for search, is disabled.
         ///Run &apos;0install config feed_mirror default&apos; to enable it..
         /// </summary>
@@ -297,15 +261,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The hardlink &apos;{0}&apos; in the archive points to a non-existent file &apos;{1}&apos;..
-        /// </summary>
-        internal static string HardlinkTargetMissing {
-            get {
-                return ResourceManager.GetString("HardlinkTargetMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The file &apos;{0}&apos; is neither a symbolic link nor a regular file..
         /// </summary>
         internal static string IllegalFileType {
@@ -375,6 +330,15 @@ namespace ZeroInstall.Store.Properties {
         internal static string InvalidDigest {
             get {
                 return ResourceManager.GetString("InvalidDigest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The archive contains an invalid path (potentially a security risk): {0}.
+        /// </summary>
+        internal static string InvalidPath {
+            get {
+                return ResourceManager.GetString("InvalidPath", resourceCulture);
             }
         }
         
@@ -703,15 +667,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string UnknownRecipeStepType {
             get {
                 return ResourceManager.GetString("UnknownRecipeStepType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The archive MIME type &apos;{0}&apos; is not supported..
-        /// </summary>
-        internal static string UnsupportedArchiveMimeType {
-            get {
-                return ResourceManager.GetString("UnsupportedArchiveMimeType", resourceCulture);
             }
         }
         

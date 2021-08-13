@@ -8,7 +8,7 @@ using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Services.Solvers
 {

@@ -7,8 +7,7 @@ using System.Net;
 using Microsoft.Win32;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
-
+using ZeroInstall.Store.Icons;
 #if NETFRAMEWORK
 using NanoByte.Common.Native;
 #endif

@@ -7,10 +7,12 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NDesk.Options;
+using ZeroInstall.Archives.Builders;
+using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Archives;
 
 namespace ZeroInstall.Commands.Basic
 {

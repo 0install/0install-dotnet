@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveInvalid" xml:space="preserve">
-    <value>The archive file is invalid or damaged.</value>
-  </data>
-  <data name="ArchiveInvalidPath" xml:space="preserve">
-    <value>The archive contains an invalid path (potentially a security risk): {0}</value>
-  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copying files</value>
   </data>
@@ -169,12 +163,6 @@ Alternatively you can use the graphical user interface for managing the caches:
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Error loading the trust database. Reverting to default values.</value>
   </data>
-  <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extracting archive</value>
-  </data>
-  <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Extracting this archive type is only supported on Windows.</value>
-  </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' could not be located in the feed cache. Looked for file at: {1}</value>
   </data>
@@ -203,9 +191,6 @@ Run '0install config feed_mirror default' to enable it.</value>
   <data name="GeneratingManifest" xml:space="preserve">
     <value>Generating {0} manifest</value>
   </data>
-  <data name="HardlinkTargetMissing" xml:space="preserve">
-    <value>The hardlink '{0}' in the archive points to a non-existent file '{1}'.</value>
-  </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>The file '{0}' is neither a symbolic link nor a regular file.</value>
   </data>
@@ -230,6 +215,9 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Digest '{0}' is not in the form 'algorithm=value'.</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>The archive contains an invalid path (potentially a security risk): {0}</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>The manifest file contains invalid lines.</value>
@@ -342,9 +330,6 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   </data>
   <data name="UnknownRecipeStepType" xml:space="preserve">
     <value>The recipe step type '{0}' is unknown.</value>
-  </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>The archive MIME type '{0}' is not supported.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>The passphrase you entered is incorrect.</value>

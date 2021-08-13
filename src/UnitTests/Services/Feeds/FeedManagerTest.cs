@@ -13,7 +13,7 @@ using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Preferences;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Trust;
 

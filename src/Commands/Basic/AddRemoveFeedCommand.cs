@@ -9,7 +9,7 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic
 {

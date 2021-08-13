@@ -13,6 +13,8 @@ using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
+using ZeroInstall.Store.FileSystem;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations
 {
@@ -36,7 +38,7 @@ namespace ZeroInstall.Store.Implementations
             catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException)
             {
                 // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
+                throw new IOException(Resources.StoreServiceCommunicationProblem, ex);
             }
             #endregion
         }

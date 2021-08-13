@@ -16,7 +16,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web">

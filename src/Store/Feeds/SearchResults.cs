@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Feeds

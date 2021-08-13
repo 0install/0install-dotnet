@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using JetBrains.Annotations;
 using ZeroInstall.Model;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations
 {

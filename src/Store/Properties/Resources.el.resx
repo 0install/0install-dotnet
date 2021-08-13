@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveInvalid" xml:space="preserve">
-    <value>Το αρχείο αρχειοθέτησης δεν είναι έγκυρο ή κατεστραμμένο.</value>
-  </data>
-  <data name="ArchiveInvalidPath" xml:space="preserve">
-    <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
-  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Αντιγραφή αρχείων</value>
   </data>
@@ -168,12 +162,6 @@
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
-  </data>
-  <data name="ExtractingArchive" xml:space="preserve">
-    <value>Εξαγόμενο αρχείο</value>
-  </data>
-  <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Η εξαγωγή αυτού του είδους αρχείων υποστηρίζεται μόνο στο Windows.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' δεν ήταν δυνατό να εντοπιστεί στην προσωρινή μνήμη τροφοδοσίας. Κοίταξtε για το αρχείο στο: {1}</value>
@@ -223,6 +211,9 @@
   </data>
   <data name="InvalidDigest" xml:space="preserve">
     <value>Αφομοίωση '{0}' δεν έχει τη μορφή «αλγόριθμος = τιμή».</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Το αρχείο δήλωσης περιέχει μη έγκυρες γραμμές.</value>
@@ -320,9 +311,6 @@
   </data>
   <data name="UnknownRecipeStepType" xml:space="preserve">
     <value>Ο τύπος recipe '{0}' είναι άγνωστος.</value>
-  </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Ο τύπος MIME του αρχείου '{0}' δεν υποστηρίζεται.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Η φράση πρόσβασης που έχετε εισάγει είναι λάθος.</value>

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Solvers

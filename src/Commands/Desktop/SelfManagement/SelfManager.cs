@@ -8,7 +8,7 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
-using ZeroInstall.Store.Implementations.Deployment;
+using ZeroInstall.Store.Deployment;
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement
 {

@@ -5,11 +5,11 @@ using System;
 using System.IO;
 using NanoByte.Common;
 using NDesk.Options;
+using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations;
-using ZeroInstall.Store.Implementations.Archives;
-using ZeroInstall.Store.Implementations.Manifests;
+using ZeroInstall.Store.FileSystem;
+using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Commands.Basic
 {

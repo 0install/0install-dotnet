@@ -10,7 +10,7 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
-
+using ZeroInstall.Store.FileSystem;
 #if NETFRAMEWORK
 using System.Runtime.Remoting;
 #endif

@@ -10,7 +10,7 @@ using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
-using ZeroInstall.Store;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.DesktopIntegration
 {
