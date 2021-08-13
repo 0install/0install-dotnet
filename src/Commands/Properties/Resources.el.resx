@@ -421,9 +421,6 @@
   <data name="MyApps" xml:space="preserve">
     <value>Οι εφαρμογές μου</value>
   </data>
-  <data name="NoLongerUsed" xml:space="preserve">
-    <value>Δεν χρησιμοποιείται πλέον:</value>
-  </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Ο γραφικός επεξεργαστής πολιτικής δεν διατίθενται σε λειτουργία της γραμμής εντολών.</value>
   </data>

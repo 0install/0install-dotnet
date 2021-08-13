@@ -1251,15 +1251,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No longer used: .
-        /// </summary>
-        public static string NoLongerUsed {
-            get {
-                return ResourceManager.GetString("NoLongerUsed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Zero Install is running from a user-specific directory. It needs to be deployed to a directory accessible by all users for machine-wide desktop integration to work..
         /// </summary>
         public static string NoMachineWideIntegrationFromPerUser {

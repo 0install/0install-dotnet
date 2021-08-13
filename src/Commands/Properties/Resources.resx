@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
     Microsoft ResX Schema
@@ -526,9 +526,6 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install is running in portable mode. It needs to be deployed to a permanent location for desktop integration to work. This will be completely independent from your portable copy.</value>
-  </data>
-  <data name="NoLongerUsed" xml:space="preserve">
-    <value>No longer used: </value>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install is running from a user-specific directory. It needs to be deployed to a directory accessible by all users for machine-wide desktop integration to work.</value>

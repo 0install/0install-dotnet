@@ -121,7 +121,7 @@
     <value>Dosyalar kopyalanıyor</value>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu ön bellek içindeki alt dizinler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
+    <value>Bu ön bellek içindeki alt klasörler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
 Bu korumanın yan etkisi olarak bu dosyalar Windows Gezgini kullanılarak silinemez.
 
 Tek bir kaydı silmek için komut satırında şu komutu kullanabilirsiniz:
@@ -140,13 +140,13 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
     <value>{0} klasörü siliniyor</value>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>{0} uygulaması siliniyor</value>
+    <value>{0} uyarlaması siliniyor</value>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
     <value>Eski dosyalar siliniyor</value>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Bir uygulamanın karma değeri beklenen değerle eşleşmiyor.</value>
+    <value>Bir uyarlamanın karma değeri beklenen değerle eşleşmiyor.</value>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Geçerli değer: {0}</value>
@@ -170,11 +170,8 @@ Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri y
     <value>Arama için gereken akış yansısı devre dışı bırakılmış.
 Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.</value>
   </data>
-  <data name="FileMissingDest" xml:space="preserve">
-    <value>Bir &lt;file&gt; kod iminde hedef özniteliği eksik.</value>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>'{0}' olarak dosya ya da dizin bulunamıyor.</value>
+    <value>'{0}' dosya ya da klasörü bulunamadı.</value>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Silmek istediğiniz dosyalar şu anda kullanılıyor.</value>
@@ -188,17 +185,14 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>'{0}' üzerindeki çift dosyalar bulunuyor</value>
   </data>
-  <data name="GeneratingManifest" xml:space="preserve">
-    <value>{0} özeti oluşturuluyor</value>
-  </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>'{0}' dosyası ne bir sembolik bağlantı ne de normal bir dosya.</value>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>'{0}' uygulaması depoda zaten var.</value>
+    <value>'{0}' uyarlaması depoda zaten var.</value>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>'{0}' uygulaması bozulmuş.</value>
+    <value>'{0}' uyarlaması bozulmuş.</value>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Kaldırmak ister misiniz? Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
@@ -207,17 +201,14 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
     <value>Kaldırmak için '0install store remove {0}' komutunu kullanın. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>'{0}' uygulaması bulunamadı.</value>
+    <value>'{0}' uyarlaması bulunamadı.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Kullanılan dosya sistemi dosyaların değişiklik zamanlarını yeterli doğrulukta kaydetmiyor.
 FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen NTFS biçimine dönüştürün.</value>
   </data>
-  <data name="InvalidDigest" xml:space="preserve">
-    <value>'{0}' özeti 'algoritma=değer' biçiminde değil.</value>
-  </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arşiv geçersiz bir yol içeriyor (olası bir güvenlik açığı): {0}</value>
+    <value>Arşiv içinde geçersiz bir yol var (olası bir güvenlik açığı): {0}</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyasında geçersiz satırlar var.</value>
@@ -228,23 +219,11 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   <data name="InvalidSignature" xml:space="preserve">
     <value>İmza geçersiz ya da bozulmuş.</value>
   </data>
-  <data name="InvalidUrl" xml:space="preserve">
-    <value>İstenilen adres geçersiz.</value>
-  </data>
-  <data name="MissingNameTagInFeed" xml:space="preserve">
-    <value>{0} akışında &lt;name&gt; kod imi eksik.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Yalnız yöneticiler paylaşılan bir depoyu iyileştirebilir.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Yalnız yöneticiler paylaşılan bir depodan bileşen kaldırabilir.</value>
-  </data>
-  <data name="MustBeSpecificCPU" xml:space="preserve">
-    <value>Değer belirli bir işlemci olmalıdır ("Tümü" ya da "Bilinmiyor" olamaz).</value>
-  </data>
-  <data name="MustBeSpecificOS" xml:space="preserve">
-    <value>Değer belirli bir işletim sistemi olmalıdır ("Tümü" ya da "Bilinmiyor" olamaz).</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Dosya ya da klasör adında satır başı karakteri bulunamaz.</value>
@@ -260,10 +239,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>Sürüm seçilmemiş</value>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install kendisi bir uygulama ön belleğinden kaldıramaz.</value>
-  </data>
-  <data name="NoSuitableIconFound" xml:space="preserve">
-    <value>Uygun bir simge bulunamadı.</value>
+    <value>Zero Install kendisini bir uyarlama ön belleğinden kaldıramaz.</value>
   </data>
   <data name="NotCached" xml:space="preserve">
     <value>(ön belleğe alınmamış)</value>
@@ -274,14 +250,11 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Bu seçenek bir grup ilkesi tarafından ayarlandığından değiştirilemez.</value>
   </data>
-  <data name="PathNotRelative" xml:space="preserve">
-    <value>Yol göreli olmalıdır.</value>
-  </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.</value>
+    <value>'{0}' uyarlama deposuna erişilirken bir sorun çıktı.</value>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.
+    <value>'{0}' uyarlama deposuna erişilirken bir sorun çıktı.
 '{1}' yapılandırma dosyasında belirtilmiş.</value>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -292,17 +265,14 @@ Sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
     <value>'{0}' yapılandırma değeri yüklenirken bir sorun çıktı.
 Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybolabilir.</value>
   </data>
-  <data name="RootedPathRequired" xml:space="preserve">
-    <value>Tam belirtilmiş/kök klasöre göre yazılmış yol gereklidir.</value>
-  </data>
-  <data name="RubyGemInvalid" xml:space="preserve">
-    <value>Ruby Gem dosyası içinde data.tar.gz bulunamadı.</value>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Dosyalar işleniyor</value>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>İmza dosyası zaten var.</value>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Depo Hizmeti bağlantısı kurulamadı.</value>
+    <value>Depo hizmeti bağlantısı kurulamadı.</value>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
     <value>Geçici klasörler</value>
@@ -310,23 +280,11 @@ Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybol
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Belirtilen adı taşıyan bir gizli anahtar bulunamadı.</value>
   </data>
-  <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>'{0}'. tarif adımında  '{1}' uygulamasındaki uygulama referansı geçersiz.</value>
-  </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>'{0}' için yazma koruması etkinleştirilemedi.</value>
   </data>
-  <data name="UnknownCpu" xml:space="preserve">
-    <value>İşlemci bilinmiyor.</value>
-  </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Arabirim bilinmiyor.</value>
-  </data>
-  <data name="UnknownOS" xml:space="preserve">
-    <value>İşletim sistemi bilinmiyor.</value>
-  </data>
-  <data name="UnknownRecipeStepType" xml:space="preserve">
-    <value>'{0}'. tarif adımı türü bilinmiyor.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Yazdığınız parola geçersiz.</value>

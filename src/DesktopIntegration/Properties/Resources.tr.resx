@@ -142,7 +142,7 @@
     <value>'{0}' adında geçersiz karakterler var.</value>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Lütfen Sync'i ayarlamak için '0install central' ya da '0install config' kullanın.</value>
+    <value>Lütfen Sync kurmak için '0install central' ya da '0install config' kullanın.</value>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>'{0}' yüklenirken bir sorun çıktı.</value>
@@ -158,17 +158,17 @@
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Sync sunucusu için yazdığınız şifreleme anahtarı doğru değil. Lütfen eşitleme ayarlarınızı denetleyin.
-Sunucu tarafından kullanılan şifreleme anahtarını değiştirmek için sorun giderme yardımcısını ("Sync" düğmesini sağ tıklatın) ya da '0install sync --reset=server' komutunu kullanın.</value>
+Sunucu tarafından kullanılan şifreleme anahtarını değiştirmek için sorun giderme yardımcısını ("Sync" düğmesine sağ tıklayın) ya da '0install sync --reset=server' komutunu kullanın.</value>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
-    <value>Eşitleme verisi indiriliyor</value>
+    <value>Eşitleme verileri indiriliyor</value>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Sync sunucusundaki veri bozulmuş.
 Sunucudaki veriyi değiştirmek için sorun giderme yardımcısını ("Sync" düğmesine sağ tıklayın) ya da '0install sync --reset=server' komutunu kullanın.</value>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Eşitleme verisi gönderiliyor</value>
+    <value>Eşitleme verileri gönderiliyor</value>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>'{1}' kimliği ile {0} bulunamadı.</value>

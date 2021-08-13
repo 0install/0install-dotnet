@@ -121,35 +121,35 @@
     <value>Yürütülebilir dosyalar aranıyor</value>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Bir bildirim özeti bir boş dizin için tasarlandı. "extract" değerinin arşiv için doğru şekilde ayarlandığını denetleyin.</value>
+    <value>Bir bildirim özeti boş bir klasör için tasarlandı. "extract" değerinin arşiv için doğru şekilde ayarlandığından emin olun.</value>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Uygulamaların giriş noktaları bulunamıyor.
 Giriş noktalarını el ile belirtmeyi deneyin.</value>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value> '{0}' Zero Install kullanılarak indiriliyor</value>
+    <value>'{0}' Zero Install kullanılarak indiriliyor</value>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>'{0}' dosyası bulunamıyor.</value>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>'{0}' bir yükleme dizini olarak algılandı.</value>
+    <value>'{0}' bir kurulum klasörü olarak algılandı.</value>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>32-bit %ProgramFiles% dizini bulunamıyor.</value>
+    <value>32-bit %ProgramFiles% klasörü bulunamadı.</value>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Kayıt defterinde çoklu varsayılan program kaydı algılandı. Aynı anda tümü kullanılamaz, ancak genellikle sonuncu kayıtlar önceliklidir.</value>
+    <value>Kayıt defterinde çoklu varsayılan uygulama kaydı algılandı. Aynı anda tümü kullanılamaz, ancak genellikle sonuncu kayıtlar önceliklidir.</value>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Çoklu yükleme dizini algılandı. İlk olarak varsayılanı seçin.</value>
+    <value>Çoklu kurulum klasörü algılandı. İlk olarak varsayılanı seçin.</value>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Kayıt defterinde çoklu yeni uygulama kayıtları algılandı. İlk olarak varsayılanı seçin.</value>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Yükleme dizini algılanmadı.
+    <value>Kurulum klasörü algılanamadı.
 El ile belirtmeyi deneyin.</value>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
@@ -159,9 +159,9 @@ El ile belirtmeyi deneyin.</value>
     <value>Gizli anahtar kullanıcı anahtarlığında değil.</value>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Dosya boyutu henüz saptanamadı.</value>
+    <value>Dosya boyutu henüz belirlenemedi.</value>
   </data>
   <data name="UnknownRetrievalMethodType" xml:space="preserve">
-    <value>Bilinmeyen alma yöntemi türü.</value>
+    <value>Alma yöntemi türü bilinmiyor.</value>
   </data>
 </root>

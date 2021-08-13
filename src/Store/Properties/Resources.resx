@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -170,9 +170,6 @@ Alternatively you can use the graphical user interface for managing the caches:
     <value>Usage of the feed mirror, which is required for search, is disabled.
 Run '0install config feed_mirror default' to enable it.</value>
   </data>
-  <data name="FileMissingDest" xml:space="preserve">
-    <value>A &lt;file&gt; tag is missing a destination attribute.</value>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Unable to find file or directory '{0}'.</value>
   </data>
@@ -187,9 +184,6 @@ Run '0install config feed_mirror default' to enable it.</value>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Finding duplicate files in '{0}'</value>
-  </data>
-  <data name="GeneratingManifest" xml:space="preserve">
-    <value>Generating {0} manifest</value>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>The file '{0}' is neither a symbolic link nor a regular file.</value>
@@ -213,9 +207,6 @@ Run '0install config feed_mirror default' to enable it.</value>
     <value>The underlying file system does not store file change times with sufficient accuracy.
 If you are using a FAT-formatted drive please convert it to NTFS.</value>
   </data>
-  <data name="InvalidDigest" xml:space="preserve">
-    <value>Digest '{0}' is not in the form 'algorithm=value'.</value>
-  </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>The archive contains an invalid path (potentially a security risk): {0}</value>
   </data>
@@ -228,23 +219,11 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   <data name="InvalidSignature" xml:space="preserve">
     <value>The signature is invalid or damaged.</value>
   </data>
-  <data name="InvalidUrl" xml:space="preserve">
-    <value>The requested URL is invalid.</value>
-  </data>
-  <data name="MissingNameTagInFeed" xml:space="preserve">
-    <value>Missing &lt;name&gt; tag in feed {0}.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Only administrators can optimise a shared store.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Only administrators can remove elements from a shared store.</value>
-  </data>
-  <data name="MustBeSpecificCPU" xml:space="preserve">
-    <value>The value must be a specific CPU (not "All" or "Unknown").</value>
-  </data>
-  <data name="MustBeSpecificOS" xml:space="preserve">
-    <value>The value must be a specific operating system (not "All" or "Unknown").</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>The file or directory name must not contain a newline character.</value>
@@ -262,9 +241,6 @@ Specified in the configuration file '{1}'.</value>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install cannot remove itself from an implementation cache.</value>
   </data>
-  <data name="NoSuitableIconFound" xml:space="preserve">
-    <value>No suitable icon was found.</value>
-  </data>
   <data name="NotCached" xml:space="preserve">
     <value>(not cached)</value>
   </data>
@@ -273,9 +249,6 @@ Specified in the configuration file '{1}'.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>This option is controlled by a group policy and can therefore not be modified.</value>
-  </data>
-  <data name="PathNotRelative" xml:space="preserve">
-    <value>Path should be relative.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>There was a problem accessing the implementation store '{0}'.</value>
@@ -295,12 +268,6 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="ProcessingFiles" xml:space="preserve">
     <value>Processing files</value>
   </data>
-  <data name="RootedPathRequired" xml:space="preserve">
-    <value>A fully qualified/rooted path is required.</value>
-  </data>
-  <data name="RubyGemInvalid" xml:space="preserve">
-    <value>Unable to find data.tar.gz inside Ruby Gem file.</value>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Signature file already exists.</value>
   </data>
@@ -313,23 +280,11 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Unable to find a secret key with the specified name.</value>
   </data>
-  <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>The recipe step '{0}' in the implementation '{1}' has an invalid implementation reference.</value>
-  </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Unable to enable write protection for '{0}'.</value>
   </data>
-  <data name="UnknownCpu" xml:space="preserve">
-    <value>Unknown CPU.</value>
-  </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Unknown interface.</value>
-  </data>
-  <data name="UnknownOS" xml:space="preserve">
-    <value>Unknown operating system.</value>
-  </data>
-  <data name="UnknownRecipeStepType" xml:space="preserve">
-    <value>The recipe step type '{0}' is unknown.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>The passphrase you entered is incorrect.</value>

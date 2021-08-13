@@ -527,9 +527,6 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install läuft im Portable Modus. Es muss an einem fixen Ort abgelegt werden, damit Desktopintegration funktioniert. Diese wird von Ihrer Portable-Kopie komplett unabhängig sein.</value>
   </data>
-  <data name="NoLongerUsed" xml:space="preserve">
-    <value>Nicht mehr verwendet: </value>
-  </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install läuft aus einem benutzerspezifischen Verzeichnis heraus. Es muss in einem für alle Benutzer zugänglichen Verzeichnis abgelegt werden, damit maschinenweite Desktopintegration funktioniert.</value>
   </data>

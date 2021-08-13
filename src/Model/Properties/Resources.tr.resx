@@ -133,13 +133,16 @@
     <value>Katalogda '{0}' akışı bulunamadı.</value>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Seçimde '{0}' arabirimi için uygulama bulunamadı.</value>
+    <value>Seçimde '{0}' arabirimi için uyarlama bulunamadı.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' geçerli bir 'http(s):' adresi ya da bir yerel yol değil.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>&lt;{1}&gt; kod iminde '{0}' özniteliği eksik.</value>
+  </data>
+  <data name="MissingXmlTagOnFeed" xml:space="preserve">
+    <value>{1} akışında &lt;{0}&gt; kod imi eksik.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Nokta ile ayrılmış listede yalnız ondalık sayılar bulunabilir.</value>
@@ -160,7 +163,7 @@
     <value>'{0}' göreli adresi çözümlenemedi. Göreli adresler yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Uygulama hatalı</value>
+    <value>Uyarlama hatalı</value>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>'{0}' komutu sağlanmadı.</value>
@@ -169,19 +172,19 @@
     <value>İşletim sistemi ya da CPU uyumsuz</value>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Güvenilmeyen uygulama</value>
+    <value>Uyarlamaya güvenilmiyor</value>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Uygulama ön bellekte değil (şu anda çevrimdışı kipte)</value>
+    <value>Uyarlama ön bellekte değil (şu anda çevrimdışı kipte)</value>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Yürütülemeyen kaynak uygulaması</value>
+    <value>Yürütülemeyen kaynak uyarlaması</value>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Uygulama sürümü çok eski ya da çok yeni</value>
+    <value>Uyarlama sürümü çok eski ya da çok yeni</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>'{0}'. tarif adımında  '{1}' uygulamasındaki uygulama referansı geçersiz.</value>
+    <value>'{0}'. tarif adımında  '{1}' uyarlamasındaki uyarlama referansı geçersiz.</value>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
     <value>'{0}' dosya uzantısı bilinen bir arşiv türü değil.</value>

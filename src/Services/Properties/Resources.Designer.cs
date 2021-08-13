@@ -74,15 +74,6 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} bindings are currently not supported on this operating system..
-        /// </summary>
-        internal static string BindingNotSupportedOnCurrentOS {
-            get {
-                return ResourceManager.GetString("BindingNotSupportedOnCurrentOS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The resulting command-line is empty..
         /// </summary>
         internal static string CommandLineEmpty {
@@ -115,15 +106,6 @@ namespace ZeroInstall.Services.Properties {
         internal static string ExternalSolverRunning {
             get {
                 return ResourceManager.GetString("ExternalSolverRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to launch &apos;{0}&apos;..
-        /// </summary>
-        internal static string FailedToLaunch {
-            get {
-                return ResourceManager.GetString("FailedToLaunch", resourceCulture);
             }
         }
         
@@ -187,24 +169,6 @@ namespace ZeroInstall.Services.Properties {
         internal static string FetcherProblem {
             get {
                 return ResourceManager.GetString("FetcherProblem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The file downloaded from {0} doesn&apos;t have the expected size. Was supposed to be {1} bytes but was actually {2} bytes..
-        /// </summary>
-        internal static string FileNotExpectedSize {
-            get {
-                return ResourceManager.GetString("FileNotExpectedSize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to File not found: {0}.
-        /// </summary>
-        internal static string FileNotFound {
-            get {
-                return ResourceManager.GetString("FileNotFound", resourceCulture);
             }
         }
         
@@ -281,15 +245,6 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The interface &apos;{0}&apos; doesn&apos;t start with &apos;http:&apos; and doesn&apos;t exist as a file &apos;{1}&apos; either..
-        /// </summary>
-        internal static string NotInterfaceUri {
-            get {
-                return ResourceManager.GetString("NotInterfaceUri", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A possible replay attack was detected. The new feed&apos;s modification time is before old version.
         ///Feed URI: {0}
         ///Old time: {1}
@@ -298,15 +253,6 @@ namespace ZeroInstall.Services.Properties {
         internal static string ReplayAttack {
             get {
                 return ResourceManager.GetString("ReplayAttack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The solver encountered an unexpected problem..
-        /// </summary>
-        internal static string SolverProblem {
-            get {
-                return ResourceManager.GetString("SolverProblem", resourceCulture);
             }
         }
         

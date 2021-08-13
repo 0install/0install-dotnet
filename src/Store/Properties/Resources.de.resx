@@ -170,9 +170,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
     <value>Verwendung des Feed Mirror, welcher für die Suche benötigt wird, ist deaktiviert.
 Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>
   </data>
-  <data name="FileMissingDest" xml:space="preserve">
-    <value>Einem &lt;file&gt; Tag fehlt ein Destination Attribut.</value>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Konnte die Datei oder das Verzeichnis '{0}' nicht finden.</value>
   </data>
@@ -187,9 +184,6 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Suche Dateiduplikate in '{0}'</value>
-  </data>
-  <data name="GeneratingManifest" xml:space="preserve">
-    <value>Generiere {0} Manifest</value>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Die Datei '{0}' ist weder ein symbolischer Link noch eine reguläre Datei.</value>
@@ -213,9 +207,6 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
     <value>Das zugrundeliegende Dateisystem speichert Daten und Uhrzeiten mit unzureichender Genauigkeit.
 Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu NTFS.</value>
   </data>
-  <data name="InvalidDigest" xml:space="preserve">
-    <value>Der Digest '{0}' hat nicht die Form 'Algorithmus=Wert'.</value>
-  </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>Das Archiv enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
   </data>
@@ -228,23 +219,11 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
   <data name="InvalidSignature" xml:space="preserve">
     <value>Die Signatur ist ungültig oder beschädigt.</value>
   </data>
-  <data name="InvalidUrl" xml:space="preserve">
-    <value>Die angeforderte URL ist ungültig.</value>
-  </data>
-  <data name="MissingNameTagInFeed" xml:space="preserve">
-    <value>Fehlender &lt;name&gt; Tag im Feed {0}.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Nur Administratoren können einen gemeinsam genutzen Store optimieren.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Nur Administratoren können Elemente aus einem gemeinsam genutzen Store entfernen.</value>
-  </data>
-  <data name="MustBeSpecificCPU" xml:space="preserve">
-    <value>Der Wert muss eine spezifische CPU sein (nicht "All" oder "Unknown").</value>
-  </data>
-  <data name="MustBeSpecificOS" xml:space="preserve">
-    <value>Der Wert muss ein spezifisches Betriebssystem sein (nicht "All" oder "Unknown").</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Der Datei- oder Verzeichnisname darf keinen Zeilenumbruch enthalten.</value>
@@ -262,17 +241,11 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kann sich selbst nicht aus einem Implementierungscache entfernen.</value>
   </data>
-  <data name="NoSuitableIconFound" xml:space="preserve">
-    <value>Es wurde kein geeignetes Icon gefunden.</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Der Zahlenwert ist zu groß.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Diese Einstellung wird durch eine Gruppenrichtlinie kontrolliert und kann daher nicht modifiziert werden.</value>
-  </data>
-  <data name="PathNotRelative" xml:space="preserve">
-    <value>Der Pfad sollte relativ sein.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.</value>
@@ -292,12 +265,6 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="ProcessingFiles" xml:space="preserve">
     <value>Verarbeite Dateien</value>
   </data>
-  <data name="RootedPathRequired" xml:space="preserve">
-    <value>Ein vollständig qualifizierter/gewurzelter Pfad wird benötigt.</value>
-  </data>
-  <data name="RubyGemInvalid" xml:space="preserve">
-    <value>Konnte data.tar.gz in der Ruby Gem Datei nicht finden.</value>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Die Signaturdatei existiert bereits.</value>
   </data>
@@ -310,23 +277,11 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Es konnte kein geheimer Schlüssel mit dem angegebenen Namen gefunden werden.</value>
   </data>
-  <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Der Recipe Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>
-  </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Konnte den Schreibschutz für '{0}' nicht aktivieren.</value>
   </data>
-  <data name="UnknownCpu" xml:space="preserve">
-    <value>Unbekannte CPU.</value>
-  </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Unbekanntes Interface.</value>
-  </data>
-  <data name="UnknownOS" xml:space="preserve">
-    <value>Unbekanntes Betriebssystem.</value>
-  </data>
-  <data name="UnknownRecipeStepType" xml:space="preserve">
-    <value>Der Recipe Schritt Typ '{0}' ist unbekannten.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Die Passphrase die Sie eingegeben haben ist inkorrekt.</value>

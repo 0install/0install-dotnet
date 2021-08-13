@@ -122,12 +122,7 @@
 - Ισχύει υπογραφή από {1}
 - {2}
 Θέλετε να εμπιστευόμαστε αυτό το κλειδί για να υπογράψει τροφοδοσίες από '{3}';
-
-
 </value>
-  </data>
-  <data name="BindingNotSupportedOnCurrentOS" xml:space="preserve">
-    <value>Οι {0} συνδέσεις επί του παρόντος δεν υποστηρίζονται σε αυτό το λειτουργικό σύστημα.</value>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>Η προκύπτουσα γραμμή εντολών είναι κενή.</value>
@@ -140,9 +135,6 @@
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Εκτέλεση εξωτερικής επιλυτής</value>
-  </data>
-  <data name="FailedToLaunch" xml:space="preserve">
-    <value>Απέτυχε ξεκινήσει '{0}'.</value>
   </data>
   <data name="FeedDownloadError" xml:space="preserve">
     <value>Σφάλμα κατά τη λήψη τροφοδοσίας '{0}'.</value>
@@ -161,12 +153,6 @@
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Οι &lt;interface&gt; uri ιδιότητες ειναι ελείπεις. Πρέπει να είναι '{0}'.</value>
-  </data>
-  <data name="FileNotExpectedSize" xml:space="preserve">
-    <value>Το αρχείο που μεταφορτώνεται από {0} δεν έχει το αναμενόμενο μέγεθος. Ήταν υποτιθέμενο για να είναι {1} bytes, αλλά στην πραγματικότητα ήταν {2} bytes.</value>
-  </data>
-  <data name="FileNotFound" xml:space="preserve">
-    <value>Το αρχείο δεν βρέθηκε: {0}</value>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Παράνομος χαρακτήρας στο {0} όνομα σύνδεσης.</value>
@@ -192,17 +178,11 @@
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Καμία μέθοδος ανάκτησης για την εφαρμογή '{0}' δεν βρέθηκε.</value>
   </data>
-  <data name="NotInterfaceUri" xml:space="preserve">
-    <value>Η διεπαφή '{0}' δεν ξεκινά με 'http:' και δεν υπάρχει ως αρχείο '{1}'.</value>
-  </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Μια πιθανή επίθεση αναπαραγωγής ανιχνεύθηκε. Χρόνος τροποποίησης της νέας τροφοδοσίας είναι πριν από την παλιά έκδοση.
 Τροφοδοσία URI: {0}
 Παλιός χρόνος: {1}
 Νέος χρόνος: {2}</value>
-  </data>
-  <data name="SolverProblem" xml:space="preserve">
-    <value>Ο επιλυτής αντιμετώπισε ένα μη αναμενόμενο πρόβλημα.</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του κατάλογου της εφαρμογής.</value>

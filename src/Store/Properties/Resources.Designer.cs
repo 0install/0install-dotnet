@@ -198,15 +198,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A &lt;file&gt; tag is missing a destination attribute..
-        /// </summary>
-        internal static string FileMissingDest {
-            get {
-                return ResourceManager.GetString("FileMissingDest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unable to find file or directory &apos;{0}&apos;..
         /// </summary>
         internal static string FileOrDirNotFound {
@@ -248,15 +239,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string FindingDuplicateFiles {
             get {
                 return ResourceManager.GetString("FindingDuplicateFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Generating {0} manifest.
-        /// </summary>
-        internal static string GeneratingManifest {
-            get {
-                return ResourceManager.GetString("GeneratingManifest", resourceCulture);
             }
         }
         
@@ -325,15 +307,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Digest &apos;{0}&apos; is not in the form &apos;algorithm=value&apos;..
-        /// </summary>
-        internal static string InvalidDigest {
-            get {
-                return ResourceManager.GetString("InvalidDigest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The archive contains an invalid path (potentially a security risk): {0}.
         /// </summary>
         internal static string InvalidPath {
@@ -370,24 +343,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The requested URL is invalid..
-        /// </summary>
-        internal static string InvalidUrl {
-            get {
-                return ResourceManager.GetString("InvalidUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Missing &lt;name&gt; tag in feed {0}..
-        /// </summary>
-        internal static string MissingNameTagInFeed {
-            get {
-                return ResourceManager.GetString("MissingNameTagInFeed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Only administrators can optimise a shared store..
         /// </summary>
         internal static string MustBeAdminToOptimise {
@@ -402,24 +357,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string MustBeAdminToRemove {
             get {
                 return ResourceManager.GetString("MustBeAdminToRemove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The value must be a specific CPU (not &quot;All&quot; or &quot;Unknown&quot;)..
-        /// </summary>
-        internal static string MustBeSpecificCPU {
-            get {
-                return ResourceManager.GetString("MustBeSpecificCPU", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The value must be a specific operating system (not &quot;All&quot; or &quot;Unknown&quot;)..
-        /// </summary>
-        internal static string MustBeSpecificOS {
-            get {
-                return ResourceManager.GetString("MustBeSpecificOS", resourceCulture);
             }
         }
         
@@ -470,15 +407,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No suitable icon was found..
-        /// </summary>
-        internal static string NoSuitableIconFound {
-            get {
-                return ResourceManager.GetString("NoSuitableIconFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to (not cached).
         /// </summary>
         internal static string NotCached {
@@ -502,15 +430,6 @@ namespace ZeroInstall.Store.Properties {
         internal static string OptionLockedByPolicy {
             get {
                 return ResourceManager.GetString("OptionLockedByPolicy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Path should be relative..
-        /// </summary>
-        internal static string PathNotRelative {
-            get {
-                return ResourceManager.GetString("PathNotRelative", resourceCulture);
             }
         }
         
@@ -563,24 +482,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A fully qualified/rooted path is required..
-        /// </summary>
-        internal static string RootedPathRequired {
-            get {
-                return ResourceManager.GetString("RootedPathRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to find data.tar.gz inside Ruby Gem file..
-        /// </summary>
-        internal static string RubyGemInvalid {
-            get {
-                return ResourceManager.GetString("RubyGemInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Signature file already exists..
         /// </summary>
         internal static string SignatureAlreadyExists {
@@ -617,15 +518,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The recipe step &apos;{0}&apos; in the implementation &apos;{1}&apos; has an invalid implementation reference..
-        /// </summary>
-        internal static string UnableToResolveRecipeReference {
-            get {
-                return ResourceManager.GetString("UnableToResolveRecipeReference", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unable to enable write protection for &apos;{0}&apos;..
         /// </summary>
         internal static string UnableToWriteProtect {
@@ -635,38 +527,11 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unknown CPU..
-        /// </summary>
-        internal static string UnknownCpu {
-            get {
-                return ResourceManager.GetString("UnknownCpu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unknown interface..
         /// </summary>
         internal static string UnknownInterface {
             get {
                 return ResourceManager.GetString("UnknownInterface", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unknown operating system..
-        /// </summary>
-        internal static string UnknownOS {
-            get {
-                return ResourceManager.GetString("UnknownOS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The recipe step type &apos;{0}&apos; is unknown..
-        /// </summary>
-        internal static string UnknownRecipeStepType {
-            get {
-                return ResourceManager.GetString("UnknownRecipeStepType", resourceCulture);
             }
         }
         

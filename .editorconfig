@@ -13,10 +13,10 @@ max_line_length = off
 [CNAME]
 insert_final_newline = false
 
-[*.{json,xml,yml,htm,html,js,ts,css,scss,less}]
+[*.{json,xml,resx,yml,htm,html,js,ts,css,scss,less}]
 indent_size = 2
 
-[*.{*proj,resx,config,ruleset,cd,props,targets,nuspec}]
+[*.{*proj,config,ruleset,cd,props,targets,nuspec}]
 end_of_line = crlf
 indent_size = 2
 

@@ -166,9 +166,6 @@
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' δεν ήταν δυνατό να εντοπιστεί στην προσωρινή μνήμη τροφοδοσίας. Κοίταξtε για το αρχείο στο: {1}</value>
   </data>
-  <data name="FileMissingDest" xml:space="preserve">
-    <value>Ένα &lt;αρχείο&gt; ετικέτας λείπει ένα χαρακτηριστικό προορισμού.</value>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
   </data>
@@ -183,9 +180,6 @@
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Εύρεση διπλών αρχείων στο '{0}'</value>
-  </data>
-  <data name="GeneratingManifest" xml:space="preserve">
-    <value>Δημιουργία {0} Δηλωτικoz</value>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Το αρχείο '{0}' δεν είναι ούτε ένας συμβολικός δεσμός ούτε ένα κανονικό αρχείο.</value>
@@ -209,9 +203,6 @@
     <value>Το υποκείμενικο σύστημα αρχείων δεν αποθηκεύει χρόνους αλλαγής αρχείου με επαρκή ακρίβεια.
 Εάν χρησιμοποιείτε έναν διαμορφωμένο με FAT σκληρο δίσκο παρακαλουμε να τον μετατρέψετε σε NTFS.</value>
   </data>
-  <data name="InvalidDigest" xml:space="preserve">
-    <value>Αφομοίωση '{0}' δεν έχει τη μορφή «αλγόριθμος = τιμή».</value>
-  </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
   </data>
@@ -224,20 +215,11 @@
   <data name="InvalidSignature" xml:space="preserve">
     <value>Η υπογραφή δεν είναι έγκυρη ή έχει υποστεί ζημιά.</value>
   </data>
-  <data name="InvalidUrl" xml:space="preserve">
-    <value>Η ζητούμενη διεύθυνση URL δεν είναι έγκυρη.</value>
-  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να βελτιστοποιήσουν ένα κοινό κατάστημα.</value>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να αφαιρέσουν στοιχεία από ένα κοινό κατάστημα.</value>
-  </data>
-  <data name="MustBeSpecificCPU" xml:space="preserve">
-    <value>Η τιμή πρέπει να είναι ένας ειδικός επεξεργαστής (όχι "Όλα" ή "Αγνωστο").</value>
-  </data>
-  <data name="MustBeSpecificOS" xml:space="preserve">
-    <value>Η τιμή πρέπει να είναι ένας ειδικό λειτουργικό σύστημα (όχι "Όλα" ή "Αγνωστο").</value>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Το όνομα του αρχείου ή του καταλόγου δεν πρέπει να περιέχει έναν χαρακτήρα νέας γραμμής.</value>
@@ -252,17 +234,11 @@
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Καμμια επιλεγμενη έκδοση</value>
   </data>
-  <data name="NoSuitableIconFound" xml:space="preserve">
-    <value>Δεν βρέθηκε καμία κατάλληλη εικόνα.</value>
-  </data>
   <data name="NotCached" xml:space="preserve">
     <value>(όχι προσωρινή αποθήκευση)</value>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Η αριθμητική τιμή είναι πολύ μεγάλη.</value>
-  </data>
-  <data name="PathNotRelative" xml:space="preserve">
-    <value>Η διαδρομή θα πρέπει να είναι σχετική.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Υπήρξε έναν πρόβλημα κατά την πρόσβαση στο κατάστημα εφαρμογής '{0}'.</value>
@@ -279,12 +255,6 @@
     <value>Υπήρξε ένα πρόβλημα κατά τη φόρτωση της τιμής ρύθμισης '{0}'.
 Μπορείτε να διαγράψετε το αρχείο '{1}' για να διορθώσετε το πρόβλημα. Άλλες ρυθμίσεις μπορούν επίσης να χαθούν.</value>
   </data>
-  <data name="RootedPathRequired" xml:space="preserve">
-    <value>Μια πλήρως αναγνωρισμένη/ριζωμένη διαδρομή απαιτείται.</value>
-  </data>
-  <data name="RubyGemInvalid" xml:space="preserve">
-    <value>Αδυναμία εύρεσης data.tar.gz εσωτερικό αρχείου Ruby Gem.</value>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
   </data>
@@ -300,17 +270,8 @@
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Δεν είναι δυνατή η ενεργοποιήση της προστασίας εγγραφής για '{0}'.</value>
   </data>
-  <data name="UnknownCpu" xml:space="preserve">
-    <value>Άγνωστο CPU.</value>
-  </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Άγνωστη διεπαφή.</value>
-  </data>
-  <data name="UnknownOS" xml:space="preserve">
-    <value>Άγνωστο λειτουργικό σύστημα.</value>
-  </data>
-  <data name="UnknownRecipeStepType" xml:space="preserve">
-    <value>Ο τύπος recipe '{0}' είναι άγνωστος.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Η φράση πρόσβασης που έχετε εισάγει είναι λάθος.</value>
