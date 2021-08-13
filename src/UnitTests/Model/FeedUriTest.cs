@@ -6,9 +6,8 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using NanoByte.Common.Native;
 using Xunit;
-using ZeroInstall.Model;
 
-namespace ZeroInstall.Store
+namespace ZeroInstall.Model
 {
     /// <summary>
     /// Contains test methods for <see cref="FeedUri"/>.
