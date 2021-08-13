@@ -286,15 +286,6 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The archive MIME type &apos;{0}&apos; is not supported..
-        /// </summary>
-        internal static string UnsupportedArchiveMimeType {
-            get {
-                return ResourceManager.GetString("UnsupportedArchiveMimeType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to End of version range must be exclusive. Use &apos;..!{0}&apos;, not &apos;..{0}&apos;..
         /// </summary>
         internal static string VersionRangeEndNotExclusive {

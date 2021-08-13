@@ -192,9 +192,6 @@
   <data name="UnknownModifier" xml:space="preserve">
     <value>Unknown modifier.</value>
   </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>The archive MIME type '{0}' is not supported.</value>
-  </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
     <value>End of version range must be exclusive. Use '..!{0}', not '..{0}'.</value>
   </data>

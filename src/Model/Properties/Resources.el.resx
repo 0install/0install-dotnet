@@ -183,9 +183,6 @@
   <data name="UnknownModifier" xml:space="preserve">
     <value>Άγνωστος τροποποιητής.</value>
   </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Ο τύπος MIME του αρχείου '{0}' δεν υποστηρίζεται.</value>
-  </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
     <value>Το τέλος της σειράς έκδοσης πρέπει να είναι αποκλειστική χρήση »..! {0} ', όχι' .. {0} '.</value>
   </data>

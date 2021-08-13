@@ -80,9 +80,8 @@ namespace ZeroInstall.Model
         /// Gets the default file extension for a particular archive MIME type.
         /// </summary>
         /// <param name="mimeType">The MIME type to get the extension for.</param>
-        /// <returns>The file extension including the leading dot, e.g. '.zip'.</returns>
-        /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> is not in the list of <see cref="KnownMimeTypes"/>.</exception>
-        public static string GetDefaultExtension(string mimeType)
+        /// <returns>The file extension including the leading dot, e.g. '.zip'. '.*' if unknown.</returns>
+        public static string GetFileExtension(string mimeType)
             => (mimeType ?? throw new ArgumentNullException(nameof(mimeType))) switch
             {
                 MimeTypeZip => ".zip",
@@ -96,7 +95,7 @@ namespace ZeroInstall.Model
                 MimeTypeRar => ".rar",
                 MimeTypeCab => ".cab",
                 MimeTypeMsi => ".msi",
-                _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
+                _ => ".*"
             };
         #endregion
 

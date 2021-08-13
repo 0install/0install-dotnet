@@ -189,9 +189,6 @@
   <data name="UnknownModifier" xml:space="preserve">
     <value>Değiştirici bilinmiyor.</value>
   </data>
-  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>'{0}' arşiv MIME türü desteklenmiyor.</value>
-  </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
     <value>Sürüm aralığı sonu özel olmalıdır. '..!{0}' kullanın '..{0}' değil.</value>
   </data>
