@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NanoByte.Common.Tasks;
@@ -102,12 +101,12 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Last data objects passed to <see cref="Output{T}"/>.
         /// </summary>
-        public IEnumerable LastOutputObjects { get; private set; } = Enumerable.Empty<object>();
+        public IEnumerable<object> LastOutputObjects { get; private set; } = Enumerable.Empty<object>();
 
         /// <summary>
         /// Fakes showing tabular data to the user.
         /// </summary>
-        public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data.ToArray();
+        public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data.Cast<object>().ToArray();
 
         public override void Error(Exception exception) {}
     }

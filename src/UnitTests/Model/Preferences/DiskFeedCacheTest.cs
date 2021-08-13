@@ -74,11 +74,13 @@ namespace ZeroInstall.Model.Preferences
 
         [Fact]
         public void ListAll()
-            => _cache.ListAll().Should().BeEquivalentTo(FeedTest.Test1Uri, FeedTest.Test2Uri);
+            => _cache.ListAll()
+                     .Should().BeEquivalentTo(new[] {FeedTest.Test1Uri!, FeedTest.Test2Uri});
 
         [Fact]
         public void GetFeed()
-            => _cache.GetFeed(_feed1.Uri).Should().Be(_feed1);
+            => _cache.GetFeed(_feed1.Uri!)
+                     .Should().Be(_feed1);
 
         [Fact]
         public void GetFeedCaseSensitive()
@@ -130,7 +132,7 @@ namespace ZeroInstall.Model.Preferences
             _cache.Add(feed.Uri, ToArray(feed));
 
             feed.Normalize(feed.Uri);
-            _cache.GetFeed(feed.Uri).Should().Be(feed);
+            _cache.GetFeed(feed.Uri!).Should().Be(feed);
 
             _cache.Contains(feed.Uri).Should().BeTrue();
             _cache.Remove(feed.Uri);

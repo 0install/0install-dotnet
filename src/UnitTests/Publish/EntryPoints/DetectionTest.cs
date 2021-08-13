@@ -23,11 +23,13 @@ namespace ZeroInstall.Publish.EntryPoints
             Deploy(PosixBinaryTest.Reference32, xbit: true);
 
             var candidates = Detection.ListCandidates(Directory).ToList();
-            candidates.Should().BeEquivalentTo(
+            candidates.Should().BeEquivalentTo(new Candidate[]
+            {
                 DotNetExeTest.Reference,
                 PythonScriptTest.Reference,
                 PosixScriptTest.Reference,
-                PosixBinaryTest.Reference32);
+                PosixBinaryTest.Reference32
+            });
         }
 
         [Fact] // Should not fail on empty files

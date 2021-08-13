@@ -95,7 +95,7 @@ namespace ZeroInstall.Services
             _packageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
 
             _selectionsManager.GetImplementations(implementationSelections)
-                              .Should().BeEquivalentTo(impl1, impl2, impl3);
+                              .Should().BeEquivalentTo(new[] {impl1, impl2, impl3});
         }
 
         [Fact]
@@ -158,8 +158,11 @@ namespace ZeroInstall.Services
                     new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new("2.0")}
                 }
             }).Should().BeEquivalentTo(
-            new SelectionsDiffNode(new("http://feed1"), oldVersion: new("1.0"), newVersion: new("2.0")),
-            new SelectionsDiffNode(new("http://feed2"), oldVersion: new("1.0")),
-            new SelectionsDiffNode(new("http://feed3"), newVersion: new("2.0")));
+            new SelectionsDiffNode[]
+            {
+                new(new("http://feed1"), oldVersion: new("1.0"), newVersion: new("2.0")),
+                new(new("http://feed2"), oldVersion: new("1.0")),
+                new(new("http://feed3"), newVersion: new("2.0"))
+            });
     }
 }

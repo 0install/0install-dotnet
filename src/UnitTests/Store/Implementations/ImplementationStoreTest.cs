@@ -57,11 +57,13 @@ namespace ZeroInstall.Store.Implementations
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha256=test3"));
             Directory.CreateDirectory(Path.Combine(_tempDir, "sha256new_test4"));
             Directory.CreateDirectory(Path.Combine(_tempDir, "temp=stuff"));
-            _implementationStore.ListAll().Should().BeEquivalentTo(
-                new ManifestDigest(sha1: "test1"),
-                new ManifestDigest(sha1New: "test2"),
-                new ManifestDigest(sha256: "test3"),
-                new ManifestDigest(sha256New: "test4"));
+            _implementationStore.ListAll().Should().BeEquivalentTo(new ManifestDigest[]
+            {
+                new(sha1: "test1"),
+                new(sha1New: "test2"),
+                new(sha256: "test3"),
+                new(sha256New: "test4")
+            });
         }
 
         [Fact]

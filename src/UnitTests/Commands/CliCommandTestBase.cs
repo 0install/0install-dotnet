@@ -88,7 +88,7 @@ namespace ZeroInstall.Commands
         {
             Sut.Parse(args);
             Sut.Execute().Should().Be(expectedExitCode);
-            Handler.LastOutputObjects.Should().Equal(expectedOutput);
+            Handler.LastOutputObjects.Should().BeEquivalentTo(expectedOutput);
         }
     }
 }

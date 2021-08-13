@@ -62,7 +62,8 @@ namespace ZeroInstall.Model.Preferences
             var preferences = new FeedPreferences {Implementations = {keep, superfluous}};
 
             preferences.Normalize();
-            preferences.Implementations.Should().BeEquivalentTo(keep);
+            preferences.Implementations
+                       .Should().Equal(keep);
         }
 
         [Fact]
@@ -76,7 +77,8 @@ namespace ZeroInstall.Model.Preferences
             preferences.Implementations.Add(preferences2);
             preferences["id2"].Should().BeSameAs(preferences2, because: "Call with pre-existing ID should return existing reference");
 
-            preferences.Implementations.Should().BeEquivalentTo(preferences1, preferences2);
+            preferences.Implementations
+                       .Should().Equal(preferences1, preferences2);
         }
     }
 }
