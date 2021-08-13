@@ -32,6 +32,12 @@ namespace ZeroInstall.Model
         [XmlAttribute("local-path"), DefaultValue("")]
         public string? LocalPath { get; set; }
 
+        /// <inheritdoc/>
+#pragma warning disable 8765
+        [XmlIgnore]
+        public override ImplementationVersion Version { get; set; } = default!;
+#pragma warning restore 8765
+
         private ManifestDigest _manifestDigest;
 
         /// <summary>
@@ -77,6 +83,7 @@ namespace ZeroInstall.Model
             if (!string.IsNullOrEmpty(ID)) _manifestDigest.ParseID(ID);
 
             EnsureTag(ID, "id");
+            EnsureTag(Version, "version");
         }
         #endregion
 

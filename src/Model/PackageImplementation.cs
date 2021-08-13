@@ -71,8 +71,7 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        // ReSharper disable once ConstantConditionalAccessQualifier
-        public override string VersionString { get => Version?.ToString()!; set => Version = new VersionRange(value); }
+        public override string? VersionString { get => Version?.ToString()!; set => Version = (value == null) ? null : new VersionRange(value); }
         #endregion
 
         #region Normalize

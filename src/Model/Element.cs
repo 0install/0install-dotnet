@@ -82,14 +82,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Category("Release"), Description("The version number of the implementation.")]
         [XmlIgnore]
-        public ImplementationVersion Version { get; set; } = default!;
+        public virtual ImplementationVersion? Version { get; set; }
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public virtual string VersionString { get => Version?.ToString()!; set => Version = new(value); }
+        public virtual string? VersionString { get => Version?.ToString()!; set => Version = (value == null) ? null: new(value); }
         #endregion
 
         /// <summary>
