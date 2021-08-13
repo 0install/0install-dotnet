@@ -63,43 +63,45 @@ namespace ZeroInstall.Store.Implementations.Deployment
             _pendingFileRenames.Push((tempManifestPath, manifestPath));
             Manifest.Save(tempManifestPath);
 
-            foreach ((string directoryPath, var directory) in Manifest)
+            Handler.RunTask(new SimpleTask(Resources.CopyFiles, () =>
             {
-                string dirPath = directoryPath.ToNativePath();
-                string sourceDir = System.IO.Path.Combine(Path, dirPath);
-                string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
-                if (!Directory.Exists(destinationDir))
+                foreach ((string directoryPath, var directory) in Manifest)
                 {
-                    Directory.CreateDirectory(destinationDir);
-                    _createdDirectories.Push(destinationDir);
-                }
-
-                Handler.RunTask(ForEachTask.Create(Resources.CopyFiles, directory, pair =>
-                {
-                    (string path, var element) = pair;
-                    string sourcePath = System.IO.Path.Combine(sourceDir, path);
-                    string destinationPath = System.IO.Path.Combine(destinationDir, path);
-
-                    string tempPath = Randomize(destinationPath);
-                    _pendingFileRenames.Push((tempPath, destinationPath));
-
-                    switch (element)
+                    string dirPath = directoryPath.ToNativePath();
+                    string sourceDir = System.IO.Path.Combine(Path, dirPath);
+                    string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
+                    if (!Directory.Exists(destinationDir))
                     {
-                        case ManifestFile file:
-                            File.Copy(sourcePath, tempPath);
-                            File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
-
-                            if (file is ManifestExecutableFile)
-                                ImplFileUtils.SetExecutable(tempPath);
-                            break;
-
-                        case ManifestSymlink:
-                            if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
-                                ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
-                            break;
+                        Directory.CreateDirectory(destinationDir);
+                        _createdDirectories.Push(destinationDir);
                     }
-                }));
-            }
+
+                    foreach ((string path, var element) in directory)
+                    {
+                        string sourcePath = System.IO.Path.Combine(sourceDir, path);
+                        string destinationPath = System.IO.Path.Combine(destinationDir, path);
+
+                        string tempPath = Randomize(destinationPath);
+                        _pendingFileRenames.Push((tempPath, destinationPath));
+
+                        switch (element)
+                        {
+                            case ManifestFile file:
+                                File.Copy(sourcePath, tempPath);
+                                File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
+
+                                if (file is ManifestExecutableFile)
+                                    ImplFileUtils.SetExecutable(tempPath);
+                                break;
+
+                            case ManifestSymlink:
+                                if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
+                                    ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
+                                break;
+                        }
+                    }
+                }
+            }));
         }
 
         /// <inheritdoc/>
