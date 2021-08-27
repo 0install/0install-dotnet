@@ -215,7 +215,7 @@ namespace ZeroInstall.Commands
 
             try
             {
-                AsParallel(implementations).Select(Fetcher.Fetch).ToList();
+                AsParallel(implementations).ForAll(Fetcher.Fetch);
             }
             catch (AggregateException ex)
             {

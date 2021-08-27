@@ -2,6 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using NanoByte.Common;
@@ -9,6 +12,7 @@ using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Archives;
+using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Services.Properties;
@@ -22,35 +26,53 @@ namespace ZeroInstall.Services.Fetchers
     /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class Fetcher : FetcherBase
+    public class Fetcher : IFetcher
     {
-        private readonly Config _config;
+        /// <summary>User settings controlling network behaviour, solving, etc.</summary>
+        protected readonly Config Config;
+
+        /// <summary>The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</summary>
+        protected readonly IImplementationStore Store;
+
+        /// <summary>A callback object used when the the user needs to be informed about progress.</summary>
+        protected readonly ITaskHandler Handler;
 
         /// <summary>
         /// Creates a new fetcher.
         /// </summary>
         /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
-        /// <param name="implementationStore">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
+        /// <param name="store">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
         /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public Fetcher(Config config, IImplementationStore implementationStore, ITaskHandler handler)
-            : base(implementationStore, handler)
+        public Fetcher(Config config, IImplementationStore store, ITaskHandler handler)
         {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
+            Config = config ?? throw new ArgumentNullException(nameof(config));
+            Store = store ?? throw new ArgumentNullException(nameof(store));
+            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
         }
 
         /// <inheritdoc/>
-        public override string? Fetch(Implementation implementation)
+        public void Fetch(Implementation implementation)
         {
             #region Sanity checks
             if (implementation == null) throw new ArgumentNullException(nameof(implementation));
             #endregion
 
+            Fetch(implementation, implementation.ManifestDigest.Best ?? implementation.ID);
+        }
+
+        /// <summary>
+        /// Downloads an <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
+        /// </summary>
+        /// <param name="implementation">The implementation to download.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Fetch(Implementation implementation, string tag)
+        {
             // Use mutex to detect in-progress download of same implementation in other processes
-            using var mutex = new Mutex(false, "0install-fetcher-" + GetDownloadID(implementation));
+            using var mutex = new Mutex(false, $"0install-fetcher-{implementation.ManifestDigest.Best}");
             try
             {
                 while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
-                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = implementation.ManifestDigest.Best});
+                    Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag});
             }
             #region Error handling
             catch (AbandonedMutexException ex)
@@ -63,13 +85,10 @@ namespace ZeroInstall.Services.Fetchers
             try
             {
                 // Check if another process added the implementation in the meantime
-                string? path = GetPathSafe(implementation);
-                if (path != null) return path;
+                if (GetPath(implementation) != null) return;
 
                 if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
-                Retrieve(implementation);
-
-                return GetPathSafe(implementation);
+                Retrieve(implementation, tag);
             }
             finally
             {
@@ -78,22 +97,141 @@ namespace ZeroInstall.Services.Fetchers
         }
 
         /// <summary>
-        /// Returns a unique identifier for an <see cref="Implementation"/>. Usually based on <see cref="ImplementationBase.ManifestDigest"/>.
+        /// Tries one <see cref="RetrievalMethod"/> after another (sorted by <see cref="RetrievalMethodRanker"/>).
         /// </summary>
-        /// <exception cref="NotSupportedException"><paramref name="implementation"/> does not specify manifest digests in any known formats.</exception>
-        private static string GetDownloadID(Implementation implementation)
-            => implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                ? implementation.ID
-                : implementation.ManifestDigest.Best ?? implementation.ID;
+        /// <param name="implementation">The implementation to be retrieved.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Retrieve(Implementation implementation, string tag)
+            => implementation
+              .RetrievalMethods
+              .OrderBy(x => x, RetrievalMethodRanker.Instance)
+              .TryAny(retrievalMethod =>
+               {
+                   Handler.CancellationToken.ThrowIfCancellationRequested();
 
-        /// <inheritdoc/>
-        protected override void Download(IBuilder builder, DownloadRetrievalMethod download, object? tag)
+                   var manifestDigest = implementation.ManifestDigest;
+                   if (manifestDigest.Best == null && retrievalMethod is not ExternalRetrievalMethod)
+                       throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
+
+                   Retrieve(retrievalMethod, manifestDigest, tag);
+               });
+
+        /// <summary>
+        /// Executes a retrieval method to build an implementation.
+        /// </summary>
+        /// <param name="retrievalMethod">The retrieval method.</param>
+        /// <param name="manifestDigest">The expected manifest digest of the implementation.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Retrieve(RetrievalMethod retrievalMethod, ManifestDigest manifestDigest, string tag)
         {
             try
             {
-                base.Download(builder, download, tag);
+                switch (retrievalMethod)
+                {
+                    case DownloadRetrievalMethod download:
+                        Retrieve(new[] { download }, manifestDigest, tag);
+                        break;
+                    case Recipe recipe:
+                        Retrieve(recipe.Steps, manifestDigest, tag);
+                        break;
+                    case ExternalRetrievalMethod external:
+                        Retrieve(external);
+                        break;
+                    default:
+                        throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
+                }
             }
-            catch (WebException ex) when (!download.Href.IsLoopback && _config.FeedMirror != null)
+            catch (ImplementationAlreadyInStoreException)
+            {}
+        }
+
+        /// <summary>
+        /// Executes the steps of a retrieval method to build an implementation.
+        /// </summary>
+        /// <param name="steps">The retrieval method steps.</param>
+        /// <param name="manifestDigest">The expected manifest digest of the implementation.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Retrieve(IReadOnlyCollection<IRecipeStep> steps, ManifestDigest manifestDigest, string tag)
+        {
+            CheckArchiveTypes(steps.OfType<Archive>());
+
+            try
+            {
+                Store.Add(manifestDigest, builder =>
+                {
+                    foreach (var step in steps)
+                        Apply(builder, step, tag);
+                });
+            }
+            catch (DigestMismatchException)
+            {
+                Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString()!))));
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Infers missing <see cref="Archive.MimeType"/>s and ensures suitable <see cref="IArchiveExtractor"/>s are available.
+        /// </summary>
+        /// <exception cref="NotSupportedException">No extractor registered for the specified or inferred <see cref="Archive.MimeType"/>.</exception>
+        protected void CheckArchiveTypes(IEnumerable<Archive> archives)
+        {
+            foreach (var archive in archives)
+            {
+                try
+                {
+                    archive.MimeType ??= Archive.GuessMimeType(archive.Href.OriginalString);
+                    ArchiveExtractor.For(archive.MimeType, Handler);
+                }
+                catch (NotSupportedException ex)
+                {
+                    // Wrap exception to add context information
+                    throw new NotSupportedException(string.Format(Resources.FetcherProblem, archive), ex);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Applies a retrieval method step.
+        /// </summary>
+        /// <param name="builder">The builder used to build the implementation.</param>
+        /// <param name="step">Instructions for downloading the file.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Apply(IBuilder builder, IRecipeStep step, string tag)
+        {
+            switch (step)
+            {
+                case DownloadRetrievalMethod download:
+                    Download(builder, download, tag);
+                    break;
+                case RemoveStep remove:
+                    builder.Remove(remove);
+                    break;
+                case RenameStep rename:
+                    builder.Rename(rename);
+                    break;
+                case CopyFromStep copyFrom:
+                    Fetch(copyFrom.Implementation, tag);
+                    builder.CopyFrom(copyFrom, GetPath(copyFrom.Implementation) ?? throw new IOException($"Unable to resolve {copyFrom.ID}."), Handler);
+                    break;
+                default:
+                    throw new NotSupportedException($"Unknown recipe step: ${step}");
+            }
+        }
+
+        /// <summary>
+        /// Applies a download step.
+        /// </summary>
+        /// <param name="builder">The builder used to build the implementation.</param>
+        /// <param name="download">Instructions for downloading the file.</param>
+        /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
+        protected virtual void Download(IBuilder builder, DownloadRetrievalMethod download, string tag)
+        {
+            try
+            {
+                Handler.RunTask(new DownloadFile(download.Href, stream => builder.Add(download, stream, Handler, tag), download.DownloadSize) {Tag = tag});
+            }
+            catch (WebException ex) when (!download.Href.IsLoopback && Config.FeedMirror != null)
             {
                 Log.Warn(ex);
                 Log.Info("Trying mirror");
@@ -101,10 +239,10 @@ namespace ZeroInstall.Services.Fetchers
                 try
                 {
                     Handler.RunTask(new DownloadFile(
-                        new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
-                        stream => builder.Add(download, stream, Handler, tag),
-                        download.DownloadSize)
-                    {Tag = tag});
+                            new($"{Config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
+                            stream => builder.Add(download, stream, Handler, tag),
+                            download.DownloadSize)
+                        {Tag = tag});
                 }
                 catch (WebException)
                 {
@@ -112,6 +250,31 @@ namespace ZeroInstall.Services.Fetchers
                     throw ex.Rethrow();
                 }
             }
+        }
+
+        /// <summary>
+        /// Determines the local path of an implementation.
+        /// </summary>
+        /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
+        protected string? GetPath(ImplementationBase implementation)
+            => implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                ? null
+                : Store.GetPath(implementation.ManifestDigest);
+
+        /// <summary>
+        /// Executes an external retrieval method.
+        /// </summary>
+        protected virtual void Retrieve(ExternalRetrievalMethod retrievalMethod)
+        {
+            if (retrievalMethod.Install == null) throw new NotSupportedException("No installation callback registered for native package.");
+
+            if (!string.IsNullOrEmpty(retrievalMethod.ConfirmationQuestion))
+            {
+                if (!Handler.Ask(retrievalMethod.ConfirmationQuestion,
+                    defaultAnswer: false, alternateMessage: retrievalMethod.ConfirmationQuestion)) throw new OperationCanceledException();
+            }
+
+            retrievalMethod.Install();
         }
     }
 }

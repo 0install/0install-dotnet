@@ -64,7 +64,7 @@ namespace ZeroInstall.Commands.Basic
             ExpectListUncached(selections, implementations);
             var mock = GetMock<IFetcher>();
             foreach (var implementation in implementations)
-                mock.Setup(x => x.Fetch(implementation)).Returns(() => null);
+                mock.Setup(x => x.Fetch(implementation));
         }
 
         /// <summary>

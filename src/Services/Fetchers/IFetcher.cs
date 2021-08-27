@@ -19,13 +19,12 @@ namespace ZeroInstall.Services.Fetchers
         /// Downloads an <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
         /// </summary>
         /// <param name="implementation">The implementation to download.</param>
-        /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation is a package implementation.</returns>
         /// <exception cref="OperationCanceledException">A download or IO task was canceled from another thread.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="NotSupportedException">A file format, protocol, etc. is unknown or not supported.</exception>
         /// <exception cref="IOException">A downloaded file could not be written to the disk or extracted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to <see cref="IImplementationStore"/> is not permitted.</exception>
         /// <exception cref="DigestMismatchException">An <see cref="Implementation"/>'s <see cref="Archive"/>s don't match the associated <see cref="ManifestDigest"/>.</exception>
-        string? Fetch(Implementation implementation);
+        void Fetch(Implementation implementation);
     }
 }
