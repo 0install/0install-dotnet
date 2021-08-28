@@ -98,6 +98,15 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to download &apos;{0}&apos; using Zero Install..
+        /// </summary>
+        internal static string FetchingExternalFailed {
+            get {
+                return ResourceManager.GetString("FetchingExternalFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The file &apos;{0}&apos; could not be found..
         /// </summary>
         internal static string FileNotFound {
@@ -185,15 +194,6 @@ namespace ZeroInstall.Publish.Properties {
         internal static string SizeMissing {
             get {
                 return ResourceManager.GetString("SizeMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unknown retrieval method type..
-        /// </summary>
-        internal static string UnknownRetrievalMethodType {
-            get {
-                return ResourceManager.GetString("UnknownRetrievalMethodType", resourceCulture);
             }
         }
     }

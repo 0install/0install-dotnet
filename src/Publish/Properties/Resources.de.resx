@@ -130,6 +130,9 @@ Versuchen Sie ihn manuell anzugeben.</value>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Lade '{0}' mit Zero Install herunter</value>
   </data>
+  <data name="FetchingExternalFailed" xml:space="preserve">
+    <value>Herunterladen von '{0}' mit Zero Install ist fehlgeschlagen.</value>
+  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Die Datei '{0}' konnte nicht gefunden werden.</value>
   </data>
@@ -160,8 +163,5 @@ Versuchen Sie es manuell anzugeben.</value>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Dateigröße noch nicht bestimmt.</value>
-  </data>
-  <data name="UnknownRetrievalMethodType" xml:space="preserve">
-    <value>Unbekannter Typ von Retrieval Method.</value>
   </data>
 </root>

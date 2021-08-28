@@ -157,7 +157,4 @@
   <data name="SizeMissing" xml:space="preserve">
     <value>Το μέγεθος του αρχείου δεν καθορίζεται ακόμα.</value>
   </data>
-  <data name="UnknownRetrievalMethodType" xml:space="preserve">
-    <value>Άγνωστη ανάκτηση τύπου μεθόδου.</value>
-  </data>
 </root>

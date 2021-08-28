@@ -33,7 +33,7 @@ namespace ZeroInstall.Publish
         {
             _builder.ImplementationDirectory = _implementationDir;
             _builder.GenerateDigest(new SilentTaskHandler());
-            _builder.ID.Should().Be($"sha1new={ManifestDigest.Empty.Sha1New}");
+            _builder.ID.Should().Be(ManifestDigest.Empty.Best);
             _builder.ManifestDigest.PartialEquals(ManifestDigest.Empty).Should().BeTrue();
         }
 
@@ -79,7 +79,7 @@ namespace ZeroInstall.Publish
             signedFeed.Feed.Elements.Should().Equal(
                 new Implementation
                 {
-                    ID = "sha1new=" + ManifestDigest.Empty.Sha1New,
+                    ID = ManifestDigest.Empty.Best,
                     ManifestDigest = new ManifestDigest(sha256New: ManifestDigest.Empty.Sha256New),
                     Version = _builder.MainCandidate.Version,
                     Architecture = _builder.MainCandidate.Architecture,

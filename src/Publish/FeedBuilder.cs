@@ -12,6 +12,7 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Publish.EntryPoints;
 using ZeroInstall.Publish.Properties;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Trust;
 
@@ -164,8 +165,10 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             if (string.IsNullOrEmpty(ImplementationDirectory)) throw new InvalidOperationException("Implementation directory is not set.");
 
-            ID = ManifestUtils.CalculateDigest(ImplementationDirectory, ManifestFormat.Sha1New, handler);
-            ManifestDigest = ManifestUtils.GenerateDigest(ImplementationDirectory, handler);
+            var builder = new ManifestBuilder(ManifestFormat.Sha256New);
+            handler.RunTask(new ReadDirectory(ImplementationDirectory, builder));
+            ID = builder.Manifest.CalculateDigest();
+            ManifestDigest = new ManifestDigest(ID);
         }
         #endregion
 

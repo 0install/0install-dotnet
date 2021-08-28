@@ -130,6 +130,9 @@ Try specifying it manually.</value>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Downloading '{0}' using Zero Install</value>
   </data>
+  <data name="FetchingExternalFailed" xml:space="preserve">
+    <value>Failed to download '{0}' using Zero Install.</value>
+  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>The file '{0}' could not be found.</value>
   </data>
@@ -160,8 +163,5 @@ Try specifying it manually.</value>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>File size not determined yet.</value>
-  </data>
-  <data name="UnknownRetrievalMethodType" xml:space="preserve">
-    <value>Unknown retrieval method type.</value>
   </data>
 </root>
