@@ -17,7 +17,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common" Version="2.10.3" />
+    <PackageReference Include="NanoByte.Common" Version="2.10.4" />
   </ItemGroup>
 
   <!-- Generate XML serialization assembly -->

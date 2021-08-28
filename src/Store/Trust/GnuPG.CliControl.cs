@@ -45,7 +45,12 @@ namespace ZeroInstall.Store.Trust
             protected override ProcessStartInfo GetStartInfo(params string[] arguments)
             {
                 var startInfo = base.GetStartInfo(arguments);
+
+                // Suppress localization to enable programmatic parsing of output
+                startInfo.EnvironmentVariables["LANG"] = "C";
+
                 if (_homeDir != null) startInfo.EnvironmentVariables["GNUPGHOME"] = _homeDir;
+
                 return startInfo;
             }
 
