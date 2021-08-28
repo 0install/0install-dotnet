@@ -99,10 +99,11 @@ namespace ZeroInstall.Services.Executors
         /// <inheritdoc/>
         public IEnvironmentBuilder AddWrapper(string? wrapper)
         {
-            if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
+            if (string.IsNullOrEmpty(wrapper)) return this;
 
-            if (!string.IsNullOrEmpty(wrapper))
-                _mainCommandLine.InsertRange(0, Array.ConvertAll(WindowsUtils.SplitArgs(wrapper), x => new Arg {Value = x}));
+            (string fileName, string arguments) = ProcessUtils.FromCommandLine(wrapper);
+            _startInfo.FileName = fileName;
+            _startInfo.Arguments = arguments;
 
             return this;
         }
@@ -132,9 +133,19 @@ namespace ZeroInstall.Services.Executors
                 var args = ExpandCommandLine(_mainCommandLine);
                 args.AddRange(_userArguments);
 
-                (string path, string arguments) = SplitCommandLine(args);
-                _startInfo.FileName = path;
-                _startInfo.Arguments = arguments;
+                if (string.IsNullOrEmpty(_startInfo.FileName))
+                {
+                    (string fileName, string arguments) = SplitCommandLine(args);
+                    _startInfo.FileName = fileName;
+                    _startInfo.Arguments = arguments;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(_startInfo.Arguments))
+                        _startInfo.Arguments = args.JoinEscapeArguments();
+                    else
+                        _startInfo.Arguments += " " + args.JoinEscapeArguments();
+                }
             }
             #region Error handling
             catch (KeyNotFoundException ex)
@@ -262,27 +273,13 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <summary>
-        /// Represents a command-line split into a path and arguments part.
-        /// </summary>
-        private sealed record CommandLineSplit(string Path, string Arguments);
-
-        /// <summary>
         /// Splits a command-line into a file name and an arguments part.
         /// </summary>
         /// <param name="commandLine">The command-line to split.</param>
-        private static CommandLineSplit SplitCommandLine(IReadOnlyList<string> commandLine)
+        private static (string fileName, string arguments) SplitCommandLine(IReadOnlyList<string> commandLine)
         {
             if (commandLine.Count == 0) throw new ExecutorException(Resources.CommandLineEmpty);
-
-            // Split into file name...
-            string fileName = commandLine[0];
-
-            // ... and everything else
-            var arguments = new string[commandLine.Count - 1];
-            for (int i = 0; i < arguments.Length; i++)
-                arguments[i] = commandLine[i + 1];
-
-            return new(fileName, arguments.JoinEscapeArguments());
+            return (commandLine[0], commandLine.Skip(1).JoinEscapeArguments());
         }
     }
 }

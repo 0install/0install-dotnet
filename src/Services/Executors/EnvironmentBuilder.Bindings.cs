@@ -291,24 +291,24 @@ namespace ZeroInstall.Services.Executors
         /// </summary>
         private void ProcessRunEnvBindings()
         {
-            foreach (var runEnv in _runEnvPendings)
+            foreach (var (exeName, args) in _runEnvPendings)
             {
-                var commandLine = ExpandCommandLine(runEnv.CommandLine);
+                var commandLine = ExpandCommandLine(args);
                 if (WindowsUtils.IsWindows)
                 {
-                    var split = SplitCommandLine(commandLine);
-                    _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_FILE_" + runEnv.ExeName] = split.Path;
-                    _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_ARGS_" + runEnv.ExeName] = split.Arguments;
+                    var (fileName, arguments) = SplitCommandLine(commandLine);
+                    _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_FILE_" + exeName] = fileName;
+                    _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_ARGS_" + exeName] = arguments;
                 }
-                else _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_" + runEnv.ExeName] = commandLine.JoinEscapeArguments();
+                else _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
             }
             _runEnvPendings.Clear();
 
+            // Allow child processes to call back to 0install
             try
             {
-                // Allow Linux-version of Zero Install and other tools to call back to the Fetcher
-                var fetchCommand = ProcessUtils.Assembly("0install", "fetch");
-                _startInfo.EnvironmentVariables["ZEROINSTALL_EXTERNAL_FETCHER"] = fetchCommand.FileName.EscapeArgument() + " " + fetchCommand.Arguments;
+                _startInfo.EnvironmentVariables["ZEROINSTALL"] = ProcessUtils.Assembly("0install").ToCommandLine();
+                _startInfo.EnvironmentVariables["ZEROINSTALL_EXTERNAL_FETCHER"] = ProcessUtils.Assembly("0install", "fetch").ToCommandLine();
             }
             catch (FileNotFoundException)
             {
