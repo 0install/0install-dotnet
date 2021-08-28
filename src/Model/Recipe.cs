@@ -71,9 +71,10 @@ namespace ZeroInstall.Model
 
         #region Conversion
         /// <summary>
-        /// Returns the recipe in the form "X steps". Not safe for parsing!
+        /// Returns the recipe in the form "Recipe (X steps)". Not safe for parsing!
         /// </summary>
-        public override string ToString() => $"{Steps.Count} steps";
+        public override string ToString()
+            => $"Recipe ({Steps.Count} steps)";
         #endregion
 
         #region Clone

@@ -83,17 +83,18 @@ namespace ZeroInstall.Model
         /// Returns the group in the form "Comma-separated list of set values". Not safe for parsing!
         /// </summary>
         public override string ToString()
-        {
-            var parts = new List<string>();
-            if (Architecture != default) parts.Add(Architecture.ToString());
-            if (Version != null) parts.Add(Version.ToString());
-            if (Released != default) parts.Add(Released.ToString("d", CultureInfo.InvariantCulture));
-            if (ReleasedVerbatim != null) parts.Add(ReleasedVerbatim);
-            if (Stability != default) parts.Add(Stability.ToString());
-            if (!string.IsNullOrEmpty(License)) parts.Add(License);
-            if (!string.IsNullOrEmpty(Main)) parts.Add(Main);
-            return StringUtils.Join(", ", parts);
-        }
+            => StringUtils.Join(", ", new object?[]
+                {
+                    Architecture,
+                    Version,
+                    Released.ToString("d", CultureInfo.InvariantCulture),
+                    ReleasedVerbatim,
+                    Stability,
+                    License,
+                    Main
+                }.WhereNotNull()
+                 .Where(x => x is not 0)
+                 .Select(x => x.ToString()!));
         #endregion
 
         #region Equality

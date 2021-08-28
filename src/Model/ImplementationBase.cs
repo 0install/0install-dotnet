@@ -2,11 +2,12 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Model
@@ -105,18 +106,19 @@ namespace ZeroInstall.Model
         /// Returns the implementation in the form "Comma-separated list of set values". Not safe for parsing!
         /// </summary>
         public override string ToString()
-        {
-            var parts = new List<string>();
-            if (!string.IsNullOrEmpty(ID)) parts.Add(ID);
-            if (Architecture != default) parts.Add(Architecture.ToString());
-            parts.Add(Version.ToString());
-            if (Released != default) parts.Add(Released.ToString("d", CultureInfo.InvariantCulture));
-            if (ReleasedVerbatim != null) parts.Add(ReleasedVerbatim);
-            if (Stability != default) parts.Add(Stability.ToString());
-            if (!string.IsNullOrEmpty(License)) parts.Add(License);
-            if (!string.IsNullOrEmpty(Main)) parts.Add(Main);
-            return StringUtils.Join(", ", parts);
-        }
+            => StringUtils.Join(", ", new object?[]
+                {
+                    ID,
+                    Architecture,
+                    Version,
+                    Released.ToString("d", CultureInfo.InvariantCulture),
+                    ReleasedVerbatim,
+                    Stability,
+                    License,
+                    Main
+                }.WhereNotNull()
+                 .Where(x => x is not 0)
+                 .Select(x => x.ToString()!));
         #endregion
 
         #region Equality
