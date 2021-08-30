@@ -1,36 +1,37 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":disableDependencyDashboard"],
   "packageRules": [
     {
-      "packagePatterns": ["Test", "Assert", "Mock", "[Xx]unit", "Moq"],
+      "matchPackagePatterns": ["Test", "Assert", "Mock", "[Xx]unit", "Moq"],
       "groupName": "Testing deps",
       "automerge": true,
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["NanoByte"],
+      "matchPackagePatterns": ["NanoByte"],
       "groupName": "NanoByte deps",
       "automerge": true,
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["SourceLink"],
-      "packageNames": ["SharpZipLib", "SharpCompress"],
+      "matchPackagePatterns": ["SourceLink"],
+      "matchPackageNames": ["SharpZipLib", "SharpCompress"],
       "automerge": true,
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["^Microsoft\\.Extensions"],
-      "packageNames": ["System.Drawing.Common"],
+      "matchPackagePatterns": ["^Microsoft\\.Extensions"],
+      "matchPackageNames": ["System.Drawing.Common"],
       "groupName": "Microsoft Extensions",
+      "automerge": true,
+      "automergeType": "branch",
       "separateMinorPatch": true
     },
     {
-      "packagePatterns": ["^Microsoft\\.Extensions"],
-      "packageNames": ["System.Drawing.Common"],
-      "updateTypes": ["major", "minor"],
+      "matchPackagePatterns": ["^Microsoft\\.Extensions"],
+      "matchPackageNames": ["System.Drawing.Common"],
+      "matchUpdateTypes": ["major", "minor"],
       "enabled": false
     }
   ]
