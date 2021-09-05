@@ -16,8 +16,8 @@ namespace ZeroInstall.FileSystem
     public class TestDirectory : TestElement, IEnumerable<TestElement>
     {
         /// <summary>
-        /// The <seealso cref="TestElement"/>s contained within the directory.
-        /// Walked recursively by <seealso cref="Build"/> and <seealso cref="Verify"/>.
+        /// The <see cref="TestElement"/>s contained within the directory.
+        /// Walked recursively by <see cref="Build"/> and <see cref="Verify"/>.
         /// </summary>
         public List<TestElement> Children { get; } = new();
 
@@ -26,7 +26,7 @@ namespace ZeroInstall.FileSystem
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         /// <summary>
-        /// Adds an element to <seealso cref="Children"/>.
+        /// Adds an element to <see cref="Children"/>.
         /// </summary>
         public void Add(TestElement element) => Children.Add(element);
 
