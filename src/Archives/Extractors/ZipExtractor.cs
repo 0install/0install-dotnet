@@ -66,16 +66,18 @@ namespace ZeroInstall.Archives.Extractors
         {
             for (int i = 0; i < zipFile.Count; i++)
             {
-                string? relativePath = NormalizePath(zipFile[i].Name, subDir);
+                var entry = zipFile[i];
+
+                string? relativePath = NormalizePath(entry.Name, subDir);
                 if (string.IsNullOrEmpty(relativePath)) continue;
 
-                if (zipFile[i].IsDirectory)
+                if (entry.IsDirectory)
                     builder.AddDirectory(relativePath);
-                else if (zipFile[i].IsFile)
+                else if (entry.IsFile)
                 {
-                    if (IsSymlink(zipFile[i]))
+                    if (IsSymlink(entry))
                         builder.TurnIntoSymlink(relativePath);
-                    else if (IsExecutable(zipFile[i]))
+                    else if (IsExecutable(entry))
                         builder.MarkAsExecutable(relativePath);
                 }
             }
