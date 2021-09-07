@@ -29,7 +29,7 @@ namespace ZeroInstall.Archives.Extractors
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {
-            stream = stream.WithSeekBuffer();
+            stream = stream.WithSeekBuffer(bufferSize: 2 * 1024 * 1024);
 
             try
             {
