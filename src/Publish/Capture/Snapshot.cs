@@ -178,6 +178,7 @@ namespace ZeroInstall.Publish.Capture
 
             return (
                 from eventName in eventsKey.GetSubKeyNames()
+                // ReSharper disable once AccessToDisposedClosure
                 from handlerName in RegUtils.GetValueNames(eventsKey, eventName)
                 select (eventName, handlerName));
         }

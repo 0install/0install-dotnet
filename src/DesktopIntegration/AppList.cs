@@ -120,7 +120,7 @@ namespace ZeroInstall.DesktopIntegration
             }
             else
             {
-                foreach (var entry in Entries.Where(x => x.InterfaceUri != null && !string.IsNullOrEmpty(x.Name)))
+                foreach (var entry in Entries.Where(x => !string.IsNullOrEmpty(x.Name)))
                 {
                     if (entry.Name.ContainsIgnoreCase(query)) yield return entry;
                     else if (entry.Name.Replace(' ', '-').ContainsIgnoreCase(query)) yield return entry;

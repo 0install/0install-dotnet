@@ -124,6 +124,6 @@ namespace ZeroInstall.Model
         /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
         /// <returns>The first matching icon that was found or <c>null</c> if no matching icon was found.</returns>
         public static Icon? GetIcon(this IEnumerable<Icon> icons, string mimeType)
-            => icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType) && icon.Href != null);
+            => icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType));
     }
 }

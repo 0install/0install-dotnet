@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.Publish.Properties;
@@ -37,7 +36,7 @@ namespace ZeroInstall.Publish.EntryPoints
         };
 
         /// <inheritdoc/>
-        public DetectCandidates([NotNull] string path)
+        public DetectCandidates(string path)
             : base(path)
         {}
 

@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -30,7 +31,7 @@ namespace ZeroInstall.Model
     /// A reference to an interface that is required as dependency.
     /// </summary>
     [Description("A reference to an interface that is required as dependency.")]
-    [Serializable, XmlRoot("requires", Namespace = Feed.XmlNamespace), XmlType("depedency", Namespace = Feed.XmlNamespace)]
+    [Serializable, XmlRoot("requires", Namespace = Feed.XmlNamespace), XmlType("dependency", Namespace = Feed.XmlNamespace)]
     public class Dependency : Restriction, IInterfaceUriBindingContainer, ICloneable<Dependency>, IEquatable<Dependency>
     {
         /// <summary>
@@ -82,11 +83,13 @@ namespace ZeroInstall.Model
         /// Returns the dependency in the form "Interface (Use)". Not safe for parsing!
         /// </summary>
         public override string ToString()
-        {
-            string result = (InterfaceUri == null) ? "-" : InterfaceUri.ToStringRfc();
-            if (!string.IsNullOrEmpty(Use)) result += " (" + Use + ")";
-            return result;
-        }
+            => StringUtils.Join(", ", new object?[]
+                {
+                    InterfaceUri,
+                    Use
+                }.WhereNotNull()
+                 .Where(x => x is not 0)
+                 .Select(x => x.ToString()!));
         #endregion
 
         #region Clone
