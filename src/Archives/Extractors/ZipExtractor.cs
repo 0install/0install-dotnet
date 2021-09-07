@@ -58,9 +58,15 @@ namespace ZeroInstall.Archives.Extractors
                 if (entry.IsDirectory)
                     builder.AddDirectory(relativePath);
                 else if (entry.IsFile)
-                    builder.AddFile(relativePath, zipStream, entry.DateTime);
+                    builder.AddFile(relativePath, zipStream, GetTimestamp(entry));
             }
         }
+
+        private static DateTime GetTimestamp(ZipEntry entry)
+            => new ZipExtraData(entry.ExtraData)
+              .GetData<OldUnixExtraData>()
+             ?.ModificationTime
+            ?? entry.DateTime;
 
         private static void ApplyCentral(ZipFile zipFile, string? subDir, IBuilder builder)
         {
