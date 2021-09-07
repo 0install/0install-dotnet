@@ -90,7 +90,7 @@ namespace ZeroInstall.Publish
             build(builder);
             var digest = new ManifestDigest(builder.Manifest.CalculateDigest());
 
-            if (implementation.ManifestDigest == default)
+            if (IsDigestMissing(implementation))
                 executor.Execute(SetValueCommand.For(() => implementation.ManifestDigest, newValue: digest));
             else if (!digest.PartialEquals(implementation.ManifestDigest))
                 throw new DigestMismatchException(expectedDigest: implementation.ManifestDigest.ToString(), actualDigest: digest.ToString());
