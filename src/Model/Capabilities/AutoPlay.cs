@@ -48,7 +48,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Returns the capability in the form "ID". Not safe for parsing!
         /// </summary>
         public override string ToString()
-            => ID ?? "";
+            => $"{ID}";
         #endregion
 
         #region Clone

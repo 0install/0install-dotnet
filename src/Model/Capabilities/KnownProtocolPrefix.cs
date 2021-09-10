@@ -30,7 +30,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Returns the prefix in the form "Value". Not safe for parsing!
         /// </summary>
         public override string ToString()
-            => Value ?? "";
+            => $"{Value}";
         #endregion
 
         #region Clone

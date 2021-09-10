@@ -44,7 +44,7 @@ namespace ZeroInstall.Publish.Capture
                 if (string.IsNullOrEmpty(command.Path)) continue;
 
                 string path = Path.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
-                string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
+                string arguments = command.Arguments.Select(arg => arg.ToString() ?? "").JoinEscapeArguments();
 
                 _commands.Add(((path.EscapeArgument() + " " + arguments).Trim(), command));
 

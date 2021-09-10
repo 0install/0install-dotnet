@@ -131,7 +131,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Returns a string representation of the version range set. Safe for parsing!
         /// </summary>
-        public override string ToString() => StringUtils.Join("|", Parts.Select(part => part.ToString()!));
+        public override string ToString() => StringUtils.Join("|", Parts.Select(part => part.ToString() ?? ""));
 
         #region Equality
         /// <inheritdoc/>

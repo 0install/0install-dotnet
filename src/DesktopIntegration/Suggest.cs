@@ -40,7 +40,7 @@ namespace ZeroInstall.DesktopIntegration
                         Category = category,
                         Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name);
+                    }).DistinctBy(x => x.Name ?? "");
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name);
+                    }).DistinctBy(x => x.Name ?? "");
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name);
+                    }).DistinctBy(x => x.Name ?? "");
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name);
+                    }).DistinctBy(x => x.Name ?? "");
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace ZeroInstall.DesktopIntegration
                     {
                         Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
                         Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name);
+                    }).DistinctBy(x => x.Name ?? "");
         }
 
         /// <summary>

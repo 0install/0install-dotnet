@@ -94,7 +94,7 @@ namespace ZeroInstall.Model
                     Main
                 }.WhereNotNull()
                  .Where(x => x is not 0)
-                 .Select(x => x.ToString()!));
+                 .Select(x => x.ToString() ?? ""));
         #endregion
 
         #region Equality

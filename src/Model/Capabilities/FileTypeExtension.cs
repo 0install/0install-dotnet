@@ -49,7 +49,8 @@ namespace ZeroInstall.Model.Capabilities
         /// <summary>
         /// Returns the extension in the form "Value (MimeType)". Not safe for parsing!
         /// </summary>
-        public override string ToString() => $"{Value} ({MimeType})";
+        public override string ToString()
+            => $"{Value} ({MimeType})";
         #endregion
 
         #region Clone

@@ -138,12 +138,7 @@ namespace ZeroInstall.Model
         /// Returns the dependency in the form "Interface". Not safe for parsing!
         /// </summary>
         public override string ToString()
-            => StringUtils.Join(", ", new object?[]
-                {
-                    InterfaceUri
-                }.WhereNotNull()
-                 .Where(x => x is not 0)
-                 .Select(x => x.ToString()!));
+            => $"{InterfaceUri}";
         #endregion
 
         #region Clone

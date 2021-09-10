@@ -37,7 +37,8 @@ namespace ZeroInstall.Model.Capabilities
         /// <summary>
         /// Returns the capability in the form "CapabilityRegPath". Not safe for parsing!
         /// </summary>
-        public override string ToString() => CapabilityRegPath;
+        public override string ToString()
+            => $"{CapabilityRegPath}";
         #endregion
 
         #region Clone

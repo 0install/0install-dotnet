@@ -165,7 +165,7 @@ namespace ZeroInstall.Services.Fetchers
             }
             catch (DigestMismatchException)
             {
-                Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString()!))));
+                Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString() ?? ""))));
                 throw;
             }
         }

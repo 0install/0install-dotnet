@@ -46,7 +46,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Returns the event in the form "Name". Not safe for parsing!
         /// </summary>
         public override string ToString()
-            => Name ?? "";
+            => $"{Name}";
         #endregion
 
         #region Clone
