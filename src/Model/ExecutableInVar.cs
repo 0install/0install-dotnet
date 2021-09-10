@@ -24,7 +24,7 @@ namespace ZeroInstall.Model
         #region Normalize
         /// <inheritdoc/>
         public override void Normalize()
-            => EnsureTag(Name, "name");
+            => EnsureAttribute(Name, "name");
         #endregion
 
         #region Conversion

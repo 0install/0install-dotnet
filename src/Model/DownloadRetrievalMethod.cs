@@ -50,7 +50,7 @@ namespace ZeroInstall.Model
         {
             base.Normalize(feedUri);
 
-            EnsureTag(Href, "href");
+            EnsureAttribute(Href, "href");
             Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
         }
         #endregion

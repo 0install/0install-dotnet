@@ -32,8 +32,8 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         public void Normalize(FeedUri? feedUri = null)
         {
-            EnsureTag(Source, "source");
-            EnsureTag(Destination, "dest");
+            EnsureAttribute(Source, "source");
+            EnsureAttribute(Destination, "dest");
         }
         #endregion
 

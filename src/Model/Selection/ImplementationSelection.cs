@@ -87,7 +87,7 @@ namespace ZeroInstall.Model.Selection
         {
             base.Normalize(feedUri);
 
-            EnsureTag(InterfaceUri, "interface");
+            EnsureAttribute(InterfaceUri, "interface");
         }
 
         #region Conversion

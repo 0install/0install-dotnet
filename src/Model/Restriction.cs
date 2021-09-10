@@ -121,7 +121,7 @@ namespace ZeroInstall.Model
         /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public virtual void Normalize()
         {
-            EnsureTag(InterfaceUri, "interface");
+            EnsureAttribute(InterfaceUri, "interface");
 
             if (Constraints.Count != 0)
             {

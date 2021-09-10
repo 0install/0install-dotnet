@@ -106,7 +106,7 @@ namespace ZeroInstall.Model
         /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public virtual void Normalize()
         {
-            EnsureTag(Name, "name");
+            EnsureAttribute(Name, "name");
 
             // Apply if-0install-version filter
             Arguments.RemoveAll(FilterMismatch);

@@ -297,15 +297,15 @@ namespace ZeroInstall.Model
             foreach (var dependency in Dependencies) dependency.Normalize();
             foreach (var restriction in Restrictions) restriction.Normalize();
 
-            EnsureTags();
+            EnsureAttributes();
         }
 
         /// <summary>
         /// Ensures that required values deserialized from XML attributes are set (not <c>null</c>).
         /// </summary>
         /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
-        protected virtual void EnsureTags()
-            => EnsureTag(Version, "version");
+        protected virtual void EnsureAttributes()
+            => EnsureAttribute(Version, "version");
 
         /// <summary>
         /// Transfers attributes from another <see cref="Element"/> object to this one.

@@ -177,8 +177,8 @@ namespace ZeroInstall.Model.Selection
         /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public void Normalize()
         {
-            EnsureTag(InterfaceUri, "interface");
-            EnsureTag(Command, "command");
+            EnsureAttribute(InterfaceUri, "interface");
+            EnsureAttribute(Command, "command");
 
             foreach (var implementation in Implementations)
                 implementation.Normalize(implementation.FromFeed ?? implementation.InterfaceUri);

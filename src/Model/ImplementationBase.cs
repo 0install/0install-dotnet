@@ -83,8 +83,8 @@ namespace ZeroInstall.Model
             // Parse manifest digest from ID if missing
             if (!string.IsNullOrEmpty(ID)) _manifestDigest.ParseID(ID);
 
-            EnsureTag(ID, "id");
-            EnsureTag(Version, "version");
+            EnsureAttribute(ID, "id");
+            EnsureAttribute(Version, "version");
         }
         #endregion
 

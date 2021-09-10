@@ -24,7 +24,7 @@ namespace ZeroInstall.Model
         #region Normalize
         /// <inheritdoc/>
         public void Normalize(FeedUri? feedUri = null)
-            => EnsureTag(Path, "path");
+            => EnsureAttribute(Path, "path");
         #endregion
 
         #region Conversion

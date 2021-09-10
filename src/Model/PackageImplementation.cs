@@ -76,7 +76,7 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <inheritdoc/>
-        protected override void EnsureTags()
+        protected override void EnsureAttributes()
         {}
         #endregion
 

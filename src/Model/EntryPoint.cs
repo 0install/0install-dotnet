@@ -111,7 +111,7 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
         public void Normalize()
-            => EnsureTag(Command, "command");
+            => EnsureAttribute(Command, "command");
         #endregion
 
         #region Conversion

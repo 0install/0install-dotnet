@@ -37,14 +37,17 @@ namespace ZeroInstall.Model
         /// <param name="value">The mapped value to check.</param>
         /// <param name="attributeName">The name of the XML attribute.</param>
         /// <exception cref="InvalidDataException"><paramref name="value"/> is <c>null</c>.</exception>
-        protected void EnsureTag(object? value, string attributeName)
+        protected void EnsureAttribute(object? value, string attributeName)
         {
             if (value == null)
-            {
-                string tagName = this.GetType().GetCustomAttribute<XmlTypeAttribute>()?.TypeName ?? "unknown";
-                throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, tagName));
-            }
+                throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, TagName));
         }
+
+        /// <summary>
+        /// The XML tag name of this type.
+        /// </summary>
+        protected string TagName
+            => GetType().GetCustomAttribute<XmlTypeAttribute>()?.TypeName ?? "unknown";
 
         #region Comparers
         private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>

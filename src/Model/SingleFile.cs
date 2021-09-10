@@ -34,7 +34,7 @@ namespace ZeroInstall.Model
         {
             base.Normalize(feedUri);
 
-            EnsureTag(Destination, "dest");
+            EnsureAttribute(Destination, "dest");
         }
         #endregion
 
