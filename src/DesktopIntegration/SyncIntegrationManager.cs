@@ -91,9 +91,11 @@ namespace ZeroInstall.DesktopIntegration
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
 
+                // ReSharper disable AccessToDisposedClosure
                 var data = DownloadAppList(webClient, uri, resetMode);
                 HandleDownloadedAppList(data, resetMode);
                 UploadAppList(webClient, uri, resetMode);
+                // ReSharper restore AccessToDisposedClosure
             }, maxRetries: 3);
 
             // Save reference point for future syncs
