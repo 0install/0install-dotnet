@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Net;
@@ -22,6 +24,7 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Select a version of the program identified by URI, and compatible versions of all of its dependencies.
     /// </summary>
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class Selection : CliCommand
     {
         #region Metadata
@@ -155,7 +158,7 @@ namespace ZeroInstall.Commands.Basic
             }
             SelfUpdateCheck();
 
-            ShowSelections();
+            Show(Selections);
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             return ShowOutput();
@@ -190,12 +193,17 @@ namespace ZeroInstall.Commands.Basic
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="IOException">An external application or file required by the solver could not be accessed.</exception>
         /// <exception cref="SolverException">The <see cref="ISolver"/> was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.</exception>
+        [MemberNotNull(nameof(Selections))]
         protected virtual void Solve()
         {
             // TODO: Handle named apps
 
             // Don't run the solver if the user provided an external selections document
-            if (SelectionsDocument) return;
+            if (SelectionsDocument)
+            {
+                Debug.Assert(Selections != null);
+                return;
+            }
 
             try
             {
@@ -228,6 +236,7 @@ namespace ZeroInstall.Commands.Basic
         /// <summary>
         /// Run <see cref="Solve"/> with <see cref="IFeedManager.Refresh"/> set to <c>true</c>.
         /// </summary>
+        [MemberNotNull(nameof(Selections))]
         protected void RefreshSolve()
         {
             FeedManager.Stale = false;
@@ -236,11 +245,11 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Displays the <see cref="Selections"/> to the user.
+        /// Displays the <paramref name="selections"/> to the user.
         /// </summary>
-        protected void ShowSelections()
+        protected void Show(Selections selections)
         {
-            Handler.ShowSelections(Selections!, FeedManager);
+            Handler.ShowSelections(selections, FeedManager);
             if (CustomizeSelections && !SelectionsDocument) Handler.CustomizeSelections(SolveCallback);
             Handler.CancellationToken.ThrowIfCancellationRequested();
         }
@@ -264,14 +273,16 @@ namespace ZeroInstall.Commands.Basic
                 FeedManager.Refresh = backupRefresh;
             }
 
-            Handler.ShowSelections(Selections!, FeedManager);
-            return Selections!;
+            Handler.ShowSelections(Selections, FeedManager);
+            return Selections;
         }
 
         protected virtual ExitCode ShowOutput()
         {
-            if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections!.ToXmlString());
-            else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections!));
+            Debug.Assert(Selections != null);
+
+            if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections.ToXmlString());
+            else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections));
             return ExitCode.OK;
         }
     }

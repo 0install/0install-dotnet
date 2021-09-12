@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using NanoByte.Common;
@@ -71,7 +71,7 @@ namespace ZeroInstall.Commands.Basic
                     RefreshSolve();
                 }
 
-                DownloadUncachedImplementations();
+                Handle(UncachedImplementations);
             }
             #region Error handling
             catch (WebException ex) when (Handler.Background)
@@ -95,13 +95,14 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <inheritdoc/>
+        [MemberNotNull(nameof(UncachedImplementations))]
         protected override void Solve()
         {
             base.Solve();
 
             try
             {
-                UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections!);
+                UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections);
             }
             #region Error handling
             catch (Exception ex) when (ex is KeyNotFoundException or InvalidDataException)
@@ -116,20 +117,19 @@ namespace ZeroInstall.Commands.Basic
         /// Downloads any <see cref="Implementation"/>s in <see cref="Selection"/> that are missing from <see cref="IImplementationStore"/>.
         /// </summary>
         /// <remarks>Makes sure <see cref="ISolver"/> ran with up-to-date feeds before downloading any implementations.</remarks>
-        protected void DownloadUncachedImplementations()
+        protected void Handle(List<Implementation> uncachedImplementations)
         {
-            Debug.Assert(UncachedImplementations != null);
-
-            if (UncachedImplementations.Count != 0 && !FeedManager.Refresh)
+            if (uncachedImplementations.Count != 0 && !FeedManager.Refresh)
             {
                 Log.Info("Running Refresh Solve because there are un-cached implementations");
                 RefreshSolve();
             }
 
-            if (CustomizeSelections || UncachedImplementations!.Count != 0) ShowSelections();
+            if ((CustomizeSelections || uncachedImplementations.Count != 0) && Selections != null)
+                Show(Selections);
 
-            if (UncachedImplementations!.Count != 0)
-                FetchAll(UncachedImplementations);
+            if (uncachedImplementations.Count != 0)
+                FetchAll(uncachedImplementations);
         }
 
         protected override ExitCode ShowOutput()

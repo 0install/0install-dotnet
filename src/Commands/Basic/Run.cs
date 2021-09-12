@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -70,12 +71,12 @@ namespace ZeroInstall.Commands.Basic
 
             Solve();
 
-            DownloadUncachedImplementations();
+            Handle(UncachedImplementations);
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             Handler.DisableUI();
 
-            var process = Executor.Inject(Selections!, _overrideMain)
+            var process = Executor.Inject(Selections, _overrideMain)
                                   .AddWrapper(_wrapper)
                                   .AddArguments(AdditionalArgs.ToArray())
                                   .Start();
@@ -96,6 +97,9 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <inheritdoc/>
+#pragma warning disable 8776
+        [MemberNotNull(nameof(Selections))]
+#pragma warning restore 8776
         protected override void Solve()
         {
             if (Config.NetworkUse == NetworkLevel.Full && !FeedManager.Refresh)

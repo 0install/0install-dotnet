@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Basic.Exporters;
@@ -79,12 +79,12 @@ namespace ZeroInstall.Commands.Basic
         {
             Solve();
 
-            var exporter = new Exporter(Selections!, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
+            var exporter = new Exporter(Selections, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
 
             exporter.ExportFeeds(FeedCache, OpenPgp);
             if (!_noImplementations)
             {
-                DownloadUncachedImplementations();
+                Handle(UncachedImplementations);
                 exporter.ExportImplementations(ImplementationStore, Handler);
             }
 
@@ -104,10 +104,13 @@ namespace ZeroInstall.Commands.Basic
             return ShowOutput();
         }
 
+        /// <inheritdoc/>
+#pragma warning disable 8776
+        [MemberNotNull(nameof(Selections))]
+#pragma warning restore 8776
         protected override void Solve()
         {
             base.Solve();
-            Debug.Assert(Selections != null && UncachedImplementations != null);
 
             if (_includeZeroInstall)
             {
@@ -133,11 +136,9 @@ namespace ZeroInstall.Commands.Basic
 
         protected override ExitCode ShowOutput()
         {
-            Debug.Assert(Selections != null && _outputPath != null);
-
             Handler.OutputLow(
                 title: Resources.ExportComplete,
-                message: string.Format(Resources.AllComponentsExported, Selections.Name, _outputPath));
+                message: string.Format(Resources.AllComponentsExported, Selections?.Name, _outputPath));
 
             return ExitCode.OK;
         }

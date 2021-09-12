@@ -96,7 +96,7 @@ namespace ZeroInstall.Commands.Desktop
 
                 if (UpdateFound())
                 {
-                    DownloadUncachedImplementations();
+                    Handle(UncachedImplementations);
 
                     Handler.CancellationToken.ThrowIfCancellationRequested();
                     if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))

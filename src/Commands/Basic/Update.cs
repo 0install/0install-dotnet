@@ -47,6 +47,7 @@ namespace ZeroInstall.Commands.Basic
                 OldSolve();
                 Log.Info("Running Refresh Solve to find updates");
                 RefreshSolve();
+                Debug.Assert(UncachedImplementations != null);
             }
             catch (SolverException ex) when (Handler.Background)
             {
@@ -55,7 +56,7 @@ namespace ZeroInstall.Commands.Basic
                 return ExitCode.SolverError;
             }
 
-            DownloadUncachedImplementations();
+            Handle(UncachedImplementations);
             SelfUpdateCheck();
 
             return ShowOutput();
