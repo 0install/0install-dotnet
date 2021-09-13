@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -43,12 +42,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (File.Exists(filePath)) File.Delete(filePath);
         }
 
-        private static string GetQuickLaunchPath(string name)
-        {
-            CheckName(name);
-
-            string quickLaunchDir = new[] {Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch"}.Aggregate(Path.Combine);
-            return Path.Combine(quickLaunchDir, name + ".lnk");
-        }
+        private static string GetQuickLaunchPath(string? name)
+            => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch", name + ".lnk");
     }
 }

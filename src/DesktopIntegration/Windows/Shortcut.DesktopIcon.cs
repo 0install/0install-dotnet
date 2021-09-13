@@ -51,14 +51,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="name">The name of the shortcut (without the .lnk ending).</param>
         /// <param name="machineWide"><c>true</c> to use the machine-wide desktop; <c>false</c> for the per-user variant.</param>
         /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
-        public static string GetDesktopPath(string name, bool machineWide)
-        {
-            CheckName(name);
-
-            string desktopDir = machineWide
+        public static string GetDesktopPath(string? name, bool machineWide)
+            => Path.Combine(machineWide
                 ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Desktop", @"C:\Users\Public\Desktop")
-                : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            return Path.Combine(desktopDir, name + ".lnk");
-        }
+                : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), name + ".lnk");
     }
 }

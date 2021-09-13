@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using System.Net;
 using Microsoft.Win32;
-using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
+
 #if NETFRAMEWORK
 using NanoByte.Common.Native;
 #endif
@@ -43,9 +43,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(aliasName) || aliasName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
-                throw new IOException(string.Format(Resources.NameInvalidChars, aliasName));
 
 #if NETFRAMEWORK
             string stubDirPath = GetStubDir(machineWide);

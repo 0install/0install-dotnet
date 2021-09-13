@@ -48,14 +48,9 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (File.Exists(filePath)) File.Delete(filePath);
         }
 
-        private static string GetStartupPath(string name, bool machineWide)
-        {
-            CheckName(name);
-
-            string startupDir = machineWide
+        private static string GetStartupPath(string? name, bool machineWide)
+            => Path.Combine(machineWide
                 ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Startup", @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup")
-                : Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-            return Path.Combine(startupDir, name + ".lnk");
-        }
+                : Environment.GetFolderPath(Environment.SpecialFolder.Startup), name + ".lnk");
     }
 }

@@ -3,7 +3,10 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Xml.Serialization;
+using ZeroInstall.DesktopIntegration.Properties;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
@@ -19,7 +22,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         [Description("The name of the menu entry, icon, command-line, etc..")]
         [XmlAttribute("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// The name of the <see cref="Model.Command"/> to use when launching via this access point. Leave empty to use default.
@@ -27,6 +30,17 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         [Description("The name of the Command to use when launching via this access point. Leave empty to use default.")]
         [XmlAttribute("command")]
         public string? Command { get; set; }
+
+        /// <summary>
+        /// Ensures that the given name can be used as a file name.
+        /// </summary>
+        /// <exception cref="IOException"><see cref="Name"/> contains invalid characters.</exception>
+        [MemberNotNull(nameof(Name))]
+        protected void ValidateName()
+        {
+            if (string.IsNullOrEmpty(Name) || Name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+                throw new IOException(string.Format(Resources.NameInvalidChars, Name));
+        }
 
         #region Conversion
         /// <summary>

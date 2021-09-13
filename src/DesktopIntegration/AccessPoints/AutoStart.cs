@@ -34,6 +34,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
+            ValidateName();
+
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
             if (WindowsUtils.IsWindows) Windows.Shortcut.Create(this, target, iconStore, machineWide);
         }
@@ -44,6 +46,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             #region Sanity checks
             if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
             #endregion
+
+            ValidateName();
 
             if (WindowsUtils.IsWindows) Windows.Shortcut.Remove(this, machineWide);
         }

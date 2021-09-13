@@ -42,11 +42,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (File.Exists(filePath)) File.Delete(filePath);
         }
 
-        private static string GetSendToPath(string name)
-        {
-            CheckName(name);
-
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SendTo), name + ".lnk");
-        }
+        private static string GetSendToPath(string? name)
+            => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SendTo), name + ".lnk");
     }
 }

@@ -9,7 +9,6 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
-using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Implementations;
@@ -88,16 +87,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
 
             ((IPersistFile)link).Save(path, fRemember: false);
-        }
-
-        /// <summary>
-        /// Ensures that the given name can be used as a file name.
-        /// </summary>
-        /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
-        private static void CheckName(string? name)
-        {
-            if (string.IsNullOrEmpty(name) || name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
-                throw new IOException(string.Format(Resources.NameInvalidChars, name));
         }
     }
 }

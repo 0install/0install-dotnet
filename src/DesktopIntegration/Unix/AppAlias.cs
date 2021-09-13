@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using System.Net;
-using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
 
@@ -34,9 +33,6 @@ namespace ZeroInstall.DesktopIntegration.Unix
             if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(aliasName) || aliasName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
-                throw new IOException(string.Format(Resources.NameInvalidChars, aliasName));
 
             // TODO: Find directory in search PATH
 
