@@ -46,13 +46,10 @@ namespace ZeroInstall.Services.Feeds
                 {
                     feed = feedManager[feedUri];
                 }
-                #region Sanity checks
                 catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
                 {
                     Log.Warn(ex);
                 }
-                #endregion
-
                 finally
                 {
                     feedManager.Refresh = false;
