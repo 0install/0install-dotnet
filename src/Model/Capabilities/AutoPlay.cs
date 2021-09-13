@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +21,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Description("The name of the application as shown in the AutoPlay selection list.")]
         [XmlAttribute("provider")]
-        public string Provider { get; set; }
+        public string Provider { get; set; } = default!;
 
         /// <summary>
         /// The command to execute when the handler gets called.
@@ -42,6 +40,17 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         [XmlIgnore]
         public override IEnumerable<string> ConflictIDs => new[] {"autoplay:" + ID};
+
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+        {
+            base.Normalize();
+            EnsureAttribute(Provider, "provider");
+            Verb?.Normalize();
+            foreach (var @event in Events) @event.Normalize();
+        }
+        #endregion
 
         #region Conversion
         /// <summary>

@@ -1,10 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 
@@ -35,11 +34,20 @@ namespace ZeroInstall.Model.Capabilities
         #endregion
 
         /// <summary>
-        /// The name of the event.
+        /// The name of the event. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).
         /// </summary>
-        [Description("The name of the event.")]
+        [Description("The name of the event. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).")]
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
+
+        #region Normalize
+        /// <summary>
+        /// Converts legacy elements, sets default values, etc..
+        /// </summary>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+        public void Normalize()
+            => EnsureAttributeSafeID(Name, "name");
+        #endregion
 
         #region Conversion
         /// <summary>

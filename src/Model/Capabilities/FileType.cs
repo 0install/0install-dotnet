@@ -27,6 +27,15 @@ namespace ZeroInstall.Model.Capabilities
         [XmlIgnore]
         public override IEnumerable<string> ConflictIDs => new[] {"progid:" + ID};
 
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+        {
+            base.Normalize();
+            foreach (var extension in Extensions) extension.Normalize();
+        }
+        #endregion
+
         #region Conversion
         /// <summary>
         /// Returns the capability in the form "ID". Not safe for parsing!

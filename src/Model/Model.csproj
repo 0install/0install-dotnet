@@ -6,7 +6,6 @@
     <RootNamespace>ZeroInstall.Model</RootNamespace>
     <Description>Zero Install data model for the feed format</Description>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <NoWarn>$(NoWarn);8632</NoWarn><!-- Nullable annotations with nullability disabled -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->

@@ -302,6 +302,9 @@ namespace ZeroInstall.Model
             NormalizeElements(feedUri);
             NormalizeEntryPoints();
             ResolveInternalReferences();
+
+            foreach (var capability in CapabilityLists.SelectMany(x => x.Entries))
+                capability.Normalize();
         }
 
         private void NormalizeElements(FeedUri? feedUri)

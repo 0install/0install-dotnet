@@ -1,10 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 
@@ -23,7 +22,16 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Description("The value of the prefix (e.g. \"http\").")]
         [XmlAttribute("value")]
-        public string Value { get; set; }
+        public string Value { get; set; } = default!;
+
+        #region Normalize
+        /// <summary>
+        /// Converts legacy elements, sets default values, etc..
+        /// </summary>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+        public void Normalize()
+            => EnsureAttributeSafeID(Value, "value");
+        #endregion
 
         #region Conversion
         /// <summary>

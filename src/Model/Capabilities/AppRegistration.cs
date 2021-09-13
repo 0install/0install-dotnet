@@ -1,11 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common.Native;
 
@@ -27,11 +26,22 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Description("The registry path relative to HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE which should be used to store the application's capability registration information.")]
         [XmlAttribute("capability-reg-path")]
-        public string CapabilityRegPath { get; set; }
+        public string CapabilityRegPath { get; set; } = default!;
 
         /// <inheritdoc/>
         [XmlIgnore]
         public override IEnumerable<string> ConflictIDs => new[] {"registered-apps:" + ID, "hklm:" + CapabilityRegPath};
+
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+        {
+            base.Normalize();
+            EnsureAttribute(CapabilityRegPath, "capability-reg-path");
+            if (CapabilityRegPath.Contains(".."))
+                throw new InvalidDataException($"Invalid 'capability-reg-path' attribute on <{TagName}> tag. Should not contain '..' but was: {CapabilityRegPath}");
+        }
+        #endregion
 
         #region Conversion
         /// <summary>

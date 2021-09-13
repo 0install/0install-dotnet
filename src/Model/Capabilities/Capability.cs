@@ -1,11 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 
@@ -26,11 +25,12 @@ namespace ZeroInstall.Model.Capabilities
 
         /// <summary>
         /// An ID that differentiates this capability from other capabilities of the same type within the feed.
+        /// May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).
         /// </summary>
         /// <remarks>Also serves as a programmatic identifier within the desktop environment. In case of conflicts, the first capability listed with a specific ID will take precedence.</remarks>
-        [Description("An ID that differentiates this capability from other capabilities of the same type within the feed. Also serves as a programmatic identifier within the desktop environment.")]
+        [Description("An ID that differentiates this capability from other capabilities of the same type within the feed. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+). Also serves as a programmatic identifier within the desktop environment.")]
         [XmlAttribute("id")]
-        public string ID { get; set; }
+        public string ID { get; set; } = default!;
 
         /// <summary>
         /// Identifiers from a namespace global to all <see cref="Capability"/>s.
@@ -40,6 +40,15 @@ namespace ZeroInstall.Model.Capabilities
         [Browsable(false)]
         [XmlIgnore]
         public abstract IEnumerable<string> ConflictIDs { get; }
+
+        #region Normalize
+        /// <summary>
+        /// Converts legacy elements, sets default values, etc..
+        /// </summary>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+        public virtual void Normalize()
+            => EnsureAttributeSafeID(ID, "id");
+        #endregion
 
         #region Clone
         /// <summary>

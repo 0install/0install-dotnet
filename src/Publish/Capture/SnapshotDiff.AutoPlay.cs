@@ -64,10 +64,12 @@ namespace ZeroInstall.Publish.Capture
 
             using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
             if (progIDKey == null) throw new IOException(progID + " key not found");
+            string? provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString();
+            if (string.IsNullOrEmpty(provider)) return null;
             var autoPlay = new AutoPlay
             {
                 ID = handler,
-                Provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString(),
+                Provider = provider,
                 Descriptions = {handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
                 Verb = GetVerb(progIDKey, commandMapper, verbName)
             };

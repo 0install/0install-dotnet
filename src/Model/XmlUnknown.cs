@@ -44,6 +44,18 @@ namespace ZeroInstall.Model
         }
 
         /// <summary>
+        /// Ensures that a value deserialized from an XML attribute is set (not <c>null</c>) and only contains alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).
+        /// </summary>
+        /// <param name="value">The mapped value to check.</param>
+        /// <param name="attributeName">The name of the XML attribute.</param>
+        /// <exception cref="InvalidDataException"><paramref name="value"/> is invalid.</exception>
+        protected void EnsureAttributeSafeID(string? value, string attributeName)
+        {
+            if (string.IsNullOrEmpty(value) || !value.All(x => char.IsLetterOrDigit(x) || x is '.' or '_' or '-' or '+'))
+                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, TagName) + " " + Resources.ShouldBeSafeID + " " + Resources.FoundInstead + " " + value);
+        }
+
+        /// <summary>
         /// The XML tag name of this type.
         /// </summary>
         protected string TagName

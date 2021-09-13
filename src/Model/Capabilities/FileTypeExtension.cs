@@ -1,12 +1,13 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.ComponentModel;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using NanoByte.Common;
+using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model.Capabilities
 {
@@ -25,25 +26,43 @@ namespace ZeroInstall.Model.Capabilities
         #endregion
 
         /// <summary>
-        /// The file extension including the leading dot (e.g. ".png").
+        /// The file extension including the leading dot (e.g., ".jpg").
         /// </summary>
-        [Description("The file extension including the leading dot (e.g. \".png\").")]
+        [Description("The file extension including the leading dot (e.g., \".jpg\").")]
         [XmlAttribute("value")]
-        public string Value { get; set; }
+        public string Value { get; set; } = default!;
 
         /// <summary>
         /// The MIME type associated with the file extension.
         /// </summary>
         [Description("The MIME type associated with the file extension.")]
         [XmlAttribute("mime-type"), DefaultValue("")]
-        public string MimeType { get; set; }
+        public string? MimeType { get; set; }
 
         /// <summary>
-        /// Defines the broad category of file types (e.g. text, image, audio) this extension falls into. Should always be a canonical type.
+        /// Defines the broad category of file types this extension falls into.
+        /// Well-known values on Windows are: folder, text, image, audio, video, compressed, document, system, application
         /// </summary>
-        [Description("Defines the broad category of file (e.g. text, image, audio) types this extension falls into. Should always be a canonical type.")]
+        [Description("Defines the broad category of file types this extension falls into. Well-known values on Windows are: folder, text, image, audio, video, compressed, document, system, application")]
         [XmlAttribute("perceived-type"), DefaultValue("")]
-        public string PerceivedType { get; set; }
+        public string? PerceivedType { get; set; }
+
+        #region Normalize
+        private static readonly Regex _mimeTypeRegex = new(@"\w+\/\w[-+.\w]*");
+
+        /// <summary>
+        /// Converts legacy elements, sets default values, etc..
+        /// </summary>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+        public void Normalize()
+        {
+            EnsureAttributeSafeID(Value, "value");
+            if (!Value.StartsWith(".")) Value = "." + Value;
+
+            if (!string.IsNullOrEmpty(MimeType) && !_mimeTypeRegex.IsMatch(MimeType))
+                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "mime-type", TagName) + " " + Resources.ShouldBeMimeType + " " + Resources.FoundInstead + " " + MimeType);
+        }
+        #endregion
 
         #region Conversion
         /// <summary>

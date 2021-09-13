@@ -132,11 +132,17 @@
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
   </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>War stattdessen:</value>
+  </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Die Implementierung für das Interface '{0}' konnte in den Selections nicht gefunden werden.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' ist keine gültige 'http(s):' URI und ist auch kein absoluter lokaler Pfad.</value>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Ungültiges '{0}' Attribut auf dem &lt;{1}&gt; Tag.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>Fehlendes '{0}' Attribut auf dem &lt;{1}&gt; Tag.</value>
@@ -182,6 +188,12 @@
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
     <value>Implementierungsversion zu alt oder zu neu</value>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Sollte ein gültiger MIME Type sein.</value>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Sollte ein sichere ID sein. Darf nur alphanumerische Zeichen, Punkte (.), Unterstriche (_), Bindestriche (-) and Pluszeichen (+) enthalten.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>Der Recipe Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>

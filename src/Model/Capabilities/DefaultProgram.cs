@@ -1,11 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
 
@@ -65,11 +64,12 @@ namespace ZeroInstall.Model.Capabilities
         public override bool WindowsMachineWideOnly => true;
 
         /// <summary>
-        /// The name of the service (e.g. "StartMenuInternet", "Mail", "Media"). Always use a canonical name when possible.
+        /// The name of the service the application provides.
+        /// Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call
         /// </summary>
-        [Description("The name of the service (e.g. \"StartMenuInternet\", \"Mail\", \"Media\"). Always use a canonical name when possible.")]
+        [Description("The name of the service the application provides. Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call")]
         [XmlAttribute("service")]
-        public string Service { get; set; }
+        public string Service { get; set; } = default!;
 
         /// <summary>
         /// Lists the commands the application registers for use by Windows' "Set Program Access and Defaults". Will be transparently replaced with Zero Install commands at runtime.
@@ -82,6 +82,17 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         [XmlIgnore]
         public override IEnumerable<string> ConflictIDs => new[] {"clients:" + Service + @"\" + ID};
+
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+        {
+            base.Normalize();
+            EnsureAttribute(Service, "service");
+            if (Service.Contains(@"\"))
+                throw new InvalidDataException($"Invalid 'service' attribute on <{TagName}> tag. Should not contain backslashes but was: {Service}");
+        }
+        #endregion
 
         #region Conversion
         /// <summary>

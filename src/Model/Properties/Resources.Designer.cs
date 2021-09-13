@@ -106,6 +106,15 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Found instead:.
+        /// </summary>
+        internal static string FoundInstead {
+            get {
+                return ResourceManager.GetString("FoundInstead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find implementation for interface &apos;{0}&apos; in the selection..
         /// </summary>
         internal static string ImplementationNotInSelection {
@@ -120,6 +129,15 @@ namespace ZeroInstall.Model.Properties {
         internal static string InvalidFeedUri {
             get {
                 return ResourceManager.GetString("InvalidFeedUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid &apos;{0}&apos; attribute on &lt;{1}&gt; tag..
+        /// </summary>
+        internal static string InvalidXmlAttributeOnTag {
+            get {
+                return ResourceManager.GetString("InvalidXmlAttributeOnTag", resourceCulture);
             }
         }
         
@@ -255,6 +273,24 @@ namespace ZeroInstall.Model.Properties {
         internal static string SelectionCandidateNoteVersionMismatch {
             get {
                 return ResourceManager.GetString("SelectionCandidateNoteVersionMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Should be a valid MIME type..
+        /// </summary>
+        internal static string ShouldBeMimeType {
+            get {
+                return ResourceManager.GetString("ShouldBeMimeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Should be a safe ID. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+)..
+        /// </summary>
+        internal static string ShouldBeSafeID {
+            get {
+                return ResourceManager.GetString("ShouldBeSafeID", resourceCulture);
             }
         }
         

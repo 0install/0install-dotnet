@@ -22,6 +22,15 @@ namespace ZeroInstall.Model.Capabilities
         [XmlElement("verb")]
         public List<Verb> Verbs { get; } = new();
 
+        #region Normalize
+        /// <inheritdoc/>
+        public override void Normalize()
+        {
+            base.Normalize();
+            foreach (var verb in Verbs) verb.Normalize();
+        }
+        #endregion
+
         #region Equality
         protected bool Equals(VerbCapability? other) => other != null && base.Equals(other) && Verbs.SequencedEquals(other.Verbs);
 

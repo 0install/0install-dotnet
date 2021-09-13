@@ -1,12 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#nullable disable
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -60,12 +59,13 @@ namespace ZeroInstall.Model.Capabilities
         #endregion
 
         /// <summary>
-        /// The name of the verb. Use canonical names to get automatic localization; specify <see cref="Descriptions"/> otherwise.
+        /// The name of the verb. Must be an alphanumeric string.
+        /// Use canonical names to get automatic localization; specify <see cref="Descriptions"/> otherwise.
         /// </summary>
         [Description("The name of the verb. Use canonical names to get automatic localization; specify Descriptions otherwise.")]
         [TypeConverter(typeof(VerbNameConverter))]
         [XmlAttribute("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The name of the command in the <see cref="Feed"/> to use when launching via this capability; leave <c>null</c> for <see cref="Model.Command.NameRun"/>.
@@ -102,6 +102,15 @@ namespace ZeroInstall.Model.Capabilities
         [Browsable(false)]
         [XmlElement("description")]
         public LocalizableStringCollection Descriptions { get; } = new();
+
+        #region Normalize
+        /// <summary>
+        /// Converts legacy elements, sets default values, etc..
+        /// </summary>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+        public void Normalize()
+            => EnsureAttributeSafeID(Name, "name");
+        #endregion
 
         #region Conversion
         /// <summary>
