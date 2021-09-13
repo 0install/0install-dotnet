@@ -82,18 +82,13 @@ namespace ZeroInstall.Services.Fetchers
             }
             #endregion
 
-            try
-            {
-                // Check if another process added the implementation in the meantime
-                if (GetPath(implementation) != null) return;
+            using var _ = new Disposable(mutex.ReleaseMutex);
 
-                if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
-                Retrieve(implementation, tag);
-            }
-            finally
-            {
-                mutex.ReleaseMutex();
-            }
+            // Check if another process added the implementation in the meantime
+            if (GetPath(implementation) != null) return;
+
+            if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
+            Retrieve(implementation, tag);
         }
 
         /// <summary>

@@ -100,43 +100,38 @@ namespace ZeroInstall.Store.Implementations
 
             // Place files in temp directory until digest is verified
             string tempDir = GetTempDir();
-            try
+            using var _ = new Disposable(() => DeleteTempDir(tempDir));
+
+            var builder = new ManifestBuilder(format);
+            build(new DirectoryBuilder(tempDir, builder));
+            var manifest = ImplementationStoreUtils.Verify(builder.Manifest, expectedDigest);
+
+            if (manifest == null)
             {
-                var builder = new ManifestBuilder(format);
-                build(new DirectoryBuilder(tempDir, builder));
-                var manifest = ImplementationStoreUtils.Verify(builder.Manifest, expectedDigest);
-
-                if (manifest == null)
-                {
-                    throw new DigestMismatchException(
-                        expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
-                        actualManifest: builder.Manifest);
-                }
-                manifest.Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
-
-                string target = System.IO.Path.Combine(Path, expectedDigest);
-                lock (_renameLock) // Prevent race-conditions when adding the same digest twice
-                {
-                    if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-
-                    // Move directory to final destination
-                    try
-                    {
-                        Directory.Move(tempDir, target);
-                    }
-                    catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
-                    {
-                        throw new ImplementationAlreadyInStoreException(manifestDigest);
-                    }
-                }
-
-                // Prevent any further changes to the directory
-                if (UseWriteProtection) EnableWriteProtection(target);
+                throw new DigestMismatchException(
+                    expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
+                    actualManifest: builder.Manifest);
             }
-            finally
+            manifest.Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
+
+            string target = System.IO.Path.Combine(Path, expectedDigest);
+            lock (_renameLock) // Prevent race-conditions when adding the same digest twice
             {
-                DeleteTempDir(tempDir);
+                if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
+
+                // Move directory to final destination
+                try
+                {
+                    Directory.Move(tempDir, target);
+                }
+                catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
+                {
+                    throw new ImplementationAlreadyInStoreException(manifestDigest);
+                }
             }
+
+            // Prevent any further changes to the directory
+            if (UseWriteProtection) EnableWriteProtection(target);
         }
 
         private readonly object _renameLock = new();

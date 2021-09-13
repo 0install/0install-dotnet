@@ -80,16 +80,14 @@ namespace ZeroInstall.Store.Implementations
                     FileUtils.DisableWriteProtection(file2.ImplementationPath);
 
                 string tempFile = System.IO.Path.Combine(StorePath, System.IO.Path.GetRandomFileName());
-                try
-                {
-                    Log.Info("Hard link: " + file1 + " <=> " + file2);
-                    FileUtils.CreateHardlink(tempFile, file2);
-                    FileUtils.Replace(tempFile, file1);
-                }
-                finally
+                using var _ = new Disposable(() =>
                 {
                     if (File.Exists(tempFile)) File.Delete(tempFile);
-                }
+                });
+
+                Log.Info("Hard link: " + file1 + " <=> " + file2);
+                FileUtils.CreateHardlink(tempFile, file2);
+                FileUtils.Replace(tempFile, file1);
                 return true;
             }
 
