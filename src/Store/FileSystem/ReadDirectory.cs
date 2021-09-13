@@ -29,8 +29,20 @@ namespace ZeroInstall.Store.FileSystem
 
             string manifestPath = Path.Combine(path, Manifest.ManifestFile);
 
-            // Use the manifest file to detect executable bits and symlinks on non-Unix OSes
-            if (!FileUtils.IsUnixFS(path) && File.Exists(manifestPath))
+            bool ShouldReadManifest()
+            {
+                try
+                {
+                    // Symlinks and executable bits may be lost on non-Unix filesystems and can be reconstructed from a manifest file
+                    return !FileUtils.IsUnixFS(Path.Combine(path, ".."));
+                }
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+                {
+                    return true;
+                }
+            }
+
+            if (File.Exists(manifestPath) && ShouldReadManifest())
                 _manifest = Manifest.Load(manifestPath, ManifestFormat.Sha1New);
         }
 
