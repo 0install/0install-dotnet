@@ -17,9 +17,9 @@ namespace ZeroInstall.Model
     public abstract class ArgBase : FeedElement, ICloneable<ArgBase>
     {
         /// <summary>
-        /// Converts legacy elements, sets default values and ensures required elements.
+        /// Converts legacy elements, sets default values, etc..
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public abstract void Normalize();
 
         /// <summary>

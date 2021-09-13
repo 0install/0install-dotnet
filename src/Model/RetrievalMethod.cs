@@ -19,7 +19,7 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> is relative and <paramref name="feedUri"/> is a remote URI.</exception>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public virtual void Normalize(FeedUri? feedUri = null) {}
 
         /// <summary>

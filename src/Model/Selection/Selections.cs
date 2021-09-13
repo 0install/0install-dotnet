@@ -174,7 +174,7 @@ namespace ZeroInstall.Model.Selection
         /// <summary>
         /// Calls <see cref="ImplementationBase.Normalize"/> for all <see cref="Implementations"/>.
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public void Normalize()
         {
             EnsureAttribute(InterfaceUri, "interface");

@@ -277,11 +277,11 @@ namespace ZeroInstall.Model
         #region Normalize
         /// <summary>
         /// Prepares the feed for solver processing.
-        /// Flattens inheritance structures, converts legacy elements, sets default values and ensures required elements.
+        /// Flattens inheritance structures, Converts legacy elements, sets default values, etc..
         /// Do not call it if you plan on serializing the feed again since it may loose some of its structure.
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public void Normalize(FeedUri? feedUri = null)
         {
             if (string.IsNullOrEmpty(Name)) throw new InvalidDataException(string.Format(Resources.MissingXmlTagOnFeed, "name", Uri));

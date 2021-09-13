@@ -39,7 +39,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <summary>The registry subkey containing "open with" ProgID references.</summary>
         public const string RegSubKeyOpenWith = "OpenWithProgIDs";
 
-        /// <summary>The registry subkey below <see cref="RegistryClasses.OpenHive"/> that contains MIME type to extension mapping.</summary>
+        /// <summary>The registry subkey below HKEY_CLASSES_ROOT that contains MIME type to extension mapping.</summary>
         public const string RegSubKeyMimeType = @"MIME\Database\Content Type";
 
         /// <summary>The registry value name for a MIME type extension association.</summary>

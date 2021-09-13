@@ -52,11 +52,11 @@ namespace ZeroInstall.Model
 
         #region Normalize
         /// <summary>
-        /// Converts legacy elements, sets default values and ensures required elements.
+        /// Converts legacy elements, sets default values, etc..
         /// </summary>
         /// <param name="feedUri">The feed the data was originally loaded from.</param>
         /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> is relative and <paramref name="feedUri"/> is a remote URI.</exception>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public override void Normalize(FeedUri? feedUri = null)
         {
             base.Normalize(feedUri);

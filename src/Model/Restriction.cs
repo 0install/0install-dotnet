@@ -116,9 +116,9 @@ namespace ZeroInstall.Model
         protected virtual string XmlTagName => "restricts";
 
         /// <summary>
-        /// Flattens inheritance structures, converts legacy elements, sets default values and ensures required elements.
+        /// Flattens inheritance structures, Converts legacy elements, sets default values, etc..
         /// </summary>
-        /// <exception cref="InvalidDataException">One or more required elements are not set.</exception>
+        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public virtual void Normalize()
         {
             EnsureAttribute(InterfaceUri, "interface");

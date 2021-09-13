@@ -39,12 +39,13 @@ namespace ZeroInstall.Services.Feeds
         /// <param name="feedUri">The URI of the feed.</param>
         /// <returns>The parsed <see cref="Feed"/> object.</returns>
         /// <remarks><see cref="Feed"/>s are always served from the <see cref="IFeedCache"/> if possible, unless <see cref="Refresh"/> is set to <c>true</c>.</remarks>
+        /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="WebException">A problem occurred while fetching the feed file.</exception>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">The signature data of a remote feed file could not be verified.</exception>
-        /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
+        /// <exception cref="InvalidDataException">A required property on the feed is not set or invalid.</exception>
         Feed this[FeedUri feedUri] { get; }
 
         /// <summary>
