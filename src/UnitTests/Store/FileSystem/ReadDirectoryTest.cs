@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.FileSystem
             {
                 new TestDirectory("subdir")
                 {
-                    new TestFile("normal"),
+                    new TestFile("normal") {IsExecutable = true}, // This executable bit should be ignored because the manifest file takes precedence
                     new TestFile("executable"),
                     new TestFile("symlink") {Contents = "normal"}
                 }

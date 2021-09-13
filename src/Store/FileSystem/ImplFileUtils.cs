@@ -30,12 +30,14 @@ namespace ZeroInstall.Store.FileSystem
         /// <returns><c>true</c> if <paramref name="path"/> points to an executable; <c>false</c> otherwise.</returns>
         public static bool IsExecutable(string path, ManifestElement? manifestElement = null)
         {
+            if (manifestElement != null)
+                return manifestElement is ManifestExecutableFile;
             if (FileUtils.IsExecutable(path))
                 return true;
             if (WindowsUtils.IsWindowsNT && FileUtils.ReadExtendedMetadata(path, ExecutableIndicator) != null)
                 return true;
 
-            return manifestElement is ManifestExecutableFile;
+            return false;
         }
 
         /// <summary>
