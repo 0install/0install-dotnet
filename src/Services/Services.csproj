@@ -8,7 +8,7 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <Nullable>enable</Nullable>
@@ -16,7 +16,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web">

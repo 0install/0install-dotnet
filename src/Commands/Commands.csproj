@@ -14,7 +14,7 @@
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
     <Nullable>enable</Nullable>
@@ -22,8 +22,8 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.10.5" />

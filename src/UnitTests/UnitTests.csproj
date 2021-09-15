@@ -11,7 +11,7 @@
     <NoWarn>$(NoWarn);xUnit1013</NoWarn><!-- Dispose() not marked as [Fact] -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net48'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Include native dependencies in output -->
+    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
   </PropertyGroup>
 
   <!-- Mark as unit test project -->
@@ -21,13 +21,13 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Store\Store.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Commands\Commands.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\Publish\Publish.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Store\Store.csproj" />
+    <ProjectReference Include="..\Archives\Archives.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+    <ProjectReference Include="..\Publish\Publish.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.1.0" />
