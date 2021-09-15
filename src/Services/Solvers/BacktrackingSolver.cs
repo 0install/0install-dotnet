@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using NanoByte.Common;
@@ -15,7 +14,8 @@ namespace ZeroInstall.Services.Solvers
     /// Uses limited backtracking to solve <see cref="Requirements"/>. Does not find all possible solutions!
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class BacktrackingSolver : ISolver
+    [PrimaryConstructor]
+    public partial class BacktrackingSolver : ISolver
     {
         /// <summary>
         /// The maximum number backtracking steps to perform before giving up.
@@ -23,15 +23,6 @@ namespace ZeroInstall.Services.Solvers
         private const int MaxBacktrackingSteps = 64;
 
         private readonly ISelectionCandidateProvider _candidateProvider;
-
-        /// <summary>
-        /// Creates a new backtracking solver.
-        /// </summary>
-        /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose from.</param>
-        public BacktrackingSolver(ISelectionCandidateProvider candidateProvider)
-        {
-            _candidateProvider = candidateProvider ?? throw new ArgumentNullException(nameof(candidateProvider));
-        }
 
         /// <inheritdoc/>
         public Selections Solve(Requirements requirements)

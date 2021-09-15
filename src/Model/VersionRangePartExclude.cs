@@ -11,18 +11,13 @@ namespace ZeroInstall.Model
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    public sealed class VersionRangePartExclude : VersionRangePart
+    [PrimaryConstructor]
+    public sealed partial class VersionRangePartExclude : VersionRangePart
     {
-        public ImplementationVersion Version { get; }
-
         /// <summary>
-        /// Creates a new version exclusion.
+        /// The version to be excluded.
         /// </summary>
-        /// <param name="version">The version to be excluded.</param>
-        public VersionRangePartExclude(ImplementationVersion version)
-        {
-            Version = version ?? throw new ArgumentNullException(nameof(version));
-        }
+        public ImplementationVersion Version { get; }
 
         /// <inheritdoc/>
         public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)

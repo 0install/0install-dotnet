@@ -42,7 +42,7 @@ namespace ZeroInstall.Services
                 if (Config.ExternalSolverUri == null) return backtrackingSolver;
                 else
                 {
-                    var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, Config.ExternalSolverUri, FeedManager, Handler);
+                    var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, FeedManager, Handler, new Requirements(Config.ExternalSolverUri));
                     return new FallbackSolver(backtrackingSolver, externalSolver);
                 }
             });

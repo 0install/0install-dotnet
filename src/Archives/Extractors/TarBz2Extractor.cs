@@ -3,7 +3,6 @@
 
 using System.IO;
 using ICSharpCode.SharpZipLib.BZip2;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
@@ -13,16 +12,9 @@ namespace ZeroInstall.Archives.Extractors
     /// Extracts BZip2-compressed TAR archives (.tar.bz2).
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class TarBz2Extractor : TarExtractor
+    [PrimaryConstructor]
+    public partial class TarBz2Extractor : TarExtractor
     {
-        /// <summary>
-        /// Creates a TAR BZip2 extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        public TarBz2Extractor(ITaskHandler handler)
-            : base(handler)
-        {}
-
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {

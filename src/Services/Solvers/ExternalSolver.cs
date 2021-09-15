@@ -23,7 +23,8 @@ namespace ZeroInstall.Services.Solvers
     /// The executable for external process is itself provided by another <see cref="ISolver"/>.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class ExternalSolver : ISolver
+    [PrimaryConstructor]
+    public partial class ExternalSolver : ISolver
     {
         private readonly ISolver _backingSolver;
         private readonly ISelectionsManager _selectionsManager;
@@ -32,27 +33,6 @@ namespace ZeroInstall.Services.Solvers
         private readonly IFeedManager _feedManager;
         private readonly ITaskHandler _handler;
         private readonly Requirements _solverRequirements;
-
-        /// <summary>
-        /// Creates a new external JSON solver.
-        /// </summary>
-        /// <param name="backingSolver">An internal solver used to find an implementation of the external solver.</param>
-        /// <param name="selectionsManager">Used to check whether the external solver is already in the cache.</param>
-        /// <param name="fetcher">Used to download implementations of the external solver.</param>
-        /// <param name="executor">Used to launch the external solver.</param>
-        /// <param name="externalSolverUri">The feed URI used to get the external solver.</param>
-        /// <param name="feedManager">Provides access to remote and local <see cref="Feed"/>s. Handles downloading, signature verification and caching.</param>
-        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public ExternalSolver(ISolver backingSolver, ISelectionsManager selectionsManager, IFetcher fetcher, IExecutor executor, FeedUri externalSolverUri, IFeedManager feedManager, ITaskHandler handler)
-        {
-            _backingSolver = backingSolver ?? throw new ArgumentNullException(nameof(backingSolver));
-            _selectionsManager = selectionsManager ?? throw new ArgumentNullException(nameof(selectionsManager));
-            _fetcher = fetcher ?? throw new ArgumentNullException(nameof(fetcher));
-            _executor = executor ?? throw new ArgumentNullException(nameof(executor));
-            _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
-            _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            _solverRequirements = new Requirements(externalSolverUri ?? throw new ArgumentNullException(nameof(externalSolverUri)));
-        }
 
         /// <inheritdoc/>
         public Selections Solve(Requirements requirements)

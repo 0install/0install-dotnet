@@ -6,7 +6,6 @@ using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Values;
 using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
@@ -16,16 +15,9 @@ namespace ZeroInstall.Archives.Extractors
     /// <summary>
     /// Extracts ZIP archives (.zip).
     /// </summary>
-    public class ZipExtractor : ArchiveExtractor
+    [PrimaryConstructor]
+    public partial class ZipExtractor : ArchiveExtractor
     {
-        /// <summary>
-        /// Creates a ZIP extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        public ZipExtractor(ITaskHandler handler)
-            : base(handler)
-        {}
-
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {

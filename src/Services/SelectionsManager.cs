@@ -19,26 +19,12 @@ namespace ZeroInstall.Services
     /// Provides methods for filtering <see cref="Selections"/>.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class SelectionsManager : ISelectionsManager
+    [PrimaryConstructor]
+    public partial class SelectionsManager : ISelectionsManager
     {
-        #region Dependencies
         private readonly IFeedManager _feedManager;
         private readonly IImplementationStore _implementationStore;
         private readonly IPackageManager _packageManager;
-
-        /// <summary>
-        /// Creates a new selections manager
-        /// </summary>
-        /// <param name="feedManager">Used to load <see cref="Feed"/>s containing the original <see cref="Implementation"/>s.</param>
-        /// <param name="implementationStore">The locations to search for cached <see cref="Implementation"/>s.</param>
-        /// <param name="packageManager">An external package manager that can install <see cref="PackageImplementation"/>s.</param>
-        public SelectionsManager(IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager)
-        {
-            _feedManager = feedManager ?? throw new ArgumentNullException(nameof(feedManager));
-            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
-            _packageManager = packageManager ?? throw new ArgumentNullException(nameof(packageManager));
-        }
-        #endregion
 
         /// <inheritdoc/>
         public IEnumerable<ImplementationSelection> GetUncachedSelections(Selections selections)

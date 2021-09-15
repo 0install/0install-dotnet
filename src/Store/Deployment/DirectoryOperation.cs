@@ -16,12 +16,13 @@ namespace ZeroInstall.Store.Deployment
     /// <summary>
     /// Common base class for deployment operations that operate on directories with <see cref="Manifests.Manifest"/>s.
     /// </summary>
-    public abstract class DirectoryOperation : StagedOperation
+    [PrimaryConstructor]
+    public abstract partial class DirectoryOperation : StagedOperation
     {
         /// <summary>
         /// The path of the directory to operate on.
         /// </summary>
-        public string Path { get; }
+        protected readonly string Path;
 
         /// <summary>
         /// The contents of a <see cref="Manifests.Manifest"/> file describing the directory.
@@ -32,19 +33,6 @@ namespace ZeroInstall.Store.Deployment
         /// A callback object used when the the user needs to be asked questions or informed about IO tasks.
         /// </summary>
         protected readonly ITaskHandler Handler;
-
-        /// <summary>
-        /// Creates a new manifest directory task.
-        /// </summary>
-        /// <param name="path">The path of the directory to operate on.</param>
-        /// <param name="manifest">The contents of a <see cref="Manifests.Manifest"/> file describing the directory.</param>
-        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-        protected DirectoryOperation(string path, Manifest manifest, ITaskHandler handler)
-        {
-            Path = path ?? throw new ArgumentNullException(nameof(path));
-            Manifest = manifest ?? throw new ArgumentNullException(nameof(manifest));
-            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-        }
 
         /// <summary>
         /// Appends a random string to a file path.

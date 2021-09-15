@@ -22,7 +22,8 @@ namespace ZeroInstall.Services.Feeds
     /// <summary>
     /// Provides access to remote and local <see cref="Catalog"/>s. Handles downloading, signature verification and caching.
     /// </summary>
-    public class CatalogManager : ICatalogManager
+    [PrimaryConstructor]
+    public partial class CatalogManager : ICatalogManager
     {
         #region Constants
         private const string CacheMutexName = "ZeroInstall.Feeds.CatalogManager.Cache";
@@ -35,21 +36,8 @@ namespace ZeroInstall.Services.Feeds
         private static readonly FeedUri _oldDefaultSource = new("http://0install.de/catalog/");
         #endregion
 
-        #region Dependencies
         private readonly ITrustManager _trustManager;
         private readonly ITaskHandler _handler;
-
-        /// <summary>
-        /// Creates a new catalog manager.
-        /// </summary>
-        /// <param name="trustManager">Methods for verifying signatures and user trust.</param>
-        /// <param name="handler">A callback object used when the the user needs to be informed about progress.</param>
-        public CatalogManager(ITrustManager trustManager, ITaskHandler handler)
-        {
-            _trustManager = trustManager ?? throw new ArgumentNullException(nameof(trustManager));
-            _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-        }
-        #endregion
 
         private readonly string _cacheFilePath = Path.Combine(Locations.GetCacheDirPath("0install.net", machineWide: false), "catalog.xml");
 

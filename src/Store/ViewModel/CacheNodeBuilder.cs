@@ -17,23 +17,11 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Builds a list of <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
     /// </summary>
-    public sealed class CacheNodeBuilder : TaskBase
+    [PrimaryConstructor]
+    public sealed partial class CacheNodeBuilder : TaskBase
     {
-        #region Dependencies
         private readonly IImplementationStore _implementationStore;
         private readonly IFeedCache _feedCache;
-
-        /// <summary>
-        /// Creates a new list builder
-        /// </summary>
-        /// <param name="implementationStore">Used to list <see cref="Implementation"/>s</param>
-        /// <param name="feedCache">Used to load <see cref="Feed"/>s.</param>
-        public CacheNodeBuilder(IImplementationStore implementationStore, IFeedCache feedCache)
-        {
-            _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
-            _feedCache = feedCache ?? throw new ArgumentNullException(nameof(feedCache));
-        }
-        #endregion
 
         /// <inheritdoc/>
         public override string Name => "Loading";

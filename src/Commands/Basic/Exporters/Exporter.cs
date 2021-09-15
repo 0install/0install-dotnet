@@ -24,26 +24,12 @@ namespace ZeroInstall.Commands.Basic.Exporters
     /// <summary>
     /// Exports feeds and implementations listed in a <see cref="Selections"/> document.
     /// </summary>
-    public class Exporter
+    [PrimaryConstructor]
+    public partial class Exporter
     {
         private readonly Selections _selections;
         private readonly Architecture _architecture;
         private readonly string _destination;
-
-        /// <summary>
-        /// Creates a new exporter.
-        /// </summary>
-        /// <param name="selections">A list of <see cref="ImplementationSelection"/>s to check for referenced feeds.</param>
-        /// <param name="architecture">The target architecture to use for bootstrap binaries.</param>
-        /// <param name="destination">The path of the directory to export to.</param>
-        public Exporter(Selections selections, Architecture architecture, string destination)
-        {
-            _selections = selections ?? throw new ArgumentNullException(nameof(selections));
-            _architecture = architecture;
-            _destination = destination ?? throw new ArgumentNullException(nameof(destination));
-
-            Directory.CreateDirectory(_destination);
-        }
 
         /// <summary>
         /// Creates a new exporter.

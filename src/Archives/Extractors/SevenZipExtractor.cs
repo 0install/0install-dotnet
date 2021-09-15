@@ -4,7 +4,6 @@
 using System;
 using System.IO;
 using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
 using ZeroInstall.Archives.Properties;
@@ -16,16 +15,9 @@ namespace ZeroInstall.Archives.Extractors
     /// Extracts 7-zip archives (.7z).
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class SevenZipExtractor : ArchiveExtractor
+    [PrimaryConstructor]
+    public partial class SevenZipExtractor : ArchiveExtractor
     {
-        /// <summary>
-        /// Creates a 7-zip extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        public SevenZipExtractor(ITaskHandler handler)
-            : base(handler)
-        {}
-
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {

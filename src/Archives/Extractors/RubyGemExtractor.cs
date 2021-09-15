@@ -6,7 +6,6 @@ using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
@@ -16,16 +15,9 @@ namespace ZeroInstall.Archives.Extractors
     /// Extracts Ruby Gem archives (.gem).
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class RubyGemExtractor : TarGzExtractor
+    [PrimaryConstructor]
+    public partial class RubyGemExtractor : TarGzExtractor
     {
-        /// <summary>
-        /// Creates a Ruby Gem extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        public RubyGemExtractor(ITaskHandler handler)
-            : base(handler)
-        {}
-
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {

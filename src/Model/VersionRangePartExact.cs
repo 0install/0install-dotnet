@@ -11,18 +11,13 @@ namespace ZeroInstall.Model
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
     [Serializable]
-    public sealed class VersionRangePartExact : VersionRangePart
+    [PrimaryConstructor]
+    public sealed partial class VersionRangePartExact : VersionRangePart
     {
-        public ImplementationVersion Version { get; }
-
         /// <summary>
-        /// Creates a new exact version.
+        /// The exact version to match.
         /// </summary>
-        /// <param name="version">The exact version to match.</param>
-        public VersionRangePartExact(ImplementationVersion version)
-        {
-            Version = version ?? throw new ArgumentNullException(nameof(version));
-        }
+        public ImplementationVersion Version { get; }
 
         /// <inheritdoc/>
         public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)

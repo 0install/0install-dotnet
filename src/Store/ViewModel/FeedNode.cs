@@ -19,21 +19,11 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Models information about a <see cref="Feed"/> in the <see cref="IFeedCache"/> for display in a UI.
     /// </summary>
-    public sealed class FeedNode : CacheNode
+    [PrimaryConstructor]
+    public sealed partial class FeedNode : CacheNode
     {
-        private readonly IFeedCache _cache;
         private readonly Feed _feed;
-
-        /// <summary>
-        /// Creates a new feed node.
-        /// </summary>
-        /// <param name="feed">The <see cref="Feed"/> to be represented by this node.</param>
-        /// <param name="cache">The <see cref="IFeedCache"/> the <see cref="Feed"/> is located in.</param>
-        public FeedNode(Feed feed, IFeedCache cache)
-        {
-            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
-            _feed = feed ?? throw new ArgumentNullException(nameof(feed));
-        }
+        private readonly IFeedCache _cache;
 
         /// <inheritdoc/>
         public override string Name

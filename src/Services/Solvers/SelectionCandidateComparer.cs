@@ -14,12 +14,21 @@ namespace ZeroInstall.Services.Solvers
     /// <summary>
     /// Ranks <see cref="SelectionCandidate"/>s.
     /// </summary>
-    /// <param name="StabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
-    /// <param name="NetworkUse">Controls how liberally network access is attempted.</param>
-    /// <param name="Languages">The preferred languages for the implementation.</param>
-    /// <param name="IsCached">Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
-    public sealed record SelectionCandidateComparer(Stability StabilityPolicy, NetworkLevel NetworkUse, LanguageSet Languages, Predicate<Implementation> IsCached) : IComparer<SelectionCandidate>
+    [PrimaryConstructor]
+    public sealed partial class SelectionCandidateComparer : IComparer<SelectionCandidate>
     {
+        /// <summary>Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</summary>
+        private readonly Stability _stabilityPolicy;
+
+        /// <summary>Controls how liberally network access is attempted.</summary>
+        private readonly NetworkLevel _networkUse;
+
+        /// <summary>The preferred languages for the implementation.</summary>
+        private readonly LanguageSet _languages;
+
+        /// <summary>Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</summary>
+        private readonly Predicate<Implementation> _isCached;
+
         /// <inheritdoc/>
         public int Compare(SelectionCandidate? x, SelectionCandidate? y)
         {
@@ -38,10 +47,10 @@ namespace ZeroInstall.Services.Solvers
             if (xLanguageRank < yLanguageRank) return 1;
 
             // Cached implementations come next if we have limited network access
-            if (NetworkUse != NetworkLevel.Full)
+            if (_networkUse != NetworkLevel.Full)
             {
-                bool xCached = IsCached(x.Implementation);
-                bool yCached = IsCached(y.Implementation);
+                bool xCached = _isCached(x.Implementation);
+                bool yCached = _isCached(y.Implementation);
                 if (xCached && !yCached) return -1;
                 if (!xCached && yCached) return 1;
             }
@@ -82,10 +91,10 @@ namespace ZeroInstall.Services.Solvers
             if (xCountryRank < yCountryRank) return 1;
 
             // Slightly prefer cached versions
-            if (NetworkUse == NetworkLevel.Full)
+            if (_networkUse == NetworkLevel.Full)
             {
-                bool xCached = IsCached(x.Implementation);
-                bool yCached = IsCached(y.Implementation);
+                bool xCached = _isCached(x.Implementation);
+                bool yCached = _isCached(y.Implementation);
                 if (xCached && !yCached) return -1;
                 if (!xCached && yCached) return 1;
             }
@@ -95,14 +104,14 @@ namespace ZeroInstall.Services.Solvers
         }
 
         private Stability ApplyPolicy(Stability stability)
-            => (stability <= StabilityPolicy) ? Stability.Preferred : stability;
+            => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
 
         private static readonly LanguageSet _englishSet = new() {"en", "en_US"};
 
         private int GetLanguageRank(LanguageSet languages)
         {
             if (languages.Count == 0) return 1;
-            else if (languages.ContainsAny(Languages, ignoreCountry: true)) return 2;
+            else if (languages.ContainsAny(_languages, ignoreCountry: true)) return 2;
             else if (languages.ContainsAny(_englishSet)) return 0; // Prefer English over other languages we do not understand
             else return -1;
         }
@@ -110,7 +119,7 @@ namespace ZeroInstall.Services.Solvers
         private int GetCountryRank(LanguageSet languages)
         {
             if (languages.Count == 0) return 0;
-            else if (languages.ContainsAny(Languages)) return 1;
+            else if (languages.ContainsAny(_languages)) return 1;
             else return -1;
         }
     }

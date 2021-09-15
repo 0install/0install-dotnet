@@ -18,24 +18,12 @@ namespace ZeroInstall.Store.Icons
     /// Stores icon files downloaded from the web as local files.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public sealed class IconStore : IIconStore
+    [PrimaryConstructor]
+    public sealed partial class IconStore : IIconStore
     {
+        private readonly string _path;
         private readonly Config _config;
         private readonly ITaskHandler _handler;
-        private readonly string _path;
-
-        /// <summary>
-        /// Creates a new icon store.
-        /// </summary>
-        /// <param name="config">User settings controlling network behaviour.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about icon downloading.</param>
-        /// <param name="path">The path of the directory used to store icon files. Leave <c>null</c> for the default cache location.</param>
-        public IconStore(Config config, ITaskHandler handler, string? path = null)
-        {
-            _config = config ?? throw new ArgumentNullException(nameof(config));
-            _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            _path = path ?? Locations.GetCacheDirPath("0install.net", false, "icons");
-        }
 
         /// <summary>
         /// The maximum number of bytes to download for a single icon.

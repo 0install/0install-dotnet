@@ -11,16 +11,11 @@ namespace ZeroInstall.Store.Trust
     /// Represents a signature checked by an <see cref="IOpenPgp"/> implementation.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    public abstract class OpenPgpSignature : IKeyIDContainer
+    [PrimaryConstructor]
+    public abstract partial class OpenPgpSignature : IKeyIDContainer
     {
         /// <inheritdoc/>
         public long KeyID { get; }
-
-        /// <summary>
-        /// Creates a new signature.
-        /// </summary>
-        /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        protected OpenPgpSignature(long keyID) { KeyID = keyID; }
 
         #region Equality
         protected bool Equals(OpenPgpSignature other)

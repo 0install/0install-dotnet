@@ -25,7 +25,7 @@ namespace ZeroInstall.Store.Icons
 
         public IconStoreTest()
         {
-            _store = new IconStore(new Config(), new SilentTaskHandler(), _tempDir);
+            _store = new IconStore(_tempDir, new Config(), new SilentTaskHandler());
         }
 
         public void Dispose() => _tempDir.Dispose();

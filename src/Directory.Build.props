@@ -44,6 +44,7 @@
   <!-- Dependencies -->
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="PrimaryConstructor" Version="1.3.2" />
   </ItemGroup>
 
 </Project>

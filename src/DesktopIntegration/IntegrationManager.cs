@@ -248,7 +248,7 @@ namespace ZeroInstall.DesktopIntegration
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 
-            var iconStore = new IconStore(Config, Handler, GetDir(MachineWide, "icons"));
+            var iconStore = new IconStore(GetDir(MachineWide, "icons"), Config, Handler);
 
             accessPoints.ApplyWithRollback(
                 accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),

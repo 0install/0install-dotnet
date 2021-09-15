@@ -13,8 +13,14 @@ namespace ZeroInstall.Model
     [Serializable]
     public sealed class VersionRangePartRange : VersionRangePart
     {
+        /// <summary>
+        /// The lower inclusive bound. May be <c>null</c>.
+        /// </summary>
         public ImplementationVersion? LowerInclusive { get; }
 
+        /// <summary>
+        /// The upper exclusive bound. May be <c>null</c>.
+        /// </summary>
         public ImplementationVersion? UpperExclusive { get; }
 
         /// <summary>

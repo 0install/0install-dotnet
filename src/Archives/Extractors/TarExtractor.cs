@@ -7,7 +7,6 @@ using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
@@ -17,16 +16,9 @@ namespace ZeroInstall.Archives.Extractors
     /// Extracts TAR archives (.tar).
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class TarExtractor : ArchiveExtractor
+    [PrimaryConstructor]
+    public partial class TarExtractor : ArchiveExtractor
     {
-        /// <summary>
-        /// Creates a TAR extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        public TarExtractor(ITaskHandler handler)
-            : base(handler)
-        {}
-
         /// <inheritdoc/>
         public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         {

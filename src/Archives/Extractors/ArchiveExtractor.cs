@@ -18,7 +18,8 @@ namespace ZeroInstall.Archives.Extractors
     /// <summary>
     /// Extracts implementation archives.
     /// </summary>
-    public abstract class ArchiveExtractor : IArchiveExtractor
+    [PrimaryConstructor]
+    public abstract partial class ArchiveExtractor : IArchiveExtractor
     {
         private static readonly Dictionary<string, Func<ITaskHandler, IArchiveExtractor>> _factories = new();
 
@@ -72,15 +73,6 @@ namespace ZeroInstall.Archives.Extractors
         /// A callback object used when the the user needs to be informed about IO tasks.
         /// </summary>
         protected readonly ITaskHandler Handler;
-
-        /// <summary>
-        /// Creates an archive extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        protected ArchiveExtractor(ITaskHandler handler)
-        {
-            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-        }
 
         /// <inheritdoc/>
         public abstract void Extract(IBuilder builder, Stream stream, string? subDir = null);

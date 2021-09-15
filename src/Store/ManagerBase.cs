@@ -16,7 +16,8 @@ namespace ZeroInstall.Store
     /// <summary>
     /// Common base class for managers that need an <see cref="ITaskHandler"/> and <see cref="Mutex"/>-based locking.
     /// </summary>
-    public abstract class ManagerBase : IDisposable
+    [PrimaryConstructor]
+    public abstract partial class ManagerBase : IDisposable
     {
         /// <summary>
         /// A callback object used when the the user needs to be asked questions or informed about download and IO tasks.
@@ -27,17 +28,6 @@ namespace ZeroInstall.Store
         /// Apply operations machine-wide instead of just for the current user.
         /// </summary>
         public bool MachineWide { get; }
-
-        /// <summary>
-        /// Creates a new manager.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-        protected ManagerBase(ITaskHandler handler, bool machineWide = false)
-        {
-            Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            MachineWide = machineWide;
-        }
 
         /// <summary>
         /// The name of the cross-process mutex used by <see cref="AcquireMutex"/>.
