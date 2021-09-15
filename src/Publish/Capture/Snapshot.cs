@@ -114,23 +114,22 @@ namespace ZeroInstall.Publish.Capture
         /// </summary>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        private static IEnumerable<(string serviceName, string clientName)> GetServiceAssocs()
+        private static IReadOnlyCollection<(string serviceName, string clientName)> GetServiceAssocs()
         {
             using var clientsKey = Registry.LocalMachine.OpenSubKey(DefaultProgram.RegKeyMachineClients);
-            if (clientsKey == null) return Enumerable.Empty<(string, string)>();
+            if (clientsKey == null) return Array.Empty<(string, string)>();
 
             return (
                 from serviceName in clientsKey.GetSubKeyNames()
-                // ReSharper disable AccessToDisposedClosure
                 from clientName in RegUtils.GetSubKeyNames(clientsKey, serviceName)
-                // ReSharper restore AccessToDisposedClosure
-                select (serviceName, clientName));
+                select (serviceName, clientName)
+            ).ToList();
         }
 
         /// <summary>
         /// Retrieves a list of file associations and programmatic identifiers the registry.
         /// </summary>
-        private static (List<(string name, string handler)> fileAssocs, List<string> progIDs) GetFileAssocData()
+        private static (IReadOnlyCollection<(string name, string handler)> fileAssocs, IReadOnlyCollection<string> progIDs) GetFileAssocData()
         {
             var fileAssocsList = new List<(string name, string handler)>();
             var progIDsList = new List<string>();
@@ -160,10 +159,14 @@ namespace ZeroInstall.Publish.Capture
         /// Retrieves a list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).
         /// </summary>
         private static IEnumerable<(string protocol, string command)> GetProtocolAssoc()
-            => (from protocol in new[] {"ftp", "gopher", "http", "https"}
-                let command = RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol + @"\shell\open\command", valueName: null)!
-                where !string.IsNullOrEmpty(command)
-                select (protocol, command))!;
+        {
+            foreach (string protocol in new[] { "ftp", "gopher", "http", "https" })
+            {
+                string? command = RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol + @"\shell\open\command", valueName: null);
+                if (!string.IsNullOrEmpty(command))
+                    yield return (protocol, command);
+            }
+        }
 
         /// <summary>
         /// Retrieves a list of AutoPlay associations from the registry.
@@ -171,16 +174,16 @@ namespace ZeroInstall.Publish.Capture
         /// <param name="hive">The registry hive to search in (usually HKCU or HKLM).</param>
         /// <exception cref="IOException">There was an error accessing the registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
-        private static IEnumerable<(string eventName, string handlerName)> GetAutoPlayAssocs(RegistryKey hive)
+        private static IReadOnlyCollection<(string eventName, string handlerName)> GetAutoPlayAssocs(RegistryKey hive)
         {
             using var eventsKey = hive.OpenSubKey(AutoPlay.RegKeyAssocs);
-            if (eventsKey == null) return Enumerable.Empty<(string, string)>();
+            if (eventsKey == null) return Array.Empty<(string, string)>();
 
             return (
                 from eventName in eventsKey.GetSubKeyNames()
-                // ReSharper disable once AccessToDisposedClosure
                 from handlerName in RegUtils.GetValueNames(eventsKey, eventName)
-                select (eventName, handlerName));
+                select (eventName, handlerName)
+            ).ToList();
         }
         #endregion
 
