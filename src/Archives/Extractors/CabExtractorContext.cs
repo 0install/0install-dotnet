@@ -4,6 +4,7 @@
 #if NETFRAMEWORK
 using System;
 using System.IO;
+using System.IO.Pipelines;
 using System.Threading;
 using Microsoft.Deployment.Compression;
 using NanoByte.Common.Streams;
@@ -28,6 +29,7 @@ namespace ZeroInstall.Archives.Extractors
         {}
 
         private Thread? _thread;
+        private Pipe? _pipe;
 
         public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
         {
@@ -36,18 +38,23 @@ namespace ZeroInstall.Archives.Extractors
             string relativePath = NormalizePath(path);
             if (relativePath == null) return null;
 
-            var stream = new ProducerConsumerStream();
-            stream.SetLength(fileSize);
-            _thread = new Thread(() => Builder.AddFile(relativePath, stream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc))) {IsBackground = true};
+            _pipe = new();
+
+            var readStream = new ProgressStream(_pipe.Reader.AsStream());
+            readStream.SetLength(fileSize);
+            _thread = new Thread(() => Builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc))) {IsBackground = true};
             _thread.Start();
-            return stream;
+
+            return _pipe.Writer.AsStream();
         }
 
         public void CloseFileWriteStream(string path, Stream stream, FileAttributes attributes, DateTime lastWriteTime)
         {
-            ((ProducerConsumerStream)stream).DoneWriting();
-            _thread?.Join();
+            _pipe?.Writer.Complete();
             stream.Dispose();
+
+            _thread?.Join();
+            _pipe?.Reader.Complete();
         }
     }
 }
