@@ -132,11 +132,17 @@
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Katalogda '{0}' akışı bulunamadı.</value>
   </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Onun yerine şu bulundu:</value>
+  </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Seçimde '{0}' arabirimi için uyarlama bulunamadı.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' geçerli bir 'http(s):' adresi ya da bir yerel yol değil.</value>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>&lt;{1}&gt; kod iminde '{0}' özniteliği geçersiz.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>&lt;{1}&gt; kod iminde '{0}' özniteliği eksik.</value>
@@ -182,6 +188,12 @@
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
     <value>Uyarlama sürümü çok eski ya da çok yeni</value>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Geçerli bir MIME türü olmalı.</value>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Güvenli bir kod olmalı. Yalnız alfasayısal karakterler, nokta (.), altçizgi (_), tire (-) ve artı (+) simgelerini içerebilir.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>'{0}'. tarif adımında  '{1}' uyarlamasındaki uyarlama referansı geçersiz.</value>
