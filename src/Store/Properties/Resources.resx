@@ -174,7 +174,7 @@ Run '0install config feed_mirror default' to enable it.</value>
     <value>Unable to find file or directory '{0}'.</value>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>The files you want to deleted are currently in use.</value>
+    <value>The files you want to delete are currently in use.</value>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Do you want to close these applications and continue?</value>

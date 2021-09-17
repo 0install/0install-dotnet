@@ -207,7 +207,7 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The files you want to deleted are currently in use..
+        ///   Looks up a localized string similar to The files you want to delete are currently in use..
         /// </summary>
         internal static string FilesInUse {
             get {
