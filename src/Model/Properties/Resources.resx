@@ -142,13 +142,13 @@
     <value>'{0}' is not a valid 'http(s):' URI and is not a valid local path either.</value>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Invalid '{0}' attribute on &lt;{1}&gt; tag.</value>
+    <value>Invalid '{0}' attribute on {1}.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Missing '{0}' attribute on &lt;{1}&gt; tag.</value>
+    <value>Missing '{0}' attribute on {1}.</value>
   </data>
   <data name="MissingXmlTagOnFeed" xml:space="preserve">
-    <value>Missing &lt;{0}&gt; tag on feed {1}.</value>
+    <value>Missing {0} tag on feed {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>The dot-separated list may only contain decimal numbers.</value>

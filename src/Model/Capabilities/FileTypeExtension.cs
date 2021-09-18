@@ -60,7 +60,7 @@ namespace ZeroInstall.Model.Capabilities
             if (!Value.StartsWith(".")) Value = "." + Value;
 
             if (!string.IsNullOrEmpty(MimeType) && !_mimeTypeRegex.IsMatch(MimeType))
-                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "mime-type", TagName) + " " + Resources.ShouldBeMimeType + " " + Resources.FoundInstead + " " + MimeType);
+                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "mime-type", ToShortXml()) + " " + Resources.ShouldBeMimeType + " " + Resources.FoundInstead + " " + MimeType);
         }
         #endregion
 

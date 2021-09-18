@@ -39,7 +39,7 @@ namespace ZeroInstall.Model.Capabilities
             base.Normalize();
             EnsureAttribute(CapabilityRegPath, "capability-reg-path");
             if (CapabilityRegPath.Contains(".."))
-                throw new InvalidDataException($"Invalid 'capability-reg-path' attribute on <{TagName}> tag. Should not contain '..' but was: {CapabilityRegPath}");
+                throw new InvalidDataException($"Invalid 'capability-reg-path' attribute on {ToShortXml()}. Should not contain '..' but was: {CapabilityRegPath}");
         }
         #endregion
 

@@ -142,13 +142,13 @@
     <value>'{0}' ist keine gültige 'http(s):' URI und ist auch kein absoluter lokaler Pfad.</value>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Ungültiges '{0}' Attribut auf dem &lt;{1}&gt; Tag.</value>
+    <value>Ungültiges '{0}' Attribut auf {1}.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Fehlendes '{0}' Attribut auf dem &lt;{1}&gt; Tag.</value>
+    <value>Fehlendes '{0}' Attribut auf {1}.</value>
   </data>
   <data name="MissingXmlTagOnFeed" xml:space="preserve">
-    <value>Fehlender &lt;{0}&gt; Tag auf dem Feed {1}.</value>
+    <value>Fehlender {0} Tag auf dem Feed {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Die Punkt-getrennten Liste darf nur Dezimalzahlen enthalten.</value>

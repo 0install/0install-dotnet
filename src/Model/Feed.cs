@@ -284,7 +284,7 @@ namespace ZeroInstall.Model
         /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
         public void Normalize(FeedUri? feedUri = null)
         {
-            if (string.IsNullOrEmpty(Name)) throw new InvalidDataException(string.Format(Resources.MissingXmlTagOnFeed, "name", Uri));
+            if (string.IsNullOrEmpty(Name)) throw new InvalidDataException(string.Format(Resources.MissingXmlTagOnFeed, "<name>", Uri));
 
             // Apply if-0install-version filter
             Elements.RemoveAll(FeedElement.FilterMismatch);

@@ -44,5 +44,22 @@ namespace ZeroInstall.Model
             dataChildAttribChange.Should().NotBe(dataBase);
             dataTextChange.Should().NotBe(dataBase);
         }
+
+        public class TestTag : XmlUnknown
+        {
+            [XmlAttribute]
+            public string? Attribute { get; set; }
+
+            [XmlElement]
+            public string? Element { get; set; }
+        }
+
+        [Fact]
+        public void ToShortXml()
+        {
+            new TestTag { Attribute = "A", Element = "B" }
+               .ToShortXml()
+               .Should().Be("<TestTag Attribute=\"A\">");
+        }
     }
 }

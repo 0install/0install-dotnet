@@ -90,7 +90,7 @@ namespace ZeroInstall.Model.Capabilities
             base.Normalize();
             EnsureAttribute(Service, "service");
             if (Service.Contains(@"\"))
-                throw new InvalidDataException($"Invalid 'service' attribute on <{TagName}> tag. Should not contain backslashes but was: {Service}");
+                throw new InvalidDataException($"Invalid 'service' attribute on {ToShortXml()}. Should not contain backslashes but was: {Service}");
         }
         #endregion
 

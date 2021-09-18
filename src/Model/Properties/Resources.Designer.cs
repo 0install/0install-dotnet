@@ -133,7 +133,7 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid &apos;{0}&apos; attribute on &lt;{1}&gt; tag..
+        ///   Looks up a localized string similar to Invalid &apos;{0}&apos; attribute on {1}..
         /// </summary>
         internal static string InvalidXmlAttributeOnTag {
             get {
@@ -142,7 +142,7 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Missing &apos;{0}&apos; attribute on &lt;{1}&gt; tag..
+        ///   Looks up a localized string similar to Missing &apos;{0}&apos; attribute on {1}..
         /// </summary>
         internal static string MissingXmlAttributeOnTag {
             get {
@@ -151,7 +151,7 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Missing &lt;{0}&gt; tag on feed {1}..
+        ///   Looks up a localized string similar to Missing {0} tag on feed {1}..
         /// </summary>
         internal static string MissingXmlTagOnFeed {
             get {

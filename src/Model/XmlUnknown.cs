@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
+using NanoByte.Common.Storage;
 using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model
@@ -40,7 +41,7 @@ namespace ZeroInstall.Model
         protected void EnsureAttribute(object? value, string attributeName)
         {
             if (value == null)
-                throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, TagName));
+                throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, ToShortXml()));
         }
 
         /// <summary>
@@ -52,14 +53,27 @@ namespace ZeroInstall.Model
         protected void EnsureAttributeSafeID(string? value, string attributeName)
         {
             if (string.IsNullOrEmpty(value) || !value.All(x => char.IsLetterOrDigit(x) || x is ' ' or '.' or '_' or '-' or '+'))
-                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, TagName) + " " + Resources.ShouldBeSafeID + " " + Resources.FoundInstead + " " + value);
+                throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, ToShortXml()) + " " + Resources.ShouldBeSafeID + " " + Resources.FoundInstead + " " + value);
         }
 
         /// <summary>
-        /// The XML tag name of this type.
+        /// Returns a shortened XML representation (with attributes but without child elements).
         /// </summary>
-        protected string TagName
-            => GetType().GetCustomAttribute<XmlTypeAttribute>()?.TypeName ?? "unknown";
+        /// <remarks>
+        /// Intended for use in error messages. Not suitable for parsing.
+        /// Use <see cref="XmlStorage.ToXmlString{T}"/> instead if you need a full XML representation.
+        /// </remarks>
+        public string ToShortXml()
+        {
+            var type = GetType();
+            using var writer = new StringWriter {NewLine = "\n"};
+            new XmlSerializer(type).Serialize(writer, this);
+            return writer.ToString()
+                         .Split('\n')[1]
+                         .Replace($" xmlns=\"{type.GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
+                         .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "")
+                         .Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+        }
 
         #region Comparers
         private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>

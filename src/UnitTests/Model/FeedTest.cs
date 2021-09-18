@@ -252,7 +252,7 @@ namespace ZeroInstall.Model
             var feed = CreateTestFeed();
             feed.Implementations.First().Version = null!;
             feed.Invoking(x => x.Normalize())
-                .Should().Throw<InvalidDataException>().WithMessage("*version*<implementation>*");
+                .Should().Throw<InvalidDataException>().WithMessage("*version*<implementation*>*");
         }
 
         /// <summary>
