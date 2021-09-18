@@ -193,7 +193,7 @@
     <value>Sollte ein gültiger MIME Type sein.</value>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Sollte ein sichere ID sein. Darf nur alphanumerische Zeichen, Punkte (.), Unterstriche (_), Bindestriche (-) and Pluszeichen (+) enthalten.</value>
+    <value>Sollte ein sichere ID sein. Darf nur alphanumerische Zeichen, Leerzeichen ( ), Punkte (.), Unterstriche (_), Bindestriche (-) and Pluszeichen (+) enthalten.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>Der Recipe Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>

@@ -34,9 +34,9 @@ namespace ZeroInstall.Model.Capabilities
         #endregion
 
         /// <summary>
-        /// The name of the event. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).
+        /// The name of the event. May only contain alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).
         /// </summary>
-        [Description("The name of the event. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+).")]
+        [Description("The name of the event. May only contain alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).")]
         [XmlAttribute("name")]
         public string Name { get; set; } = default!;
 

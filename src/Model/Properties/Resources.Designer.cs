@@ -286,7 +286,7 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Should be a safe ID. May only contain alphanumeric characters, dots (.), underscores (_), hyphens (-) and plus signs (+)..
+        ///   Looks up a localized string similar to Should be a safe ID. May only contain alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+)..
         /// </summary>
         internal static string ShouldBeSafeID {
             get {

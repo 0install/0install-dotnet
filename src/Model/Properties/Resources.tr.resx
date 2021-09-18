@@ -193,7 +193,7 @@
     <value>Geçerli bir MIME türü olmalı.</value>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Güvenli bir kod olmalı. Yalnız alfasayısal karakterler, nokta (.), altçizgi (_), tire (-) ve artı (+) simgelerini içerebilir.</value>
+    <value>Güvenli bir kod olmalı. Yalnız alfasayısal karakterler, boşluk ( ), nokta (.), altçizgi (_), tire (-) ve artı (+) simgelerini içerebilir.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>'{0}'. tarif adımında  '{1}' uyarlamasındaki uyarlama referansı geçersiz.</value>
