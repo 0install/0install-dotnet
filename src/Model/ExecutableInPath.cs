@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -12,7 +13,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Make a chosen implementation available as an executable in the search PATH.")]
     [Serializable, XmlRoot("executable-in-path", Namespace = Feed.XmlNamespace), XmlType("executable-in-path", Namespace = Feed.XmlNamespace)]
-    public sealed class ExecutableInPath : ExecutableInBinding, IEquatable<ExecutableInPath>
+    [Equatable]
+    public sealed partial class ExecutableInPath : ExecutableInBinding
     {
         /// <summary>
         /// The name of the executable (without file extensions).
@@ -40,23 +42,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="ExecutableInPath"/>.</returns>
         public override Binding Clone() => new ExecutableInPath {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ExecutableInPath? other) => other != null && (base.Equals(other) && other.Name == Name);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ExecutableInPath path && Equals(path);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Name);
         #endregion
     }
 }

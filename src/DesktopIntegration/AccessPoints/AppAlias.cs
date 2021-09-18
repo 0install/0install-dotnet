@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -14,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Makes an application discoverable via the system's search PATH.
     /// </summary>
     [XmlType("alias", Namespace = AppList.XmlNamespace)]
-    public class AppAlias : CommandAccessPoint, IEquatable<AppAlias>
+    [Equatable]
+    public partial class AppAlias : CommandAccessPoint
     {
         #region Constants
         /// <summary>
@@ -57,22 +59,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new AppAlias {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AppAlias? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(AppAlias) && Equals((AppAlias)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
@@ -61,7 +62,8 @@ namespace ZeroInstall.Model
     /// Contains those parameters that can be transferred from a <see cref="Group"/> to an <see cref="Implementation"/>.
     /// </summary>
     [XmlType("element", Namespace = Feed.XmlNamespace)]
-    public abstract class Element : TargetBase, IBindingContainer, IDependencyContainer, ICloneable<Element>
+    [Equatable]
+    public abstract partial class Element : TargetBase, IBindingContainer, IDependencyContainer, ICloneable<Element>
     {
         #region Constants
         /// <summary>
@@ -73,8 +75,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// A flat list of all <see cref="Implementation"/>s contained in this element. May be the element itself or its children.
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         internal abstract IEnumerable<Implementation> Implementations { get; }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace ZeroInstall.Model
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
-        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public virtual string? VersionString { get => Version?.ToString(); set => Version = (value == null) ? null: new(value); }
         #endregion
@@ -199,6 +200,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("requires")]
+        [OrderedEquality]
         public List<Dependency> Dependencies { get; } = new();
 
         /// <summary>
@@ -206,6 +208,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("restricts")]
+        [OrderedEquality]
         public List<Restriction> Restrictions { get; } = new();
 
         /// <summary>
@@ -213,6 +216,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
+        [OrderedEquality]
         public List<Binding> Bindings { get; } = new();
 
         /// <summary>
@@ -221,6 +225,7 @@ namespace ZeroInstall.Model
         /// <remarks>This will eventually replace <see cref="Main"/> and <see cref="SelfTest"/>.</remarks>
         [Browsable(false)]
         [XmlElement("command")]
+        [OrderedEquality]
         public List<Command> Commands { get; } = new();
 
         /// <summary>
@@ -384,48 +389,6 @@ namespace ZeroInstall.Model
             to.Dependencies.AddRange(from.Dependencies.CloneElements());
             to.Restrictions.AddRange(from.Restrictions.CloneElements());
             to.Bindings.AddRange(from.Bindings.CloneElements());
-        }
-        #endregion
-
-        #region Equality
-        protected bool Equals(Element? other)
-            => other != null
-            && base.Equals(other)
-            && other.Version == Version
-            && other.VersionModifier == VersionModifier
-            && other.Released == Released
-            && other.ReleasedVerbatim == ReleasedVerbatim
-            && other.Stability == Stability
-            && other.RolloutPercentage == RolloutPercentage
-            && other.License == License
-            && other.Main == Main
-            && other.SelfTest == SelfTest
-            && other.DocDir == DocDir
-            && Commands.SequencedEquals(other.Commands)
-            && Dependencies.SequencedEquals(other.Dependencies)
-            && Restrictions.SequencedEquals(other.Restrictions)
-            && Bindings.SequencedEquals(other.Bindings);
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            var hash = new HashCode();
-            hash.Add(base.GetHashCode());
-            hash.Add(Version);
-            hash.Add(VersionModifier);
-            hash.Add(Released);
-            hash.Add(ReleasedVerbatim);
-            hash.Add(Stability);
-            hash.Add(RolloutPercentage);
-            hash.Add(License);
-            hash.Add(Main);
-            hash.Add(SelfTest);
-            hash.Add(DocDir);
-            hash.Add(Commands.GetSequencedHashCode());
-            hash.Add(Dependencies.GetSequencedHashCode());
-            hash.Add(Restrictions.GetSequencedHashCode());
-            hash.Add(Bindings.GetSequencedHashCode());
-            return hash.ToHashCode();
         }
         #endregion
     }

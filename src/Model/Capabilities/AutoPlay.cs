@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Properties;
 
@@ -16,7 +17,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("An application's ability to handle one or more AutoPlay events.")]
     [Serializable, XmlRoot("auto-play", Namespace = CapabilityList.XmlNamespace), XmlType("auto-play", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class AutoPlay : IconCapability, IEquatable<AutoPlay>
+    [Equatable]
+    public sealed partial class AutoPlay : IconCapability
     {
         /// <summary>
         /// The name of the application as shown in the AutoPlay selection list.
@@ -37,10 +39,11 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("event")]
+        [OrderedEquality]
         public List<AutoPlayEvent> Events { get; } = new();
 
         /// <inheritdoc/>
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => new[] {"autoplay:" + ID};
 
         #region Normalize
@@ -74,32 +77,6 @@ namespace ZeroInstall.Model.Capabilities
             capability.Events.AddRange(Events);
             return capability;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AutoPlay? other)
-            => other != null
-            && base.Equals(other)
-            && other.Provider == Provider
-            && Equals(other.Verb, Verb)
-            && Events.SequencedEquals(other.Events);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is AutoPlay play && Equals(play);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Provider,
-                Verb,
-                Events.GetSequencedHashCode());
         #endregion
     }
 }

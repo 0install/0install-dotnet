@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -14,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Creates an icon for an application on the user's desktop.
     /// </summary>
     [XmlType("desktop-icon", Namespace = AppList.XmlNamespace)]
-    public class DesktopIcon : IconAccessPoint, IEquatable<DesktopIcon>
+    [Equatable]
+    public partial class DesktopIcon : IconAccessPoint
     {
         #region Constants
         /// <summary>
@@ -57,22 +59,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new DesktopIcon {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(DesktopIcon? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(DesktopIcon) && Equals((DesktopIcon)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

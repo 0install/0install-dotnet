@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -15,11 +16,13 @@ namespace ZeroInstall.Model.Capabilities
     /// Abstract base class for capabilities that can have multiple <see cref="Icon"/>s and descriptions.
     /// </summary>
     [Serializable, XmlType("icon-capability", Namespace = CapabilityList.XmlNamespace)]
-    public abstract class IconCapability : DefaultCapability, IIconContainer, IDescriptionContainer
+    [Equatable]
+    public abstract partial class IconCapability : DefaultCapability, IIconContainer, IDescriptionContainer
     {
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
+        [OrderedEquality]
         public LocalizableStringCollection Descriptions { get; } = new();
 
         /// <summary>
@@ -27,6 +30,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon", Namespace = Feed.XmlNamespace)]
+        [OrderedEquality]
         public List<Icon> Icons { get; } = new();
 
         /// <summary>
@@ -42,20 +46,5 @@ namespace ZeroInstall.Model.Capabilities
 
             return Icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType));
         }
-
-        #region Equality
-        protected bool Equals(IconCapability? other)
-            => other != null
-            && base.Equals(other)
-            && Descriptions.SequencedEquals(other.Descriptions)
-            && Icons.SequencedEquals(other.Icons);
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Descriptions.GetSequencedHashCode(),
-                Icons.GetSequencedHashCode());
-        #endregion
     }
 }

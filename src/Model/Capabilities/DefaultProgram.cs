@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model.Capabilities
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("Can act as the default provider for a well-known service such web-browser, e-mail client.")]
     [Serializable, XmlType("default-program", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class DefaultProgram : VerbCapability, IEquatable<DefaultProgram>
+    [Equatable]
+    public sealed partial class DefaultProgram : VerbCapability
     {
         #region Constants
         /// <summary>
@@ -80,7 +82,7 @@ namespace ZeroInstall.Model.Capabilities
         public InstallCommands InstallCommands { get; set; }
 
         /// <inheritdoc/>
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => new[] {"clients:" + Service + @"\" + ID};
 
         #region Normalize
@@ -112,23 +114,6 @@ namespace ZeroInstall.Model.Capabilities
             capability.Verbs.AddRange(Verbs.CloneElements());
             return capability;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(DefaultProgram? other) => other != null && base.Equals(other) && other.Service == Service;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is DefaultProgram program && Equals(program);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Service);
         #endregion
     }
 }

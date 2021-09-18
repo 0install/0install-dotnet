@@ -24,7 +24,7 @@ namespace ZeroInstall.Services.Fetchers
         public int Compare(RetrievalMethod? x, RetrievalMethod? y)
             => x switch
             {
-                _ when x == y => 0,
+                _ when ReferenceEquals(x, y) => 0,
                 DownloadRetrievalMethod _ when y is Recipe => -1,
                 Recipe _ when y is DownloadRetrievalMethod => 1,
                 DownloadRetrievalMethod downloadX when y is DownloadRetrievalMethod downloadY => downloadX.Size.CompareTo(downloadY.Size),

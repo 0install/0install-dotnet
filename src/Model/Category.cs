@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using ZeroInstall.Model.Design;
 
@@ -14,7 +15,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("An application category (e.g. Game or Office). Used for organizing application menus.")]
     [Serializable, XmlRoot("category", Namespace = Feed.XmlNamespace), XmlType("category", Namespace = Feed.XmlNamespace)]
-    public sealed class Category : FeedElement, IEquatable<Category>, ICloneable<Category>
+    [Equatable]
+    public sealed partial class Category : FeedElement, ICloneable<Category>
     {
         #region Constants
         /// <summary>
@@ -48,27 +50,6 @@ namespace ZeroInstall.Model
         /// Returns <see cref="Name"/> directly. Safe for parsing!
         /// </summary>
         public override string ToString() => Name ?? "unset";
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Category? other)
-            => other != null
-            && base.Equals(other)
-            && other.Name == Name
-            && other.TypeNamespace == TypeNamespace;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Category category && Equals(category);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Name, TypeNamespace);
         #endregion
 
         #region Clone

@@ -1,8 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
+using Generator.Equals;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.EntryPoints.Design;
 
@@ -11,7 +11,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// <summary>
     /// A compiled Java application.
     /// </summary>
-    public abstract class Java : Candidate
+    [Equatable]
+    public abstract partial class Java : Candidate
     {
         /// <summary>
         /// The minimum version of the Java Runtime Environment required by the application.
@@ -33,27 +34,5 @@ namespace ZeroInstall.Publish.EntryPoints
         /// </summary>
         [Category("Details (Java)"), DisplayName(@"GUI only"), Description("Does this application have a graphical interface an no terminal output? Only enable if you are sure!")]
         public bool GuiOnly { get => !NeedsTerminal; set => NeedsTerminal = !value; }
-
-        #region Equality
-        protected bool Equals(Java? other)
-            => other != null
-            && base.Equals(other)
-            && Equals(MinimumRuntimeVersion, other.MinimumRuntimeVersion)
-            && ExternalDependencies == other.ExternalDependencies;
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((Java)obj);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                MinimumRuntimeVersion,
-                ExternalDependencies);
-        #endregion
     }
 }

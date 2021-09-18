@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model.Capabilities
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model.Capabilities
     /// <seealso cref="UrlProtocol.KnownPrefixes"/>
     [Description("Names a well-known protocol prefix. Used for protocols that are shared across many applications (e.g. HTTP, FTP) but not for application-specific protocols.")]
     [Serializable, XmlRoot("known-prefix", Namespace = CapabilityList.XmlNamespace), XmlType("known-prefix", Namespace = CapabilityList.XmlNamespace)]
-    public class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolPrefix>, IEquatable<KnownProtocolPrefix>
+    [Equatable]
+    public partial class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolPrefix>
     {
         /// <summary>
         /// The value of the prefix (e.g. "http").
@@ -47,23 +49,6 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         /// <returns>The new copy of the <see cref="KnownProtocolPrefix"/>.</returns>
         public KnownProtocolPrefix Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(KnownProtocolPrefix? other) => other != null && base.Equals(other) && other.Value == Value;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is KnownProtocolPrefix prefix && Equals(prefix);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Value);
         #endregion
     }
 }

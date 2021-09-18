@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using Generator.Equals;
 using ZeroInstall.Model;
 
 namespace ZeroInstall.Services.Native
@@ -10,7 +11,8 @@ namespace ZeroInstall.Services.Native
     /// Retrieves an implementation by installing it via an external package manager rather than Zero Install itself.
     /// </summary>
     /// <seealso cref="IPackageManager"/>
-    public sealed class ExternalRetrievalMethod : RetrievalMethod, IEquatable<ExternalRetrievalMethod>
+    [Equatable]
+    public sealed partial class ExternalRetrievalMethod : RetrievalMethod
     {
         /// <summary>
         /// The name of the distribution this package came from.
@@ -49,30 +51,6 @@ namespace ZeroInstall.Services.Native
         /// </summary>
         /// <returns>The new copy of the <see cref="ExternalRetrievalMethod"/>.</returns>
         public override RetrievalMethod Clone() => CloneNativeRetrievalMethod();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ExternalRetrievalMethod? other)
-            => other != null
-            && base.Equals(other)
-            && Distro == other.Distro
-            && PackageID == other.PackageID
-            && Size == other.Size
-            && ConfirmationQuestion == other.ConfirmationQuestion
-            && Equals(Install, other.Install);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ExternalRetrievalMethod method && Equals(method);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Distro, PackageID, Size, ConfirmationQuestion);
         #endregion
     }
 }

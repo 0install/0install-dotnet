@@ -1,8 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using NanoByte.Common.Collections;
+using Generator.Equals;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -10,13 +9,14 @@ namespace ZeroInstall.Store.Trust
     /// Represents a secret key stored in a local <see cref="IOpenPgp"/> profile.
     /// </summary>
     /// <seealso cref="IOpenPgp.ListSecretKeys"/>
-    [PrimaryConstructor]
-    public sealed partial class OpenPgpSecretKey : IFingerprintContainer, IEquatable<OpenPgpSecretKey>
+    [PrimaryConstructor, Equatable]
+    public sealed partial class OpenPgpSecretKey : IFingerprintContainer
     {
         /// <inheritdoc/>
         public long KeyID { get; }
 
         /// <inheritdoc/>
+        [OrderedEquality]
         public byte[] Fingerprint { get; }
 
         /// <summary>
@@ -24,41 +24,9 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         public string UserID { get; }
 
-        #region Conversion
         /// <summary>
         /// Returns the secret key in the form "UserID". Not safe for parsing!
         /// </summary>
         public override string ToString() => UserID;
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(OpenPgpSecretKey? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return KeyID == other.KeyID
-                && Fingerprint.SequencedEquals(other.Fingerprint)
-                && UserID == other.UserID;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is OpenPgpSecretKey key && Equals(key);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                KeyID,
-                Fingerprint.GetSequencedHashCode(),
-                UserID);
-
-        public static bool operator ==(OpenPgpSecretKey? left, OpenPgpSecretKey? right) => Equals(left, right);
-        public static bool operator !=(OpenPgpSecretKey? left, OpenPgpSecretKey? right) => !Equals(left, right);
-        #endregion
     }
 }

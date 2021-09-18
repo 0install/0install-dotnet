@@ -18,7 +18,7 @@ namespace ZeroInstall.Model
     /// Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.
     /// </summary>
     /// <remarks>Inheriting from this class will prevent the <see cref="XmlSerializer.UnknownElement"/> event from being triggered.</remarks>
-    public abstract class XmlUnknown
+    public abstract class XmlUnknown : IEquatable<XmlUnknown>
     {
         /// <summary>
         /// Contains any unknown additional XML attributes.
@@ -116,8 +116,8 @@ namespace ZeroInstall.Model
         }
         #endregion
 
-        #region Equality
-        protected bool Equals(XmlUnknown? other)
+        #region Equatable
+        public bool Equals(XmlUnknown? other)
         {
             if (other == null) return false;
             // ReSharper disable once InvokeAsExtensionMethod

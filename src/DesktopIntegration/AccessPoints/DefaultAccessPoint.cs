@@ -1,9 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
 {
@@ -12,7 +12,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// </summary>
     /// <seealso cref="Model.Capabilities.Capability"/>
     [XmlType("default-access-point", Namespace = AppList.XmlNamespace)]
-    public abstract class DefaultAccessPoint : AccessPoint
+    [Equatable]
+    public abstract partial class DefaultAccessPoint : AccessPoint
     {
         #region Constants
         /// <summary>
@@ -27,16 +28,5 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         [Description("The ID of the Capability to be made the default handler.")]
         [XmlAttribute("capability")]
         public string Capability { get; set; } = default!;
-
-        #region Equality
-        protected bool Equals(DefaultAccessPoint? other)
-            => other != null
-            && base.Equals(other)
-            && other.Capability == Capability;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Capability);
-        #endregion
     }
 }

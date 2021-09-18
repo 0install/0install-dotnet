@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model.Capabilities
@@ -14,17 +15,19 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("An application's ability to handle a certain URL protocol such as HTTP.")]
     [Serializable, XmlRoot("url-protocol", Namespace = CapabilityList.XmlNamespace), XmlType("url-protocol", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class UrlProtocol : VerbCapability, IEquatable<UrlProtocol>
+    [Equatable]
+    public sealed partial class UrlProtocol : VerbCapability
     {
         /// <summary>
         /// A well-known protocol prefix such as "http". Should be empty and set in <see cref="Capability.ID"/> instead if it is a custom protocol.
         /// </summary>
         [Browsable(false)]
         [XmlElement("known-prefix")]
+        [OrderedEquality]
         public List<KnownProtocolPrefix> KnownPrefixes { get; } = new();
 
         /// <inheritdoc/>
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => new[] {"progid:" + ID};
 
         #region Normalize
@@ -55,23 +58,6 @@ namespace ZeroInstall.Model.Capabilities
             capability.KnownPrefixes.AddRange(KnownPrefixes);
             return capability;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(UrlProtocol? other) => other != null && base.Equals(other) && KnownPrefixes.SequencedEquals(other.KnownPrefixes);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is UrlProtocol protocol && Equals(protocol);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), KnownPrefixes.GetSequencedHashCode());
         #endregion
     }
 }

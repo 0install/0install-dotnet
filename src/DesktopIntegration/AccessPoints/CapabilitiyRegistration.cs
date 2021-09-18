@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
@@ -17,7 +18,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// </summary>
     /// <seealso cref="ZeroInstall.Model.Capabilities"/>
     [XmlType("capability-registration", Namespace = AppList.XmlNamespace)]
-    public class CapabilityRegistration : AccessPoint, IEquatable<CapabilityRegistration>
+    [Equatable]
+    public partial class CapabilityRegistration : AccessPoint
     {
         #region Constants
         /// <summary>
@@ -136,22 +138,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new CapabilityRegistration {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(CapabilityRegistration? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(CapabilityRegistration) && Equals((CapabilityRegistration)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

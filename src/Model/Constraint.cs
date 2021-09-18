@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model
@@ -13,7 +14,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Restricts the set of versions from which the injector may choose an implementation.")]
     [Serializable, XmlRoot("constraint", Namespace = Feed.XmlNamespace), XmlType("constraint", Namespace = Feed.XmlNamespace)]
-    public class Constraint : FeedElement, ICloneable<Constraint>, IEquatable<Constraint>
+    [Equatable]
+    public partial class Constraint : FeedElement, ICloneable<Constraint>
     {
         /// <summary>
         /// This is the lowest-numbered version that can be chosen.
@@ -32,12 +34,12 @@ namespace ZeroInstall.Model
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NotBefore"/>
-        [XmlAttribute("not-before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("not-before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? NotBeforeString { get => (NotBefore == null ? null : NotBefore.ToString()); set => NotBefore = string.IsNullOrEmpty(value) ? null : new(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Before"/>
-        [XmlAttribute("before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? BeforeString { get => Before?.ToString(); set => Before = string.IsNullOrEmpty(value) ? null : new(value); }
         #endregion
 
@@ -54,24 +56,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Constraint"/>.</returns>
         public Constraint Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, NotBefore = NotBefore, Before = Before};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Constraint? other)
-            => other != null && base.Equals(other) && other.NotBefore == NotBefore && other.Before == Before;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Constraint) && Equals((Constraint)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), NotBefore, Before);
         #endregion
     }
 }

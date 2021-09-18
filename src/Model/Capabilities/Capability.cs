@@ -1,11 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model.Capabilities
@@ -14,13 +14,13 @@ namespace ZeroInstall.Model.Capabilities
     /// A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user.
     /// </summary>
     [XmlType("capability", Namespace = CapabilityList.XmlNamespace)]
-    public abstract class Capability : XmlUnknown, ICloneable<Capability>
+    [Equatable]
+    public abstract partial class Capability : XmlUnknown, ICloneable<Capability>
     {
         /// <summary>
         /// Indicates whether this capability can be registered only machine-wide and not per-user on Windows systems.
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public virtual bool WindowsMachineWideOnly => false;
 
         /// <summary>
@@ -37,8 +37,7 @@ namespace ZeroInstall.Model.Capabilities
         /// Collisions in this namespace indicate that the concerned <see cref="Capability"/>s are in conflict cannot be registered on a single system at the same time.
         /// </summary>
         /// <remarks>These identifiers are not guaranteed to stay the same between versions. They should not be stored in files but instead always generated on demand.</remarks>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public abstract IEnumerable<string> ConflictIDs { get; }
 
         #region Normalize
@@ -56,14 +55,6 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         /// <returns>The new copy of the <see cref="Capability"/>.</returns>
         public abstract Capability Clone();
-        #endregion
-
-        #region Equality
-        protected bool Equals(Capability? other) => other != null && base.Equals(other) && other.ID == ID;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), ID);
         #endregion
     }
 }

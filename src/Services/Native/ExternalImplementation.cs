@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using Generator.Equals;
 using NanoByte.Common.Values;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
@@ -12,7 +13,8 @@ namespace ZeroInstall.Services.Native
     /// An implementation provided by an external package manager.
     /// </summary>
     /// <seealso cref="IPackageManager"/>
-    public sealed class ExternalImplementation : Implementation, IEquatable<ExternalImplementation>
+    [Equatable]
+    public sealed partial class ExternalImplementation : Implementation
     {
         #region Constants
         /// <summary>
@@ -93,33 +95,5 @@ namespace ZeroInstall.Services.Native
 
             return implementation;
         }
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ExternalImplementation? other)
-            => other != null
-            && base.Equals(other)
-            && Distribution == other.Distribution
-            && Package == other.Package
-            && IsInstalled == other.IsInstalled
-            && QuickTestFile == other.QuickTestFile;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != typeof(ExternalImplementation)) return false;
-            return Equals((ExternalImplementation)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Distribution,
-                Package,
-                QuickTestFile);
-        #endregion
     }
 }

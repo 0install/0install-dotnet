@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Values.Design;
@@ -26,7 +27,8 @@ namespace ZeroInstall.Model
     /// </remarks>
     [TypeConverter(typeof(StringConstructorConverter<VersionRange>))]
     [Serializable]
-    public sealed class VersionRange : IEquatable<VersionRange>
+    [Equatable]
+    public sealed partial class VersionRange
     {
         /// <summary>
         /// An "impossible" range matching no versions.
@@ -36,6 +38,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// The individual ranges.
         /// </summary>
+        [OrderedEquality]
         public IReadOnlyList<VersionRangePart> Parts { get; }
 
         /// <summary>
@@ -133,42 +136,5 @@ namespace ZeroInstall.Model
         /// </summary>
         public override string ToString()
             => StringUtils.Join("|", Parts.Select(part => part.ToString()).WhereNotNull());
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(VersionRange? other)
-        {
-            if (other == null) return false;
-
-            // Cancel if the number of parts don't match
-            if (Parts.Count != other.Parts.Count)
-                return false;
-
-            // Cancel if one of the parts does not match
-            for (int i = 0; i < Parts.Count; i++)
-            {
-                if (!Parts[i].Equals(other.Parts[i]))
-                    return false;
-            }
-
-            // If we reach this, everything was equal
-            return true;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is VersionRange range && Equals(range);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => Parts.GetSequencedHashCode();
-
-        public static bool operator ==(VersionRange? left, VersionRange? right) => Equals(left, right);
-        public static bool operator !=(VersionRange? left, VersionRange? right) => !Equals(left, right);
-        #endregion
     }
 }

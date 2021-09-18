@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model
@@ -13,7 +14,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("A single command-line arguments to be passed to an executable.")]
     [Serializable, XmlRoot("arg", Namespace = Feed.XmlNamespace), XmlType("arg", Namespace = Feed.XmlNamespace)]
-    public class Arg : ArgBase, ICloneable<Arg>, IEquatable<Arg>
+    [Equatable]
+    public partial class Arg : ArgBase, ICloneable<Arg>
     {
         /// <summary>
         /// A single command-line arguments to be passed to an executable.
@@ -39,24 +41,6 @@ namespace ZeroInstall.Model
         /// Returns <see cref="Value"/>. Not safe for parsing!
         /// </summary>
         public override string ToString() => Value;
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Arg? other)
-            => other != null && (base.Equals(other) && other.Value == Value);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Arg arg && Equals(arg);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Value);
         #endregion
 
         #region Clone

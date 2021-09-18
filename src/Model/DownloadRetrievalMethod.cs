@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using ZeroInstall.Model.Properties;
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model
     /// Represents a retrieval method that downloads data from the net.
     /// </summary>
     [XmlType("download-retrieval-method", Namespace = Feed.XmlNamespace)]
-    public abstract class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
+    [Equatable]
+    public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
     {
         /// <summary>
         /// The URL to download the file from. Relative URLs are only allowed in local feed files.
@@ -28,7 +30,7 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="Href"/>
         [DisplayName(@"Href"), Description("The URL to download the file from. Relative URLs are only allowed in local feed files.")]
-        [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.RelativeOrAbsolute); }
         #endregion
@@ -62,14 +64,6 @@ namespace ZeroInstall.Model
         #region Clone
         /// <inheritdoc/>
         IRecipeStep ICloneable<IRecipeStep>.Clone() => (IRecipeStep)Clone();
-        #endregion
-
-        #region Equality
-        protected bool Equals(DownloadRetrievalMethod? other) => other != null && base.Equals(other) && other.Href == Href && other.Size == Size;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Href, Size);
         #endregion
     }
 }

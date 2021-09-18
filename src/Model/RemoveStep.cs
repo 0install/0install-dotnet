@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -12,7 +13,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Removes or moves a file or directory. It is an error if the path is outside the implementation.")]
     [Serializable, XmlRoot("remove", Namespace = Feed.XmlNamespace), XmlType("remove", Namespace = Feed.XmlNamespace)]
-    public sealed class RemoveStep : FeedElement, IRecipeStep, IEquatable<RemoveStep>
+    [Equatable]
+    public sealed partial class RemoveStep : FeedElement, IRecipeStep
     {
         /// <summary>
         /// The file or directory to be removed relative to the implementation root as a Unix-style path.
@@ -41,24 +43,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="RemoveStep"/>.</returns>
         public IRecipeStep Clone() => new RemoveStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Path = Path};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(RemoveStep? other)
-            => other != null && base.Equals(other) && other.Path == Path;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is RemoveStep step && Equals(step);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Path);
         #endregion
     }
 }

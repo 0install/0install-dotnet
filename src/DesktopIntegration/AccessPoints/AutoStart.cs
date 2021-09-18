@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -14,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Automatically starts an application when the user logs in.
     /// </summary>
     [XmlType("auto-start", Namespace = AppList.XmlNamespace)]
-    public class AutoStart : CommandAccessPoint, IEquatable<AutoStart>
+    [Equatable]
+    public partial class AutoStart : CommandAccessPoint
     {
         #region Constants
         /// <summary>
@@ -55,22 +57,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new AutoStart {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AutoStart? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(AutoStart) && Equals((AutoStart)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

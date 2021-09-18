@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -22,7 +23,8 @@ namespace ZeroInstall.Model.Selection
     /// See also: https://docs.0install.net/specifications/selections/
     /// </remarks>
     [Serializable, XmlRoot("selections", Namespace = Feed.XmlNamespace), XmlType("selections", Namespace = Feed.XmlNamespace)]
-    public sealed class Selections : XmlUnknown, IInterfaceUri, ICloneable<Selections>, IEquatable<Selections>
+    [Equatable]
+    public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<Selections>
     {
         /// <summary>
         /// The URI or local path of the interface this selection is based on.
@@ -35,7 +37,7 @@ namespace ZeroInstall.Model.Selection
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
-        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
         #endregion
@@ -66,6 +68,7 @@ namespace ZeroInstall.Model.Selection
         [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Used for XML serialization")]
         [Description("A list of implementations chosen in this selection.")]
         [XmlElement("selection")]
+        [UnorderedEquality]
         public List<ImplementationSelection> Implementations { get; } = new();
 
         /// <summary>
@@ -203,32 +206,6 @@ namespace ZeroInstall.Model.Selection
         /// Returns the selections as XML. Not safe for parsing!
         /// </summary>
         public override string ToString() => this.ToXmlString();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Selections? other)
-            => other != null
-            && base.Equals(other)
-            && InterfaceUri == other.InterfaceUri
-            && Command == other.Command
-            && Implementations.UnsequencedEquals(other.Implementations);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Selections selections && Equals(selections);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                InterfaceUri,
-                Command,
-                Implementations.GetUnsequencedHashCode());
         #endregion
     }
 }

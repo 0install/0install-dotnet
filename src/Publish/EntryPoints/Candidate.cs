@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using Generator.Equals;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Design;
@@ -16,7 +17,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// Collects information about a potential candidate for an entry point.
     /// The subclass type determines the type of executable (native binary, interpreted script, etc.).
     /// </summary>
-    public abstract class Candidate
+    [Equatable]
+    public abstract partial class Candidate
     {
         /// <summary>
         /// Analyzes a file to determine whether it matches this candidate type and extracts meta data.
@@ -51,7 +53,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <summary>
         /// The base directory containing the entire application.
         /// </summary>
-        [Browsable(false)]
+        [Browsable(false), IgnoreEquality]
         protected DirectoryInfo? BaseDirectory { get; private set; }
 
         /// <summary>
@@ -113,35 +115,5 @@ namespace ZeroInstall.Publish.EntryPoints
         protected string CommandName => (Path.GetFileNameWithoutExtension(RelativePath) ?? "unknown").Replace(" ", "-");
 
         public override string ToString() => RelativePath + " (" + GetType().Name + ")";
-
-        #region Equality
-        protected bool Equals(Candidate? other)
-            => other != null
-            && RelativePath == other.RelativePath
-            && Name == other.Name
-            && Summary == other.Summary
-            && Category == other.Category
-            && Equals(Version, other.Version)
-            && Architecture == other.Architecture
-            && NeedsTerminal == other.NeedsTerminal;
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((Candidate)obj);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(
-                RelativePath,
-                Name,
-                Summary,
-                Category,
-                Version,
-                Architecture,
-                NeedsTerminal);
-        #endregion
     }
 }

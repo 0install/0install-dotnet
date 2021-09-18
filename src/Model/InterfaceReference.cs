@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model
@@ -17,7 +18,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="Feed.ReplacedBy"/>
     [Description("A reference to an interface URI, e.g. for specifying which interface this feed implements or by which interface it is replaced.")]
     [Serializable, XmlRoot("feed-for", Namespace = Feed.XmlNamespace), XmlType("feed-for", Namespace = Feed.XmlNamespace)]
-    public sealed class InterfaceReference : FeedElement, ICloneable<InterfaceReference>, IEquatable<InterfaceReference>
+    [Equatable]
+    public sealed partial class InterfaceReference : FeedElement, ICloneable<InterfaceReference>
     {
         /// <summary>
         /// The URI used to locate the interface.
@@ -30,7 +32,7 @@ namespace ZeroInstall.Model
         /// <seealso cref="Target"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Target"), Description("The URI used to locate the interface.")]
-        [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string TargetString { get => Target?.ToStringRfc()!; set => Target = new(value); }
         #endregion
@@ -57,24 +59,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="InterfaceReference"/>.</returns>
         public InterfaceReference Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Target = Target};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(InterfaceReference? other)
-            => other != null && base.Equals(other) && other.Target == Target;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is InterfaceReference reference && Equals(reference);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), TargetString);
         #endregion
     }
 }

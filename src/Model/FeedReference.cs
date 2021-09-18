@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="Feed.Feeds"/>
     [Description("A linked feed that contains more implementations of this interface. Is treated by the solver as if it were part of the main feed.")]
     [Serializable, XmlRoot("feed", Namespace = Feed.XmlNamespace), XmlType("feed", Namespace = Feed.XmlNamespace)]
-    public sealed class FeedReference : TargetBase, ICloneable<FeedReference>, IEquatable<FeedReference>
+    [Equatable]
+    public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference>
     {
         /// <summary>
         /// The URL or local path used to locate the feed.
@@ -27,7 +29,7 @@ namespace ZeroInstall.Model
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Source"/>
-        [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string SourceString { get => Source?.ToStringRfc()!; set => Source = new(value); }
         #endregion
@@ -61,24 +63,6 @@ namespace ZeroInstall.Model
             CloneFromTo(this, feedReference);
             return feedReference;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(FeedReference? other)
-            => other != null && base.Equals(other) && other.Source == Source;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is FeedReference reference && Equals(reference);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Source);
         #endregion
     }
 }

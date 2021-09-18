@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Values;
@@ -19,7 +20,8 @@ namespace ZeroInstall.Model
     /// A set of requirements/restrictions imposed by the user on the <see cref="Implementation"/> selection process. Used as input for the solver.
     /// </summary>
     [Serializable, XmlRoot("requirements", Namespace = Feed.XmlNamespace), XmlType("requirements", Namespace = Feed.XmlNamespace)]
-    public class Requirements : ICloneable<Requirements>, IEquatable<Requirements>
+    [Equatable]
+    public partial class Requirements : ICloneable<Requirements>
     {
         /// <summary>
         /// The URI or local path (must be absolute) to the interface to solve the dependencies for.
@@ -44,6 +46,7 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
         [Description("The preferred languages for the implementation.")]
         [XmlIgnore, JsonIgnore]
+        [SetEquality]
         public LanguageSet Languages { get; private set; } = new();
 
         /// <summary>
@@ -58,14 +61,14 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("interface"), JsonIgnore]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Languages"/>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [DefaultValue(""), JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string LanguagesString { get => Languages.ToString(); set => Languages = new LanguageSet(value); }
 
@@ -100,6 +103,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
         [XmlIgnore, JsonProperty("extra_restrictions")]
+        [UnorderedEquality]
         public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new();
 
         /// <summary>
@@ -121,6 +125,7 @@ namespace ZeroInstall.Model
         /// <remarks>Used internally by solvers, copied from <see cref="Restriction.Distributions"/>, not set directly by user, not serialized.</remarks>
         [Browsable(false)]
         [XmlIgnore, JsonIgnore]
+        [UnorderedEquality]
         public List<string> Distributions { get; } = new();
 
         /// <summary>
@@ -208,36 +213,6 @@ namespace ZeroInstall.Model
 
             return args.ToArray();
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Requirements? other)
-            => other != null
-            && InterfaceUri == other.InterfaceUri
-            && Command == other.Command
-            && Architecture == other.Architecture
-            && Languages.SetEquals(other.Languages)
-            && ExtraRestrictions.UnsequencedEquals(other.ExtraRestrictions)
-            && Distributions.UnsequencedEquals(other.Distributions);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Requirements) && Equals((Requirements)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                InterfaceUri,
-                Command,
-                Architecture,
-                Languages.GetUnsequencedHashCode(),
-                ExtraRestrictions.GetUnsequencedHashCode(),
-                Distributions.GetUnsequencedHashCode());
         #endregion
     }
 }

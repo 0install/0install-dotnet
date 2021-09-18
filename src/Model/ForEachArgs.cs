@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Expands an environment variable to multiple arguments.\r\nThe variable specified in ItemFrom is split using Separator and the arguments are added once for each item.")]
     [Serializable, XmlRoot("for-each", Namespace = Feed.XmlNamespace), XmlType("for-each", Namespace = Feed.XmlNamespace)]
-    public class ForEachArgs : ArgBase, IEquatable<ForEachArgs>
+    [Equatable]
+    public partial class ForEachArgs : ArgBase
     {
         /// <summary>
         /// The name of the environment variable to be expanded.
@@ -36,6 +38,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("arg")]
+        [OrderedEquality]
         public List<Arg> Arguments { get; } = new();
 
         #region Normalize
@@ -68,32 +71,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="ForEachArgs"/>.</returns>
         public override ArgBase Clone() => CloneForEachArgs();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ForEachArgs? other)
-            => other != null
-            && base.Equals(other)
-            && other.ItemFrom == ItemFrom
-            && other.Separator == Separator
-            && Arguments.SequencedEquals(other.Arguments);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Arg arg && Equals(arg);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                ItemFrom,
-                Separator,
-                Arguments.GetSequencedHashCode());
         #endregion
     }
 }

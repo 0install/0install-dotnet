@@ -1,11 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using ZeroInstall.DesktopIntegration.Properties;
 
 namespace ZeroInstall.DesktopIntegration.AccessPoints
@@ -15,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// </summary>
     /// <seealso cref="Model.Command"/>
     [XmlType("command-access-point", Namespace = AppList.XmlNamespace)]
-    public abstract class CommandAccessPoint : AccessPoint
+    [Equatable]
+    public abstract partial class CommandAccessPoint : AccessPoint
     {
         /// <summary>
         /// The name of the menu entry, icon, command-line, etc..
@@ -52,18 +53,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (!string.IsNullOrEmpty(Command)) result += " (" + Command + ")";
             return result;
         }
-        #endregion
-
-        #region Equality
-        protected bool Equals(CommandAccessPoint? other)
-            => other != null
-            && base.Equals(other)
-            && other.Name == Name
-            && other.Command == Command;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Name, Command);
         #endregion
     }
 }

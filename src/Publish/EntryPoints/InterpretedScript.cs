@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
+using Generator.Equals;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 
@@ -13,7 +14,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// <summary>
     /// A plain text script that is executed by a runtime interpreter.
     /// </summary>
-    public abstract class InterpretedScript : Candidate
+    [Equatable]
+    public abstract partial class InterpretedScript : Candidate
     {
         /// <inheritdoc/>
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
@@ -66,22 +68,6 @@ namespace ZeroInstall.Publish.EntryPoints
                 firstLine.StartsWith(@"#!/usr/bin/" + interpreter) ||
                 firstLine.StartsWith(@"#!/usr/bin/env " + interpreter);
         }
-        #endregion
-
-        #region Equality
-        protected bool Equals(InterpretedScript? other)
-            => other != null && base.Equals(other) && Equals(InterpreterVersions, other.InterpreterVersions);
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((InterpretedScript)obj);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), InterpreterVersions);
         #endregion
     }
 }

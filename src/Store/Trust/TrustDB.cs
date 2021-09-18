@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -19,7 +20,8 @@ namespace ZeroInstall.Store.Trust
     /// </summary>
     [XmlRoot("trusted-keys", Namespace = XmlNamespace), XmlType("trusted-keys", Namespace = XmlNamespace)]
     [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
-    public sealed class TrustDB : ICloneable<TrustDB>, IEquatable<TrustDB>
+    [Equatable]
+    public sealed partial class TrustDB : ICloneable<TrustDB>
     {
         #region Constants
         /// <summary>
@@ -45,6 +47,7 @@ namespace ZeroInstall.Store.Trust
         /// A list of known <see cref="Key"/>s.
         /// </summary>
         [XmlElement("key")]
+        [UnorderedEquality]
         public List<Key> Keys { get; } = new();
 
         /// <summary>
@@ -233,23 +236,6 @@ namespace ZeroInstall.Store.Trust
             trust.Keys.AddRange(Keys.CloneElements());
             return trust;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(TrustDB? other)
-            => other != null && Keys.UnsequencedEquals(other.Keys);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is TrustDB other && Equals(other);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => Keys.GetUnsequencedHashCode();
         #endregion
     }
 }

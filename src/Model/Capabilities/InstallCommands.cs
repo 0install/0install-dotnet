@@ -66,7 +66,7 @@ namespace ZeroInstall.Model.Capabilities
         public override string ToString() => $"{Reinstall} {ReinstallArgs}, {ShowIcons} {ShowIconsArgs}, {HideIcons} {HideIconsArgs}";
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
         public bool Equals(InstallCommands other)
             => other.Reinstall == Reinstall
@@ -80,7 +80,8 @@ namespace ZeroInstall.Model.Capabilities
         public static bool operator !=(InstallCommands left, InstallCommands right) => !left.Equals(right);
 
         /// <inheritdoc/>
-        public override bool Equals(object? obj) => obj is InstallCommands commands && Equals(commands);
+        public override bool Equals(object? obj)
+            => obj is InstallCommands commands && Equals(commands);
 
         /// <inheritdoc/>
         public override int GetHashCode()

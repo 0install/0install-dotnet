@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model
@@ -14,11 +15,9 @@ namespace ZeroInstall.Model
     /// Contains language and architecture parameters.
     /// </summary>
     [XmlType("target-base", Namespace = Feed.XmlNamespace)]
-    public abstract class TargetBase : FeedElement
+    [Equatable]
+    public abstract partial class TargetBase : FeedElement
     {
-        // Order is always alphabetical, duplicate entries are not allowed
-        private LanguageSet _languages = new();
-
         /// <summary>
         /// The natural language(s) which an <see cref="Implementation"/> supports.
         /// </summary>
@@ -26,7 +25,8 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
         [Category("Release"), Description("The natural language(s) which an implementation supports.")]
         [XmlIgnore]
-        public LanguageSet Languages { get => _languages; set => _languages = value ?? throw new ArgumentNullException(nameof(value)); }
+        [SetEquality]
+        public LanguageSet Languages { get; set; } = new();
 
         /// <summary>
         /// For platform-specific binaries, the platform for which an <see cref="Implementation"/> was compiled.
@@ -39,13 +39,13 @@ namespace ZeroInstall.Model
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Languages"/>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("langs"), DefaultValue("")]
-        public string LanguagesString { get => _languages.ToString(); set => _languages = new LanguageSet(value); }
+        public string LanguagesString { get => Languages.ToString(); set => Languages = new LanguageSet(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Architecture"/>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("arch"), DefaultValue("*-*")]
         public string ArchitectureString { get => Architecture.ToString(); set => Architecture = new(value); }
         #endregion
@@ -67,21 +67,6 @@ namespace ZeroInstall.Model
             to.Languages = new LanguageSet(from.Languages);
             to.ArchitectureString = from.ArchitectureString;
         }
-        #endregion
-
-        #region Equality
-        protected bool Equals(TargetBase? other)
-            => other != null
-            && base.Equals(other)
-            && _languages.SetEquals(other._languages)
-            && other.Architecture == Architecture;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                _languages.GetUnsequencedHashCode(),
-                Architecture);
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
@@ -18,7 +19,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("The mapping of an action/verb (e.g. open, edit) to a Command.")]
     [Serializable, XmlRoot("verb", Namespace = CapabilityList.XmlNamespace), XmlType("verb", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class Verb : XmlUnknown, IDescriptionContainer, ICloneable<Verb>, IEquatable<Verb>
+    [Equatable]
+    public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable<Verb>
     {
         #region Constants
         /// <summary>
@@ -81,6 +83,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("arg")]
+        [OrderedEquality]
         public List<Arg> Arguments { get; } = new();
 
         /// <summary>
@@ -101,6 +104,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
+        [OrderedEquality]
         public LocalizableStringCollection Descriptions { get; } = new();
 
         #region Normalize
@@ -131,38 +135,6 @@ namespace ZeroInstall.Model.Capabilities
             newVerb.Arguments.AddRange(Arguments.CloneElements());
             return newVerb;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Verb? other)
-            => other != null
-            && base.Equals(other)
-            && Name == other.Name
-            && Command == other.Command
-            && ArgumentsLiteral == other.ArgumentsLiteral
-            && Arguments.SequencedEquals(other.Arguments)
-            && Extended == other.Extended
-            && Descriptions.SequencedEquals(other.Descriptions);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Verb verb && Equals(verb);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Name,
-                Command,
-                Arguments.GetSequencedHashCode(),
-                ArgumentsLiteral,
-                Extended,
-                Descriptions.GetSequencedHashCode());
         #endregion
     }
 }

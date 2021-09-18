@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model
@@ -17,20 +18,22 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Retrieves an implementation by applying a list of recipe steps, such as downloading and combining multiple archives.")]
     [Serializable, XmlRoot("recipe", Namespace = Feed.XmlNamespace), XmlType("recipe", Namespace = Feed.XmlNamespace)]
-    public sealed class Recipe : RetrievalMethod, IEquatable<Recipe>
+    [Equatable]
+    public sealed partial class Recipe : RetrievalMethod
     {
         /// <summary>
         /// An ordered list of <see cref="IRecipeStep"/>s to execute.
         /// </summary>
         [Description("An ordered list of archives to extract.")]
         [XmlIgnore]
+        [OrderedEquality]
         public List<IRecipeStep> Steps { get; } = new();
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Steps"/>
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification = "Used for XML serialization.")]
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(RenameStep)), XmlElement(typeof(RemoveStep)), XmlElement(typeof(CopyFromStep))]
         public object[]? StepsArray
         {
@@ -46,8 +49,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// Indicates whether this recipe contains steps of unknown type and therefore can not be processed.
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public bool ContainsUnknownSteps => UnknownElements is {Length: > 0};
 
         #region Normalize
@@ -88,28 +90,6 @@ namespace ZeroInstall.Model
             recipe.Steps.AddRange(Steps.CloneElements());
             return recipe;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Recipe? other)
-            => other != null
-            && base.Equals(other)
-            && Steps.SequencedEquals(other.Steps);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Recipe recipe && Equals(recipe);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Steps.GetSequencedHashCode());
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -19,9 +20,11 @@ namespace ZeroInstall.Model
     /// <seealso cref="Feed.Elements"/>
     [Description("All attributes of a group are inherited by any child Groups and Implementations as defaults, but can be overridden there.\r\nAll Dependencies and Bindings are inherited (sub-groups may add more Dependencies and Bindings to the list, but cannot remove any).")]
     [Serializable, XmlRoot("group", Namespace = Feed.XmlNamespace), XmlType("group", Namespace = Feed.XmlNamespace)]
-    public sealed class Group : Element, IElementContainer, IEquatable<Group>
+    [Equatable]
+    public sealed partial class Group : Element, IElementContainer
     {
         /// <inheritdoc/>
+        [IgnoreEquality]
         internal override IEnumerable<Implementation> Implementations => Elements.SelectMany(x => x.Implementations);
 
         /// <summary>
@@ -29,6 +32,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
+        [OrderedEquality]
         public List<Element> Elements { get; } = new();
 
         #region Normalize
@@ -95,23 +99,6 @@ namespace ZeroInstall.Model
                     Main
                 }.Where(x => x is not 0)
                  .Select(x => x?.ToString()).WhereNotNull());
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Group? other) => other != null && base.Equals(other) && Elements.SequencedEquals(other.Elements);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Group group && Equals(group);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Elements.GetSequencedHashCode());
         #endregion
     }
 }

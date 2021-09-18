@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -14,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Creates a shortcut for an application in the Quick Launch bar.
     /// </summary>
     [XmlType("quick-launch", Namespace = AppList.XmlNamespace)]
-    public class QuickLaunch : IconAccessPoint, IEquatable<QuickLaunch>
+    [Equatable]
+    public partial class QuickLaunch : IconAccessPoint
     {
         /// <inheritdoc/>
         public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"quick-launch:{Name}"};
@@ -48,22 +50,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new QuickLaunch {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(QuickLaunch? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(QuickLaunch) && Equals((QuickLaunch)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

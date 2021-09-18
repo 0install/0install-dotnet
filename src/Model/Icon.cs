@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using ZeroInstall.Model.Design;
@@ -21,7 +22,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="EntryPoint.Icons"/>
     [Description("An icon representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..")]
     [Serializable, XmlRoot("icon", Namespace = Feed.XmlNamespace), XmlType("icon", Namespace = Feed.XmlNamespace)]
-    public class Icon : FeedElement, ICloneable<Icon>, IEquatable<Icon>
+    [Equatable]
+    public partial class Icon : FeedElement, ICloneable<Icon>
     {
         #region Constants
         /// <summary>
@@ -57,7 +59,7 @@ namespace ZeroInstall.Model
         /// <seealso cref="Href"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Href"), Description("The URL used to locate the icon.")]
-        [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.Absolute); }
         #endregion
@@ -92,23 +94,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Icon"/>.</returns>
         public Icon Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Href = Href, MimeType = MimeType};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Icon? other) => other != null && base.Equals(other) && other.Href == Href && other.MimeType == MimeType;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Icon icon && Equals(icon);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Href, MimeType);
         #endregion
     }
 

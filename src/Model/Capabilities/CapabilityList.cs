@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -16,7 +17,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("Groups a number of application capabilities (for a specific operating system) that can be registered in a desktop environment.")]
     [Serializable, XmlRoot("capabilities", Namespace = XmlNamespace), XmlType("capabilities", Namespace = XmlNamespace)]
-    public sealed class CapabilityList : XmlUnknown, ICloneable<CapabilityList>, IEquatable<CapabilityList>
+    [Equatable]
+    public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityList>
     {
         #region Constants
         /// <summary>
@@ -42,6 +44,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(AppRegistration)), XmlElement(typeof(AutoPlay)), XmlElement(typeof(ComServer)), XmlElement(typeof(ContextMenu)), XmlElement(typeof(DefaultProgram)), XmlElement(typeof(FileType)), XmlElement(typeof(UrlProtocol))]
+        [OrderedEquality]
         public List<Capability> Entries { get; } = new();
 
         /// <summary>
@@ -78,30 +81,6 @@ namespace ZeroInstall.Model.Capabilities
         /// Returns the capability list in the form "OS". Not safe for parsing!
         /// </summary>
         public override string ToString() => OS.ToString();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(CapabilityList? other)
-            => other != null
-            && base.Equals(other)
-            && OS == other.OS
-            && Entries.SequencedEquals(other.Entries);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is CapabilityList list && Equals(list);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                OS,
-                Entries.GetSequencedHashCode());
         #endregion
     }
 }

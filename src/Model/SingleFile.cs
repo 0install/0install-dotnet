@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -12,7 +13,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Retrieves an implementation by downloading a single file.")]
     [Serializable, XmlRoot("file", Namespace = Feed.XmlNamespace), XmlType("file", Namespace = Feed.XmlNamespace)]
-    public sealed class SingleFile : DownloadRetrievalMethod, IEquatable<SingleFile>
+    [Equatable]
+    public sealed partial class SingleFile : DownloadRetrievalMethod
     {
         /// <summary>
         /// The file's target path relative to the implementation root as a Unix-style path.
@@ -51,23 +53,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="SingleFile"/>.</returns>
         public override RetrievalMethod Clone() => new SingleFile {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, Destination = Destination, Executable = Executable};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(SingleFile? other) => other != null && base.Equals(other) && other.Destination == Destination && other.Executable == Executable;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is SingleFile file && Equals(file);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Destination, Executable);
         #endregion
     }
 }

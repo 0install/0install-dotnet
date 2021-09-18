@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
@@ -29,7 +30,8 @@ namespace ZeroInstall.Model
     [Serializable, XmlRoot("interface", Namespace = XmlNamespace), XmlType("interface", Namespace = XmlNamespace)]
     [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
     //[XmlNamespace("caps", CapabilityList.XmlNamespace)]
-    public class Feed : XmlUnknown, IElementContainer, ISummaryContainer, IIconContainer, ICloneable<Feed>, IEquatable<Feed>
+    [Equatable]
+    public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, IIconContainer, ICloneable<Feed>
     {
         #region Constants
         /// <summary>
@@ -66,8 +68,7 @@ namespace ZeroInstall.Model
         /// <summary>
         /// The URI of the <see cref="Catalog"/> this feed was stored within. Used as an implementation detail; not part of the official feed format!
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore,]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public FeedUri? CatalogUri { get; set; }
 
         /// <summary>
@@ -88,11 +89,13 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("summary")]
+        [OrderedEquality]
         public LocalizableStringCollection Summaries { get; } = new();
 
         /// <inheritdoc/>
         [Browsable(false)]
         [XmlElement("description")]
+        [OrderedEquality]
         public LocalizableStringCollection Descriptions { get; } = new();
 
         /// <summary>
@@ -107,6 +110,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon")]
+        [OrderedEquality]
         public List<Icon> Icons { get; } = new();
 
         /// <summary>
@@ -114,6 +118,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("category")]
+        [OrderedEquality]
         public List<Category> Categories { get; } = new();
 
         /// <summary>
@@ -129,7 +134,7 @@ namespace ZeroInstall.Model
         /// <seealso cref="Uri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Uri"), Category("Feed"), Description("This attribute is only needed for remote feeds (fetched via HTTP). The value must exactly match the expected URL, to prevent an attacker replacing one correctly-signed feed with another (e.g., returning a feed for the shred program when the user asked for the backup program).")]
-        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new(value); }
 
@@ -137,23 +142,23 @@ namespace ZeroInstall.Model
         /// <seealso cref="CatalogUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
-        [XmlAttribute("catalog-uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("catalog-uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? CatalogUriString { get => CatalogUri?.ToStringRfc(); set => CatalogUri = string.IsNullOrEmpty(value) ? null : new(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="MinInjectorVersion"/>
-        [XmlAttribute("min-injector-version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("min-injector-version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? MinInjectorVersionString { get => MinInjectorVersion?.ToString(); set => MinInjectorVersion = string.IsNullOrEmpty(value) ? null : new(value); }
 
         /// <summary>Used for XML serialization and PropertyGrid.</summary>
         /// <seealso cref="Homepage"/>
         [DisplayName(@"Homepage"), Category("Interface"), Description("The main website of the application.")]
-        [XmlElement("homepage"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement("homepage"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? HomepageString { get => Homepage?.ToStringRfc(); set => Homepage = (string.IsNullOrEmpty(value) ? null : new(value, UriKind.Absolute)); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NeedsTerminal"/>
-        [XmlElement("needs-terminal"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement("needs-terminal"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? NeedsTerminalString { get => (NeedsTerminal ? "" : null); set => NeedsTerminal = (value != null); }
         #endregion
 
@@ -162,6 +167,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("feed")]
+        [OrderedEquality]
         public List<FeedReference> Feeds { get; } = new();
 
         /// <summary>
@@ -169,6 +175,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("feed-for")]
+        [OrderedEquality]
         public List<InterfaceReference> FeedFor { get; } = new();
 
         /// <summary>
@@ -184,6 +191,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
+        [OrderedEquality]
         public List<Element> Elements { get; } = new();
 
         /// <summary>
@@ -191,6 +199,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("entry-point")]
+        [OrderedEquality]
         public List<EntryPoint> EntryPoints { get; } = new();
 
         /// <summary>
@@ -198,14 +207,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
+        [OrderedEquality]
         public List<CapabilityList> CapabilityLists { get; } = new();
 
         /// <summary>
         /// A flat list of all <see cref="Implementation"/>s contained in this feed.
         /// </summary>
         /// <remarks>If this is used before <see cref="Normalize"/> has been called, incomplete <see cref="Implementation"/>s may be returned, because the <see cref="Group"/> inheritance structure has not been resolved.</remarks>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public IEnumerable<Implementation> Implementations => Elements.SelectMany(x => x.Implementations);
 
         /// <summary>
@@ -411,55 +420,6 @@ namespace ZeroInstall.Model
         /// Returns the feed/interface in the form "Name (Uri)". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"{Name} ({Uri})";
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Feed? other)
-            => other != null
-            && base.Equals(other)
-            && Uri == other.Uri
-            && MinInjectorVersion == other.MinInjectorVersion
-            && Name == other.Name
-            && Summaries.SequencedEquals(other.Summaries)
-            && Descriptions.SequencedEquals(other.Descriptions)
-            && Homepage == other.Homepage
-            && NeedsTerminal == other.NeedsTerminal
-            && Feeds.SequencedEquals(other.Feeds)
-            && Categories.SequencedEquals(other.Categories)
-            && Icons.SequencedEquals(other.Icons)
-            && Elements.SequencedEquals(other.Elements)
-            && EntryPoints.SequencedEquals(other.EntryPoints)
-            && CapabilityLists.SequencedEquals(other.CapabilityLists);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Feed feed && Equals(feed);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            var hash = new HashCode();
-            hash.Add(base.GetHashCode());
-            hash.Add(Uri);
-            hash.Add(MinInjectorVersion);
-            hash.Add(Name);
-            hash.Add(Summaries.GetSequencedHashCode());
-            hash.Add(Descriptions.GetSequencedHashCode());
-            hash.Add(Homepage);
-            hash.Add(NeedsTerminal);
-            hash.Add(Feeds.GetSequencedHashCode());
-            hash.Add(Categories.GetSequencedHashCode());
-            hash.Add(Icons.GetSequencedHashCode());
-            hash.Add(Elements.GetSequencedHashCode());
-            hash.Add(EntryPoints.GetSequencedHashCode());
-            hash.Add(CapabilityLists.GetSequencedHashCode());
-            return hash.ToHashCode();
-        }
         #endregion
     }
 }

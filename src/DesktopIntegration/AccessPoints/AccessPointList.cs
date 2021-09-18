@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
@@ -16,13 +17,15 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Contains a set of <see cref="AccessPoint"/>s to be registered in a desktop environment.
     /// </summary>
     [Serializable, XmlRoot("access-points", Namespace = AppList.XmlNamespace), XmlType("access-points", Namespace = AppList.XmlNamespace)]
-    public sealed class AccessPointList : XmlUnknown, ICloneable<AccessPointList>, IEquatable<AccessPointList>
+    [Equatable]
+    public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPointList>
     {
         /// <summary>
         /// A list of <see cref="AccessPoint"/>s.
         /// </summary>
         [Description("A list of access points.")]
         [XmlElement(typeof(AppAlias)), XmlElement(typeof(AutoStart)), XmlElement(typeof(AutoPlay)), XmlElement(typeof(CapabilityRegistration)), XmlElement(typeof(ContextMenu)), XmlElement(typeof(DefaultProgram)), XmlElement(typeof(DesktopIcon)), XmlElement(typeof(FileType)), XmlElement(typeof(MenuEntry)), XmlElement(typeof(SendTo)), XmlElement(typeof(UrlProtocol)), XmlElement(typeof(QuickLaunch)), XmlElement(typeof(MockAccessPoint))]
+        [OrderedEquality]
         public List<AccessPoint> Entries { get; } = new();
 
         #region Clone
@@ -45,26 +48,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// </summary>
         public override string ToString()
             => StringUtils.Join("; ", Entries.Select(x => x.ToString()).WhereNotNull());
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AccessPointList? other)
-            => other != null
-            && base.Equals(other)
-            && Entries.SequencedEquals(other.Entries);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is AccessPointList list && Equals(list);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Entries.GetSequencedHashCode());
         #endregion
     }
 }

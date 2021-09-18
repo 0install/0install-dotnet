@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
@@ -17,7 +18,8 @@ namespace ZeroInstall.Store.Feeds
     /// A single result of a feed search.
     /// </summary>
     [Serializable, XmlType("result")]
-    public class SearchResult
+    [Equatable]
+    public partial class SearchResult
     {
         /// <summary>
         /// The URI of the feed.
@@ -31,7 +33,7 @@ namespace ZeroInstall.Store.Feeds
         /// <seealso cref="Uri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [Browsable(false)]
-        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string UriString { get => Uri.ToStringRfc(); set => Uri = new(value); }
         #endregion
 
@@ -62,8 +64,8 @@ namespace ZeroInstall.Store.Feeds
 
         /// <summary>Used for DataGrid rendering.</summary>
         /// <seealso cref="Categories"/>
-        [DisplayName("Categories")]
-        [XmlIgnore, DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [DisplayName("Categories"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [XmlIgnore, IgnoreEquality]
         public string CategoriesString
             => StringUtils.Join(", ", Categories.Select(x => x.Name).WhereNotNull());
 

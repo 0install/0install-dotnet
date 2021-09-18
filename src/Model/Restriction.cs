@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
@@ -19,7 +20,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Restricts the versions of an Implementation that are allowed without creating a dependency on the implementation if its was not already chosen.")]
     [Serializable, XmlRoot("restricts", Namespace = Feed.XmlNamespace), XmlType("restriction", Namespace = Feed.XmlNamespace)]
-    public class Restriction : FeedElement, IInterfaceUri, ICloneable<Restriction>, IEquatable<Restriction>
+    [Equatable]
+    public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restriction>
     {
         /// <summary>
         /// The URI or local path used to identify the interface.
@@ -47,13 +49,13 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
-        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null ? null : new(value))!; }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Versions"/>
-        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? VersionsString { get => Versions?.ToString(); set => Versions = string.IsNullOrEmpty(value) ? null : new(value); }
         #endregion
 
@@ -64,6 +66,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("version")]
+        [OrderedEquality]
         public List<Constraint> Constraints { get; } = new();
 
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
@@ -79,6 +82,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
+        [OrderedEquality]
         public List<string> Distributions { get; } = new();
 
         /// <summary>
@@ -89,6 +93,7 @@ namespace ZeroInstall.Model
         [DisplayName(@"Distributions"), Description("Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).\r\nThe special value '0install' may be used to require an implementation provided by Zero Install (i.e. one not provided by a <package-implementation>).")]
         [TypeConverter(typeof(DistributionNameConverter))]
         [XmlAttribute("distribution"), DefaultValue("")]
+        [IgnoreEquality]
         public string DistributionsString
         {
             get => StringUtils.Join(" ", Distributions);
@@ -153,36 +158,6 @@ namespace ZeroInstall.Model
             restriction.Distributions.AddRange(Distributions);
             return restriction;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Restriction? other)
-            => other != null
-            && base.Equals(other)
-            && InterfaceUri == other.InterfaceUri
-            && OS == other.OS
-            && Versions == other.Versions
-            && Constraints.SequencedEquals(other.Constraints)
-            && Distributions.SequencedEquals(other.Distributions);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Restriction) && Equals((Restriction)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                InterfaceUri,
-                OS,
-                Versions,
-                Constraints.GetSequencedHashCode(),
-                Distributions.GetSequencedHashCode());
         #endregion
     }
 }

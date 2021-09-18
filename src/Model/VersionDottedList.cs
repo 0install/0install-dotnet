@@ -77,7 +77,7 @@ namespace ZeroInstall.Model
         }
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
         public bool Equals(VersionDottedList other)
         {
@@ -90,12 +90,12 @@ namespace ZeroInstall.Model
             return Decimals.SequencedEquals(other.Decimals);
         }
 
+        public static bool operator ==(VersionDottedList left, VersionDottedList right) => left.Equals(right);
+        public static bool operator !=(VersionDottedList left, VersionDottedList right) => !left.Equals(right);
+
         /// <inheritdoc/>
         public override bool Equals(object? obj)
             => obj is VersionDottedList list && Equals(list);
-
-        public static bool operator ==(VersionDottedList left, VersionDottedList right) => left.Equals(right);
-        public static bool operator !=(VersionDottedList left, VersionDottedList right) => !left.Equals(right);
 
         /// <inheritdoc/>
         public override int GetHashCode()

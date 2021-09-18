@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel;
+using Generator.Equals;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
@@ -11,7 +12,8 @@ namespace ZeroInstall.Store.ViewModel
     /// <summary>
     /// Models an implementation change between two <see cref="Selections"/> documents for display in a UI.
     /// </summary>
-    public sealed class SelectionsDiffNode : IEquatable<SelectionsDiffNode>
+    [Equatable]
+    public sealed partial class SelectionsDiffNode
     {
         /// <summary>
         /// The interface URI of the changed implementation.
@@ -51,27 +53,5 @@ namespace ZeroInstall.Store.ViewModel
             else if (NewVersion == null) return $"{Uri}: removed";
             else return $"{Uri}: {OldVersion} -> {NewVersion}";
         }
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(SelectionsDiffNode? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Uri == other.Uri && OldVersion == other.OldVersion && NewVersion == other.NewVersion;
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is SelectionsDiffNode node && Equals(node);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(Uri, OldVersion, NewVersion);
-        #endregion
     }
 }

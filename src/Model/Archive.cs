@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using ZeroInstall.Model.Design;
 using ZeroInstall.Model.Properties;
@@ -17,7 +18,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Retrieves an implementation by downloading and extracting an archive.")]
     [Serializable, XmlRoot("archive", Namespace = Feed.XmlNamespace), XmlType("archive", Namespace = Feed.XmlNamespace)]
-    public sealed class Archive : DownloadRetrievalMethod, IEquatable<Archive>
+    [Equatable]
+    public sealed partial class Archive : DownloadRetrievalMethod
     {
         #region Constants
         /// <summary>
@@ -160,37 +162,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Archive"/>.</returns>
         public override RetrievalMethod Clone() => new Archive {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, MimeType = MimeType, StartOffset = StartOffset, Extract = Extract, Destination = Destination};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Archive? other)
-            => other != null
-            && base.Equals(other)
-            && other.MimeType == MimeType
-            && other.StartOffset == StartOffset
-            && other.Extract == Extract
-            && other.Destination == Destination;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is Archive archive && Equals(archive);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            var hash = new HashCode();
-            hash.Add(base.GetHashCode());
-            hash.Add(MimeType);
-            hash.Add(StartOffset);
-            hash.Add(Extract);
-            hash.Add(Destination);
-            return hash.ToHashCode();
-        }
         #endregion
     }
 }

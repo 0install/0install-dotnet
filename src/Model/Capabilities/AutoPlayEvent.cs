@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model.Capabilities
@@ -14,7 +15,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("A specific AutoPlay event such as \"Audio CD inserted\".")]
     [Serializable, XmlRoot("event", Namespace = CapabilityList.XmlNamespace), XmlType("event", Namespace = CapabilityList.XmlNamespace)]
-    public class AutoPlayEvent : XmlUnknown, ICloneable<AutoPlayEvent>, IEquatable<AutoPlayEvent>
+    [Equatable]
+    public partial class AutoPlayEvent : XmlUnknown, ICloneable<AutoPlayEvent>
     {
         #region Constants
         /// <summary>
@@ -63,23 +65,6 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         /// <returns>The new copy of the <see cref="AutoPlayEvent"/>.</returns>
         public AutoPlayEvent Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AutoPlayEvent? other) => other != null && base.Equals(other) && other.Name == Name;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is AutoPlayEvent @event && Equals(@event);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Name);
         #endregion
     }
 }

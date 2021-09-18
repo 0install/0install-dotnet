@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
 
@@ -16,7 +17,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="Model.Command.Runner"/>
     [Description("A special kind of dependency: the program that is used to run this one. For example, a Python program might specify Python as its runner.")]
     [Serializable, XmlRoot("runner", Namespace = Feed.XmlNamespace), XmlType("runner", Namespace = Feed.XmlNamespace)]
-    public class Runner : Dependency, IArgBaseContainer, IEquatable<Runner>
+    [Equatable]
+    public partial class Runner : Dependency, IArgBaseContainer
     {
         /// <summary>
         /// The name of the command in the <see cref="Restriction.InterfaceUri"/> to use; leave <c>null</c> for <see cref="Model.Command.NameRun"/>.
@@ -31,6 +33,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
+        [OrderedEquality]
         public List<ArgBase> Arguments { get; } = new();
 
         #region Normalize
@@ -71,30 +74,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Runner"/>.</returns>
         public override Restriction Clone() => CloneRunner();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Runner? other)
-            => other != null
-            && base.Equals(other)
-            && Command == other.Command
-            && Arguments.SequencedEquals(other.Arguments);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Runner) && Equals((Runner)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Command,
-                Arguments.GetSequencedHashCode());
         #endregion
     }
 }

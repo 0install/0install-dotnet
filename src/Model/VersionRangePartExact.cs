@@ -35,13 +35,10 @@ namespace ZeroInstall.Model
         /// <inheritdoc/>
         public override string ToString() => Version.ToString();
 
-        #region Equality
+        #region Equatable
         public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is VersionRangePartExact exact && Version.Equals(exact.Version);
-        }
+            => obj is VersionRangePartExact exact
+            && Version.Equals(exact.Version);
 
         public override int GetHashCode() => Version.GetHashCode();
         #endregion

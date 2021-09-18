@@ -1,9 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
 using System.IO;
+using Generator.Equals;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
@@ -19,7 +19,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// <summary>
     /// A script written in PowerShell.
     /// </summary>
-    public sealed class PowerShellScript : InterpretedScript
+    [Equatable]
+    public sealed partial class PowerShellScript : InterpretedScript
     {
         /// <inheritdoc/>
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
@@ -52,21 +53,5 @@ namespace ZeroInstall.Publish.EntryPoints
         [Category("Details (Script)"), DisplayName(@"PowerShell type"), Description("The types of PowerShell supported by the script.")]
         [DefaultValue(typeof(PowerShellType), "Any")]
         public PowerShellType PowerShellType { get; set; }
-
-        #region Equality
-        private bool Equals(PowerShellScript other)
-            => base.Equals(other)
-            && PowerShellType == other.PowerShellType;
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is PowerShellScript script && Equals(script);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), PowerShellType);
-        #endregion
     }
 }

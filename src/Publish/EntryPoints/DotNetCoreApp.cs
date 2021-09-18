@@ -1,9 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
 using System.IO;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model;
@@ -13,7 +13,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// <summary>
     /// A .NET Core application.
     /// </summary>
-    public sealed class DotNetCoreApp : Candidate
+    [Equatable]
+    public sealed partial class DotNetCoreApp : Candidate
     {
         /// <inheritdoc />
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
@@ -41,21 +42,5 @@ namespace ZeroInstall.Publish.EntryPoints
                 Versions = ToVersionRange(MinimumRuntimeVersion)
             }
         };
-
-        #region Equality
-        private bool Equals(DotNetCoreApp other)
-            => base.Equals(other)
-            && MinimumRuntimeVersion == other.MinimumRuntimeVersion;
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is DotNetCoreApp exe && Equals(exe);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), MinimumRuntimeVersion);
-        #endregion
     }
 }

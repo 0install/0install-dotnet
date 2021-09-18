@@ -8,6 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -19,7 +20,8 @@ namespace ZeroInstall.Model.Preferences
     /// Stores user-specific preferences for an interface.
     /// </summary>
     [XmlRoot("interface-preferences", Namespace = Feed.XmlNamespace), XmlType("interface-preferences", Namespace = Feed.XmlNamespace)]
-    public sealed class InterfacePreferences : XmlUnknown, ICloneable<InterfacePreferences>, IEquatable<InterfacePreferences>
+    [Equatable]
+    public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<InterfacePreferences>
     {
         /// <summary>
         /// The URI of the interface to be configured.
@@ -33,7 +35,7 @@ namespace ZeroInstall.Model.Preferences
         /// <seealso cref="Uri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [DisplayName(@"Uri"), Description("The URI of the interface to be configured.")]
-        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new(value); }
         #endregion
@@ -50,6 +52,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("Zero ore more additional feeds containing implementations of this interface.")]
         [XmlElement("feed")]
+        [OrderedEquality]
         public List<FeedReference> Feeds { get; } = new();
 
         #region Storage
@@ -137,32 +140,6 @@ namespace ZeroInstall.Model.Preferences
         /// Returns the preferences in the form "InterfacePreferences: Uri". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"InterfacePreferences: {Uri}";
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(InterfacePreferences? other)
-            => other != null
-            && base.Equals(other)
-            && Uri == other.Uri
-            && StabilityPolicy == other.StabilityPolicy
-            && Feeds.SequencedEquals(other.Feeds);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is InterfacePreferences preferences && Equals(preferences);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Uri,
-                StabilityPolicy,
-                Feeds.GetSequencedHashCode());
         #endregion
     }
 }

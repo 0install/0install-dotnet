@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -24,7 +25,8 @@ namespace ZeroInstall.DesktopIntegration
     [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
     //[XmlNamespace("caps", CapabilityList.XmlNamespace)]
     //[XmlNamespace("feed", Feed.XmlNamespace)]
-    public sealed class AppList : XmlUnknown, ICloneable<AppList>, IEquatable<AppList>
+    [Equatable]
+    public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     {
         #region Constants
         /// <summary>
@@ -49,6 +51,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Description("A list of application entries.")]
         [XmlElement("app")]
+        [UnorderedEquality]
         public List<AppEntry> Entries { get; } = new();
 
         /// <summary>
@@ -257,24 +260,6 @@ namespace ZeroInstall.DesktopIntegration
 
             return appList;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AppList? other)
-            => other != null && (base.Equals(other) && Entries.SequencedEquals(other.Entries));
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is AppList list && Equals(list);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Entries.GetUnsequencedHashCode());
         #endregion
     }
 }

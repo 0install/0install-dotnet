@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using NanoByte.Common.Collections;
+using Generator.Equals;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Properties;
 
@@ -29,7 +29,8 @@ namespace ZeroInstall.Model
     /// </remarks>
     [TypeConverter(typeof(StringConstructorConverter<ImplementationVersion>))]
     [Serializable]
-    public sealed class ImplementationVersion : IEquatable<ImplementationVersion>, IComparable<ImplementationVersion>
+    [Equatable]
+    public sealed partial class ImplementationVersion : IComparable<ImplementationVersion>
     {
         /// <summary>
         /// The first part of the version number.
@@ -39,8 +40,8 @@ namespace ZeroInstall.Model
         /// <summary>
         /// All additional parts of the version number.
         /// </summary>
-        public IReadOnlyList<VersionPart> AdditionalParts { get; }
-            = Array.Empty<VersionPart>();
+        [OrderedEquality]
+        public IReadOnlyList<VersionPart> AdditionalParts { get; } = Array.Empty<VersionPart>();
 
         /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
         private readonly string? _verbatimString;
@@ -49,6 +50,7 @@ namespace ZeroInstall.Model
         /// Indicates whether this version number contains a template variable (a substring enclosed in curly brackets, e.g {var}) .
         /// </summary>
         /// <remarks>This must be <c>false</c> in regular feeds; <c>true</c> is only valid for templates.</remarks>
+        [Browsable(false), IgnoreEquality]
         public bool ContainsTemplateVariables => _verbatimString != null;
 
         /// <summary>
@@ -134,32 +136,6 @@ namespace ZeroInstall.Model
 
             return output.ToString();
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ImplementationVersion? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-
-            return FirstPart == other.FirstPart && AdditionalParts.SequencedEquals(other.AdditionalParts);
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            var version = obj as ImplementationVersion;
-            return version != null && Equals(version);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(FirstPart, AdditionalParts.GetSequencedHashCode());
-
-        public static bool operator ==(ImplementationVersion? left, ImplementationVersion? right) => Equals(left, right);
-        public static bool operator !=(ImplementationVersion? left, ImplementationVersion? right) => !Equals(left, right);
         #endregion
 
         #region Comparison

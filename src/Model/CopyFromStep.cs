@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -12,7 +13,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Copies files or directories from another implementation specified elsewhere in the same feed.")]
     [Serializable, XmlRoot("copy-from", Namespace = Feed.XmlNamespace), XmlType("copy-from", Namespace = Feed.XmlNamespace)]
-    public sealed class CopyFromStep : FeedElement, IRecipeStep, IEquatable<CopyFromStep>
+    [Equatable]
+    public sealed partial class CopyFromStep : FeedElement, IRecipeStep
     {
         /// <summary>
         /// The <see cref="ImplementationBase.ID"/> of the <see cref="Implementation"/> to copy from.
@@ -60,32 +62,6 @@ namespace ZeroInstall.Model
         /// <returns>The new copy of the <see cref="CopyFromStep"/>.</returns>
         // ReSharper disable once ConstantConditionalAccessQualifier
         public IRecipeStep Clone() => new CopyFromStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, ID = ID, Implementation = Implementation?.CloneImplementation(), Source = Source, Destination = Destination};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(CopyFromStep? other)
-            => other != null
-            && base.Equals(other)
-            && other.ID == ID
-            && other.Source == Source
-            && other.Destination == Destination;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is CopyFromStep step && Equals(step);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                ID,
-                Source,
-                Destination);
         #endregion
     }
 }

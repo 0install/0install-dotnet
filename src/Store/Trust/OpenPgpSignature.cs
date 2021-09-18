@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using NanoByte.Common.Collections;
+using Generator.Equals;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -10,43 +10,28 @@ namespace ZeroInstall.Store.Trust
     /// Represents a signature checked by an <see cref="IOpenPgp"/> implementation.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    [PrimaryConstructor]
+    [PrimaryConstructor, Equatable]
     public abstract partial class OpenPgpSignature : IKeyIDContainer
     {
         /// <inheritdoc/>
         public long KeyID { get; }
-
-        #region Equality
-        protected bool Equals(OpenPgpSignature other)
-            => KeyID == other.KeyID;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((OpenPgpSignature)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => KeyID.GetHashCode();
-        #endregion
     }
 
     /// <summary>
     /// Represents a valid signature.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    public sealed class ValidSignature : OpenPgpSignature, IFingerprintContainer
+    [Equatable]
+    public sealed partial class ValidSignature : OpenPgpSignature, IFingerprintContainer
     {
         /// <inheritdoc/>
+        [OrderedEquality]
         public byte[] Fingerprint { get; }
 
         /// <summary>
         /// The point in time when the signature was created in UTC.
         /// </summary>
-        public readonly DateTime Timestamp;
+        public DateTime Timestamp { get; }
 
         /// <summary>
         /// Creates a new valid signature.
@@ -65,80 +50,32 @@ namespace ZeroInstall.Store.Trust
         /// Returns the signature information in the form "ValidSignature: Fingerprint (Timestamp)". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"ValidSignature: {this.FormatFingerprint()} ({Timestamp})";
-
-        #region Equality
-        private bool Equals(ValidSignature other)
-            => base.Equals(other)
-            && Fingerprint.SequencedEquals(other.Fingerprint)
-            && Timestamp == other.Timestamp;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ValidSignature signature && Equals(signature);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Fingerprint.GetSequencedHashCode(),
-                Timestamp);
-        #endregion
     }
 
     /// <summary>
     /// Represents a signature that could not be validated for some reason.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    [PrimaryConstructor]
+    [PrimaryConstructor, Equatable]
     public partial class ErrorSignature : OpenPgpSignature
     {
         /// <summary>
         /// Returns the signature information in the form "ErrorSignature: KeyID". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"ErrorSignature: {this.FormatKeyID()}";
-
-        #region Equality
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ErrorSignature signature && Equals(signature);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
-        #endregion
     }
 
     /// <summary>
     /// Represents a bad signature (i.e., the message has been tampered with).
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    [PrimaryConstructor]
+    [PrimaryConstructor, Equatable]
     public sealed partial class BadSignature : ErrorSignature
     {
         /// <summary>
         /// Returns the signature information in the form "BadSignature: KeyID". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"BadSignature: {this.FormatKeyID()}";
-
-        #region Equality
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is BadSignature signature && Equals(signature);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
-        #endregion
     }
 
     /// <summary>
@@ -146,32 +83,12 @@ namespace ZeroInstall.Store.Trust
     /// Use <see cref="IOpenPgp.ImportKey"/> to import the key and then retry.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    public sealed class MissingKeySignature : ErrorSignature
+    [PrimaryConstructor, Equatable]
+    public sealed partial class MissingKeySignature : ErrorSignature
     {
-        /// <summary>
-        /// Creates a new missing key error.
-        /// </summary>
-        /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public MissingKeySignature(long keyID)
-            : base(keyID)
-        {}
-
         /// <summary>
         /// Returns the signature information in the form "MissingKeySignature: KeyID". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"MissingKeySignature: {this.FormatKeyID()}";
-
-        #region Equality
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is MissingKeySignature signature && Equals(signature);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
-        #endregion
     }
 }

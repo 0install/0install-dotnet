@@ -142,7 +142,7 @@ namespace ZeroInstall.Model.Selection
         public override string ToString() => $"SelectionCandidate: {Implementation} from {FeedUri}";
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
         public bool Equals(SelectionCandidate? other)
             => other != null
@@ -151,11 +151,7 @@ namespace ZeroInstall.Model.Selection
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is SelectionCandidate candidate && Equals(candidate);
-        }
+            => obj is SelectionCandidate candidate && Equals(candidate);
 
         /// <inheritdoc/>
         public override int GetHashCode()

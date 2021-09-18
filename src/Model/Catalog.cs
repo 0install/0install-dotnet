@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -23,7 +24,8 @@ namespace ZeroInstall.Model
     [Serializable, XmlRoot("catalog", Namespace = XmlNamespace), XmlType("catalog", Namespace = XmlNamespace)]
     [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
     //[XmlNamespace("feed", Feed.XmlNamespace)]
-    public class Catalog : XmlUnknown, ICloneable<Catalog>, IEquatable<Catalog>
+    [Equatable]
+    public partial class Catalog : XmlUnknown, ICloneable<Catalog>
     {
         #region Constants
         /// <summary>
@@ -53,6 +55,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
+        [OrderedEquality]
         public List<Feed> Feeds { get; } = new();
 
         /// <summary>
@@ -180,24 +183,6 @@ namespace ZeroInstall.Model
             catalog.Feeds.AddRange(Feeds.CloneElements());
             return catalog;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Catalog? other)
-            => other != null && base.Equals(other) && Feeds.SequencedEquals(other.Feeds);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Catalog) && Equals((Catalog)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Feeds.GetSequencedHashCode());
         #endregion
     }
 }

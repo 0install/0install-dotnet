@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -32,7 +33,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("A reference to an interface that is required as dependency.")]
     [Serializable, XmlRoot("requires", Namespace = Feed.XmlNamespace), XmlType("dependency", Namespace = Feed.XmlNamespace)]
-    public class Dependency : Restriction, IInterfaceUriBindingContainer, ICloneable<Dependency>, IEquatable<Dependency>
+    [Equatable]
+    public partial class Dependency : Restriction, IInterfaceUriBindingContainer, ICloneable<Dependency>
     {
         /// <summary>
         /// Controls how important this dependency is (i.e. whether ignoring it is an option).
@@ -53,6 +55,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
+        [OrderedEquality]
         public List<Binding> Bindings { get; } = new();
 
         /// <inheritdoc/>
@@ -111,31 +114,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Dependency"/>.</returns>
         public override Restriction Clone() => ((ICloneable<Dependency>)this).Clone();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Dependency? other)
-            => other != null
-            && base.Equals(other)
-            && Importance == other.Importance
-            && Use == other.Use && Bindings.SequencedEquals(other.Bindings);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Dependency) && Equals((Dependency)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Importance,
-                Use,
-                Bindings.GetSequencedHashCode());
         #endregion
     }
 }

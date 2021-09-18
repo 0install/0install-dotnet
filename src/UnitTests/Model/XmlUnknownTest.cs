@@ -3,6 +3,7 @@
 
 using System.Xml.Serialization;
 using FluentAssertions;
+using Generator.Equals;
 using NanoByte.Common.Storage;
 using Xunit;
 
@@ -11,20 +12,12 @@ namespace ZeroInstall.Model
     /// <summary>
     /// Contains test methods for <see cref="XmlUnknown"/>'s equality testing logic.
     /// </summary>
-    public class XmlUnknownTest
+    public partial class XmlUnknownTest
     {
         [XmlRoot(ElementName = "root")]
-        public sealed class XmlUnknownStub : XmlUnknown
-        {
-            public override bool Equals(object? obj)
-            {
-                if (obj == null) return false;
-                if (obj == this) return true;
-                return obj is XmlUnknownStub stub && Equals(stub);
-            }
-
-            public override int GetHashCode() => base.GetHashCode();
-        }
+        [Equatable]
+        public sealed partial class XmlUnknownStub : XmlUnknown
+        {}
 
         [Fact]
         public void Equality()

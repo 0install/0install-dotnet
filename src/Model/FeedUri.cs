@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
+using Generator.Equals;
 using JetBrains.Annotations;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -23,9 +24,10 @@ namespace ZeroInstall.Model
     /// <summary>
     /// Represents a feed or interface URI or local path. Unlike <see cref="System.Uri"/> this class only accepts HTTP(S) URLs and absolute local paths.
     /// </summary>
-    [Serializable]
     [TypeConverter(typeof(StringConstructorConverter<FeedUri>))]
-    public sealed class FeedUri : Uri, IEquatable<FeedUri>, ISerializable
+    [Serializable]
+    [Equatable]
+    public sealed partial class FeedUri : Uri, ISerializable
     {
         #region Prefixes
         /// <summary>
@@ -338,39 +340,6 @@ namespace ZeroInstall.Model
         /// Safe for parsing!
         /// </summary>
         public string ToStringRfc() => PrependPrefix(IsFile ? LocalPath : AbsoluteUri);
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(FeedUri? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-
-            if (IsFake != other.IsFake || IsFromDistribution != other.IsFromDistribution) return false;
-
-            return (WindowsUtils.IsWindows && IsFile && other.IsFile)
-                // File names on Windows are case-insensitive
-                ? StringUtils.EqualsIgnoreCase(LocalPath, other.LocalPath)
-                : base.Equals(other);
-        }
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            return obj is FeedUri uri && Equals(uri);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => (WindowsUtils.IsWindows && IsFile)
-            // File names on Windows are case-insensitive
-            ? StringComparer.OrdinalIgnoreCase.GetHashCode(LocalPath)
-            : base.GetHashCode();
-
-        public static bool operator ==(FeedUri? left, FeedUri? right) => Equals(left, right);
-        public static bool operator !=(FeedUri? left, FeedUri? right) => !Equals(left, right);
         #endregion
     }
 }

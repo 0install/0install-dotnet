@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model.Capabilities
@@ -39,7 +40,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("An entry in the file manager's context menu for all file types.")]
     [Serializable, XmlRoot("context-menu", Namespace = CapabilityList.XmlNamespace), XmlType("context-menu", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class ContextMenu : VerbCapability, IEquatable<ContextMenu>
+    [Equatable]
+    public sealed partial class ContextMenu : VerbCapability
     {
         /// <summary>
         /// Controls which file system object types this context menu entry is displayed for.
@@ -49,7 +51,7 @@ namespace ZeroInstall.Model.Capabilities
         public ContextMenuTarget Target { get; set; }
 
         /// <inheritdoc/>
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => Enumerable.Empty<string>();
 
         #region Conversion
@@ -69,24 +71,6 @@ namespace ZeroInstall.Model.Capabilities
             capability.Verbs.AddRange(Verbs.CloneElements());
             return capability;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ContextMenu? other)
-            => other != null && base.Equals(other) && other.Target == Target;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ContextMenu menu && Equals(menu);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Target);
         #endregion
     }
 }

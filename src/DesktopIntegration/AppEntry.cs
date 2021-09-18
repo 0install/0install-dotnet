@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
@@ -22,7 +23,8 @@ namespace ZeroInstall.DesktopIntegration
     /// Represents an application in the <see cref="AppList"/> identified by its interface URI.
     /// </summary>
     [XmlType("app", Namespace = AppList.XmlNamespace)]
-    public sealed class AppEntry : XmlUnknown, IMergeable<AppEntry>, ICloneable<AppEntry>
+    [Equatable]
+    public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, ICloneable<AppEntry>
     {
         /// <summary>
         /// The URI or local path of the interface defining the application or the pet-name if <see cref="Requirements"/> is set.
@@ -31,6 +33,7 @@ namespace ZeroInstall.DesktopIntegration
         [XmlIgnore]
         public FeedUri InterfaceUri { get; set; } = default!;
 
+        [IgnoreEquality]
         string IMergeable<AppEntry>.MergeID => InterfaceUri.ToStringRfc();
 
         /// <summary>
@@ -50,21 +53,20 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// The <see cref="Requirements"/> if it is set, otherwise a basic reference to <see cref="InterfaceUri"/>.
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public Requirements EffectiveRequirements => Requirements ?? InterfaceUri;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="InterfaceUri"/>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
-        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
         public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML+JSON serialization.</summary>
         /// <seealso cref="Requirements"/>
-        [XmlElement("requirements-json"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement("requirements-json"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public string? RequirementsJson { get => Requirements?.ToJsonString(); set => Requirements = value == null ? null : JsonStorage.FromJsonString<Requirements>(value); }
         #endregion
 
@@ -73,6 +75,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Browsable(false)]
         [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
+        [OrderedEquality]
         public List<CapabilityList> CapabilityLists { get; } = new();
 
         /// <summary>
@@ -97,15 +100,14 @@ namespace ZeroInstall.DesktopIntegration
         public string? Hostname { get; set; }
 
         /// <inheritdoc/>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public DateTime Timestamp { get; set; }
 
         /// <summary>
         /// The time this entry was last modified encoded as Unix time (number of seconds since the epoch).
         /// </summary>
         /// <remarks>This value is ignored by clone and equality methods.</remarks>
-        [Browsable(false)]
+        [Browsable(false), IgnoreEquality]
         [XmlAttribute("timestamp")]
         public long TimestampUnix { get => (UnixTime)Timestamp; set => Timestamp = (UnixTime)value; }
 
@@ -158,40 +160,6 @@ namespace ZeroInstall.DesktopIntegration
 
             return appList;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(AppEntry? other)
-            => other != null
-            && base.Equals(other)
-            && InterfaceUri == other.InterfaceUri
-            && Name == other.Name
-            && Equals(Requirements, other.Requirements)
-            && CapabilityLists.SequencedEquals(other.CapabilityLists)
-            && Equals(AccessPoints, other.AccessPoints)
-            && AutoUpdate == other.AutoUpdate
-            && Hostname == other.Hostname;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is AppEntry entry && Equals(entry);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                InterfaceUri,
-                Name,
-                Requirements,
-                CapabilityLists.GetSequencedHashCode(),
-                AccessPoints,
-                AutoUpdate,
-                Hostname);
         #endregion
     }
 }

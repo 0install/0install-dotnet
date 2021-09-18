@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -16,7 +17,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// </summary>
     /// <seealso cref="Model.Capabilities.UrlProtocol"/>
     [XmlType("url-protocol", Namespace = AppList.XmlNamespace)]
-    public class UrlProtocol : DefaultAccessPoint, IEquatable<UrlProtocol>
+    [Equatable]
+    public partial class UrlProtocol : DefaultAccessPoint
     {
         /// <inheritdoc/>
         public override IEnumerable<string> GetConflictIDs(AppEntry appEntry)
@@ -65,22 +67,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new UrlProtocol {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(UrlProtocol? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(UrlProtocol) && Equals((UrlProtocol)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

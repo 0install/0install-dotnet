@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model
@@ -15,7 +16,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="Command.WorkingDir"/>
     [Description("Switches the working directory of a process on startup to a location within an implementation.\r\nUseful for supporting legacy Windows applications which do not properly locate their installation directory.")]
     [Serializable, XmlRoot("working-dir", Namespace = Feed.XmlNamespace), XmlType("working-dir", Namespace = Feed.XmlNamespace)]
-    public sealed class WorkingDir : FeedElement, ICloneable<WorkingDir>, IEquatable<WorkingDir>
+    [Equatable]
+    public sealed partial class WorkingDir : FeedElement, ICloneable<WorkingDir>
     {
         /// <summary>
         /// The relative path of the directory in the implementation to set as the working directory. Defaults to use the root of the implementation if unset.
@@ -37,24 +39,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="WorkingDir"/>.</returns>
         public WorkingDir Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(WorkingDir? other)
-            => other != null && base.Equals(other) && other.Source == Source;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is WorkingDir dir && Equals(dir);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Source);
         #endregion
     }
 }

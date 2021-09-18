@@ -42,22 +42,21 @@ namespace ZeroInstall.Store.Trust
         public Domain Clone() => new(Value);
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
-        public bool Equals(Domain other) => string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
+        public bool Equals(Domain other)
+            => string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
 
         public static bool operator ==(Domain left, Domain right) => left.Equals(right);
         public static bool operator !=(Domain left, Domain right) => !left.Equals(right);
 
         /// <inheritdoc/>
         public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            return obj is Domain domain && Equals(domain);
-        }
+            => obj is Domain domain && Equals(domain);
 
         /// <inheritdoc/>
-        public override int GetHashCode() => (Value ?? "").GetHashCode();
+        public override int GetHashCode()
+            => (Value ?? "").GetHashCode();
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Properties;
@@ -19,7 +20,8 @@ namespace ZeroInstall.Model
     /// Common base for <see cref="Implementation"/> and <see cref="ImplementationSelection"/>.
     /// </summary>
     [XmlType("implementation-base", Namespace = Feed.XmlNamespace)]
-    public abstract class ImplementationBase : Element
+    [Equatable]
+    public abstract partial class ImplementationBase : Element
     {
         /// <summary>
         /// A unique identifier for this implementation. Used when storing implementation-specific user preferences.
@@ -130,23 +132,6 @@ namespace ZeroInstall.Model
                 }.Where(x => x is not 0)
                  .Select(x => x?.ToString())
                  .WhereNotNull());
-        #endregion
-
-        #region Equality
-        protected bool Equals(ImplementationBase? other)
-            => other != null
-            && base.Equals(other)
-            && other.ID == ID
-            && other.LocalPath == LocalPath
-            && other.ManifestDigest == ManifestDigest;
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                ID,
-                LocalPath,
-                ManifestDigest);
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
@@ -18,7 +19,8 @@ namespace ZeroInstall.Model.Preferences
     /// Stores user-specific preferences for a <see cref="Feed"/>.
     /// </summary>
     [XmlRoot("feed-preferences", Namespace = Feed.XmlNamespace), XmlType("feed-preferences", Namespace = Feed.XmlNamespace)]
-    public sealed class FeedPreferences : XmlUnknown, ICloneable<FeedPreferences>, IEquatable<FeedPreferences>
+    [Equatable]
+    public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPreferences>
     {
         /// <summary>
         /// The point in time this feed was last checked for updates.
@@ -30,7 +32,7 @@ namespace ZeroInstall.Model.Preferences
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="LastChecked"/>
-        [XmlAttribute("last-checked"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [XmlAttribute("last-checked"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public long LastCheckedUnix { get => LastChecked; set => LastChecked = value; }
         #endregion
 
@@ -39,6 +41,7 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         [Description("A list of implementation-specific user-overrides.")]
         [XmlElement("implementation")]
+        [OrderedEquality]
         public List<ImplementationPreferences> Implementations { get; } = new();
 
         /// <summary>
@@ -161,30 +164,6 @@ namespace ZeroInstall.Model.Preferences
         /// Returns the preferences in the form "FeedPreferences: LastChecked". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"FeedPreferences: {LastChecked}";
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(FeedPreferences? other)
-            => other != null
-            && base.Equals(other)
-            && LastChecked == other.LastChecked
-            && Implementations.SequencedEquals(other.Implementations);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is FeedPreferences preferences && Equals(preferences);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-               base.GetHashCode(),
-               LastChecked,
-               Implementations.GetSequencedHashCode());
         #endregion
     }
 }

@@ -1,9 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 
 namespace ZeroInstall.Model.Preferences
@@ -12,7 +12,8 @@ namespace ZeroInstall.Model.Preferences
     /// Stores user-specific preferences for an <see cref="Implementation"/>.
     /// </summary>
     [XmlType("implementation-preferences", Namespace = Feed.XmlNamespace)]
-    public sealed class ImplementationPreferences : XmlUnknown, ICloneable<ImplementationPreferences>, IEquatable<ImplementationPreferences>
+    [Equatable]
+    public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<ImplementationPreferences>
     {
         /// <summary>
         /// A unique identifier for the implementation. Corresponds to <see cref="ImplementationBase.ID"/>.
@@ -38,8 +39,7 @@ namespace ZeroInstall.Model.Preferences
         /// <summary>
         /// Indicates whether this configuration object stores no information other than the <see cref="ID"/> and is thus superfluous.
         /// </summary>
-        [Browsable(false)]
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public bool IsSuperfluous
             => UserStability == Stability.Unset
             && RolloutPercentage == 0;
@@ -57,27 +57,6 @@ namespace ZeroInstall.Model.Preferences
         /// Returns the preferences in the form "ImplementationPreferences: ID". Not safe for parsing!
         /// </summary>
         public override string ToString() => $"ImplementationPreferences: {ID}";
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(ImplementationPreferences? other)
-            => other != null
-            && base.Equals(other)
-            && ID == other.ID
-            && UserStability == other.UserStability;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is ImplementationPreferences preferences && Equals(preferences);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), ID, UserStability);
         #endregion
     }
 }

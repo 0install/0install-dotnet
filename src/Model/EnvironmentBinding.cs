@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -32,7 +33,8 @@ namespace ZeroInstall.Model
     /// </summary>
     [Description("Make a chosen implementation available by setting environment variables.")]
     [Serializable, XmlRoot("environment", Namespace = Feed.XmlNamespace), XmlType("environment", Namespace = Feed.XmlNamespace)]
-    public sealed class EnvironmentBinding : Binding, IEquatable<EnvironmentBinding>
+    [Equatable]
+    public sealed partial class EnvironmentBinding : Binding
     {
         /// <summary>
         /// The name of the environment variable.
@@ -100,38 +102,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="EnvironmentBinding"/>.</returns>
         public override Binding Clone() => new EnvironmentBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Name = Name, Value = Value, Insert = Insert, Mode = Mode, Separator = Separator, Default = Default};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(EnvironmentBinding? other)
-            => other != null
-            && base.Equals(other)
-            && other.Name == Name
-            && other.Value == Value
-            && other.Insert == Insert
-            && other.Mode == Mode
-            && other.Separator == Separator
-            && other.Default == Default;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is EnvironmentBinding binding && Equals(binding);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Name,
-                Value,
-                Insert,
-                Mode,
-                Separator,
-                Default);
         #endregion
     }
 }

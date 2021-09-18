@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
@@ -18,7 +19,8 @@ namespace ZeroInstall.Model
     /// <seealso cref="Element.Commands"/>
     [Description("A command says how to run an implementation as a program.")]
     [Serializable, XmlRoot("command", Namespace = Feed.XmlNamespace), XmlType("command", Namespace = Feed.XmlNamespace)]
-    public class Command : FeedElement, IArgBaseContainer, IBindingContainer, IDependencyContainer, ICloneable<Command>, IEquatable<Command>
+    [Equatable]
+    public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer, IDependencyContainer, ICloneable<Command>
     {
         #region Constants
         /// <summary>
@@ -62,6 +64,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
+        [OrderedEquality]
         public List<ArgBase> Arguments { get; } = new();
 
         /// <summary>
@@ -69,6 +72,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
+        [OrderedEquality]
         public List<Binding> Bindings { get; } = new();
 
         /// <summary>
@@ -83,6 +87,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("requires")]
+        [OrderedEquality]
         public List<Dependency> Dependencies { get; } = new();
 
         /// <summary>
@@ -90,6 +95,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement("restricts")]
+        [OrderedEquality]
         public List<Restriction> Restrictions { get; } = new();
 
         /// <summary>
@@ -146,45 +152,6 @@ namespace ZeroInstall.Model
             newCommand.Restrictions.AddRange(Restrictions.CloneElements());
 
             return newCommand;
-        }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Command? other)
-            => other != null
-            && base.Equals(other)
-            && Name == other.Name
-            && Path == other.Path
-            && Arguments.SequencedEquals(other.Arguments)
-            && Bindings.SequencedEquals(other.Bindings)
-            && Equals(WorkingDir, other.WorkingDir)
-            && Dependencies.SequencedEquals(other.Dependencies)
-            && Restrictions.SequencedEquals(other.Restrictions)
-            && Equals(Runner, other.Runner);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(Command) && Equals((Command)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-        {
-            var hash = new HashCode();
-            hash.Add(base.GetHashCode());
-            hash.Add(Name);
-            hash.Add(Path);
-            hash.Add(Arguments.GetSequencedHashCode());
-            hash.Add(Bindings.GetSequencedHashCode());
-            hash.Add(WorkingDir);
-            hash.Add(Dependencies.GetSequencedHashCode());
-            hash.Add(Restrictions.GetSequencedHashCode());
-            hash.Add(Runner);
-            return hash.ToHashCode();
         }
         #endregion
     }

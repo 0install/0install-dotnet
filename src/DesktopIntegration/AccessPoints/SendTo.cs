@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -14,7 +15,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Creates a shortcut for an application in the "Send to" menu.
     /// </summary>
     [XmlType("send-to", Namespace = AppList.XmlNamespace)]
-    public class SendTo : IconAccessPoint, IEquatable<SendTo>
+    [Equatable]
+    public partial class SendTo : IconAccessPoint
     {
         #region Constants
         /// <summary>
@@ -55,22 +57,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new SendTo {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(SendTo? other) => base.Equals(other);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(SendTo) && Equals((SendTo)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode() => base.GetHashCode();
         #endregion
     }
 }

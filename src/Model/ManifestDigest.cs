@@ -167,10 +167,13 @@ namespace ZeroInstall.Model
         }
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
         public bool Equals(ManifestDigest other)
-            => other.Sha1 == Sha1 && other.Sha1New == Sha1New && other.Sha256 == Sha256 && other.Sha256New == Sha256New;
+            => other.Sha1 == Sha1
+            && other.Sha1New == Sha1New
+            && other.Sha256 == Sha256
+            && other.Sha256New == Sha256New;
 
         /// <summary>
         /// Indicates whether this digest is at least partially equal to another one.

@@ -76,17 +76,14 @@ namespace ZeroInstall.Model
         }
 
         /// <inheritdoc/>
-        public override string ToString() => LowerInclusive + ".." + (UpperExclusive == null ? "" : ("!" + UpperExclusive));
+        public override string ToString()
+            => LowerInclusive + ".." + (UpperExclusive == null ? "" : ("!" + UpperExclusive));
 
-        #region Equality
+        #region Equatable
         public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-
-            if (obj is not VersionRangePartRange other) return false;
-            return Equals(LowerInclusive, other.LowerInclusive) && Equals(UpperExclusive, other.UpperExclusive);
-        }
+            => obj is VersionRangePartRange other
+            && Equals(LowerInclusive, other.LowerInclusive)
+            && Equals(UpperExclusive, other.UpperExclusive);
 
         public override int GetHashCode()
             => HashCode.Combine(LowerInclusive, UpperExclusive);

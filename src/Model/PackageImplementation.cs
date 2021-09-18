@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using ZeroInstall.Model.Design;
 
 namespace ZeroInstall.Model
@@ -18,9 +18,11 @@ namespace ZeroInstall.Model
     /// <remarks>Any <see cref="Binding"/>s inside <see cref="Dependency"/>s for the <see cref="Feed"/> will be ignored; it is assumed that the requiring component knows how to use the packaged version without further help.</remarks>
     [Description("An implementation provided by a distribution-specific package manager instead of Zero Install.")]
     [Serializable, XmlRoot("package-implementation", Namespace = Feed.XmlNamespace), XmlType("package-implementation", Namespace = Feed.XmlNamespace)]
-    public sealed class PackageImplementation : Element, IEquatable<PackageImplementation>
+    [Equatable]
+    public sealed partial class PackageImplementation : Element
     {
         /// <inheritdoc/>
+        [IgnoreEquality]
         internal override IEnumerable<Implementation> Implementations => Enumerable.Empty<Implementation>();
 
         /// <summary>
@@ -42,6 +44,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
+        [OrderedEquality]
         public List<string> Distributions { get; } = new();
 
         /// <summary>
@@ -57,6 +60,7 @@ namespace ZeroInstall.Model
         [Category("Identity"), DisplayName(@"Distributions"), Description("A space-separated list of distribution names (e.g. Debian, RPM) where Package applies. Applies everywhere if empty.")]
         [TypeConverter(typeof(DistributionNameConverter))]
         [XmlAttribute("distributions"), DefaultValue("")]
+        [IgnoreEquality]
         public string DistributionsString
         {
             get => StringUtils.Join(" ", Distributions);
@@ -70,7 +74,7 @@ namespace ZeroInstall.Model
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
-        [XmlAttribute("version"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("version"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         public override string? VersionString { get => Version?.ToString(); set => Version = value == null ? null : new(value); }
         #endregion
 
@@ -82,22 +86,22 @@ namespace ZeroInstall.Model
 
         #region Disabled Properties
         /// <summary>Not used.</summary>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("version-modifier")]
         public override string? VersionModifier { get => null; set {} }
 
         /// <summary>Not used.</summary>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlIgnore]
         public override DateTime Released { get => new(); set {} }
 
         /// <summary>Not used.</summary>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("released")]
         public override string? ReleasedString { get => null; set {} }
 
         /// <summary>Not used.</summary>
-        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
         public override Stability Stability { get => Stability.Unset; set {} }
 
@@ -132,31 +136,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
         public override Element Clone() => CloneImplementation();
-        #endregion
-
-        #region Equals
-        /// <inheritdoc/>
-        public bool Equals(PackageImplementation? other)
-            => other != null
-            && base.Equals(other)
-            && Package == other.Package
-            && Distributions.SequencedEquals(other.Distributions);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != typeof(PackageImplementation)) return false;
-            return Equals((PackageImplementation)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Package,
-                Distributions.GetSequencedHashCode());
         #endregion
     }
 }

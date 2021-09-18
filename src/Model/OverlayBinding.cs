@@ -4,6 +4,7 @@
 using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 
 namespace ZeroInstall.Model
 {
@@ -13,7 +14,8 @@ namespace ZeroInstall.Model
     /// <remarks>This is to support legacy programs which use hard-coded paths.</remarks>
     [Description("Make a chosen Implementation available by overlaying it onto another part of the file-system.")]
     [Serializable, XmlRoot("overlay", Namespace = Feed.XmlNamespace), XmlType("overlay", Namespace = Feed.XmlNamespace)]
-    public sealed class OverlayBinding : Binding, IEquatable<OverlayBinding>
+    [Equatable]
+    public sealed partial class OverlayBinding : Binding
     {
         /// <summary>
         /// The relative path of the directory in the implementation to publish. The default is to publish everything.
@@ -42,25 +44,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="OverlayBinding"/>.</returns>
         public override Binding Clone() => new OverlayBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source, MountPoint = MountPoint};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(OverlayBinding? other)
-            => other != null && base.Equals(other) && other.Source == Source && other.MountPoint == MountPoint;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is OverlayBinding binding && Equals(binding);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(), Source, MountPoint);
         #endregion
     }
 }

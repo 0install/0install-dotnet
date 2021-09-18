@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using ZeroInstall.Model.Properties;
 
@@ -16,7 +17,8 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("A specific file extension used to identify a file type.")]
     [Serializable, XmlRoot("extension", Namespace = CapabilityList.XmlNamespace), XmlType("extension", Namespace = CapabilityList.XmlNamespace)]
-    public class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtension>, IEquatable<FileTypeExtension>
+    [Equatable]
+    public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtension>
     {
         #region Constants
         /// <summary>
@@ -78,32 +80,6 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         /// <returns>The new copy of the <see cref="FileTypeExtension"/>.</returns>
         public FileTypeExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value, MimeType = MimeType, PerceivedType = PerceivedType};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(FileTypeExtension? other)
-            => other != null
-            && base.Equals(other)
-            && other.Value == Value
-            && other.MimeType == MimeType
-            && other.PerceivedType == PerceivedType;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is FileTypeExtension extension && Equals(extension);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                Value,
-                MimeType,
-                PerceivedType);
         #endregion
     }
 }

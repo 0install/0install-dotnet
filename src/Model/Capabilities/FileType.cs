@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Model.Capabilities
@@ -14,17 +15,19 @@ namespace ZeroInstall.Model.Capabilities
     /// </summary>
     [Description("An application's ability to open a certain file type.")]
     [Serializable, XmlRoot("file-type", Namespace = CapabilityList.XmlNamespace), XmlType("file-type", Namespace = CapabilityList.XmlNamespace)]
-    public sealed class FileType : VerbCapability, IEquatable<FileType>
+    [Equatable]
+    public sealed partial class FileType : VerbCapability
     {
         /// <summary>
         /// A list of all file extensions associated with this file type.
         /// </summary>
         [Browsable(false)]
         [XmlElement("extension")]
+        [OrderedEquality]
         public List<FileTypeExtension> Extensions { get; } = new();
 
         /// <inheritdoc/>
-        [XmlIgnore]
+        [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => new[] {"progid:" + ID};
 
         #region Normalize
@@ -55,24 +58,6 @@ namespace ZeroInstall.Model.Capabilities
             capability.Extensions.AddRange(Extensions);
             return capability;
         }
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(FileType? other)
-            => other != null && base.Equals(other) && Extensions.SequencedEquals(other.Extensions);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is FileType type && Equals(type);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Extensions.GetSequencedHashCode());
         #endregion
     }
 }

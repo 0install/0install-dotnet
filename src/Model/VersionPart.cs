@@ -71,19 +71,18 @@ namespace ZeroInstall.Model
             } + DottedList;
         #endregion
 
-        #region Equality
+        #region Equatable
         /// <inheritdoc/>
-        public bool Equals(VersionPart other) => Modifier == other.Modifier && DottedList == other.DottedList;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            return obj is VersionPart part && Equals(part);
-        }
+        public bool Equals(VersionPart other)
+            => Modifier == other.Modifier
+            && DottedList == other.DottedList;
 
         public static bool operator ==(VersionPart left, VersionPart right) => left.Equals(right);
         public static bool operator !=(VersionPart left, VersionPart right) => !left.Equals(right);
+
+        /// <inheritdoc/>
+        public override bool Equals(object? obj)
+            => obj is VersionPart part && Equals(part);
 
         /// <inheritdoc/>
         public override int GetHashCode()

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -16,7 +17,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// A mock access point that does nothing (used for testing). Points to a <see cref="Model.Capabilities.FileType"/>.
     /// </summary>
     [XmlType("mock", Namespace = AppList.XmlNamespace)]
-    public class MockAccessPoint : DefaultAccessPoint, IEquatable<MockAccessPoint>
+    [Equatable]
+    public partial class MockAccessPoint : DefaultAccessPoint
     {
         /// <inheritdoc/>
         public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => string.IsNullOrEmpty(ID)
@@ -91,24 +93,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             UnknownAttributes = UnknownAttributes,
             UnknownElements = UnknownElements
         };
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(MockAccessPoint? other)
-            => other != null && other.ID == ID;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(MockAccessPoint) && Equals((MockAccessPoint)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), ID);
         #endregion
     }
 }

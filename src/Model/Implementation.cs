@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 
@@ -16,9 +17,11 @@ namespace ZeroInstall.Model
     /// <seealso cref="Feed.Elements"/>
     [Description("An implementation is a specific version of an application that can be downloaded and executed (e.g. Firefox 3.6 for Windows).")]
     [Serializable, XmlRoot("implementation", Namespace = Feed.XmlNamespace), XmlType("implementation", Namespace = Feed.XmlNamespace)]
-    public class Implementation : ImplementationBase, IEquatable<Implementation>
+    [Equatable]
+    public partial class Implementation : ImplementationBase
     {
         /// <inheritdoc/>
+        [IgnoreEquality]
         internal override IEnumerable<Implementation> Implementations => new[] {this};
 
         /// <summary>
@@ -26,6 +29,7 @@ namespace ZeroInstall.Model
         /// </summary>
         [Browsable(false)]
         [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(Recipe))]
+        [OrderedEquality]
         public List<RetrievalMethod> RetrievalMethods { get; } = new();
 
         #region Normalize
@@ -74,25 +78,6 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="Implementation"/>.</returns>
         public override Element Clone() => CloneImplementation();
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(Implementation? other)
-            => other != null && base.Equals(other) && RetrievalMethods.SequencedEquals(other.RetrievalMethods);
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            if (obj.GetType() != typeof(Implementation)) return false;
-            return Equals((Implementation)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), RetrievalMethods.GetSequencedHashCode());
         #endregion
     }
 }

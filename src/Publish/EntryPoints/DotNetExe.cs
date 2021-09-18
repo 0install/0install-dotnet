@@ -3,6 +3,7 @@
 
 using System;
 using System.ComponentModel;
+using Generator.Equals;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.EntryPoints.Design;
 
@@ -19,7 +20,8 @@ namespace ZeroInstall.Publish.EntryPoints
     /// <summary>
     /// A .NET/Mono executable.
     /// </summary>
-    public sealed class DotNetExe : WindowsExe
+    [Equatable]
+    public sealed partial class DotNetExe : WindowsExe
     {
         protected override bool Parse(PEHeader peHeader)
         {
@@ -98,27 +100,5 @@ namespace ZeroInstall.Publish.EntryPoints
                 }
             };
         }
-
-        #region Equality
-        private bool Equals(DotNetExe other)
-            => base.Equals(other)
-            && MinimumRuntimeVersion == other.MinimumRuntimeVersion
-            && RuntimeType == other.RuntimeType
-            && ExternalDependencies == other.ExternalDependencies;
-
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj is DotNetExe exe && Equals(exe);
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(
-                base.GetHashCode(),
-                MinimumRuntimeVersion,
-                RuntimeType,
-                ExternalDependencies);
-        #endregion
     }
 }

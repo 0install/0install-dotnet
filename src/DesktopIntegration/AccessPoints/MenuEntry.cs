@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using Generator.Equals;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -15,7 +16,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Creates an entry for an application in the user's application menu (i.e. Windows start menu, GNOME application menu, etc.).
     /// </summary>
     [XmlType("menu-entry", Namespace = AppList.XmlNamespace)]
-    public class MenuEntry : IconAccessPoint, IEquatable<MenuEntry>
+    [Equatable]
+    public partial class MenuEntry : IconAccessPoint
     {
         #region Constants
         /// <summary>
@@ -65,24 +67,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         #region Clone
         /// <inheritdoc/>
         public override AccessPoint Clone() => new MenuEntry {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, Category = Category};
-        #endregion
-
-        #region Equality
-        /// <inheritdoc/>
-        public bool Equals(MenuEntry? other)
-            => other != null && base.Equals(other) && other.Category == Category;
-
-        /// <inheritdoc/>
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj == this) return true;
-            return obj.GetType() == typeof(MenuEntry) && Equals((MenuEntry)obj);
-        }
-
-        /// <inheritdoc/>
-        public override int GetHashCode()
-            => HashCode.Combine(base.GetHashCode(), Category);
         #endregion
     }
 }
