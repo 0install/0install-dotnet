@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Linq;
 using NanoByte.Common.Collections;
 
 namespace ZeroInstall.Store.Trust
@@ -41,10 +40,8 @@ namespace ZeroInstall.Store.Trust
     /// <seealso cref="IOpenPgp.Verify"/>
     public sealed class ValidSignature : OpenPgpSignature, IFingerprintContainer
     {
-        private readonly byte[] _fingerprint;
-
         /// <inheritdoc/>
-        public byte[] GetFingerprint() => _fingerprint.ToArray();
+        public byte[] Fingerprint { get; }
 
         /// <summary>
         /// The point in time when the signature was created in UTC.
@@ -60,7 +57,7 @@ namespace ZeroInstall.Store.Trust
         public ValidSignature(long keyID, byte[] fingerprint, DateTime timestamp)
             : base(keyID)
         {
-            _fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
+            Fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));
             Timestamp = timestamp;
         }
 
@@ -72,7 +69,7 @@ namespace ZeroInstall.Store.Trust
         #region Equality
         private bool Equals(ValidSignature other)
             => base.Equals(other)
-            && _fingerprint.SequencedEquals(other._fingerprint)
+            && Fingerprint.SequencedEquals(other.Fingerprint)
             && Timestamp == other.Timestamp;
 
         /// <inheritdoc/>
@@ -87,7 +84,7 @@ namespace ZeroInstall.Store.Trust
         public override int GetHashCode()
             => HashCode.Combine(
                 base.GetHashCode(),
-                _fingerprint.GetSequencedHashCode(),
+                Fingerprint.GetSequencedHashCode(),
                 Timestamp);
         #endregion
     }
@@ -96,16 +93,9 @@ namespace ZeroInstall.Store.Trust
     /// Represents a signature that could not be validated for some reason.
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    public class ErrorSignature : OpenPgpSignature
+    [PrimaryConstructor]
+    public partial class ErrorSignature : OpenPgpSignature
     {
-        /// <summary>
-        /// Creates a new signature error.
-        /// </summary>
-        /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public ErrorSignature(long keyID)
-            : base(keyID)
-        {}
-
         /// <summary>
         /// Returns the signature information in the form "ErrorSignature: KeyID". Not safe for parsing!
         /// </summary>
@@ -129,16 +119,9 @@ namespace ZeroInstall.Store.Trust
     /// Represents a bad signature (i.e., the message has been tampered with).
     /// </summary>
     /// <seealso cref="IOpenPgp.Verify"/>
-    public sealed class BadSignature : ErrorSignature
+    [PrimaryConstructor]
+    public sealed partial class BadSignature : ErrorSignature
     {
-        /// <summary>
-        /// Creates a new bad signature.
-        /// </summary>
-        /// <param name="keyID">The key ID of the key used to create this signature.</param>
-        public BadSignature(long keyID)
-            : base(keyID)
-        {}
-
         /// <summary>
         /// Returns the signature information in the form "BadSignature: KeyID". Not safe for parsing!
         /// </summary>

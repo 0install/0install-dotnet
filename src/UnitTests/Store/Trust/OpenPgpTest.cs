@@ -35,7 +35,7 @@ namespace ZeroInstall.Store.Trust
         {
             ImportKey();
             OpenPgp.Verify(_referenceData, _signatureData).Should().Equal(
-                new ValidSignature(_secretKey.KeyID, _secretKey.GetFingerprint(), new DateTime(2015, 7, 16, 17, 20, 7, DateTimeKind.Utc)));
+                new ValidSignature(_secretKey.KeyID, _secretKey.Fingerprint, new DateTime(2015, 7, 16, 17, 20, 7, DateTimeKind.Utc)));
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace ZeroInstall.Store.Trust
 
             ImportKey();
             var signature = (ValidSignature)OpenPgp.Verify(_referenceData, signatureData).Single();
-            signature.GetFingerprint().Should().Equal(_secretKey.GetFingerprint());
+            signature.Fingerprint.Should().Equal(_secretKey.Fingerprint);
         }
 
         [Fact]

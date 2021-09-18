@@ -33,7 +33,7 @@ namespace ZeroInstall.Store.Trust
             if (fingerprintContainer == null) throw new ArgumentNullException(nameof(fingerprintContainer));
             #endregion
 
-            return BitConverter.ToString(fingerprintContainer.GetFingerprint()).Replace("-", "");
+            return BitConverter.ToString(fingerprintContainer.Fingerprint).Replace("-", "");
         }
 
         /// <summary>

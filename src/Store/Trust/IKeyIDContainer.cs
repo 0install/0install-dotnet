@@ -9,7 +9,7 @@ namespace ZeroInstall.Store.Trust
     public interface IKeyIDContainer
     {
         /// <summary>
-        /// An OpenPGP key ID. A short identifier for a key. The lower 64 bits of <see cref="IFingerprintContainer.GetFingerprint"/>.
+        /// An OpenPGP key ID. A short identifier for a key. The lower 64 bits of <see cref="IFingerprintContainer.Fingerprint"/>.
         /// </summary>
         long KeyID { get; }
     }
