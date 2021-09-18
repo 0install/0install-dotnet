@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using NanoByte.Common.Undo;
 using ZeroInstall.Model;
@@ -50,6 +51,28 @@ namespace ZeroInstall.Publish
         public FeedEditing()
             : this(new SignedFeed(new Feed()))
         {}
+
+        /// <summary>
+        /// Determines whether the feed is valid and ready for use by 0install.
+        /// </summary>
+        /// <param name="problem">Returns human-readable description of the problem if the method result is <c>false</c>.</param>
+        /// <returns><c>true</c> if the feed is valid; <c>false</c> otherwise.</returns>
+        public bool IsValid([MaybeNullWhen(true)] out string problem)
+        {
+            try
+            {
+                SignedFeed.Feed
+                          .Clone()
+                          .Normalize(string.IsNullOrEmpty(Path) ? null : new FeedUri(Path));
+                problem = null;
+                return true;
+            }
+            catch (InvalidDataException ex)
+            {
+                problem = ex.Message;
+                return false;
+            }
+        }
 
         /// <summary>
         /// Saves feed to an XML file, adds the default stylesheet and signs it with <see cref="Publish.SignedFeed.SecretKey"/> (if specified).
