@@ -87,9 +87,9 @@ namespace ZeroInstall.Model
                 {
                     InterfaceUri,
                     Use
-                }.WhereNotNull()
-                 .Where(x => x is not 0)
-                 .Select(x => x.ToString() ?? ""));
+                }.Where(x => x is not 0)
+                 .Select(x => x?.ToString())
+                 .WhereNotNull());
         #endregion
 
         #region Clone

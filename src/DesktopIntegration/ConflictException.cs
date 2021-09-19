@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 
@@ -44,7 +45,7 @@ namespace ZeroInstall.DesktopIntegration
         public static ConflictException InnerConflict(params ConflictData[] entries)
             => new(
                 string.Format(Resources.AccessPointInnerConflict, entries[0].AppEntry) + Environment.NewLine +
-                StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString() ?? "")))
+                StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()).WhereNotNull()))
             {
                 Entries = entries
             };

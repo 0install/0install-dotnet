@@ -170,6 +170,6 @@ namespace ZeroInstall.Store.Implementations
         /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
-            => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString() ?? ""));
+            => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()).WhereNotNull());
     }
 }

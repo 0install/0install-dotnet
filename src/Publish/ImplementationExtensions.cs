@@ -62,7 +62,8 @@ namespace ZeroInstall.Publish
             if (string.IsNullOrEmpty(implementation.LocalPath)) return;
 
             var archive = implementation
-                         .RetrievalMethods.OfType<Archive>()
+                         .RetrievalMethods
+                         .OfType<Archive>()
                          .FirstOrDefault(x => string.IsNullOrEmpty(x.Destination)
                                            && string.IsNullOrEmpty(x.Extract)
                                               // ReSharper disable once ConditionIsAlwaysTrueOrFalse
@@ -81,6 +82,7 @@ namespace ZeroInstall.Publish
                 handler.RunTask(new ReadDirectory(directoryPath, builder));
 
             executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
+            // ReSharper disable once RedundantTypeArgumentsOfMethod
             executor.Execute(SetValueCommand.For<string?>(() => implementation.LocalPath, newValue: null));
         }
 

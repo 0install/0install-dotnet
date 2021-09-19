@@ -45,7 +45,7 @@ namespace ZeroInstall.Publish
                 switch (step)
                 {
                     case DownloadRetrievalMethod download:
-                        builder.Add(download, executor: executor, handler: handler);
+                        builder.Add(download, executor, handler);
                         break;
                     case RemoveStep remove:
                         builder.Remove(remove);

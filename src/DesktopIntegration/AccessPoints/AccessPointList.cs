@@ -43,7 +43,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <summary>
         /// Returns the access point list in the form "Entry; Entry; ...". Not safe for parsing!
         /// </summary>
-        public override string ToString() => StringUtils.Join("; ", Entries.Select(x => x.ToString() ?? ""));
+        public override string ToString()
+            => StringUtils.Join("; ", Entries.Select(x => x.ToString()).WhereNotNull());
         #endregion
 
         #region Equality

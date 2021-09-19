@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
@@ -148,7 +149,7 @@ namespace ZeroInstall.Services.Fetchers
             }
             catch (DigestMismatchException)
             {
-                Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString() ?? ""))));
+                Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString()).WhereNotNull())));
                 throw;
             }
         }
