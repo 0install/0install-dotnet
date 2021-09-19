@@ -27,7 +27,6 @@ namespace ZeroInstall.Publish
         /// <param name="executor">Used to modify properties in an undoable fashion.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="UriFormatException"><see cref="DownloadRetrievalMethod.Href"/> inside <paramref name="implementation"/> is a relative URI that cannot be resolved.</exception>
         /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
         /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>
         public static void SetMissing(this Implementation implementation, ICommandExecutor executor, ITaskHandler handler)
@@ -38,7 +37,17 @@ namespace ZeroInstall.Publish
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            implementation.GenerateArchiveIfMissing(executor, handler);
+            try
+            {
+                implementation.GenerateArchiveIfMissing(executor, handler);
+            }
+            #region Error handling
+            catch (UriFormatException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new WebException(ex.Message, ex);
+            }
+            #endregion
 
             foreach (var retrievalMethod in implementation.RetrievalMethods)
             {

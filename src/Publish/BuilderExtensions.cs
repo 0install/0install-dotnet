@@ -118,7 +118,7 @@ namespace ZeroInstall.Publish
                 catch (UriFormatException ex)
                 {
                     // Wrap exception since only certain exception types are allowed
-                    throw new WebException(ex.Message);
+                    throw new WebException(ex.Message, ex);
                 }
                 #endregion
             }
