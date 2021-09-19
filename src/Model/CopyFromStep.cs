@@ -39,7 +39,7 @@ namespace ZeroInstall.Model
         /// Used to hold the <see cref="Implementation"/> the <see cref="ID"/> references after <see cref="Feed.Normalize"/> has been executed.
         /// </summary>
         [XmlIgnore, Browsable(false)]
-        public Implementation Implementation { get; set; } = default!;
+        public Implementation? Implementation { get; set; }
 
         #region Normalize
         /// <inheritdoc/>
@@ -59,7 +59,7 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <returns>The new copy of the <see cref="CopyFromStep"/>.</returns>
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public IRecipeStep Clone() => new CopyFromStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, ID = ID, Implementation = Implementation?.CloneImplementation()!, Source = Source, Destination = Destination};
+        public IRecipeStep Clone() => new CopyFromStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, ID = ID, Implementation = Implementation?.CloneImplementation(), Source = Source, Destination = Destination};
         #endregion
 
         #region Equality

@@ -123,6 +123,8 @@ namespace ZeroInstall.Publish
         /// <exception cref="IOException">An IO operation failed.</exception>
         public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, ITaskHandler handler)
         {
+            if (metadata.Implementation == null) throw new ArgumentException($"Must call {nameof(IRecipeStep.Normalize)}() first.", nameof(metadata));
+
             handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID), () =>
             {
                 var startInfo = ProcessUtils.FromCommandLine(

@@ -194,6 +194,7 @@ namespace ZeroInstall.Services.Fetchers
                     builder.Rename(rename);
                     break;
                 case CopyFromStep copyFrom:
+                    if (copyFrom.Implementation == null) throw new ArgumentException($"Must call {nameof(IRecipeStep.Normalize)}() first.", nameof(step));
                     Fetch(copyFrom.Implementation, tag);
                     builder.CopyFrom(copyFrom, GetPath(copyFrom.Implementation) ?? throw new IOException($"Unable to resolve {copyFrom.ID}."), Handler);
                     break;
