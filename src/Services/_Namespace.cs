@@ -1,2 +1,3 @@
 //! \namespace ZeroInstall.Services
-//! \brief Core services like solving dependencies, downloading implementations and execution selections. **NuGet:** [ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services)
+//! \brief \ref md_services for solving dependencies, downloading implementations, executing apps, etc..
+//! \sa NuGet package: [ZeroInstall.Services](https://www.nuget.org/packages/ZeroInstall.Services)

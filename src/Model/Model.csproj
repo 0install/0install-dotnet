@@ -5,6 +5,7 @@
     <AssemblyName>ZeroInstall.Model</AssemblyName>
     <RootNamespace>ZeroInstall.Model</RootNamespace>
     <Description>Zero Install data model for the feed format</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/md_model.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">

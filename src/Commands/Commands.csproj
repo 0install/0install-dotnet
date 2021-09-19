@@ -6,6 +6,7 @@
     <PackageId>ZeroInstall.Commands</PackageId>
     <RootNamespace>ZeroInstall.Commands</RootNamespace>
     <Description>Command-line interface for Zero Install (both an actual CLI and a library for building other clients)</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/md_cli.html</PackageProjectUrl>
     <TargetFrameworks>net472;net5.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>

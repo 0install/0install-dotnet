@@ -5,6 +5,7 @@
     <AssemblyName>ZeroInstall.Publish</AssemblyName>
     <RootNamespace>ZeroInstall.Publish</RootNamespace>
     <Description>Utilities for creating and modifying Zero Install feed files</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/md_publish.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>

@@ -28,17 +28,17 @@ You can use these NuGet packages to integrate Zero Install features into your ow
 Data model for the [feed format](https://docs.0install.net/specifications/feed/).
 
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)  
-Management of [implementation caches](https://docs.0install.net/details/cache/), [digital signatures](https://docs.0install.net/specifications/feed/#digital-signatures), etc..
+Management of [implementation caches](https://docs.0install.net/details/cache/), digital signatures, etc..
 
 [![ZeroInstall.Archives](https://img.shields.io/nuget/v/ZeroInstall.Archives.svg?label=ZeroInstall.Archives)](https://www.nuget.org/packages/ZeroInstall.Archives/)  
 Extracting and building archives (`.zip`, `.tar`, etc.).
 
 [![ZeroInstall.Services](https://img.shields.io/nuget/v/ZeroInstall.Services.svg?label=ZeroInstall.Services)](https://www.nuget.org/packages/ZeroInstall.Services/)  
-Core services like [solving dependencies](https://docs.0install.net/developers/solver/), downloading implementations and execution selections.  
+Core services like solving dependencies, downloading implementations and execution selections.  
 Zero Install itself is built upon this API. You can use the API to integrate Zero Install features into your own application.
 
 [![ZeroInstall.DesktopIntegration](https://img.shields.io/nuget/v/ZeroInstall.DesktopIntegration.svg?label=ZeroInstall.DesktopIntegration)](https://www.nuget.org/packages/ZeroInstall.DesktopIntegration/)  
-Integrating applications with desktop environments (creating menu entries, etc.).
+Integrating applications with [desktop environments](https://docs.0install.net/details/desktop-integration/) (creating menu entries, etc.).
 
 [![ZeroInstall.Commands](https://img.shields.io/nuget/v/ZeroInstall.Commands.svg?label=ZeroInstall.Commands)](https://www.nuget.org/packages/ZeroInstall.Commands/)  
 Command-line interface for Zero Install.  

@@ -112,6 +112,7 @@ namespace ZeroInstall.Publish.Capture
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="IOException">There was an error reading the installation files or writing the archive.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the file system was not permitted.</exception>
+        /// <exception cref="NotSupportedException">The MIME type inferred from the <paramref name="archivePath"/> doesn't belong to a known and supported archive type.</exception>
         public void CollectFiles(string archivePath, Uri archiveUrl, ITaskHandler handler)
         {
             #region Sanity checks

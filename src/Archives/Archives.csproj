@@ -5,6 +5,7 @@
     <AssemblyName>ZeroInstall.Archives</AssemblyName>
     <RootNamespace>ZeroInstall.Archives</RootNamespace>
     <Description>Zero Install extracting and building archives (.zip, .tar, etc.)</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_archives.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>

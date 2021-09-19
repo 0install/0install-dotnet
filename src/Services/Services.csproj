@@ -4,7 +4,8 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.Services</AssemblyName>
     <RootNamespace>ZeroInstall.Services</RootNamespace>
-    <Description>Zero Install core services like solving dependencies, downloading implementations and execution selections</Description>
+    <Description>Zero Install services for solving dependencies, downloading implementations, executing apps, etc.</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/md_services.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">

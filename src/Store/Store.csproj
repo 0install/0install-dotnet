@@ -5,6 +5,7 @@
     <AssemblyName>ZeroInstall.Store</AssemblyName>
     <RootNamespace>ZeroInstall.Store</RootNamespace>
     <Description>Zero Install management of implementation caches, digital signatures, etc.</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_store.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
