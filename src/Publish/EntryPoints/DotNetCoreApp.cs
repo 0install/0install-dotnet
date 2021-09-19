@@ -36,7 +36,7 @@ namespace ZeroInstall.Publish.EntryPoints
             Path = RelativePath,
             Runner = new Runner
             {
-                InterfaceUri = new FeedUri("https://apps.0install.net/dotnet/core.xml"),
+                InterfaceUri = new("https://apps.0install.net/dotnet/core.xml"),
                 Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                 Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
             }

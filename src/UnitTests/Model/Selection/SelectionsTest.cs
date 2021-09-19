@@ -40,7 +40,7 @@ namespace ZeroInstall.Model.Selection
 
             implementation.GetImplementation(new("http://invalid/")).Should().BeNull();
 
-            Assert.Throws<KeyNotFoundException>(() => implementation[new FeedUri("http://invalid/")]);
+            Assert.Throws<KeyNotFoundException>(() => implementation[new("http://invalid/")]);
         }
 
         /// <summary>

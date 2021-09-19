@@ -59,9 +59,9 @@ namespace ZeroInstall.Services
                 Command = Command.NameRun,
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, QuickTestFile = impl1.QuickTestFile},
-                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, QuickTestFile = impl2.QuickTestFile},
-                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, QuickTestFile = impl3.QuickTestFile}
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, QuickTestFile = impl1.QuickTestFile},
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, QuickTestFile = impl2.QuickTestFile},
+                    new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, QuickTestFile = impl3.QuickTestFile}
                 }
             };
 
@@ -87,7 +87,7 @@ namespace ZeroInstall.Services
             {
                 new ImplementationSelection {ID = impl1.ID, InterfaceUri = FeedTest.Test1Uri},
                 new ImplementationSelection {ID = impl2.ID, InterfaceUri = FeedTest.Test2Uri, FromFeed = FeedTest.Sub2Uri},
-                new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, FromFeed = new FeedUri(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
+                new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
             };
 
             _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
@@ -109,28 +109,28 @@ namespace ZeroInstall.Services
 
             var tree = _selectionsManager.GetTree(new Selections
             {
-                InterfaceUri = new FeedUri("http://root/"),
+                InterfaceUri = new("http://root/"),
                 Implementations =
                 {
                     new ImplementationSelection
                     {
-                        InterfaceUri = new FeedUri("http://root/"),
+                        InterfaceUri = new("http://root/"),
                         ID = "a",
                         ManifestDigest = digest1,
                         Version = new("1.0"),
                         Dependencies =
                         {
-                            new Dependency {InterfaceUri = new FeedUri("http://dependency/")},
-                            new Dependency {InterfaceUri = new FeedUri("http://missing/")}
+                            new Dependency {InterfaceUri = new("http://dependency/")},
+                            new Dependency {InterfaceUri = new("http://missing/")}
                         }
                     },
                     new ImplementationSelection
                     {
-                        InterfaceUri = new FeedUri("http://dependency/"),
+                        InterfaceUri = new("http://dependency/"),
                         ID = "b",
                         ManifestDigest = digest2,
                         Version = new("2.0"),
-                        Dependencies = {new Dependency {InterfaceUri = new FeedUri("http://root/")}} // Exercise cycle detection
+                        Dependencies = {new Dependency {InterfaceUri = new("http://root/")}} // Exercise cycle detection
                     }
                 }
             });
@@ -147,15 +147,15 @@ namespace ZeroInstall.Services
             {
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new("1.0")},
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed2"), Version = new("1.0")}
+                    new ImplementationSelection {InterfaceUri = new("http://feed1"), Version = new("1.0")},
+                    new ImplementationSelection {InterfaceUri = new("http://feed2"), Version = new("1.0")}
                 }
             }, newSelections: new Selections
             {
                 Implementations =
                 {
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed1"), Version = new("2.0")},
-                    new ImplementationSelection {InterfaceUri = new FeedUri("http://feed3"), Version = new("2.0")}
+                    new ImplementationSelection {InterfaceUri = new("http://feed1"), Version = new("2.0")},
+                    new ImplementationSelection {InterfaceUri = new("http://feed3"), Version = new("2.0")}
                 }
             }).Should().BeEquivalentTo(
             new SelectionsDiffNode[]

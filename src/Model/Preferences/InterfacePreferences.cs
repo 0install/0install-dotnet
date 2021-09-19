@@ -35,7 +35,7 @@ namespace ZeroInstall.Model.Preferences
         [DisplayName(@"Uri"), Description("The URI of the interface to be configured.")]
         [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new FeedUri(value); }
+        public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new(value); }
         #endregion
 
         /// <summary>

@@ -29,7 +29,7 @@ namespace ZeroInstall.Model
         /// <seealso cref="Source"/>
         [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string SourceString { get => Source?.ToStringRfc()!; set => Source = new FeedUri(value); }
+        public string SourceString { get => Source?.ToStringRfc()!; set => Source = new(value); }
         #endregion
 
         #region Normalize

@@ -32,7 +32,7 @@ namespace ZeroInstall.Model
         [DisplayName(@"Target"), Description("The URI used to locate the interface.")]
         [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string TargetString { get => Target?.ToStringRfc()!; set => Target = new FeedUri(value); }
+        public string TargetString { get => Target?.ToStringRfc()!; set => Target = new(value); }
         #endregion
 
         #region Normalize

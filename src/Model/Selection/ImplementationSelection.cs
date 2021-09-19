@@ -46,12 +46,12 @@ namespace ZeroInstall.Model.Selection
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="FromFeed"/>
         [XmlAttribute("from-feed"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public string? FromFeedString { get => FromFeed?.ToStringRfc(); set => FromFeed = (value == null) ? null : new FeedUri(value); }
+        public string? FromFeedString { get => FromFeed?.ToStringRfc(); set => FromFeed = value == null ? null : new(value); }
 
         /// <summary>
         /// Used for XML serialization.

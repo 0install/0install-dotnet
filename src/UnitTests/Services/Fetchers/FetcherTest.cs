@@ -66,7 +66,7 @@ namespace ZeroInstall.Services.Fetchers
         public void DownloadSingleArchiveMirror()
         {
             using var mirrorServer = new MicroServer("archive/http/invalid/directory%23archive.zip", _zipArchiveStream);
-            _config.FeedMirror = new FeedUri(mirrorServer.ServerUri);
+            _config.FeedMirror = new(mirrorServer.ServerUri);
             TestDownload(_archiveManifest,
                 new Archive
                 {

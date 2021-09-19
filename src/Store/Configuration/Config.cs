@@ -211,7 +211,7 @@ namespace ZeroInstall.Store.Configuration
             var property = PropertyPointer.For(expression, null);
             return PropertyPointer.For(
                 () => property.Value?.ToStringRfc() ?? "",
-                value => property.Value = string.IsNullOrEmpty(value) ? default : new FeedUri(value),
+                value => property.Value = string.IsNullOrEmpty(value) ? null : new(value),
                 defaultValue);
         }
 

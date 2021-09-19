@@ -62,7 +62,7 @@ namespace ZeroInstall.Services.Feeds
             RegisterKey();
             TrustKey();
 
-            _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
+            _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
 
@@ -71,7 +71,7 @@ namespace ZeroInstall.Services.Feeds
         {
             _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(keyID: 123)});
 
-            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml")));
+            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
             IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
         }
 
@@ -81,7 +81,7 @@ namespace ZeroInstall.Services.Feeds
             _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(keyID: 123), OpenPgpUtilsTest.TestSignature});
             TrustKey();
 
-            _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
+            _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
 
@@ -91,7 +91,7 @@ namespace ZeroInstall.Services.Feeds
             RegisterKey();
             _handler.AnswerQuestionWith = false;
 
-            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml")));
+            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
             IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
         }
 
@@ -101,7 +101,7 @@ namespace ZeroInstall.Services.Feeds
             RegisterKey();
             _handler.AnswerQuestionWith = true;
 
-            _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
+            _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
         }
@@ -116,7 +116,7 @@ namespace ZeroInstall.Services.Feeds
             using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
             {
                 UseKeyInfoServer(keyInfoServer);
-                Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml")));
+                Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
             }
             IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
         }
@@ -130,7 +130,7 @@ namespace ZeroInstall.Services.Feeds
             using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
             {
                 UseKeyInfoServer(keyInfoServer);
-                _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost/test.xml"))
+                _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
                              .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
@@ -169,8 +169,8 @@ namespace ZeroInstall.Services.Feeds
 
             using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
             {
-                _config.FeedMirror = new FeedUri(server.ServerUri);
-                _trustManager.CheckTrust(_combinedBytes, new FeedUri("http://localhost:9999/test/feed.xml"))
+                _config.FeedMirror = new(server.ServerUri);
+                _trustManager.CheckTrust(_combinedBytes, new("http://localhost:9999/test/feed.xml"))
                              .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");

@@ -60,7 +60,7 @@ namespace ZeroInstall.DesktopIntegration
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML+JSON serialization.</summary>
         /// <seealso cref="Requirements"/>

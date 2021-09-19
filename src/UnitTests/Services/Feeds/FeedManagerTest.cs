@@ -68,7 +68,7 @@ namespace ZeroInstall.Services.Feeds
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
             using var server = new MicroServer("feed.xml", feedStream);
-            feed.Uri = new FeedUri(server.FileUri);
+            feed.Uri = new(server.FileUri);
             feed.SaveXml(feedStream);
             var data = feedStream.ToArray();
             feedStream.Position = 0;
@@ -108,7 +108,7 @@ namespace ZeroInstall.Services.Feeds
         public void DownloadFromMirror()
         {
             var feed = FeedTest.CreateTestFeed();
-            feed.Uri = new FeedUri("http://invalid/directory/feed.xml");
+            feed.Uri = new("http://invalid/directory/feed.xml");
             var data = feed.ToXmlString().ToStream().ToArray();
 
             // No previous feed
@@ -121,7 +121,7 @@ namespace ZeroInstall.Services.Feeds
             // ReSharper disable once AccessToDisposedClosure
             _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
-            _config.FeedMirror = new FeedUri(mirrorServer.ServerUri);
+            _config.FeedMirror = new(mirrorServer.ServerUri);
             _feedManager[feed.Uri].Should().Be(feed);
         }
 
@@ -155,7 +155,7 @@ namespace ZeroInstall.Services.Feeds
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
             using var server = new MicroServer("feed.xml", feedStream);
-            feed.Uri = new FeedUri(server.FileUri);
+            feed.Uri = new(server.FileUri);
             feed.SaveXml(feedStream);
             var feedData = feedStream.ToArray();
             feedStream.Position = 0;
@@ -169,7 +169,7 @@ namespace ZeroInstall.Services.Feeds
             var feed = FeedTest.CreateTestFeed();
             var feedStream = new MemoryStream();
             using var server = new MicroServer("feed.xml", feedStream);
-            feed.Uri = new FeedUri(server.FileUri);
+            feed.Uri = new(server.FileUri);
             feed.SaveXml(feedStream);
             var feedData = feedStream.ToArray();
             feedStream.Position = 0;

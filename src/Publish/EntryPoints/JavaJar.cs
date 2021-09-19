@@ -32,7 +32,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 Bindings = {new EnvironmentBinding {Name = "CLASSPATH", Insert = RelativePath}},
                 Runner = new Runner
                 {
-                    InterfaceUri = new FeedUri("https://apps.0install.net/java/jar-launcher.xml"),
+                    InterfaceUri = new("https://apps.0install.net/java/jar-launcher.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                     Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
                 }
@@ -43,7 +43,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 Path = RelativePath,
                 Runner = new Runner
                 {
-                    InterfaceUri = new FeedUri("https://apps.0install.net/java/jre.xml"),
+                    InterfaceUri = new("https://apps.0install.net/java/jre.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                     Arguments = {@"-jar"},
                     Versions = new Constraint {NotBefore = MinimumRuntimeVersion}

@@ -17,9 +17,9 @@ namespace ZeroInstall.Model.Preferences
         /// </summary>
         public static InterfacePreferences CreateTestInterfacePreferences() => new()
         {
-            Uri = new FeedUri("http://somedomain/someapp.xml"),
+            Uri = new("http://somedomain/someapp.xml"),
             StabilityPolicy = Stability.Testing,
-            Feeds = {new() {Source = new FeedUri("http://invalid/")}}
+            Feeds = {new() {Source = new("http://invalid/")}}
         };
 
         [Fact] // Ensures that the class is correctly serialized and deserialized.

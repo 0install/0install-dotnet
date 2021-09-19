@@ -66,7 +66,7 @@ namespace ZeroInstall.Publish
             GenerateCommands();
 
             _builder.RetrievalMethod = new Archive();
-            _builder.Uri = new FeedUri("http://example.com/test1.xml");
+            _builder.Uri = new("http://example.com/test1.xml");
             _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new("http://example.com/test.png")});
             _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new("http://example.com/test.ico")});
             _builder.SecretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");

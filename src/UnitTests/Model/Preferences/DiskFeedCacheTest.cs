@@ -127,7 +127,7 @@ namespace ZeroInstall.Model.Preferences
                 longHttpUrlBuilder.Append("x");
 
             var feed = FeedTest.CreateTestFeed();
-            feed.Uri = new FeedUri("http://example.com-" + longHttpUrlBuilder);
+            feed.Uri = new("http://example.com-" + longHttpUrlBuilder);
 
             _cache.Add(feed.Uri, ToArray(feed));
 

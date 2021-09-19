@@ -63,7 +63,7 @@ namespace ZeroInstall.Publish
             {
                 SignedFeed.Feed
                           .Clone()
-                          .Normalize(string.IsNullOrEmpty(Path) ? null : new FeedUri(Path));
+                          .Normalize(string.IsNullOrEmpty(Path) ? null : new(Path));
                 problem = null;
                 return true;
             }

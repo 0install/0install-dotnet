@@ -61,7 +61,7 @@ namespace ZeroInstall.Model
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("interface"), JsonIgnore]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new FeedUri(value); }
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML and JSON serialization.</summary>
         /// <seealso cref="Languages"/>

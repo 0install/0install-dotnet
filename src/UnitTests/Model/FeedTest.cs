@@ -36,7 +36,7 @@ namespace ZeroInstall.Model
             Categories = {"Category1", "Category2"},
             Homepage = new("http://example.com/"),
             Feeds = {new() {Source = Sub1Uri}},
-            FeedFor = {new() {Target = new FeedUri("http://example.com/super1.xml")}},
+            FeedFor = {new() {Target = new("http://example.com/super1.xml")}},
             Summaries = {"Default summary", {"de-DE", "German summary"}},
             Descriptions = {"Default description", {"de-DE", "German description"}},
             Icons = {new Icon {Href = new("http://example.com/test.png"), MimeType = Icon.MimeTypePng}},

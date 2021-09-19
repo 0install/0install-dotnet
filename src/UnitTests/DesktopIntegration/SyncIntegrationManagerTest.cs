@@ -223,7 +223,7 @@ namespace ZeroInstall.DesktopIntegration
                     using var syncServer = new MicroServer("app-list", appListServerFile);
                     var config = new Config
                     {
-                        SyncServer = new FeedUri(syncServer.ServerUri),
+                        SyncServer = new(syncServer.ServerUri),
                         SyncServerUsername = "dummy",
                         SyncServerPassword = "dummy",
                         SyncCryptoKey = CryptoKey
@@ -349,7 +349,7 @@ namespace ZeroInstall.DesktopIntegration
             };
             var appEntry4 = new AppEntry
             {
-                InterfaceUri = new FeedUri("http://example.com/test4.xml"),
+                InterfaceUri = new("http://example.com/test4.xml"),
                 AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4NotApplied}}}
             };
             var appListLocal = new AppList {Entries = {appEntry1, appEntry4}};
