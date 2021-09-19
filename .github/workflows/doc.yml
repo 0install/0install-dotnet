@@ -26,6 +26,11 @@ jobs:
       # Build
       - name: Build documentation
         run: doc\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}
+      - name: Upload documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: artifacts/Documentation
 
       # Publish
       - name: Publish documentation
