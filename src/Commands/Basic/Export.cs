@@ -13,6 +13,11 @@ using ZeroInstall.Services;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Configuration;
 
+#if NETFRAMEWORK
+// ReSharper disable PossibleNullReferenceException
+// ReSharper disable AssignNullToNotNullAttribute
+#endif
+
 namespace ZeroInstall.Commands.Basic
 {
     /// <summary>
