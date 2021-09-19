@@ -70,8 +70,8 @@ namespace ZeroInstall.Model
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
-        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
-        public override string? VersionString { get => Version?.ToString() ?? ""; set => Version = value == null ? null : new(value); }
+        [XmlAttribute("version"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        public override string? VersionString { get => Version?.ToString(); set => Version = value == null ? null : new(value); }
         #endregion
 
         #region Normalize
