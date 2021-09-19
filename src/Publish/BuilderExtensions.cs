@@ -108,9 +108,22 @@ namespace ZeroInstall.Publish
                 builder.Add(retrievalMethod, stream, handler);
             }
 
-            handler.RunTask((localPath == null)
-                ? new DownloadFile(retrievalMethod.Href, Process)
-                : new ReadFile(localPath, Process));
+            if (localPath == null)
+            {
+                try
+                {
+                    handler.RunTask(new DownloadFile(ModelUtils.GetAbsoluteHref(retrievalMethod.Href, executor.Path), Process));
+                }
+                #region Error handling
+                catch (UriFormatException ex)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new WebException(ex.Message);
+                }
+                #endregion
+            }
+            else
+                handler.RunTask(new ReadFile(localPath, Process));
         }
 
         /// <summary>

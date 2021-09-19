@@ -52,7 +52,7 @@ namespace ZeroInstall.Publish
         {
             using var originalStream = SingleFileData.ToStream();
             using var microServer = new MicroServer(SingleFileName, originalStream);
-            var implementation = new Implementation {RetrievalMethods = {new SingleFile {Href = microServer.FileUri}}};
+            var implementation = new Implementation {RetrievalMethods = {new SingleFile {Href = microServer.FileUri, Destination = SingleFileName}}};
             implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
             ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
 
