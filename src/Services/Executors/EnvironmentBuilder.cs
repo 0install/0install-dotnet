@@ -20,9 +20,12 @@ namespace ZeroInstall.Services.Executors
     /// <summary>
     /// Fluent-style builder for a process execution environment for a <see cref="Selections"/> document.
     /// </summary>
-    /// <param name="ImplementationStore">Used to locate <see cref="Implementation"/>s.</param>
-    public partial record EnvironmentBuilder(IImplementationStore ImplementationStore) : IEnvironmentBuilder
+    [PrimaryConstructor]
+    public partial class EnvironmentBuilder : IEnvironmentBuilder
     {
+        /// <summary>Used to locate <see cref="Implementation"/>s.</summary>
+        private readonly IImplementationStore _implementationStore;
+
         /// <summary>
         /// Used to hold the process launch environment while it is being built.
         /// </summary>
@@ -226,7 +229,7 @@ namespace ZeroInstall.Services.Executors
                 string path = command.Path.ToNativePath();
 
                 // Fully qualified paths are used by package/native implementations, usually relative to the implementation
-                commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(ImplementationStore.GetPath(implementation), path));
+                commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(_implementationStore.GetPath(implementation), path));
             }
             commandLine.AddRange(command.Arguments);
 

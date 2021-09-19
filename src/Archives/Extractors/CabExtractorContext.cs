@@ -15,15 +15,23 @@ namespace ZeroInstall.Archives.Extractors
     /// <summary>
     /// Used to hold state while extracting a MS Cabinet (.cab).
     /// </summary>
-    /// <param name="Builder">The builder receiving the extracted files.</param>
-    /// <param name="Stream">The the archive data to be extracted.</param>
-    /// <param name="NormalizePath">Callback for normalizing the path of archive entries.</param>
-    /// <param name="CancellationToken">Used to signal when the user wishes to cancel the extraction.</param>
-    internal sealed record CabExtractorContext(IBuilder Builder, Stream Stream, Func<string, string> NormalizePath, CancellationToken CancellationToken)
-        : IUnpackStreamContext
+    [PrimaryConstructor]
+    internal sealed partial class CabExtractorContext : IUnpackStreamContext
     {
+        /// <summary>The builder receiving the extracted files.</summary>
+        private readonly IBuilder _builder;
+
+        /// <summary>The the archive data to be extracted.</summary>
+        private readonly Stream _stream;
+
+        /// <summary>Callback for normalizing the path of archive entries.</summary>
+        private readonly Func<string, string> _normalizePath;
+
+        /// <summary>Used to signal when the user wishes to cancel the extraction.</summary>
+        private readonly CancellationToken _cancellationToken;
+
         public Stream OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine)
-            => new DuplicateStream(Stream);
+            => new DuplicateStream(_stream);
 
         public void CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
         {}
@@ -33,16 +41,16 @@ namespace ZeroInstall.Archives.Extractors
 
         public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
         {
-            CancellationToken.ThrowIfCancellationRequested();
+            _cancellationToken.ThrowIfCancellationRequested();
 
-            string relativePath = NormalizePath(path);
+            string relativePath = _normalizePath(path);
             if (relativePath == null) return null;
 
             _pipe = new();
 
             var readStream = new ProgressStream(_pipe.Reader.AsStream());
             readStream.SetLength(fileSize);
-            _thread = new Thread(() => Builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc))) {IsBackground = true};
+            _thread = new Thread(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc))) {IsBackground = true};
             _thread.Start();
 
             return _pipe.Writer.AsStream();

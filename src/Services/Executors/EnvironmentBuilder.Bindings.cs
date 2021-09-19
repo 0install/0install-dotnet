@@ -19,7 +19,7 @@ using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Executors
 {
-    public partial record EnvironmentBuilder
+    public partial class EnvironmentBuilder
     {
         /// <summary>
         /// Used to track <see cref="IBindingContainer"/> that have already been applied to avoid cycles.
@@ -129,7 +129,7 @@ namespace ZeroInstall.Services.Executors
             }
             else
             { // Path inside the implementation
-                newValue = Path.Combine(ImplementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "");
+                newValue = Path.Combine(_implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "");
             }
 
             // Set the default value if the variable is not already set on the system
@@ -149,14 +149,9 @@ namespace ZeroInstall.Services.Executors
         }
 
         /// <summary>
-        /// Represents a run-environment executable configuration pending to be applied via environment variables.
-        /// </summary>
-        private sealed record RunEnvPending(string ExeName, IEnumerable<ArgBase> CommandLine);
-
-        /// <summary>
         /// A list of run-environment executables pending to be configured.
         /// </summary>
-        private readonly List<RunEnvPending> _runEnvPendings = new();
+        private readonly List<(string exeName, IEnumerable<ArgBase> commandLine)> _pendingRunEnvs = new();
 
         /// <summary>
         /// Applies an <see cref="ExecutableInVar"/> binding by creating a run-environment executable.
@@ -183,7 +178,7 @@ namespace ZeroInstall.Services.Executors
             _startInfo.EnvironmentVariables[binding.Name] = exePath;
 
             // Tell the executable what command-line to run
-            _runEnvPendings.Add(new RunEnvPending(binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
+            _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
         }
 
         /// <summary>
@@ -212,7 +207,7 @@ namespace ZeroInstall.Services.Executors
                 _startInfo.EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"];
 
             // Tell the executable what command-line to run
-            _runEnvPendings.Add(new RunEnvPending(binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
+            _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
         }
 
         /// <summary>
@@ -291,7 +286,7 @@ namespace ZeroInstall.Services.Executors
         /// </summary>
         private void ProcessRunEnvBindings()
         {
-            foreach (var (exeName, args) in _runEnvPendings)
+            foreach (var (exeName, args) in _pendingRunEnvs)
             {
                 var commandLine = ExpandCommandLine(args);
                 if (WindowsUtils.IsWindows)
@@ -302,7 +297,7 @@ namespace ZeroInstall.Services.Executors
                 }
                 else _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
             }
-            _runEnvPendings.Clear();
+            _pendingRunEnvs.Clear();
 
             // Allow child processes to call back to 0install
             try
@@ -333,7 +328,7 @@ namespace ZeroInstall.Services.Executors
             // Only allow working directory to be changed once
             if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.Working);
 
-            _startInfo.WorkingDirectory = Path.Combine(ImplementationStore.GetPath(implementation), source);
+            _startInfo.WorkingDirectory = Path.Combine(_implementationStore.GetPath(implementation), source);
         }
     }
 }
