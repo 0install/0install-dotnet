@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Zip;
+using NanoByte.Common;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
 using ZeroInstall.Archives.Properties;
@@ -25,16 +26,23 @@ namespace ZeroInstall.Archives.Extractors
 
             try
             {
-                ExtractFiles(new ZipInputStream(stream) {IsStreamOwner = false}, subDir, builder);
-                ApplyCentral(new ZipFile(stream, leaveOpen: true), subDir, builder);
+                ExtractFiles(new ZipInputStream(stream) { IsStreamOwner = false }, subDir, builder);
             }
-            #region Error handling
             catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(Resources.ArchiveInvalid, ex);
             }
-            #endregion
+
+            try
+            {
+                ApplyCentral(new ZipFile(stream, leaveOpen: true), subDir, builder);
+            }
+            catch (Exception ex)
+            {
+                Log.Warn("Unable to process ZIP central directory");
+                Log.Warn(ex);
+            }
         }
 
         private void ExtractFiles(ZipInputStream zipStream, string? subDir, IBuilder builder)
