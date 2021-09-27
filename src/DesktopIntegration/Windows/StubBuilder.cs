@@ -26,8 +26,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Builds stub EXEs that execute "0install" commands.
     /// </summary>
-    internal record StubBuilder(IIconStore IconStore)
+    [PrimaryConstructor]
+    public partial class StubBuilder
     {
+        // ReSharper disable once NotAccessedField.Local
+        private readonly IIconStore _iconStore;
+
         /// <summary>
         /// Returns a command-line for executing the "0install run" command. Generates and returns a stub EXE if possible, falls back to directly pointing to the "0install" binary otherwise.
         /// </summary>
@@ -166,7 +170,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             try
             {
-                string iconPath = IconStore.GetPath(icon);
+                string iconPath = _iconStore.GetPath(icon);
                 new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
                 return iconPath;
             }
