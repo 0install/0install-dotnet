@@ -19,16 +19,16 @@ namespace ZeroInstall.Services
 {
     /// <summary>
     /// Instantiates requested services transparently on first use. Handles dependency injection internally.
-    /// Use exactly one instance of the service locator per user request to ensure consistent state during execution.
+    /// Use exactly one instance of the service provider per user request to ensure consistent state during execution.
     /// </summary>
     /// <remarks>This class is thread-safe.</remarks>
-    public class ServiceLocator
+    public class ServiceProvider
     {
         /// <summary>
-        /// Creates a new service locator.
+        /// Creates a new service provider.
         /// </summary>
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        public ServiceLocator(ITaskHandler handler)
+        public ServiceProvider(ITaskHandler handler)
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
             _feedCache = new(() => FeedCaches.Default(OpenPgp));

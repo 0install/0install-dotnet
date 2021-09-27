@@ -90,7 +90,7 @@ namespace ZeroInstall.Commands
             if (IsRunningFromCache || !NetUtils.IsInternetConnected) return null;
 
             using var handler = new SilentTaskHandler();
-            var services = new ServiceLocator(handler) {FeedManager = {Refresh = true}};
+            var services = new ServiceProvider(handler) {FeedManager = {Refresh = true}};
             if (services.Config.NetworkUse == NetworkLevel.Offline || services.Config.SelfUpdateUri == null) return null;
 
             var requirements = new Requirements(services.Config.SelfUpdateUri);

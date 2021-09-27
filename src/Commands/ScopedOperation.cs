@@ -24,7 +24,7 @@ namespace ZeroInstall.Commands
     /// <summary>
     /// Common base class for Zero Install operations that require scoped dependency resolution.
     /// </summary>
-    public abstract class ScopedOperation : ServiceLocator
+    public abstract class ScopedOperation : ServiceProvider
     {
         /// <summary>
         /// Creates a new command base.
