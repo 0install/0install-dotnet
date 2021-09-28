@@ -23,5 +23,10 @@ namespace ZeroInstall.Services.Solvers
         /// </summary>
         /// <exception cref="KeyNotFoundException">The <paramref name="implementationSelection"/> was not provided by <see cref="GetSortedCandidates"/>.</exception>
         Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection);
+
+        /// <summary>
+        /// Clears any in-memory caches.
+        /// </summary>
+        void Clear();
     }
 }

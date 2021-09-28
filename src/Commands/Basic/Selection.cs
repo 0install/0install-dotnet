@@ -259,6 +259,10 @@ namespace ZeroInstall.Commands.Basic
         /// </summary>
         private Selections SolveCallback()
         {
+            // Clear caches to pick up any preference changes made by the user
+            SelectionCandidateProvider.Clear();
+            FeedManager.Clear();
+
             using (FeedManager.PauseRefresh())
                 Solve();
 

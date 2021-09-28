@@ -191,5 +191,12 @@ namespace ZeroInstall.Services.Solvers
             if (implementation is ExternalImplementation externalImplementation) return externalImplementation.IsInstalled;
             return _storeContains[implementation.ManifestDigest];
         }
+
+        /// <inheritdoc/>
+        public void Clear()
+        {
+            _storeContains.Clear();
+            _interfacePreferences.Clear();
+        }
     }
 }
