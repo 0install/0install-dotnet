@@ -59,5 +59,16 @@ namespace ZeroInstall.Services.Feeds
 
             return feed;
         }
+
+        /// <summary>
+        /// Temporarily sets <see cref="IFeedManager.Refresh"/> to <c>false</c>.
+        /// </summary>
+        /// <returns>Call <see cref="IDisposable.Dispose"/> on this to restore the original value of <see cref="IFeedManager.Refresh"/>.</returns>
+        public static IDisposable PauseRefresh(this IFeedManager feedManager)
+        {
+            bool backupRefresh = feedManager.Refresh;
+            feedManager.Refresh = false;
+            return new Disposable(() => feedManager.Refresh = backupRefresh);
+        }
     }
 }
