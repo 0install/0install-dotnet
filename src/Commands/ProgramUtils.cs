@@ -70,7 +70,12 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// The EXE name for the Command GUI best suited for the current system; <c>null</c> if no GUI is available.
+        /// The assembly/EXE name for the command-line interface.
+        /// </summary>
+        public const string CliAssemblyName = "0install";
+
+        /// <summary>
+        /// The assembly/EXE name for the graphical interface; <c>null</c> if no GUI is available.
         /// </summary>
         public static string? GuiAssemblyName { get; } = WindowsUtils.IsGuiSession ? "0install-win" : null;
 

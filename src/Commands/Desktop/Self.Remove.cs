@@ -106,7 +106,7 @@ namespace ZeroInstall.Commands.Desktop
                 using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
                     manager.Deploy();
 
-                string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? "0install");
+                string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? ProgramUtils.CliAssemblyName);
 
                 var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
                 if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");

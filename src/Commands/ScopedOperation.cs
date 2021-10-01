@@ -159,7 +159,7 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Starts executing a "0install" command in a background process. Returns immediately.
+        /// Starts executing a command in a background process. Returns immediately.
         /// </summary>
         /// <param name="command">The name of the command to execute.</param>
         /// <param name="args">Additional arguments to pass to the command.</param>

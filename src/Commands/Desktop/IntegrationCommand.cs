@@ -66,7 +66,7 @@ namespace ZeroInstall.Commands.Desktop
                 {
                     var deployArgs = new[] {Self.Name, Self.Deploy.Name, "--restart-central"};
                     if (MachineWide) deployArgs = deployArgs.Append("--machine");
-                    ProgramUtils.Run("0install", deployArgs, Handler);
+                    ProgramUtils.Run(ProgramUtils.CliAssemblyName, deployArgs, Handler);
                 }
                 throw new OperationCanceledException();
             }
