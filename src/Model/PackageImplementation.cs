@@ -100,6 +100,11 @@ namespace ZeroInstall.Model
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
         public override Stability Stability { get => Stability.Unset; set {} }
+
+        /// <summary>Not used.</summary>
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("rollout-percentage"), DefaultValue(0)]
+        public override int RolloutPercentage { get => 0; set {} }
         #endregion
 
         #region Conversion

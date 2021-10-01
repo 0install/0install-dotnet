@@ -168,6 +168,9 @@
   <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>The relative URI '{0}' could not be resolved. Only feeds saved as local files may contain relative URIs.</value>
   </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>'rollout-percentage' attribute on {0} may only be set when 'stability' is 'testing' or unset.</value>
+  </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Buggy implementation</value>
   </data>

@@ -148,6 +148,14 @@ namespace ZeroInstall.Model
         public virtual Stability Stability { get; set; } = Stability.Unset;
 
         /// <summary>
+        /// The percentage (0-100) of users that should treat this as <see cref="Model.Stability.Stable"/>. May only be set if <see cref="Stability"/> is <see cref="Model.Stability.Unset"/> or <see cref="Model.Stability.Testing"/>.
+        /// This can be used to perform staged rollouts.
+        /// </summary>
+        [Category("Release"), Description("The percentage (0-100) of users that should treat this as Stability=Stable. May only be set if Stability is Unset or Testing. This can be used to perform staged rollouts.")]
+        [XmlAttribute("rollout-percentage"), DefaultValue(0)]
+        public virtual int RolloutPercentage { get; set; }
+
+        /// <summary>
         /// License terms (typically a Trove category, as used on freshmeat.net).
         /// </summary>
         [Category("Release"), Description("License terms (typically a Trove category, as used on freshmeat.net).")]
@@ -328,6 +336,7 @@ namespace ZeroInstall.Model
             DocDir ??= parent.DocDir;
             License ??= parent.License;
             if (Stability == Stability.Unset) Stability = parent.Stability;
+            if (RolloutPercentage == 0) RolloutPercentage = parent.RolloutPercentage;
             if (Languages.Count == 0) Languages = new LanguageSet(parent.Languages);
             if (Architecture == default) Architecture = parent.Architecture;
 
@@ -366,6 +375,7 @@ namespace ZeroInstall.Model
             to.Released = from.Released;
             to.ReleasedVerbatim = from.ReleasedVerbatim;
             to.Stability = from.Stability;
+            to.RolloutPercentage = from.RolloutPercentage;
             to.License = from.License;
             to.Main = from.Main;
             to.SelfTest = from.SelfTest;
@@ -386,6 +396,7 @@ namespace ZeroInstall.Model
             && other.Released == Released
             && other.ReleasedVerbatim == ReleasedVerbatim
             && other.Stability == Stability
+            && other.RolloutPercentage == RolloutPercentage
             && other.License == License
             && other.Main == Main
             && other.SelfTest == SelfTest
@@ -405,6 +416,7 @@ namespace ZeroInstall.Model
             hash.Add(Released);
             hash.Add(ReleasedVerbatim);
             hash.Add(Stability);
+            hash.Add(RolloutPercentage);
             hash.Add(License);
             hash.Add(Main);
             hash.Add(SelfTest);

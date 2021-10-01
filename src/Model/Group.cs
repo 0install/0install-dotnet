@@ -90,6 +90,7 @@ namespace ZeroInstall.Model
                     Released.ToString("d", CultureInfo.InvariantCulture),
                     ReleasedVerbatim,
                     Stability,
+                    RolloutPercentage == 0 ? null : $"{RolloutPercentage}%",
                     License,
                     Main
                 }.Where(x => x is not 0)

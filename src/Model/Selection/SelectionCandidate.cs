@@ -43,10 +43,28 @@ namespace ZeroInstall.Model.Selection
         public DateTime Released => Implementation.Released;
 
         /// <summary>
-        /// The default stability rating for this implementation.
+        /// The feed-specified stability rating for this implementation.
         /// </summary>
-        [Description("The default stability rating for this implementation.")]
-        public Stability Stability => Implementation.Stability;
+        [Description("The feed-specified stability rating for this implementation.")]
+        public Stability Stability
+        {
+            get
+            {
+                if (Implementation.RolloutPercentage > 0)
+                {
+                    if (_implementationPreferences.RolloutPercentage == 0)
+                    {
+                        _implementationPreferences.RolloutPercentage = new Random().Next(1, 100);
+                        FeedPreferences.SaveFor(FeedUri);
+                    }
+
+                    if (Implementation.RolloutPercentage >= _implementationPreferences.RolloutPercentage)
+                        return Stability.Stable;
+                }
+
+                return Implementation.Stability;
+            }
+        }
 
         /// <summary>The preferences controlling how the solver evaluates this candidate.</summary>
         private readonly ImplementationPreferences _implementationPreferences;

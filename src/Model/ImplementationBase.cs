@@ -4,10 +4,12 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
+using ZeroInstall.Model.Properties;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Model
@@ -64,6 +66,14 @@ namespace ZeroInstall.Model
             // Default stability rating to testing
             if (Stability == Stability.Unset) Stability = Stability.Testing;
 
+            switch (RolloutPercentage)
+            {
+                case < 0 or > 100:
+                    throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "rollout-percentage", ToShortXml()));
+                case > 0 when Stability != Stability.Testing:
+                    throw new InvalidDataException(string.Format(Resources.RolloutPercentageOnlyValidWhenStabilityTesting, ToShortXml()));
+            }
+
             // Make local paths absolute
             try
             {
@@ -114,6 +124,7 @@ namespace ZeroInstall.Model
                     Released.ToString("d", CultureInfo.InvariantCulture),
                     ReleasedVerbatim,
                     Stability,
+                    RolloutPercentage == 0 ? null : $"{RolloutPercentage}%",
                     License,
                     Main
                 }.Where(x => x is not 0)

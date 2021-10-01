@@ -168,6 +168,9 @@
   <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>'{0}' göreli adresi çözümlenemedi. Göreli adresler yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
   </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>{0} üzerindeki 'rollout-percentage' özniteliği yalnız 'kararlılık' değeri 'testing' olduğunda veya ayarlanmamış ise ayarlanabilir.</value>
+  </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Uyarlama hatalı</value>
   </data>

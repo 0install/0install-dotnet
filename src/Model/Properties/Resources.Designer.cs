@@ -214,6 +214,15 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;rollout-percentage&apos; attribute on {0} may only be set when &apos;stability&apos; is &apos;testing&apos; or unset..
+        /// </summary>
+        internal static string RolloutPercentageOnlyValidWhenStabilityTesting {
+            get {
+                return ResourceManager.GetString("RolloutPercentageOnlyValidWhenStabilityTesting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buggy implementation.
         /// </summary>
         internal static string SelectionCandidateNoteBuggy {

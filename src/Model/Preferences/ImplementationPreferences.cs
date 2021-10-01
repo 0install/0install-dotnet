@@ -29,11 +29,20 @@ namespace ZeroInstall.Model.Preferences
         public Stability UserStability { get; set; } = Stability.Unset;
 
         /// <summary>
+        /// A random number used to compare against <see cref="Element.RolloutPercentage"/>.
+        /// </summary>
+        [Browsable(false)]
+        [XmlAttribute("rollout-percentage"), DefaultValue(0)]
+        public int RolloutPercentage { get; set; }
+
+        /// <summary>
         /// Indicates whether this configuration object stores no information other than the <see cref="ID"/> and is thus superfluous.
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public bool IsSuperfluous => (UserStability == Stability.Unset);
+        public bool IsSuperfluous
+            => UserStability == Stability.Unset
+            && RolloutPercentage == 0;
 
         #region Clone
         /// <summary>

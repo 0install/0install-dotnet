@@ -88,6 +88,46 @@ namespace ZeroInstall.Model.Selection
             candidate.EffectiveStability.Should().Be(Stability.Preferred);
         }
 
+        [Fact]
+        public void GenerateRolloutPercentage()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            implementation.Stability = Stability.Testing;
+            implementation.RolloutPercentage = 100;
+            var preferences = new FeedPreferences();
+            var candidate = Build(implementation, preferences);
+            _ = candidate.EffectiveStability;
+            preferences[implementation.ID].RolloutPercentage.Should().BePositive();
+        }
+
+        [Fact]
+        public void RolloutPercentageHit()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            implementation.Stability = Stability.Testing;
+            implementation.RolloutPercentage = 75;
+            var preferences = new FeedPreferences
+            {
+                [implementation.ID] = {RolloutPercentage = 50}
+            };
+            var candidate = Build(implementation, preferences);
+            candidate.Stability.Should().Be(Stability.Stable);
+        }
+
+        [Fact]
+        public void RolloutPercentageMiss()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            implementation.Stability = Stability.Testing;
+            implementation.RolloutPercentage = 25;
+            var preferences = new FeedPreferences
+            {
+                [implementation.ID] = {RolloutPercentage = 50}
+            };
+            var candidate = Build(implementation, preferences);
+            candidate.Stability.Should().Be(Stability.Testing);
+        }
+
         private static SelectionCandidate Build(Implementation implementation, FeedPreferences? preferences = null, Requirements? requirements = null)
             => new(FeedTest.Test1Uri, preferences ?? new(), implementation, requirements ?? new(FeedTest.Test1Uri, Command.NameRun));
     }
