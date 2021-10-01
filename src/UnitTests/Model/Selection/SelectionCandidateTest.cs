@@ -16,42 +16,79 @@ namespace ZeroInstall.Model.Selection
         public void IsSuitable()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
-               .IsSuitable.Should().BeTrue();
+            var candidate = Build(implementation);
+            candidate.IsSuitable.Should().BeTrue();
         }
 
         [Fact]
         public void IsSuitableArchitecture()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun, implementation.Architecture))
-               .IsSuitable.Should().BeTrue();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun, new Architecture(OS.FreeBsd, Cpu.Ppc)))
-               .IsSuitable.Should().BeFalse();
+            var candidate = Build(implementation, requirements: new(FeedTest.Test1Uri, Command.NameRun, implementation.Architecture));
+            candidate.IsSuitable.Should().BeTrue();
         }
 
         [Fact]
-        public void IsSuitableVersionMismatch()
+        public void IsNotSuitableArchitecture()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun)
+            var candidate = Build(implementation, requirements: new(FeedTest.Test1Uri, Command.NameRun, new Architecture(OS.FreeBsd, Cpu.Ppc)));
+            candidate.IsSuitable.Should().BeFalse();
+        }
+
+        [Fact]
+        public void IsSuitableVersion()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            var candidate = Build(implementation, requirements: new(FeedTest.Test1Uri, Command.NameRun)
             {
                 ExtraRestrictions = {{FeedTest.Test1Uri, new VersionRange("..!1.1")}}
-            }).IsSuitable.Should().BeTrue();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun)
-            {
-                ExtraRestrictions = {{FeedTest.Test1Uri, new VersionRange("..!1.0")}}
-            }).IsSuitable.Should().BeFalse();
+            });
+            candidate.IsSuitable.Should().BeTrue();
         }
 
         [Fact]
-        public void IsSuitableBuggyInsecure()
+        public void IsNotSuitableVersion()
         {
             var implementation = ImplementationTest.CreateTestImplementation();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Buggy}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
-               .IsSuitable.Should().BeFalse();
-            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences {Implementations = {new ImplementationPreferences {ID = implementation.ID, UserStability = Stability.Insecure}}}, implementation, new Requirements(FeedTest.Test1Uri, Command.NameRun))
-               .IsSuitable.Should().BeFalse();
+            var candidate = Build(implementation, requirements: new(FeedTest.Test1Uri, Command.NameRun)
+            {
+                ExtraRestrictions = {{FeedTest.Test1Uri, new VersionRange("..!1.0")}}
+            });
+            candidate.IsSuitable.Should().BeFalse();
         }
+
+        [Fact]
+        public void IsNotSuitableBuggy()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            implementation.Stability = Stability.Buggy;
+            var candidate = Build(implementation);
+            candidate.IsSuitable.Should().BeFalse();
+        }
+
+        [Fact]
+        public void IsNotSuitableInsecure()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            implementation.Stability = Stability.Insecure;
+            var candidate = Build(implementation);
+            candidate.IsSuitable.Should().BeFalse();
+        }
+
+        [Fact]
+        public void UserStability()
+        {
+            var implementation = ImplementationTest.CreateTestImplementation();
+            var preferences = new FeedPreferences
+            {
+                [implementation.ID] = {UserStability = Stability.Preferred}
+            };
+            var candidate = Build(implementation, preferences);
+            candidate.EffectiveStability.Should().Be(Stability.Preferred);
+        }
+
+        private static SelectionCandidate Build(Implementation implementation, FeedPreferences? preferences = null, Requirements? requirements = null)
+            => new(FeedTest.Test1Uri, preferences ?? new(), implementation, requirements ?? new(FeedTest.Test1Uri, Command.NameRun));
     }
 }
