@@ -310,7 +310,6 @@ namespace ZeroInstall.Services.Feeds
 
             var preferences = _preferences[feedUri];
             preferences.LastChecked = DateTime.UtcNow;
-            preferences.Normalize();
             preferences.SaveFor(feedUri);
         }
     }

@@ -117,6 +117,8 @@ namespace ZeroInstall.Model.Preferences
             #endregion
         }
 
+        private readonly object _saveLock = new();
+
         /// <summary>
         /// Saves these <see cref="FeedPreferences"/> for a specific feed.
         /// </summary>
@@ -129,12 +131,15 @@ namespace ZeroInstall.Model.Preferences
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            Normalize();
+            lock (_saveLock)
+            {
+                Normalize();
 
-            string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "feeds", feedUri.PrettyEscape());
+                string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "feeds", feedUri.PrettyEscape());
 
-            Log.Debug("Saving feed preferences for " + feedUri.ToStringRfc() + " to: " + path);
-            this.SaveXml(path);
+                Log.Debug("Saving feed preferences for " + feedUri.ToStringRfc() + " to: " + path);
+                this.SaveXml(path);
+            }
         }
         #endregion
 
