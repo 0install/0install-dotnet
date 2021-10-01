@@ -3,9 +3,11 @@
 
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 using NanoByte.Common.Net;
+using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model
 {
@@ -52,6 +54,8 @@ namespace ZeroInstall.Model
 
             EnsureAttribute(Href, "href");
             Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
+
+            if (Size < 0) throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "size", ToShortXml()));
         }
         #endregion
 
