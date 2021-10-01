@@ -15,6 +15,7 @@ using NDesk.Options;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
+using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
@@ -67,6 +68,18 @@ namespace ZeroInstall.Commands
             ProcessUtils.SanitizeEnvironmentVariables();
             NetUtils.ApplyProxy();
             NetUtils.ConfigureTls();
+
+            // Allow child processes to call back to 0install
+            try
+            {
+                ZeroInstallEnvironment.Cli = ProcessUtils.Assembly(CliAssemblyName).ToCommandLine();
+                ZeroInstallEnvironment.ExternalFetch = ProcessUtils.Assembly(CliAssemblyName, "fetch").ToCommandLine();
+                if (GuiAssemblyName != null) ZeroInstallEnvironment.Gui = ProcessUtils.Assembly(GuiAssemblyName).ToCommandLine();
+            }
+            catch (FileNotFoundException)
+            {
+                // Zero Install may be embedded as a library rather than an executable
+            }
         }
 
         /// <summary>

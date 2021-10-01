@@ -298,17 +298,6 @@ namespace ZeroInstall.Services.Executors
                 else _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
             }
             _pendingRunEnvs.Clear();
-
-            // Allow child processes to call back to 0install
-            try
-            {
-                _startInfo.EnvironmentVariables["ZEROINSTALL"] = ProcessUtils.Assembly("0install").ToCommandLine();
-                _startInfo.EnvironmentVariables["ZEROINSTALL_EXTERNAL_FETCHER"] = ProcessUtils.Assembly("0install", "fetch").ToCommandLine();
-            }
-            catch (FileNotFoundException)
-            {
-                // Zero Install may be embedded as a library rather than an executable
-            }
         }
 
         /// <summary>

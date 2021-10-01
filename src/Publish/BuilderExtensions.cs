@@ -140,9 +140,7 @@ namespace ZeroInstall.Publish
 
             handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID), () =>
             {
-                var startInfo = ProcessUtils.FromCommandLine(
-                    Environment.GetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER")
-                 ?? (Environment.GetEnvironmentVariable("ZEROINSTALL") ?? "0install") + " fetch");
+                var startInfo = ProcessUtils.FromCommandLine(ZeroInstallEnvironment.ExternalFetch ?? "0install fetch");
                 startInfo.RedirectStandardInput = true;
                 var process = startInfo.Start();
 
