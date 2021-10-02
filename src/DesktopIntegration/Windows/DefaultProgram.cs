@@ -56,16 +56,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
-            if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
             using var serviceKey = Registry.LocalMachine.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}");
             using (var appKey = serviceKey.CreateSubKeyChecked(defaultProgram.ID))
@@ -115,15 +111,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="accessPoint">Indicates that the program was set as the current default for the service it provides.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="defaultProgram"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.DefaultProgram defaultProgram, bool accessPoint = false)
         {
             #region Sanity checks
             if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
             #endregion
-
-            if (string.IsNullOrEmpty(defaultProgram.ID)) throw new InvalidDataException("Missing ID");
-            if (string.IsNullOrEmpty(defaultProgram.Service)) throw new InvalidDataException("Missing Service");
 
             using var serviceKey = Registry.LocalMachine.OpenSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}", writable: true);
             if (accessPoint)

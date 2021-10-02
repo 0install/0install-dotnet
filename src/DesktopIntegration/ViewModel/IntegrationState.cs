@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using ZeroInstall.Model;
-using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration.ViewModel
 {
@@ -54,7 +53,6 @@ namespace ZeroInstall.DesktopIntegration.ViewModel
         /// </summary>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="ConflictException">One or more of the new <see cref="AccessPoints.AccessPoint"/>s would cause a conflict with the existing <see cref="AccessPoints.AccessPoint"/>s in <see cref="IIntegrationManager.AppList"/>.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoints.AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>

@@ -63,7 +63,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="capability"/> is invalid.</exception>
         public static void Register(RegistryKey registryKey, FeedTarget target, VerbCapability capability, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
@@ -80,7 +79,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             foreach (var verb in capability.Verbs)
             {
-                if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
                 using var verbKey = registryKey.CreateSubKeyChecked($@"shell\{verb.Name}");
                 Register(verbKey, target, verb, iconStore, machineWide);
             }
@@ -101,7 +99,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="verb"/> is invalid.</exception>
         public static void Register(RegistryKey verbKey, FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
             string? description = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);

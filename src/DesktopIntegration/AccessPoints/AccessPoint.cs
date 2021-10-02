@@ -40,7 +40,6 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The access point's data or a referenced <see cref="Capability"/>'s data are invalid.</exception>
         public abstract void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide);
 
         /// <summary>

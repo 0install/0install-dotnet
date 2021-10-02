@@ -31,15 +31,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="comServer"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.ComServer comServer, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (comServer == null) throw new ArgumentNullException(nameof(comServer));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(comServer.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }
@@ -53,14 +50,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Unregister the COM server machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="comServer"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.ComServer comServer, bool machineWide)
         {
             #region Sanity checks
             if (comServer == null) throw new ArgumentNullException(nameof(comServer));
             #endregion
-
-            if (string.IsNullOrEmpty(comServer.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }

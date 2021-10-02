@@ -26,15 +26,12 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
         public static void Apply(FeedTarget target, Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }
@@ -48,14 +45,11 @@ namespace ZeroInstall.DesktopIntegration.Unix
         /// <param name="machineWide">Remove the context menu entry machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
         public static void Remove(Model.Capabilities.ContextMenu contextMenu, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
             #endregion
-
-            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             // TODO: Implement
         }

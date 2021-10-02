@@ -39,15 +39,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.UrlProtocol urlProtocol, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(urlProtocol.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 
@@ -102,14 +99,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="accessPoint">Indicates that the handler was the default handler for the protocol.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="urlProtocol"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.UrlProtocol urlProtocol, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));
             #endregion
-
-            if (string.IsNullOrEmpty(urlProtocol.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 

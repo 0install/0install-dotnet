@@ -61,7 +61,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/> or <paramref name="verbCapabilities"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.AppRegistration appRegistration, [InstantHandle] IEnumerable<VerbCapability> verbCapabilities, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
@@ -69,9 +68,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (verbCapabilities == null) throw new ArgumentNullException(nameof(verbCapabilities));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(appRegistration.ID)) throw new InvalidDataException("Missing ID");
-            if (string.IsNullOrEmpty(appRegistration.CapabilityRegPath)) throw new InvalidDataException("Invalid CapabilityRegPath");
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 
@@ -123,15 +119,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="appRegistration"/>.</exception>
         public static void Unregister(Model.Capabilities.AppRegistration appRegistration, bool machineWide)
         {
             #region Sanity checks
             if (appRegistration == null) throw new ArgumentNullException(nameof(appRegistration));
             #endregion
-
-            if (string.IsNullOrEmpty(appRegistration.ID)) throw new InvalidDataException("Missing ID");
-            if (string.IsNullOrEmpty(appRegistration.CapabilityRegPath)) throw new InvalidDataException("Invalid CapabilityRegPath");
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 

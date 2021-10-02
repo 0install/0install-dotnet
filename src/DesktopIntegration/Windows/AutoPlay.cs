@@ -58,7 +58,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.AutoPlay autoPlay, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
@@ -66,19 +65,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (string.IsNullOrEmpty(autoPlay.ID)) throw new InvalidDataException("Missing ID");
-            if (string.IsNullOrEmpty(autoPlay.Provider)) throw new InvalidDataException("Missing provider");
-
-            var verb = autoPlay.Verb;
-            if (verb == null) throw new InvalidDataException("Missing verb");
-            if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
-
             string handlerName = RegistryClasses.Prefix + autoPlay.ID;
             string progId = RegistryClasses.Prefix + "AutoPlay." + autoPlay.ID;
 
             using (var classesKey = RegistryClasses.OpenHive(machineWide))
-            using (var verbKey = classesKey.CreateSubKeyChecked($@"{progId}\shell\{verb.Name}"))
-                RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
+            using (var verbKey = classesKey.CreateSubKeyChecked($@"{progId}\shell\{autoPlay.Verb.Name}"))
+                RegistryClasses.Register(verbKey, target, autoPlay.Verb, iconStore, machineWide);
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 
@@ -86,12 +78,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
             {
                 handlerKey.SetValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, "");
                 handlerKey.SetValue(RegValueProgID, progId);
-                handlerKey.SetValue(RegValueVerb, verb.Name);
+                handlerKey.SetValue(RegValueVerb, autoPlay.Verb.Name);
                 handlerKey.SetValue(RegValueProvider, autoPlay.Provider);
-                handlerKey.SetValue(RegValueDescription, autoPlay.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? verb.Name);
+                handlerKey.SetValue(RegValueDescription, autoPlay.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? autoPlay.Verb.Name);
 
                 var icon = autoPlay.GetIcon(Icon.MimeTypeIco)
-                        ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
+                        ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
                 if (icon != null)
                     handlerKey.SetValue(RegValueIcon, iconStore.GetPath(icon) + ",0");
             }
@@ -119,14 +111,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="accessPoint">Indicates that the handler should was the default handler for all <see cref="Model.Capabilities.AutoPlay.Events"/>.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="autoPlay"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.AutoPlay autoPlay, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (autoPlay == null) throw new ArgumentNullException(nameof(autoPlay));
             #endregion
-
-            if (string.IsNullOrEmpty(autoPlay.ID)) throw new InvalidDataException("Missing ID");
 
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
             string handlerName = RegistryClasses.Prefix + autoPlay.ID;

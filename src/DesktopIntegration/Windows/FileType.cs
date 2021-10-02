@@ -59,15 +59,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
         public static void Register(FeedTarget target, Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
-
-            if (string.IsNullOrEmpty(fileType.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 
@@ -144,14 +141,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="accessPoint">Indicates that the file associations were default handlers for their respective types.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="fileType"/> is invalid.</exception>
         public static void Unregister(Model.Capabilities.FileType fileType, bool machineWide, bool accessPoint = false)
         {
             #region Sanity checks
             if (fileType == null) throw new ArgumentNullException(nameof(fileType));
             #endregion
-
-            if (string.IsNullOrEmpty(fileType.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
             foreach (var extension in fileType.Extensions.Except(extension => string.IsNullOrEmpty(extension.Value)))

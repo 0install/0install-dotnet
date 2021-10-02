@@ -61,7 +61,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
         public static void Apply(FeedTarget target, Model.Capabilities.ContextMenu contextMenu, IIconStore iconStore, bool machineWide)
         {
             #region Sanity checks
@@ -69,14 +68,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
-
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 
             if (contextMenu.Verbs.Count == 1)
             { // Simple context menu entry
-                var verb = contextMenu.Verbs.Single();
-                if (string.IsNullOrEmpty(verb.Name)) throw new InvalidDataException("Missing verb name");
+                var verb = contextMenu.Verbs[0];
 
                 foreach (string keyName in GetKeyName(contextMenu.Target))
                 {
@@ -115,14 +111,11 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <param name="machineWide">Remove the context menu entry machine-wide instead of just for the current user.</param>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-        /// <exception cref="InvalidDataException">The data in <paramref name="contextMenu"/> is invalid.</exception>
         public static void Remove(Model.Capabilities.ContextMenu contextMenu, bool machineWide)
         {
             #region Sanity checks
             if (contextMenu == null) throw new ArgumentNullException(nameof(contextMenu));
             #endregion
-
-            if (string.IsNullOrEmpty(contextMenu.ID)) throw new InvalidDataException("Missing ID");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 

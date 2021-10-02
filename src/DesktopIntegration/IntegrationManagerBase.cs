@@ -238,7 +238,6 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         /// <param name="appEntry">The application to remove.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         protected abstract void RemoveAppInternal(AppEntry appEntry);
@@ -247,7 +246,6 @@ namespace ZeroInstall.DesktopIntegration
         /// Updates an <see cref="AppEntry"/> with new metadata and capabilities from a <see cref="Feed"/>. This may unapply and remove some existing <see cref="AccessPoint"/>s.
         /// </summary>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <param name="appEntry">The application entry to update.</param>
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
         protected abstract void UpdateAppInternal(AppEntry appEntry, Feed feed);
@@ -262,7 +260,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
         /// <exception cref="ConflictException">One or more of the <paramref name="accessPoints"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="IIntegrationManager.AppList"/>.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
@@ -274,7 +271,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="appEntry">The <see cref="AppEntry"/> containing the <paramref name="accessPoints"/>.</param>
         /// <param name="accessPoints">The access points to unapply.</param>
         /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         protected abstract void RemoveAccessPointsInternal(AppEntry appEntry, IEnumerable<AccessPoint> accessPoints);
@@ -286,7 +282,6 @@ namespace ZeroInstall.DesktopIntegration
         /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
         /// <exception cref="ConflictException"><paramref name="appEntry"/> conflicts with the rest of the <see cref="AppList"/>.</exception>
-        /// <exception cref="InvalidDataException">One of the <see cref="AccessPoint"/>s or <see cref="Capability"/>s is invalid.</exception>
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
