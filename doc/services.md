@@ -2,7 +2,7 @@
 
 The \ref ZeroInstall.Services namespace provides services for solving dependencies, downloading implementations, executing apps, etc..
 
-### Dependency injection
+**Dependency injection**
 
 The \ref ZeroInstall.Services.ServiceProvider "ServiceProvider" class provides instances of all important services. You can think of it as a hard-coded dependency injection container. We use this instead of a runtime DI system to avoid the performance overhead of reflection. This is important for Zero Install to keep the cold-start time as short as possible (e.g., to avoid `0install run` for an already cached app from taking longer than necessary).
 
@@ -10,7 +10,7 @@ To instantiate the service provider you need to provide the constructor with a [
 
 You can also use the \ref ZeroInstall.Services.ServiceCollectionExtensions.AddZeroInstall ".AddZeroInstall()" extension method for `IServiceCollection` to replace the service provider with [.NET's built-in DI framework](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
 
-### Use-case
+**Use-case**
 
 A strongly simplified version of the `0install run` logic could use the services provided by the service provider as follows:
 
@@ -19,7 +19,7 @@ A strongly simplified version of the `0install run` logic could use the services
 - Pass \ref ZeroInstall.Model.Implementation to \ref ZeroInstall.Services.Fetchers.IFetcher.Fetch "IFetcher.Fetch()".
 - Pass \ref ZeroInstall.Model.Selection.Selections to \ref ZeroInstall.Services.Executors.IExecutor.Start "IExecutor.Start()".
 
-### Sample code
+**Sample code**
 
 - [C#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs)
 - [Visual Basic .NET](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb)

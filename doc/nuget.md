@@ -10,6 +10,6 @@
 | [ZeroInstall.Commands](https://www.nuget.org/packages/ZeroInstall.Commands/)                     | \ref ZeroInstall.Commands           | Command-line interface for Zero Install. The binary in this package serves both as an actual CLI and a library for building other clients.  |
 | [ZeroInstall.Publish](https://www.nuget.org/packages/ZeroInstall.Publish/)                       | \ref ZeroInstall.Publish            | Utilities for \ref md_publish "creating and modifying feed files".                                                                          |
 
-### Dependencies
+**Dependencies**
 
 \image html nuget-dependencies.svg

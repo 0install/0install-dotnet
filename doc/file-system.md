@@ -10,7 +10,7 @@ There are various implementations of `IBuilder`:
 - \ref ZeroInstall.Store.Manifests.ManifestBuilder for calculating an in-memory \ref ZeroInstall.Store.Manifests.Manifest "manifest" of the directory
 - \ref ZeroInstall.Archives.Builders for creating archives (`.zip`, `.tar`, etc.)
 
-### Implementation store
+**Implementation store**
 
 When adding an implementation to an \ref ZeroInstall.Store.Implementations.IImplementationStore the caller is provided an `IBuilder` via a callback:
 
@@ -24,6 +24,6 @@ store.Add(manifestDigest, builder =>
 
 This allows the implementation store to control how and where the implementation gets constructed (usually via a composite of a `DirectoryBuilder` and a `ManifestBuilder`).
 
-### Retrieval methods
+**Retrieval methods**
 
 \ref ZeroInstall.Store.FileSystem.BuilderExtensions and \ref ZeroInstall.Archives.BuilderExtensions provide extension methods for applying \ref ZeroInstall.Model.RetrievalMethod "retrieval methods" to an `IBuilder`. These methods internally pass the `IBuilder` to \ref ZeroInstall.Store.FileSystem.ReadDirectory, \ref ZeroInstall.Archives.Extractors, etc..
