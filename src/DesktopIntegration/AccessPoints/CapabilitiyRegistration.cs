@@ -44,9 +44,11 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
             if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
             #endregion
 
-            var capabilities = appEntry.CapabilityLists.CompatibleCapabilities().ToList();
             var target = new FeedTarget(appEntry.InterfaceUri, feed);
 
+            if (WindowsUtils.IsWindows) Windows.UninstallEntry.Register(target, iconStore, machineWide);
+
+            var capabilities = appEntry.CapabilityLists.CompatibleCapabilities().ToList();
             foreach (var capability in capabilities)
             {
                 switch (capability)
@@ -119,6 +121,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
                         if (WindowsUtils.IsWindows) Windows.ComServer.Unregister(comServer, machineWide);
                         break;
                 }
+
+                if (WindowsUtils.IsWindows) Windows.UninstallEntry.Unregister(appEntry.InterfaceUri, machineWide);
             }
         }
 
