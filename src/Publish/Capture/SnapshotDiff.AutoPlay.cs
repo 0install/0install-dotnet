@@ -71,7 +71,7 @@ namespace ZeroInstall.Publish.Capture
                 ID = handler,
                 Provider = provider,
                 Descriptions = {handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
-                Verb = GetVerb(progIDKey, commandMapper, verbName)
+                Verb = GetVerb(progIDKey, commandMapper, verbName) ?? throw new IOException($"Unable to find verb '{verbName}' for autoplay handler.")
             };
 
             autoPlay.Events.AddRange(

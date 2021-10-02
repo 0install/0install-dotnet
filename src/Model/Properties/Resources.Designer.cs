@@ -151,11 +151,11 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Missing {0} tag on feed {1}..
+        ///   Looks up a localized string similar to Missing {0} tag inside {1}..
         /// </summary>
-        internal static string MissingXmlTagOnFeed {
+        internal static string MissingXmlTagInsideTag {
             get {
-                return ResourceManager.GetString("MissingXmlTagOnFeed", resourceCulture);
+                return ResourceManager.GetString("MissingXmlTagInsideTag", resourceCulture);
             }
         }
         

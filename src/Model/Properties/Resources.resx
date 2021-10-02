@@ -147,8 +147,8 @@
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>Missing '{0}' attribute on {1}.</value>
   </data>
-  <data name="MissingXmlTagOnFeed" xml:space="preserve">
-    <value>Missing {0} tag on feed {1}.</value>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Missing {0} tag inside {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>The dot-separated list may only contain decimal numbers.</value>

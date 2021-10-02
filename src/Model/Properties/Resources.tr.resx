@@ -142,13 +142,13 @@
     <value>'{0}' geçerli bir 'http(s):' adresi ya da bir yerel yol değil.</value>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} iminde '{0}' özniteliği geçersiz.</value>
+    <value>{1} kod iminde '{0}' özniteliği geçersiz.</value>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} iminde '{0}' özniteliği eksik.</value>
+    <value>{1} kod iminde '{0}' özniteliği eksik.</value>
   </data>
-  <data name="MissingXmlTagOnFeed" xml:space="preserve">
-    <value>{1} akışında {0} kod imi eksik.</value>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>{1} içinde {0} kod imi eksik.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Nokta ile ayrılmış listede yalnız ondalık sayılar bulunabilir.</value>

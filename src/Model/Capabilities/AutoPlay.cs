@@ -4,8 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
+using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model.Capabilities
 {
@@ -28,7 +30,7 @@ namespace ZeroInstall.Model.Capabilities
         /// </summary>
         [Browsable(false)]
         [XmlElement("verb")]
-        public Verb? Verb { get; set; }
+        public Verb Verb { get; set; } = default!;
 
         /// <summary>
         /// The IDs of the events this action can handle.
@@ -47,7 +49,8 @@ namespace ZeroInstall.Model.Capabilities
         {
             base.Normalize();
             EnsureAttribute(Provider, "provider");
-            Verb?.Normalize();
+            if (Verb == null) throw new InvalidDataException(string.Format(Resources.MissingXmlTagInsideTag, "<verb>", ToShortXml()));
+            Verb.Normalize();
             foreach (var @event in Events) @event.Normalize();
         }
         #endregion
@@ -64,7 +67,8 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         public override Capability Clone()
         {
-            var capability = new AutoPlay {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Provider = Provider, Verb = Verb?.Clone()};
+            // ReSharper disable once ConstantConditionalAccessQualifier
+            var capability = new AutoPlay {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Provider = Provider, Verb = Verb?.Clone()!};
             capability.Icons.AddRange(Icons);
             capability.Descriptions.AddRange(Descriptions.CloneElements());
             capability.Events.AddRange(Events);

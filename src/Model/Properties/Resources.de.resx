@@ -147,8 +147,8 @@
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>Fehlendes '{0}' Attribut auf {1}.</value>
   </data>
-  <data name="MissingXmlTagOnFeed" xml:space="preserve">
-    <value>Fehlender {0} Tag auf dem Feed {1}.</value>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Fehlender {0} Tag in {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Die Punkt-getrennten Liste darf nur Dezimalzahlen enthalten.</value>
