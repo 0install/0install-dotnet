@@ -139,23 +139,21 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Periodically checks Zero Install itself for updates in a background process.
+        /// Automatically updates Zero Install itself in a background process.
         /// </summary>
-        protected void SelfUpdateCheck()
+        protected void BackgroundSelfUpdate()
         {
-            if (!ZeroInstallInstance.IsRunningFromCache
-             && NetUtils.IsInternetConnected
-             && Handler.Verbosity != Verbosity.Batch
-             && Config.NetworkUse == NetworkLevel.Full
-             && Config.SelfUpdateUri != null
-             && FeedManager.IsStale(Config.SelfUpdateUri))
-            {
-                // Prevent multiple concurrent updates
-                if (FeedManager.RateLimit(Config.SelfUpdateUri)) return;
+            if (ZeroInstallInstance.IsRunningFromCache
+             || !NetUtils.IsInternetConnected
+             || Handler.Verbosity == Verbosity.Batch
+             || Config.NetworkUse != NetworkLevel.Full
+             || Config.SelfUpdateUri == null
+             || !FeedManager.IsStale(Config.SelfUpdateUri) // Limit frequency of update checks
+             || FeedManager.RateLimit(Config.SelfUpdateUri)) // Prevent multiple concurrent update checks
+                return;
 
-                Log.Info("Starting periodic background self-update check");
-                StartCommandBackground(Self.Name, Self.Update.Name);
-            }
+            Log.Info("Starting periodic background self-update check");
+            StartCommandBackground(Self.Name, Self.Update.Name, "--batch");
         }
 
         /// <summary>

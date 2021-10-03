@@ -104,7 +104,7 @@ namespace ZeroInstall.Commands.Basic
                     break;
             }
 
-            SelfUpdateCheck();
+            BackgroundSelfUpdate();
 
             return ShowOutput();
         }

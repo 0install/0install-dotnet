@@ -91,7 +91,7 @@ namespace ZeroInstall.Commands.Basic
             }
             #endregion
 
-            SelfUpdateCheck();
+            BackgroundSelfUpdate();
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             return ShowOutput();

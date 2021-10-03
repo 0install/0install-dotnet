@@ -87,7 +87,7 @@ namespace ZeroInstall.Commands.Basic
             Handler.CloseUI();
 
             BackgroundUpdate();
-            SelfUpdateCheck();
+            BackgroundSelfUpdate();
 
             if (process == null) return ExitCode.OK;
             if (_noWait) return (WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK);

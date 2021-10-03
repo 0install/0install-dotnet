@@ -58,7 +58,7 @@ namespace ZeroInstall.Commands.Desktop
 
             finally
             {
-                SelfUpdateCheck();
+                BackgroundSelfUpdate();
             }
 
             return ExitCode.OK;

@@ -52,7 +52,7 @@ namespace ZeroInstall.Commands.Desktop
         {
             var implementations = SolveAll(GetApps());
             DownloadUncachedImplementations(implementations);
-            SelfUpdateCheck();
+            BackgroundSelfUpdate();
 
             if (_clean)
             {

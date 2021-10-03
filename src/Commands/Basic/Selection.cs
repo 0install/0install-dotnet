@@ -158,7 +158,7 @@ namespace ZeroInstall.Commands.Basic
                 Log.Info("Running Refresh Solve because feeds have become stale");
                 RefreshSolve();
             }
-            SelfUpdateCheck();
+            BackgroundSelfUpdate();
 
             Show(Selections);
 

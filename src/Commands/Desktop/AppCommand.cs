@@ -51,7 +51,7 @@ namespace ZeroInstall.Commands.Desktop
             }
             finally
             {
-                SelfUpdateCheck();
+                BackgroundSelfUpdate();
             }
         }
 

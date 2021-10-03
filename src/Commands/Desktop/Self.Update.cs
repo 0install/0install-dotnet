@@ -105,6 +105,7 @@ namespace ZeroInstall.Commands.Desktop
                         throw new OperationCanceledException();
 
                     var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
+                    if (Handler.Background) builder.AddArguments("--background");
                     if (_restartCentral) builder.AddArguments("--restart-central");
                     builder.Start();
 
