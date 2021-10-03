@@ -2,11 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
@@ -182,47 +182,39 @@ namespace ZeroInstall.Commands
                 handler.Error(ex);
                 return ExitCode.Conflict;
             }
-            catch (UnsuitableInstallBaseException ex)
+            catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows)
             {
-                if (WindowsUtils.IsWindows)
+                try
                 {
-                    try
-                    {
-                        var result = TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide);
-                        if (result.HasValue) return result.Value;
-                        else if (handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + ex.Message,
-                            defaultAnswer: true, alternateMessage: ex.Message))
-                        {
-                            var deployArgs = new[] {Self.AltName, Self.Deploy.Name, "--batch"};
-                            if (ex.NeedsMachineWide) deployArgs = deployArgs.Append("--machine");
-                            var deployResult = Run(exeName, deployArgs, handler);
-                            if (deployResult == ExitCode.OK)
-                            {
-                                result = TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide);
-                                if (result.HasValue) return result.Value;
-                                else throw new IOException("Unable to find newly installed instance.");
-                            }
-                            else return deployResult;
-                        }
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        return ExitCode.UserCanceled;
-                    }
-                    catch (IOException ex2)
-                    {
-                        handler.Error(ex2);
-                        return ExitCode.IOError;
-                    }
-                    catch (NotAdminException ex2)
-                    {
-                        handler.Error(ex2);
-                        return ExitCode.AccessDenied;
-                    }
-                }
-                else handler.Error(ex);
+                    var result = TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide);
+                    if (result.HasValue) return result.Value;
 
-                return ExitCode.NotSupported;
+                    if (!handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + ex.Message,
+                        defaultAnswer: true, alternateMessage: ex.Message))
+                        return ExitCode.NotSupported;
+
+                    var deployArgs = new List<string> { Self.AltName, Self.Deploy.Name, "--batch" };
+                    if (ex.NeedsMachineWide) deployArgs.Add("--machine");
+                    var deployResult = Run(exeName, deployArgs.ToArray(), handler);
+                    if (deployResult != ExitCode.OK) return deployResult;
+
+                    return TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide)
+                        ?? throw new IOException("Unable to find newly installed instance.");
+                }
+                catch (OperationCanceledException)
+                {
+                    return ExitCode.UserCanceled;
+                }
+                catch (IOException ex2)
+                {
+                    handler.Error(ex2);
+                    return ExitCode.IOError;
+                }
+                catch (NotAdminException ex2)
+                {
+                    handler.Error(ex2);
+                    return ExitCode.AccessDenied;
+                }
             }
             catch (OptionException ex)
             {
