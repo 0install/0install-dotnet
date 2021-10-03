@@ -40,7 +40,7 @@ namespace ZeroInstall.Commands.Desktop
         #endregion
 
         /// <inheritdoc/>
-        public override void Parse(IEnumerable<string> args)
+        public override void Parse(IReadOnlyList<string> args)
         {
             base.Parse(args);
 

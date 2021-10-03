@@ -82,7 +82,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="UnauthorizedAccessException">Creating a directory is not permitted.</exception>
         /// <exception cref="InvalidDataException">A configuration file is damaged.</exception>
         /// <exception cref="FormatException">An URI, local path, version number, etc. is invalid.</exception>
-        public static CliCommand CreateAndParse(IEnumerable<string> args, ICommandHandler handler)
+        public static CliCommand CreateAndParse(IReadOnlyList<string> args, ICommandHandler handler)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
@@ -97,19 +97,21 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Determines the command name specified in the command-line arguments.
         /// </summary>
-        /// <param name="args">The command-line arguments to search for a command name. If a command is found it is removed from the collection.</param>
+        /// <param name="args">The command-line arguments to search for a command name. The collection is replaced with a copy with the command removed from it.</param>
         /// <returns>The name of the command that was found or <c>null</c> if none was specified.</returns>
-        public static string? GetCommandName(ref IEnumerable<string> args)
+        public static string? GetCommandName(ref IReadOnlyList<string> args)
         {
             #region Sanity checks
             if (args == null) throw new ArgumentNullException(nameof(args));
             #endregion
 
-            var arguments = new LinkedList<string>(args);
-            string? commandName = arguments.FirstOrDefault(argument => !argument.StartsWith("-") && !argument.StartsWith("/"));
-            if (commandName != null) arguments.Remove(commandName);
+            var argsList = args.ToList();
+            int index = argsList.FindIndex(arg => !arg.StartsWith("-") && !arg.StartsWith("/"));
+            if (index == -1) return null;
 
-            args = arguments;
+            string commandName = argsList[index];
+            argsList.RemoveAt(index);
+            args = argsList;
             return commandName;
         }
     }

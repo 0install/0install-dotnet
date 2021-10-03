@@ -147,8 +147,7 @@ namespace ZeroInstall.Commands
         /// <exception cref="IOException">An IO operation failed.</exception>
         /// <exception cref="UnauthorizedAccessException">More privileges are required.</exception>
         /// <exception cref="UriFormatException">The URI or local path specified is invalid.</exception>
-        [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
-        public virtual void Parse(IEnumerable<string> args)
+        public virtual void Parse(IReadOnlyList<string> args)
         {
             if (args == null) throw new ArgumentNullException(nameof(args));
 

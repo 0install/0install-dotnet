@@ -61,7 +61,8 @@ namespace ZeroInstall.Commands.Basic
 
         private string? _outputPath;
 
-        public override void Parse(IEnumerable<string> args)
+        /// <inheritdoc/>
+        public override void Parse(IReadOnlyList<string> args)
         {
             base.Parse(args);
 
