@@ -24,7 +24,9 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// Select a version of the program identified by URI, and compatible versions of all of its dependencies.
     /// </summary>
+#if NETFRAMEWORK
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+#endif
     public class Selection : CliCommand
     {
         #region Metadata

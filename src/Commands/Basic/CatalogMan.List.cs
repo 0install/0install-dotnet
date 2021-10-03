@@ -10,7 +10,6 @@ namespace ZeroInstall.Commands.Basic
         private class List : CatalogSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "list";
 
             public override string Description => Resources.DescriptionCatalogList;

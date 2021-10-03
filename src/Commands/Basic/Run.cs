@@ -16,6 +16,9 @@ namespace ZeroInstall.Commands.Basic
     /// <summary>
     /// This behaves similarly to <see cref="Download"/>, except that it also runs the program after ensuring it is in the cache.
     /// </summary>
+#if NETFRAMEWORK
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+#endif
     public class Run : Download
     {
         #region Metadata

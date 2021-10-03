@@ -12,7 +12,6 @@ namespace ZeroInstall.Commands.Basic
         private class Remove : CatalogSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "remove";
 
             public override string Description => Resources.DescriptionCatalogRemove;

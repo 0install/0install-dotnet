@@ -11,7 +11,6 @@ namespace ZeroInstall.Commands.Basic
         private class Reset : CatalogSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "reset";
 
             public override string Description => Resources.DescriptionCatalogReset;

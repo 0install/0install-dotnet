@@ -47,7 +47,6 @@ namespace ZeroInstall.Commands.Desktop
         public class Remove : RemoveSubCommandBase
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "remove";
 
             public override string Description => Resources.DescriptionMaintenanceRemove;
@@ -122,7 +121,6 @@ namespace ZeroInstall.Commands.Desktop
         private class RemoveHelper : RemoveSubCommandBase
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "remove-helper";
 
             public override string Description => "Internal helper for '0install maintenance remove' used to support self-removal on Windows.";

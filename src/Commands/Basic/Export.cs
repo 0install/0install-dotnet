@@ -13,16 +13,15 @@ using ZeroInstall.Services;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Configuration;
 
-#if NETFRAMEWORK
-// ReSharper disable PossibleNullReferenceException
-// ReSharper disable AssignNullToNotNullAttribute
-#endif
-
 namespace ZeroInstall.Commands.Basic
 {
     /// <summary>
     /// Exports all feeds and implementations required to launch the program specified by URI.
     /// </summary>
+#if NETFRAMEWORK
+    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+#endif
     public class Export : Download
     {
         #region Metadata

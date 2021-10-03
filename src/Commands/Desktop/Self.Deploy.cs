@@ -22,7 +22,6 @@ namespace ZeroInstall.Commands.Desktop
         public class Deploy : SelfSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "deploy";
 
             public override string Description => Resources.DescriptionMaintenanceDeploy;

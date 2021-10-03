@@ -10,7 +10,6 @@ namespace ZeroInstall.Commands.Basic
         private class Refresh : CatalogSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public const string Name = "refresh";
 
             public override string Description => Resources.DescriptionCatalogRefresh;

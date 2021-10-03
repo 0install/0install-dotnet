@@ -19,10 +19,12 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// Updates Zero Install itself to the most recent version.
         /// </summary>
+#if NETFRAMEWORK
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+#endif
         public class Update : Download, ICliSubCommand
         {
             #region Metadata
-            // ReSharper disable once MemberHidesStaticFromOuterClass
             public new const string Name = "update";
 
             public const string TopLevelName = "self-update";
