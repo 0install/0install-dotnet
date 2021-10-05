@@ -34,7 +34,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 {
                     InterfaceUri = new("https://apps.0install.net/java/jar-launcher.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
+                    Versions = ToVersionRange(MinimumRuntimeVersion)
                 }
             }
             : new Command
@@ -46,7 +46,7 @@ namespace ZeroInstall.Publish.EntryPoints
                     InterfaceUri = new("https://apps.0install.net/java/jre.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
                     Arguments = {@"-jar"},
-                    Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
+                    Versions = ToVersionRange(MinimumRuntimeVersion)
                 }
             };
     }

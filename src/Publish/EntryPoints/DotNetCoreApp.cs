@@ -38,7 +38,7 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 InterfaceUri = new("https://apps.0install.net/dotnet/core.xml"),
                 Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
+                Versions = ToVersionRange(MinimumRuntimeVersion)
             }
         };
 

@@ -94,7 +94,7 @@ namespace ZeroInstall.Publish.EntryPoints
                 {
                     InterfaceUri = GetInterfaceUri(),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = new Constraint {NotBefore = MinimumRuntimeVersion}
+                    Versions = ToVersionRange(MinimumRuntimeVersion)
                 }
             };
         }

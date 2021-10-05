@@ -106,6 +106,9 @@ namespace ZeroInstall.Publish.EntryPoints
         [Browsable(false)]
         public abstract Command CreateCommand();
 
+        protected static VersionRange? ToVersionRange(ImplementationVersion? version)
+            => version == null ? null : new Constraint { NotBefore = version };
+
         /// <summary>The <see cref="Command.Name"/> used by <see cref="CreateCommand"/>.</summary>
         protected string CommandName => (Path.GetFileNameWithoutExtension(RelativePath) ?? "unknown").Replace(" ", "-");
 
