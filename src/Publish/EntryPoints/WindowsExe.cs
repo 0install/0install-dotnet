@@ -41,7 +41,7 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 try
                 {
-                    Version = new(versionInfo.ProductVersion.Trim());
+                    Version = new(versionInfo.ProductVersion.GetLeftPartAtFirstOccurrence('+')); // Trim commit hash suffixes
                 }
                 catch (FormatException)
                 {}
