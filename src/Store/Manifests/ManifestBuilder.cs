@@ -40,13 +40,12 @@ namespace ZeroInstall.Store.Manifests
         {
             (string dir, string file) = Split(path);
 
-            long length = 0;
-            string digest = Manifest.Format.DigestContent(
-                new ProgressStream(stream, new SynchronousProgress<long>(x => length = x)));
+            var progressStream = new ProgressStream(stream, new SynchronousProgress<long>());
+            string digest = Manifest.Format.DigestContent(progressStream);
 
             Manifest[dir][file] = executable
-                ? new ManifestExecutableFile(digest, modifiedTime, length)
-                : new ManifestNormalFile(digest, modifiedTime, length);
+                ? new ManifestExecutableFile(digest, modifiedTime, progressStream.Length)
+                : new ManifestNormalFile(digest, modifiedTime, progressStream.Length);
         }
 
         /// <inheritdoc/>

@@ -8,13 +8,24 @@ using Xunit;
 namespace ZeroInstall
 {
     /// <summary>
-    /// Common base class for test fixtures that use a <see cref="LocationsRedirect"/>.
+    /// Common base class for test fixtures that use <see cref="Locations.Redirect"/>.
     /// </summary>
     [Collection("Static state")]
-    public abstract class TestWithRedirect : IDisposable
+    public class TestWithRedirect : IDisposable
     {
-        private readonly LocationsRedirect _redirect = new("0install-test-redirect");
+        private readonly TemporaryDirectory _tempDir = new("0install-test-redirect");
 
-        public virtual void Dispose() => _redirect.Dispose();
+        private readonly IDisposable _redirect;
+
+        public TestWithRedirect()
+        {
+            _redirect = Locations.Redirect(_tempDir);
+        }
+
+        public virtual void Dispose()
+        {
+            _redirect.Dispose();
+            _tempDir.Dispose();
+        }
     }
 }

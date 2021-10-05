@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Streams;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -15,7 +16,7 @@ namespace ZeroInstall.Store.Trust
     /// </summary>
     public partial class GnuPG : IOpenPgp
     {
-        private readonly string _homeDir;
+        private readonly GpgProcess _gpg;
 
         /// <summary>
         /// Creates a new GnuPG instance.
@@ -27,7 +28,7 @@ namespace ZeroInstall.Store.Trust
             if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
             #endregion
 
-            _homeDir = homeDir;
+            _gpg = new(homeDir);
         }
 
         /// <inheritdoc/>
@@ -41,8 +42,7 @@ namespace ZeroInstall.Store.Trust
             using (var signatureFile = new TemporaryFile("0install-sig"))
             {
                 File.WriteAllBytes(signatureFile, signature);
-                result = new GpgProcess(_homeDir, data)
-                   .Execute("--batch", "--no-secmem-warning", "--status-fd", "1", "--verify", signatureFile.Path, "-");
+                result = _gpg.Run(data, "--status-fd", "1", "--verify", signatureFile.Path, "-");
             }
             var lines = result.SplitMultilineText();
 
@@ -114,8 +114,8 @@ namespace ZeroInstall.Store.Trust
             #endregion
 
             return Convert.FromBase64String(
-                new GpgProcess(_homeDir, data)
-                   .Execute("--batch", "--no-secmem-warning", "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
+                _gpg
+                   .Run(data, "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
                    .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
                    .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
                    .Replace(Environment.NewLine, "\n"));
@@ -123,10 +123,7 @@ namespace ZeroInstall.Store.Trust
 
         /// <inheritdoc/>
         public void ImportKey(ArraySegment<byte> data)
-        {
-            new GpgProcess(_homeDir, data)
-               .Execute("--batch", "--no-secmem-warning", "--quiet", "--import");
-        }
+            => _gpg.Run(data, "--quiet", "--import");
 
         /// <inheritdoc/>
         public string ExportKey(IKeyIDContainer keyIDContainer)
@@ -135,16 +132,14 @@ namespace ZeroInstall.Store.Trust
             if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
             #endregion
 
-            string result = new GpgProcess(_homeDir)
-               .Execute("--batch", "--no-secmem-warning", "--armor", "--export", keyIDContainer.FormatKeyID());
+            string result = _gpg.Run("--armor", "--export", keyIDContainer.FormatKeyID());
             return result.Replace(Environment.NewLine, "\n") + "\n";
         }
 
         /// <inheritdoc/>
         public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
         {
-            string result = new GpgProcess(_homeDir)
-               .Execute("--batch", "--no-secmem-warning", "--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
+            string result = _gpg.Run("--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
             string[]? sec = null, fpr = null, uid = null;
             foreach (string line in result.SplitMultilineText())

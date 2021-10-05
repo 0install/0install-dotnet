@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,29 +15,14 @@ namespace ZeroInstall.Store.Trust
         /// <summary>
         /// Manages the interaction with the command-line interface of the external process.
         /// </summary>
-        private class GpgProcess : ChildProcess
+        private class GpgProcess : SubProcess
         {
-            /// <inheritdoc/>
-            protected override string AppBinary => "gpg";
-
-            private static readonly object _gpgLock = new();
-
             private readonly string? _homeDir;
 
-            private readonly ArraySegment<byte>? _stdinBytes;
-
-            public GpgProcess(string? homeDir = null, ArraySegment<byte>? stdinBytes = null)
+            public GpgProcess(string? homeDir = null)
+                : base(fileName: "gpg", arguments: "--batch --no-secmem-warning")
             {
                 _homeDir = homeDir;
-                _stdinBytes = stdinBytes;
-            }
-
-            /// <inheritdoc/>
-            public override string Execute(params string[] arguments)
-            {
-                // Run only one gpg instance at a time to prevent file system race conditions
-                lock (_gpgLock)
-                    return base.Execute(arguments);
             }
 
             /// <inheritdoc/>
@@ -54,31 +38,17 @@ namespace ZeroInstall.Store.Trust
                 return startInfo;
             }
 
-            protected override void InitStdin(StreamWriter writer)
-            {
-                #region Sanity checks
-                if (writer == null) throw new ArgumentNullException(nameof(writer));
-                #endregion
-
-                if (_stdinBytes.HasValue)
-                {
-                    writer.BaseStream.Write(_stdinBytes.Value.Array!, _stdinBytes.Value.Offset, _stdinBytes.Value.Count);
-                    writer.BaseStream.Flush();
-                }
-                writer.Close();
-            }
-
             /// <inheritdoc/>
-            protected override string? HandleStderr(string line)
+            protected override void OnStderr(string line, StreamWriter stdin)
             {
-                #region Sanity checks
-                if (line == null) throw new ArgumentNullException(nameof(line));
-                #endregion
-
-                if (line == "gpg: no valid OpenPGP data found.")
-                    throw new InvalidDataException(line);
-                if (line is "gpg: signing failed: secret key not available" or "gpg: WARNING: nothing exported")
-                    throw new KeyNotFoundException(line);
+                switch (line)
+                {
+                    case "gpg: no valid OpenPGP data found.":
+                        throw new InvalidDataException(line);
+                    case "gpg: signing failed: secret key not available":
+                    case "gpg: WARNING: nothing exported":
+                        throw new KeyNotFoundException(line);
+                }
 
                 if (line.StartsWith("gpg: Signature made ") ||
                     line.StartsWith("gpg: Good signature from ") ||
@@ -87,14 +57,14 @@ namespace ZeroInstall.Store.Trust
                     line.Contains("There is no indication") ||
                     line.StartsWith("Primary key fingerprint: ") ||
                     line.StartsWith("gpg: Can't check signature: public key not found"))
-                    return null;
+                    return;
 
                 if (line.StartsWith("gpg: BAD signature from ") ||
                     line.StartsWith("gpg: WARNING:") ||
                     (line.StartsWith("gpg: renaming ") && line.EndsWith("failed: Permission denied")))
                 {
                     Log.Warn(line);
-                    return null;
+                    return;
                 }
 
                 if (line.StartsWith("gpg: waiting for lock") ||
@@ -102,7 +72,7 @@ namespace ZeroInstall.Store.Trust
                     (line.StartsWith("gpg: ") && line.EndsWith(": trustdb created")))
                 {
                     Log.Info(line);
-                    return null;
+                    return;
                 }
 
                 if (line.StartsWith("gpg: skipped ") && line.EndsWith(": bad passphrase")) throw new WrongPassphraseException();
@@ -115,7 +85,6 @@ namespace ZeroInstall.Store.Trust
 
                 // Unknown GnuPG message
                 Log.Warn(line);
-                return null;
             }
         }
     }
