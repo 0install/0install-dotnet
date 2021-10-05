@@ -57,7 +57,7 @@ namespace ZeroInstall.Model
             if (fileName == null) throw new ArgumentNullException(nameof(fileName));
             #endregion
 
-            if (fileName.EndsWithIgnoreCase(".zip")) return MimeTypeZip;
+            if (fileName.EndsWithIgnoreCase(".zip") || fileName.EndsWithIgnoreCase(".nupkg") || fileName.EndsWithIgnoreCase(".msix")) return MimeTypeZip;
             if (fileName.EndsWithIgnoreCase(".tar")) return MimeTypeTar;
             if (fileName.EndsWithIgnoreCase(".tar.gz") || fileName.EndsWithIgnoreCase(".tgz")) return MimeTypeTarGzip;
             if (fileName.EndsWithIgnoreCase(".tar.bz2") || fileName.EndsWithIgnoreCase(".tbz2") || fileName.EndsWithIgnoreCase(".tbz")) return MimeTypeTarBzip;
