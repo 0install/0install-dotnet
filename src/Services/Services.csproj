@@ -20,22 +20,13 @@
     <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
-    <Reference Include="System.Web">
-      <Pack>False</Pack>
-    </Reference>
+    <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
 
   <!-- Embedded resources -->
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Executors\runenv.sh.template" />
     <EmbeddedResource Include="Executors\runenv.clr2.template" />
     <EmbeddedResource Include="Executors\runenv.clr4.template" />

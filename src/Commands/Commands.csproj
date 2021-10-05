@@ -31,37 +31,20 @@
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
-    <Reference Include="System.Web">
-      <Pack>False</Pack>
-    </Reference>
-    <Reference Include="System.ServiceProcess">
-      <Pack>False</Pack>
-    </Reference>
+    <Reference Include="System.Web" Pack="False" />
+    <Reference Include="System.ServiceProcess" Pack="False" />
   </ItemGroup>
 
   <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
   <ItemGroup>
-    <None Include="*.targets">
-      <PackagePath>build\net472</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="App.config">
-      <PackagePath>build\net472\$(AssemblyName).exe.config</PackagePath>
-      <Pack>True</Pack>
-    </None>
+    <None Include="*.targets" PackagePath="build\net472" Pack="True" />
+    <None Include="App.config" PackagePath="build\net472\$(AssemblyName).exe.config" Pack="True" />
   </ItemGroup>
 
   <!-- Embedded resources -->
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="PublicResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Basic\Exporters\import.*" />
   </ItemGroup>
 
