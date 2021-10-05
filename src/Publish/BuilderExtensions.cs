@@ -99,13 +99,13 @@ namespace ZeroInstall.Publish
             {
                 retrievalMethod.SetMissing(executor, localPath);
 
+                builder.Add(retrievalMethod, stream, handler);
+
                 long size = stream.Length;
                 if (retrievalMethod is Archive archive)
                     size -= archive.StartOffset;
                 if (retrievalMethod.Size != size)
                     executor.Execute(SetValueCommand.For(() => retrievalMethod.Size, newValue: size));
-
-                builder.Add(retrievalMethod, stream, handler);
             }
 
             if (localPath == null)
