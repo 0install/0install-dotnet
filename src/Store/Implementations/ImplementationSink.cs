@@ -62,10 +62,6 @@ namespace ZeroInstall.Store.Implementations
 
             try
             {
-                // Ensure the filesystem can store file-changed times accurate to the second (otherwise ManifestDigests will break)
-                if (FileUtils.DetermineTimeAccuracy(Path) > 0)
-                    throw new IOException(Resources.InsufficientFSTimeAccuracy);
-
                 if (UseWriteProtection && WindowsUtils.IsWindowsNT)
                 {
                     File.WriteAllText(
@@ -83,6 +79,12 @@ namespace ZeroInstall.Store.Implementations
             {
                 Log.Debug(ex);
                 ReadOnly = true;
+            }
+
+            if (!ReadOnly)
+            {
+                if (FileUtils.DetermineTimeAccuracy(Path) > 0)
+                    throw new IOException(Resources.InsufficientFSTimeAccuracy);
             }
         }
 
