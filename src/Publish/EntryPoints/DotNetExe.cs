@@ -27,7 +27,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (peHeader == null) throw new ArgumentNullException(nameof(peHeader));
             #endregion
 
-            Architecture = new(OS.All, GetCpu(peHeader.FileHeader.Machine));
+            Architecture = new(OS.Windows, GetCpu(peHeader.FileHeader.Machine));
             if (peHeader.Subsystem >= PESubsystem.WindowsCui) NeedsTerminal = true;
             return peHeader.Is32BitHeader
                 ? (peHeader.OptionalHeader32.CLRRuntimeHeader.VirtualAddress != 0)

@@ -15,7 +15,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public static readonly DotNetExe Reference = new()
         {
             RelativePath = "dotnet.exe",
-            Architecture = new(OS.All, Cpu.All),
+            Architecture = new(OS.Windows, Cpu.All),
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0")
@@ -24,7 +24,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public static readonly DotNetExe Reference64 = new()
         {
             RelativePath = "dotnet64.exe",
-            Architecture = new(OS.All, Cpu.X64),
+            Architecture = new(OS.Windows, Cpu.X64),
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0")
@@ -33,7 +33,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public static readonly DotNetExe ReferenceTerminal = new()
         {
             RelativePath = "dotnet_terminal.exe",
-            Architecture = new(OS.All, Cpu.All),
+            Architecture = new(OS.Windows, Cpu.All),
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0"),
