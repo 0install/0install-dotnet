@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.IO.Pipelines;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Deployment.Compression;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.FileSystem;
@@ -36,7 +37,7 @@ namespace ZeroInstall.Archives.Extractors
         public void CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
         {}
 
-        private Thread? _thread;
+        private Task? _task;
         private Pipe? _pipe;
 
         public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
@@ -50,8 +51,7 @@ namespace ZeroInstall.Archives.Extractors
 
             var readStream = new ProgressStream(_pipe.Reader.AsStream());
             readStream.SetLength(fileSize);
-            _thread = new Thread(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc))) {IsBackground = true};
-            _thread.Start();
+            _task = Task.Run(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), _cancellationToken);
 
             return _pipe.Writer.AsStream();
         }
@@ -61,7 +61,7 @@ namespace ZeroInstall.Archives.Extractors
             _pipe?.Writer.Complete();
             stream.Dispose();
 
-            _thread?.Join();
+            _task?.Wait(_cancellationToken);
             _pipe?.Reader.Complete();
         }
     }
