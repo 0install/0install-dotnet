@@ -3,9 +3,7 @@
 
 using System;
 using System.IO;
-using System.Threading;
 using FluentAssertions;
-using NanoByte.Common;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
@@ -148,34 +146,20 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
-        public void StressTest()
+        public void AddRemoveStressTest()
         {
-            Exception? exception = null;
-            var threads = new Thread[100];
-            for (int i = 0; i < threads.Length; i++)
+            StressTest.Run(() =>
             {
-                threads[i] = new Thread(() =>
+                try
                 {
-                    try
-                    {
-                        _store.Add(_referenceDigest, builder => builder.AddFile("file", "AAA".ToStream(), 3600));
-                        _store.Remove(_referenceDigest, _handler);
-                    }
-                    catch (ImplementationAlreadyInStoreException)
-                    {}
-                    catch (ImplementationNotFoundException)
-                    {}
-                    catch (Exception ex)
-                    {
-                        exception = ex;
-                    }
-                });
-                threads[i].Start();
-            }
-
-            foreach (var thread in threads)
-                thread.Join();
-            exception?.Rethrow();
+                    _store.Add(_referenceDigest, builder => builder.AddFile("file", "AAA".ToStream(), 3600));
+                    _store.Remove(_referenceDigest, _handler);
+                }
+                catch (ImplementationAlreadyInStoreException)
+                {}
+                catch (ImplementationNotFoundException)
+                {}
+            });
 
             _store.Contains(_referenceDigest).Should().BeFalse();
         }

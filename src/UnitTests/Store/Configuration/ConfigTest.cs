@@ -4,11 +4,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 using FluentAssertions;
-using NanoByte.Common;
 using NanoByte.Common.Storage;
 using Xunit;
+
 #if NET
 using Microsoft.Extensions.Configuration;
 #endif
@@ -117,31 +116,11 @@ namespace ZeroInstall.Store.Configuration
         #endif
 
         [Fact]
-        public void StressTest()
+        public void LoadStressTest()
         {
             new Config().Save();
 
-            Exception exception = null;
-            var threads = new Thread[100];
-            for (int i = 0; i < threads.Length; i++)
-            {
-                threads[i] = new Thread(() =>
-                {
-                    try
-                    {
-                        Config.Load();
-                    }
-                    catch (Exception ex)
-                    {
-                        exception = ex;
-                    }
-                });
-                threads[i].Start();
-            }
-
-            foreach (var thread in threads)
-                thread.Join();
-            exception?.Rethrow();
+            StressTest.Run(() => _ = Config.Load());
         }
     }
 }
