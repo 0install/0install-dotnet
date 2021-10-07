@@ -129,6 +129,8 @@ namespace ZeroInstall.Services.Executors
         {
             if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
+            _startInfo.EnvironmentVariables["ZEROINSTALL_FEED_URI"] = _selections.InterfaceUri.ToStringRfc();
+
             try
             {
                 ProcessRunEnvBindings();

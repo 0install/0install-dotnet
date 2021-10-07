@@ -36,5 +36,10 @@ namespace ZeroInstall.Model
             get => Environment.GetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER");
             set => Environment.SetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER", value);
         }
+
+        /// <summary>
+        /// The URI of the feed used to start this program.
+        /// </summary>
+        public static string? FeedUri => Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
     }
 }
