@@ -1748,7 +1748,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Write selected versions to console as machine-readable XML..
+        ///   Looks up a localized string similar to Write output to console as machine-readable XML..
         /// </summary>
         public static string OptionXml {
             get {

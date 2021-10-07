@@ -1,9 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.Linq;
 using NanoByte.Common;
+using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
@@ -28,18 +27,26 @@ namespace ZeroInstall.Commands.Desktop
         protected override int AdditionalArgsMax => 1;
         #endregion
 
+        /// <summary>Indicates the user wants a machine-readable output.</summary>
+        private bool _xmlOutput;
+
         /// <inheritdoc/>
         public ListApps(ICommandHandler handler)
             : base(handler)
-        {}
+        {
+            Options.Add("xml", () => Resources.OptionXml, _ => _xmlOutput = true);
+        }
 
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            IEnumerable<AppEntry> apps = AppList.LoadSafe(MachineWide).Entries;
-            if (AdditionalArgs.Count > 0) apps = apps.Where(x => x.Name.ContainsIgnoreCase(AdditionalArgs[0]));
+            var apps = AppList.LoadSafe(MachineWide);
 
-            Handler.Output(Resources.MyApps, apps);
+            // Apply filter
+            if (AdditionalArgs.Count > 0) apps.Entries.RemoveAll(x => !x.Name.ContainsIgnoreCase(AdditionalArgs[0]));
+
+            if (_xmlOutput) Handler.Output(Resources.MyApps, apps.ToXmlString());
+            else Handler.Output(Resources.MyApps, apps.Entries);
             return ExitCode.OK;
         }
     }

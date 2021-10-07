@@ -701,7 +701,7 @@ Note that the wrapper is executed in the environment selected by the program; he
 May contain command-line arguments. Whitespaces must be escaped!</value>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Write selected versions to console as machine-readable XML.</value>
+    <value>Write output to console as machine-readable XML.</value>
   </data>
   <data name="PortableMode" xml:space="preserve">
     <value>Portable mode</value>

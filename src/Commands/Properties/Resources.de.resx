@@ -701,7 +701,7 @@ Beachten Sie, dass der Wrapper in der vom Programm festgelegten Umgebung ausgef�
 Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</value>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Scheibe ausgewählte Versionen auf die Konsole als Maschinen-lesbares XML.</value>
+    <value>Scheibe Ausgabe auf die Konsole als Maschinen-lesbares XML.</value>
   </data>
   <data name="PortableMode" xml:space="preserve">
     <value>Portabler Modus</value>
