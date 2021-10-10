@@ -103,18 +103,18 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (WindowsUtils.IsWindows && !Portable)
+                if (!Portable)
                 {
-                    DesktopIntegrationApply();
-                    RegistryApply(newManifest.TotalSize);
-                    WindowsUtils.BroadcastMessage(PerformedWindowMessageID);
+                    DesktopIntegrationApply(newManifest.TotalSize);
+                    ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide);
+                    if (WindowsUtils.IsWindows) WindowsUtils.BroadcastMessage(PerformedWindowMessageID);
                     RemoveOneGetBootstrap();
                 }
 
                 TargetMutexRelease();
 
 #if NETFRAMEWORK
-                if (WindowsUtils.IsWindows && MachineWide)
+                if (MachineWide)
                 {
                     NgenApply();
                     ServiceInstall();
@@ -139,7 +139,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             var targetManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
-            if (WindowsUtils.IsWindows && MachineWide)
+            if (MachineWide)
             {
                 ServiceStop();
                 ServiceUninstall();
@@ -161,10 +161,10 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (WindowsUtils.IsWindows && !Portable)
+                if (!Portable)
                 {
-                    RegistryRemove();
                     DesktopIntegrationRemove();
+                    ZeroInstallInstance.UnregisterLocation(MachineWide);
                 }
             }
             finally

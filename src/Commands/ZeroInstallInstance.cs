@@ -65,6 +65,29 @@ namespace ZeroInstall.Commands
             => Locations.InstallBase.StartsWith(Locations.HomeDir);
 
         /// <summary>
+        /// Registers a Zero Install instance in the Windows registry if possible.
+        /// </summary>
+        /// <param name="path">The installation directory of the instance of Zero Install.</param>
+        /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
+        public static void RegisterLocation(string path, bool machineWide)
+        {
+            if (!WindowsUtils.IsWindows) return;
+
+            RegistryUtils.SetSoftwareString(RegKeyName, InstallLocation, path, machineWide);
+        }
+
+        /// <summary>
+        /// Unregisters a Zero Install instance from the Windows registry if possible.
+        /// </summary>
+        /// <param name="machineWide"><c>true</c> if a machine-wide registration should be removed; <c>false</c> if a user-specific registration should be removed.</param>
+        public static void UnregisterLocation(bool machineWide)
+        {
+            if (!WindowsUtils.IsWindows) return;
+
+            RegistryUtils.DeleteSoftwareValue(RegKeyName, InstallLocation, machineWide);
+        }
+
+        /// <summary>
         /// Tries to find another instance of Zero Install deployed on this system.
         /// </summary>
         /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
@@ -73,13 +96,16 @@ namespace ZeroInstall.Commands
         {
             if (!WindowsUtils.IsWindows) return null;
 
-            string? installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation");
+            string? installLocation = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation);
             if (string.IsNullOrEmpty(installLocation)) return null;
             if (installLocation == Locations.InstallBase) return null;
             if (needsMachineWide && installLocation.StartsWith(Locations.HomeDir)) return null;
             if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
             return installLocation;
         }
+
+        private const string RegKeyName = "Zero Install";
+        private const string InstallLocation = "InstallLocation";
 
         /// <summary>
         /// Silently checks if an update for Zero Install is available.

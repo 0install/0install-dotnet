@@ -28,6 +28,8 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// </summary>
         private void ServiceStop()
         {
+            if (!WindowsUtils.IsWindows) return;
+
             // Determine whether the service is installed and running
             var service = GetServiceController();
             if (service?.Status != ServiceControllerStatus.Running) return;
@@ -82,24 +84,34 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <summary>
         /// Installs the Zero Install Store Service.
         /// </summary>
-        private void ServiceInstall() => Handler.RunTask(new SimpleTask(Resources.InstallService, () =>
-            new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
-            {
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WorkingDirectory = Path.GetTempPath()
-            }.Run()));
+        private void ServiceInstall()
+        {
+            if (!WindowsUtils.IsWindows) return;
+
+            Handler.RunTask(new SimpleTask(Resources.InstallService, () =>
+                new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WorkingDirectory = Path.GetTempPath()
+                }.Run()));
+        }
 
         /// <summary>
         /// Uninstalls the Zero Install Store Service.
         /// </summary>
-        private void ServiceUninstall() => Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
-            new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
-            {
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WorkingDirectory = Path.GetTempPath()
-            }.Run()));
+        private void ServiceUninstall()
+        {
+            if (!WindowsUtils.IsWindows) return;
+
+            Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
+                new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    WorkingDirectory = Path.GetTempPath()
+                }.Run()));
+        }
 
         private void DeleteServiceLogFiles()
         {
