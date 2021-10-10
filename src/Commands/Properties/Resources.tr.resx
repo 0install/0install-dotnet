@@ -136,9 +136,6 @@
     <value>{0} çalıştırmak için gerekli tüm bileşenler '{1}' üzerine dışa aktarıldı.
 İçe aktarma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka bir bilgisayar içine aktarabilirsiniz.</value>
   </data>
-  <data name="AlreadyDeployedTo" xml:space="preserve">
-    <value>Zero Install zaten '{0}' uygulamasını hazırlamış. Yerleşik sürümü değiştirmek için '0install self update' komutunu kullanın.</value>
-  </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' zaten özel uyarlama ön bellekleri listesinde var.</value>
   </data>

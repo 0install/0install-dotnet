@@ -6,7 +6,6 @@ using System.IO;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
@@ -78,9 +77,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <exception cref="IOException">An IO operation failed.</exception>
         public void Deploy()
         {
-            if (TargetDir == Locations.InstallBase)
-                throw new IOException(string.Format(Resources.AlreadyDeployedTo, TargetDir));
-
             var newManifest = LoadManifest(Locations.InstallBase);
             var oldManifest = LoadManifest(TargetDir);
 
@@ -93,8 +89,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             {
                 TargetMutexAcquire();
 
-                using (var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler))
+                if (TargetDir != Locations.InstallBase)
                 {
+                    using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
                     using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
                     deployDir.Stage();
                     clearDir.Stage();
