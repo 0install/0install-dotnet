@@ -59,10 +59,21 @@ namespace ZeroInstall.Commands
             => ImplementationStoreUtils.IsImplementation(Locations.InstallBase, out _);
 
         /// <summary>
-        /// Indicates whether Zero Install is running from a user-specific location.
+        /// Indicates whether Zero Install is running from a machine-wide location.
         /// </summary>
-        public static bool IsRunningFromPerUserDir
-            => Locations.InstallBase.StartsWith(Locations.HomeDir);
+        public static bool IsMachineWide
+        {
+            get
+            {
+                if (WindowsUtils.IsWindows)
+                {
+                    string? path = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true);
+                    if (!string.IsNullOrEmpty(path)) return path == Locations.InstallBase;
+                }
+
+                return !Locations.InstallBase.StartsWith(Locations.HomeDir);
+            }
+        }
 
         /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
