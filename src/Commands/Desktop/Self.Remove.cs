@@ -109,7 +109,9 @@ namespace ZeroInstall.Commands.Desktop
                 if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
                 if (Handler.Background && ProgramUtils.GuiAssemblyName != null) args = args.Append("--background");
 
-                ProcessUtils.Assembly(assembly, args).Start();
+                var startInfo = ProcessUtils.Assembly(assembly, args);
+                startInfo.WorkingDirectory = tempDir;
+                startInfo.Start();
             }
         }
 
