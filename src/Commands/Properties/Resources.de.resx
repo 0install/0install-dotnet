@@ -309,7 +309,7 @@ Diese Datei muss eine vertrauenswürdige digitale Signatur besitzen, genauso wie
     <value>Listet alle zusätzlichen Feeds auf, die mit '0install add-feed' hinzugefügt wurden.</value>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Legt Zero Install im angegebenen {TARGET} Verzeichnis oder im Standardverzeichnis für Programme ab und integriert es ins System.</value>
+    <value>Legt Zero Install im angegebenen TARGET Verzeichnis oder im Standardverzeichnis für Programme ab und integriert es ins System.</value>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Entfernt die aktuelle Zero Install Instanz vom System.</value>

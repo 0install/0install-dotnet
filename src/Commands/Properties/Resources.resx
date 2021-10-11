@@ -309,7 +309,7 @@ The file must have a trusted digital signature, as when fetching from the networ
     <value>Lists all extra feeds added to URI using '0install add-feed'.</value>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Deploys Zero Install to the specified {TARGET} directory or the default directory for programs and integrates it in the system.</value>
+    <value>Deploys Zero Install to the specified TARGET directory or the default directory for programs and integrates it in the system.</value>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Removes the current instance of Zero Install from the system.</value>

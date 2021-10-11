@@ -309,7 +309,7 @@ Dosya ağ üzerinden alınırken, sayısal olarak imzalanmış olmalıdır.</val
     <value>'0install add-feed' kullanılarak adrese eklenmiş tüm fazladan akışlar listelenir.</value>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Zero Install uygulamasını belirtilen {TARGET} klasöründe ya da varsayılan uygulamalar klasöründe hazırlar ve sistem ile bütünleştirir.</value>
+    <value>Zero Install uygulamasını belirtilen TARGET klasöründe ya da varsayılan uygulamalar klasöründe hazırlar ve sistem ile bütünleştirir.</value>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Zero Install uygulamasının geçerli kopyasını sisteminizden kaldırır.</value>
