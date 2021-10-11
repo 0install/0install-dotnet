@@ -20,7 +20,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
     /// </remarks>
     public partial class SelfManager : ManagerBase
     {
-        #region Constants
         /// <summary>
         /// The name of the cross-process mutex used to signal that a maintenance operation is currently in progress.
         /// </summary>
@@ -30,7 +29,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals that a maintenance operation has been performed.
         /// </summary>
         public static readonly int PerformedWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.MaintenanceManager");
-        #endregion
 
         /// <summary>
         /// The full path to the directory containing the Zero Install instance.
@@ -49,7 +47,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
         /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
         /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
-        public SelfManager(string targetDir, ITaskHandler handler, bool machineWide, bool portable)
+        public SelfManager(string targetDir, ITaskHandler handler, bool machineWide = false, bool portable = false)
             : base(handler, machineWide)
         {
             #region Sanity checks

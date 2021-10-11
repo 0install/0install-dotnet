@@ -88,15 +88,6 @@ namespace ZeroInstall.Archives.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string test {
-            get {
-                return ResourceManager.GetString("test", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The archive MIME type &apos;{0}&apos; is not supported..
         /// </summary>
         internal static string UnsupportedArchiveMimeType {

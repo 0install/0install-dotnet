@@ -54,7 +54,7 @@ namespace ZeroInstall.Commands.Desktop
             /// Tries to find an existing instance of Zero Install deployed on this system.
             /// </summary>
             /// <param name="machineWide"><c>true</c> to look only for machine-wide instances; <c>false</c> to look only for instances in the current user profile.</param>
-            /// <returns>The installation directory of an instance of Zero Install; <c>null</c> if none was found.</returns>
+            /// <returns>The deployment directory of an instance of Zero Install; <c>null</c> if none was found.</returns>
             protected static string? FindExistingInstance(bool machineWide)
             {
                 if (!WindowsUtils.IsWindows) return null;

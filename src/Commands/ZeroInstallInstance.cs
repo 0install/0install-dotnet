@@ -65,6 +65,8 @@ namespace ZeroInstall.Commands
         {
             get
             {
+                if (Locations.IsPortable) return false;
+
                 if (WindowsUtils.IsWindows)
                 {
                     string? path = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true);
@@ -78,7 +80,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
         /// </summary>
-        /// <param name="path">The installation directory of the instance of Zero Install.</param>
+        /// <param name="path">The deployment directory of the instance of Zero Install.</param>
         /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
         public static void RegisterLocation(string path, bool machineWide)
         {
@@ -102,8 +104,8 @@ namespace ZeroInstall.Commands
         /// Tries to find another instance of Zero Install deployed on this system.
         /// </summary>
         /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
-        /// <returns>The installation directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
-        public static string? FindOther(bool needsMachineWide)
+        /// <returns>The deployment directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
+        public static string? FindOther(bool needsMachineWide = false)
         {
             if (!WindowsUtils.IsWindows) return null;
 

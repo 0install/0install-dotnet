@@ -77,9 +77,7 @@ namespace ZeroInstall.Commands.Desktop
                     return ExitCode.UserCanceled;
 
                 if (ExistingDesktopIntegration(MachineWide) || ExistingDesktopIntegration(machineWide: false))
-                {
                     new RemoveAllApps(Handler) {MachineWide = MachineWide}.Execute();
-                }
 
                 if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: false))
                     ImplementationStore.Purge(Handler);
