@@ -103,7 +103,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
         /// <returns>The installation directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
-        public static string? FindOther(bool needsMachineWide = true)
+        public static string? FindOther(bool needsMachineWide)
         {
             if (!WindowsUtils.IsWindows) return null;
 

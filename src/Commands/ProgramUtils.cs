@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
@@ -184,22 +183,12 @@ namespace ZeroInstall.Commands
             }
             catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows)
             {
+                Log.Info(ex);
+
                 try
                 {
-                    var result = TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide);
-                    if (result.HasValue) return result.Value;
-
-                    if (!handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + ex.Message,
-                        defaultAnswer: true, alternateMessage: ex.Message))
-                        return ExitCode.NotSupported;
-
-                    var deployArgs = new List<string> { Self.AltName, Self.Deploy.Name, "--batch" };
-                    if (ex.NeedsMachineWide) deployArgs.Add("--machine");
-                    var deployResult = Run(exeName, deployArgs.ToArray(), handler);
-                    if (deployResult != ExitCode.OK) return deployResult;
-
                     return TryRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide)
-                        ?? throw new IOException("Unable to find newly installed instance.");
+                        ?? DeployAndRunOtherInstance(exeName, args, handler, ex.NeedsMachineWide);
                 }
                 catch (OperationCanceledException)
                 {
@@ -331,9 +320,33 @@ namespace ZeroInstall.Commands
             string? installLocation = ZeroInstallInstance.FindOther(needsMachineWide);
             if (installLocation == null) return null;
 
-            Log.Warn("Redirecting to instance at " + installLocation);
+            Log.Info("Redirecting to Zero Install instance at: " + installLocation);
             handler.DisableUI();
             return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
+        }
+
+        /// <summary>
+        /// Deploys a new instance of Zero Install instance and runs a command in it.
+        /// </summary>
+        /// <param name="exeName">The name of the executable to call in the target instance.</param>
+        /// <param name="args">The arguments to pass to the target instance.</param>
+        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+        /// <param name="machineWide"><c>true</c> to deploy to a machine-wide location; <c>false</c> to deploy to a user-specific location.</param>
+        /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
+        /// <exception cref="IOException">There was a problem launching the target instance.</exception>
+        /// <exception cref="NotAdminException">The target process requires elevation.</exception>
+        private static ExitCode DeployAndRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool machineWide)
+        {
+            Log.Info("Deploying new Zero Install instance to redirect to");
+
+            string[] deployArgs = machineWide
+                ? new[] { Self.AltName, Self.Deploy.Name, "--machine" }
+                : new[] { Self.AltName, Self.Deploy.Name };
+            var deployResult = Run(exeName, deployArgs, handler);
+            if (deployResult != ExitCode.OK) return deployResult;
+
+            return TryRunOtherInstance(exeName, args, handler, machineWide)
+                ?? throw new IOException("Unable to find newly deployed Zero Install instance.");
         }
     }
 }

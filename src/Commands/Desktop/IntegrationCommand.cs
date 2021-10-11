@@ -4,9 +4,9 @@
 using System;
 using System.Collections.Generic;
 using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
+using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
@@ -60,14 +60,17 @@ namespace ZeroInstall.Commands.Desktop
         {
             if (Locations.IsPortable)
             {
-                // NOTE: Portable instances remain decoupled from local instances, so we do not use UnsuitableInstallBaseException here, which would redirect commands to other instances.
-                if (Handler.Ask(Resources.AskDeployZeroInstall + Environment.NewLine + Resources.NoIntegrationFromPortable,
-                    defaultAnswer: false, alternateMessage: Resources.NoIntegrationFromPortable))
+                Log.Warn(Resources.NoIntegrationFromPortable);
+
+                if (Handler.Verbosity != Verbosity.Batch)
                 {
-                    var deployArgs = new[] {Self.Name, Self.Deploy.Name, "--restart-central"};
-                    if (MachineWide) deployArgs = deployArgs.Append("--machine");
+                    string[] deployArgs = MachineWide
+                        ? new[] { Self.AltName, Self.Deploy.Name, "--restart-central", "--machine" }
+                        : new[] { Self.AltName, Self.Deploy.Name, "--restart-central" };
                     ProgramUtils.Run(ProgramUtils.CliAssemblyName, deployArgs, Handler);
                 }
+
+                // NOTE: Portable instances remain decoupled from local instances, so we do not use UnsuitableInstallBaseException here, which would redirect commands to other instances.
                 throw new OperationCanceledException();
             }
 
