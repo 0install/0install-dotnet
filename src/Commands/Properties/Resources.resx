@@ -180,6 +180,9 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
   <data name="CatalogNotRegistered" xml:space="preserve">
     <value>The catalog URI {0} is not registered.</value>
   </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>The options {0} and {1} cannot be used together.</value>
+  </data>
   <data name="CatalogSources" xml:space="preserve">
     <value>Catalog sources</value>
   </data>
@@ -622,6 +625,9 @@ Has no effect in text-mode.</value>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Specifies the preferred language for the implementation. Use ISO short language codes (e.g. en or en-US).
 You can use this option multiple times to specify multiple acceptable languages.</value>
+  </data>
+  <data name="OptionLibrary" xml:space="preserve">
+    <value>Deploy Zero Install as a library for use by other applications without its own desktop integration.</value>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Apply the configuration machine-wide (for the entire computer) instead of just for the current user.</value>

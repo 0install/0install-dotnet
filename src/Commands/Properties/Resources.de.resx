@@ -183,6 +183,9 @@ Wenn Sie 'Nein' wählen arbeitet Zero Install weiter mit den alten Fähigkeiten.
   <data name="CatalogSources" xml:space="preserve">
     <value>Katalogquellen</value>
   </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>Die Optionen {0} und {1} können nicht zusammen verwendet werden.</value>
+  </data>
   <data name="Change" xml:space="preserve">
     <value>Ändern</value>
   </data>
@@ -622,6 +625,9 @@ Hat keine Wirkung im Text-Modus.</value>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Gibt die bevorzugte Sprache für die Implementierung an. Verwenden Sie ISO Kurz-Sprachcodes (z.B. en oder en-US).
 Sie können diese Option mehrfach verwenden um mehrere akzeptable Sprachen anzugeben.</value>
+  </data>
+  <data name="OptionLibrary" xml:space="preserve">
+    <value>Zero Install als Bibliothek zur Verwendung durch andere Anwendungen ohne eigene Desktop-Integration ablegen.</value>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Wende die Konfiguration Maschinenweit (auf dem ganzen Computer) anstatt nur für den aktuellen User an.</value>

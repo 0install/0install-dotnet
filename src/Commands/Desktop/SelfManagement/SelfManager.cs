@@ -52,8 +52,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(targetDir)) throw new ArgumentNullException(nameof(targetDir));
-            if (machineWide && portable) throw new ArgumentException("Cannot combine portable and machineWide flags.", nameof(machineWide));
             #endregion
+
+            if (portable && machineWide) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--machine"), nameof(machineWide));
 
             TargetDir = targetDir;
             Portable = portable;

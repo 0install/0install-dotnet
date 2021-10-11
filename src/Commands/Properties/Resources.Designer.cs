@@ -171,6 +171,12 @@ namespace ZeroInstall.Commands.Properties {
             }
         }
         
+        public static string CannotUseOptionsTogether {
+            get {
+                return ResourceManager.GetString("CannotUseOptionsTogether", resourceCulture);
+            }
+        }
+        
         public static string Change {
             get {
                 return ResourceManager.GetString("Change", resourceCulture);
@@ -1008,6 +1014,12 @@ namespace ZeroInstall.Commands.Properties {
         public static string OptionLanguage {
             get {
                 return ResourceManager.GetString("OptionLanguage", resourceCulture);
+            }
+        }
+        
+        public static string OptionLibrary {
+            get {
+                return ResourceManager.GetString("OptionLibrary", resourceCulture);
             }
         }
         
