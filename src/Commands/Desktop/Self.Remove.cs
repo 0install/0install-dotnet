@@ -73,13 +73,13 @@ namespace ZeroInstall.Commands.Desktop
                 if (MachineWide && !WindowsUtils.IsAdministrator)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
-                if (!Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
+                if (ZeroInstallInstance.IsIntegrated && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
                     return ExitCode.UserCanceled;
 
                 if (ExistingDesktopIntegration(MachineWide) || ExistingDesktopIntegration(machineWide: false))
                     new RemoveAllApps(Handler) {MachineWide = MachineWide}.Execute();
 
-                if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: false))
+                if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: !ZeroInstallInstance.IsIntegrated && ZeroInstallInstance.FindOther() == null))
                     ImplementationStore.Purge(Handler);
 
                 if (WindowsUtils.IsWindows) DelegateToTempCopy();

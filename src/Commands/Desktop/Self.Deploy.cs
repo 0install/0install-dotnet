@@ -38,6 +38,9 @@ namespace ZeroInstall.Commands.Desktop
             /// <summary>Create a portable installation.</summary>
             private bool _portable;
 
+            /// <summary>Deploy Zero Install as a library for use by other applications without its own desktop integration.</summary>
+            private bool _library;
+
             /// <summary>Indicates whether the installer shall restart the <see cref="Central"/> GUI after the installation.</summary>
             private bool _restartCentral;
 
@@ -46,6 +49,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
                 Options.Add("p|portable", () => Resources.OptionPortable, _ => _portable = true);
+                Options.Add("l|library", () => Resources.OptionLibrary, _ => _library = true);
                 Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
             }
             #endregion
@@ -55,7 +59,7 @@ namespace ZeroInstall.Commands.Desktop
                 string targetDir = GetTargetDir();
                 if (_machineWide && !WindowsUtils.IsAdministrator)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
-                if (!_portable)
+                if (!_portable && !_library)
                 {
                     string? existing = FindExistingInstance(_machineWide)
                                     ?? FindExistingInstance(machineWide: true);
@@ -75,7 +79,7 @@ namespace ZeroInstall.Commands.Desktop
 
                 if (_portable)
                     Handler.OutputLow(Resources.PortableMode, string.Format(Resources.DeployedPortable, targetDir));
-                else if (newDirectory)
+                else if (newDirectory && !_library)
                 {
                     // Use Console.WriteLine() instead of Handler.Output() to ensure this is only shown in CLI mode and not in a window
                     Console.WriteLine(Resources.Added0installToPath + Environment.NewLine + Resources.ReopenTerminal);
@@ -147,7 +151,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
                 Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
-                manager.Deploy();
+                manager.Deploy(_library);
             }
 
             private static void RestartCentral(string targetDir)

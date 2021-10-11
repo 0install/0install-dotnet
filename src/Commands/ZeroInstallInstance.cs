@@ -78,15 +78,26 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
+        /// Indicates whether the current Zero Install instance is integrated into the desktop environment.
+        /// </summary>
+        public static bool IsIntegrated
+            => !IsRunningFromCache
+            && WindowsUtils.IsWindows
+            && !Locations.IsPortable
+            && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) != "1";
+
+        /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
         /// </summary>
         /// <param name="path">The deployment directory of the instance of Zero Install.</param>
         /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
-        public static void RegisterLocation(string path, bool machineWide)
+        /// <param name="libraryMode">Indicates the instance was deployed in library mode.</param>
+        public static void RegisterLocation(string path, bool machineWide, bool libraryMode)
         {
             if (!WindowsUtils.IsWindows) return;
 
             RegistryUtils.SetSoftwareString(RegKeyName, InstallLocation, path, machineWide);
+            RegistryUtils.SetSoftwareString(RegKeyName, LibraryMode, libraryMode ? "1" : "0", machineWide);
         }
 
         /// <summary>
@@ -98,6 +109,7 @@ namespace ZeroInstall.Commands
             if (!WindowsUtils.IsWindows) return;
 
             RegistryUtils.DeleteSoftwareValue(RegKeyName, InstallLocation, machineWide);
+            RegistryUtils.DeleteSoftwareValue(RegKeyName, LibraryMode, machineWide);
         }
 
         /// <summary>
@@ -119,6 +131,7 @@ namespace ZeroInstall.Commands
 
         private const string RegKeyName = "Zero Install";
         private const string InstallLocation = "InstallLocation";
+        private const string LibraryMode = "LibraryMode";
 
         /// <summary>
         /// Silently checks if an update for Zero Install is available.

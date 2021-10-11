@@ -3,11 +3,15 @@
 
 using System;
 using System.IO;
-using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
+
+#if NETFRAMEWORK
+using NanoByte.Common.Native;
+#endif
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
@@ -24,11 +28,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// The name of the cross-process mutex used to signal that a maintenance operation is currently in progress.
         /// </summary>
         protected override string MutexName => "ZeroInstall.Commands.MaintenanceManager";
-
-        /// <summary>
-        /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals that a maintenance operation has been performed.
-        /// </summary>
-        public static readonly int PerformedWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.MaintenanceManager");
 
         /// <summary>
         /// The full path to the directory containing the Zero Install instance.
@@ -72,10 +71,13 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <summary>
         /// Runs the deployment process.
         /// </summary>
+        /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
         /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
         /// <exception cref="IOException">An IO operation failed.</exception>
-        public void Deploy()
+        public void Deploy(bool libraryMode = false)
         {
+            if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--library"), nameof(libraryMode));
+
             var newManifest = LoadManifest(Locations.InstallBase);
             var oldManifest = LoadManifest(TargetDir);
 
@@ -101,9 +103,9 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
                 if (!Portable)
                 {
-                    DesktopIntegrationApply(newManifest.TotalSize);
-                    ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide);
-                    if (WindowsUtils.IsWindows) WindowsUtils.BroadcastMessage(PerformedWindowMessageID);
+                    if (!libraryMode)
+                        DesktopIntegrationApply(newManifest.TotalSize);
+                    ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide, libraryMode);
                     RemoveOneGetBootstrap();
                 }
 

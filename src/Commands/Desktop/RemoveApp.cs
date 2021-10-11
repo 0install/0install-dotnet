@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
@@ -49,6 +50,12 @@ namespace ZeroInstall.Commands.Desktop
                 throw new IOException(ex.Message, ex);
             }
             #endregion
+
+            if (!ZeroInstallInstance.IsRunningFromCache && !ZeroInstallInstance.IsIntegrated && IntegrationManager.AppList.Entries.Count == 0)
+            {
+                Log.Info("Last app removed, auto-removing non-integrated Zero Install instance");
+                StartCommandBackground(Self.Name, Self.Remove.Name, "--batch");
+            }
 
             return ExitCode.OK;
         }

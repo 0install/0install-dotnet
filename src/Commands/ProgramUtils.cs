@@ -340,8 +340,8 @@ namespace ZeroInstall.Commands
             Log.Info("Deploying new Zero Install instance to redirect to");
 
             string[] deployArgs = machineWide
-                ? new[] { Self.AltName, Self.Deploy.Name, "--machine" }
-                : new[] { Self.AltName, Self.Deploy.Name };
+                ? new[] { Self.AltName, Self.Deploy.Name, "--library", "--machine" }
+                : new[] { Self.AltName, Self.Deploy.Name, "--library" };
             var deployResult = Run(exeName, deployArgs, handler);
             if (deployResult != ExitCode.OK) return deployResult;
 
