@@ -392,6 +392,15 @@ Additional arguments specify custom cache locations.</value>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Synchronizes the application list with the server.</value>
   </data>
+  <data name="DescriptionTrustAdd" xml:space="preserve">
+    <value>Trusts feeds from a specific DOMAIN signed with a specific FINGERPRINT.</value>
+  </data>
+  <data name="DescriptionTrustRemove" xml:space="preserve">
+    <value>Stops trusting feeds signed with a specific FINGERPRINT.</value>
+  </data>
+  <data name="DescriptionTrustList" xml:space="preserve">
+    <value>List keys trusted for signing feeds.</value>
+  </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Checks for updates to the program and download them if found.
 This is similar to '0install download --refresh', except that it prints information about whether any changes were found.</value>
@@ -794,6 +803,12 @@ Keep this key secret and use something different for your password. This way nob
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>Too many arguments or unknown options.</value>
+  </data>
+  <data name="TrustedKeys" xml:space="preserve">
+    <value>Trusted keys</value>
+  </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} trusted for domains</value>
   </data>
   <data name="TryHelp" xml:space="preserve">
     <value>Try {0} --help</value>

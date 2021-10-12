@@ -19,7 +19,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         internal static readonly string[] Names =
         {
-            Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
+            Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, TrustMan.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
             Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, Self.Name
         };
 
@@ -49,6 +49,7 @@ namespace ZeroInstall.Commands
                 List.Name => new List(handler),
                 CatalogMan.Name => new CatalogMan(handler),
                 Configure.Name => new Configure(handler),
+                TrustMan.Name => new TrustMan(handler),
                 AddFeed.Name => new AddFeed(handler),
                 RemoveFeed.Name => new RemoveFeed(handler),
                 ListFeeds.Name => new ListFeeds(handler),

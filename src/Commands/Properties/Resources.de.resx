@@ -392,6 +392,15 @@ Zusätzliche Argumente spezifizieren alternative Cache-Speicherorte.</value>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Synchronisiert die Anwendungsliste mit dem Server.</value>
   </data>
+  <data name="DescriptionTrustAdd" xml:space="preserve">
+    <value>Vetraut Feeds von einer bestimmten DOMAIN, die mit einem bestimmten FINGERPRINT signiert sind.</value>
+  </data>
+  <data name="DescriptionTrustRemove" xml:space="preserve">
+    <value>Vetraut Feeds, die mit einem bestimmten FINGERPRINT signiert sind, nicht mehr.</value>
+  </data>
+  <data name="DescriptionTrustList" xml:space="preserve">
+    <value>Listet Keys, denen vertraut wird, um Feeds zu signieren.</value>
+  </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Prüft ob Updates für das Programm vorhanden sind und lädt sie gegebenenfalls herunter.
 Dies ist ähnlich wie '0install download --refresh', mit dem Zusatz, dass Informationen über gefundene Änderungen ausgegeben werden.</value>
@@ -794,6 +803,12 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie etwas anderes für Ihr Pas
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>Zu viele Argumente oder unbekannte Optionen.</value>
+  </data>
+  <data name="TrustedKeys" xml:space="preserve">
+    <value>Vertraute Schlüssel</value>
+  </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} vertraut für Domains</value>
   </data>
   <data name="TryHelp" xml:space="preserve">
     <value>Probieren Sie {0} --help</value>
