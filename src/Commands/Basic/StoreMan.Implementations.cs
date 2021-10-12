@@ -20,19 +20,14 @@ namespace ZeroInstall.Commands.Basic
     {
         public class Add : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "add";
-
             public override string Description => Resources.DescriptionStoreAdd;
-
             public override string Usage => "DIGEST (DIRECTORY | (ARCHIVE [EXTRACT [MIME-TYPE [...]]))";
-
             protected override int AdditionalArgsMin => 2;
 
             public Add(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -78,21 +73,15 @@ namespace ZeroInstall.Commands.Basic
 
         public class Copy : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "copy";
-
             public override string Description => Resources.DescriptionStoreCopy;
-
             public override string Usage => "DIRECTORY [CACHE]";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 2;
 
             public Copy(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -125,21 +114,15 @@ namespace ZeroInstall.Commands.Basic
 
         public class Export : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "export";
-
             public override string Description => Resources.DescriptionStoreExport;
-
             public override string Usage => "DIGEST OUTPUT-ARCHIVE [MIME-TYPE]";
-
             protected override int AdditionalArgsMin => 2;
-
             protected override int AdditionalArgsMax => 3;
 
             public Export(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -160,21 +143,15 @@ namespace ZeroInstall.Commands.Basic
 
         public class Find : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "find";
-
             public override string Description => Resources.DescriptionStoreFind;
-
             public override string Usage => "DIGEST";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 1;
 
             public Find(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -189,19 +166,14 @@ namespace ZeroInstall.Commands.Basic
 
         public class Remove : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "remove";
-
             public override string Description => Resources.DescriptionStoreRemove;
-
             public override string Usage => "DIGEST+";
-
             protected override int AdditionalArgsMin => 1;
 
             public Remove(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -216,21 +188,15 @@ namespace ZeroInstall.Commands.Basic
 
         public class Verify : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "verify";
-
             public override string Description => Resources.DescriptionStoreVerify;
-
             public override string Usage => "[DIRECTORY] DIGEST";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 2;
 
             public Verify(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

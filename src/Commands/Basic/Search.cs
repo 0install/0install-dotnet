@@ -12,19 +12,10 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class Search : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "search";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionSearch;
-
-        /// <inheritdoc/>
         public override string Usage => "QUERY";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => (Handler is CliCommandHandler) ? 1 : 0;
-        #endregion
 
         /// <inheritdoc/>
         public Search(ICommandHandler handler)

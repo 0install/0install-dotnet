@@ -14,8 +14,6 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class DefaultCommand : CliCommand
     {
-        #region Metadata
-        /// <inheritdoc/>
         public override string Description
         {
             get
@@ -27,12 +25,8 @@ namespace ZeroInstall.Commands.Basic
             }
         }
 
-        /// <inheritdoc/>
         public override string Usage => "COMMAND";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
         /// <inheritdoc/>
         public DefaultCommand(ICommandHandler handler)

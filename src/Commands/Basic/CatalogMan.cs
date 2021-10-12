@@ -15,15 +15,12 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public sealed partial class CatalogMan : CliMultiCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "catalog";
 
         /// <inheritdoc/>
         public CatalogMan(ICommandHandler handler)
             : base(handler)
         {}
-        #endregion
 
         /// <inheritdoc/>
         public override IEnumerable<string> SubCommandNames => new[] {Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name};

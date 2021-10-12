@@ -16,13 +16,8 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public abstract class AppCommand : IntegrationCommand
     {
-        #region Metadata
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 1;
-        #endregion
 
         /// <inheritdoc/>
         protected AppCommand(ICommandHandler handler)
@@ -61,7 +56,6 @@ namespace ZeroInstall.Commands.Desktop
         /// <returns>The exit status code to end the process with.</returns>
         protected abstract ExitCode ExecuteHelper();
 
-        #region Helpers
         /// <summary>
         /// Creates a new alias.
         /// </summary>
@@ -103,6 +97,5 @@ namespace ZeroInstall.Commands.Desktop
             string? existingValue = Environment.GetEnvironmentVariable("Path", variableTarget);
             return existingValue == null || !existingValue.Contains(stubDirPath);
         }
-        #endregion
     }
 }

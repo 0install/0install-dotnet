@@ -13,19 +13,10 @@ namespace ZeroInstall.Commands.Basic
     /// <remarks>If a search term is given, only URIs containing that string are shown (case insensitive).</remarks>
     public class List : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "list";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionList;
-
-        /// <inheritdoc/>
         public override string Usage => "[PATTERN]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 1;
-        #endregion
 
         /// <inheritdoc/>
         public List(ICommandHandler handler)

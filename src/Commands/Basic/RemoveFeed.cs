@@ -17,13 +17,8 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class RemoveFeed : AddRemoveFeedCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "remove-feed";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionRemoveFeed;
-        #endregion
 
         /// <inheritdoc/>
         public RemoveFeed(ICommandHandler handler)

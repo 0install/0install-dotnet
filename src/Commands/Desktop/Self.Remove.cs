@@ -46,19 +46,14 @@ namespace ZeroInstall.Commands.Desktop
         /// </summary>
         public class Remove : RemoveSubCommandBase
         {
-            #region Metadata
             public const string Name = "remove";
-
             public override string Description => Resources.DescriptionMaintenanceRemove;
-
             public override string Usage => "";
-
             protected override int AdditionalArgsMax => 0;
 
             public Remove(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             protected override string TargetDir => Locations.InstallBase;
 
@@ -120,21 +115,15 @@ namespace ZeroInstall.Commands.Desktop
         /// </summary>
         private class RemoveHelper : RemoveSubCommandBase
         {
-            #region Metadata
             public const string Name = "remove-helper";
-
             public override string Description => "Internal helper for '0install maintenance remove' used to support self-removal on Windows.";
-
             public override string Usage => "TARGET";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 1;
 
             public RemoveHelper(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             protected override string TargetDir => AdditionalArgs[0];
 

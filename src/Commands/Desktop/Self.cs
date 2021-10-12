@@ -15,18 +15,13 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public sealed partial class Self : CliMultiCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "self";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "maintenance";
 
         /// <inheritdoc/>
         public Self(ICommandHandler handler)
             : base(handler)
         {}
-        #endregion
 
         /// <inheritdoc/>
         public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name, Update.Name};

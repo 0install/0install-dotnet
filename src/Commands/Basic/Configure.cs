@@ -14,28 +14,17 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class Configure : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "config";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionConfig;
-
-        /// <inheritdoc/>
         public override string Usage => "[NAME [VALUE|default]]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 2;
-        #endregion
 
-        #region State
         /// <inheritdoc/>
         public Configure(ICommandHandler handler)
             : base(handler)
         {
             Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

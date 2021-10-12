@@ -24,7 +24,6 @@ namespace ZeroInstall.Commands.Desktop
 #endif
         public class Update : Download, ICliSubCommand
         {
-            #region Metadata
             public new const string Name = "update";
 
             public const string TopLevelName = "self-update";
@@ -36,9 +35,7 @@ namespace ZeroInstall.Commands.Desktop
 
             /// <inheritdoc/>
             public override string Usage => "[OPTIONS]";
-            #endregion
 
-            #region State
             /// <summary>Perform the update even if the currently installed version is the same or newer.</summary>
             private bool _force;
 
@@ -55,7 +52,6 @@ namespace ZeroInstall.Commands.Desktop
                 Options.Add("force", () => Resources.OptionForceSelfUpdate, _ => _force = true);
                 Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
             }
-            #endregion
 
             /// <inheritdoc/>
             public override void Parse(IReadOnlyList<string> args)

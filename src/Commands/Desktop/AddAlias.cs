@@ -16,24 +16,12 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class AddAlias : AppCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "alias";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "add-alias";
-
-        /// <inheritdoc/>
         public override string Usage => "ALIAS [INTERFACE [COMMAND]]";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionAddAlias;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 3;
-        #endregion
 
-        #region State
         private bool _resolve;
         private bool _remove;
 
@@ -46,7 +34,6 @@ namespace ZeroInstall.Commands.Desktop
             Options.Add("resolve", () => Resources.OptionAliasResolve, _ => _resolve = true);
             Options.Add("remove", () => Resources.OptionAliasRemove, _ => _remove = true);
         }
-        #endregion
 
         /// <inheritdoc />
         protected override ExitCode ExecuteHelper()

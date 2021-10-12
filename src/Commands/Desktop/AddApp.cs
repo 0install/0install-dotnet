@@ -18,24 +18,12 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class AddApp : AppCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "add";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "add-app";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionAddApp;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] [ALIAS] INTERFACE";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 2;
-        #endregion
 
-        #region State
         private string? _command;
 
         /// <inheritdoc/>
@@ -45,7 +33,6 @@ namespace ZeroInstall.Commands.Desktop
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
             Options.Add("command=", () => Resources.OptionCommand, command => _command = command);
         }
-        #endregion
 
         /// <summary>
         /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals that an application that is not listed in the <see cref="Catalog"/> was added.

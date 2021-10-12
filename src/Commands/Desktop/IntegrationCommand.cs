@@ -21,7 +21,6 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public abstract class IntegrationCommand : CliCommand
     {
-        #region State
         /// <summary>Do not download the application itself yet.</summary>
         protected bool NoDownload;
 
@@ -37,7 +36,6 @@ namespace ZeroInstall.Commands.Desktop
 
             Options.Add("m|machine", () => Resources.OptionMachine, _ => MachineWide = true);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override void Parse(IReadOnlyList<string> args)
@@ -47,7 +45,6 @@ namespace ZeroInstall.Commands.Desktop
             if (MachineWide && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminForMachineWide);
         }
 
-        #region Helpers
         /// <summary>
         /// Checks the current <see cref="Locations.InstallBase"/> to determine whether it is suitable for operations that persist it.
         /// </summary>
@@ -151,6 +148,5 @@ namespace ZeroInstall.Commands.Desktop
                 StartCommandBackground(Download.Name, "--batch", interfaceUri.ToStringRfc());
             }
         }
-        #endregion
     }
 }

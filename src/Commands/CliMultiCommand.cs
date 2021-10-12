@@ -15,7 +15,6 @@ namespace ZeroInstall.Commands
     /// </summary>
     public abstract class CliMultiCommand : CliCommand
     {
-        #region Metadata
         /// <inheritdoc/>
         public override string Description
         {
@@ -28,12 +27,8 @@ namespace ZeroInstall.Commands
             }
         }
 
-        /// <inheritdoc/>
         public override string Usage => "SUBCOMMAND";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-        #endregion
 
         /// <inheritdoc/>
         protected CliMultiCommand(ICommandHandler handler)

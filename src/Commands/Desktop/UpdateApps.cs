@@ -19,24 +19,12 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class UpdateApps : IntegrationCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "update-all";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "update-apps";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionUpdateApps;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
-        #region State
         private bool _clean;
 
         /// <inheritdoc/>
@@ -45,7 +33,6 @@ namespace ZeroInstall.Commands.Desktop
         {
             Options.Add("c|clean", () => Resources.OptionClean, _ => _clean = true);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

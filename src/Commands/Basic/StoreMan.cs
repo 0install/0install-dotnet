@@ -16,15 +16,12 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public sealed partial class StoreMan : CliMultiCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "store";
 
         /// <inheritdoc/>
         public StoreMan(ICommandHandler handler)
             : base(handler)
         {}
-        #endregion
 
         /// <inheritdoc/>
         public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, AddDir.Name, RemoveDir.Name};

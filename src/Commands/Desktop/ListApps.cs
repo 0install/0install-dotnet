@@ -13,19 +13,10 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class ListApps : IntegrationCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "list-apps";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionListApps;
-
-        /// <inheritdoc/>
         public override string Usage => "[PATTERN]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 1;
-        #endregion
 
         /// <summary>Indicates the user wants a machine-readable output.</summary>
         private bool _xmlOutput;

@@ -29,24 +29,12 @@ namespace ZeroInstall.Commands.Basic
 #endif
     public class Selection : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "select";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionSelect;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] URI";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 1;
-        #endregion
 
-        #region State
         /// <summary>
         /// A set of requirements/restrictions imposed by the user on the implementation selection process as parsed from the command-line arguments.
         /// </summary>
@@ -122,7 +110,6 @@ namespace ZeroInstall.Commands.Basic
                 ImplementationStore = new CompositeImplementationStore(new[] {new ImplementationStore(path), ImplementationStore});
             });
         }
-        #endregion
 
         /// <inheritdoc/>
         public override void Parse(IReadOnlyList<string> args)

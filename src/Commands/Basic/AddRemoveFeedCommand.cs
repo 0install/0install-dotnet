@@ -18,18 +18,10 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public abstract class AddRemoveFeedCommand : CliCommand
     {
-        #region Metadata
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] [INTERFACE] FEED";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 2;
-        #endregion
 
-        #region State
         /// <inheritdoc/>
         protected AddRemoveFeedCommand(ICommandHandler handler)
             : base(handler)
@@ -37,7 +29,6 @@ namespace ZeroInstall.Commands.Basic
             Options.Add("o|offline", () => Resources.OptionOffline, _ => Config.NetworkUse = NetworkLevel.Offline);
             Options.Add("r|refresh", () => Resources.OptionRefresh, _ => FeedManager.Refresh = true);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

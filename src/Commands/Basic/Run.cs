@@ -21,21 +21,11 @@ namespace ZeroInstall.Commands.Basic
 #endif
     public class Run : Download
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public new const string Name = "run";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionRun;
-
-        /// <inheritdoc/>
         public override string Usage => base.Usage + " [ARGS]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => int.MaxValue;
-        #endregion
 
-        #region State
         /// <summary>>An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>.</summary>
         private string? _overrideMain;
 
@@ -65,7 +55,6 @@ namespace ZeroInstall.Commands.Basic
                 Options.Clear();
             });
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

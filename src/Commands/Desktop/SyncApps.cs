@@ -12,21 +12,11 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class SyncApps : IntegrationCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "sync";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionSync;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
-        #region State
         private SyncResetMode _syncResetMode = SyncResetMode.None;
 
         /// <inheritdoc/>
@@ -35,7 +25,6 @@ namespace ZeroInstall.Commands.Desktop
         {
             Options.Add("reset=", () => Resources.OptionSyncReset, (SyncResetMode mode) => _syncResetMode = mode);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

@@ -10,26 +10,15 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class ExportHelp : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "export-help";
-
-        /// <inheritdoc/>
         public override string Description => "Exports all command help texts as HTML.";
-
-        /// <inheritdoc/>
         public override string Usage => "";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
-        #region State
         /// <inheritdoc/>
         public ExportHelp(ICommandHandler handler)
             : base(handler)
         {}
-        #endregion
 
         public override ExitCode Execute()
         {

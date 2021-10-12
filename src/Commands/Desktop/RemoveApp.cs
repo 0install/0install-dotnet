@@ -14,22 +14,11 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class RemoveApp : AppCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "remove";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "remove-app";
-
-        /// <summary>Another alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName2 = "destory";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionRemoveApp;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] (ALIAS|INTERFACE)";
-        #endregion
 
         /// <inheritdoc/>
         public RemoveApp(ICommandHandler handler)

@@ -24,15 +24,9 @@ namespace ZeroInstall.Commands.Basic
 #endif
     public class Download : Selection
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public new const string Name = "download";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionDownload;
-        #endregion
 
-        #region State
         /// <summary>Indicates the user wants the implementation locations on the disk.</summary>
         private bool _show;
 
@@ -60,7 +54,6 @@ namespace ZeroInstall.Commands.Basic
             if (outputOptions)
                 Options.Add("show", () => Resources.OptionShow, _ => _show = true);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

@@ -12,22 +12,11 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class ListFeeds : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "list-feeds";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionListFeeds;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] URI";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 1;
-        #endregion
 
         /// <inheritdoc/>
         public ListFeeds(ICommandHandler handler)

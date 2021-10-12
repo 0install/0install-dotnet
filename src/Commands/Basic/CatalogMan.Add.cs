@@ -12,19 +12,12 @@ namespace ZeroInstall.Commands.Basic
     {
         private class Add : CatalogSubCommand
         {
-            #region Metadata
             public const string Name = "add";
-
             public override string Description => Resources.DescriptionCatalogAdd;
-
             public override string Usage => "URI";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 1;
-            #endregion
 
-            #region State
             private bool _skipVerify;
 
             public Add(ICommandHandler handler)
@@ -32,7 +25,6 @@ namespace ZeroInstall.Commands.Basic
             {
                 Options.Add("skip-verify", () => Resources.OptionCatalogAddSkipVerify, _ => _skipVerify = true);
             }
-            #endregion
 
             public override ExitCode Execute()
             {

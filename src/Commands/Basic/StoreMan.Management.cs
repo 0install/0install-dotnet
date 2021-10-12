@@ -15,19 +15,14 @@ namespace ZeroInstall.Commands.Basic
     {
         public class Manage : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "manage";
-
             public override string Description => Resources.DescriptionStoreManage;
-
             public override string Usage => "";
-
             protected override int AdditionalArgsMax => 0;
 
             public Manage(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -38,19 +33,14 @@ namespace ZeroInstall.Commands.Basic
 
         public class ListImplementations : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "list-implementations";
-
             public override string Description => Resources.DescriptionStoreListImplementations;
-
             public override string Usage => "[FEED-URI]";
-
             protected override int AdditionalArgsMax => 1;
 
             public ListImplementations(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -78,17 +68,13 @@ namespace ZeroInstall.Commands.Basic
 
         public class Audit : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "audit";
-
             public override string Description => Resources.DescriptionStoreAudit;
-
             public override string Usage => "[CACHE-DIR+]";
 
             public Audit(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -103,19 +89,15 @@ namespace ZeroInstall.Commands.Basic
 
         public class Optimise : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "optimise";
 
             public const string AltName = "optimize";
-
             public override string Description => Resources.DescriptionStoreOptimise;
-
             public override string Usage => "[CACHE-DIR+]";
 
             public Optimise(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -127,17 +109,13 @@ namespace ZeroInstall.Commands.Basic
 
         public class Purge : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "purge";
-
             public override string Description => Resources.DescriptionStorePurge;
-
             public override string Usage => "[CACHE-DIR+]";
 
             public Purge(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

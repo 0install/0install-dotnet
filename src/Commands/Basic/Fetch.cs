@@ -12,19 +12,10 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class Fetch : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "fetch";
-
-        /// <inheritdoc/>
         public override string Description => "Downloads a set of implementations piped in as XML via stdin (for programmatic use). Use Feed format with no inner linebreaks and terminated by a single linebreak.";
-
-        /// <inheritdoc/>
         public override string Usage => "";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
         /// <inheritdoc/>
         public Fetch(ICommandHandler handler)

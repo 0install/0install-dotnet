@@ -21,17 +21,11 @@ namespace ZeroInstall.Commands.Desktop
         /// </summary>
         public class Deploy : SelfSubCommand
         {
-            #region Metadata
             public const string Name = "deploy";
-
             public override string Description => Resources.DescriptionMaintenanceDeploy;
-
             public override string Usage => "[TARGET]";
-
             protected override int AdditionalArgsMax => 1;
-            #endregion
 
-            #region State
             /// <summary>Apply operations machine-wide instead of just for the current user.</summary>
             private bool _machineWide;
 
@@ -52,7 +46,6 @@ namespace ZeroInstall.Commands.Desktop
                 Options.Add("l|library", () => Resources.OptionLibrary, _ => _library = true);
                 Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
             }
-            #endregion
 
             public override ExitCode Execute()
             {

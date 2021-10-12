@@ -11,21 +11,15 @@ namespace ZeroInstall.Commands.Basic
     {
         private class Remove : CatalogSubCommand
         {
-            #region Metadata
             public const string Name = "remove";
-
             public override string Description => Resources.DescriptionCatalogRemove;
-
             public override string Usage => "URI";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 1;
 
             public Remove(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

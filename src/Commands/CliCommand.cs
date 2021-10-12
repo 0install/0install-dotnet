@@ -30,7 +30,6 @@ namespace ZeroInstall.Commands
     /// <remarks>Specific sub-classes of this class are used to handle a commands like "0install COMMAND [OPTIONS]".</remarks>
     public abstract partial class CliCommand : ScopedOperation
     {
-        #region Metadata
         /// <summary>
         /// The full name of this command (including sub-commands) as used in command-line arguments in lower-case.
         /// </summary>
@@ -96,9 +95,7 @@ namespace ZeroInstall.Commands
 
         /// <summary>The command-line argument parser used to evaluate user input.</summary>
         protected internal readonly OptionSet Options = new();
-        #endregion
 
-        #region State
         /// <summary>
         /// A callback object used when the the user needs to be asked questions or informed about download and IO tasks.
         /// </summary>
@@ -136,7 +133,6 @@ namespace ZeroInstall.Commands
                 Handler.Verbosity++;
             });
         }
-        #endregion
 
         /// <summary>
         /// Parses command-line arguments and stores the result in the command.

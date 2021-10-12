@@ -10,19 +10,14 @@ namespace ZeroInstall.Commands.Basic
     {
         private class Reset : CatalogSubCommand
         {
-            #region Metadata
             public const string Name = "reset";
-
             public override string Description => Resources.DescriptionCatalogReset;
-
             public override string Usage => "";
-
             protected override int AdditionalArgsMax => 0;
 
             public Reset(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

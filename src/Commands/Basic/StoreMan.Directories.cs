@@ -16,11 +16,8 @@ namespace ZeroInstall.Commands.Basic
     {
         private abstract class DirCommand : StoreSubCommand
         {
-            #region Metadata
             public override string Usage => "PATH";
-
             protected override int AdditionalArgsMin => 1;
-
             protected override int AdditionalArgsMax => 1;
 
             /// <summary>Apply the operation machine-wide instead of just for the current user.</summary>
@@ -31,7 +28,6 @@ namespace ZeroInstall.Commands.Basic
             {
                 Options.Add("m|machine", () => Resources.OptionMachine, _ => MachineWide = true);
             }
-            #endregion
 
             protected string GetPath() => Locations.IsPortable ? AdditionalArgs[0] : Path.GetFullPath(AdditionalArgs[0]);
 
@@ -49,15 +45,12 @@ namespace ZeroInstall.Commands.Basic
 
         private class AddDir : DirCommand
         {
-            #region Metadata
             public const string Name = "add-dir";
-
             public override string Description => Resources.DescriptionStoreAddDir;
 
             public AddDir(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -82,15 +75,12 @@ namespace ZeroInstall.Commands.Basic
 
         private class RemoveDir : DirCommand
         {
-            #region Metadata
             public const string Name = "remove-dir";
-
             public override string Description => Resources.DescriptionStoreRemoveDir;
 
             public RemoveDir(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {
@@ -112,19 +102,14 @@ namespace ZeroInstall.Commands.Basic
 
         public class List : StoreSubCommand
         {
-            #region Metadata
             public const string Name = "list";
-
             public override string Description => Resources.DescriptionStoreList;
-
             public override string Usage => "";
-
             protected override int AdditionalArgsMax => 0;
 
             public List(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

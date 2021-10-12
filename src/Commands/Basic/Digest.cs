@@ -18,24 +18,12 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class Digest : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "digest";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionDigest;
-
-        /// <inheritdoc/>
         public override string Usage => "(DIRECTORY | ARCHIVE [SUBDIR])";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 1;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 2;
-        #endregion
 
-        #region State
         /// <summary>The hashing algorithm used to generate the manifest.</summary>
         private ManifestFormat _algorithm = ManifestFormat.Sha1New;
 
@@ -63,7 +51,6 @@ namespace ZeroInstall.Commands.Basic
                     #endregion
                 });
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()
@@ -76,7 +63,6 @@ namespace ZeroInstall.Commands.Basic
             return ExitCode.OK;
         }
 
-        #region Helpers
         private Manifest GenerateManifest(string path, string? subdir)
         {
             var builder = new ManifestBuilder(_algorithm);
@@ -109,6 +95,5 @@ namespace ZeroInstall.Commands.Basic
             }
             else return manifest.CalculateDigest();
         }
-        #endregion
     }
 }

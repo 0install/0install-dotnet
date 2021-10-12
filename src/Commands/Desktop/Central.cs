@@ -12,21 +12,11 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class Central : CliCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "central";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionCentral;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS]";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 0;
-        #endregion
 
-        #region State
         private bool _machineWide;
 
         /// <inheritdoc/>
@@ -35,7 +25,6 @@ namespace ZeroInstall.Commands.Desktop
         {
             Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
         }
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

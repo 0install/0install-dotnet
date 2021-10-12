@@ -9,19 +9,14 @@ namespace ZeroInstall.Commands.Basic
     {
         private class List : CatalogSubCommand
         {
-            #region Metadata
             public const string Name = "list";
-
             public override string Description => Resources.DescriptionCatalogList;
-
             public override string Usage => "";
-
             protected override int AdditionalArgsMax => 0;
 
             public List(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

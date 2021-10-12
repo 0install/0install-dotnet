@@ -10,17 +10,13 @@ namespace ZeroInstall.Commands.Basic
     {
         private class Search : CatalogSubCommand
         {
-            #region Metadata
             public const string Name = "search";
-
             public override string Description => Resources.DescriptionCatalogSearch;
-
             public override string Usage => "[QUERY]";
 
             public Search(ICommandHandler handler)
                 : base(handler)
             {}
-            #endregion
 
             public override ExitCode Execute()
             {

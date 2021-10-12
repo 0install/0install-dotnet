@@ -24,24 +24,12 @@ namespace ZeroInstall.Commands.Basic
 #endif
     public class Export : Download
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public new const string Name = "export";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionExport;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] URI DIRECTORY";
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMin => 2;
-
-        /// <inheritdoc/>
         protected override int AdditionalArgsMax => 2;
-        #endregion
 
-        #region State
         private bool _noImplementations;
         private bool _includeZeroInstall;
         private BootstrapMode _bootstrapType = BootstrapMode.Run;
@@ -57,7 +45,6 @@ namespace ZeroInstall.Commands.Basic
             Options.Add("include-zero-install", () => Resources.OptionExportIncludeZeroInstall, _ => _includeZeroInstall = true);
             Options.Add("bootstrap=", () => Resources.OptionExportBootstrap + Environment.NewLine + SupportedValues<BootstrapMode>(), (BootstrapMode x) => _bootstrapType = x);
         }
-        #endregion
 
         private string? _outputPath;
 

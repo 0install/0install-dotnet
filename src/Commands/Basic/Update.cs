@@ -17,15 +17,9 @@ namespace ZeroInstall.Commands.Basic
     /// </summary>
     public class Update : Download
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public new const string Name = "update";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionUpdate;
-        #endregion
 
-        #region State
         private Selections? _oldSelections;
 
         /// <summary>
@@ -35,7 +29,6 @@ namespace ZeroInstall.Commands.Basic
         public Update(ICommandHandler handler)
             : base(handler, outputOptions: false, refreshOptions: false)
         {}
-        #endregion
 
         /// <inheritdoc/>
         public override ExitCode Execute()

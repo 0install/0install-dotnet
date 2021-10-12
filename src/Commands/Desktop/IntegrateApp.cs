@@ -21,24 +21,12 @@ namespace ZeroInstall.Commands.Desktop
     /// </summary>
     public class IntegrateApp : AppCommand
     {
-        #region Metadata
-        /// <summary>The name of this command as used in command-line arguments in lower-case.</summary>
         public const string Name = "integrate";
-
-        /// <summary>The alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName = "integrate-app";
-
-        /// <summary>Another alternative name of this command as used in command-line arguments in lower-case.</summary>
         public const string AltName2 = "desktop";
-
-        /// <inheritdoc/>
         public override string Description => Resources.DescriptionIntegrateApp;
-
-        /// <inheritdoc/>
         public override string Usage => "[OPTIONS] (ALIAS|INTERFACE)";
-        #endregion
 
-        #region State
         /// <summary>A list of all <see cref="AccessPoint"/> categories to be added to the already applied ones.</summary>
         private readonly List<string> _addCategories = new();
 
@@ -67,7 +55,6 @@ namespace ZeroInstall.Commands.Desktop
                 _removeCategories.Add(category);
             });
         }
-        #endregion
 
         /// <inheritdoc/>
         protected override ExitCode ExecuteHelper()
