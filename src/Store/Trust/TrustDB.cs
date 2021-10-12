@@ -66,7 +66,8 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="domain">The domain the key should be valid for.</param>
-        public void TrustKey(string fingerprint, Domain domain)
+        /// <returns>The same <see cref="TrustDB"/>, for fluent-style use.</returns>
+        public TrustDB TrustKey(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -82,6 +83,24 @@ namespace ZeroInstall.Store.Trust
             }
 
             targetKey.Domains.Add(domain);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Marks a key as no longer trusted for any domain.
+        /// </summary>
+        /// <param name="fingerprint">The fingerprint of the key to check.</param>
+        /// <returns><c>true</c> if the key was removed, <c>false</c> if the key was not found in the database.</returns>
+        public bool UntrustKey(string fingerprint)
+        {
+            #region Sanity checks
+            if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
+            #endregion
+
+            Log.Debug($"Untrusting {fingerprint} for all domains");
+
+            return Keys.RemoveAll(key => key.Fingerprint == fingerprint) > 0;
         }
 
         /// <summary>
@@ -89,7 +108,8 @@ namespace ZeroInstall.Store.Trust
         /// </summary>
         /// <param name="fingerprint">The fingerprint of the key to check.</param>
         /// <param name="domain">The domain the key should be valid for.</param>
-        public void UntrustKey(string fingerprint, Domain domain)
+        /// <returns><c>true</c> if the key was removed, <c>false</c> if the key was not found in the database.</returns>
+        public bool UntrustKey(string fingerprint, Domain domain)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(fingerprint)) throw new ArgumentNullException(nameof(fingerprint));
@@ -97,8 +117,14 @@ namespace ZeroInstall.Store.Trust
 
             Log.Debug($"Untrusting {fingerprint} for {domain}");
 
+            bool found = false;
             foreach (var key in Keys.Where(key => key.Fingerprint == fingerprint))
+            {
                 key.Domains.Remove(domain);
+                found = true;
+            }
+
+            return found;
         }
 
         #region Storage
@@ -130,7 +156,19 @@ namespace ZeroInstall.Store.Trust
         public static string DefaultLocation => Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
 
         /// <summary>
-        /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Automatically falls back to defaults on errors.
+        /// Loads the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> if the file does not exist.
+        /// </summary>
+        /// <returns>The loaded <see cref="TrustDB"/>.</returns>
+        /// <exception cref="IOException">A problem occured while reading the file.</exception>
+        /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
+        /// <exception cref="InvalidDataException">A problem occured while deserializing the XML data.</exception>
+        public static TrustDB Load()
+            => File.Exists(DefaultLocation)
+                ? Load(DefaultLocation)
+                : new() {_filePath = DefaultLocation};
+
+        /// <summary>
+        /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> on errors.
         /// </summary>
         /// <returns>The loaded <see cref="TrustDB"/> or an empty <see cref="TrustDB"/> if there was a problem.</returns>
         public static TrustDB LoadSafe()
@@ -138,10 +176,6 @@ namespace ZeroInstall.Store.Trust
             try
             {
                 return Load(DefaultLocation);
-            }
-            catch (FileNotFoundException)
-            {
-                return new() {_filePath = DefaultLocation}; // Start empty and save new file
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {

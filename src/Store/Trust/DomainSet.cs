@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.Serialization;
+using NanoByte.Common;
 
 namespace ZeroInstall.Store.Trust
 {
@@ -30,5 +31,12 @@ namespace ZeroInstall.Store.Trust
         {
             public int Compare(Domain x, Domain y) => string.Compare(x.Value, y.Value, StringComparison.OrdinalIgnoreCase);
         }
+
+        #region Conversion
+        /// <summary>
+        /// Returns the list of domains in the form "Domain1, Domain2, ...". Safe for parsing!
+        /// </summary>
+        public override string ToString() => StringUtils.Join(", ", this.Select(x => x.ToString()!));
+        #endregion
     }
 }

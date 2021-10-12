@@ -12,43 +12,85 @@ namespace ZeroInstall.Store.Trust
     /// </summary>
     public class TrustDBTest
     {
-        /// <summary>
-        /// Creates a fictive test <see cref="TrustDB"/>.
-        /// </summary>
-        private static TrustDB CreateTestTrust() => new()
+        [Fact]
+        public void TestIsTrusted()
         {
-            Keys =
+            var trust = new TrustDB
             {
-                new()
+                Keys =
                 {
-                    Fingerprint = "abc",
-                    Domains =
-                    {
-                        new() {Value = "0install.de"},
-                        new() {Value = "eicher.net"}
-                    }
+                    new() { Fingerprint = "abc", Domains = {new("example1.com") } }
                 }
-            }
-        };
+            };
+            trust.IsTrusted("abc", new("example1.com"))
+                 .Should().BeTrue();
+            trust.IsTrusted("abc", new("example2.com"))
+                 .Should().BeFalse();
+        }
 
-        [Fact] // Ensures that methods for adding and removing trusted keys work correctly.
-        public void TestAddRemoveTrust()
+        [Fact]
+        public void TestAddTrust()
         {
-            var trust = new TrustDB();
-            trust.IsTrusted("abc", new("domain")).Should().BeFalse();
+            var trust = new TrustDB
+            {
+                Keys =
+                {
+                    new() { Fingerprint = "abc", Domains = { new("example1.com") } }
+                }
+            };
+            trust.TrustKey("abc", new("example2.com"));
+            trust.TrustKey("xyz", new("example2.com"));
 
-            trust.TrustKey("abc", new("domain"));
-            trust.Keys.Should().Equal(new Key {Fingerprint = "abc", Domains = {new("domain")}});
-            trust.IsTrusted("abc", new Domain("domain")).Should().BeTrue();
+            trust.Should().Be(new TrustDB
+            {
+                Keys =
+                {
+                    new() { Fingerprint = "abc", Domains = { new("example1.com"), new("example2.com") } },
+                    new() { Fingerprint = "xyz", Domains = { new("example2.com") } }
+                }
+            });
+        }
 
-            trust.UntrustKey("abc", new("domain"));
-            trust.IsTrusted("abc", new("domain")).Should().BeFalse();
+        [Fact]
+        public void TestRemoveTrustKey()
+        {
+            var trust = new TrustDB
+            {
+                Keys =
+                {
+                    new() { Fingerprint = "abc", Domains = { new("example1.com"), new("example2.com") } }
+                }
+            };
+            trust.UntrustKey("abc");
+
+            trust.Should().Be(new TrustDB());
+        }
+
+        [Fact]
+        public void TestRemoveTrustDomain()
+        {
+            var trust = new TrustDB
+            {
+                Keys =
+                {
+                    new() { Fingerprint = "abc", Domains = { new("example1.com"), new("example2.com") } }
+                }
+            };
+            trust.UntrustKey("abc", new("example1.com"));
+
+            trust.Should().Be(new TrustDB
+            {
+                Keys =
+                {
+                    new() { Fingerprint = "abc", Domains = { new("example2.com") } }
+                }
+            });
         }
 
         [Fact] // Ensures that the class is correctly serialized and deserialized.
         public void TestSaveLoad()
         {
-            TrustDB trust1 = CreateTestTrust(), trust2;
+            TrustDB trust1 = new() { Keys = { new() { Fingerprint = "abc", Domains = { new("example.com") } } } }, trust2;
             using (var tempFile = new TemporaryFile("0install-test-trustdb"))
             {
                 // Write and read file
@@ -75,10 +117,10 @@ namespace ZeroInstall.Store.Trust
             loaded.Save().Should().BeTrue(because: "Loaded from disk");
         }
 
-        [Fact] // Ensures that the class can be correctly cloned.
+        [Fact]
         public void TestClone()
         {
-            var trust1 = CreateTestTrust();
+            var trust1 = new TrustDB() { Keys = { new() { Fingerprint = "abc", Domains = { new("example.com") } } } };
             var trust2 = trust1.Clone();
 
             // Ensure data stayed the same

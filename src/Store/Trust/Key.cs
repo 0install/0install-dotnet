@@ -27,8 +27,11 @@ namespace ZeroInstall.Store.Trust
         public DomainSet Domains { get; } = new();
 
         #region Conversion
-        /// <inheritdoc/>
-        public override string ToString() => Fingerprint + " " + Domains;
+        /// <summary>
+        /// Returns the key in the form "Fingerprint: Domain1, Domain2, ...". Safe for parsing!
+        /// </summary>
+        public override string ToString()
+            => $"{Fingerprint}: {Domains}";
         #endregion
 
         #region Clone
