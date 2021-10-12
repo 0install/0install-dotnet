@@ -84,7 +84,7 @@ namespace ZeroInstall.Publish
 
             using (var stream = new MemoryStream())
             {
-                Feed.SaveXml(stream, stylesheet: @"feed.xsl");
+                Feed.SaveXml(stream, stylesheet: "feed.xsl");
                 stream.Position = 0;
 
                 FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
@@ -94,7 +94,7 @@ namespace ZeroInstall.Publish
             if (directory != null)
             {
                 _openPgp.DeployPublicKey(SecretKey, directory);
-                FeedUtils.DeployStylesheet(directory, @"feed");
+                FeedUtils.DeployStylesheet(directory, "feed");
             }
         }
     }

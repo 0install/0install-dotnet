@@ -84,7 +84,7 @@ namespace ZeroInstall.Publish
 
             using (var stream = new MemoryStream())
             {
-                Catalog.SaveXml(stream, stylesheet: @"catalog.xsl");
+                Catalog.SaveXml(stream, stylesheet: "catalog.xsl");
                 stream.Position = 0;
 
                 FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
@@ -92,7 +92,7 @@ namespace ZeroInstall.Publish
             }
             string directory = Path.GetDirectoryName(path)!;
             _openPgp.DeployPublicKey(SecretKey, directory);
-            FeedUtils.DeployStylesheet(directory, @"catalog");
+            FeedUtils.DeployStylesheet(directory, "catalog");
         }
     }
 }

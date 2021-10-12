@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The full name of this command (including sub-commands) as used in command-line arguments in lower-case.
         /// </summary>
+        [Localizable(false)]
         public string FullName
         {
             get
@@ -52,11 +54,13 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// A short description of what this command does.
         /// </summary>
+        [Localizable(true)]
         public abstract string Description { get; }
 
         /// <summary>
         /// The additional arguments to be displayed after the command name in the help text.
         /// </summary>
+        [Localizable(false)]
         public abstract string Usage { get; }
 
         /// <summary>

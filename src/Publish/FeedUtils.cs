@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace ZeroInstall.Publish
         /// <param name="name">The name of the stylesheet to deploy. Must be "feed" or "catalog".</param>
         /// <exception cref="IOException">Failed to write the stylesheet files.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the directory is not permitted.</exception>
-        public static void DeployStylesheet(string path, string name)
+        public static void DeployStylesheet(string path, [Localizable(false)] string name)
         {
             #region Sanity checks
             if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

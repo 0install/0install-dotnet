@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.ComponentModel;
+
 namespace ZeroInstall.Commands
 {
     /// <summary>
@@ -11,6 +13,7 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// The name of the <see cref="CliMultiCommand"/> this command is a sub-command of.
         /// </summary>
+        [Localizable(false)]
         string ParentName { get; }
     }
 }
