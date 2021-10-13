@@ -106,7 +106,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <inheritdoc/>
         public override Capability Clone()
         {
-            var capability = new DefaultProgram {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Service = Service};
+            var capability = new DefaultProgram {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Service = Service, InstallCommands = InstallCommands};
             capability.Descriptions.AddRange(Descriptions.CloneElements());
             capability.Icons.AddRange(Icons);
             capability.Verbs.AddRange(Verbs.CloneElements());

@@ -121,7 +121,7 @@ namespace ZeroInstall.Model
         /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
         public PackageImplementation CloneImplementation()
         {
-            var implementation = new PackageImplementation {Package = Package};
+            var implementation = new PackageImplementation {Package = Package, Version = Version};
             implementation.Distributions.AddRange(Distributions);
             CloneFromTo(this, implementation);
             return implementation;
