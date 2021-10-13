@@ -1,9 +1,7 @@
-﻿using Xunit;
-using ZeroInstall.Model;
+﻿using ZeroInstall.Model;
 
 namespace ZeroInstall.Archives.Extractors
 {
-    [Collection("Static state")]
     public class TarXzExtractorTest : TarExtractorTest
     {
         protected override string MimeType => Archive.MimeTypeTarXz;

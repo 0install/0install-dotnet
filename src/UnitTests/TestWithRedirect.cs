@@ -3,14 +3,12 @@
 
 using System;
 using NanoByte.Common.Storage;
-using Xunit;
 
 namespace ZeroInstall
 {
     /// <summary>
     /// Common base class for test fixtures that use <see cref="Locations.Redirect"/>.
     /// </summary>
-    [Collection("Static state")]
     public class TestWithRedirect : IDisposable
     {
         private readonly TemporaryDirectory _tempDir = new("0install-test-redirect");

@@ -2,14 +2,12 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Storage;
-using Xunit;
 
 namespace ZeroInstall
 {
     /// <summary>
     /// Common base class for test fixtures that use a <see cref="Moq.MockRepository"/> and <see cref="Locations.Redirect"/>.
     /// </summary>
-    [Collection("Static state")]
     public abstract class TestWithMocksAndRedirect : TestWithMocks
     {
         private readonly TestWithRedirect _redirect = new();

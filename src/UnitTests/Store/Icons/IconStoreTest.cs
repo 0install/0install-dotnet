@@ -17,7 +17,6 @@ namespace ZeroInstall.Store.Icons
     /// <summary>
     /// Contains test methods for <see cref="IconStore"/>.
     /// </summary>
-    [Collection("Static state")]
     public class IconStoreTest : IDisposable
     {
         private readonly TemporaryDirectory _tempDir = new("0install-test-icons");

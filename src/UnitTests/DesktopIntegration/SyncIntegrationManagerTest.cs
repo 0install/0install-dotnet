@@ -17,6 +17,7 @@ namespace ZeroInstall.DesktopIntegration
     /// <summary>
     /// Contains test methods for <see cref="SyncIntegrationManager"/>.
     /// </summary>
+    [Collection("Desktop integration")]
     public sealed class SyncIntegrationManagerTest : TestWithRedirect
     {
         private const string CryptoKey = "abc123";

@@ -18,6 +18,7 @@ namespace ZeroInstall.DesktopIntegration
     /// <summary>
     /// Contains test methods for <see cref="IntegrationManager"/>.
     /// </summary>
+    [Collection("Desktop integration")]
     public sealed class IntegrationManagerTest : TestWithRedirect
     {
         private readonly IntegrationManager _integrationManager;

@@ -11,6 +11,7 @@ namespace ZeroInstall.Commands.Desktop
     /// <summary>
     /// Contains integration tests for <see cref="AddApp"/>.
     /// </summary>
+    [Collection("Desktop integration")]
     public class AddAppTest : CliCommandTestBase<AddApp>
     {
         [Fact]

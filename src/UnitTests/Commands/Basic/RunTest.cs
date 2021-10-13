@@ -78,12 +78,8 @@ namespace ZeroInstall.Commands.Basic
                   .Should().Be("http://example.com/test1.xml");
 
         [Fact]
-        public void GetCanonicalUriFile()
+        public void GetCanonicalUriFileAbsolute()
         {
-            CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
-            CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
-
-            // Absolute paths
             if (WindowsUtils.IsWindows)
             {
                 Sut.GetCanonicalUri(@"C:\test\file").ToStringRfc().Should().Be(@"C:\test\file");
@@ -95,16 +91,24 @@ namespace ZeroInstall.Commands.Basic
                 Sut.GetCanonicalUri("/test/file").ToStringRfc().Should().Be("/test/file");
                 Sut.GetCanonicalUri("file:///test/file").ToStringRfc().Should().Be("/test/file");
             }
+        }
 
-            // Relative paths
+        [Fact]
+        public void GetCanonicalUriFileRelative()
+        {
+            CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+            CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
+
             Sut.GetCanonicalUri(Path.Combine("test", "file")).ToString().Should().Be(
                 Path.Combine(Environment.CurrentDirectory, "test", "file"));
             Sut.GetCanonicalUri("file:test/file").ToString().Should().Be(
                 Path.Combine(Environment.CurrentDirectory, "test", "file"));
+        }
 
-            // Invalid paths
+        [Fact]
+        public void GetCanonicalUriFileInvalid()
+        {
             Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("file:/test/file"));
-            if (WindowsUtils.IsWindows) Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri(":::"));
         }
 
         [Fact]
