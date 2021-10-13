@@ -4,13 +4,12 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
-    <TargetFrameworks>net48;net5.0</TargetFrameworks>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>False</IsPackable>
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
     <NoWarn>$(NoWarn);xUnit1013</NoWarn><!-- Dispose() not marked as [Fact] -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net48'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
   </PropertyGroup>
 
