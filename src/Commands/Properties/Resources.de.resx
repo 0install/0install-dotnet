@@ -396,10 +396,10 @@ Zusätzliche Argumente spezifizieren alternative Cache-Speicherorte.</value>
     <value>Vetraut Feeds von einer bestimmten DOMAIN, die mit einem bestimmten FINGERPRINT signiert sind.</value>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Vetraut Feeds, die mit einem bestimmten FINGERPRINT signiert sind, nicht mehr.</value>
+    <value>Vetraut Feeds, die mit einem bestimmten FINGERPRINT signiert sind, nicht mehr. Stoppt das Vertrauen nur für eine bestimmte DOMAIN, falls angegeben.</value>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Listet Keys, denen vertraut wird, um Feeds zu signieren.</value>
+    <value>Listet Keys, denen vertraut wird, um Feeds zu signieren. Listet nur Domains auf, für die einem bestimmten FINGERPRINT vertraut werden, falls angegeben.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Prüft ob Updates für das Programm vorhanden sind und lädt sie gegebenenfalls herunter.

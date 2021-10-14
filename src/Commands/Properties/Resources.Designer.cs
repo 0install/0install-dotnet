@@ -852,7 +852,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trusts feeds from a specific DOMAIN signed with a specific FINGERPRINT..
+        ///   Looks up a localized string similar to Trusts feeds from a specific DOMAIN when signed with a specific FINGERPRINT..
         /// </summary>
         public static string DescriptionTrustAdd {
             get {
@@ -861,7 +861,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to List keys trusted for signing feeds..
+        ///   Looks up a localized string similar to List keys trusted for signing feeds. Only list domains for which a specific FINGERPRINT is trusted, if specified..
         /// </summary>
         public static string DescriptionTrustList {
             get {
@@ -870,7 +870,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stops trusting feeds signed with a specific FINGERPRINT..
+        ///   Looks up a localized string similar to Stops trusting feeds signed with a specific FINGERPRINT. Only stops trusting for a specific DOMAIN, if specified..
         /// </summary>
         public static string DescriptionTrustRemove {
             get {

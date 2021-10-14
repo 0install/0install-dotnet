@@ -393,13 +393,13 @@ Additional arguments specify custom cache locations.</value>
     <value>Synchronizes the application list with the server.</value>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Trusts feeds from a specific DOMAIN signed with a specific FINGERPRINT.</value>
+    <value>Trusts feeds from a specific DOMAIN when signed with a specific FINGERPRINT.</value>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Stops trusting feeds signed with a specific FINGERPRINT.</value>
+    <value>Stops trusting feeds signed with a specific FINGERPRINT. Only stops trusting for a specific DOMAIN, if specified.</value>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>List keys trusted for signing feeds.</value>
+    <value>List keys trusted for signing feeds. Only list domains for which a specific FINGERPRINT is trusted, if specified.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Checks for updates to the program and download them if found.
