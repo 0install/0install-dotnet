@@ -1,10 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
+using ZeroInstall.Model;
 
 namespace ZeroInstall.Commands.Desktop
 {
@@ -15,7 +17,7 @@ namespace ZeroInstall.Commands.Desktop
     {
         public const string Name = "list-apps";
         public override string Description => Resources.DescriptionListApps;
-        public override string Usage => "[PATTERN]";
+        public override string Usage => "[URI|PATTERN]";
         protected override int AdditionalArgsMax => 1;
 
         /// <summary>Indicates the user wants a machine-readable output.</summary>
@@ -33,8 +35,16 @@ namespace ZeroInstall.Commands.Desktop
         {
             var apps = AppList.LoadSafe(MachineWide);
 
-            // Apply filter
-            if (AdditionalArgs.Count > 0) apps.Entries.RemoveAll(x => !x.Name.ContainsIgnoreCase(AdditionalArgs[0]));
+            if (AdditionalArgs.Count > 0)
+            {
+                if (Uri.TryCreate(AdditionalArgs[0], UriKind.Absolute, out var uri))
+                {
+                    var feedUri = new FeedUri(uri);
+                    apps.Entries.RemoveAll(x => x.InterfaceUri != feedUri);
+                }
+                else
+                    apps.Entries.RemoveAll(x => !x.Name.ContainsIgnoreCase(AdditionalArgs[0]));
+            }
 
             if (_xmlOutput) Handler.Output(Resources.MyApps, apps.ToXmlString());
             else Handler.Output(Resources.MyApps, apps.Entries);

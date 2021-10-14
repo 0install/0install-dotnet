@@ -306,7 +306,7 @@ Diese Datei muss eine vertrauenswürdige digitale Signatur besitzen, genauso wie
     <value>Listet alle lokal bekannten Feed URIs auf. Wenn ein Suchbegriff angegeben wird, werden nur URIs angezeigt die den entsprechenden Begriff enthalten (Groß- und Kleinschreibung wird ignoriert) ausgegeben.</value>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Listet alle Anwendungen auf, die sich derzeit in Ihrer Anwendungsliste befinden. Wenn ein Suchbegriff angegeben wird, werden nur Anwendungsnamen angezeigt die den entsprechenden Begriff enthalten (Groß- und Kleinschreibung wird ignoriert) ausgegeben.</value>
+    <value>Listet alle Anwendungen auf, die sich derzeit in Ihrer Anwendungsliste befinden. Wird ein URI angegeben, wird nur die Anwendung mit dieser Feed URI ausgegeben. Wird ein PATTERN angegeben, werden nur Anwendungen ausgegeben, die diese Zeichenfolge in ihrem Namen enthalten (Groß- und Kleinschreibung wird nicht berücksichtigt).</value>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>Listet alle zusätzlichen Feeds auf, die mit '0install add-feed' hinzugefügt wurden.</value>

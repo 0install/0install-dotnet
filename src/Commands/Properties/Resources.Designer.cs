@@ -603,7 +603,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lists all applications currently in your application list. If a search term is given, only application names containing that string are shown (case insensitive)..
+        ///   Looks up a localized string similar to Lists all applications currently in your application list. If an URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive)..
         /// </summary>
         public static string DescriptionListApps {
             get {

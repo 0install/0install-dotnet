@@ -306,7 +306,7 @@ The file must have a trusted digital signature, as when fetching from the networ
     <value>Lists all locally known feed URIs. If a search term is given, only URIs containing that string are shown (case insensitive).</value>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Lists all applications currently in your application list. If a search term is given, only application names containing that string are shown (case insensitive).</value>
+    <value>Lists all applications currently in your application list. If an URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive).</value>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>Lists all extra feeds added to URI using '0install add-feed'.</value>
