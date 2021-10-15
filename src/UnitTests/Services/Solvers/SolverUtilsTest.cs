@@ -16,7 +16,7 @@ namespace ZeroInstall.Services.Solvers
         [Fact]
         public void GetNormalizedAlternativesFillsInDefaultValues()
         {
-            var requirements = new Requirements("http://test/feed.xml").ForCurrentSystem();
+            var requirements = new Requirements(new FeedUri("http://test/feed.xml")).ForCurrentSystem();
             requirements.Should().Be(new Requirements(new FeedUri("http://test/feed.xml"), Command.NameRun, Architecture.CurrentSystem) {Languages = {CultureInfo.CurrentUICulture}});
         }
     }

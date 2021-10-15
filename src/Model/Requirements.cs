@@ -142,26 +142,9 @@ namespace ZeroInstall.Model
         }
 
         /// <summary>
-        /// Creates a new requirements object.
+        /// Convenience cast for creating simple <see cref="Requirements"/> from a <see cref="FeedUri"/>.
         /// </summary>
-        /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for. Must be an HTTP(S) URL or an absolute local path.</param>
-        /// <exception cref="UriFormatException"><paramref name="interfaceUri"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
-        [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "Convenience overload that internally calls the Uri version")]
-        public Requirements(string interfaceUri)
-            : this(new FeedUri(interfaceUri))
-        {}
-
-        /// <summary>
-        /// Creates a new requirements object.
-        /// </summary>
-        /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for. Must be an HTTP(S) URL or an absolute local path.</param>
-        /// <param name="command">The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
-        /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
-        /// <exception cref="UriFormatException"><paramref name="interfaceUri"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
-        [SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "Convenience overload that internally calls the Uri version")]
-        public Requirements(string interfaceUri, string? command = null, Architecture architecture = default)
-            : this(new FeedUri(interfaceUri), command, architecture)
-        {}
+        public static implicit operator Requirements(FeedUri uri) => new(uri);
 
         /// <summary>
         /// Substitutes blank values with default values appropriate for the current system.

@@ -44,16 +44,14 @@ namespace ZeroInstall.Model
         {
             get
             {
-                string uri = Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
-                if (string.IsNullOrEmpty(uri)) return null;
+                string? uri = Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
                 try
                 {
-                    return new FeedUri(uri);
+                    if (!string.IsNullOrEmpty(uri)) return new FeedUri(uri);
                 }
                 catch (UriFormatException)
-                {
-                    return null;
-                }
+                {}
+                return null;
             }
         }
     }

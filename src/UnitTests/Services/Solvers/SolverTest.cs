@@ -73,7 +73,7 @@ namespace ZeroInstall.Services.Solvers
                         Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
                     }
                 },
-                requirements: new Requirements("http://example.com/prog1.xml", Command.NameRun));
+                requirements: new Requirements(new("http://example.com/prog1.xml"), Command.NameRun));
 
             actual.Should().Be(new Selections
             {
@@ -111,7 +111,7 @@ namespace ZeroInstall.Services.Solvers
                         }
                     }
                 },
-                requirements: new Requirements("http://example.com/prog.xml", Command.NameRun)
+                requirements: new Requirements(new("http://example.com/prog.xml"), Command.NameRun)
                 {
                     ExtraRestrictions = {{new("http://example.com/prog.xml"), new VersionRange("..!2.0")}}
                 });

@@ -53,7 +53,7 @@ namespace ZeroInstall.Commands.Desktop
         private IEnumerable<Requirements> GetApps()
             => AppList.LoadSafe(MachineWide).Entries
                       .Where(entry => entry.AutoUpdate && (entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)))
-                      .Select(entry => entry.Requirements ?? new Requirements(entry.InterfaceUri));
+                      .Select(entry => entry.Requirements ?? entry.InterfaceUri);
 
         private ICollection<ImplementationSelection> SolveAll(IEnumerable<Requirements> apps)
         {

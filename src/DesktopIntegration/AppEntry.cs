@@ -52,7 +52,7 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         [Browsable(false)]
         [XmlIgnore]
-        public Requirements EffectiveRequirements => Requirements ?? new Requirements(InterfaceUri);
+        public Requirements EffectiveRequirements => Requirements ?? InterfaceUri;
 
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>

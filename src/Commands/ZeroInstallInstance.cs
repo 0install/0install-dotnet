@@ -145,11 +145,9 @@ namespace ZeroInstall.Commands
             var services = new ServiceProvider(handler) {FeedManager = {Refresh = true}};
             if (services.Config.NetworkUse == NetworkLevel.Offline || services.Config.SelfUpdateUri == null) return null;
 
-            var requirements = new Requirements(services.Config.SelfUpdateUri);
-
             try
             {
-                var selections = services.Solver.Solve(requirements);
+                var selections = services.Solver.Solve(services.Config.SelfUpdateUri);
                 var newVersion = selections.MainImplementation.Version;
                 return (newVersion > Version) ? newVersion : null;
             }
