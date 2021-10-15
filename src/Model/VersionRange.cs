@@ -72,14 +72,14 @@ namespace ZeroInstall.Model
         /// </summary>
         [return: NotNullIfNotNull("version")]
         public static implicit operator VersionRange?(ImplementationVersion? version)
-            => version == null ? null : new(new VersionRangePartExact(version));
+            => version?.To(x => new VersionRange(new VersionRangePartExact(x)));
 
         /// <summary>
         /// Convenience cast for <see cref="Constraint"/>s into <see cref="VersionRange"/>s.
         /// </summary>
         [return: NotNullIfNotNull("constraint")]
         public static implicit operator VersionRange?(Constraint? constraint)
-            => constraint == null ? null : new(new VersionRangePartRange(constraint.NotBefore, constraint.Before));
+            => constraint?.To(x => new VersionRange(new VersionRangePartRange(x.NotBefore, x.Before)));
 
         /// <summary>
         /// Creates a new <see cref="VersionRange"/> using the specified string representation.

@@ -75,7 +75,7 @@ namespace ZeroInstall.Model
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Version"/>
         [XmlAttribute("version"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public override string? VersionString { get => Version?.ToString(); set => Version = value == null ? null : new(value); }
+        public override string? VersionString { get => Version?.ToString(); set => Version = value?.To(x => new VersionRange(x)); }
         #endregion
 
         #region Normalize

@@ -53,8 +53,8 @@ namespace ZeroInstall.Model.Selection
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="FromFeed"/>
-        [XmlAttribute("from-feed"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public string? FromFeedString { get => FromFeed?.ToStringRfc(); set => FromFeed = value == null ? null : new(value); }
+        [XmlAttribute("from-feed"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+        public string? FromFeedString { get => FromFeed?.ToStringRfc(); set => FromFeed = value?.To(x => new FeedUri(x)); }
 
         /// <summary>
         /// Used for XML serialization.

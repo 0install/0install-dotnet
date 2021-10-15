@@ -34,13 +34,13 @@ namespace ZeroInstall.Model
         #region XML serialization
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="NotBefore"/>
-        [XmlAttribute("not-before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public string? NotBeforeString { get => (NotBefore == null ? null : NotBefore.ToString()); set => NotBefore = string.IsNullOrEmpty(value) ? null : new(value); }
+        [XmlAttribute("not-before"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+        public string? NotBeforeString { get => NotBefore?.ToString(); set => NotBefore = value?.To(x => new ImplementationVersion(x)); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Before"/>
-        [XmlAttribute("before"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public string? BeforeString { get => Before?.ToString(); set => Before = string.IsNullOrEmpty(value) ? null : new(value); }
+        [XmlAttribute("before"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+        public string? BeforeString { get => Before?.ToString(); set => Before = value?.To(x => new ImplementationVersion(x)); }
         #endregion
 
         #region Conversion

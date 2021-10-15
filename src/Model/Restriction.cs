@@ -51,12 +51,12 @@ namespace ZeroInstall.Model
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
         [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
         // ReSharper disable once ConstantConditionalAccessQualifier
-        public string? InterfaceUriString { get => InterfaceUri?.ToStringRfc(); set => InterfaceUri = (value == null ? null : new(value))!; }
+        public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
         /// <summary>Used for XML serialization.</summary>
         /// <seealso cref="Versions"/>
-        [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public string? VersionsString { get => Versions?.ToString(); set => Versions = string.IsNullOrEmpty(value) ? null : new(value); }
+        [XmlAttribute("version"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+        public string? VersionsString { get => Versions?.ToString(); set => Versions = value?.To(x => new VersionRange(x)); }
         #endregion
 
         // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)

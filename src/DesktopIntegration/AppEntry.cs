@@ -66,8 +66,8 @@ namespace ZeroInstall.DesktopIntegration
 
         /// <summary>Used for XML+JSON serialization.</summary>
         /// <seealso cref="Requirements"/>
-        [XmlElement("requirements-json"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-        public string? RequirementsJson { get => Requirements?.ToJsonString(); set => Requirements = value == null ? null : JsonStorage.FromJsonString<Requirements>(value); }
+        [XmlElement("requirements-json"), DefaultValue(""), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+        public string? RequirementsJson { get => Requirements?.ToJsonString(); set => Requirements = value?.To(JsonStorage.FromJsonString<Requirements>); }
         #endregion
 
         /// <summary>

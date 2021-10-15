@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using Generator.Equals;
+using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Design;
@@ -109,7 +110,7 @@ namespace ZeroInstall.Publish.EntryPoints
         public abstract Command CreateCommand();
 
         protected static VersionRange? ToVersionRange(ImplementationVersion? version)
-            => version == null ? null : new Constraint { NotBefore = version };
+            => version?.To(x => new Constraint { NotBefore = x });
 
         /// <summary>The <see cref="Command.Name"/> used by <see cref="CreateCommand"/>.</summary>
         protected string CommandName => (Path.GetFileNameWithoutExtension(RelativePath) ?? "unknown").Replace(" ", "-");
