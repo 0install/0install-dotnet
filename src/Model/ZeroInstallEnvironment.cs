@@ -40,6 +40,21 @@ namespace ZeroInstall.Model
         /// <summary>
         /// The URI of the feed used to start this program.
         /// </summary>
-        public static string? FeedUri => Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
+        public static FeedUri? FeedUri
+        {
+            get
+            {
+                string uri = Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
+                if (string.IsNullOrEmpty(uri)) return null;
+                try
+                {
+                    return new FeedUri(uri);
+                }
+                catch (UriFormatException)
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
