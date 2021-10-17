@@ -21,6 +21,7 @@
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\Store\Store.csproj" />
     <ProjectReference Include="..\Archives\Archives.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />

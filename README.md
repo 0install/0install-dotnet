@@ -27,6 +27,9 @@ You can use these NuGet packages to integrate Zero Install features into your ow
 [![ZeroInstall.Model](https://img.shields.io/nuget/v/ZeroInstall.Model.svg?label=ZeroInstall.Model)](https://www.nuget.org/packages/ZeroInstall.Model/)  
 Data model for the [feed format](https://docs.0install.net/specifications/feed/).
 
+[![ZeroInstall.Client](https://img.shields.io/nuget/v/ZeroInstall.Client.svg?label=ZeroInstall.Client)](https://www.nuget.org/packages/ZeroInstall.Client/)  
+Client for invoking Zero Install commands from within other applications.
+
 [![ZeroInstall.Store](https://img.shields.io/nuget/v/ZeroInstall.Store.svg?label=ZeroInstall.Store)](https://www.nuget.org/packages/ZeroInstall.Store/)  
 Management of [implementation caches](https://docs.0install.net/details/cache/), digital signatures, etc..
 

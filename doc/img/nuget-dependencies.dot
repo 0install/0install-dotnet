@@ -5,12 +5,14 @@ digraph {
     desktop_integration [label="ZeroInstall.DesktopIntegration"];
     archives [label="ZeroInstall.Archives"];
     store [label="ZeroInstall.Store"];
+    client [label="ZeroInstall.Client"];
     model [label="ZeroInstall.Model"];
 
     commands -> {services desktop_integration};
-    publish -> {archives desktop_integration};
+    publish -> {client archives desktop_integration};
     services -> archives;
     archives -> store;
     desktop_integration -> store;
+    client -> model;
     store -> model;
 }
