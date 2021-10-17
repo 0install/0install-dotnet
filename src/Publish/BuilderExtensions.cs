@@ -4,12 +4,12 @@
 using System;
 using System.IO;
 using System.Net;
-using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
 using ZeroInstall.Archives;
+using ZeroInstall.Client;
 using ZeroInstall.Model;
 using ZeroInstall.Publish.Properties;
 using ZeroInstall.Store.FileSystem;
@@ -138,16 +138,8 @@ namespace ZeroInstall.Publish
         {
             if (metadata.Implementation == null) throw new ArgumentException($"Must call {nameof(IRecipeStep.Normalize)}() first.", nameof(metadata));
 
-            handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID), () =>
-            {
-                var startInfo = ProcessUtils.FromCommandLine(ZeroInstallEnvironment.ExternalFetch ?? "0install fetch");
-                startInfo.RedirectStandardInput = true;
-                var process = startInfo.Start();
-
-                process.StandardInput.WriteLine(new Feed {Elements = {metadata.Implementation}}.ToXmlString().Replace("\n", ""));
-                process.WaitForExit();
-                if (process.ExitCode != 0) throw new IOException(string.Format(Resources.FetchingExternalFailed, metadata.ID));
-            }));
+            handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID),
+                () => ZeroInstallClient.Detect.FetchAsync(metadata.Implementation).Wait()));
 
             string path = ImplementationStores.Default().GetPath(metadata.Implementation);
             builder.CopyFrom(metadata, path, handler);

@@ -130,9 +130,6 @@ Versuchen Sie ihn manuell anzugeben.</value>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Lade '{0}' mit Zero Install herunter</value>
   </data>
-  <data name="FetchingExternalFailed" xml:space="preserve">
-    <value>Herunterladen von '{0}' mit Zero Install ist fehlgeschlagen.</value>
-  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Die Datei '{0}' konnte nicht gefunden werden.</value>
   </data>

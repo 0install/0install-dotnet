@@ -98,15 +98,6 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to download &apos;{0}&apos; using Zero Install..
-        /// </summary>
-        internal static string FetchingExternalFailed {
-            get {
-                return ResourceManager.GetString("FetchingExternalFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The file &apos;{0}&apos; could not be found..
         /// </summary>
         internal static string FileNotFound {

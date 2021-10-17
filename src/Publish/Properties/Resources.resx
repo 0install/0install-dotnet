@@ -130,9 +130,6 @@ Try specifying it manually.</value>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Downloading '{0}' using Zero Install</value>
   </data>
-  <data name="FetchingExternalFailed" xml:space="preserve">
-    <value>Failed to download '{0}' using Zero Install.</value>
-  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>The file '{0}' could not be found.</value>
   </data>

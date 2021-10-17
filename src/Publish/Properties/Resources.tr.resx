@@ -130,9 +130,6 @@ Giriş noktalarını el ile belirtmeyi deneyin.</value>
   <data name="FetchingExternal" xml:space="preserve">
     <value>'{0}' Zero Install kullanılarak indiriliyor</value>
   </data>
-  <data name="FetchingExternalFailed" xml:space="preserve">
-    <value>'{0}' Zero Install kullanılarak indirilemedi.</value>
-  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>'{0}' dosyası bulunamıyor.</value>
   </data>

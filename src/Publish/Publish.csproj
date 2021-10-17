@@ -18,6 +18,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
