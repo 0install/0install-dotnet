@@ -14,19 +14,14 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// <summary>
     /// Creates an icon for an application on the user's desktop.
     /// </summary>
-    [XmlType("desktop-icon", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class DesktopIcon : IconAccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "desktop";
-        #endregion
+        public const string TagName = "desktop-icon", AltName = "desktop";
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"desktop:{Name}"};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] { $"{TagName}:{Name}" };
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

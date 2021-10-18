@@ -14,19 +14,14 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// <summary>
     /// Makes an application discoverable via the system's search PATH.
     /// </summary>
-    [XmlType("alias", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class AppAlias : CommandAccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "aliases";
-        #endregion
+        public const string TagName = "alias", AltName = "aliases";
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"alias:{Name}"};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] { $"{TagName}:{Name}" };
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

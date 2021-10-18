@@ -17,26 +17,15 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Indicates that all compatible capabilities should be registered.
     /// </summary>
     /// <seealso cref="ZeroInstall.Model.Capabilities"/>
-    [XmlType("capability-registration", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class CapabilityRegistration : AccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "capabilities";
-        #endregion
+        public const string TagName = "capability-registration", AltName = "capabilities";
 
         /// <inheritdoc/>
         public override IEnumerable<string> GetConflictIDs(AppEntry appEntry)
-        {
-            #region Sanity checks
-            if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
-            #endregion
-
-            return appEntry.CapabilityLists.CompatibleCapabilities().SelectMany(x => x.ConflictIDs);
-        }
+            => appEntry.CapabilityLists.CompatibleCapabilities().SelectMany(x => x.ConflictIDs);
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

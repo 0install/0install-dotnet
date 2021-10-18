@@ -14,19 +14,14 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// <summary>
     /// Automatically starts an application when the user logs in.
     /// </summary>
-    [XmlType("auto-start", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class AutoStart : CommandAccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "auto-start";
-        #endregion
+        public const string TagName = "auto-start";
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {"auto-start:" + Name};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] { $"{TagName}:{Name}" };
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

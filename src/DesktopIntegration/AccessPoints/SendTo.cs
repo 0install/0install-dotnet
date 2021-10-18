@@ -14,19 +14,14 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// <summary>
     /// Creates a shortcut for an application in the "Send to" menu.
     /// </summary>
-    [XmlType("send-to", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class SendTo : IconAccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "send-to";
-        #endregion
+        public const string TagName = "send-to";
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"send-to:{Name}"};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] { $"{TagName}:{Name}" };
 
         /// <inheritdoc/>
         public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

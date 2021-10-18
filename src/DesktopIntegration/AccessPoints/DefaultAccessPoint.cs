@@ -11,16 +11,11 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// Makes an application the default handler for something.
     /// </summary>
     /// <seealso cref="Model.Capabilities.Capability"/>
-    [XmlType("default-access-point", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public abstract partial class DefaultAccessPoint : AccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "default-app";
-        #endregion
+        public const string TagName = "default-access-point", AltName = "default-app";
 
         /// <summary>
         /// The ID of the <see cref="Capability"/> to be made the default handler.

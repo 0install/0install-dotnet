@@ -39,21 +39,25 @@ namespace ZeroInstall.Commands.Desktop
         {
             Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
 
+            string? NormalizeCategory(string category)
+            {
+                category = category.ToLower() switch
+                {
+                    CapabilityRegistration.AltName => CapabilityRegistration.TagName,
+                    DefaultAccessPoint.AltName => DefaultAccessPoint.TagName,
+                    AppAlias.AltName => AppAlias.TagName,
+                    MenuEntry.AltName => MenuEntry.TagName,
+                    DesktopIcon.AltName => DesktopIcon.TagName,
+                    _ => category
+                };
+                return CategoryIntegrationManager.AllCategories.Contains(category) ? category : null;
+            }
+
             Options.Add("add-standard", () => Resources.OptionIntegrateAddStandard, _ => _addCategories.AddRange(CategoryIntegrationManager.StandardCategories));
             Options.Add("add-all", () => Resources.OptionIntegrateAddAll, _ => _addCategories.AddRange(CategoryIntegrationManager.AllCategories));
-            Options.Add("add=", () => Resources.OptionIntegrateAdd + Environment.NewLine + SupportedValues(CategoryIntegrationManager.AllCategories), category =>
-            {
-                category = category.ToLower();
-                if (!CategoryIntegrationManager.AllCategories.Contains(category)) throw new OptionException(string.Format(Resources.InvalidArgument, category), "add");
-                _addCategories.Add(category);
-            });
+            Options.Add("add=", () => Resources.OptionIntegrateAdd + Environment.NewLine + SupportedValues(CategoryIntegrationManager.AllCategories), category => _addCategories.Add(NormalizeCategory(category) ?? throw new OptionException(string.Format(Resources.InvalidArgument, category), "add")));
             Options.Add("remove-all", () => Resources.OptionIntegrateRemoveAll, _ => _removeCategories.AddRange(CategoryIntegrationManager.AllCategories));
-            Options.Add("remove=", () => Resources.OptionIntegrateRemove + Environment.NewLine + SupportedValues(CategoryIntegrationManager.AllCategories), category =>
-            {
-                category = category.ToLower();
-                if (!CategoryIntegrationManager.AllCategories.Contains(category)) throw new OptionException(string.Format(Resources.InvalidArgument, category), "remove");
-                _removeCategories.Add(category);
-            });
+            Options.Add("remove=", () => Resources.OptionIntegrateRemove + Environment.NewLine + SupportedValues(CategoryIntegrationManager.AllCategories), category => _removeCategories.Add(NormalizeCategory(category) ?? throw new OptionException(string.Format(Resources.InvalidArgument, category), "remove")));
         }
 
         /// <inheritdoc/>

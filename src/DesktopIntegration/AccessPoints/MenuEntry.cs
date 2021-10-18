@@ -15,19 +15,14 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints
     /// <summary>
     /// Creates an entry for an application in the user's application menu (i.e. Windows start menu, GNOME application menu, etc.).
     /// </summary>
-    [XmlType("menu-entry", Namespace = AppList.XmlNamespace)]
+    [XmlType(TagName, Namespace = AppList.XmlNamespace)]
     [Equatable]
     public partial class MenuEntry : IconAccessPoint
     {
-        #region Constants
-        /// <summary>
-        /// The name of this category of <see cref="AccessPoint"/>s as used by command-line interfaces.
-        /// </summary>
-        public const string CategoryName = "menu";
-        #endregion
+        public const string TagName = "menu-entry", AltName = "menu";
 
         /// <inheritdoc/>
-        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$@"menu:{Category}\{Name}"};
+        public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"{TagName}:{Category}/{Name}"};
 
         /// <summary>
         /// The category or folder in the menu to add the entry to. Leave empty for top-level entry.

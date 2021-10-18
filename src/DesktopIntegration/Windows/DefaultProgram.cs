@@ -75,8 +75,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 {
                     string exePath = Path.Combine(Locations.InstallBase, "0install-win.exe");
                     installInfoKey.SetValue(RegValueReinstallCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", "defaults", target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                    installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.CategoryName, "--add", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                    installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.CategoryName, "--remove", DesktopIcon.CategoryName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                    installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.TagName, "--add", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                    installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.TagName, "--remove", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
                     installInfoKey.SetValue(RegValueIconsVisible, 0, RegistryValueKind.DWord);
                 }
 
