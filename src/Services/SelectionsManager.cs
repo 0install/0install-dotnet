@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
@@ -114,8 +113,7 @@ namespace ZeroInstall.Services
                 foreach (var dependency in implementation.Dependencies)
                     AddNodes(dependency, parent: node);
 
-                var command = implementation.Commands.FirstOrDefault();
-                if (command != null)
+                foreach (var command in implementation.Commands)
                 {
                     // Recurse into command dependencies
                     foreach (var dependency in command.Dependencies)
