@@ -153,7 +153,9 @@ namespace ZeroInstall.Commands
                 return;
 
             Log.Info("Starting periodic background self-update check");
-            StartCommandBackground(Self.Name, Self.Update.Name, "--batch");
+            StartCommandBackground(Self.Name, ZeroInstallInstance.IsMachineWide
+                ? new[] { Self.Update.Name } // Ask for confirmation before potentially triggering prompt for admin rights
+                : new[] { Self.Update.Name, "--batch" }); // Silently update per-user instances
         }
 
         /// <summary>
