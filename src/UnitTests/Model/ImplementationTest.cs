@@ -117,6 +117,14 @@ namespace ZeroInstall.Model
             implementation2.Normalize(localUri);
             implementation2.ID.Should().Be("./wrong");
             implementation2.LocalPath.Should().Be(WindowsUtils.IsWindows ? @"C:\local\subdir" : "/local/subdir");
+
+            if (UnixUtils.IsUnix)
+            {
+                var implementation3 = new Implementation {ID = "/root", Version = version};
+                implementation3.Normalize(localUri);
+                implementation3.ID.Should().Be("/root");
+                implementation3.LocalPath.Should().Be("/root");
+            }
         }
 
         /// <summary>

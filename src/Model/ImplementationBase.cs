@@ -81,7 +81,7 @@ namespace ZeroInstall.Model
             {
                 if (!string.IsNullOrEmpty(LocalPath))
                     LocalPath = ModelUtils.GetAbsolutePath(LocalPath, feedUri);
-                else if (!string.IsNullOrEmpty(ID) && ID.StartsWith(".")) // Get local path from ID
+                else if (!string.IsNullOrEmpty(ID) && (ID.StartsWith(".") || ID.StartsWith("/"))) // Get local path from ID
                     LocalPath = ID = ModelUtils.GetAbsolutePath(ID, feedUri);
             }
             #region Error handling
