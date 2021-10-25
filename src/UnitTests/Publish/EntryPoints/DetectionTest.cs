@@ -16,7 +16,7 @@ namespace ZeroInstall.Publish.EntryPoints
         [Fact]
         public void ListCandidates()
         {
-            Deploy(DotNetExeTest.Reference, xbit: false);
+            Deploy(DotNetFrameworkExeTest.Reference, xbit: false);
             Deploy(PythonScriptTest.Reference, xbit: true);
             Deploy(PosixScriptTest.Reference, xbit: true);
             Deploy(PosixBinaryTest.Reference32, xbit: true);
@@ -26,7 +26,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             detect.Candidates.Should().BeEquivalentTo(new Candidate[]
             {
-                DotNetExeTest.Reference,
+                DotNetFrameworkExeTest.Reference,
                 PythonScriptTest.Reference,
                 PosixScriptTest.Reference,
                 PosixBinaryTest.Reference32

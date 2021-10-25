@@ -11,17 +11,17 @@ namespace ZeroInstall.Publish.EntryPoints
 {
     public enum DotNetRuntimeType
     {
-        Any,
-        MicrosoftOnlyClientProfile,
-        MicrosoftOnlyFullProfile,
-        MonoOnly
+        DotNetFramework,
+        DotNetFrameworkClientProfile,
+        Mono,
+        DotNetFrameworkOrMono
     }
 
     /// <summary>
     /// A .NET/Mono executable.
     /// </summary>
     [Equatable]
-    public sealed partial class DotNetExe : WindowsExe
+    public sealed partial class DotNetFrameworkExe : WindowsExe
     {
         protected override bool Parse(PEHeader peHeader)
         {
@@ -29,7 +29,7 @@ namespace ZeroInstall.Publish.EntryPoints
             if (peHeader == null) throw new ArgumentNullException(nameof(peHeader));
             #endregion
 
-            Architecture = new(OS.Windows, GetCpu(peHeader.FileHeader.Machine));
+            Architecture = new(OS.All, GetCpu(peHeader.FileHeader.Machine));
             if (peHeader.Subsystem >= PESubsystem.WindowsCui) NeedsTerminal = true;
             return peHeader.Is32BitHeader
                 ? (peHeader.OptionalHeader32.CLRRuntimeHeader.VirtualAddress != 0)
@@ -59,46 +59,23 @@ namespace ZeroInstall.Publish.EntryPoints
         public bool ExternalDependencies { get; set; }
 
         /// <inheritdoc/>
-        public override Command CreateCommand()
+        public override Command CreateCommand() => new()
         {
-            FeedUri GetInterfaceUri()
+            Name = CommandName,
+            Path = RelativePath,
+            Runner = new Runner
             {
-                switch (RuntimeType)
+                InterfaceUri = RuntimeType switch
                 {
-                    case DotNetRuntimeType.Any:
-                    default:
-                        return ExternalDependencies
-                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new("https://apps.0install.net/dotnet/clr.xml");
-
-                    case DotNetRuntimeType.MicrosoftOnlyClientProfile:
-                        Architecture = new(OS.Windows, Architecture.Cpu);
-                        return ExternalDependencies
-                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new("https://apps.0install.net/dotnet/framework-client-profile.xml");
-
-                    case DotNetRuntimeType.MicrosoftOnlyFullProfile:
-                        Architecture = new(OS.Windows, Architecture.Cpu);
-                        return ExternalDependencies
-                            ? new("https://apps.0install.net/dotnet/clr-monopath.xml")
-                            : new("https://apps.0install.net/dotnet/framework.xml");
-
-                    case DotNetRuntimeType.MonoOnly:
-                        return new("https://apps.0install.net/dotnet/mono.xml");
-                }
+                    _ when ExternalDependencies => new("https://apps.0install.net/dotnet/clr-monopath.xml"),
+                    DotNetRuntimeType.DotNetFrameworkClientProfile => new("https://apps.0install.net/dotnet/framework-client-profile.xml"),
+                    DotNetRuntimeType.DotNetFramework => new("https://apps.0install.net/dotnet/framework.xml"),
+                    DotNetRuntimeType.Mono => new("https://apps.0install.net/dotnet/mono.xml"),
+                    _ => new("https://apps.0install.net/dotnet/clr.xml")
+                },
+                Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
+                Versions = ToVersionRange(MinimumRuntimeVersion)
             }
-
-            return new Command
-            {
-                Name = CommandName,
-                Path = RelativePath,
-                Runner = new Runner
-                {
-                    InterfaceUri = GetInterfaceUri(),
-                    Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                    Versions = ToVersionRange(MinimumRuntimeVersion)
-                }
-            };
-        }
+        };
     }
 }

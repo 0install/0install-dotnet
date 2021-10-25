@@ -8,32 +8,30 @@ using ZeroInstall.Model;
 namespace ZeroInstall.Publish.EntryPoints
 {
     /// <summary>
-    /// Contains test methods for <see cref="DotNetExe"/>.
+    /// Contains test methods for <see cref="DotNetFrameworkExe"/>.
     /// </summary>
-    public class DotNetExeTest : CandidateTest
+    public class DotNetFrameworkExeTest : CandidateTest
     {
-        public static readonly DotNetExe Reference = new()
+        public static readonly DotNetFrameworkExe Reference = new()
         {
-            RelativePath = "dotnet.exe",
-            Architecture = new(OS.Windows, Cpu.All),
+            RelativePath = "netfx.exe",
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0")
         };
 
-        public static readonly DotNetExe Reference64 = new()
+        public static readonly DotNetFrameworkExe Reference64 = new()
         {
-            RelativePath = "dotnet64.exe",
-            Architecture = new(OS.Windows, Cpu.X64),
+            RelativePath = "netfx64.exe",
+            Architecture = new(OS.All, Cpu.X64),
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0")
         };
 
-        public static readonly DotNetExe ReferenceTerminal = new()
+        public static readonly DotNetFrameworkExe ReferenceTerminal = new()
         {
-            RelativePath = "dotnet_terminal.exe",
-            Architecture = new(OS.Windows, Cpu.All),
+            RelativePath = "netfx_terminal.exe",
             Name = "Hello",
             Summary = "a Hello World application",
             Version = new("1.2.3.0"),
@@ -51,7 +49,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
         [Fact]
         public void NotDotNet()
-            => new DotNetExe().Analyze(baseDirectory: Directory, file: Deploy(WindowsExeTest.Reference32, xbit: false))
+            => new DotNetFrameworkExe().Analyze(baseDirectory: Directory, file: Deploy(WindowsExeTest.Reference32, xbit: false))
                               .Should().BeFalse();
     }
 }
