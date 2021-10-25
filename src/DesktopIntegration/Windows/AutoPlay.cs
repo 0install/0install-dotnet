@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Microsoft.Win32;
+using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
@@ -84,8 +85,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 var icon = autoPlay.GetIcon(Icon.MimeTypeIco)
                         ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
-                if (icon != null)
-                    handlerKey.SetValue(RegValueIcon, iconStore.GetPath(icon) + ",0");
+                handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.GetPath(x) + ",0"));
             }
 
             foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))

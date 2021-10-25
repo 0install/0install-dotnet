@@ -81,8 +81,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 // Register extensions
                 using (var extensionKey = classesKey.CreateSubKeyChecked(extension.Value))
                 {
-                    if (!string.IsNullOrEmpty(extension.MimeType)) extensionKey.SetValue(RegValueContentType, extension.MimeType);
-                    if (!string.IsNullOrEmpty(extension.PerceivedType)) extensionKey.SetValue(RegValuePerceivedType, extension.PerceivedType);
+                    extensionKey.SetOrDelete(RegValueContentType, extension.MimeType);
+                    extensionKey.SetOrDelete(RegValuePerceivedType, extension.PerceivedType);
 
                     using (var openWithKey = extensionKey.CreateSubKeyChecked(RegSubKeyOpenWith))
                         openWithKey.SetValue(RegistryClasses.Prefix + fileType.ID, "");

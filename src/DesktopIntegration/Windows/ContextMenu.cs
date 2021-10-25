@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using NanoByte.Common;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
@@ -80,8 +81,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
-                    if (icon != null)
-                        verbKey.SetValue("Icon", iconStore.GetPath(icon));
+                    verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetPath));
                 }
             }
             else
@@ -97,7 +97,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-                    if (icon != null) menuKey.SetValue("Icon", iconStore.GetPath(icon));
+                    menuKey.SetOrDelete("Icon", icon?.To(iconStore.GetPath));
                 }
             }
         }

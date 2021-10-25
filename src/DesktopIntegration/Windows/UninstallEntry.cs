@@ -67,11 +67,10 @@ namespace ZeroInstall.DesktopIntegration.Windows
             appKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
             appKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
             appKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
-
             appKey.SetValue("DisplayName", name);
-            if (iconPath != null) appKey.SetValue("DisplayIcon", iconPath);
-            if (homepage is not null) appKey.SetValue("URLInfoAbout", homepage.ToString());
-            if (version != null) appKey.SetValue("DisplayVersion", version);
+            appKey.SetOrDelete("DisplayIcon", iconPath);
+            appKey.SetOrDelete("URLInfoAbout", homepage?.ToString());
+            appKey.SetOrDelete("DisplayVersion", version);
             if (size.HasValue) appKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
         }
 

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using JetBrains.Annotations;
 using Microsoft.Win32;
+using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
@@ -79,7 +80,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 // Set icon if available
                 var icon = target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-                if (icon != null) capabilitiesKey.SetValue(RegValueAppIcon, iconStore.GetPath(icon) + ",0");
+                capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => iconStore.GetPath(x) + ",0"));
 
                 verbCapabilities = verbCapabilities.ToArray();
 

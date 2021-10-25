@@ -102,16 +102,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
         public static void Register(RegistryKey verbKey, FeedTarget target, Verb verb, IIconStore iconStore, bool machineWide)
         {
             string? description = verb.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture);
-            if (!string.IsNullOrEmpty(description))
-            {
-                verbKey.SetValue("", description);
-                verbKey.SetValue("MUIVerb", description);
-            }
+            verbKey.SetOrDelete("", description);
+            verbKey.SetOrDelete("MUIVerb", description);
 
             if (verb.Extended) verbKey.SetValue("Extended", "");
+            else verbKey.DeleteValue("Extended", throwOnMissingValue: false);
 
             var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
-            if (icon != null) verbKey.SetValue("Icon", iconStore.GetPath(icon));
+            verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetPath));
 
             using var commandKey = verbKey.CreateSubKeyChecked("command");
             commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));
@@ -154,6 +152,15 @@ namespace ZeroInstall.DesktopIntegration.Windows
                   .Concat(verb.Arguments.Select(x => x.Value))
                   .JoinEscapeArguments()
                   .Replace("${item}", "\"%V\"");
+        }
+
+        /// <summary>
+        /// Sets <paramref name="name"/> to <paramref name="value"/> or deletes the entry if <paramref name="value"/> is <c>null</c> or empty.
+        /// </summary>
+        public static void SetOrDelete(this RegistryKey registryKey, string name, string? value)
+        {
+            if (string.IsNullOrEmpty(value)) registryKey.DeleteValue(name, throwOnMissingValue: false);
+            else registryKey.SetValue(name, value);
         }
     }
 }
