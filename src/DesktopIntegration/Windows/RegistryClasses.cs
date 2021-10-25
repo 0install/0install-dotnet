@@ -105,6 +105,8 @@ namespace ZeroInstall.DesktopIntegration.Windows
             verbKey.SetOrDelete("", description);
             verbKey.SetOrDelete("MUIVerb", description);
 
+            verbKey.SetOrDelete("MultiSelectModel", verb.SingleElementOnly ? "Single" : null);
+
             if (verb.Extended) verbKey.SetValue("Extended", "");
             else verbKey.DeleteValue("Extended", throwOnMissingValue: false);
 

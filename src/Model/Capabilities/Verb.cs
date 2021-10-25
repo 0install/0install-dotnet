@@ -95,6 +95,14 @@ namespace ZeroInstall.Model.Capabilities
         public string? ArgumentsLiteral { get; set; }
 
         /// <summary>
+        /// Set this to <c>true</c> to hide the verb if more than one element is selected.
+        /// </summary>
+        /// <remarks>Use this to help avoid running out of resources if the user opens too many files.</remarks>
+        [Description("Set this to true to hide the verb if more than one element is selected. Use this to help avoid running out of resources if the user opens too many files.")]
+        [XmlAttribute("single-element-only"), DefaultValue(false)]
+        public bool SingleElementOnly { get; set; }
+
+        /// <summary>
         /// Set this to <c>true</c> to hide the verb in the Windows context menu unless the Shift key is pressed when opening the menu.
         /// </summary>
         [Description("Set this to true to hide the verb in the Windows context menu unless the Shift key is pressed when opening the menu.")]
@@ -130,7 +138,7 @@ namespace ZeroInstall.Model.Capabilities
         /// <returns>The new copy of the <see cref="Verb"/>.</returns>
         public Verb Clone()
         {
-            var newVerb = new Verb {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, ArgumentsLiteral = ArgumentsLiteral, Extended = Extended};
+            var newVerb = new Verb {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, ArgumentsLiteral = ArgumentsLiteral, SingleElementOnly = SingleElementOnly, Extended = Extended};
             newVerb.Descriptions.AddRange(Descriptions.CloneElements());
             newVerb.Arguments.AddRange(Arguments.CloneElements());
             return newVerb;
