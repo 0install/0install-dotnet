@@ -54,7 +54,7 @@ namespace ZeroInstall.Services
         /// <summary>
         /// A callback object used when the the user needs to be asked questions or informed about download and IO tasks.
         /// </summary>
-        public virtual ITaskHandler Handler { get; }
+        public ITaskHandler Handler { get; }
 
         private readonly Lazy<Config> _config = new(Config.Load);
 
