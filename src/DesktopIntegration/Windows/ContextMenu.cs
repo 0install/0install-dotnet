@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
@@ -71,6 +72,12 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
 
+            void AppliesTo(RegistryKey key)
+            {
+                if (contextMenu.Target == ContextMenuTarget.Files)
+                    key.SetOrDelete("AppliesTo", StringUtils.Join(" OR ", contextMenu.Extensions.Select(x => x.Value)));
+            }
+
             if (contextMenu.Verbs.Count == 1)
             { // Simple context menu entry
                 var verb = contextMenu.Verbs[0];
@@ -79,6 +86,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 {
                     using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
                     RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
+                    AppliesTo(verbKey);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
                     verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetPath));
@@ -87,7 +95,10 @@ namespace ZeroInstall.DesktopIntegration.Windows
             else
             { // Cascading context menu
                 using (var menuKey = classesKey.CreateSubKeyChecked(Prefix + contextMenu.ID))
+                {
                     RegistryClasses.Register(menuKey, target, contextMenu, iconStore, machineWide);
+                    AppliesTo(menuKey);
+                }
 
                 foreach (string keyName in GetKeyName(contextMenu.Target))
                 {

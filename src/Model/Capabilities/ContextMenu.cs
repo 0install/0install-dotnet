@@ -50,6 +50,15 @@ namespace ZeroInstall.Model.Capabilities
         [XmlAttribute("target"), DefaultValue(typeof(ContextMenuTarget), "Files")]
         public ContextMenuTarget Target { get; set; }
 
+        /// <summary>
+        /// A list of file extensions this context menu entry is displayed for. Only applicable when <see cref="Target"/> is <see cref="ContextMenuTarget.Files"/>.
+        /// The context menu is shown for all file types when this empty.
+        /// </summary>
+        [Browsable(false)]
+        [XmlElement("extension")]
+        [OrderedEquality]
+        public List<FileTypeExtension> Extensions { get; } = new();
+
         /// <inheritdoc/>
         [Browsable(false), XmlIgnore, IgnoreEquality]
         public override IEnumerable<string> ConflictIDs => Enumerable.Empty<string>();
@@ -69,6 +78,7 @@ namespace ZeroInstall.Model.Capabilities
             capability.Descriptions.AddRange(Descriptions.CloneElements());
             capability.Icons.AddRange(Icons);
             capability.Verbs.AddRange(Verbs.CloneElements());
+            capability.Extensions.AddRange(Extensions.CloneElements());
             return capability;
         }
         #endregion
