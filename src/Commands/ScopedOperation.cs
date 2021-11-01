@@ -143,19 +143,19 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected void BackgroundSelfUpdate()
         {
-            if (ZeroInstallInstance.IsRunningFromCache
-             || !NetUtils.IsInternetConnected
-             || Handler.Verbosity == Verbosity.Batch
-             || Config.NetworkUse != NetworkLevel.Full
-             || Config.SelfUpdateUri == null
-             || !FeedManager.IsStale(Config.SelfUpdateUri) // Limit frequency of update checks
-             || FeedManager.RateLimit(Config.SelfUpdateUri)) // Prevent multiple concurrent update checks
-                return;
-
-            Log.Info("Starting periodic background self-update check");
-            StartCommandBackground(Self.Name, ZeroInstallInstance.IsMachineWide
-                ? new[] { Self.Update.Name } // Ask for confirmation before potentially triggering prompt for admin rights
-                : new[] { Self.Update.Name, "--batch" }); // Silently update per-user instances
+            if (!ZeroInstallInstance.IsRunningFromCache
+             && NetUtils.IsInternetConnected
+             && Handler.Verbosity != Verbosity.Batch
+             && Config.NetworkUse == NetworkLevel.Full
+             && Config.SelfUpdateUri != null
+             && FeedManager.IsStale(Config.SelfUpdateUri)
+             && !FeedManager.RateLimit(Config.SelfUpdateUri))
+            {
+                Log.Info("Starting periodic background self-update check");
+                StartCommandBackground(Self.Name, ZeroInstallInstance.IsMachineWide
+                    ? new[] { Self.Update.Name } // Ask for confirmation before potentially triggering prompt for admin rights
+                    : new[] { Self.Update.Name, "--batch" }); // Silently update per-user instances
+            }
         }
 
         /// <summary>
