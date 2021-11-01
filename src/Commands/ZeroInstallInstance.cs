@@ -82,9 +82,15 @@ namespace ZeroInstall.Commands
         /// </summary>
         public static bool IsIntegrated
             => !IsRunningFromCache
-            && WindowsUtils.IsWindows
+            && !IsLibraryMode
             && !Locations.IsPortable
-            && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) != "1";
+            && WindowsUtils.IsWindows;
+
+        /// <summary>
+        /// Indicates whether the current Zero Install instance is in library mode.
+        /// </summary>
+        public static bool IsLibraryMode
+            => WindowsUtils.IsWindows && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) == "1";
 
         /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
