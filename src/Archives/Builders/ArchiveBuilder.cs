@@ -37,6 +37,7 @@ namespace ZeroInstall.Archives.Builders
                 Archive.MimeTypeTar => new TarBuilder(stream),
                 Archive.MimeTypeTarGzip => new TarGzBuilder(stream),
                 Archive.MimeTypeTarBzip => new TarBz2Builder(stream),
+                Archive.MimeTypeTarLzip => new TarLzipBuilder(stream),
                 _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
             };
         }
