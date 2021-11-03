@@ -8,10 +8,12 @@ using System.IO;
 using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
+using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic
@@ -84,10 +86,25 @@ namespace ZeroInstall.Commands.Basic
             }
             #endregion
 
+            BackgroundCacheClean();
             BackgroundSelfUpdate();
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             return ShowOutput();
+        }
+
+        /// <summary>
+        /// Removes old implementations from the cache in a background process.
+        /// </summary>
+        protected void BackgroundCacheClean()
+        {
+            if (ZeroInstallInstance.IsLibraryMode
+             && Config.NetworkUse == NetworkLevel.Full
+             && UncachedImplementations?.Count > 0)
+            {
+                Log.Info("Starting background cache clean");
+                StartCommandBackground(UpdateApps.Name, "--batch", "--clean");
+            }
         }
 
         /// <inheritdoc/>

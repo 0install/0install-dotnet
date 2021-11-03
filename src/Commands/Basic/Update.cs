@@ -50,6 +50,7 @@ namespace ZeroInstall.Commands.Basic
             }
 
             Handle(UncachedImplementations);
+            BackgroundCacheClean();
             BackgroundSelfUpdate();
 
             return ShowOutput();
