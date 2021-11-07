@@ -1,0 +1,58 @@
+﻿// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using System;
+using System.Linq;
+using System.Runtime.InteropServices;
+using FluentAssertions;
+using NanoByte.Common;
+using NanoByte.Common.Native;
+using Xunit;
+using ZeroInstall.Model;
+using Architecture = System.Runtime.InteropServices.Architecture;
+
+namespace ZeroInstall.Services.Native
+{
+    public class WindowsPackageManagerTest
+    {
+        private readonly WindowsPackageManager _packageManager;
+
+        public WindowsPackageManagerTest()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows);
+            Skip.If(RuntimeInformation.ProcessArchitecture == Architecture.X86);
+            _packageManager = new();
+        }
+
+        [SkippableFact]
+        public void DotNetFramework()
+            => ExpectImplementation("netfx", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll");
+
+        [SkippableFact]
+        public void DotNetFrameworkX86()
+            => ExpectImplementation("netfx", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll");
+
+        [SkippableFact]
+        public void DotNetFrameworkClientProfile()
+            => ExpectImplementation("netfx-client", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll");
+
+        [SkippableFact]
+        public void PowerShell()
+            => ExpectImplementation("powershell", commandPath: @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe", quickTest: @"System32\WindowsPowerShell\v1.0\powershell.exe");
+
+        [SkippableFact]
+        public void PowerShellX86()
+            => ExpectImplementation("powershell", commandPath: @"C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe", quickTest: @"SysWOW64\WindowsPowerShell\v1.0\powershell.exe");
+
+        private void ExpectImplementation(string packageName, string commandPath, string quickTest)
+        {
+            var implementations = _packageManager.Query(new() {Package = packageName, Distributions = {"Windows"}}, "Windows");
+            implementations.Should().Contain(impl =>
+                impl.Package == packageName
+             && impl.IsInstalled
+             && impl.Commands.Any(x => x.Name == Command.NameRun && x.Path != null && x.Path.Equals(commandPath, StringComparison.InvariantCultureIgnoreCase))
+             && impl.QuickTestFile != null
+             && impl.QuickTestFile.ContainsIgnoreCase(quickTest));
+        }
+    }
+}
