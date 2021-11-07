@@ -6,10 +6,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
+using ZeroInstall.Store.Implementations;
+using Architecture = ZeroInstall.Model.Architecture;
 
 namespace ZeroInstall.Services.Native
 {
@@ -61,6 +64,11 @@ namespace ZeroInstall.Services.Native
                 }.Flatten(),
                 "netfx-client" => FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client"),
                 "powershell" => FindPowerShell(),
+                _ when packageName.StartsWith("dotnet-") => new []
+                {
+                    FindDotNet(packageName, Environment.SpecialFolder.ProgramFiles, (RuntimeInformation.ProcessArchitecture == System.Runtime.InteropServices.Architecture.X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
+                    FindDotNet(packageName, Environment.SpecialFolder.ProgramFilesX86, Cpu.I486),
+                }.Flatten(),
                 "git" => FindGitForWindows(),
                 _ => Enumerable.Empty<ExternalImplementation>()
             };
@@ -137,6 +145,33 @@ namespace ZeroInstall.Services.Native
                 release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
                 if (install == 1 && release >= releaseNumber)
                     yield return Impl(Cpu.I486);
+            }
+        }
+
+        private IEnumerable<ExternalImplementation> FindDotNet(string packageName, Environment.SpecialFolder folder, Cpu cpu)
+        {
+            string rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
+            string componentPath = Path.Combine(rootPath, packageName switch
+            {
+                "dotnet-runtime" => Path.Combine("shared", "Microsoft.NETCore.App"),
+                "dotnet-aspnetcore-runtime" => Path.Combine("shared", "Microsoft.AspNetCore.App"),
+                "dotnet-windowsdesktop-runtime" => Path.Combine("shared", "Microsoft.WindowsDesktop.App"),
+                "dotnet-sdk" => "sdk",
+                _ => throw new ImplementationNotFoundException()
+            });
+            if (!Directory.Exists(componentPath)) yield break;
+
+            foreach (string path in Directory.GetDirectories(componentPath))
+            {
+                if (ImplementationVersion.TryCreate(Path.GetFileName(path), out var version))
+                {
+                    yield return new(DistributionName, packageName, version, cpu)
+                    {
+                        Commands = {new Command {Name = Command.NameRun, Path = Path.Combine(rootPath, "dotnet.exe")}},
+                        IsInstalled = true,
+                        QuickTestFile = Path.Combine(path, ".version")
+                    };
+                }
             }
         }
 
