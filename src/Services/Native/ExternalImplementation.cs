@@ -2,7 +2,10 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
+using System.Linq;
 using Generator.Equals;
+using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Values;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
@@ -95,5 +98,21 @@ namespace ZeroInstall.Services.Native
 
             return implementation;
         }
+
+        #region Conversion
+        /// <summary>
+        /// Returns the implementation in the form "Comma-separated list of set values". Not safe for parsing!
+        /// </summary>
+        public override string ToString()
+            => StringUtils.Join(", ", new object?[]
+                {
+                    ID,
+                    Architecture,
+                    Version,
+                    QuickTestFile
+                }.Where(x => x is not 0)
+                 .Select(x => x?.ToString())
+                 .WhereNotNull());
+        #endregion
     }
 }

@@ -84,10 +84,9 @@ namespace ZeroInstall.Services.Native
                let mainPath = Path.Combine(javaHome.path, @"bin\" + mainExe + ".exe")
                let secondaryPath = Path.Combine(javaHome.path, @"bin\" + secondaryExe + ".exe")
                where File.Exists(mainPath) && File.Exists(secondaryPath)
-               select new ExternalImplementation(DistributionName,
-                   package: "openjdk-" + version + "-" + typeShort,
-                   version: new(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
-                   cpu: javaHome.cpu)
+               select new ExternalImplementation(DistributionName, "openjdk-" + version + "-" + typeShort,
+                   new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
+                   javaHome.cpu)
                {
                    Commands =
                    {
@@ -117,12 +116,12 @@ namespace ZeroInstall.Services.Native
         // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
         private IEnumerable<ExternalImplementation> FindNetFx(string version, string clrVersion, string registryVersion, int releaseNumber = 0)
         {
-            ExternalImplementation Impl(Cpu cpu) => new(DistributionName, "netfx", new(version), cpu)
+            ExternalImplementation Impl(Cpu cpu) => new(DistributionName, registryVersion.EndsWith("Client") ? "netfx-client" : "netfx", new(version), cpu)
             {
                 // .NET executables do not need a runner on Windows
                 Commands = {new Command {Name = Command.NameRun, Path = ""}},
                 IsInstalled = true,
-                QuickTestFile = Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion), "mscorlib.dll")
+                QuickTestFile = Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion).Replace("Framework64", cpu == Cpu.I486 ? "Framework" : "Framework64"), "mscorlib.dll")
             };
 
             // Check for system native architecture (may be 32-bit or 64-bit)
@@ -152,9 +151,9 @@ namespace ZeroInstall.Services.Native
                 string? path = RegistryUtils.GetString($@"{regPrefix}\PowerShellEngine", "ApplicationBase");
                 if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
-                return new ExternalImplementation(DistributionName, "powershell",
-                    version: new(version),
-                    cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
+                return new(DistributionName, "powershell",
+                    new ImplementationVersion(version),
+                    wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
                 {
                     Commands =
                     {
@@ -164,6 +163,7 @@ namespace ZeroInstall.Services.Native
                             Path = Path.Combine(path, "powershell.exe")
                         }
                     },
+                    QuickTestFile = Path.Combine(path, "powershell.exe"),
                     IsInstalled = true
                 };
             }
@@ -187,25 +187,25 @@ namespace ZeroInstall.Services.Native
                 string? path = RegistryUtils.GetString(regKey, "InstallPath");
                 if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(path)) return null;
 
-                return new ExternalImplementation(DistributionName, "git",
-                    version: new(version),
-                    cpu: wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
+                return new(DistributionName, "git",
+                    new ImplementationVersion(version),
+                    wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
                 {
                     Commands =
                     {
-                        new Command {Name = Command.NameRun, Path = Path.Combine(path, @"cmd\git.exe")},
-                        new Command {Name = Command.NameRunGui, Path = Path.Combine(path, @"cmd\git-gui.exe")},
-                        new Command {Name = "gitk", Path = Path.Combine(path, @"cmd\gitk.exe")},
-                        new Command {Name = "start-ssh-agent", Path = Path.Combine(path, @"cmd\start-ssh-agent.exe")},
-                        new Command {Name = "git-bash", Path = Path.Combine(path, @"git-bash.exe")},
-                        new Command {Name = "git-cmd", Path = Path.Combine(path, @"git-cmd.exe")},
-                        new Command {Name = "bash", Path = Path.Combine(path, @"usr\bin\bash.exe")},
-                        new Command {Name = "sh", Path = Path.Combine(path, @"usr\bin\sh.exe")},
-                        new Command {Name = "ssh", Path = Path.Combine(path, @"usr\bin\ssh.exe")},
-                        new Command {Name = "scp", Path = Path.Combine(path, @"usr\bin\scp.exe")},
-                        new Command {Name = "gpg", Path = Path.Combine(path, @"usr\bin\gpg.exe")},
-                        new Command {Name = "gpgv", Path = Path.Combine(path, @"usr\bin\gpgv.exe")},
-                        new Command {Name = "gpgsplit", Path = Path.Combine(path, @"usr\bin\gpgsplit.exe")}
+                        new() {Name = Command.NameRun, Path = Path.Combine(path, @"cmd\git.exe")},
+                        new() {Name = Command.NameRunGui, Path = Path.Combine(path, @"cmd\git-gui.exe")},
+                        new() {Name = "gitk", Path = Path.Combine(path, @"cmd\gitk.exe")},
+                        new() {Name = "start-ssh-agent", Path = Path.Combine(path, @"cmd\start-ssh-agent.exe")},
+                        new() {Name = "git-bash", Path = Path.Combine(path, @"git-bash.exe")},
+                        new() {Name = "git-cmd", Path = Path.Combine(path, @"git-cmd.exe")},
+                        new() {Name = "bash", Path = Path.Combine(path, @"usr\bin\bash.exe")},
+                        new() {Name = "sh", Path = Path.Combine(path, @"usr\bin\sh.exe")},
+                        new() {Name = "ssh", Path = Path.Combine(path, @"usr\bin\ssh.exe")},
+                        new() {Name = "scp", Path = Path.Combine(path, @"usr\bin\scp.exe")},
+                        new() {Name = "gpg", Path = Path.Combine(path, @"usr\bin\gpg.exe")},
+                        new() {Name = "gpgv", Path = Path.Combine(path, @"usr\bin\gpgv.exe")},
+                        new() {Name = "gpgsplit", Path = Path.Combine(path, @"usr\bin\gpgsplit.exe")}
                     },
                     IsInstalled = true
                 };
