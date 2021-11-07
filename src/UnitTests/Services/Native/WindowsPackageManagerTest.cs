@@ -44,6 +44,21 @@ namespace ZeroInstall.Services.Native
         public void PowerShellX86()
             => ExpectImplementation("powershell", commandPath: @"C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe", quickTest: @"SysWOW64\WindowsPowerShell\v1.0\powershell.exe");
 
+        [SkippableFact]
+        public void DotNetRuntime()
+            => ExpectImplementation("dotnet-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.NETCore.App");
+
+        [SkippableFact]
+        public void DotNetAspNetCoreRuntime()
+            => ExpectImplementation("dotnet-aspnetcore-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.AspNetCore.App");
+
+        [SkippableFact]
+        public void DotNetWindowsDesktopRuntime()
+            => ExpectImplementation("dotnet-windowsdesktop-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.WindowsDesktop.App");
+
+        [SkippableFact]
+        public void DotNetSdk() => ExpectImplementation("dotnet-sdk", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\sdk");
+
         private void ExpectImplementation(string packageName, string commandPath, string quickTest)
         {
             var implementations = _packageManager.Query(new() {Package = packageName, Distributions = {"Windows"}}, "Windows");
