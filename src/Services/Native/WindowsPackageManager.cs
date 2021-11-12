@@ -11,7 +11,6 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Implementations;
 using Architecture = ZeroInstall.Model.Architecture;
 
 namespace ZeroInstall.Services.Native
@@ -150,15 +149,18 @@ namespace ZeroInstall.Services.Native
 
         private IEnumerable<ExternalImplementation> FindDotNet(string packageName, Environment.SpecialFolder folder, Cpu cpu)
         {
-            string rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
-            string componentPath = Path.Combine(rootPath, packageName switch
+            string? packageDir = packageName switch
             {
                 "dotnet-runtime" => Path.Combine("shared", "Microsoft.NETCore.App"),
                 "dotnet-aspnetcore-runtime" => Path.Combine("shared", "Microsoft.AspNetCore.App"),
                 "dotnet-windowsdesktop-runtime" => Path.Combine("shared", "Microsoft.WindowsDesktop.App"),
                 "dotnet-sdk" => "sdk",
-                _ => throw new ImplementationNotFoundException()
-            });
+                _ => null
+            };
+            if (packageDir == null) yield break;
+
+            string rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
+            string componentPath = Path.Combine(rootPath, packageDir);
             if (!Directory.Exists(componentPath)) yield break;
 
             foreach (string path in Directory.GetDirectories(componentPath))
