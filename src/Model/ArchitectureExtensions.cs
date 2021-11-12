@@ -15,8 +15,8 @@ namespace ZeroInstall.Model
         {
             if (architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)) return true;
 
-            // Windows on ARM x86 emulation
-            if (target.OS == OS.Windows && target.Cpu == Cpu.AArch64 && architecture.Cpu is (>= Cpu.I386 and <= Cpu.I686)) return true;
+            // Windows/macOS ARM x86/x64 emulation
+            if (target.OS is OS.Windows or OS.MacOSX && target.Cpu == Cpu.AArch64 && architecture.Cpu is (>= Cpu.I386 and <= Cpu.X64)) return true;
 
             return false;
         }

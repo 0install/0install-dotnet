@@ -29,6 +29,12 @@ namespace ZeroInstall.Model
 
             new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Linux, Cpu.I486)).Should().BeFalse();
             new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Linux, Cpu.Ppc)).Should().BeFalse();
+
+            // Windows/macOS ARM x86/x64 emulation
+            new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.Windows, Cpu.AArch64)).Should().BeTrue();
+            new Architecture(OS.Windows, Cpu.X64).RunsOn(new Architecture(OS.Windows, Cpu.AArch64)).Should().BeTrue();
+            new Architecture(OS.Windows, Cpu.I486).RunsOn(new Architecture(OS.MacOSX, Cpu.AArch64)).Should().BeTrue();
+            new Architecture(OS.Windows, Cpu.X64).RunsOn(new Architecture(OS.MacOSX, Cpu.AArch64)).Should().BeTrue();
         }
 
         [Fact]
