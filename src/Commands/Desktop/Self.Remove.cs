@@ -11,7 +11,6 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop
 {

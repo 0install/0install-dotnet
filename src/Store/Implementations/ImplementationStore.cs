@@ -138,6 +138,19 @@ namespace ZeroInstall.Store.Implementations
             return true;
         }
 
+        /// <inheritdoc />
+        public void Purge(ITaskHandler handler)
+        {
+            #region Sanity checks
+            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            #endregion
+
+            handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.DeletingDirectory, Path),
+                target: ListAll().ToList(),
+                work: digest => Remove(digest, handler)));
+        }
+
         /// <summary>
         /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
         /// </summary>

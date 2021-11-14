@@ -155,6 +155,17 @@ namespace ZeroInstall.Store.Implementations
             return removed;
         }
 
+        /// <inheritdoc />
+        public void Purge(ITaskHandler handler)
+        {
+            #region Sanity checks
+            if (handler == null) throw new ArgumentNullException(nameof(handler));
+            #endregion
+
+            foreach (var store in _innerStores.Reverse())
+                store.Purge(handler);
+        }
+
         /// <inheritdoc/>
         public long Optimise(ITaskHandler handler)
         {

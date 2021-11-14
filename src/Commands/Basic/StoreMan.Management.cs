@@ -6,7 +6,6 @@ using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic

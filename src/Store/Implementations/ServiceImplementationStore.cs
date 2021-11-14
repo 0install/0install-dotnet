@@ -81,6 +81,11 @@ namespace ZeroInstall.Store.Implementations
         /// <summary>
         /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
         /// </summary>
+        public void Purge(ITaskHandler handler) {}
+
+        /// <summary>
+        /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
+        /// </summary>
         public long Optimise(ITaskHandler handler) => 0;
 
         /// <summary>

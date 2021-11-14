@@ -97,6 +97,19 @@ namespace ZeroInstall.Store.Implementations
         }
 
         [Fact]
+        public void ShouldAllowToPurge()
+        {
+            string implPath1 = Path.Combine(_tempDir, "sha256new_123ABC");
+            string implPath2 = Path.Combine(_tempDir, "sha256new_456XYZ");
+            Directory.CreateDirectory(implPath1);
+            Directory.CreateDirectory(implPath2);
+
+            _store.Purge(_handler);
+            Directory.Exists(implPath1).Should().BeFalse();
+            Directory.Exists(implPath2).Should().BeFalse();
+        }
+
+        [Fact]
         public void GetPath()
         {
             string implPath = Path.Combine(_tempDir, "sha256new_123ABC");

@@ -134,27 +134,6 @@ namespace ZeroInstall.Store.Implementations
         }
 
         /// <summary>
-        /// Removes all implementations from a store.
-        /// </summary>
-        /// <param name="store">The store to be purged.</param>
-        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">An implementation could not be deleted.</exception>
-        /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-        public static void Purge(this IImplementationStore store, ITaskHandler handler)
-        {
-            #region Sanity checks
-            if (store == null) throw new ArgumentNullException(nameof(store));
-            if (handler == null) throw new ArgumentNullException(nameof(handler));
-            #endregion
-
-            handler.RunTask(ForEachTask.Create(
-                name: string.Format(Resources.DeletingDirectory, store.Path),
-                target: store.ListAll().ToList(),
-                work: digest => store.Remove(digest, handler)));
-        }
-
-        /// <summary>
         /// Tries to temporarily remove the write protection of an implementation.
         /// </summary>
         /// <param name="path">A path inside an implementation store.</param>

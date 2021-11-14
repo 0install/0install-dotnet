@@ -71,7 +71,7 @@ namespace ZeroInstall.Store.Implementations
         void Verify(ManifestDigest manifestDigest, ITaskHandler handler);
 
         /// <summary>
-        /// Removes a specific implementation from the cache.
+        /// Removes a specific implementation from the store.
         /// </summary>
         /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
         /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
@@ -80,6 +80,15 @@ namespace ZeroInstall.Store.Implementations
         /// <exception cref="IOException">Thrown if the implementation could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
         bool Remove(ManifestDigest manifestDigest, ITaskHandler handler);
+
+        /// <summary>
+        /// Removes all implementations from a store.
+        /// </summary>
+        /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="IOException">An implementation could not be deleted.</exception>
+        /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
+        void Purge(ITaskHandler handler);
 
         /// <summary>
         /// Reads in all the manifest files in the store and looks for duplicates (files with the same permissions, modification time and digest). When it finds a pair, it deletes one and replaces it with a hard-link to the other.
