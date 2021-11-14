@@ -1,11 +1,11 @@
 image:
-  - Visual Studio 2019
-  - Ubuntu1804
+  - Visual Studio 2022
+  - Ubuntu2004
 
 for:
   - matrix:
       only:
-        - image: Visual Studio 2019
+        - image: Visual Studio 2022
 
     cache:
       - '%USERPROFILE%\.nuget\packages -> **\*.csproj'
@@ -40,11 +40,11 @@ for:
         authorization:
            secure: 1lrrvByUN3qR7P/QQN6XXy4LWmh8ls/veOESoeVffvyF4kOqo28JxoZtIxYOZZpAZKlbAv8tWQaLFZiUxXFHmA==
         on:
-          appveyor_repo_tag: true 
+          appveyor_repo_tag: true
 
   - matrix:
       only:
-        - image: Ubuntu1804
+        - image: Ubuntu2004
 
     cache:
       - '$HOME/.nuget/packages -> **/*.csproj'
