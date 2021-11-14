@@ -13,7 +13,6 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic
@@ -86,7 +85,7 @@ namespace ZeroInstall.Commands.Basic
             }
             #endregion
 
-            BackgroundCacheClean();
+            LibraryModeClean();
             BackgroundSelfUpdate();
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
@@ -94,16 +93,14 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Removes old implementations from the cache in a background process.
+        /// Removes old implementations from the <see cref="Store"/> if <see cref="ZeroInstallInstance.IsLibraryMode"/>.
         /// </summary>
-        protected void BackgroundCacheClean()
+        protected void LibraryModeClean()
         {
-            if (ZeroInstallInstance.IsLibraryMode
-             && Config.NetworkUse == NetworkLevel.Full
-             && UncachedImplementations?.Count > 0)
+            if (ZeroInstallInstance.IsLibraryMode && UncachedImplementations?.Count == 0)
             {
-                Log.Info("Starting background cache clean");
-                StartCommandBackground(UpdateApps.Name, "--batch", "--clean");
+                Log.Info("Starting library mode implementation cleaning");
+                new UpdateApps(Handler) {Clean = true}.Execute();
             }
         }
 

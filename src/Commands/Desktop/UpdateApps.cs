@@ -25,13 +25,13 @@ namespace ZeroInstall.Commands.Desktop
         public override string Usage => "[OPTIONS]";
         protected override int AdditionalArgsMax => 0;
 
-        private bool _clean;
+        internal bool Clean;
 
         /// <inheritdoc/>
         public UpdateApps(ICommandHandler handler)
             : base(handler)
         {
-            Options.Add("c|clean", () => Resources.OptionClean, _ => _clean = true);
+            Options.Add("c|clean", () => Resources.OptionClean, _ => Clean = true);
         }
 
         /// <inheritdoc/>
@@ -41,10 +41,10 @@ namespace ZeroInstall.Commands.Desktop
             DownloadUncachedImplementations(implementations);
             BackgroundSelfUpdate();
 
-            if (_clean)
+            if (Clean)
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
-                Clean(implementations);
+                CleanImplementations(implementations);
             }
 
             return ExitCode.OK;
@@ -84,7 +84,7 @@ namespace ZeroInstall.Commands.Desktop
             FetchAll(SelectionsManager.GetImplementations(uncachedImplementations));
         }
 
-        private void Clean(IEnumerable<ImplementationSelection> implementations)
+        private void CleanImplementations(IEnumerable<ImplementationSelection> implementations)
         {
             var digestsToKeep = implementations.Select(x => x.ManifestDigest);
             var digestsToRemove = ImplementationStore.ListAll().Except(digestsToKeep, ManifestDigestPartialEqualityComparer.Instance);
