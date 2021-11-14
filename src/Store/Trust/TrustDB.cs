@@ -178,7 +178,7 @@ namespace ZeroInstall.Store.Trust
         {
             try
             {
-                return Load(DefaultLocation);
+                return Load();
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
             {
