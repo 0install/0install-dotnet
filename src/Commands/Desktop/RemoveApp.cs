@@ -40,9 +40,11 @@ namespace ZeroInstall.Commands.Desktop
             }
             #endregion
 
-            if (!ZeroInstallInstance.IsRunningFromCache && !ZeroInstallInstance.IsIntegrated && IntegrationManager.AppList.Entries.Count == 0)
+            if (ZeroInstallInstance.IsLibraryMode
+             && !ExistingDesktopIntegration()
+             && (!ZeroInstallInstance.IsMachineWide || !ExistingDesktopIntegration(machineWide: true)))
             {
-                Log.Info("Last app removed, auto-removing non-integrated Zero Install instance");
+                Log.Info("Last app removed, auto-removing library mode Zero Install instance");
                 StartCommandBackground(Self.Name, Self.Remove.Name, "--batch");
             }
 

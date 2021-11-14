@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -148,5 +149,11 @@ namespace ZeroInstall.Commands.Desktop
                 StartCommandBackground(Download.Name, "--batch", interfaceUri.ToStringRfc());
             }
         }
+
+        /// <summary>
+        /// Indicates whether any desktop integration for apps has been performed yet.
+        /// </summary>
+        public static bool ExistingDesktopIntegration(bool machineWide = false)
+            => AppList.LoadSafe(machineWide).Entries.Any(x => x.AccessPoints != null);
     }
 }

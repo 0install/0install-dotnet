@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -12,7 +11,6 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
-using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop
@@ -68,13 +66,15 @@ namespace ZeroInstall.Commands.Desktop
                 if (MachineWide && !WindowsUtils.IsAdministrator)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
-                if (ZeroInstallInstance.IsIntegrated && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
+                if (!ZeroInstallInstance.IsLibraryMode && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
                     return ExitCode.UserCanceled;
 
-                if (ExistingDesktopIntegration(MachineWide) || ExistingDesktopIntegration(machineWide: false))
-                    new RemoveAllApps(Handler) {MachineWide = MachineWide}.Execute();
+                if (IntegrationCommand.ExistingDesktopIntegration())
+                    new RemoveAllApps(Handler).Execute();
+                if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
+                    new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
-                if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: !ZeroInstallInstance.IsIntegrated && ZeroInstallInstance.FindOther() == null))
+                if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOther() == null))
                     ImplementationStore.Purge(Handler);
 
                 if (WindowsUtils.IsWindows) DelegateToTempCopy();
@@ -82,12 +82,6 @@ namespace ZeroInstall.Commands.Desktop
 
                 return ExitCode.OK;
             }
-
-            /// <summary>
-            /// Indicates whether any desktop integration for apps has been performed yet.
-            /// </summary>
-            private static bool ExistingDesktopIntegration(bool machineWide)
-                => AppList.LoadSafe(machineWide).Entries.Any(x => x.AccessPoints != null);
 
             /// <summary>
             /// Deploys a portable copy of Zero Install to a temp directory and delegates the actual removal of the current instance to this copy.

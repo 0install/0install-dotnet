@@ -103,7 +103,7 @@ namespace ZeroInstall.Commands.Desktop
                     var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
                     if (Handler.Background) builder.AddArguments("--background");
                     if (_restartCentral) builder.AddArguments("--restart-central");
-                    if (!ZeroInstallInstance.IsIntegrated) builder.AddArguments("--library");
+                    if (ZeroInstallInstance.IsLibraryMode) builder.AddArguments("--library");
                     builder.Start();
 
                     return ExitCode.OK;

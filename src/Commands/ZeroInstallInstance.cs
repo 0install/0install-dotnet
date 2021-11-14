@@ -55,8 +55,8 @@ namespace ZeroInstall.Commands
         /// <summary>
         /// Indicates whether Zero Install is running from an implementation cache.
         /// </summary>
-        public static bool IsRunningFromCache
-            => ImplementationStoreUtils.IsImplementation(Locations.InstallBase, out _);
+        public static bool IsRunningFromCache { get; }
+            = ImplementationStoreUtils.IsImplementation(Locations.InstallBase, out _);
 
         /// <summary>
         /// Indicates whether Zero Install is running from a machine-wide location.
@@ -82,15 +82,18 @@ namespace ZeroInstall.Commands
         /// </summary>
         public static bool IsIntegrated
             => !IsRunningFromCache
-            && !IsLibraryMode
             && !Locations.IsPortable
-            && WindowsUtils.IsWindows;
+            && WindowsUtils.IsWindows
+            && !IsLibraryMode;
 
         /// <summary>
         /// Indicates whether the current Zero Install instance is in library mode.
         /// </summary>
         public static bool IsLibraryMode
-            => WindowsUtils.IsWindows && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) == "1";
+            => !IsRunningFromCache
+            && !Locations.IsPortable
+            && WindowsUtils.IsWindows
+            && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) == "1";
 
         /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
