@@ -115,27 +115,13 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
+            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+
             string? path = GetPath(manifestDigest);
             if (path == null) return false;
-            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
-            if (path == Locations.InstallBase && WindowsUtils.IsWindows)
-            {
-                Log.Warn(Resources.NoStoreSelfRemove);
-                return false;
-            }
-            if (WindowsUtils.IsWindowsVista)
-            {
-                if (!UseRestartManager(path, handler)) return false;
-            }
 
             Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
-
-            DisableWriteProtection(path);
-            string tempDir = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
-            Directory.Move(path, tempDir);
-            Directory.Delete(tempDir, recursive: true);
-
-            return true;
+            return RemoveInner(path, handler);
         }
 
         /// <inheritdoc />
@@ -145,10 +131,74 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
+            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+
+            var paths = Directory.GetDirectories(Path).Where(path =>
+            {
+                var digest = new ManifestDigest();
+                digest.ParseID(System.IO.Path.GetFileName(path));
+                return digest.Best != null;
+            }).ToList();
+
             handler.RunTask(ForEachTask.Create(
                 name: string.Format(Resources.DeletingDirectory, Path),
-                target: ListAll().ToList(),
-                work: digest => Remove(digest, handler)));
+                target: paths,
+                work: digest => RemoveInner(digest, handler, purge: true)));
+        }
+
+        private bool RemoveInner(string path, ITaskHandler handler, bool purge = false)
+        {
+            if (path == Locations.InstallBase && WindowsUtils.IsWindows)
+            {
+                Log.Warn(Resources.NoStoreSelfRemove);
+                return false;
+            }
+
+            if (WindowsUtils.IsWindowsVista)
+            {
+                try
+                {
+                    using var restartManager = new WindowsRestartManager();
+
+                    // Look for handles to well-known executable types in the top-level directory.
+                    // Searching for all file types and/or in subdirectories takes too long.
+                    restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
+                    restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
+
+                    string[] apps = restartManager.ListApps(handler.CancellationToken);
+                    if (apps.Length != 0)
+                    {
+                        if (handler.Verbosity != Verbosity.Batch || !purge)
+                        {
+                            string appsList = string.Join(Environment.NewLine, apps);
+                            if (!handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
+                                defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
+                                return false;
+                        }
+
+                        restartManager.ShutdownApps(handler);
+                    }
+                }
+                #region Error handling
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
+                {
+                    Log.Warn(ex);
+                    return false;
+                }
+                catch (Win32Exception ex)
+                {
+                    Log.Error(ex);
+                    return false;
+                }
+                #endregion
+            }
+
+            DisableWriteProtection(path);
+            string tempDir = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
+            Directory.Move(path, tempDir);
+            Directory.Delete(tempDir, recursive: true);
+
+            return true;
         }
 
         /// <summary>
@@ -170,46 +220,6 @@ namespace ZeroInstall.Store.Implementations
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
             {
                 Log.Error(ex);
-            }
-            #endregion
-        }
-
-        /// <summary>
-        /// Ensures that there are no applications running with open file handles in <paramref name="path"/>.
-        /// </summary>
-        /// <returns><c>true</c> if there are no longer any open file handles; <c>false</c> if this could not be ensured.</returns>
-        private static bool UseRestartManager(string path, ITaskHandler handler)
-        {
-            try
-            {
-                using var restartManager = new WindowsRestartManager();
-
-                // Look for handles to well-known executable types in the top-level directory
-                // Searching for all file types and/or in subdirectories takes too long
-                restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
-                restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
-
-                var apps = restartManager.ListApps(handler.CancellationToken);
-                if (apps.Length != 0)
-                {
-                    string appsList = string.Join(Environment.NewLine, apps);
-                    if (handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
-                        defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
-                        restartManager.ShutdownApps(handler);
-                    else return false;
-                }
-                return true;
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
-            {
-                Log.Warn(ex);
-                return false;
-            }
-            catch (Win32Exception ex)
-            {
-                Log.Error(ex);
-                return false;
             }
             #endregion
         }

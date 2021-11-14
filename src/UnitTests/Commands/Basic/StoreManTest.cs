@@ -159,9 +159,7 @@ namespace ZeroInstall.Commands.Basic
             [Fact]
             public void Test()
             {
-                StoreMock.Setup(x => x.ListAll()).Returns(new[] {_dummyDigest});
-                StoreMock.Setup(x => x.Remove(_dummyDigest, Handler)).Returns(true);
-                StoreMock.SetupGet(x => x.Path).Returns("dummy");
+                StoreMock.Setup(x => x.Purge(Handler));
 
                 Handler.AnswerQuestionWith = true;
                 RunAndAssert(null, ExitCode.OK);

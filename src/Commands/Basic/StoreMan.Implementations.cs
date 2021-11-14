@@ -177,12 +177,10 @@ namespace ZeroInstall.Commands.Basic
 
             public override ExitCode Execute()
             {
+                bool removed = false;
                 foreach (var digest in AdditionalArgs.Select(x => new ManifestDigest(x)))
-                {
-                    if (!ImplementationStore.Remove(digest, Handler))
-                        throw new ImplementationNotFoundException(digest);
-                }
-                return ExitCode.OK;
+                    removed |= ImplementationStore.Remove(digest, Handler);
+                return removed ? ExitCode.OK : ExitCode.NoChanges;
             }
         }
 
