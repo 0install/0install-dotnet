@@ -70,7 +70,7 @@ namespace ZeroInstall.Model
             Stability = Stability.Developer,
             Dependencies =
             {
-                new Dependency
+                new()
                 {
                     InterfaceUri = Test1Uri,
                     Constraints = {new Constraint {NotBefore = new("1.0"), Before = new("2.0")}},
@@ -114,7 +114,7 @@ namespace ZeroInstall.Model
             DocDir = "doc",
             Dependencies =
             {
-                new Dependency
+                new()
                 {
                     InterfaceUri = Test2Uri,
                     Importance = Importance.Recommended,

@@ -63,7 +63,7 @@ namespace ZeroInstall.Publish.EntryPoints
         {
             Name = CommandName,
             Path = RelativePath,
-            Runner = new Runner
+            Runner = new()
             {
                 InterfaceUri = RuntimeType switch
                 {

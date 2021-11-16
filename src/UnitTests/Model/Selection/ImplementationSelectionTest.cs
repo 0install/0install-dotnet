@@ -33,7 +33,7 @@ namespace ZeroInstall.Model.Selection
             },
             Dependencies =
             {
-                new Dependency
+                new()
                 {
                     InterfaceUri = FeedTest.Test2Uri,
                     Bindings = {new EnvironmentBinding {Name = "TEST2_PATH_SUB_DEP", Insert = "sub", Default = "default", Mode = EnvironmentMode.Append}}
@@ -63,7 +63,7 @@ namespace ZeroInstall.Model.Selection
             },
             Dependencies =
             {
-                new Dependency
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Bindings =

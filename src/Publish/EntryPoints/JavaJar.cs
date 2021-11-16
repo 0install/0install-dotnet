@@ -30,7 +30,7 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 Name = CommandName,
                 Bindings = {new EnvironmentBinding {Name = "CLASSPATH", Insert = RelativePath}},
-                Runner = new Runner
+                Runner = new()
                 {
                     InterfaceUri = new("https://apps.0install.net/java/jar-launcher.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
@@ -41,7 +41,7 @@ namespace ZeroInstall.Publish.EntryPoints
             {
                 Name = CommandName,
                 Path = RelativePath,
-                Runner = new Runner
+                Runner = new()
                 {
                     InterfaceUri = new("https://apps.0install.net/java/jre.xml"),
                     Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,

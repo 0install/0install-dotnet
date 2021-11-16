@@ -120,8 +120,8 @@ namespace ZeroInstall.Services
                         Version = new("1.0"),
                         Dependencies =
                         {
-                            new Dependency {InterfaceUri = new("http://dependency/")},
-                            new Dependency {InterfaceUri = new("http://missing/")}
+                            new() {InterfaceUri = new("http://dependency/")},
+                            new() {InterfaceUri = new("http://missing/")}
                         }
                     },
                     new ImplementationSelection
@@ -130,7 +130,7 @@ namespace ZeroInstall.Services
                         ID = "b",
                         ManifestDigest = digest2,
                         Version = new("2.0"),
-                        Dependencies = {new Dependency {InterfaceUri = new("http://root/")}} // Exercise cycle detection
+                        Dependencies = {new() {InterfaceUri = new("http://root/")}} // Exercise cycle detection
                     }
                 }
             });
@@ -150,7 +150,8 @@ namespace ZeroInstall.Services
                     new ImplementationSelection {InterfaceUri = new("http://feed1"), Version = new("1.0")},
                     new ImplementationSelection {InterfaceUri = new("http://feed2"), Version = new("1.0")}
                 }
-            }, newSelections: new Selections
+            },
+            newSelections: new Selections
             {
                 Implementations =
                 {

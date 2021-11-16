@@ -44,7 +44,7 @@ namespace ZeroInstall.Publish.EntryPoints
         {
             Name = CommandName,
             Path = RelativePath,
-            Runner = new Runner {InterfaceUri = InterpreterInterface, Versions = InterpreterVersions}
+            Runner = new() {InterfaceUri = InterpreterInterface, Versions = InterpreterVersions}
         };
 
         #region Helpers

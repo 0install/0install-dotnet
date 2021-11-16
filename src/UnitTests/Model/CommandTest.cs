@@ -20,7 +20,7 @@ namespace ZeroInstall.Model
             Name = Command.NameRun,
             Path = "dir 1/executable1",
             Arguments = {"--executable1"},
-            Runner = new Runner
+            Runner = new()
             {
                 InterfaceUri = FeedTest.Test2Uri,
                 Arguments = {"runner argument"},
@@ -38,7 +38,7 @@ namespace ZeroInstall.Model
             Name = Command.NameTest,
             Path = "dir 1/test1",
             Arguments = {"--test1"},
-            Runner = new Runner
+            Runner = new()
             {
                 InterfaceUri = FeedTest.Test2Uri,
                 Arguments = {"runner argument"}
@@ -55,7 +55,7 @@ namespace ZeroInstall.Model
             Arguments = {"--executable2"},
             Dependencies =
             {
-                new Dependency
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Bindings = {new EnvironmentBinding {Name = "TEST1_PATH_COMMAND_DEP"}}
