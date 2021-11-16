@@ -37,6 +37,7 @@ namespace ZeroInstall.Store.Implementations
         /// </summary>
         /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
         /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to prevent unintentional modification (which would invalidate the manifest digests).</param>
+        /// <exception cref="NotSupportedException">The underlying filesystem can not store file-changed times accurate to the second. Probably using FAT32 instead of NTFS.</exception>
         /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
         /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
         public ImplementationSink(string path, bool useWriteProtection = true)
@@ -62,6 +63,9 @@ namespace ZeroInstall.Store.Implementations
 
             try
             {
+                if (FileUtils.DetermineTimeAccuracy(Path) > 0)
+                    throw new NotSupportedException(Resources.InsufficientFSTimeAccuracy);
+
                 if (UseWriteProtection && WindowsUtils.IsWindowsNT)
                 {
                     File.WriteAllText(
@@ -70,21 +74,9 @@ namespace ZeroInstall.Store.Implementations
                         encoding: Encoding.UTF8);
                 }
             }
-            catch (IOException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
-                Log.Debug(ex);
                 ReadOnly = true;
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Log.Debug(ex);
-                ReadOnly = true;
-            }
-
-            if (!ReadOnly)
-            {
-                if (FileUtils.DetermineTimeAccuracy(Path) > 0)
-                    throw new IOException(Resources.InsufficientFSTimeAccuracy);
             }
         }
 
