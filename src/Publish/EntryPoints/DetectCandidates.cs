@@ -20,7 +20,8 @@ namespace ZeroInstall.Publish.EntryPoints
         {
             () => new JavaClass(),
             () => new JavaJar(),
-            () => new DotNetCoreApp(),
+            () => new DotNetDll(),
+            () => new DotNetExe(),
             () => new DotNetFrameworkExe(),
             () => new WindowsExe(),
             () => new WindowsBatch(),

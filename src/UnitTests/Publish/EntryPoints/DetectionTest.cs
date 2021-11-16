@@ -16,7 +16,9 @@ namespace ZeroInstall.Publish.EntryPoints
         [Fact]
         public void ListCandidates()
         {
-            Deploy(DotNetFrameworkExeTest.Reference, xbit: false);
+            Deploy(DotNetExeTest.Reference.RelativePath![..^4] + ".runtimeconfig.json");
+            Deploy(DotNetDllTest.Reference);
+            Deploy(DotNetFrameworkExeTest.Reference);
             Deploy(PythonScriptTest.Reference, xbit: true);
             Deploy(PosixScriptTest.Reference, xbit: true);
             Deploy(PosixBinaryTest.Reference32, xbit: true);
@@ -26,6 +28,7 @@ namespace ZeroInstall.Publish.EntryPoints
 
             detect.Candidates.Should().BeEquivalentTo(new Candidate[]
             {
+                DotNetDllTest.Reference,
                 DotNetFrameworkExeTest.Reference,
                 PythonScriptTest.Reference,
                 PosixScriptTest.Reference,

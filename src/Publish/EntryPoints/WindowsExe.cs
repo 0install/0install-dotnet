@@ -18,7 +18,7 @@ namespace ZeroInstall.Publish.EntryPoints
         internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
         {
             if (!base.Analyze(baseDirectory, file)) return false;
-            if (!StringUtils.EqualsIgnoreCase(file.Extension, @".exe")) return false;
+            if (!StringUtils.EqualsIgnoreCase(file.Extension, ExecutableExtension)) return false;
 
             try
             {
@@ -32,6 +32,8 @@ namespace ZeroInstall.Publish.EntryPoints
             }
             #endregion
         }
+
+        protected virtual string ExecutableExtension => @".exe";
 
         private void Parse(FileVersionInfo versionInfo)
         {

@@ -49,7 +49,9 @@
     <EmbeddedResource Include="Store\Trust\signature.dat" />
     <EmbeddedResource Include="Services\Solvers\test-cases.xml" />
     <EmbeddedResource Include="Publish\EntryPoints\batch.cmd" />
+    <EmbeddedResource Include="Publish\EntryPoints\*.dll" />
     <EmbeddedResource Include="Publish\EntryPoints\*.exe" />
+    <EmbeddedResource Include="Publish\EntryPoints\*.json" />
     <EmbeddedResource Include="Publish\EntryPoints\elf*" />
     <EmbeddedResource Include="Publish\EntryPoints\python*" />
     <EmbeddedResource Include="Publish\EntryPoints\sh" />

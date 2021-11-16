@@ -28,7 +28,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <summary>
         /// Ensures <see cref="Candidate.Analyze"/> correctly identifies a reference file.
         /// </summary>
-        /// <param name="reference">Baseline to compare a new <see cref="Candidate"/> against. Also used to determine the reference file to <see cref="Deploy"/>.</param>
+        /// <param name="reference">Baseline to compare a new <see cref="Candidate"/> against. Also used to determine the reference file to <see cref="Deploy(ZeroInstall.Publish.EntryPoints.Candidate,bool)"/>.</param>
         /// <param name="executable">Set to <c>true</c> to mark the file as Unix executable.</param>
         protected void TestAnalyze<T>(T reference, bool executable = false) where T : Candidate, new()
         {
@@ -43,11 +43,20 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <param name="reference">Uses <see cref="Candidate.RelativePath"/> as the resource name.</param>
         /// <param name="xbit">Set to <c>true</c> to mark the file as Unix executable.</param>
         /// <returns></returns>
-        protected FileInfo Deploy(Candidate reference, bool xbit)
-        {
-            var file = new FileInfo(Path.Combine(Directory.FullName, reference.RelativePath));
+        protected FileInfo Deploy(Candidate reference, bool xbit = false)
+            => Deploy(reference.RelativePath!, xbit);
 
-            typeof(CandidateTest).CopyEmbeddedToFile(reference.RelativePath, file.FullName);
+        /// <summary>
+        /// Deploys a reference file from an internal resource.
+        /// </summary>
+        /// <param name="path">The relative path of the resource.</param>
+        /// <param name="xbit">Set to <c>true</c> to mark the file as Unix executable.</param>
+        /// <returns></returns>
+        protected FileInfo Deploy(string path, bool xbit = false)
+        {
+            var file = new FileInfo(Path.Combine(Directory.FullName, path));
+
+            typeof(CandidateTest).CopyEmbeddedToFile(path, file.FullName);
 
             if (xbit) ImplFileUtils.SetExecutable(file.FullName);
 
