@@ -78,23 +78,23 @@ namespace ZeroInstall.Publish.EntryPoints
         public string? Summary { get; set; }
 
         /// <summary>
-        /// A suggestion for <see cref="Feed.NeedsTerminal"/>.
+        /// Indicates whether the application is a command-line application (<c>true</c>) or a GUI application (<c>false</c>).
         /// </summary>
-        [Browsable(false)]
-        public bool NeedsTerminal { get; internal set; }
+        [Category("Basic (required)"), DisplayName("Needs Terminal"), Description("Indicates whether the application is a command-line application (true) or a GUI application (false).")]
+        [DefaultValue(true)]
+        public bool NeedsTerminal { get; set; }
+
+        /// <summary>
+        /// The application's target architecture.
+        /// </summary>
+        [Category("Basic (required)"), Description("The application's target architecture.")]
+        public Architecture Architecture { get; set; }
 
         /// <summary>
         /// The application's current version.
         /// </summary>
-        /// <remarks>A suggestion for <see cref="Element.Version"/>.</remarks>
         [Category("Basic (required)"), Description("The application's current version.")]
         public ImplementationVersion? Version { get; set; }
-
-        /// <summary>
-        /// A suggestion for <see cref="TargetBase.Architecture"/>.
-        /// </summary>
-        [Browsable(false)]
-        public Architecture Architecture { get; internal set; }
 
         /// <summary>
         /// The main category of the application. May influence the placement in the start menu.
@@ -106,7 +106,6 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <summary>
         /// Creates a <see cref="Command"/> to launch this entry point.
         /// </summary>
-        [Browsable(false)]
         public abstract Command CreateCommand();
 
         protected static VersionRange? ToVersionRange(ImplementationVersion? version)

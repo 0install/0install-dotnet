@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System;
-using System.ComponentModel;
 using System.IO;
 using ELFSharp.ELF;
 using NanoByte.Common.Streams;
@@ -70,21 +69,5 @@ namespace ZeroInstall.Publish.EntryPoints
                 Machine.PPC64 => Cpu.Ppc64,
                 _ => Cpu.Unknown
             };
-
-        /// <summary>
-        /// The specific POSIX-style operating system the binary is compiled for.
-        /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException">A non-POSIX <see cref="OS"/> value is specified.</exception>
-        [Category("Details (POSIX)"), DisplayName(@"Operating system"), Description("The specific POSIX-style operating system the binary is compiled for.")]
-        [DefaultValue(typeof(OS), "Linux")]
-        public OS OS
-        {
-            get => Architecture.OS;
-            set
-            {
-                if (value is (< OS.Linux or >= OS.Cygwin)) throw new ArgumentOutOfRangeException(nameof(value), "Must be a specific POSIX OS!");
-                Architecture = new(value, Architecture.Cpu);
-            }
-        }
     }
 }
