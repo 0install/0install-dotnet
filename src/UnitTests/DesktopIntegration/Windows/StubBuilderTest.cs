@@ -22,11 +22,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
     {
         private readonly StubBuilder _stubBuilder = new(new Mock<IIconStore>().Object);
 
+        public StubBuilderTest()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
+        }
+
         [SkippableFact]
         public void TestGetRunCommandLineCli()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
-
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             target.Feed.EntryPoints[0].NeedsTerminal = true;
             var commandLine = _stubBuilder.GetRunCommandLine(target);
@@ -41,8 +44,6 @@ namespace ZeroInstall.DesktopIntegration.Windows
         [SkippableFact]
         public void TestGetRunCommandLineGui()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
-
             var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
             var commandLine = _stubBuilder.GetRunCommandLine(target, "");
 

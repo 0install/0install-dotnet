@@ -41,33 +41,23 @@ namespace ZeroInstall.Publish.EntryPoints
             NeedsTerminal = true
         };
 
-        [SkippableFact]
-        public void X86()
+        public WindowsExeTest()
         {
             Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
-            TestAnalyze(Reference32);
         }
 
         [SkippableFact]
-        public void X64()
-        {
-            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
-            TestAnalyze(Reference64);
-        }
+        public void X86() => TestAnalyze(Reference32);
 
         [SkippableFact]
-        public void X86Terminal()
-        {
-            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
-            TestAnalyze(ReferenceTerminal);
-        }
+        public void X64() => TestAnalyze(Reference64);
+
+        [SkippableFact]
+        public void X86Terminal() => TestAnalyze(ReferenceTerminal);
 
         [SkippableFact]
         public void NotExe()
-        {
-            Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
-            new WindowsExe().Analyze(baseDirectory: Directory, file: Deploy(PosixScriptTest.Reference, xbit: false))
-                            .Should().BeFalse();
-        }
+            => new WindowsExe().Analyze(baseDirectory: Directory, file: Deploy(PosixScriptTest.Reference, xbit: false))
+                               .Should().BeFalse();
     }
 }

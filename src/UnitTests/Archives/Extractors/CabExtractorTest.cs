@@ -16,11 +16,14 @@ namespace ZeroInstall.Archives.Extractors
 
         private static readonly DateTime _timestamp = new(2000, 1, 1, 13, 0, 0);
 
+        public CabExtractorTest()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
+        }
+
         [SkippableFact]
         public void Extract()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
-
             Test(
                 "testArchive.cab",
                 new Manifest(ManifestFormat.Sha1New)
@@ -39,8 +42,6 @@ namespace ZeroInstall.Archives.Extractors
         [SkippableFact]
         public void ExtractSubDir()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
-
             Test(
                 "testArchive.cab",
                 new Manifest(ManifestFormat.Sha1New)

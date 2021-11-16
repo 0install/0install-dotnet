@@ -14,11 +14,14 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// </summary>
     public class ShortcutTest
     {
+        public ShortcutTest()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, "Shortcut files (.lnk) are only used on Windows");
+        }
+
         [SkippableFact]
         public void TestCreate()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "Shortcut files (.lnk) are only used on Windows");
-
             using var tempDir = new TemporaryDirectory("0install-unit-test");
             string path = Path.Combine(tempDir, "shortcut.lnk");
             Shortcut.Create(path, targetPath: "xyz");

@@ -13,11 +13,14 @@ namespace ZeroInstall.Archives.Extractors
     {
         protected override string MimeType => Archive.MimeTypeMsi;
 
+        public MsiExtractorTest()
+        {
+            Skip.IfNot(WindowsUtils.IsWindows, "MSI extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
+        }
+
         [SkippableFact]
         public void Extract()
         {
-            Skip.IfNot(WindowsUtils.IsWindows, "MSI extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
-
             Test(
                 "testArchive.msi",
                 new Manifest(ManifestFormat.Sha1New)
