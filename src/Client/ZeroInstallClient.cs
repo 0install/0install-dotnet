@@ -136,13 +136,13 @@ namespace ZeroInstall.Client
             string output = await Task.Run(() => _subProcess.Run("list-apps", "--batch", "--xml", uri.ToStringRfc()));
 
             const string xmlNamespace = "http://0install.de/schema/desktop-integration/app-list";
-            return XElement.Parse(output)
-                           .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
-                          ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
-                          ?.Descendants()
-                           .Select(x => x.Name.LocalName)
-                           .ToHashSet()
-                ?? new HashSet<string>();
+            return new HashSet<string>(
+                XElement.Parse(output)
+                        .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
+                       ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
+                       ?.Descendants()
+                        .Select(x => x.Name.LocalName)
+             ?? Enumerable.Empty<string>());
         }
 
         /// <inheritdoc/>
