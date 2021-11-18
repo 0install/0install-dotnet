@@ -147,7 +147,7 @@ namespace ZeroInstall.Commands.Basic
             }
             BackgroundSelfUpdate();
 
-            Show(Selections);
+            ShowSelections();
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             return ShowOutput();
@@ -234,11 +234,13 @@ namespace ZeroInstall.Commands.Basic
         }
 
         /// <summary>
-        /// Displays the <paramref name="selections"/> to the user.
+        /// Displays the <see cref="Selections"/> to the user.
         /// </summary>
-        protected void Show(Selections selections)
+        protected void ShowSelections()
         {
-            Handler.ShowSelections(selections, FeedManager);
+            if (Selections == null) return;
+
+            Handler.ShowSelections(Selections, FeedManager);
             if (CustomizeSelections && !SelectionsDocument) Handler.CustomizeSelections(SolveCallback);
             Handler.CancellationToken.ThrowIfCancellationRequested();
         }

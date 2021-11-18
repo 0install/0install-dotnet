@@ -135,8 +135,8 @@ namespace ZeroInstall.Commands.Basic
                 RefreshSolve();
             }
 
-            if ((CustomizeSelections || uncachedImplementations.Count != 0) && Selections != null)
-                Show(Selections);
+            if (CustomizeSelections || UncachedImplementations.Count != 0)
+                ShowSelections();
 
             if (uncachedImplementations.Count != 0)
                 FetchAll(uncachedImplementations);
