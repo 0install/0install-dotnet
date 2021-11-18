@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.ViewModel;
+using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
@@ -28,6 +29,9 @@ namespace ZeroInstall.Commands
         /// Always returns <c>false</c>.
         /// </summary>
         public bool Background { get => false; set {} }
+
+        /// <inheritdoc/>
+        public FeedUri? FeedUri { get; set; }
 
         /// <inheritdoc/>
         public void DisableUI()

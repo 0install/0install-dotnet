@@ -40,6 +40,7 @@ namespace ZeroInstall.Commands.Desktop
             try
             {
                 InterfaceUri = GetCanonicalUri((AdditionalArgs.Count > 1) ? AdditionalArgs[1] : AdditionalArgs[0]);
+                Handler.FeedUri = InterfaceUri;
 
                 using (IntegrationManager = new CategoryIntegrationManager(Config, Handler, MachineWide))
                     return ExecuteHelper();

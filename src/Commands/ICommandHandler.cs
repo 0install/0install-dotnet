@@ -4,6 +4,7 @@
 using System;
 using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.ViewModel;
+using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
@@ -26,6 +27,12 @@ namespace ZeroInstall.Commands
         /// Hides the GUI and uses something like a tray icon instead. Has no effect when <see cref="IsGui"/> is <c>false</c>.
         /// </summary>
         bool Background { get; set; }
+
+        /// <summary>
+        /// The URI of the Zero Install feed the current operation relates to.
+        /// </summary>
+        /// <remarks>This can be used to apply application-specific visual branding.</remarks>
+        FeedUri? FeedUri { get; set; }
 
         /// <summary>
         /// Disables any persistent UI elements that were created but still leaves them visible.

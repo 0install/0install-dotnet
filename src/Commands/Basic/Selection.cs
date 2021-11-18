@@ -129,6 +129,7 @@ namespace ZeroInstall.Commands.Basic
         protected void SetInterfaceUri(FeedUri uri)
         {
             Requirements.InterfaceUri = uri;
+            Handler.FeedUri = uri;
 
             if (_version != null)
                 Requirements.ExtraRestrictions[Requirements.InterfaceUri] = _version;
