@@ -68,7 +68,7 @@ namespace ZeroInstall.Commands.Basic
                     RefreshSolve();
                 }
 
-                Handle(UncachedImplementations);
+                DownloadUncachedImplementations();
             }
             #region Error handling
             catch (WebException ex) when (Handler.Background)
@@ -127,19 +127,19 @@ namespace ZeroInstall.Commands.Basic
         /// Downloads any <see cref="Implementation"/>s in <see cref="Selection"/> that are missing from <see cref="IImplementationStore"/>.
         /// </summary>
         /// <remarks>Makes sure <see cref="ISolver"/> ran with up-to-date feeds before downloading any implementations.</remarks>
-        protected void Handle(List<Implementation> uncachedImplementations)
+        protected void DownloadUncachedImplementations()
         {
-            if (uncachedImplementations.Count != 0 && !FeedManager.Refresh)
+            if (UncachedImplementations?.Count > 0 && !FeedManager.Refresh)
             {
                 Log.Info("Running Refresh Solve because there are un-cached implementations");
                 RefreshSolve();
             }
 
-            if (CustomizeSelections || UncachedImplementations.Count != 0)
+            if (CustomizeSelections || UncachedImplementations?.Count > 0)
                 ShowSelections();
 
-            if (uncachedImplementations.Count != 0)
-                FetchAll(uncachedImplementations);
+            if (UncachedImplementations?.Count > 0)
+                FetchAll(UncachedImplementations);
         }
 
         protected override ExitCode ShowOutput()

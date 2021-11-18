@@ -49,7 +49,7 @@ namespace ZeroInstall.Commands.Basic
                 return ExitCode.SolverError;
             }
 
-            Handle(UncachedImplementations);
+            DownloadUncachedImplementations();
             LibraryModeClean();
             BackgroundSelfUpdate();
 

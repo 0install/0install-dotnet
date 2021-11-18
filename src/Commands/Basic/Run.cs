@@ -63,7 +63,7 @@ namespace ZeroInstall.Commands.Basic
 
             Solve();
 
-            Handle(UncachedImplementations);
+            DownloadUncachedImplementations();
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
             Handler.DisableUI();

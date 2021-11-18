@@ -76,7 +76,7 @@ namespace ZeroInstall.Commands.Basic
             exporter.ExportFeeds(FeedCache, OpenPgp);
             if (!_noImplementations)
             {
-                Handle(UncachedImplementations);
+                DownloadUncachedImplementations();
                 exporter.ExportImplementations(ImplementationStore, Handler);
             }
 
