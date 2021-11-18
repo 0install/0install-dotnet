@@ -35,10 +35,8 @@ namespace ZeroInstall.DesktopIntegration
         /// </summary>
         public const string AppListLastSyncSuffix = ".last-sync";
 
-        /// <summary>Callback method used to retrieve additional <see cref="Feed"/>s on demand.</summary>
+        private readonly Uri _syncServer;
         private readonly Converter<FeedUri, Feed> _feedRetriever;
-
-        /// <summary>The storage location of the <see cref="AppList"/> file.</summary>
         private readonly AppList _appListLastSync;
 
         /// <summary>
@@ -54,8 +52,8 @@ namespace ZeroInstall.DesktopIntegration
         public SyncIntegrationManager(Config config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
             : base(config, handler, machineWide)
         {
-            if (!Config.IsSyncConfigured)
-                throw new InvalidDataException(Resources.PleaseConfigSync);
+            if (!config.IsSyncConfigured) throw new InvalidDataException(Resources.PleaseConfigSync);
+            _syncServer = config.SyncServer.EnsureTrailingSlash();
 
             _feedRetriever = feedRetriever ?? throw new ArgumentNullException(nameof(feedRetriever));
 
@@ -85,7 +83,7 @@ namespace ZeroInstall.DesktopIntegration
                 Credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword),
                 CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore)
             };
-            var uri = new Uri(Config.SyncServer!, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
+            var uri = new Uri(_syncServer, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
 
             ExceptionUtils.Retry<SyncRaceException>(delegate
             {
