@@ -241,9 +241,6 @@ Specified in the configuration file '{1}'.</value>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install cannot remove itself from an implementation cache.</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(not cached)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>The number value is too large.</value>
   </data>

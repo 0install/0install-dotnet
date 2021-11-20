@@ -44,8 +44,10 @@ namespace ZeroInstall.Store.ViewModel
         /// Creates string representation suitable for console output.
         /// </summary>
         public override string ToString()
-            => Version == null
-                ? $"{Uri}: {Resources.NoSelectedVersion}"
-                : $"{Uri}: {Version} ({Path ?? Resources.NotCached})";
+        {
+            string result = $"{Uri}: {Version?.ToString() ?? Resources.NoSelectedVersion}";
+            if (Path != null) result += $" ({Path})";
+            return result;
+        }
     }
 }

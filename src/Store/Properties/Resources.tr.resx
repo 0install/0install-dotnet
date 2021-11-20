@@ -241,9 +241,6 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kendisini bir uyarlama ön belleğinden kaldıramaz.</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(ön belleğe alınmamış)</value>
-  </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Numara değeri çok büyük.</value>
   </data>

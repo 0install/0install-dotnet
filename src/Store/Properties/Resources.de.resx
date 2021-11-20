@@ -295,7 +295,4 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>Die Signatur ist nicht gültiges Base 64:</value>
   </data>
-  <data name="NotCached" xml:space="preserve">
-    <value>(nicht gecacht)</value>
-  </data>
 </root>
