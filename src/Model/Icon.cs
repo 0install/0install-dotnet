@@ -27,24 +27,29 @@ namespace ZeroInstall.Model
     {
         #region Constants
         /// <summary>
-        /// The <see cref="MimeType"/> value for PNG icons.
+        /// The <see cref="MimeType"/> value for PNG icons (.png(.
         /// </summary>
         public const string MimeTypePng = "image/png";
 
         /// <summary>
-        /// The <see cref="MimeType"/> value for Windows ICO icons.
+        /// The <see cref="MimeType"/> value for Windows icons (.ico).
         /// </summary>
         public const string MimeTypeIco = "image/vnd.microsoft.icon";
 
         /// <summary>
-        /// The <see cref="MimeType"/> value for SVG icons.
+        /// The <see cref="MimeType"/> value for Apple icons (.icns).
+        /// </summary>
+        public const string MimeTypeIcns = "image/x-icns";
+
+        /// <summary>
+        /// The <see cref="MimeType"/> value for SVG icons (.svg).
         /// </summary>
         public const string MimeTypeSvg = "image/svg";
 
         /// <summary>
         /// All known <see cref="MimeType"/> values for icons.
         /// </summary>
-        public static readonly string[] KnownMimeTypes = {MimeTypePng, MimeTypeIco, MimeTypeSvg};
+        public static readonly string[] KnownMimeTypes = {MimeTypePng, MimeTypeIco, MimeTypeIcns, MimeTypeSvg};
         #endregion
 
         /// <summary>
