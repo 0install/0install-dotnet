@@ -26,8 +26,8 @@
 
   <!-- Generate XML serialization assembly -->
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" />
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="5.0.0" PrivateAssets="All" />
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" PrivateAssets="All" />
     <None Include="..\..\artifacts\$(Configuration)\net472\win\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
     <None Include="..\..\artifacts\$(Configuration)\net5.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net5.0" Pack="True" />
   </ItemGroup>
