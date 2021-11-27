@@ -12,10 +12,10 @@
 
   <group license="LGPL v3 (GNU Lesser General Public License)">
     <command name="run" path="0install.dll">
-      <runner interface="https://apps.0install.net/dotnet/runtime.xml" version="5.0..!5.1"/>
+      <runner interface="https://apps.0install.net/dotnet/runtime.xml" version="6.0..!6.1"/>
     </command>
 
     <!-- Use very high version number to treat local build as newer than any public version. -->
-    <implementation id="./artifacts/Release/net5.0/publish" version="100-pre"/>
+    <implementation id="./artifacts/Release/net6.0/publish" version="100-pre"/>
   </group>
 </interface>

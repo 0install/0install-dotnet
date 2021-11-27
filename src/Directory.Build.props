@@ -3,7 +3,7 @@
   <PropertyGroup>
     <!-- Build configuration -->
     <LangVersion>9.0</LangVersion>
-    <TargetFrameworks>net472;net5.0</TargetFrameworks>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <OutputType>Library</OutputType>

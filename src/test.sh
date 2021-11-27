@@ -6,8 +6,8 @@ cd `dirname $0`
 if command -v dotnet > /dev/null 2> /dev/null; then
     dotnet="dotnet"
 else
-    dotnet="../0install.sh run --version 5.0.. https://apps.0install.net/dotnet/sdk.xml"
+    dotnet="../0install.sh run --version 6.0.. https://apps.0install.net/dotnet/sdk.xml"
 fi
 
 # Unit tests (without .NET Framework)
-$dotnet test --no-build --configuration Release --framework net5.0 UnitTests/UnitTests.csproj
+$dotnet test --no-build --configuration Release --framework net6.0 UnitTests/UnitTests.csproj

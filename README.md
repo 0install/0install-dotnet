@@ -16,7 +16,7 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
       0install run https://apps.0install.net/0install/0install-dotnet.xml
 
-- You can also manually install [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
+- You can also manually install [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0) and then download a [Zero Install .NET Release](https://github.com/0install/0install-dotnet/releases), extract the archive and run:
 
       dotnet 0install.dll
 
