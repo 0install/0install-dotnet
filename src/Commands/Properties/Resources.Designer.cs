@@ -1260,11 +1260,11 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zero Install needs to be setup on your system for desktop integration to work..
+        ///   Looks up a localized string similar to Zero Install needs to be deployed on your system for desktop integration to work..
         /// </summary>
-        public static string NoIntegrationFromCache {
+        public static string NoIntegrationDeployRequired {
             get {
-                return ResourceManager.GetString("NoIntegrationFromCache", resourceCulture);
+                return ResourceManager.GetString("NoIntegrationDeployRequired", resourceCulture);
             }
         }
         

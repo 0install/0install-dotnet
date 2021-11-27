@@ -530,7 +530,7 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Der grafische Policy-Editor ist im Befehlszeilenmodus nicht verfügbar.</value>
   </data>
-  <data name="NoIntegrationFromCache" xml:space="preserve">
+  <data name="NoIntegrationDeployRequired" xml:space="preserve">
     <value>Zero Install muss auf Ihrem System eingerichtet werden, damit Desktopintegration funktioniert.</value>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">

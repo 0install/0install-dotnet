@@ -14,7 +14,6 @@ using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Configuration;
-using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
 #if NETFRAMEWORK
@@ -53,10 +52,13 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Indicates whether Zero Install is running from an implementation cache.
+        /// Indicates whether the current Zero Install instance is deployed to a fixed location.
         /// </summary>
-        public static bool IsRunningFromCache { get; }
-            = ImplementationStoreUtils.IsImplementation(Locations.InstallBase, out _);
+        public static bool IsDeployed
+            => !Locations.IsPortable
+            && WindowsUtils.IsWindows
+            && (RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: false) == Locations.InstallBase
+             || RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true) == Locations.InstallBase);
 
         /// <summary>
         /// Indicates whether Zero Install is running from a machine-wide location.
@@ -78,22 +80,22 @@ namespace ZeroInstall.Commands
         }
 
         /// <summary>
-        /// Indicates whether the current Zero Install instance is integrated into the desktop environment.
-        /// </summary>
-        public static bool IsIntegrated
-            => !IsRunningFromCache
-            && !Locations.IsPortable
-            && WindowsUtils.IsWindows
-            && !IsLibraryMode;
-
-        /// <summary>
         /// Indicates whether the current Zero Install instance is in library mode.
         /// </summary>
         public static bool IsLibraryMode
-            => !IsRunningFromCache
-            && !Locations.IsPortable
+            => !Locations.IsPortable
             && WindowsUtils.IsWindows
+            && IsDeployed
             && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) == "1";
+
+        /// <summary>
+        /// Indicates whether the current Zero Install instance is integrated into the desktop environment.
+        /// </summary>
+        public static bool IsIntegrated
+            => !Locations.IsPortable
+            && WindowsUtils.IsWindows
+            && IsDeployed
+            && !IsLibraryMode;
 
         /// <summary>
         /// Registers a Zero Install instance in the Windows registry if possible.
@@ -148,7 +150,7 @@ namespace ZeroInstall.Commands
         /// <returns>The version number of the newest available update; <c>null</c> if no update is available.</returns>
         public static ImplementationVersion? SilentUpdateCheck()
         {
-            if (IsRunningFromCache || !NetUtils.IsInternetConnected) return null;
+            if (!IsDeployed || !NetUtils.IsInternetConnected) return null;
 
             using var handler = new SilentTaskHandler();
             var services = new ServiceProvider(handler) {FeedManager = {Refresh = true}};

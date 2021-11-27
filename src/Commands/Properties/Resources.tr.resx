@@ -518,7 +518,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Görsel ilke düzenleyicisi komut satırı kipinde kullanılamaz.</value>
   </data>
-  <data name="NoIntegrationFromCache" xml:space="preserve">
+  <data name="NoIntegrationDeployRequired" xml:space="preserve">
     <value>Masaüstü bütünleştirmesinin çalışabilmesi için Zero Install uygulamasının kurulması gerekir.</value>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">

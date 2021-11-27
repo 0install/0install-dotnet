@@ -56,7 +56,7 @@ namespace ZeroInstall.Commands.Desktop
 
             public override ExitCode Execute()
             {
-                if (ZeroInstallInstance.IsRunningFromCache)
+                if (!ZeroInstallInstance.IsDeployed)
                 {
                     Log.Error(Resources.SelfRemoveNotDeployed);
                     return ExitCode.NoChanges;

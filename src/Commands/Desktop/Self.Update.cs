@@ -71,7 +71,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 // NOTE: Does not call base method
 
-                if (ZeroInstallInstance.IsRunningFromCache) throw new NotSupportedException(Resources.SelfUpdateBlocked);
+                if (!ZeroInstallInstance.IsDeployed) throw new NotSupportedException(Resources.SelfUpdateBlocked);
 
                 try
                 {

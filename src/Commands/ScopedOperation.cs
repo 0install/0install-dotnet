@@ -143,7 +143,7 @@ namespace ZeroInstall.Commands
         /// </summary>
         protected void BackgroundSelfUpdate()
         {
-            if (!ZeroInstallInstance.IsRunningFromCache
+            if (ZeroInstallInstance.IsDeployed
              && NetUtils.IsInternetConnected
              && Handler.Verbosity != Verbosity.Batch
              && Config.NetworkUse == NetworkLevel.Full
