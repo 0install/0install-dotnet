@@ -41,7 +41,7 @@ namespace ZeroInstall.Store.Feeds
 
             var url = new Uri(
                 config.FeedMirror.EnsureTrailingSlash(),
-                new Uri("search/?q=" + Uri.EscapeUriString(keywords), UriKind.Relative));
+                new Uri("search/?q=" + Uri.EscapeDataString(keywords), UriKind.Relative));
 
             Log.Info("Performing search query: " + url.ToStringRfc());
             using var webClient = new WebClientTimeout();
