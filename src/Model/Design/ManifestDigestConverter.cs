@@ -25,7 +25,7 @@ namespace ZeroInstall.Model.Design
             => new object[] {value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""};
 
         /// <returns>The arguments of <see cref="ManifestDigest"/> converted to string.</returns>
-        protected override string[] GetValues(ManifestDigest value, ITypeDescriptorContext context, CultureInfo culture)
+        protected override string[] GetValues(ManifestDigest value, ITypeDescriptorContext? context, CultureInfo culture)
             => new[] {value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""};
 
         /// <returns>A new instance of <see cref="ManifestDigest"/>.</returns>

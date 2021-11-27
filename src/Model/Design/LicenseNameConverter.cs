@@ -7,11 +7,11 @@ namespace ZeroInstall.Model.Design
 {
     internal class LicenseNameConverter : StringConverter
     {
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context) => true;
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext? context) => true;
 
-        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => false;
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext? context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new(new[]
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(new[]
         {
             "",
             "AFL (Academic Free License)",

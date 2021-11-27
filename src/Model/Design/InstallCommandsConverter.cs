@@ -26,7 +26,7 @@ namespace ZeroInstall.Model.Design
             => new object[] {value.Reinstall!, value.ReinstallArgs!, value.ShowIcons!, value.ShowIconsArgs!, value.HideIcons!, value.HideIconsArgs!};
 
         /// <returns>The arguments of <see cref="InstallCommands"/> converted to string.</returns>
-        protected override string[] GetValues(InstallCommands value, ITypeDescriptorContext context, CultureInfo culture)
+        protected override string[] GetValues(InstallCommands value, ITypeDescriptorContext? context, CultureInfo culture)
             => new[] {value.Reinstall!, value.ReinstallArgs!, value.ShowIcons!, value.ShowIconsArgs!, value.HideIcons!, value.HideIconsArgs!};
 
         /// <returns>A new instance of <see cref="InstallCommands"/>.</returns>

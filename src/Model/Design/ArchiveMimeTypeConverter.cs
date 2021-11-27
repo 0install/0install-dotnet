@@ -8,10 +8,10 @@ namespace ZeroInstall.Model.Design
 {
     internal class ArchiveMimeTypeConverter : StringConverter
     {
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext context) => true;
+        public override bool GetStandardValuesSupported(ITypeDescriptorContext? context) => true;
 
-        public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => false;
+        public override bool GetStandardValuesExclusive(ITypeDescriptorContext? context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) => new(Archive.KnownMimeTypes.ToList());
+        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(Archive.KnownMimeTypes.ToList());
     }
 }

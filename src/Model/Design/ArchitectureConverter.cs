@@ -28,7 +28,7 @@ namespace ZeroInstall.Model.Design
         protected override object[] GetArguments(Architecture value) => new object[] {value.OS, value.Cpu};
 
         /// <inheritdoc/>
-        protected override string[] GetValues(Architecture value, ITypeDescriptorContext context, CultureInfo culture) => new[] {value.OS.ConvertToString(), value.Cpu.ConvertToString()};
+        protected override string[] GetValues(Architecture value, ITypeDescriptorContext? context, CultureInfo culture) => new[] {value.OS.ConvertToString(), value.Cpu.ConvertToString()};
 
         /// <inheritdoc/>
         protected override Architecture GetObject(string[] values, CultureInfo culture)
