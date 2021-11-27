@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using Microsoft.Win32;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
@@ -30,13 +31,18 @@ namespace ZeroInstall.DesktopIntegration.Windows
         /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
         public static void Register(FeedTarget target, IIconStore iconStore, bool machineWide)
-            => Register(
+        {
+            string[] uninstallCommand = {Path.Combine(Locations.InstallBase, "0install-win.exe"), "remove", target.Uri.ToStringRfc()};
+            if (machineWide) uninstallCommand = uninstallCommand.Append("--machine");
+
+            Register(
                 target.Uri.PrettyEscape(),
-                new[] { Path.Combine(Locations.InstallBase, "0install-win.exe"), "remove", target.Uri.ToStringRfc() },
+                uninstallCommand,
                 target.Feed.Name + " (Zero Install)",
                 target.Feed.Homepage,
                 GetIconPath(target.Feed, iconStore),
                 machineWide: machineWide);
+        }
 
         private static string? GetIconPath(Feed feed, IIconStore iconStore)
         {
