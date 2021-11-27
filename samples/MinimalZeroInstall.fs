@@ -1,8 +1,8 @@
 open NanoByte.Common.Tasks
+open ZeroInstall.Model
 open ZeroInstall.Services
-open ZeroInstall.Store.Model
 
-let services = new ServiceLocator(new CliTaskHandler())
+let services = new ServiceProvider(new CliTaskHandler())
 let solve = services.Solver.Solve
 let uncached = services.SelectionsManager.GetUncachedImplementations
 let fetch = services.Fetcher.Fetch
@@ -10,10 +10,11 @@ let execute = services.Executor.Start
 
 let run requirements =
     let selections = solve requirements
-    fetch (uncached selections)
+    for implementation in (uncached selections) do
+        fetch implementation
     execute selections
 
 [<EntryPoint>]
 let main args =
-    ignore(run(new Requirements(args.[0])))
+    ignore(run(new Requirements(new FeedUri(args.[0]))))
     0

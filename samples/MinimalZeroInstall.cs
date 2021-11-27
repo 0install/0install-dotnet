@@ -1,22 +1,10 @@
 using NanoByte.Common.Tasks;
+using ZeroInstall.Model;
 using ZeroInstall.Services;
-using ZeroInstall.Store.Model;
 
-class MinimalZeroInstall : ServiceLocator
-{
-    public static void Main(string[] args)
-    {
-        new MinimalZeroInstall().Run(new Requirements(args[0]));
-    }
-
-    public MinimalZeroInstall() : base(new CliTaskHandler())
-    {}
-
-    private void Run(Requirements requirements)
-    {
-        var selections = Solver.Solve(requirements);
-        var missing = SelectionsManager.GetUncachedImplementations(selections);
-        Fetcher.Fetch(missing);
-        Executor.Start(selections);
-    }
-}
+var requirements = new Requirements(new FeedUri(args[0]));
+var services = new ServiceProvider(new CliTaskHandler());
+var selections = services.Solver.Solve(requirements);
+foreach (var implementation in services.SelectionsManager.GetUncachedImplementations(selections))
+    services.Fetcher.Fetch(implementation);
+services.Executor.Start(selections);
