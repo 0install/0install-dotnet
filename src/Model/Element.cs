@@ -352,7 +352,7 @@ namespace ZeroInstall.Model
             Bindings.AddRange(parent.Bindings);
 
             // Inherit unknown XML attributes and elements
-            UnknownAttributes = (UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()).DistinctBy(x => x.Name).ToArray();
+            UnknownAttributes = EnumerableExtensions.DistinctBy((UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()), x => x.Name).ToArray();
             UnknownElements = (UnknownElements ?? Array.Empty<XmlElement>()).Concat(parent.UnknownElements ?? Array.Empty<XmlElement>()).ToArray();
         }
         #endregion

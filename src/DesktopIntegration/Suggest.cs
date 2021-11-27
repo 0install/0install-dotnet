@@ -34,13 +34,14 @@ namespace ZeroInstall.DesktopIntegration
                     : category + "/" + feed.Name.SafeFileName();
             }
 
-            return (from entryPoint in feed.EntryPoints
-                    select new MenuEntry
-                    {
-                        Category = category,
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
-                        Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name ?? "");
+            return EnumerableExtensions.DistinctBy(
+                from entryPoint in feed.EntryPoints
+                select new MenuEntry
+                {
+                    Category = category,
+                    Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                    Command = entryPoint.Command
+                }, x => x.Name ?? "");
         }
 
         /// <summary>
@@ -52,13 +53,14 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            return (from entryPoint in feed.EntryPoints
-                    where entryPoint.Command is Command.NameRun or Command.NameRunGui
-                    select new DesktopIcon
-                    {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
-                        Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name ?? "");
+            return EnumerableExtensions.DistinctBy(
+                from entryPoint in feed.EntryPoints
+                where entryPoint.Command is Command.NameRun or Command.NameRunGui
+                select new DesktopIcon
+                {
+                    Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                    Command = entryPoint.Command
+                }, x => x.Name ?? "");
         }
 
         /// <summary>
@@ -70,13 +72,14 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            return (from entryPoint in feed.EntryPoints
-                    where entryPoint.SuggestSendTo
-                    select new SendTo
-                    {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
-                        Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name ?? "");
+            return EnumerableExtensions.DistinctBy(
+                from entryPoint in feed.EntryPoints
+                where entryPoint.SuggestSendTo
+                select new SendTo
+                {
+                    Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                    Command = entryPoint.Command
+                }, x => x.Name ?? "");
         }
 
         /// <summary>
@@ -88,13 +91,14 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            return (from entryPoint in feed.EntryPoints
-                    where entryPoint.NeedsTerminal
-                    select new AppAlias
-                    {
-                        Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command).SafeFileName(),
-                        Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name ?? "");
+            return EnumerableExtensions.DistinctBy(
+                from entryPoint in feed.EntryPoints
+                where entryPoint.NeedsTerminal
+                select new AppAlias
+                {
+                    Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command).SafeFileName(),
+                    Command = entryPoint.Command
+                }, x => x.Name ?? "");
         }
 
         /// <summary>
@@ -106,13 +110,14 @@ namespace ZeroInstall.DesktopIntegration
             if (feed == null) throw new ArgumentNullException(nameof(feed));
             #endregion
 
-            return (from entryPoint in feed.EntryPoints
-                    where entryPoint.SuggestAutoStart
-                    select new AutoStart
-                    {
-                        Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
-                        Command = entryPoint.Command
-                    }).DistinctBy(x => x.Name ?? "");
+            return EnumerableExtensions.DistinctBy(
+                from entryPoint in feed.EntryPoints
+                where entryPoint.SuggestAutoStart
+                select new AutoStart
+                {
+                    Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                    Command = entryPoint.Command
+                }, x => x.Name ?? "");
         }
 
         /// <summary>
