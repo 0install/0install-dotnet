@@ -58,7 +58,7 @@ namespace ZeroInstall.Commands.Desktop
             {
                 if (ZeroInstallInstance.IsRunningFromCache)
                 {
-                    Log.Error("This instance of Zero Install is running from a cache. There is nothing to uninstall.");
+                    Log.Error(Resources.SelfRemoveNotDeployed);
                     return ExitCode.NoChanges;
                 }
 

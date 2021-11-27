@@ -1919,6 +1919,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This instance of Zero Install is not deployed. There is nothing to remove..
+        /// </summary>
+        public static string SelfRemoveNotDeployed {
+            get {
+                return ResourceManager.GetString("SelfRemoveNotDeployed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An update to Zero Install v{0} is available. Install now?.
         /// </summary>
         public static string SelfUpdateAvailable {
@@ -1928,7 +1937,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This Zero Install instance was launched as an implementation by another Zero Install instance. It therefore cannot update itself..
+        ///   Looks up a localized string similar to This Zero Install instance was not deployed. It therefore cannot update itself..
         /// </summary>
         public static string SelfUpdateBlocked {
             get {

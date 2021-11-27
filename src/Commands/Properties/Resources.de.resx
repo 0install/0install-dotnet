@@ -767,6 +767,9 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Diese Zero Install Instanz wurde als Implementierung von einer anderen Zero Install Instanz gestartet. Sie kann sich daher nicht selbst aktualisieren.</value>
   </data>
+  <data name="SelfRemoveNotDeployed" xml:space="preserve">
+    <value>Diese Zero Install Instanz wurde nicht auf dem System eingerichtet. Es gibt nichts zu entfernen.</value>
+  </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Stabilitäts-Policy für {0} entsprechend setzen?</value>
   </data>

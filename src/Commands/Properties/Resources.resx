@@ -765,7 +765,10 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
 Run '0install config self_update_uri default' to enable it.</value>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>This Zero Install instance was launched as an implementation by another Zero Install instance. It therefore cannot update itself.</value>
+    <value>This Zero Install instance was not deployed. It therefore cannot update itself.</value>
+  </data>
+  <data name="SelfRemoveNotDeployed" xml:space="preserve">
+    <value>This instance of Zero Install is not deployed. There is nothing to remove.</value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Set stability policy for {0} to match?</value>
