@@ -170,7 +170,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
             try
             {
-                string iconPath = _iconStore.GetPath(icon);
+                string iconPath = _iconStore.Get(icon);
                 new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
                 return iconPath;
             }

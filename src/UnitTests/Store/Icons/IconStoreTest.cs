@@ -32,7 +32,7 @@ namespace ZeroInstall.Store.Icons
         [Fact]
         public void ShouldEnsureCorrectFileExtension()
         {
-            string path = _store.BuildPath(PngIcon(new("http://host/file")));
+            string path = _store.GetPath(PngIcon(new("http://host/file")));
             Path.GetExtension(path).Should().Be(".png");
         }
 
@@ -41,7 +41,7 @@ namespace ZeroInstall.Store.Icons
         {
             var icon = PngIcon(new("http://example.com/test1.png"));
             Inject(icon, iconData: "icon");
-            Verify(icon, iconData: "icon");
+            VerifyGet(icon, iconData: "icon");
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace ZeroInstall.Store.Icons
         {
             using var server = new MicroServer("icon.png", "data".ToStream());
             var icon = PngIcon(server.FileUri);
-            Verify(icon, "data");
+            VerifyGet(icon, "data");
         }
 
         [SkippableFact]
@@ -60,7 +60,7 @@ namespace ZeroInstall.Store.Icons
             using var server = new MicroServer("icon.png", "new".ToStream());
             var icon = PngIcon(server.FileUri);
             Inject(icon, "old", timestamp: new DateTime(1980, 1, 1));
-            Verify(icon, "new");
+            VerifyGet(icon, "new");
         }
 
         [Fact]
@@ -69,19 +69,19 @@ namespace ZeroInstall.Store.Icons
             using var server = new MicroServer("_", new MemoryStream());
             var icon = PngIcon(new(server.FileUri + "-invalid"));
             Inject(icon, "data", timestamp: new DateTime(1980, 1, 1));
-            Verify(icon, "data");
+            VerifyGet(icon, "data");
         }
 
         private static Icon PngIcon(Uri href) => new() {Href = href, MimeType = Icon.MimeTypePng};
 
         private void Inject(Icon icon, string iconData, DateTime? timestamp = null)
         {
-            string path = _store.BuildPath(icon);
+            string path = _store.GetPath(icon);
             File.WriteAllText(path, iconData);
             if (timestamp.HasValue) File.SetLastWriteTimeUtc(path, timestamp.Value);
         }
 
-        private void Verify(Icon icon, string iconData)
-            => File.ReadAllText(_store.GetPath(icon)).Should().Be(iconData);
+        private void VerifyGet(Icon icon, string iconData)
+            => File.ReadAllText(_store.Get(icon)).Should().Be(iconData);
     }
 }

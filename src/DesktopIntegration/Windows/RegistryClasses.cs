@@ -74,7 +74,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             if (icon != null)
             {
                 using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
-                iconKey.SetValue("", iconStore.GetPath(icon) + ",0");
+                iconKey.SetValue("", iconStore.Get(icon) + ",0");
             }
 
             foreach (var verb in capability.Verbs)
@@ -111,7 +111,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             else verbKey.DeleteValue("Extended", throwOnMissingValue: false);
 
             var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
-            verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetPath));
+            verbKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
 
             using var commandKey = verbKey.CreateSubKeyChecked("command");
             commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));

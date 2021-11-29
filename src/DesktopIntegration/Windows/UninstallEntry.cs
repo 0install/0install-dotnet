@@ -47,7 +47,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
         private static string? GetIconPath(Feed feed, IIconStore iconStore)
         {
             var icon = feed.Icons.GetIcon(Icon.MimeTypeIco);
-            return icon?.To(iconStore.GetPath);
+            return icon?.To(iconStore.Get);
         }
 
         /// <summary>

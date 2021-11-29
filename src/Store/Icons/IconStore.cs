@@ -3,12 +3,10 @@
 
 using System;
 using System.IO;
-using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
-using NanoByte.Common.Threading;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Configuration;
 
@@ -28,47 +26,48 @@ namespace ZeroInstall.Store.Icons
         /// <summary>
         /// The maximum number of bytes to download for a single icon.
         /// </summary>
-        private const long MaximumIconSize = 2 * 1024 * 1024;
+        private const long MaximumIconSize = 2 * 1024 * 1024; // 2MiB
 
         /// <inheritdoc/>
-        public string GetPath(Icon icon)
+        public string? GetCached(Icon icon, out bool stale)
         {
             #region Sanity checks
             if (icon == null) throw new ArgumentNullException(nameof(icon));
             if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
             #endregion
 
-            string path = BuildPath(icon);
+            string path = GetPath(icon);
 
-            using (new MutexLock("ZeroInstall.DesktopIntegration.IconStore." + path.GetHashCode())) // Prevent concurrent updates of same icon
+            if (File.Exists(path))
             {
-                if (File.Exists(path))
-                { // Existing file
-                    if (_config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected && IsFresh(path))
-                    { // Outdated
-                        try
-                        {
-                            Download(icon.Href, path);
-                        }
-                        #region Error handling
-                        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
-                        {
-                            // Failure is not critical if there is already a cached file
-                            Log.Warn(ex);
-                        }
-                        #endregion
-                    }
-                }
-                else
-                { // No existing file
-                    Download(icon.Href, path);
-                }
+                stale = DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
+                return path;
             }
+            else
+            {
+                stale = false;
+                return null;
+            }
+        }
+
+        /// <inheritdoc/>
+        public string Download(Icon icon)
+        {
+            #region Sanity checks
+            if (icon == null) throw new ArgumentNullException(nameof(icon));
+            if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
+            #endregion
+
+            string path = GetPath(icon);
+
+            using var atomic = new AtomicWrite(path);
+            _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) { BytesMaximum = MaximumIconSize });
+            atomic.Commit();
 
             return path;
         }
 
-        internal string BuildPath(Icon icon)
+        internal string GetPath(Icon icon)
         {
             string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
 
@@ -84,15 +83,5 @@ namespace ZeroInstall.Store.Icons
 
             return path;
         }
-
-        private void Download(Uri href, string path)
-        {
-            using var atomic = new AtomicWrite(path);
-            _handler.RunTask(new DownloadFile(href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
-            atomic.Commit();
-        }
-
-        private bool IsFresh(string path)
-            => DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
     }
 }

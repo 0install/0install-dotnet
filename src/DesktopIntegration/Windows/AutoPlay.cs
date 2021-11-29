@@ -85,7 +85,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 var icon = autoPlay.GetIcon(Icon.MimeTypeIco)
                         ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
-                handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.GetPath(x) + ",0"));
+                handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.Get(x) + ",0"));
             }
 
             foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))

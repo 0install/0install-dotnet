@@ -80,7 +80,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
 
                 // Set icon if available
                 var icon = target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-                capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => iconStore.GetPath(x) + ",0"));
+                capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => iconStore.Get(x) + ",0"));
 
                 verbCapabilities = verbCapabilities.ToArray();
 
