@@ -97,10 +97,17 @@ namespace ZeroInstall.Commands.Basic
         /// </summary>
         protected void LibraryModeClean()
         {
-            if (ZeroInstallInstance.IsLibraryMode && UncachedImplementations?.Count == 0)
+            if (ZeroInstallInstance.IsLibraryMode && !ZeroInstallInstance.IsMachineWide && UncachedImplementations?.Count == 0)
             {
                 Log.Info("Starting library mode implementation cleaning");
-                new UpdateApps(Handler) {Clean = true}.Execute();
+                try
+                {
+                    new UpdateApps(Handler) {Clean = true}.Execute();
+                }
+                catch (NotAdminException)
+                {
+                    Log.Info("Library mode implementation cleaning cancelled due to missing admin privileges");
+                }
             }
         }
 
