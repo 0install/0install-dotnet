@@ -20,7 +20,7 @@ namespace ZeroInstall.Model.Design
         public override object? ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object value)
             => (value is string stringValue)
                 ? new Arg {Value = stringValue}
-                : base.ConvertFrom(context, culture, value);
+                : base.ConvertFrom(context!, culture!, value);
 
         /// <inheritdoc/>
         public override object? ConvertTo(ITypeDescriptorContext? context, CultureInfo? culture, object? value, Type destinationType)
