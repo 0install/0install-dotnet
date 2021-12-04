@@ -4,6 +4,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.Versioning;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
@@ -72,6 +73,7 @@ namespace ZeroInstall.Publish.EntryPoints
             };
 
         /// <inheritdoc/>
+        [SupportedOSPlatform("windows")]
         public System.Drawing.Icon ExtractIcon()
         {
             if (BaseDirectory == null || RelativePath == null) throw new InvalidOperationException($"{nameof(Analyze)}() must be called first.");

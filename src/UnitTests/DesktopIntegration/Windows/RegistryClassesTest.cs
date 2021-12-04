@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
 using FluentAssertions;
 using Moq;
 using Xunit;
@@ -10,6 +11,7 @@ using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows
 {
+    [SupportedOSPlatform("windows")]
     public class RegistryClassesTest : TestWithRedirect
     {
         [Fact]

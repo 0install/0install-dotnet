@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using IniParser;
 using IniParser.Exceptions;
@@ -290,6 +291,7 @@ namespace ZeroInstall.Store.Configuration
         /// <summary>
         /// Reads settings from Windows policy registry keys and transfers them to properties.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         private void ReadFromRegistry()
         {
             ReadFrom(Registry.LocalMachine);
@@ -306,6 +308,7 @@ namespace ZeroInstall.Store.Configuration
         /// <summary>
         /// Reads settings from a Windows registry key and transfers them to properties.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         private void ReadFromRegistry(RegistryKey registryKey)
         {
             Log.Debug("Loading config from: " + registryKey);

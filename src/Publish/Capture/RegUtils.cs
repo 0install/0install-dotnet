@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 
 namespace ZeroInstall.Publish.Capture
@@ -10,6 +11,7 @@ namespace ZeroInstall.Publish.Capture
     /// <summary>
     /// Provides convenience helper methods for registry access.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     internal static class RegUtils
     {
         /// <summary>

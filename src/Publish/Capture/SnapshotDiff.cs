@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -18,6 +19,7 @@ namespace ZeroInstall.Publish.Capture
     /// <summary>
     /// Represents the differences between two <see cref="Snapshot"/>s. Extracts information about applications installed.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public partial class SnapshotDiff : Snapshot
     {
         /// <summary>

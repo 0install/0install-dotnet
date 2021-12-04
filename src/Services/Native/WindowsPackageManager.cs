@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
@@ -19,6 +20,7 @@ namespace ZeroInstall.Services.Native
     /// Detects common Windows software packages (such as Java and .NET) that are installed natively.
     /// </summary>
     /// <remarks>This class is immutable and thread-safe.</remarks>
+    [SupportedOSPlatform("windows")]
     public class WindowsPackageManager : PackageManagerBase
     {
         public WindowsPackageManager()

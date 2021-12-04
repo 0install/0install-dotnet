@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.Versioning;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Builders;
@@ -15,6 +16,7 @@ namespace ZeroInstall.Publish.Capture
     /// <summary>
     /// Manages the process of taking two <see cref="Snapshot"/>s and comparing them to generate a <see cref="Feed"/>.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class CaptureSession
     {
         private readonly Snapshot _snapshot;

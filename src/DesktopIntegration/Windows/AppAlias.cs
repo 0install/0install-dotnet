@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
@@ -17,6 +18,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Contains control logic for applying <see cref="AccessPoints.AppAlias"/> on Windows systems.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static class AppAlias
     {
         #region Constants

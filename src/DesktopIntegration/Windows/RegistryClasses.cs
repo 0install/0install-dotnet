@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -20,6 +21,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Helpers for registering <see cref="Capability"/>s in the HKCR section of the Windows Registry.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     internal static class RegistryClasses
     {
         /// <summary>

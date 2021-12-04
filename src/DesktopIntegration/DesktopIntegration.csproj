@@ -7,7 +7,6 @@
     <Description>Zero Install methods for integrating applications with desktop environments (creating menu entries, etc.).</Description>
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_desktop_integration.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->

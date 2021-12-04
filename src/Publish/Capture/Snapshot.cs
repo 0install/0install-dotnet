@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -16,6 +17,7 @@ namespace ZeroInstall.Publish.Capture
     /// <summary>
     /// Represents the systems state at a point in time. This is used to determine changes.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     [Serializable]
     public class Snapshot
     {

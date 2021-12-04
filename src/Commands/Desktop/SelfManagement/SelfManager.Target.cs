@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.Versioning;
 using System.Threading;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -44,6 +45,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.
         /// </summary>
         /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
+        [SupportedOSPlatform("windows")]
         private void TargetMutexAcquire()
         {
             if (TargetDir == Locations.InstallBase)
@@ -84,11 +86,13 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <summary>
         /// Counterpart to <see cref="TargetMutexAcquire"/>.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         private void TargetMutexRelease() => _targetMutex?.Close();
 
         /// <summary>
         /// Try to remove OneGet Bootstrap module to prevent future PowerShell sessions from loading it again.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         private void RemoveOneGetBootstrap()
         {
             RemoveOneGetBootstrap(Path.Combine(
@@ -99,6 +103,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                 "WindowsPowerShell", "Modules", "0install"));
         }
 
+        [SupportedOSPlatform("windows")]
         private static void RemoveOneGetBootstrap(string dirPath)
         {
             if (!Directory.Exists(dirPath)) return;

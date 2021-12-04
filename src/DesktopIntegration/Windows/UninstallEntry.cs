@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Collections;
@@ -18,6 +19,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Manages uninstall registry entries on Windows systems.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static class UninstallEntry
     {
         /// <summary>

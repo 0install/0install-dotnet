@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Drawing;
+using System.Runtime.Versioning;
 
 namespace ZeroInstall.Publish.EntryPoints
 {
@@ -13,6 +14,7 @@ namespace ZeroInstall.Publish.EntryPoints
         /// <summary>
         /// Extracts the primary icon of the executable.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         Icon ExtractIcon();
     }
 }

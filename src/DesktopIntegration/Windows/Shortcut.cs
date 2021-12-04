@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.Versioning;
 using NanoByte.Common;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
@@ -18,6 +19,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Creates Windows shortcut files (.lnk).
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static partial class Shortcut
     {
         /// <summary>

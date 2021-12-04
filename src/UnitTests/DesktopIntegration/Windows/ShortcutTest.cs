@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using System.Runtime.Versioning;
 using FluentAssertions;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
@@ -12,6 +13,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Contains test methods for <see cref="Shortcut"/>.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public class ShortcutTest
     {
         public ShortcutTest()

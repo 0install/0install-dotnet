@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Runtime.Versioning;
 using NanoByte.Common;
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
@@ -103,6 +104,7 @@ namespace ZeroInstall.Commands
         /// <param name="path">The deployment directory of the instance of Zero Install.</param>
         /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
         /// <param name="libraryMode">Indicates the instance was deployed in library mode.</param>
+        [SupportedOSPlatform("windows")]
         public static void RegisterLocation(string path, bool machineWide, bool libraryMode)
         {
             RegistryUtils.SetSoftwareString(RegKeyName, InstallLocation, path, machineWide);
@@ -113,6 +115,7 @@ namespace ZeroInstall.Commands
         /// Unregisters a Zero Install instance from the Windows registry if possible.
         /// </summary>
         /// <param name="machineWide"><c>true</c> if a machine-wide registration should be removed; <c>false</c> if a user-specific registration should be removed.</param>
+        [SupportedOSPlatform("windows")]
         public static void UnregisterLocation(bool machineWide)
         {
             RegistryUtils.DeleteSoftwareValue(RegKeyName, InstallLocation, machineWide);

@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Versioning;
 using JetBrains.Annotations;
 using Microsoft.Win32;
 using NanoByte.Common;
@@ -21,6 +22,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Contains control logic for applying <see cref="Model.Capabilities.AppRegistration"/> on Windows systems.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static class AppRegistration
     {
         #region Constants

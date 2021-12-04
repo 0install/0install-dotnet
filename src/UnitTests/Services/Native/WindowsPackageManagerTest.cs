@@ -4,6 +4,7 @@
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using FluentAssertions;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -13,6 +14,7 @@ using Architecture = System.Runtime.InteropServices.Architecture;
 
 namespace ZeroInstall.Services.Native
 {
+    [SupportedOSPlatform("windows")]
     public class WindowsPackageManagerTest
     {
         private readonly WindowsPackageManager _packageManager;

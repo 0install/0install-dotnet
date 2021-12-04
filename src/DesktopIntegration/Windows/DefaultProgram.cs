@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using NanoByte.Common;
 using NanoByte.Common.Native;
@@ -19,6 +20,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
     /// <summary>
     /// Contains control logic for applying <see cref="Model.Capabilities.DefaultProgram"/> and <see cref="AccessPoints.DefaultProgram"/> on Windows systems.
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static class DefaultProgram
     {
         #region Constants

@@ -11,7 +11,6 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->

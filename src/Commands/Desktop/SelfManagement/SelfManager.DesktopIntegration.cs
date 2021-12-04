@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.IO;
+using System.Runtime.Versioning;
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
@@ -18,6 +19,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// Adds Zero Install to the start menu and the PATH environment variable.
         /// </summary>
         /// <param name="size">The size of the installed files in bytes.</param>
+        [SupportedOSPlatform("windows")]
         private void DesktopIntegrationApply(long size)
         {
             Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationApply, () =>
@@ -46,6 +48,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <summary>
         /// Removes Zero Install from the start menu and the PATH environment variable.
         /// </summary>
+        [SupportedOSPlatform("windows")]
         private void DesktopIntegrationRemove()
         {
             Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationRemove, () =>

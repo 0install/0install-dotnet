@@ -7,7 +7,6 @@
     <Description>Utilities for creating and modifying Zero Install feed files</Description>
     <PackageProjectUrl>https://dotnet.0install.net/md_publish.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <NoWarn>$(NoWarn);CA1416</NoWarn><!-- Platform compatability analyzer -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
