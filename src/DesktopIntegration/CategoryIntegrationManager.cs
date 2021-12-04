@@ -156,7 +156,10 @@ namespace ZeroInstall.DesktopIntegration
             #endregion
 
             foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<DefaultProgram>())
-                Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, iconsVisible);
+            {
+                if (WindowsUtils.IsWindows)
+                    Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, iconsVisible);
+            }
         }
         #endregion
     }

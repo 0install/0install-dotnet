@@ -57,12 +57,15 @@ namespace ZeroInstall.Commands
         /// </summary>
         public static void Init()
         {
-            // Encode installation path into mutex name to allow instance detection during updates
-            string mutexName = "mutex-" + Locations.InstallBase.GetHashCode();
-            if (AppMutex.Probe(mutexName + "-update")) Environment.Exit(999);
-            AppMutex.Create(mutexName);
+            if (WindowsUtils.IsWindows)
+            {
+                // Encode installation path into mutex name to allow instance detection during updates
+                string mutexName = "mutex-" + Locations.InstallBase.GetHashCode();
+                if (AppMutex.Probe(mutexName + "-update")) Environment.Exit(999);
+                AppMutex.Create(mutexName);
 
-            if (WindowsUtils.IsWindows && UILanguage != null) Languages.SetUI(UILanguage);
+                if (UILanguage != null) Languages.SetUI(UILanguage);
+            }
 
             ProcessUtils.SanitizeEnvironmentVariables();
             NetUtils.ApplyProxy();
@@ -229,6 +232,7 @@ namespace ZeroInstall.Commands
                 WindowsUtils.IsWindows10Redstone &&
                 RegistryUtils.GetDword(RegKeyFSPolicyUser, RegValueNameLongPaths, defaultValue: RegistryUtils.GetDword(RegKeyFSPolicyMachine, RegValueNameLongPaths)) != 1)
             {
+                if (!WindowsUtils.IsWindows10Redstone) throw;
                 string message = ex.Message + @" " + Resources.SuggestLongPath;
                 if (handler.Ask(message + @" " + Resources.AskTryNow, defaultAnswer: false, alternateMessage: message))
                 {

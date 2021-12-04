@@ -170,7 +170,7 @@ namespace ZeroInstall.Store.Implementations
             catch (UnauthorizedAccessException)
             {
                 // Only warn if even an Admin is unable to set ACLs
-                if (WindowsUtils.IsAdministrator) Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
+                if (WindowsUtils.IsWindowsNT && WindowsUtils.IsAdministrator) Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
                 else Log.Info(string.Format(Resources.UnableToWriteProtect, path));
             }
             catch (InvalidOperationException)

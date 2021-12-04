@@ -20,8 +20,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// <param name="size">The size of the installed files in bytes.</param>
         private void DesktopIntegrationApply(long size)
         {
-            if (!WindowsUtils.IsWindows) return;
-
             Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationApply, () =>
             {
                 UninstallEntry.Register(
@@ -50,8 +48,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// </summary>
         private void DesktopIntegrationRemove()
         {
-            if (!WindowsUtils.IsWindows) return;
-
             Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationRemove, () =>
             {
                 string path = Shortcut.GetStartMenuPath("", "Zero Install", MachineWide);

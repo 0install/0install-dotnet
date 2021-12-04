@@ -115,7 +115,7 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+            ThrowIfMissingAdminRights();
 
             string? path = GetPath(manifestDigest);
             if (path == null) return false;
@@ -131,7 +131,7 @@ namespace ZeroInstall.Store.Implementations
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             #endregion
 
-            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToRemove);
+            ThrowIfMissingAdminRights();
 
             var paths = Directory.GetDirectories(Path).Where(path =>
             {
@@ -232,7 +232,7 @@ namespace ZeroInstall.Store.Implementations
             #endregion
 
             if (!Directory.Exists(Path)) return 0;
-            if (ReadOnly && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminToOptimise);
+            ThrowIfMissingAdminRights();
 
             using var run = new OptimiseRun(Path);
             handler.RunTask(ForEachTask.Create(
@@ -240,6 +240,12 @@ namespace ZeroInstall.Store.Implementations
                 target: ListAll(),
                 work: run.Work));
             return run.SavedBytes;
+        }
+
+        private void ThrowIfMissingAdminRights()
+        {
+            if (ReadOnly && WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminToRemove);
         }
 
         /// <summary>

@@ -3,15 +3,12 @@
 
 using System;
 using System.IO;
+using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
-
-#if NETFRAMEWORK
-using NanoByte.Common.Native;
-#endif
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement
 {
@@ -88,7 +85,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
             try
             {
-                TargetMutexAcquire();
+                if (WindowsUtils.IsWindows) TargetMutexAcquire();
 
                 if (TargetDir != Locations.InstallBase)
                 {
@@ -101,7 +98,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (!Portable)
+                if (!Portable && WindowsUtils.IsWindows)
                 {
                     if (!libraryMode)
                         DesktopIntegrationApply(newManifest.TotalSize);
@@ -109,7 +106,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     RemoveOneGetBootstrap();
                 }
 
-                TargetMutexRelease();
+                if (WindowsUtils.IsWindows) TargetMutexRelease();
 
 #if NETFRAMEWORK
                 if (MachineWide)
@@ -122,7 +119,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             }
             catch
             {
-                TargetMutexRelease();
+                if (WindowsUtils.IsWindows) TargetMutexRelease();
                 throw;
             }
         }
@@ -147,7 +144,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
 
             try
             {
-                TargetMutexAcquire();
+                if (WindowsUtils.IsWindows) TargetMutexAcquire();
 
                 using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
                 {
@@ -159,7 +156,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     clearDir.Commit();
                 }
 
-                if (!Portable)
+                if (!Portable && WindowsUtils.IsWindows)
                 {
                     DesktopIntegrationRemove();
                     ZeroInstallInstance.UnregisterLocation(MachineWide);
@@ -167,7 +164,7 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             }
             finally
             {
-                TargetMutexRelease();
+                if (WindowsUtils.IsWindows) TargetMutexRelease();
             }
         }
     }

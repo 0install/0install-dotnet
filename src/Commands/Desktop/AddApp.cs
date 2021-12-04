@@ -37,7 +37,13 @@ namespace ZeroInstall.Commands.Desktop
         /// <summary>
         /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals that an application that is not listed in the <see cref="Catalog"/> was added.
         /// </summary>
-        public static readonly int AddedNonCatalogAppWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.AddedNonCatalogApp");
+        public static readonly int AddedNonCatalogAppWindowMessageID;
+
+        static AddApp()
+        {
+            if (WindowsUtils.IsWindows)
+                AddedNonCatalogAppWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.AddedNonCatalogApp");
+        }
 
         /// <inheritdoc/>
         protected override ExitCode ExecuteHelper()
@@ -51,7 +57,7 @@ namespace ZeroInstall.Commands.Desktop
                 else if (_command != null)
                     throw new OptionException(Resources.NoAddCommandWithoutAlias, "command");
 
-                if (!CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
+                if (WindowsUtils.IsWindows && !CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                     WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes
 
                 return ExitCode.OK;

@@ -62,7 +62,7 @@ namespace ZeroInstall.Commands.Desktop
                     return ExitCode.NoChanges;
                 }
 
-                if (MachineWide && !WindowsUtils.IsAdministrator)
+                if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
                 if (!ZeroInstallInstance.IsLibraryMode && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))

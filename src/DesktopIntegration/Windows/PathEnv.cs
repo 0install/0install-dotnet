@@ -73,7 +73,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                 variable: "Path",
                 value: StringUtils.Join(Path.PathSeparator.ToString(), directories),
                 target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
-            WindowsUtils.NotifyEnvironmentChanged();
+            if (WindowsUtils.IsWindows) WindowsUtils.NotifyEnvironmentChanged();
         }
     }
 }

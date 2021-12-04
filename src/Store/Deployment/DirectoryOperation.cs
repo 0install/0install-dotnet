@@ -102,7 +102,7 @@ namespace ZeroInstall.Store.Deployment
         {
             try
             {
-                if (_restartManager != null)
+                if (WindowsUtils.IsWindowsVista && _restartManager != null)
                 {
                     try
                     {

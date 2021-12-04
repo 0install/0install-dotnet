@@ -37,7 +37,13 @@ namespace ZeroInstall.DesktopIntegration
         /// <summary>
         /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals integration changes to interested observers.
         /// </summary>
-        public static readonly int ChangedWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.DesktopIntegration");
+        public static readonly int ChangedWindowMessageID;
+
+        static IntegrationManager()
+        {
+            if (WindowsUtils.IsWindows)
+                ChangedWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.DesktopIntegration");
+        }
         #endregion
 
         /// <summary>
@@ -306,8 +312,11 @@ namespace ZeroInstall.DesktopIntegration
             // Retry to handle race conditions with read-only access to the file
             ExceptionUtils.Retry<IOException>(delegate { AppList.SaveXml(AppListPath); });
 
-            WindowsUtils.NotifyAssocChanged(); // Notify Windows Explorer of changes
-            WindowsUtils.BroadcastMessage(ChangedWindowMessageID); // Notify Zero Install GUIs of changes
+            if (WindowsUtils.IsWindows)
+            {
+                WindowsUtils.NotifyAssocChanged(); // Notify Windows Explorer of changes
+                WindowsUtils.BroadcastMessage(ChangedWindowMessageID); // Notify Zero Install GUIs of changes
+            }
         }
         #endregion
 

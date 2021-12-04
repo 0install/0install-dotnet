@@ -91,8 +91,6 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
         /// </summary>
         private void RemoveOneGetBootstrap()
         {
-            if (!WindowsUtils.IsWindows) return;
-
             RemoveOneGetBootstrap(Path.Combine(
                 Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
                 "PackageManagement", "ProviderAssemblies", "0install"));

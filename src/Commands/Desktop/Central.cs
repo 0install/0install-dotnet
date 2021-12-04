@@ -29,7 +29,7 @@ namespace ZeroInstall.Commands.Desktop
         /// <inheritdoc/>
         public override ExitCode Execute()
         {
-            if (_machineWide && !WindowsUtils.IsAdministrator)
+            if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
             var process = _machineWide

@@ -105,8 +105,6 @@ namespace ZeroInstall.Commands
         /// <param name="libraryMode">Indicates the instance was deployed in library mode.</param>
         public static void RegisterLocation(string path, bool machineWide, bool libraryMode)
         {
-            if (!WindowsUtils.IsWindows) return;
-
             RegistryUtils.SetSoftwareString(RegKeyName, InstallLocation, path, machineWide);
             RegistryUtils.SetSoftwareString(RegKeyName, LibraryMode, libraryMode ? "1" : "0", machineWide);
         }
@@ -117,8 +115,6 @@ namespace ZeroInstall.Commands
         /// <param name="machineWide"><c>true</c> if a machine-wide registration should be removed; <c>false</c> if a user-specific registration should be removed.</param>
         public static void UnregisterLocation(bool machineWide)
         {
-            if (!WindowsUtils.IsWindows) return;
-
             RegistryUtils.DeleteSoftwareValue(RegKeyName, InstallLocation, machineWide);
             RegistryUtils.DeleteSoftwareValue(RegKeyName, LibraryMode, machineWide);
         }

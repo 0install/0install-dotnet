@@ -43,7 +43,8 @@ namespace ZeroInstall.Commands.Desktop
         {
             base.Parse(args);
 
-            if (MachineWide && !WindowsUtils.IsAdministrator) throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+            if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminForMachineWide);
         }
 
         /// <summary>

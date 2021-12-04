@@ -65,7 +65,7 @@ namespace ZeroInstall.Store.FileSystem
         /// <returns><c>true</c> if <paramref name="manifestElement"/> points to a symbolic link; <c>false</c> otherwise.</returns>
         public static bool IsSymlink(string path, [NotNullWhen(true)] out string? target, ManifestElement? manifestElement = null)
         {
-            if (FileUtils.IsSymlink(path, out target) || CygwinUtils.IsSymlink(path, out target))
+            if (FileUtils.IsSymlink(path, out target) || WindowsUtils.IsWindowsNT && CygwinUtils.IsSymlink(path, out target))
                 return true;
 
             if (manifestElement is ManifestSymlink)

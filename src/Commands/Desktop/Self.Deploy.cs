@@ -50,7 +50,7 @@ namespace ZeroInstall.Commands.Desktop
             public override ExitCode Execute()
             {
                 string targetDir = GetTargetDir();
-                if (_machineWide && !WindowsUtils.IsAdministrator)
+                if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
                 if (!_portable && !_library)
                 {
