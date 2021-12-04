@@ -67,7 +67,7 @@ namespace ZeroInstall.Model
         {
             var type = GetType();
             using var writer = new StringWriter {NewLine = "\n"};
-            new XmlSerializer(type).Serialize(writer, this);
+            new XmlSerializer(type).Serialize(new XmlTextWriter(writer) {Formatting = Formatting.Indented}, this);
             return writer.ToString()
                          .Split('\n')[1]
                          .Replace($" xmlns=\"{type.GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
