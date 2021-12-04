@@ -61,19 +61,14 @@ namespace ZeroInstall.Model
         /// </summary>
         /// <remarks>
         /// Intended for use in error messages. Not suitable for parsing.
-        /// Use <see cref="XmlStorage.ToXmlString{T}"/> instead if you need a full XML representation.
+        /// Use <see cref="XmlStorage.ToXmlString"/> instead if you need a full XML representation.
         /// </remarks>
         public string ToShortXml()
-        {
-            var type = GetType();
-            using var writer = new StringWriter {NewLine = "\n"};
-            new XmlSerializer(type).Serialize(new XmlTextWriter(writer) {Formatting = Formatting.Indented}, this);
-            return writer.ToString()
-                         .Split('\n')[1]
-                         .Replace($" xmlns=\"{type.GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
-                         .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "")
-                         .Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
-        }
+            => this.ToXmlString()
+                   .Split('\n')[1]
+                   .Replace($" xmlns=\"{GetType().GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
+                   .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "")
+                   .Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
 
         #region Comparers
         private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>
