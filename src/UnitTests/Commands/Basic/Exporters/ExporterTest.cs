@@ -36,14 +36,20 @@ namespace ZeroInstall.Commands.Basic.Exporters
         public void ExportFeeds()
         {
             using var feedFile1 = new TemporaryFile("0install-test-feed");
+            using var subFeedFile1 = new TemporaryFile("0install-test-feed");
             using var feedFile2 = new TemporaryFile("0install-test-feed");
+            using var subFeedFile2 = new TemporaryFile("0install-test-feed");
             var feedCacheMock = CreateMock<IFeedCache>();
 
-            feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed1Uri)).Returns(feedFile1);
-            feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed2Uri)).Returns(feedFile2);
+            feedCacheMock.Setup(x => x.GetPath(Fake.Feed1Uri)).Returns(feedFile1);
+            feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed1Uri)).Returns(subFeedFile1);
+            feedCacheMock.Setup(x => x.GetPath(Fake.Feed2Uri)).Returns(feedFile2);
+            feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed2Uri)).Returns(subFeedFile2);
 
-            var signature = new ValidSignature(123, new byte[0], new DateTime(2000, 1, 1));
+            var signature = new ValidSignature(123, Array.Empty<byte>(), new DateTime(2000, 1, 1));
+            feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed1Uri)).Returns(new OpenPgpSignature[] {signature});
             feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed1Uri)).Returns(new OpenPgpSignature[] {signature});
+            feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed2Uri)).Returns(new OpenPgpSignature[] {signature});
             feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed2Uri)).Returns(new OpenPgpSignature[] {signature});
 
             var openPgpMock = CreateMock<IOpenPgp>();
@@ -52,7 +58,9 @@ namespace ZeroInstall.Commands.Basic.Exporters
             _target.ExportFeeds(feedCacheMock.Object, openPgpMock.Object);
 
             string contentDir = Path.Combine(_destination, "content");
+            File.Exists(Path.Combine(contentDir, Fake.Feed1Uri.PrettyEscape())).Should().BeTrue();
             File.Exists(Path.Combine(contentDir, Fake.SubFeed1Uri.PrettyEscape())).Should().BeTrue();
+            File.Exists(Path.Combine(contentDir, Fake.Feed2Uri.PrettyEscape())).Should().BeTrue();
             File.Exists(Path.Combine(contentDir, Fake.SubFeed2Uri.PrettyEscape())).Should().BeTrue();
 
             File.ReadAllText(Path.Combine(contentDir, "000000000000007B.gpg")).Should()

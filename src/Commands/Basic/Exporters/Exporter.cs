@@ -62,7 +62,7 @@ namespace ZeroInstall.Commands.Basic.Exporters
             Directory.CreateDirectory(contentDir);
 
             var feedUris = _selections.Implementations
-                                      .Select(x => x.FromFeed ?? x.InterfaceUri)
+                                      .SelectMany(x => new [] {x.InterfaceUri, x.FromFeed})
                                       .WhereNotNull().Distinct().ToList();
 
             foreach (var feedUri in feedUris)
