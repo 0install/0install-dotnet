@@ -9,6 +9,7 @@ using FluentAssertions;
 using Moq;
 using NanoByte.Common;
 using NanoByte.Common.Net;
+using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using Xunit;
 using ZeroInstall.Model;
@@ -170,6 +171,25 @@ namespace ZeroInstall.Services.Feeds
             {
                 _config.FeedMirror = new(server.ServerUri);
                 _trustManager.CheckTrust(_combinedBytes, new("http://localhost:9999/test/feed.xml"))
+                             .Should().Be(OpenPgpUtilsTest.TestSignature);
+            }
+            IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
+        }
+
+        [Fact]
+        public void LoadKeyFromFileAndApprove()
+        {
+            ExpectKeyImport();
+            _handler.AnswerQuestionWith = true;
+
+            using (var tempDir = new TemporaryDirectory("0install-test-trust"))
+            {
+                var feedUri = new FeedUri("http://localhost/test.xml");
+                string feedPath = Path.Combine(tempDir, feedUri.PrettyEscape());
+                string keyPath = Path.Combine(tempDir, OpenPgpUtilsTest.TestKeyIDString + ".gpg");
+                KeyStream.CopyToFile(keyPath);
+
+                _trustManager.CheckTrust(_combinedBytes, feedUri, feedPath)
                              .Should().Be(OpenPgpUtilsTest.TestSignature);
             }
             IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");

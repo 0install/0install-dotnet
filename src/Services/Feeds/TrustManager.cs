@@ -178,7 +178,7 @@ namespace ZeroInstall.Services.Feeds
         {
             if (!string.IsNullOrEmpty(localPath))
             {
-                string keyFile = Path.Combine(localPath, signature.FormatKeyID() + ".gpg");
+                string keyFile = Path.Combine(Path.GetDirectoryName(localPath) ?? "", signature.FormatKeyID() + ".gpg");
                 if (File.Exists(keyFile))
                 {
                     Log.Info("Importing key file: " + keyFile);
