@@ -3,10 +3,12 @@
 
 using System;
 using System.IO;
+using System.Net;
 using NanoByte.Common;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
+using NanoByte.Common.Threading;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Configuration;
 
@@ -22,6 +24,7 @@ namespace ZeroInstall.Store.Icons
         private readonly string _path;
         private readonly Config _config;
         private readonly ITaskHandler _handler;
+        private readonly JobQueue _backgroundUpdates = new();
 
         /// <summary>
         /// The maximum number of bytes to download for a single icon.
@@ -63,6 +66,44 @@ namespace ZeroInstall.Store.Icons
             using var atomic = new AtomicWrite(path);
             _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) { BytesMaximum = MaximumIconSize });
             atomic.Commit();
+
+            return path;
+        }
+
+        /// <summary>
+        /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
+        /// </summary>
+        /// <param name="icon">The icon to get.</param>
+        /// <param name="backgroundUpdate">Set to <c>true</c> to return stale icons and download an update in the background for future use.</param>
+        /// <returns>The file path of the cached icon.</returns>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
+        /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
+        /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
+        public string Get(Icon icon, bool backgroundUpdate = false)
+        {
+            // Prevent concurrent downloads of same icon
+            using var mutex = new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode());
+
+            string path = GetCached(icon, out bool stale) ?? Download(icon);
+
+            void Update()
+            {
+                try
+                {
+                    Download(icon);
+                }
+                catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
+                {
+                    Log.Warn(ex);
+                }
+            }
+
+            if (stale)
+            {
+                if (backgroundUpdate) _backgroundUpdates.Enqueue(Update);
+                else Update();
+            }
 
             return path;
         }
