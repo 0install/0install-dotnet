@@ -23,17 +23,6 @@ namespace ZeroInstall.Store.Icons
         string? GetCached(Icon icon, out bool stale);
 
         /// <summary>
-        /// Downloads an icon into the cache.
-        /// </summary>
-        /// <param name="icon">The icon to download.</param>
-        /// <returns>The file path of the cached icon.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
-        /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
-        string Download(Icon icon);
-
-        /// <summary>
         /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
         /// </summary>
         /// <param name="icon">The icon to get.</param>

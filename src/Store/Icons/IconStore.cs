@@ -53,23 +53,6 @@ namespace ZeroInstall.Store.Icons
             }
         }
 
-        /// <inheritdoc/>
-        public string Download(Icon icon)
-        {
-            #region Sanity checks
-            if (icon == null) throw new ArgumentNullException(nameof(icon));
-            if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
-            #endregion
-
-            string path = GetPath(icon);
-
-            using var atomic = new AtomicWrite(path);
-            _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) { BytesMaximum = MaximumIconSize });
-            atomic.Commit();
-
-            return path;
-        }
-
         /// <summary>
         /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
         /// </summary>
@@ -99,11 +82,22 @@ namespace ZeroInstall.Store.Icons
                 }
             }
 
-            if (stale)
+            if (stale && _config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected)
             {
                 if (backgroundUpdate) _backgroundUpdates.Enqueue(Update);
                 else Update();
             }
+
+            return path;
+        }
+
+        private string Download(Icon icon)
+        {
+            string path = GetPath(icon);
+
+            using var atomic = new AtomicWrite(path);
+            _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+            atomic.Commit();
 
             return path;
         }
