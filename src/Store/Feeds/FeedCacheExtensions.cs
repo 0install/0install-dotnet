@@ -47,5 +47,17 @@ namespace ZeroInstall.Store.Feeds
             }
             return feeds;
         }
+
+        /// <summary>
+        /// Tries to get a specific <see cref="Feed"/> from this cache.
+        /// </summary>
+        /// <param name="cache">The <see cref="IFeedCache"/> to get the <see cref="Feed"/>s from.</param>
+        /// <param name="feedUri">The canonical ID used to identify the feed.</param>
+        /// <returns>The parsed <see cref="Feed"/> object or <c>null</c>. Do not modify this object! It may be a reference to an in-memory cache entry.</returns>
+        /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
+        /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
+        /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
+        public static Feed? TryGetFeed(this IFeedCache cache, FeedUri feedUri)
+            => cache.Contains(feedUri) ? cache.GetFeed(feedUri) : null;
     }
 }
