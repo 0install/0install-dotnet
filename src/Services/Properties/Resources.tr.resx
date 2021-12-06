@@ -136,9 +136,6 @@
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Dış çözümleyici çalışıyor</value>
   </data>
-  <data name="FeedDownloadError" xml:space="preserve">
-    <value>'{0}' akışı indirilirken sorun çıktı.</value>
-  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>'{0}' akışı ön belleğe alınmadı ve Zero Install şu anda çevrimdışı kipte çalışıyor.</value>
   </data>
@@ -187,14 +184,8 @@ Akış adresi: {0}
 Eski zaman: {1}
 Yeni zaman: {2}</value>
   </data>
-  <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Akış yansı sunucusu deneniyor</value>
-  </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>İndirilen uygulama kataloğu ön belleğe alınamadı.</value>
-  </data>
-  <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>'{0}' için GnuPG anahtar dosyası indirilemedi.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>'{0}' için anahtar bilgileri işlenemedi.</value>

@@ -11,6 +11,7 @@ using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Icons
 {
@@ -93,6 +94,9 @@ namespace ZeroInstall.Store.Icons
 
         private string Download(Icon icon)
         {
+            if (_config.NetworkUse == NetworkLevel.Offline)
+                throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
+
             string path = GetPath(icon);
 
             using var atomic = new AtomicWrite(path);

@@ -136,9 +136,6 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Führe externen Solver aus</value>
   </data>
-  <data name="FeedDownloadError" xml:space="preserve">
-    <value>Fehler beim Runterladen des Feeds '{0}'.</value>
-  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Der Feed '{0}' ist nicht gecacht und Zero Install befindet sich derzeit im Off-Line Modus.</value>
   </data>
@@ -169,6 +166,9 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
   <data name="MissingInterfaceUri" xml:space="preserve">
     <value>Es wurde kein Interface angegeben.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Kann {0} nicht herunterladen, da Zero Install im Offline-Modus ist.</value>
+  </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>Der Keyinformationsserver konnte keine weiteren Informationen über diesen Key zur Verfügung stellen.</value>
   </data>
@@ -188,13 +188,10 @@ Alte Zeit: {1}
 Neue Zeit: {2}</value>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Probiere Feed Mirror Server</value>
+    <value>Download von {0} fehlgeschlagen. Probiere stattdessen Download von Feed Mirror.</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Konnte den runtergeladenen Anwendungskatalog nicht cachen.</value>
-  </data>
-  <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>Konnte GnuPG Schlüsseldatei für '{0}' nicht laden.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Konnte Schlüsselinformationen für '{0}' nicht verarbeiten.</value>

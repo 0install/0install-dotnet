@@ -307,15 +307,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The archive contains an invalid path (potentially a security risk): {0}.
-        /// </summary>
-        internal static string InvalidPath {
-            get {
-                return ResourceManager.GetString("InvalidPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The manifest file contains invalid lines..
         /// </summary>
         internal static string InvalidLinesInManifest {
@@ -330,6 +321,15 @@ namespace ZeroInstall.Store.Properties {
         internal static string InvalidNumberOfLineParts {
             get {
                 return ResourceManager.GetString("InvalidNumberOfLineParts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The archive contains an invalid path (potentially a security risk): {0}.
+        /// </summary>
+        internal static string InvalidPath {
+            get {
+                return ResourceManager.GetString("InvalidPath", resourceCulture);
             }
         }
         
@@ -366,6 +366,15 @@ namespace ZeroInstall.Store.Properties {
         internal static string NewlineInName {
             get {
                 return ResourceManager.GetString("NewlineInName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to download {0} because Zero Install is in offline mode..
+        /// </summary>
+        internal static string NoDownloadInOfflineMode {
+            get {
+                return ResourceManager.GetString("NoDownloadInOfflineMode", resourceCulture);
             }
         }
         
@@ -464,7 +473,7 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reading files.
+        ///   Looks up a localized string similar to Processing files.
         /// </summary>
         internal static string ProcessingFiles {
             get {

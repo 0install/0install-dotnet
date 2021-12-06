@@ -110,15 +110,6 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error while downloading feed &apos;{0}&apos;..
-        /// </summary>
-        internal static string FeedDownloadError {
-            get {
-                return ResourceManager.GetString("FeedDownloadError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The feed &apos;{0}&apos; is not cached and Zero Install is currently in off-line mode..
         /// </summary>
         internal static string FeedNotCachedOffline {
@@ -209,6 +200,15 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to download {0} because Zero Install is in offline mode..
+        /// </summary>
+        internal static string NoDownloadInOfflineMode {
+            get {
+                return ResourceManager.GetString("NoDownloadInOfflineMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The key information server was unable to provide any additional information about this key..
         /// </summary>
         internal static string NoKeyInfoServerData {
@@ -257,7 +257,7 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trying feed mirror server.
+        ///   Looks up a localized string similar to Failed to download {0}. Trying to get from feed mirror instead..
         /// </summary>
         internal static string TryingFeedMirror {
             get {
@@ -271,15 +271,6 @@ namespace ZeroInstall.Services.Properties {
         internal static string UnableToCacheCatalog {
             get {
                 return ResourceManager.GetString("UnableToCacheCatalog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to download GnuPG key file for &apos;{0}&apos;..
-        /// </summary>
-        internal static string UnableToLoadKeyFile {
-            get {
-                return ResourceManager.GetString("UnableToLoadKeyFile", resourceCulture);
             }
         }
         

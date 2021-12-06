@@ -228,6 +228,9 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
   <data name="NewlineInName" xml:space="preserve">
     <value>Der Datei- oder Verzeichnisname darf keinen Zeilenumbruch enthalten.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Kann {0} nicht herunterladen, da Zero Install im Offline-Modus ist.</value>
+  </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Es wurde keine bekannte Digest-Methode angegeben.</value>
   </data>

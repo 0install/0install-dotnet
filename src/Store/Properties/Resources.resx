@@ -228,6 +228,9 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   <data name="NewlineInName" xml:space="preserve">
     <value>The file or directory name must not contain a newline character.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Unable to download {0} because Zero Install is in offline mode.</value>
+  </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>No known digest method was specified.</value>
   </data>

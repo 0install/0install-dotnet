@@ -136,9 +136,6 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Running external solver</value>
   </data>
-  <data name="FeedDownloadError" xml:space="preserve">
-    <value>Error while downloading feed '{0}'.</value>
-  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>The feed '{0}' is not cached and Zero Install is currently in off-line mode.</value>
   </data>
@@ -169,6 +166,9 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="MissingInterfaceUri" xml:space="preserve">
     <value>No interface was specified.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Unable to download {0} because Zero Install is in offline mode.</value>
+  </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>The key information server was unable to provide any additional information about this key.</value>
   </data>
@@ -188,13 +188,10 @@ Old time: {1}
 New time: {2}</value>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Trying feed mirror server</value>
+    <value>Failed to download {0}. Trying to get from feed mirror instead.</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Unable to cache the downloaded application catalog.</value>
-  </data>
-  <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>Unable to download GnuPG key file for '{0}'.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Unable to parse key information for '{0}'.</value>

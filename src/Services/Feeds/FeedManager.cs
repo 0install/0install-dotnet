@@ -113,9 +113,8 @@ namespace ZeroInstall.Services.Feeds
             if (Refresh) Download(feedUri);
             else if (!_feedCache.Contains(feedUri))
             {
-                // Do not download in offline mode
                 if (_config.NetworkUse == NetworkLevel.Offline)
-                    throw new WebException(string.Format(Resources.FeedNotCachedOffline, feedUri));
+                    throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, feedUri));
 
                 // Try to download missing feed
                 Download(feedUri);
@@ -218,10 +217,7 @@ namespace ZeroInstall.Services.Feeds
             }
             catch (WebException ex) when (!feedUri.IsLoopback && _config.FeedMirror != null)
             {
-                if (_handler.Verbosity == Verbosity.Batch)
-                    Log.Info(string.Format(Resources.FeedDownloadError, feedUri) + " " + Resources.TryingFeedMirror);
-                else
-                    Log.Warn(string.Format(Resources.FeedDownloadError, feedUri) + " " + Resources.TryingFeedMirror);
+                Log.Warn(string.Format(Resources.TryingFeedMirror, feedUri));
                 try
                 {
                     _handler.RunTask(new DownloadFile(

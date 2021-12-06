@@ -187,13 +187,18 @@ namespace ZeroInstall.Services.Feeds
                 }
             }
 
+            var keyUri = new Uri(uri, signature.FormatKeyID() + ".gpg");
+
+            if (_config.NetworkUse == NetworkLevel.Offline)
+                throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, keyUri));
+
             try
             {
-                DownloadKey(new(uri, signature.FormatKeyID() + ".gpg"));
+                DownloadKey(keyUri);
             }
             catch (WebException ex) when (_config.FeedMirror != null)
             {
-                Log.Warn(string.Format(Resources.UnableToLoadKeyFile, uri) + " " + Resources.TryingFeedMirror);
+                Log.Warn(string.Format(Resources.TryingFeedMirror, keyUri));
                 try
                 {
                     DownloadKey(new(_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri + "keys/" + signature.FormatKeyID() + ".gpg"));

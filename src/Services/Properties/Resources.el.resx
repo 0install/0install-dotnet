@@ -136,9 +136,6 @@
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Εκτέλεση εξωτερικής επιλυτής</value>
   </data>
-  <data name="FeedDownloadError" xml:space="preserve">
-    <value>Σφάλμα κατά τη λήψη τροφοδοσίας '{0}'.</value>
-  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Η τροφοδοσία '{0}' δεν αποθηκεύεται προσωρινά και το Zero Install είναι επί του παρόντος σε λειτουργία εκτός σύνδεσης.</value>
   </data>
@@ -186,9 +183,6 @@
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του κατάλογου της εφαρμογής.</value>
-  </data>
-  <data name="UnableToLoadKeyFile" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη του GnuPG αρχείου κλειδιών για '{0}'.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Αδυναμία αναλύσης βασικών πληροφοριών για '{0}'.</value>
