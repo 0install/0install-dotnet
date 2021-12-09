@@ -4,6 +4,7 @@
 using System;
 using System.IO;
 using NanoByte.Common;
+using NanoByte.Common.Storage;
 using NDesk.Options;
 using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Commands.Properties;
@@ -76,10 +77,8 @@ namespace ZeroInstall.Commands.Basic
             }
             else if (File.Exists(path))
             {
-                using var stream = File.OpenRead(path);
                 var extractor = ArchiveExtractor.For(Archive.GuessMimeType(path), Handler);
-                extractor.Extract(builder, stream, subdir);
-
+                Handler.RunTask(new ReadFile(path, stream => extractor.Extract(builder, stream, subdir)));
                 return builder.Manifest;
             }
             else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
