@@ -62,11 +62,17 @@ namespace ZeroInstall.Archives.Extractors
             }
         }
 
-        private static DateTime GetTimestamp(ZipEntry entry)
-            => new ZipExtraData(entry.ExtraData)
-              .GetData<OldUnixExtraData>()
-             ?.ModificationTime
-            ?? entry.DateTime;
+        private static UnixTime GetTimestamp(ZipEntry entry)
+        {
+            var oldTimestamp = new ZipExtraData(entry.ExtraData).GetData<OldUnixExtraData>()?.ModificationTime;
+            if (oldTimestamp.HasValue) return oldTimestamp.Value;
+
+            // Special-case handling for unset/default timestamps to match behavior of Info-ZIP
+            if (entry.DateTime == new DateTime(1980, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                return entry.DateTime - TimeSpan.FromDays(1);
+
+            return entry.DateTime;
+        }
 
         private static void ApplyCentral(ZipFile zipFile, string? subDir, IBuilder builder)
         {
