@@ -46,7 +46,7 @@ namespace ZeroInstall.Commands.Basic
                     : preferences.StabilityPolicy;
                 if (effectiveStabilityPolicy < suggestedStabilityPolicy)
                 {
-                    string stabilityMessage = string.Format(Resources.StabilityPolicySingleImplementation, suggestedStabilityPolicy);
+                    string stabilityMessage = string.Format(Resources.StabilityPolicySuggested, source.Source.ToStringRfc(), suggestedStabilityPolicy);
                     if (Handler.Ask(
                         stabilityMessage + Environment.NewLine + string.Format(Resources.StabilityPolicyAutoSet, interfaceUri.ToStringRfc()),
                         defaultAnswer: false, alternateMessage: stabilityMessage))

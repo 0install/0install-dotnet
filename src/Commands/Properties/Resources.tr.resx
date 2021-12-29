@@ -758,9 +758,6 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>{0} için kararlılık ilkesi varsayılanlara sıfırlansın mı?</value>
   </data>
-  <data name="StabilityPolicySingleImplementation" xml:space="preserve">
-    <value>Akışta yalnız tek bir uyarlama var ve kararlılık düzeyi '{0}'.</value>
-  </data>
   <data name="StartService" xml:space="preserve">
     <value>Zero Install depo hizmeti başlatılıyor</value>
   </data>

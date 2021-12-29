@@ -34,42 +34,28 @@ namespace ZeroInstall.Commands.Basic
         public override ExitCode Execute()
         {
             FeedUri feedUri;
-            IEnumerable<FeedUri> interfaces;
-            var suggestedStabilityPolicy = Stability.Unset;
+            ICollection<FeedUri> interfaces;
+            Stability suggestedStabilityPolicy;
+
             if (AdditionalArgs.Count == 2)
             { // Main interface for feed specified explicitly
-                feedUri = GetCanonicalUri(AdditionalArgs[1]);
                 interfaces = new[] {GetCanonicalUri(AdditionalArgs[0])};
+                feedUri = GetCanonicalUri(AdditionalArgs[1]);
+                suggestedStabilityPolicy = Stability.Unset;
             }
             else
             { // Determine interfaces from feed content (<feed-for> tags)
                 feedUri = GetCanonicalUri(AdditionalArgs[0]);
-                interfaces = GetInterfaces(feedUri, ref suggestedStabilityPolicy);
+
+                var feed = FeedManager.GetFresh(feedUri);
+                interfaces = feed.FeedFor.Select(reference => reference.Target).WhereNotNull().ToList();
+                if (interfaces.Count == 0)
+                    throw new OptionException(string.Format(Resources.MissingFeedFor, feedUri), null);
+
+                suggestedStabilityPolicy = feed.Implementations.Select(x => x.Stability).DefaultIfEmpty().Max();
             }
 
             return ExecuteHelper(interfaces, new FeedReference {Source = feedUri}, suggestedStabilityPolicy);
-        }
-
-        /// <summary>
-        /// Returns a list of all interface URIs a given feed can be registered for.
-        /// </summary>
-        /// <param name="feedUri">The URI of the feed to register.</param>
-        /// <param name="suggestedStabilityPolicy">Returns the suggested value for <see cref="InterfacePreferences.StabilityPolicy"/>.</param>
-        /// <returns>A set of interface URIs.</returns>
-        private IEnumerable<FeedUri> GetInterfaces(FeedUri feedUri, ref Stability suggestedStabilityPolicy)
-        {
-            var feed = FeedManager.GetFresh(feedUri);
-            var interfaces = feed.FeedFor.Select(reference => reference.Target).WhereNotNull().ToList();
-            if (interfaces.Count == 0)
-                throw new OptionException(string.Format(Resources.MissingFeedFor, feedUri), null);
-
-            if (feed.Elements.Count == 1)
-            {
-                if (feed.Elements[0] is Implementation singletonImplementation)
-                    suggestedStabilityPolicy = singletonImplementation.Stability;
-            }
-
-            return interfaces;
         }
 
         /// <summary>

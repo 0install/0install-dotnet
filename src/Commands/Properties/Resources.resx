@@ -776,8 +776,8 @@ Run '0install config self_update_uri default' to enable it.</value>
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>Reset stability policy for {0} to default?</value>
   </data>
-  <data name="StabilityPolicySingleImplementation" xml:space="preserve">
-    <value>There is only a single implementation in the feed. It has a stability rating of '{0}'.</value>
+  <data name="StabilityPolicySuggested" xml:space="preserve">
+    <value>The stability policy needed to select implementations from {0} is '{1}'.</value>
   </data>
   <data name="StartService" xml:space="preserve">
     <value>Starting Zero Install Store Service</value>

@@ -1974,11 +1974,11 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is only a single implementation in the feed. It has a stability rating of &apos;{0}&apos;..
+        ///   Looks up a localized string similar to The stability policy needed to select implementations from {0} is &apos;{1}&apos;..
         /// </summary>
-        public static string StabilityPolicySingleImplementation {
+        public static string StabilityPolicySuggested {
             get {
-                return ResourceManager.GetString("StabilityPolicySingleImplementation", resourceCulture);
+                return ResourceManager.GetString("StabilityPolicySuggested", resourceCulture);
             }
         }
         
