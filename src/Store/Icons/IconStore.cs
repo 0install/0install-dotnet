@@ -4,7 +4,9 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using NanoByte.Common;
+using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
 using NanoByte.Common.Storage;
 using NanoByte.Common.Tasks;
@@ -71,25 +73,35 @@ namespace ZeroInstall.Store.Icons
 
             string path = GetCached(icon, out bool stale) ?? Download(icon);
 
-            void Update()
-            {
-                try
-                {
-                    Download(icon);
-                }
-                catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
-                {
-                    Log.Warn(ex);
-                }
-            }
-
             if (stale && _config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected)
             {
-                if (backgroundUpdate) _backgroundUpdates.Enqueue(Update);
-                else Update();
+                if (backgroundUpdate)
+                {
+                    Task.Delay(TimeSpan.FromSeconds(2), _handler.CancellationToken)
+                        .ContinueWith(_ => _backgroundUpdates.Enqueue(() => Update(icon)));
+                }
+                else Update(icon);
             }
 
             return path;
+        }
+
+        private readonly ConcurrentSet<Uri> _updatedIcons = new();
+
+        private void Update(Icon icon)
+        {
+            if (!_updatedIcons.AddIfNew(icon.Href)) return;
+
+            try
+            {
+                Download(icon);
+            }
+            catch (OperationCanceledException)
+            {}
+            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
+            {
+                Log.Warn(ex);
+            }
         }
 
         private string Download(Icon icon)
