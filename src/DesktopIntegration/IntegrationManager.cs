@@ -15,7 +15,6 @@ using ZeroInstall.DesktopIntegration.AccessPoints;
 using ZeroInstall.DesktopIntegration.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Configuration;
-using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration
 {
@@ -254,7 +253,7 @@ namespace ZeroInstall.DesktopIntegration
 
             AppList.CheckForConflicts(accessPoints, appEntry);
 
-            var iconStore = new IconStore(GetDir(MachineWide, "icons"), Config, Handler);
+            var iconStore = IconStores.DesktopIntegration(Config, Handler, MachineWide);
 
             accessPoints.ApplyWithRollback(
                 accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
