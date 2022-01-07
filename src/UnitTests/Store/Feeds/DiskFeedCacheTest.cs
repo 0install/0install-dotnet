@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using FluentAssertions;
@@ -9,10 +8,10 @@ using Moq;
 using NanoByte.Common.Native;
 using NanoByte.Common.Storage;
 using Xunit;
-using ZeroInstall.Store.Feeds;
+using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
-namespace ZeroInstall.Model.Preferences
+namespace ZeroInstall.Store.Feeds
 {
     /// <summary>
     /// Contains test methods for <see cref="FeedCache"/>.
@@ -85,8 +84,8 @@ namespace ZeroInstall.Model.Preferences
         [Fact]
         public void GetFeedCaseSensitive()
         {
-            _cache.Invoking(x => x.GetFeed(new("http://example.com/test1.xml"))).Should().NotThrow<KeyNotFoundException>();
-            Assert.Throws<KeyNotFoundException>(() => _cache.GetFeed(new("http://example.com/Test1.xml")));
+            _cache.GetFeed(new("http://example.com/test1.xml")).Should().NotBeNull();
+            _cache.GetFeed(new("http://example.com/Test1.xml")).Should().BeNull();
         }
 
         [Fact]

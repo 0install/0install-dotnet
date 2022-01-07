@@ -139,6 +139,9 @@
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>'{0}' akışı ön belleğe alınmadı ve Zero Install şu anda çevrimdışı kipte çalışıyor.</value>
   </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' akış ön belleğinde bulunamadı.</value>
+  </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>'{0}' akışı güvenilen anahtarlardan biriyle imzalanmamış.</value>
   </data>

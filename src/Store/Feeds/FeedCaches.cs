@@ -17,8 +17,6 @@ namespace ZeroInstall.Store.Feeds
         /// Creates an <see cref="IFeedCache"/> instance that uses the default cache location in the user profile.
         /// </summary>
         /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-        /// <exception cref="IOException">A problem occurred while creating a directory.</exception>
-        /// <exception cref="UnauthorizedAccessException">Creating a directory is not permitted.</exception>
         public static IFeedCache Default(IOpenPgp openPgp)
             => new FeedCache(DefaultPath, openPgp);
 

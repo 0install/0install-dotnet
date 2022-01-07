@@ -37,7 +37,7 @@ namespace ZeroInstall.Services.Feeds
         /// Returns a specific <see cref="Feed"/>. Automatically handles downloading, calling <see cref="Feed.Normalize"/> and caching. Updates the <see cref="Stale"/> indicator.
         /// </summary>
         /// <param name="feedUri">The URI of the feed.</param>
-        /// <returns>The parsed <see cref="Feed"/> object.</returns>
+        /// <returns>The normalized <see cref="Feed"/>. Do not modify! The same instance may be returned to future callers.</returns>
         /// <remarks><see cref="Feed"/>s are always served from the <see cref="IFeedCache"/> if possible, unless <see cref="Refresh"/> is set to <c>true</c>.</remarks>
         /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/>.</exception>
         /// <exception cref="OperationCanceledException">The user canceled the task.</exception>

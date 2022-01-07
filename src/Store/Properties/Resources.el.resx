@@ -163,9 +163,6 @@
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
   </data>
-  <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' δεν ήταν δυνατό να εντοπιστεί στην προσωρινή μνήμη τροφοδοσίας. Κοίταξtε για το αρχείο στο: {1}</value>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
   </data>

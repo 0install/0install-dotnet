@@ -38,37 +38,33 @@ namespace ZeroInstall.Store.Feeds
         IEnumerable<FeedUri> ListAll();
 
         /// <summary>
-        /// Gets a specific <see cref="Feed"/> from this cache.
+        /// Tries to get a specific <see cref="Feed"/> from this cache.
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
-        /// <returns>The parsed <see cref="Feed"/> object. Do not modify this object! It may be a reference to an in-memory cache entry.</returns>
-        /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
+        /// <returns>The un-normalized <see cref="Feed"/>; <c>null</c> if the feed was not found in the cache.</returns>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
-        Feed GetFeed(FeedUri feedUri);
+        Feed? GetFeed(FeedUri feedUri);
 
         /// <summary>
         /// Determines which signatures a <see cref="Feed"/> from this cache is signed with.
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
-        /// <returns>A list of signatures found, both valid and invalid.</returns>
-        /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
+        /// <returns>A list of signatures found, both valid and invalid. Returns an empty list if the feed was not found in the cache.</returns>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
         /// <exception cref="SignatureException">There is no valid signature data embedded in the feed data.</exception>
         IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri);
 
         /// <summary>
-        /// Gets the file path of the on-disk representation of a specific <see cref="Feed"/>.
+        /// Tries to get the file path of the on-disk representation of a specific <see cref="Feed"/>.
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
+        /// <returns>The fully qualified path to the feed file; <c>null</c> if the feed was not found in the cache.</returns>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-        /// <returns>The fully qualified path to the feed file.</returns>
-        /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-        string GetPath(FeedUri feedUri);
+        string? GetPath(FeedUri feedUri);
 
         /// <summary>
         /// Adds a new <see cref="Feed"/> to the cache. Only do this after the feed source has been verified and trusted and replay attacks filtered!
@@ -85,7 +81,6 @@ namespace ZeroInstall.Store.Feeds
         /// Removes a specific <see cref="Feed"/> from this cache. No exception is thrown if the specified <see cref="Feed"/> is not in the cache.
         /// </summary>
         /// <param name="feedUri">The canonical ID used to identify the feed.</param>
-        /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
         /// <exception cref="IOException">The feed could not be deleted.</exception>
         /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
         void Remove(FeedUri feedUri);

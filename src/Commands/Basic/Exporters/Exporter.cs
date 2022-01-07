@@ -70,8 +70,12 @@ namespace ZeroInstall.Commands.Basic.Exporters
                 string filePath = Path.Combine(contentDir, feedUri.PrettyEscape());
                 if (!filePath.EndsWith(".xml")) filePath += ".xml";
 
-                Log.Info("Exporting feed " + feedUri.ToStringRfc());
-                File.Copy(feedCache.GetPath(feedUri), filePath, overwrite: true);
+                string? path = feedCache.GetPath(feedUri);
+                if (path != null)
+                {
+                    Log.Info("Exporting feed " + feedUri.ToStringRfc());
+                    File.Copy(path, filePath, overwrite: true);
+                }
             }
 
             foreach (var signature in feedUris.SelectMany(feedCache.GetSignatures).OfType<ValidSignature>().Distinct())

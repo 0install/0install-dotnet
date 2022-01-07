@@ -189,15 +189,6 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;{0}&apos; could not be located in the feed cache. Looked for file at: {1}.
-        /// </summary>
-        internal static string FeedNotInCache {
-            get {
-                return ResourceManager.GetString("FeedNotInCache", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unable to find file or directory &apos;{0}&apos;..
         /// </summary>
         internal static string FileOrDirNotFound {

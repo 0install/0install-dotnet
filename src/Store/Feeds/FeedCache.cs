@@ -10,7 +10,6 @@ using NanoByte.Common;
 using NanoByte.Common.Collections;
 using NanoByte.Common.Storage;
 using ZeroInstall.Model;
-using ZeroInstall.Store.Properties;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Store.Feeds
@@ -47,10 +46,9 @@ namespace ZeroInstall.Store.Feeds
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            // Local files are passed through directly
-            if (feedUri.IsFile) return File.Exists(feedUri.LocalPath);
-
-            return FileUtils.ExistsCaseSensitive(System.IO.Path.Combine(Path, feedUri.Escape()));
+            return feedUri.IsFile
+                ? File.Exists(feedUri.LocalPath)
+                : FileUtils.ExistsCaseSensitive(System.IO.Path.Combine(Path, feedUri.Escape()));
         }
 
         /// <inheritdoc/>
@@ -66,15 +64,16 @@ namespace ZeroInstall.Store.Feeds
         }
 
         /// <inheritdoc/>
-        public Feed GetFeed(FeedUri feedUri)
+        public Feed? GetFeed(FeedUri feedUri)
         {
             #region Sanity checks
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            string path = GetPath(feedUri);
-            Log.Debug("Loading feed " + feedUri.ToStringRfc() + " from disk cache: " + path);
+            string? path = GetPath(feedUri);
+            if (path == null) return null;
 
+            Log.Debug($"Loading feed {feedUri.ToStringRfc()} from disk cache: {path}");
             return XmlStorage.LoadXml<Feed>(path);
         }
 
@@ -85,22 +84,23 @@ namespace ZeroInstall.Store.Feeds
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            return FeedUtils.GetSignatures(_openPgp, File.ReadAllBytes(GetPath(feedUri)));
+            string? path = GetPath(feedUri);
+            return path == null
+                ? Enumerable.Empty<OpenPgpSignature>()
+                : FeedUtils.GetSignatures(_openPgp, File.ReadAllBytes(path));
         }
 
         /// <inheritdoc/>
-        public string GetPath(FeedUri feedUri)
+        public string? GetPath(FeedUri feedUri)
         {
             #region Sanity checks
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            if (feedUri.IsFile) throw new KeyNotFoundException("Feed cache does not handle local files: " + feedUri.ToStringRfc());
+            if (feedUri.IsFile) return feedUri.LocalPath;
 
-            string fileName = feedUri.Escape();
-            string path = System.IO.Path.Combine(Path, fileName);
-            if (FileUtils.ExistsCaseSensitive(path)) return path;
-            else throw new KeyNotFoundException(string.Format(Resources.FeedNotInCache, feedUri, path));
+            string path = System.IO.Path.Combine(Path, feedUri.Escape());
+            return FileUtils.ExistsCaseSensitive(path) ? path : null;
         }
 
         /// <inheritdoc/>
@@ -116,7 +116,7 @@ namespace ZeroInstall.Store.Feeds
             try
             {
                 string path = System.IO.Path.Combine(Path, feedUri.Escape());
-                Log.Debug("Adding feed " + feedUri.ToStringRfc() + " to disk cache: " + path);
+                Log.Debug($"Adding feed {feedUri.ToStringRfc()} to disk cache: {path}");
                 WriteToFile(data, path);
             }
             catch (PathTooLongException)
@@ -145,8 +145,10 @@ namespace ZeroInstall.Store.Feeds
             if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
             #endregion
 
-            string path = GetPath(feedUri);
-            Log.Debug("Removing feed " + feedUri.ToStringRfc() + " from disk cache: " + path);
+            string? path = GetPath(feedUri);
+            if (path == null) return;
+
+            Log.Debug($"Removing feed {feedUri.ToStringRfc()} from disk cache: {path}");
             File.Delete(path);
         }
     }

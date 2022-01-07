@@ -120,17 +120,7 @@ namespace ZeroInstall.Services.Feeds
                 Download(feedUri);
             }
 
-            try
-            {
-                return LoadCached(feedUri);
-            }
-            #region Error handling
-            catch (KeyNotFoundException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            #endregion
+            return LoadCached(feedUri);
         }
 
         /// <summary>
@@ -138,14 +128,14 @@ namespace ZeroInstall.Services.Feeds
         /// </summary>
         /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
         /// <returns>The parsed <see cref="Feed"/> object.</returns>
-        /// <exception cref="KeyNotFoundException">The requested <paramref name="feedUri"/> was not found in the cache.</exception>
         /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
         /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
         private Feed LoadCached(FeedUri feedUri)
         {
             try
             {
-                var feed = _feedCache.GetFeed(feedUri);
+                var feed = _feedCache.GetFeed(feedUri)
+                    ?? throw new FileNotFoundException(string.Format(Resources.FeedNotInCache, feedUri));
                 if (IsStale(feedUri)) Stale = true;
                 return feed;
             }

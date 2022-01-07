@@ -163,9 +163,6 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Falle auf Standardwerte zurück.</value>
   </data>
-  <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' konnte nicht im Feed Cache gefunden werden. Nach folgender Datei wurde gesucht: {1}</value>
-  </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Verwendung des Feed Mirror, welcher für die Suche benötigt wird, ist deaktiviert.
 Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>

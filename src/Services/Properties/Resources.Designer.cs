@@ -119,6 +119,15 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; could not be located in the feed cache..
+        /// </summary>
+        internal static string FeedNotInCache {
+            get {
+                return ResourceManager.GetString("FeedNotInCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The feed &apos;{0}&apos; was not signed with any trusted keys..
         /// </summary>
         internal static string FeedNoTrustedSignatures {

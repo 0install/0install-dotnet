@@ -208,17 +208,8 @@ namespace ZeroInstall.Commands.Basic
             }
             #endregion
 
-            try
-            {
-                Selections.Name = FeedCache.GetFeed(Selections.InterfaceUri).Name;
-            }
-            #region Error handling
-            catch (KeyNotFoundException)
-            {
-                // Fall back to using feed file name
-                Selections.Name = Selections.InterfaceUri.ToString().GetRightPartAtLastOccurrence('/');
-            }
-            #endregion
+            Selections.Name = FeedCache.GetFeed(Selections.InterfaceUri)?.Name
+                           ?? Selections.InterfaceUri.ToString().GetRightPartAtLastOccurrence('/');
 
             Handler.CancellationToken.ThrowIfCancellationRequested();
         }

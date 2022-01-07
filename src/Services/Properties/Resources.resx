@@ -139,6 +139,9 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>The feed '{0}' is not cached and Zero Install is currently in off-line mode.</value>
   </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' could not be located in the feed cache.</value>
+  </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>The feed '{0}' was not signed with any trusted keys.</value>
   </data>

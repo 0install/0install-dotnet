@@ -139,6 +139,9 @@
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Η τροφοδοσία '{0}' δεν αποθηκεύεται προσωρινά και το Zero Install είναι επί του παρόντος σε λειτουργία εκτός σύνδεσης.</value>
   </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' δεν ήταν δυνατό να εντοπιστεί στην προσωρινή μνήμη τροφοδοσίας.</value>
+  </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>Η τροφοδοσία '{0}' δεν υπεγράφη με αξιόπιστα κλειδιά.</value>
   </data>
