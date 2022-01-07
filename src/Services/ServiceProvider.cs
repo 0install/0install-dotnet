@@ -32,10 +32,10 @@ namespace ZeroInstall.Services
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
             _feedCache = new(() => FeedCaches.Default(OpenPgp));
-            _trustManager = new(() => new TrustManager(TrustDB.LoadSafe(), Config, OpenPgp, FeedCache, Handler));
-            _feedManager = new(() => new FeedManager(Config, FeedCache, TrustManager, Handler));
-            _catalogManager = new(() => new CatalogManager(TrustManager, Handler));
-            _selectionCandidateProvider = new(() => new SelectionCandidateProvider(Config, FeedManager, ImplementationStore, PackageManager));
+            _trustManager = new(() => new(TrustDB.LoadSafe(), Config, OpenPgp, FeedCache, Handler));
+            _feedManager = new(() => new(Config, FeedCache, TrustManager, Handler));
+            _catalogManager = new(() => new(TrustManager, Handler));
+            _selectionCandidateProvider = new(() => new(Config, FeedManager, ImplementationStore, PackageManager));
             _solver = new(() =>
             {
                 var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider);
@@ -46,9 +46,9 @@ namespace ZeroInstall.Services
                     return new FallbackSolver(backtrackingSolver, externalSolver);
                 }
             });
-            _fetcher = new(() => new Fetcher(Config, ImplementationStore, Handler));
-            _executor = new(() => new Executor(ImplementationStore));
-            _selectionsManager = new(() => new SelectionsManager(FeedManager, ImplementationStore, PackageManager));
+            _fetcher = new(() => new(Config, ImplementationStore, Handler));
+            _executor = new(() => new(ImplementationStore));
+            _selectionsManager = new(() => new(FeedManager, ImplementationStore, PackageManager));
         }
 
         /// <summary>
@@ -80,21 +80,21 @@ namespace ZeroInstall.Services
         /// </summary>
         public virtual IFeedCache FeedCache => _feedCache.Value;
 
-        private readonly Lazy<ITrustManager> _trustManager;
+        private readonly Lazy<TrustManager> _trustManager;
 
         /// <summary>
         /// Methods for verifying signatures and user trust.
         /// </summary>
         public virtual ITrustManager TrustManager => _trustManager.Value;
 
-        private readonly Lazy<IFeedManager> _feedManager;
+        private readonly Lazy<FeedManager> _feedManager;
 
         /// <summary>
         /// Allows configuration of the source used to request <see cref="Feed"/>s.
         /// </summary>
         public virtual IFeedManager FeedManager => _feedManager.Value;
 
-        private readonly Lazy<ICatalogManager> _catalogManager;
+        private readonly Lazy<CatalogManager> _catalogManager;
 
         /// <summary>
         /// Provides access to remote and local <see cref="Catalog"/>s. Handles downloading, signature verification and caching.
@@ -108,7 +108,7 @@ namespace ZeroInstall.Services
         /// </summary>
         public virtual IPackageManager PackageManager => _packageManager.Value;
 
-        private readonly Lazy<ISelectionCandidateProvider> _selectionCandidateProvider;
+        private readonly Lazy<SelectionCandidateProvider> _selectionCandidateProvider;
 
         /// <summary>
         /// Generates <see cref="SelectionCandidate"/>s for the <see cref="Solver"/> to choose among.
@@ -122,14 +122,14 @@ namespace ZeroInstall.Services
         /// </summary>
         public virtual ISolver Solver => _solver.Value;
 
-        private readonly Lazy<IFetcher> _fetcher;
+        private readonly Lazy<Fetcher> _fetcher;
 
         /// <summary>
         /// Used to download missing <see cref="Implementation"/>s.
         /// </summary>
         public virtual IFetcher Fetcher => _fetcher.Value;
 
-        private readonly Lazy<IExecutor> _executor;
+        private readonly Lazy<Executor> _executor;
 
         /// <summary>
         /// Executes a <see cref="Selections"/> document as a program using dependency injection.
