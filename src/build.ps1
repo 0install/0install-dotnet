@@ -13,6 +13,6 @@ Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Release /p:Vers
 
 # Package .NET Core distribution
 Run-DotNet msbuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences=False /p:Configuration=Release /p:TargetFramework=net6.0 /p:Version=$Version Commands
-tar -czf ..\artifacts\0install-dotnet-$Version.tar.gz -C ..\artifacts\Release\net6.0\publish --exclude *.pdb *
+tar -czf ..\artifacts\0install-dotnet-$Version.tar.gz -C ..\artifacts\Release\net6.0\publish --exclude *.xml --exclude *.pdb *
 
 popd
