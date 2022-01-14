@@ -44,7 +44,7 @@ namespace ZeroInstall.Model.Capabilities
 
         /// <inheritdoc/>
         [Browsable(false), XmlIgnore, IgnoreEquality]
-        public override IEnumerable<string> ConflictIDs => new[] {"autoplay:" + ID};
+        public override IEnumerable<string> ConflictIDs => new[] {"auto-play:" + ID};
 
         #region Normalize
         /// <inheritdoc/>

@@ -106,7 +106,7 @@ namespace ZeroInstall.Model
         public Uri? Homepage { get; set; }
 
         /// <summary>
-        /// Zero or more icons representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..
+        /// Icons representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..
         /// </summary>
         [Browsable(false)]
         [XmlElement("icon")]
