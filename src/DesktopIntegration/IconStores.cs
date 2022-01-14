@@ -14,16 +14,16 @@ namespace ZeroInstall.DesktopIntegration
     public static class IconStores
     {
         /// <summary>
-        /// Creates an <see cref="IIconStore"/> for use in a Catalog GUI.
+        /// Provides icon files for display in table- or tile-like GUIs. Files may be discarded later.
         /// </summary>
-        public static IIconStore Catalog(Config config, ITaskHandler handler)
+        public static IIconStore Cache(Config config, ITaskHandler handler)
             => new IconStore(
                 Locations.GetCacheDirPath("0install.net", false, "icons"),
                 config,
                 handler);
 
         /// <summary>
-        /// Creates an <see cref="IIconStore"/> for use with desktop integration.
+        /// Provides icon files for use with desktop integration. Files will remain persisted.
         /// </summary>
         public static IIconStore DesktopIntegration(Config config, ITaskHandler handler, bool machineWide)
             => new IconStore(
