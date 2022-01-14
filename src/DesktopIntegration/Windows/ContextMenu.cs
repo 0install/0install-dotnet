@@ -91,7 +91,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     AppliesTo(verbKey);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
-                    verbKey.SetOrDelete("Icon", icon?.To(x => iconStore.Get(x)));
+                    verbKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
                 }
             }
             else
@@ -110,7 +110,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
                     menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
                     var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-                    menuKey.SetOrDelete("Icon", icon?.To(x => iconStore.Get(x)));
+                    menuKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
                 }
             }
         }

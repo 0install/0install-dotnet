@@ -46,7 +46,7 @@ namespace ZeroInstall.DesktopIntegration.Windows
             var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
 
             Create(path, targetPath, arguments,
-                iconLocation: (icon == null) ? null : iconStore.Get(icon),
+                iconLocation: icon?.To(iconStore.Get),
                 description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command),
                 appId: entryPoint?.AppId ?? GuessAppExePath(target.Feed, entryPoint));
         }
