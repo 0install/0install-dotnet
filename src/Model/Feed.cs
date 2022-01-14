@@ -114,6 +114,14 @@ namespace ZeroInstall.Model
         public List<Icon> Icons { get; } = new();
 
         /// <summary>
+        /// Splash screens Zero Install can display during downloads, etc. for better branding.
+        /// </summary>
+        [Browsable(false)]
+        [XmlElement("splash-screen")]
+        [OrderedEquality]
+        public List<Icon> SplashScreens { get; } = new();
+
+        /// <summary>
         /// A list of well-known categories the applications fits into. May influence the placement in the application menu.
         /// </summary>
         [Browsable(false)]
@@ -304,6 +312,7 @@ namespace ZeroInstall.Model
             EntryPoints.RemoveAll(FeedElement.FilterMismatch);
 
             foreach (var icon in Icons) icon.Normalize();
+            foreach (var splashScreen in SplashScreens) splashScreen.Normalize();
             foreach (var feedReference in Feeds) feedReference.Normalize();
             foreach (var interfaceReference in FeedFor) interfaceReference.Normalize();
             foreach (var entryPoint in EntryPoints) entryPoint.Normalize();
@@ -408,6 +417,7 @@ namespace ZeroInstall.Model
             feed.Descriptions.AddRange(Descriptions.CloneElements());
             feed.Categories.AddRange(Categories);
             feed.Icons.AddRange(Icons);
+            feed.SplashScreens.AddRange(SplashScreens);
             feed.Elements.AddRange(Elements.CloneElements());
             feed.EntryPoints.AddRange(EntryPoints.CloneElements());
             feed.CapabilityLists.AddRange(CapabilityLists.CloneElements());
