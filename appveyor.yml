@@ -11,14 +11,13 @@ for:
       - '%USERPROFILE%\.nuget\packages -> **\*.csproj'
 
     before_build:
-      - ps: $env:IGNORE_NORMALISATION_GIT_HEAD_MOVE = "1"
-      - ps: .\0install.ps1 run --batch https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
+      - powershell .\0install.ps1 run --batch https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
 
     build_script:
-      - ps: src\build.ps1 $env:GitVersion_NuGetVersion
+      - powershell src\build.ps1 %GitVersion_NuGetVersion%
 
     test_script:
-      - ps: src\test.ps1
+      - powershell src\test.ps1
 
     artifacts:
       - path: artifacts
