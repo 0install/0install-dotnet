@@ -1,8 +1,12 @@
-# Client
+---
+uid: client-library
+---
 
-The \ref ZeroInstall.Client namespace allows you to invoke Zero Install commands from within other applications.
+# Client library
 
-```{.cs}
+The <xref:ZeroInstall.Client> namespace allows you to invoke Zero Install commands from within other applications.
+
+```csharp
 var zeroInstall = ZeroInstallClient.Default;
 var feedUri = ZeroInstallEnvironment.FeedUri ?? new FeedUri("https://example.com/your-feed.xml");
 

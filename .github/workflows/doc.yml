@@ -1,43 +1,23 @@
-# Generate and publish source documentation
+# Publish API documentation to GitHub Pages
 name: Documentation
-on: push
+on:
+  release:
+    types: [published]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      # Prepare
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: gittools/actions/gitversion/setup@v0.9.11
-        with:
-          versionSpec: '5.7.x'
-      - uses: gittools/actions/gitversion/execute@v0.9.11
-        id: gitversion
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~\AppData\Roaming\0install.net
-            ~\AppData\Local\0install.net
-            C:\ProgramData\0install.net
-          key: 0install-${{hashFiles('**/build.ps1')}}
+      - name: Download documentation
+        run: |
+          curl -sSfL https://github.com/0install/0install-dotnet/releases/download/${{github.ref_name}}/Documentation.zip
+          unzip Documentation.zip -d docs
 
-      # Build
-      - name: Build documentation
-        run: doc\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}
-      - name: Upload documentation
-        uses: actions/upload-artifact@v2
-        with:
-          name: docs
-          path: artifacts/Documentation
-
-      # Publish
       - name: Publish documentation
         if: steps.gitversion.outputs.preReleaseLabel == ''
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{github.token}}
           force_orphan: true
-          publish_dir: artifacts/Documentation
+          publish_dir: docs
           cname: dotnet.0install.net

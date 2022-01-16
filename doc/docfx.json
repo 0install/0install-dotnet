@@ -1,0 +1,65 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../artifacts/Release/net6.0",
+          "files": [
+            "ZeroInstall.*.dll",
+            "0install.dll"
+          ],
+          "exclude": [
+            "*.XmlSerializers.dll"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "globalMetadata": {
+      "_baseUrl": "https://dotnet.0install.net/",
+      "_appTitle": "Zero Install .NET API",
+      "_appFooter": "Copyright Bastian Eicher et al",
+      "_disableBreadcrumb": true,
+      "_enableNewTab": true
+    },
+    "content": [
+      {
+        "files": [
+          "*.md",
+          "toc.yml",
+          "api/*.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "src": "..",
+        "files": [
+          "logo.svg"
+        ]
+      },
+      {
+        "files": [
+          "img/*.svg"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "src": "../src/",
+        "files": [
+          "**/*.md"
+        ]
+      }
+    ],
+    "xref": [
+      "https://common.nano-byte.net/xrefmap.yml"
+    ],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+    "dest": "../artifacts/Documentation"
+  }
+}

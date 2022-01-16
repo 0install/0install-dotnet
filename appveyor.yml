@@ -15,6 +15,7 @@ for:
 
     build_script:
       - powershell src\build.ps1 %GitVersion_NuGetVersion%
+      - powershell doc\build.ps1
 
     test_script:
       - powershell src\test.ps1
@@ -23,7 +24,9 @@ for:
       - path: artifacts
       - path: artifacts\Release\*.*nupkg
       - path: artifacts\0install-dotnet-*.tar.gz
-        name: 0install-dotnet
+        name: bin
+      - path: artifacts\Documentation
+        name: docs
 
     deploy:
       - provider: Environment
