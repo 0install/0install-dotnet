@@ -1,12 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using NanoByte.Common;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
-using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;

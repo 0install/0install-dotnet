@@ -1,16 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using NanoByte.Common;
 using NanoByte.Common.Streams;
-using ZeroInstall.Model;
-using ZeroInstall.Publish.Properties;
 using ZeroInstall.Store.Trust;
 using StoreFeedUtils = ZeroInstall.Store.Feeds.FeedUtils;
 

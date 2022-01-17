@@ -2,10 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
 using NanoByte.Common.Native;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Archives.Extractors;

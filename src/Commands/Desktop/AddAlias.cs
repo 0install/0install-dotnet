@@ -1,12 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using NanoByte.Common;
-using NanoByte.Common.Tasks;
-using NDesk.Options;
 using ZeroInstall.Commands.Basic;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.Commands.Desktop;

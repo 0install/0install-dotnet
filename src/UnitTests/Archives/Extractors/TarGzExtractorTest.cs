@@ -1,6 +1,4 @@
-﻿using ZeroInstall.Model;
-
-namespace ZeroInstall.Archives.Extractors;
+﻿namespace ZeroInstall.Archives.Extractors;
 
 public class TarGzExtractorTest : TarExtractorTest
 {

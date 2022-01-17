@@ -2,13 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using JetBrains.Annotations;
 using Microsoft.Deployment.WindowsInstaller;
-using ZeroInstall.Archives.Properties;
 
 namespace ZeroInstall.Archives.Extractors;
 

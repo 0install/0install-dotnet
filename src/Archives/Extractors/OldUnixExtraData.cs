@@ -1,10 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using ICSharpCode.SharpZipLib.Zip;
-using NanoByte.Common;
 
 namespace ZeroInstall.Archives.Extractors;
 

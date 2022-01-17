@@ -1,14 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Store.Deployment;

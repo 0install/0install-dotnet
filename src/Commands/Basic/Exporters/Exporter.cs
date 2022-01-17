@@ -1,18 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using System.Linq;
 using System.Web;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Builders;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.FileSystem;

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Linq;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model.Preferences;
 
 namespace ZeroInstall.Commands.Basic;

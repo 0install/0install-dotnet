@@ -1,15 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.Net;
-using NanoByte.Common;
-using NanoByte.Common.Storage;
-using NDesk.Options;
 using ZeroInstall.Commands.Basic;
-using ZeroInstall.Commands.Properties;
-using ZeroInstall.Model;
 using ZeroInstall.Services.Solvers;
 
 namespace ZeroInstall.Commands.Desktop;

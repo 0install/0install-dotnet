@@ -1,18 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Security.Cryptography;
-using FluentAssertions;
-using Moq;
-using NanoByte.Common;
 using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using Xunit;
 using ZeroInstall.FileSystem;
-using ZeroInstall.Model;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.FileSystem;

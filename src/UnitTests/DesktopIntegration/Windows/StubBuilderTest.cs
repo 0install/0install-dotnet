@@ -1,17 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using FluentAssertions;
-using Moq;
 using NanoByte.Common.Native;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Icons;
-
-#if NET
-using System.IO;
-using NanoByte.Common.Storage;
-#endif
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 

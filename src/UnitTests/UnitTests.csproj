@@ -42,6 +42,13 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="FluentAssertions" />
+    <Using Include="Moq" />
+  </ItemGroup>
+
   <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Include="**\testArchive.*" />

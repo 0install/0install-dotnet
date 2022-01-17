@@ -1,11 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using NanoByte.Common.Info;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model;
 

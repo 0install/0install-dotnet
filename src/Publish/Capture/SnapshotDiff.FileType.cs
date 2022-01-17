@@ -1,12 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using System.Linq;
 using Microsoft.Win32;
-using NanoByte.Common.Collections;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture;

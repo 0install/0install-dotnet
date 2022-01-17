@@ -2,15 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using System.IO;
-using FluentAssertions;
-using Moq;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Implementations;
 

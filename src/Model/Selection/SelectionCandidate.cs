@@ -1,10 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
 using ZeroInstall.Model.Preferences;
-using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model.Selection;
 

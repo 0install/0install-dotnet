@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Linq;
-using NanoByte.Common;
-using ZeroInstall.Model.Capabilities;
-
 namespace ZeroInstall.DesktopIntegration.ViewModel;
 
 /// <summary>

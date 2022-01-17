@@ -1,15 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using FluentAssertions;
-using Moq;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;

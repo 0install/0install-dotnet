@@ -1,15 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model.Capabilities;
-
-#if NETFRAMEWORK
-using NanoByte.Common.Collections;
-#endif
 
 namespace ZeroInstall.DesktopIntegration;
 

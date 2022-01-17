@@ -3,6 +3,7 @@
   <PropertyGroup>
     <!-- Build configuration -->
     <LangVersion>10.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
     <TargetFrameworks>net472;net6.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
@@ -41,12 +42,28 @@
     </AssemblyAttribute>
   </ItemGroup>
 
-  <!-- Dependencies -->
+  <!-- Build-time dependencies -->
   <ItemGroup>
     <PackageReference Include="Generator.Equals" Version="2.2.3" PrivateAssets="All" />
     <PackageReference Include="Generator.Equals.Runtime" Version="2.2.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="PrimaryConstructor" Version="1.3.2" />
+  </ItemGroup>
+
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="System.ComponentModel" />
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+    <Using Include="System.Net" />
+    <Using Include="System.Globalization" />
+    <Using Include="System.Xml.Serialization" />
+    <Using Include="JetBrains.Annotations" />
+    <Using Include="Generator.Equals" />
+    <Using Include="NanoByte.Common" />
+    <Using Include="NanoByte.Common.Collections" />
+    <Using Include="NanoByte.Common.Storage" />
+    <Using Include="NanoByte.Common.Tasks" />
+    <Using Include="ZeroInstall.Model" />
   </ItemGroup>
 
 </Project>

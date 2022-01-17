@@ -1,14 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using Generator.Equals;
-using NanoByte.Common;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Design;
 using ZeroInstall.Store.FileSystem;
 

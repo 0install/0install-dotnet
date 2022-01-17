@@ -1,13 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using FluentAssertions;
-using NanoByte.Common.Storage;
-using Xunit;
-
 #if NET
 using Microsoft.Extensions.Configuration;
 #endif

@@ -1,15 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Store.Feeds;

@@ -2,19 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting;
 using System.Runtime.Serialization;
-using NanoByte.Common;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
-using ZeroInstall.Model;
 using ZeroInstall.Store.FileSystem;
-using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations;
 

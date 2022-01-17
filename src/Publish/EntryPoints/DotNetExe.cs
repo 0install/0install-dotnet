@@ -1,14 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using Generator.Equals;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Values.Design;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints;
 

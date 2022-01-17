@@ -1,11 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using ZeroInstall.Model.Capabilities;
-
 namespace ZeroInstall.DesktopIntegration.ViewModel;
 
 partial class IntegrationState

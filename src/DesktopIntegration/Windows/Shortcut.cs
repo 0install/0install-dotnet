@@ -1,17 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Versioning;
-using NanoByte.Common;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.DesktopIntegration.Windows;

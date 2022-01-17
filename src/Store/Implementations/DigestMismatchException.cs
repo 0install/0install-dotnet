@@ -1,13 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Runtime.Serialization;
 using System.Text;
 using NanoByte.Common.Dispatch;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Manifests;
-using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK
 using System.Security.Permissions;

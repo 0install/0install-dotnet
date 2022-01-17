@@ -1,17 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using FluentAssertions;
-using NanoByte.Common.Collections;
-using NanoByte.Common.Storage;
-using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Services;
 using ZeroInstall.Store.Configuration;
-using FileType = ZeroInstall.Model.Capabilities.FileType;
 
 namespace ZeroInstall.DesktopIntegration;
 
@@ -125,7 +118,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
         var capabilityList = new CapabilityList
         {
             OS = Architecture.CurrentSystem.OS,
-            Entries = {new FileType {ID = "my_ext1"}, new FileType {ID = "my_ext2"}}
+            Entries = {new Model.Capabilities.FileType {ID = "my_ext1"}, new Model.Capabilities.FileType {ID = "my_ext2"}}
         };
         var feed = new Feed {Name = "Test 1", CapabilityLists = {capabilityList}};
         var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1"}};

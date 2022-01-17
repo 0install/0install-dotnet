@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
-using Xunit;
 
 namespace ZeroInstall.Publish.EntryPoints;
 

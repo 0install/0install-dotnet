@@ -1,12 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using NanoByte.Common.Collections;
-using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model;
 

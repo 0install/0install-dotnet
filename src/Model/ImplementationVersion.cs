@@ -1,14 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using Generator.Equals;
 using NanoByte.Common.Values.Design;
-using ZeroInstall.Model.Properties;
 
 namespace ZeroInstall.Model;
 

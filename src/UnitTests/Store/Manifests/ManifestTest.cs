@@ -1,12 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Linq;
-using FluentAssertions;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using Xunit;
 
 namespace ZeroInstall.Store.Manifests;
 

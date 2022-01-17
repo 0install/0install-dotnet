@@ -1,21 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Reflection;
-using NanoByte.Common;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Values;
-using NDesk.Options;
-using ZeroInstall.Commands.Properties;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;

@@ -1,11 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.Linq;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Services.Properties;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Native;

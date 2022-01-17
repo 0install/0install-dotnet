@@ -1,18 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using ZeroInstall.Model;
-using Architecture = ZeroInstall.Model.Architecture;
+using static System.Runtime.InteropServices.Architecture;
+using static System.Runtime.InteropServices.RuntimeInformation;
 
 namespace ZeroInstall.Services.Native;
 
@@ -67,7 +60,7 @@ public class WindowsPackageManager : PackageManagerBase
             "powershell" => FindPowerShell(),
             _ when packageName.StartsWith("dotnet-") => new []
             {
-                FindDotNet(packageName, Environment.SpecialFolder.ProgramFiles, (RuntimeInformation.ProcessArchitecture == System.Runtime.InteropServices.Architecture.X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
+                FindDotNet(packageName, Environment.SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
                 FindDotNet(packageName, Environment.SpecialFolder.ProgramFilesX86, Cpu.I486),
             }.Flatten(),
             "git" => FindGitForWindows(),

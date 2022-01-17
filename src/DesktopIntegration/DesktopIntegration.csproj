@@ -15,6 +15,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="ZeroInstall.Model.Capabilities" />
+    <Using Include="ZeroInstall.Store.Icons" />
+    <Using Include="ZeroInstall.DesktopIntegration.Properties" />
+  </ItemGroup>
+
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Store\Store.csproj" />

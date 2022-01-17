@@ -1,12 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Client;

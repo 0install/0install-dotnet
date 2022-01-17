@@ -1,12 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 

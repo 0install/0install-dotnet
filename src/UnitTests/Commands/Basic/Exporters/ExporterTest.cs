@@ -1,13 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using FluentAssertions;
-using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;

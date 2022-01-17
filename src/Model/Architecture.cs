@@ -1,13 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values;
 using ZeroInstall.Model.Design;
-using ZeroInstall.Model.Properties;
+using static System.Runtime.InteropServices.Architecture;
+using static System.Runtime.InteropServices.RuntimeInformation;
 
 namespace ZeroInstall.Model;
 
@@ -82,12 +80,12 @@ public struct Architecture : IEquatable<Architecture>
         get
         {
             if (UnixUtils.IsUnix) return ToCpu(UnixUtils.CpuType);
-            return RuntimeInformation.OSArchitecture switch
+            return OSArchitecture switch
             {
-                System.Runtime.InteropServices.Architecture.X86 => Cpu.I686,
-                System.Runtime.InteropServices.Architecture.X64 => Cpu.X64,
-                System.Runtime.InteropServices.Architecture.Arm => Cpu.ArmV7L,
-                System.Runtime.InteropServices.Architecture.Arm64 => Cpu.AArch64,
+                X86 => Cpu.I686,
+                X64 => Cpu.X64,
+                Arm => Cpu.ArmV7L,
+                Arm64 => Cpu.AArch64,
                 _ => Cpu.Unknown
             };
         }

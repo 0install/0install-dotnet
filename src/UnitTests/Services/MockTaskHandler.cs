@@ -1,10 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using NanoByte.Common.Tasks;
 
 namespace ZeroInstall.Services;
 

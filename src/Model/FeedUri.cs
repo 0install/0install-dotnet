@@ -1,18 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
-using Generator.Equals;
-using JetBrains.Annotations;
-using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
-using ZeroInstall.Model.Properties;
 using ZeroInstall.Model.Selection;
 
 #if NETFRAMEWORK

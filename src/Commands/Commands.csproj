@@ -19,6 +19,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="NDesk.Options" />
+    <Using Include="ZeroInstall.Commands.Properties" />
+  </ItemGroup>
+
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->

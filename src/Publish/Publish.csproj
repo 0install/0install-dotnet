@@ -15,6 +15,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="ZeroInstall.Publish.Properties" />
+  </ItemGroup>
+
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Client\Client.csproj" />

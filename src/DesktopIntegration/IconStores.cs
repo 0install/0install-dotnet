@@ -1,10 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Configuration;
-using ZeroInstall.Store.Icons;
 
 namespace ZeroInstall.DesktopIntegration;
 

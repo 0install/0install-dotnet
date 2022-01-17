@@ -1,13 +1,8 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Text;
-using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Store.FileSystem;

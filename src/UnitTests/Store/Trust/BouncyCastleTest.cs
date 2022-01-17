@@ -1,9 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 
 namespace ZeroInstall.Store.Trust;

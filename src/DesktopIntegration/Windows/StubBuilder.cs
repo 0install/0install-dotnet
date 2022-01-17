@@ -1,24 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Icons;
 #if NETFRAMEWORK
 using System.CodeDom.Compiler;
-using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
-using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
-using ZeroInstall.DesktopIntegration.Properties;
-#else
-using System.Linq;
 #endif
 
 namespace ZeroInstall.DesktopIntegration.Windows;

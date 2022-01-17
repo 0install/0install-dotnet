@@ -2,8 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
 

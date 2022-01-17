@@ -1,10 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Collections;
-using System.ComponentModel;
-using System.Globalization;
 using System.Reflection;
 using NanoByte.Common.Values.Design;
 

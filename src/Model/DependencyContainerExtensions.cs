@@ -1,9 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.Linq;
-
 namespace ZeroInstall.Model;
 
 /// <summary>

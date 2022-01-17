@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Feeds;
 
 namespace ZeroInstall.Commands.Basic;

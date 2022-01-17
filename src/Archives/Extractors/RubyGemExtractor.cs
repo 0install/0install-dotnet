@@ -1,12 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
-using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;

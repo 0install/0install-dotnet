@@ -1,9 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common;
-using ZeroInstall.Commands.Properties;
-
 namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan

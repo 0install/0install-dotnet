@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using NanoByte.Common;
 
 namespace ZeroInstall.Client;
 

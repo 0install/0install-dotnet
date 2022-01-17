@@ -1,16 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.DesktopIntegration.Properties;
-using ZeroInstall.Model;
-using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store;
 
 namespace ZeroInstall.DesktopIntegration;

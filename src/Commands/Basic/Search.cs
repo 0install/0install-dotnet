@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Feeds;
 
 namespace ZeroInstall.Commands.Basic;

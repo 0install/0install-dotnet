@@ -1,12 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
-using FluentAssertions;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
-using Xunit;
 using ZeroInstall.Archives.Extractors;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Store.FileSystem;

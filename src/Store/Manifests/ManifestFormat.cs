@@ -1,14 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Security.Cryptography;
-using NanoByte.Common;
 using NanoByte.Common.Streams;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Manifests;
 

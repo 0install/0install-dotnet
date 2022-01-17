@@ -1,12 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Xml.Serialization;
-using FluentAssertions;
-using Generator.Equals;
-using NanoByte.Common.Storage;
-using Xunit;
-
 namespace ZeroInstall.Model;
 
 /// <summary>

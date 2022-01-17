@@ -1,13 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Linq;
-using Generator.Equals;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Values;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Services.Native;

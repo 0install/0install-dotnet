@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Implementations;
 

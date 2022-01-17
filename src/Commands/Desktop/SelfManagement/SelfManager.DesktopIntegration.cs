@@ -1,12 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
 using System.Runtime.Versioning;
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration.Windows;
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement;

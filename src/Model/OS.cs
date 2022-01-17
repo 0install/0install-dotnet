@@ -1,8 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.ComponentModel;
-using System.Xml.Serialization;
 using NanoByte.Common.Values.Design;
 
 namespace ZeroInstall.Model;

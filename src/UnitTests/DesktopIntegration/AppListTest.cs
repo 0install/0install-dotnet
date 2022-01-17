@@ -1,12 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using FluentAssertions;
-using NanoByte.Common.Storage;
-using Xunit;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.DesktopIntegration;
 

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.ComponentModel;
-
 namespace ZeroInstall.Model.Design;
 
 internal class IconMimeTypeConverter : StringConverter

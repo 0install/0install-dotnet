@@ -1,11 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using ELFSharp.ELF;
 using NanoByte.Common.Streams;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints;
 

@@ -1,16 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Text;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.Services.Solvers;
 

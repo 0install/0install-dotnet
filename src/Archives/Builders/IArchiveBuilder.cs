@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Builders;

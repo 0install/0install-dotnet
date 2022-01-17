@@ -1,15 +1,9 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Native;
-using ZeroInstall.Services.Properties;
 
 namespace ZeroInstall.Services.Solvers;
 

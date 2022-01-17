@@ -1,14 +1,8 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Security.Cryptography;
-using FluentAssertions;
-using NanoByte.Common;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
-using Xunit;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Archives.Extractors;

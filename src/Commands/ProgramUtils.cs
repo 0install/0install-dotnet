@@ -1,21 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Globalization;
-using System.IO;
-using System.Net;
 using System.Runtime.Versioning;
-using NanoByte.Common;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Values;
-using NDesk.Options;
 using ZeroInstall.Commands.Desktop;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
-using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;

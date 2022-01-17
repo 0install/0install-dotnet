@@ -1,22 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
 using System.Net.Cache;
 using ICSharpCode.SharpZipLib.Zip;
-using NanoByte.Common;
 using NanoByte.Common.Dispatch;
 using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.DesktopIntegration.Properties;
-using ZeroInstall.Model;
-using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.DesktopIntegration;

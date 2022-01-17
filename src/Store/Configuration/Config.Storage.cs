@@ -1,22 +1,14 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
 using IniParser;
 using IniParser.Exceptions;
 using IniParser.Model;
 using Microsoft.Win32;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Values;
-using ZeroInstall.Store.Properties;
 
 #if NETFRAMEWORK
 using System.Configuration;

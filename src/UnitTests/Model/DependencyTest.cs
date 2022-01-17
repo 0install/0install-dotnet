@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using FluentAssertions;
-using NanoByte.Common;
-using Xunit;
-
 namespace ZeroInstall.Model;
 
 /// <summary>

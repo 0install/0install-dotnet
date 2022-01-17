@@ -2,17 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.ServiceProcess;
-using System.Threading;
-using NanoByte.Common;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
-using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Desktop.SelfManagement;
 

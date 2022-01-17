@@ -1,14 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using NanoByte.Common;
-using NanoByte.Common.Storage;
-using NDesk.Options;
 using ZeroInstall.Archives.Extractors;
-using ZeroInstall.Commands.Properties;
-using ZeroInstall.Model;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 

@@ -1,13 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Xml.Serialization;
-using Generator.Equals;
-using NanoByte.Common.Collections;
-
 namespace ZeroInstall.Model;
 
 /// <summary>

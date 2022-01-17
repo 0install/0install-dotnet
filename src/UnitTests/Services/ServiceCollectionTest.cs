@@ -3,7 +3,6 @@
 
 #if NET
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Solvers;

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Drawing;
 using System.Runtime.Versioning;
 
 namespace ZeroInstall.Publish.EntryPoints;
@@ -15,5 +14,5 @@ public interface IIconContainer
     /// Extracts the primary icon of the executable.
     /// </summary>
     [SupportedOSPlatform("windows")]
-    Icon ExtractIcon();
+    System.Drawing.Icon ExtractIcon();
 }

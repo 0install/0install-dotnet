@@ -1,13 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using System.Net;
 using System.Runtime.Versioning;
 using Microsoft.Win32;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Icons;
 
 #if NETFRAMEWORK
 using NanoByte.Common.Native;

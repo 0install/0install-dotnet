@@ -15,6 +15,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="ZeroInstall.Services.Properties" />
+  </ItemGroup>
+
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->

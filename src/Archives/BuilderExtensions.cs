@@ -1,11 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Extractors;
-using ZeroInstall.Model;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives;

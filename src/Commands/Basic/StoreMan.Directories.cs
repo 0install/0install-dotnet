@@ -1,13 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
-using NanoByte.Common.Storage;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;

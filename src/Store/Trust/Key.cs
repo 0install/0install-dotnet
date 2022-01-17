@@ -1,11 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Xml.Serialization;
-using Generator.Equals;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
-
 namespace ZeroInstall.Store.Trust;
 
 /// <summary>

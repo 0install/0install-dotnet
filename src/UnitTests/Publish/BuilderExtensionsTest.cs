@@ -1,13 +1,9 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using FluentAssertions;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Publish;

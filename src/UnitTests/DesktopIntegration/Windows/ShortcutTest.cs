@@ -1,12 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
 using System.Runtime.Versioning;
-using FluentAssertions;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
-using Xunit;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 

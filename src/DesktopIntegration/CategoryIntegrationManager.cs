@@ -1,17 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model;
-using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store.Configuration;
-using DefaultProgram = ZeroInstall.Model.Capabilities.DefaultProgram;
 
 namespace ZeroInstall.DesktopIntegration;
 
@@ -155,7 +147,7 @@ public class CategoryIntegrationManager : IntegrationManager, ICategoryIntegrati
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
         #endregion
 
-        foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<DefaultProgram>())
+        foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<Model.Capabilities.DefaultProgram>())
         {
             if (WindowsUtils.IsWindows)
                 Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, iconsVisible);

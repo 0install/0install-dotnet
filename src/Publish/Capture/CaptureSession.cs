@@ -1,13 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Runtime.Versioning;
-using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Builders;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store.FileSystem;
 

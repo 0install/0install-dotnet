@@ -2,16 +2,13 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
 using System.Collections;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Ipc;
 using System.Runtime.Serialization.Formatters;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using NanoByte.Common;
 
 namespace ZeroInstall.Store.Implementations;
 

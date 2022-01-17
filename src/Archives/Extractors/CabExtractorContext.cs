@@ -2,11 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
-using System.IO;
 using System.IO.Pipelines;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Deployment.Compression;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.FileSystem;

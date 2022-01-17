@@ -1,16 +1,10 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using FluentAssertions;
-using NanoByte.Common;
 using NanoByte.Common.Native;
-using Xunit;
-using ZeroInstall.Model;
-using Architecture = System.Runtime.InteropServices.Architecture;
+using static System.Runtime.InteropServices.Architecture;
+using static System.Runtime.InteropServices.RuntimeInformation;
 
 namespace ZeroInstall.Services.Native;
 
@@ -22,7 +16,7 @@ public class WindowsPackageManagerTest
     public WindowsPackageManagerTest()
     {
         Skip.IfNot(WindowsUtils.IsWindows);
-        Skip.If(RuntimeInformation.ProcessArchitecture == Architecture.X86);
+        Skip.If(ProcessArchitecture == X86);
         _packageManager = new();
     }
 

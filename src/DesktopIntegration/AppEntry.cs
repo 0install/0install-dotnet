@@ -1,21 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Xml.Serialization;
-using Generator.Equals;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Dispatch;
-using NanoByte.Common.Storage;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.DesktopIntegration.Properties;
-using ZeroInstall.Model;
-using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.DesktopIntegration;
 

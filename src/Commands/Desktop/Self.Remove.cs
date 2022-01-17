@@ -1,16 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Diagnostics;
-using System.IO;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Desktop.SelfManagement;
-using ZeroInstall.Commands.Properties;
 
 namespace ZeroInstall.Commands.Desktop;
 

@@ -1,14 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using FluentAssertions;
-using NanoByte.Common.Storage;
-using Xunit;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Model;

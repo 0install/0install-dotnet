@@ -2,13 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using System.Threading.Tasks;
-using FluentAssertions;
-using Moq;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using Xunit;
-using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Client;

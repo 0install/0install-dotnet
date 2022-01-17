@@ -1,15 +1,10 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Text;
-using NanoByte.Common;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Threading;
 using ZeroInstall.Store.Manifests;
-using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.FileSystem;
 

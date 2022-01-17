@@ -1,21 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Linq;
 using System.Text;
-using NanoByte.Common;
-using NanoByte.Common.Collections;
 using NanoByte.Common.Net;
-using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Threading;
-using ZeroInstall.Model;
-using ZeroInstall.Services.Properties;
 
 namespace ZeroInstall.Services.Feeds;
 

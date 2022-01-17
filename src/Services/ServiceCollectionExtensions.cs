@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NanoByte.Common.Net;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;

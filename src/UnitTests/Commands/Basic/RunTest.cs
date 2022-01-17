@@ -1,17 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Diagnostics;
-using System.IO;
-using FluentAssertions;
-using Moq;
 using NanoByte.Common.Native;
-using NanoByte.Common.Storage;
-using Xunit;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 

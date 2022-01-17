@@ -1,9 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
-using Generator.Equals;
-
 namespace ZeroInstall.Publish.EntryPoints;
 
 [Equatable]

@@ -1,9 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Globalization;
-using ZeroInstall.Model.Capabilities;
-
 namespace ZeroInstall.DesktopIntegration.ViewModel;
 
 /// <summary>

@@ -1,16 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Xml.Serialization;
-using Generator.Equals;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
-using ZeroInstall.Store.Icons;
-
 namespace ZeroInstall.DesktopIntegration.AccessPoints;
 
 /// <summary>

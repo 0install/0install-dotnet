@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.ComponentModel;
-using ZeroInstall.Model;
-
 namespace ZeroInstall.DesktopIntegration.ViewModel;
 
 /// <summary>

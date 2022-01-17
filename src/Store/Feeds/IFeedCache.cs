@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using ZeroInstall.Model;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Store.Feeds;

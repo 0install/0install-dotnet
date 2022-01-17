@@ -1,11 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
 using System.Runtime.Serialization;
-using ZeroInstall.Services.Properties;
-
 using ZeroInstall.Store.Feeds;
 #if NETFRAMEWORK
 using System.Security.Permissions;

@@ -1,11 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
-using FluentAssertions;
-using NanoByte.Common.Storage;
-using Xunit;
-
 namespace ZeroInstall.Publish.EntryPoints;
 
 /// <summary>

@@ -1,12 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using NDesk.Options;
-using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;

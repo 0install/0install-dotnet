@@ -1,14 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.IO;
-using System.Linq;
-using System.Net;
-using NanoByte.Common.Tasks;
 using NanoByte.Common.Undo;
 using ZeroInstall.Archives.Builders;
-using ZeroInstall.Model;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Manifests;

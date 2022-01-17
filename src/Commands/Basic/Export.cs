@@ -1,14 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Basic.Exporters;
-using ZeroInstall.Commands.Properties;
-using ZeroInstall.Model;
 using ZeroInstall.Services;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Configuration;

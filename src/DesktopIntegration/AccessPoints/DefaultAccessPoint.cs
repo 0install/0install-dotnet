@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.ComponentModel;
-using System.Xml.Serialization;
-using Generator.Equals;
-
 namespace ZeroInstall.DesktopIntegration.AccessPoints;
 
 /// <summary>

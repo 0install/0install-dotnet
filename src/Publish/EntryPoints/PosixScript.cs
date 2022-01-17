@@ -1,10 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
 using System.Text;
-using NanoByte.Common.Storage;
-using ZeroInstall.Model;
 
 namespace ZeroInstall.Publish.EntryPoints;
 

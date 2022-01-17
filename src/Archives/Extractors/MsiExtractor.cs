@@ -2,13 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System;
-using System.IO;
 using Microsoft.Deployment.Compression.Cab;
 using Microsoft.Deployment.WindowsInstaller;
 using NanoByte.Common.Native;
-using NanoByte.Common.Tasks;
-using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;

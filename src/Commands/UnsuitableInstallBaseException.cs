@@ -1,9 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System;
 using System.Runtime.Serialization;
-using NanoByte.Common.Storage;
 
 #if NETFRAMEWORK
 using System.Security.Permissions;

@@ -1,9 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using FluentAssertions;
-using Xunit;
-
 namespace ZeroInstall.Model.Selection;
 
 /// <summary>

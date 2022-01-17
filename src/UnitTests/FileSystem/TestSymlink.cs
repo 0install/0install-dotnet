@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.IO;
-using FluentAssertions;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.FileSystem;
