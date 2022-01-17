@@ -5,35 +5,34 @@ using System.IO;
 using NanoByte.Common;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.Publish.EntryPoints
+namespace ZeroInstall.Publish.EntryPoints;
+
+/// <summary>
+/// A compiled Java class file.
+/// </summary>
+public sealed class JavaClass : Java
 {
-    /// <summary>
-    /// A compiled Java class file.
-    /// </summary>
-    public sealed class JavaClass : Java
+    /// <inheritdoc/>
+    internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
     {
-        /// <inheritdoc/>
-        internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
-        {
-            if (!base.Analyze(baseDirectory, file)) return false;
-            if (!StringUtils.EqualsIgnoreCase(file.Extension, @".class")) return false;
+        if (!base.Analyze(baseDirectory, file)) return false;
+        if (!StringUtils.EqualsIgnoreCase(file.Extension, @".class")) return false;
 
-            Name = file.Name[..^file.Extension.Length];
-            GuiOnly = false;
-            return true;
-        }
-
-        /// <inheritdoc/>
-        public override Command CreateCommand() => new()
-        {
-            Name = CommandName,
-            Path = RelativePath,
-            Runner = new()
-            {
-                InterfaceUri = new("https://apps.0install.net/java/jre.xml"),
-                Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
-                Versions = ToVersionRange(MinimumRuntimeVersion)
-            }
-        };
+        Name = file.Name[..^file.Extension.Length];
+        GuiOnly = false;
+        return true;
     }
+
+    /// <inheritdoc/>
+    public override Command CreateCommand() => new()
+    {
+        Name = CommandName,
+        Path = RelativePath,
+        Runner = new()
+        {
+            InterfaceUri = new("https://apps.0install.net/java/jre.xml"),
+            Command = NeedsTerminal ? Command.NameRun : Command.NameRunGui,
+            Versions = ToVersionRange(MinimumRuntimeVersion)
+        }
+    };
 }

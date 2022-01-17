@@ -3,26 +3,25 @@
 
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+partial class CatalogMan
 {
-    partial class CatalogMan
+    private class List : CatalogSubCommand
     {
-        private class List : CatalogSubCommand
+        public const string Name = "list";
+        public override string Description => Resources.DescriptionCatalogList;
+        public override string Usage => "";
+        protected override int AdditionalArgsMax => 0;
+
+        public List(ICommandHandler handler)
+            : base(handler)
+        {}
+
+        public override ExitCode Execute()
         {
-            public const string Name = "list";
-            public override string Description => Resources.DescriptionCatalogList;
-            public override string Usage => "";
-            protected override int AdditionalArgsMax => 0;
-
-            public List(ICommandHandler handler)
-                : base(handler)
-            {}
-
-            public override ExitCode Execute()
-            {
-                Handler.Output(Resources.CatalogSources, Services.Feeds.CatalogManager.GetSources());
-                return ExitCode.OK;
-            }
+            Handler.Output(Resources.CatalogSources, Services.Feeds.CatalogManager.GetSources());
+            return ExitCode.OK;
         }
     }
 }

@@ -3,14 +3,13 @@
 
 using System.ComponentModel;
 
-namespace ZeroInstall.Model.Design
+namespace ZeroInstall.Model.Design;
+
+internal class DistributionNameConverter : StringConverter
 {
-    internal class DistributionNameConverter : StringConverter
-    {
-        public override bool GetStandardValuesSupported(ITypeDescriptorContext? context) => true;
+    public override bool GetStandardValuesSupported(ITypeDescriptorContext? context) => true;
 
-        public override bool GetStandardValuesExclusive(ITypeDescriptorContext? context) => false;
+    public override bool GetStandardValuesExclusive(ITypeDescriptorContext? context) => false;
 
-        public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(PackageImplementation.DistributionNames);
-    }
+    public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(PackageImplementation.DistributionNames);
 }

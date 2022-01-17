@@ -5,45 +5,44 @@ using NanoByte.Common.Storage;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
-namespace ZeroInstall.Commands.Desktop
+namespace ZeroInstall.Commands.Desktop;
+
+/// <summary>
+/// Imports a set of applications and desktop integrations from an existing <see cref="AppList"/> file.
+/// </summary>
+public class ImportApps : IntegrationCommand
 {
-    /// <summary>
-    /// Imports a set of applications and desktop integrations from an existing <see cref="AppList"/> file.
-    /// </summary>
-    public class ImportApps : IntegrationCommand
+    public const string Name = "import-apps";
+    public override string Description => Resources.DescriptionImportApps;
+    public override string Usage => "APP-LIST-FILE [OPTIONS]";
+    protected override int AdditionalArgsMin => 1;
+    protected override int AdditionalArgsMax => 1;
+
+    /// <inheritdoc/>
+    public ImportApps(ICommandHandler handler)
+        : base(handler)
     {
-        public const string Name = "import-apps";
-        public override string Description => Resources.DescriptionImportApps;
-        public override string Usage => "APP-LIST-FILE [OPTIONS]";
-        protected override int AdditionalArgsMin => 1;
-        protected override int AdditionalArgsMax => 1;
+        Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
+    }
 
-        /// <inheritdoc/>
-        public ImportApps(ICommandHandler handler)
-            : base(handler)
+    /// <inheritdoc/>
+    public override ExitCode Execute()
+    {
+        var importList = XmlStorage.LoadXml<AppList>(AdditionalArgs[0]);
+
+        using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
+        foreach (var importEntry in importList.Entries)
         {
-            Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
-        }
+            var interfaceUri = importEntry.InterfaceUri;
+            var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
 
-        /// <inheritdoc/>
-        public override ExitCode Execute()
-        {
-            var importList = XmlStorage.LoadXml<AppList>(AdditionalArgs[0]);
-
-            using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
-            foreach (var importEntry in importList.Entries)
+            if (importEntry.AccessPoints != null)
             {
-                var interfaceUri = importEntry.InterfaceUri;
-                var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
-
-                if (importEntry.AccessPoints != null)
-                {
-                    var feed = FeedManager[interfaceUri];
-                    integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
-                }
+                var feed = FeedManager[interfaceUri];
+                integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
             }
-
-            return ExitCode.OK;
         }
+
+        return ExitCode.OK;
     }
 }

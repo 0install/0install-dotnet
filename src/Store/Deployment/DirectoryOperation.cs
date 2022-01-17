@@ -11,120 +11,119 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Manifests;
 
-namespace ZeroInstall.Store.Deployment
+namespace ZeroInstall.Store.Deployment;
+
+/// <summary>
+/// Common base class for deployment operations that operate on directories with <see cref="Manifests.Manifest"/>s.
+/// </summary>
+[PrimaryConstructor]
+public abstract partial class DirectoryOperation : StagedOperation
 {
     /// <summary>
-    /// Common base class for deployment operations that operate on directories with <see cref="Manifests.Manifest"/>s.
+    /// The path of the directory to operate on.
     /// </summary>
-    [PrimaryConstructor]
-    public abstract partial class DirectoryOperation : StagedOperation
+    protected readonly string Path;
+
+    /// <summary>
+    /// The contents of a <see cref="Manifests.Manifest"/> file describing the directory.
+    /// </summary>
+    protected readonly Manifest Manifest;
+
+    /// <summary>
+    /// A callback object used when the the user needs to be asked questions or informed about IO tasks.
+    /// </summary>
+    protected readonly ITaskHandler Handler;
+
+    /// <summary>
+    /// Appends a random string to a file path.
+    /// </summary>
+    protected static string Randomize(string path) => path + "." + System.IO.Path.GetRandomFileName() + ".tmp";
+
+    /// <summary>
+    /// Indicates that applications shut down by the <see cref="WindowsRestartManager"/> shall not be restarted on <see cref="Dispose"/>.
+    /// </summary>
+    public bool NoRestart { get; set; }
+
+    private WindowsRestartManager? _restartManager;
+
+    /// <summary>
+    /// Uses <see cref="WindowsRestartManager"/> to close any applications that have open references to the specified <paramref name="files"/> if possible and removes read-only attributes.
+    /// </summary>
+    /// <remarks>Closed applications will be restarted by <see cref="Dispose"/>.</remarks>
+    protected void UnlockFiles(IEnumerable<string> files)
     {
-        /// <summary>
-        /// The path of the directory to operate on.
-        /// </summary>
-        protected readonly string Path;
-
-        /// <summary>
-        /// The contents of a <see cref="Manifests.Manifest"/> file describing the directory.
-        /// </summary>
-        protected readonly Manifest Manifest;
-
-        /// <summary>
-        /// A callback object used when the the user needs to be asked questions or informed about IO tasks.
-        /// </summary>
-        protected readonly ITaskHandler Handler;
-
-        /// <summary>
-        /// Appends a random string to a file path.
-        /// </summary>
-        protected static string Randomize(string path) => path + "." + System.IO.Path.GetRandomFileName() + ".tmp";
-
-        /// <summary>
-        /// Indicates that applications shut down by the <see cref="WindowsRestartManager"/> shall not be restarted on <see cref="Dispose"/>.
-        /// </summary>
-        public bool NoRestart { get; set; }
-
-        private WindowsRestartManager? _restartManager;
-
-        /// <summary>
-        /// Uses <see cref="WindowsRestartManager"/> to close any applications that have open references to the specified <paramref name="files"/> if possible and removes read-only attributes.
-        /// </summary>
-        /// <remarks>Closed applications will be restarted by <see cref="Dispose"/>.</remarks>
-        protected void UnlockFiles(IEnumerable<string> files)
+        if (WindowsUtils.IsWindows)
         {
-            if (WindowsUtils.IsWindows)
+            var fileArray = files.ToArray();
+            if (fileArray.Length == 0) return;
+
+            if (WindowsUtils.IsWindowsVista)
             {
-                var fileArray = files.ToArray();
-                if (fileArray.Length == 0) return;
-
-                if (WindowsUtils.IsWindowsVista)
+                try
                 {
-                    try
-                    {
-                        _restartManager ??= new();
-                        _restartManager.RegisterResources(fileArray);
-                        if (_restartManager.ListApps(Handler.CancellationToken).Length == 0)
-                            NoRestart = true;
-                        else
-                            _restartManager.ShutdownApps(Handler);
-                    }
-                    #region Error handling
-                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
-                    {
-                        Log.Warn(ex);
-                    }
-                    catch (Win32Exception ex)
-                    {
-                        Log.Error(ex);
-                    }
-                    #endregion
+                    _restartManager ??= new();
+                    _restartManager.RegisterResources(fileArray);
+                    if (_restartManager.ListApps(Handler.CancellationToken).Length == 0)
+                        NoRestart = true;
+                    else
+                        _restartManager.ShutdownApps(Handler);
                 }
-
-                foreach (string path in fileArray)
+                #region Error handling
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
                 {
-                    try
-                    {
-                        new FileInfo(path).IsReadOnly = false;
-                    }
-                    #region Error handling
-                    catch (ArgumentException ex)
-                    {
-                        // Wrap exception since only certain exception types are allowed
-                        throw new UnauthorizedAccessException(ex.Message, ex);
-                    }
-                    #endregion
+                    Log.Warn(ex);
                 }
+                catch (Win32Exception ex)
+                {
+                    Log.Error(ex);
+                }
+                #endregion
+            }
+
+            foreach (string path in fileArray)
+            {
+                try
+                {
+                    new FileInfo(path).IsReadOnly = false;
+                }
+                #region Error handling
+                catch (ArgumentException ex)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new UnauthorizedAccessException(ex.Message, ex);
+                }
+                #endregion
             }
         }
+    }
 
-        /// <inheritdoc/>
-        public override void Dispose()
+    /// <inheritdoc/>
+    public override void Dispose()
+    {
+        try
         {
-            try
+            if (WindowsUtils.IsWindowsVista && _restartManager != null)
             {
-                if (WindowsUtils.IsWindowsVista && _restartManager != null)
+                try
                 {
-                    try
-                    {
-                        if (!NoRestart) _restartManager.RestartApps(Handler);
-                        _restartManager.Dispose();
-                    }
-                    #region Error handling
-                    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
-                    {
-                        Log.Warn(ex);
-                    }
-                    catch (Win32Exception ex)
-                    {
-                        Log.Error(ex);
-                    }
-                    #endregion
+                    if (!NoRestart) _restartManager.RestartApps(Handler);
+                    _restartManager.Dispose();
                 }
+                #region Error handling
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
+                {
+                    Log.Warn(ex);
+                }
+                catch (Win32Exception ex)
+                {
+                    Log.Error(ex);
+                }
+                #endregion
             }
-            finally
-            {
-                base.Dispose();
-            }
+        }
+        finally
+        {
+            base.Dispose();
         }
     }
 }

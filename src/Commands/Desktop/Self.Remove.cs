@@ -12,140 +12,139 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Desktop
+namespace ZeroInstall.Commands.Desktop;
+
+partial class Self
 {
-    partial class Self
+    public abstract class RemoveSubCommandBase : SelfSubCommand
     {
-        public abstract class RemoveSubCommandBase : SelfSubCommand
+        protected RemoveSubCommandBase(ICommandHandler handler)
+            : base(handler)
+        {}
+
+        protected abstract string TargetDir { get; }
+
+        // Auto-detect portable targets by looking for flag file
+        protected bool Portable => File.Exists(Path.Combine(TargetDir, Locations.PortableFlagName));
+
+        // Auto-detect machine-wide targets by comparing path with registry entry
+        protected bool MachineWide => !Portable && (TargetDir == FindExistingInstance(machineWide: true));
+
+        protected void PerformRemove()
         {
-            protected RemoveSubCommandBase(ICommandHandler handler)
-                : base(handler)
-            {}
+            using var manager = new SelfManager(TargetDir, Handler, MachineWide, Portable);
+            Log.Info($"Using Zero Install instance at '{Locations.InstallBase}' to remove '{TargetDir}'");
+            manager.Remove();
+        }
+    }
 
-            protected abstract string TargetDir { get; }
+    /// <summary>
+    /// Removes the current instance of Zero Install from the system.
+    /// </summary>
+    public class Remove : RemoveSubCommandBase
+    {
+        public const string Name = "remove";
+        public override string Description => Resources.DescriptionMaintenanceRemove;
+        public override string Usage => "";
+        protected override int AdditionalArgsMax => 0;
 
-            // Auto-detect portable targets by looking for flag file
-            protected bool Portable => File.Exists(Path.Combine(TargetDir, Locations.PortableFlagName));
+        public Remove(ICommandHandler handler)
+            : base(handler)
+        {}
 
-            // Auto-detect machine-wide targets by comparing path with registry entry
-            protected bool MachineWide => !Portable && (TargetDir == FindExistingInstance(machineWide: true));
+        protected override string TargetDir => Locations.InstallBase;
 
-            protected void PerformRemove()
+        public override ExitCode Execute()
+        {
+            if (!ZeroInstallInstance.IsDeployed)
             {
-                using var manager = new SelfManager(TargetDir, Handler, MachineWide, Portable);
-                Log.Info($"Using Zero Install instance at '{Locations.InstallBase}' to remove '{TargetDir}'");
-                manager.Remove();
+                Log.Error(Resources.SelfRemoveNotDeployed);
+                return ExitCode.NoChanges;
             }
+
+            if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+
+            if (!ZeroInstallInstance.IsLibraryMode && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
+                return ExitCode.UserCanceled;
+
+            if (IntegrationCommand.ExistingDesktopIntegration())
+                new RemoveAllApps(Handler).Execute();
+            if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
+                new RemoveAllApps(Handler) {MachineWide = true}.Execute();
+
+            if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOther() == null))
+                ImplementationStore.Purge(Handler);
+
+            if (WindowsUtils.IsWindows) DelegateToTempCopy();
+            else PerformRemove();
+
+            return ExitCode.OK;
         }
 
         /// <summary>
-        /// Removes the current instance of Zero Install from the system.
+        /// Deploys a portable copy of Zero Install to a temp directory and delegates the actual removal of the current instance to this copy.
         /// </summary>
-        public class Remove : RemoveSubCommandBase
+        private void DelegateToTempCopy()
         {
-            public const string Name = "remove";
-            public override string Description => Resources.DescriptionMaintenanceRemove;
-            public override string Usage => "";
-            protected override int AdditionalArgsMax => 0;
+            string tempDir = FileUtils.GetTempDirectory("0install-remove");
+            using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
+                manager.Deploy();
 
-            public Remove(ICommandHandler handler)
-                : base(handler)
-            {}
+            string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? ProgramUtils.CliAssemblyName);
 
-            protected override string TargetDir => Locations.InstallBase;
+            var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
+            if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
+            if (Handler.Background && ProgramUtils.GuiAssemblyName != null) args = args.Append("--background");
 
-            public override ExitCode Execute()
+            var startInfo = ProcessUtils.Assembly(assembly, args);
+            startInfo.WorkingDirectory = tempDir;
+            startInfo.Start();
+        }
+    }
+
+    /// <summary>
+    /// Internal helper for <see cref="Remove"/> used to support self-removal on Windows.
+    /// </summary>
+    private class RemoveHelper : RemoveSubCommandBase
+    {
+        public const string Name = "remove-helper";
+        public override string Description => "Internal helper for '0install maintenance remove' used to support self-removal on Windows.";
+        public override string Usage => "TARGET";
+        protected override int AdditionalArgsMin => 1;
+        protected override int AdditionalArgsMax => 1;
+
+        public RemoveHelper(ICommandHandler handler)
+            : base(handler)
+        {}
+
+        protected override string TargetDir => AdditionalArgs[0];
+
+        public override ExitCode Execute()
+        {
+            try
             {
-                if (!ZeroInstallInstance.IsDeployed)
-                {
-                    Log.Error(Resources.SelfRemoveNotDeployed);
-                    return ExitCode.NoChanges;
-                }
+                if (!Locations.IsPortable || !WindowsUtils.IsWindows)
+                    throw new NotSupportedException("This command is used as an internal helper and should not be called manually.");
 
-                if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
-                    throw new NotAdminException(Resources.MustBeAdminForMachineWide);
-
-                if (!ZeroInstallInstance.IsLibraryMode && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
-                    return ExitCode.UserCanceled;
-
-                if (IntegrationCommand.ExistingDesktopIntegration())
-                    new RemoveAllApps(Handler).Execute();
-                if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
-                    new RemoveAllApps(Handler) {MachineWide = true}.Execute();
-
-                if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOther() == null))
-                    ImplementationStore.Purge(Handler);
-
-                if (WindowsUtils.IsWindows) DelegateToTempCopy();
-                else PerformRemove();
+                PerformRemove();
 
                 return ExitCode.OK;
             }
-
-            /// <summary>
-            /// Deploys a portable copy of Zero Install to a temp directory and delegates the actual removal of the current instance to this copy.
-            /// </summary>
-            private void DelegateToTempCopy()
+            finally
             {
-                string tempDir = FileUtils.GetTempDirectory("0install-remove");
-                using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
-                    manager.Deploy();
-
-                string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? ProgramUtils.CliAssemblyName);
-
-                var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
-                if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
-                if (Handler.Background && ProgramUtils.GuiAssemblyName != null) args = args.Append("--background");
-
-                var startInfo = ProcessUtils.Assembly(assembly, args);
-                startInfo.WorkingDirectory = tempDir;
-                startInfo.Start();
+                WindowsSelfDelete();
             }
         }
-
-        /// <summary>
-        /// Internal helper for <see cref="Remove"/> used to support self-removal on Windows.
-        /// </summary>
-        private class RemoveHelper : RemoveSubCommandBase
-        {
-            public const string Name = "remove-helper";
-            public override string Description => "Internal helper for '0install maintenance remove' used to support self-removal on Windows.";
-            public override string Usage => "TARGET";
-            protected override int AdditionalArgsMin => 1;
-            protected override int AdditionalArgsMax => 1;
-
-            public RemoveHelper(ICommandHandler handler)
-                : base(handler)
-            {}
-
-            protected override string TargetDir => AdditionalArgs[0];
-
-            public override ExitCode Execute()
-            {
-                try
-                {
-                    if (!Locations.IsPortable || !WindowsUtils.IsWindows)
-                        throw new NotSupportedException("This command is used as an internal helper and should not be called manually.");
-
-                    PerformRemove();
-
-                    return ExitCode.OK;
-                }
-                finally
-                {
-                    WindowsSelfDelete();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Use cmd.exe to delete own installation directory after 8s delay
-        /// </summary>
-        private static void WindowsSelfDelete()
-            => new ProcessStartInfo("cmd.exe", "/c (ping 127.0.0.1 -n 8 || ping ::1 -n 8) & rd /s /q " + Locations.InstallBase.EscapeArgument())
-            {
-                UseShellExecute = false,
-                CreateNoWindow = true
-            }.Start();
     }
+
+    /// <summary>
+    /// Use cmd.exe to delete own installation directory after 8s delay
+    /// </summary>
+    private static void WindowsSelfDelete()
+        => new ProcessStartInfo("cmd.exe", "/c (ping 127.0.0.1 -n 8 || ping ::1 -n 8) & rd /s /q " + Locations.InstallBase.EscapeArgument())
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true
+        }.Start();
 }

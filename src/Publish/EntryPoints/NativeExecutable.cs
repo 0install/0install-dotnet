@@ -3,18 +3,17 @@
 
 using ZeroInstall.Model;
 
-namespace ZeroInstall.Publish.EntryPoints
+namespace ZeroInstall.Publish.EntryPoints;
+
+/// <summary>
+/// A file that can be executed directly by the operating system without an additional runtime environment.
+/// </summary>
+public abstract class NativeExecutable : Candidate
 {
-    /// <summary>
-    /// A file that can be executed directly by the operating system without an additional runtime environment.
-    /// </summary>
-    public abstract class NativeExecutable : Candidate
+    /// <inheritdoc/>
+    public override Command CreateCommand() => new()
     {
-        /// <inheritdoc/>
-        public override Command CreateCommand() => new()
-        {
-            Name = CommandName,
-            Path = RelativePath
-        };
-    }
+        Name = CommandName,
+        Path = RelativePath
+    };
 }

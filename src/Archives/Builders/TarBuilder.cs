@@ -11,107 +11,106 @@ using NanoByte.Common.Storage;
 using NanoByte.Common.Streams;
 using ZeroInstall.Archives.Extractors;
 
-namespace ZeroInstall.Archives.Builders
+namespace ZeroInstall.Archives.Builders;
+
+/// <summary>
+/// Builds a TAR archive (.tar).
+/// </summary>
+public class TarBuilder : IArchiveBuilder
 {
+    private readonly TarOutputStream _tarStream;
+
     /// <summary>
-    /// Builds a TAR archive (.tar).
+    /// Creates a TAR archive builder.
     /// </summary>
-    public class TarBuilder : IArchiveBuilder
+    /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+    public TarBuilder(Stream stream)
     {
-        private readonly TarOutputStream _tarStream;
+        _tarStream = new(stream, Encoding.UTF8);
+    }
 
-        /// <summary>
-        /// Creates a TAR archive builder.
-        /// </summary>
-        /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-        public TarBuilder(Stream stream)
+    public void Dispose()
+        => _tarStream.Dispose();
+
+    /// <inheritdoc/>
+    public void AddDirectory(string path)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        #endregion
+
+        _tarStream.PutNextEntry(new TarEntry(new TarHeader
         {
-            _tarStream = new(stream, Encoding.UTF8);
-        }
+            Name = path.ToUnixPath(),
+            TypeFlag = TarHeader.LF_DIR,
+            Mode = TarExtractor.DefaultMode | TarExtractor.ExecuteMode
+        }));
+        _tarStream.CloseEntry();
+    }
 
-        public void Dispose()
-            => _tarStream.Dispose();
+    private readonly Dictionary<string, UnixTime> _modifiedTimes = new();
 
-        /// <inheritdoc/>
-        public void AddDirectory(string path)
+    /// <inheritdoc/>
+    public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        if (stream == null) throw new ArgumentNullException(nameof(stream));
+        #endregion
+
+        _tarStream.PutNextEntry(new TarEntry(new TarHeader
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            #endregion
+            Name = path.ToUnixPath(),
+            ModTime = modifiedTime,
+            Mode = executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode,
+            Size = stream.Length
+        }));
+        stream.CopyToEx(_tarStream);
+        _tarStream.CloseEntry();
 
-            _tarStream.PutNextEntry(new TarEntry(new TarHeader
-            {
-                Name = path.ToUnixPath(),
-                TypeFlag = TarHeader.LF_DIR,
-                Mode = TarExtractor.DefaultMode | TarExtractor.ExecuteMode
-            }));
-            _tarStream.CloseEntry();
-        }
+        _modifiedTimes.Add(path, modifiedTime);
+    }
 
-        private readonly Dictionary<string, UnixTime> _modifiedTimes = new();
+    /// <inheritdoc/>
+    public void AddSymlink(string path, string target)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        if (target == null) throw new ArgumentNullException(nameof(target));
+        #endregion
 
-        /// <inheritdoc/>
-        public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
+        var data = target.ToUnixPath().ToStream();
+        _tarStream.PutNextEntry(new TarEntry(new TarHeader
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            #endregion
+            Name = path.ToUnixPath(),
+            TypeFlag = TarHeader.LF_SYMLINK,
+            Size = data.Length
+        }));
+        data.WriteTo(_tarStream);
+        _tarStream.CloseEntry();
+    }
 
-            _tarStream.PutNextEntry(new TarEntry(new TarHeader
-            {
-                Name = path.ToUnixPath(),
-                ModTime = modifiedTime,
-                Mode = executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode,
-                Size = stream.Length
-            }));
-            stream.CopyToEx(_tarStream);
-            _tarStream.CloseEntry();
+    /// <inheritdoc/>
+    public void AddHardlink(string path, string target, bool executable = false)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        if (string.IsNullOrEmpty(target)) throw new ArgumentNullException(nameof(target));
+        #endregion
 
-            _modifiedTimes.Add(path, modifiedTime);
-        }
-
-        /// <inheritdoc/>
-        public void AddSymlink(string path, string target)
+        _tarStream.PutNextEntry(new TarEntry(new TarHeader
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (target == null) throw new ArgumentNullException(nameof(target));
-            #endregion
-
-            var data = target.ToUnixPath().ToStream();
-            _tarStream.PutNextEntry(new TarEntry(new TarHeader
-            {
-                Name = path.ToUnixPath(),
-                TypeFlag = TarHeader.LF_SYMLINK,
-                Size = data.Length
-            }));
-            data.WriteTo(_tarStream);
-            _tarStream.CloseEntry();
-        }
-
-        /// <inheritdoc/>
-        public void AddHardlink(string path, string target, bool executable = false)
+            Name = path.ToUnixPath(),
+            ModTime = _modifiedTimes[target],
+            Mode = (executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode),
+        })
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-            if (string.IsNullOrEmpty(target)) throw new ArgumentNullException(nameof(target));
-            #endregion
-
-            _tarStream.PutNextEntry(new TarEntry(new TarHeader
+            TarHeader =
             {
-                Name = path.ToUnixPath(),
-                ModTime = _modifiedTimes[target],
-                Mode = (executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode),
-            })
-            {
-                TarHeader =
-                {
-                    TypeFlag = TarHeader.LF_LINK,
-                    LinkName = target.ToUnixPath()
-                }
-            });
-            _tarStream.CloseEntry();
-        }
+                TypeFlag = TarHeader.LF_LINK,
+                LinkName = target.ToUnixPath()
+            }
+        });
+        _tarStream.CloseEntry();
     }
 }

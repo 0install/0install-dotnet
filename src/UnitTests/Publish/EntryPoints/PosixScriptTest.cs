@@ -5,32 +5,31 @@ using FluentAssertions;
 using Xunit;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.Publish.EntryPoints
+namespace ZeroInstall.Publish.EntryPoints;
+
+/// <summary>
+/// Contains test methods for <see cref="PosixScript"/>.
+/// </summary>
+public class PosixScriptTest : CandidateTest
 {
-    /// <summary>
-    /// Contains test methods for <see cref="PosixScript"/>.
-    /// </summary>
-    public class PosixScriptTest : CandidateTest
+    public static readonly PosixScript Reference = new()
     {
-        public static readonly PosixScript Reference = new()
-        {
-            RelativePath = "sh",
-            Architecture = new(OS.Posix, Cpu.All),
-            Name = "sh",
-            NeedsTerminal = true
-        };
+        RelativePath = "sh",
+        Architecture = new(OS.Posix, Cpu.All),
+        Name = "sh",
+        NeedsTerminal = true
+    };
 
-        [Fact]
-        public void Sh() => TestAnalyze(Reference, executable: true);
+    [Fact]
+    public void Sh() => TestAnalyze(Reference, executable: true);
 
-        [Fact]
-        public void NotExecutable()
-            => new PosixScript().Analyze(baseDirectory: Directory, file: Deploy(Reference, xbit: false))
-                                .Should().BeFalse();
+    [Fact]
+    public void NotExecutable()
+        => new PosixScript().Analyze(baseDirectory: Directory, file: Deploy(Reference, xbit: false))
+                            .Should().BeFalse();
 
-        [Fact]
-        public void NoShebang()
-            => new PosixScript().Analyze(baseDirectory: Directory, file: Deploy(WindowsExeTest.Reference32, xbit: true))
-                                .Should().BeFalse();
-    }
+    [Fact]
+    public void NoShebang()
+        => new PosixScript().Analyze(baseDirectory: Directory, file: Deploy(WindowsExeTest.Reference32, xbit: true))
+                            .Should().BeFalse();
 }

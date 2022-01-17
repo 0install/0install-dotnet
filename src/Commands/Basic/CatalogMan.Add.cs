@@ -6,41 +6,40 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Services.Feeds;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+partial class CatalogMan
 {
-    partial class CatalogMan
+    private class Add : CatalogSubCommand
     {
-        private class Add : CatalogSubCommand
+        public const string Name = "add";
+        public override string Description => Resources.DescriptionCatalogAdd;
+        public override string Usage => "URI";
+        protected override int AdditionalArgsMin => 1;
+        protected override int AdditionalArgsMax => 1;
+
+        private bool _skipVerify;
+
+        public Add(ICommandHandler handler)
+            : base(handler)
         {
-            public const string Name = "add";
-            public override string Description => Resources.DescriptionCatalogAdd;
-            public override string Usage => "URI";
-            protected override int AdditionalArgsMin => 1;
-            protected override int AdditionalArgsMax => 1;
+            Options.Add("skip-verify", () => Resources.OptionCatalogAddSkipVerify, _ => _skipVerify = true);
+        }
 
-            private bool _skipVerify;
+        public override ExitCode Execute()
+        {
+            var uri = new FeedUri(AdditionalArgs[0]);
+            if (!_skipVerify) CatalogManager.DownloadCatalog(uri);
 
-            public Add(ICommandHandler handler)
-                : base(handler)
+            if (CatalogManager.AddSource(uri))
             {
-                Options.Add("skip-verify", () => Resources.OptionCatalogAddSkipVerify, _ => _skipVerify = true);
+                if (!_skipVerify) CatalogManager.GetOnlineSafe();
+                return ExitCode.OK;
             }
-
-            public override ExitCode Execute()
+            else
             {
-                var uri = new FeedUri(AdditionalArgs[0]);
-                if (!_skipVerify) CatalogManager.DownloadCatalog(uri);
-
-                if (CatalogManager.AddSource(uri))
-                {
-                    if (!_skipVerify) CatalogManager.GetOnlineSafe();
-                    return ExitCode.OK;
-                }
-                else
-                {
-                    Handler.OutputLow(Resources.CatalogSources, string.Format(Resources.CatalogAlreadyRegistered, uri.ToStringRfc()));
-                    return ExitCode.NoChanges;
-                }
+                Handler.OutputLow(Resources.CatalogSources, string.Format(Resources.CatalogAlreadyRegistered, uri.ToStringRfc()));
+                return ExitCode.NoChanges;
             }
         }
     }

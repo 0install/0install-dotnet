@@ -2,18 +2,22 @@ html {
     overflow-y: scroll;
 }
 
+
 body {
     font-family: sans-serif;
 }
+
 
 a {
     color: black;
     text-decoration: none;
 }
 
+
 input {
      width: 100%;
 }
+
 
 #main {
     margin-top: -0.5rem;
@@ -21,6 +25,7 @@ input {
     margin-right: auto;
     max-width: 1100px;
 }
+
 
 .searchBar {
     position: sticky;
@@ -31,15 +36,18 @@ input {
     background-color: white;
 }
 
+
 .app {
     display: flex;
     min-height: 64px;
     align-items: center;
 }
 
+
 .app:nth-child(even) {
     background-color: #EEE;
 }
+
 
 .icon {
     width: 42px;
@@ -47,15 +55,18 @@ input {
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
+
 .info {
     flex: 1 1 auto;
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
+
 .name {
     font-size: 1.1rem;
     margin: 0;
 }
+
 
 .summary {
     vertical-align: top;
@@ -63,7 +74,9 @@ input {
     margin: 0;
 }
 
+
 .actions {
     flex: 0 0 auto;
     padding: 1rem;
 }
+

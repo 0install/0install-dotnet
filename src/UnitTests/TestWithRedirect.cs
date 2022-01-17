@@ -4,26 +4,25 @@
 using System;
 using NanoByte.Common.Storage;
 
-namespace ZeroInstall
+namespace ZeroInstall;
+
+/// <summary>
+/// Common base class for test fixtures that use <see cref="Locations.Redirect"/>.
+/// </summary>
+public class TestWithRedirect : IDisposable
 {
-    /// <summary>
-    /// Common base class for test fixtures that use <see cref="Locations.Redirect"/>.
-    /// </summary>
-    public class TestWithRedirect : IDisposable
+    private readonly TemporaryDirectory _tempDir = new("0install-test-redirect");
+
+    private readonly IDisposable _redirect;
+
+    public TestWithRedirect()
     {
-        private readonly TemporaryDirectory _tempDir = new("0install-test-redirect");
+        _redirect = Locations.Redirect(_tempDir);
+    }
 
-        private readonly IDisposable _redirect;
-
-        public TestWithRedirect()
-        {
-            _redirect = Locations.Redirect(_tempDir);
-        }
-
-        public virtual void Dispose()
-        {
-            _redirect.Dispose();
-            _tempDir.Dispose();
-        }
+    public virtual void Dispose()
+    {
+        _redirect.Dispose();
+        _tempDir.Dispose();
     }
 }

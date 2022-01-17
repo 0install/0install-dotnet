@@ -12,98 +12,97 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Properties;
 
-namespace ZeroInstall.Store.Deployment
+namespace ZeroInstall.Store.Deployment;
+
+/// <summary>
+/// Deletes files listed in a <see cref="Manifest"/> file from a directory.
+/// </summary>
+public class ClearDirectory : DirectoryOperation
 {
+    private readonly Stack<string> _pendingDirectoryDeletes = new();
+
     /// <summary>
-    /// Deletes files listed in a <see cref="Manifest"/> file from a directory.
+    /// Creates a new directory clear task.
     /// </summary>
-    public class ClearDirectory : DirectoryOperation
+    /// <param name="path">The path of the directory to clear.</param>
+    /// <param name="manifest">The contents of a <see cref="Manifest"/> file describing the directory.</param>
+    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
+    public ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
+        : base(path, manifest, handler)
+    {}
+
+    private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = new();
+
+    /// <inheritdoc/>
+    protected override void OnStage()
     {
-        private readonly Stack<string> _pendingDirectoryDeletes = new();
+        Log.Debug($"Preparing atomic clearing of directory {Path}");
 
-        /// <summary>
-        /// Creates a new directory clear task.
-        /// </summary>
-        /// <param name="path">The path of the directory to clear.</param>
-        /// <param name="manifest">The contents of a <see cref="Manifest"/> file describing the directory.</param>
-        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-        public ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
-            : base(path, manifest, handler)
-        {}
+        _pendingDirectoryDeletes.Push(Path);
 
-        private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = new();
+        var filesToDelete = new List<string>();
 
-        /// <inheritdoc/>
-        protected override void OnStage()
+        string manifestPath = System.IO.Path.Combine(Path, Manifest.ManifestFile);
+        if (File.Exists(manifestPath))
+            filesToDelete.Add(manifestPath);
+
+        foreach ((string directoryPath, var directory) in Manifest)
         {
-            Log.Debug($"Preparing atomic clearing of directory {Path}");
+            string fullDirectoryPath = System.IO.Path.Combine(Path, directoryPath.ToNativePath());
 
-            _pendingDirectoryDeletes.Push(Path);
+            if (Directory.Exists(fullDirectoryPath))
+                _pendingDirectoryDeletes.Push(fullDirectoryPath);
 
-            var filesToDelete = new List<string>();
+            filesToDelete.AddRange(
+                directory.Keys
+                         .Select(elementName => System.IO.Path.Combine(fullDirectoryPath, elementName))
+                         .Where(File.Exists));
+        }
 
-            string manifestPath = System.IO.Path.Combine(Path, Manifest.ManifestFile);
-            if (File.Exists(manifestPath))
-                filesToDelete.Add(manifestPath);
+        if (filesToDelete.Count != 0)
+        {
+            UnlockFiles(filesToDelete);
 
-            foreach ((string directoryPath, var directory) in Manifest)
+            Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
             {
-                string fullDirectoryPath = System.IO.Path.Combine(Path, directoryPath.ToNativePath());
+                string tempPath = Randomize(path);
+                File.Move(path, tempPath);
+                _pendingFilesDeletes.Push((path, tempPath));
+            }));
+        }
+    }
 
-                if (Directory.Exists(fullDirectoryPath))
-                    _pendingDirectoryDeletes.Push(fullDirectoryPath);
+    /// <inheritdoc/>
+    protected override void OnCommit()
+    {
+        Log.Debug($"Committing atomic clearing of directory {Path}");
 
-                filesToDelete.AddRange(
-                    directory.Keys
-                             .Select(elementName => System.IO.Path.Combine(fullDirectoryPath, elementName))
-                             .Where(File.Exists));
+        _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
+        _pendingDirectoryDeletes.PopEach(path =>
+        {
+            if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
+                Directory.Delete(path);
+        });
+    }
+
+    /// <inheritdoc/>
+    protected override void OnRollback()
+    {
+        Log.Debug($"Rolling back atomic clearing of directory {Path}");
+
+        _pendingFilesDeletes.PopEach(x =>
+        {
+            try
+            {
+                File.Move(x.backupPath, x.path);
             }
-
-            if (filesToDelete.Count != 0)
+            #region Error handling
+            catch (Exception ex)
             {
-                UnlockFiles(filesToDelete);
-
-                Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
-                {
-                    string tempPath = Randomize(path);
-                    File.Move(path, tempPath);
-                    _pendingFilesDeletes.Push((path, tempPath));
-                }));
+                Log.Error(ex);
+                throw;
             }
-        }
-
-        /// <inheritdoc/>
-        protected override void OnCommit()
-        {
-            Log.Debug($"Committing atomic clearing of directory {Path}");
-
-            _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
-            _pendingDirectoryDeletes.PopEach(path =>
-            {
-                if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
-                    Directory.Delete(path);
-            });
-        }
-
-        /// <inheritdoc/>
-        protected override void OnRollback()
-        {
-            Log.Debug($"Rolling back atomic clearing of directory {Path}");
-
-            _pendingFilesDeletes.PopEach(x =>
-            {
-                try
-                {
-                    File.Move(x.backupPath, x.path);
-                }
-                #region Error handling
-                catch (Exception ex)
-                {
-                    Log.Error(ex);
-                    throw;
-                }
-                #endregion
-            });
-        }
+            #endregion
+        });
     }
 }

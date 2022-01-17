@@ -8,22 +8,21 @@ using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Properties;
 using ZeroInstall.Store.Implementations;
 
-namespace ZeroInstall.Services.Native
+namespace ZeroInstall.Services.Native;
+
+/// <summary>
+/// Stub implementation of <see cref="IPackageManager"/>, used when there is no native package manager support for the current platform.
+/// </summary>
+/// <remarks>This class is immutable and thread-safe.</remarks>
+public class StubPackageManager : IPackageManager
 {
     /// <summary>
-    /// Stub implementation of <see cref="IPackageManager"/>, used when there is no native package manager support for the current platform.
+    /// Always returns an empty list.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class StubPackageManager : IPackageManager
-    {
-        /// <summary>
-        /// Always returns an empty list.
-        /// </summary>
-        public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions) => Enumerable.Empty<ExternalImplementation>();
+    public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions) => Enumerable.Empty<ExternalImplementation>();
 
-        /// <summary>
-        /// Always throws <see cref="ImplementationNotFoundException"/>.
-        /// </summary>
-        public ExternalImplementation Lookup(ImplementationSelection selection) => throw new ImplementationNotFoundException(Resources.NoPackageManagerSupport);
-    }
+    /// <summary>
+    /// Always throws <see cref="ImplementationNotFoundException"/>.
+    /// </summary>
+    public ExternalImplementation Lookup(ImplementationSelection selection) => throw new ImplementationNotFoundException(Resources.NoPackageManagerSupport);
 }

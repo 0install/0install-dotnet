@@ -11,59 +11,58 @@ using Microsoft.Deployment.Compression;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.FileSystem;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+/// <summary>
+/// Used to hold state while extracting a MS Cabinet (.cab).
+/// </summary>
+[PrimaryConstructor]
+internal sealed partial class CabExtractorContext : IUnpackStreamContext
 {
-    /// <summary>
-    /// Used to hold state while extracting a MS Cabinet (.cab).
-    /// </summary>
-    [PrimaryConstructor]
-    internal sealed partial class CabExtractorContext : IUnpackStreamContext
+    /// <summary>The builder receiving the extracted files.</summary>
+    private readonly IBuilder _builder;
+
+    /// <summary>The the archive data to be extracted.</summary>
+    private readonly Stream _stream;
+
+    /// <summary>Callback for normalizing the path of archive entries.</summary>
+    private readonly Func<string, string> _normalizePath;
+
+    /// <summary>Used to signal when the user wishes to cancel the extraction.</summary>
+    private readonly CancellationToken _cancellationToken;
+
+    public Stream OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine)
+        => new DuplicateStream(_stream);
+
+    public void CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
+    {}
+
+    private Task? _task;
+    private Pipe? _pipe;
+
+    public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
     {
-        /// <summary>The builder receiving the extracted files.</summary>
-        private readonly IBuilder _builder;
+        _cancellationToken.ThrowIfCancellationRequested();
 
-        /// <summary>The the archive data to be extracted.</summary>
-        private readonly Stream _stream;
+        string relativePath = _normalizePath(path);
+        if (relativePath == null) return null;
 
-        /// <summary>Callback for normalizing the path of archive entries.</summary>
-        private readonly Func<string, string> _normalizePath;
+        _pipe = new();
 
-        /// <summary>Used to signal when the user wishes to cancel the extraction.</summary>
-        private readonly CancellationToken _cancellationToken;
+        var readStream = new ProgressStream(_pipe.Reader.AsStream());
+        readStream.SetLength(fileSize);
+        _task = Task.Run(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), _cancellationToken);
 
-        public Stream OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine)
-            => new DuplicateStream(_stream);
+        return _pipe.Writer.AsStream();
+    }
 
-        public void CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
-        {}
+    public void CloseFileWriteStream(string path, Stream stream, FileAttributes attributes, DateTime lastWriteTime)
+    {
+        _pipe?.Writer.Complete();
+        stream.Dispose();
 
-        private Task? _task;
-        private Pipe? _pipe;
-
-        public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
-        {
-            _cancellationToken.ThrowIfCancellationRequested();
-
-            string relativePath = _normalizePath(path);
-            if (relativePath == null) return null;
-
-            _pipe = new();
-
-            var readStream = new ProgressStream(_pipe.Reader.AsStream());
-            readStream.SetLength(fileSize);
-            _task = Task.Run(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), _cancellationToken);
-
-            return _pipe.Writer.AsStream();
-        }
-
-        public void CloseFileWriteStream(string path, Stream stream, FileAttributes attributes, DateTime lastWriteTime)
-        {
-            _pipe?.Writer.Complete();
-            stream.Dispose();
-
-            _task?.Wait(_cancellationToken);
-            _pipe?.Reader.Complete();
-        }
+        _task?.Wait(_cancellationToken);
+        _pipe?.Reader.Complete();
     }
 }
 #endif

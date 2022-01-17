@@ -4,11 +4,10 @@
 using System;
 using ZeroInstall.Store.FileSystem;
 
-namespace ZeroInstall.Archives.Builders
-{
-    /// <summary>
-    /// Builds an implementation archive file.
-    /// </summary>
-    public interface IArchiveBuilder : IForwardOnlyBuilder, IDisposable
-    {}
-}
+namespace ZeroInstall.Archives.Builders;
+
+/// <summary>
+/// Builds an implementation archive file.
+/// </summary>
+public interface IArchiveBuilder : IForwardOnlyBuilder, IDisposable
+{}

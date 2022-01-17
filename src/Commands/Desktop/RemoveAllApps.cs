@@ -7,37 +7,36 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.DesktopIntegration;
 
-namespace ZeroInstall.Commands.Desktop
+namespace ZeroInstall.Commands.Desktop;
+
+/// <summary>
+/// Removes all applications from the <see cref="AppList"/> and undoes any desktop environment integration.
+/// </summary>
+public class RemoveAllApps : IntegrationCommand
 {
-    /// <summary>
-    /// Removes all applications from the <see cref="AppList"/> and undoes any desktop environment integration.
-    /// </summary>
-    public class RemoveAllApps : IntegrationCommand
+    public const string Name = "remove-all";
+    public const string AltName = "remove-all-apps";
+    public override string Description => Resources.DescriptionRemoveAllApps;
+    public override string Usage => "[OPTIONS]";
+    protected override int AdditionalArgsMax => 0;
+
+    /// <inheritdoc/>
+    public RemoveAllApps(ICommandHandler handler)
+        : base(handler)
+    {}
+
+    /// <inheritdoc/>
+    public override ExitCode Execute()
     {
-        public const string Name = "remove-all";
-        public const string AltName = "remove-all-apps";
-        public override string Description => Resources.DescriptionRemoveAllApps;
-        public override string Usage => "[OPTIONS]";
-        protected override int AdditionalArgsMax => 0;
+        if (!Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
+            return ExitCode.NoChanges;
 
-        /// <inheritdoc/>
-        public RemoveAllApps(ICommandHandler handler)
-            : base(handler)
-        {}
+        using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
+        Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
 
-        /// <inheritdoc/>
-        public override ExitCode Execute()
-        {
-            if (!Handler.Ask(Resources.ConfirmRemoveAll, defaultAnswer: true))
-                return ExitCode.NoChanges;
+        // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
+        File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
 
-            using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
-            Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
-
-            // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
-            File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
-
-            return ExitCode.OK;
-        }
+        return ExitCode.OK;
     }
 }

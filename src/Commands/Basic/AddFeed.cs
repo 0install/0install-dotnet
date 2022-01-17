@@ -11,62 +11,61 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Preferences;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+/// <summary>
+/// Register an additional source of implementations (versions) of a program.
+/// </summary>
+public class AddFeed : AddRemoveFeedCommand
 {
-    /// <summary>
-    /// Register an additional source of implementations (versions) of a program.
-    /// </summary>
-    public class AddFeed : AddRemoveFeedCommand
+    public const string Name = "add-feed";
+    public override string Description => Resources.DescriptionAddFeed;
+
+    /// <inheritdoc/>
+    public AddFeed(ICommandHandler handler)
+        : base(handler)
+    {}
+
+    /// <inheritdoc/>
+    protected override ExitCode ExecuteHelper(IEnumerable<FeedUri> interfaces, FeedReference source, Stability suggestedStabilityPolicy)
     {
-        public const string Name = "add-feed";
-        public override string Description => Resources.DescriptionAddFeed;
+        #region Sanity checks
+        if (interfaces == null) throw new ArgumentNullException(nameof(interfaces));
+        if (source == null) throw new ArgumentNullException(nameof(source));
+        #endregion
 
-        /// <inheritdoc/>
-        public AddFeed(ICommandHandler handler)
-            : base(handler)
-        {}
-
-        /// <inheritdoc/>
-        protected override ExitCode ExecuteHelper(IEnumerable<FeedUri> interfaces, FeedReference source, Stability suggestedStabilityPolicy)
+        var modifiedInterfaces = new List<FeedUri>();
+        foreach (var interfaceUri in interfaces)
         {
-            #region Sanity checks
-            if (interfaces == null) throw new ArgumentNullException(nameof(interfaces));
-            if (source == null) throw new ArgumentNullException(nameof(source));
-            #endregion
+            var preferences = InterfacePreferences.LoadFor(interfaceUri);
+            if (preferences.Feeds.AddIfNew(source))
+                modifiedInterfaces.Add(interfaceUri);
 
-            var modifiedInterfaces = new List<FeedUri>();
-            foreach (var interfaceUri in interfaces)
+            var effectiveStabilityPolicy = (preferences.StabilityPolicy == Stability.Unset)
+                ? (Config.HelpWithTesting ? Stability.Testing : Stability.Stable)
+                : preferences.StabilityPolicy;
+            if (effectiveStabilityPolicy < suggestedStabilityPolicy)
             {
-                var preferences = InterfacePreferences.LoadFor(interfaceUri);
-                if (preferences.Feeds.AddIfNew(source))
-                    modifiedInterfaces.Add(interfaceUri);
-
-                var effectiveStabilityPolicy = (preferences.StabilityPolicy == Stability.Unset)
-                    ? (Config.HelpWithTesting ? Stability.Testing : Stability.Stable)
-                    : preferences.StabilityPolicy;
-                if (effectiveStabilityPolicy < suggestedStabilityPolicy)
-                {
-                    string stabilityMessage = string.Format(Resources.StabilityPolicySuggested, source.Source.ToStringRfc(), suggestedStabilityPolicy);
-                    if (Handler.Ask(
+                string stabilityMessage = string.Format(Resources.StabilityPolicySuggested, source.Source.ToStringRfc(), suggestedStabilityPolicy);
+                if (Handler.Ask(
                         stabilityMessage + Environment.NewLine + string.Format(Resources.StabilityPolicyAutoSet, interfaceUri.ToStringRfc()),
                         defaultAnswer: false, alternateMessage: stabilityMessage))
-                        preferences.StabilityPolicy = suggestedStabilityPolicy;
-                }
-                preferences.SaveFor(interfaceUri);
+                    preferences.StabilityPolicy = suggestedStabilityPolicy;
             }
+            preferences.SaveFor(interfaceUri);
+        }
 
-            if (modifiedInterfaces.Count == 0)
-            {
-                Handler.OutputLow(Resources.FeedManagement, Resources.FeedAlreadyRegistered);
-                return ExitCode.NoChanges;
-            }
-            else
-            {
-                Handler.OutputLow(Resources.FeedManagement,
-                    Resources.FeedRegistered + Environment.NewLine +
-                    StringUtils.Join(Environment.NewLine, modifiedInterfaces.Select(x => x.ToStringRfc())));
-                return ExitCode.OK;
-            }
+        if (modifiedInterfaces.Count == 0)
+        {
+            Handler.OutputLow(Resources.FeedManagement, Resources.FeedAlreadyRegistered);
+            return ExitCode.NoChanges;
+        }
+        else
+        {
+            Handler.OutputLow(Resources.FeedManagement,
+                Resources.FeedRegistered + Environment.NewLine +
+                StringUtils.Join(Environment.NewLine, modifiedInterfaces.Select(x => x.ToStringRfc())));
+            return ExitCode.OK;
         }
     }
 }

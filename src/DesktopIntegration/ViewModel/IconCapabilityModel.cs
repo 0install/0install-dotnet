@@ -4,27 +4,26 @@
 using System.Globalization;
 using ZeroInstall.Model.Capabilities;
 
-namespace ZeroInstall.DesktopIntegration.ViewModel
+namespace ZeroInstall.DesktopIntegration.ViewModel;
+
+/// <summary>
+/// Wraps an <see cref="IconCapability"/> for data binding.
+/// </summary>
+public class IconCapabilityModel : CapabilityModel
 {
+    private readonly IconCapability _iconCapability;
+
     /// <summary>
-    /// Wraps an <see cref="IconCapability"/> for data binding.
+    /// Returns the description of the <see cref="IconCapability" /> dependant on <see cref="CultureInfo.CurrentUICulture" />.
     /// </summary>
-    public class IconCapabilityModel : CapabilityModel
+    public string Description
+        => _iconCapability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture)
+        ?? _iconCapability.ID;
+
+    /// <inheritdoc/>
+    protected IconCapabilityModel(IconCapability capability, bool used)
+        : base(capability, used)
     {
-        private readonly IconCapability _iconCapability;
-
-        /// <summary>
-        /// Returns the description of the <see cref="IconCapability" /> dependant on <see cref="CultureInfo.CurrentUICulture" />.
-        /// </summary>
-        public string Description
-            => _iconCapability.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture)
-            ?? _iconCapability.ID;
-
-        /// <inheritdoc/>
-        protected IconCapabilityModel(IconCapability capability, bool used)
-            : base(capability, used)
-        {
-            _iconCapability = capability;
-        }
+        _iconCapability = capability;
     }
 }

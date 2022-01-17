@@ -3,18 +3,17 @@
 
 using System.IO;
 
-namespace ZeroInstall.Publish.EntryPoints
+namespace ZeroInstall.Publish.EntryPoints;
+
+/// <summary>
+/// Any file with the POSIX executable bit (xbit) set.
+/// </summary>
+public abstract class PosixExecutable : NativeExecutable
 {
-    /// <summary>
-    /// Any file with the POSIX executable bit (xbit) set.
-    /// </summary>
-    public abstract class PosixExecutable : NativeExecutable
+    /// <inheritdoc/>
+    internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
     {
-        /// <inheritdoc/>
-        internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
-        {
-            if (!base.Analyze(baseDirectory, file)) return false;
-            return IsExecutable(file.FullName);
-        }
+        if (!base.Analyze(baseDirectory, file)) return false;
+        return IsExecutable(file.FullName);
     }
 }

@@ -5,25 +5,24 @@ using System.Linq;
 using NanoByte.Common;
 using ZeroInstall.Model.Capabilities;
 
-namespace ZeroInstall.DesktopIntegration.ViewModel
+namespace ZeroInstall.DesktopIntegration.ViewModel;
+
+/// <summary>
+/// Wraps a <see cref="FileType"/> for data binding.
+/// </summary>
+public class FileTypeModel : IconCapabilityModel
 {
+    private readonly FileType _fileType;
+
     /// <summary>
-    /// Wraps a <see cref="FileType"/> for data binding.
+    /// All <see cref="FileType.Extensions" /> concatenated with ", ".
     /// </summary>
-    public class FileTypeModel : IconCapabilityModel
+    public string Extensions => StringUtils.Join(", ", _fileType.Extensions.Select(extension => extension.Value));
+
+    /// <inheritdoc/>
+    public FileTypeModel(FileType fileType, bool used)
+        : base(fileType, used)
     {
-        private readonly FileType _fileType;
-
-        /// <summary>
-        /// All <see cref="FileType.Extensions" /> concatenated with ", ".
-        /// </summary>
-        public string Extensions => StringUtils.Join(", ", _fileType.Extensions.Select(extension => extension.Value));
-
-        /// <inheritdoc/>
-        public FileTypeModel(FileType fileType, bool used)
-            : base(fileType, used)
-        {
-            _fileType = fileType;
-        }
+        _fileType = fileType;
     }
 }

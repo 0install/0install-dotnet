@@ -5,18 +5,17 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using NanoByte.Common.Collections;
 
-namespace ZeroInstall.Model
+namespace ZeroInstall.Model;
+
+/// <summary>
+/// An object that has localizable descriptions.
+/// </summary>
+public interface IDescriptionContainer
 {
     /// <summary>
-    /// An object that has localizable descriptions.
+    /// Full descriptions for different languages, which can be several paragraphs long.
     /// </summary>
-    public interface IDescriptionContainer
-    {
-        /// <summary>
-        /// Full descriptions for different languages, which can be several paragraphs long.
-        /// </summary>
-        [Browsable(false)]
-        [XmlElement("description")]
-        LocalizableStringCollection Descriptions { get; }
-    }
+    [Browsable(false)]
+    [XmlElement("description")]
+    LocalizableStringCollection Descriptions { get; }
 }

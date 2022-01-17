@@ -8,69 +8,68 @@ using NanoByte.Common.Collections;
 using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 
-namespace ZeroInstall.Services.Solvers
+namespace ZeroInstall.Services.Solvers;
+
+/// <summary>
+/// Uses limited backtracking to solve <see cref="Requirements"/>. Does not find all possible solutions!
+/// </summary>
+/// <remarks>This class is immutable and thread-safe.</remarks>
+[PrimaryConstructor]
+public partial class BacktrackingSolver : ISolver
 {
     /// <summary>
-    /// Uses limited backtracking to solve <see cref="Requirements"/>. Does not find all possible solutions!
+    /// The maximum number backtracking steps to perform before giving up.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
-    [PrimaryConstructor]
-    public partial class BacktrackingSolver : ISolver
+    private const int MaxBacktrackingSteps = 64;
+
+    private readonly ISelectionCandidateProvider _candidateProvider;
+
+    /// <inheritdoc/>
+    public Selections Solve(Requirements requirements)
     {
-        /// <summary>
-        /// The maximum number backtracking steps to perform before giving up.
-        /// </summary>
-        private const int MaxBacktrackingSteps = 64;
+        Log.Info($"Running Backtracking Solver for {requirements}");
+        return new SolverRun(requirements.ForCurrentSystem(), _candidateProvider).Solve();
+    }
 
-        private readonly ISelectionCandidateProvider _candidateProvider;
+    private class SolverRun : SolverRunBase
+    {
+        private int _backtrackCounter;
 
-        /// <inheritdoc/>
-        public Selections Solve(Requirements requirements)
+        public SolverRun(Requirements requirements, ISelectionCandidateProvider candidateProvider)
+            : base(requirements, candidateProvider)
+        {}
+
+        protected override bool TryFulfill(SolverDemand demand, IEnumerable<SelectionCandidate> candidates)
         {
-            Log.Info($"Running Backtracking Solver for {requirements}");
-            return new SolverRun(requirements.ForCurrentSystem(), _candidateProvider).Solve();
+            foreach (var selection in candidates.ToSelections(demand))
+            {
+                Selections.Implementations.Add(selection);
+                if (TryFulfill(DemandsFor(selection, demand.Requirements))) return true;
+                else Selections.Implementations.RemoveLast();
+            }
+
+            if (_backtrackCounter++ >= MaxBacktrackingSteps) throw new SolverException("Too much backtracking; dependency graph too complex.");
+            return false;
         }
 
-        private class SolverRun : SolverRunBase
+        protected override bool TryFulfill(IEnumerable<SolverDemand> demands)
         {
-            private int _backtrackCounter;
+            var (essential, recommended) = Bucketize(demands);
 
-            public SolverRun(Requirements requirements, ISelectionCandidateProvider candidateProvider)
-                : base(requirements, candidateProvider)
-            {}
+            // Quickly reject impossible sets of demands
+            if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
 
-            protected override bool TryFulfill(SolverDemand demand, IEnumerable<SelectionCandidate> candidates)
+            var selectionsSnapshot = Selections.Clone(); // Create snapshot
+            foreach (var essentialPermutation in essential.Permutate())
             {
-                foreach (var selection in candidates.ToSelections(demand))
+                if (essentialPermutation.All(TryFulfill))
                 {
-                    Selections.Implementations.Add(selection);
-                    if (TryFulfill(DemandsFor(selection, demand.Requirements))) return true;
-                    else Selections.Implementations.RemoveLast();
+                    recommended.ForEach(demand => TryFulfill(demand));
+                    return true;
                 }
-
-                if (_backtrackCounter++ >= MaxBacktrackingSteps) throw new SolverException("Too much backtracking; dependency graph too complex.");
-                return false;
+                else Selections = selectionsSnapshot.Clone(); // Revert to snapshot
             }
-
-            protected override bool TryFulfill(IEnumerable<SolverDemand> demands)
-            {
-                var (essential, recommended) = Bucketize(demands);
-
-                // Quickly reject impossible sets of demands
-                if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
-
-                var selectionsSnapshot = Selections.Clone(); // Create snapshot
-                foreach (var essentialPermutation in essential.Permutate())
-                {
-                    if (essentialPermutation.All(TryFulfill))
-                    {
-                        recommended.ForEach(demand => TryFulfill(demand));
-                        return true;
-                    }
-                    else Selections = selectionsSnapshot.Clone(); // Revert to snapshot
-                }
-                return false;
-            }
+            return false;
         }
     }
 }

@@ -6,18 +6,17 @@ using NanoByte.Common.Tasks;
 using Xunit;
 using ZeroInstall.Model;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+/// <summary>
+/// Contains test methods for <see cref="ArchiveExtractor"/>.
+/// </summary>
+public class ArchiveExtractorTest
 {
-    /// <summary>
-    /// Contains test methods for <see cref="ArchiveExtractor"/>.
-    /// </summary>
-    public class ArchiveExtractorTest
+    [Fact]
+    public void TestForZip()
     {
-        [Fact]
-        public void TestForZip()
-        {
-            ArchiveExtractor.For(Archive.MimeTypeZip, new SilentTaskHandler())
-                            .Should().BeOfType<ZipExtractor>();
-        }
+        ArchiveExtractor.For(Archive.MimeTypeZip, new SilentTaskHandler())
+                        .Should().BeOfType<ZipExtractor>();
     }
 }

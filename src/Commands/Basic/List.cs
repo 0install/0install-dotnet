@@ -5,32 +5,31 @@ using System.Linq;
 using NanoByte.Common;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+/// <summary>
+/// List all known interface (program) URIs.
+/// </summary>
+/// <remarks>If a search term is given, only URIs containing that string are shown (case insensitive).</remarks>
+public class List : CliCommand
 {
-    /// <summary>
-    /// List all known interface (program) URIs.
-    /// </summary>
-    /// <remarks>If a search term is given, only URIs containing that string are shown (case insensitive).</remarks>
-    public class List : CliCommand
+    public const string Name = "list";
+    public override string Description => Resources.DescriptionList;
+    public override string Usage => "[PATTERN]";
+    protected override int AdditionalArgsMax => 1;
+
+    /// <inheritdoc/>
+    public List(ICommandHandler handler)
+        : base(handler)
+    {}
+
+    /// <inheritdoc/>
+    public override ExitCode Execute()
     {
-        public const string Name = "list";
-        public override string Description => Resources.DescriptionList;
-        public override string Usage => "[PATTERN]";
-        protected override int AdditionalArgsMax => 1;
+        var feeds = FeedCache.ListAll().Select(x => x.ToStringRfc());
+        if (AdditionalArgs.Count > 0) feeds = feeds.Where(x => x.ContainsIgnoreCase(AdditionalArgs[0]));
 
-        /// <inheritdoc/>
-        public List(ICommandHandler handler)
-            : base(handler)
-        {}
-
-        /// <inheritdoc/>
-        public override ExitCode Execute()
-        {
-            var feeds = FeedCache.ListAll().Select(x => x.ToStringRfc());
-            if (AdditionalArgs.Count > 0) feeds = feeds.Where(x => x.ContainsIgnoreCase(AdditionalArgs[0]));
-
-            Handler.Output(Resources.FeedsCached, feeds);
-            return ExitCode.OK;
-        }
+        Handler.Output(Resources.FeedsCached, feeds);
+        return ExitCode.OK;
     }
 }

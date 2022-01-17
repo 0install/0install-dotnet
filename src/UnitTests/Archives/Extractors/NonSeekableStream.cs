@@ -5,18 +5,17 @@ using System;
 using System.IO;
 using NanoByte.Common.Streams;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+public class NonSeekableStream : DelegatingStream
 {
-    public class NonSeekableStream : DelegatingStream
-    {
-        public NonSeekableStream(Stream underlyingStream)
-            : base(underlyingStream)
-        {}
+    public NonSeekableStream(Stream underlyingStream)
+        : base(underlyingStream)
+    {}
 
-        public override bool CanSeek => false;
+    public override bool CanSeek => false;
 
-        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+    public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
 
-        public override long Position { get => base.Position; set => throw new NotSupportedException(); }
-    }
+    public override long Position { get => base.Position; set => throw new NotSupportedException(); }
 }

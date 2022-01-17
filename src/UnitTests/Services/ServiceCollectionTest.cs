@@ -8,18 +8,17 @@ using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Solvers;
 
-namespace ZeroInstall.Services
+namespace ZeroInstall.Services;
+
+public class ServiceCollectionTest
 {
-    public class ServiceCollectionTest
+    [Fact]
+    public void DependencyResolution()
     {
-        [Fact]
-        public void DependencyResolution()
-        {
-            var provider = new ServiceCollection().AddZeroInstall().BuildServiceProvider();
-            provider.GetRequiredService<ISolver>();
-            provider.GetRequiredService<IFetcher>();
-            provider.GetRequiredService<IExecutor>();
-        }
+        var provider = new ServiceCollection().AddZeroInstall().BuildServiceProvider();
+        provider.GetRequiredService<ISolver>();
+        provider.GetRequiredService<IFetcher>();
+        provider.GetRequiredService<IExecutor>();
     }
 }
 #endif

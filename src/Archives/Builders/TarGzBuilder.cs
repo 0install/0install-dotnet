@@ -4,19 +4,18 @@
 using System.IO;
 using ICSharpCode.SharpZipLib.GZip;
 
-namespace ZeroInstall.Archives.Builders
+namespace ZeroInstall.Archives.Builders;
+
+/// <summary>
+/// Builds a GZip-compressed TAR archive (.tar.gz).
+/// </summary>
+public class TarGzBuilder : TarBuilder
 {
     /// <summary>
-    /// Builds a GZip-compressed TAR archive (.tar.gz).
+    /// Creates a TAR GZip archive builder.
     /// </summary>
-    public class TarGzBuilder : TarBuilder
-    {
-        /// <summary>
-        /// Creates a TAR GZip archive builder.
-        /// </summary>
-        /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-        public TarGzBuilder(Stream stream)
-            : base(new GZipOutputStream(stream))
-        {}
-    }
+    /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+    public TarGzBuilder(Stream stream)
+        : base(new GZipOutputStream(stream))
+    {}
 }

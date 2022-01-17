@@ -4,17 +4,16 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace ZeroInstall.Model
+namespace ZeroInstall.Model;
+
+/// <summary>
+/// An object that contains <see cref="ArgBase"/>s.
+/// </summary>
+public interface IArgBaseContainer
 {
     /// <summary>
-    /// An object that contains <see cref="ArgBase"/>s.
+    /// A list of command-line arguments to be passed to an executable.
     /// </summary>
-    public interface IArgBaseContainer
-    {
-        /// <summary>
-        /// A list of command-line arguments to be passed to an executable.
-        /// </summary>
-        [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
-        List<ArgBase> Arguments { get; }
-    }
+    [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
+    List<ArgBase> Arguments { get; }
 }

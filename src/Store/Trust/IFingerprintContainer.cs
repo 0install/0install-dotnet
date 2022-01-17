@@ -3,17 +3,16 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace ZeroInstall.Store.Trust
+namespace ZeroInstall.Store.Trust;
+
+/// <summary>
+/// An object containing a fingerprint for an <see cref="IOpenPgp"/> public or private key.
+/// </summary>
+public interface IFingerprintContainer : IKeyIDContainer
 {
     /// <summary>
-    /// An object containing a fingerprint for an <see cref="IOpenPgp"/> public or private key.
+    /// An OpenPGP key fingerprint. A long identifier for a key. Superset of <see cref="IKeyIDContainer.KeyID"/>.
     /// </summary>
-    public interface IFingerprintContainer : IKeyIDContainer
-    {
-        /// <summary>
-        /// An OpenPGP key fingerprint. A long identifier for a key. Superset of <see cref="IKeyIDContainer.KeyID"/>.
-        /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        byte[] Fingerprint { get; }
-    }
+    [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
+    byte[] Fingerprint { get; }
 }

@@ -5,29 +5,28 @@ using System.IO;
 using System.Xml.Serialization;
 using NanoByte.Common;
 
-namespace ZeroInstall.Model
+namespace ZeroInstall.Model;
+
+/// <summary>
+/// Bindings specify how the chosen implementation is made known to the running program.
+/// </summary>
+/// <remarks>
+/// Bindings can appear in <see cref="Dependency"/>s, in which case they tell a component how to find its dependency,
+/// or in <see cref="Element"/>, where they tell a component how to find itself.
+/// </remarks>
+[XmlType("binding-base", Namespace = Feed.XmlNamespace)]
+public abstract class Binding : FeedElement, ICloneable<Binding>
 {
     /// <summary>
-    /// Bindings specify how the chosen implementation is made known to the running program.
+    /// Creates a deep copy of this <see cref="Binding"/> instance.
     /// </summary>
-    /// <remarks>
-    /// Bindings can appear in <see cref="Dependency"/>s, in which case they tell a component how to find its dependency,
-    /// or in <see cref="Element"/>, where they tell a component how to find itself.
-    /// </remarks>
-    [XmlType("binding-base", Namespace = Feed.XmlNamespace)]
-    public abstract class Binding : FeedElement, ICloneable<Binding>
-    {
-        /// <summary>
-        /// Creates a deep copy of this <see cref="Binding"/> instance.
-        /// </summary>
-        /// <returns>The new copy of the <see cref="Binding"/>.</returns>
-        public abstract Binding Clone();
+    /// <returns>The new copy of the <see cref="Binding"/>.</returns>
+    public abstract Binding Clone();
 
-        /// <summary>
-        /// Converts legacy elements, sets default values, etc..
-        /// </summary>
-        /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
-        public virtual void Normalize()
-        {}
-    }
+    /// <summary>
+    /// Converts legacy elements, sets default values, etc..
+    /// </summary>
+    /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+    public virtual void Normalize()
+    {}
 }

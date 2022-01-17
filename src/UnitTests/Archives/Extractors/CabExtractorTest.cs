@@ -8,51 +8,50 @@ using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Manifests;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+public class CabExtractorTest : ArchiveExtractorTestBase
 {
-    public class CabExtractorTest : ArchiveExtractorTestBase
+    protected override string MimeType => Archive.MimeTypeCab;
+
+    private static readonly DateTime _timestamp = new(2000, 1, 1, 13, 0, 0);
+
+    public CabExtractorTest()
     {
-        protected override string MimeType => Archive.MimeTypeCab;
+        Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
+    }
 
-        private static readonly DateTime _timestamp = new(2000, 1, 1, 13, 0, 0);
-
-        public CabExtractorTest()
-        {
-            Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
-        }
-
-        [SkippableFact]
-        public void Extract()
-        {
-            Test(
-                "testArchive.cab",
-                new Manifest(ManifestFormat.Sha1New)
+    [SkippableFact]
+    public void Extract()
+    {
+        Test(
+            "testArchive.cab",
+            new Manifest(ManifestFormat.Sha1New)
+            {
+                [""] =
                 {
-                    [""] =
-                    {
-                        ["file"] = Normal("abc", _timestamp)
-                    },
-                    ["folder1"] =
-                    {
-                        ["file"] = Normal("def", _timestamp)
-                    }
-                });
-        }
-
-        [SkippableFact]
-        public void ExtractSubDir()
-        {
-            Test(
-                "testArchive.cab",
-                new Manifest(ManifestFormat.Sha1New)
-                {
-                    [""] =
-                    {
-                        ["file"] = Normal("def", _timestamp)
-                    }
+                    ["file"] = Normal("abc", _timestamp)
                 },
-                subDir: "folder1");
-        }
+                ["folder1"] =
+                {
+                    ["file"] = Normal("def", _timestamp)
+                }
+            });
+    }
+
+    [SkippableFact]
+    public void ExtractSubDir()
+    {
+        Test(
+            "testArchive.cab",
+            new Manifest(ManifestFormat.Sha1New)
+            {
+                [""] =
+                {
+                    ["file"] = Normal("def", _timestamp)
+                }
+            },
+            subDir: "folder1");
     }
 }
 #endif

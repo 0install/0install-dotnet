@@ -3,17 +3,16 @@
 
 using System.ComponentModel;
 
-namespace ZeroInstall.Commands
+namespace ZeroInstall.Commands;
+
+/// <summary>
+/// Interface for <see cref="CliCommand"/>s that are aggregated by a <see cref="CliMultiCommand"/>.
+/// </summary>
+public interface ICliSubCommand
 {
     /// <summary>
-    /// Interface for <see cref="CliCommand"/>s that are aggregated by a <see cref="CliMultiCommand"/>.
+    /// The name of the <see cref="CliMultiCommand"/> this command is a sub-command of.
     /// </summary>
-    public interface ICliSubCommand
-    {
-        /// <summary>
-        /// The name of the <see cref="CliMultiCommand"/> this command is a sub-command of.
-        /// </summary>
-        [Localizable(false)]
-        string ParentName { get; }
-    }
+    [Localizable(false)]
+    string ParentName { get; }
 }

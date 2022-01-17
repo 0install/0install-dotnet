@@ -15,124 +15,123 @@ using ZeroInstall.Model;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Properties;
 
-namespace ZeroInstall.Store.Icons
+namespace ZeroInstall.Store.Icons;
+
+/// <summary>
+/// Stores icon files downloaded from the web as local files.
+/// </summary>
+/// <remarks>This class is immutable and thread-safe.</remarks>
+[PrimaryConstructor]
+public sealed partial class IconStore : IIconStore
 {
+    private readonly string _path;
+    private readonly Config _config;
+    private readonly ITaskHandler _handler;
+    private readonly JobQueue _backgroundUpdates = new();
+
     /// <summary>
-    /// Stores icon files downloaded from the web as local files.
+    /// The maximum number of bytes to download for a single icon.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
-    [PrimaryConstructor]
-    public sealed partial class IconStore : IIconStore
+    private const long MaximumIconSize = 2 * 1024 * 1024; // 2MiB
+
+    /// <inheritdoc/>
+    public string? GetCached(Icon icon, out bool stale)
     {
-        private readonly string _path;
-        private readonly Config _config;
-        private readonly ITaskHandler _handler;
-        private readonly JobQueue _backgroundUpdates = new();
+        #region Sanity checks
+        if (icon == null) throw new ArgumentNullException(nameof(icon));
+        if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
+        #endregion
 
-        /// <summary>
-        /// The maximum number of bytes to download for a single icon.
-        /// </summary>
-        private const long MaximumIconSize = 2 * 1024 * 1024; // 2MiB
+        string path = GetPath(icon);
 
-        /// <inheritdoc/>
-        public string? GetCached(Icon icon, out bool stale)
+        if (File.Exists(path))
         {
-            #region Sanity checks
-            if (icon == null) throw new ArgumentNullException(nameof(icon));
-            if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
-            #endregion
-
-            string path = GetPath(icon);
-
-            if (File.Exists(path))
-            {
-                stale = DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
-                return path;
-            }
-            else
-            {
-                stale = false;
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
-        /// </summary>
-        /// <param name="icon">The icon to get.</param>
-        /// <param name="backgroundUpdate">Set to <c>true</c> to return stale icons and download an update in the background for future use.</param>
-        /// <returns>The file path of the cached icon.</returns>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
-        /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
-        /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
-        public string Get(Icon icon, bool backgroundUpdate = false)
-        {
-            // Prevent concurrent downloads of same icon
-            using var mutex = new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode());
-
-            string path = GetCached(icon, out bool stale) ?? Download(icon);
-
-            if (stale && _config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected)
-            {
-                if (backgroundUpdate)
-                {
-                    Task.Delay(TimeSpan.FromSeconds(2), _handler.CancellationToken)
-                        .ContinueWith(_ => _backgroundUpdates.Enqueue(() => Update(icon)));
-                }
-                else Update(icon);
-            }
-
+            stale = DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
             return path;
         }
-
-        private readonly ConcurrentSet<Uri> _updatedIcons = new();
-
-        private void Update(Icon icon)
+        else
         {
-            if (!_updatedIcons.AddIfNew(icon.Href)) return;
+            stale = false;
+            return null;
+        }
+    }
 
-            try
+    /// <summary>
+    /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
+    /// </summary>
+    /// <param name="icon">The icon to get.</param>
+    /// <param name="backgroundUpdate">Set to <c>true</c> to return stale icons and download an update in the background for future use.</param>
+    /// <returns>The file path of the cached icon.</returns>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
+    /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
+    public string Get(Icon icon, bool backgroundUpdate = false)
+    {
+        // Prevent concurrent downloads of same icon
+        using var mutex = new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode());
+
+        string path = GetCached(icon, out bool stale) ?? Download(icon);
+
+        if (stale && _config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected)
+        {
+            if (backgroundUpdate)
             {
-                Download(icon);
+                Task.Delay(TimeSpan.FromSeconds(2), _handler.CancellationToken)
+                    .ContinueWith(_ => _backgroundUpdates.Enqueue(() => Update(icon)));
             }
-            catch (OperationCanceledException)
-            {}
-            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
-            {
-                Log.Warn(ex);
-            }
+            else Update(icon);
         }
 
-        private string Download(Icon icon)
+        return path;
+    }
+
+    private readonly ConcurrentSet<Uri> _updatedIcons = new();
+
+    private void Update(Icon icon)
+    {
+        if (!_updatedIcons.AddIfNew(icon.Href)) return;
+
+        try
         {
-            if (_config.NetworkUse == NetworkLevel.Offline)
-                throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
+            Download(icon);
+        }
+        catch (OperationCanceledException)
+        {}
+        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
+        {
+            Log.Warn(ex);
+        }
+    }
 
-            string path = GetPath(icon);
+    private string Download(Icon icon)
+    {
+        if (_config.NetworkUse == NetworkLevel.Offline)
+            throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 
-            using var atomic = new AtomicWrite(path);
-            _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
-            atomic.Commit();
+        string path = GetPath(icon);
 
-            return path;
+        using var atomic = new AtomicWrite(path);
+        _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+        atomic.Commit();
+
+        return path;
+    }
+
+    internal string GetPath(Icon icon)
+    {
+        string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
+
+        void EnsureExtension(string mimeType, string extension)
+        {
+            if (icon.MimeType == mimeType && !StringUtils.EqualsIgnoreCase(Path.GetExtension(path), extension))
+                path += extension;
         }
 
-        internal string GetPath(Icon icon)
-        {
-            string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
+        EnsureExtension(Icon.MimeTypePng, ".png");
+        EnsureExtension(Icon.MimeTypeIco, ".ico");
+        EnsureExtension(Icon.MimeTypeSvg, ".svg");
 
-            void EnsureExtension(string mimeType, string extension)
-            {
-                if (icon.MimeType == mimeType && !StringUtils.EqualsIgnoreCase(Path.GetExtension(path), extension))
-                    path += extension;
-            }
-
-            EnsureExtension(Icon.MimeTypePng, ".png");
-            EnsureExtension(Icon.MimeTypeIco, ".ico");
-            EnsureExtension(Icon.MimeTypeSvg, ".svg");
-
-            return path;
-        }
+        return path;
     }
 }

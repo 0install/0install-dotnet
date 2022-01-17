@@ -5,20 +5,19 @@ using System;
 using System.Net;
 using System.Runtime.Serialization;
 
-namespace ZeroInstall.DesktopIntegration
-{
-    /// <summary>
-    /// Multiple computers are trying to sync with the same account at the same time.
-    /// </summary>
-    [Serializable]
-    public class SyncRaceException : WebException
-    {
-        public SyncRaceException(WebException ex)
-            : base("Multiple computers are trying to sync with the same account at the same time.", ex, ex.Status, ex.Response)
-        {}
+namespace ZeroInstall.DesktopIntegration;
 
-        protected SyncRaceException(SerializationInfo serializationInfo, StreamingContext streamingContext)
-            : base(serializationInfo, streamingContext)
-        {}
-    }
+/// <summary>
+/// Multiple computers are trying to sync with the same account at the same time.
+/// </summary>
+[Serializable]
+public class SyncRaceException : WebException
+{
+    public SyncRaceException(WebException ex)
+        : base("Multiple computers are trying to sync with the same account at the same time.", ex, ex.Status, ex.Response)
+    {}
+
+    protected SyncRaceException(SerializationInfo serializationInfo, StreamingContext streamingContext)
+        : base(serializationInfo, streamingContext)
+    {}
 }

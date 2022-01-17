@@ -10,103 +10,103 @@ using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement
+namespace ZeroInstall.Commands.Desktop.SelfManagement;
+
+/// <summary>
+/// Represents a specific Zero Install instance that is to be deployed, updated or removed.
+/// </summary>
+/// <remarks>
+/// To prevent race-conditions there may only be one maintenance class instance active at any given time.
+/// This class acquires a mutex upon calling its constructor and releases it upon calling <see cref="IDisposable.Dispose"/>.
+/// </remarks>
+public partial class SelfManager : ManagerBase
 {
     /// <summary>
-    /// Represents a specific Zero Install instance that is to be deployed, updated or removed.
+    /// The name of the cross-process mutex used to signal that a maintenance operation is currently in progress.
     /// </summary>
-    /// <remarks>
-    /// To prevent race-conditions there may only be one maintenance class instance active at any given time.
-    /// This class acquires a mutex upon calling its constructor and releases it upon calling <see cref="IDisposable.Dispose"/>.
-    /// </remarks>
-    public partial class SelfManager : ManagerBase
+    protected override string MutexName => "ZeroInstall.Commands.MaintenanceManager";
+
+    /// <summary>
+    /// The full path to the directory containing the Zero Install instance.
+    /// </summary>
+    public string TargetDir { get; }
+
+    /// <summary>
+    /// Controls whether the Zero Install instance at <see cref="TargetDir"/> should be a portable instance.
+    /// </summary>
+    public bool Portable { get; }
+
+    /// <summary>
+    /// Creates a new maintenance manager.
+    /// </summary>
+    /// <param name="targetDir">The full path to the directory containing the Zero Install instance.</param>
+    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
+    /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
+    public SelfManager(string targetDir, ITaskHandler handler, bool machineWide = false, bool portable = false)
+        : base(handler, machineWide)
     {
-        /// <summary>
-        /// The name of the cross-process mutex used to signal that a maintenance operation is currently in progress.
-        /// </summary>
-        protected override string MutexName => "ZeroInstall.Commands.MaintenanceManager";
+        #region Sanity checks
+        if (string.IsNullOrEmpty(targetDir)) throw new ArgumentNullException(nameof(targetDir));
+        #endregion
 
-        /// <summary>
-        /// The full path to the directory containing the Zero Install instance.
-        /// </summary>
-        public string TargetDir { get; }
+        if (portable && machineWide) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--machine"), nameof(machineWide));
 
-        /// <summary>
-        /// Controls whether the Zero Install instance at <see cref="TargetDir"/> should be a portable instance.
-        /// </summary>
-        public bool Portable { get; }
+        TargetDir = targetDir;
+        Portable = portable;
 
-        /// <summary>
-        /// Creates a new maintenance manager.
-        /// </summary>
-        /// <param name="targetDir">The full path to the directory containing the Zero Install instance.</param>
-        /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-        /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-        /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
-        public SelfManager(string targetDir, ITaskHandler handler, bool machineWide = false, bool portable = false)
-            : base(handler, machineWide)
+        try
         {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(targetDir)) throw new ArgumentNullException(nameof(targetDir));
-            #endregion
-
-            if (portable && machineWide) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--machine"), nameof(machineWide));
-
-            TargetDir = targetDir;
-            Portable = portable;
-
-            try
-            {
-                AcquireMutex();
-            }
-            catch (TimeoutException)
-            {
-                throw new UnauthorizedAccessException("You can only perform one maintenance operation at a time.");
-            }
+            AcquireMutex();
         }
-
-        /// <summary>
-        /// Runs the deployment process.
-        /// </summary>
-        /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
-        /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
-        /// <exception cref="IOException">An IO operation failed.</exception>
-        public void Deploy(bool libraryMode = false)
+        catch (TimeoutException)
         {
-            if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--library"), nameof(libraryMode));
+            throw new UnauthorizedAccessException("You can only perform one maintenance operation at a time.");
+        }
+    }
 
-            var newManifest = LoadManifest(Locations.InstallBase);
-            var oldManifest = LoadManifest(TargetDir);
+    /// <summary>
+    /// Runs the deployment process.
+    /// </summary>
+    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
+    /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
+    /// <exception cref="IOException">An IO operation failed.</exception>
+    public void Deploy(bool libraryMode = false)
+    {
+        if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--library"), nameof(libraryMode));
+
+        var newManifest = LoadManifest(Locations.InstallBase);
+        var oldManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
             if (WindowsUtils.IsWindows && MachineWide)
                 ServiceStop();
 #endif
 
-            try
+        try
+        {
+            if (WindowsUtils.IsWindows) TargetMutexAcquire();
+
+            if (TargetDir != Locations.InstallBase)
             {
-                if (WindowsUtils.IsWindows) TargetMutexAcquire();
+                using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
+                using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
+                deployDir.Stage();
+                clearDir.Stage();
+                if (Portable) FileUtils.Touch(Path.Combine(TargetDir, Locations.PortableFlagName));
+                deployDir.Commit();
+                clearDir.Commit();
+            }
 
-                if (TargetDir != Locations.InstallBase)
-                {
-                    using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
-                    using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
-                    deployDir.Stage();
-                    clearDir.Stage();
-                    if (Portable) FileUtils.Touch(Path.Combine(TargetDir, Locations.PortableFlagName));
-                    deployDir.Commit();
-                    clearDir.Commit();
-                }
+            if (!Portable && WindowsUtils.IsWindows)
+            {
+                if (!libraryMode)
+                    DesktopIntegrationApply(newManifest.TotalSize);
+                ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide, libraryMode);
+                RemoveOneGetBootstrap();
+            }
 
-                if (!Portable && WindowsUtils.IsWindows)
-                {
-                    if (!libraryMode)
-                        DesktopIntegrationApply(newManifest.TotalSize);
-                    ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide, libraryMode);
-                    RemoveOneGetBootstrap();
-                }
-
-                if (WindowsUtils.IsWindows) TargetMutexRelease();
+            if (WindowsUtils.IsWindows) TargetMutexRelease();
 
 #if NETFRAMEWORK
                 if (MachineWide)
@@ -116,22 +116,22 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
                     ServiceStart();
                 }
 #endif
-            }
-            catch
-            {
-                if (WindowsUtils.IsWindows) TargetMutexRelease();
-                throw;
-            }
         }
-
-        /// <summary>
-        /// Runs the removal process.
-        /// </summary>
-        /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
-        /// <exception cref="IOException">An IO operation failed.</exception>
-        public void Remove()
+        catch
         {
-            var targetManifest = LoadManifest(TargetDir);
+            if (WindowsUtils.IsWindows) TargetMutexRelease();
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Runs the removal process.
+    /// </summary>
+    /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
+    /// <exception cref="IOException">An IO operation failed.</exception>
+    public void Remove()
+    {
+        var targetManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
             if (MachineWide)
@@ -142,30 +142,29 @@ namespace ZeroInstall.Commands.Desktop.SelfManagement
             }
 #endif
 
-            try
-            {
-                if (WindowsUtils.IsWindows) TargetMutexAcquire();
+        try
+        {
+            if (WindowsUtils.IsWindows) TargetMutexAcquire();
 
-                using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
-                {
-                    clearDir.Stage();
+            using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
+            {
+                clearDir.Stage();
 #if NETFRAMEWORK
                     DeleteServiceLogFiles();
 #endif
-                    if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
-                    clearDir.Commit();
-                }
+                if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
+                clearDir.Commit();
+            }
 
-                if (!Portable && WindowsUtils.IsWindows)
-                {
-                    DesktopIntegrationRemove();
-                    ZeroInstallInstance.UnregisterLocation(MachineWide);
-                }
-            }
-            finally
+            if (!Portable && WindowsUtils.IsWindows)
             {
-                if (WindowsUtils.IsWindows) TargetMutexRelease();
+                DesktopIntegrationRemove();
+                ZeroInstallInstance.UnregisterLocation(MachineWide);
             }
+        }
+        finally
+        {
+            if (WindowsUtils.IsWindows) TargetMutexRelease();
         }
     }
 }

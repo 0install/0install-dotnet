@@ -12,151 +12,150 @@ using NDesk.Options;
 using ZeroInstall.Commands.Desktop.SelfManagement;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Desktop
+namespace ZeroInstall.Commands.Desktop;
+
+partial class Self
 {
-    partial class Self
+    /// <summary>
+    /// Deploys Zero Install to a target directory and integrates it in the system.
+    /// </summary>
+    public class Deploy : SelfSubCommand
     {
-        /// <summary>
-        /// Deploys Zero Install to a target directory and integrates it in the system.
-        /// </summary>
-        public class Deploy : SelfSubCommand
+        public const string Name = "deploy";
+        public override string Description => Resources.DescriptionMaintenanceDeploy;
+        public override string Usage => "[TARGET]";
+        protected override int AdditionalArgsMax => 1;
+
+        /// <summary>Apply operations machine-wide instead of just for the current user.</summary>
+        private bool _machineWide;
+
+        /// <summary>Create a portable installation.</summary>
+        private bool _portable;
+
+        /// <summary>Deploy Zero Install as a library for use by other applications without its own desktop integration.</summary>
+        private bool _library;
+
+        /// <summary>Indicates whether the installer shall restart the <see cref="Central"/> GUI after the installation.</summary>
+        private bool _restartCentral;
+
+        public Deploy(ICommandHandler handler)
+            : base(handler)
         {
-            public const string Name = "deploy";
-            public override string Description => Resources.DescriptionMaintenanceDeploy;
-            public override string Usage => "[TARGET]";
-            protected override int AdditionalArgsMax => 1;
+            Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
+            Options.Add("p|portable", () => Resources.OptionPortable, _ => _portable = true);
+            Options.Add("l|library", () => Resources.OptionLibrary, _ => _library = true);
+            Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
+        }
 
-            /// <summary>Apply operations machine-wide instead of just for the current user.</summary>
-            private bool _machineWide;
-
-            /// <summary>Create a portable installation.</summary>
-            private bool _portable;
-
-            /// <summary>Deploy Zero Install as a library for use by other applications without its own desktop integration.</summary>
-            private bool _library;
-
-            /// <summary>Indicates whether the installer shall restart the <see cref="Central"/> GUI after the installation.</summary>
-            private bool _restartCentral;
-
-            public Deploy(ICommandHandler handler)
-                : base(handler)
+        public override ExitCode Execute()
+        {
+            string targetDir = GetTargetDir();
+            if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+            if (!_portable && !_library)
             {
-                Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
-                Options.Add("p|portable", () => Resources.OptionPortable, _ => _portable = true);
-                Options.Add("l|library", () => Resources.OptionLibrary, _ => _library = true);
-                Options.Add("restart-central", () => Resources.OptionRestartCentral, _ => _restartCentral = true);
-            }
-
-            public override ExitCode Execute()
-            {
-                string targetDir = GetTargetDir();
-                if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
-                    throw new NotAdminException(Resources.MustBeAdminForMachineWide);
-                if (!_portable && !_library)
+                string? existing = FindExistingInstance(_machineWide)
+                                ?? FindExistingInstance(machineWide: true);
+                if (existing != null && existing != targetDir)
                 {
-                    string? existing = FindExistingInstance(_machineWide)
-                                    ?? FindExistingInstance(machineWide: true);
-                    if (existing != null && existing != targetDir)
-                    {
-                        string hint = string.Format(Resources.ExistingInstance, existing);
-                        if (!Handler.Ask(string.Format(Resources.AskDeployNewTarget, targetDir) + Environment.NewLine + hint, defaultAnswer: true, alternateMessage: hint))
-                            return ExitCode.UserCanceled;
-                    }
-                    else if (!Handler.Ask(Resources.AskDeployZeroInstall, defaultAnswer: true))
+                    string hint = string.Format(Resources.ExistingInstance, existing);
+                    if (!Handler.Ask(string.Format(Resources.AskDeployNewTarget, targetDir) + Environment.NewLine + hint, defaultAnswer: true, alternateMessage: hint))
                         return ExitCode.UserCanceled;
                 }
-
-                bool newDirectory = !Directory.Exists(targetDir);
-                PerformDeploy(targetDir);
-                if (_restartCentral) RestartCentral(targetDir);
-
-                if (_portable)
-                    Handler.OutputLow(Resources.PortableMode, string.Format(Resources.DeployedPortable, targetDir));
-                else if (newDirectory && !_library)
-                {
-                    // Use Console.WriteLine() instead of Handler.Output() to ensure this is only shown in CLI mode and not in a window
-                    Console.WriteLine(Resources.Added0installToPath + Environment.NewLine + Resources.ReopenTerminal);
-                }
-                return ExitCode.OK;
+                else if (!Handler.Ask(Resources.AskDeployZeroInstall, defaultAnswer: true))
+                    return ExitCode.UserCanceled;
             }
 
-            private string GetTargetDir()
+            bool newDirectory = !Directory.Exists(targetDir);
+            PerformDeploy(targetDir);
+            if (_restartCentral) RestartCentral(targetDir);
+
+            if (_portable)
+                Handler.OutputLow(Resources.PortableMode, string.Format(Resources.DeployedPortable, targetDir));
+            else if (newDirectory && !_library)
             {
-                if (AdditionalArgs.Count == 0)
-                {
-                    if (_portable) throw new OptionException(Resources.DeployMissingTargetForPortable, "portable");
-                    return FindExistingInstance(_machineWide)
-                        ?? GetDefaultTargetDir();
-                }
-                else return GetCustomTargetDir();
+                // Use Console.WriteLine() instead of Handler.Output() to ensure this is only shown in CLI mode and not in a window
+                Console.WriteLine(Resources.Added0installToPath + Environment.NewLine + Resources.ReopenTerminal);
+            }
+            return ExitCode.OK;
+        }
+
+        private string GetTargetDir()
+        {
+            if (AdditionalArgs.Count == 0)
+            {
+                if (_portable) throw new OptionException(Resources.DeployMissingTargetForPortable, "portable");
+                return FindExistingInstance(_machineWide)
+                    ?? GetDefaultTargetDir();
+            }
+            else return GetCustomTargetDir();
+        }
+
+        private string GetDefaultTargetDir()
+        {
+            if (WindowsUtils.IsWindows)
+            {
+                string programFiles = _machineWide ? Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
+                return Path.Combine(programFiles, "Zero Install");
+            }
+            else if (UnixUtils.IsMacOSX)
+            {
+                string applications = _machineWide ? "/Applications" : Path.Combine(Locations.HomeDir, "Applications");
+                return Path.Combine(applications, "Zero Install");
+            }
+            else if (UnixUtils.IsUnix)
+                return _machineWide ? "/usr/share/zero-install" : Path.Combine(Locations.HomeDir, ".zero-install");
+            else throw new PlatformNotSupportedException();
+        }
+
+        private string GetCustomTargetDir()
+        {
+            string targetDir = Path.GetFullPath(AdditionalArgs[0]);
+
+            if (File.Exists(Path.Combine(targetDir, Locations.PortableFlagName)))
+            {
+                Log.Info($"Detected that '{targetDir}' is an existing portable instance of Zero Install.");
+                _portable = true;
             }
 
-            private string GetDefaultTargetDir()
+            if (_portable)
             {
-                if (WindowsUtils.IsWindows)
-                {
-                    string programFiles = _machineWide ? Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
-                    return Path.Combine(programFiles, "Zero Install");
-                }
-                else if (UnixUtils.IsMacOSX)
-                {
-                    string applications = _machineWide ? "/Applications" : Path.Combine(Locations.HomeDir, "Applications");
-                    return Path.Combine(applications, "Zero Install");
-                }
-                else if (UnixUtils.IsUnix)
-                    return _machineWide ? "/usr/share/zero-install" : Path.Combine(Locations.HomeDir, ".zero-install");
-                else throw new PlatformNotSupportedException();
+                if (_machineWide)
+                    throw new OptionException(string.Format(Resources.ExclusiveOptions, "--portable", "--machine"), "machine");
             }
-
-            private string GetCustomTargetDir()
+            else if (!_machineWide)
             {
-                string targetDir = Path.GetFullPath(AdditionalArgs[0]);
-
-                if (File.Exists(Path.Combine(targetDir, Locations.PortableFlagName)))
+                if (FindExistingInstance(machineWide: true) == targetDir)
                 {
-                    Log.Info($"Detected that '{targetDir}' is an existing portable instance of Zero Install.");
-                    _portable = true;
+                    Log.Info($"Detected that '{targetDir}' is an existing machine-wide instance of Zero Install.");
+                    _machineWide = true;
                 }
-
-                if (_portable)
+                else if (!targetDir.StartsWith(Locations.HomeDir))
                 {
-                    if (_machineWide)
-                        throw new OptionException(string.Format(Resources.ExclusiveOptions, "--portable", "--machine"), "machine");
-                }
-                else if (!_machineWide)
-                {
-                    if (FindExistingInstance(machineWide: true) == targetDir)
-                    {
-                        Log.Info($"Detected that '{targetDir}' is an existing machine-wide instance of Zero Install.");
+                    string hint = string.Format(Resources.DeployTargetOutsideHome, targetDir);
+                    if (Handler.Ask(Resources.AskDeployMachineWide + Environment.NewLine + hint, defaultAnswer: false, alternateMessage: hint))
                         _machineWide = true;
-                    }
-                    else if (!targetDir.StartsWith(Locations.HomeDir))
-                    {
-                        string hint = string.Format(Resources.DeployTargetOutsideHome, targetDir);
-                        if (Handler.Ask(Resources.AskDeployMachineWide + Environment.NewLine + hint, defaultAnswer: false, alternateMessage: hint))
-                            _machineWide = true;
-                    }
                 }
-                return targetDir;
             }
+            return targetDir;
+        }
 
-            private void PerformDeploy(string targetDir)
-            {
-                using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
-                Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
-                manager.Deploy(_library);
-            }
+        private void PerformDeploy(string targetDir)
+        {
+            using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
+            Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
+            manager.Deploy(_library);
+        }
 
-            private static void RestartCentral(string targetDir)
-            {
-                if (ProgramUtils.GuiAssemblyName == null) return;
+        private static void RestartCentral(string targetDir)
+        {
+            if (ProgramUtils.GuiAssemblyName == null) return;
 
-                var startInfo = WindowsUtils.IsWindowsVista
-                    // Use explorer.exe to return to standard user privileges after UAC elevation
-                    ? new ProcessStartInfo("explorer.exe", Path.Combine(targetDir, "ZeroInstall.exe").EscapeArgument())
-                    : ProcessUtils.Assembly(Path.Combine(targetDir, ProgramUtils.GuiAssemblyName), Central.Name);
-                startInfo.Start();
-            }
+            var startInfo = WindowsUtils.IsWindowsVista
+                // Use explorer.exe to return to standard user privileges after UAC elevation
+                ? new ProcessStartInfo("explorer.exe", Path.Combine(targetDir, "ZeroInstall.exe").EscapeArgument())
+                : ProcessUtils.Assembly(Path.Combine(targetDir, ProgramUtils.GuiAssemblyName), Central.Name);
+            startInfo.Start();
         }
     }
 }

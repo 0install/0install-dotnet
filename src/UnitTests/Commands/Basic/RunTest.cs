@@ -15,135 +15,134 @@ using ZeroInstall.Model;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+/// <summary>
+/// Contains integration tests for <see cref="Run"/>.
+/// </summary>
+public class RunTest : SelectionTestBase<Run>
 {
-    /// <summary>
-    /// Contains integration tests for <see cref="Run"/>.
-    /// </summary>
-    public class RunTest : SelectionTestBase<Run>
+    private Mock<ICatalogManager> CatalogManagerMock => GetMock<ICatalogManager>();
+
+    [Fact] // Ensures all options are parsed and handled correctly.
+    public void TestNormal()
     {
-        private Mock<ICatalogManager> CatalogManagerMock => GetMock<ICatalogManager>();
+        var selections = ExpectSolve();
 
-        [Fact] // Ensures all options are parsed and handled correctly.
-        public void TestNormal()
+        ExpectFetchUncached(selections,
+            new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
+            new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
+
+        var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
+        GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.AddWrapper("Wrapper")).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
+
+        RunAndAssert(null, 0, selections,
+            "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0",
+            "--main=Main", "--wrapper=Wrapper", "http://example.com/test1.xml", "--arg1", "--arg2");
+    }
+
+    [Fact] // Ensures local Selections XMLs are correctly detected and parsed.
+    public void TestImportSelections()
+    {
+        var selections = Fake.Selections;
+
+        ExpectFetchUncached(selections,
+            new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
+            new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
+
+        var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
+        GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.AddWrapper(null)).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
+        envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
+
+        using var tempFile = new TemporaryFile("0install-test-selections");
+        selections.SaveXml(tempFile);
+
+        selections.Normalize();
+        RunAndAssert(null, 0, selections, tempFile, "--arg1", "--arg2");
+    }
+
+    public override void ShouldRejectTooManyArgs()
+    {
+        // Not applicable
+    }
+
+    [Fact]
+    public void GetCanonicalUriRemote()
+        => Sut.GetCanonicalUri("http://example.com/test1.xml")
+              .ToStringRfc()
+              .Should().Be("http://example.com/test1.xml");
+
+    [Fact]
+    public void GetCanonicalUriFileAbsolute()
+    {
+        if (WindowsUtils.IsWindows)
         {
-            var selections = ExpectSolve();
-
-            ExpectFetchUncached(selections,
-                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
-                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
-
-            var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
-            GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.AddWrapper("Wrapper")).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
-
-            RunAndAssert(null, 0, selections,
-                "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0",
-                "--main=Main", "--wrapper=Wrapper", "http://example.com/test1.xml", "--arg1", "--arg2");
+            Sut.GetCanonicalUri(@"C:\test\file").ToStringRfc().Should().Be(@"C:\test\file");
+            Sut.GetCanonicalUri(@"file:///C:\test\file").ToStringRfc().Should().Be(@"C:\test\file");
+            Sut.GetCanonicalUri("file:///C:/test/file").ToStringRfc().Should().Be(@"C:\test\file");
         }
-
-        [Fact] // Ensures local Selections XMLs are correctly detected and parsed.
-        public void TestImportSelections()
+        if (UnixUtils.IsUnix)
         {
-            var selections = Fake.Selections;
-
-            ExpectFetchUncached(selections,
-                new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(sha256: "abc"), Version = new("1.0")},
-                new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(sha256: "xyz"), Version = new("1.0")});
-
-            var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
-            GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.AddWrapper(null)).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
-            envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
-
-            using var tempFile = new TemporaryFile("0install-test-selections");
-            selections.SaveXml(tempFile);
-
-            selections.Normalize();
-            RunAndAssert(null, 0, selections, tempFile, "--arg1", "--arg2");
+            Sut.GetCanonicalUri("/test/file").ToStringRfc().Should().Be("/test/file");
+            Sut.GetCanonicalUri("file:///test/file").ToStringRfc().Should().Be("/test/file");
         }
+    }
 
-        public override void ShouldRejectTooManyArgs()
+    [Fact]
+    public void GetCanonicalUriFileRelative()
+    {
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
+
+        Sut.GetCanonicalUri(Path.Combine("test", "file")).ToString().Should().Be(
+            Path.Combine(Environment.CurrentDirectory, "test", "file"));
+        Sut.GetCanonicalUri("file:test/file").ToString().Should().Be(
+            Path.Combine(Environment.CurrentDirectory, "test", "file"));
+    }
+
+    [Fact]
+    public void GetCanonicalUriFileInvalid()
+    {
+        Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("file:/test/file"));
+    }
+
+    [Fact]
+    public void GetCanonicalUriAliases()
+    {
+        // Fake an alias
+        new AppList
         {
-            // Not applicable
-        }
-
-        [Fact]
-        public void GetCanonicalUriRemote()
-            => Sut.GetCanonicalUri("http://example.com/test1.xml")
-                  .ToStringRfc()
-                  .Should().Be("http://example.com/test1.xml");
-
-        [Fact]
-        public void GetCanonicalUriFileAbsolute()
-        {
-            if (WindowsUtils.IsWindows)
+            Entries =
             {
-                Sut.GetCanonicalUri(@"C:\test\file").ToStringRfc().Should().Be(@"C:\test\file");
-                Sut.GetCanonicalUri(@"file:///C:\test\file").ToStringRfc().Should().Be(@"C:\test\file");
-                Sut.GetCanonicalUri("file:///C:/test/file").ToStringRfc().Should().Be(@"C:\test\file");
-            }
-            if (UnixUtils.IsUnix)
-            {
-                Sut.GetCanonicalUri("/test/file").ToStringRfc().Should().Be("/test/file");
-                Sut.GetCanonicalUri("file:///test/file").ToStringRfc().Should().Be("/test/file");
-            }
-        }
-
-        [Fact]
-        public void GetCanonicalUriFileRelative()
-        {
-            CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
-            CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
-
-            Sut.GetCanonicalUri(Path.Combine("test", "file")).ToString().Should().Be(
-                Path.Combine(Environment.CurrentDirectory, "test", "file"));
-            Sut.GetCanonicalUri("file:test/file").ToString().Should().Be(
-                Path.Combine(Environment.CurrentDirectory, "test", "file"));
-        }
-
-        [Fact]
-        public void GetCanonicalUriFileInvalid()
-        {
-            Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("file:/test/file"));
-        }
-
-        [Fact]
-        public void GetCanonicalUriAliases()
-        {
-            // Fake an alias
-            new AppList
-            {
-                Entries =
+                new AppEntry
                 {
-                    new AppEntry
-                    {
-                        InterfaceUri = Fake.Feed1Uri,
-                        AccessPoints = new AccessPointList {Entries = {new AppAlias {Name = "test"}}}
-                    }
+                    InterfaceUri = Fake.Feed1Uri,
+                    AccessPoints = new AccessPointList {Entries = {new AppAlias {Name = "test"}}}
                 }
-            }.SaveXml(AppList.GetDefaultPath());
+            }
+        }.SaveXml(AppList.GetDefaultPath());
 
-            Sut.GetCanonicalUri("alias:test").Should().Be(Fake.Feed1Uri);
-            Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("alias:invalid"));
-        }
+        Sut.GetCanonicalUri("alias:test").Should().Be(Fake.Feed1Uri);
+        Assert.Throws<UriFormatException>(() => Sut.GetCanonicalUri("alias:invalid"));
+    }
 
-        [Fact]
-        public void GetCanonicalUriCatalogCached()
-        {
-            CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
-            Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
-        }
+    [Fact]
+    public void GetCanonicalUriCatalogCached()
+    {
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
+    }
 
-        [Fact]
-        public void GetCanonicalUriCatalogOnline()
-        {
-            CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
-            CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
-            Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
-        }
+    [Fact]
+    public void GetCanonicalUriCatalogOnline()
+    {
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
     }
 }

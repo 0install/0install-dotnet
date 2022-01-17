@@ -4,19 +4,18 @@
 using FluentAssertions;
 using Xunit;
 
-namespace ZeroInstall.Store.Manifests
+namespace ZeroInstall.Store.Manifests;
+
+/// <summary>
+/// Contains test methods for <see cref="ManifestFormat"/>.
+/// </summary>
+public class ManifestFormatTest
 {
-    /// <summary>
-    /// Contains test methods for <see cref="ManifestFormat"/>.
-    /// </summary>
-    public class ManifestFormatTest
+    [Fact]
+    public void FromPrefix()
     {
-        [Fact]
-        public void FromPrefix()
-        {
-            ManifestFormat.FromPrefix("sha1new=abc").Should().BeSameAs(ManifestFormat.Sha1New);
-            ManifestFormat.FromPrefix("sha256=abc").Should().BeSameAs(ManifestFormat.Sha256);
-            ManifestFormat.FromPrefix("sha256new_abc").Should().BeSameAs(ManifestFormat.Sha256New);
-        }
+        ManifestFormat.FromPrefix("sha1new=abc").Should().BeSameAs(ManifestFormat.Sha1New);
+        ManifestFormat.FromPrefix("sha256=abc").Should().BeSameAs(ManifestFormat.Sha256);
+        ManifestFormat.FromPrefix("sha256new_abc").Should().BeSameAs(ManifestFormat.Sha256New);
     }
 }

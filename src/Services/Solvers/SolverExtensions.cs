@@ -9,39 +9,38 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Trust;
 
-namespace ZeroInstall.Services.Solvers
+namespace ZeroInstall.Services.Solvers;
+
+/// <summary>
+/// Provides extension methods for <see cref="ISolver"/>.
+/// </summary>
+public static class SolverExtensions
 {
     /// <summary>
-    /// Provides extension methods for <see cref="ISolver"/>.
+    /// Provides <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/>. Catches most exceptions and <see cref="Log"/>s them.
     /// </summary>
-    public static class SolverExtensions
+    /// <param name="solver">The <see cref="ISolver"/> implementation.</param>
+    /// <param name="requirements">A set of requirements/restrictions imposed by the user on the implementation selection process.</param>
+    /// <returns>The <see cref="ImplementationSelection"/>s chosen for the feed; <c>null</c> if there was a problem.</returns>
+    /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
+    public static Selections? TrySolve(this ISolver solver, Requirements requirements)
     {
-        /// <summary>
-        /// Provides <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/>. Catches most exceptions and <see cref="Log"/>s them.
-        /// </summary>
-        /// <param name="solver">The <see cref="ISolver"/> implementation.</param>
-        /// <param name="requirements">A set of requirements/restrictions imposed by the user on the implementation selection process.</param>
-        /// <returns>The <see cref="ImplementationSelection"/>s chosen for the feed; <c>null</c> if there was a problem.</returns>
-        /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
-        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-        /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
-        public static Selections? TrySolve(this ISolver solver, Requirements requirements)
-        {
-            #region Sanity checks
-            if (solver == null) throw new ArgumentNullException(nameof(solver));
-            #endregion
+        #region Sanity checks
+        if (solver == null) throw new ArgumentNullException(nameof(solver));
+        #endregion
 
-            try
-            {
-                return solver.Solve(requirements);
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
-            {
-                Log.Warn(ex);
-                return null;
-            }
-            #endregion
+        try
+        {
+            return solver.Solve(requirements);
         }
+        #region Error handling
+        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
+        {
+            Log.Warn(ex);
+            return null;
+        }
+        #endregion
     }
 }

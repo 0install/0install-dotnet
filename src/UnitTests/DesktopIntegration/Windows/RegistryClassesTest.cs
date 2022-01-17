@@ -9,40 +9,39 @@ using ZeroInstall.Model;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Store.Icons;
 
-namespace ZeroInstall.DesktopIntegration.Windows
+namespace ZeroInstall.DesktopIntegration.Windows;
+
+[SupportedOSPlatform("windows")]
+public class RegistryClassesTest : TestWithRedirect
 {
-    [SupportedOSPlatform("windows")]
-    public class RegistryClassesTest : TestWithRedirect
+    [Fact]
+    public void CommandLineEscaping()
     {
-        [Fact]
-        public void CommandLineEscaping()
-        {
-            GetLaunchCommandLine(new Verb {Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
-               .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
-        }
-
-        [Fact]
-        public void CommandLinePrecedence()
-        {
-            GetLaunchCommandLine(new Verb {Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
-               .Should().EndWith("a b");
-        }
-
-        [Fact]
-        public void CommandLineLiteral()
-        {
-            GetLaunchCommandLine(new Verb {ArgumentsLiteral = "x"})
-               .Should().EndWith("x");
-        }
-
-        [Fact]
-        public void CommandLineDefaultValue()
-        {
-            GetLaunchCommandLine(new Verb())
-               .Should().EndWith("\"%V\"");
-        }
-
-        private static string GetLaunchCommandLine(Verb verb)
-            => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, new Mock<IIconStore>().Object, machineWide: false);
+        GetLaunchCommandLine(new Verb {Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
+           .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
     }
+
+    [Fact]
+    public void CommandLinePrecedence()
+    {
+        GetLaunchCommandLine(new Verb {Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
+           .Should().EndWith("a b");
+    }
+
+    [Fact]
+    public void CommandLineLiteral()
+    {
+        GetLaunchCommandLine(new Verb {ArgumentsLiteral = "x"})
+           .Should().EndWith("x");
+    }
+
+    [Fact]
+    public void CommandLineDefaultValue()
+    {
+        GetLaunchCommandLine(new Verb())
+           .Should().EndWith("\"%V\"");
+    }
+
+    private static string GetLaunchCommandLine(Verb verb)
+        => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, new Mock<IIconStore>().Object, machineWide: false);
 }

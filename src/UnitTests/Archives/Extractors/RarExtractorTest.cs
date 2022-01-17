@@ -5,34 +5,33 @@ using Xunit;
 using ZeroInstall.Model;
 using ZeroInstall.Store.Manifests;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+public class RarExtractorTest : ArchiveExtractorTestBase
 {
-    public class RarExtractorTest : ArchiveExtractorTestBase
+    protected override string MimeType => Archive.MimeTypeRar;
+
+    [Fact]
+    public void Extract()
     {
-        protected override string MimeType => Archive.MimeTypeRar;
+        Test(
+            "testArchive.rar",
+            new Manifest(ManifestFormat.Sha1New)
+            {
+                [""] = {["file"] = Normal("abc")},
+                ["folder1"] = {["file"] = Normal("def")}
+            });
+    }
 
-        [Fact]
-        public void Extract()
-        {
-            Test(
-                "testArchive.rar",
-                new Manifest(ManifestFormat.Sha1New)
-                {
-                    [""] = {["file"] = Normal("abc")},
-                    ["folder1"] = {["file"] = Normal("def")}
-                });
-        }
-
-        [Fact]
-        public void ExtractSubDir()
-        {
-            Test(
-                "testArchive.rar",
-                new Manifest(ManifestFormat.Sha1New)
-                {
-                    [""] = {["file"] = Normal("def")}
-                },
-                subDir: "folder1");
-        }
+    [Fact]
+    public void ExtractSubDir()
+    {
+        Test(
+            "testArchive.rar",
+            new Manifest(ManifestFormat.Sha1New)
+            {
+                [""] = {["file"] = Normal("def")}
+            },
+            subDir: "folder1");
     }
 }

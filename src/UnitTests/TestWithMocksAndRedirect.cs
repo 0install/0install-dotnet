@@ -3,25 +3,24 @@
 
 using NanoByte.Common.Storage;
 
-namespace ZeroInstall
-{
-    /// <summary>
-    /// Common base class for test fixtures that use a <see cref="Moq.MockRepository"/> and <see cref="Locations.Redirect"/>.
-    /// </summary>
-    public abstract class TestWithMocksAndRedirect : TestWithMocks
-    {
-        private readonly TestWithRedirect _redirect = new();
+namespace ZeroInstall;
 
-        public override void Dispose()
+/// <summary>
+/// Common base class for test fixtures that use a <see cref="Moq.MockRepository"/> and <see cref="Locations.Redirect"/>.
+/// </summary>
+public abstract class TestWithMocksAndRedirect : TestWithMocks
+{
+    private readonly TestWithRedirect _redirect = new();
+
+    public override void Dispose()
+    {
+        try
         {
-            try
-            {
-                base.Dispose();
-            }
-            finally
-            {
-                _redirect.Dispose();
-            }
+            base.Dispose();
+        }
+        finally
+        {
+            _redirect.Dispose();
         }
     }
 }

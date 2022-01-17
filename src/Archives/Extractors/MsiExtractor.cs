@@ -11,57 +11,56 @@ using NanoByte.Common.Tasks;
 using ZeroInstall.Archives.Properties;
 using ZeroInstall.Store.FileSystem;
 
-namespace ZeroInstall.Archives.Extractors
+namespace ZeroInstall.Archives.Extractors;
+
+/// <summary>
+/// Extracts Windows Installer packages (.msi) with one or more embedded CAB archives.
+/// </summary>
+/// <remarks>This class is immutable and thread-safe.</remarks>
+public class MsiExtractor : ArchiveExtractor
 {
     /// <summary>
-    /// Extracts Windows Installer packages (.msi) with one or more embedded CAB archives.
+    /// Creates an MSI extractor.
     /// </summary>
-    /// <remarks>This class is immutable and thread-safe.</remarks>
-    public class MsiExtractor : ArchiveExtractor
+    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <exception cref="NotSupportedException">Extracting this archive type is only supported on Windows.</exception>
+    public MsiExtractor(ITaskHandler handler)
+        : base(handler)
     {
-        /// <summary>
-        /// Creates an MSI extractor.
-        /// </summary>
-        /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-        /// <exception cref="NotSupportedException">Extracting this archive type is only supported on Windows.</exception>
-        public MsiExtractor(ITaskHandler handler)
-            : base(handler)
-        {
-            if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
-        }
+        if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
+    }
 
-        /// <inheritdoc/>
-        public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
+    /// <inheritdoc/>
+    public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
+    {
+        EnsureFile(stream, msiPath =>
         {
-            EnsureFile(stream, msiPath =>
+            try
             {
-                try
-                {
-                    using var engine = new CabEngine();
+                using var engine = new CabEngine();
 
-                    using var package = new MsiPackage(msiPath);
-                    package.ForEachCabinet(cabStream =>
+                using var package = new MsiPackage(msiPath);
+                package.ForEachCabinet(cabStream =>
+                {
+                    Handler.CancellationToken.ThrowIfCancellationRequested();
+
+                    EnsureSeekable(cabStream, seekableStream =>
                     {
-                        Handler.CancellationToken.ThrowIfCancellationRequested();
-
-                        EnsureSeekable(cabStream, seekableStream =>
-                        {
-                            // ReSharper disable once AccessToDisposedClosure
-                            engine.Unpack(
-                                new CabExtractorContext(builder, seekableStream, x => NormalizePath(package.Files[x], subDir), Handler.CancellationToken),
-                                fileFilter: package.Files.ContainsKey);
-                        });
+                        // ReSharper disable once AccessToDisposedClosure
+                        engine.Unpack(
+                            new CabExtractorContext(builder, seekableStream, x => NormalizePath(package.Files[x], subDir), Handler.CancellationToken),
+                            fileFilter: package.Files.ContainsKey);
                     });
-                }
-                #region Error handling
-                catch (Exception ex) when (ex is InstallerException or CabException)
-                {
-                    // Wrap exception since only certain exception types are allowed
-                    throw new IOException(Resources.ArchiveInvalid, ex);
-                }
-                #endregion
-            });
-        }
+                });
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is InstallerException or CabException)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new IOException(Resources.ArchiveInvalid, ex);
+            }
+            #endregion
+        });
     }
 }
 #endif

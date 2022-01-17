@@ -1,11 +1,10 @@
 ﻿using ZeroInstall.Model;
 
-namespace ZeroInstall.Archives.Extractors
-{
-    public class TarZstandardExtractorTest : TarExtractorTest
-    {
-        protected override string MimeType => Archive.MimeTypeTarZstandard;
+namespace ZeroInstall.Archives.Extractors;
 
-        protected override string FileName => "testArchive.tar.zst";
-    }
+public class TarZstandardExtractorTest : TarExtractorTest
+{
+    protected override string MimeType => Archive.MimeTypeTarZstandard;
+
+    protected override string FileName => "testArchive.tar.zst";
 }

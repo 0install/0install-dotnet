@@ -14,154 +14,153 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Tasks;
 using ZeroInstall.Commands.Properties;
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement
+namespace ZeroInstall.Commands.Desktop.SelfManagement;
+
+partial class SelfManager
 {
-    partial class SelfManager
+    private static readonly string _runtimeDir = WindowsUtils.GetNetFxDirectory(
+        (Environment.Version.Major == 4) ? WindowsUtils.NetFx40 : WindowsUtils.NetFx20);
+
+    private const string ServiceName = "0store-service";
+
+    /// <summary>
+    /// Stops the Zero Install Store Service if it is running.
+    /// </summary>
+    private void ServiceStop()
     {
-        private static readonly string _runtimeDir = WindowsUtils.GetNetFxDirectory(
-            (Environment.Version.Major == 4) ? WindowsUtils.NetFx40 : WindowsUtils.NetFx20);
+        if (!WindowsUtils.IsWindows) return;
 
-        private const string ServiceName = "0store-service";
+        // Determine whether the service is installed and running
+        var service = GetServiceController();
+        if (service?.Status != ServiceControllerStatus.Running) return;
 
-        /// <summary>
-        /// Stops the Zero Install Store Service if it is running.
-        /// </summary>
-        private void ServiceStop()
-        {
-            if (!WindowsUtils.IsWindows) return;
+        // Determine whether the service is installed in the target directory we are updating
+        string? imagePath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"');
+        if (imagePath == null || !imagePath.StartsWith(TargetDir)) return;
 
-            // Determine whether the service is installed and running
-            var service = GetServiceController();
-            if (service?.Status != ServiceControllerStatus.Running) return;
-
-            // Determine whether the service is installed in the target directory we are updating
-            string? imagePath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"');
-            if (imagePath == null || !imagePath.StartsWith(TargetDir)) return;
-
-            Handler.RunTask(new SimpleTask(Resources.StopService, () =>
-            {
-                try
-                {
-                    service.Stop();
-                }
-                #region Error handling
-                catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
-                {
-                    // Wrap exception since only certain exception types are allowed
-                    throw new IOException("Failed to stop service.", ex);
-                }
-                #endregion
-
-                Thread.Sleep(2000);
-            }));
-        }
-
-        /// <summary>
-        /// Starts the Zero Install Store Service.
-        /// </summary>
-        /// <remarks>Must be called after <see cref="TargetMutexRelease"/>.</remarks>
-        private void ServiceStart() => Handler.RunTask(new SimpleTask(Resources.StartService, () =>
+        Handler.RunTask(new SimpleTask(Resources.StopService, () =>
         {
             try
             {
-                GetServiceController()?.Start();
+                service.Stop();
             }
             #region Error handling
             catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
             {
                 // Wrap exception since only certain exception types are allowed
-                throw new IOException("Failed to start service.", ex);
+                throw new IOException("Failed to stop service.", ex);
             }
             #endregion
+
+            Thread.Sleep(2000);
         }));
+    }
 
-        private static ServiceController? GetServiceController()
-            => ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
-
-        private static readonly string _installUtilExe = Path.Combine(_runtimeDir, "InstallUtil.exe");
-        private string ServiceExe => Path.Combine(TargetDir, ServiceName + ".exe");
-
-        /// <summary>
-        /// Installs the Zero Install Store Service.
-        /// </summary>
-        private void ServiceInstall()
+    /// <summary>
+    /// Starts the Zero Install Store Service.
+    /// </summary>
+    /// <remarks>Must be called after <see cref="TargetMutexRelease"/>.</remarks>
+    private void ServiceStart() => Handler.RunTask(new SimpleTask(Resources.StartService, () =>
+    {
+        try
         {
-            if (!WindowsUtils.IsWindows) return;
-
-            Handler.RunTask(new SimpleTask(Resources.InstallService, () =>
-                new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
-                {
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    WorkingDirectory = Path.GetTempPath()
-                }.Run()));
+            GetServiceController()?.Start();
         }
-
-        /// <summary>
-        /// Uninstalls the Zero Install Store Service.
-        /// </summary>
-        private void ServiceUninstall()
+        #region Error handling
+        catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
         {
-            if (!WindowsUtils.IsWindows) return;
-
-            Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
-                new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
-                {
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    WorkingDirectory = Path.GetTempPath()
-                }.Run()));
+            // Wrap exception since only certain exception types are allowed
+            throw new IOException("Failed to start service.", ex);
         }
+        #endregion
+    }));
 
-        private void DeleteServiceLogFiles()
-        {
-            File.Delete(Path.Combine(TargetDir, "0store-service.InstallLog"));
-            File.Delete(Path.Combine(TargetDir, "InstallUtil.InstallLog"));
-        }
+    private static ServiceController? GetServiceController()
+        => ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
 
-        private static readonly string _ngenExe = Path.Combine(_runtimeDir, "ngen.exe");
+    private static readonly string _installUtilExe = Path.Combine(_runtimeDir, "InstallUtil.exe");
+    private string ServiceExe => Path.Combine(TargetDir, ServiceName + ".exe");
 
-        private static readonly string[] _ngenAssemblies =
-        {
-            "0install.exe",
-            "0install-win.exe",
-            "0launch.exe",
-            "0alias.exe",
-            "0store.exe",
-            "0store-service.exe",
-            "ZeroInstall.exe",
-            "ZeroInstall.OneGet.dll",
-            "ZeroInstall.Model.XmlSerializers.dll"
-        };
+    /// <summary>
+    /// Installs the Zero Install Store Service.
+    /// </summary>
+    private void ServiceInstall()
+    {
+        if (!WindowsUtils.IsWindows) return;
 
-        /// <summary>
-        /// Runs ngen in the background to pre-compile new/updated .NET assemblies.
-        /// </summary>
-        private void NgenApply()
-        {
-            if (!WindowsUtils.IsWindows) return;
-            if (!File.Exists(_ngenExe)) return;
-
-            Handler.RunTask(ForEachTask.Create(Resources.RunNgen, _ngenAssemblies, assembly =>
+        Handler.RunTask(new SimpleTask(Resources.InstallService, () =>
+            new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
             {
-                string arguments = new[] {"install", Path.Combine(TargetDir, assembly), "/queue"}.JoinEscapeArguments();
-                new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
-            }));
-        }
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                WorkingDirectory = Path.GetTempPath()
+            }.Run()));
+    }
 
-        /// <summary>
-        /// Runs ngen to remove pre-compiled .NET assemblies.
-        /// </summary>
-        private void NgenRemove()
-        {
-            if (!WindowsUtils.IsWindows) return;
-            if (!File.Exists(_ngenExe)) return;
+    /// <summary>
+    /// Uninstalls the Zero Install Store Service.
+    /// </summary>
+    private void ServiceUninstall()
+    {
+        if (!WindowsUtils.IsWindows) return;
 
-            foreach (string assembly in _ngenAssemblies)
+        Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
+            new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
             {
-                string arguments = new[] {"uninstall", Path.Combine(TargetDir, assembly)}.JoinEscapeArguments();
-                new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
-            }
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                WorkingDirectory = Path.GetTempPath()
+            }.Run()));
+    }
+
+    private void DeleteServiceLogFiles()
+    {
+        File.Delete(Path.Combine(TargetDir, "0store-service.InstallLog"));
+        File.Delete(Path.Combine(TargetDir, "InstallUtil.InstallLog"));
+    }
+
+    private static readonly string _ngenExe = Path.Combine(_runtimeDir, "ngen.exe");
+
+    private static readonly string[] _ngenAssemblies =
+    {
+        "0install.exe",
+        "0install-win.exe",
+        "0launch.exe",
+        "0alias.exe",
+        "0store.exe",
+        "0store-service.exe",
+        "ZeroInstall.exe",
+        "ZeroInstall.OneGet.dll",
+        "ZeroInstall.Model.XmlSerializers.dll"
+    };
+
+    /// <summary>
+    /// Runs ngen in the background to pre-compile new/updated .NET assemblies.
+    /// </summary>
+    private void NgenApply()
+    {
+        if (!WindowsUtils.IsWindows) return;
+        if (!File.Exists(_ngenExe)) return;
+
+        Handler.RunTask(ForEachTask.Create(Resources.RunNgen, _ngenAssemblies, assembly =>
+        {
+            string arguments = new[] {"install", Path.Combine(TargetDir, assembly), "/queue"}.JoinEscapeArguments();
+            new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
+        }));
+    }
+
+    /// <summary>
+    /// Runs ngen to remove pre-compiled .NET assemblies.
+    /// </summary>
+    private void NgenRemove()
+    {
+        if (!WindowsUtils.IsWindows) return;
+        if (!File.Exists(_ngenExe)) return;
+
+        foreach (string assembly in _ngenAssemblies)
+        {
+            string arguments = new[] {"uninstall", Path.Combine(TargetDir, assembly)}.JoinEscapeArguments();
+            new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
         }
     }
 }

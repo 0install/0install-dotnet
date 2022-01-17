@@ -7,78 +7,77 @@ using NDesk.Options;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Configuration;
 
-namespace ZeroInstall.Commands.Basic
+namespace ZeroInstall.Commands.Basic;
+
+/// <summary>
+/// View or change <see cref="Config"/>.
+/// </summary>
+public class Configure : CliCommand
 {
-    /// <summary>
-    /// View or change <see cref="Config"/>.
-    /// </summary>
-    public class Configure : CliCommand
+    public const string Name = "config";
+    public override string Description => Resources.DescriptionConfig;
+    public override string Usage => "[NAME [VALUE|default]]";
+    protected override int AdditionalArgsMax => 2;
+
+    /// <inheritdoc/>
+    public Configure(ICommandHandler handler)
+        : base(handler)
     {
-        public const string Name = "config";
-        public override string Description => Resources.DescriptionConfig;
-        public override string Usage => "[NAME [VALUE|default]]";
-        protected override int AdditionalArgsMax => 2;
+        Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
+    }
 
-        /// <inheritdoc/>
-        public Configure(ICommandHandler handler)
-            : base(handler)
+    /// <inheritdoc/>
+    public override ExitCode Execute()
+    {
+        switch (AdditionalArgs.Count)
         {
-            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
+            case 0:
+                Handler.Output(Resources.Configuration, Config);
+                break;
+
+            case 1:
+                GetOptions(AdditionalArgs[0]);
+                break;
+
+            case 2:
+                SetOption(AdditionalArgs[0], AdditionalArgs[1]);
+                Config.Save();
+                break;
         }
 
-        /// <inheritdoc/>
-        public override ExitCode Execute()
+        return ExitCode.OK;
+    }
+
+    private void GetOptions(string key)
+    {
+        try
         {
-            switch (AdditionalArgs.Count)
-            {
-                case 0:
-                    Handler.Output(Resources.Configuration, Config);
-                    break;
-
-                case 1:
-                    GetOptions(AdditionalArgs[0]);
-                    break;
-
-                case 2:
-                    SetOption(AdditionalArgs[0], AdditionalArgs[1]);
-                    Config.Save();
-                    break;
-            }
-
-            return ExitCode.OK;
+            Handler.Output(key, Config.GetOption(key));
         }
-
-        private void GetOptions(string key)
+        #region Error handling
+        catch (KeyNotFoundException)
         {
-            try
-            {
-                Handler.Output(key, Config.GetOption(key));
-            }
-            #region Error handling
-            catch (KeyNotFoundException)
-            {
-                throw new OptionException(string.Format(Resources.InvalidArgument, key), key);
-            }
-            #endregion
+            throw new OptionException(string.Format(Resources.InvalidArgument, key), key);
         }
+        #endregion
+    }
 
-        private void SetOption(string key, string value)
+    private void SetOption(string key, string value)
+    {
+        try
         {
-            try
-            {
-                if (value == "default") Config.ResetOption(key);
-                else Config.SetOption(key, value);
-            }
-            #region Error handling
-            catch (KeyNotFoundException)
-            {
-                throw new OptionException(string.Format(Resources.InvalidArgument, key), key);
-            }
-            catch (FormatException ex)
-            {
-                throw new OptionException(ex.Message, key);
-            }
-            #endregion
+            if (value == "default") Config.ResetOption(key);
+            else Config.SetOption(key, value);
         }
+        #region Error handling
+        catch (KeyNotFoundException)
+        {
+            throw new OptionException(string.Format(Resources.InvalidArgument, key), key);
+        }
+        catch (FormatException ex)
+        {
+            throw new OptionException(ex.Message, key);
+        }
+        #endregion
     }
 }

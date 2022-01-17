@@ -10,82 +10,81 @@ using Xunit;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Store.Manifests;
 
-namespace ZeroInstall.Store.FileSystem
+namespace ZeroInstall.Store.FileSystem;
+
+public class ReadDirectoryTest : IDisposable
 {
-    public class ReadDirectoryTest : IDisposable
+    private readonly TemporaryDirectory _tempDir = new("0install-test");
+
+    public void Dispose() => _tempDir.Dispose();
+
+    [Fact]
+    public void FromFileSystem()
     {
-        private readonly TemporaryDirectory _tempDir = new("0install-test");
-
-        public void Dispose() => _tempDir.Dispose();
-
-        [Fact]
-        public void FromFileSystem()
+        new TestRoot
         {
-            new TestRoot
+            new TestDirectory("subdir")
             {
-                new TestDirectory("subdir")
-                {
-                    new TestFile("normal"),
-                    new TestFile("executable") {IsExecutable = true},
-                    new TestSymlink("symlink", "normal")
-                }
-            }.Build(_tempDir);
+                new TestFile("normal"),
+                new TestFile("executable") {IsExecutable = true},
+                new TestSymlink("symlink", "normal")
+            }
+        }.Build(_tempDir);
 
-            var mock = new Mock<IForwardOnlyBuilder>();
-            new ReadDirectory(_tempDir, mock.Object).Run();
+        var mock = new Mock<IForwardOnlyBuilder>();
+        new ReadDirectory(_tempDir, mock.Object).Run();
 
-            mock.Verify(x => x.AddDirectory("subdir"));
-            mock.Verify(x => x.AddFile(Path.Combine("subdir", "normal"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
-            mock.Verify(x => x.AddFile(Path.Combine("subdir", "executable"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, true));
-            mock.Verify(x => x.AddSymlink(Path.Combine("subdir", "symlink"), "normal"));
-        }
+        mock.Verify(x => x.AddDirectory("subdir"));
+        mock.Verify(x => x.AddFile(Path.Combine("subdir", "normal"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
+        mock.Verify(x => x.AddFile(Path.Combine("subdir", "executable"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, true));
+        mock.Verify(x => x.AddSymlink(Path.Combine("subdir", "symlink"), "normal"));
+    }
 
-        [SkippableFact]
-        public void FromManifest()
+    [SkippableFact]
+    public void FromManifest()
+    {
+        Skip.If(UnixUtils.IsUnix, "Manifest file is only used to detect executable bits and symlinks on non-Unix file systems");
+
+        new TestRoot
         {
-            Skip.If(UnixUtils.IsUnix, "Manifest file is only used to detect executable bits and symlinks on non-Unix file systems");
-
-            new TestRoot
+            new TestDirectory("subdir")
             {
-                new TestDirectory("subdir")
-                {
-                    new TestFile("normal") {IsExecutable = true}, // This executable bit should be ignored because the manifest file takes precedence
-                    new TestFile("executable"),
-                    new TestFile("symlink") {Contents = "normal"}
-                }
-            }.Build(_tempDir);
+                new TestFile("normal") {IsExecutable = true}, // This executable bit should be ignored because the manifest file takes precedence
+                new TestFile("executable"),
+                new TestFile("symlink") {Contents = "normal"}
+            }
+        }.Build(_tempDir);
 
-            new Manifest(ManifestFormat.Sha1New)
-            {
-                ["subdir"] =
-                {
-                    ["normal"] = new ManifestNormalFile("", TestFile.DefaultLastWrite, 0),
-                    ["executable"] = new ManifestExecutableFile("", TestFile.DefaultLastWrite, 0),
-                    ["symlink"] = new ManifestSymlink("", 0)
-                }
-            }.Save(Path.Combine(_tempDir, Manifest.ManifestFile));
-
-            var mock = new Mock<IForwardOnlyBuilder>();
-            new ReadDirectory(_tempDir, mock.Object).Run();
-
-            mock.Verify(x => x.AddDirectory("subdir"));
-            mock.Verify(x => x.AddFile(Path.Combine("subdir", "normal"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
-            mock.Verify(x => x.AddFile(Path.Combine("subdir", "executable"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, true));
-            mock.Verify(x => x.AddSymlink(Path.Combine("subdir", "symlink"), "normal"));
-        }
-
-        [Fact]
-        public void DetectHardlinks()
+        new Manifest(ManifestFormat.Sha1New)
         {
-            new TestRoot {new TestFile("a")}.Build(_tempDir);
-            FileUtils.CreateHardlink(Path.Combine(_tempDir, "b"), Path.Combine(_tempDir, "a"));
+            ["subdir"] =
+            {
+                ["normal"] = new ManifestNormalFile("", TestFile.DefaultLastWrite, 0),
+                ["executable"] = new ManifestExecutableFile("", TestFile.DefaultLastWrite, 0),
+                ["symlink"] = new ManifestSymlink("", 0)
+            }
+        }.Save(Path.Combine(_tempDir, Manifest.ManifestFile));
 
-            var mock = new Mock<IForwardOnlyBuilder>();
-            new ReadDirectory(_tempDir, mock.Object).Run();
+        var mock = new Mock<IForwardOnlyBuilder>();
+        new ReadDirectory(_tempDir, mock.Object).Run();
 
-            mock.Verify(x => x.AddFile("a", It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
-            mock.Verify(x => x.AddHardlink("b", "a", false));
+        mock.Verify(x => x.AddDirectory("subdir"));
+        mock.Verify(x => x.AddFile(Path.Combine("subdir", "normal"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
+        mock.Verify(x => x.AddFile(Path.Combine("subdir", "executable"), It.IsAny<Stream>(), TestFile.DefaultLastWrite, true));
+        mock.Verify(x => x.AddSymlink(Path.Combine("subdir", "symlink"), "normal"));
+    }
 
-        }
+    [Fact]
+    public void DetectHardlinks()
+    {
+        new TestRoot {new TestFile("a")}.Build(_tempDir);
+        FileUtils.CreateHardlink(Path.Combine(_tempDir, "b"), Path.Combine(_tempDir, "a"));
+
+        var mock = new Mock<IForwardOnlyBuilder>();
+        new ReadDirectory(_tempDir, mock.Object).Run();
+
+        mock.Verify(x => x.AddFile("a", It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
+        mock.Verify(x => x.AddHardlink("b", "a", false));
+
     }
 }

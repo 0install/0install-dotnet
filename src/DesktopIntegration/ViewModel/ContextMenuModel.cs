@@ -5,33 +5,32 @@ using System.Globalization;
 using System.Linq;
 using ZeroInstall.Model.Capabilities;
 
-namespace ZeroInstall.DesktopIntegration.ViewModel
+namespace ZeroInstall.DesktopIntegration.ViewModel;
+
+/// <summary>
+/// Wraps a <see cref="ContextMenu"/> for data binding.
+/// </summary>
+public class ContextMenuModel : IconCapabilityModel
 {
+    private readonly ContextMenu _contextMenu;
+
     /// <summary>
-    /// Wraps a <see cref="ContextMenu"/> for data binding.
+    /// The name of the first entry in <see cref="VerbCapability.Verbs"/>.
     /// </summary>
-    public class ContextMenuModel : IconCapabilityModel
+    public string? Name
     {
-        private readonly ContextMenu _contextMenu;
-
-        /// <summary>
-        /// The name of the first entry in <see cref="VerbCapability.Verbs"/>.
-        /// </summary>
-        public string? Name
+        get
         {
-            get
-            {
-                var verb = _contextMenu.Verbs.FirstOrDefault();
-                return verb?.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture)
-                    ?? verb?.Name;
-            }
+            var verb = _contextMenu.Verbs.FirstOrDefault();
+            return verb?.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture)
+                ?? verb?.Name;
         }
+    }
 
-        /// <inheritdoc/>
-        public ContextMenuModel(ContextMenu contextMenu, bool used)
-            : base(contextMenu, used)
-        {
-            _contextMenu = contextMenu;
-        }
+    /// <inheritdoc/>
+    public ContextMenuModel(ContextMenu contextMenu, bool used)
+        : base(contextMenu, used)
+    {
+        _contextMenu = contextMenu;
     }
 }
