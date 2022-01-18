@@ -4,7 +4,6 @@
 using System.Text;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
-using NanoByte.Common.Threading;
 
 namespace ZeroInstall.Services.Feeds;
 
@@ -15,8 +14,6 @@ namespace ZeroInstall.Services.Feeds;
 public partial class CatalogManager : ICatalogManager
 {
     #region Constants
-    private const string CacheMutexName = "ZeroInstall.Feeds.CatalogManager.Cache";
-
     /// <summary>
     /// The default <see cref="Catalog"/> source used if no other is specified.
     /// </summary>
@@ -36,8 +33,7 @@ public partial class CatalogManager : ICatalogManager
     {
         try
         {
-            using (new MutexLock(CacheMutexName))
-                return XmlStorage.LoadXml<Catalog>(_cacheFilePath);
+            return XmlStorage.LoadXml<Catalog>(_cacheFilePath);
         }
         catch (FileNotFoundException)
         {
@@ -53,8 +49,7 @@ public partial class CatalogManager : ICatalogManager
         try
         {
             Log.Debug("Caching Catalog in: " + _cacheFilePath);
-            using (new MutexLock(CacheMutexName))
-                catalog.SaveXml(_cacheFilePath);
+            catalog.SaveXml(_cacheFilePath);
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
