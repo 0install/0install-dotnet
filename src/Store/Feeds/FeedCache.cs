@@ -79,7 +79,7 @@ public sealed class FeedCache : IFeedCache
         string? path = GetPath(feedUri);
         return path == null
             ? Enumerable.Empty<OpenPgpSignature>()
-            : FeedUtils.GetSignatures(_openPgp, File.ReadAllBytes(path));
+            : FeedUtils.GetSignatures(_openPgp, ReadFromFile(path));
     }
 
     /// <inheritdoc/>
@@ -116,6 +116,16 @@ public sealed class FeedCache : IFeedCache
             Log.Info("File path in feed cache too long. Using hash of feed URI to shorten path.");
             WriteToFile(data, System.IO.Path.Combine(Path, feedUri.AbsoluteUri.Hash(SHA256.Create())));
         }
+    }
+
+    /// <summary>
+    /// Reads the content of a file to a byte array.
+    /// </summary>
+    /// <param name="path">The file to read from.</param>
+    private static byte[] ReadFromFile(string path)
+    {
+        using (new AtomicRead(path))
+            return File.ReadAllBytes(path);
     }
 
     /// <summary>
