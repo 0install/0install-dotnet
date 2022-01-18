@@ -62,7 +62,6 @@ public static class ProgramUtils
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
-        NetUtils.ConfigureTls();
 
         // Allow child processes to call back to 0install
         try
