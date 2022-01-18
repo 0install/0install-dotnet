@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using NanoByte.Common.Streams;
+using NanoByte.Common.Native;
 
 namespace ZeroInstall.Store.Trust;
 
@@ -11,7 +11,7 @@ namespace ZeroInstall.Store.Trust;
 /// </summary>
 public partial class GnuPG : IOpenPgp
 {
-    private readonly GpgProcess _gpg;
+    private readonly GpgLauncher _gpg;
 
     /// <summary>
     /// Creates a new GnuPG instance.
@@ -37,7 +37,7 @@ public partial class GnuPG : IOpenPgp
         using (var signatureFile = new TemporaryFile("0install-sig"))
         {
             File.WriteAllBytes(signatureFile, signature);
-            result = _gpg.Run(data, "--status-fd", "1", "--verify", signatureFile.Path, "-");
+            result = _gpg.RunAndCapture(data, "--status-fd", "1", "--verify", signatureFile.Path, "-");
         }
         var lines = result.SplitMultilineText();
 
@@ -110,7 +110,7 @@ public partial class GnuPG : IOpenPgp
 
         return Convert.FromBase64String(
             _gpg
-               .Run(data, "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
+               .RunAndCapture(data, "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
                .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
                .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
                .Replace(Environment.NewLine, "\n"));
@@ -118,7 +118,7 @@ public partial class GnuPG : IOpenPgp
 
     /// <inheritdoc/>
     public void ImportKey(ArraySegment<byte> data)
-        => _gpg.Run(data, "--quiet", "--import");
+        => _gpg.RunAndCapture(data, "--quiet", "--import");
 
     /// <inheritdoc/>
     public string ExportKey(IKeyIDContainer keyIDContainer)
@@ -127,14 +127,14 @@ public partial class GnuPG : IOpenPgp
         if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
         #endregion
 
-        string result = _gpg.Run("--armor", "--export", keyIDContainer.FormatKeyID());
+        string result = _gpg.RunAndCapture("--armor", "--export", keyIDContainer.FormatKeyID());
         return result.Replace(Environment.NewLine, "\n") + "\n";
     }
 
     /// <inheritdoc/>
     public IEnumerable<OpenPgpSecretKey> ListSecretKeys()
     {
-        string result = _gpg.Run("--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
+        string result = _gpg.RunAndCapture("--list-secret-keys", "--with-colons", "--fixed-list-mode", "--fingerprint");
 
         string[]? sec = null, fpr = null, uid = null;
         foreach (string line in result.SplitMultilineText())

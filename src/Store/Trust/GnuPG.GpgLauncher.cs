@@ -2,27 +2,27 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using NanoByte.Common.Streams;
+using NanoByte.Common.Native;
 
 namespace ZeroInstall.Store.Trust;
 
 partial class GnuPG
 {
     /// <summary>
-    /// Manages the interaction with the command-line interface of the external process.
+    /// Manages the interaction with the command-line interface of the gpg process.
     /// </summary>
-    private class GpgProcess : SubProcess
+    private class GpgLauncher : ProcessLauncher
     {
         private readonly string? _homeDir;
 
-        public GpgProcess(string? homeDir = null)
+        public GpgLauncher(string? homeDir = null)
             : base(fileName: "gpg", arguments: "--batch --no-secmem-warning")
         {
             _homeDir = homeDir;
         }
 
         /// <inheritdoc/>
-        protected override ProcessStartInfo GetStartInfo(params string[] arguments)
+        public override ProcessStartInfo GetStartInfo(params string[] arguments)
         {
             var startInfo = base.GetStartInfo(arguments);
 
