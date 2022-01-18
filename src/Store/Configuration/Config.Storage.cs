@@ -271,9 +271,10 @@ partial class Config
         /// </summary>
         private void ReadFromAppSettings()
         {
+            var appSettings = ConfigurationManager.AppSettings;
             foreach ((string key, var property) in _metaData)
             {
-                string value = ConfigurationManager.AppSettings[key];
+                string value = appSettings[key];
                 if (!string.IsNullOrEmpty(value))
                     property.Value = value;
             }
