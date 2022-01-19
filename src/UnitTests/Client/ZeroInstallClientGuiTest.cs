@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using NanoByte.Common.Streams;
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Client;
@@ -12,15 +12,14 @@ namespace ZeroInstall.Client;
 /// </summary>
 public class ZeroInstallClientGuiTest : TestWithMocks
 {
-    private readonly Mock<ISubProcess> _subProcessMock;
-    private readonly Mock<IProcessLauncher> _guiLauncherMock;
+    private readonly Mock<IProcessLauncher> _launcherMock, _guiLauncherMock;
     private readonly ZeroInstallClient _client;
 
     public ZeroInstallClientGuiTest()
     {
-        _subProcessMock = CreateMock<ISubProcess>();
+        _launcherMock = CreateMock<IProcessLauncher>();
         _guiLauncherMock = CreateMock<IProcessLauncher>();
-        _client = new(_subProcessMock.Object, CreateMock<IProcessLauncher>().Object, _guiLauncherMock.Object);
+        _client = new(_launcherMock.Object, _guiLauncherMock.Object);
     }
 
     [Fact]
@@ -28,11 +27,10 @@ public class ZeroInstallClientGuiTest : TestWithMocks
     {
         var selections = SelectionsTest.CreateTestSelections();
 
-        _guiLauncherMock.Setup(x => x.Run("download", "--batch", "--refresh", FeedTest.Test1Uri.ToStringRfc(), "--background"))
-                        .Returns(0);
+        _guiLauncherMock.Setup(x => x.Run("download", "--batch", "--refresh", FeedTest.Test1Uri.ToStringRfc(), "--background"));
 
-        _subProcessMock.Setup(x => x.Run(null, "select", "--batch", "--xml", "--offline", FeedTest.Test1Uri.ToStringRfc()))
-                       .Returns(selections.ToXmlString());
+        _launcherMock.Setup(x => x.RunAndCapture(null, "select", "--batch", "--xml", "--offline", FeedTest.Test1Uri.ToStringRfc()))
+                     .Returns(selections.ToXmlString());
 
         var result = await _client.DownloadAsync(FeedTest.Test1Uri, refresh: true);
         result.Should().Be(selections);
@@ -41,20 +39,19 @@ public class ZeroInstallClientGuiTest : TestWithMocks
     [Fact]
     public void Run()
     {
-        _guiLauncherMock.Setup(x => x.Start("run", "--no-wait", FeedTest.Test1Uri.ToStringRfc(), "--arg"))
-                        .Returns(new Process());
+        _guiLauncherMock.Setup(x => x.Run("run", "--no-wait", FeedTest.Test1Uri.ToStringRfc(), "--arg"));
 
         _client.Run(FeedTest.Test1Uri, arguments: "--arg");
     }
 
     [Fact]
-    public void RunAndWait()
+    public void GetRunStartInfo()
     {
-        var process = new Process();
-        _guiLauncherMock.Setup(x => x.Start("run", FeedTest.Test1Uri.ToStringRfc(), "--arg"))
-                        .Returns(process);
+        var startInfo = new ProcessStartInfo();
+        _guiLauncherMock.Setup(x => x.GetStartInfo("run", "--batch", FeedTest.Test1Uri.ToStringRfc(), "--arg"))
+                        .Returns(startInfo);
 
-        _client.RunWithProcess(FeedTest.Test1Uri, arguments: "--arg")
-               .Should().BeSameAs(process);
+        _client.GetRunStartInfo(FeedTest.Test1Uri, arguments: "--arg")
+               .Should().BeSameAs(startInfo);
     }
 }

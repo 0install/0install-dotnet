@@ -4,7 +4,6 @@
 using System.Diagnostics;
 using System.Xml.Linq;
 using NanoByte.Common.Native;
-using NanoByte.Common.Streams;
 using ZeroInstall.Model.Selection;
 
 namespace ZeroInstall.Client;
@@ -14,19 +13,16 @@ namespace ZeroInstall.Client;
 /// </summary>
 public class ZeroInstallClient : IZeroInstallClient
 {
-    private readonly ISubProcess _subProcess;
     private readonly IProcessLauncher _launcher;
     private readonly IProcessLauncher? _guiLauncher;
 
     /// <summary>
     /// Creates a new Zero Install client.
     /// </summary>
-    /// <param name="subProcess">Used to launch <c>0install</c>, captures its output and waits until it has terminated.</param>
-    /// <param name="launcher">Used to launch <c>0install</c> as ane external process.</param>
-    /// <param name="guiLauncher">Used to launch <c>0install-win</c> as ane external process.</param>
-    internal ZeroInstallClient(ISubProcess subProcess, IProcessLauncher launcher, IProcessLauncher? guiLauncher = null)
+    /// <param name="launcher">Used to launch <c>0install</c> as a child process.</param>
+    /// <param name="guiLauncher">Used to launch <c>0install-win</c> as a child process.</param>
+    internal ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiLauncher = null)
     {
-        _subProcess = subProcess;
         _launcher = launcher;
         _guiLauncher = guiLauncher;
     }
@@ -38,9 +34,8 @@ public class ZeroInstallClient : IZeroInstallClient
     /// <param name="guiCommandLine">The optional command-line used to launch <c>0install-win</c>. Whitespace must be properly escaped.</param>
     public ZeroInstallClient(string commandLine, string? guiCommandLine = null)
         : this(
-            subProcess: new SubProcess(ProcessUtils.FromCommandLine(commandLine)),
-            launcher: new ProcessLauncher(commandLine),
-            guiLauncher: guiCommandLine?.To(x=> new ProcessLauncher(x)))
+            launcher: new ZeroInstallLauncher(commandLine),
+            guiLauncher: guiCommandLine?.To(x=> new ZeroInstallLauncher(x)))
     {}
 
     /// <summary>
@@ -70,7 +65,7 @@ public class ZeroInstallClient : IZeroInstallClient
         if (offline) args.Add("--offline");
         args.AddRange(requirements.ToCommandLineArgs());
 
-        string output = await Task.Run(() => _subProcess.Run(args.ToArray()));
+        string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
         return XmlStorage.FromXmlString<Selections>(output);
     }
 
@@ -84,7 +79,7 @@ public class ZeroInstallClient : IZeroInstallClient
         if (_guiLauncher == null)
         {
             args.Add("--xml");
-            string output = await Task.Run(() => _subProcess.Run(args.ToArray()));
+            string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
             return XmlStorage.FromXmlString<Selections>(output);
         }
         else
@@ -98,35 +93,31 @@ public class ZeroInstallClient : IZeroInstallClient
     /// <inheritdoc/>
     public void Run(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments)
     {
-        var args = new List<string> { "run" };
+        var args = new List<string> { "run", "--no-wait" };
         if (refresh) args.Add("--refresh");
-        args.Add("--no-wait");
         args.AddRange(requirements.ToCommandLineArgs());
         args.AddRange(arguments);
 
-        if (needsTerminal || _guiLauncher == null)
-            _launcher.Start(args.ToArray());
-        else
-            _guiLauncher.Start(args.ToArray());
+        var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
+        launcher.Run(args.ToArray());
     }
 
     /// <inheritdoc/>
-    public Process RunWithProcess(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments)
+    public ProcessStartInfo GetRunStartInfo(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments)
     {
-        var args = new List<string> { "run" };
+        var args = new List<string> { "run", "--batch" };
         if (refresh) args.Add("--refresh");
         args.AddRange(requirements.ToCommandLineArgs());
         args.AddRange(arguments);
 
-        return needsTerminal || _guiLauncher == null
-            ? _launcher.Start(args.ToArray())
-            : _guiLauncher.Start(args.ToArray());
+        var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
+        return launcher.GetStartInfo(args.ToArray());
     }
 
     /// <inheritdoc/>
     public async Task<ISet<string>> GetIntegrationAsync(FeedUri uri)
     {
-        string output = await Task.Run(() => _subProcess.Run("list-apps", "--batch", "--xml", uri.ToStringRfc()));
+        string output = await Task.Run(() => _launcher.RunAndCapture("list-apps", "--batch", "--xml", uri.ToStringRfc()));
 
         const string xmlNamespace = "http://0install.de/schema/desktop-integration/app-list";
         return new HashSet<string>(
@@ -156,16 +147,16 @@ public class ZeroInstallClient : IZeroInstallClient
         AddToArgs("--add", add);
         AddToArgs("--remove", remove);
 
-        await Task.Run(() => _subProcess.Run(args.ToArray()));
+        await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
     }
 
     /// <inheritdoc/>
     public async Task RemoveAsync(FeedUri uri)
-        => await Task.Run(() => _subProcess.Run("remove", "--batch", uri.ToStringRfc()));
+        => await Task.Run(() => _launcher.RunAndCapture("remove", "--batch", uri.ToStringRfc()));
 
     /// <inheritdoc/>
     public async Task FetchAsync(Implementation implementation)
-        => await Task.Run(() => _subProcess.Run(
+        => await Task.Run(() => _launcher.RunAndCapture(
             writer => writer.WriteLineAsync(new Feed { Elements = { implementation } }.ToXmlString().Replace("\n", "")),
             "fetch"));
 }
