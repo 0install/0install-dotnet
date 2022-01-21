@@ -17,7 +17,6 @@ public sealed partial class IconStore : IIconStore
     private readonly string _path;
     private readonly Config _config;
     private readonly ITaskHandler _handler;
-    private readonly JobQueue _backgroundUpdates = new();
 
     /// <summary>
     /// The maximum number of bytes to download for a single icon.
@@ -32,7 +31,7 @@ public sealed partial class IconStore : IIconStore
         if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
         #endregion
 
-        string path = GetPath(icon);
+        string path = BuildPath(icon);
 
         if (File.Exists(path))
         {
@@ -46,52 +45,41 @@ public sealed partial class IconStore : IIconStore
         }
     }
 
-    /// <summary>
-    /// Gets an icon from the cache or downloads it if it is missing or stale/outdated.
-    /// </summary>
-    /// <param name="icon">The icon to get.</param>
-    /// <param name="backgroundUpdate">Set to <c>true</c> to return stale icons and download an update in the background for future use.</param>
-    /// <returns>The file path of the cached icon.</returns>
-    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>
-    /// <exception cref="UnauthorizedAccessException">Read or write access to the cache is not permitted.</exception>
-    /// <exception cref="WebException">A problem occurred while downloading the icon.</exception>
-    public string Get(Icon icon, bool backgroundUpdate = false)
+    /// <inheritdoc/>
+    public string Get(Icon icon, out bool stale)
     {
-        // Prevent concurrent downloads of same icon
-        using var mutex = new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode());
-
-        string path = GetCached(icon, out bool stale) ?? Download(icon);
-
-        if (stale && _config.NetworkUse == NetworkLevel.Full && NetUtils.IsInternetConnected)
-        {
-            if (backgroundUpdate)
-            {
-                Task.Delay(TimeSpan.FromSeconds(2), _handler.CancellationToken)
-                    .ContinueWith(_ => _backgroundUpdates.Enqueue(() => Update(icon)));
-            }
-            else Update(icon);
-        }
-
-        return path;
+        using (new MutexLock("ZeroInstall.Model.Icon." + BuildPath(icon).GetHashCode()))
+            return GetCached(icon, out stale) ?? Download(icon);
     }
 
     private readonly ConcurrentSet<Uri> _updatedIcons = new();
 
-    private void Update(Icon icon)
+    /// <inheritdoc/>
+    public string GetFresh(Icon icon)
     {
-        if (!_updatedIcons.AddIfNew(icon.Href)) return;
-
-        try
+        string path = Get(icon, out bool stale);
+        if (stale && _updatedIcons.AddIfNew(icon.Href))
         {
-            Download(icon);
+            try
+            {
+                Download(icon);
+            }
+            catch (OperationCanceledException)
+            {}
+            catch (WebException ex)
+            {
+                Log.Info(ex);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                Log.Warn(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
-        catch (OperationCanceledException)
-        {}
-        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
-        {
-            Log.Warn(ex);
-        }
+        return path;
     }
 
     private string Download(Icon icon)
@@ -99,7 +87,7 @@ public sealed partial class IconStore : IIconStore
         if (_config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 
-        string path = GetPath(icon);
+        string path = BuildPath(icon);
 
         using var atomic = new AtomicWrite(path);
         _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
@@ -108,7 +96,7 @@ public sealed partial class IconStore : IIconStore
         return path;
     }
 
-    internal string GetPath(Icon icon)
+    internal string BuildPath(Icon icon)
     {
         string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
 
@@ -121,6 +109,7 @@ public sealed partial class IconStore : IIconStore
         EnsureExtension(Icon.MimeTypePng, ".png");
         EnsureExtension(Icon.MimeTypeIco, ".ico");
         EnsureExtension(Icon.MimeTypeSvg, ".svg");
+        EnsureExtension(Icon.MimeTypeIcns, ".icns");
 
         return path;
     }

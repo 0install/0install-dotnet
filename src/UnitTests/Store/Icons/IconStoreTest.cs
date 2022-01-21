@@ -25,7 +25,7 @@ public class IconStoreTest : IDisposable
     [Fact]
     public void ShouldEnsureCorrectFileExtension()
     {
-        string path = _store.GetPath(PngIcon(new("http://host/file")));
+        string path = _store.BuildPath(PngIcon(new("http://host/file")));
         Path.GetExtension(path).Should().Be(".png");
     }
 
@@ -69,11 +69,11 @@ public class IconStoreTest : IDisposable
 
     private void Inject(Icon icon, string iconData, DateTime? timestamp = null)
     {
-        string path = _store.GetPath(icon);
+        string path = _store.BuildPath(icon);
         File.WriteAllText(path, iconData);
         if (timestamp.HasValue) File.SetLastWriteTimeUtc(path, timestamp.Value);
     }
 
     private void VerifyGet(Icon icon, string iconData)
-        => File.ReadAllText(_store.Get(icon)).Should().Be(iconData);
+        => File.ReadAllText(_store.GetFresh(icon)).Should().Be(iconData);
 }

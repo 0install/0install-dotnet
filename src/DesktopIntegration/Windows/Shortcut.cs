@@ -37,7 +37,7 @@ public static partial class Shortcut
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
 
         Create(path, targetPath, arguments,
-            iconLocation: icon?.To(iconStore.Get),
+            iconLocation: icon?.To(iconStore.GetFresh),
             description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command),
             appId: entryPoint?.AppId ?? GuessAppExePath(target.Feed, entryPoint));
     }

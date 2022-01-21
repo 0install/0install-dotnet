@@ -78,7 +78,7 @@ public static class AutoPlay
 
             var icon = autoPlay.GetIcon(Icon.MimeTypeIco)
                     ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
-            handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.Get(x) + ",0"));
+            handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.GetFresh(x) + ",0"));
         }
 
         foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))

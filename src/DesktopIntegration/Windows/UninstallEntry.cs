@@ -40,7 +40,7 @@ public static class UninstallEntry
     private static string? GetIconPath(Feed feed, IIconStore iconStore)
     {
         var icon = feed.Icons.GetIcon(Icon.MimeTypeIco);
-        return icon?.To(iconStore.Get);
+        return icon?.To(iconStore.GetFresh);
     }
 
     /// <summary>

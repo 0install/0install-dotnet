@@ -81,7 +81,7 @@ public static class ContextMenu
                 AppliesTo(verbKey);
 
                 var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
-                verbKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
+                verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
             }
         }
         else
@@ -100,7 +100,7 @@ public static class ContextMenu
                 menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
                 var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-                menuKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
+                menuKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
             }
         }
     }

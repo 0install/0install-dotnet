@@ -65,7 +65,7 @@ internal static class RegistryClasses
         if (icon != null)
         {
             using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
-            iconKey.SetValue("", iconStore.Get(icon) + ",0");
+            iconKey.SetValue("", iconStore.GetFresh(icon) + ",0");
         }
 
         foreach (var verb in capability.Verbs)
@@ -102,7 +102,7 @@ internal static class RegistryClasses
         else verbKey.DeleteValue("Extended", throwOnMissingValue: false);
 
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
-        verbKey.SetOrDelete("Icon", icon?.To(iconStore.Get));
+        verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
 
         using var commandKey = verbKey.CreateSubKeyChecked("command");
         commandKey.SetValue("", GetLaunchCommandLine(target, verb, iconStore, machineWide));

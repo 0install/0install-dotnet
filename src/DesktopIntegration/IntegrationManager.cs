@@ -246,7 +246,7 @@ public class IntegrationManager : IntegrationManagerBase
         var iconStore = IconStores.DesktopIntegration(Config, Handler, MachineWide);
 
         // Pre-cache splash screen for later use by GUI
-        feed.SplashScreens.GetIcon(Icon.MimeTypePng)?.To(iconStore.Get);
+        feed.SplashScreens.GetIcon(Icon.MimeTypePng)?.To(iconStore.GetFresh);
 
         accessPoints.ApplyWithRollback(
             accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),

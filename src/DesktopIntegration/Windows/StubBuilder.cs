@@ -158,7 +158,7 @@ public partial class StubBuilder
 
         try
         {
-            string iconPath = _iconStore.Get(icon);
+            string iconPath = _iconStore.GetFresh(icon);
             new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
             return iconPath;
         }
