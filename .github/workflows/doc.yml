@@ -10,11 +10,10 @@ jobs:
     steps:
       - name: Download documentation
         run: |
-          curl -sSfL https://github.com/0install/0install-dotnet/releases/download/${{github.ref_name}}/Documentation.zip
-          unzip Documentation.zip -d docs
+          curl -sSfLO https://github.com/0install/0install-dotnet/releases/download/${{github.ref_name}}/docs.zip
+          unzip docs.zip -d docs
 
       - name: Publish documentation
-        if: steps.gitversion.outputs.preReleaseLabel == ''
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{github.token}}
