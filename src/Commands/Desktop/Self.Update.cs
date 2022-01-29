@@ -12,7 +12,7 @@ partial class Self
     /// Updates Zero Install itself to the most recent version.
     /// </summary>
 #if NETFRAMEWORK
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
 #endif
     public class Update : Download, ICliSubCommand
     {
