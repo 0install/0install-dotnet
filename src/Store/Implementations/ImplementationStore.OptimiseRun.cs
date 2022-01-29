@@ -49,11 +49,8 @@ partial class ImplementationStore
 
                         if (_fileHashes.TryGetValue(key, out var existingFile))
                         {
-                            if (!FileUtils.AreHardlinked(file, existingFile))
-                            {
-                                if (JoinWithHardlink(file, existingFile))
-                                    SavedBytes += size;
-                            }
+                            if (JoinWithHardlink(file, existingFile))
+                                SavedBytes += size;
                         }
                         else _fileHashes.Add(key, file);
                     }
@@ -63,7 +60,15 @@ partial class ImplementationStore
 
         private bool JoinWithHardlink(StoreFile file1, StoreFile file2)
         {
-            if (FileUtils.AreHardlinked(file1, file2)) return false;
+            try
+            {
+                if (FileUtils.AreHardlinked(file1, file2)) return false;
+            }
+            catch (IOException)
+            {
+                // Do not touch file if hardlink status cannot be determined
+                return false;
+            }
 
             if (_unsealedImplementations.Add(file1.ImplementationPath))
                 FileUtils.DisableWriteProtection(file1.ImplementationPath);
