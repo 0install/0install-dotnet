@@ -61,7 +61,8 @@ internal static class RegistryClasses
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        var icon = capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
+        var icon = capability.GetIcon(Icon.MimeTypeIco)
+                ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
         if (icon != null)
         {
             using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
@@ -101,7 +102,8 @@ internal static class RegistryClasses
         if (verb.Extended) verbKey.SetValue("Extended", "");
         else verbKey.DeleteValue("Extended", throwOnMissingValue: false);
 
-        var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command);
+        var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, verb.Command)
+                ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
         verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
 
         using var commandKey = verbKey.CreateSubKeyChecked("command");

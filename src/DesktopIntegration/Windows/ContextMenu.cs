@@ -79,9 +79,6 @@ public static class ContextMenu
                 using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
                 RegistryClasses.Register(verbKey, target, verb, iconStore, machineWide);
                 AppliesTo(verbKey);
-
-                var icon = contextMenu.GetIcon(Icon.MimeTypeIco);
-                verbKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
             }
         }
         else
@@ -99,7 +96,8 @@ public static class ContextMenu
                 menuKey.SetValue("ExtendedSubCommandsKey", Prefix + contextMenu.ID);
                 menuKey.SetValue("MUIVerb", contextMenu.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? contextMenu.ID);
 
-                var icon = contextMenu.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
+                var icon = contextMenu.GetIcon(Icon.MimeTypeIco)
+                        ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
                 menuKey.SetOrDelete("Icon", icon?.To(iconStore.GetFresh));
             }
         }
