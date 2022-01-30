@@ -12,6 +12,7 @@ partial class ImplementationStore
     /// </summary>
     private sealed record OptimiseRun(string StorePath) : IDisposable
     {
+        [SuppressMessage("ReSharper", "NotAccessedPositionalProperty.Local")]
         private sealed record DedupKey(long Size, long LastModified, ManifestFormat Format, string Digest);
 
         private sealed record StoreFile(string ImplementationPath, string RelativePath)
