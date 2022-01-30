@@ -12,7 +12,7 @@ Zero Install .NET provides the `0install` command-line tool. There are a number 
 
 - You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://0install.net/injector.html#windows-current). (recommended)
 
-- If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET 5 version of the `0install` command like this:
+- If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET 6 version of the `0install` command like this:
 
       0install run https://apps.0install.net/0install/0install-dotnet.xml
 
