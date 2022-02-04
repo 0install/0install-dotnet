@@ -13,10 +13,6 @@ namespace ZeroInstall.Model;
 [Equatable]
 public sealed partial class Group : Element, IElementContainer
 {
-    /// <inheritdoc/>
-    [IgnoreEquality]
-    internal override IEnumerable<Implementation> Implementations => Elements.SelectMany(x => x.Implementations);
-
     /// <summary>
     /// A list of <see cref="Group"/>s and <see cref="Implementation"/>s contained within this group.
     /// </summary>

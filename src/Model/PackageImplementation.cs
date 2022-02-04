@@ -14,10 +14,6 @@ namespace ZeroInstall.Model;
 [Equatable]
 public sealed partial class PackageImplementation : Element
 {
-    /// <inheritdoc/>
-    [IgnoreEquality]
-    internal override IEnumerable<Implementation> Implementations => Enumerable.Empty<Implementation>();
-
     /// <summary>
     /// Well-known values for <see cref="Distributions"/>.
     /// </summary>

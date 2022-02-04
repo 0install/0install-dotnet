@@ -210,7 +210,8 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// </summary>
     /// <remarks>If this is used before <see cref="Normalize"/> has been called, incomplete <see cref="Implementation"/>s may be returned, because the <see cref="Group"/> inheritance structure has not been resolved.</remarks>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public IEnumerable<Implementation> Implementations => Elements.SelectMany(x => x.Implementations);
+    public IEnumerable<Implementation> Implementations
+        => Elements.GetImplementations();
 
     /// <summary>
     /// Returns the <see cref="Implementation"/> with a specific ID string.
@@ -220,25 +221,8 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <exception cref="KeyNotFoundException">No <see cref="Implementation"/> matching <paramref name="id"/> was found in <see cref="Elements"/>.</exception>
     /// <remarks>If this is used before <see cref="Normalize"/> has been called, incomplete <see cref="Implementation"/>s may be returned, because the <see cref="Group"/> inheritance structure has not been resolved.</remarks>
     public Implementation this[string id]
-    {
-        get
-        {
-            #region Sanity checks
-            if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
-            #endregion
-
-            try
-            {
-                return Implementations.First(implementation => implementation.ID == id);
-            }
-            #region Error handling
-            catch (InvalidOperationException)
-            {
-                throw new KeyNotFoundException($"Unable to find implementation '{id}' in feed '{Name}'.");
-            }
-            #endregion
-        }
-    }
+        => Implementations.FirstOrDefault(implementation => implementation.ID == id)
+        ?? throw new KeyNotFoundException($"Unable to find implementation '{id}' in feed '{Name}'.");
 
     /// <summary>
     /// Returns the first <see cref="EntryPoint"/> referencing a specific <see cref="Command"/>.

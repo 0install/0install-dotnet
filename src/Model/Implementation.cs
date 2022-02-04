@@ -12,10 +12,6 @@ namespace ZeroInstall.Model;
 [Equatable]
 public partial class Implementation : ImplementationBase
 {
-    /// <inheritdoc/>
-    [IgnoreEquality]
-    internal override IEnumerable<Implementation> Implementations => new[] {this};
-
     /// <summary>
     /// A list of <see cref="RetrievalMethod"/>s for downloading the implementation.
     /// </summary>

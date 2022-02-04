@@ -13,10 +13,6 @@ namespace ZeroInstall.Model.Selection;
 [Equatable]
 public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, ICloneable<ImplementationSelection>, IComparable<ImplementationSelection>
 {
-    /// <inheritdoc/>
-    [IgnoreEquality]
-    internal override IEnumerable<Implementation> Implementations => Enumerable.Empty<Implementation>();
-
     /// <summary>
     /// The URI or local path of the interface this implementation is for.
     /// </summary>
