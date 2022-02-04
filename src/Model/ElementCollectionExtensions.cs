@@ -14,4 +14,12 @@ public static class ElementCollectionExtensions
     public static IEnumerable<Implementation> GetImplementations(this IReadOnlyCollection<Element> elements)
         => elements.OfType<Implementation>()
                    .Concat(elements.OfType<Group>().SelectMany(x => x.Elements.GetImplementations()));
+
+    /// <summary>
+    /// Removes an <see cref="Implementation"/> identified by its ID.
+    /// </summary>
+    /// <returns><c>true</c> if the implementation was removed; <c>false</c> if the implementation could not be found.</returns>
+    public static bool RemoveImplementation(this ICollection<Element> elements, string id)
+        => elements.RemoveAll(x => x is Implementation implementation && implementation.ID == id)
+        || elements.OfType<Group>().Any(group => @group.Elements.RemoveImplementation(id));
 }

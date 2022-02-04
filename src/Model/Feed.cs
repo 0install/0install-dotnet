@@ -214,6 +214,13 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
         => Elements.GetImplementations();
 
     /// <summary>
+    /// Removes an <see cref="Implementation"/> identified by its ID.
+    /// </summary>
+    /// <returns><c>true</c> if the implementation was removed; <c>false</c> if the implementation could not be found.</returns>
+    public bool RemoveImplementation(string id)
+        => Elements.RemoveImplementation(id ?? throw new ArgumentNullException(nameof(id)));
+
+    /// <summary>
     /// Returns the <see cref="Implementation"/> with a specific ID string.
     /// </summary>
     /// <param name="id">The <see cref="ImplementationBase.ID"/> to look for.</param>

@@ -301,6 +301,18 @@ public class FeedTest
     }
 
     /// <summary>
+    /// Ensures that contained <see cref="Implementation"/> can be removed by ID.
+    /// </summary>
+    [Fact]
+    public void RemoveImplementation()
+    {
+        var feed = CreateTestFeed();
+
+        feed.RemoveImplementation("id1").Should().BeTrue();
+        feed.RemoveImplementation("invalid").Should().BeFalse();
+    }
+
+    /// <summary>
     /// Ensures that <see cref="Feed.GetEntryPoint"/> correctly identifies contained <see cref="EntryPoint"/>s.
     /// </summary>
     [Fact]
