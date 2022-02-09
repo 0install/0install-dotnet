@@ -148,14 +148,16 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         {
             try
             {
+                var paths = Directory
+                            // Look for executables in top-level directory (handling other file types or subdirectories would be too slow)
+                           .GetFiles(path, "*.exe")
+                            // Exclude well-known names for subprocesses
+                           .Where(x => !x.EndsWithIgnoreCase("Subprocess"));
+
                 using var restartManager = new WindowsRestartManager();
-
-                // Look for handles to well-known executable types in the top-level directory.
-                // Searching for all file types and/or in subdirectories takes too long.
-                restartManager.RegisterResources(Directory.GetFiles(path, "*.exe"));
-                restartManager.RegisterResources(Directory.GetFiles(path, "*.dll"));
-
+                restartManager.RegisterResources(paths.ToArray());
                 string[] apps = restartManager.ListApps(handler.CancellationToken);
+
                 if (apps.Length != 0)
                 {
                     if (handler.Verbosity != Verbosity.Batch || !purge)
