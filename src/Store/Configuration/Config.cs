@@ -67,7 +67,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     /// <summary>
     /// The default value for <see cref="FeedMirror"/>.
     /// </summary>
-    public const string DefaultFeedMirror = "http://roscidus.com/0mirror";
+    public const string DefaultFeedMirror = "https://roscidus.com/0mirror";
 
     /// <summary>
     /// The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactivate use of feed mirror.
