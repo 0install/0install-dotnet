@@ -12,14 +12,8 @@ public static class ArchitectureExtensions
     /// Determines whether an implementation for <paramref name="architecture"/> can run on <paramref name="target"/>.
     /// </summary>
     public static bool RunsOn(this Architecture architecture, Architecture target)
-    {
-        if (architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)) return true;
-
-        // Windows/macOS ARM x86/x64 emulation
-        if (target.OS is OS.Windows or OS.MacOSX && target.Cpu == Cpu.AArch64 && architecture.Cpu is (>= Cpu.I386 and <= Cpu.X64)) return true;
-
-        return false;
-    }
+        => architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)
+        || architecture is {Cpu: >= Cpu.I386 and <= Cpu.X64} && target is {Cpu: Cpu.AArch64, OS: OS.Windows or OS.MacOSX}; // x86/64 emulation on ARM
 
     /// <summary>
     /// Determines whether an implementation for <paramref name="os"/> can run on <paramref name="target"/>.
