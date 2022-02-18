@@ -35,12 +35,11 @@ public class ManifestBuilder : MarshalNoTimeout, IBuilder
     {
         (string dir, string file) = Split(path);
 
-        var progressStream = new ProgressStream(stream, new SynchronousProgress<long>());
-        string digest = Manifest.Format.DigestContent(progressStream);
+        string digest = Manifest.Format.DigestContent(stream);
 
         Manifest[dir][file] = executable
-            ? new ManifestExecutableFile(digest, modifiedTime, progressStream.Length)
-            : new ManifestNormalFile(digest, modifiedTime, progressStream.Length);
+            ? new ManifestExecutableFile(digest, modifiedTime, stream.Length)
+            : new ManifestNormalFile(digest, modifiedTime, stream.Length);
     }
 
     /// <inheritdoc/>

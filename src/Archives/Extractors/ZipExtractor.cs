@@ -54,7 +54,7 @@ public partial class ZipExtractor : ArchiveExtractor
             if (entry.IsDirectory)
                 builder.AddDirectory(relativePath);
             else if (entry.IsFile)
-                builder.AddFile(relativePath, zipStream, GetTimestamp(entry));
+                builder.AddFile(relativePath, zipStream.WithLength(entry.Size), GetTimestamp(entry));
         }
     }
 

@@ -45,8 +45,7 @@ internal sealed partial class CabExtractorContext : IUnpackStreamContext
 
         _pipe = new();
 
-        var readStream = new ProgressStream(_pipe.Reader.AsStream());
-        readStream.SetLength(fileSize);
+        var readStream = _pipe.Reader.AsStream().WithLength(fileSize);
         _task = Task.Run(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), _cancellationToken);
 
         return _pipe.Writer.AsStream();

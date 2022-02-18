@@ -4,6 +4,7 @@
 using System.Text;
 using ICSharpCode.SharpZipLib;
 using ICSharpCode.SharpZipLib.Tar;
+using NanoByte.Common.Streams;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -47,7 +48,7 @@ public partial class TarExtractor : ArchiveExtractor
                         builder.AddDirectory(relativePath);
                         break;
                     case TarHeader.LF_NORMAL or TarHeader.LF_OLDNORM:
-                        builder.AddFile(relativePath, tarStream, entry.TarHeader.ModTime, IsExecutable(entry));
+                        builder.AddFile(relativePath, tarStream.WithLength(entry.Size), entry.TarHeader.ModTime, IsExecutable(entry));
                         break;
                     default:
                         throw new NotSupportedException($"Archive entry '{entry.Name}' has unsupported type: {entry.TarHeader.TypeFlag}");

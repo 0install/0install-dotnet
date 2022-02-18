@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Streams;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
 using ZeroInstall.Store.FileSystem;
@@ -34,7 +35,7 @@ public partial class SevenZipExtractor : ArchiveExtractor
                     if (entry.IsDirectory) builder.AddDirectory(relativePath);
                     else
                     {
-                        using var elementStream = reader.OpenEntryStream();
+                        using var elementStream = reader.OpenEntryStream().WithLength(entry.Size);
                         builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? new UnixTime());
                     }
                 }
