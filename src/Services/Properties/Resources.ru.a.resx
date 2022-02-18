@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Подача {0}
+- Действительная подпись от {1}
+- {2}
+Хотите ли вы доверять этому ключу для подписи фидов с '{3}'?
+</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>Полученная командная строка пуста.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Команда для '{0}' не указана.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>связки &lt;environment&gt; должны содержать либо атрибут 'value', либо атрибут 'insert'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Запуск внешнего решателя</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Корм '{0}' не кэшируется, и Zero Install в настоящее время находится в автономном режиме.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' не удалось найти в кэше кормов.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Корм '{0}' не был подписан никакими доверенными ключами.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' - это локальный файл. Это должен быть HTTP(S) URL.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>Атрибут uri &lt;interface&gt; ('{0}') не соответствует URL-адресу, с которого был загружен фид ('{1}').</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Отсутствует атрибут uri &lt;interface&gt;. Должен быть '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Проблема с получением '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Неправильный символ в имени привязки {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>Для импорта фидов необходимо указать URI, из которого они были получены.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Отсутствует название в переплете {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Не указан интерфейс.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Невозможно загрузить {0}, поскольку Zero Install находится в автономном режиме.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Сервер информации о ключе не смог предоставить никакой дополнительной информации об этом ключе.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Не найден дайджест манифеста для реализации '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoPackageManagerSupport" xml:space="preserve">
+    <value>Для этой платформы нет встроенной поддержки менеджера пакетов.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Для реализации '{0}' метод извлечения не найден.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>Обнаружена возможная атака повторного воспроизведения. Время модификации нового фида раньше старой версии.
+URI фида {0}
+Старое время {1}
+Новое время {2}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Не удалось загрузить {0}. Вместо этого пытаюсь получить с зеркала фида.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Невозможно кэшировать загруженный каталог приложений.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Невозможно разобрать информацию о ключе для '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Невозможно получить информацию о ключе для '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' не является известным идентификатором в менеджере пакетов {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Корм подписан недоверенными ключами!</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>Ожидание завершения загрузки</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
+    <value>Рабочий каталог уже был изменен предыдущей командой.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>Рабочий каталог содержит недопустимый путь (потенциально опасный для безопасности).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

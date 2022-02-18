@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>Η συμβολοσειρά πρέπει να έχει τη μορφή "os-cpu".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Αδυναμία εύρεσης της εντολής '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>Σφάλμα φόρτωσης προτιμήσεων τροφοδοσίας για το '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>Σφάλμα φόρτωσης προτιμήσεων διεπαφής για το '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>Δεν είναι δυνατή η εύρεση της τροφοδοσίας '{0}' στον κατάλογο.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Βρέθηκε αντ' αυτού:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>Αδυναμία εύρεσης υλοποίησης για τη διασύνδεση '{0}' στην επιλογή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>το '{0}' δεν είναι έγκυρο URI 'http(s):' και ούτε έγκυρη τοπική διαδρομή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Μη έγκυρο χαρακτηριστικό '{0}' στο {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Λείπει το χαρακτηριστικό '{0}' στο {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Λείπει η ετικέτα {0} μέσα στο {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>Ο κατάλογος με διαχωρισμό με τελεία μπορεί να περιέχει μόνο δεκαδικούς αριθμούς.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>Ο αριθμός έκδοσης μπορεί να περιέχει μόνο δεκαδικά ψηφία και συμβολοσειρές τροποποιητών που χωρίζονται με τελεία.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>Ο αριθμός έκδοσης πρέπει να αρχίζει με μια λίστα δεκαδικών ψηφίων διαχωρισμένων με τελεία.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Δεν καθορίστηκε καμία γνωστή μέθοδος πέψης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>Η σχετική διαδρομή '{0}' δεν μπόρεσε να επιλυθεί. Μόνο οι τροφοδοσίες που αποθηκεύονται ως τοπικά αρχεία μπορούν να περιέχουν σχετικές διαδρομές.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>Το σχετικό URI '{0}' δεν μπόρεσε να επιλυθεί. Μόνο οι τροφοδοσίες που έχουν αποθηκευτεί ως τοπικά αρχεία μπορούν να περιέχουν σχετικά URI.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>το χαρακτηριστικό 'rollout-percentage' στο {0} μπορεί να οριστεί μόνο όταν η 'stability' είναι 'testing' ή μη ρυθμισμένη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>Ελαττωματική εφαρμογή</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>Δεν παρέχει την εντολή '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>Μη συμβατό λειτουργικό σύστημα ή CPU</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>Ανασφαλής εφαρμογή</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>Υλοποίηση που δεν βρίσκεται στην κρυφή μνήμη (επί του παρόντος σε off-line mode)</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>Μη εκτελέσιμη υλοποίηση πηγής</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>Έκδοση εφαρμογής πολύ παλιά ή πολύ νέα</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Πρέπει να είναι ένας έγκυρος τύπος MIME.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Θα πρέπει να είναι μια ασφαλής ταυτότητα. Μπορεί να περιέχει μόνο αλφαριθμητικούς χαρακτήρες, κενά ( ), τελείες (.), υπογράμμιση (_), παύλες (-) και σύμβολα συν (+).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>Το βήμα της συνταγής '{0}' στην υλοποίηση '{1}' έχει άκυρη αναφορά υλοποίησης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>Η επέκταση αρχείου '{0}' δεν αντιστοιχεί σε γνωστό τύπο αρχείου.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>Άγνωστος τροποποιητής.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>Το τέλος του εύρους εκδόσεων πρέπει να είναι αποκλειστικό. Χρησιμοποιήστε '..! {0} ', όχι '...{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

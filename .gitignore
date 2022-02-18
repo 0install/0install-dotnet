@@ -1,6 +1,6 @@
 *.user
 *.bak
-*.filtered.resx
+*.o.resx
 
 # Caches
 /src/.vs/

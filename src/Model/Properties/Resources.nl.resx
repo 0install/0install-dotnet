@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>De string moet de vorm "os-cpu" hebben.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Kan commando '{0}' niet vinden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>Fout bij het laden van de voervoorkeuren voor '{0}'. Terugzetten naar standaard waarden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>Fout bij het laden van de interfacevoorkeuren voor '{0}'. Terugzetten naar standaard waarden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>Kan feed '{0}' niet vinden in catalogus.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>In plaats daarvan gevonden:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>Kan geen implementatie vinden voor interface '{0}' in de selectie.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' is geen geldige 'http(s):' URI en is ook geen geldig lokaal pad.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Ongeldig '{0}' attribuut op {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Ontbrekend '{0}' attribuut op {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Ontbrekende {0} tag binnen {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>De lijst, door punten gescheiden, mag alleen decimale getallen bevatten.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>Het versienummer mag alleen door punten gescheiden decimalen en modificatiereeksen bevatten.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>Het versienummer moet beginnen met een lijst van door punten gescheiden decimalen.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Er is geen bekende verteringsmethode opgegeven.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>Het relatieve pad '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve paden bevatten.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen mogen relatieve URI's bevatten.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>het kenmerk "uitrolpercentage" op {0} mag alleen worden ingesteld als "stabiliteit" op "testen" staat of niet is ingesteld.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>Buggy uitvoering</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>Geeft niet het commando '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>Onverenigbaar besturingssysteem of CPU</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>Onveilige uitvoering</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>Uitvoering niet in cache (momenteel in off-line modus)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>Niet-uitvoerbare bron-implementatie</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>Uitvoeringsversie te oud of te nieuw</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Moet een geldig MIME type zijn.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Moet een veilige ID zijn. Mag alleen alfanumerieke tekens, spaties ( ), punten (.), underscores (_), koppeltekens (-) en plustekens (+) bevatten.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatieverwijzing.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>De bestandsextensie '{0}' komt niet overeen met een bekend archieftype.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>Onbekende modifier.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..! {0} ', niet '..{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

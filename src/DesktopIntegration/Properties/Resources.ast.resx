@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>Nun pue alcontrase la aplicación '{0}' nel llistáu d'aplicaciones.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>El viesu '{0}' tien carauteres non válidos.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>Hebo una torga cargando '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>El viesu l'atayu '{0} tien carauteres non válidos.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>El viesu d'usuariu ya/o conseña que punxisti pal sirvidor Sync son incorreutos. Por favor, comprueba les opciones de sincronización.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>Nun pue alcontrase {0} cola ID '{1}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+</root>
