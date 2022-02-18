@@ -34,7 +34,14 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
     /// A list of <see cref="Capability"/>s.
     /// </summary>
     [Browsable(false)]
-    [XmlElement(typeof(AppRegistration)), XmlElement(typeof(AutoPlay)), XmlElement(typeof(ComServer)), XmlElement(typeof(ContextMenu)), XmlElement(typeof(DefaultProgram)), XmlElement(typeof(FileType)), XmlElement(typeof(UrlProtocol))]
+    [XmlElement(typeof(AppRegistration)),
+     XmlElement(typeof(FileType)),
+     XmlElement(typeof(UrlProtocol)),
+     XmlElement(typeof(ContextMenu)),
+     XmlElement(typeof(AutoPlay)),
+     XmlElement(typeof(ComServer)),
+     XmlElement(typeof(DefaultProgram)),
+     XmlElement(typeof(RemoveHook))]
     [OrderedEquality]
     public List<Capability> Entries { get; } = new();
 
