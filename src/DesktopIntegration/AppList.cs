@@ -70,16 +70,8 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
             if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
             #endregion
 
-            try
-            {
-                return Entries.First(entry => entry.InterfaceUri == interfaceUri);
-            }
-            #region Error handling
-            catch (InvalidOperationException)
-            {
-                throw new KeyNotFoundException(string.Format(Resources.AppNotInList, interfaceUri));
-            }
-            #endregion
+            return Entries.FirstOrDefault(entry => entry.InterfaceUri == interfaceUri)
+                ?? throw new KeyNotFoundException(string.Format(Resources.AppNotInList, interfaceUri));
         }
     }
 
