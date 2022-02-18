@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>以下の既存のアクセスポイントは、互いに矛盾しています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>アプリケーション{0} の以下のアクセスポイントが競合しています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>既存のアクセスポイント{0} は、新しいアクセスポイント{1} と競合しています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>アプリケーション「{0} 」は、すでにアプリケーションリストに登録されています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>変更を適用する</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>アプリケーションリストでアプリケーション '{0}' を見つけることができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>一度に実行できるデスクトップ統合操作は1つだけです。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>名前 '{0}' に無効な文字が含まれています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>Syncの設定は、'0install central' または '0install config' で行ってください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>問題が発生しました '{0}' をロードします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>デスクトップ統合の修復</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>ショートカット名 '{0}' に無効な文字が含まれています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>シンクサーバーに入力したユーザー名またはパスワードが正しくありません。同期オプションを確認してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>Syncに入力した暗号鍵が正しくありません。Synchronization Optionsを確認してください。
+トラブルシューティングウィザード（「同期」ボタンを右クリック）を実行するか、「0install sync --reset=server」を実行して、サーバーで使用する暗号鍵を変更することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>シンクデータをダウンロードする</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>現在、Syncサーバーに保存されているデータが破損しています。
+トラブルシューティングウィザード（「Sync」ボタンを右クリック）を実行するか、「0install sync --reset=server」を実行することで、サーバーに保存されているデータを交換することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>シンクデータをアップロードする</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>ID '{1}' を持つ{0} を見つけることができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>古くなったスタブ実行ファイル '{0}' を置き換えることができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

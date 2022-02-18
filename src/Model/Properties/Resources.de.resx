@@ -1,64 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -119,95 +60,126 @@
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
     <value>Die Zeichenfolge muss die Form "os-cpu" haben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
     <value>Der Command '{0}' konnte nicht gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
     <value>Fehler beim Laden der Feed-Einstellungen für '{0}'. Zurücksetzen auf Standardwerte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
     <value>Fehler beim Laden der Interface-Einstellungen für '{0}'. Zurücksetzen auf Standardwerte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>War stattdessen:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Es konnte keine Implementierung für die Interface '{0}' in den Selections gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' ist keine gültige 'http(s):' URI und auch kein gültiger lokaler Pfad.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
     <value>Ungültiges '{0}' Attribut auf {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
     <value>Fehlendes '{0}' Attribut auf {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
     <value>Fehlender {0} Tag in {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Die punktgetrennte Liste darf nur Dezimalzahlen enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
     <value>Die Versionsnummer darf nur punktgetrennte Dezimalzahlen und Modifizierer-Strings enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
     <value>Die Versionsnummer muss mit einer Liste von durch Punkte getrennten Dezimalzahlen beginnen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Es wurde keine bekannte Digest-Methode angegeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
     <value>Der relative Pfad '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>Die relative URI '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
     <value>Das Attribut 'rollout-percentage' auf {0} darf nur gesetzt werden, wenn 'stability' auf 'testing' oder nicht gesetzt ist.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Fehlerhafte Implementierung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>Bietet den Command '{0}' nicht.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
     <value>Inkompatibles Betriebssystem oder CPU</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
     <value>Unsichere Implementierung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
     <value>Implementierung nicht im Cache (derzeit im Offline-Modus)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Nicht ausführbare Quellcode Implementierung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
     <value>Implementierungsversion zu alt oder zu neu</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
     <value>Sollte ein gültiger MIME-Typ sein.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
     <value>Sollte eine sichere ID sein. Darf nur alphanumerische Zeichen, Leerzeichen ( ), Punkte (.), Unterstriche (_), Bindestriche (-) und Pluszeichen (+) enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>Der Recipe-Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
     <value>Die Dateierweiterung '{0}' entspricht keinem bekannten Archivtyp.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
     <value>Unbekannter Modifizierer.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
     <value>Das Ende des Versionsbereichs muss exklusiv sein. Verwenden Sie '..!{0} ', nicht '..{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

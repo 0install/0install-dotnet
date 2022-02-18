@@ -1,104 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -119,6 +60,7 @@
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
     <value>Αντιγραφή αρχείων</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Οι υποκαταλόγοοι σε αυτό το χώρο προσωρινής αποθήκευσης προστατεύονται από ακούσια τροποποίηση χρησιμοποιώντας δικαιώματα NTFS.
@@ -132,151 +74,220 @@
 
 Εναλλακτικά, μπορείτε να χρησιμοποιήσετε το γραφικό περιβάλλον χρήστη για τη διαχείριση:
 Αποθήκευση 0install διαχείρισης</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Πώς να διαγράψετε</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
     <value>Διαγραφή καταλόγου {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
     <value>Διαγραφή εφαρμογής {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
     <value>Διαγραφή παλιων αρχείων</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Μια εφαρμογή δηλωτικου δίεσης δεν ταιριάζει με την αναμενόμενη τιμή.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Πραγματική τιμή: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
     <value>Πραγματικο Δηλωτικό: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>Αναμενόμενη τιμή: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Αναμενόμενο Δηλωτικό: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Η χρήση του καθρέφτη τροφοδοσίας, που απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
+Εκτελέστε το '0install config feed_mirror default' για να το ενεργοποιήσετε.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Τα αρχεία που θέλετε να διαγραφούν χρησιμοποιούνται σήμερα.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Θέλετε να κλείσετε αυτές τις εφαρμογές και να συνεχίσετε;</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
     <value>Οι παρακάτω εφαρμογές πρέπει να κλείσουν:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Εύρεση διπλών αρχείων στο '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Το αρχείο '{0}' δεν είναι ούτε ένας συμβολικός δεσμός ούτε ένα κανονικό αρχείο.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
     <value>Η εφαρμογή '{0}' είναι ήδη στη λίστα εφαρμογών.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
     <value>Η εφαρμογή '{0}' έχει καταστραφεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Θέλετε να το καταργήσετε; Ένα νέο αντίγραφο θα γίνει αυτόματα και πάλι όταν χρειαστεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Θέλετε να το καταργήσετε {0}' ; Ένα νέο αντίγραφο θα γίνει αυτόματα και πάλι όταν χρειαστεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Η εφαρμογή '{0}' δεν μπορεσε να βρεθεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Το υποκείμενικο σύστημα αρχείων δεν αποθηκεύει χρόνους αλλαγής αρχείου με επαρκή ακρίβεια.
 Εάν χρησιμοποιείτε έναν διαμορφωμένο με FAT σκληρο δίσκο παρακαλουμε να τον μετατρέψετε σε NTFS.</value>
-  </data>
-  <data name="InvalidPath" xml:space="preserve">
-    <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Το αρχείο δήλωσης περιέχει μη έγκυρες γραμμές.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
     <value>Μη έγκυρος αριθμός των τμημάτων στη γραμμή.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (ενδεχομένως κίνδυνος για την ασφάλεια): {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>Η υπογραφή δεν είναι έγκυρη ή έχει υποστεί ζημιά.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να βελτιστοποιήσουν ένα κοινό κατάστημα.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να αφαιρέσουν στοιχεία από ένα κοινό κατάστημα.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Το όνομα του αρχείου ή του καταλόγου δεν πρέπει να περιέχει έναν χαρακτήρα νέας γραμμής.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Δεν είναι δυνατή η λήψη του {0} επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Καμία γνωστή μέθοδος έχει καθοριστεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Η διαδρομή '{0}' δεν είναι μια απόλυτη διαδρομή. Οι σχετικές διαδρομές επιτρέπονται μόνο στην φορητη κατάσταση.
 Καθορίζεται στο αρχείο ρυθμίσεων '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Καμμια επιλεγμενη έκδοση</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>Η Zero Install δεν μπορεί να αφαιρέσει τον εαυτό της από μια κρυφή μνήμη υλοποίησης.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Η αριθμητική τιμή είναι πολύ μεγάλη.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Αυτή η επιλογή ελέγχεται από μια πολιτική ομάδας και επομένως δεν μπορεί να τροποποιηθεί.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Υπήρξε έναν πρόβλημα κατά την πρόσβαση στο κατάστημα εφαρμογής '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>Υπήρξε ένα πρόβλημα κατά την πρόσβαση στο κατάστημα εφαρμογής '{0}'.
 Καθορίζεται στο αρχείο ρυθμίσεων '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Υπήρξε ένα πρόβλημα κατά τη φόρτωση ενός αρχείου διαμόρφωσης.
 Μπορείτε να διαγράψετε το αρχείο '{0}' για να διορθώσετε το πρόβλημα.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Υπήρξε ένα πρόβλημα κατά τη φόρτωση της τιμής ρύθμισης '{0}'.
 Μπορείτε να διαγράψετε το αρχείο '{1}' για να διορθώσετε το πρόβλημα. Άλλες ρυθμίσεις μπορούν επίσης να χαθούν.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Επεξεργασία αρχείων</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
     <value>Δεν είναι δυνατή η δημιουργία σύνδεσης με το StoreService.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
     <value>Προσωρινή κατάλογοι</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Αδυναμία εύρεσης ενός μυστικού κλειδίου με το συγκεκριμένο όνομα.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Δεν είναι δυνατή η ενεργοποιήση της προστασίας εγγραφής για '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Άγνωστη διεπαφή.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Η φράση πρόσβασης που έχετε εισάγει είναι λάθος.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Η τελευταία γραμμή του αρχείου δεν είναι το τέλος του μπλοκ υπογραφής.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
     <value>Η υπογραφή XML δεν ξεκινά σε μια νέα γραμμή.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>Για την υπογραφή δεν ισχύει η βάση 64:</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

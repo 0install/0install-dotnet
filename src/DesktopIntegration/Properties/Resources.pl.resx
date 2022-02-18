@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>Następujące istniejące punkty dostępu są ze sobą sprzeczne:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>Następujące punkty dostępu dla aplikacji {0} są ze sobą sprzeczne:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>Istniejący punkt dostępu {0} jest w konflikcie z nowym punktem dostępu {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>Aplikacja '{0}' znajduje się już na liście aplikacji.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>Wprowadzanie zmian</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>Nie można znaleźć aplikacji '{0}' na liście aplikacji.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>W tym samym czasie można wykonać tylko jedną operację integracji pulpitu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>Nazwa '{0}' zawiera nieprawidłowe znaki.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>Proszę użyć '0install central' lub '0install config' aby skonfigurować Sync.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>Wystąpił problem z załadowaniem '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>Naprawianie integracji pulpitu</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>Nazwa skrótu '{0}' zawiera nieprawidłowe znaki.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>Nazwa użytkownika i/lub hasło wprowadzone dla serwera Sync są nieprawidłowe. Proszę sprawdzić opcje synchronizacji.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>Klucz kryptograficzny wprowadzony dla funkcji Synchronizacja jest nieprawidłowy. Proszę sprawdzić opcje synchronizacji.
+Możesz zmienić klucz kryptograficzny używany na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy na przycisk "Sync", aby przejść do tego okna) lub wykonując polecenie '0install sync --reset=server'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>Pobieranie danych synchronizacji</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>Dane aktualnie przechowywane na serwerze Sync są uszkodzone.
+Dane przechowywane na serwerze można zastąpić, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy przycisk "Sync", aby go wyświetlić) lub wykonując polecenie "0install sync --reset=server".</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>Przesyłanie danych synchronizacji</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>Nie można znaleźć strony {0} o identyfikatorze "{1}".</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>Nie można zastąpić nieaktualnego pliku wykonywalnego '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>
