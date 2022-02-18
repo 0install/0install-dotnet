@@ -1,64 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -119,730 +60,962 @@
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
     <value>Der Befehl '0install' wurde zu Ihrem Befehlszeilen-PATH hinzugefügt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
     <value>Es wurde ein Alias mit dem Namen '{0}' für '{1}' erstellt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
     <value>Es wurde kein existierender Alias mit dem Namen '{0}' gefunden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
     <value>Der Alias mit dem Namen '{0}' für '{1}' wurde entfernt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
     <value>Alle erforderlichen Komponenten sind heruntergeladen worden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Alle Komponenten, die zur Ausführung von {0} erforderlich sind, wurden nach '{1}' exportiert.
 Sie können das Import-Skript oder die ausführbare Bootstrap-Datei in '{1}' verwenden, um diese Dateien auf einem anderen Computer zu importieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' ist bereits in der Liste der benutzerdefinierten Implementierungs-Caches enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
     <value>Anwendungsalias</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
     <value>Anwendungsliste</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
     <value>Zero Install für alle Benutzer (maschinenweit) einrichten statt nur für den aktuellen Benutzer?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie eine neue Kopie von Zero Install in '{0}' anlegen möchten?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
     <value>Dadurch wird Zero Install dem Startmenü und der Befehlszeile hinzugefügt. Fortfahren?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie Zero Install von diesem Computer entfernen möchten?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
     <value>Möchten Sie das jetzt versuchen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Möchten Sie bestehende Desktopintegrationen aktualisieren, um dies zu berücksichtigen?
 Wenn Sie "Ja" wählen, werden potenziell inkompatible Integrationen entfernt.
 Wenn Sie "Nein" wählen, verwendet Zero Install weiterhin die alten Fähigkeiten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
     <value>Gecachte Implementierungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
     <value>Die Optionen {0} und {1} können nicht zusammen verwendet werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Die Fähigkeiten der Anwendung '{0}' haben sich geändert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
     <value>Die Katalog-URI {0} ist bereits registriert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogNotRegistered" xml:space="preserve">
     <value>Die Katalog-URI {0} ist nicht registriert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
     <value>Katalogquellen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Change" xml:space="preserve">
     <value>Ändern</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
     <value>Gefundene Änderungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CheckingFeed" xml:space="preserve">
     <value>Prüfe Feed</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Klicken Sie hier, um zu wählen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Command" xml:space="preserve">
     <value>Befehl</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
     <value>Befehlszeilenargumente</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Konfiguration</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Möchten Sie alle Anwendungsdateien aus dem Cache von Zero Install entfernen?
 Diese Dateien können bei Bedarf erneut heruntergeladen werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Möchten Sie alle Anwendungen aus der Liste "Meine Anwendungen" entfernen? Dies verhindert, dass nach dem Entfernen von Zero Install Menüeinträge übrig bleiben.
 Sie können eine Sicherungskopie dieser Liste erstellen, indem Sie '0install sync' verwenden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Beginnen Sie mit der Eingabe von Text in der letzten Zeile, um einen neuen Eintrag zu erstellen.
 Wählen Sie eine ganze Zeile aus, indem Sie in die erste Spalte klicken, und drücken Sie dann die Entf-Taste auf der Tastatur, um einen Eintrag zu entfernen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Setzen Sie ein Häkchen, um eine Fähigkeit zu Ihrem bevorzugten Standard-Handler zu machen.
 Entfernen Sie ein Häkchen, um den Standardstatus einer Fähigkeit aufzuheben (die Fähigkeit selbst bleibt weiterhin verfügbar).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
     <value>Möchten Sie die {0} angehakten Elemente aus dem Cache löschen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Möchten Sie diesen Eintrag aus dem Cache löschen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementations" xml:space="preserve">
     <value>Löschen von Implementierung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Eine portable Version von Zero Install wurde in '{0}' abgelegt.
 Sie können sie verwenden, indem Sie die ZeroInstall.exe Datei in dem Verzeichnis starten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
     <value>Wenn Sie die Option --portable verwenden, müssen Sie das Zielverzeichnis explizit angeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>Das angegebene Zielverzeichnis ({0}) befindet sich außerhalb Ihres Home-Verzeichnisses.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Beschreibung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
     <value>Erstellt einen Alias, um eine Anwendung über 0install zu starten, ohne immer den vollständigen URI eingeben zu müssen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
     <value>Fügt eine Anwendung zur Anwendungsliste hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionAddFeed" xml:space="preserve">
     <value>Registriert eine zusätzliche Quelle für Implementierungen (Versionen) eines Programms.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
     <value>Fügt eine URI zur Liste der Kataloge hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
     <value>Listet alle registrierten Kataloge auf.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
     <value>Aktualisiert (lädt) alle registrierten Kataloge.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Entfernt eine URI aus der Liste der Kataloge.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
     <value>Setzt die Liste der Kataloge auf die Standardquelle zurück.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
     <value>Durchsucht die registrierten Kataloge nach Anwendungen, die zu einem Suchbegriff passen. Wird kein Suchbegriff angegeben, werden alle Anwendungen aus den Katalogen aufgelistet.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
     <value>Öffnet die zentrale grafische Benutzeroberfläche zum Starten und Verwalten von Anwendungen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Konfigurationseinstellungen anzeigen oder ändern.
 Ohne Argumente werden alle Einstellungen und ihre aktuellen Werte angezeigt. Mit einem Argument wird der aktuellen Wert der benannten Einstellung angezeigt. Mit zwei Argumenten wird die Einstellung auf den angegebenen Wert gesetzt. Wird sie auf den Standardwert zurückgesetzt, wenn der Wert "default" angegeben wird.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
     <value>Berechnet den Manifest Digest eines Verzeichnisses oder Archivs.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Verhält sich ähnlich wie '0install select', mit dem Unterschied, dass es auch die ausgewählten Versionen herunterlädt, wenn sie nicht bereits im Cache sind.
 Gibt einen Exit-Status von 0 zurück, wenn eine geeignete Gruppe von Versionen ausgewählt wurde und diese nun alle heruntergeladen und im Cache sind; andernfalls gibt es einen Status von 1 zurück.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
     <value>Exportiert alle Feeds und Implementierungen, die zum Starten des durch einen URI angegebenen Programms erforderlich sind, in ein DIRECTORY.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importiert einen Feed aus einer lokalen Datei, so als ob er aus dem Netz heruntergeladen worden wäre. Dies ist nützlich beim Testen einer Feed-Datei, um zu vermeiden, dass sie auf einen entfernten Server hochgeladen muss, nur um sie wieder herunterzuladen.
 Die Datei muss eine vertrauenswürdige digitale Signatur haben, genauso wie beim Abrufen aus dem Internet.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
     <value>Importiert eine Reihe von Anwendungen und Desktopintegrationen aus einer vorhandenen app-list.xml Datei.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
     <value>Fügt eine Anwendung zur Anwendungsliste hinzu (falls nicht bereits vorhanden) und integriert sie in die Desktopumgebung.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
     <value>Listet alle lokal bekannten Feed URIs auf. Wenn ein Suchbegriff angegeben wird, werden nur URIs angezeigt, die diese Zeichenfolge enthalten (Groß- und Kleinschreibung wird nicht berücksichtigt).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
     <value>Listet alle Anwendungen auf, die sich derzeit in Ihrer Anwendungsliste befinden. Wenn ein URI angegeben wird, wird nur die Anwendung mit dieser Feed-URI angezeigt. Wenn ein PATTERN angegeben wird, werden nur Anwendungen angezeigt, die diese Zeichenfolge in ihrem Namen enthalten (Groß- und Kleinschreibung wird nicht berücksichtigt).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>Listet alle zusätzlichen Feeds auf, die der URI mit '0install add-feed' hinzugefügt wurden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Richtet Zero Install in dem angegebenen TARGET-Verzeichnis oder dem Standardverzeichnis für Programme ein und integriert es in das System.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Entfernt die aktuelle Zero Install Instanz vom System.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Entfernt alle Anwendungen aus der Anwendungsliste und macht dazugehörige Integrationen in der Desktopumgebung rückgängig. Verwenden Sie diesen Befehl, um das System zu aufzuräumen, bevor Sie Zero Install entfernen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
     <value>Entfernt eine Anwendung aus der Anwendungsliste und macht Integrationen in die Desktopumgebung rückgängig.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
     <value>Deregistriert einen Feed und macht damit '0install add-feed' rückgängig.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
     <value>Wendet alle Desktopintegrationen von Anwendungen in der Anwendungsliste erneut an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Verhält sich ähnlich wie '0install download', mit dem Unterschied, dass es das Programm auch ausführt, nachdem es sich im Cache befindet.
 Gibt einen Exit-Status von 1 zurück, wenn der Download-Schritt fehlgeschlagen ist. Andernfalls ist der Exit-Status der Exit-Status des ausgeführten Programms.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
     <value>Sucht nach Feeds, die vom Mirror-Server indiziert werden und den angegebenen Schlüsselwörtern entsprechen. Beachten Sie, dass der Standard Mirror-Server alle bekannten Feeds indiziert, unabhängig von deren Qualität; Sie müssen selber entscheiden, ob Sie den Programmen vertrauen, bevor Sie sie ausführen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Wählt eine Version des durch URI identifizierten Programms und kompatible Versionen aller seiner Abhängigkeiten aus.
 Gibt den Exit-Status 0 zurück, wenn eine Gruppe von Versionen ausgewählt wurde, und den Status 1, wenn keine konsistente Gruppe gefunden werden konnte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
     <value>Aktualisiert Zero Install selbst auf die neueste Version.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
     <value>Fügt den Inhalt eines Verzeichnisses oder Archivs dem Cache hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
     <value>Fügt ein Verzeichnis zur Liste der benutzerdefinierten Implementierungs-Caches hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Überprüft, ob alle Implementierungen im Cache unbeschädigt sind.
 Zusätzliche Argumente geben benutzerdefinierte Cache-Speicherorte an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Kopiert eine Implementierung in den Cache. Ähnlich wie '0install store add', aber der Digest wird aus dem Verzeichnisnamen extrahiert.
 Ein zusätzliches Argument gibt einen benutzerdefinierten Ziel-Cache-Speicherort an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
     <value>Exportiert eine gecachte Implementierung als Archiv (ZIP, TAR, etc.). Das Ergebnis kann mit '0install store add' auf einen anderen Rechner importiert werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
     <value>Bestimmt den lokalen Pfad einer gecachten Implementierung.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
     <value>Listet alle Implementierungs-Cacheverzeichnisse auf.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
     <value>Listet alle gecachten Implementierungen auf. Wenn eine Feed URI angegeben wird, werden nur Implementierungen für diesen Feed aufgelistet.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
     <value>Zeigt eine grafische Benutzeroberfläche zur Verwaltung von Implementierungen im Cache an. Zeigt Assoziationen mit gecachten Feeds.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
     <value>Spart Speicherplatz, indem identische Dateien mit Hardlinks zusammengeführt werden.
 Zusätzliche Argumente geben benutzerdefinierte Cache-Speicherorte an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
     <value>Entfernt alle Implementierungen aus dem Cache. Verwenden Sie diesen Befehl, um das System zu bereinigen, bevor Sie Zero Install entfernen. Das manuelle Löschen von Cache-Verzeichnissen kann aufgrund der NTFS-ACLs, die zum Schutz der Implementierungen vor Änderungen eingesetzt werden, schwierig sein.
 Zusätzliche Argumente geben benutzerdefinierte Cache-Speicherorte an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
     <value>Entfernt eine Implementierung aus dem Cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
     <value>Entfernt ein Verzeichnis aus der Liste der benutzerdefinierten Implementierungs-Caches.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>Stellt sicher, dass eine Implementierung nicht beschädigt wurde (d. h., dass der Manifest-Digest unverändert ist).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Synchronisiert die Anwendungsliste mit dem Server.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
     <value>Vertraut Feeds von einer bestimmten DOMAIN, wenn sie mit einem bestimmten FINGERPRINT signiert sind.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
     <value>Listet die Schlüssel auf, denen für die Signierung von Feeds vertraut wird. Listet nur Domains, für die ein bestimmter FINGERPRINT vertrauenswürdig ist, falls angegeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
     <value>Beendet das Vertrauen in Feeds, die mit einem bestimmten FINGERPRINT signiert sind. Beendet das Vertrauen nur für eine bestimmte DOMAIN, falls angegeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Prüft, ob es Aktualisierungen für das Programm gibt und lädt sie herunter, wenn sie gefunden werden.
 Dies ist vergleichbar mit '0install download --refresh', außer dass es Informationen darüber ausgibt, ob Änderungen gefunden wurden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
     <value>Aktualisiert alle Anwendungen in der Anwendungsliste.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
     <value>Desktopintegration</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
     <value>Anwendung von Desktopintegration</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Entfernen von Desktopintegration</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Fertig</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
     <value>Download abgeschlossen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
     <value>Bitte geben Sie die URL oder den lokalen Dateipfad des hinzuzufügenden Feed-Katalogs ein:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
     <value>Bitte geben Sie die URL der neuen Quelle von Implementierungen für dieses Interface an:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
     <value>Die Optionen {0} und {1} können nicht zusammen verwendet werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
     <value>Eine bestehende Kopie von Zero Install wurde in '{0}' entdeckt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
     <value>Export abgeschlossen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
     <value>Der Feed war bereits für alle passenden Interfaces registriert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
     <value>Feed Verwaltung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
     <value>Der Feed war für kein Interface registriert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
     <value>Der Feed wurde erfolgreich für die folgenden Interfaces registriert:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
     <value>'{0}' wurde durch '{1}' ersetzt. Bitte ziehen Sie eine Aktualisierung in Betracht.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
     <value>Der Feed für '{0}' ({1}) wurde durch '{2}' ersetzt. Möchten Sie stattdessen den neuen Feed verwenden?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
     <value>Gecachte Feeds</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
     <value>Feeds registriert für '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>Der Feed wurde für die folgenden Interfaces erfolgreich deregistriert:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Datei oder Verzeichnis '{0}' konnte nicht gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
     <value>Verwenden Sie file:///path für absolute Pfade, nicht file:/path.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
     <value>Ausblenden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>Dieser Feed scheint nicht für dieselbe Anwendung zu sein. Soll er trotzdem hinzugefügt werden?
 Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
     <value>Installation des Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>Integrieren von {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Ihre Auswahl für die Desktopintegration konnte nicht übernommen werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
     <value>Möchten Sie Ihre Auswahl ändern und es erneut versuchen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
     <value>Bitte verwenden Sie die GUI-Version von Zero Install oder geben Sie explizite Integrationsoptionen über Befehlszeilenargumente an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
     <value>Ungültiges Argument '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Für dieses Programm gibt es ABSOLUT KEINE GARANTIEN, soweit dies gesetzlich zulässig ist.
 Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien dieses Programmes weitergeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
     <value>Lokaler Pfad von {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
     <value>Fehlende Argumente.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
     <value>Fehlendes &lt;feed-for&gt; Element in '{0}'. Es kann nicht als Feed für ein anderes Interface verwendet werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
     <value>Fehlender erforderlicher Wert für die Option {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
     <value>Sie müssen ein Administrator sein, um maschinenweite Operationen durchführen zu können.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
     <value>Warten auf das Beenden aller Zero Install Instanzen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
     <value>Meine Anwendungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
     <value>Bitte verwenden Sie die GUI-Version von Zero Install für diese Funktion.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>--command darf nur zusammen mit einem Aliasnamen angegeben werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>Der grafische Richtlinieneditor ist im Befehlszeilenmodus nicht verfügbar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
     <value>Damit die Desktopintegration funktioniert, muss Zero Install auf Ihrem System eingerichtet sein.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install läuft im Portable Modus. Damit die Desktopintegration funktioniert, muss sie an einem festen Ort eingerichtet werden. Dieser ist völlig unabhängig von Ihrer portablen Kopie.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install wird in einem benutzerspezifischen Verzeichnis ausgeführt. Es muss in einem Verzeichnis eingerichtet werden, auf das alle Benutzer zugreifen können, damit die maschinenweite Desktopintegration funktioniert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
     <value>Beim Ausführen einer Implementierung darf der Command nicht leer sein.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
     <value>Kann nur mit Feed URIs aktualisiert werden, nicht mit Selections-Dokumenten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
     <value>Diese Funktion ist im Portable Modus nicht verfügbar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
     <value>'{0}' ist nicht in der Liste der benutzerdefinierten Implementierungs-Caches enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
     <value>Keine Updates gefunden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
     <value>Im Dateimanager &amp;öffnen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptimiseComplete" xml:space="preserve">
     <value>Optimierung abgeschlossen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
     <value>Der {HASH}-Algorithmus, der für den Digest verwendet werden soll.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
     <value>Entferne einen bestehenden Alias.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
     <value>Gebe die Interface URI für den angegebenen Alias aus.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
     <value>Blendet die grafische Benutzeroberfläche aus und verwendet stattdessen etwas wie ein Tray Icon.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Fragen, wenn möglich, automatisch mit Standardantworten beantworten und Konsolenausgaben vereinfachen (keine Tabellen oder Fortschrittsbalken).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
     <value>Erfordert eine Version des Hauptprogramms, die älter ist als {VERSION}, d.h. erzwingt die Verwendung einer alten Version des Programms.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
     <value>Runterladen des Katalogs, zur Überprüfung der Gültigkeit bevor er zur Liste hinzugefügt wird, überspringen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
     <value>Entferne Implementierungen die nach dem Update nicht mehr benötigt werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Anstatt den Standardbefehl auszuführen, verwende {COMMAND}. Gültige Commands sind im Feed des Programms angegeben.
 Auf leer ("") setzen, um den Command bei der Auswahl zu ignorieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
     <value>Wechsle auf eine bestimmte Registerkarte im Konfigurations-GUI. Gültige {TAB}s sind 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' und 'advanced'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Zwingt den Solver auf eine bestimmte {CPU} abzuzielen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
     <value>Zeigt den grafischen Richtlinieneditor an. Hier können Sie festlegen, welche Version eines Programms oder einer Bibliothek verwendet werden soll.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
     <value>Zeigt den Digest des Manifests an (standardmäßig aktiviert, wenn --manifest nicht gesetzt ist).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Wählt den Typ des Bootstrappers, der neben dem Export platziert werden soll.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Fügt dem Export zusätzlich zur Anwendung Zero Install selbst hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
     <value>Keine Implementierungsarchive exportieren. Nur Feeds exportieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
     <value>Führe das Update durch, auch wenn die derzeit installierte Version die gleiche oder neuer ist.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
     <value>Zeigt den integrierten Hilfetext an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
     <value>Füge alle Access Points einer bestimmten {CATEGORY} hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
     <value>Füge alle verfügbaren Access Points hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
     <value>Füge die empfohlenen Standard Access Points hinzu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
     <value>Entferne alle Access Points einer bestimmten {CATEGORY}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
     <value>Entferne alle Access Points.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Gibt die bevorzugte Sprache für die Implementierung an. Verwenden Sie ISO-Kurzsprachencodes (z. B. en oder en-US).
 Sie können diese Option mehrfach verwenden, um mehrere mögliche Sprachen anzugeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
     <value>Zero Install als Bibliothek zur Verwendung durch andere Anwendungen ohne eigene Desktopintegration ablegen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Wende die Konfiguration maschinenweit (für den gesamten Computer) und nicht nur für den aktuellen Benutzer an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Führt die angegebene ausführbare Datei {MAIN} anstelle des Standardprogramms aus. Wenn der Pfad mit '/' oder '\' beginnt, ist er relativ zum obersten Verzeichnis der Implementierung, ansonsten relativ zum Verzeichnis, das das Standardprogramms enthält.
 Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Zeigt das Manifest selbst an (eine Zeile für jede Datei und jedes Verzeichnis).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Lade die Anwendung selbst noch nicht herunter. Wird stattdessen bei der ersten Verwendung automatisch heruntergeladen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
     <value>Erfordert eine Version des Hauptprogramms, die nicht älter ist als {VERSION}. Wenn Sie z.B. Version 2.0 oder später ausführen wollen, verwenden Sie --not-before=2.0.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
     <value>Der Befehlt wird sofort beendet, sobald das Programm gestartet wurde, anstelle auf dessen Beendigung zu warten. Unter Windows ist der Exit-Code die Prozess ID des gestarteten Programms.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Startet im Offline-Modus und überschreibt dabei die Standardeinstellung.
 Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind, und neuere Versionen von Programmen werden nicht heruntergeladen, selbst wenn der Injektor sie bereits kennt (z.B. von einer früheren Aktualisierung)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
     <value>Erzwingt, dass der Solver auf das Betriebssystem {OS} abzielt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Erstelle eine portable Installation, die überallhin mitgenommen werden kann (z. B. auf einem USB-Stick).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
     <value>Rufe aktualisierte Kopien aller verwendeten Feeds ab.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
     <value>Starte die '0install central' GUI nach dem Update neu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Options" xml:space="preserve">
     <value>Optionen:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
     <value>Zeige an wo die ausgewählten Komponenten auf dem Datenträger gespeichert sind.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
     <value>Wählt Quellcode statt einer Binärdatei. Dies wird intern von '0compile' verwendet.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Setze die Synchronisationsdaten zurück. Gültige {MODE}s sind 'none' (Daten von Client und Server normal zusammenführen), 'client' (alle Daten auf dem Client durch Daten vom Server ersetzen) und 'server' (alle Daten auf dem Server durch Daten vom Client ersetzen).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Ausführlichere Ausgabe. Verwenden Sie zweimal, um eine noch ausführlichere Ausgabe zu erhalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
     <value>Zeigt Versionsinformationen an.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Benötige eine Version des Hauptprogramms innerhalb des angegebenen {RANGE}.
 Ranges werden durch Pipes (|) getrennt.
 Jede Range ist in der Form "START..!ENDE". Die Ranges akzeptieren Versionen bei denen gilt: START &lt;= VERSION &lt; ENDE. Der Start oder das Ende können weggelassen werden.
 Eine einzelne Versionsnummer kann anstelle eines Ranges angegeben werden um nur diese Version zu akzeptieren, oder !VERSION um alles außer der Version zu akzeptieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
     <value>Gibt für jede Bibliothek oder Unterkomponente mit der angegebenen {0:URI} die Version {1:RANGE} an (wie bei --version).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>Füge {DIR} zur Liste der zu durchsuchenden Implementierungs-Caches hinzu.
 Neue Downloads werden jedoch nicht in dieses Verzeichnis gespeichert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Anstatt das gewählte Programm direkt auszuführen, führe {COMMAND} PROGRAM ARGS aus. Dies ist nützlich, um Debugger und Tracing-Tools auf dem Programm (und nicht auf Zero Install) auszuführen.
 Beachten Sie, dass der Wrapper in der vom Programm festgelegten Umgebung ausgeführt wird; daher ist dieser Mechanismus nicht für Sandboxing geeignet.
 Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
     <value>Ausgabe als maschinenlesbares XML auf die Konsole schreiben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
     <value>Portable Modus</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PropertiesFor" xml:space="preserve">
     <value>Eigenschaften für {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReadingCache" xml:space="preserve">
     <value>Lese Cache</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Entfernen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
     <value>Möchten Sie die {0} angehakten Schlüssel aus der Liste entfernen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
     <value>Möchten Sie die {0} ausgewählten Einträge aus der Liste entfernen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
     <value>Entfernen von Anwendungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
     <value>Entfernen veralteter Implementierungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>Möglicherweise müssen Sie Ihr Terminal schließen und wieder öffnen, damit dies wirksam wird.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
     <value>Möchten Sie die Liste auf ihren ursprünglichen Zustand zurücksetzen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
     <value>'{0}' nach '{1}' mit einem Alias aufgelöst.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>'{0}' nach '{1}' mit einem Katalog aufgelöst.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
     <value>Vorkompilierung von .NET-Assemblies für einen schnelleren Start der Anwendung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>Ausgewählte Implementierungen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
     <value>Diese Instanz von Zero Install wurde nicht auf dem System eingerichtet. Es gibt nichts zu entfernen..</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>Ein Update auf Zero Install v{0} ist verfügbar. Jetzt installieren?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Diese Zero Install Instanz wurde nicht auf dem System eingerichtet. Sie kann sich daher nicht selbst aktualisieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Die Selbstaktualisierung ist deaktiviert.
 Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Stabilitäts-Policy für {0} entsprechend setzen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>Stabilitäts-Policy für {0} auf Standardwert zurücksetzen?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
     <value>Die Stabilitäts-Policy, die für die Auswahl von Implementierungen aus {0} erforderlich ist, ist '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
     <value>Start des Zero Install Store-Dienstes</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
     <value>Beenden des Zero Install Store-Dienstes</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} Speicherplatz zurückgewonnen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Store Überprüfung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
     <value>{0} wurde erfolgreich entfernt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
     <value>Die Aktivierung der Windows-Unterstützung für lange Pfade könnte dieses Problem lösen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
     <value>Unterstützte Werte: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Der Kryptoschlüssel wird verwendet, um Ihre Daten lokal zu verschlüsseln, bevor sie an den Server übertragen werden.
 Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas anderes. Auf diese Weise kann niemand auf Ihre Daten zugreifen, selbst wenn der Server kompromittiert werden sollte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>Zu viele Argumente oder unbekannte Optionen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
     <value>{0} vertrauenswürdig für Domains</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
     <value>Vertrauenswürdige Schlüssel</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
     <value>Probieren Sie {0} --help</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Probieren Sie --help mit einem der folgenden:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
     <value>Softwarekatalog konnte nicht geladen werden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Deinstallation des Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Unbekannter Befehl '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
     <value>Verwendung:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UseDefaultSetting" xml:space="preserve">
     <value>Standardeinstellung verwenden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
     <value>Verwenden Sie stattdessen '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
     <value>Systemsprache verwenden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
     <value>Verifizieren</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
     <value>Überprüfung der Implementierung</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">
     <value>Versionsinformationen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
     <value>Arbeite</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

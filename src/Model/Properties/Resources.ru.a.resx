@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>Строка должна быть в форме "os-cpu".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Невозможно найти команду '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>Ошибка при загрузке предпочтений корма для '{0}'. Возврат к значениям по умолчанию.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>Ошибка загрузки предпочтений интерфейса для '{0}'. Возврат к значениям по умолчанию.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>Невозможно найти корм '{0}' в каталоге.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Найдено вместо:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>Невозможно найти реализацию для интерфейса '{0}' в выборе.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' не является действительным URI 'http(s):' и также не является действительным локальным путем.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Неверный атрибут '{0}' на {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Отсутствует атрибут '{0}' на {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Отсутствует тег {0} внутри {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>Список, разделенный точками, может содержать только десятичные числа.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>Номер версии может содержать только разделенные точками десятичные числа и строки модификаторов.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>Номер версии должен начинаться со списка десятичных цифр, разделенных точками.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Не был указан известный метод переваривания.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>Относительный путь '{0}' не может быть разрешен. Только фиды, сохраненные как локальные файлы, могут содержать относительные пути.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>Не удалось разрешить относительный URI '{0}'. Только фиды, сохраненные как локальные файлы, могут содержать относительные URI.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если 'stability' - 'testing' или не установлен.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>Ошибочная реализация</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>Не предоставляет команду '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>Несовместимая операционная система или процессор</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>Небезопасная реализация</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>Реализация отсутствует в кэше (в настоящее время находится в автономном режиме)</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>Неисполняемая исходная реализация</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>Слишком старая или слишком новая версия реализации</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Должен быть действительным типом MIME.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Должен быть безопасным идентификатором. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>Шаг рецепта '{0}' в реализации '{1}' имеет недопустимую ссылку на реализацию.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>Расширение файла '{0}' не соответствует известному типу архива.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>Неизвестный модификатор.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '.. {0} ', а не '...{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

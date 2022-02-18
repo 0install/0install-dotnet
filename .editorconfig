@@ -10,9 +10,6 @@ insert_final_newline = true
 keep_existing_linebreaks = true
 max_line_length = off
 
-[CNAME]
-insert_final_newline = false
-
 [*.{json,xml,resx,yml,htm,html,js,ts,css,scss,less}]
 indent_size = 2
 
@@ -33,6 +30,9 @@ indent_style = tab
 
 [*.{md,resx,Designer.*}]
 trim_trailing_whitespace = false
+
+[*.resx]
+charset=utf-8-bom
 
 [*.cs]
 # Indentation

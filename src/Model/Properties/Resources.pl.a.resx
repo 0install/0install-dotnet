@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>Łańcuch musi być w formie "os-cpu".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Nie można znaleźć polecenia '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>Błąd przy ładowaniu preferencji paszowych dla '{0}'. Przywrócenie wartości domyślnych.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>Błąd ładowania preferencji interfejsu dla '{0}'. Przywrócenie wartości domyślnych.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>Nie można znaleźć paszy '{0}' w katalogu.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Znaleziono zamiast tego:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>Nie można znaleźć implementacji dla interfejsu '{0}' w selekcji.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' nie jest prawidłowym "http(s):" URI i nie jest również prawidłową ścieżką lokalną.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Nieprawidłowy atrybut "{0}" na {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Brakujący atrybut "{0}" na {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Brakujący tag {0} wewnątrz {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>Lista oddzielona kropkami może zawierać tylko liczby dziesiętne.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>Numer wersji może zawierać tylko oddzielone kropkami liczby dziesiętne i łańcuchy modyfikatorów.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>Numer wersji musi zaczynać się od listy dziesiętnych oddzielonych kropkami.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Nie określono żadnej znanej metody trawienia.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>Ścieżka względna '{0}' nie mogła zostać rozwiązana. Tylko kanały zapisane jako pliki lokalne mogą zawierać względne ścieżki.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>Nie można rozwiązać względnego identyfikatora URI '{0}'. Tylko kanały zapisane jako pliki lokalne mogą zawierać względne URI.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>atrybut "rollout-percentage" na stronie {0} może być ustawiony tylko wtedy, gdy "stabilność" jest "testowa" lub nie jest ustawiona.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>Błędne wdrożenie</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>Nie udostępnia polecenia '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>Niekompatybilny system operacyjny lub procesor</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>Niebezpieczne wdrożenie</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>Implementacja nie w cache (aktualnie w trybie off-line)</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>Implementacja niewykonywalnego źródła</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>Wersja wdrożeniowa zbyt stara lub zbyt nowa</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Powinien być poprawnym typem MIME.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Powinien to być bezpieczny identyfikator. Może zawierać tylko znaki alfanumeryczne, spacje ( ), kropki (.), podkreślniki (_), myślniki (-) i znaki plusa (+).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>Krok przepisu '{0}' w implementacji '{1}' ma nieprawidłowe odniesienie do implementacji.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>The file extension '{0}' does not correspond to a known archive type.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>Nieznany modyfikator.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>Koniec zakresu wersji musi być wyłączny. Należy użyć "...! {0} ", a nie "...{0}".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

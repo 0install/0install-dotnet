@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Added0installToPath" xml:space="preserve">
+    <value>Команда '0install' была добавлена в ваш PATH командной строки.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasCreated" xml:space="preserve">
+    <value>Был создан псевдоним '{0}' для '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasNotFound" xml:space="preserve">
+    <value>Не найдено ни одного существующего псевдонима с именем '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasRemoved" xml:space="preserve">
+    <value>Псевдоним '{0}' для '{1}' был удален.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AllComponentsDownloaded" xml:space="preserve">
+    <value>Все необходимые компоненты загружены.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AllComponentsExported" xml:space="preserve">
+    <value>Все компоненты, необходимые для работы {0}, были экспортированы в '{1}'.
+Вы можете использовать сценарий импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AlreadyInImplDirs" xml:space="preserve">
+    <value>'{0}' уже есть в списке пользовательских кэшей реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlias" xml:space="preserve">
+    <value>Псевдоним приложения</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppList" xml:space="preserve">
+    <value>Список приложений</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployMachineWide" xml:space="preserve">
+    <value>Установка Zero Install для всех пользователей (в масштабах всей машины), а не только для текущего пользователя?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployNewTarget" xml:space="preserve">
+    <value>Вы уверены, что хотите развернуть новую копию Zero Install на '{0}'?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployZeroInstall" xml:space="preserve">
+    <value>Это добавит Zero Install в стартовое меню и командную строку. Продолжить?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskRemoveZeroInstall" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить Zero Install с этого компьютера?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskTryNow" xml:space="preserve">
+    <value>Вы хотите попробовать это сейчас?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskUpdateCapabilities" xml:space="preserve">
+    <value>Хотите ли вы обновить все существующие интеграции рабочего стола, чтобы отразить это?
+Если вы выберите 'Да', потенциально несовместимые интеграции будут удалены.
+Если вы выберете 'Нет', Zero Install продолжит использовать старые возможности.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CachedImplementations" xml:space="preserve">
+    <value>Реализации в кэше</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>Опции {0} и {1} не могут быть использованы вместе.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CapabilitiesChanged" xml:space="preserve">
+    <value>Возможности приложения '{0}' изменились.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogAlreadyRegistered" xml:space="preserve">
+    <value>URI каталога {0} уже зарегистрирован.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogNotRegistered" xml:space="preserve">
+    <value>URI каталога {0} не зарегистрирован.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogSources" xml:space="preserve">
+    <value>Источники каталога</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Изменить</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ChangesFound" xml:space="preserve">
+    <value>Обнаруженные изменения</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CheckingFeed" xml:space="preserve">
+    <value>Проверка подачи</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ClickToChoose" xml:space="preserve">
+    <value>Нажмите здесь, чтобы выбрать.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Команда</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandLineArguments" xml:space="preserve">
+    <value>Аргументы командной строки</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Конфигурация</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ConfirmPurge" xml:space="preserve">
+    <value>Вы хотите удалить все файлы приложений из кэша Zero Install?
+При необходимости эти файлы можно загрузить снова.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ConfirmRemoveAll" xml:space="preserve">
+    <value>Вы хотите удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
+Вы можете создать резервную копию этого списка с помощью '0install sync'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
+    <value>Начните вводить текст в последней строке, чтобы создать новую запись.
+Выберите всю строку, щелкнув в первом столбце, а затем нажмите DEL на клавиатуре, чтобы удалить запись.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
+    <value>Установите флажок, чтобы сделать возможность желаемым обработчиком по умолчанию.
+Снимите флажок, чтобы убрать статус возможности по умолчанию (она по-прежнему остается доступной).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteCheckedEntries" xml:space="preserve">
+    <value>Вы хотите удалить из кэша проверенный элемент(ы) {0}?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteEntry" xml:space="preserve">
+    <value>Хотите ли вы удалить эту запись из кэша?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingImplementations" xml:space="preserve">
+    <value>Удаление реализации</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployedPortable" xml:space="preserve">
+    <value>Портативная версия Zero Install была развернута на '{0}'.
+Вы можете использовать ее, запустив файл ZeroInstall.exe в каталоге.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployMissingTargetForPortable" xml:space="preserve">
+    <value>При использовании опции --portable вы должны явно указать целевой каталог.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployTargetOutsideHome" xml:space="preserve">
+    <value>Указанный целевой каталог ({0}) находится вне вашего домашнего каталога.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddAlias" xml:space="preserve">
+    <value>Создайте псевдоним для запуска приложения через 0install без необходимости постоянно вводить полный URI.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddApp" xml:space="preserve">
+    <value>Добавьте приложение в список приложений.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddFeed" xml:space="preserve">
+    <value>Регистрация дополнительного источника реализаций (версий) программы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogAdd" xml:space="preserve">
+    <value>Добавляет URI в список каталогов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogList" xml:space="preserve">
+    <value>Перечисляет все зарегистрированные каталоги.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogRefresh" xml:space="preserve">
+    <value>Обновляет (загружает) все зарегистрированные каталоги.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogRemove" xml:space="preserve">
+    <value>Удаляет URI из списка каталогов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogReset" xml:space="preserve">
+    <value>Сброс списка каталогов на источник по умолчанию.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogSearch" xml:space="preserve">
+    <value>Выполняет поиск в зарегистрированных каталогах приложений, соответствующих заданному запросу. Если запрос не задан, перечисляются все приложения в каталогах.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCentral" xml:space="preserve">
+    <value>Открывает центральный графический интерфейс пользователя для запуска и управления приложениями.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionConfig" xml:space="preserve">
+    <value>Просмотр или изменение параметров конфигурации.
+При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает настройку в заданное значение или возвращает ее к значению по умолчанию, если задано значение "default".</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionDigest" xml:space="preserve">
+    <value>Вычисляет дайджест манифеста каталога или архива.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionDownload" xml:space="preserve">
+    <value>Поведение аналогично '0install select', за исключением того, что он также загружает выбранные версии, если они еще не находятся в кэше.
+Возвращает статус выхода 0, если выбран подходящий набор версий и все они загружены и находятся в кэше; в противном случае возвращает статус 1.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionExport" xml:space="preserve">
+    <value>Экспортирует в DIRECTORY все материалы и реализации, необходимые для запуска программы, указанной URI.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionImport" xml:space="preserve">
+    <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это полезно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
+Файл должен иметь надежную цифровую подпись, как при загрузке из сети.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionImportApps" xml:space="preserve">
+    <value>Импортирует набор приложений и интеграций рабочего стола из существующего файла app-list.xml.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionIntegrateApp" xml:space="preserve">
+    <value>Добавляет приложение в список приложений (если оно отсутствует) и интегрирует его в среду рабочего стола.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionList" xml:space="preserve">
+    <value>Перечисляет все локально известные URI фидов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionListApps" xml:space="preserve">
+    <value>Перечисляет все приложения, находящиеся в списке приложений. Если указан URI, отображаются только приложения с таким URI подачи. Если указан PATTERN, будут показаны только приложения, содержащие эту строку в своем имени (без учета регистра).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionListFeeds" xml:space="preserve">
+    <value>Перечисляет все дополнительные фиды, добавленные в URI с помощью '0install add-feed'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
+    <value>Развертывает Zero Install в указанный каталог TARGET или каталог по умолчанию для программ и интегрирует его в систему.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
+    <value>Удаляет текущий экземпляр Zero Install из системы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveAllApps" xml:space="preserve">
+    <value>Удаляет все приложения из списка приложений и отменяет любую интеграцию среды рабочего стола. Используйте эту команду для очистки системы перед удалением Zero Install.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveApp" xml:space="preserve">
+    <value>Удаляет приложение из списка приложений и отменяет любую интеграцию среды рабочего стола.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveFeed" xml:space="preserve">
+    <value>Снимает регистрацию подачи, обращая эффект от '0install add-feed'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRepairApps" xml:space="preserve">
+    <value>Повторное применение всех настольных интеграций приложений в списке приложений.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRun" xml:space="preserve">
+    <value>Действует аналогично '0install download', за исключением того, что запускает программу после того, как убедится, что она находится в кэше.
+Возвращает статус выхода, равный 1, если этап загрузки не удался. В противном случае статус выхода будет равен статусу выхода запускаемой программы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSearch" xml:space="preserve">
+    <value>Поиск проиндексированных зеркальным сервером фидов, которые соответствуют заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные фиды, независимо от их качества; вы должны решить, доверять ли этим программам, прежде чем запускать их.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSelect" xml:space="preserve">
+    <value>Выбирает версию программы, идентифицированную URI, и совместимые версии всех ее зависимостей.
+Возвращает статус выхода 0, если был выбран набор версий, и статус 1, если не удалось найти согласованный набор.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSelfUpdate" xml:space="preserve">
+    <value>Обновляет сам Zero Install до последней версии.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAdd" xml:space="preserve">
+    <value>Добавляет содержимое каталога или архива в кэш.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAddDir" xml:space="preserve">
+    <value>Добавляет каталог в список пользовательских кэшей реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAudit" xml:space="preserve">
+    <value>Проверяет, что все реализации в кэше не повреждены.
+Дополнительные аргументы задают пользовательские места в кэше.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreCopy" xml:space="preserve">
+    <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
+Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreExport" xml:space="preserve">
+    <value>Экспортирует кэшированную реализацию в виде архива (ZIP, TAR и т.д.). Результат может быть импортирован на другую машину с помощью '0install store add'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreFind" xml:space="preserve">
+    <value>Определяет локальный путь кэшированной реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreList" xml:space="preserve">
+    <value>Перечисляет все каталоги кэша реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreListImplementations" xml:space="preserve">
+    <value>Перечисляет все кэшированные реализации. Если указан URI фида, то перечисляются только реализации для этого конкретного фида.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreManage" xml:space="preserve">
+    <value>Отображает графический пользовательский интерфейс для управления реализациями в кэше. Показывает ассоциации с кэшированными фидами.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreOptimise" xml:space="preserve">
+    <value>Экономит место на диске, объединяя одинаковые файлы с жесткими ссылками.
+Дополнительные аргументы задают пользовательские места кэширования.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStorePurge" xml:space="preserve">
+    <value>Удаляет все реализации из кэша. Используйте эту команду для очистки системы перед удалением Zero Install. Удаление каталогов кэша вручную может быть затруднено из-за NTFS ACL, используемых для защиты реализаций от модификации.
+Дополнительные аргументы задают пользовательское расположение кэша.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreRemove" xml:space="preserve">
+    <value>Удаляет реализацию из кэша.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreRemoveDir" xml:space="preserve">
+    <value>Удаляет каталог из списка пользовательских кэшей реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreVerify" xml:space="preserve">
+    <value>Проверяет, что реализация не была повреждена (т.е. ее манифестный дайджест не изменился).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSync" xml:space="preserve">
+    <value>Синхронизирует список приложений с сервером.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustAdd" xml:space="preserve">
+    <value>Доверяет фидам с определенного ДОМАЙНА, если они подписаны определенным FINGERPRINT.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustList" xml:space="preserve">
+    <value>Список ключей, которым доверяют для подписания фидов. Перечислите только те домены, для которых доверяется определенный FINGERPRINT, если он указан.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustRemove" xml:space="preserve">
+    <value>Прекращает доверять фидам, подписанным определенным FINGERPRINT. Прекращает доверять только определенному DOMAIN, если он указан.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionUpdate" xml:space="preserve">
+    <value>Проверяет наличие обновлений программы и загружает их, если они найдены.
+Это похоже на '0install download --refresh', за исключением того, что выводится информация о том, были ли найдены какие-либо изменения.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionUpdateApps" xml:space="preserve">
+    <value>Обновляет все приложения в списке приложений.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegration" xml:space="preserve">
+    <value>Интеграция рабочего стола</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegrationApply" xml:space="preserve">
+    <value>Применение интеграции рабочего стола</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegrationRemove" xml:space="preserve">
+    <value>Удаление интеграции рабочего стола</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Выполнено</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DownloadComplete" xml:space="preserve">
+    <value>Скачать полностью</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnterCatalogUrl" xml:space="preserve">
+    <value>Введите URL-адрес или локальный путь к файлу каталога фидов для добавления:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnterFeedUrl" xml:space="preserve">
+    <value>Пожалуйста, введите URL нового источника реализаций для этого интерфейса:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExclusiveOptions" xml:space="preserve">
+    <value>Опции {0} и {1} не могут быть использованы вместе.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExistingInstance" xml:space="preserve">
+    <value>В '{0}' была обнаружена существующая копия Zero Install.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExportComplete" xml:space="preserve">
+    <value>Экспорт завершен.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedAlreadyRegistered" xml:space="preserve">
+    <value>Корм уже был зарегистрирован для всех соответствующих интерфейсов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedManagement" xml:space="preserve">
+    <value>Управление кормами</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotRegistered" xml:space="preserve">
+    <value>Корм не был зарегистрирован ни для каких интерфейсов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedRegistered" xml:space="preserve">
+    <value>Корм был успешно зарегистрирован для следующих интерфейсов:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedReplaced" xml:space="preserve">
+    <value>'{0}' был заменен на '{1}'. Рассмотрите возможность обновления.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedReplacedAsk" xml:space="preserve">
+    <value>Фид для '{0}' ({1}) был заменен на '{2}'. Хотите ли вы использовать новый фид вместо этого?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedsCached" xml:space="preserve">
+    <value>Кэшированные фиды</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUnregistered" xml:space="preserve">
+    <value>Корм был успешно снят с регистрации для следующих интерфейсов:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Невозможно найти файл или каталог '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
+    <value>Используйте file:///path для абсолютных путей, а не file:/path.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Скрыть</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IgnoreMissingFeedFor" xml:space="preserve">
+    <value>Этот корм, похоже, не предназначен для того же приложения. Добавить его в любом случае?
+Тег &lt;feed-for&gt; указывает на совместимость фида.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InstallService" xml:space="preserve">
+    <value>Установка службы Zero Install Store</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Интегрировать {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppInvalid" xml:space="preserve">
+    <value>Ваш выбор интеграции рабочего стола не может быть применен.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppRetry" xml:space="preserve">
+    <value>Вы хотите изменить свой выбор и попробовать еще раз?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppUseGui" xml:space="preserve">
+    <value>Пожалуйста, используйте GUI-версию Zero Install или укажите явные параметры интеграции с помощью аргументов командной строки.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidArgument" xml:space="preserve">
+    <value>Недопустимый аргумент '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="LicenseInfo" xml:space="preserve">
+    <value>Эта программа поставляется с АБСОЛЮТНО НИКАКИМИ ГАРАНТИЯМИ, насколько это разрешено законом.
+Вы можете распространять копии этой программы в соответствии с условиями GNU Lesser General Public License.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="LocalPathOf" xml:space="preserve">
+    <value>Местный путь {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingArguments" xml:space="preserve">
+    <value>Отсутствующие аргументы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingFeedFor" xml:space="preserve">
+    <value>Отсутствует элемент &lt;feed-for&gt; в '{0}'; он не может быть использован в качестве фида для любого другого интерфейса.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingOptionValue" xml:space="preserve">
+    <value>Отсутствует требуемое значение для опции {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminForMachineWide" xml:space="preserve">
+    <value>Вы должны быть администратором, чтобы выполнять общемашинные операции.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MutexWait" xml:space="preserve">
+    <value>Ожидание окончания работы всех экземпляров Zero Install</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MyApps" xml:space="preserve">
+    <value>Мои приложения</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NeedsGui" xml:space="preserve">
+    <value>Для этой функции используйте версию Zero Install с графическим интерфейсом.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoAddCommandWithoutAlias" xml:space="preserve">
+    <value>--команда может быть указана только вместе с именем псевдонима.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
+    <value>Графический редактор политик недоступен в режиме командной строки.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoIntegrationDeployRequired" xml:space="preserve">
+    <value>Zero Install должен быть развернут на вашей системе, чтобы интеграция рабочего стола работала.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoIntegrationFromPortable" xml:space="preserve">
+    <value>Zero Install работает в портативном режиме. Для интеграции с настольным компьютером его необходимо развернуть в постоянном месте. Это будет полностью независимо от вашей портативной копии.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
+    <value>Zero Install запускается из каталога, предназначенного для конкретного пользователя. Чтобы интеграция рабочих станций работала в масштабах всей машины, ее необходимо развернуть в каталог, доступный всем пользователям.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoRunWithEmptyCommand" xml:space="preserve">
+    <value>При запуске реализации команда может быть не пустой.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
+    <value>Может обновляться только с помощью URI Feed, но не с помощью документов выборки.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NotAvailableInPortableMode" xml:space="preserve">
+    <value>Эта операция недоступна в портативном режиме.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NotInImplDirs" xml:space="preserve">
+    <value>'{0}' отсутствует в списке пользовательских кэшей реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoUpdatesFound" xml:space="preserve">
+    <value>Обновления не найдены</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OpenInFileManager" xml:space="preserve">
+    <value>Открыть в файловом менеджере</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptimiseComplete" xml:space="preserve">
+    <value>Оптимизация завершена</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAlgorithm" xml:space="preserve">
+    <value>Алгоритм {HASH}, который будет использоваться для дайджеста.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAliasRemove" xml:space="preserve">
+    <value>Удалить существующий псевдоним.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAliasResolve" xml:space="preserve">
+    <value>Вывести URI интерфейса для заданного псевдонима.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBackground" xml:space="preserve">
+    <value>Скрыть графический интерфейс пользователя и использовать вместо него что-то вроде значка в трее.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBatch" xml:space="preserve">
+    <value>Автоматически отвечать на вопросы с помощью значений по умолчанию, когда это возможно, и упростить вывод консоли (без таблиц и прогресс-баров).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBefore" xml:space="preserve">
+    <value>Требовать версию основной программы более раннюю, чем {VERSION}. т.е. заставлять использовать старую версию программы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
+    <value>Пропустите загрузку каталога, чтобы убедиться в его достоверности перед добавлением в список.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionClean" xml:space="preserve">
+    <value>Удалите реализации, которые больше не требуются после обновления.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCommand" xml:space="preserve">
+    <value>Вместо выполнения команды по умолчанию используйте {COMMAND}. Допустимые имена команд указаны в подаче программы.
+Установите пустой (""), чтобы игнорировать команду во время выбора.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Переключение на определенную вкладку в графическом интерфейсе конфигурации. Доступными вкладками являются 'обновления', 'хранилище', 'каталог', 'доверие', 'синхронизация', 'язык', 'язык' и 'расширенный'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCpu" xml:space="preserve">
+    <value>Заставляет решатель нацелиться на определенный {CPU}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCustomize" xml:space="preserve">
+    <value>Показать графический редактор политики. Это позволяет настроить, какую версию программы или библиотеки использовать.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionDigest" xml:space="preserve">
+    <value>Отображение дайджеста манифеста (включено по умолчанию, если параметр --manifest не установлен).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportBootstrap" xml:space="preserve">
+    <value>Выберите тип Bootstrapper для размещения рядом с экспортом.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
+    <value>Включите сам Zero Install в экспорт вместе с приложением.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportNoImplementations" xml:space="preserve">
+    <value>Не включайте в экспорт архивы реализации. Экспортируйте только фиды.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionForceSelfUpdate" xml:space="preserve">
+    <value>Выполните обновление, даже если текущая установленная версия такая же или новее.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionHelp" xml:space="preserve">
+    <value>Показать текст встроенной справки.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAdd" xml:space="preserve">
+    <value>Добавить все точки доступа определенной {CATEGORY}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAddAll" xml:space="preserve">
+    <value>Добавьте все доступные точки доступа.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAddStandard" xml:space="preserve">
+    <value>Добавьте рекомендуемые стандартные точки доступа.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateRemove" xml:space="preserve">
+    <value>Удалить все точки доступа определенной {CATEGORY}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateRemoveAll" xml:space="preserve">
+    <value>Удалите все точки доступа.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLanguage" xml:space="preserve">
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
+Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLibrary" xml:space="preserve">
+    <value>Разверните Zero Install как библиотеку для использования другими приложениями без собственной интеграции с рабочим столом.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionMachine" xml:space="preserve">
+    <value>Применение конфигурации в масштабе всей машины (для всего компьютера), а не только для текущего пользователя.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionMain" xml:space="preserve">
+    <value>Запуск указанного исполняемого файла {MAIN} вместо стандартного. Если путь начинается с '/' или '\', то он будет относительным к каталогу верхнего уровня реализации, в противном случае он будет относительным к каталогу, содержащему основную программу по умолчанию.
+Не может содержать аргументы командной строки! Пробелы не нужно экранировать.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionManifest" xml:space="preserve">
+    <value>Отображение самого манифеста (одна строка для каждого файла или каталога).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNoDownload" xml:space="preserve">
+    <value>Пока не загружайте само приложение. Оно будет автоматически загружено при первом использовании.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNotBefore" xml:space="preserve">
+    <value>Требуйте версию основной программы не ранее {VERSION}. Например, если вы хотите запустить версию 2.0 или более позднюю, используйте --not-before=2.0.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNoWait" xml:space="preserve">
+    <value>Немедленный возврат после запуска выбранной программы вместо ожидания завершения ее выполнения. В Windows код выхода - это идентификатор процесса запущенной программы.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionOffline" xml:space="preserve">
+    <value>Запуск в автономном режиме, переопределяющий настройки по умолчанию.
+В автономном режиме интерфейсы не обновляются, даже если они устарели, и новые версии программ не загружаются, даже если инжектор уже знает о них (например, из предыдущего обновления).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionOS" xml:space="preserve">
+    <value>Заставляет решатель нацелиться на операционную систему {OS}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionPortable" xml:space="preserve">
+    <value>Создайте переносную установку, которую можно перемещать (например, на флешке).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionRefresh" xml:space="preserve">
+    <value>Получение свежих копий всех используемых кормов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionRestartCentral" xml:space="preserve">
+    <value>Перезапустите графический интерфейс '0install central' после обновления.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Опции:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionShow" xml:space="preserve">
+    <value>Показать, где на диске хранятся выбранные компоненты.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionSource" xml:space="preserve">
+    <value>Выберите исходный код, а не двоичный. Это используется внутри '0compile'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionSyncReset" xml:space="preserve">
+    <value>Сброс данных синхронизации. Допустимые {MODE} - 'none' (обычное объединение данных с клиента и сервера), 'client' (замена всех данных на клиенте данными с сервера) и 'server' (замена всех данных на сервере данными с клиента).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVerbose" xml:space="preserve">
+    <value>Более подробный вывод. Используйте дважды для еще более подробного вывода.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersion" xml:space="preserve">
+    <value>Отображение информации о версии.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersionRange" xml:space="preserve">
+    <value>Требует версию основной программы в пределах заданного {RANGE}.
+Диапазоны разделяются трубками (|).
+Каждый диапазон имеет вид "START...END". Диапазон соответствует версиям, где START &lt;= VERSION &lt; END. Начало или конец могут быть опущены.
+Вместо диапазона можно использовать номер одной версии, чтобы соответствовать только этой версии, или !VERSION, чтобы соответствовать всем версиям, кроме этой.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersionRangeFor" xml:space="preserve">
+    <value>Для любой библиотеки или подкомпонента с заданным {0:URI} указывает версию {1:RANGE} (как для --version).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionWithStore" xml:space="preserve">
+    <value>Добавьте {DIR} в список кэшей реализации для поиска.
+Однако новые загрузки не будут записываться в этот каталог.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionWrapper" xml:space="preserve">
+    <value>Вместо прямого выполнения выбранной программы выполните {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
+Обратите внимание, что обертка выполняется в окружении, выбранном программой; следовательно, этот механизм нельзя использовать для создания "песочницы".
+Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionXml" xml:space="preserve">
+    <value>Запись вывода на консоль в виде машиночитаемого XML.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PortableMode" xml:space="preserve">
+    <value>Портативный режим</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PropertiesFor" xml:space="preserve">
+    <value>Свойства для {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReadingCache" xml:space="preserve">
+    <value>Кэш для чтения</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Удалить</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemoveCheckedKeys" xml:space="preserve">
+    <value>Вы хотите удалить из списка {0} проверенные ключи?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemoveSelectedEntries" xml:space="preserve">
+    <value>Вы хотите удалить из списка {0} выбранные записи?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemovingApplications" xml:space="preserve">
+    <value>Удаление приложений</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemovingOutdated" xml:space="preserve">
+    <value>Удаление устаревших реализаций</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReopenTerminal" xml:space="preserve">
+    <value>Возможно, вам придется закрыть и снова открыть терминал, чтобы это вступило в силу.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResetList" xml:space="preserve">
+    <value>Вы хотите вернуть список в исходное состояние?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResolvedUsingAlias" xml:space="preserve">
+    <value>Изменение '{0}' на '{1}' с помощью псевдонима.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResolvedUsingCatalog" xml:space="preserve">
+    <value>Решено '{0}' на '{1}' с помощью каталога.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RunNgen" xml:space="preserve">
+    <value>Предварительная компиляция сборок .NET для ускорения запуска приложений</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectedImplementations" xml:space="preserve">
+    <value>Отдельные реализации</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfRemoveNotDeployed" xml:space="preserve">
+    <value>Этот экземпляр Zero Install не развернут. Удалять нечего.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateAvailable" xml:space="preserve">
+    <value>Доступно обновление Zero Install v{0}. Установить сейчас?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateBlocked" xml:space="preserve">
+    <value>Этот экземпляр Zero Install не был развернут. Поэтому он не может обновляться самостоятельно.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateDisabled" xml:space="preserve">
+    <value>Самообновление отключено.
+Выполните '0install config self_update_uri default', чтобы включить его.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicyAutoSet" xml:space="preserve">
+    <value>Установить политику стабильности для {0}, чтобы соответствовать?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicyReset" xml:space="preserve">
+    <value>Сбросить политику стабильности для {0} на значение по умолчанию?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicySuggested" xml:space="preserve">
+    <value>Политика стабильности, необходимая для выбора реализаций из {0}, - это '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StartService" xml:space="preserve">
+    <value>Запуск службы Zero Install Store Service</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StopService" xml:space="preserve">
+    <value>Остановка службы Zero Install Store Service</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StorageReclaimed" xml:space="preserve">
+    <value>{0} восстановленное пространство для хранения.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreAudit" xml:space="preserve">
+    <value>Аудит магазина</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SuccessfullyRemoved" xml:space="preserve">
+    <value>Успешно удалено {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SuggestLongPath" xml:space="preserve">
+    <value>Включение поддержки Windows для длинных путей может решить эту проблему.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SupportedValues" xml:space="preserve">
+    <value>Поддерживаемые значения {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyDescription" xml:space="preserve">
+    <value>Криптографический ключ используется для локального шифрования ваших данных перед передачей их на сервер.
+Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TooManyArguments" xml:space="preserve">
+    <value>Слишком много аргументов или неизвестных вариантов.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} доверенные для доменов</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TrustedKeys" xml:space="preserve">
+    <value>Доверенные ключи</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryHelp" xml:space="preserve">
+    <value>Попробуйте {0} --help</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryHelpWith" xml:space="preserve">
+    <value>Попробуйте -help с одним из них:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToLoadCatalog" xml:space="preserve">
+    <value>Невозможно загрузить каталог программного обеспечения.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UninstallService" xml:space="preserve">
+    <value>Деинсталляция службы Zero Install Store</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownCommand" xml:space="preserve">
+    <value>Неизвестная команда '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Usage" xml:space="preserve">
+    <value>Использование:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseDefaultSetting" xml:space="preserve">
+    <value>Использовать настройки по умолчанию</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseInstead" xml:space="preserve">
+    <value>Вместо этого используйте '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseSystemLanguage" xml:space="preserve">
+    <value>Используйте системный язык</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Проверить</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VerifyImplementation" xml:space="preserve">
+    <value>Проверить выполнение</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VersionInformation" xml:space="preserve">
+    <value>Информация о версии</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Работа</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

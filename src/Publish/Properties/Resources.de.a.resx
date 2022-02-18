@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DetectingCandidates" xml:space="preserve">
+    <value>Suche nach ausführbaren Dateien</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EmptyImplementation" xml:space="preserve">
+    <value>Ein Manifest-Digest wurde für ein leeres Verzeichnis berechnet. Überprüfen Sie, ob Sie den richtigen "extract"-Wert für das Archiv eingestellt haben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EntryPointNotFound" xml:space="preserve">
+    <value>Der Einstiegspunkt der Anwendung wurde nicht gefunden.
+Versuchen Sie, ihn manuell einzugeben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetchingExternal" xml:space="preserve">
+    <value>Herunterladen von '{0}' mit Zero Install</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Die Datei '{0}' konnte nicht gefunden werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InstallationDirDetected" xml:space="preserve">
+    <value>Erkannt '{0}' als Installationsverzeichnis.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingProgramFiles32Bit" xml:space="preserve">
+    <value>Kein 32-Bit-Verzeichnis %ProgramFiles% gefunden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
+    <value>Es wurden mehrere neue Standardprogramme in der Registrierung entdeckt. Sie werden alle behandelt, aber das letzte Programm kann in manchen Fällen Vorrang haben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MultipleInstallationDirsDetected" xml:space="preserve">
+    <value>Es wurden mehrere Installationsverzeichnisse erkannt. Wählen Sie standardmäßig das erste aus.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
+    <value>Es wurden mehrere neue Anwendungsregistrierungen in der Registrierung entdeckt. Standardmäßig wird die erste ausgewählt.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoInstallationDirDetected" xml:space="preserve">
+    <value>Es wurde kein Installationsverzeichnis gefunden.
+Versuchen Sie, es manuell einzugeben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="OnlyAvailableOnWindows" xml:space="preserve">
+    <value>Diese Methode ist derzeit nur unter Windows verfügbar.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SecretKeyNotInKeyring" xml:space="preserve">
+    <value>Der geheime Schlüssel befindet sich nicht im Schlüsselbund des Benutzers.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SizeMissing" xml:space="preserve">
+    <value>Dateigröße noch nicht festgelegt.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

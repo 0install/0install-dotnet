@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Alimentazione {0}
+- Firma valida da {1}
+- {2}
+Vuoi fidarti di questa chiave per firmare i feed da '{3}'?
+</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>La riga di comando risultante è vuota.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Comando per '{0}' non specificato.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>i legami &lt;ambiente&gt; devono contenere o un attributo "valore" o un attributo "inserisci".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Esecuzione del solutore esterno</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Il feed '{0}' non è nella cache e Zero Install è attualmente in modalità off-line.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' non può essere trovato nella cache del feed.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Il feed '{0}' non è stato firmato con nessuna chiave fidata.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>{0}' è un file locale. Dovrebbe essere un URL HTTP(S).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>L'attributo uri di &lt;interface&gt; ('{0}') non corrisponde all'URL da cui è stato scaricato il feed ('{1}').</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Manca l'attributo uri di &lt;interfaccia&gt;. Dovrebbe essere '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Problema di recupero di '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Carattere illegale in {0} binding name.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>I feed devono specificare l'URI da cui provengono per essere importabili.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Nome mancante nella rilegatura {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Non è stata specificata alcuna interfaccia.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Impossibile scaricare {0} perché Zero Install è in modalità offline.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Il server di informazioni sulle chiavi non è stato in grado di fornire informazioni aggiuntive su questa chiave.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Nessun manifest digest per l'implementazione '{0}' trovato.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoPackageManagerSupport" xml:space="preserve">
+    <value>Non c'è un supporto nativo del gestore di pacchetti per questa piattaforma.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Nessun metodo di recupero trovato per l'implementazione '{0}' trovato.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>È stato rilevato un possibile attacco di replay. Il tempo di modifica del nuovo feed è precedente alla vecchia versione.
+URI del feed {0}
+Tempo vecchio {1}
+Nuovo tempo {2}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Impossibile scaricare {0}. Provando invece a scaricare dal feed mirror.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Impossibile memorizzare nella cache il catalogo delle applicazioni scaricate.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Impossibile analizzare le informazioni sulla chiave per '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Impossibile recuperare le informazioni sulla chiave per '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' non è un ID conosciuto nel gestore di pacchetti {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Il feed è firmato con chiavi non fidate!</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>In attesa del completamento del download</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
+    <value>La directory di lavoro è già stata cambiata da un comando precedente.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>La directory di lavoro contiene un percorso non valido (potenzialmente un rischio per la sicurezza).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>
