@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DetectingCandidates" xml:space="preserve">
+    <value>Căutarea fișierelor executabile</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EmptyImplementation" xml:space="preserve">
+    <value>A fost calculat un manifest digest pentru un director gol. Verificați dacă ați setat valoarea "extract" corectă pentru arhivă.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EntryPointNotFound" xml:space="preserve">
+    <value>Punctul de intrare al aplicației nu a fost găsit.
+Încercați să îl specificați manual.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FetchingExternal" xml:space="preserve">
+    <value>Descărcarea '{0}' folosind Zero Install</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Fișierul '{0}' nu a putut fi găsit.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InstallationDirDetected" xml:space="preserve">
+    <value>A detectat '{0}' ca director de instalare.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingProgramFiles32Bit" xml:space="preserve">
+    <value>Nu s-a găsit niciun director %ProgramFiles% pe 32 de biți.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
+    <value>Au fost detectate mai multe programe noi și implicite în registru. Le gestionați pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleInstallationDirsDetected" xml:space="preserve">
+    <value>Au fost detectate mai multe directoare de instalare. Se alege primul în mod implicit.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
+    <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Se alege prima în mod implicit.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoInstallationDirDetected" xml:space="preserve">
+    <value>Nu a fost detectat niciun director de instalare.
+Încercați să îl specificați manual.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OnlyAvailableOnWindows" xml:space="preserve">
+    <value>În prezent, această metodă este disponibilă numai pentru Windows.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SecretKeyNotInKeyring" xml:space="preserve">
+    <value>Cheia secretă nu se află în brelocul de chei al utilizatorului.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SizeMissing" xml:space="preserve">
+    <value>Dimensiunea fișierului nu a fost încă determinată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

@@ -1,64 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -119,6 +60,7 @@
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
     <value>Kopieren von Dateien</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Die Unterverzeichnisse in diesem Cache sind durch NTFS-Berechtigungen vor unbeabsichtigten Änderungen geschützt.
@@ -132,167 +74,220 @@ Wenn Sie das gesamte Verzeichnis löschen möchten, können Sie diese Befehlszei
 
 Alternativ können Sie auch die grafische Benutzeroberfläche zur Verwaltung der Caches verwenden:
 0install store manage</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Hinweis zum Löschen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
     <value>Verzeichnis {0} löschen</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
     <value>Löschen der Implementierung {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
     <value>Löschen veralteter Dateien</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Der Hash-Wert des Manifests einer Implementierung stimmt nicht mit dem erwarteten Wert überein.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Tatsächlicher Wert: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
     <value>Tatsächliches Manifest: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>Erwarteter Wert: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Erwartetes Manifest: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Die Verwendung des Feed Mirror, der für die Suche erforderlich ist, ist deaktiviert.
 Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Datei oder Verzeichnis '{0}' konnte nicht gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Die Dateien, die Sie löschen möchten, sind derzeit in Gebrauch.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Möchten Sie diese Anwendungen beendet und fortfahren?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
     <value>Folgende Anwendungen müssen beendet werden:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Suche Dateiduplikate in '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Die Datei '{0}' ist weder ein symbolischer Link noch eine reguläre Datei.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
     <value>Die Implementierung '{0}' ist bereits im Store vorhanden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
     <value>Die Implementierung '{0}' ist beschädigt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Möchten Sie sie entfernen? Eine neue Kopie wird bei Bedarf automatisch heruntergeladen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Führen Sie '0install store remove {0}' aus, um sie zu entfernen. Eine neue Kopie wird bei Bedarf automatisch heruntergeladen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Die Implementierung '{0}' konnte nicht gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Das zugrunde liegende Dateisystem speichert die Datei-Änderungszeiten nicht mit ausreichender Genauigkeit.
 Wenn Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu NTFS.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Die Manifestdatei enthält ungültige Zeilen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
     <value>Unzulässige Anzahl von Teilen in der Zeile.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>Das Archiv enthält einen ungültigen Pfad (potenziell ein Sicherheitsrisiko): {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>Die Signatur ist ungültig oder beschädigt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Nur Administratoren können einen gemeinsam genutzen Store optimieren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Nur Administratoren können Elemente aus einem gemeinsam genutzen Store entfernen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Der Datei- oder Verzeichnisname darf keinen Zeilenumbruch enthalten.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Der Download von {0} ist nicht möglich, da sich Zero Install im Offline-Modus befindet.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Es wurde keine bekannte Digest-Methode angegeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Der Pfad '{0}' ist kein absoluter Pfad. Relative Pfade sind nur im Portable Modus erlaubt.
 Festgelegt in der Konfigurationsdatei '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Keine Version ausgewählt</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kann sich nicht selbst aus einem Implementierungscache entfernen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Der Zahlenwert ist zu groß.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Diese Einstellung wird durch eine Gruppenrichtlinie gesteuert und kann daher nicht geändert werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.
 Festgelegt in der Konfigurationsdatei '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Es gab ein Problem beim Laden einer Konfigurationsdatei.
 Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Es gab ein Problem beim Laden des Konfigurationswertes '{0}'.
 Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstellungen können ebenfalls verloren gehen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
     <value>Verarbeitung von Dateien</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Die Signaturdatei existiert bereits.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
     <value>Verbindung mit StoreService konnte nicht hergestellt werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
     <value>Temporäre Verzeichnisse</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Es konnte kein geheimer Schlüssel mit dem angegebenen Namen gefunden werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Der Schreibschutz für '{0}' konnte nicht aktiviert werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Unbekanntes Interface.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Die von Ihnen eingegebene Passphrase ist falsch.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Die letzte Zeile der Datei ist nicht das Ende des Signaturblocks.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
     <value>Die XML-Signatur beginnt nicht in einer neuen Zeile.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>Die Signatur ist nicht gültiges Base 64:</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

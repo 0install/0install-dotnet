@@ -1,0 +1,1021 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Added0installToPath" xml:space="preserve">
+    <value>コマンドラインPATHに'0install'コマンドが追加されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasCreated" xml:space="preserve">
+    <value>{1}' の '{0}' というエイリアスが作成されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasNotFound" xml:space="preserve">
+    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AliasRemoved" xml:space="preserve">
+    <value>{1}' の '{0}' というエイリアスは削除されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AllComponentsDownloaded" xml:space="preserve">
+    <value>必要なコンポーネントはすべてダウンロードされています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AllComponentsExported" xml:space="preserve">
+    <value>{0} の実行に必要なすべてのコンポーネントは、'{1}' にエクスポートされています。
+{1}' にあるインポートスクリプトまたは Bootstrap 実行ファイルを使用して、これらのファイルを別のコンピュータにインポートすることができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AlreadyInImplDirs" xml:space="preserve">
+    <value>'{0}' はカスタム実装キャッシュのリストに既に含まれています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlias" xml:space="preserve">
+    <value>アプリケーション・エイリアス</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppList" xml:space="preserve">
+    <value>アプリケーション一覧</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployMachineWide" xml:space="preserve">
+    <value>現在のユーザーだけでなく、すべてのユーザー（マシン全体）にZero Installを設定しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployNewTarget" xml:space="preserve">
+    <value>Zero Install の新しいコピーを '{0}' にデプロイするのは間違いないですか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskDeployZeroInstall" xml:space="preserve">
+    <value>これにより、スタートメニューとコマンドラインにZero Installが追加されます。続ける？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskRemoveZeroInstall" xml:space="preserve">
+    <value>本当にこのコンピューターからZero Installを削除しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskTryNow" xml:space="preserve">
+    <value>今すぐ試したい？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AskUpdateCapabilities" xml:space="preserve">
+    <value>既存のデスクトップ連携を更新して、これを反映させますか？
+はい」を選択すると、互換性がない可能性のある統合は削除されます。
+No」を選択した場合、Zero Installは古い機能を使用し続けます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CachedImplementations" xml:space="preserve">
+    <value>キャッシュされた実装</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>{0} と{1} のオプションは一緒に使用できません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CapabilitiesChanged" xml:space="preserve">
+    <value>アプリケーション '{0}' の機能が変更されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogAlreadyRegistered" xml:space="preserve">
+    <value>カタログURI{0} は既に登録されています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogNotRegistered" xml:space="preserve">
+    <value>カタログURI{0} は登録されていません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CatalogSources" xml:space="preserve">
+    <value>カタログの出典</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>変更</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ChangesFound" xml:space="preserve">
+    <value>変更点発見</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CheckingFeed" xml:space="preserve">
+    <value>フィードの確認</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ClickToChoose" xml:space="preserve">
+    <value>こちらからお選びください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>コマンド</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandLineArguments" xml:space="preserve">
+    <value>コマンドライン引数</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>コンフィギュレーション</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ConfirmPurge" xml:space="preserve">
+    <value>Zero Installのキャッシュからすべてのアプリケーションファイルを削除しますか？
+これらのファイルは、必要に応じて再度ダウンロードすることができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ConfirmRemoveAll" xml:space="preserve">
+    <value>マイアプリケーション」一覧からすべてのアプリケーションを削除しますか？これは、Zero Installを削除した後に、メニューの項目が残るのを防ぐためです。
+このリストは、「0install sync」を使用してバックアップを作成することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
+    <value>最後の行から文字入力を開始すると、新しいエントリーが作成されます。
+最初の列をクリックして行全体を選択し、キーボードのDELキーを押すと、エントリーが削除されます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
+    <value>チェックボックスを設定すると、ケイパビリティを希望するデフォルトハンドラにすることができます。
+チェックボックスを削除すると、ケイパビリティのデフォルトステータスが削除されます（利用可能なステータスは維持されます）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteCheckedEntries" xml:space="preserve">
+    <value>{0} チェックした要素をキャッシュから削除しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteEntry" xml:space="preserve">
+    <value>このエントリーをキャッシュから削除しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingImplementations" xml:space="preserve">
+    <value>実装の削除</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployedPortable" xml:space="preserve">
+    <value>Zero Install のポータブル版が '{0}' に配備されました。
+このディレクトリにあるZeroInstall.exeファイルを実行することで使用できます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployMissingTargetForPortable" xml:space="preserve">
+    <value>portableオプションを使用する場合、ターゲットディレクトリを明示的に指定する必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeployTargetOutsideHome" xml:space="preserve">
+    <value>指定されたターゲットディレクトリ({0})がホームディレクトリ外にある。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>商品説明</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddAlias" xml:space="preserve">
+    <value>0install経由でアプリケーションを起動する際に、常に完全なURIを入力する必要がないようにエイリアスを作成します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddApp" xml:space="preserve">
+    <value>アプリケーションをアプリケーションリストに追加する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionAddFeed" xml:space="preserve">
+    <value>プログラムの実装（バージョン）のソースを追加登録する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogAdd" xml:space="preserve">
+    <value>カタログのリストにURIを追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogList" xml:space="preserve">
+    <value>登録されているすべてのカタログを一覧表示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogRefresh" xml:space="preserve">
+    <value>登録されているすべてのカタログをリフレッシュ（ダウンロード）します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogRemove" xml:space="preserve">
+    <value>カタログの一覧からURIを削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogReset" xml:space="preserve">
+    <value>カタログのリストをデフォルトのソースにリセットします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCatalogSearch" xml:space="preserve">
+    <value>登録されているカタログの中から、指定したクエリに合致するアプリケーションを検索します。クエリを指定しない場合は、カタログに登録されているすべてのアプリケーションが一覧表示されます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionCentral" xml:space="preserve">
+    <value>アプリケーションを起動・管理するための中央グラフィカルユーザーインターフェースを開きます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionConfig" xml:space="preserve">
+    <value>コンフィギュレーション設定を表示または変更します。
+引数なしの場合は、すべての設定とその現在の値を表示します。引数を1つ指定すると、指定した設定の現在の値を表示します。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionDigest" xml:space="preserve">
+    <value>ディレクトリまたはアーカイブのマニフェストダイジェストを計算します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionDownload" xml:space="preserve">
+    <value>0install select' と同様の動作をしますが、選択したバージョンがまだキャッシュされていなければ、ダウンロードも行います。
+適切なバージョンのセットを選択し、それらがすべてダウンロードされてキャッシュにある場合は終了ステータス 0 を返し、そうでない場合は 1 を返します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionExport" xml:space="preserve">
+    <value>URI で指定されたプログラムを起動するために必要なすべてのフィードと実装を DIRECTORY にエクスポートします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionImport" xml:space="preserve">
+    <value>ネットワークからダウンロードしたように、ローカルファイルからフィードをインポートします。これは、フィードファイルをテストする際に、 再度ダウンロードするためにリモートサーバにアップロードするのを避けるために有用です。
+ネットワークから取得する場合と同様に、ファイルには信頼できるデジタル署名が必要です。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionImportApps" xml:space="preserve">
+    <value>既存の app-list.xml ファイルから、アプリケーションとデスクトップ インテグレーションのセットをインポートします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionIntegrateApp" xml:space="preserve">
+    <value>アプリケーションをアプリケーションリストに追加し、デスクトップ環境に統合します（見つからない場合）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionList" xml:space="preserve">
+    <value>ローカルで既知のフィード URI をすべて一覧表示する。検索語を指定すると、その文字列を含む URI のみが表示されます (大文字小文字は区別されません)。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionListApps" xml:space="preserve">
+    <value>現在、アプリケーションリストに登録されているすべてのアプリケーションを一覧表示します。URI を指定した場合は、そのフィード URI を持つアプリケーションのみを表示します。PATTERNを指定した場合は、その文字列を名前に含むアプリケーションのみを表示します（大文字と小文字は区別されません）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionListFeeds" xml:space="preserve">
+    <value>0install add-feed'を使ってURIに追加された全ての追加フィードをリストアップする。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
+    <value>指定されたTARGETディレクトリまたはプログラム用のデフォルトディレクトリにZero Installを配置し、システムに統合します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
+    <value>現在の Zero Install のインスタンスをシステムから削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveAllApps" xml:space="preserve">
+    <value>アプリケーション一覧からすべてのアプリケーションを削除し、デスクトップ環境の統合を取り消します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveApp" xml:space="preserve">
+    <value>アプリケーションリストからアプリケーションを削除し、デスクトップ環境との統合を元に戻します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRemoveFeed" xml:space="preserve">
+    <value>フィードの登録を解除し、'0install add-feed' の効果を逆転させる。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRepairApps" xml:space="preserve">
+    <value>アプリケーションリストにあるアプリケーションのデスクトップ統合をすべて再適用します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionRun" xml:space="preserve">
+    <value>0install download' と同様の動作をするが、キャッシュにあることを確認した後にプログラムも実行する。
+ダウンロードのステップに失敗した場合、終了ステータスの1を返す。それ以外の場合は、実行中のプログラムの終了ステータスが返される。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSearch" xml:space="preserve">
+    <value>指定したキーワードに一致するミラーサーバーのインデックスを持つフィードを検索します。デフォルトのミラーサーバは、品質に関係なくすべての既知のフィードをインデックス化することに注意してください。プログラムを実行する前に、信頼するかどうかを決定する必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSelect" xml:space="preserve">
+    <value>URIで特定されるプログラムのバージョンと、その依存関係のすべての互換性のあるバージョンを選択する。
+バージョンのセットを選択した場合は終了ステータス0を、一貫性のあるセットを見つけられなかった場合はステータス1を返す。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSelfUpdate" xml:space="preserve">
+    <value>Zero Install自体を最新バージョンに更新します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAdd" xml:space="preserve">
+    <value>ディレクトリまたはアーカイブの内容をキャッシュに追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAddDir" xml:space="preserve">
+    <value>カスタム実装キャッシュのリストにディレクトリを追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreAudit" xml:space="preserve">
+    <value>キャッシュ内のすべての実装が破損していないことを確認する。
+追加の引数は、カスタムキャッシュの場所を指定します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreCopy" xml:space="preserve">
+    <value>実装をキャッシュにコピーする。0install store add' と似ていますが、ディレクトリ名からダイジェストを抽出します。
+追加の引数は、カスタムターゲットのキャッシュの場所を指定します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreExport" xml:space="preserve">
+    <value>キャッシュされた実装をアーカイブ（ZIP, TARなど）としてエクスポートします。この結果は、別のマシンで '0install store add' を使ってインポートすることができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreFind" xml:space="preserve">
+    <value>キャッシュされた実装のローカルパスを決定します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreList" xml:space="preserve">
+    <value>すべての実装キャッシュディレクトリを一覧表示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreListImplementations" xml:space="preserve">
+    <value>キャッシュされているすべての実装を一覧表示します。フィード URI を指定すると、そのフィードに対応する実装のみがリストアップされます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreManage" xml:space="preserve">
+    <value>キャッシュ内の実装を管理するためのグラフィカルユーザーインターフェースを表示します。キャッシュされたフィードとの関連付けを表示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreOptimise" xml:space="preserve">
+    <value>同一のファイルをハードリンクで結合することにより、ディスクスペースを節約します。
+追加の引数は、カスタムキャッシュの場所を指定します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStorePurge" xml:space="preserve">
+    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用された NTFS ACL のために困難な場合があります。
+追加の引数でカスタムキャッシュの場所を指定します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreRemove" xml:space="preserve">
+    <value>キャッシュから実装を削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreRemoveDir" xml:space="preserve">
+    <value>カスタム実装キャッシュの一覧からディレクトリを削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreVerify" xml:space="preserve">
+    <value>実装が破損していないこと（マニフェストダイジェストが変更されていないこと）を確認します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionSync" xml:space="preserve">
+    <value>アプリケーションリストをサーバーと同期させる。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustAdd" xml:space="preserve">
+    <value>特定のFINGERPRINTで署名された、特定のDOMAINからのフィードを信頼します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustList" xml:space="preserve">
+    <value>フィードに署名するために信頼できるキーをリストアップします。指定された場合、特定の FINGERPRINT が信頼されているドメインのみをリストアップします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionTrustRemove" xml:space="preserve">
+    <value>特定のFINGERPRINTで署名されたフィードを信頼しないようにする。指定された場合、特定のDOMAINのための信頼関係を停止する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionUpdate" xml:space="preserve">
+    <value>プログラムのアップデートを確認し、見つかった場合はダウンロードします。
+これは '0install download --refresh' と似ていますが、変更が見つかったかどうかの情報を表示する点が異なります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionUpdateApps" xml:space="preserve">
+    <value>アプリケーションリスト内のすべてのアプリケーションを更新します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegration" xml:space="preserve">
+    <value>デスクトップ統合</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegrationApply" xml:space="preserve">
+    <value>デスクトップ統合の適用</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DesktopIntegrationRemove" xml:space="preserve">
+    <value>デスクトップ統合の削除</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>完了</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DownloadComplete" xml:space="preserve">
+    <value>ダウンロード完了</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnterCatalogUrl" xml:space="preserve">
+    <value>追加するフィードカタログのURLまたはローカルファイルのパスを入力してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnterFeedUrl" xml:space="preserve">
+    <value>このインターフェースの実装の新しいソースの URL を入力してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExclusiveOptions" xml:space="preserve">
+    <value>{0} と{1} のオプションは一緒に使用できません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExistingInstance" xml:space="preserve">
+    <value>Zero Install の既存のコピーが '{0}' で検出されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ExportComplete" xml:space="preserve">
+    <value>エクスポートが完了しました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedAlreadyRegistered" xml:space="preserve">
+    <value>フィードはすでにすべての適切なインタフェースに登録されていた。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedManagement" xml:space="preserve">
+    <value>飼料管理</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotRegistered" xml:space="preserve">
+    <value>フィードはどのインターフェースにも登録されていませんでした。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedRegistered" xml:space="preserve">
+    <value>フィードは以下のインターフェースに正常に登録されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedReplaced" xml:space="preserve">
+    <value>'{0}' は '{1}' に置き換わりました。更新を検討してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedReplacedAsk" xml:space="preserve">
+    <value>'{0}' ({1}) のフィードは '{2}' に置き換えられました。代わりに新しいフィードを使用しますか?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedsCached" xml:space="preserve">
+    <value>キャッシュされたフィード</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedsRegistered" xml:space="preserve">
+    <value>登録されているフィード '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUnregistered" xml:space="preserve">
+    <value>フィードは以下のインターフェースで正常に登録解除されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>ファイルまたはディレクトリ '{0}' を見つけることができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
+    <value>絶対パスにはfile:/pathではなく、file:///pathを使用します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>隠す</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IgnoreMissingFeedFor" xml:space="preserve">
+    <value>このフィードは同じアプリケーションのものではなさそうです。とにかく追加してください。
+&lt;feed-for&gt;タグは、フィードの互換性を示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InstallService" xml:space="preserve">
+    <value>Zero Install Store Serviceのインストール</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>インテグレート{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppInvalid" xml:space="preserve">
+    <value>デスクトップ統合の選択を適用することはできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppRetry" xml:space="preserve">
+    <value>選択を変更して、もう一度試してみるか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrateAppUseGui" xml:space="preserve">
+    <value>GUI版のZero Installを使用するか、コマンドライン引数で明示的に統合オプションを指定してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidArgument" xml:space="preserve">
+    <value>無効な引数 '{0}' です。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="LicenseInfo" xml:space="preserve">
+    <value>このプログラムには、法律で認められている範囲内で、一切の保証がありません。
+あなたは、このプログラムの複製物をGNU Lesser General Public Licenseの条件の下で再配布することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="LocalPathOf" xml:space="preserve">
+    <value>のローカルパス{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingArguments" xml:space="preserve">
+    <value>引数の欠落。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingFeedFor" xml:space="preserve">
+    <value>{0}' に &lt;feed-for&gt; 要素がありません。他のインターフェースのフィードとして使用することはできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingOptionValue" xml:space="preserve">
+    <value>オプションの必須値欠落{0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminForMachineWide" xml:space="preserve">
+    <value>マシン全体の操作を行うには、管理者である必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MutexWait" xml:space="preserve">
+    <value>すべてのZero Installインスタンスの終了を待つ</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MyApps" xml:space="preserve">
+    <value>私のアプリケーション</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NeedsGui" xml:space="preserve">
+    <value>本機能はGUI版のZero Installをご利用ください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoAddCommandWithoutAlias" xml:space="preserve">
+    <value>--コマンドは、エイリアス名と一緒にのみ指定することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
+    <value>コマンドラインモードでは、グラフィカルポリシーエディターは使用できません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoIntegrationDeployRequired" xml:space="preserve">
+    <value>デスクトップ統合を行うには、システム上にZero Installを展開する必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoIntegrationFromPortable" xml:space="preserve">
+    <value>Zero Installはポータブルモードで動作しています。デスクトップ統合を機能させるためには、恒久的な場所にデプロイされる必要があります。これは、ポータブルコピーとは完全に独立しています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
+    <value>Zero Installは、ユーザー固有のディレクトリから実行されています。マシン全体のデスクトップ統合を機能させるためには、すべてのユーザーがアクセスできるディレクトリにデプロイする必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoRunWithEmptyCommand" xml:space="preserve">
+    <value>実装を実行する場合、コマンドが空にならないことがあります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
+    <value>フィードURIでのみ更新可能で、選択文書では更新できない。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NotAvailableInPortableMode" xml:space="preserve">
+    <value>携帯モードでは、この操作はできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NotInImplDirs" xml:space="preserve">
+    <value>'{0}' はカスタム実装キャッシュのリストにありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoUpdatesFound" xml:space="preserve">
+    <value>アップデートが見つかりません</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OpenInFileManager" xml:space="preserve">
+    <value>ファイルマネージャーで開く</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptimiseComplete" xml:space="preserve">
+    <value>最適化完了</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAlgorithm" xml:space="preserve">
+    <value>ダイジェストに使用する{HASH}アルゴリズム。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAliasRemove" xml:space="preserve">
+    <value>既存のエイリアスを削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionAliasResolve" xml:space="preserve">
+    <value>指定されたエイリアスのインターフェースURIを表示する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBackground" xml:space="preserve">
+    <value>グラフィカルユーザーインターフェースを隠し、代わりにトレイアイコンのようなものを使用します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBatch" xml:space="preserve">
+    <value>可能な限りデフォルトで質問に自動回答し、コンソール出力を簡素化（テーブルやプログレスバーを表示しない）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionBefore" xml:space="preserve">
+    <value>VERSION}より前のバージョンのメインプログラムを要求する。つまり、古いバージョンのプログラムを強制的に使用する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
+    <value>カタログのダウンロードをスキップして、リストに追加する前にカタログが有効であることを確認します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionClean" xml:space="preserve">
+    <value>アップデート後に不要となった実装を削除する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCommand" xml:space="preserve">
+    <value>デフォルトのコマンドを実行する代わりに、{COMMAND}を使用します。有効なコマンド名は、プログラムのフィードで指定されます。
+空（""）に設定すると、選択中のコマンドを無視します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>設定GUIの特定のタブに切り替えます。有効な{TAB}は'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'advanced'です。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCpu" xml:space="preserve">
+    <value>ソルバーが特定の{CPU}をターゲットにするように強制します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionCustomize" xml:space="preserve">
+    <value>グラフィカルポリシーエディターを表示します。これにより、プログラムやライブラリのどのバージョンを使用するかをカスタマイズすることができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionDigest" xml:space="preserve">
+    <value>マニフェストのダイジェストを表示します（--manifestが設定されていない場合、デフォルトで有効になります）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportBootstrap" xml:space="preserve">
+    <value>エクスポートと一緒に配置するブートストラッパーの種類を選択します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
+    <value>アプリケーションと一緒にZero Install自体もエクスポートに含めます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionExportNoImplementations" xml:space="preserve">
+    <value>実装アーカイブはエクスポートに含めないでください。フィードのみをエクスポートします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionForceSelfUpdate" xml:space="preserve">
+    <value>現在インストールされているバージョンと同じか新しい場合でも、アップデートを実行します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionHelp" xml:space="preserve">
+    <value>内蔵のヘルプテキストを表示する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAdd" xml:space="preserve">
+    <value>特定の{CATEGORY}のすべてのアクセスポイントを追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAddAll" xml:space="preserve">
+    <value>利用可能なアクセスポイントをすべて追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateAddStandard" xml:space="preserve">
+    <value>推奨する標準的なアクセスポイントを追加します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateRemove" xml:space="preserve">
+    <value>特定の{CATEGORY}のアクセスポイントをすべて削除します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionIntegrateRemoveAll" xml:space="preserve">
+    <value>すべてのアクセスポイントを削除する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLanguage" xml:space="preserve">
+    <value>実装の優先言語を指定します。ISOの短い言語コード（例：enまたはen-US）を使用します。
+このオプションを複数回使用して、複数の許容言語を指定することができます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLibrary" xml:space="preserve">
+    <value>Zero Install をライブラリとして配備し、独自のデスクトップ統合を行わずに他のアプリケーションで使用できるようにします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionMachine" xml:space="preserve">
+    <value>現在のユーザーだけでなく、マシン全体（コンピュータ全体）の設定を適用します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionMain" xml:space="preserve">
+    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
+コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionManifest" xml:space="preserve">
+    <value>マニフェストそのものを表示する（ファイルまたはディレクトリごとに1行）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNoDownload" xml:space="preserve">
+    <value>アプリケーション本体はまだダウンロードしないでください。初回使用時に自動的にダウンロードされます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNotBefore" xml:space="preserve">
+    <value>メインプログラムのバージョンが{VERSION}より前のものであることを要求します。例：バージョン2.0以降を実行したい場合は、--not-before=2.0を使用する。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionNoWait" xml:space="preserve">
+    <value>選択したプログラムが起動したら、実行が終了するのを待たずに、すぐに戻ります。Windowsの場合、終了コードは起動したプログラムのプロセスIDになります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionOffline" xml:space="preserve">
+    <value>デフォルトの設定を上書きして、オフラインモードで実行します。
+オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionOS" xml:space="preserve">
+    <value>ソルバーがオペレーティングシステム{OS}をターゲットにするように強制します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionPortable" xml:space="preserve">
+    <value>移動可能なポータブルインストールを作成する（例：サムドライブ）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionRefresh" xml:space="preserve">
+    <value>使用されているすべてのフィードの新しいコピーを取得します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionRestartCentral" xml:space="preserve">
+    <value>アップデート後、0install central GUIを再起動します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>オプションです。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionShow" xml:space="preserve">
+    <value>選択したコンポーネントがディスクのどこに保存されているかを表示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionSource" xml:space="preserve">
+    <value>バイナリではなく、ソースコードを選択します。これは内部的に '0compile' で使用される。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionSyncReset" xml:space="preserve">
+    <value>同期データをリセットします。有効な{MODE}は「none」（クライアントとサーバーのデータを正常にマージする）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVerbose" xml:space="preserve">
+    <value>より詳細な出力を行います。2回使用すると、さらに冗長な出力になります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersion" xml:space="preserve">
+    <value>バージョン情報を表示します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersionRange" xml:space="preserve">
+    <value>与えられた{RANGE}内のメインプログラムのバージョンを要求する。
+範囲はパイプ(|)で区切られる。
+各範囲は、「START...！END」という形式です。この範囲は、START &lt;= VERSION &lt; ENDのバージョンにマッチします。開始または終了は省略可能です。
+範囲の代わりに一つのバージョン番号を使うとそのバージョンのみに、 !VERSIONを使うとそのバージョン以外の全てにマッチします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionVersionRangeFor" xml:space="preserve">
+    <value>与えられた{0:URI}を持つ任意のライブラリまたはサブコンポーネントについて、バージョン{1:RANGE}を指定します。(--version と同様)。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionWithStore" xml:space="preserve">
+    <value>検索する実装キャッシュのリストに{DIR}を追加します。
+ただし、このディレクトリに新しいダウンロードが書き込まれることはありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionWrapper" xml:space="preserve">
+    <value>選択したプログラムを直接実行するのではなく、{COMMAND}を実行します。PROGRAM ARGS.これは、デバッガやトレースツールをプログラム上で実行するのに便利です (ゼロインストール上ではなく!)。
+ラッパーは、プログラムによって選択された環境で実行されることに注意してください。したがって、このメカニズムは、サンドボックスには使用できません。
+コマンドライン引数を含むことができます。ホワイトスペースは必ずエスケープしてください</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionXml" xml:space="preserve">
+    <value>コンソールへの出力を機械読み取り可能なXMLとして書き出す。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PortableMode" xml:space="preserve">
+    <value>ポータブルモード</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PropertiesFor" xml:space="preserve">
+    <value>のプロパティ{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReadingCache" xml:space="preserve">
+    <value>キャッシュの読み込み</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>削除</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemoveCheckedKeys" xml:space="preserve">
+    <value>{0} 、チェックしたキーをリストから削除しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemoveSelectedEntries" xml:space="preserve">
+    <value>{0} 選択したエントリーをリストから削除しますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemovingApplications" xml:space="preserve">
+    <value>アプリケーションの削除</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RemovingOutdated" xml:space="preserve">
+    <value>時代遅れの実装を削除する</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReopenTerminal" xml:space="preserve">
+    <value>この機能を有効にするために、端末を一度終了し、再度開く必要がある場合があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResetList" xml:space="preserve">
+    <value>リストを元の状態に戻すか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResolvedUsingAlias" xml:space="preserve">
+    <value>エイリアスを使用して '{0}' を '{1}' に解決しました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ResolvedUsingCatalog" xml:space="preserve">
+    <value>カタログを使用して '{0}' から '{1}' を解決しました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RunNgen" xml:space="preserve">
+    <value>.NETアセンブリのプリコンパイルによるアプリケーション起動の高速化</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectedImplementations" xml:space="preserve">
+    <value>主な実装例</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfRemoveNotDeployed" xml:space="preserve">
+    <value>このZero Installのインスタンスはデプロイされていません。削除するものはありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateAvailable" xml:space="preserve">
+    <value>Zero Install v{0} へのアップデートが可能です。今すぐインストールしますか？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateBlocked" xml:space="preserve">
+    <value>このZero Installインスタンスはデプロイされていません。したがって、それ自体を更新することはできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelfUpdateDisabled" xml:space="preserve">
+    <value>Self-updateが無効になっています。
+0install config self_update_uri default'を実行すると有効になります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicyAutoSet" xml:space="preserve">
+    <value>{0} に合わせて安定性ポリシーを設定する？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicyReset" xml:space="preserve">
+    <value>Reset stability policy for{0} to default?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StabilityPolicySuggested" xml:space="preserve">
+    <value>{0} から実装を選択するために必要な安定性ポリシーは '{1}' です。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StartService" xml:space="preserve">
+    <value>Zero Install Storeサービスの開始</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StopService" xml:space="preserve">
+    <value>Zero Install Storeサービスの停止</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StorageReclaimed" xml:space="preserve">
+    <value>{0} 収納スペースが再生されました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreAudit" xml:space="preserve">
+    <value>店舗監査</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SuccessfullyRemoved" xml:space="preserve">
+    <value>{0} の削除に成功しました。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SuggestLongPath" xml:space="preserve">
+    <value>WindowsのLong Pathsのサポートを有効にすると、この問題が解決する場合があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SupportedValues" xml:space="preserve">
+    <value>サポートされている値。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyDescription" xml:space="preserve">
+    <value>暗号鍵は、データをサーバーに送信する前に、ローカルで暗号化するために使用されます。
+この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、たとえサーバーが危険にさらされても、誰もあなたのデータにアクセスすることはできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TooManyArguments" xml:space="preserve">
+    <value>引数が多すぎる、または選択肢が不明。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} ドメインに信頼される</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TrustedKeys" xml:space="preserve">
+    <value>信頼できるキー</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryHelp" xml:space="preserve">
+    <value>{0} --helpを試してみてください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryHelpWith" xml:space="preserve">
+    <value>これらのうち、--helpを試してみてください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToLoadCatalog" xml:space="preserve">
+    <value>ソフトウェアカタログのダウンロードができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UninstallService" xml:space="preserve">
+    <value>Zero Install Store Serviceのアンインストール</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownCommand" xml:space="preserve">
+    <value>不明なコマンド '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Usage" xml:space="preserve">
+    <value>使用方法</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseDefaultSetting" xml:space="preserve">
+    <value>デフォルトの設定を使用する</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseInstead" xml:space="preserve">
+    <value>代わりに '{0}' を使用してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UseSystemLanguage" xml:space="preserve">
+    <value>システム言語を使用する</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>ベリファイ</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VerifyImplementation" xml:space="preserve">
+    <value>実装の検証</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VersionInformation" xml:space="preserve">
+    <value>バージョン情報</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>作業風景</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

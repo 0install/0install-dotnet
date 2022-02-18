@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>复制文件</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>该缓存中的子目录被保护起来，防止使用NTFS权限进行非故意的修改。
+作为一个副作用，这可以防止它们被用Windows Explorer删除。
+
+如果你想删除一个条目，你可以使用这个命令行。
+0install store remove IMPLEMENTATION-ID
+
+如果你想删除整个目录，你可以使用这个命令行。
+0install store purge{0}
+
+或者，你可以使用图形用户界面来管理缓存。
+0install store manage</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>如何删除</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>删除目录{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>删除执行{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>删除过时的文件</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>一个实施的清单哈希值与预期值不一致。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>实际价值。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>实际清单。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>期望值。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>预期的表现。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>加载信任数据库出错。恢复到默认值。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>搜索所需的feed镜像的使用被禁用。
+运行'0install config feed_mirror default'来启用它。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>无法找到文件或目录 '{0}'。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>你想删除的文件目前正在使用中。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>你想关闭这些申请并继续吗？</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>以下申请需要关闭。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>在'{0}'中查找重复的文件</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>文件'{0}'既不是一个符号链接，也不是一个普通文件。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>实现 '{0}' 已经在商店里了。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>执行 "{0}"被损坏。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>你想删除它吗？需要时将自动再次下载一个新的副本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>运行'0install store remove{0}'来删除它。当需要时，将自动再次下载一个新的副本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>无法找到实现'{0}'。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>底层文件系统不能足够准确地存储文件变化时间。
+如果你使用的是FAT格式的驱动器，请将其转换为NTFS。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>清单文件包含无效的行。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>排列中的零件数量无效。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>归档文件包含一个无效的路径（有潜在的安全风险）。{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>签名是无效的或损坏的。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>只有管理员可以优化一个共享存储。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>只有管理员可以从共享存储中删除元素。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>文件或目录名不能包含换行符。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>无法下载{0} ，因为Zero Install处于离线模式。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>没有指定已知的摘要方法。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>路径 '{0}' 不是一个绝对路径。相对路径只允许在便携模式下使用。
+在配置文件中指定 '{1}'。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>没有选定的版本</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>零安装 "不能从执行缓存中删除自己。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>数值太大。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>这个选项是由组策略控制的，因此不能被修改。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>在访问实施商店'{0}'时出现了问题。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>在访问实现存储 '{0}' 时出现了问题。
+在配置文件中指定的 '{1}'。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>在加载一个配置文件时出现了问题。
+你可以删除文件 '{0}' 来解决这个问题。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>加载配置值 '{0}' 时出现了问题。
+你可以删除文件 '{1}' 来解决这个问题。其他设置也可能丢失。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>处理文件</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>签名文件已经存在。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>无法与StoreService建立连接。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>临时目录</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>无法找到一个具有指定名称的密匙。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>无法为'{0}'启用写保护。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>未知接口。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>你输入的密码不正确。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>文件的最后一行不是签名块的结束。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>XML签名没有以新行开始。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>签名不是有效的64进制。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>
