@@ -43,7 +43,7 @@ public class AddAlias : AppCommand
             if (!match.HasValue)
             {
                 Handler.Output(Resources.AppAlias, string.Format(Resources.AliasNotFound, aliasName));
-                return ExitCode.InvalidArguments;
+                return ExitCode.NoChanges;
             }
             var (alias, appEntry) = match.Value;
 

@@ -24,17 +24,14 @@ public class RemoveApp : AppCommand
     /// <inheritdoc/>
     protected override ExitCode ExecuteHelper()
     {
-        try
+        var appEntry = IntegrationManager.AppList.GetEntry(InterfaceUri);
+        if (appEntry == null)
         {
-            IntegrationManager.RemoveApp(IntegrationManager.AppList[InterfaceUri]);
+            Log.Warn(string.Format(Resources.AliasNotFound, InterfaceUri));
+            return ExitCode.NoChanges;
         }
-        #region Sanity checks
-        catch (KeyNotFoundException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
-        }
-        #endregion
+
+        IntegrationManager.RemoveApp(appEntry);
 
         if (ZeroInstallInstance.IsLibraryMode
          && !ExistingDesktopIntegration()
