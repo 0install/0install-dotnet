@@ -104,9 +104,9 @@ public partial class CapabilityRegistration : AccessPoint
                     if (WindowsUtils.IsWindows) Windows.ComServer.Unregister(comServer, machineWide);
                     break;
             }
-
-            if (WindowsUtils.IsWindows) Windows.UninstallEntry.Unregister(appEntry.InterfaceUri, machineWide);
         }
+
+        if (WindowsUtils.IsWindows) Windows.UninstallEntry.Unregister(appEntry.InterfaceUri, machineWide);
     }
 
     #region Conversion
