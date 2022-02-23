@@ -195,9 +195,6 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
   <data name="CheckingFeed" xml:space="preserve">
     <value>Checking feed</value>
   </data>
-  <data name="CheckingForUpdates" xml:space="preserve">
-    <value>Checking for updates</value>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Click here to choose.</value>
   </data>
@@ -645,9 +642,6 @@ You can use this option multiple times to specify multiple acceptable languages.
     <value>Run the specified executable {MAIN} instead of the default. If it starts with '/' or '\' then the path is relative to the implementation's top-level directory, whereas otherwise it is relative to the directory containing the default main program.
 May not contain command-line arguments! Whitespaces do not need to be escaped.</value>
   </data>
-  <data name="OptionMan" xml:space="preserve">
-    <value>Display more comprehensive documentation for the operation modes.</value>
-  </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Display the manifest itself (one line for each file or directory).</value>
   </data>
@@ -821,9 +815,6 @@ Keep this key secret and use something different for your password. This way nob
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
     <value>Unable to download the software catalog.</value>
-  </data>
-  <data name="UnableToLoadFeed" xml:space="preserve">
-    <value>Unable to load feed '{0}'; skipping.</value>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Uninstalling Zero Install Store Service</value>

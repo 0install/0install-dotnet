@@ -289,15 +289,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checking for updates.
-        /// </summary>
-        public static string CheckingForUpdates {
-            get {
-                return ResourceManager.GetString("CheckingForUpdates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Click here to choose..
         /// </summary>
         public static string ClickToChoose {
@@ -1597,15 +1588,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display more comprehensive documentation for the operation modes..
-        /// </summary>
-        public static string OptionMan {
-            get {
-                return ResourceManager.GetString("OptionMan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Display the manifest itself (one line for each file or directory)..
         /// </summary>
         public static string OptionManifest {
@@ -2106,15 +2088,6 @@ namespace ZeroInstall.Commands.Properties {
         public static string UnableToLoadCatalog {
             get {
                 return ResourceManager.GetString("UnableToLoadCatalog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to load feed &apos;{0}&apos;; skipping..
-        /// </summary>
-        public static string UnableToLoadFeed {
-            get {
-                return ResourceManager.GetString("UnableToLoadFeed", resourceCulture);
             }
         }
         

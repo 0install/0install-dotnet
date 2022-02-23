@@ -211,7 +211,7 @@ Neue Zeit: {2}</value>
   <data name="WaitingForDownload" xml:space="preserve">
     <value>Warte auf Download-Abschluss</value>
   </data>
-  <data name="Working" xml:space="preserve">
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>Das Arbeitsverzeichnis wurde bereits von einem vorangehenden Command geändert.</value>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

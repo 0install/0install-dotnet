@@ -331,9 +331,9 @@ namespace ZeroInstall.Services.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The working directory has already been changed by a previous command..
         /// </summary>
-        internal static string Working {
+        internal static string WorkingDirAlreadyChanged {
             get {
-                return ResourceManager.GetString("Working", resourceCulture);
+                return ResourceManager.GetString("WorkingDirAlreadyChanged", resourceCulture);
             }
         }
         

@@ -205,7 +205,7 @@ Yeni zaman: {2}</value>
   <data name="WaitingForDownload" xml:space="preserve">
     <value>İndirme işleminin tamamlanması bekleniyor</value>
   </data>
-  <data name="Working" xml:space="preserve">
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>Çalışma klasörü zaten daha önceki bir komut tarafından değiştirilmiş.</value>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

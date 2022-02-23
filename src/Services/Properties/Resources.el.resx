@@ -202,7 +202,7 @@
   <data name="WaitingForDownload" xml:space="preserve">
     <value>Αναμονή για να ολοκληρωθεί η λήψη</value>
   </data>
-  <data name="Working" xml:space="preserve">
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>Ο κατάλογος εργασίας έχει ήδη τροποποιηθεί από την προηγούμενη εντολή.</value>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

@@ -306,7 +306,7 @@ public partial class EnvironmentBuilder
         if (Path.IsPathRooted(source) || source.Contains(".." + Path.DirectorySeparatorChar)) throw new ExecutorException(Resources.WorkingDirInvalidPath);
 
         // Only allow working directory to be changed once
-        if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.Working);
+        if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);
 
         _startInfo.WorkingDirectory = Path.Combine(_implementationStore.GetPath(implementation), source);
     }

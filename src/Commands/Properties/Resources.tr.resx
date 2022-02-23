@@ -192,9 +192,6 @@
   <data name="CheckingFeed" xml:space="preserve">
     <value>Akış denetleniyor</value>
   </data>
-  <data name="CheckingForUpdates" xml:space="preserve">
-    <value>Güncellemeler denetleniyor</value>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Seçmek için buraya tıklayın.</value>
   </data>
@@ -630,9 +627,6 @@ Birden çok dil için bu seçenek birden çok kez kullanılabilir.</value>
     <value>Varsayılan yerine belirtilen dosya {MAIN} çalıştırılır. '/' ya da '\' ile başlıyorsa yol uygulamanın kök klasörüne göreli olarak alınır. Bunun dışında yol varsayılan ana uyarlamanın bulunduğu klasöre göreli olarak alınır.
 Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.</value>
   </data>
-  <data name="OptionMan" xml:space="preserve">
-    <value>İşletim kipleri ile ilgili daha ayrıntılı bilgileri görüntüler.</value>
-  </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Öge listesini görüntüler (her bir dosya ya da klasör bir satırda).</value>
   </data>
@@ -794,9 +788,6 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
     <value>Uygulama kataloğu indirilemedi.</value>
-  </data>
-  <data name="UnableToLoadFeed" xml:space="preserve">
-    <value>'{0}' akışı yüklenemedi; atlanıyor.</value>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Zero Install depo hizmeti kaldırılıyor</value>

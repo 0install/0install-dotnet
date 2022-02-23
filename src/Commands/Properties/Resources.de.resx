@@ -195,9 +195,6 @@ Wenn Sie 'Nein' wählen arbeitet Zero Install weiter mit den alten Fähigkeiten.
   <data name="CheckingFeed" xml:space="preserve">
     <value>Prüfe Feed</value>
   </data>
-  <data name="CheckingForUpdates" xml:space="preserve">
-    <value>Suche nach Updates</value>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Hier klicken zum Auswählen.</value>
   </data>
@@ -645,9 +642,6 @@ Sie können diese Option mehrfach verwenden um mehrere akzeptable Sprachen anzug
     <value>Starte die spezifizierte ausführbare Datei {MAIN} anstellte des Standards. Beginnt der Pfad mit '/' oder '\', ist er relativ zum obersten Verzeichnis der Implementierung. Andernfalls ist er relativ zum Verzeichnis welches das Standardhauptprogramm enthält.
 Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped werden.</value>
   </data>
-  <data name="OptionMan" xml:space="preserve">
-    <value>Zeige ausführlichere Dokumentation der Betriebsmodi an.</value>
-  </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Zeigt das Manifest selbst an (eine Zeile für jede Datei und jedes Verzeichnis).</value>
   </data>
@@ -821,9 +815,6 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie etwas anderes für Ihr Pas
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
     <value>Konnte den Softwarekatalog nicht herunterladen.</value>
-  </data>
-  <data name="UnableToLoadFeed" xml:space="preserve">
-    <value>Konnte Feed '{0}' nicht laden; überspringe.</value>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Deinstalliere Zero Install Store Dienst</value>

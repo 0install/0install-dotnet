@@ -167,9 +167,6 @@
   <data name="CheckingFeed" xml:space="preserve">
     <value>Έλεγχος τροφοδοσίας</value>
   </data>
-  <data name="CheckingForUpdates" xml:space="preserve">
-    <value>Έλεγχος για ενημερώσεις</value>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>κάντε κλικ εδώ για να επιλέξετε.</value>
   </data>
@@ -508,9 +505,6 @@
     <value>Εκτέλεση το συγκεκριμένο εκτελέσιμο {MAIN} αντί για το προεπιλεγμένο. Αν ξεκινά με '/' ή '\' τότε η διαδρομή είναι σχετική με κατάλογο ανώτατου επιπέδου της υλοποίησης, ενώ σε αντίθετη περίπτωση, είναι σε σχέση με τον κατάλογο που περιέχει το προεπιλεγμένο κύριο πρόγραμμα.
 Δεν μπορεί να περιέχει επιχειρήματα της γραμμής εντολών! Κενά διαστήματα δεν χρειάζεται να διαφύγετε.</value>
   </data>
-  <data name="OptionMan" xml:space="preserve">
-    <value>Εμφάνιση πληρέστερης τεκμηρίωσης για τους τρόπους λειτουργίας.</value>
-  </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Εμφάνιση της εκδηλωθεί (μία γραμμή για κάθε αρχείο ή κατάλογο).</value>
   </data>
@@ -656,9 +650,6 @@
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Δοκιμάστε --help με ένα από αυτά:</value>
-  </data>
-  <data name="UnableToLoadFeed" xml:space="preserve">
-    <value>Δεν είναι δυνατή η φόρτωση τροφοδοσίας '{0}'? παρακάμπτοντας.</value>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Άγνωστη εντολή '{0}'.</value>
