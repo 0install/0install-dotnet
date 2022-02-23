@@ -149,10 +149,10 @@ public partial class Requirements : ICloneable<Requirements>
     {
         var cloned = Clone();
 
-        cloned.Command = Command ?? (Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun);
+        cloned.Command ??= Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun;
         cloned.Architecture = new(
-            (Architecture.OS == OS.All) ? Architecture.CurrentSystem.OS : Architecture.OS,
-            (Architecture.Cpu == Cpu.All) ? Architecture.CurrentSystem.Cpu : Architecture.Cpu);
+            Architecture.OS == OS.All ? Architecture.CurrentSystem.OS : Architecture.OS,
+            Architecture.Cpu == Cpu.All ? Architecture.CurrentSystem.Cpu : Architecture.Cpu);
         if (Languages.Count == 0) cloned.Languages.Add(CultureInfo.CurrentUICulture);
 
         return cloned;
