@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>ファイルのコピー</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>このキャッシュ内のサブディレクトリは、NTFSパーミッションを使用して意図しない変更から保護されています。
+副作用として、Windowsエクスプローラでの削除ができなくなります。
+
+1つのエントリーを削除するには、次のコマンドラインを使用します。
+0install store remove IMPLEMENTATION-ID
+
+このディレクトリ全体を削除するには、次のコマンドラインを使用します。
+0install store purge{0}
+
+また、キャッシュを管理するためのグラフィカル・ユーザー・インターフェースを使用することもできます。
+0install store manage</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>削除方法</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>ディレクトリの削除{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>インプリメンテーションの削除{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>廃止されたファイルの削除</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>実装のマニフェストのハッシュが期待値と一致しない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>実際の値です。{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>実際のマニフェスト。{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>期待値です。{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>期待されるマニフェスト{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>トラストデータベースの読み込みエラー。デフォルト値に戻します。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>検索に必要なフィードミラーの使用が無効になっています。
+0install config feed_mirror default」を実行して有効にしてください。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Unable to find file or directory '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>削除したいファイルが現在使用されています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>これらのアプリケーションを閉じて続行しますか？</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>以下のアプリケーションを終了する必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>'{0}' の重複ファイルの検索</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>ファイル '{0}' は、シンボリックリンクでも通常のファイルでもありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>実装されている '{0}' は、すでに店頭に並んでいます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>実装の「{0} 」が破損しています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>削除しますか？必要に応じて新しいコピーが自動的に再ダウンロードされます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>0install store remove{0}'を実行して削除してください。必要に応じて新しいコピーが自動的に再ダウンロードされます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>インプリメンテーション「{0} 」が見つかりませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>基盤となるファイルシステムは、ファイルの変更時間を十分な精度で保存しません。
+FAT形式のドライブを使用している場合は、NTFSに変換してください。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>マニフェストファイルに不正な行が含まれています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>ラインのパーツ数が無効です。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>アーカイブに無効なパスが含まれています（セキュリティ上の問題がある可能性があります）。{0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>署名が無効または破損している。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>共有ストアの最適化は管理者のみが行うことができます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>管理者のみが共有ストアから要素を削除できます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>ファイル名またはディレクトリ名には、改行文字を含めてはいけません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Installがオフラインモードのため、{0} をダウンロードできません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>既知の消化方法は指定されていない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>パス '{0}' は絶対パスではありません。相対パスは、ポータブルモードでのみ許可されます。
+設定ファイル '{1}' で指定されています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>選択されていないバージョン</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>ゼロインストールは、インプリメンテーションキャッシュから自分自身を削除することはできません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>数字の値が大きすぎる。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>このオプションは、グループポリシーで管理されているため、変更することはできません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>実装ストア「{0} 」へのアクセスに問題がありました。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>実装ストア '{0}' へのアクセスに問題がありました。
+設定ファイルで指定されている '{1}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>設定ファイルの読み込みに問題がありました。
+ファイル '{0}' を削除すると、問題が解決します。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>設定値 '{0}' の読み込みに問題がありました。
+ファイル '{1}' を削除すると問題が解決します。また、他の設定も失われる可能性があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>処理ファイル</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>署名ファイルはすでに存在しています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>StoreServiceとの接続を確立できませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>一時的なディレクトリ</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>指定された名前の秘密鍵が見つかりませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>{0} 」の書き込み保護を有効にすることができませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>不明なインターフェース。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>入力したパスフレーズが間違っています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>ファイルの最終行が署名ブロックの終わりではありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>XML署名が新しい行で始まらない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>署名は有効なベース64ではありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

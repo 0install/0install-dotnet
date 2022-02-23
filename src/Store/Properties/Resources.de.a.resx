@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>Kopieren von Dateien</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Die Unterverzeichnisse in diesem Cache sind durch NTFS-Berechtigungen vor unbeabsichtigten Änderungen geschützt.
+Als Nebeneffekt wird dadurch verhindert, dass sie mit dem Windows-Explorer gelöscht werden können.
+
+Wenn Sie einen einzelnen Eintrag löschen möchten, können Sie diese Befehlszeile verwenden:
+0install store remove IMPLEMENTATION-ID
+
+Wenn Sie das gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
+0install store purge {0}
+
+Alternativ können Sie auch die grafische Benutzeroberfläche zur Verwaltung der Caches verwenden:
+0install store manage</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>So löschen Sie</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>Verzeichnis löschen {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>Löschung der Implementierung {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>Löschung veralteter Dateien</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>Der Hash-Wert des Manifests einer Implementierung stimmt nicht mit dem erwarteten Wert überein.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>Tatsächlicher Wert {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>Tatsächliches Manifest {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>Erwarteter Wert {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>Erwartetes Manifest {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Fehler beim Laden der Vertrauensdatenbank. Zurücksetzen auf Standardwerte.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Die Verwendung des Feed Mirror, der für die Suche erforderlich ist, ist deaktiviert.
+Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Datei oder Verzeichnis '{0}' kann nicht gefunden werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>Die Dateien, die Sie löschen möchten, sind derzeit in Gebrauch.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>Möchten Sie diese Anwendungen schließen und fortfahren?</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>Die folgenden Anträge müssen abgeschlossen werden:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>Suche nach doppelten Dateien in '{0}'</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>Die Datei '{0}' ist weder ein symbolischer Link noch eine reguläre Datei.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>Die Implementierung '{0}' ist bereits im Store vorhanden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>Die Implementierung '{0}' ist beschädigt.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>Möchten Sie sie entfernen? Bei Bedarf wird automatisch eine neue Kopie heruntergeladen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>Führen Sie '0install store remove {0}' aus, um es zu entfernen. Bei Bedarf wird automatisch eine neue Kopie heruntergeladen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>Die Implementierung '{0}' konnte nicht gefunden werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>Das zugrunde liegende Dateisystem speichert die Datei-Änderungszeiten nicht mit ausreichender Genauigkeit.
+Wenn Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte in NTFS.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>Die Manifestdatei enthält ungültige Zeilen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>Unzulässige Anzahl von Teilen in der Zeile.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Das Archiv enthält einen ungültigen Pfad (potenziell ein Sicherheitsrisiko) {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>Die Signatur ist ungültig oder beschädigt.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>Nur Administratoren können einen gemeinsamen Speicher optimieren.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>Nur Administratoren können Elemente aus einem gemeinsamen Speicher entfernen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>Der Datei- oder Verzeichnisname darf kein Zeilenumbruchzeichen enthalten.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Der Download von {0} ist nicht möglich, da sich Zero Install im Offline-Modus befindet.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Es wurde keine bekannte Verdauungsmethode angegeben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>Der Pfad '{0}' ist kein absoluter Pfad. Relative Pfade sind nur im portablen Modus erlaubt.
+Angegeben in der Konfigurationsdatei '{1}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>Keine Version ausgewählt</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>Zero Install kann sich nicht selbst aus einem Implementierungscache entfernen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>Der Zahlenwert ist zu groß.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Diese Option wird durch eine Gruppenrichtlinie gesteuert und kann daher nicht geändert werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>Es gab ein Problem beim Zugriff auf den Implementierungsspeicher '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>Es gab ein Problem beim Zugriff auf den Implementierungsspeicher '{0}'.
+Angegeben in der Konfigurationsdatei '{1}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>Es gab ein Problem beim Laden einer Konfigurationsdatei.
+Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>Es gab ein Problem beim Laden des Konfigurationswertes '{0}'.
+Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstellungen können ebenfalls verloren gehen.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Verarbeitung von Dateien</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>Die Signaturdatei existiert bereits.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>Verbindung mit StoreService kann nicht hergestellt werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>Temporäre Verzeichnisse</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>Es konnte kein geheimer Schlüssel mit dem angegebenen Namen gefunden werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>Der Schreibschutz für '{0}' konnte nicht aktiviert werden.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>Unbekannte Schnittstelle.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>Die von Ihnen eingegebene Passphrase ist falsch.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>Die letzte Zeile der Datei ist nicht das Ende des Signaturblocks.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>Die XML-Signatur beginnt nicht in einer neuen Zeile.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>Die Signatur ist nicht gültig base 64:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

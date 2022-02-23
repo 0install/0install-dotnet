@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>フィード{0}
+- からの有効な署名{1}
+-{2}
+{3}'からのフィードに署名するために、このキーを信頼しますか？
+</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>結果として、コマンドラインは空になります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>{0} 」のコマンドが指定されていません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>&lt;environment&gt; バインディングには、「value」または「insert」のいずれかの属性を含める必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>外部ソルバーの実行</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>フィード '{0}' はキャッシュされておらず、ゼロインストールは現在オフラインモードになっています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>フィード '{0}' は、信頼できる鍵で署名されていませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' はローカルファイルです。HTTP(S)のURLである必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>&lt;interface&gt;のuri属性('{0}')が、フィードのダウンロード元のURL('{1}')と一致しません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>&lt;interface&gt;のuri属性がありません。'{0}' とすべきです。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>{0} 」の取得に問題が発生しました。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>{0} バインディング名に不正な文字が含まれています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>フィードをインポートするには、フィードの発信元となるURIを指定する必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>{0} の装丁で名前がない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>インターフェースが指定されていません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Installがオフラインモードのため、{0} をダウンロードできません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>鍵情報サーバーは、この鍵に関する追加情報を提供できませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>実装「{0} 」のマニフェスト・ダイジェストが見つかりませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoPackageManagerSupport" xml:space="preserve">
+    <value>このプラットフォームには、ネイティブなパッケージマネージャーのサポートはありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>インプリメンテーション '{0}' の検索方法が見つかりませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>リプレイ攻撃の可能性が検出されました。新しいフィードの更新時刻は古いバージョンより前です。
+フィードのURI。{0}
+古い時間{1}
+New time:{2}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>{0} のダウンロードに失敗しました。代わりにフィード・ミラーから取得しようとしています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>ダウンロードしたアプリケーションカタログをキャッシュすることができません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>{0} 」のキー情報を解析できませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>{0} 」のキー情報を取得できません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' は、{1} パッケージマネージャーでは既知のIDではありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>フィードは信頼できない鍵で署名されています。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>ダウンロードの完了を待つ</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>作業ディレクトリが前のコマンドで既に変更されている。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>作業ディレクトリに不正なパスが含まれています（セキュリティ上の問題がある可能性があります）。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

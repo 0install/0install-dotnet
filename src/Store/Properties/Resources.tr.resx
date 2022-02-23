@@ -1,104 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -119,6 +60,7 @@
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
     <value>Dosyalar kopyalanıyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Bu ön bellek içindeki alt klasörler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
@@ -132,164 +74,220 @@ Tüm klasörü silmek için komut satırında şu komutu kullanabilirsiniz:
 
 Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri yönetebilirsiniz:
 0install store manage</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Nasıl silinir</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
     <value>{0} klasörü siliniyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
     <value>{0} uyarlaması siliniyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
     <value>Eski dosyalar siliniyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Bir uyarlamanın karma değeri beklenen değerle eşleşmiyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Geçerli değer: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
     <value>Geçerli özet: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>Beklenen değer: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Beklenen özet: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Güvenlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Arama için gereken akış yansısı devre dışı bırakılmış.
 Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>'{0}' dosya ya da klasörü bulunamadı.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Silmek istediğiniz dosyalar şu anda kullanılıyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Bu uygulamaları kapatıp devam etmek ister misiniz?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
     <value>Şu uygulamaların kapatılması gerekiyor:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>'{0}' üzerindeki çift dosyalar bulunuyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>'{0}' dosyası ne bir sembolik bağlantı ne de normal bir dosya.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
     <value>'{0}' uyarlaması depoda zaten var.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
     <value>'{0}' uyarlaması bozulmuş.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>Kaldırmak ister misiniz? Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Kaldırmak için '0install store remove {0}' komutunu kullanın. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>'{0}' uyarlaması bulunamadı.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Kullanılan dosya sistemi dosyaların değişiklik zamanlarını yeterli doğrulukta kaydetmiyor.
 FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen NTFS biçimine dönüştürün.</value>
-  </data>
-  <data name="InvalidPath" xml:space="preserve">
-    <value>Arşiv içinde geçersiz bir yol var (olası bir güvenlik açığı): {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyasında geçersiz satırlar var.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
     <value>Satırda geçersiz numara bölümleri var.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Arşiv içinde geçersiz bir yol var (olası bir güvenlik açığı): {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>İmza geçersiz ya da bozulmuş.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Yalnız yöneticiler paylaşılan bir depoyu iyileştirebilir.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
     <value>Yalnız yöneticiler paylaşılan bir depodan bileşen kaldırabilir.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Dosya ya da klasör adında satır başı karakteri bulunamaz.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Install çevrimdışı kipte olduğundan {0} indirilemedi.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Bilinen bir özet yöntemi belirtilmemiş.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>'{0}' yolu mutlak bir yol değil. Göreli yollar yalnız taşınabilir kipte kullanılabilir.
 '{1}' yapılandırma dosyasında belirtilmiş.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Sürüm seçilmemiş</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
     <value>Zero Install kendisini bir uyarlama ön belleğinden kaldıramaz.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Numara değeri çok büyük.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Bu seçenek bir grup ilkesi tarafından ayarlandığından değiştirilemez.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>'{0}' uyarlama deposuna erişilirken bir sorun çıktı.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>'{0}' uyarlama deposuna erişilirken bir sorun çıktı.
 '{1}' yapılandırma dosyasında belirtilmiş.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Bir yapılandırma dosyası yüklenirken sorun çıktı. 
 Sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>'{0}' yapılandırma değeri yüklenirken bir sorun çıktı.
 Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybolabilir.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
     <value>Dosyalar işleniyor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>İmza dosyası zaten var.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
     <value>Depo hizmeti bağlantısı kurulamadı.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
     <value>Geçici klasörler</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
     <value>Belirtilen adı taşıyan bir gizli anahtar bulunamadı.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>'{0}' için yazma koruması etkinleştirilemedi.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Arabirim bilinmiyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>Yazdığınız parola geçersiz.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Dosyanın son satırı imza bloğunun sonu değil.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
     <value>XML imzası yeni bir satırda başlamıyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>İmza geçerli bir base 64 değil:</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

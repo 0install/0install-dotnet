@@ -1,104 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -119,71 +60,126 @@
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
     <value>Η σειρά πρέπει να είναι σε μορφή "os-CPU".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
     <value>Αδυναμία εύρεσης εντολής '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση των προτιμήσεων τροφοδοσίας για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
     <value>Προτιμήσεις διεπαφής Σφάλμα κατά τη φόρτωση για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Αδυναμία εύρεσης τροφοδοσίας '{0}' στον κατάλογο.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Found instead:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
     <value>Αδυναμία εύρεσης εφαρμογής για διασύνδεση '{0}' στην επιλογή.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' δεν είναι έγκυρο 'http (s): «URI και δεν είναι έγκυρη τοπική διαδρομή.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Invalid '{0}' attribute on {1}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Missing '{0}' attribute on {1}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Missing {0} tag inside {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Η λίστα διαχωρισμένη με τελείες μπορεί να περιέχει μόνο δεκαδικούς αριθμούς.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
     <value>Ο αριθμός έκδοσης μπορεί να περιέχει μόνο διαχωρισμένα με τελείες δεκαδικά ψηφία και συμβολοσειρές τροποποίησης.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
     <value>Ο αριθμός έκδοσης πρέπει να αρχίζει με μια λίστα διαχωρισμένη με τελείες δεκαδικά ψηφία.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Καμία γνωστή μέθοδος έχει καθοριστεί.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
     <value>Η σχετική διαδρομή '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσία. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές διαδρομές.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
     <value>Η σχετική HREF '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσίας. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές HREFs.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>'rollout-percentage' attribute on {0} may only be set when 'stability' is 'testing' or unset.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Προβληματικη εφαρμογή</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>Δεν παρέχει την εντολή '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
     <value>Ασυμβίβαστο λειτουργικό σύστημα ή CPU</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
     <value>Ανασφαλής εφαρμογή</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
     <value>Εφαρμογή όχι στην προσωρινή μνήμη (επί του παρόντος σε λειτουργία εκτός σύνδεσης)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Μη εκτελέσιμη εφαρμογή πηγής</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
     <value>Η εκδοση εφαρμογής ειναι πολύ παλιά ή πολύ νέα</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Should be a valid MIME type.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Should be a safe ID. May only contain alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>The recipe step '{0}' in the implementation '{1}' has an invalid implementation reference.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
     <value>Άγνωστος τύπος αρχείου '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
     <value>Άγνωστος τροποποιητής.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
     <value>Το τέλος της σειράς έκδοσης πρέπει να είναι αποκλειστική χρήση »..! {0} ', όχι' .. {0} '.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

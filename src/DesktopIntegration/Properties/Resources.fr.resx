@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>Les points d'accès existants suivants sont en conflit les uns avec les autres :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>Les points d'accès suivants pour l'application {0} sont en conflit les uns avec les autres :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>Le point d'accès {0} est en conflit avec le nouveau point d'accès {1}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>L'application '{0}' est déjà dans la liste des applications.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>Application des modifications</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>L'application '{0}' n'a pas été trouvée dans la liste des applications.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>Vous ne pouvez exécuter qu'une opération d'intégration bureau à la fois.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>Le nom '{0}' contient des caractères invalides.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>S'il vous plaît utilisez '0install centrale' ou '0install config' pour configurer la synchronisation.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>Un problème a été rencontré lors du chargement de '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>Réparation de l'intégration du bureau</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>Le nom du raccourci '{0}' contient des caractères invalides.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>Le nom d'utilisateur et/ou le mot de passe entrés pour le serveur de synchronisation sont incorrectes. Merci de vérifier vos options de synchronisation.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>La clé de chiffrement définie pour la synchronisation est incorrecte. Merci de vérifier vos options de synchronisation.
+Vous pouvez modifier la clé de chiffrement utilisée sur le serveur en exécutant l'assistant de dépannage (via un clic-droit sur le bouton "Sync") ou en exécutant '0install sync --reset=server'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>Téléchargement des données de synchronisation</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>Les données actuellement sauvegardées sur le serveur de synchronisation son endommagées.
+Vous pouvez remplacer les données sauvegardées sur le serveur en exécutant l'assistant de dépannage (via un clic-droit sur le bouton "Sync") ou en exécutant '0install sync --reset=server'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>Chargement des données de synchronisation</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>Impossible de trouver {0} avec l'ID '{1}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>Impossible de remplacer le stub d'exécutable '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+</root>

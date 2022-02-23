@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>文字列は、"os-cpu "の形式でなければなりません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Unable to find command '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>{0}' のフィード設定の読み込みにエラーが発生しました。デフォルト値に戻します。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>{0} 」のインターフェース設定の読み込みでエラーが発生しました。デフォルト値に戻します。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>カタログ内のフィード「{0} 」が見つかりません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>代わりに見つかりました。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>選択肢にインターフェイス「{0} 」の実装が見つかりませんでした。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' は、有効な 'http(s):' URI ではなく、有効なローカルパスでもありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>{1} の '{0}' 属性が無効です。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>{1} 上の '{0}' 属性がありません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>{1} の中に{0} のタグがない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>ドットで区切られたリストには、10進数のみを含めることができます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>バージョン番号には、ドットで区切られた小数と修飾文字列のみを含めることができます。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>バージョン番号は、ドットで区切られた小数点以下のリストで始まる必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>既知の消化方法は指定されていない。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>相対パス '{0}' を解決できませんでした。相対パスを含むことができるのは、ローカルファイルとして保存されたフィードのみです。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>相対 URI '{0}' は解決できませんでした。相対URIを含むことができるのは、ローカルファイルとして保存されたフィードのみです。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>{0} の「rollout-percentage」属性は、「stability」が「testing」または「unset」の場合にのみ設定できる。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>バギーな実装</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>コマンド '{0}' を提供しません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>OSやCPUとの相性が悪い</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>不安定な実装</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>実装がキャッシュされていない（現在オフラインモードになっている）</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>実行不可能なソース実装</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>実装バージョンが古すぎる、または新しすぎる</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>有効なMIMEタイプである必要があります。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>安全なIDを入力してください。使用できる文字は、英数字、スペース（ ）、ドット（. ）、アンダースコア（ _ ）、ハイフン（ - ）、プラス記号（ + ）のみです。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>実装「{1} 」内のレシピステップ「{0} 」の実装参照が無効です。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>ファイル拡張子 '{0}' は、既知のアーカイブタイプに対応していません。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>不明なモディファイア。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>バージョン範囲の終わりは、排他的でなければなりません。'...！'を使用してください。{0} 」を使用し、「...{0} 」は使用しないでください。</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

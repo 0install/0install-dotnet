@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Hrană {0}
+- Semnătură valabilă din {1}
+- {2}
+Doriți să aveți încredere în această cheie pentru a semna fluxurile de la '{3}'?
+</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>Linia de comandă rezultată este goală.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Comanda pentru '{0}' nu este specificată.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>legăturile &lt;environment&gt; trebuie să conțină fie un atribut "value", fie un atribut "insert".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Rularea unui solver extern</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Fluxul '{0}' nu se află în memoria cache, iar Zero Install se află în prezent în modul off-line.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Fluxul '{0}' nu a fost semnat cu nicio cheie de încredere.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' este un fișier local. Ar trebui să fie un URL HTTP(S).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>Atributul uri al interfeței &lt;interface&gt; ('{0}') nu se potrivește cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Lipsește atributul uri &lt;interface&gt; uri. Ar trebui să fie "{0}".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Problemă la obținerea '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Caracter ilegal în numele de legătură {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>Pentru a putea fi importate, fluxurile trebuie să specifice URI-ul de la care provin.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Lipsă nume în legătură {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Nu a fost specificată nicio interfață.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Serverul de informații despre chei nu a putut furniza informații suplimentare despre această cheie.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Nu a fost găsit niciun manifest digest pentru implementarea '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoPackageManagerSupport" xml:space="preserve">
+    <value>Nu există un suport nativ pentru managerul de pachete pentru această platformă.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Nu s-a găsit nicio metodă de recuperare pentru implementarea '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>A fost detectat un posibil atac de reluare. Timpul de modificare al noului feed este anterior versiunii vechi.
+URI al fluxului {0}
+Ora veche {1}
+Ora nouă {2}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Nu a reușit să descarce {0}. Încerc să obțin din oglinda feed în schimb.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Nu se poate stoca în memoria cache catalogul aplicației descărcate.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Nu s-a putut analiza informațiile despre cheia '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Nu se pot prelua informații despre cheia pentru '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' nu este un ID cunoscut în managerul de pachete {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Fluxul este semnat cu chei nesigure!</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>Așteptând finalizarea descărcării</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Directorul de lucru a fost deja modificat de o comandă anterioară.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>Directorul de lucru conține o cale de acces invalidă (un potențial risc de securitate).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

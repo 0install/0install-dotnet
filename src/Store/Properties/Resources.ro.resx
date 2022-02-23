@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>Copierea fișierelor</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Subdirectoarele din această memorie cache sunt protejate împotriva modificării neintenționate cu ajutorul NTFS Permissions.
+Ca efect secundar, acest lucru împiedică ștergerea lor cu ajutorul Windows Explorer.
+
+Dacă doriți să ștergeți o singură intrare, puteți utiliza această linie de comandă:
+0install store remove IMPLEMENTATION-ID
+
+Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:
+0install store purge {0}
+
+Alternativ, puteți utiliza interfața grafică cu utilizatorul pentru gestionarea cache-urilor:
+0install store manage</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>Cum se șterge</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>Ștergerea directorului {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>Eliminarea implementării {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>Ștergerea fișierelor învechite</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>Un hash de manifest al unei implementări nu corespunde cu valoarea așteptată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>Valoarea reală {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>Manifestul real {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>Valoarea așteptată {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>Manifestare așteptată {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Eroare la încărcarea bazei de date de încredere. Revenirea la valorile implicite.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Utilizarea oglinzii de alimentare, care este necesară pentru căutare, este dezactivată.
+Rulați "0install config feed_mirror default" pentru a o activa.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Nu se poate găsi fișierul sau directorul '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>Fișierele pe care doriți să le ștergeți sunt în curs de utilizare.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>Doriți să închideți aceste aplicații și să continuați?</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>Următoarele cereri trebuie închise:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>Găsirea fișierelor duplicate în '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>Fișierul '{0}' nu este nici o legătură simbolică, nici un fișier obișnuit.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>Implementarea '{0}' se află deja în magazin.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>Implementarea '{0}' este deteriorată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>Doriți să o eliminați? O nouă copie va fi descărcată din nou în mod automat atunci când este necesar.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>Rulați '0install store remove {0}' pentru a-l elimina. O nouă copie va fi descărcată din nou în mod automat atunci când este necesar.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>Implementarea '{0}' nu a putut fi localizată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>Sistemul de fișiere de bază nu stochează cu suficientă precizie timpii de modificare a fișierelor.
+Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți la NTFS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>Fișierul manifest conține linii invalide.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>Număr nevalabil de piese în linie.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Arhiva conține o cale de acces invalidă (un potențial risc de securitate) {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>Semnătura nu este valabilă sau este deteriorată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>Numai administratorii pot optimiza un magazin partajat.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>Numai administratorii pot elimina elemente dintr-un depozit partajat.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>Numele fișierului sau al directorului nu trebuie să conțină un caracter de linie nouă.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Nu a fost specificată nicio metodă cunoscută de digest.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>Calea '{0}' nu este o cale absolută. Căile de acces relative sunt permise numai în modul portabil.
+Specificată în fișierul de configurare '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>Nici o versiune selectată</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>Zero Install nu se poate elimina din memoria cache de implementare.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>Valoarea numărului este prea mare.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Această opțiune este controlată de o politică de grup și, prin urmare, nu poate fi modificată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.
+Specificată în fișierul de configurare '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>A existat o problemă la încărcarea unui fișier de configurare.
+Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>A existat o problemă la încărcarea valorii de configurare '{0}'.
+Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se piardă și alte setări.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Procesarea fișierelor</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>Fișierul de semnătură există deja.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>Nu se poate stabili o conexiune cu StoreService.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>Directoare temporare</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>Nu se poate găsi o cheie secretă cu numele specificat.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>Nu se poate activa protecția la scriere pentru '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>Interfață necunoscută.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>Fraza de acces pe care ați introdus-o este incorectă.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>Ultima linie a fișierului nu reprezintă sfârșitul blocului de semnături.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>Semnătura XML nu începe pe o linie nouă.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>Semnătura nu este valabilă în baza 64:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

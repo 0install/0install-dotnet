@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Τροφοδοσία {0}
+- Έγκυρη υπογραφή από {1}
+- {2}
+Θέλετε να εμπιστευτείτε αυτό το κλειδί για την υπογραφή feeds από το '{3}'
+</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>Η γραμμή εντολών που προκύπτει είναι κενή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Η εντολή για το '{0}' δεν έχει καθοριστεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>οι δεσμεύσεις &lt;environment&gt; πρέπει να περιέχουν είτε ένα χαρακτηριστικό "value" είτε ένα χαρακτηριστικό "insert".</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Εκτέλεση εξωτερικού επιλύτη</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Η τροφοδοσία '{0}' δεν έχει αποθηκευτεί στην προσωρινή μνήμη και η Zero Install βρίσκεται επί του παρόντος σε κατάσταση off-line.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Η τροφοδοσία '{0}' δεν έχει υπογραφεί με αξιόπιστα κλειδιά.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' είναι ένα τοπικό αρχείο. Θα πρέπει να είναι μια διεύθυνση URL HTTP(S).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>Η ιδιότητα uri του &lt;interface&gt; ('{0}') δεν ταιριάζει με τη διεύθυνση URL από την οποία έγινε η λήψη της τροφοδοσίας ('{1}').</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Το χαρακτηριστικό uri &lt;interface&gt; λείπει. Πρέπει να είναι '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Πρόβλημα με την ανάκτηση του '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Παράνομος χαρακτήρας στο όνομα δέσμευσης {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>Οι τροφοδοσίες πρέπει να προσδιορίζουν το URI από το οποίο προέρχονται για να μπορούν να εισαχθούν.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Λείπει το όνομα στο {0}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Δεν καθορίστηκε διασύνδεση.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Δεν είναι δυνατή η λήψη του {0} επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Ο διακομιστής πληροφοριών κλειδιού δεν μπόρεσε να παράσχει πρόσθετες πληροφορίες σχετικά με αυτό το κλειδί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Δεν βρέθηκε κανένα μανιφέστο για την εφαρμογή '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoPackageManagerSupport" xml:space="preserve">
+    <value>Δεν υπάρχει εγγενής υποστήριξη διαχειριστή πακέτων για αυτή την πλατφόρμα.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Δεν βρέθηκε μέθοδος ανάκτησης για την εφαρμογή '{0}' που βρέθηκε.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>Εντοπίστηκε πιθανή επίθεση αναπαραγωγής. Ο χρόνος τροποποίησης της νέας τροφοδοσίας είναι πριν από την παλιά έκδοση.
+URI τροφοδοσίας {0}
+Παλιά ώρα {1}
+Νέα ώρα {2}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Απέτυχε η λήψη του {0}. Προσπαθώ να πάρω από τον καθρέφτη τροφοδοσίας.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του καταλόγου εφαρμογών που έχει ληφθεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Αδυναμία ανάλυσης πληροφοριών κλειδιού για το '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Αδυναμία ανάκτησης πληροφοριών κλειδιού για το '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>το '{0}' δεν είναι γνωστό αναγνωριστικό στον διαχειριστή πακέτων {1}.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Η τροφοδοσία έχει υπογραφεί με μη αξιόπιστα κλειδιά!</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>Αναμονή για την ολοκλήρωση της λήψης</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="Working" xml:space="preserve">
+    <value>Ο κατάλογος εργασίας έχει ήδη αλλάξει από προηγούμενη εντολή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>Ο κατάλογος εργασίας περιέχει μια μη έγκυρη διαδρομή (δυνητικός κίνδυνος για την ασφάλεια).</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>

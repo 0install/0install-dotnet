@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>Αντιγραφή αρχείων</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Οι υποκατάλογοι σε αυτή την κρυφή μνήμη προστατεύονται από ακούσια τροποποίηση χρησιμοποιώντας δικαιώματα NTFS.
+Ως παρενέργεια, αυτό εμποδίζει τη διαγραφή τους με την Εξερεύνηση των Windows.
+
+Αν θέλετε να διαγράψετε μια μεμονωμένη καταχώρηση, μπορείτε να χρησιμοποιήσετε αυτή τη γραμμή εντολών:
+0install store remove IMPLEMENTATION-ID
+
+Αν θέλετε να διαγράψετε ολόκληρο τον κατάλογο, μπορείτε να χρησιμοποιήσετε αυτή τη γραμμή εντολών:
+0install store purge {0}
+
+Εναλλακτικά, μπορείτε να χρησιμοποιήσετε το γραφικό περιβάλλον χρήστη για τη διαχείριση των caches:
+0install store manage</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>Πώς να διαγράψετε</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>Διαγραφή καταλόγου {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>Διαγραφή εφαρμογής {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>Διαγραφή παρωχημένων αρχείων</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>Ο κατακερματισμός του δηλωτικού μιας υλοποίησης δεν ταιριάζει με την αναμενόμενη τιμή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>Πραγματική τιμή {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>Πραγματικό μανιφέστο {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>Αναμενόμενη τιμή {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>Αναμενόμενο μανιφέστο {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Σφάλμα φόρτωσης της βάσης δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Η χρήση του καθρέφτη τροφοδοσίας, που απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
+Εκτελέστε το '0install config feed_mirror default' για να το ενεργοποιήσετε.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>Τα αρχεία που θέλετε να διαγράψετε χρησιμοποιούνται επί του παρόντος.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>Θέλετε να κλείσετε αυτές τις εφαρμογές και να συνεχίσετε</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>Οι ακόλουθες αιτήσεις πρέπει να κλείσουν:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>Εύρεση διπλών αρχείων στο '{0}'</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>Το αρχείο '{0}' δεν είναι ούτε συμβολικός σύνδεσμος ούτε κανονικό αρχείο.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>Η εφαρμογή '{0}' βρίσκεται ήδη στο κατάστημα.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>Η εφαρμογή '{0}' είναι κατεστραμμένη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>Θέλετε να το αφαιρέσετε Ένα νέο αντίγραφο θα ληφθεί αυτόματα ξανά όταν χρειαστεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>Εκτελέστε το '0install store remove {0}' για να το αφαιρέσετε. Ένα νέο αντίγραφο θα ληφθεί αυτόματα ξανά όταν χρειαστεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>Η εφαρμογή '{0}' δεν μπόρεσε να εντοπιστεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>Το υποκείμενο σύστημα αρχείων δεν αποθηκεύει τους χρόνους αλλαγής αρχείων με επαρκή ακρίβεια.
+Εάν χρησιμοποιείτε μονάδα δίσκου με μορφοποίηση FAT, μετατρέψτε την σε NTFS.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>Το αρχείο δηλωτικού περιέχει μη έγκυρες γραμμές.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>Μη έγκυρος αριθμός εξαρτημάτων στη γραμμή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Το αρχείο περιέχει μια μη έγκυρη διαδρομή (δυνητικός κίνδυνος για την ασφάλεια) {0}</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>Η υπογραφή είναι άκυρη ή κατεστραμμένη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>Μόνο οι διαχειριστές μπορούν να βελτιστοποιήσουν έναν κοινόχρηστο χώρο αποθήκευσης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>Μόνο οι διαχειριστές μπορούν να αφαιρούν στοιχεία από έναν κοινόχρηστο χώρο αποθήκευσης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>Το όνομα του αρχείου ή του καταλόγου δεν πρέπει να περιέχει χαρακτήρα νέας γραμμής.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Δεν είναι δυνατή η λήψη του {0} επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Δεν καθορίστηκε καμία γνωστή μέθοδος πέψης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>Η διαδρομή '{0}' δεν είναι απόλυτη διαδρομή. Οι σχετικές διαδρομές επιτρέπονται μόνο σε φορητή λειτουργία.
+Καθορίζεται στο αρχείο ρυθμίσεων '{1}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>Δεν υπάρχει επιλεγμένη έκδοση</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>Η Zero Install δεν μπορεί να αφαιρέσει τον εαυτό της από μια κρυφή μνήμη υλοποίησης.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>Η τιμή του αριθμού είναι πολύ μεγάλη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Αυτή η επιλογή ελέγχεται από μια πολιτική ομάδας και επομένως δεν μπορεί να τροποποιηθεί.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>Υπήρξε πρόβλημα πρόσβασης στο κατάστημα υλοποίησης '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>Υπήρξε πρόβλημα πρόσβασης στο κατάστημα υλοποίησης '{0}'.
+Καθορίστηκε στο αρχείο ρυθμίσεων '{1}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>Υπήρξε πρόβλημα με τη φόρτωση ενός αρχείου ρυθμίσεων.
+Μπορείτε να διαγράψετε το αρχείο '{0}' για να διορθώσετε το πρόβλημα.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>Υπήρξε πρόβλημα στη φόρτωση της τιμής διαμόρφωσης '{0}'.
+Μπορείτε να διαγράψετε το αρχείο '{1}' για να διορθώσετε το πρόβλημα. Ενδέχεται να χαθούν και άλλες ρυθμίσεις.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value>Επεξεργασία αρχείων</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>Το αρχείο υπογραφής υπάρχει ήδη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>Αδυναμία δημιουργίας σύνδεσης με την υπηρεσία StoreService.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>Προσωρινοί κατάλογοι</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>Αδυναμία εύρεσης μυστικού κλειδιού με το καθορισμένο όνομα.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>Αδυναμία ενεργοποίησης της προστασίας εγγραφής για το '{0}'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>Άγνωστη διασύνδεση.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>Η κωδική φράση που καταχωρήσατε είναι λανθασμένη.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>Η τελευταία γραμμή του αρχείου δεν είναι το τέλος του μπλοκ υπογραφής.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>Η υπογραφή XML δεν αρχίζει σε νέα γραμμή.</value>
+    <comment>Automatically Translated</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>Η υπογραφή δεν είναι έγκυρη βάση 64:</value>
+    <comment>Automatically Translated</comment>
+  </data>
+</root>
