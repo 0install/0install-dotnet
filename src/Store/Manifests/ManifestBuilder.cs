@@ -35,6 +35,12 @@ public class ManifestBuilder : MarshalNoTimeout, IBuilder
     {
         (string dir, string file) = Split(path);
 
+        if (stream.Length < 0)
+        {
+            // Determine length of stream by counting how many bytes were read
+            stream = new ProgressStream(stream, new SynchronousProgress<long>());
+        }
+
         string digest = Manifest.Format.DigestContent(stream);
 
         Manifest[dir][file] = executable

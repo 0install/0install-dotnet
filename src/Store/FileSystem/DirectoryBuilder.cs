@@ -54,7 +54,7 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
         // Delete any preexisting file to reset permissions, etc.
         if (File.Exists(fullPath)) File.Delete(fullPath);
 
-        using (var fileStream = FileUtils.Create(fullPath, stream.Length))
+        using (var fileStream = FileUtils.Create(fullPath, Math.Max(0, stream.Length)))
         {
             if (_innerBuilder == null)
                 stream.CopyToEx(fileStream);
