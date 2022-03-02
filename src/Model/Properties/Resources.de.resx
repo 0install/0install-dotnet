@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Der String muss die Form "os-cpu" haben.</value>
+    <value>Die Zeichenfolge muss die Form "os-cpu" haben.</value>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
     <value>Der Command '{0}' konnte nicht gefunden werden.</value>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Fehler beim Laden der Feed-Präfernzen für '{0}'. Falle auf Standardwerte zurück.</value>
+    <value>Fehler beim Laden der Feed-Einstellungen für '{0}'. Zurücksetzen auf Standardwerte.</value>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Fehler beim Laden der Interface-Präfernzen für '{0}'. Falle auf Standardwerte zurück.</value>
+    <value>Fehler beim Laden der Interface-Einstellungen für '{0}'. Zurücksetzen auf Standardwerte.</value>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
@@ -136,10 +136,10 @@
     <value>War stattdessen:</value>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Die Implementierung für das Interface '{0}' konnte in den Selections nicht gefunden werden.</value>
+    <value>Es konnte keine Implementierung für die Interface '{0}' in den Selections gefunden werden.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' ist keine gültige 'http(s):' URI und ist auch kein absoluter lokaler Pfad.</value>
+    <value>'{0}' ist keine gültige 'http(s):' URI und auch kein gültiger lokaler Pfad.</value>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
     <value>Ungültiges '{0}' Attribut auf {1}.</value>
@@ -151,13 +151,13 @@
     <value>Fehlender {0} Tag in {1}.</value>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Die Punkt-getrennten Liste darf nur Dezimalzahlen enthalten.</value>
+    <value>Die punktgetrennte Liste darf nur Dezimalzahlen enthalten.</value>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Die Versionsnummer darf ausschließlich aus Punkt-getrennten Listen  von Dezimalzahlen und Modifizierer-Strings bestehen.</value>
+    <value>Die Versionsnummer darf nur punktgetrennte Dezimalzahlen und Modifizierer-Strings enthalten.</value>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Die Versionsnummer muss mit einer Punkt-getrennten Liste von Dezimalzahlen beginnen.</value>
+    <value>Die Versionsnummer muss mit einer Liste von durch Punkte getrennten Dezimalzahlen beginnen.</value>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Es wurde keine bekannte Digest-Methode angegeben.</value>
@@ -169,7 +169,7 @@
     <value>Die relative URI '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>'rollout-percentage' Attribut auf {0} darf nur gesetzt werden, wenn 'stability' den Wert 'testing' hat oder ungesetzt ist.</value>
+    <value>Das Attribut 'rollout-percentage' auf {0} darf nur gesetzt werden, wenn 'stability' auf 'testing' oder nicht gesetzt ist.</value>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Fehlerhafte Implementierung</value>
@@ -178,13 +178,13 @@
     <value>Bietet den Command '{0}' nicht.</value>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Inkompatibles Betriebsystem oder CPU</value>
+    <value>Inkompatibles Betriebssystem oder CPU</value>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
     <value>Unsichere Implementierung</value>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementierung nicht im Cache (derzeit im Off-Line Modus)</value>
+    <value>Implementierung nicht im Cache (derzeit im Offline-Modus)</value>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Nicht ausführbare Quellcode Implementierung</value>
@@ -193,21 +193,21 @@
     <value>Implementierungsversion zu alt oder zu neu</value>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Sollte ein gültiger MIME Type sein.</value>
+    <value>Sollte ein gültiger MIME-Typ sein.</value>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Sollte ein sichere ID sein. Darf nur alphanumerische Zeichen, Leerzeichen ( ), Punkte (.), Unterstriche (_), Bindestriche (-) and Pluszeichen (+) enthalten.</value>
+    <value>Sollte eine sichere ID sein. Darf nur alphanumerische Zeichen, Leerzeichen ( ), Punkte (.), Unterstriche (_), Bindestriche (-) und Pluszeichen (+) enthalten.</value>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Der Recipe Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>
+    <value>Der Recipe-Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Die Dateiendung '{0}' entspricht keinem bekannten Archivtyp.</value>
+    <value>Die Dateierweiterung '{0}' entspricht keinem bekannten Archivtyp.</value>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
     <value>Unbekannter Modifizierer.</value>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Ende des Versionsbereich muss exklusiv sein. Verwenden Sie '..!{0}' anstelle von '..{0}'.</value>
+    <value>Das Ende des Versionsbereichs muss exklusiv sein. Verwenden Sie '..!{0} ', nicht '..{0}'.</value>
   </data>
 </root>

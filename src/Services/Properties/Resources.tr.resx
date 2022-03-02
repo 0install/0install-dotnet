@@ -140,7 +140,7 @@
     <value>'{0}' akışı ön belleğe alınmadı ve Zero Install şu anda çevrimdışı kipte çalışıyor.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' akış ön belleğinde bulunamadı.</value>
+    <value>'{0}' akış ön belleğine yerleştirilemedi.</value>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>'{0}' akışı güvenilen anahtarlardan biriyle imzalanmamış.</value>
@@ -169,6 +169,9 @@
   <data name="MissingInterfaceUri" xml:space="preserve">
     <value>Bir arabirim belirtilmemiş.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Install çevrimdışı kipte olduğundan {0} indirilemedi.</value>
+  </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>Anahtar bilgileri sunucusu bu anahtarla ilgili ek bilgi sağlayamadı.</value>
   </data>
@@ -186,6 +189,9 @@
 Akış adresi: {0}
 Eski zaman: {1}
 Yeni zaman: {2}</value>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>{0} indirilemedi. Akış yansısından alınmaya çalışılıyor.</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>İndirilen uygulama kataloğu ön belleğe alınamadı.</value>

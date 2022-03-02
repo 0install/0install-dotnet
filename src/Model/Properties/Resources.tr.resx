@@ -178,7 +178,7 @@
     <value>'{0}' komutu sağlanmadı.</value>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>İşletim sistemi ya da CPU uyumsuz</value>
+    <value>İşletim sistemi ya da işlemci uyumsuz</value>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
     <value>Uyarlamaya güvenilmiyor</value>

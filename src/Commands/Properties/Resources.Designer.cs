@@ -1423,8 +1423,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Switch to a specific tab in the configuration GUI. Valid {TAB}s are &apos;updates&apos;, &apos;storage&apos;, &apos;catalog&apos;, &apos;trust&apos;, &apos;sync&apos;, &apos;language&apos;, &apos;language&apos; and &apos;advanced&apos;.
-        ///Has no effect in text-mode..
+        ///   Looks up a localized string similar to Switch to a specific tab in the configuration GUI. Valid {TAB}s are &apos;updates&apos;, &apos;storage&apos;, &apos;catalog&apos;, &apos;trust&apos;, &apos;sync&apos;, &apos;language&apos;, &apos;language&apos; and &apos;advanced&apos;..
         /// </summary>
         public static string OptionConfigTab {
             get {

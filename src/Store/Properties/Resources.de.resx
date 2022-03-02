@@ -118,35 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Kopiere Dateien</value>
+    <value>Kopieren von Dateien</value>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Die Unterverzeichnisse in diesem Cache werden durch NTFS Berechtigungen vor unerwünschten Veränderungen geschützt.
-Als ein Nebeneffekt verhindert dies das Löschen mit dem Windows Explorer.
+    <value>Die Unterverzeichnisse in diesem Cache sind durch NTFS-Berechtigungen vor unbeabsichtigten Änderungen geschützt.
+Als Nebeneffekt wird dadurch verhindert, dass sie mit dem Windows-Explorer gelöscht werden können.
 
 Wenn Sie einen einzelnen Eintrag löschen möchten, können Sie diese Befehlszeile verwenden:
-0install store remove IMPLEMENTIERUNGS-ID
+0install store remove IMPLEMENTATION-ID
 
-Wenn Sie dieses gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
+Wenn Sie das gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
 0install store purge {0}
 
-Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches nutzen:
+Alternativ können Sie auch die grafische Benutzeroberfläche zur Verwaltung der Caches verwenden:
 0install store manage</value>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Hinweis zum Löschen</value>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Lösche Verzeichnis {0}</value>
+    <value>Verzeichnis {0} löschen</value>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Lösche Implementierung {0}</value>
+    <value>Löschen der Implementierung {0}</value>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Lösche nicht mehr benötigte Dateien</value>
+    <value>Löschen veralteter Dateien</value>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Der Manifest-Hash einer Implementierung entspricht nicht dem erwarteten Wert.</value>
+    <value>Der Hash-Wert des Manifests einer Implementierung stimmt nicht mit dem erwarteten Wert überein.</value>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Tatsächlicher Wert: {0}</value>
@@ -161,17 +161,17 @@ Alternativ können Sie auch die grafische Oberfläche zur Verwaltung der Caches 
     <value>Erwartetes Manifest: {0}</value>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Fehler beim Laden der Trust Datenbank. Falle auf Standardwerte zurück.</value>
+    <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Verwendung des Feed Mirror, welcher für die Suche benötigt wird, ist deaktiviert.
+    <value>Die Verwendung des Feed Mirror, der für die Suche erforderlich ist, ist deaktiviert.
 Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</value>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Konnte die Datei oder das Verzeichnis '{0}' nicht finden.</value>
+    <value>Datei oder Verzeichnis '{0}' konnte nicht gefunden werden.</value>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Die Dateien die Sie löschen möchten werden gerade verwendet.</value>
+    <value>Die Dateien, die Sie löschen möchten, sind derzeit in Gebrauch.</value>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Möchten Sie diese Anwendungen beendet und fortfahren?</value>
@@ -186,32 +186,32 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
     <value>Die Datei '{0}' ist weder ein symbolischer Link noch eine reguläre Datei.</value>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Die Implementierung '{0}' ist bereits im Store.</value>
+    <value>Die Implementierung '{0}' ist bereits im Store vorhanden.</value>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
     <value>Die Implementierung '{0}' ist beschädigt.</value>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Möchten Sie sie entfernen? Eine neue Kopie wird automatisch heruntergeladen, wenn sie wieder benötigt wird.</value>
+    <value>Möchten Sie sie entfernen? Eine neue Kopie wird bei Bedarf automatisch heruntergeladen.</value>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Führen Sie '0install store remove {0}' aus, um sie zu entfernen. Eine neue Kopie wird automatisch heruntergeladen, wenn sie wieder benötigt wird.</value>
+    <value>Führen Sie '0install store remove {0}' aus, um sie zu entfernen. Eine neue Kopie wird bei Bedarf automatisch heruntergeladen.</value>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Die Implementierung '{0}' konnte nicht gefunden werden.</value>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Das zugrundeliegende Dateisystem speichert Daten und Uhrzeiten mit unzureichender Genauigkeit.
-Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu NTFS.</value>
-  </data>
-  <data name="InvalidPath" xml:space="preserve">
-    <value>Das Archiv enthält einen ungültigen Pfad (möglicherweise ein Sicherheitsrisiko): {0}</value>
+    <value>Das zugrunde liegende Dateisystem speichert die Datei-Änderungszeiten nicht mit ausreichender Genauigkeit.
+Wenn Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu NTFS.</value>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Die Manifest-Datei enthält ungültige Zeilen.</value>
+    <value>Die Manifestdatei enthält ungültige Zeilen.</value>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Die Anzahl der Blöcke in dieser Zeile stimmt nicht.</value>
+    <value>Unzulässige Anzahl von Teilen in der Zeile.</value>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Das Archiv enthält einen ungültigen Pfad (potenziell ein Sicherheitsrisiko): {0}</value>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>Die Signatur ist ungültig oder beschädigt.</value>
@@ -226,26 +226,26 @@ Falls Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu 
     <value>Der Datei- oder Verzeichnisname darf keinen Zeilenumbruch enthalten.</value>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Kann {0} nicht herunterladen, da Zero Install im Offline-Modus ist.</value>
+    <value>Der Download von {0} ist nicht möglich, da sich Zero Install im Offline-Modus befindet.</value>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Es wurde keine bekannte Digest-Methode angegeben.</value>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Der Pfad '{0}' ist nicht absolut. Relative Pfade sind nur im Portablen Modus erlaubt.
+    <value>Der Pfad '{0}' ist kein absoluter Pfad. Relative Pfade sind nur im Portable Modus erlaubt.
 Festgelegt in der Konfigurationsdatei '{1}'.</value>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Keine ausgewählte Version</value>
+    <value>Keine Version ausgewählt</value>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install kann sich selbst nicht aus einem Implementierungscache entfernen.</value>
+    <value>Zero Install kann sich nicht selbst aus einem Implementierungscache entfernen.</value>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Der Zahlenwert ist zu groß.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Diese Einstellung wird durch eine Gruppenrichtlinie kontrolliert und kann daher nicht modifiziert werden.</value>
+    <value>Diese Einstellung wird durch eine Gruppenrichtlinie gesteuert und kann daher nicht geändert werden.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.</value>
@@ -259,17 +259,17 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
 Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Es gab ein Problem beim Laden des Konfigurationswerts '{0}'.
-Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen womöglich auch andere Einstellungen verloren.</value>
+    <value>Es gab ein Problem beim Laden des Konfigurationswertes '{0}'.
+Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstellungen können ebenfalls verloren gehen.</value>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
-    <value>Verarbeite Dateien</value>
+    <value>Verarbeitung von Dateien</value>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Die Signaturdatei existiert bereits.</value>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Es konnte keine Verbindung zum StoreService hergestellt werden.</value>
+    <value>Verbindung mit StoreService konnte nicht hergestellt werden.</value>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
     <value>Temporäre Verzeichnisse</value>
@@ -278,19 +278,19 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Dabei gehen wom
     <value>Es konnte kein geheimer Schlüssel mit dem angegebenen Namen gefunden werden.</value>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Konnte den Schreibschutz für '{0}' nicht aktivieren.</value>
+    <value>Der Schreibschutz für '{0}' konnte nicht aktiviert werden.</value>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Unbekanntes Interface.</value>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Die Passphrase die Sie eingegeben haben ist inkorrekt.</value>
+    <value>Die von Ihnen eingegebene Passphrase ist falsch.</value>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Die letzte Zeile der Datei ist nicht das Ende des Signaturblocks.</value>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>Die XML-Signatur beginnt nicht auf einer neuen Zeile.</value>
+    <value>Die XML-Signatur beginnt nicht in einer neuen Zeile.</value>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>Die Signatur ist nicht gültiges Base 64:</value>

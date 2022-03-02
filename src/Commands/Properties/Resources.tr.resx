@@ -180,6 +180,9 @@
   <data name="CatalogNotRegistered" xml:space="preserve">
     <value>{0} katalog adresi kaydedilmemiş.</value>
   </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>{0} ile {1} seçenekleri birlikte kullanılamaz.</value>
+  </data>
   <data name="CatalogSources" xml:space="preserve">
     <value>Katalog kaynakları</value>
   </data>
@@ -300,13 +303,13 @@ Dosya ağ üzerinden alınırken, sayısal olarak imzalanmış olmalıdır.</val
     <value>Yerel olarak bilinen tüm akış adreslerini listeler. Bir arama ifadesi belirtilmiş ise yalnız içinde bu dizge geçen adresler görüntülenir (büyük küçük harfe duyarlı).</value>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Uygulama listenizdeki geçerli tüm uygulamalar listelenir. Bir arama terimi yazdıysanız, yalnızca uygulamaların adlarını içeren dizgelerin olduğu sonuçlar görüntülenir (büyük küçük harf duyarlı).</value>
+    <value>Uygulama listenizdeki tüm uygulamalar listelenir. Bir adres yazdıysanız, yalnız bu akış adresini kullanan uygulama görüntülenir. Bir model yazdıysanız, yalnız adında bu dizge bulunan uygulamalar görüntülenir (büyük-küçük harfe duyarlıdır).</value>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>'0install add-feed' kullanılarak adrese eklenmiş tüm fazladan akışlar listelenir.</value>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Zero Install uygulamasını belirtilen TARGET klasöründe ya da varsayılan uygulamalar klasöründe hazırlar ve sistem ile bütünleştirir.</value>
+    <value>Zero Install uygulamasını belirtilen HEDEF klasöründe ya da varsayılan uygulamalar klasöründe hazırlar ve sistem ile bütünleştirir.</value>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Zero Install uygulamasının geçerli kopyasını sisteminizden kaldırır.</value>
@@ -385,6 +388,15 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Sunucu ile uygulama listesini eşitler.</value>
+  </data>
+  <data name="DescriptionTrustAdd" xml:space="preserve">
+    <value>Belirli bir ETKİ ALANINDAN akışlara, belirli bir PARMAK İZİ ile imzalanmışsa güvenilir.</value>
+  </data>
+  <data name="DescriptionTrustRemove" xml:space="preserve">
+    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnız belirli bir ETKİ ALANI için bırakır. </value>
+  </data>
+  <data name="DescriptionTrustList" xml:space="preserve">
+    <value>Akışları imzalamak için güvenilen anahtarları listeler. Belirtilmiş ise yalnız belirli bir PARMAK İZİNE güvenilmiş etki alanlarını listeler.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Uygulama güncellemelerini denetler ve yeni bir güncelleme bulursa indirir.
@@ -516,7 +528,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <value>Görsel ilke düzenleyicisi komut satırı kipinde kullanılamaz.</value>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Masaüstü bütünleştirmesinin çalışabilmesi için Zero Install uygulamasının kurulması gerekir.</value>
+    <value>Masaüstü bütünleştirmesinin çalışabilmesi için Zero Install uygulamasının çalıştırılması gerekir.</value>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install taşınabilir kipte çalışıyor. Masaüstü bütünleştirmesinin çalışabilmesi için kalıcı bir konumda hazırlanmış olması gerekir. Bu hazırlık, taşınabilir kopyanızdan tamamen bağımsızdır.</value>
@@ -574,8 +586,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
 Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Yapılandırma görsel ara yüzünde belirtilen sekmeyi açar. Kullanılabilecek {TAB} sekmeleri, güncellemeler için 'updates', depolama için 'storage', katalog için 'catalog', güvenilirlik için 'trust', eşitleme için 'sync' ve gelişmiş ayarlar için 'advanced' şeklindedir.
-Metin kipinde bir etkisi yoktur.</value>
+    <value>Yapılandırma görsel ara yüzünde belirtilen sekmeyi açar. Kullanılabilecek {TAB} sekmeleri, güncellemeler için 'updates', depolama için 'storage', katalog için 'catalog', güvenilirlik için 'trust', eşitleme için 'sync' ve gelişmiş ayarlar için 'advanced' şeklindedir.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Çözümleyicinin belirli bir işlemciyi {CPU} hedeflemesini sağlar.</value>
@@ -619,6 +630,9 @@ Metin kipinde bir etkisi yoktur.</value>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Uyarlama için yeğlenen dili belirler. ISO kısa dil kodlarını kullanın (en ya da en-US gibi).
 Birden çok dil için bu seçenek birden çok kez kullanılabilir.</value>
+  </data>
+  <data name="OptionLibrary" xml:space="preserve">
+    <value>Zero Install uygulamasını, kendi masaüstü bütünleştirmesi olmadan diğer uygulamalar tarafından kullanılmak üzere bir kitaplık olarak dağıtır.</value>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Yapılandırmayı geçerli kullanıcı yerine bilgisayar geneline (tüm bilgisayar için) uygular.</value>
@@ -692,7 +706,7 @@ Sarıcı uygulama tarafından seçilen ortamda yürütüleceğinden, bu yöntem 
 Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</value>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Seçilmiş sürümleri bilgisayar tarafından okunabilen bir XML dosyasına yazar.</value>
+    <value>Çıktıyı konsola makine tarafından okunabilir XML olarak yazar.</value>
   </data>
   <data name="PortableMode" xml:space="preserve">
     <value>Taşınabilir kip</value>
@@ -744,13 +758,19 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
 Etkinleştirmek için '0install config self_update_uri default' komutunu kullanın.</value>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Bu Zero Install kopyası uyarlama olarak başka bir Zero Install kopyasını başlattı. Bu nedenle kendini güncelleyemedi.</value>
+    <value>Zero Install kopyası çalıştırılmamış. Bu nedenle kendisini güncelleyemez.</value>
+  </data>
+  <data name="SelfRemoveNotDeployed" xml:space="preserve">
+    <value>Zero Install kopyası çalıştırılmamış. Kaldırılacak bir şey yok.</value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>{0} için kararlılık ilkesi eşleşecek şekilde ayarlansın mı?</value>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>{0} için kararlılık ilkesi varsayılanlara sıfırlansın mı?</value>
+  </data>
+  <data name="StabilityPolicySuggested" xml:space="preserve">
+    <value>{0} uygulamalarını seçebilmek için gereken kararlılık ilkesi '{1}'.</value>
   </data>
   <data name="StartService" xml:space="preserve">
     <value>Zero Install depo hizmeti başlatılıyor</value>
@@ -779,6 +799,12 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>Çok sayıda değişken var ya da seçenekler bilinmiyor.</value>
+  </data>
+  <data name="TrustedKeys" xml:space="preserve">
+    <value>Güvenilir anahtarlar</value>
+  </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} etki alanları için güvenilir</value>
   </data>
   <data name="TryHelp" xml:space="preserve">
     <value>{0} --help deneyin</value>

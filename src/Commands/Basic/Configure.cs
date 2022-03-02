@@ -19,7 +19,8 @@ public class Configure : CliCommand
     public Configure(ICommandHandler handler)
         : base(handler)
     {
-        Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
+        if (handler.IsGui)
+            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
     }
 
     /// <inheritdoc/>

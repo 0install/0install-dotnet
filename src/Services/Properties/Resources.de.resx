@@ -121,7 +121,7 @@
     <value>Feed: {0}
 - Gültige Signatur von {1}
 - {2}
-Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
+Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
 </value>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
@@ -134,22 +134,22 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
     <value>&lt;environment&gt; Bindings müssen entweder ein 'value' oder ein 'insert' Attribut enthalten.</value>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Führe externen Solver aus</value>
+    <value>Externer Solver läuft</value>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Der Feed '{0}' ist nicht gecacht und Zero Install befindet sich derzeit im Off-Line Modus.</value>
+    <value>Der Feed '{0}' ist nicht gecacht und Zero Install befindet sich derzeit im Offline-Modus.</value>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' konnte nicht im Feed Cache gefunden werden.</value>
+    <value>'{0}' konnte nicht im Feed-Cache gefunden werden.</value>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Der Feed '{0}' wurde mit keinem vertrauten Schlüssel signiert.</value>
+    <value>Der Feed '{0}' wurde nicht mit einem vertrauenswürdigen Schlüssel signiert.</value>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' ist eine lokale Datei. Es sollte eine HTTP(S) URL sein.</value>
+    <value>'{0}' ist eine lokale Datei. Es sollte eine HTTP(S)-URL sein.</value>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Das &lt;interface&gt; uri Attribut ('{0}') stimmt nicht mit der URL von der der Feed runtergeladen wurde ('{1}') überin.</value>
+    <value>Das &lt;interface&gt; uri Attribut ('{0}') stimmt nicht mit der URL überein, von der der Feed heruntergeladen wurde ('{1}').</value>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Das &lt;interface&gt; uri Attribut fehlt. Sollte '{0}' sein.</value>
@@ -158,10 +158,10 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
     <value>Problem beim Runterladen von '{0}'.</value>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Ungültiges Zeichen im {0} Binding Namen.</value>
+    <value>Unzulässiges Zeichen im {0} Binding Namen.</value>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feeds müssen ihre Quell-URI angeben um importierbar zu sein.</value>
+    <value>Feeds müssen der URI, von dem sie stammen, angeben, um importiert werden zu können.</value>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
     <value>Fehlender Name in {0} Binding.</value>
@@ -170,46 +170,46 @@ Möchten Sie diesem Key zum Signieren von Feeds von '{3}' vertrauen?
     <value>Es wurde kein Interface angegeben.</value>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Kann {0} nicht herunterladen, da Zero Install im Offline-Modus ist.</value>
+    <value>Der Download von {0} ist nicht möglich, da sich Zero Install im Offline-Modus befindet.</value>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Der Keyinformationsserver konnte keine weiteren Informationen über diesen Key zur Verfügung stellen.</value>
+    <value>Der Schlüsselinformationsserver konnte keine weiteren Informationen zu diesem Schlüssel liefern.</value>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Es wurde kein Manifest Digest für die Implementierung '{0}' gefunden.</value>
+    <value>Kein Manifest Digest für die Implementierung '{0}' gefunden.</value>
   </data>
   <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Es gibt keine native Paketmanager-Unterstützung für diese Platform.</value>
+    <value>Es gibt keine native Paketmanager-Unterstützung für diese Plattform.</value>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Es wurden keine Downloadmethoden für die Implementierung '{0}' gefunden.</value>
+    <value>Keine Downloadmethoden für die Implementierung '{0}' gefunden.</value>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Eine mögliche Replay-Attacke wurde erkannt. Änderungszeit des neuen Feeds liegt vor der der alten Version.
+    <value>Ein möglicher Replay-Angriff wurde erkannt. Änderungszeit des neuen Feeds liegt vor der der alten Version.
 Feed URI: {0}
 Alte Zeit: {1}
 Neue Zeit: {2}</value>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Download von {0} fehlgeschlagen. Probiere stattdessen Download von Feed Mirror.</value>
+    <value>Der Download von {0} ist fehlgeschlagen. Probiere stattdessen Download von Feed-Mirror.</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Konnte den runtergeladenen Anwendungskatalog nicht cachen.</value>
+    <value>Der heruntergeladene Anwendungskatalog konnte nicht gecacht werden.</value>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Konnte Schlüsselinformationen für '{0}' nicht verarbeiten.</value>
+    <value>Die Schlüsselinformationen für '{0}' konnten nicht verarbeitet werden.</value>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Konnte Schlüsselinformationen für '{0}' nicht abfragen.</value>
+    <value>Es können keine Schlüsselinformationen für '{0}' abgerufen werden.</value>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' ist keine bekannte ID im {1} Paketmanager.</value>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Der Feed ist mit nicht-vertrauten Keys signiert!</value>
+    <value>Der Feed ist nicht mit vertrauenswürdigen Schlüsseln signiert!</value>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>Warte auf Download-Abschluss</value>
+    <value>Warten auf den Abschluss des Downloads</value>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>Das Arbeitsverzeichnis wurde bereits von einem vorangehenden Command geändert.</value>

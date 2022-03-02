@@ -586,8 +586,7 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
 Set to empty ("") to ignore the command during selection.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Switch to a specific tab in the configuration GUI. Valid {TAB}s are 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' and 'advanced'.
-Has no effect in text-mode.</value>
+    <value>Switch to a specific tab in the configuration GUI. Valid {TAB}s are 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' and 'advanced'.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Forces the solver to target a specific {CPU}.</value>

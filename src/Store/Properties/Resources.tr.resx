@@ -225,6 +225,9 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
   <data name="NewlineInName" xml:space="preserve">
     <value>Dosya ya da klasör adında satır başı karakteri bulunamaz.</value>
   </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Install çevrimdışı kipte olduğundan {0} indirilemedi.</value>
+  </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Bilinen bir özet yöntemi belirtilmemiş.</value>
   </data>

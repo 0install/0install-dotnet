@@ -155,6 +155,9 @@
   <data name="CatalogNotRegistered" xml:space="preserve">
     <value>Το URI ο κατάλογος {0} δεν έχει καταχωρηθεί.</value>
   </data>
+  <data name="CannotUseOptionsTogether" xml:space="preserve">
+    <value>Οι επιλογές {0} και {1} δεν μπορούν να χρησιμοποιηθούν μαζί.</value>
+  </data>
   <data name="CatalogSources" xml:space="preserve">
     <value>Κατάλογος και πηγές</value>
   </data>
@@ -465,8 +468,7 @@
 Ρύθμιση για να αδειάσει ("") για να αγνοήσει την εντολή κατά τη διάρκεια της επιλογής.</value>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Μετάβαση σε συγκεκριμένη καρτέλα στο GUI διαμόρφωσης. Πιθανές {TAB}ες είναι 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' και 'advanced'.
-Δεν έχει κανένα αποτέλεσμα στην λειτουργία κειμένου.</value>
+    <value>Μετάβαση σε συγκεκριμένη καρτέλα στο GUI διαμόρφωσης. Πιθανές {TAB}ες είναι 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' και 'advanced'.</value>
   </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Αναγκάζει τον επιλυτή να στόχευση μια ειδική {CPU}.</value>
@@ -612,7 +614,7 @@
     <value>Ενημέρωση για το Zero Install v{0} διατίθεται. Εγκατάσταση τώρα;</value>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Αυτή η Zero Install περίπτωση ξεκίνησε ως εφαρμογή από άλλη Zero Install περίπτωση. Ως εκ τούτου, δεν μπορεί να ενημερωθεί.</value>
+    <value></value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Ρυθμίστε τη σταθερότητα ρύθμιση για {0} αναλόγως;</value>

@@ -121,12 +121,12 @@
     <value>Die Archivdatei ist ungültig oder beschädigt.</value>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Entpacke Archiv</value>
+    <value>Archiv entpacken</value>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Entpacken dieses Archivtyps wird nur unter Windows unterstützt.</value>
+    <value>Das Entpacken dieses Archivtyps wird nur unter Windows unterstützt.</value>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Der Archiv MIME Typ '{0}' wird nicht unterstützt.</value>
+    <value>Der Archiv MIME-Typ '{0}' wird nicht unterstützt.</value>
   </data>
 </root>
