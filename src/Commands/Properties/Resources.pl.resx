@@ -958,6 +958,10 @@ Trzymaj ten klucz w tajemnicy i używaj innego hasła. W ten sposób nikt nie b�
     <value>Zbyt wiele argumentów lub nieznanych opcji.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="TrustedForDomains" xml:space="preserve">
+    <value>{0} trusted for domains</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="TrustedKeys" xml:space="preserve">
     <value>Zaufane klucze</value>
     <comment>Automatically translated.</comment>

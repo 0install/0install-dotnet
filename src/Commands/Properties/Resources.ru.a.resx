@@ -504,6 +504,10 @@
     <value>Кэшированные фиды</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="FeedsRegistered" xml:space="preserve">
+    <value>Feeds registered for '{0}'</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>Корм был успешно снят с регистрации для следующих интерфейсов:</value>
     <comment>Automatically Translated</comment>
