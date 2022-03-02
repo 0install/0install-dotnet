@@ -115,9 +115,11 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
-    public async Task<ISet<string>> GetIntegrationAsync(FeedUri uri)
+    public async Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false)
     {
-        string output = await Task.Run(() => _launcher.RunAndCapture("list-apps", "--batch", "--xml", uri.ToStringRfc()));
+        var args = new List<string> { "list-apps", "--batch", "--xml", uri.ToStringRfc() };
+        if (machineWide) args.Add("--machine");
+        string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
 
         const string xmlNamespace = "http://0install.de/schema/desktop-integration/app-list";
         return new HashSet<string>(
@@ -130,9 +132,10 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
-    public async Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null)
+    public async Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null, bool machineWide = false)
     {
         var args = new List<string> { "integrate", "--batch", uri.ToStringRfc() };
+        if (machineWide) args.Add("--machine");
 
         void AddToArgs(string option, IEnumerable<string>? elements)
         {
@@ -151,8 +154,13 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
-    public async Task RemoveAsync(FeedUri uri)
-        => await Task.Run(() => _launcher.RunAndCapture("remove", "--batch", uri.ToStringRfc()));
+    public async Task RemoveAsync(FeedUri uri, bool machineWide = false)
+    {
+        var args = new List<string> { "remove", "--batch", uri.ToStringRfc() };
+        if (machineWide) args.Add("--machine");
+
+        await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
+    }
 
     /// <inheritdoc/>
     public async Task FetchAsync(Implementation implementation)

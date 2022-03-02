@@ -63,12 +63,14 @@ public interface IZeroInstallClient
     /// Returns the desktop integration categories that are currently applied for a specific feed.
     /// </summary>
     /// <param name="uri">The feed URI of the application.</param>
+    /// <param name="machineWide">Get machine-wide desktop integration instead of just for the current user.</param>
     /// <returns>The access point categories (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
-    Task<ISet<string>> GetIntegrationAsync(FeedUri uri);
+    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
+    Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
 
     /// <summary>
     /// Adds an application to the application list (if missing) and integrates it into the desktop environment.
@@ -76,21 +78,25 @@ public interface IZeroInstallClient
     /// <param name="uri">The feed URI of the application.</param>
     /// <param name="add">The access point categories to add (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
     /// <param name="remove">The access point categories to remove (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
+    /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
-    Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null);
+    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
+    Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null, bool machineWide = false);
 
     /// <summary>
     /// Removes an application from the application list and undoes any desktop environment integration.
     /// </summary>
     /// <param name="uri">The feed URI of the application.</param>
+    /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
-    Task RemoveAsync(FeedUri uri);
+    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
+    Task RemoveAsync(FeedUri uri, bool machineWide = false);
 
     /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s.
