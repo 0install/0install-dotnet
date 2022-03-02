@@ -675,6 +675,10 @@
 设置为空（""）可以在选择过程中忽略该命令。</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>在配置GUI中切换到一个特定的标签。有效的{TAB}是'更新'、'存储'、'目录'、'信任'、'同步'、'语言'、'语言'和'高级'。</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>强制求解器以特定的{CPU}为目标。</value>
     <comment>Automatically Translated</comment>

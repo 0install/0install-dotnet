@@ -675,6 +675,10 @@
 Установите пустой (""), чтобы игнорировать команду во время выбора.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Переключение на определенную вкладку в графическом интерфейсе конфигурации. Доступными вкладками являются 'обновления', 'хранилище', 'каталог', 'доверие', 'синхронизация', 'язык', 'язык' и 'расширенный'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Заставляет решатель нацелиться на определенный {CPU}.</value>
     <comment>Automatically Translated</comment>

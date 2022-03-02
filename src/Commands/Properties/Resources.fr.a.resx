@@ -675,6 +675,10 @@ Vous pouvez redistribuer des copies de ce programme selon les termes de la licen
 Mettre à vide ("") pour ignorer la commande pendant la sélection.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Passe à un onglet spécifique dans l'interface graphique de configuration. Les {TAB} valides sont 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' et 'advanced'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Force le solveur à cibler un {CPU} spécifique.</value>
     <comment>Automatically Translated</comment>

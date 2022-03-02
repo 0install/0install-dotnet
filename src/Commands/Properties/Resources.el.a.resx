@@ -675,6 +675,10 @@
 Ορίστε το κενό ("") για να αγνοήσετε την εντολή κατά την επιλογή.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Μετάβαση σε μια συγκεκριμένη καρτέλα στο γραφικό περιβάλλον διαμόρφωσης. Οι έγκυρες {TAB} είναι 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' και 'advanced'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Αναγκάζει τον επιλύτη να στοχεύσει σε μια συγκεκριμένη {CPU}.</value>
     <comment>Automatically Translated</comment>

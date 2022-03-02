@@ -675,6 +675,10 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
 Stel in op leeg ("") om het commando tijdens selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Ga naar een specifiek tabblad in de configuratie GUI. Geldige {TAB}s zijn "updates", "opslag", "catalogus", "vertrouwen", "sync", "taal" en "geavanceerd".</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Dwingt de oplosser zich te richten op een specifieke {CPU}.</value>
     <comment>Automatically translated.</comment>

@@ -675,6 +675,10 @@ Sie dürfen Kopien dieses Programms unter den Bedingungen der GNU Lesser General
 Setzen Sie auf leer (""), um den Befehl bei der Auswahl zu ignorieren.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Wechseln Sie zu einer bestimmten Registerkarte in der Konfigurations-GUI. Gültige Registerkarten sind "Updates", "Speicherung", "Katalog", "Vertrauen", "Synchronisierung", "Sprache", "Sprache" und "Erweitert".</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Zwingt den Solver, eine bestimmte {CPU} anzusteuern.</value>
     <comment>Automatically Translated</comment>

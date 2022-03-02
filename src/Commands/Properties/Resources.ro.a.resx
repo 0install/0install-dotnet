@@ -675,6 +675,10 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
 Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates", "storage", "storage", "catalog", "trust", "sync", "language", "language" și "advanced".</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Forțează rezolvarea să vizeze un anumit {CPU}.</value>
     <comment>Automatically Translated</comment>

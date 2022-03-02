@@ -675,6 +675,10 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
 空（""）に設定すると、選択中のコマンドを無視します。</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>設定GUIの特定のタブに切り替えます。有効な{TAB}は'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'advanced'です。</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>ソルバーが特定の{CPU}をターゲットにするように強制します。</value>
     <comment>Automatically Translated</comment>

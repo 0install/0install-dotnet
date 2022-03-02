@@ -675,6 +675,10 @@ Pode redistribuir cópias deste programa sob os termos da Licença Pública Gera
 Definir para vazio ("") para ignorar o comando durante a selecção.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Força o solucionador a visar um {CPU} específico.</value>
     <comment>Automatically translated.</comment>

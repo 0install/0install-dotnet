@@ -675,6 +675,10 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
 Mettre à vide ("") pour ignorer la commande pendant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Passe à un onglet spécifique dans l'interface graphique de configuration. Les {TAB} valides sont 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' et 'advanced'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Force le ciblage d'un {CPU} spécifique.</value>
     <comment>Manually overriden.</comment>

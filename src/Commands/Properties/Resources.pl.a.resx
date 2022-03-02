@@ -675,6 +675,10 @@ Możesz rozprowadzać kopie tego programu zgodnie z warunkami licencji GNU Lesse
 Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically Translated</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Przejście do konkretnej zakładki w GUI konfiguracji. Poprawne {TAB} to 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' i 'advanced'.</value>
+    <comment>Automatically Translated</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Zmusza solver do wybrania konkretnego {CPU}.</value>
     <comment>Automatically Translated</comment>

@@ -675,6 +675,10 @@ Potete ridistribuire copie di questo programma secondo i termini della GNU Lesse
 Imposta a vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionConfigTab" xml:space="preserve">
+    <value>Passa a una scheda specifica nella GUI di configurazione. Le {TAB} valide sono 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionCpu" xml:space="preserve">
     <value>Forza il solutore a mirare ad una specifica {CPU}.</value>
     <comment>Automatically translated.</comment>
