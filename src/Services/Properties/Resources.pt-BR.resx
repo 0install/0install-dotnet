@@ -99,7 +99,7 @@ Você quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde à URL de onde foi feito o download do feed ('{1}').</value>
+    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde à URL de onde o feed foi baixado ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -127,7 +127,7 @@ Você quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível baixar {0} porque a Instalação Zero está em modo offline.</value>
+    <value>Não foi possível baixar {0} porque a Instalação Zero está em modo off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -147,7 +147,7 @@ Você quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Foi detectado um possível ataque de replay. O tempo de modificação do novo feed é antes da versão antiga.
+    <value>Foi detectado um possível ataque de replay. O tempo de modificação da nova alimentação é antes da versão antiga.
 URI de alimentação {0}
 Tempo antigo {1}
 Novo tempo {2}</value>

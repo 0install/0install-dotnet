@@ -344,7 +344,7 @@ Zwraca kod zakończenia równy 1 jeśli krok pobierania nie powiódł się. W pr
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Wybiera wersję programu identyfikowaną przez URI, oraz zgodne wersje wszystkich jego zależności.
-Zwraca kod zakończenia 0, jeśli wybrał zestaw wersji, oraz kod 1, jeśli nie mógł znaleźć spójnego zestawu.</value>
+Zwraca kod zakończenia 0 jeśli wybrał zestaw wersji, a kod 1 jeśli nie mógł znaleźć spójnego zestawu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -457,7 +457,7 @@ Jest to podobne do '0install download --refresh', z tą różnicą, że wypisuje
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Podaj adres URL lub lokalną ścieżkę dostępu do katalogu, który chcesz dodać:</value>
+    <value>Podaj adres URL lub lokalną ścieżkę dostępu do katalogu feed, który chcesz dodać:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -959,7 +959,7 @@ Trzymaj ten klucz w tajemnicy i używaj innego hasła. W ten sposób nikt nie b�
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} zaufane dla domen</value>
+    <value>{0} trusted for domains</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

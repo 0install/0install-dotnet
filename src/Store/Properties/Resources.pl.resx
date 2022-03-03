@@ -203,7 +203,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nie określono żadnej znanej metody trawienia.</value>
+    <value>Nie określono znanej metody trawienia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

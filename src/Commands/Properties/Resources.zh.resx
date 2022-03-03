@@ -281,7 +281,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>将启动由URI指定的程序所需的所有馈送和实现导出到一个DIRECTORY。</value>
+    <value>将启动URI指定的程序所需的所有资料和实现导出到一个DIRECTORY。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -416,7 +416,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签名。</value>
+    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签署。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -587,7 +587,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>请使用Zero Install的GUI版本来实现这一功能。</value>
+    <value>请使用GUI版本的Zero Install来实现这一功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -732,7 +732,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实施的首选语言。使用ISO简短的语言代码（例如，en或en-US）。
+    <value>指定实施的首选语言。使用ISO简短的语言代码（如en或en-US）。
 你可以多次使用这个选项来指定多种可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -799,7 +799,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}是'无'（正常合并客户端和服务器的数据），'客户端'（用服务器的数据替换客户端的所有数据）和'服务器'（用客户端的数据替换服务器的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

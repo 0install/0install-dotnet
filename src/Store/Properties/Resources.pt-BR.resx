@@ -130,7 +130,7 @@ Execute '0install config feed_mirror default' para ativá-lo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Você quer encerrar estas aplicações e continuar?</value>
+    <value>Você quer fechar estas aplicações e continuar?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
@@ -232,7 +232,7 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Houve um problema no acesso à loja de implementação '{0}'.
+    <value>Houve um problema de acesso à loja de implementação '{0}'.
 Especificado no arquivo de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -298,7 +298,7 @@ O arquivo deve ter uma assinatura digital confiável, como se tivesse sido baixa
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Listas de todos os URIs de alimentação conhecidos localmente. Se um termo de busca for dado, somente URIs contendo aquela cadeia são mostradas (insensível a maiúsculas e minúsculas).</value>
+    <value>Lista todas as URIs de alimentação conhecidas localmente. Se um termo de busca for dado, somente URIs contendo aquela cadeia são mostradas (insensível a maiúsculas e minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -322,7 +322,7 @@ O arquivo deve ter uma assinatura digital confiável, como se tivesse sido baixa
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Remove uma aplicação da lista de aplicações e desfaz qualquer integração de ambiente de trabalho.</value>
+    <value>Remove um aplicativo da lista de aplicativos e desfaz qualquer integração de ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">

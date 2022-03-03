@@ -505,7 +505,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
-    <value>Фиды, зарегистрированные для '{0}'</value>
+    <value>Feeds registered for '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">

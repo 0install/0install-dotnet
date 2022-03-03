@@ -481,7 +481,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Voederbeheer</value>
+    <value>Beheer van het voeder</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -762,7 +762,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Komt onmiddellijk terug zodra het gekozen programma is gestart in plaats van te wachten tot het klaar is met uitvoeren. Onder Windows is de exit-code de proces-ID van het gestarte programma.</value>
+    <value>Komt onmiddellijk terug zodra het gekozen programma is gestart in plaats van te wachten tot het klaar is met uitvoeren. Op Windows is de exit code de proces ID van het gestarte programma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -775,7 +775,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Maak een draagbare installatie die kan worden verplaatst (b.v. op een thumb drive).</value>
+    <value>Maak een draagbare installatie die kan worden verplaatst (bv. op een thumbdrive).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -828,7 +828,7 @@ Nieuwe downloads zullen echter niet naar deze map worden geschreven.</value>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>In plaats van het gekozen programma rechtstreeks uit te voeren, voert u {COMMAND} PROGRAM ARGS. Dit is handig om debuggers en tracing-tools op het programma uit te voeren (in plaats van op Zero Install!).
-Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; vandaar dat dit mechanisme niet kan worden gebruikt voor sandboxing.
+Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; dit mechanisme kan dus niet worden gebruikt voor sandboxing.
 Kan command-line argumenten bevatten. Whitespaces moeten worden ge-escaped!</value>
     <comment>Automatically translated.</comment>
   </data>

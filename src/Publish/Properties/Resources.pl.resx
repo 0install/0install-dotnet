@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiono prawidłową wartość "extract" dla archiwum.</value>
+    <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiłeś prawidłową wartość "extract" dla archiwum.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

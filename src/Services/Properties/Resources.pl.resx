@@ -99,7 +99,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atrybut &lt;interface&gt; uri ("{0}") nie pasuje do adresu URL, z którego pobrano kanał ("{1}").</value>
+    <value>Atrybut uri &lt;interface&gt; ("{0}") nie pasuje do adresu URL, z którego pobrano kanał ("{1}").</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">

@@ -395,7 +395,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用されている NTFS ACL のために困難な場合があります。
+    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用された NTFS ACL のために困難な場合があります。
 追加の引数でカスタムキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -745,7 +745,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトではなく、指定された実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
+    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -762,7 +762,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>選択したプログラムが起動したら、実行終了を待たずに即座に復帰します。Windowsの場合、終了コードは起動したプログラムのプロセスIDになります。</value>
+    <value>選択したプログラムが起動したら、実行が終了するのを待たずに、すぐに戻ります。Windowsの場合、終了コードは起動したプログラムのプロセスIDになります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
