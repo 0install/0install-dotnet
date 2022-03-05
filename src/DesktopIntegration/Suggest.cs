@@ -19,16 +19,25 @@ public static class Suggest
         if (feed == null) throw new ArgumentNullException(nameof(feed));
         #endregion
 
+        // Filter out special purpose entry points (e.g., auto-start only)
+        var entryPoints =
+            feed.EntryPoints.Where(entryPoint => entryPoint
+                     is {SuggestAutoStart: false, SuggestSendTo: false}
+                     or {Command: Command.NameRun or Command.NameRunGui})
+                .ToList();
+
         string? category = feed.Categories.FirstOrDefault()?.Name?.SafeFileName();
-        if (feed.EntryPoints.Count > 1)
+
+        // Group menu entries by app if there is more than one
+        if (entryPoints.Count > 1)
         {
-            category = (category == null)
-                ? feed.Name.SafeFileName()
-                : category + "/" + feed.Name.SafeFileName();
+            string name = feed.Name.SafeFileName();
+            if (category == null) category = name;
+            else category += "/" + name;
         }
 
         return EnumerableExtensions.DistinctBy(
-            from entryPoint in feed.EntryPoints
+            from entryPoint in entryPoints
             select new MenuEntry
             {
                 Category = category,
