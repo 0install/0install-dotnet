@@ -146,7 +146,7 @@ public static class ZeroInstallInstance
 
         using var handler = new SilentTaskHandler();
         var services = new ServiceProvider(handler) {FeedManager = {Refresh = true}};
-        if (services.Config.NetworkUse == NetworkLevel.Offline || services.Config.SelfUpdateUri == null) return null;
+        if (services.Config is {NetworkUse: NetworkLevel.Offline} or {SelfUpdateUri: null}) return null;
 
         try
         {

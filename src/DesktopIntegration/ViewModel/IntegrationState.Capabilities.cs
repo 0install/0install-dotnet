@@ -70,7 +70,7 @@ partial class IntegrationState
         }
 
         bool IsCapabilityUsed<T>(Capability toCheck) where T : AccessPoints.DefaultAccessPoint
-            => AppEntry.AccessPoints != null && AppEntry.AccessPoints.Entries.OfType<T>().Any(accessPoint => accessPoint.Capability == toCheck.ID);
+            => AppEntry.AccessPoints?.Entries.OfType<T>().Any(accessPoint => accessPoint.Capability == toCheck.ID) ?? false;
     }
 
     private void CollectDefaultAccessPointChanges(ICollection<AccessPoints.AccessPoint> toAdd, ICollection<AccessPoints.AccessPoint> toRemove)

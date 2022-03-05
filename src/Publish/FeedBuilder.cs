@@ -220,7 +220,7 @@ public class FeedBuilder : IDisposable
         feed.Icons.AddRange(_icons);
         if (!string.IsNullOrEmpty(MainCandidate.Category)) feed.Categories.Add(new Category {Name = MainCandidate.Category});
         feed.EntryPoints.AddRange(EntryPoints);
-        if (CapabilityList != null && CapabilityList.Entries.Count != 0) feed.CapabilityLists.Add(CapabilityList);
+        if (CapabilityList is {Entries.Count: > 0 }) feed.CapabilityLists.Add(CapabilityList);
 
         return new SignedFeed(feed, SecretKey);
     }

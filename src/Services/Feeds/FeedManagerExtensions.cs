@@ -34,7 +34,7 @@ public static class FeedManagerExtensions
 
         var feed = feedManager[feedUri];
 
-        if (!feedManager.Refresh && feedManager.ShouldRefresh)
+        if (feedManager is {Refresh: false, ShouldRefresh: true})
         {
             feedManager.Stale = false;
             feedManager.Refresh = true;

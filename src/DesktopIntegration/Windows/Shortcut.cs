@@ -44,7 +44,7 @@ public static partial class Shortcut
 
     private static string? GuessAppExePath(Feed feed, EntryPoint? entryPoint)
     {
-        if (entryPoint == null || string.IsNullOrEmpty(entryPoint.BinaryName)) return null;
+        if (string.IsNullOrEmpty(entryPoint?.BinaryName)) return null;
 
         string? referenceDigest =
             feed.Implementations

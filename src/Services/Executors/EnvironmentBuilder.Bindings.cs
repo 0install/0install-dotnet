@@ -109,19 +109,15 @@ public partial class EnvironmentBuilder
 
         var environmentVariables = _startInfo.EnvironmentVariables;
 
-        string newValue;
-        if (binding.Value != null && binding.Insert != null)
-        { // Conflict
-            throw new ExecutorException(Resources.EnvironmentBindingValueInvalid);
-        }
-        else if (binding.Value != null)
-        { // Static value
-            newValue = binding.Value;
-        }
-        else
-        { // Path inside the implementation
-            newValue = Path.Combine(_implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "");
-        }
+        string newValue = binding switch
+        {
+            // Conflict
+            {Value: not null, Insert: not null} => throw new ExecutorException(Resources.EnvironmentBindingValueInvalid),
+            // Static value
+            {Value: not null} => binding.Value,
+            // Path inside the implementation
+            _ => Path.Combine(_implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
+        };
 
         // Set the default value if the variable is not already set on the system
         if (!environmentVariables.ContainsKey(binding.Name)) environmentVariables.Add(binding.Name, binding.Default);

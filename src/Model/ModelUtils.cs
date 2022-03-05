@@ -43,7 +43,7 @@ public static class ModelUtils
         #endregion
 
         if (Path.IsPathRooted(path)) return path;
-        if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
+        if (source?.IsFile is null or false) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
         return Path.Combine(Path.GetDirectoryName(source.LocalPath) ?? "", path.ToNativePath());
     }
 
@@ -71,7 +71,7 @@ public static class ModelUtils
         #endregion
 
         if (href.IsAbsoluteUri) return href;
-        if (source == null || !source.IsFile) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
+        if (source?.IsFile is null or false) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
         return new(new(source.LocalPath, UriKind.Absolute), href);
     }
 

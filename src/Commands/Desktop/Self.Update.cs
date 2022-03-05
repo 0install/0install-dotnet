@@ -104,6 +104,7 @@ partial class Self
         }
 
         private bool UpdateFound()
-            => _force || (Selections != null && Selections.MainImplementation.Version > ZeroInstallInstance.Version);
+            => _force
+            || (Selections != null && Selections.MainImplementation.Version > ZeroInstallInstance.Version);
     }
 }
