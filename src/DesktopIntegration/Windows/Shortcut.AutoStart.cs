@@ -23,7 +23,8 @@ public static partial class Shortcut
         #endregion
 
         string filePath = GetStartupPath(autoStart.Name, machineWide);
-        Create(filePath, target, autoStart.Command, iconStore);
+        var commandLine = new StubBuilder(iconStore).GetRunCommandLine(target, autoStart.Command, machineWide);
+        Create(filePath, commandLine.First(), commandLine.Skip(1).JoinEscapeArguments());
     }
 
     /// <summary>
