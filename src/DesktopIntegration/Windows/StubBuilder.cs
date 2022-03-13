@@ -92,18 +92,13 @@ public partial class StubBuilder
             { // Built by older version of this library, try to rebuild
                 try
                 {
-                    File.Delete(path);
+                    BuildRunStub(path, target, command, gui);
                 }
-                #region Error handling
-                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+                catch (Exception ex)
                 {
                     Log.Warn(string.Format(Resources.UnableToReplaceStub, path));
                     Log.Warn(ex);
-                    return;
                 }
-                #endregion
-
-                BuildRunStub(path, target, command, gui);
             }
         }
         else
@@ -130,9 +125,11 @@ public partial class StubBuilder
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
+        using var atomic = new AtomicWrite(path);
+
         var compilerParameters = new CompilerParameters
         {
-            OutputAssembly = path,
+            OutputAssembly = atomic.WritePath,
             GenerateExecutable = true,
             TreatWarningsAsErrors = true,
             ReferencedAssemblies = {"System.dll"},
@@ -149,6 +146,8 @@ public partial class StubBuilder
                 arguments: GetArguments(target.Uri, command, gui),
                 title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command)),
             Manifest);
+
+        atomic.Commit();
     }
 
     private string? GetIconPath(FeedTarget target, string? command)
