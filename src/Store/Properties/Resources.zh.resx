@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>该缓存中的子目录被保护起来，防止使用NTFS权限进行非故意的修改。
+    <value>该缓存中的子目录通过NTFS权限被保护起来，以免被意外修改。
 作为一个副作用，这可以防止它们被用Windows Explorer删除。
 
 如果你想删除一个条目，你可以使用这个命令行。

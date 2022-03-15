@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Корм '{0}' не кэшируется, и Zero Install в настоящее время находится в автономном режиме.</value>
+    <value>Подача '{0}' не кэшируется, и Zero Install в настоящее время находится в автономном режиме.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -186,7 +186,7 @@ URI фида {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Рабочий каталог содержит недопустимый путь (потенциально опасный для безопасности).</value>
+    <value>Рабочая директория содержит недопустимый путь (потенциально опасно для безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

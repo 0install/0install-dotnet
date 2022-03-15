@@ -147,7 +147,7 @@ Você quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Foi detectado um possível ataque de replay. O tempo de modificação da nova alimentação é antes da versão antiga.
+    <value>Foi detectado um possível ataque de replay. O tempo de modificação do novo feed é antes da versão antiga.
 URI de alimentação {0}
 Tempo antigo {1}
 Novo tempo {2}</value>

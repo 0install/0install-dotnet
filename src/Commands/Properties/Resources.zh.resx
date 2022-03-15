@@ -343,7 +343,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>选择一个由URI识别的程序版本，以及其所有依赖关系的兼容版本。
+    <value>选择一个由URI识别的程序的版本，以及其所有依赖的兼容版本。
 如果它选择了一个版本集，则返回0的退出状态，如果它不能找到一个一致的版本集，则返回1的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -416,7 +416,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签署。</value>
+    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -799,7 +799,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}是'无'（正常合并客户端和服务器的数据），'客户端'（用服务器的数据替换客户端的所有数据）和'服务器'（用客户端的数据替换服务器的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -930,7 +930,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} 储存空间的回收。</value>
+    <value>{0} 回收的存储空间。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
@@ -1003,7 +1003,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>验证</value>
+    <value>核实</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">

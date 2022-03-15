@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>La fine dell'intervallo di versioni deve essere esclusiva. Usa '..! {0} ', non '..{0}'.</value>
+    <value>La fine dell'intervallo di versioni deve essere esclusiva. Usa '..!{0}', non '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

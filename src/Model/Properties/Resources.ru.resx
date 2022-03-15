@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '.. {0} ', а не '...{0}'.</value>
+    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...{0}', а не '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

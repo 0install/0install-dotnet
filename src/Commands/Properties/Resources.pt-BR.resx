@@ -322,7 +322,7 @@ O arquivo deve ter uma assinatura digital confiável, como se tivesse sido baixa
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Remove um aplicativo da lista de aplicativos e desfaz qualquer integração de ambiente de trabalho.</value>
+    <value>Remove uma aplicação da lista de aplicações e desfaz qualquer integração de ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -339,7 +339,7 @@ Retorna um status de saída de 1 se a etapa de download falhar. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondem a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; você deve decidir se deve confiar nos programas antes de executá-los.</value>
+    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondem a palavras-chave especificadas. Observe que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; você deve decidir se deve confiar nos programas antes de executá-los.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -382,7 +382,7 @@ Um argumento adicional especifica um local de destino do cache personalizado.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se um URI de alimentação for especificado, apenas as implementações para aquela alimentação em particular serão listadas.</value>
+    <value>Lista todas as implementações em cache. Se um URI de alimentação for especificado, somente as implementações para aquela alimentação em particular serão listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -828,7 +828,7 @@ Entretanto, novos downloads não serão escritos neste diretório.</value>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar o programa escolhido diretamente, execute {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreamento no programa (e não na instalação zero!).
-Observe que a embalagem é executada no ambiente selecionado pelo programa; portanto, este mecanismo não pode ser usado para o sandboxing.
+Note que a embalagem é executada no ambiente selecionado pelo programa; portanto, este mecanismo não pode ser usado para o sandboxing.
 Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
     <comment>Automatically translated.</comment>
   </data>

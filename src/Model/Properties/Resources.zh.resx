@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>版本范围的结束必须是排他性的。使用'...!{0}'，而不是'...{0}'。</value>
+    <value>版本范围的结束必须是排他性的。使用'...！{0}'，而不是'...{0}'。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
