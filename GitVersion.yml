@@ -24,3 +24,5 @@ branches:
     regex: renovate?[/-]
     source-branches: ['master']
     tag: pre-pre
+  translate:
+    tag: pre-pre
