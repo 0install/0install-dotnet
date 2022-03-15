@@ -154,7 +154,7 @@ Esegui '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Vuoi rimuoverlo? Una nuova copia sarà scaricata automaticamente quando sarà necessario.</value>
+    <value>Vuoi rimuoverlo? Una nuova copia sarà scaricata di nuovo automaticamente quando necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -207,7 +207,7 @@ Se stai usando un disco formattato in FAT, convertilo in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono consentiti solo in modalità portatile.
+    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono ammessi solo in modalità portatile.
 Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

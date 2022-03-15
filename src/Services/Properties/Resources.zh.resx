@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>密钥信息服务器无法提供有关此密钥的任何其他信息。</value>
+    <value>密钥信息服务器无法提供有关该密钥的任何其他信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>无法解析 "{0}"的关键信息。</value>
+    <value>无法解析'{0}'的密钥信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

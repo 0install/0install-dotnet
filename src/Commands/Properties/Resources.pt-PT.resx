@@ -259,7 +259,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as candidaturas nos catálogos são listadas.</value>
+    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as aplicações nos catálogos são listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver ou alterar definições de configuração.
-Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, exibe o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
+Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, mostra o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -737,7 +737,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Implantar Zero Install como biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
+    <value>Implementar Zero Install como uma biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -745,7 +745,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Executar o executável especificado {MAIN} em vez do executável padrão. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
+    <value>Executar o executável especificado {MAIN} em vez do executável por defeito. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
 Não pode conter argumentos de linha de comando! Os espaços em branco não precisam de ser fugidos.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -767,7 +767,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -959,7 +959,7 @@ Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} confiável para domínios</value>
+    <value>{0} de confiança para domínios</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

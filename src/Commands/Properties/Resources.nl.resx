@@ -352,7 +352,7 @@ Geeft een exit status van 0 als het een set versies heeft geselecteerd, en een s
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Voegt de inhoud van een map of archief toe aan de cache.</value>
+    <value>Voegt de inhoud van een directory of archief toe aan de cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -481,7 +481,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Beheer van het voeder</value>
+    <value>Voederbeheer</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -591,7 +591,7 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--commando kan alleen samen met een aliasnaam worden opgegeven.</value>
+    <value>--commando mag alleen samen met een aliasnaam worden opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -672,7 +672,7 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>In plaats van het standaard commando uit te voeren, gebruikt u {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
-Stel in op leeg ("") om het commando tijdens selectie te negeren.</value>
+Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">

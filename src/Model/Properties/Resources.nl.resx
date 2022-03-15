@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..! {0} ', niet '..{0}'.</value>
+    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..!{0}', niet '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

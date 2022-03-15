@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>バージョン範囲の終端は排他的でなければならない。を使用してください。{0}' を使用し、 '...{0}' は使用しないでください。</value>
+    <value>バージョン範囲の終わりは排他的でなければならない。{0}' ではなく、 '...{0}' を使用してください。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

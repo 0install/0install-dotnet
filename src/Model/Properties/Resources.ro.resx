@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sfârșitul intervalului de versiuni trebuie să fie exclusiv. Utilizați "...! {0} ", nu "...{0}".</value>
+    <value>Sfârșitul intervalului de versiuni trebuie să fie exclusiv. Folosiți "..!{0}", nu "...{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

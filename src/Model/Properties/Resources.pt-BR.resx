@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Fim da faixa de versões deve ser exclusivo. Use '...! {0} ', não '...{0}'.</value>
+    <value>Fim da faixa de versões deve ser exclusivo. Use '...!{0}', não '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Перечисляет все локально известные URI фидов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
+    <value>Перечисляет все локально известные URI кормов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -420,7 +420,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Список ключей, которым доверяют для подписания фидов. Перечислите только те домены, для которых доверяется определенный FINGERPRINT, если он указан.</value>
+    <value>Список ключей, которым доверяют для подписания фидов. Перечислите только домены, для которых доверяется определенный FINGERPRINT, если он указан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -469,7 +469,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>В '{0}' была обнаружена существующая копия Zero Install.</value>
+    <value>Существующая копия Zero Install была обнаружена в '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -485,7 +485,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>Корм не был зарегистрирован ни для каких интерфейсов.</value>
+    <value>Корм не был зарегистрирован ни для одного интерфейса.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
@@ -563,7 +563,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
-    <value>Отсутствующие аргументы.</value>
+    <value>Недостающие аргументы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
@@ -827,7 +827,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Вместо прямого выполнения выбранной программы выполните {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
+    <value>Вместо прямого выполнения выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
 Обратите внимание, что обертка выполняется в окружении, выбранном программой; следовательно, этот механизм нельзя использовать для создания "песочницы".
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
@@ -930,7 +930,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} восстановленное пространство для хранения.</value>
+    <value>{0} освободившееся место для хранения.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">

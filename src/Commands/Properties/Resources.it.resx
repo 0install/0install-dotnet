@@ -116,7 +116,7 @@ Puoi usare lo script di importazione o l'eseguibile Bootstrap in '{1}' per impor
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Vuoi aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
+    <value>Desideri aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
 Se si seleziona 'Sì' le integrazioni potenzialmente incompatibili saranno rimosse.
 Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value>
     <comment>Automatically translated.</comment>
@@ -603,7 +603,7 @@ Potete ridistribuire copie di questo programma secondo i termini della GNU Lesse
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install funziona in modalità portatile. Ha bisogno di essere distribuito in una posizione permanente affinché l'integrazione sul desktop funzioni. Questo sarà completamente indipendente dalla tua copia portatile.</value>
+    <value>Zero Install funziona in modalità portatile. Ha bisogno di essere distribuito in una posizione permanente per far funzionare l'integrazione sul desktop. Questo sarà completamente indipendente dalla tua copia portatile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">

@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Il nome utente e/o la password che hai inserito per il server di sincronizzazione non sono corretti. Controlla le tue opzioni di sincronizzazione.</value>
+    <value>Il nome utente e/o la password che hai inserito per il server di sincronizzazione non sono corretti. Controlla le opzioni di sincronizzazione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
