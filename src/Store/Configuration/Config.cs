@@ -91,7 +91,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     /// </summary>
     public const string DefaultSelfUpdateUri
 #if NETFRAMEWORK
-            = "https://apps.0install.net/0install/0install-win.xml";
+        = "https://apps.0install.net/0install/0install-win.xml";
 #else
         = "https://apps.0install.net/0install/0install-dotnet.xml";
 #endif
