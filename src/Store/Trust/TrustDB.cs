@@ -39,7 +39,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     public List<Key> Keys { get; } = new();
 
     /// <summary>
-    /// Determines whether a key is trusted for a specific domain.
+    /// Checks whether a key is trusted for a specific domain.
     /// </summary>
     /// <param name="fingerprint">The fingerprint of the key to check.</param>
     /// <param name="domain">The domain the key should be valid for.</param>
@@ -53,10 +53,10 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// Marks a key as trusted for a specific domain.
+    /// Trusts feeds from a specific domain when signed with a specific key.
     /// </summary>
-    /// <param name="fingerprint">The fingerprint of the key to check.</param>
-    /// <param name="domain">The domain the key should be valid for.</param>
+    /// <param name="fingerprint">The fingerprint of the key to trust.</param>
+    /// <param name="domain">The domain the key should be trusted for.</param>
     /// <returns>The same <see cref="TrustDB"/>, for fluent-style use.</returns>
     public TrustDB TrustKey(string fingerprint, Domain domain)
     {
@@ -79,9 +79,9 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// Marks a key as no longer trusted for any domain.
+    /// Stops trusting feeds signed with a specific key.
     /// </summary>
-    /// <param name="fingerprint">The fingerprint of the key to check.</param>
+    /// <param name="fingerprint">The fingerprint of the key to remove.</param>
     /// <returns><c>true</c> if the key was removed, <c>false</c> if the key was not found in the database.</returns>
     public bool UntrustKey(string fingerprint)
     {
@@ -95,10 +95,10 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// Marks a key as no longer trusted for a specific domain.
+    /// Stops trusting feeds from a specific domain when signed with a specific key.
     /// </summary>
-    /// <param name="fingerprint">The fingerprint of the key to check.</param>
-    /// <param name="domain">The domain the key should be valid for.</param>
+    /// <param name="fingerprint">The fingerprint of the key to remove.</param>
+    /// <param name="domain">The domain the key should be removed for.</param>
     /// <returns><c>true</c> if the key was removed, <c>false</c> if the key was not found in the database.</returns>
     public bool UntrustKey(string fingerprint, Domain domain)
     {
