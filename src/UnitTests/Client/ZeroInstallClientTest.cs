@@ -24,6 +24,14 @@ public class ZeroInstallClientTest : TestWithMocks
     }
 
     [Fact]
+    public void TrustKey()
+    {
+        _launcherMock.Setup(x => x.Run("trust", "add", "abc", "example.com"));
+
+        _client.TrustKey("abc", "example.com");
+    }
+
+    [Fact]
     public async Task Select()
     {
         var selections = SelectionsTest.CreateTestSelections();

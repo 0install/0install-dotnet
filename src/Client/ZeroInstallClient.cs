@@ -58,6 +58,17 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
+    public void TrustKey(string fingerprint, string domain)
+    {
+        try
+        {
+            _launcher.Run("trust", "add", fingerprint, domain);
+        }
+        catch (ExitCodeException ex) when (ex.ExitCode == 1) // NoChanges
+        {}
+    }
+
+    /// <inheritdoc/>
     public async Task<Selections> SelectAsync(Requirements requirements, bool refresh = false, bool offline = false)
     {
         var args = new List<string> { "select", "--batch", "--xml" };

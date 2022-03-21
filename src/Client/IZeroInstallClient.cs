@@ -12,6 +12,13 @@ namespace ZeroInstall.Client;
 public interface IZeroInstallClient
 {
     /// <summary>
+    /// Trusts feeds from a specific domain when signed with a specific key.
+    /// </summary>
+    /// <param name="fingerprint">The fingerprint of the key to trust.</param>
+    /// <param name="domain">The domain the key should be trusted for.</param>
+    void TrustKey(string fingerprint, string domain);
+
+    /// <summary>
     /// Selects a program and compatible versions of all of its dependencies.
     /// </summary>
     /// <param name="requirements">The requirements describing the program.</param>
