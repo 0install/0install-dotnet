@@ -17,7 +17,7 @@ jobs:
       - name: Transifex Pull
         run: ./0install.sh run https://apps.0install.net/devel/transifex-cli.xml --token ${{secrets.TRANSIFEX_API_KEY}} pull --mode translator --all
       - name: DeepL Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: '**/*.a.resx'
           key: deepl
