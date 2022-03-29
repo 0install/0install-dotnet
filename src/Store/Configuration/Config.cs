@@ -15,6 +15,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     /// <summary>
     /// The initial tab to show in GUI representations.
     /// </summary>
+    [Browsable(false)]
     public ConfigTab InitialTab { get; set; }
 
     private static readonly TimeSpan _defaultFreshness = TimeSpan.FromDays(7);
