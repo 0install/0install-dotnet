@@ -228,7 +228,7 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Houve um problema no acesso à loja de implementação '{0}'.</value>
+    <value>Houve um problema de acesso à loja de implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

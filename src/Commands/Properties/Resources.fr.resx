@@ -215,7 +215,7 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe dans le réperto
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Lorsque vous utilisez l'option --portable, vous devez spécifier explicitement le répertoire cible.</value>
+    <value>Lorsque vous utilisez l'option {0}, vous devez spécifier explicitement le répertoire cible.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--La commande ne peut être spécifiée qu'avec un nom d'alias.</value>
+    <value>{0} ne peut être spécifié que conjointement avec un nom d'alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -732,7 +732,7 @@ Mettre à vide ("") pour ignorer la commande pendant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Spécifie la langue préférée pour la mise en œuvre. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
+    <value>Spécifie la langue préférée pour l'implémentation. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
 Vous pouvez utiliser cette option plusieurs fois pour spécifier plusieurs langues acceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -967,11 +967,11 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Essayez {0}--help</value>
-    <comment>Manually overriden.</comment>
+    <value>Essayez {0}</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Essayez --help avec l'un de ceux-ci :</value>
+    <value>Essayez {0} avec l'un d'entre eux :</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

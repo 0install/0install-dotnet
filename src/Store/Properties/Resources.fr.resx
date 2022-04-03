@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Copie de fichiers</value>
-    <comment>Automatically translated.</comment>
+    <value>Copie des fichiers</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Les sous-répertoires de ce cache sont protégés contre toute modification involontaire grâce aux permissions NTFS.
@@ -81,32 +81,32 @@ Vous pouvez également utiliser l'interface utilisateur graphique pour gérer le
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Suppression du répertoire {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Suppression du dossier {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
     <value>Suppression de la mise en œuvre {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Suppression des fichiers obsolètes</value>
-    <comment>Automatically translated.</comment>
+    <value>Suppression des fichiers obsolètes. </value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Le hachage du manifeste d'une implémentation ne correspond pas à la valeur attendue.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valeur réelle {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Valeur actuelle: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
     <value>Manifeste réel {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valeur attendue {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Valeur attendue: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Manifestation attendue {0}</value>
@@ -122,20 +122,20 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Impossible de trouver le fichier ou le répertoire '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de trouver le fichier ou répertoire '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Les fichiers que vous voulez supprimer sont actuellement en cours d'utilisation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Voulez-vous fermer ces applications et continuer ?</value>
-    <comment>Automatically translated.</comment>
+    <value>Vous voulez fermer ces applications et continuer ?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Les demandes suivantes doivent être clôturées :</value>
-    <comment>Automatically translated.</comment>
+    <value>Les applications suivantes doivent être fermées :</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Recherche de fichiers en double dans '{0}'.</value>
@@ -154,8 +154,8 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Voulez-vous le supprimer ? Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
-    <comment>Automatically translated.</comment>
+    <value>Souhaitez-vous le supprimer? Une nouvelle copie sera automatiquement téléchargée en cas de besoin. </value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Exécutez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
@@ -183,8 +183,8 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>La signature n'est pas valide ou est endommagée.</value>
-    <comment>Automatically translated.</comment>
+    <value>La signature est non valable ou endommagée. </value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Seuls les administrateurs peuvent optimiser un magasin partagé.</value>
@@ -256,15 +256,15 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
     <value>Impossible d'établir une connexion avec StoreService.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
-    <value>Répertoires temporaires</value>
-    <comment>Automatically translated.</comment>
+    <value>Les dossiers temporaires</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Impossible de trouver une clé secrète avec le nom spécifié.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de trouver la clé avec ce nom. </value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>Impossible d'activer la protection en écriture pour '{0}'.</value>
@@ -275,8 +275,8 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>La phrase de passe que vous avez saisie est incorrecte.</value>
-    <comment>Automatically translated.</comment>
+    <value>Le mot de passe que vous avez entré est erroné. </value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>La dernière ligne du fichier n'est pas la fin du bloc de signature.</value>

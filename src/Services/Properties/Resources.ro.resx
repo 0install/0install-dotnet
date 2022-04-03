@@ -99,7 +99,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atributul uri al interfeței &lt;interface&gt; ('{0}') nu se potrivește cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
+    <value>Atributul uri &lt;interface&gt; ('{0}') nu corespunde cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -123,8 +123,8 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>Nu a fost specificată nicio interfață.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nicio interfață nu a fost specificată.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
@@ -182,11 +182,11 @@ Ora nouă {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>Directorul de lucru a fost deja modificat de o comandă anterioară.</value>
-    <comment>Automatically translated.</comment>
+    <value>Directorul de lucru a fost deja schimbat de o comandă anterioară.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Directorul de lucru conține o cale de acces invalidă (un potențial risc de securitate).</value>
-    <comment>Automatically translated.</comment>
+    <value>Directorul de lucru conține o cale invalidă (potențial risc de securitate).</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

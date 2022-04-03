@@ -58,62 +58,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DetectingCandidates" xml:space="preserve">
-    <value>Ricerca di file eseguibili</value>
+  <data name="ArchiveInvalid" xml:space="preserve">
+    <value>El fichero de archivo no es válido o está dañado.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="EmptyImplementation" xml:space="preserve">
-    <value>È stato calcolato un manifest digest per una directory vuota. Controlla di aver impostato il corretto valore di "extract" per l'archivio.</value>
+  <data name="ExtractingArchive" xml:space="preserve">
+    <value>Extraer el archivo</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="EntryPointNotFound" xml:space="preserve">
-    <value>Il punto di ingresso dell'applicazione non è stato trovato.
-Prova a specificarlo manualmente.</value>
+  <data name="ExtractionOnlyOnWindows" xml:space="preserve">
+    <value>La extracción de este tipo de archivo sólo es compatible con Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="FetchingExternal" xml:space="preserve">
-    <value>Scaricare '{0}' usando Zero Install</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="FileNotFound" xml:space="preserve">
-    <value>Il file '{0}' non può essere trovato.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Rilevato '{0}' come directory di installazione.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Nessuna directory %ProgramFiles% a 32 bit trovata.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Sono stati rilevati più nuovi programmi predefiniti nel registro. Gestendoli tutti, ma l'ultimo può avere la precedenza in alcuni casi.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Sono state rilevate più directory di installazione. Scegliere la prima per impostazione predefinita.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliendo la prima per impostazione predefinita.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Non è stata rilevata alcuna directory di installazione.
-Prova a specificarla manualmente.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Questo metodo è attualmente disponibile solo su Windows.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>La chiave segreta non è nel portachiavi dell'utente.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SizeMissing" xml:space="preserve">
-    <value>La dimensione del file non è ancora determinata.</value>
+  <data name="UnsupportedArchiveMimeType" xml:space="preserve">
+    <value>El tipo de archivo MIME '{0}' no es compatible.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -59,81 +59,79 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Următoarele puncte de acces existente sunt în conflict între ele:</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Următoarele puncte de acces pentru aplicația {0} sunt în conflict între ele:</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>Punctul de acces existent {0} este în conflict cu noul punct de acces {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Aplicația '{0}' se află deja în lista de aplicații.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Aplicarea modificărilor</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>Nu se poate găsi aplicația '{0}' în lista de aplicații.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Puteți efectua doar o singură operațiune de integrare a biroului la un moment dat.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>Numele '{0}' conține caractere invalide.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Vă rugăm să utilizați "0install central" sau "0install config" pentru a configura Sync.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>A apărut o problemă la încărcarea '{0}'.</value>
-    <comment>Manually overriden.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Repararea integrării desktop-ului</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>Numele comenzii rapide '{0}' conține caractere invalide.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Numele de utilizator și/sau parola pe care le-ați introdus pentru serverul Sync sunt incorecte. Vă rugăm să verificați opțiunile de sincronizare.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>Cheia criptografică pe care ați introdus-o pentru Sync este incorectă. Vă rugăm să verificați opțiunile de sincronizare.
-Puteți modifica cheia criptografică utilizată pe server prin rularea expertului de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau prin executarea '0install sync --reset=server'.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
-    <value>Descărcarea datelor de sincronizare</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Datele stocate în prezent pe serverul Sync sunt deteriorate.
-Puteți înlocui datele stocate pe server rulând expertul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând "0install sync --reset=server".</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Încărcarea datelor de sincronizare</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Nu s-a putut găsi {0} cu ID-ul '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Nu se poate înlocui executabilul de tip stub '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
 </root>

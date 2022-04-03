@@ -215,7 +215,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>portableオプションを使用する場合、ターゲットディレクトリを明示的に指定する必要があります。</value>
+    <value>{0} オプションを使用する場合、ターゲットディレクトリを明示的に指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--コマンドは、エイリアス名と一緒にのみ指定することができます。</value>
+    <value>{0} は、エイリアス名と一緒にのみ指定することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -647,7 +647,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>指定されたエイリアスのインターフェースURIを表示する。</value>
+    <value>与えられたエイリアスのインターフェースURIを表示する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
@@ -741,11 +741,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>現在のユーザーだけでなく、マシン全体（コンピュータ全体）に設定を適用します。</value>
+    <value>現在のユーザーだけでなく、マシン全体（コンピュータ全体）の設定を適用します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合は、デフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -967,11 +967,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>{0} --helpを試してみてください。</value>
+    <value>トライ{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>これらのうち、--helpを試してみてください。</value>
+    <value>{0} のいずれかを試してみてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

@@ -215,7 +215,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Ao utilizar a opção --portátil, deve especificar explicitamente o directório de destino.</value>
+    <value>Ao utilizar a opção {0} deve especificar explicitamente o directório de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -378,7 +378,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista de todos os directórios de implementação.</value>
+    <value>Lista todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -457,7 +457,7 @@ Isto é semelhante a '0install download --refresh', excepto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação para adicionar:</value>
+    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação a adicionar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -591,7 +591,7 @@ Pode redistribuir cópias deste programa sob os termos da Licença Pública Gera
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--comando só pode ser especificado juntamente com um nome falso.</value>
+    <value>{0} só pode ser especificado juntamente com um nome falso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -745,7 +745,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Executar o executável especificado {MAIN} em vez do executável por defeito. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
+    <value>Executar o executável especificado {MAIN} em vez do executável padrão. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
 Não pode conter argumentos de linha de comando! Os espaços em branco não precisam de ser fugidos.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -967,11 +967,11 @@ Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Experimente {0} --ajuda</value>
+    <value>Experimente {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Tente --ajudar com um destes:</value>
+    <value>Experimente {0} com um destes:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

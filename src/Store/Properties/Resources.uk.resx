@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>Копіювання файлів </value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="ProcessingFiles" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
+  </data>
+</root>
