@@ -10,31 +10,38 @@ insert_final_newline = true
 keep_existing_linebreaks = true
 max_line_length = off
 
-[*.{json,xml,resx,yml,htm,html,js,ts,css,scss,less}]
-indent_size = 2
+[*.md]
+trim_trailing_whitespace = false
 
-[*.{*proj,config,ruleset,cd,props,targets,nuspec}]
-end_of_line = crlf
+[*.{json,xml,yml,yaml}]
 indent_size = 2
-
-[*.{txt,cs,ps1,psd1,manifest}]
-end_of_line = crlf
 
 [*.{bat,cmd}]
 charset = latin1
+end_of_line = crlf
+
+[*.{ps1,psd1}]
 end_of_line = crlf
 
 [*.sln]
 end_of_line = crlf
 indent_style = tab
 
-[*.{md,resx,Designer.*}]
-trim_trailing_whitespace = false
+[*.{*proj,config,manifest,props,targets,nuspec}]
+end_of_line = crlf
+indent_size = 2
 
 [*.resx]
-charset=utf-8-bom
+indent_size = 2
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+[*.Designer.cs]
+trim_trailing_whitespace = false
 
 [*.cs]
+end_of_line = crlf
+
 # Indentation
 csharp_indent_block_contents = true
 csharp_indent_braces = false
