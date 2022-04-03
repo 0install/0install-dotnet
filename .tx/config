@@ -2,39 +2,32 @@
 host = https://www.transifex.com
 type = RESX
 source_lang = en
-lang_map = pt_PT: pt-PT, pt_BR: pt-BR, ro_RO: ro, da_DK: da, vi_VN: vi
+lang_map = pt_PT: pt-PT, pt_BR: pt-BR
 
 [o:eicher:p:0install-win:r:model]
 source_file = src/Model/Properties/Resources.resx
 file_filter = src/Model/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
 
 [o:eicher:p:0install-win:r:store]
 source_file = src/Store/Properties/Resources.resx
 file_filter = src/Store/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
 
 [o:eicher:p:0install-win:r:archives]
 source_file = src/Archives/Properties/Resources.resx
 file_filter = src/Archives/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
 
 [o:eicher:p:0install-win:r:services]
 source_file = src/Services/Properties/Resources.resx
 file_filter = src/Services/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
 
 [o:eicher:p:0install-win:r:desktopintegration]
 source_file = src/DesktopIntegration/Properties/Resources.resx
 file_filter = src/DesktopIntegration/Properties/Resources.<lang>.o.resx
-minimum_perc = 50
 
 [o:eicher:p:0install-win:r:commands]
 source_file = src/Commands/Properties/Resources.resx
 file_filter = src/Commands/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
 
 [o:eicher:p:0install-win:r:publish]
 source_file = src/Publish/Properties/Resources.resx
 file_filter = src/Publish/Properties/Resources.<lang>.o.resx
-minimum_perc = 30
