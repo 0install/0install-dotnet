@@ -12,10 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Transifex Push
         run: ./0install.sh run https://apps.0install.net/devel/transifex-cli.xml --token ${{secrets.TRANSIFEX_API_KEY}} push --source
       - name: Transifex Pull
         run: ./0install.sh run https://apps.0install.net/devel/transifex-cli.xml --token ${{secrets.TRANSIFEX_API_KEY}} pull --mode translator --all
+
       - name: DeepL Cache
         uses: actions/cache@v3
         with:
@@ -28,7 +30,9 @@ jobs:
         with:
           auth: ${{secrets.DEEPL_API_KEY}}
           source-lang: en
-          localization-filter: de;el;es-ES;fr;it;ja;nl;pl;pt-BR;pt-PT;ro;ru;tr;zh
+          localization-filter: de;el;es;fr;it;ja;nl;pl;pt-BR;pt-PT;ro;ru;tr;uk;zh
+          glossary-name: Zero Install
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@main
         with:
