@@ -49,7 +49,7 @@ public class AddApp : AppCommand
             if (AdditionalArgs.Count == 2)
                 CreateAlias(appEntry, AdditionalArgs[0], _command);
             else if (_command != null)
-                throw new OptionException(Resources.NoAddCommandWithoutAlias, "command");
+                throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
 
             if (WindowsUtils.IsWindows && !CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
                 WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes

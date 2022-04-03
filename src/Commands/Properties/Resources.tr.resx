@@ -215,7 +215,7 @@ Başlatmak için klasördeki ZeroInstall.exe dosyasını çalıştırın.</value
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>--portable seçeneği kullanılırken hedef klasörü açıkça belirtmelisiniz.</value>
+    <value>{0} seçeneği kullanılırken hedef klasörü açıkça belirtmelisiniz.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--command yalnız bir kısaltma adı ile birlikte belirtilebilir.</value>
+    <value>{0} yalnız bir kısaltma adı ile birlikte belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>{0} --help deneyin</value>
+    <value>{0} deneyin</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Şunlardan biriyle --help deneyin:</value>
+    <value>Şunlardan biriyle {0} deneyin:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

@@ -15,7 +15,7 @@ public abstract class CliMultiCommand : CliCommand
     {
         get
         {
-            var builder = new StringBuilder(Resources.TryHelpWith + Environment.NewLine);
+            var builder = new StringBuilder(string.Format(Resources.TryHelpWith, "--help") + Environment.NewLine);
             foreach (string possibleSubCommand in SubCommandNames)
                 builder.AppendLine("0install " + FullName + " " + possibleSubCommand);
             return builder.ToString();

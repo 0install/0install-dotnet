@@ -215,7 +215,7 @@ Sie können sie verwenden, indem Sie die ZeroInstall.exe Datei in dem Verzeichni
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Wenn Sie die Option --portable verwenden, müssen Sie das Zielverzeichnis explizit angeben.</value>
+    <value>Wenn Sie die Option {0} verwenden, müssen Sie das Zielverzeichnis explizit angeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--command darf nur zusammen mit einem Aliasnamen angegeben werden.</value>
+    <value>{0} darf nur zusammen mit einem Aliasnamen angegeben werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas an
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Probieren Sie {0} --help</value>
+    <value>Probieren Sie {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Probieren Sie --help mit einem der folgenden:</value>
+    <value>Probieren Sie {0} mit einem der folgenden:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

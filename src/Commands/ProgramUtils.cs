@@ -202,7 +202,7 @@ public static class ProgramUtils
         }
         catch (OptionException ex)
         {
-            handler.Error(new OptionException(ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, exeName), ex.OptionName));
+            handler.Error(new OptionException(ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, exeName + " --help"), ex.OptionName));
             return ExitCode.InvalidArguments;
         }
         catch (FormatException ex)
