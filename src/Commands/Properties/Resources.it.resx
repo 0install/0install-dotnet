@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
-    <value>È stato creato un alias chiamato '{0}' per '{1}'.</value>
+    <value>Un alias chiamato '{0}' per '{1}' è stato creato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
@@ -116,7 +116,7 @@ Puoi usare lo script di importazione o l'eseguibile Bootstrap in '{1}' per impor
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Desideri aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
+    <value>Vuoi aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
 Se si seleziona 'Sì' le integrazioni potenzialmente incompatibili saranno rimosse.
 Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value>
     <comment>Automatically translated.</comment>
@@ -126,8 +126,8 @@ Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancella</value>
-    <comment>Automatically translated.</comment>
+    <value>Annulla</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
     <value>Le opzioni {0} e {1} non possono essere usate insieme.</value>
@@ -146,8 +146,8 @@ Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
-    <value>Fonti del catalogo</value>
-    <comment>Automatically translated.</comment>
+    <value>Catalogo fonti</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Change" xml:space="preserve">
     <value>Cambia</value>
@@ -167,7 +167,7 @@ Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value
   </data>
   <data name="Command" xml:space="preserve">
     <value>Comando</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
     <value>Argomenti della linea di comando</value>
@@ -215,7 +215,7 @@ Puoi usarla eseguendo il file ZeroInstall.exe nella directory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Quando si usa l'opzione --portable è necessario specificare esplicitamente la directory di destinazione.</value>
+    <value>Quando si usa l'opzione {0} è necessario specificare esplicitamente la directory di destinazione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -555,7 +555,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Questo programma non viene fornito con ASSOLUTAMENTE NESSUNA GARANZIA, nella misura consentita dalla legge.
-Potete ridistribuire copie di questo programma secondo i termini della GNU Lesser General Public License.</value>
+È possibile ridistribuire copie di questo programma secondo i termini della GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -583,15 +583,15 @@ Potete ridistribuire copie di questo programma secondo i termini della GNU Lesse
     <comment>Automatically translated.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
-    <value>Le mie applicazioni</value>
-    <comment>Automatically translated.</comment>
+    <value>Mie applicazioni</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
     <value>Si prega di utilizzare la versione GUI di Zero Install per questa funzione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--comando può essere specificato solo insieme a un nome di alias.</value>
+    <value>{0} può essere specificato solo insieme a un nome di alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Tieni questa chiave segreta e usa qualcosa di diverso per la tua password. In qu
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Prova {0} --help</value>
+    <value>Prova {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Prova --help con uno di questi:</value>
+    <value>Prova {0} con uno di questi:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
@@ -984,7 +984,7 @@ Tieni questa chiave segreta e usa qualcosa di diverso per la tua password. In qu
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Comando sconosciuto '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
     <value>Uso:</value>

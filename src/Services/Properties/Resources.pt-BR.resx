@@ -99,7 +99,7 @@ Você quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde à URL de onde o feed foi baixado ('{1}').</value>
+    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde à URL de onde foi feito o download do feed ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">

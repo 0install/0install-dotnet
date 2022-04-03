@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>Arhiva este invalidă sau coruptă.</value>
+    <value>Архівний файл недійсний або ушкоджений. </value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extragerea arhivei</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Extragerea acestui tip de arhivă este acceptată numai pe Windows.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Tipul MIME al arhivei '{0}' nu este acceptat.</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
 </root>

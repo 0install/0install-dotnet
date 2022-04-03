@@ -189,7 +189,7 @@ U kunt een backup maken van deze lijst door '0install sync' te gebruiken.</value
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Begin tekst in te voeren op de laatste regel om een nieuwe invoer te creëren.
-Selecteer een hele regel door in de eerste kolom te klikken en druk dan op DEL op het toetsenbord om een regel te verwijderen.</value>
+Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens op DEL op het toetsenbord om een regel te verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -215,7 +215,7 @@ U kunt deze gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Als u de optie --portable gebruikt, moet u expliciet de doelmap opgeven.</value>
+    <value>Als u de optie {0} gebruikt, moet u expliciet de doelmap opgeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--commando mag alleen samen met een aliasnaam worden opgegeven.</value>
+    <value>{0} mag alleen samen met een aliasnaam worden opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -766,7 +766,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Uitvoeren in off-line modus, overschrijft de standaard instelling.
+    <value>Draai in off-line modus, waarbij de standaard instelling wordt overschreven.
 In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd zijn, en nieuwere versies van programma's worden niet gedownload, zelfs niet als de injector ze al kent (bijv. van een eerdere verversing).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -775,7 +775,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Maak een draagbare installatie die kan worden verplaatst (bv. op een thumbdrive).</value>
+    <value>Maak een draagbare installatie die kan worden verplaatst (b.v. op een thumb drive).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -967,11 +967,11 @@ Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manie
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Probeer {0} --help</value>
+    <value>Probeer {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Probeer --help met een van deze:</value>
+    <value>Probeer {0} met een van deze:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

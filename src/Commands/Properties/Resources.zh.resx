@@ -215,7 +215,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>当使用--portable选项时，你必须明确指定目标目录。</value>
+    <value>当使用{0} 选项时，你必须明确指定目标目录。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -281,7 +281,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>将启动URI指定的程序所需的所有资料和实现导出到一个DIRECTORY。</value>
+    <value>将启动由URI指定的程序所需的所有馈送和实现导出到一个DIRECTORY。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -343,7 +343,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>选择一个由URI识别的程序的版本，以及其所有依赖的兼容版本。
+    <value>选择一个由URI识别的程序版本，以及其所有依赖关系的兼容版本。
 如果它选择了一个版本集，则返回0的退出状态，如果它不能找到一个一致的版本集，则返回1的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -416,7 +416,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签名。</value>
+    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签署。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -587,11 +587,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>请使用GUI版本的Zero Install来实现这一功能。</value>
+    <value>请使用Zero Install的GUI版本来实现这一功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--命令只能与一个别名一起指定。</value>
+    <value>{0} 只能与一个别名一起指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -732,7 +732,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实施的首选语言。使用ISO简短的语言代码（如en或en-US）。
+    <value>指定实施的首选语言。使用ISO简短的语言代码（例如，en或en-US）。
 你可以多次使用这个选项来指定多种可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -967,11 +967,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>尝试{0} --help</value>
+    <value>尝试{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>试试--帮助其中的一个。</value>
+    <value>试试{0} ，用这些东西中的一个。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
