@@ -64,7 +64,7 @@
   </data>
   <data name="CommandNotFound" xml:space="preserve">
     <value>Impossible de trouver la commande '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
     <value>Erreur de chargement des préférences de flux pour '{0}'. Retour aux valeurs par défaut.</value>
@@ -75,8 +75,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Impossible de trouver le flux '{0}' dans le catalogue.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de trouver le flux '{0}' dans catalogue.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>Trouvé à la place :</value>
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Un système d'exploitation ou une unité d'unité centrale incomp incomp incompatible</value>
+    <value>Un système d'exploitation ou une unité d'unité centrale Incompatible</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">

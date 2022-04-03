@@ -186,7 +186,7 @@ URI фида {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Рабочая директория содержит недопустимый путь (потенциально опасно для безопасности).</value>
+    <value>Рабочий каталог содержит недопустимый путь (потенциально опасный для безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

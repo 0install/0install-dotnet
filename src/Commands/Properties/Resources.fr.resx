@@ -732,7 +732,7 @@ Mettre à vide ("") pour ignorer la commande pendant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Spécifie la langue préférée pour la mise en œuvre. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
+    <value>Spécifie la langue préférée pour l'implémentation. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
 Vous pouvez utiliser cette option plusieurs fois pour spécifier plusieurs langues acceptables.</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Błąd przy ładowaniu preferencji żywieniowych dla "{0}". Przywrócenie wartości domyślnych.</value>
+    <value>Błąd ładowania preferencji żywieniowych dla "{0}". Przywrócenie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Nie udało się rozwiązać problemu ścieżki względnej '{0}'. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
+    <value>Nie udało się rozwiązać problemu względnej ścieżki "{0}". Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">

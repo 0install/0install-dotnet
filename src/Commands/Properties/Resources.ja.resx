@@ -647,7 +647,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>指定されたエイリアスのインターフェースURIを表示する。</value>
+    <value>与えられたエイリアスのインターフェースURIを表示する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
@@ -741,11 +741,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>現在のユーザーだけでなく、マシン全体（コンピュータ全体）に設定を適用します。</value>
+    <value>現在のユーザーだけでなく、マシン全体（コンピュータ全体）の設定を適用します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合は、デフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトではなく、指定した実行ファイル {MAIN} を実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>

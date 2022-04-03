@@ -259,7 +259,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie zostanie podane żadne zapytanie, wyświetlana jest lista wszystkich aplikacji w katalogach.</value>
+    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie podano zapytania, wyświetlana jest lista wszystkich aplikacji znajdujących się w katalogach.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Umożliwia wyświetlenie lub zmianę ustawień konfiguracyjnych.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podana jest wartość "default".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -318,7 +318,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>Usuwa wszystkie aplikacje z listy aplikacji i cofa wszelkie integracje środowiska graficznego. Polecenia tego należy użyć do wyczyszczenia systemu przed usunięciem instalacji zerowej.</value>
+    <value>Usuwa wszystkie aplikacje z listy aplikacji i cofa wszelkie integracje środowiska graficznego. Polecenia tego należy użyć do wyczyszczenia systemu przed usunięciem Instalacji Zero.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -339,7 +339,7 @@ Zwraca kod zakończenia równy 1, jeśli etap pobierania zakończył się niepow
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Wyszukuje kanały indeksowane przez serwer lustrzany, które pasują do podanych słów kluczowych. Należy pamiętać, że domyślnie serwer lustrzany indeksuje wszystkie znane kanały, niezależnie od ich jakości; należy zdecydować, czy zaufać programom przed ich uruchomieniem.</value>
+    <value>Wyszukuje kanały indeksowane przez serwer lustrzany, które pasują do podanych słów kluczowych. Należy pamiętać, że domyślny serwer lustrzany indeksuje wszystkie znane kanały, niezależnie od ich jakości; należy zdecydować, czy zaufać programom przed ich uruchomieniem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -655,7 +655,7 @@ Kopie tego programu można rozprowadzać zgodnie z warunkami licencji GNU Lesser
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatycznie odpowiadaj na pytania przy użyciu wartości domyślnych, jeśli to możliwe, i uprość wyjście konsoli (bez tabel i pasków postępu).</value>
+    <value>Automatycznie odpowiadaj na pytania za pomocą wartości domyślnych, jeśli to możliwe, i uprość wyjście konsoli (bez tabel i pasków postępu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -663,7 +663,7 @@ Kopie tego programu można rozprowadzać zgodnie z warunkami licencji GNU Lesser
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Przed dodaniem katalogu do listy należy pominąć jego pobieranie, aby sprawdzić, czy jest on poprawny.</value>
+    <value>Pomiń pobieranie katalogu, aby sprawdzić, czy jest on poprawny przed dodaniem go do listy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -767,7 +767,7 @@ Nie może zawierać argumentów wiersza poleceń! Nie trzeba uciekać przed bia�
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Działa w trybie off-line, zastępując ustawienia domyślne.
-W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieaktualne, a nowsze wersje programów nie będą pobierane, nawet jeśli injector już o nich wie (np. z poprzedniego odświeżenia).</value>
+W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieaktualne, a nowsze wersje programów nie będą pobierane, nawet jeśli iniektor już o nich wie (np. z poprzedniego odświeżenia).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -918,7 +918,7 @@ Uruchom '0install config self_update_uri default', aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Zasadą stabilności potrzebną do wybrania implementacji z {0} jest "{1}".</value>
+    <value>Zasadą stabilności potrzebną do wybrania implementacji z {0} jest '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">

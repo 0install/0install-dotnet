@@ -117,7 +117,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Yes" (Da), eventualele integrări incompatibile vor fi eliminate.
+Dacă selectați "Yes" (Da), integrările potențial incompatibile vor fi eliminate.
 Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -126,8 +126,8 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <comment>Automatically translated.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Anulează</value>
-    <comment>Automatically translated.</comment>
+    <value>Anulare</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
     <value>Opțiunile {0} și {1} nu pot fi utilizate împreună.</value>
@@ -194,7 +194,7 @@ Selectați o întreagă linie făcând clic în prima coloană și apoi apăsaț
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Activați o casetă de selectare pentru a face dintr-o capacitate gestionarul implicit dorit.
-Eliminați o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
+Scoateți o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -277,7 +277,7 @@ Fără argumente, afișează toate setările și valorile lor actuale. Cu un sin
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Se comportă în mod similar cu "0install select", cu excepția faptului că descarcă și versiunile selectate, dacă acestea nu sunt deja stocate în memoria cache.
-Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile sunt descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
+Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile au fost descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -314,7 +314,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Elimină din sistem instanța curentă a programului Zero Install.</value>
+    <value>Îndepărtează din sistem instanța curentă a programului Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -445,7 +445,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Eliminarea integrării desktop-ului</value>
+    <value>Îndepărtarea integrării desktop</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -501,7 +501,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
-    <value>Fluxuri în cache</value>
+    <value>Fluxuri cache</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
@@ -567,7 +567,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Lipsește elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
+    <value>Lipsă elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -676,7 +676,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates", "storage", "storage", "catalog", "trust", "sync", "language", "language" și "advanced".</value>
+    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates" (actualizări), "storage" (stocare), "catalog" (catalog), "trust" (încredere), "sync" (sincronizare), "language" (limbă), "language" (limbă) și "advanced" (avansat).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -684,7 +684,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci să utilizați.</value>
+    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci trebuie utilizată.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
