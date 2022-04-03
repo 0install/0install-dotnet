@@ -215,7 +215,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Ao utilizar a opção --portátil, deve especificar explicitamente o directório de destino.</value>
+    <value>Ao utilizar a opção {0} deve especificar explicitamente o directório de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Pode redistribuir cópias deste programa sob os termos da Licença Pública Gera
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--comando só pode ser especificado juntamente com um nome falso.</value>
+    <value>{0} só pode ser especificado juntamente com um nome falso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Experimente {0} --ajuda</value>
+    <value>Experimente {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Tente --ajudar com um destes:</value>
+    <value>Experimente {0} com um destes:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

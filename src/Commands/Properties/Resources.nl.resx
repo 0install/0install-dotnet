@@ -215,7 +215,7 @@ U kunt deze gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Als u de optie --portable gebruikt, moet u expliciet de doelmap opgeven.</value>
+    <value>Als u de optie {0} gebruikt, moet u expliciet de doelmap opgeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--commando mag alleen samen met een aliasnaam worden opgegeven.</value>
+    <value>{0} mag alleen samen met een aliasnaam worden opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manie
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Probeer {0} --help</value>
+    <value>Probeer {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Probeer --help met een van deze:</value>
+    <value>Probeer {0} met een van deze:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

@@ -215,7 +215,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>W przypadku użycia opcji --portable należy jawnie określić katalog docelowy.</value>
+    <value>Podczas korzystania z opcji {0} należy jawnie określić katalog docelowy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Kopie tego programu można rozprowadzać zgodnie z warunkami licencji GNU Lesser
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--Polecenie może być podane tylko razem z nazwą aliasu.</value>
+    <value>{0} może być podana tylko razem z nazwą aliasu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Klucz ten należy utrzymywać w tajemnicy, a jako hasła używać czegoś innego
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Spróbuj {0} --help</value>
+    <value>Spróbuj {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Spróbuj --help z jedną z tych opcji:</value>
+    <value>Spróbuj {0} z jednym z nich:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

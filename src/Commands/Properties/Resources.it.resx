@@ -215,7 +215,7 @@ Puoi usarla eseguendo il file ZeroInstall.exe nella directory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Quando si usa l'opzione --portable è necessario specificare esplicitamente la directory di destinazione.</value>
+    <value>Quando si usa l'opzione {0} è necessario specificare esplicitamente la directory di destinazione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Potete ridistribuire copie di questo programma secondo i termini della GNU Lesse
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--comando può essere specificato solo insieme a un nome di alias.</value>
+    <value>{0} può essere specificato solo insieme a un nome di alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Tieni questa chiave segreta e usa qualcosa di diverso per la tua password. In qu
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Prova {0} --help</value>
+    <value>Prova {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Prova --help con uno di questi:</value>
+    <value>Prova {0} con uno di questi:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

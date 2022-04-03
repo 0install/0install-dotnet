@@ -215,7 +215,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>portableオプションを使用する場合、ターゲットディレクトリを明示的に指定する必要があります。</value>
+    <value>{0} オプションを使用する場合、ターゲットディレクトリを明示的に指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--コマンドは、エイリアス名と一緒にのみ指定することができます。</value>
+    <value>{0} は、エイリアス名と一緒にのみ指定することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>{0} --helpを試してみてください。</value>
+    <value>トライ{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>これらのうち、--helpを試してみてください。</value>
+    <value>{0} のいずれかを試してみてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

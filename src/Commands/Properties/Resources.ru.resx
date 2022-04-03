@@ -215,7 +215,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>При использовании опции --portable вы должны явно указать целевой каталог.</value>
+    <value>При использовании опции {0} вы должны явно указать целевой каталог.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--команда может быть указана только вместе с именем псевдонима.</value>
+    <value>{0} может быть указано только вместе с именем псевдонима.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Попробуйте {0} --help</value>
+    <value>Попробуйте {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Попробуйте -help с одним из них:</value>
+    <value>Попробуйте {0} с одним из них:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">

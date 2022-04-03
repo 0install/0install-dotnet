@@ -215,7 +215,7 @@ Puteți să o utilizați rulând fișierul ZeroInstall.exe din directorul respec
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Atunci când utilizați opțiunea --portable, trebuie să specificați în mod explicit directorul țintă.</value>
+    <value>Atunci când utilizați opțiunea {0}, trebuie să specificați în mod explicit directorul țintă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -591,7 +591,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>--comanda poate fi specificată numai împreună cu un nume de alias.</value>
+    <value>{0} poate fi specificat numai împreună cu un nume de alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,11 +967,11 @@ Păstrați secretă această cheie și folosiți o altă parolă. În acest fel,
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Încercați {0} --help</value>
+    <value>Încercați {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Încercați --help cu una dintre acestea:</value>
+    <value>Încercați {0} cu una dintre acestea:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
