@@ -77,7 +77,7 @@ partial class Self
         {
             if (AdditionalArgs.Count == 0)
             {
-                if (_portable) throw new OptionException(Resources.DeployMissingTargetForPortable, "portable");
+                if (_portable) throw new OptionException(string.Format(Resources.DeployMissingTargetForPortable, "--portable"), "portable");
                 return FindExistingInstance(_machineWide)
                     ?? GetDefaultTargetDir();
             }

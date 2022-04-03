@@ -215,7 +215,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Όταν χρησιμοποιείτε την επιλογή --portable πρέπει να καθορίσετε ρητά τον κατάλογο-στόχο.</value>
+    <value>Όταν χρησιμοποιείτε την επιλογή {0} πρέπει να καθορίσετε ρητά τον κατάλογο-στόχο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -966,11 +966,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Δοκιμάστε {0} --help</value>
+    <value>Δοκιμάστε {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Δοκιμάστε --help με ένα από αυτά:</value>
+    <value>Δοκιμάστε {0} με ένα από αυτά:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
