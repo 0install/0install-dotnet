@@ -31,7 +31,7 @@
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.11.2" />
+    <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.11.3" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
