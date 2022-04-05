@@ -103,11 +103,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Nokta ile ayrılmış listede yalnız ondalık sayılar bulunabilir.</value>
+    <value>Nokta ile ayrılmış listede yalnızca ondalık sayılar bulunabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Sürüm numarasında yalnız nokta ile ayrılmış ondalık değerler ve değiştirici dizgeler bulunabilir.</value>
+    <value>Sürüm numarasında yalnızca nokta ile ayrılmış ondalık değerler ve değiştirici dizgeler bulunabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -119,15 +119,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>'{0}' göreli yolu çözümlenemedi. Göreli yollar yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
+    <value>'{0}' göreli yolu çözümlenemedi. Göreli yollar yalnızca yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>'{0}' göreli adresi çözümlenemedi. Göreli adresler yalnız yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
+    <value>'{0}' göreli adresi çözümlenemedi. Göreli adresler yalnızca yerel dosyalar olarak kaydedilmiş akışlarda kullanılabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} üzerindeki 'rollout-percentage' özniteliği yalnız 'kararlılık' değeri 'testing' olduğunda veya ayarlanmamış ise ayarlanabilir.</value>
+    <value>{0} üzerindeki 'rollout-percentage' özniteliği yalnızca 'kararlılık' değeri 'testing' olduğunda veya ayarlanmamış ise ayarlanabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Güvenli bir kod olmalı. Yalnız alfasayısal karakterler, boşluk ( ), nokta (.), altçizgi (_), tire (-) ve artı (+) simgelerini içerebilir.</value>
+    <value>Güvenli bir kod olmalı. Yalnızca alfasayısal karakterler, boşluk ( ), nokta (.), altçizgi (_), tire (-) ve artı (+) simgelerini içerebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

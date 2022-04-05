@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Cópia de arquivos</value>
-    <comment>Automatically translated.</comment>
+    <value>Copiando arquivos</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Os subdiretórios neste cache são protegidos contra modificações não intencionais usando NTFS Permissions.
@@ -78,39 +78,39 @@ Alternativamente, você pode usar a interface gráfica do usuário para gerencia
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Como excluir</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Eliminação de diretório {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Excluindo pasta {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Eliminação da implementação {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Excluindo implementação {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Eliminação de arquivos obsoletos</value>
-    <comment>Automatically translated.</comment>
+    <value>Excluindo arquivos obsoletos</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>O hash manifesto de uma implementação não corresponde ao valor esperado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valor real {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Valor atual: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifesto real {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifesto atual: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valor esperado {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Valor esperado: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifesto esperado {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifesto esperado: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Erro ao carregar o banco de dados de confiança. Revertendo para valores padrão.</value>

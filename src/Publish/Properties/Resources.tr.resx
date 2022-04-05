@@ -105,7 +105,7 @@ El ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Bu yöntem yalnız Windows üzerinde kullanılabilir.</value>
+    <value>Bu yöntem yalnızca Windows üzerinde kullanılabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>O arquivo é inválido ou danificado.</value>
-    <comment>Automatically translated.</comment>
+    <value>O arquivo é inválido ou está danificado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extrair arquivo</value>
-    <comment>Automatically translated.</comment>
+    <value>Extraindo arquivo</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>A extração deste tipo de arquivo só é suportada no Windows.</value>
-    <comment>Automatically translated.</comment>
+    <value>Extrair este tipo de arquivo somente é suportado no Windows.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>O arquivo MIME tipo '{0}' não é suportado.</value>
-    <comment>Automatically translated.</comment>
+    <value>O tipo MIME do arquivo '{0}' não é suportado.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>
