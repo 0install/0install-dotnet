@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Aynı anda yalnız bir masaüstü bütünleştirme işlemi yürütebilirsiniz.</value>
+    <value>Aynı anda yalnızca bir masaüstü bütünleştirme işlemi yürütebilirsiniz.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">

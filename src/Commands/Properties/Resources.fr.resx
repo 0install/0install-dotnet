@@ -344,9 +344,9 @@ Autrement le code de sortie correspondra au code de sortie du programme exécut�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Sélectionne une version du programme identifié par URI, et les versions compatibles de toutes ses dépendances.
-Renvoie un statut de sortie de 0 s'il a sélectionné un ensemble de versions, et un statut de 1 s'il n'a pas pu trouver un ensemble cohérent.</value>
-    <comment>Automatically translated.</comment>
+    <value>Sélectionne une version du programme identifié par l'URI ainsi que les versions compatibles de toutes ses dépendances.
+Retourne un code de sortie à 0 si les versions ont pu être sélectionnées, et un code à 1 dans le cas contraire.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
     <value>Mets à jour Zero Install avec sa version la plus récente.</value>
@@ -671,9 +671,9 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Au lieu d'exécuter la commande par défaut, utilisez {COMMAND}. Les noms de commande valides sont spécifiés dans le flux du programme.
-Mettre à vide ("") pour ignorer la commande pendant la sélection.</value>
-    <comment>Automatically translated.</comment>
+    <value>Utilise {COMMAND} à la place de la commande par défaut. Les noms des commandes disponibles sont définis dans l'interface du programme.
+Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
     <value>Passe à un onglet spécifique dans l'interface graphique de configuration. Les {TAB} valides sont 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' et 'advanced'.</value>

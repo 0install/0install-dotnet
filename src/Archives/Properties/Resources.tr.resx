@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Bu arşiv türü yalnız Windows üzerinde ayıklanabilir.</value>
+    <value>Bu arşiv türü yalnızca Windows üzerinde ayıklanabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

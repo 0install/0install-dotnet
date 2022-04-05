@@ -113,7 +113,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Tamanho do arquivo ainda não determinado.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tamanho de arquivo ainda não determinado.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

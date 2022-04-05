@@ -298,11 +298,11 @@ Dosya ağ üzerinden alınırken, sayısal olarak imzalanmış olmalıdır.</val
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Yerel olarak bilinen tüm akış adreslerini listeler. Bir arama ifadesi belirtilmiş ise yalnız içinde bu dizge geçen adresler görüntülenir (büyük küçük harfe duyarlı).</value>
+    <value>Yerel olarak bilinen tüm akış adreslerini listeler. Bir arama ifadesi belirtilmiş ise yalnızca içinde bu dizge geçen adresler görüntülenir (büyük küçük harfe duyarlı).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Uygulama listenizdeki tüm uygulamalar listelenir. Bir adres yazdıysanız, yalnız bu akış adresini kullanan uygulama görüntülenir. Bir model yazdıysanız, yalnız adında bu dizge bulunan uygulamalar görüntülenir (büyük-küçük harfe duyarlıdır).</value>
+    <value>Uygulama listenizdeki tüm uygulamalar listelenir. Bir adres yazdıysanız, yalnızca bu akış adresini kullanan uygulama görüntülenir. Bir model yazdıysanız, yalnızca adında bu dizge bulunan uygulamalar görüntülenir (büyük-küçük harfe duyarlıdır).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -334,7 +334,7 @@ Dosya ağ üzerinden alınırken, sayısal olarak imzalanmış olmalıdır.</val
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>'0install download' ile benzer şekilde davranır. Uygulama yalnız ön bellekte bulunduğundan emin olunduktan sonra çalıştırılır.
+    <value>'0install download' ile benzer şekilde davranır. Uygulama yalnızca ön bellekte bulunduğundan emin olunduktan sonra çalıştırılır.
 İndirme adımı başarısız olursa çıkış durumu 1 olur. Diğer durumlarda çıkış durumu çalıştırılan uygulamanın çıkış durumu olur.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -420,11 +420,11 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Akışları imzalamak için güvenilen anahtarları listeler. Belirtilmiş ise yalnız belirli bir PARMAK İZİNE güvenilmiş etki alanlarını listeler.</value>
+    <value>Akışları imzalamak için güvenilen anahtarları listeler. Belirtilmiş ise yalnızca belirli bir PARMAK İZİNE güvenilmiş etki alanlarını listeler.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnız belirli bir ETKİ ALANI için bırakır. </value>
+    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnızca belirli bir ETKİ ALANI için bırakır. </value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -591,7 +591,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} yalnız bir kısaltma adı ile birlikte belirtilebilir.</value>
+    <value>{0} yalnızca bir kısaltma adı ile birlikte belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -615,7 +615,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Belge seçimleri yerine, yalnız akış adresleri kullanılarak güncellenebilir.</value>
+    <value>Belge seçimleri yerine, yalnızca akış adresleri kullanılarak güncellenebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -700,7 +700,7 @@ Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Dışa aktarma sırasında uyarlama arşivleri işleme katılmasın. Yalnız akışlar katılsın.</value>
+    <value>Dışa aktarma sırasında uyarlama arşivleri işleme katılmasın. Yalnızca akışlar katılsın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">

@@ -187,11 +187,11 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Yalnız yöneticiler paylaşılan bir depoyu iyileştirebilir.</value>
+    <value>Yalnızca yöneticiler paylaşılan bir depoyu iyileştirebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Yalnız yöneticiler paylaşılan bir depodan bileşen kaldırabilir.</value>
+    <value>Yalnızca yöneticiler paylaşılan bir depodan bileşen kaldırabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -207,7 +207,7 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>'{0}' yolu mutlak bir yol değil. Göreli yollar yalnız taşınabilir kipte kullanılabilir.
+    <value>'{0}' yolu mutlak bir yol değil. Göreli yollar yalnızca taşınabilir kipte kullanılabilir.
 '{1}' yapılandırma dosyasında belirtilmiş.</value>
     <comment>Manually overriden.</comment>
   </data>
