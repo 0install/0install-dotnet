@@ -37,6 +37,9 @@ public class RemoveApp : AppCommand
             return ExitCode.NoChanges;
         }
 
+        if (appEntry.AccessPoints != null)
+            CheckInstallBase();
+
         foreach (var hook in appEntry.CapabilityLists.CompatibleCapabilities().OfType<RemoveHook>())
         {
             var process = StartRemoveHook(hook);
