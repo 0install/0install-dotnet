@@ -31,7 +31,7 @@ public static class UninstallEntry
         Register(
             target.Uri.PrettyEscape(),
             uninstallCommand,
-            target.Feed.Name + " (Zero Install)",
+            target.Feed.Name,
             target.Feed.Homepage,
             GetIconPath(target.Feed, iconStore),
             machineWide: machineWide);
