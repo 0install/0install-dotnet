@@ -1,38 +1,46 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
+
 namespace ZeroInstall.Model;
 
 /// <summary>
-/// Environment variables holding command-lines for launching Zero Install.
+/// Provides access to Zero Install-related environment variables.
 /// </summary>
 public static class ZeroInstallEnvironment
 {
+    private const string
+        CliName = "ZEROINSTALL",
+        GuiName = "ZEROINSTALL_GUI",
+        ExternalFetcherName = "ZEROINSTALL_EXTERNAL_FETCHER",
+        FeedUriName = "ZEROINSTALL_FEED_URI";
+
     /// <summary>
-    /// The command-line version of Zero Install.
+    /// A command-line for launching the CLI version of Zero Install.
     /// </summary>
     public static string? Cli
     {
-        get => Environment.GetEnvironmentVariable("ZEROINSTALL");
-        set => Environment.SetEnvironmentVariable("ZEROINSTALL", value);
+        get => Environment.GetEnvironmentVariable(CliName);
+        set => Environment.SetEnvironmentVariable(CliName, value);
     }
 
     /// <summary>
-    /// The graphical version of Zero Install.
+    /// A command-line for launching the graphical version of Zero Install.
     /// </summary>
     public static string? Gui
     {
-        get => Environment.GetEnvironmentVariable("ZEROINSTALL_GUI");
-        set => Environment.SetEnvironmentVariable("ZEROINSTALL_GUI", value);
+        get => Environment.GetEnvironmentVariable(GuiName);
+        set => Environment.SetEnvironmentVariable(GuiName, value);
     }
 
     /// <summary>
-    /// Command that downloads a set of <see cref="Implementation"/>s piped in as XML via stdin.
+    /// A command-line that downloads a set of <see cref="Implementation"/>s piped in as XML via stdin.
     /// </summary>
     public static string? ExternalFetch
     {
-        get => Environment.GetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER");
-        set => Environment.SetEnvironmentVariable("ZEROINSTALL_EXTERNAL_FETCHER", value);
+        get => Environment.GetEnvironmentVariable(ExternalFetcherName);
+        set => Environment.SetEnvironmentVariable(ExternalFetcherName, value);
     }
 
     /// <summary>
@@ -42,7 +50,7 @@ public static class ZeroInstallEnvironment
     {
         get
         {
-            string? uri = Environment.GetEnvironmentVariable("ZEROINSTALL_FEED_URI");
+            string? uri = Environment.GetEnvironmentVariable(FeedUriName);
             try
             {
                 if (!string.IsNullOrEmpty(uri)) return new FeedUri(uri);
@@ -52,4 +60,10 @@ public static class ZeroInstallEnvironment
             return null;
         }
     }
+
+    /// <summary>
+    /// Passes a program the feed URI used to start it as an environment variable.
+    /// </summary>
+    public static void SetFeedUri(this ProcessStartInfo startInfo, FeedUri feedUri)
+        => startInfo.EnvironmentVariables[FeedUriName] = feedUri.ToStringRfc();
 }
