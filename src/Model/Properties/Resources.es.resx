@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de alimentación para '{0}'. Volviendo a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de feed para '{0}'. Volviendo a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de la interfaz para '{0}'. Volviendo a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de interface para '{0}'. Volviendo a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se ha podido encontrar la implementación de la interfaz '{0}' en la selección.</value>
+    <value>No se ha podido encontrar la implementación de la interface '{0}' en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -119,11 +119,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver la ruta relativa '{0}'. Sólo las fuentes guardadas como archivos locales pueden contener rutas relativas.</value>
+    <value>No se ha podido resolver la ruta relativa '{0}'. Sólo los feeds guardados como archivos locales pueden contener rutas relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>El URI relativo '{0}' no ha podido ser resuelto. Sólo las fuentes guardadas como archivos locales pueden contener URIs relativas.</value>
+    <value>El URI relativo '{0}' no ha podido ser resuelto. Sólo los feeds guardados como archivos locales pueden contener URIs relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">

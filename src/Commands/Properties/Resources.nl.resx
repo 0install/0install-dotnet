@@ -96,7 +96,7 @@ U kunt het import script of Bootstrap executable in '{1}' gebruiken om deze best
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Zero Install instellen voor alle gebruikers (machinebreed) in plaats van alleen de huidige gebruiker?</value>
+    <value>Zero Install instellen voor alle gebruikers (machinebreed) in plaats van alleen voor de huidige gebruiker?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -437,7 +437,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Desktop-integratie</value>
+    <value>Desktop integratie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
@@ -762,7 +762,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Komt onmiddellijk terug zodra het gekozen programma is gestart in plaats van te wachten tot het klaar is met uitvoeren. Op Windows is de exit code de proces ID van het gestarte programma.</value>
+    <value>Komt onmiddellijk terug zodra het gekozen programma is gestart in plaats van te wachten tot het klaar is met uitvoeren. Onder Windows is de exit-code de proces-ID van het gestarte programma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -807,7 +807,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
-    <value>Versie-informatie weergeven.</value>
+    <value>Geef versie-informatie weer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">

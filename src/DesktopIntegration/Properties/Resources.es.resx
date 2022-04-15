@@ -121,7 +121,7 @@ Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asi
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Los datos almacenados actualmente en el servidor de Sync están dañados.
-Puede sustituir los datos almacenados en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sync" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
+Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sync" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

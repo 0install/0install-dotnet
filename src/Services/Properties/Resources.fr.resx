@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Feed {0}
+    <value>Flux {0}
 - Signature valide de {1}
 - {2}
 Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}' ?
@@ -79,11 +79,11 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Exécution du solveur externe</value>
+    <value>Lancer le solveur externe</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Le flux '{0}' n'est pas dans le cache et Zero Install est actuellement off-line. </value>
+    <value>Le flux '{0}' n'est pas dans le cache et Zero Install est actuellement off-line.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -115,7 +115,7 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Les flux doivent spécifier l'URI d'où ils proviennent afin d'être importables.</value>
+    <value>Les flux doivent préciser l'URI d'où ils proviennent pour pouvoir être importés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -127,7 +127,7 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
+    <value>Impossible de télécharger {0} car Zero Install est en mode hors connexion.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -147,14 +147,14 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Une possible attaque par rejeu a été détectée. L'heure de modification du nouveau fil est antérieure à l'ancienne version.
+    <value>Une possible attaque par rejeu a été détectée. L'heure de modification du nouveau flux est antérieure à l'ancienne version.
 URI du flux {0}
 Ancienne heure {1}
 Nouvelle heure {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Échec du téléchargement de {0}. Essayer de télécharger à partir du miroir d'alimentation à la place.</value>
+    <value>Échec du téléchargement de {0}. Essayer de télécharger à partir du flux miroir à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -178,7 +178,7 @@ Nouvelle heure {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>En attente du fin de téléchargement. </value>
+    <value>En attente du fin de téléchargement</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
