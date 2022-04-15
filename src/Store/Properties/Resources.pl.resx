@@ -216,7 +216,7 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install nie może usunąć się z pamięci podręcznej wdrożenia.</value>
+    <value>Instalacja zerowa nie może usunąć się z pamięci podręcznej wdrożenia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">

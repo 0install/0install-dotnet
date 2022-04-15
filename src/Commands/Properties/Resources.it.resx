@@ -116,7 +116,7 @@ Puoi usare lo script di importazione o l'eseguibile Bootstrap in '{1}' per impor
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Vuoi aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
+    <value>Desideri aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
 Se si seleziona 'Sì' le integrazioni potenzialmente incompatibili saranno rimosse.
 Se selezioni 'No' Zero Install continuerà ad usare le vecchie capacità.</value>
     <comment>Automatically translated.</comment>
@@ -374,7 +374,7 @@ Un argomento aggiuntivo specifica una posizione di cache di destinazione persona
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Determina il percorso locale di un'implementazione in cache.</value>
+    <value>Determina il percorso locale di un'implementazione nella cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
@@ -737,7 +737,7 @@ Puoi usare questa opzione più volte per specificare più lingue accettabili.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'uso da parte di altre applicazioni senza una propria integrazione nel desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'uso da parte di altre applicazioni senza la propria integrazione nel desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -762,7 +762,7 @@ Non può contenere argomenti della linea di comando! Gli spazi bianchi non neces
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che finisca l'esecuzione. Su Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
+    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato invece di aspettare che finisca l'esecuzione. Su Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">

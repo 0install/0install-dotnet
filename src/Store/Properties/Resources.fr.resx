@@ -89,7 +89,7 @@ Vous pouvez également utiliser l'interface utilisateur graphique pour gérer le
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Suppression des fichiers obsolètes. </value>
+    <value>Suppression des fichiers obsolètes</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
@@ -118,7 +118,7 @@ Vous pouvez également utiliser l'interface utilisateur graphique pour gérer le
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>L'utilisation du miroir de flux, qui est nécessaire pour la recherche, est désactivée.
-Exécutez '0install config feed_mirror default' pour l'activer.</value>
+Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -154,11 +154,11 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Souhaitez-vous le supprimer? Une nouvelle copie sera automatiquement téléchargée en cas de besoin. </value>
+    <value>Souhaitez-vous le supprimer? Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Exécutez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
+    <value>Lancez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -183,7 +183,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>La signature est non valable ou endommagée. </value>
+    <value>La signature est non valable ou endommagée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
@@ -199,7 +199,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
+    <value>Impossible de télécharger {0} car Zero Install est en mode hors connexion.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -216,7 +216,7 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>L'installation zéro ne peut pas se retirer d'un cache de mise en œuvre.</value>
+    <value>Zero Install ne peut pas se retirer d'un cache de mise en œuvre.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -263,7 +263,7 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Impossible de trouver la clé avec ce nom. </value>
+    <value>Impossible de trouver la clé avec ce nom.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
@@ -275,7 +275,7 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Le mot de passe que vous avez entré est erroné. </value>
+    <value>Le mot de passe que vous avez entré est erroné.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

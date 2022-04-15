@@ -154,7 +154,7 @@ Nieuwe tijd {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Lukt niet om {0} te downloaden. Ik probeer het van de feed mirror te halen.</value>
+    <value>Het lukt niet om {0} te downloaden. Ik probeer het van de feed mirror te halen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

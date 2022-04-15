@@ -101,7 +101,7 @@ Alternativ, puteți utiliza interfața grafică cu utilizatorul pentru gestionar
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifest real {0}</value>
+    <value>Manifestul real {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -243,7 +243,7 @@ Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>A existat o problemă la încărcarea valorii de configurare '{0}'.
-Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se piardă și alte setări.</value>
+Puteți șterge fișierul '{1}' pentru a remedia problema. Este posibil să se piardă și alte setări.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
@@ -287,7 +287,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este valabilă în baza 64:</value>
+    <value>Semnătura nu este validă în baza 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

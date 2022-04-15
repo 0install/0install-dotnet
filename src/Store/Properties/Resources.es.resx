@@ -81,7 +81,7 @@ También puede utilizar la interfaz gráfica de usuario para gestionar las cach�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Borrar el directorio {0}</value>
+    <value>Eliminación del directorio {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -199,7 +199,7 @@ Si utiliza una unidad con formato FAT, conviértala a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>No se puede descargar {0} porque la Instalación Cero está en modo offline.</value>
+    <value>No se puede descargar {0} porque Zero Install está en modo offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -207,16 +207,16 @@ Si utiliza una unidad con formato FAT, conviértala a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo están permitidas en modo portátil.
+    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo se permiten en modo portable.
 Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Ninguna versión seleccionada</value>
+    <value>No hay versión seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>La Instalación Cero no puede eliminarse a sí misma de una caché de implementación.</value>
+    <value>Zero Install no puede eliminarse a sí mismo de una caché de implementación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -228,7 +228,7 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Hubo un problema de acceso al almacén de implementación '{0}'.</value>
+    <value>Hubo un problema al acceder al almacén de implementación '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

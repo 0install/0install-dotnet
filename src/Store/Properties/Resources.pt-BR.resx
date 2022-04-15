@@ -122,15 +122,15 @@ Execute '0install config feed_mirror default' para ativá-lo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Não foi possível encontrar o arquivo ou diretório '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível encontrar o arquivo ou pasta '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Os arquivos que você deseja excluir estão em uso no momento.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Você quer fechar estas aplicações e continuar?</value>
+    <value>Você quer encerrar estas aplicações e continuar?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
@@ -228,7 +228,7 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Houve um problema de acesso à loja de implementação '{0}'.</value>
+    <value>Houve um problema no acesso à loja de implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

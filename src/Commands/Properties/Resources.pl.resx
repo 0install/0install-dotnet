@@ -259,7 +259,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie podano zapytania, wyświetlana jest lista wszystkich aplikacji znajdujących się w katalogach.</value>
+    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie zostanie podane żadne zapytanie, wyświetlana jest lista wszystkich aplikacji w katalogach.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Umożliwia wyświetlenie lub zmianę ustawień konfiguracyjnych.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "default".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podana jest wartość "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -318,7 +318,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>Usuwa wszystkie aplikacje z listy aplikacji i cofa wszelkie integracje środowiska graficznego. Polecenia tego należy użyć do wyczyszczenia systemu przed usunięciem Instalacji Zero.</value>
+    <value>Usuwa wszystkie aplikacje z listy aplikacji i cofa wszelkie integracje środowiska graficznego. Polecenia tego należy użyć do wyczyszczenia systemu przed usunięciem instalacji zerowej.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -416,7 +416,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Ufa kanałom z określonego DOMENU, jeśli są podpisane określonym odciskiem palca.</value>
+    <value>Ufa kanałom z określonego DOMENU, jeśli są podpisane określonym FINGERPRINTEM.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -424,7 +424,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonego DOMENU, jeśli został podany.</value>
+    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonej DOMENY, jeśli została określona.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -676,7 +676,7 @@ Ustawienie wartości pustej ("") powoduje ignorowanie polecenia podczas wybieran
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Przejście do określonej zakładki w graficznym interfejsie użytkownika konfiguracji. Poprawne {TAB} to "updates", "storage", "catalog", "trust", "sync", "language", "language" i "advanced".</value>
+    <value>Przejście do określonej karty w interfejsie graficznym konfiguracji. Poprawne {TAB} to "updates", "storage", "catalog", "trust", "sync", "language", "language" i "advanced".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
