@@ -40,19 +40,19 @@ public abstract partial class ManagerBase : IDisposable
     protected void AcquireMutex()
     {
 #if NETFRAMEWORK
-            if (MachineWide)
-            {
-                var mutexSecurity = new MutexSecurity();
-                mutexSecurity.AddAccessRule(new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
-                _mutex = new Mutex(false, @"Global\" + MutexName, out _, mutexSecurity);
-            }
-            else
+        if (MachineWide)
+        {
+            var mutexSecurity = new MutexSecurity();
+            mutexSecurity.AddAccessRule(new(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
+            _mutex = new(false, @"Global\" + MutexName, out _, mutexSecurity);
+        }
+        else
 #endif
         {
-            _mutex = new Mutex(false, MutexName);
+            _mutex = new(false, MutexName);
         }
 
-        _mutex.WaitOne(Handler.CancellationToken, (Handler.Verbosity == Verbosity.Batch) ? 30 : 1);
+        _mutex.WaitOne(Handler.CancellationToken, millisecondsTimeout: 2000);
     }
 
     /// <summary>
