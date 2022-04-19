@@ -62,6 +62,20 @@
     <value>Копирование файлов</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Подкаталоги в этом кэше защищены от непреднамеренного изменения с помощью разрешений NTFS.
+В качестве побочного эффекта это предотвращает их удаление с помощью проводника Windows.
+
+Если вы хотите удалить одну запись, можно воспользоваться этой командной строкой:
+0install store remove IMPLEMENTATION-ID
+
+Если вы хотите удалить весь каталог, используйте эту командную строку:
+0install store purge {0}
+
+В качестве альтернативы вы можете использовать графический интерфейс пользователя для управления кэшами:
+0install store manage</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Как удалить</value>
     <comment>Automatically translated.</comment>

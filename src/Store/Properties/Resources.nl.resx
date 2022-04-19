@@ -62,6 +62,20 @@
     <value>Kopiëren van bestanden</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>De submappen in deze cache worden beschermd tegen onbedoelde wijzigingen met behulp van NTFS-machtigingen.
+Als neveneffect voorkomt dit dat ze kunnen worden verwijderd met de Windows Verkenner.
+
+Als u een enkel item wilt verwijderen, kunt u deze opdrachtregel gebruiken:
+0install store remove IMPLEMENTATION-ID
+
+Als u deze hele directory wilt verwijderen, kunt u deze opdrachtregel gebruiken:
+0install store purge {0}
+
+Als alternatief kunt u de grafische gebruikersinterface gebruiken voor het beheren van de caches:
+0install store manage</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Hoe te verwijderen</value>
     <comment>Automatically translated.</comment>

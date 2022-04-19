@@ -745,96 +745,96 @@ Você pode usar essa opção várias vezes para especificar vários idiomas acei
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Execute o executável especificado {MAIN} ao invés do executável padrão. Se começar com '/' ou '\', então o caminho é relativo ao diretório de nível superior da implementação, enquanto que de outra forma é relativo ao diretório que contém o programa principal padrão.
-Não pode conter argumentos de linha de comando! Os espaços em branco não precisam ser fugidos.</value>
-    <comment>Automatically translated.</comment>
+    <value>Executa o executável especificado {MAIN} em vez do padrão. Se começar com '/' ou '\', então o caminho é relativo à pasta de nível superior da implementação, caso contrário, é relativo à pasta que contém o programa principal padrão.
+Não pode conter argumentos de linha de comando! Os espaços em branco não podem ter escape.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Exiba o próprio manifesto (uma linha para cada arquivo ou pasta).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Não faça ainda o download do aplicativo em si. Em vez disso, será automaticamente baixado no primeiro uso.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não baixa o aplicativo em si ainda. Será baixado automaticamente no primeiro uso.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Exigir uma versão do programa principal não anterior à {VERSÃO}. Por exemplo, se você quiser executar a versão 2.0 ou posterior, use --não antes=2.0.</value>
-    <comment>Automatically translated.</comment>
+    <value>Exige uma versão do programa principal não anterior a {VERSION}. Por exemplo, se você deseja executar a versão 2.0 ou posterior, use --not-before=2.0.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Retorna imediatamente uma vez que o programa escolhido tenha sido lançado, em vez de esperar que ele termine a execução. No Windows, o código de saída é o ID do processo do programa lançado.</value>
-    <comment>Automatically translated.</comment>
+    <value>Retorna imediatamente uma vez que o programa escolhido foi iniciado em vez de esperar que ele termine de ser executado. No Windows, o código de saída é o ID do processo do programa iniciado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é atualizada mesmo que esteja desatualizada, e novas versões de programas não serão baixadas mesmo que o injetor já as conheça (por exemplo, a partir de uma atualização anterior).</value>
-    <comment>Automatically translated.</comment>
+    <value>Executa no modo off-line, substituindo a configuração padrão.
+No modo off-line, nenhuma interface é atualizada, mesmo que esteja desatualizada, e versões mais recentes de programas não serão baixadas, mesmo que o injetor já as conheça (por exemplo, de uma atualização anterior).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Força o solucionador a visar o sistema operacional {OS}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Força o solucionador a direcionar o sistema operacional {OS}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Criar uma instalação portátil que possa ser movimentada (por exemplo, em uma unidade de polegar).</value>
-    <comment>Automatically translated.</comment>
+    <value>Cria uma instalação portátil que possa ser movida (por exemplo, em um pen drive).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Buscar cópias frescas de todas as rações usadas.</value>
-    <comment>Automatically translated.</comment>
+    <value>Busca novas cópias de todos os feeds usados.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
     <value>Reinicie a GUI '0install central' após a atualização.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Options" xml:space="preserve">
     <value>Opções:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Mostrar onde os componentes selecionados são armazenados no disco.</value>
-    <comment>Automatically translated.</comment>
+    <value>Mostra onde os componentes selecionados estão armazenados no disco.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Selecione o código fonte em vez de um binário. Isto é usado internamente por '0compile'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Selecione o código-fonte em vez de um binário. Isso é usado internamente por '0compile'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Redefinir os dados de sincronização. Os {MODE}s válidos são 'nenhum' (fundir dados do cliente e do servidor normalmente), 'cliente' (substituir todos os dados do cliente por dados do servidor) e 'servidor' (substituir todos os dados do servidor por dados do cliente).</value>
-    <comment>Automatically translated.</comment>
+    <value>Redefina os dados de sincronização. Os {MODE} válidos são 'none' (mesclar dados do cliente e do servidor normalmente), 'client' (substituir todos os dados do cliente pelos dados do servidor) e 'server' (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Mais produção verbosa. Use duas vezes para uma saída ainda mais verbosa.</value>
-    <comment>Automatically translated.</comment>
+    <value>Saída mais detalhada. Use duas vezes para uma saída ainda mais detalhada.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
-    <value>Exibir informações sobre a versão.</value>
-    <comment>Automatically translated.</comment>
+    <value>Exibir informações de versão.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Exigir uma versão do programa principal dentro da {RANGE} dada.
-As faixas são separadas por tubos (|).
-Cada faixa está na forma de "START...!END". A faixa corresponde às versões onde START &lt;= VERSION &lt; END. O início ou fim pode ser omitido.
-Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSÃO para corresponder a tudo, exceto aquela versão.</value>
-    <comment>Automatically translated.</comment>
+    <value>Exigir uma versão do programa principal dentro do {RANGE} fornecido.
+Os intervalos são separados por barras verticais (|).
+Cada intervalo está no formato "START..!END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
+Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas a essa versão ou !VERSION para corresponder a tudo, exceto a essa versão.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Para qualquer biblioteca ou subcomponente com o dado {0:URI} especifica a versão {1:RANGE} (quanto à --versão).</value>
-    <comment>Automatically translated.</comment>
+    <value>Para qualquer biblioteca ou subcomponente com o {0:URI} fornecido, especifica a versão {1:RANGE} (como para --version).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Adicione {DIR} à lista de caches de implementação para pesquisar.
-Entretanto, novos downloads não serão escritos neste diretório.</value>
-    <comment>Automatically translated.</comment>
+    <value>Adicione {DIR} à lista de caches de implementação a serem pesquisados.
+No entanto, novos downloads não serão gravados nesta pasta.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Em vez de executar o programa escolhido diretamente, execute {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreamento no programa (e não na instalação zero!).
-Note que a embalagem é executada no ambiente selecionado pelo programa; portanto, este mecanismo não pode ser usado para o sandboxing.
-Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
-    <comment>Automatically translated.</comment>
+    <value>Em vez de executar o programa escolhido diretamente, execute {COMMAND} PROGRAM ARGS. Isso é útil para executar depuradores e ferramentas de rastreamento no programa (em vez de no Zero Install!).
+Observe que o wrapper é executado no ambiente selecionado pelo programa; portanto, esse mecanismo não pode ser usado para sandboxing.
+Pode conter argumentos de linha de comando. Os espaços em branco devem ser ignorados!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escreva a saída para o console como XML legível por máquina.</value>
-    <comment>Automatically translated.</comment>
+    <value>Salva a saída no console como um XML legível para o sistema.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
     <value>Modo portátil</value>
@@ -853,8 +853,8 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser evit
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Você quer remover as chaves verificadas {0} da lista?</value>
-    <comment>Automatically translated.</comment>
+    <value>Deseja remover as {0} chaves marcadas da lista?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
     <value>Deseja remover as {0} entradas selecionadas da lista?</value>
@@ -869,57 +869,57 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser evit
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Você pode ter que fechar e reabrir seu terminal para que isto se torne efetivo.</value>
-    <comment>Automatically translated.</comment>
+    <value>Você pode ter que fechar e reabrir seu terminal para que isso se torne efetivo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
-    <value>Você quer repor a lista ao seu estado original?</value>
-    <comment>Automatically translated.</comment>
+    <value>Deseja redefinir a lista para seu estado original?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Resolvido '{0}' a '{1}' usando um pseudônimo.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' resolvido para '{1}' usando um alias.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Resolvido '{0}' a '{1}' utilizando um catálogo.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' resolvido para '{1}' usando um catálogo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Montagens .NET de pré-compilação para uma inicialização mais rápida da aplicação</value>
-    <comment>Automatically translated.</comment>
+    <value>Pré-compilação de assemblies .NET para inicialização mais rápida do aplicativo</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>Implementações selecionadas</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Este exemplo de Instalação Zero não está implantado. Não há nada a ser removido.</value>
-    <comment>Automatically translated.</comment>
+    <value>Esta instância do Zero Install não foi implantada. Não há nada para remover.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Uma atualização para Zero Install v{0} está disponível. Instalar agora?</value>
-    <comment>Automatically translated.</comment>
+    <value>Uma atualização do Zero Install v{0} está disponível. Instalar agora?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Esta instância de Instalação Zero não foi implantada. Portanto, ela não pode se atualizar.</value>
-    <comment>Automatically translated.</comment>
+    <value>Esta instância Zero Install não foi implantada. Portanto, ela não pode se atualizar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>A auto-atualização está desativada.
-Execute '0install config self_update_uri default' para ativá-lo.</value>
-    <comment>Automatically translated.</comment>
+    <value>A atualização automática está desativada.
+Execute '0install config self_update_uri default' para ativar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Estabelecer uma política de estabilidade para {0} para combinar?</value>
-    <comment>Automatically translated.</comment>
+    <value>Definir política de estabilidade para {0} para corresponder?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Redefinir a política de estabilidade para {0} para o padrão?</value>
-    <comment>Automatically translated.</comment>
+    <value>Redefinir política de estabilidade para {0} para corresponder?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>A política de estabilidade necessária para selecionar implementações a partir de {0} é '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>A política de estabilidade necessária para selecionar implementações de {0} é '{1}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
     <value>Iniciando serviço do Zero Install Store</value>
@@ -930,29 +930,29 @@ Execute '0install config self_update_uri default' para ativá-lo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} espaço de armazenamento recuperado.</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} de espaço de armazenamento recuperado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Auditoria de loja</value>
-    <comment>Automatically translated.</comment>
+    <value>Auditoria da loja</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
     <value>{0} removido com sucesso.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
-    <comment>Automatically translated.</comment>
+    <value>Habilitar o suporte do Windows para caminhos longos pode resolver esse problema.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
     <value>Valores suportados: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>A chave criptográfica é usada para criptografar seus dados localmente antes de transmiti-los para o servidor.
-Mantenha esta chave em segredo e use algo diferente para sua senha. Desta forma, ninguém pode acessar seus dados, mesmo que o servidor seja comprometido.</value>
-    <comment>Automatically translated.</comment>
+    <value>A chave de criptografia é usada para criptografar seus dados localmente antes de transmiti-los ao servidor.
+Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma, ninguém pode acessar seus dados, mesmo que o servidor seja comprometido.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>Muitos argumentos ou opções desconhecidas.</value>

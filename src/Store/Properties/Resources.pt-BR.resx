@@ -62,6 +62,20 @@
     <value>Copiando arquivos</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Os subdiretórios neste cache são protegidos contra modificações não intencionais usando NTFS Permissions.
+Como um efeito colateral, isto evita que sejam apagados usando o Windows Explorer.
+
+Se você deseja excluir uma única entrada, você pode usar esta linha de comando:
+0install store remover IMPLEMENTATION-ID
+
+Se você deseja apagar todo este diretório, você pode usar esta linha de comando:
+0instalar purga da loja {0}
+
+Alternativamente, você pode usar a interface gráfica do usuário para gerenciar as caches:
+0instalar o gerenciamento da loja</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Como excluir</value>
     <comment>Manually overriden.</comment>
@@ -185,12 +199,12 @@ Se você estiver usando um drive com formato FAT, por favor, converta-o para NTF
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível baixar {0} porque a Instalação Zero está em modo off-line.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível baixar {0} pois o Zero Install está no modo off-line.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nenhum método de digestão conhecido foi especificado.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nenhum método de resumo conhecido foi especificado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>O caminho '{0}' não é um caminho absoluto. Os caminhos relativos só são permitidos no modo portátil.

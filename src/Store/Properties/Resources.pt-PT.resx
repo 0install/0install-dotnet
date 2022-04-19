@@ -62,6 +62,20 @@
     <value>Cópia de ficheiros</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Os subdirectórios nesta cache estão protegidos contra modificações não intencionais utilizando NTFS Permissions.
+Como efeito secundário, isto evita que sejam apagados utilizando o Explorador do Windows.
+
+Se desejar apagar uma única entrada, pode utilizar esta linha de comando:
+0install store remover IMPLEMENTATION-ID
+
+Se desejar apagar todo este directório, pode utilizar esta linha de comando:
+0instalar purga da loja {0}
+
+Em alternativa, pode utilizar a interface gráfica do utilizador para gerir as caches:
+0instalar a gestão da loja</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Como apagar</value>
     <comment>Automatically translated.</comment>
