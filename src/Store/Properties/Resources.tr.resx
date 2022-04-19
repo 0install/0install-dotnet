@@ -63,17 +63,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu ön bellek içindeki alt klasörler NTFS izinleri ile istenmeyen değişikliklere karşı korunmuştur.
-Bu korumanın yan etkisi olarak bu dosyalar Windows Gezgini kullanılarak silinemez.
+    <value>Bu klasör bir uygulama ön belleğidir. Buradaki dosyalar, dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Böylece normal şekilde silinmeleri önlenir.
 
-Tek bir kaydı silmek için komut satırında şu komutu kullanabilirsiniz:
-0install store remove UYGULAMA-KODU
+Tek bir uygulamayı silmek isterseniz şu komutu kullanabilirsiniz:
+{0}
 
-Tüm klasörü silmek için komut satırında şu komutu kullanabilirsiniz:
-0install store purge {0}
+Bu klasörü tamamen silmek isterseniz, şu komutu kullanabilirsiniz.:
+{1}
 
-Ayrıca ek olarak görsel kullanıcı arabirimini kullanarak da ön bellekleri yönetebilirsiniz:
-0install store manage</value>
+Zeron Install kullanmadan bu klasörü silmek isterseniz, şu komutu kullanabilirsiniz.:
+{2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">

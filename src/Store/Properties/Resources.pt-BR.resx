@@ -62,20 +62,6 @@
     <value>Copiando arquivos</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Os subdiretórios neste cache são protegidos contra modificações não intencionais usando NTFS Permissions.
-Como um efeito colateral, isto evita que sejam apagados usando o Windows Explorer.
-
-Se você deseja excluir uma única entrada, você pode usar esta linha de comando:
-0install store remover IMPLEMENTATION-ID
-
-Se você deseja apagar todo este diretório, você pode usar esta linha de comando:
-0instalar purga da loja {0}
-
-Alternativamente, você pode usar a interface gráfica do usuário para gerenciar as caches:
-0instalar o gerenciamento da loja</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Como excluir</value>
     <comment>Manually overriden.</comment>

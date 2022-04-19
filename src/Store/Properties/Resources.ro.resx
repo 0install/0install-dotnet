@@ -62,20 +62,6 @@
     <value>Copierea fișierelor</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Subdirectoarele din această memorie cache sunt protejate împotriva modificării neintenționate cu ajutorul NTFS Permissions.
-Ca efect secundar, acest lucru împiedică ștergerea lor cu ajutorul Windows Explorer.
-
-Dacă doriți să ștergeți o singură intrare, puteți utiliza această linie de comandă:
-0install store remove IMPLEMENTATION-ID
-
-Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:
-0install store purge {0}
-
-Alternativ, puteți utiliza interfața grafică cu utilizatorul pentru gestionarea cache-urilor:
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Cum se șterge</value>
     <comment>Automatically translated.</comment>

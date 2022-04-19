@@ -58,14 +58,6 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         {
             if (FileUtils.DetermineTimeAccuracy(Path) > 0)
                 throw new NotSupportedException(Resources.InsufficientFSTimeAccuracy);
-
-            if (UseWriteProtection && WindowsUtils.IsWindowsNT)
-            {
-                File.WriteAllText(
-                    path: System.IO.Path.Combine(Path, Resources.DeleteInfoFileName + ".txt"),
-                    contents: string.Format(Resources.DeleteInfoFileContent, Path),
-                    encoding: Encoding.UTF8);
-            }
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
@@ -117,8 +109,11 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             }
         }
 
-        // Prevent any further changes to the directory
-        if (UseWriteProtection) EnableWriteProtection(target);
+        if (UseWriteProtection)
+        {
+            EnableWriteProtection(target);
+            DeployDeleteInfoFile();
+        }
     }
 
     private readonly object _renameLock = new();
@@ -146,10 +141,6 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// <param name="path">The directory to protect.</param>
     private static void EnableWriteProtection(string path)
     {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-        #endregion
-
         try
         {
             Log.Debug("Enabling write protection for: " + path);
@@ -171,5 +162,28 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
         }
         #endregion
+    }
+
+    /// <summary>
+    /// Deploys a file explaining to users how to delete files with write protection.
+    /// </summary>
+    private void DeployDeleteInfoFile()
+    {
+        string filePath = System.IO.Path.Combine(Path, Resources.DeleteInfoFileName + ".txt");
+        string escapedDirPath = Path.EscapeArgument();
+
+        try
+        {
+            File.WriteAllText(filePath,
+                string.Format(Resources.DeleteInfoFileContent,
+                    "0install store remove IMPLEMENTATION-ID",
+                    $"0install store purge {escapedDirPath}",
+                    WindowsUtils.IsWindowsNT
+                        ? $"icacls {escapedDirPath} /t /q /c /reset; rm -Recurse {escapedDirPath}"
+                        : $"chmod -R u+w {escapedDirPath} && rm -rf {escapedDirPath}"),
+                Encoding.UTF8);
+            EnableWriteProtection(filePath);
+        } catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {}
     }
 }

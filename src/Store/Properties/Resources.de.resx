@@ -63,17 +63,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Die Unterverzeichnisse in diesem Cache sind durch NTFS-Berechtigungen vor unbeabsichtigten Änderungen geschützt.
-Als Nebeneffekt wird dadurch verhindert, dass sie mit dem Windows-Explorer gelöscht werden können.
+    <value>Dieses Verzeichnis ist ein Implementierungscache. Die Dateien hier sind durch Dateisystemberechtigungen schreibgeschützt. Dies verhindert, dass man sie normal löschen kann.
 
-Wenn Sie einen einzelnen Eintrag löschen möchten, können Sie diese Befehlszeile verwenden:
-0install store remove IMPLEMENTATION-ID
+Wenn Sie eine einzelne Implementierung löschen möchten, können Sie diese Befehlszeile verwenden:
+{0}
 
-Wenn Sie das gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
-0install store purge {0}
+Wenn Sie dieses gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
+{1}
 
-Alternativ können Sie auch die grafische Benutzeroberfläche zur Verwaltung der Caches verwenden:
-0install store manage</value>
+Wenn Sie dieses gesamte Verzeichnis löschen möchten, ohne Zero Install zu verwenden, können Sie diese Befehlszeile verwenden:
+{2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">

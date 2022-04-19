@@ -62,20 +62,6 @@
     <value>Copia de archivos</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Los subdirectorios de esta caché están protegidos de modificaciones no deseadas mediante los permisos NTFS.
-Como efecto secundario, esto impide que se eliminen mediante el Explorador de Windows.
-
-Si desea eliminar una sola entrada puede utilizar esta línea de comandos:
-0install store remove IMPLEMENTATION-ID
-
-Si desea eliminar todo el directorio, puede utilizar esta línea de comandos:
-0install store purge {0}
-
-También puede utilizar la interfaz gráfica de usuario para gestionar las cachés:
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Cómo eliminar</value>
     <comment>Automatically translated.</comment>

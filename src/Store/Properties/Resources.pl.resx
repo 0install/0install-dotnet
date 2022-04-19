@@ -62,20 +62,6 @@
     <value>Kopiowanie plików</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Podkatalogi w tej pamięci podręcznej są chronione przed niezamierzoną modyfikacją za pomocą uprawnień NTFS.
-Efektem ubocznym jest uniemożliwienie ich usunięcia za pomocą Eksploratora Windows.
-
-Jeśli chcesz usunąć pojedynczy wpis, możesz użyć następującego wiersza poleceń:
-0install store remove IMPLEMENTATION-ID
-
-Jeśli chcesz usunąć cały katalog, możesz użyć następującego wiersza poleceń:
-0install store purge {0}
-
-Alternatywnie możesz użyć graficznego interfejsu użytkownika do zarządzania pamięcią podręczną:
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Jak usunąć</value>
     <comment>Automatically translated.</comment>

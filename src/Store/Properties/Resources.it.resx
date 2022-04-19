@@ -62,20 +62,6 @@
     <value>Copiare i file</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Le sottodirectory in questa cache sono protette da modifiche involontarie usando i permessi NTFS.
-Come effetto collaterale, questo impedisce loro di essere cancellate usando Windows Explorer.
-
-Se vuoi cancellare una singola voce puoi usare questa linea di comando:
-0install store remove IMPLEMENTATION-ID
-
-Se vuoi cancellare l'intera directory puoi usare questa linea di comando:
-0install store purge {0}
-
-In alternativa puoi usare l'interfaccia grafica per gestire le cache:
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Come cancellare</value>
     <comment>Automatically translated.</comment>

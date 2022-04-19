@@ -62,20 +62,6 @@
     <value>ファイルをコピーする</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>このキャッシュ内のサブディレクトリは、NTFSパーミッションを使用して意図しない変更から保護されています。
-副次的な効果として、Windowsエクスプローラで削除することができなくなります。
-
-単一のエントリを削除する場合は、次のコマンドラインを使用できます。
-0install store remove IMPLEMENTATION-ID
-
-このディレクトリ全体を削除したい場合は、次のコマンドラインを使用します。
-0install store purge{0}
-
-また、キャッシュを管理するためのグラフィカル・ユーザー・インターフェイスを使用することもできます。
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>削除方法</value>
     <comment>Automatically translated.</comment>

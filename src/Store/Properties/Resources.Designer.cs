@@ -70,17 +70,16 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The subdirectories in this cache are protected from unintended modification using NTFS Permissions.
-        ///As a side-effect this prevents them from being deleted using the Windows Explorer.
+        ///   Looks up a localized string similar to This directory is an implementation cache. The files here are made read-only using file system permissions. This prevents them from being deleted normally.
         ///
-        ///If you wish to delete a single entry you can use this command line:
-        ///0install store remove IMPLEMENTATION-ID
+        ///If you wish to delete a single implementation you can use this command-line:
+        ///{0}
         ///
-        ///If you wish to delete this entire directory you can use this command line:
-        ///0install store purge {0}
+        ///If you wish to delete this entire directory you can use this command-line:
+        ///{1}
         ///
-        ///Alternatively you can use the graphical user interface for managing the caches:
-        ///0install store manage.
+        ///If you wish to delete this entire directory without using Zero Install you can use this command-line:
+        ///{2}.
         /// </summary>
         internal static string DeleteInfoFileContent {
             get {

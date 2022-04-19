@@ -62,20 +62,6 @@
     <value>Copie des fichiers</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Les sous-répertoires de ce cache sont protégés contre toute modification involontaire grâce aux permissions NTFS.
-Cela a pour effet secondaire de les empêcher d'être supprimés à l'aide de l'explorateur Windows.
-
-Si vous souhaitez supprimer une seule entrée, vous pouvez utiliser cette ligne de commande :
-0install store remove IMPLEMENTATION-ID
-
-Si vous souhaitez supprimer l'ensemble de ce répertoire, vous pouvez utiliser cette ligne de commande :
-0install store purge {0}
-
-Vous pouvez également utiliser l'interface utilisateur graphique pour gérer les caches :
-0install store manage</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>Comment supprimer</value>
     <comment>Automatically translated.</comment>
