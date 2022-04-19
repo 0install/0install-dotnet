@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>La commande "0install" a été ajoutée à votre ligne de commande PATH</value>
+    <value>La commande "0install" a été ajoutée à votre ligne de commande PATH.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -130,7 +130,7 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
     <comment>Manually overriden.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Les options {0}et{1}ne peuvent pas être utilisées de manière concomitante. </value>
+    <value>Les options {0} et {1} ne peuvent pas être utilisées de manière concomitante.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
@@ -179,7 +179,7 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Souhaitez-vous supprimer tous les fichiers d'applications du cache du Zero Install?
-Ceux-ci pourront être téléchargés en cas de besoin. </value>
+Ceux-ci pourront être téléchargés en cas de besoin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">

@@ -63,15 +63,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extraction d'archive. </value>
+    <value>Extraction d'archive</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>L'extraction de ce type d'archive n'est pris en charge que sous Windows. </value>
+    <value>L'extraction de ce type d'archive n'est pris en charge que sous Windows.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Le type d'archive MIME '{0}' n'est pas pris en charge. </value>
+    <value>Le type d'archive MIME '{0}' n'est pas pris en charge.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

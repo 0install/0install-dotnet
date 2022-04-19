@@ -59,58 +59,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>Busca de arquivos executáveis</value>
-    <comment>Automatically translated.</comment>
+    <value>Procurando arquivos executáveis</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Foi calculado um manifesto digerido para um diretório vazio. Verifique se você definiu o valor correto do "extrato" para o arquivo.</value>
-    <comment>Automatically translated.</comment>
+    <value>Um resumo de manifesto foi calculado para uma pasta vazia. Verifique se você definiu o valor "extract" correto para o arquivo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>O ponto de entrada do pedido não foi encontrado.
-Tente especificá-lo manualmente.</value>
-    <comment>Automatically translated.</comment>
+    <value>O ponto de entrada do aplicativo não foi localizado.
+Tente especificar manualmente.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Baixando '{0}' usando Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <value>Baixando '{0}' usando o Zero Install</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>O arquivo '{0}' não pôde ser encontrado.</value>
-    <comment>Automatically translated.</comment>
+    <value>O arquivo '{0}' não foi localizado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Detectado '{0}' como diretório de instalação.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' detectado como pasta de instalação.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Não foi encontrado nenhum diretório de 32 bits %ProgramFiles%.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nenhuma pasta %ProgramFiles% de 32 bits localizada.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Múltiplos novos programas padrão foram detectados no registro. O tratamento de todos eles, mas o último pode ter precedência em alguns casos.</value>
-    <comment>Automatically translated.</comment>
+    <value>Vários novos programas padrão foram detectados no registro. Lidar com todos eles, mas o último pode ter precedência em alguns casos.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Foram detectados vários diretórios de instalação. Escolhendo primeiro por padrão.</value>
-    <comment>Automatically translated.</comment>
+    <value>Várias pastas de instalação foram detectadas. Escolhendo o primeiro por padrão.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Múltiplos novos registros de aplicação foram detectados no registro. Escolhendo primeiro por padrão.</value>
-    <comment>Automatically translated.</comment>
+    <value>Vários novos registros de aplicativos foram detectados no registro. Escolhendo o primeiro por padrão.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Nenhum diretório de instalação foi detectado.
-Tente especificá-lo manualmente.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nenhuma pasta de instalação foi detectada.
+Tente especificar manualmente.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Este método está atualmente disponível apenas no Windows.</value>
-    <comment>Automatically translated.</comment>
+    <value>Atualmente, esse método está disponível apenas no Windows.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>A chave secreta não está no chaveiro do usuário.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Tamanho de arquivo ainda não determinado.</value>
