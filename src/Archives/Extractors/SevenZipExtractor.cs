@@ -41,7 +41,7 @@ public partial class SevenZipExtractor : ArchiveExtractor
                 }
             }
             #region Error handling
-            catch (Exception ex) when (ex is InvalidOperationException or ExtractionException)
+            catch (Exception ex) when (ex is InvalidOperationException or ExtractionException or IndexOutOfRangeException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new IOException(Resources.ArchiveInvalid + "\n" + ex.Message, ex);
