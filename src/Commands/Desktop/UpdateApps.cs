@@ -2,8 +2,10 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text.RegularExpressions;
+using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model.Selection;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -30,6 +32,9 @@ public class UpdateApps : IntegrationCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
+        if (Clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && NonEmptyReadOnlyStores)
+            throw new NotAdminException();
+
         var implementations = SolveAll(GetApps());
         DownloadUncachedImplementations(implementations);
         BackgroundSelfUpdate();
@@ -42,6 +47,10 @@ public class UpdateApps : IntegrationCommand
 
         return ExitCode.OK;
     }
+
+    private bool NonEmptyReadOnlyStores
+        => ImplementationStore is CompositeImplementationStore composite
+        && composite.Stores.Any(x => x.Kind == ImplementationStoreKind.ReadOnly && x.ListAll().Any());
 
     private IEnumerable<Requirements> GetApps()
         => AppList.LoadSafe(MachineWide).Entries
