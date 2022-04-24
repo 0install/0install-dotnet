@@ -80,7 +80,7 @@
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Todos os componentes necessários para executar o {0} foram exportados para '{1}':
-Você pode usar o script de importação ou executável bootstrap em '{1}' para importar estes arquivos em outro computador</value>
+Você pode usar o script de importação ou executável bootstrap em '{1}' para importar estes arquivos em outro computador.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -983,7 +983,7 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>Comando desconhecido '{0}'</value>
+    <value>Comando desconhecido '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
