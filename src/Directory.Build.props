@@ -25,6 +25,9 @@
 
     <!-- Dummy version number, overridden by GitVersion -->
     <Version>1.0.0-pre</Version>
+
+    <!-- Dependency versions -->
+    <NanoByteCommonVersion>2.11.5</NanoByteCommonVersion>
   </PropertyGroup>
 
   <!-- NuGet icon -->

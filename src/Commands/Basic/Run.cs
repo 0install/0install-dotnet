@@ -77,8 +77,7 @@ public class Run : Download
         else
         {
             Log.Debug("Waiting for application to exit");
-            process.WaitForExit();
-            return (ExitCode)process.ExitCode;
+            return (ExitCode)process.WaitForExitCode();
         }
     }
 

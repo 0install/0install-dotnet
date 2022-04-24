@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using NanoByte.Common.Native;
 
 namespace ZeroInstall.Client;
@@ -14,10 +15,12 @@ internal class ZeroInstallLauncher : ProcessLauncher
         : base(ProcessUtils.FromCommandLine(commandLine))
     {}
 
-    protected override void HandleExitCode(int exitCode)
+    protected override void WaitForExit(Process process)
     {
+        int exitCode = process.WaitForExitCode();
         switch (exitCode)
         {
+            case 0: // OK
             case 1: // No changes
                 break;
             case 10: // Web error
@@ -29,8 +32,7 @@ internal class ZeroInstallLauncher : ProcessLauncher
             case 100: // User canceled
                 throw new OperationCanceledException();
             default:
-                base.HandleExitCode(exitCode);
-                return;
+                throw new ExitCodeException(process.StartInfo.ToCommandLine(), exitCode);
         }
     }
 }

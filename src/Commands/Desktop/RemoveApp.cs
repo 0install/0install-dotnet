@@ -45,11 +45,14 @@ public class RemoveApp : AppCommand
             var process = StartRemoveHook(hook);
             if (process == null) continue;
 
-            process.WaitForExit();
-            if (process.ExitCode != 0)
+            try
             {
-                Log.Info($"Remove process for {InterfaceUri} cancelled by remove hook {hook.ID}");
-                return (ExitCode)process.ExitCode;
+                process.WaitForSuccess();
+            }
+            catch (ExitCodeException ex)
+            {
+                Log.Info($"Remove process for {InterfaceUri} cancelled by remove hook {hook.ID} with exit code {ex.ExitCode}");
+                return (ExitCode)ex.ExitCode;
             }
         }
 
