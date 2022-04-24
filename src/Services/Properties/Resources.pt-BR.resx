@@ -107,7 +107,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema ao buscar '{0}'</value>
+    <value>Problema ao buscar '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">

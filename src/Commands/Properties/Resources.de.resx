@@ -767,7 +767,7 @@ Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped w
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Startet im Offline-Modus und überschreibt dabei die Standardeinstellung.
-Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind, und neuere Versionen von Programmen werden nicht heruntergeladen, selbst wenn der Injektor sie bereits kennt (z.B. von einer früheren Aktualisierung)</value>
+Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind, und neuere Versionen von Programmen werden nicht heruntergeladen, selbst wenn der Injektor sie bereits kennt (z.B. von einer früheren Aktualisierung).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -893,7 +893,7 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Diese Instanz von Zero Install wurde nicht auf dem System eingerichtet. Es gibt nichts zu entfernen..</value>
+    <value>Diese Instanz von Zero Install wurde nicht auf dem System eingerichtet. Es gibt nichts zu entfernen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -975,7 +975,7 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas an
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Softwarekatalog konnte nicht geladen werden</value>
+    <value>Softwarekatalog konnte nicht geladen werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
