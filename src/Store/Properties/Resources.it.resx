@@ -59,25 +59,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Copiare i file</value>
+    <value>Copia dei file</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Le sottodirectory in questa cache sono protette da modifiche involontarie usando i permessi NTFS.
-Come effetto collaterale, questo impedisce loro di essere cancellate usando Windows Explorer.
+    <value>Questa directory è una cache di implementazione. I file qui presenti sono resi di sola lettura utilizzando i permessi del file system. Questo impedisce di cancellarli normalmente.
 
-Se vuoi cancellare una singola voce puoi usare questa linea di comando:
-0install store remove IMPLEMENTATION-ID
+Se si desidera cancellare una singola implementazione, si può usare questa riga di comando:
+{0}
 
-Se vuoi cancellare l'intera directory puoi usare questa linea di comando:
-0install store purge {0}
+Se si desidera eliminare l'intera directory, si può usare questa riga di comando:
+{1}
 
-In alternativa puoi usare l'interfaccia grafica per gestire le cache:
-0install store manage</value>
+Se si desidera eliminare l'intera directory senza utilizzare Zero Install, è possibile utilizzare questa riga di comando:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Come cancellare</value>
+    <value>Come eliminare</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
@@ -93,7 +92,7 @@ In alternativa puoi usare l'interfaccia grafica per gestire le cache:
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>L'hash del manifesto di un'implementazione non corrisponde al valore atteso.</value>
+    <value>L'hash del manifest di un'implementazione non corrisponde al valore previsto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -113,12 +112,12 @@ In alternativa puoi usare l'interfaccia grafica per gestire le cache:
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database di fiducia. Ritorno ai valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>L'uso del feed mirror, che è necessario per la ricerca, è disabilitato.
-Esegui '0install config feed_mirror default' per abilitarlo.</value>
+    <value>L'uso del feed mirror, necessario per la ricerca, è disabilitato.
+Eseguire '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -126,11 +125,11 @@ Esegui '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>I file che vuoi cancellare sono attualmente in uso.</value>
+    <value>I file che si desidera eliminare sono attualmente in uso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Vuoi chiudere queste applicazioni e continuare?</value>
+    <value>Volete chiudere queste applicazioni e continuare?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
@@ -138,15 +137,15 @@ Esegui '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Trovare file duplicati in '{0}'</value>
+    <value>Trovare i file duplicati in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Il file '{0}' non è né un collegamento simbolico né un file regolare.</value>
+    <value>Il file '{0}' non è né un collegamento simbolico né un file normale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>L'implementazione '{0}' è già nel negozio.</value>
+    <value>L'implementazione '{0}' è già presente nel negozio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
@@ -154,20 +153,20 @@ Esegui '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Vuoi rimuoverlo? Una nuova copia sarà scaricata di nuovo automaticamente quando necessario.</value>
+    <value>Volete rimuoverlo? Una nuova copia verrà scaricata automaticamente quando sarà necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Esegui '0install store remove {0}' per rimuoverlo. Una nuova copia sarà scaricata automaticamente quando necessario.</value>
+    <value>Eseguire '0install store remove {0}' per rimuoverlo. Una nuova copia verrà scaricata automaticamente quando sarà necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>L'implementazione '{0}' non può essere trovata.</value>
+    <value>Non è stato possibile trovare l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Il file system sottostante non memorizza i tempi di cambiamento dei file con sufficiente precisione.
-Se stai usando un disco formattato in FAT, convertilo in NTFS.</value>
+    <value>Il file system sottostante non memorizza i tempi di modifica dei file con sufficiente precisione.
+Se si utilizza un'unità formattata in FAT, convertirla in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -175,7 +174,7 @@ Se stai usando un disco formattato in FAT, convertilo in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Numero non valido di pezzi in linea.</value>
+    <value>Numero di pezzi in linea non valido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -187,15 +186,15 @@ Se stai usando un disco formattato in FAT, convertilo in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Solo gli amministratori possono ottimizzare un negozio condiviso.</value>
+    <value>Solo gli amministratori possono ottimizzare un archivio condiviso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Solo gli amministratori possono rimuovere elementi da un negozio condiviso.</value>
+    <value>Solo gli amministratori possono rimuovere elementi da un archivio condiviso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Il nome del file o della directory non deve contenere un carattere di newline.</value>
+    <value>Il nome del file o della directory non deve contenere un carattere newline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -203,11 +202,11 @@ Se stai usando un disco formattato in FAT, convertilo in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Non è stato specificato alcun metodo di digest conosciuto.</value>
+    <value>Non è stato specificato alcun metodo di digest noto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono consentiti solo in modalità portatile.
+    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono ammessi solo in modalità portatile.
 Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -216,7 +215,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install non può rimuovere se stesso dalla cache di un'implementazione.</value>
+    <value>Zero Install non può rimuovere se stesso da una cache di implementazione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -228,22 +227,22 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>C'è stato un problema nell'accesso al negozio di implementazione '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.
+    <value>Si è verificato un problema nell'accesso all'archivio di implementazione '{0}'.
 Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>C'è stato un problema nel caricare un file di configurazione.
-Puoi cancellare il file '{0}' per risolvere il problema.</value>
+    <value>Si è verificato un problema nel caricamento di un file di configurazione.
+È possibile eliminare il file '{0}' per risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>C'è stato un problema nel caricare il valore di configurazione '{0}'.
-Puoi cancellare il file '{1}' per risolvere il problema. Anche altre impostazioni potrebbero essere perse.</value>
+    <value>Si è verificato un problema nel caricamento del valore di configurazione '{0}'.
+È possibile eliminare il file '{1}' per risolvere il problema. Anche altre impostazioni potrebbero andare perse.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
@@ -255,7 +254,7 @@ Puoi cancellare il file '{1}' per risolvere il problema. Anche altre impostazion
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Impossibile stabilire la connessione con StoreService.</value>
+    <value>Impossibile stabilire una connessione con StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -267,7 +266,7 @@ Puoi cancellare il file '{1}' per risolvere il problema. Anche altre impostazion
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Impossibile abilitare la protezione in scrittura per '{0}'.</value>
+    <value>Impossibile abilitare la protezione da scrittura per '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -275,11 +274,11 @@ Puoi cancellare il file '{1}' per risolvere il problema. Anche altre impostazion
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>La passphrase che hai inserito non è corretta.</value>
+    <value>La passphrase inserita non è corretta.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>L'ultima riga del file non è la fine del blocco della firma.</value>
+    <value>L'ultima riga del file non è la fine del blocco di firma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">

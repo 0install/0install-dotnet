@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Błąd przy ładowaniu preferencji żywieniowych dla "{0}". Przywrócenie wartości domyślnych.</value>
+    <value>Błąd przy ładowaniu preferencji żywieniowych dla '{0}'. Przywrócenie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">

@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>De submappen in deze cache worden beschermd tegen onbedoelde wijzigingen met behulp van NTFS-machtigingen.
-Als neveneffect voorkomt dit dat ze kunnen worden verwijderd met de Windows Verkenner.
+    <value>Deze map is een implementatie cache. De bestanden hier zijn read-only gemaakt met bestandssysteem permissies. Dit voorkomt dat ze normaal verwijderd kunnen worden.
 
-Als u een enkel item wilt verwijderen, kunt u deze opdrachtregel gebruiken:
-0install store remove IMPLEMENTATION-ID
+Als u een enkele implementatie wilt verwijderen, kunt u deze opdrachtregel gebruiken:
+{0}
 
 Als u deze hele directory wilt verwijderen, kunt u deze opdrachtregel gebruiken:
-0install store purge {0}
+{1}
 
-Als alternatief kunt u de grafische gebruikersinterface gebruiken voor het beheren van de caches:
-0install store manage</value>
+Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kunt u deze opdrachtregel gebruiken:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
@@ -207,7 +206,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable mode.
+    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable modus.
 Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

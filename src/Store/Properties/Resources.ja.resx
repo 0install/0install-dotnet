@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>このキャッシュ内のサブディレクトリは、NTFSパーミッションを使用して意図しない変更から保護されています。
-副次的な効果として、Windowsエクスプローラで削除することができなくなります。
+    <value>このディレクトリは、実装キャッシュです。ここにあるファイルは、ファイルシステムのパーミッションを使用して読み取り専用にされています。このため、普通に削除することはできません。
 
-単一のエントリを削除する場合は、次のコマンドラインを使用できます。
-0install store remove IMPLEMENTATION-ID
+もし、一つの実装を削除したい場合は、このコマンドラインを使用することができます。
+{0}
 
-このディレクトリ全体を削除したい場合は、次のコマンドラインを使用します。
-0install store purge{0}
+このディレクトリ全体を削除する場合は、このコマンドラインを使用します。
+{1}
 
-また、キャッシュを管理するためのグラフィカル・ユーザー・インターフェイスを使用することもできます。
-0install store manage</value>
+Zero Installを使用せずにこのディレクトリ全体を削除したい場合は、このコマンドラインを使用します。
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
@@ -113,11 +112,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>信託データベースの読み込みに失敗しました。デフォルト値に戻す。</value>
+    <value>トラストデータベースの読み込みに失敗しました。デフォルト値に戻す。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>検索に必要なフィードミラーの利用が無効になっています。
+    <value>検索に必要なフィードミラーの使用は無効になっています。
 0install config feed_mirror default'を実行し、有効にしてください。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -158,7 +157,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>0install store remove{0}' を実行し、削除してください。必要なときに新しいコピーが自動的に再ダウンロードされます。</value>
+    <value>0install store remove{0}' を実行して削除してください。必要なときに新しいコピーが自動的に再ダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -166,7 +165,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>ファイルシステムは、ファイルの変更時刻を十分に正確に保存していません。
+    <value>基礎となるファイルシステムは、ファイルの変更時間を十分な精度で保存しません。
 FATフォーマットされたドライブを使用している場合は、NTFSに変換してください。</value>
     <comment>Automatically translated.</comment>
   </data>

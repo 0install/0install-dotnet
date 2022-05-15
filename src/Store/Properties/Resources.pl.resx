@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Podkatalogi w tej pamięci podręcznej są chronione przed niezamierzoną modyfikacją za pomocą uprawnień NTFS.
-Efektem ubocznym jest uniemożliwienie ich usunięcia za pomocą Eksploratora Windows.
+    <value>Ten katalog to pamięć podręczna implementacji. Znajdujące się w nim pliki są dostępne tylko do odczytu dzięki uprawnieniom systemu plików. Dzięki temu nie można ich normalnie usunąć.
 
-Jeśli chcesz usunąć pojedynczy wpis, możesz użyć następującego wiersza poleceń:
-0install store remove IMPLEMENTATION-ID
+Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tego wiersza poleceń:
+{0}
 
-Jeśli chcesz usunąć cały katalog, możesz użyć następującego wiersza poleceń:
-0install store purge {0}
+Jeśli chcesz usunąć cały katalog, możesz użyć tego wiersza poleceń:
+{1}
 
-Alternatywnie możesz użyć graficznego interfejsu użytkownika do zarządzania pamięcią podręczną:
-0install store manage</value>
+Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz użyć tego wiersza poleceń:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
@@ -216,7 +215,7 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Instalacja zerowa nie może usunąć się z pamięci podręcznej wdrożenia.</value>
+    <value>Zero Install nie może usunąć się z pamięci podręcznej wdrożenia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">

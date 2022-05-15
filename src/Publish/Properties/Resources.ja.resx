@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>マニフェストダイジェストが空のディレクトリに対して計算されました。アーカイブの "extract" 値が正しく設定されていることを確認してください。</value>
+    <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブの "extract" 値が正しく設定されていることを確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>複数のインストールディレクトリが検出されました。デフォルトで最初に選択されます。</value>
+    <value>複数のインストール先ディレクトリが検出されました。デフォルトで最初に選択されます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">

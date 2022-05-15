@@ -62,7 +62,7 @@
     <value>Alimentazione {0}
 - Firma valida da {1}
 - {2}
-Vuoi fidarti di questa chiave per firmare i feed da '{3}'?
+Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
 </value>
     <comment>Automatically translated.</comment>
   </data>
@@ -75,7 +75,7 @@ Vuoi fidarti di questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>i legami &lt;ambiente&gt; devono contenere o un attributo "valore" o un attributo "inserisci".</value>
+    <value>i binding &lt;ambiente&gt; devono contenere un attributo 'value' o 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -83,43 +83,43 @@ Vuoi fidarti di questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Il feed '{0}' non è nella cache e Zero Install è attualmente in modalità off-line.</value>
+    <value>Il feed '{0}' non è memorizzato nella cache e Zero Install è attualmente in modalità off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' non può essere trovato nella cache del feed.</value>
+    <value>'{0}' non è stato possibile trovarlo nella cache dei feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Il feed '{0}' non è stato firmato con nessuna chiave fidata.</value>
+    <value>Il feed '{0}' non è stato firmato con alcuna chiave attendibile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' è un file locale. Dovrebbe essere un URL HTTP(S).</value>
+    <value>'{0}' è un file locale. Dovrebbe essere un URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>L'attributo uri di &lt;interface&gt; ('{0}') non corrisponde all'URL da cui è stato scaricato il feed ('{1}').</value>
+    <value>L'attributo &lt;interface&gt; uri ('{0}') non corrisponde all'URL da cui è stato scaricato il feed ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Manca l'attributo uri di &lt;interfaccia&gt;. Dovrebbe essere '{0}'.</value>
+    <value>Manca l'attributo &lt;interface&gt; uri. Dovrebbe essere '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema di recupero di '{0}'.</value>
+    <value>Problema nel recuperare '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Carattere illegale in {0} binding name.</value>
+    <value>Carattere illegale nel nome del binding {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>I feed devono specificare l'URI da cui provengono per essere importabili.</value>
+    <value>Per essere importabili, i feed devono specificare l'URI da cui provengono.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nome mancante nella rilegatura {0}.</value>
+    <value>Manca il nome nella rilegatura {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -131,30 +131,30 @@ Vuoi fidarti di questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Il server di informazioni sulle chiavi non è stato in grado di fornire informazioni aggiuntive su questa chiave.</value>
+    <value>Il server delle informazioni sulle chiavi non è stato in grado di fornire ulteriori informazioni su questa chiave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nessun manifest digest per l'implementazione '{0}' trovato.</value>
+    <value>Non è stato trovato alcun manifest digest per l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Non c'è un supporto nativo del gestore di pacchetti per questa piattaforma.</value>
+    <value>Non esiste un gestore di pacchetti nativo per questa piattaforma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Nessun metodo di recupero trovato per l'implementazione '{0}' trovato.</value>
+    <value>Non è stato trovato alcun metodo di recupero per l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>È stato rilevato un possibile attacco di replay. Il tempo di modifica del nuovo feed è precedente alla vecchia versione.
+    <value>È stato rilevato un possibile attacco di replay. L'ora di modifica del nuovo feed è precedente alla vecchia versione.
 URI del feed {0}
-Tempo vecchio {1}
-Nuovo tempo {2}</value>
+Ora vecchia {1}
+Nuova ora {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Impossibile scaricare {0}. Provando invece a scaricare dal feed mirror.</value>
+    <value>Impossibile scaricare {0}. Si sta cercando invece di scaricare dal feed mirror.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -170,11 +170,11 @@ Nuovo tempo {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' non è un ID conosciuto nel gestore di pacchetti {1}.</value>
+    <value>'{0}' non è un ID noto nel gestore di pacchetti {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Il feed è firmato con chiavi non fidate!</value>
+    <value>Il feed è firmato con chiavi non affidabili!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
@@ -182,7 +182,7 @@ Nuovo tempo {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>La directory di lavoro è già stata cambiata da un comando precedente.</value>
+    <value>La directory di lavoro è già stata modificata da un comando precedente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

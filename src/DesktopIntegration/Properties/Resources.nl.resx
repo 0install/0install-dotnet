@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>De gebruikersnaam en/of het wachtwoord dat u heeft opgegeven voor de Sync server zijn onjuist. Controleer uw synchronisatie opties.</value>
+    <value>De gebruikersnaam en/of het wachtwoord dat u heeft opgegeven voor de Sync server is onjuist. Controleer uw synchronisatie opties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">

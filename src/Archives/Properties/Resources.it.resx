@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Estrarre l'archivio</value>
+    <value>Estrazione dell'archivio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Il tipo di archivio MIME '{0}' non è supportato.</value>
+    <value>Il tipo MIME dell'archivio '{0}' non è supportato.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

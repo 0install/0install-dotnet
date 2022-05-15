@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Los subdirectorios de esta caché están protegidos de modificaciones no deseadas mediante los permisos NTFS.
-Como efecto secundario, esto impide que se eliminen mediante el Explorador de Windows.
+    <value>Este directorio es un caché de implementación. Los archivos aquí se hacen de sólo lectura utilizando los permisos del sistema de archivos. Esto evita que se borren normalmente.
 
-Si desea eliminar una sola entrada puede utilizar esta línea de comandos:
-0install store remove IMPLEMENTATION-ID
+Si desea eliminar una sola implementación, puede utilizar esta línea de comandos:
+{0}
 
 Si desea eliminar todo el directorio, puede utilizar esta línea de comandos:
-0install store purge {0}
+{1}
 
-También puede utilizar la interfaz gráfica de usuario para gestionar las cachés:
-0install store manage</value>
+Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar esta línea de comandos:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
@@ -81,7 +80,7 @@ También puede utilizar la interfaz gráfica de usuario para gestionar las cach�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Eliminación del directorio {0}</value>
+    <value>Borrar el directorio {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -212,7 +211,7 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>No hay versión seleccionada</value>
+    <value>Ninguna versión seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
