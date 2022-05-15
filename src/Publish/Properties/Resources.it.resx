@@ -63,20 +63,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>È stato calcolato un manifest digest per una directory vuota. Controlla di aver impostato il corretto valore di "extract" per l'archivio.</value>
+    <value>È stato calcolato un manifest digest per una directory vuota. Verificare che sia stato impostato il valore "extract" corretto per l'archivio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Il punto di ingresso dell'applicazione non è stato trovato.
-Prova a specificarlo manualmente.</value>
+Provare a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Scaricare '{0}' usando Zero Install</value>
+    <value>Scaricare '{0}' utilizzando Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Il file '{0}' non può essere trovato.</value>
+    <value>Il file '{0}' non è stato trovato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -84,11 +84,11 @@ Prova a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Nessuna directory %ProgramFiles% a 32 bit trovata.</value>
+    <value>Non è stata trovata la directory %ProgramFiles% a 32 bit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Sono stati rilevati più nuovi programmi predefiniti nel registro. Gestendoli tutti, ma l'ultimo può avere la precedenza in alcuni casi.</value>
+    <value>Sono stati rilevati diversi nuovi programmi predefiniti nel registro di sistema. Li gestisce tutti, ma l'ultimo potrebbe avere la precedenza in alcuni casi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -96,12 +96,12 @@ Prova a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliendo la prima per impostazione predefinita.</value>
+    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliere la prima per impostazione predefinita.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Non è stata rilevata alcuna directory di installazione.
-Prova a specificarla manualmente.</value>
+Provare a specificarla manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
@@ -109,11 +109,11 @@ Prova a specificarla manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>La chiave segreta non è nel portachiavi dell'utente.</value>
+    <value>La chiave segreta non si trova nel portachiavi dell'utente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>La dimensione del file non è ancora determinata.</value>
+    <value>La dimensione del file non è ancora stata determinata.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

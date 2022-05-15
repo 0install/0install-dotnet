@@ -80,7 +80,7 @@
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Все компоненты, необходимые для работы {0}, были экспортированы в '{1}'.
-Вы можете использовать сценарий импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
+Вы можете использовать скрипт импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -732,7 +732,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие коды языков ISO (например, en или en-US).
 Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -963,7 +963,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Надежные ключи</value>
+    <value>Доверенные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>{0}' のインターフェース環境設定の読み込みにエラーが発生しました。デフォルト値に戻しています。</value>
+    <value>{0}' のインターフェースプリファレンスの読み込みにエラーが発生しました。デフォルト値に戻しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>バージョン番号には、ドットで区切られた小数点以下の数値と修飾文字列のみを含めることができる。</value>
+    <value>バージョン番号には、ドットで区切られた小数点以下の数値と修飾文字列のみを含めることができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>バージョン範囲の終わりは排他的でなければならない。{0}' ではなく、 '...{0}' を使用してください。</value>
+    <value>バージョン範囲の終わりは排他的でなければなりません。{0}' ではなく、 '...{0}' を使用してください。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

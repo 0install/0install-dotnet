@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>シンクサーバーに入力したユーザー名またはパスワードが正しくありません。同期オプションを確認してください。</value>
+    <value>同期サーバーに入力したユーザー名またはパスワードが正しくありません。同期オプションを確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
@@ -120,7 +120,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>現在、Syncサーバーに保存されているデータが破損しています。
+    <value>現在Syncサーバーに保存されているデータが破損しています。
 トラブルシューティングウィザード（「Sync」ボタンを右クリック）を実行するか、「0install sync --reset=server」を実行することで、サーバーに保存されているデータを交換することができます。</value>
     <comment>Automatically translated.</comment>
   </data>

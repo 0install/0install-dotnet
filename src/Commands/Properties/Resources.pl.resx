@@ -183,7 +183,7 @@ Pliki te można pobrać ponownie w razie potrzeby.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiega to pozostawieniu resztek wpisów w menu po usunięciu Instalatora Zero.
+    <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiega to pozostawaniu wpisów w menu po usunięciu Instalatora Zero.
 Możesz utworzyć kopię zapasową tej listy, używając '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -227,7 +227,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias umożliwiający uruchamianie aplikacji za pomocą funkcji 0install bez konieczności podawania pełnego identyfikatora URI.</value>
+    <value>Utwórz alias umożliwiający uruchamianie aplikacji za pomocą 0install bez konieczności każdorazowego podawania pełnego identyfikatora URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -268,7 +268,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Umożliwia wyświetlenie lub zmianę ustawień konfiguracyjnych.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podana jest wartość "default".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -424,7 +424,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonej DOMENY, jeśli została określona.</value>
+    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonego DOMENU, jeśli został podany.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -676,7 +676,7 @@ Ustawienie wartości pustej ("") powoduje ignorowanie polecenia podczas wybieran
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Przejście do określonej karty w interfejsie graficznym konfiguracji. Poprawne {TAB} to "updates", "storage", "catalog", "trust", "sync", "language", "language" i "advanced".</value>
+    <value>Przejście do określonej zakładki w graficznym interfejsie użytkownika konfiguracji. Poprawne {TAB} to "updates", "storage", "catalog", "trust", "sync", "language", "language" i "advanced".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -746,7 +746,7 @@ Możesz użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Uruchamia określony plik wykonywalny {MAIN} zamiast domyślnego. Jeśli zaczyna się od '/' lub '\', to ścieżka jest względna do katalogu najwyższego poziomu implementacji, w przeciwnym razie jest względna do katalogu zawierającego domyślny program główny.
-Nie może zawierać argumentów wiersza poleceń! Nie trzeba uciekać przed białymi znakami.</value>
+Nie może zawierać argumentów wiersza poleceń! Nie trzeba uciekać od białych spacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -813,7 +813,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Wymaga wersji programu głównego mieszczącej się w podanym {RANGE}.
 Zakresy są oddzielone rurkami (|).
-Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, w których START &lt;= WERSJA &lt; END. Początek lub koniec może być pominięty.
+Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= VERSION &lt; END. Początek lub koniec może być pominięty.
 Zamiast zakresu można użyć pojedynczego numeru wersji, aby dopasować tylko tę wersję, lub !VERSION, aby dopasować wszystko oprócz tej wersji.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -877,7 +877,7 @@ Może zawierać argumenty wiersza poleceń. Białe spacje muszą być usunięte!
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Zmieniono adres "{0}" na "{1}" przy użyciu aliasu.</value>
+    <value>Zmieniono nazwę pliku '{0}' na '{1}' przy użyciu aliasu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">

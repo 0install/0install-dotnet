@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>该缓存中的子目录通过NTFS权限被保护起来，以免被意外修改。
-作为一个副作用，这可以防止它们被用Windows Explorer删除。
+    <value>这个目录是一个执行缓存。这里的文件用文件系统的权限做成只读的。这可以防止它们被正常删除。
 
-如果你想删除一个条目，你可以使用这个命令行。
-0install store remove IMPLEMENTATION-ID
+如果你想删除一个实现，你可以使用这个命令行。
+{0}
 
-如果你想删除整个目录，你可以使用这个命令行。
-0install store purge{0}
+如果你希望删除整个目录，你可以使用这个命令行。
+{1}
 
-或者，你可以使用图形用户界面来管理缓存。
-0install store manage</value>
+如果你希望删除整个目录而不使用 "零安装"，你可以使用这个命令行。
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">

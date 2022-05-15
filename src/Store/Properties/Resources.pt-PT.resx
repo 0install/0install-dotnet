@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Os subdirectórios nesta cache estão protegidos contra modificações não intencionais utilizando NTFS Permissions.
-Como efeito secundário, isto evita que sejam apagados utilizando o Explorador do Windows.
+    <value>Este directório é uma cache de implementação. Os ficheiros aqui são feitos apenas leitura usando permissões de sistema de ficheiros. Isto impede que eles sejam apagados normalmente.
 
-Se desejar apagar uma única entrada, pode utilizar esta linha de comando:
-0install store remover IMPLEMENTATION-ID
+Se desejar apagar uma única implementação, pode utilizar esta linha de comando:
+{0}
 
 Se desejar apagar todo este directório, pode utilizar esta linha de comando:
-0instalar purga da loja {0}
+{1}
 
-Em alternativa, pode utilizar a interface gráfica do utilizador para gerir as caches:
-0instalar a gestão da loja</value>
+Se desejar apagar todo este directório sem utilizar a instalação Zero, pode utilizar esta linha de comando:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">

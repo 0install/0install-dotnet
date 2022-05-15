@@ -63,17 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Subdirectoarele din această memorie cache sunt protejate împotriva modificării neintenționate cu ajutorul NTFS Permissions.
-Ca efect secundar, acest lucru împiedică ștergerea lor cu ajutorul Windows Explorer.
+    <value>Acest director este o memorie cache de implementare. Fișierele de aici sunt făcute numai pentru citire folosind permisiunile sistemului de fișiere. Acest lucru le împiedică să fie șterse în mod normal.
 
-Dacă doriți să ștergeți o singură intrare, puteți utiliza această linie de comandă:
-0install store remove IMPLEMENTATION-ID
+Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:
+{0}
 
 Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:
-0install store purge {0}
+{1}
 
-Alternativ, puteți utiliza interfața grafică cu utilizatorul pentru gestionarea cache-urilor:
-0install store manage</value>
+Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
+{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">

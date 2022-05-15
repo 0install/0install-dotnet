@@ -227,7 +227,7 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Crea un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
+    <value>Crear un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -268,7 +268,7 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver o cambiar los ajustes de configuración.
-Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración nombrada. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
+Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual del ajuste nombrado. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -298,7 +298,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Enumera todos los URIs de feed conocidos localmente. Si se indica un término de búsqueda, sólo se muestran las URI que contienen esa cadena (no se distinguen las mayúsculas de las minúsculas).</value>
+    <value>Enumera todos los URIs de feed conocidos localmente. Si se da un término de búsqueda, sólo se muestran las URI que contienen esa cadena (no se distinguen las mayúsculas de las minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -306,7 +306,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Enumera todos los feeds adicionales añadidos a la URI mediante '0install add-feed'.</value>
+    <value>Enumera todos los feeds adicionales añadidos al URI mediante '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -416,7 +416,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Confía en los feeds de un DOMINIO específico cuando se firman con un FINGERPRINT específico.</value>
+    <value>Confía en los feeds de un DOMINIO específico cuando se firman con una FINGERPRINT específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -554,7 +554,7 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Este programa no incluye ABSOLUTAMENTE NINGUNA GARANTÍA, en la medida en que lo permita la ley.
+    <value>Este programa no ofrece ABSOLUTAMENTE NINGUNA GARANTÍA, en la medida en que lo permita la ley.
 Puede redistribuir copias de este programa bajo los términos de la Licencia Pública General Reducida GNU.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -651,7 +651,7 @@ Puede redistribuir copias de este programa bajo los términos de la Licencia Pú
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Oculta la interface gráfica de usuario y utiliza algo como un icono de bandeja en su lugar.</value>
+    <value>Ocultar la interface gráfica de usuario y utilizar algo como un icono de bandeja en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
@@ -672,7 +672,7 @@ Puede redistribuir copias de este programa bajo los términos de la Licencia Pú
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND} en su lugar. Los nombres de comandos válidos se especifican en el feed del programa.
-Establezca el valor vacío ("") para ignorar el comando durante la selección.</value>
+Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -684,11 +684,11 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Mostrar el editor gráfico de políticas. Permite personalizar qué versión de un programa o biblioteca se va a utilizar.</value>
+    <value>Mostrar el editor gráfico de políticas. Permite personalizar la versión de un programa o biblioteca que se va a utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Mostrar el resumen del manifiesto (activado por defecto si --manifest no está establecido).</value>
+    <value>Muestra el resumen del manifiesto (activado por defecto si --manifest no está establecido).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -833,7 +833,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -922,7 +922,7 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Iniciar el servicio de tienda Zero Install</value>
+    <value>Inicio del servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
