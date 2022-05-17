@@ -15,6 +15,12 @@
       "automergeType": "branch"
     },
     {
+      "matchPackagePatterns": ["^Generator\\.Equals"],
+      "groupName": "Generator.Equals",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "matchPackagePatterns": ["SourceLink"],
       "matchPackageNames": ["SharpZipLib", "SharpCompress"],
       "automerge": true,
