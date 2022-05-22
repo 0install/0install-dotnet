@@ -115,7 +115,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Aby można było zaimportować materiały informacyjne, należy podać identyfikator URI, z którego pochodzą.</value>
+    <value>Aby można było importować materiały informacyjne, należy podać identyfikator URI, z którego pochodzą.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">

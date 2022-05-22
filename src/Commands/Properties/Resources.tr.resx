@@ -603,7 +603,8 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install taşınabilir kipte çalışıyor. Masaüstü bütünleştirmesinin çalışabilmesi için kalıcı bir konumda hazırlanmış olması gerekir. Bu hazırlık, taşınabilir kopyanızdan tamamen bağımsızdır.</value>
+    <value>Zero Install taşınabilir kipte çalışıyor. Masaüstü bütünleştirmesinin çalışabilmesi için kalıcı bir konumda hazırlanmış olması gerekir.
+Bunu '{0}' kullanarak yapabilirsiniz. Bu, taşınabilir kopyanızdan tamamen bağımsız olacaktır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">

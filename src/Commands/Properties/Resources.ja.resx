@@ -603,7 +603,8 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install はポータブルモードで実行されています。デスクトップ統合が機能するためには、恒久的な場所にデプロイする必要があります。これは、ポータブルコピーとは完全に独立しています。</value>
+    <value>Zero Install はポータブルモードで実行されています。デスクトップ統合を行うには、恒久的な場所にデプロイする必要があります。
+これは、'{0}' を使って行うことができます。これは、あなたのポータブルコピーとは完全に独立しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">

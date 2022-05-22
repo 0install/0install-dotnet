@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Όλα τα συστατικά που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
+    <value>Όλα τα στοιχεία που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
 Μπορείτε να χρησιμοποιήσετε το σενάριο εισαγωγής ή το εκτελέσιμο αρχείο Bootstrap στο '{1}' για να εισαγάγετε αυτά τα αρχεία σε έναν άλλο υπολογιστή.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -301,7 +301,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
+    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Αν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -602,7 +602,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Το Zero Install εκτελείται σε φορητή λειτουργία. Πρέπει να αναπτυχθεί σε μια μόνιμη τοποθεσία για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας. Αυτό θα είναι εντελώς ανεξάρτητο από το φορητό σας αντίγραφο.</value>
+    <value>Το Zero Install εκτελείται σε φορητή λειτουργία. Πρέπει να αναπτυχθεί σε μια μόνιμη τοποθεσία για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας.
+Μπορείτε να το κάνετε αυτό χρησιμοποιώντας το '{0}'. Αυτό θα είναι εντελώς ανεξάρτητο από το φορητό σας αντίγραφο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">

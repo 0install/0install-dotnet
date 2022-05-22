@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>饲料'{0}'没有用任何受信任的密钥签名。</value>
+    <value>饲料'{0}'没有用任何可信的密钥签名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">

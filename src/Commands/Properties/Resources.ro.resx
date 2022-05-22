@@ -277,7 +277,7 @@ Fără argumente, afișează toate setările și valorile lor actuale. Cu un sin
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Se comportă în mod similar cu "0install select", cu excepția faptului că descarcă și versiunile selectate, dacă acestea nu sunt deja stocate în memoria cache.
-Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile sunt descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
+Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile au fost descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -314,7 +314,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Îndepărtează din sistem instanța curentă a programului Zero Install.</value>
+    <value>Elimină din sistem instanța curentă a programului Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -404,7 +404,7 @@ Argumentele suplimentare specifică locațiile personalizate ale cache-ului.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Elimină un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -501,7 +501,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
-    <value>Fluxuri în cache</value>
+    <value>Fluxuri cache</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
@@ -567,7 +567,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Lipsește elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
+    <value>Lipsă elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -603,7 +603,8 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install rulează în modul portabil. Acesta trebuie să fie implementat într-o locație permanentă pentru ca integrarea pe desktop să funcționeze. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
+    <value>Zero Install rulează în modul portabil. Acesta trebuie să fie implementat într-o locație permanentă pentru ca integrarea pe desktop să funcționeze.
+Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -676,7 +677,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Treceți la o anumită filă din GUI de configurare. {TAB}-urile valide sunt "updates", "storage", "storage", "catalog", "trust", "sync", "language", "language" și "advanced".</value>
+    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates" (actualizări), "storage" (stocare), "catalog" (catalog), "trust" (încredere), "sync" (sincronizare), "language" (limbă), "language" (limbă) și "advanced" (avansat).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -950,7 +951,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
+    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
 Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>

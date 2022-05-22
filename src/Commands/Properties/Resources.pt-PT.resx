@@ -268,7 +268,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver ou alterar definições de configuração.
-Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, mostra o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
+Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, mostra o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou reinicia-o para o valor por defeito se for dado o valor "por defeito".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -457,7 +457,7 @@ Isto é semelhante a '0install download --refresh', excepto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação para adicionar:</value>
+    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação a adicionar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -603,7 +603,8 @@ Pode redistribuir cópias deste programa sob os termos da Licença Pública Gera
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>A Instalação Zero está a funcionar no modo portátil. Precisa de ser implantado num local permanente para que a integração do ambiente de trabalho funcione. Isto será completamente independente da sua cópia portátil.</value>
+    <value>A Instalação Zero está a funcionar no modo portátil. Precisa de ser implantado num local permanente para que a integração do ambiente de trabalho funcione.
+Pode fazer isto usando '{0}'. Isto será completamente independente da sua cópia portátil.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -767,7 +768,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
