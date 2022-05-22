@@ -1260,7 +1260,8 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zero Install is running in portable mode. It needs to be deployed to a permanent location for desktop integration to work. This will be completely independent from your portable copy..
+        ///   Looks up a localized string similar to Zero Install is running in portable mode. It needs to be deployed to a permanent location for desktop integration to work.
+        ///You can do this using &apos;{0}&apos;. This will be completely independent from your portable copy..
         /// </summary>
         public static string NoIntegrationFromPortable {
             get {

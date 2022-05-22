@@ -49,22 +49,7 @@ public abstract class IntegrationCommand : CliCommand
     /// <exception cref="UnsuitableInstallBaseException">The current Zero Install instance is installed in a location unsuitable for the desired operation.</exception>
     protected void CheckInstallBase()
     {
-        if (Locations.IsPortable)
-        {
-            Log.Warn(Resources.NoIntegrationFromPortable);
-
-            if (Handler.Verbosity != Verbosity.Batch)
-            {
-                string[] deployArgs = MachineWide
-                    ? new[] { Self.AltName, Self.Deploy.Name, "--restart-central", "--machine" }
-                    : new[] { Self.AltName, Self.Deploy.Name, "--restart-central" };
-                ProgramUtils.Run(ProgramUtils.CliAssemblyName, deployArgs, Handler);
-            }
-
-            // NOTE: Portable instances remain decoupled from local instances, so we do not use UnsuitableInstallBaseException here, which would redirect commands to other instances.
-            throw new OperationCanceledException();
-        }
-
+        if (Locations.IsPortable) throw new NotSupportedException(string.Format(Resources.NoIntegrationFromPortable, "0install self deploy"));
         if (!ZeroInstallInstance.IsDeployed) throw new UnsuitableInstallBaseException(Resources.NoIntegrationDeployRequired, MachineWide);
         if (MachineWide && !ZeroInstallInstance.IsMachineWide) throw new UnsuitableInstallBaseException(Resources.NoMachineWideIntegrationFromPerUser, MachineWide);
     }

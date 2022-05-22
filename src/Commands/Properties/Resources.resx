@@ -531,7 +531,8 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
     <value>Zero Install needs to be deployed on your system for desktop integration to work.</value>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install is running in portable mode. It needs to be deployed to a permanent location for desktop integration to work. This will be completely independent from your portable copy.</value>
+    <value>Zero Install is running in portable mode. It needs to be deployed to a permanent location for desktop integration to work.
+You can do this using '{0}'. This will be completely independent from your portable copy.</value>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
     <value>Zero Install is running from a user-specific directory. It needs to be deployed to a directory accessible by all users for machine-wide desktop integration to work.</value>
