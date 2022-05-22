@@ -246,18 +246,15 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
                     break;
 
                 case ForEachArgs forEach:
-                    string? valueToSplit = _startInfo.EnvironmentVariables[forEach.ItemFrom];
-                    if (!string.IsNullOrEmpty(valueToSplit))
+                    foreach (string item in _startInfo
+                                           .EnvironmentVariables[forEach.ItemFrom]
+                                          ?.Split(new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.RemoveEmptyEntries)
+                                         ?? Enumerable.Empty<string>())
                     {
-                        string[] items = valueToSplit.Split(
-                            new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.None);
-                        foreach (string item in items)
-                        {
-                            _startInfo.EnvironmentVariables["item"] = item;
-                            result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
-                        }
-                        _startInfo.EnvironmentVariables.Remove("item");
+                        _startInfo.EnvironmentVariables["item"] = item;
+                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
                     }
+                    _startInfo.EnvironmentVariables.Remove("item");
                     break;
 
                 default:

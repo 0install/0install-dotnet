@@ -48,9 +48,8 @@ public static class ImplementationStoreUtils
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        string[] parts = Path.GetFullPath(path).Split(Path.DirectorySeparatorChar);
         var builder = new StringBuilder();
-        foreach (string part in parts)
+        foreach (string part in Path.GetFullPath(path).Split(Path.DirectorySeparatorChar))
         {
             builder.Append(part);
             if (ManifestFormat.All.Any(format => part.StartsWith(format.Prefix + format.Separator)))

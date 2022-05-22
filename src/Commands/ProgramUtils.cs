@@ -335,10 +335,11 @@ public static class ProgramUtils
     {
         Log.Info("Deploying new Zero Install instance to redirect to");
 
-        string[] deployArgs = machineWide
-            ? new[] { Self.AltName, Self.Deploy.Name, "--library", "--machine" }
-            : new[] { Self.AltName, Self.Deploy.Name, "--library" };
-        var deployResult = Run(exeName, deployArgs, handler);
+        var deployResult = Run(exeName,
+            machineWide
+                ? new[] {Self.Name, Self.Deploy.Name, "--library", "--machine"}
+                : new[] {Self.Name, Self.Deploy.Name, "--library"},
+            handler);
         if (deployResult != ExitCode.OK) return deployResult;
 
         return TryRunOtherInstance(exeName, args, handler, machineWide)
