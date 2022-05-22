@@ -603,7 +603,8 @@ Você pode redistribuir cópias deste programa sob os termos da GNU Lesser Gener
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install está sendo executado no modo portátil. Ele precisa ser implantado em um local permanente para que a integração da área de trabalho funcione. Isso será completamente independente da sua cópia portátil.</value>
+    <value>Zero Install está sendo executado no modo portátil. Ele precisa ser implantado em um local permanente para que a integração da área de trabalho funcione.
+Puedes hacerlo utilizando '{0}'. Esto será completamente independiente de su copia portátil.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">

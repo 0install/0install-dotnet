@@ -276,7 +276,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它还会下载所选择的版本，如果它们还没有被缓存。
+    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
 如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -416,7 +416,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签署。</value>
+    <value>信任来自特定DOMAIN的饲料，当用特定的FINGERPRINT签名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -603,7 +603,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。这将完全独立于你的便携式拷贝。</value>
+    <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
+你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -1003,7 +1004,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>核实</value>
+    <value>验证</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">

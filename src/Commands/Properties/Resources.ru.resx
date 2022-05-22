@@ -80,7 +80,7 @@
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Все компоненты, необходимые для работы {0}, были экспортированы в '{1}'.
-Вы можете использовать скрипт импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
+Вы можете использовать сценарий импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Перечисляет все локально известные URI кормов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
+    <value>Перечисляет все локально известные URI фидов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -555,7 +555,7 @@
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Эта программа поставляется с АБСОЛЮТНО НИКАКИМИ ГАРАНТИЯМИ, насколько это разрешено законом.
-Вы можете распространять копии этой программы в соответствии с условиями GNU Lesser General Public License.</value>
+Вы можете распространять копии этой программы на условиях лицензии GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -603,7 +603,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install работает в портативном режиме. Для интеграции с настольным компьютером его необходимо развернуть в постоянном месте. Это будет полностью независимо от вашей портативной копии.</value>
+    <value>Zero Install работает в портативном режиме. Для интеграции с рабочим столом его необходимо развернуть в постоянном месте.
+Вы можете сделать это с помощью '{0}'. Это будет полностью независимо от вашей портативной копии.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -732,7 +733,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Указывает предпочтительный язык для реализации. Используйте короткие коды языков ISO (например, en или en-US).
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
 Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -775,7 +776,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Создайте переносную установку, которую можно перемещать (например, на флешке).</value>
+    <value>Создайте портативную установку, которую можно перемещать (например, на флешке).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -877,7 +878,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Изменение '{0}' на '{1}' с помощью псевдонима.</value>
+    <value>Переименовать '{0}' в '{1}' с помощью псевдонима.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
@@ -951,7 +952,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Криптографический ключ используется для локального шифрования ваших данных перед передачей их на сервер.
-Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
+Храните этот ключ в секрете и используйте для пароля что-то другое. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

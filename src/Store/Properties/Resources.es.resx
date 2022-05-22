@@ -80,7 +80,7 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Borrar el directorio {0}</value>
+    <value>Eliminación del directorio {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">

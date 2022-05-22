@@ -599,11 +599,12 @@ Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien d
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Damit die Desktopintegration funktioniert, muss Zero Install auf Ihrem System eingerichtet sein.</value>
+    <value>Zero Install muss auf Ihrem System eingerichtet werden, damit die Desktopintegration funktioniert.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install läuft im Portable Modus. Damit die Desktopintegration funktioniert, muss sie an einem festen Ort eingerichtet werden. Dieser ist völlig unabhängig von Ihrer portablen Kopie.</value>
+    <value>Zero Install läuft im Portable Modus. Es muss an einem festen Ort eingerichtet werden, damit die Desktopintegration funktioniert.
+Sie können dies mit '{0}' tun. Dies ist dann völlig unabhängig von Ihrer portablen Kopie.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
