@@ -402,7 +402,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When using the --portable option you must explicitly specify the target directory..
+        ///   Looks up a localized string similar to When using the {0} option you must explicitly specify the target directory..
         /// </summary>
         public static string DeployMissingTargetForPortable {
             get {
@@ -1233,7 +1233,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to --command may only be specified together with an alias name..
+        ///   Looks up a localized string similar to {0} may only be specified together with an alias name..
         /// </summary>
         public static string NoAddCommandWithoutAlias {
             get {
@@ -2064,7 +2064,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try {0} --help.
+        ///   Looks up a localized string similar to Try {0}.
         /// </summary>
         public static string TryHelp {
             get {
@@ -2073,7 +2073,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Try --help with one of these:.
+        ///   Looks up a localized string similar to Try {0} with one of these:.
         /// </summary>
         public static string TryHelpWith {
             get {
