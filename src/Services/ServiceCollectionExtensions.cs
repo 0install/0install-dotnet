@@ -32,7 +32,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services, IConfiguration? configuration = null)
         where TTaskHandler : class, ITaskHandler
         => services.AddScoped<ITaskHandler, TTaskHandler>()
-                   .AddScoped(_ => (configuration == null) ? Config.Load() : Config.From(configuration))
+                   .AddScoped(_ => configuration?.Get<Config>() ?? Config.Load())
                    .AddScoped(_ => ImplementationStores.Default())
                    .AddScoped(_ => OpenPgp.Verifying())
                    .AddScoped(provider => FeedCaches.Default(provider.GetRequiredService<IOpenPgp>()))

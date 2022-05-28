@@ -12,8 +12,6 @@ using NanoByte.Common.Values;
 
 #if NETFRAMEWORK
 using System.Configuration;
-#else
-using Microsoft.Extensions.Configuration;
 #endif
 
 namespace ZeroInstall.Store.Configuration;
@@ -128,23 +126,6 @@ partial class Config
         config.ReadFromIniFile(path);
         return config;
     }
-
-#if NET
-    /// <summary>
-    /// Gets the settings from a .NET Extensions <see cref="IConfiguration"/> provider.
-    /// </summary>
-    /// <returns>The loaded <see cref="Config"/>.</returns>
-    public static Config From(IConfiguration configuration)
-    {
-        var config = new Config();
-        foreach ((string key, var pointer) in config._metaData)
-        {
-            string? value = configuration[key];
-            if (value != null) pointer.Value = value;
-        }
-        return config;
-    }
-#endif
 
     /// <summary>
     /// Saves the settings to an INI file in the default location in the user profile.

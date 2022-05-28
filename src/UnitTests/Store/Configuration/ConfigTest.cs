@@ -1,10 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NET
-using Microsoft.Extensions.Configuration;
-#endif
-
 namespace ZeroInstall.Store.Configuration;
 
 /// <summary>
@@ -92,21 +88,6 @@ public class ConfigTest : TestWithRedirect
         Config.Load(tempFile).Save(tempFile);
         File.ReadAllText(tempFile).Should().Be(testIniData);
     }
-
-    #if NET
-    [Fact]
-    public void FromExtensionsConfiguration()
-    {
-        var config = Config.From(new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string>
-        {
-            ["network_use"] = "minimal",
-            ["auto_approve_keys"] = "false"
-        }).Build());
-
-        config.NetworkUse.Should().Be(NetworkLevel.Minimal);
-        config.AutoApproveKeys.Should().BeFalse();
-    }
-    #endif
 
     [Fact]
     public void LoadStressTest()
