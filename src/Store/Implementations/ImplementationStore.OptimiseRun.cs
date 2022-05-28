@@ -76,13 +76,9 @@ partial class ImplementationStore
             if (_unsealedImplementations.Add(file2.ImplementationPath))
                 FileUtils.DisableWriteProtection(file2.ImplementationPath);
 
-            string tempFile = System.IO.Path.Combine(StorePath, System.IO.Path.GetRandomFileName());
-            using var _ = new Disposable(() =>
-            {
-                if (File.Exists(tempFile)) File.Delete(tempFile);
-            });
-
-            Log.Info("Hard link: " + file1 + " <=> " + file2);
+            Log.Info($"Hard link: {file1} <=> {file2}");
+            using var tempFile = new TemporaryFile("0install-optimise", StorePath);
+            File.Delete(tempFile);
             FileUtils.CreateHardlink(tempFile, file2);
             FileUtils.Replace(tempFile, file1);
             return true;

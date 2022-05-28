@@ -78,8 +78,8 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         var format = ManifestFormat.FromPrefix(manifestDigest.Best);
 
         // Place files in temp directory until digest is verified
-        string tempDir = GetTempDir();
-        using var _ = new Disposable(() => DeleteTempDir(tempDir));
+        using var tempDir = new TemporaryDirectory("0install-extract", Path);
+        Log.Debug("Temp directory for extracting: " + tempDir);
 
         var builder = new ManifestBuilder(format);
         build(new DirectoryBuilder(tempDir, builder));
@@ -117,23 +117,6 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     }
 
     private readonly object _renameLock = new();
-
-    private string GetTempDir()
-    {
-        string path = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
-        Log.Debug("Creating temp directory for extracting: " + path);
-        Directory.CreateDirectory(path);
-        return path;
-    }
-
-    private static void DeleteTempDir(string path)
-    {
-        if (Directory.Exists(path))
-        {
-            Log.Debug("Deleting left-over temp directory: " + path);
-            Directory.Delete(path, recursive: true);
-        }
-    }
 
     /// <summary>
     /// Makes a directory read-only using platform-specific mechanisms. Logs any errors and continues.
