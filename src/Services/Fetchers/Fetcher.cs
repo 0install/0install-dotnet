@@ -60,13 +60,18 @@ public partial class Fetcher : IFetcher
         }
         #endregion
 
-        using var _ = new Disposable(mutex.ReleaseMutex);
+        try
+        {
+            // Check if another process added the implementation in the meantime
+            if (GetPath(implementation) != null) return;
 
-        // Check if another process added the implementation in the meantime
-        if (GetPath(implementation) != null) return;
-
-        if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
-        Retrieve(implementation, tag);
+            if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
+            Retrieve(implementation, tag);
+        }
+        finally
+        {
+            mutex.ReleaseMutex();
+        }
     }
 
     /// <summary>

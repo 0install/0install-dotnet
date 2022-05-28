@@ -80,7 +80,7 @@ partial class Self
         /// </summary>
         private void DelegateToTempCopy()
         {
-            string tempDir = FileUtils.GetTempDirectory("0install-remove");
+            string tempDir = new TemporaryDirectory("0install-remove");
             using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
                 manager.Deploy();
 
