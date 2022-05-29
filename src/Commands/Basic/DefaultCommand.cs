@@ -33,7 +33,7 @@ public class DefaultCommand : CliCommand
         {
             Handler.Output(Resources.VersionInformation,
 #if NETFRAMEWORK
-                    @"Zero Install (.NET Framework) "
+                @"Zero Install (.NET Framework) "
 #else
                 @"Zero Install (.NET) "
 #endif

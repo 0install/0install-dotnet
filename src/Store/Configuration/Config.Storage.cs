@@ -83,7 +83,7 @@ partial class Config
         var config = new Config();
 
 #if NETFRAMEWORK
-            config.ReadFromAppSettings();
+        config.ReadFromAppSettings();
 #endif
         config.ReadFromIniFiles();
         if (WindowsUtils.IsWindowsNT)
@@ -247,19 +247,19 @@ partial class Config
     }
 
 #if NETFRAMEWORK
-        /// <summary>
-        /// Reads settings from <see cref="ConfigurationManager.AppSettings"/> and transfers them to properties.
-        /// </summary>
-        private void ReadFromAppSettings()
+    /// <summary>
+    /// Reads settings from <see cref="ConfigurationManager.AppSettings"/> and transfers them to properties.
+    /// </summary>
+    private void ReadFromAppSettings()
+    {
+        var appSettings = ConfigurationManager.AppSettings;
+        foreach ((string key, var property) in _metaData)
         {
-            var appSettings = ConfigurationManager.AppSettings;
-            foreach ((string key, var property) in _metaData)
-            {
-                string value = appSettings[key];
-                if (!string.IsNullOrEmpty(value))
-                    property.Value = value;
-            }
+            string value = appSettings[key];
+            if (!string.IsNullOrEmpty(value))
+                property.Value = value;
         }
+    }
 #endif
 
     /// <summary>

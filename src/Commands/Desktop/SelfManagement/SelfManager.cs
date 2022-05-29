@@ -74,8 +74,8 @@ public partial class SelfManager : ManagerBase
         var oldManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
-            if (WindowsUtils.IsWindows && MachineWide)
-                ServiceStop();
+        if (WindowsUtils.IsWindows && MachineWide)
+            ServiceStop();
 #endif
 
         try
@@ -104,12 +104,12 @@ public partial class SelfManager : ManagerBase
             if (WindowsUtils.IsWindows) TargetMutexRelease();
 
 #if NETFRAMEWORK
-                if (MachineWide)
-                {
-                    NgenApply();
-                    ServiceInstall();
-                    ServiceStart();
-                }
+            if (MachineWide)
+            {
+                NgenApply();
+                ServiceInstall();
+                ServiceStart();
+            }
 #endif
         }
         catch
@@ -129,12 +129,12 @@ public partial class SelfManager : ManagerBase
         var targetManifest = LoadManifest(TargetDir);
 
 #if NETFRAMEWORK
-            if (MachineWide)
-            {
-                ServiceStop();
-                ServiceUninstall();
-                NgenRemove();
-            }
+        if (MachineWide)
+        {
+            ServiceStop();
+            ServiceUninstall();
+            NgenRemove();
+        }
 #endif
 
         try
@@ -145,7 +145,7 @@ public partial class SelfManager : ManagerBase
             {
                 clearDir.Stage();
 #if NETFRAMEWORK
-                    DeleteServiceLogFiles();
+                DeleteServiceLogFiles();
 #endif
                 if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
                 clearDir.Commit();
