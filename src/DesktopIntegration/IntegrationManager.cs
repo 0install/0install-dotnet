@@ -68,7 +68,7 @@ public class IntegrationManager : IntegrationManagerBase
     /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public IntegrationManager(Config config, ITaskHandler handler, bool machineWide = false)
         : base(handler, machineWide)
     {

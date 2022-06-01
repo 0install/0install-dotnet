@@ -44,7 +44,7 @@ public class SignedFeed
     /// <returns>The loaded <see cref="SignedFeed"/>.</returns>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static SignedFeed Load(string path)
     {
         #region Sanity checks

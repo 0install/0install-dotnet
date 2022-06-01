@@ -16,7 +16,7 @@ public interface ICatalogManager
     /// <returns>A <see cref="Catalog"/>; <c>null</c> if there is no cached data.</returns>
     /// <exception cref="IOException">A problem occurred while reading the cache file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the cache file was not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
     Catalog? GetCached();
 
@@ -27,7 +27,7 @@ public interface ICatalogManager
     /// <exception cref="IOException">A problem occurred while reading a local catalog file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a local catalog file was not permitted.</exception>
     /// <exception cref="WebException">A problem occurred while fetching a remote catalog file.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO and has side-effects")]
@@ -40,7 +40,7 @@ public interface ICatalogManager
     /// <returns>The parsed <see cref="Catalog"/>.</returns>
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
     /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     Catalog DownloadCatalog(FeedUri source);
 
     /// <summary>

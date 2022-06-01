@@ -126,9 +126,9 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// </summary>
     /// <param name="path">The file to load from.</param>
     /// <returns>The loaded <see cref="TrustDB"/>.</returns>
-    /// <exception cref="IOException">A problem occured while reading the file.</exception>
+    /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occured while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static TrustDB Load(string path)
     {
         #region Sanity checks
@@ -150,9 +150,9 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Loads the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> if the file does not exist.
     /// </summary>
     /// <returns>The loaded <see cref="TrustDB"/>.</returns>
-    /// <exception cref="IOException">A problem occured while reading the file.</exception>
+    /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occured while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static TrustDB Load()
         => File.Exists(DefaultLocation)
             ? Load(DefaultLocation)
@@ -180,7 +180,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Saves the this <see cref="TrustDB"/> to the location it was loaded from if possible.
     /// </summary>
     /// <returns><c>true</c> if the file was saved; <c>false</c> if</returns>
-    /// <exception cref="IOException">A problem occured while writing the file.</exception>
+    /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     public bool Save()
     {
@@ -200,7 +200,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Saves this <see cref="TrustDB"/> to a file.
     /// </summary>
     /// <param name="path">The file to save to.</param>
-    /// <exception cref="IOException">A problem occured while writing the file.</exception>
+    /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     public void Save(string path)
     {

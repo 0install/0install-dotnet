@@ -181,7 +181,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// <param name="password">The password to use for decryption; <c>null</c> for no encryption.</param>
     /// <returns>The loaded list.</returns>
     /// <exception cref="ZipException">A problem occurred while reading the ZIP data or <paramref name="password"/> is wrong.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static AppList LoadXmlZip(Stream stream, string? password = null)
     {
         #region Sanity checks

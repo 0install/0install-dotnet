@@ -38,7 +38,7 @@ public class SyncIntegrationManager : IntegrationManager
     /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public SyncIntegrationManager(Config config, Converter<FeedUri, Feed> feedRetriever, ITaskHandler handler, bool machineWide = false)
         : base(config, handler, machineWide)
     {
@@ -60,7 +60,7 @@ public class SyncIntegrationManager : IntegrationManager
     /// </summary>
     /// <param name="resetMode">Controls how synchronization data is reset.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data or the specified crypto key was wrong.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file or the specified crypto key was wrong.</exception>
     /// <exception cref="KeyNotFoundException">An <see cref="AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
     /// <exception cref="ConflictException">One or more new <see cref="AccessPoint"/> would cause a conflict with the existing <see cref="AccessPoint"/>s in <see cref="AppList"/>.</exception>
     /// <exception cref="WebException">A problem occurred while communicating with the sync server or while downloading additional data (such as icons).</exception>

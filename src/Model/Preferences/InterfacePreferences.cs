@@ -50,7 +50,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// <returns>The loaded <see cref="InterfacePreferences"/>.</returns>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static InterfacePreferences LoadFor(FeedUri interfaceUri)
     {
         #region Sanity checks

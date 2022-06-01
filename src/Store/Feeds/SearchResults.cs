@@ -23,6 +23,8 @@ public class SearchResults
     /// </summary>
     /// <param name="config">The current configuration determining which mirror server to query.</param>
     /// <param name="keywords">The keywords to search for.</param>
+    /// <exception cref="WebException">Failed to get query result.</exception>
+    /// <exception cref="InvalidDataException">Failed to parse query result.</exception>
     public static List<SearchResult> Query(Config config, string? keywords)
     {
         #region Sanity checks

@@ -93,7 +93,7 @@ public class FeedEditing : CommandManager<Feed>
     /// <returns>A <see cref="FeedEditing"/> containing the loaded feed.</returns>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing the XML data.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public new static FeedEditing Load(string path)
         => new(SignedFeed.Load(path)) {Path = path};
 }
