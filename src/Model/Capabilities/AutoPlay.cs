@@ -61,7 +61,7 @@ public sealed partial class AutoPlay : IconCapability
     /// <inheritdoc/>
     public override Capability Clone()
     {
-        // ReSharper disable once ConstantConditionalAccessQualifier
+        // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
         var capability = new AutoPlay {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Provider = Provider, Verb = Verb?.Clone()!};
         capability.Icons.AddRange(Icons);
         capability.Descriptions.AddRange(Descriptions.CloneElements());

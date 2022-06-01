@@ -34,7 +34,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// <seealso cref="InterfaceUri"/>
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
     [XmlAttribute("interface"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
     /// <summary>Used for XML serialization.</summary>

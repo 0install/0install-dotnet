@@ -56,7 +56,7 @@ public partial class Icon : FeedElement, ICloneable<Icon>
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
     [DisplayName(@"Href"), Description("The URL used to locate the icon.")]
     [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.Absolute); }
     #endregion
 

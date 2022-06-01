@@ -55,7 +55,7 @@ public sealed partial class CopyFromStep : FeedElement, IRecipeStep
     /// Creates a deep copy of this <see cref="CopyFromStep"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="CopyFromStep"/>.</returns>
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public IRecipeStep Clone() => new CopyFromStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, ID = ID, Implementation = Implementation?.CloneImplementation(), Source = Source, Destination = Destination};
     #endregion
 }

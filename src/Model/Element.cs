@@ -72,7 +72,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="Version"/>
     [XmlAttribute("version"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public virtual string? VersionString { get => Version?.ToString(); set => Version = (value == null) ? null: new(value); }
     #endregion
 

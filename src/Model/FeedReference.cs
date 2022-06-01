@@ -23,7 +23,7 @@ public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference
     /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="Source"/>
     [XmlAttribute("src"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string SourceString { get => Source?.ToStringRfc()!; set => Source = new(value); }
     #endregion
 

@@ -82,7 +82,7 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
         }
 
         // If we reach this, the implementation could not be added to any store
-        throw innerException?.Rethrow() ?? new InvalidOperationException();
+        innerException?.Rethrow();
     }
 
     /// <inheritdoc/>

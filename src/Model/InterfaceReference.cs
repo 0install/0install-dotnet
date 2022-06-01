@@ -25,7 +25,7 @@ public sealed partial class InterfaceReference : FeedElement, ICloneable<Interfa
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
     [DisplayName(@"Target"), Description("The URI used to locate the interface.")]
     [XmlAttribute("interface"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string TargetString { get => Target?.ToStringRfc()!; set => Target = new(value); }
     #endregion
 

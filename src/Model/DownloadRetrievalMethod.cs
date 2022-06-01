@@ -24,7 +24,7 @@ public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipe
     /// <seealso cref="Href"/>
     [DisplayName(@"Href"), Description("The URL to download the file from. Relative URLs are only allowed in local feed files.")]
     [XmlAttribute("href"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string HrefString { get => Href?.ToStringRfc()!; set => Href = new(value, UriKind.RelativeOrAbsolute); }
     #endregion
 

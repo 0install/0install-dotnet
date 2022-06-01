@@ -23,7 +23,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
     [DisplayName(@"Uri"), Description("The URI of the interface to be configured.")]
     [XmlAttribute("uri"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    // ReSharper disable once ConstantConditionalAccessQualifier
+    // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     public string UriString { get => Uri?.ToStringRfc()!; set => Uri = new(value); }
     #endregion
 
