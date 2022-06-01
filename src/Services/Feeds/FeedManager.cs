@@ -257,8 +257,19 @@ public class FeedManager : IFeedManager
 
     private static void CheckFeed(byte[] data, FeedUri feedUri)
     {
-        // Detect feed substitution
-        var feed = XmlStorage.LoadXml<Feed>(new MemoryStream(data));
+        Feed feed;
+        try
+        {
+            feed = XmlStorage.LoadXml<Feed>(new MemoryStream(data));
+        }
+        #region Error handling
+        catch (InvalidDataException ex)
+        {
+            // Change exception message to add context information
+            throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, feedUri) + Environment.NewLine + ex.GetMessageWithInner(), ex.InnerException);
+        }
+        #endregion
+
         if (feed.Uri == null) throw new InvalidDataException(string.Format(Resources.FeedUriMissing, feedUri));
         if (feed.Uri != feedUri) throw new InvalidDataException(string.Format(Resources.FeedUriMismatch, feed.Uri, feedUri));
     }

@@ -95,7 +95,17 @@ public partial class CatalogManager : ICatalogManager
         {
             var memory = stream.ToMemory();
             _trustManager.CheckTrust(memory.AsArray(), source);
-            result = XmlStorage.LoadXml<Catalog>(memory);
+            try
+            {
+                result = XmlStorage.LoadXml<Catalog>(memory);
+            }
+            #region Error handling
+            catch (InvalidDataException ex)
+            {
+                // Change exception message to add context information
+                throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, source) + Environment.NewLine + ex.GetMessageWithInner(), ex.InnerException);
+            }
+            #endregion
         }));
         return result;
     }

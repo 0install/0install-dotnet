@@ -161,6 +161,10 @@ Neue Zeit: {2}</value>
     <value>Der heruntergeladene Anwendungskatalog konnte nicht gecacht werden.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Der von {0} heruntergeladene Feed konnten nicht verarbeitet werden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Die Schlüsselinformationen für '{0}' konnten nicht verarbeitet werden.</value>
     <comment>Manually overriden.</comment>

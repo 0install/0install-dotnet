@@ -284,6 +284,15 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to parse feed downloaded from {0}..
+        /// </summary>
+        internal static string UnableToParseFeed {
+            get {
+                return ResourceManager.GetString("UnableToParseFeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to parse key information for &apos;{0}&apos;..
         /// </summary>
         internal static string UnableToParseKeyInfo {

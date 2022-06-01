@@ -196,6 +196,9 @@ New time: {2}</value>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Unable to cache the downloaded application catalog.</value>
   </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Unable to parse feed downloaded from {0}.</value>
+  </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Unable to parse key information for '{0}'.</value>
   </data>
