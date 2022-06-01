@@ -187,7 +187,7 @@ public partial class TrustManager : ITrustManager
         {
             DownloadKey(keyUri);
         }
-        catch (WebException ex) when (_config.FeedMirror != null)
+        catch (WebException ex) when (_config.FeedMirror != null && ex.ShouldTryMirror(keyUri))
         {
             Log.Warn(string.Format(Resources.TryingFeedMirror, keyUri));
             try

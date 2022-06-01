@@ -158,13 +158,14 @@ public class TrustManagerTest : TestWithMocks
         ExpectKeyImport();
         _handler.AnswerQuestionWith = true;
 
+        const string exampleDomain = "example"; // Can't use "localhost" because mirror is not used for loopback URIs
         using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
         {
             _config.FeedMirror = new(server.ServerUri);
-            _trustManager.CheckTrust(_combinedBytes, new("http://localhost:9999/test/feed.xml"))
+            _trustManager.CheckTrust(_combinedBytes, new($"http://{exampleDomain}:9999/test/feed.xml"))
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
-        IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
+        IsKeyTrusted(exampleDomain).Should().BeTrue(because: "Key should be trusted");
     }
 
     [Fact]
@@ -192,8 +193,8 @@ public class TrustManagerTest : TestWithMocks
     private void TrustKey()
         => _trustDB.TrustKey(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain("localhost"));
 
-    private bool IsKeyTrusted()
-        => _trustDB.IsTrusted(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain {Value = "localhost"});
+    private bool IsKeyTrusted(string domain = "localhost")
+        => _trustDB.IsTrusted(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain {Value = domain});
 
     private void ExpectKeyImport()
     {

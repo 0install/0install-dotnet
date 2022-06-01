@@ -210,7 +210,7 @@ public partial class Fetcher : IFetcher
         {
             Handler.RunTask(new DownloadFile(download.Href, stream => builder.Add(download, stream, Handler, tag), download.DownloadSize) {Tag = tag});
         }
-        catch (WebException ex) when (!download.Href.IsLoopback && Config.FeedMirror != null)
+        catch (WebException ex) when (Config.FeedMirror != null && ex.ShouldTryMirror(download.Href))
         {
             Log.Warn(ex);
             Log.Info("Trying mirror");

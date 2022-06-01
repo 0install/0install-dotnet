@@ -194,7 +194,7 @@ public class FeedManager : IFeedManager
                 feedUri,
                 stream => ImportFeed(stream, feedUri)));
         }
-        catch (WebException ex) when (!feedUri.IsLoopback && _config.FeedMirror != null)
+        catch (WebException ex) when (_config.FeedMirror != null && ex.ShouldTryMirror(feedUri))
         {
             Log.Warn(string.Format(Resources.TryingFeedMirror, feedUri));
             try
