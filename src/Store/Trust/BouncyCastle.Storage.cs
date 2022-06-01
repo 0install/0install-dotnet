@@ -46,10 +46,13 @@ partial class BouncyCastle
                 }
             }
             #region Error handling
+            catch (IOException ex) when (ex is DirectoryNotFoundException or FileNotFoundException)
+            {
+                return new(Enumerable.Empty<PgpSecretKeyRing>());
+            }
             catch (IOException ex)
             {
-                if (ex is not (DirectoryNotFoundException or FileNotFoundException))
-                    Log.Warn(ex);
+                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, _publicBundle), ex);
                 return new(Enumerable.Empty<PgpSecretKeyRing>());
             }
             #endregion
@@ -86,10 +89,13 @@ partial class BouncyCastle
                 return _secretBundle = new(PgpUtilities.GetDecoderStream(stream));
             }
             #region Error handling
+            catch (IOException ex) when (ex is DirectoryNotFoundException or FileNotFoundException)
+            {
+                return new(Enumerable.Empty<PgpSecretKeyRing>());
+            }
             catch (IOException ex)
             {
-                if (ex is not (DirectoryNotFoundException or FileNotFoundException))
-                    Log.Warn(ex);
+                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, _secretBundle), ex);
                 return new(Enumerable.Empty<PgpSecretKeyRing>());
             }
             #endregion

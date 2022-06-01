@@ -169,11 +169,29 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading OpenPGP key bundle from &apos;{0}&apos;.
+        /// </summary>
+        internal static string ErrorLoadingKeyBundle {
+            get {
+                return ResourceManager.GetString("ErrorLoadingKeyBundle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error loading the trust database. Reverting to default values..
         /// </summary>
         internal static string ErrorLoadingTrustDB {
             get {
                 return ResourceManager.GetString("ErrorLoadingTrustDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to unlock in-use files in &apos;{0}&apos;.
+        /// </summary>
+        internal static string FailedToUnlockFiles {
+            get {
+                return ResourceManager.GetString("FailedToUnlockFiles", resourceCulture);
             }
         }
         

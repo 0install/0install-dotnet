@@ -161,13 +161,12 @@ public static class ZeroInstallInstance
         }
         catch (WebException ex)
         {
-            Log.Debug(ex);
+            Log.Debug(ex.Message, ex);
             return null;
         }
         catch (Exception ex) when (ex is UriFormatException or IOException or UnauthorizedAccessException or SignatureException or SolverException or InvalidDataException)
         {
-            Log.Warn("Problem with silent self-update check");
-            Log.Warn(ex);
+            Log.Warn("Problem with silent self-update check", ex);
             return null;
         }
         #endregion

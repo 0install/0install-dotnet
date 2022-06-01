@@ -113,7 +113,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
                 catch (WebException ex)
                 {
                     _failedFeeds.Add(feedUri);
-                    Log.Warn(ex);
+                    Log.Warn(ex.Message, ex);
                 }
             }
         }

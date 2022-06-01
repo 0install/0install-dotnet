@@ -68,15 +68,15 @@ public sealed partial class IconStore : IIconStore
             {}
             catch (WebException ex)
             {
-                Log.Info(ex);
+                Log.Info(ex.Message, ex);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
-                Log.Warn(ex);
+                Log.Warn($"Error storing {icon}", ex);
             }
             catch (Exception ex)
             {
-                Log.Error(ex);
+                Log.Error($"Unexpected error downloading {icon}", ex);
             }
         }
         return path;

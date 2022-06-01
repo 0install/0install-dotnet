@@ -42,7 +42,7 @@ partial class StoreMan
             }
             catch (ImplementationAlreadyInStoreException ex)
             {
-                Log.Warn(ex);
+                Log.Warn(ex.Message, ex);
                 return ExitCode.NoChanges;
             }
         }
@@ -86,7 +86,7 @@ partial class StoreMan
             }
             catch (NotSupportedException ex)
             {
-                Log.Error(ex);
+                Log.Error(ex.Message, ex);
                 return ExitCode.NotSupported;
             }
 
@@ -98,7 +98,7 @@ partial class StoreMan
             }
             catch (ImplementationAlreadyInStoreException ex)
             {
-                Log.Warn(ex);
+                Log.Warn(ex.Message, ex);
                 return ExitCode.NoChanges;
             }
         }

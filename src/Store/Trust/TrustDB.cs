@@ -170,8 +170,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Warn(Resources.ErrorLoadingTrustDB);
-            Log.Warn(ex);
+            Log.Warn(Resources.ErrorLoadingTrustDB, ex);
             return new(); // Start empty but do not overwrite existing file
         }
     }

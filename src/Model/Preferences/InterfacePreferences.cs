@@ -82,8 +82,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri));
-            Log.Warn(ex);
+            Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri), ex);
             return new();
         }
         #endregion

@@ -106,8 +106,7 @@ public static class FileType
                             }
                             catch (UnauthorizedAccessException ex)
                             {
-                                // Windows may try to prevent modifications to this key
-                                Log.Debug(ex);
+                                Log.Debug("Windows blocked modification to file type association user choice", ex);
                             }
                         }
                     }

@@ -100,7 +100,7 @@ public partial class Exporter
             string? sourcePath = implementationStore.GetPath(digest);
             if (sourcePath == null)
             {
-                Log.Warn("Implementation " + digest + " missing from cache");
+                Log.Warn($"Implementation {digest} missing from cache");
                 continue;
             }
 

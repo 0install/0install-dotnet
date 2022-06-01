@@ -27,8 +27,7 @@ public sealed partial class FallbackSolver : ISolver
     {
         Selections Handle(Exception ex)
         {
-            Log.Info("Primary solver failed, falling back to secondary solver.");
-            Log.Debug(ex);
+            Log.Info("Primary solver failed, falling back to secondary solver", ex);
 
             try
             {
@@ -36,11 +35,8 @@ public sealed partial class FallbackSolver : ISolver
             }
             catch (WebException ex2)
             {
-                Log.Warn("Unable to download secondary solver");
-                Log.Info(ex2);
-
-                // Report the original problem instead of inability to launch secondary solver
-                throw ex.Rethrow();
+                Log.Warn("Unable to download secondary solver", ex2);
+                throw ex.Rethrow(); // Report the original problem instead of inability to launch secondary solver
             }
         }
 

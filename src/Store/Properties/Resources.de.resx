@@ -111,8 +111,16 @@ Wenn Sie dieses gesamte Verzeichnis löschen möchten, ohne Zero Install zu verw
     <value>Erwartetes Manifest: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Fehler beim Laden des OpenPGP-Schlüsselbündels von '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Entsperrung der verwendeten Dateien in '{0}' fehlgeschlagen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

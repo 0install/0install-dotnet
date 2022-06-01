@@ -101,8 +101,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri));
-            Log.Warn(ex);
+            Log.Warn(string.Format(Resources.ErrorLoadingFeedPrefs, feedUri), ex);
             return new();
         }
         #endregion

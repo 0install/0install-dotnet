@@ -54,8 +54,7 @@ public partial class CatalogManager : ICatalogManager
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Warn(Resources.UnableToCacheCatalog);
-            Log.Warn(ex);
+            Log.Warn(Resources.UnableToCacheCatalog, ex);
         }
         #endregion
     }

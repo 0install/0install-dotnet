@@ -72,14 +72,12 @@ partial class Self
             #region Error handling
             catch (WebException ex) when (Handler.Background)
             {
-                Log.Info("Suppressed network-related error message due to background mode");
-                Log.Info(ex);
+                Log.Info("Suppressed network-related error due to background mode", ex);
                 return ExitCode.WebError;
             }
             catch (SolverException ex) when (Handler.Background)
             {
-                Log.Info("Suppressed Solver-related error message due to background mode");
-                Log.Info(ex);
+                Log.Info("Suppressed Solver-related error due to background mode", ex);
                 return ExitCode.SolverError;
             }
             #endregion

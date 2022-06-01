@@ -77,7 +77,7 @@ public abstract partial class ImplementationBase : Element
         #region Error handling
         catch (UriFormatException ex)
         {
-            Log.Error(ex);
+            Log.Error(ex.Message, ex);
             LocalPath = null;
         }
         #endregion

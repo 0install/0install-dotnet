@@ -42,9 +42,13 @@ public static class FeedManagerExtensions
             {
                 feed = feedManager[feedUri];
             }
-            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException)
+            catch (WebException ex)
             {
-                Log.Warn(ex);
+                Log.Warn(ex.Message, ex);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                Log.Warn($"Failed to save feed {feedUri} in cache", ex);
             }
             finally
             {

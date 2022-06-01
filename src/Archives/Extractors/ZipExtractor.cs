@@ -36,8 +36,7 @@ public partial class ZipExtractor : ArchiveExtractor
         }
         catch (Exception ex)
         {
-            Log.Warn("Unable to process ZIP central directory");
-            Log.Warn(ex);
+            Log.Warn("Unable to process ZIP central directory", ex);
         }
     }
 

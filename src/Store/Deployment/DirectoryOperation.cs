@@ -64,11 +64,11 @@ public abstract partial class DirectoryOperation : StagedOperation
                 #region Error handling
                 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
                 {
-                    Log.Warn(ex);
+                    Log.Warn(string.Format(Resources.FailedToUnlockFiles, Path), ex);
                 }
                 catch (Win32Exception ex)
                 {
-                    Log.Error(ex);
+                    Log.Error("Problem using Windows Restart Manager", ex);
                 }
                 #endregion
             }
@@ -105,11 +105,11 @@ public abstract partial class DirectoryOperation : StagedOperation
                 #region Error handling
                 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
                 {
-                    Log.Warn(ex);
+                    Log.Warn("Failed to restart previously closed apps", ex);
                 }
                 catch (Win32Exception ex)
                 {
-                    Log.Error(ex);
+                    Log.Error("Problem using Windows Restart Manager", ex);
                 }
                 #endregion
             }

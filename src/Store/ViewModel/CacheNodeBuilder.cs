@@ -79,8 +79,7 @@ public sealed partial class CacheNodeBuilder : TaskBase
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or FormatException)
         {
-            Log.Error($"Problem processing '{digest}'.");
-            Log.Error(ex);
+            Log.Error($"Problem processing {digest}", ex);
             return null;
         }
         #endregion

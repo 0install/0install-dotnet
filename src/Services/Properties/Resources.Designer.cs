@@ -101,6 +101,24 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading catalog.
+        /// </summary>
+        internal static string ErrorLoadingCatalog {
+            get {
+                return ResourceManager.GetString("ErrorLoadingCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error saving the trust database.
+        /// </summary>
+        internal static string ErrorSavingTrustDB {
+            get {
+                return ResourceManager.GetString("ErrorSavingTrustDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Running external solver.
         /// </summary>
         internal static string ExternalSolverRunning {

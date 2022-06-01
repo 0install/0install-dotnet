@@ -109,8 +109,7 @@ public static class FeedUtils
         }
         catch (SignatureException ex)
         {
-            // Unable to parse the signature
-            Log.Error(ex);
+            Log.Error(ex.Message, ex);
             return null;
         }
         #endregion

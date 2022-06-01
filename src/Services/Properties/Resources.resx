@@ -133,6 +133,12 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; bindings must contain either a 'value' or an 'insert' attribute.</value>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Error loading catalog</value>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Error saving the trust database</value>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Running external solver</value>
   </data>

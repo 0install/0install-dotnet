@@ -206,10 +206,10 @@ public class FeedManager : IFeedManager
                     NoCache = Refresh
                 });
             }
-            catch (WebException)
+            catch (WebException ex2)
             {
-                // Report the original problem instead of mirror errors
-                ex.Rethrow();
+                Log.Debug($"Failed to download feed {feedUri} from feed mirror.", ex2);
+                throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
     }

@@ -553,6 +553,10 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <value>Ungültiges Argument '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' ist keine gültige Feed URI oder Pfad.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Für dieses Programm gibt es ABSOLUT KEINE GARANTIEN, soweit dies gesetzlich zulässig ist.
 Sie dürfen unter den Bedingungen der GNU Lesser General Public License Kopien dieses Programmes weitergeben.</value>

@@ -49,7 +49,7 @@ partial class SnapshotDiff
         }
         catch (IOException ex)
         {
-            Log.Warn(ex);
+            Log.Warn("Error retrieving data about registered applications", ex);
         }
 
         return new()

@@ -33,7 +33,7 @@ public static class SolverExtensions
         #region Error handling
         catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
         {
-            Log.Warn(ex);
+            Log.Warn(ex.Message, ex);
             return null;
         }
         #endregion

@@ -56,8 +56,7 @@ public abstract class ScopedOperation : ServiceProvider
         #region Error handling
         catch (Exception ex) when (ex is ArgumentException or InvalidOperationException or NotSupportedException)
         {
-            // Wrap exception since only certain exception types are allowed
-            throw new UriFormatException(ex.Message);
+            throw new UriFormatException(string.Format(Resources.InvalidFeedUri, uri), ex);
         }
         #endregion
     }
@@ -175,7 +174,7 @@ public abstract class ScopedOperation : ServiceProvider
         {}
         catch (IOException ex)
         {
-            Log.Warn(ex);
+            Log.Warn($"Failed to start background command: {ProgramUtils.GuiAssemblyName} {command} {args.JoinEscapeArguments()}", ex);
         }
         #endregion
     }

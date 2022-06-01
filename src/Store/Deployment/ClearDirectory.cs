@@ -90,7 +90,7 @@ public class ClearDirectory : DirectoryOperation
             #region Error handling
             catch (Exception ex)
             {
-                Log.Error(ex);
+                Log.Error($"Failed to roll back clearing of directory {Path}", ex);
                 throw;
             }
             #endregion

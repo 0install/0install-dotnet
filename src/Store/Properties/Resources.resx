@@ -159,8 +159,14 @@ If you wish to delete this entire directory without using Zero Install you can u
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Expected manifest: {0}</value>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Error loading OpenPGP key bundle from '{0}'</value>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Error loading the trust database. Reverting to default values.</value>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Failed to unlock in-use files in '{0}'</value>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Usage of the feed mirror, which is required for search, is disabled.

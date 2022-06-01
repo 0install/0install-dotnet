@@ -39,7 +39,7 @@ public partial class Implementation : ImplementationBase
             #region Error handling
             catch (UriFormatException ex)
             {
-                Log.Error(ex);
+                Log.Error(ex.Message, ex);
                 toRemove.Add(retrievalMethod);
             }
             #endregion

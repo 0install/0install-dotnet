@@ -1151,6 +1151,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid feed URI or file path..
+        /// </summary>
+        public static string InvalidFeedUri {
+            get {
+                return ResourceManager.GetString("InvalidFeedUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This program comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law.
         ///You may redistribute copies of this program under the terms of the GNU Lesser General Public License..
         /// </summary>

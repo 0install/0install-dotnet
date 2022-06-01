@@ -46,17 +46,18 @@ public partial class Fetcher : IFetcher
     protected virtual void Fetch(Implementation implementation, string tag)
     {
         // Use mutex to detect in-progress download of same implementation in other processes
-        using var mutex = new Mutex(false, $"0install-fetcher-{implementation.ManifestDigest.Best}");
+        string mutexName = $"0install-fetcher-{implementation.ManifestDigest.Best}";
+        using var mutex = new Mutex(false, mutexName);
         try
         {
             while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
                 Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag});
         }
         #region Error handling
-        catch (AbandonedMutexException ex)
+        catch (AbandonedMutexException)
         {
-            // Abandoned mutexes also get owned, but indicate something may have gone wrong elsewhere
-            Log.Warn(ex);
+            Log.Warn($"Mutex '{mutexName}' was abandoned by another instance");
+            // Abandoned mutexes get acquired despite exception
         }
         #endregion
 
@@ -212,9 +213,7 @@ public partial class Fetcher : IFetcher
         }
         catch (WebException ex) when (Config.FeedMirror != null && ex.ShouldTryMirror(download.Href))
         {
-            Log.Warn(ex);
-            Log.Info("Trying mirror");
-
+            Log.Warn(string.Format(Resources.TryingFeedMirror, download.Href), ex);
             try
             {
                 Handler.RunTask(new DownloadFile(
@@ -223,10 +222,10 @@ public partial class Fetcher : IFetcher
                         download.DownloadSize)
                     {Tag = tag});
             }
-            catch (WebException)
+            catch (WebException ex2)
             {
-                // Report the original problem instead of mirror errors
-                throw ex.Rethrow();
+                Log.Debug($"Failed to download archive {download.Href} from feed mirror.", ex2);
+                throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
     }

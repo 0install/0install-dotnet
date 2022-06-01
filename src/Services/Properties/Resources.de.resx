@@ -78,6 +78,14 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <value>&lt;environment&gt; Bindings müssen entweder ein 'value' oder ein 'insert' Attribut enthalten.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Fehler beim Laden des Katalogs</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Fehler beim Speichern der Trust Datenbank</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Externer Solver läuft</value>
     <comment>Manually overriden.</comment>

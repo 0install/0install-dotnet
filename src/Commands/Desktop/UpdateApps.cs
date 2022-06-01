@@ -68,13 +68,10 @@ public class UpdateApps : IntegrationCommand
                   .Distinct(ManifestDigestPartialEqualityComparer<ImplementationSelection>.Instance)
                   .ToList();
         }
-        #region Error handling
         catch (AggregateException ex)
         {
-            ex.InnerExceptions.FirstOrDefault()?.Rethrow();
-            throw;
+            throw ex.RethrowLastInner();
         }
-        #endregion
     }
 
     private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> implementations)

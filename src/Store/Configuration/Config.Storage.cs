@@ -105,7 +105,7 @@ partial class Config
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Error(ex);
+            Log.Error("There was a problem loading a configuration file, using default values instead", ex);
             return new();
         }
         #endregion

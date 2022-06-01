@@ -96,8 +96,7 @@ public partial class StubBuilder
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn(string.Format(Resources.UnableToReplaceStub, path));
-                    Log.Warn(ex);
+                    Log.Warn(string.Format(Resources.UnableToReplaceStub, path), ex);
                 }
             }
         }
@@ -164,17 +163,15 @@ public partial class StubBuilder
         #region Error handling
         catch (Exception ex) when (ex is UriFormatException or WebException)
         {
-            Log.Warn(ex);
+            Log.Warn(ex.Message, ex);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Warn($"Failed to store {icon}");
-            Log.Warn(ex);
+            Log.Warn("Failed to store " + icon, ex);
         }
         catch (ArgumentException ex)
         {
-            Log.Warn($"Failed to parse {icon}");
-            Log.Warn(ex);
+            Log.Warn("Failed to parse " + icon, ex);
         }
         #endregion
 

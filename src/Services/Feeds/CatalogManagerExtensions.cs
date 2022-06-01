@@ -23,12 +23,12 @@ public static class CatalogManagerExtensions
 
         try
         {
-            return manager.GetCached() ?? new Catalog();
+            return manager.GetCached() ?? new();
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Warn(ex);
+            Log.Warn(Resources.ErrorLoadingCatalog, ex);
             return new();
         }
         #endregion
@@ -52,7 +52,7 @@ public static class CatalogManagerExtensions
         #region Error handling
         catch (Exception ex) when (ex is UriFormatException or WebException or IOException or UnauthorizedAccessException or InvalidDataException or SignatureException)
         {
-            Log.Warn(ex);
+            Log.Warn(Resources.ErrorLoadingCatalog, ex);
             return new();
         }
         #endregion

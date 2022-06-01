@@ -107,7 +107,7 @@ public class RemoveApp : AppCommand
         }
         catch (Exception ex) when (ex is SolverException or WebException)
         {
-            Log.Debug(ex);
+            Log.Debug("Failed to solve dependencies without downloading anything", ex);
             return null;
         }
     }

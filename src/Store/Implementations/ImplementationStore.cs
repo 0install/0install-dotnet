@@ -174,12 +174,12 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             #region Error handling
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
             {
-                Log.Warn(ex);
+                Log.Warn(string.Format(Resources.FailedToUnlockFiles, Path), ex);
                 return false;
             }
             catch (Win32Exception ex)
             {
-                Log.Error(ex);
+                Log.Error("Problem using Windows Restart Manager", ex);
                 return false;
             }
             #endregion
@@ -211,7 +211,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
         {
-            Log.Error(ex);
+            Log.Error("Failed to disable write protection for: " + path, ex);
         }
         #endregion
     }

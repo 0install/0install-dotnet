@@ -144,29 +144,15 @@ public static class ImplementationStoreUtils
                 #region Error handling
                 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
                 {
-                    Log.Info("Unable to restore write protection after creating hardlinks");
-                    Log.Error(ex);
+                    Log.Error("Unable to restore write protection after creating hardlinks", ex);
                 }
                 #endregion
             });
         }
         #region Error handling
-        catch (IOException ex)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
         {
-            Log.Info("Unable to remove write protection for creating hardlinks");
-            Log.Info(ex);
-            return null;
-        }
-        catch (UnauthorizedAccessException ex)
-        {
-            Log.Info("Unable to remove write protection for creating hardlinks");
-            Log.Info(ex);
-            return null;
-        }
-        catch (InvalidOperationException ex)
-        {
-            Log.Info("Unable to remove write protection for creating hardlinks");
-            Log.Info(ex);
+            Log.Info("Unable to remove write protection for creating hardlinks", ex);
             return null;
         }
         #endregion

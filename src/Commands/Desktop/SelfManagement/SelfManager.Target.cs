@@ -50,7 +50,7 @@ partial class SelfManager
         int hashCode = TargetDir.GetHashCode();
         if (hashCode == Locations.InstallBase.GetHashCode())
         { // Very unlikely but possible, since .GetHashCode() is not a cryptographic hash
-            Log.Warn("Hash collision between " + TargetDir + " and " + Locations.InstallBase + "! Not using Mutex.");
+            Log.Warn($"Hash collision between {TargetDir} and {Locations.InstallBase}! Not using Mutex.");
             return;
         }
         string targetMutex = "mutex-" + hashCode;
@@ -116,13 +116,9 @@ partial class SelfManager
             Directory.Delete(dirPath);
         }
         #region Error handling
-        catch (IOException ex)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Debug(ex);
-        }
-        catch (UnauthorizedAccessException ex)
-        {
-            Log.Debug(ex);
+            Log.Debug("Failed to remove OneGet bootstrap directory: " + dirPath, ex);
         }
         #endregion
     }

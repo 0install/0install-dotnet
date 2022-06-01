@@ -259,8 +259,7 @@ public partial class EnvironmentBuilder
         #region Error handling
         catch (IOException ex)
         {
-            Log.Info("Unable to write run-environment template.");
-            Log.Info(ex);
+            Log.Info("Unable to write run-environment template", ex);
         }
         #endregion
 

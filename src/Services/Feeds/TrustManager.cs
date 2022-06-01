@@ -82,7 +82,7 @@ public partial class TrustManager : ITrustManager
             #region Error handling
             catch (Exception ex)
             {
-                Log.Error(ex);
+                Log.Error(Resources.ErrorSavingTrustDB, ex);
             }
             #endregion
             return true;
@@ -142,14 +142,12 @@ public partial class TrustManager : ITrustManager
         #region Error handling
         catch (XmlException ex)
         {
-            Log.Error(string.Format(Resources.UnableToParseKeyInfo, fingerprint));
-            Log.Error(ex);
+            Log.Error(string.Format(Resources.UnableToParseKeyInfo, fingerprint), ex);
             return (false, null);
         }
         catch (WebException ex)
         {
-            Log.Error(string.Format(Resources.UnableToRetrieveKeyInfo, fingerprint));
-            Log.Error(ex);
+            Log.Error(string.Format(Resources.UnableToRetrieveKeyInfo, fingerprint), ex);
             return (false, null);
         }
         #endregion
@@ -194,10 +192,10 @@ public partial class TrustManager : ITrustManager
             {
                 DownloadKey(new(_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri + "keys/" + signature.FormatKeyID() + ".gpg"));
             }
-            catch (WebException)
+            catch (WebException ex2)
             {
-                // Report the original problem instead of mirror errors
-                ex.Rethrow();
+                Log.Debug($"Failed to download GnuPG key {signature.FormatKeyID()} from feed mirror.", ex2);
+                throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
     }

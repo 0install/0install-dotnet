@@ -157,9 +157,10 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// <returns>The loaded <see cref="AppList"/>.</returns>
     public static AppList LoadSafe(bool machineWide = false)
     {
+        string path = GetDefaultPath(machineWide);
         try
         {
-            return XmlStorage.LoadXml<AppList>(GetDefaultPath(machineWide));
+            return XmlStorage.LoadXml<AppList>(path);
         }
         #region Error handling
         catch (FileNotFoundException)
@@ -168,7 +169,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
-            Log.Warn(ex);
+            Log.Warn(string.Format(Resources.ProblemLoading, path), ex);
             return new AppList();
         }
         #endregion

@@ -37,7 +37,7 @@ public static class ProgramUtils
                 }
                 catch (ArgumentException ex)
                 {
-                    Log.Warn(ex);
+                    Log.Warn($"Failed to parse '{language}' as an ISO language code", ex);
                 }
             }
             return null;
@@ -178,7 +178,7 @@ public static class ProgramUtils
         }
         catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows)
         {
-            Log.Info(ex);
+            Log.Info(ex.Message, ex);
 
             try
             {
