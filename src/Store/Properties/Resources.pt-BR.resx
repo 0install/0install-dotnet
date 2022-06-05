@@ -111,8 +111,16 @@ Se você deseja excluir esta pasta inteira sem usar o Zero Install, você pode u
     <value>Manifesto esperado: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Erro ao carregar o pacote de chaves OpenPGP a partir de '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Erro ao carregar o banco de dados de confiança. Revertendo para os valores padrão.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Falha ao desbloquear arquivos em uso em '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

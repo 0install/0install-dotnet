@@ -111,8 +111,16 @@ Zero Installを使用せずにこのディレクトリ全体を削除したい�
     <value>期待されるマニフェスト{0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>OpenPGPキーバンドルの読み込みエラー '{0}' から</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>トラストデータベースの読み込みに失敗しました。デフォルト値に戻す。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>{0}' の使用中ファイルのロック解除に失敗しました。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

@@ -78,6 +78,14 @@
     <value>los enlaces de &lt;entorno&gt; deben contener un atributo &lt;valor&gt; o &lt;inserción&gt;.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Error al cargar el catálogo</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Error al guardar la base de datos de confianza</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Ejecutar el solucionador externo</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Nueva hora {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>No se puede almacenar en caché el catálogo de aplicaciones descargado.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>No se puede analizar el feed descargado de {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

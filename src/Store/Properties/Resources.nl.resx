@@ -111,8 +111,16 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <value>Verwacht manifest {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Fout bij het laden van de OpenPGP-sleutelbundel van '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Fout bij het laden van de vertrouwensdatabase. Terugkeren naar standaard waarden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Mislukt ontgrendelen van in-use bestanden in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -206,7 +214,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable mode.
+    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable modus.
 Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -78,6 +78,14 @@
     <value>&lt;environment&gt; バインディングは 'value' または 'insert' 属性のいずれかを含む必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>カタログ読み込みエラー</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>信頼関係データベースの保存エラー</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>外部ソルバーの実行</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>ダウンロードしたアプリケーションカタログをキャッシュすることができません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>{0} からダウンロードしたフィードをパースできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

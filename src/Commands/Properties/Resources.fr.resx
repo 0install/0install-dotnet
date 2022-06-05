@@ -553,6 +553,10 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <value>Argument '{0}' invalide.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' n'est pas une URI de flux ou un chemin de fichier valide.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Ce programme est fourni SANS AUCUNE GARANTIE, dans les limites prévues par la loi applicable.
 Vous pouvez redistribuer des copies de ce programme suivant les termes de la “GNU Lesser General Public License”.</value>
@@ -733,7 +737,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Spécifie la langue préférée pour la mise en œuvre. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
+    <value>Spécifie la langue préférée pour l'implémentation. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
 Vous pouvez utiliser cette option plusieurs fois pour spécifier plusieurs langues acceptables.</value>
     <comment>Automatically translated.</comment>
   </data>

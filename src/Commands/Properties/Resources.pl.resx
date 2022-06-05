@@ -227,7 +227,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias umożliwiający uruchamianie aplikacji za pomocą funkcji 0install bez konieczności podawania pełnego identyfikatora URI.</value>
+    <value>Utwórz alias umożliwiający uruchamianie aplikacji za pomocą 0install bez konieczności każdorazowego podawania pełnego identyfikatora URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -259,7 +259,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie zostanie podane żadne zapytanie, wyświetlana jest lista wszystkich aplikacji w katalogach.</value>
+    <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie podano zapytania, wyświetlana jest lista wszystkich aplikacji znajdujących się w katalogach.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Umożliwia wyświetlenie lub zmianę ustawień konfiguracyjnych.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podana jest wartość "default".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem powoduje wyświetlenie bieżącej wartości określonego ustawienia. Z dwoma argumentami ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -281,7 +281,7 @@ Zwraca kod zakończenia 0, jeśli wybrano odpowiedni zestaw wersji i wszystkie s
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Eksportuje do DIRECTORY wszystkie elementy i implementacje wymagane do uruchomienia programu określonego przez URI.</value>
+    <value>Eksportuje do DIRECTORY wszystkie kanały i implementacje wymagane do uruchomienia programu określonego przez URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -339,7 +339,7 @@ Zwraca kod zakończenia równy 1, jeśli etap pobierania zakończył się niepow
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Wyszukuje kanały indeksowane przez serwer lustrzany, które pasują do podanych słów kluczowych. Należy pamiętać, że domyślny serwer lustrzany indeksuje wszystkie znane kanały, niezależnie od ich jakości; należy zdecydować, czy zaufać programom przed ich uruchomieniem.</value>
+    <value>Wyszukuje kanały indeksowane przez serwer lustrzany, które pasują do podanych słów kluczowych. Należy pamiętać, że domyślnie serwer lustrzany indeksuje wszystkie znane kanały, niezależnie od ich jakości; należy zdecydować, czy zaufać programom przed ich uruchomieniem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -424,7 +424,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonej DOMENY, jeśli została określona.</value>
+    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINT. Zatrzymuje zaufanie tylko dla określonej domeny, jeśli została określona.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -513,7 +513,7 @@ Jest to działanie podobne do '0install download --refresh', z tą różnicą, �
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nie można znaleźć pliku lub katalogu '{0}'.</value>
+    <value>Nie można odnaleźć pliku lub katalogu '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
@@ -551,6 +551,10 @@ Znacznik &lt;feed-for&gt; oznacza kompatybilność kanału.</value>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
     <value>Nieprawidłowy argument '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' nie jest prawidłowym identyfikatorem URI podawania lub ścieżką pliku.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -664,7 +668,7 @@ Można to zrobić, używając adresu '{0}'. Będzie ona całkowicie niezależna 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Przed dodaniem katalogu do listy należy pominąć jego pobieranie, aby sprawdzić, czy jest on poprawny.</value>
+    <value>Pomiń pobieranie katalogu, aby sprawdzić, czy jest on poprawny przed dodaniem go do listy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -747,7 +751,7 @@ Możesz użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Uruchamia określony plik wykonywalny {MAIN} zamiast domyślnego. Jeśli zaczyna się od '/' lub '\', to ścieżka jest względna do katalogu najwyższego poziomu implementacji, w przeciwnym razie jest względna do katalogu zawierającego domyślny program główny.
-Nie może zawierać argumentów wiersza poleceń! Nie trzeba uciekać przed białymi znakami.</value>
+Nie może zawierać argumentów wiersza poleceń! Nie trzeba uciekać od białych spacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -814,7 +818,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Wymaga wersji programu głównego mieszczącej się w podanym {RANGE}.
 Zakresy są oddzielone rurkami (|).
-Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, w których START &lt;= WERSJA &lt; END. Początek lub koniec może być pominięty.
+Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= VERSION &lt; END. Początek lub koniec może być pominięty.
 Zamiast zakresu można użyć pojedynczego numeru wersji, aby dopasować tylko tę wersję, lub !VERSION, aby dopasować wszystko oprócz tej wersji.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -870,7 +874,7 @@ Może zawierać argumenty wiersza poleceń. Białe spacje muszą być usunięte!
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Może być konieczne zamknięcie i ponowne otwarcie terminala, aby ta operacja zaczęła działać.</value>
+    <value>Może być konieczne zamknięcie i ponowne otwarcie terminala, aby ta procedura zaczęła obowiązywać.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -878,7 +882,7 @@ Może zawierać argumenty wiersza poleceń. Białe spacje muszą być usunięte!
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Rozwiązano problem "{0}" na "{1}" przy użyciu aliasu.</value>
+    <value>Zmieniono adres "{0}" na "{1}" przy użyciu aliasu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">

@@ -111,8 +111,16 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <value>Manifestación esperada {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Error al cargar el paquete de claves OpenPGP de '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Error al cargar la base de datos de confianza. Revertir a los valores por defecto.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Fallo al desbloquear archivos en uso en '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

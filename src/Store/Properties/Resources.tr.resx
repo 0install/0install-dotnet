@@ -111,8 +111,16 @@ Zeron Install kullanmadan bu klasörü silmek isterseniz, şu komutu kullanabili
     <value>Beklenen özet: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>'{0}' üzerinden OpenPGP anahtar paketi yüklenirken sorun çıktı</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Güvenlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
+    <value>Güvenilirlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>'{0}' üzerinde kullanımdaki dosyaların kilidi açılamadı</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

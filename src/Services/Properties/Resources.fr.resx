@@ -78,6 +78,14 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <value>les liaisons &lt;environnement&gt; doivent contenir soit un attribut "value", soit un attribut "insert".</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Erreur de chargement du catalogue</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Erreur de sauvegarde de la base de données de confiance</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Lancer le solveur externe</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Nouvelle heure {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Impossible de mettre en cache le catalogue d'applications téléchargées.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Impossible d'analyser le flux téléchargé sur {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

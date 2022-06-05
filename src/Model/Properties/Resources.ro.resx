@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Atributul '{0}' nevalabil pe {1}.</value>
+    <value>Atributul "{0}" nevalabil pe {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">

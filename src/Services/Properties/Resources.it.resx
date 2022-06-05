@@ -78,6 +78,14 @@ Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
     <value>i binding &lt;ambiente&gt; devono contenere un attributo 'value' o 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Errore nel caricamento del catalogo</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Errore nel salvataggio del database fiduciario</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Esecuzione del solutore esterno</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Nuova ora {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Impossibile memorizzare nella cache il catalogo delle applicazioni scaricate.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Impossibile analizzare il feed scaricato da {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

@@ -78,6 +78,14 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <value>&lt;environment&gt; bindings moeten ofwel een "value" of een "insert" attribuut bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Fout bij laden catalogus</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Fout bij het opslaan van de vertrouwensdatabase</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Externe solver uitvoeren</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Nieuwe tijd {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Kan de gedownloade applicatiecatalogus niet in de cache opslaan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Kan feed gedownload van {0} niet parsen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

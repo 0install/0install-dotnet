@@ -78,6 +78,14 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z "{3}"?
     <value>wiązania &lt;environment&gt; muszą zawierać atrybut "value" lub "insert".</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Błąd ładowania katalogu</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Błąd przy zapisywaniu bazy danych zaufania</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Uruchamianie zewnętrznego solvera</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Nowy czas {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Nie można zapisać w pamięci podręcznej pobranego katalogu aplikacji.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Nie można przetworzyć danych pobranych z witryny {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

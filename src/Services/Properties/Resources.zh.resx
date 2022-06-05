@@ -78,6 +78,14 @@
     <value>&lt;environment&gt;绑定必须包含一个 "value "或 "insert "属性。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>加载目录错误</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>保存信任数据库出错</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>运行外部求解器</value>
     <comment>Automatically translated.</comment>
@@ -131,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>密钥信息服务器无法提供有关该密钥的任何其他信息。</value>
+    <value>密钥信息服务器无法提供有关此密钥的任何其他信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -159,6 +167,10 @@
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>无法缓存下载的应用程序目录。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>无法解析从{0} 下载的饲料。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

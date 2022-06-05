@@ -111,9 +111,17 @@
     <value>Αναμενόμενο Δηλωτικό: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Σφάλμα φόρτωσης δέσμης κλειδιών OpenPGP από το '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Απέτυχε το ξεκλείδωμα των αρχείων σε χρήση στο '{0}'</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Η χρήση του καθρέφτη τροφοδοσίας, που απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.

@@ -78,6 +78,14 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <value>legăturile &lt;environment&gt; trebuie să conțină fie un atribut "value", fie un atribut "insert".</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Eroare la încărcarea catalogului</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Eroare de salvare a bazei de date de încredere</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Rularea unui solver extern</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ Ora nouă {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Nu se poate stoca în memoria cache catalogul aplicației descărcate.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Nu se poate analiza feed-ul descărcat de pe {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

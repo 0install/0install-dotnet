@@ -111,8 +111,16 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <value>Manifestation attendue {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Erreur lors du chargement du paquet de clés OpenPGP à partir de '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Erreur de chargement de la base de données de confiance. Retour aux valeurs par défaut.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Impossible de déverrouiller les fichiers en cours d'utilisation dans '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
