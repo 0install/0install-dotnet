@@ -189,7 +189,7 @@ U kunt een backup maken van deze lijst door '0install sync' te gebruiken.</value
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Begin tekst in te voeren op de laatste regel om een nieuwe invoer te creëren.
-Selecteer een hele regel door in de eerste kolom te klikken en druk dan op DEL op het toetsenbord om een regel te verwijderen.</value>
+Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens op DEL op het toetsenbord om een regel te verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -437,7 +437,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Desktop integratie</value>
+    <value>Desktop-integratie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
@@ -553,6 +553,10 @@ Een &lt;feed-for&gt;-tag geeft aan dat de feed compatibel is.</value>
     <value>Ongeldig argument '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' is geen geldige feed URI of bestandspad.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Dit programma wordt geleverd met ABSOLUUT GEEN GARANTIE, voor zover toegestaan door de wet.
 U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Lesser General Public License.</value>
@@ -595,7 +599,7 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
-    <value>De grafische beleidseditor is niet beschikbaar in de commandoregelmodus.</value>
+    <value>De grafische beleidseditor is niet beschikbaar in opdrachtregelmodus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
@@ -776,7 +780,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Maak een draagbare installatie die kan worden verplaatst (bv. op een thumbdrive).</value>
+    <value>Maak een draagbare installatie die kan worden verplaatst (b.v. op een thumb drive).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -952,7 +956,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>De crypto sleutel wordt gebruikt om uw gegevens lokaal te versleutelen alvorens ze naar de server te zenden.
-Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manier kan niemand bij uw gegevens, zelfs niet als de server gecompromitteerd zou worden.</value>
+Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manier kan niemand bij uw gegevens, zelfs niet als de server gecompromitteerd zou zijn.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

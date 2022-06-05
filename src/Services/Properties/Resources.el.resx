@@ -78,6 +78,14 @@
     <value>&lt;περιβάλλον&gt; συνδέσεις πρέπει να περιέχουν είτε μια «αξία» ή ένα «ένθετο» χαρακτηριστικό.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Σφάλμα φόρτωσης καταλόγου</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Σφάλμα αποθήκευσης της βάσης δεδομένων εμπιστοσύνης</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Εκτέλεση εξωτερικής επιλυτής</value>
     <comment>Manually overriden.</comment>
@@ -160,6 +168,10 @@
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του κατάλογου της εφαρμογής.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Αδυναμία ανάλυσης της τροφοδοσίας που έχει ληφθεί από το {0}.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Αδυναμία αναλύσης βασικών πληροφοριών για '{0}'.</value>

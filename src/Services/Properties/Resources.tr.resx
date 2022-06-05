@@ -78,6 +78,14 @@
     <value>&lt;environment&gt; bağlantılarında bir 'value' değer ya da 'insert' ekleme özniteliği bulunmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Katalog yüklenirken sorun çıktı</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Güvenilirlik veritabanı yüklenirken sorun çıktı</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Dış çözümleyici çalışıyor</value>
     <comment>Manually overriden.</comment>
@@ -91,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>'{0}' akışı güvenilen anahtarlardan biriyle imzalanmamış.</value>
+    <value>'{0}' akışı güvenilir anahtarlardan biriyle imzalanmamış.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -161,6 +169,10 @@ Yeni zaman: {2}</value>
     <value>İndirilen uygulama kataloğu ön belleğe alınamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>{0} üzerinden indirilen akış işlenemedi.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>'{0}' için anahtar bilgileri işlenemedi.</value>
     <comment>Manually overriden.</comment>
@@ -174,7 +186,7 @@ Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Akış güvenilmeyen anahtarlar ile imzalanmış!</value>
+    <value>Akış güvenilir olmayan anahtarlar ile imzalanmış!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

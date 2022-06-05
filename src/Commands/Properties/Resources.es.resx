@@ -193,7 +193,7 @@ Seleccione una línea entera haciendo clic en la primera columna y luego pulse D
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Establezca una casilla de verificación para que una capacidad sea su gestor por defecto.
+    <value>Establecer una casilla de verificación para hacer que una capacidad sea su gestor por defecto deseado.
 Quitar una casilla de verificación para eliminar el estado por defecto de una capacidad (sigue estando disponible).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -420,7 +420,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista de claves de confianza para la firma de feeds. Sólo se enumeran los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
+    <value>Lista de claves de confianza para la firma de feeds. Enumera sólo los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -461,7 +461,7 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
-    <value>Introduzca la URL de la nueva fuente de implementaciones para esta interface:</value>
+    <value>Por favor, introduzca la URL de la nueva fuente de implementaciones para esta interface:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
@@ -553,6 +553,10 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <value>Argumento inválido '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' no es un URI de feed o una ruta de archivo válidos.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Este programa no incluye ABSOLUTAMENTE NINGUNA GARANTÍA, en la medida en que lo permita la ley.
 Puede redistribuir copias de este programa bajo los términos de la Licencia Pública General Reducida GNU.</value>
@@ -608,11 +612,11 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración del escritorio en toda la máquina funcione, debe desplegarse en un directorio al que puedan acceder todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que funcione la integración de escritorios en toda la máquina, es necesario desplegarla en un directorio al que puedan acceder todos los usuarios.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>Cuando se ejecuta una aplicación el comando puede no estar vacío.</value>
+    <value>Cuando se ejecuta una aplicación, el comando puede no estar vacío.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -685,7 +689,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Mostrar el editor gráfico de políticas. Permite personalizar qué versión de un programa o biblioteca se va a utilizar.</value>
+    <value>Mostrar el editor gráfico de políticas. Esto le permite personalizar qué versión de un programa o biblioteca se va a utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -697,7 +701,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluir la propia Zero Install en la exportación junto con la aplicación.</value>
+    <value>Incluya la propia Zero Install en la exportación junto con la aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -705,7 +709,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Realice la actualización aunque la versión actualmente instalada sea la misma o más reciente.</value>
+    <value>Realice la actualización incluso si la versión actualmente instalada es la misma o más reciente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -834,7 +838,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">

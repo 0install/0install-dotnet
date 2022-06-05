@@ -111,8 +111,16 @@ Se si desidera eliminare l'intera directory senza utilizzare Zero Install, è po
     <value>Manifesto previsto {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Errore nel caricamento del pacchetto di chiavi OpenPGP da '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Impossibile sbloccare i file in uso in '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -227,7 +235,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

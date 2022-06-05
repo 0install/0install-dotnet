@@ -553,6 +553,10 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <value>無効な引数 '{0}' です。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' は有効なフィードURIまたはファイルパスではありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>このプログラムには、法律で認められている範囲において、一切の保証がありません。
 あなたは、このプログラムの複製物をGNU Lesser General Public Licenseの条件の下で再配布することができます。</value>
@@ -648,7 +652,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>与えられたエイリアスのインターフェースURIを表示する。</value>
+    <value>指定されたエイリアスのインターフェースURIを表示する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">

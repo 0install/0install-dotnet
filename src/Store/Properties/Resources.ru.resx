@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Этот каталог является кэшем реализации. Файлы здесь доступны только для чтения с использованием прав доступа файловой системы. Это предотвращает их удаление обычным способом.
+    <value>Этот каталог является кэшем реализации. Файлы здесь доступны только для чтения с помощью разрешений файловой системы. Это предотвращает их удаление обычным способом.
 
 Если вы хотите удалить одну реализацию, вы можете использовать эту командную строку:
 {0}
@@ -111,8 +111,16 @@
     <value>Ожидаемый манифест {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Ошибка при загрузке связки ключей OpenPGP с '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Ошибка при загрузке базы данных доверия. Возврат к значениям по умолчанию.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Не удалось разблокировать используемые файлы в '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

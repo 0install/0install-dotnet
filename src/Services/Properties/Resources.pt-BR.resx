@@ -78,6 +78,14 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <value>&lt;environment&gt; as ligações devem conter um atributo 'value' ou 'insert'.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Erro durante o carregamento do catálogo</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Erro ao salvar o banco de dados fiduciários</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Executando solucionador externo</value>
     <comment>Manually overriden.</comment>
@@ -159,6 +167,10 @@ Novo tempo: {2}</value>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Não é possível armazenar em cache o catálogo de aplicativos baixado.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Não foi possível analisar o feed baixado de {0}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

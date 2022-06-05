@@ -78,6 +78,14 @@
     <value>связки &lt;environment&gt; должны содержать либо атрибут 'value', либо атрибут 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Ошибка загрузки каталога</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Ошибка при сохранении базы данных доверия</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Запуск внешнего решателя</value>
     <comment>Automatically translated.</comment>
@@ -159,6 +167,10 @@ URI фида {0}
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Невозможно кэшировать загруженный каталог приложений.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Невозможно разобрать фид, загруженный с сайта {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

@@ -88,7 +88,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe programe noi implicite în registru. Le gestionați pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
+    <value>Au fost detectate mai multe programe noi și implicite în registru. Le gestionați pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">

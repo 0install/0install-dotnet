@@ -111,8 +111,16 @@ Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz
     <value>Oczekiwany manifest {0}</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Błąd ładowania pakietu kluczy OpenPGP z adresu '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>Błąd ładowania bazy danych zaufania. Przywrócenie wartości domyślnych.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Nie udało się odblokować nieużywanych plików w katalogu '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -215,7 +223,7 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Instalator Zero nie może usunąć się z pamięci podręcznej wdrożenia.</value>
+    <value>Instalacja zerowa nie może usunąć się z pamięci podręcznej wdrożenia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">

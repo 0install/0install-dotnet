@@ -286,7 +286,7 @@ Seçilmiş sürümler uygun ve ön belleğe indirilmiş ise çıkış durumu 0 o
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Akışı ağdan indirilmiş yerel bir dosyadan içe aktarır. Bu özellik bir akış dosyası sınanırken, aynı dosyanın uzak sunucuya yüklenip yeniden indirilmesinden kaçınmak için kullanışlıdır.
-Dosya ağ üzerinden alınırken, sayısal olarak imzalanmış olmalıdır.</value>
+Dosya ağ üzerinden alınırken, güvenilir bir sayısal imza ile imzalanmış olmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -420,7 +420,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Akışları imzalamak için güvenilen anahtarları listeler. Belirtilmiş ise yalnızca belirli bir PARMAK İZİNE güvenilmiş etki alanlarını listeler.</value>
+    <value>Akışları imzalamak için güvenilir anahtarları listeler. Belirtilmiş ise yalnızca belirli bir PARMAK İZİNE güvenilmiş etki alanlarını listeler.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -551,6 +551,10 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
     <value>Geçersiz değişken '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' geçerli bir akış adresi ya da dosya yolu değil.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
