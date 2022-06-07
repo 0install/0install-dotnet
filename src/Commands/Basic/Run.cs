@@ -72,11 +72,19 @@ public class Run : Download
         BackgroundUpdate();
         BackgroundSelfUpdate();
 
-        if (process == null) return ExitCode.OK;
-        if (_noWait) return (WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK);
+        if (process == null)
+        {
+            Log.Warn("No process launched");
+            return ExitCode.OK;
+        }
+        else if (_noWait)
+        {
+            Log.Debug("Not waiting for program to exit");
+            return WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK;
+        }
         else
         {
-            Log.Debug("Waiting for application to exit");
+            Log.Debug("Waiting for program to exit");
             return (ExitCode)process.WaitForExitCode();
         }
     }

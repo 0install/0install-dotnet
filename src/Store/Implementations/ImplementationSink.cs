@@ -74,7 +74,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
 
         if (manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)))) throw new ImplementationAlreadyInStoreException(manifestDigest);
         string expectedDigest = manifestDigest.Best ?? throw new NotSupportedException(Resources.NoKnownDigestMethod);
-        Log.Debug($"Storing implementation {expectedDigest} in {this}");
+        Log.Debug($"Attempting to store implementation {expectedDigest} in {this}");
         var format = ManifestFormat.FromPrefix(manifestDigest.Best);
 
         // Place files in temp directory until digest is verified

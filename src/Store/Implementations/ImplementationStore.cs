@@ -174,7 +174,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             #region Error handling
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
             {
-                Log.Warn(string.Format(Resources.FailedToUnlockFiles, Path), ex);
+                Log.Warn(string.Format(Resources.FailedToUnlockFiles, path), ex);
                 return false;
             }
             catch (Win32Exception ex)
