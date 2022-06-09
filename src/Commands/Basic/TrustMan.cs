@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands.Basic;
@@ -117,7 +118,12 @@ public sealed class TrustMan : CliMultiCommand
             switch (AdditionalArgs.Count)
             {
                 case 0:
-                    Handler.Output(Resources.TrustedKeys, trustDB.Keys);
+                    if (Handler.IsGui)
+                    {
+                        Config.InitialTab = ConfigTab.Trust;
+                        Handler.Output(Resources.Configuration, Config);
+                    }
+                    else Handler.Output(Resources.TrustedKeys, trustDB.Keys);
                     return ExitCode.OK;
 
                 case 1:
