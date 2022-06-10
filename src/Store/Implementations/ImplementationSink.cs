@@ -152,21 +152,24 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     private void DeployDeleteInfoFile()
     {
-        string filePath = System.IO.Path.Combine(Path, Resources.DeleteInfoFileName + ".txt");
-        string escapedDirPath = Path.EscapeArgument();
+        string deleteInfoDirPath = System.IO.Path.Combine(Path, "_" + Resources.DeleteInfoFileName);
+        if (Directory.Exists(deleteInfoDirPath)) return;
 
+        string escapedPath = Path.EscapeArgument();
         try
         {
-            File.WriteAllText(filePath,
+            Directory.CreateDirectory(deleteInfoDirPath);
+            File.WriteAllText(System.IO.Path.Combine(deleteInfoDirPath, Resources.DeleteInfoFileName + ".txt"),
                 string.Format(Resources.DeleteInfoFileContent,
                     "0install store remove IMPLEMENTATION-ID",
-                    $"0install store purge {escapedDirPath}",
+                    $"0install store purge {escapedPath}",
                     WindowsUtils.IsWindowsNT
-                        ? $"icacls {escapedDirPath} /t /q /c /reset; rm -Recurse {escapedDirPath}"
-                        : $"chmod -R u+w {escapedDirPath} && rm -rf {escapedDirPath}"),
+                        ? $"icacls {escapedPath} /t /q /c /reset; rm -Recurse {escapedPath}"
+                        : $"chmod -R u+w {escapedPath} && rm -rf {escapedPath}"),
                 Encoding.UTF8);
-            EnableWriteProtection(filePath);
-        } catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            FileUtils.EnableWriteProtection(deleteInfoDirPath);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {}
     }
 }
