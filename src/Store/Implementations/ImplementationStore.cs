@@ -134,6 +134,8 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             name: string.Format(Resources.DeletingDirectory, Path),
             target: paths,
             work: digest => RemoveInner(digest, handler, purge: true)));
+
+        RemoveDeleteInfoFile();
     }
 
     private bool RemoveInner(string path, ITaskHandler handler, bool purge = false)

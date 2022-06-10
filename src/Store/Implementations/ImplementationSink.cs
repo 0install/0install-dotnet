@@ -172,4 +172,21 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {}
     }
+
+    /// <summary>
+    /// Removes the file explaining to users how to delete files with write protection.
+    /// </summary>
+    protected void RemoveDeleteInfoFile()
+    {
+        foreach (string path in Directory.GetDirectories(Path, "_*"))
+        {
+            try
+            {
+                FileUtils.DisableWriteProtection(path);
+                Directory.Delete(path, recursive: true);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {}
+        }
+    }
 }
