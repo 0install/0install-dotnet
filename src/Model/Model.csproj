@@ -7,9 +7,9 @@
     <Description>Zero Install data model for the feed format</Description>
     <PackageProjectUrl>https://dotnet.0install.net/md_model.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <TargetFrameworks>net461;net472;netstandard2.1;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net461;net472;netstandard2.1;net6.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net5.0' Or '$(TargetFramework)'=='net6.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -30,7 +30,6 @@
     <None Include="..\..\artifacts\$(Configuration)\net461\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net461" Pack="True" />
     <None Include="..\..\artifacts\$(Configuration)\net472\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
     <None Include="..\..\artifacts\$(Configuration)\netstandard2.1\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\netstandard2.1" Pack="True" />
-    <None Include="..\..\artifacts\$(Configuration)\net5.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net5.0" Pack="True" />
     <None Include="..\..\artifacts\$(Configuration)\net6.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net6.0" Pack="True" />
   </ItemGroup>
 
