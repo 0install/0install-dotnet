@@ -107,7 +107,7 @@ public partial class EnvironmentBuilder
 
         if (string.IsNullOrEmpty(binding.Name)) throw new ExecutorException(string.Format(Resources.MissingBindingName, @"<environment>"));
 
-        var environmentVariables = _startInfo.EnvironmentVariables;
+        var envVars = _startInfo.EnvironmentVariables;
 
         string newValue = binding switch
         {
@@ -120,17 +120,17 @@ public partial class EnvironmentBuilder
         };
 
         // Set the default value if the variable is not already set on the system
-        if (!environmentVariables.ContainsKey(binding.Name)) environmentVariables.Add(binding.Name, binding.Default);
+        if (!envVars.ContainsKey(binding.Name)) envVars.Add(binding.Name, binding.Default);
 
-        string? previousValue = environmentVariables[binding.Name];
+        string? previousValue = envVars[binding.Name];
         string separator = (string.IsNullOrEmpty(binding.Separator) ? Path.PathSeparator.ToString(CultureInfo.InvariantCulture) : binding.Separator);
 
-        environmentVariables[binding.Name] = binding.Mode switch
+        envVars[binding.Name] = binding.Mode switch
         {
             _ when string.IsNullOrEmpty(previousValue) => newValue,
             EnvironmentMode.Replace => newValue,
-            EnvironmentMode.Prepend => newValue + separator + environmentVariables[binding.Name],
-            EnvironmentMode.Append => environmentVariables[binding.Name] + separator + newValue,
+            EnvironmentMode.Prepend => newValue + separator + envVars[binding.Name],
+            EnvironmentMode.Append => envVars[binding.Name] + separator + newValue,
             _ => throw new InvalidOperationException($"Unknown {nameof(EnvironmentBinding)} value: {binding.Mode}")
         };
     }
@@ -161,8 +161,9 @@ public partial class EnvironmentBuilder
         string exePath = DeployRunEnvExecutable(binding.Name);
 
         // Point variable directly to executable
-        if (_startInfo.EnvironmentVariables.ContainsKey(binding.Name)) Log.Warn("Overwriting existing environment variable with <executable-in-var>: " + binding.Name);
-        _startInfo.EnvironmentVariables[binding.Name] = exePath;
+        var envVars = _startInfo.EnvironmentVariables;
+        if (envVars.ContainsKey(binding.Name)) Log.Warn("Overwriting existing environment variable with <executable-in-var>: " + binding.Name);
+        envVars[binding.Name] = exePath;
 
         // Tell the executable what command-line to run
         _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
@@ -189,9 +190,10 @@ public partial class EnvironmentBuilder
         string exePath = DeployRunEnvExecutable(binding.Name);
 
         // Add executable directory to PATH variable
-        _startInfo.EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"] =
+        var envVars = _startInfo.EnvironmentVariables;
+        envVars[WindowsUtils.IsWindows ? "Path" : "PATH"] =
             Path.GetDirectoryName(exePath) + Path.PathSeparator +
-            _startInfo.EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"];
+            envVars[WindowsUtils.IsWindows ? "Path" : "PATH"];
 
         // Tell the executable what command-line to run
         _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
@@ -272,16 +274,18 @@ public partial class EnvironmentBuilder
     /// </summary>
     private void ProcessRunEnvBindings()
     {
+        var envVars = _startInfo.EnvironmentVariables;
+
         foreach (var (exeName, args) in _pendingRunEnvs)
         {
             var commandLine = ExpandCommandLine(args);
             if (WindowsUtils.IsWindows)
             {
                 var (fileName, arguments) = SplitCommandLine(commandLine);
-                _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_FILE_" + exeName] = fileName;
-                _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_ARGS_" + exeName] = arguments;
+                envVars["ZEROINSTALL_RUNENV_FILE_" + exeName] = fileName;
+                envVars["ZEROINSTALL_RUNENV_ARGS_" + exeName] = arguments;
             }
-            else _startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
+            else envVars["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
         }
         _pendingRunEnvs.Clear();
     }

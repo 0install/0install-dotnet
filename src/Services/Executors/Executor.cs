@@ -26,5 +26,7 @@ public partial class Executor : IExecutor
           .Start();
 
     /// <inheritdoc/>
-    public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null) => new EnvironmentBuilder(_implementationStore).Inject(selections, overrideMain);
+    public IEnvironmentBuilder Inject(Selections selections, string? overrideMain = null)
+        => new EnvironmentBuilder(_implementationStore)
+           .Inject(selections, overrideMain);
 }

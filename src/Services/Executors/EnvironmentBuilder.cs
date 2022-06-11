@@ -94,6 +94,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     public IEnvironmentBuilder AddWrapper(string? wrapper)
     {
         if (string.IsNullOrEmpty(wrapper)) return this;
+        if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
         (string fileName, string arguments) = ProcessUtils.FromCommandLine(wrapper);
         _startInfo.FileName = fileName;
@@ -235,6 +236,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     /// <param name="commandLine">The command-line to expand.</param>
     private List<string> ExpandCommandLine(IEnumerable<ArgBase> commandLine)
     {
+        var envVars = _startInfo.EnvironmentVariables;
         var result = new List<string>();
 
         foreach (var part in commandLine)
@@ -242,19 +244,18 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
             switch (part)
             {
                 case Arg arg:
-                    result.Add(OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables));
+                    result.Add(OSUtils.ExpandVariables(arg.Value, envVars));
                     break;
 
                 case ForEachArgs forEach:
-                    foreach (string item in _startInfo
-                                           .EnvironmentVariables[forEach.ItemFrom]
+                    foreach (string value in envVars[forEach.ItemFrom]
                                           ?.Split(new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.RemoveEmptyEntries)
                                          ?? Enumerable.Empty<string>())
                     {
-                        _startInfo.EnvironmentVariables["item"] = item;
-                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
+                        envVars["item"] = value;
+                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, envVars)));
                     }
-                    _startInfo.EnvironmentVariables.Remove("item");
+                    envVars.Remove("item");
                     break;
 
                 default:
