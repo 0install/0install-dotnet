@@ -30,6 +30,8 @@ public class RunTest : SelectionTestBase<Run>
         GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper("Wrapper"))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.CliName, It.IsAny<string>()))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.ExternalFetcherName, It.IsAny<string>()))
                       .Setup(x => x.Start()).Returns((Process)null);
 
         RunAndAssert(null, 0, selections,
@@ -50,6 +52,8 @@ public class RunTest : SelectionTestBase<Run>
         GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper(null))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.CliName, It.IsAny<string>()))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.ExternalFetcherName, It.IsAny<string>()))
                       .Setup(x => x.Start()).Returns((Process)null);
 
         using var tempFile = new TemporaryFile("0install-test-selections");

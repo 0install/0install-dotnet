@@ -62,18 +62,6 @@ public static class ProgramUtils
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
-
-        // Allow child processes to call back to 0install
-        try
-        {
-            ZeroInstallEnvironment.Cli = ProcessUtils.Assembly(CliAssemblyName).ToCommandLine();
-            ZeroInstallEnvironment.ExternalFetch = ProcessUtils.Assembly(CliAssemblyName, "fetch").ToCommandLine();
-            if (GuiAssemblyName != null) ZeroInstallEnvironment.Gui = ProcessUtils.Assembly(GuiAssemblyName).ToCommandLine();
-        }
-        catch (FileNotFoundException)
-        {
-            // Zero Install may be embedded as a library rather than an executable
-        }
     }
 
     /// <summary>
