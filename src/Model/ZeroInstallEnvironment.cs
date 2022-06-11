@@ -1,8 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Diagnostics;
-
 namespace ZeroInstall.Model;
 
 /// <summary>
@@ -62,10 +60,4 @@ public static class ZeroInstallEnvironment
             return null;
         }
     }
-
-    /// <summary>
-    /// Passes a program the feed URI used to start it as an environment variable.
-    /// </summary>
-    public static void SetFeedUri(this ProcessStartInfo startInfo, FeedUri feedUri)
-        => startInfo.EnvironmentVariables[FeedUriName] = feedUri.ToStringRfc();
 }

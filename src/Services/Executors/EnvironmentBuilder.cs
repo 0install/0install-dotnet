@@ -112,8 +112,6 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     {
         if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
-        _startInfo.SetFeedUri(_selections.InterfaceUri);
-
         try
         {
             ProcessRunEnvBindings();

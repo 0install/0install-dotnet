@@ -30,6 +30,7 @@ public class RunTest : SelectionTestBase<Run>
         GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper("Wrapper"))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, "http://example.com/test1.xml"))
                       .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.CliName, It.IsAny<string>()))
                       .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.ExternalFetcherName, It.IsAny<string>()))
                       .Setup(x => x.Start()).Returns((Process)null);
@@ -52,6 +53,7 @@ public class RunTest : SelectionTestBase<Run>
         GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper(null))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, Fake.Selections.InterfaceUri.ToStringRfc()))
                       .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.CliName, It.IsAny<string>()))
                       .SetupFluent(x => x.SetEnvironmentVariable(ZeroInstallEnvironment.ExternalFetcherName, It.IsAny<string>()))
                       .Setup(x => x.Start()).Returns((Process)null);

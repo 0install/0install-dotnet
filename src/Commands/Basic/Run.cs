@@ -65,6 +65,7 @@ public class Run : Download
         var process = Executor.Inject(Selections, _overrideMain)
                               .AddWrapper(_wrapper)
                               .AddArguments(AdditionalArgs.ToArray())
+                              .SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, Requirements.InterfaceUri.ToStringRfc())
                               .AddCallbackEnvironmentVariables()
                               .Start();
 
