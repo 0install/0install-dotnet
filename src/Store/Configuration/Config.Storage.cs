@@ -82,9 +82,6 @@ partial class Config
     {
         var config = new Config();
 
-#if NETFRAMEWORK
-        config.ReadFromAppSettings();
-#endif
         config.ReadFromIniFiles();
         if (WindowsUtils.IsWindowsNT)
             config.ReadFromRegistry();
@@ -154,7 +151,7 @@ partial class Config
     }
 
     /// <summary>
-    /// Reads settings from INI files on the disk and transfers them to properties.
+    /// Reads settings from INI files on the disk.
     /// </summary>
     private void ReadFromIniFiles()
     {
@@ -171,7 +168,7 @@ partial class Config
     private IniData? _iniData;
 
     /// <summary>
-    /// Reads settings from an INI file on the disk and transfers them to properties.
+    /// Reads settings from an INI file on the disk.
     /// </summary>
     private void ReadFromIniFile(string path)
     {
@@ -246,24 +243,8 @@ partial class Config
         }
     }
 
-#if NETFRAMEWORK
     /// <summary>
-    /// Reads settings from <see cref="ConfigurationManager.AppSettings"/> and transfers them to properties.
-    /// </summary>
-    private void ReadFromAppSettings()
-    {
-        var appSettings = ConfigurationManager.AppSettings;
-        foreach ((string key, var property) in _metaData)
-        {
-            string value = appSettings[key];
-            if (!string.IsNullOrEmpty(value))
-                property.Value = value;
-        }
-    }
-#endif
-
-    /// <summary>
-    /// Reads settings from Windows policy registry keys and transfers them to properties.
+    /// Reads settings from Windows policy registry keys.
     /// </summary>
     [SupportedOSPlatform("windows")]
     private void ReadFromRegistry()
@@ -280,7 +261,7 @@ partial class Config
     }
 
     /// <summary>
-    /// Reads settings from a Windows registry key and transfers them to properties.
+    /// Reads settings from a Windows registry key.
     /// </summary>
     [SupportedOSPlatform("windows")]
     private void ReadFromRegistry(RegistryKey registryKey)
@@ -305,6 +286,25 @@ partial class Config
             #endregion
         }
     }
+
+#if NETFRAMEWORK
+    /// <summary>
+    /// Reads settings from <see cref="ConfigurationManager.AppSettings"/>, if they have not already been set to non-default values.
+    /// </summary>
+    public void ReadFromAppSettings()
+    {
+        var appSettings = ConfigurationManager.AppSettings;
+        foreach ((string key, var property) in _metaData)
+        {
+            if (property.IsDefaultValue)
+            {
+                string value = appSettings[key];
+                if (!string.IsNullOrEmpty(value))
+                    property.Value = value;
+            }
+        }
+    }
+#endif
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Config"/> instance.
