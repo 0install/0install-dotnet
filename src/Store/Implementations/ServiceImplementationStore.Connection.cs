@@ -77,7 +77,6 @@ public partial class ServiceImplementationStore
                 {
                     {"name", IpcPort},
                     {"secure", true},
-                    {"tokenImpersonationLevel", "impersonation"} // Allow server to use identity of client
                 },
                 new BinaryClientFormatterSinkProvider()),
             ensureSecurity: false);
