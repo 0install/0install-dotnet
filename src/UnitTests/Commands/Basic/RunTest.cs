@@ -28,9 +28,9 @@ public class RunTest : SelectionTestBase<Run>
 
         var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.AddWrapper("Wrapper")).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
+        envBuilderMock.SetupFluent(x => x.AddWrapper("Wrapper"))
+                      .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .Setup(x => x.Start()).Returns((Process)null);
 
         RunAndAssert(null, 0, selections,
             "--command=command", "--os=Windows", "--cpu=i586", "--not-before=1.0", "--before=2.0", "--version-for=http://example.com/test2.xml", "2.0..!3.0",
@@ -48,9 +48,9 @@ public class RunTest : SelectionTestBase<Run>
 
         var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.AddWrapper(null)).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.AddArguments("--arg1", "--arg2")).Returns(envBuilderMock.Object);
-        envBuilderMock.Setup(x => x.Start()).Returns((Process)null);
+        envBuilderMock.SetupFluent(x => x.AddWrapper(null))
+                      .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
+                      .Setup(x => x.Start()).Returns((Process)null);
 
         using var tempFile = new TemporaryFile("0install-test-selections");
         selections.SaveXml(tempFile);
