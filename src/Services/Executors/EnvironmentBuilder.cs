@@ -33,27 +33,6 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     private Selections? _selections;
 
     /// <summary>
-    /// Adds an environment variable to the execution environment.
-    /// May not be called after <see cref="Inject"/> has been called.
-    /// </summary>
-    /// <param name="key">The name of the environment variable.</param>
-    /// <param name="value">The value to set the environment variable to.</param>
-    /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
-    /// <exception cref="ExecutorException">The executor was unable to process the <see cref="Selections"/>.</exception>
-    /// <exception cref="IOException">A problem occurred while writing a file.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
-    /// <returns>The execution environment. Reference to self for fluent API use.</returns>
-    /// <remarks>Must be called before using other methods on the object. May not be called more than once.</remarks>
-    public void SetEnvironmentVariable(string key, string value)
-    {
-        if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-        if (value == null) throw new ArgumentNullException(nameof(value));
-        if (_selections != null) throw new InvalidOperationException($"Environment variables cannot be added after {nameof(Inject)}() has been called.");
-
-        _startInfo.EnvironmentVariables[key] = value;
-    }
-
-    /// <summary>
     /// Sets the <see cref="Selections"/> to be injected.
     /// Must be called before any methods of the <see cref="IEnvironmentBuilder"/> interface are used. May not be called more than once.
     /// </summary>
@@ -112,6 +91,18 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
         _userArguments.AddRange(arguments);
+
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IEnvironmentBuilder SetEnvironmentVariable(string name, string? value)
+    {
+        if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
+        if (value == null) throw new ArgumentNullException(nameof(value));
+        if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
+
+        _startInfo.EnvironmentVariables[name] = value;
 
         return this;
     }
