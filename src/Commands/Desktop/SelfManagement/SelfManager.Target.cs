@@ -38,7 +38,6 @@ partial class SelfManager
     /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.
     /// </summary>
     /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
-    [SupportedOSPlatform("windows")]
     private void TargetMutexAcquire()
     {
         if (TargetDir == Locations.InstallBase)
@@ -55,6 +54,13 @@ partial class SelfManager
         }
         string targetMutex = "mutex-" + hashCode;
 
+        if (WindowsUtils.IsWindows)
+            TargetMutexAcquireWindows(targetMutex);
+    }
+
+    [SupportedOSPlatform("windows")]
+    private void TargetMutexAcquireWindows(string targetMutex)
+    {
         Handler.RunTask(new SimpleTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
@@ -79,15 +85,18 @@ partial class SelfManager
     /// <summary>
     /// Counterpart to <see cref="TargetMutexAcquire"/>.
     /// </summary>
-    [SupportedOSPlatform("windows")]
-    private void TargetMutexRelease() => _targetMutex?.Close();
+    private void TargetMutexRelease()
+    {
+        if (WindowsUtils.IsWindows) _targetMutex?.Close();
+    }
 
     /// <summary>
     /// Try to remove OneGet Bootstrap module to prevent future PowerShell sessions from loading it again.
     /// </summary>
-    [SupportedOSPlatform("windows")]
     private void RemoveOneGetBootstrap()
     {
+        if (!WindowsUtils.IsWindows) return;
+
         RemoveOneGetBootstrap(Path.Combine(
             Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
             "PackageManagement", "ProviderAssemblies", "0install"));
@@ -96,10 +105,9 @@ partial class SelfManager
             "WindowsPowerShell", "Modules", "0install"));
     }
 
-    [SupportedOSPlatform("windows")]
     private static void RemoveOneGetBootstrap(string dirPath)
     {
-        if (!Directory.Exists(dirPath)) return;
+        if (!WindowsUtils.IsWindows || !Directory.Exists(dirPath)) return;
 
         try
         {

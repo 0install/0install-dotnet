@@ -16,8 +16,13 @@ partial class SelfManager
     /// Adds Zero Install to the start menu and the PATH environment variable.
     /// </summary>
     /// <param name="size">The size of the installed files in bytes.</param>
-    [SupportedOSPlatform("windows")]
     private void DesktopIntegrationApply(long size)
+    {
+        if (WindowsUtils.IsWindows) DesktopIntegrationApplyWindows(size);
+    }
+
+    [SupportedOSPlatform("windows")]
+    private void DesktopIntegrationApplyWindows(long size)
     {
         Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationApply, () =>
         {
@@ -45,8 +50,13 @@ partial class SelfManager
     /// <summary>
     /// Removes Zero Install from the start menu and the PATH environment variable.
     /// </summary>
-    [SupportedOSPlatform("windows")]
     private void DesktopIntegrationRemove()
+    {
+        if (WindowsUtils.IsWindows) DesktopIntegrationRemoveWindows();
+    }
+
+    [SupportedOSPlatform("windows")]
+    private void DesktopIntegrationRemoveWindows()
     {
         Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationRemove, () =>
         {

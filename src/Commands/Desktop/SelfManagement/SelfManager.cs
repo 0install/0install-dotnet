@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
@@ -73,14 +72,12 @@ public partial class SelfManager : ManagerBase
         var newManifest = LoadManifest(Locations.InstallBase);
         var oldManifest = LoadManifest(TargetDir);
 
-#if NETFRAMEWORK
-        if (WindowsUtils.IsWindows && MachineWide)
+        if (MachineWide)
             ServiceStop();
-#endif
 
         try
         {
-            if (WindowsUtils.IsWindows) TargetMutexAcquire();
+            TargetMutexAcquire();
 
             if (TargetDir != Locations.InstallBase)
             {
@@ -93,7 +90,7 @@ public partial class SelfManager : ManagerBase
                 clearDir.Commit();
             }
 
-            if (!Portable && WindowsUtils.IsWindows)
+            if (!Portable)
             {
                 if (!libraryMode)
                     DesktopIntegrationApply(newManifest.TotalSize);
@@ -101,20 +98,18 @@ public partial class SelfManager : ManagerBase
                 RemoveOneGetBootstrap();
             }
 
-            if (WindowsUtils.IsWindows) TargetMutexRelease();
+            TargetMutexRelease();
 
-#if NETFRAMEWORK
             if (MachineWide)
             {
                 NgenApply();
-                ServiceInstall();
-                ServiceStart();
+                if (ServiceInstall())
+                    ServiceStart();
             }
-#endif
         }
         catch
         {
-            if (WindowsUtils.IsWindows) TargetMutexRelease();
+            TargetMutexRelease();
             throw;
         }
     }
@@ -128,30 +123,27 @@ public partial class SelfManager : ManagerBase
     {
         var targetManifest = LoadManifest(TargetDir);
 
-#if NETFRAMEWORK
-        if (MachineWide)
-        {
-            ServiceStop();
-            ServiceUninstall();
-            NgenRemove();
-        }
-#endif
+        if (MachineWide) ServiceStop();
 
         try
         {
-            if (WindowsUtils.IsWindows) TargetMutexAcquire();
+            TargetMutexAcquire();
+
+            if (MachineWide)
+            {
+                ServiceUninstall();
+                NgenRemove();
+            }
 
             using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
             {
                 clearDir.Stage();
-#if NETFRAMEWORK
                 DeleteServiceLogFiles();
-#endif
                 if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
                 clearDir.Commit();
             }
 
-            if (!Portable && WindowsUtils.IsWindows)
+            if (!Portable)
             {
                 DesktopIntegrationRemove();
                 ZeroInstallInstance.UnregisterLocation(MachineWide);
@@ -159,7 +151,7 @@ public partial class SelfManager : ManagerBase
         }
         finally
         {
-            if (WindowsUtils.IsWindows) TargetMutexRelease();
+           TargetMutexRelease();
         }
     }
 }
