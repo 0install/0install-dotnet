@@ -105,6 +105,7 @@ public partial class SelfManager : ManagerBase
                 NgenApply();
                 if (ServiceInstall())
                     ServiceStart();
+                TaskSchedulerApply(libraryMode);
             }
         }
         catch
@@ -131,6 +132,7 @@ public partial class SelfManager : ManagerBase
 
             if (MachineWide)
             {
+                TaskSchedulerRemove();
                 ServiceUninstall();
                 NgenRemove();
             }

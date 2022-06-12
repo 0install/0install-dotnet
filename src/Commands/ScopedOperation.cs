@@ -133,6 +133,7 @@ public abstract class ScopedOperation : ServiceProvider
     protected void BackgroundSelfUpdate()
     {
         if (ZeroInstallInstance.IsDeployed
+         && !ZeroInstallInstance.IsMachineWide
          && NetUtils.IsInternetConnected
          && Handler.Verbosity != Verbosity.Batch
          && Config is {NetworkUse: NetworkLevel.Full, SelfUpdateUri: not null}
@@ -140,9 +141,7 @@ public abstract class ScopedOperation : ServiceProvider
          && !FeedManager.RateLimit(Config.SelfUpdateUri))
         {
             Log.Info("Starting periodic background self-update check");
-            StartCommandBackground(Self.Name, ZeroInstallInstance.IsMachineWide
-                ? new[] { Self.Update.Name } // Ask for confirmation before potentially triggering prompt for admin rights
-                : new[] { Self.Update.Name, "--batch" }); // Silently update per-user instances
+            StartCommandBackground(Self.Name, Self.Update.Name, "--batch");
         }
     }
 
