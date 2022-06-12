@@ -84,15 +84,18 @@ partial class Self
             using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
                 manager.Deploy();
 
-            string assembly = Path.Combine(tempDir, ProgramUtils.GuiAssemblyName ?? ProgramUtils.CliAssemblyName);
+            string path = Path.Combine(tempDir, "0install-win.exe");
+            if (!File.Exists(path)) path =  Path.Combine(tempDir, "0install.exe");
 
             var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
             if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
-            if (Handler.Background && ProgramUtils.GuiAssemblyName != null) args = args.Append("--background");
+            if (Handler.Background) args = args.Append("--background");
 
-            var startInfo = ProcessUtils.Assembly(assembly, args);
-            startInfo.WorkingDirectory = tempDir;
-            startInfo.Start();
+            new ProcessStartInfo(path, args.JoinEscapeArguments())
+            {
+                UseShellExecute = false,
+                WorkingDirectory = tempDir
+            }.Start();
         }
     }
 

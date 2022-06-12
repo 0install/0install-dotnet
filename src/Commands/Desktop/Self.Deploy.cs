@@ -139,14 +139,16 @@ partial class Self
             manager.Deploy(_library);
         }
 
-        private static void RestartCentral(string targetDir)
+        private void RestartCentral(string targetDir)
         {
-            if (ProgramUtils.GuiAssemblyName == null) return;
+            if (!WindowsUtils.IsWindows) return;
 
-            var startInfo = WindowsUtils.IsWindowsVista
-                // Use explorer.exe to return to standard user privileges after UAC elevation
-                ? new ProcessStartInfo("explorer.exe", Path.Combine(targetDir, "ZeroInstall.exe").EscapeArgument())
-                : ProcessUtils.Assembly(Path.Combine(targetDir, ProgramUtils.GuiAssemblyName), Central.Name);
+            var startInfo = new ProcessStartInfo(Path.Combine(targetDir, "ZeroInstall.exe"));
+            if (!File.Exists(startInfo.FileName)) return;
+
+            if (_machineWide && WindowsUtils.HasUac)
+                startInfo = new("explorer.exe", startInfo.FileName.EscapeArgument()) {UseShellExecute = false};
+
             startInfo.Start();
         }
     }
