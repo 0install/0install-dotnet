@@ -45,11 +45,9 @@ public class IconStoreTest : IDisposable
         VerifyGet(icon, "data");
     }
 
-    [SkippableFact]
+    [Fact]
     public void ShouldRefreshStale()
     {
-        Skip.IfNot(NetUtils.IsInternetConnected, "Icon cache is not refresh when offline");
-
         using var server = new MicroServer("icon.png", "new".ToStream());
         var icon = PngIcon(server.FileUri);
         Inject(icon, "old", timestamp: new DateTime(1980, 1, 1));
