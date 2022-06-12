@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
@@ -65,14 +66,36 @@ public static class ProgramUtils
     }
 
     /// <summary>
-    /// The assembly/EXE name for the command-line interface.
+    /// Creates a <see cref="ProcessStartInfo"/> for launching an instance of the 0install command-line interface.
     /// </summary>
-    public const string CliAssemblyName = "0install";
+    public static ProcessStartInfo? CliStartInfo(params string[] arguments)
+    {
+        try
+        {
+            return ProcessUtils.Assembly("0install", arguments);
+        }
+        catch (FileNotFoundException)
+        {
+            return null;
+        }
+    }
 
     /// <summary>
-    /// The assembly/EXE name for the graphical interface; <c>null</c> if no GUI is available.
+    /// Creates a <see cref="ProcessStartInfo"/> for launching an instance of the 0install graphical interface.
     /// </summary>
-    public static string? GuiAssemblyName { get; } = WindowsUtils.IsGuiSession ? "0install-win" : null;
+    public static ProcessStartInfo? GuiStartInfo(params string[] arguments)
+    {
+        if (!WindowsUtils.IsGuiSession) return null;
+
+        try
+        {
+            return ProcessUtils.Assembly("0install-win", arguments);
+        }
+        catch (FileNotFoundException)
+        {
+            return null;
+        }
+    }
 
     private const string
         RegKeyFSPolicyMachine = @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem",
@@ -104,13 +127,20 @@ public static class ProgramUtils
         {
             return ExitCode.UserCanceled;
         }
-        catch (NeedsGuiException) when (GuiAssemblyName != null)
+        catch (NeedsGuiException ex)
         {
+            var gui = GuiStartInfo(args);
+            if (gui == null)
+            {
+                handler.Error(ex);
+                return ExitCode.NotSupported;
+            }
+
             Log.Info("Switching to GUI");
             handler.DisableUI();
             try
             {
-                return (ExitCode)ProcessUtils.Assembly(GuiAssemblyName, args).Run();
+                return (ExitCode)gui.Run();
             }
             catch (IOException ex2)
             {
@@ -125,38 +155,27 @@ public static class ProgramUtils
         }
         catch (NotAdminException ex)
         {
-            if (WindowsUtils.HasUac)
-            {
-                Log.Info("Elevating to admin");
-                handler.DisableUI();
-                try
-                {
-                    return (ExitCode)ProcessUtils.Assembly(GuiAssemblyName ?? exeName, args).AsAdmin().Run();
-                }
-                catch (PlatformNotSupportedException ex2)
-                {
-                    handler.Error(ex2);
-                    return ExitCode.NotSupported;
-                }
-                catch (IOException ex2)
-                {
-                    handler.Error(ex2);
-                    return ExitCode.IOError;
-                }
-                catch (NotAdminException ex2)
-                {
-                    handler.Error(ex2);
-                    return ExitCode.AccessDenied;
-                }
-                catch (OperationCanceledException)
-                {
-                    return ExitCode.UserCanceled;
-                }
-            }
-            else
+            var gui = GuiStartInfo(args);
+            if (gui == null || !WindowsUtils.HasUac)
             {
                 handler.Error(ex);
                 return ExitCode.AccessDenied;
+            }
+
+            Log.Info("Elevating to admin");
+            handler.DisableUI();
+            try
+            {
+                return (ExitCode)gui.AsAdmin().Run();
+            }
+            catch (IOException ex2)
+            {
+                handler.Error(ex2);
+                return ExitCode.IOError;
+            }
+            catch (OperationCanceledException)
+            {
+                return ExitCode.UserCanceled;
             }
         }
         catch (ConflictException ex)
@@ -209,7 +228,7 @@ public static class ProgramUtils
             return ExitCode.NotSupported;
         }
         catch (PathTooLongException ex) when (
-            WindowsUtils.IsWindows10Redstone &&
+            WindowsUtils.IsWindows &&
             RegistryUtils.GetDword(RegKeyFSPolicyUser, RegValueNameLongPaths, defaultValue: RegistryUtils.GetDword(RegKeyFSPolicyMachine, RegValueNameLongPaths)) != 1)
         {
             if (!WindowsUtils.IsWindows10Redstone) throw;

@@ -157,7 +157,8 @@ public abstract class ScopedOperation : ServiceProvider
         if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
         #endregion
 
-        if (ProgramUtils.GuiAssemblyName == null)
+        var startInfo = ProgramUtils.GuiStartInfo(new[] {command, "--background"}.Concat(args).ToArray());
+        if (startInfo == null)
         {
             Log.Info("Skipping background command because there is no GUI subsystem available");
             return;
@@ -165,17 +166,12 @@ public abstract class ScopedOperation : ServiceProvider
 
         try
         {
-            var startInfo = ProcessUtils.Assembly(ProgramUtils.GuiAssemblyName, new[] {command, "--background"}.Concat(args).ToArray());
             startInfo.WorkingDirectory = Locations.InstallBase; // Avoid locking the user's working directory
             startInfo.Start();
         }
         #region Error handling
-        catch (OperationCanceledException)
+        catch (Exception ex) when (ex is OperationCanceledException or IOException)
         {}
-        catch (IOException ex)
-        {
-            Log.Warn($"Failed to start background command: {ProgramUtils.GuiAssemblyName} {command} {args.JoinEscapeArguments()}", ex);
-        }
         #endregion
     }
 }

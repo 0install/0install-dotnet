@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using ZeroInstall.Commands.Basic;
 using ZeroInstall.Services.Executors;
 
@@ -16,13 +17,13 @@ public static class EnvironmentBuilderExtensions
     /// </summary>
     public static IEnvironmentBuilder AddCallbackEnvironmentVariables(this IEnvironmentBuilder builder)
     {
-        void TryAdd(string envName, string? assemblyName, params string[] args)
+        void TryAdd(string envName, ProcessStartInfo? startInfo)
         {
-            if (assemblyName == null) return;
+            if (startInfo == null) return;
 
             try
             {
-                builder.SetEnvironmentVariable(envName, ProcessUtils.Assembly(assemblyName, args).ToCommandLine());
+                builder.SetEnvironmentVariable(envName, startInfo.ToCommandLine());
             }
             catch (FileNotFoundException)
             {
@@ -30,9 +31,9 @@ public static class EnvironmentBuilderExtensions
             }
         }
 
-        TryAdd(ZeroInstallEnvironment.CliName, ProgramUtils.CliAssemblyName);
-        TryAdd(ZeroInstallEnvironment.GuiName, ProgramUtils.GuiAssemblyName);
-        TryAdd(ZeroInstallEnvironment.ExternalFetcherName, ProgramUtils.CliAssemblyName, Fetch.Name);
+        TryAdd(ZeroInstallEnvironment.CliName, ProgramUtils.CliStartInfo());
+        TryAdd(ZeroInstallEnvironment.GuiName, ProgramUtils.GuiStartInfo());
+        TryAdd(ZeroInstallEnvironment.ExternalFetcherName, ProgramUtils.CliStartInfo(Fetch.Name));
 
         return builder;
     }
