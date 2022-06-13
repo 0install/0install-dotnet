@@ -37,7 +37,7 @@ public class Digest : CliCommand
                     _algorithm = ManifestFormat.FromPrefix(algorithm);
                 }
                 #region Error handling
-                catch (ArgumentException ex)
+                catch (NotSupportedException ex)
                 {
                     // Wrap exception since only certain exception types are allowed
                     throw new OptionException(ex.Message, algorithm);
