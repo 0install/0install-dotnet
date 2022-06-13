@@ -41,7 +41,7 @@ public abstract class ImplementationNode : StoreNode
     /// The digest identifying the implementation in the store.
     /// </summary>
     [Description("The digest identifying the implementation in the store.")]
-    public string Digest => _digest.AvailableDigests.First();
+    public string? Digest => _digest.Best;
 
     /// <summary>
     /// The total size of the implementation in bytes.
