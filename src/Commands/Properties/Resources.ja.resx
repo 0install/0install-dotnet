@@ -652,7 +652,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>指定されたエイリアスのインターフェースURIを表示する。</value>
+    <value>与えられたエイリアスのインターフェースURIを表示する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
@@ -750,7 +750,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>指定された実行ファイル {MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
+    <value>指定された実行ファイル {MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -1020,7 +1020,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>作業風景</value>
+    <value>ワーキング</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

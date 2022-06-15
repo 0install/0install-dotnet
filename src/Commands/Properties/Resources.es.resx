@@ -268,7 +268,7 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver o cambiar los ajustes de configuración.
-Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración nombrada. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
+Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual del ajuste nombrado. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -420,7 +420,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista de claves de confianza para la firma de feeds. Enumera sólo los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
+    <value>Lista de claves de confianza para la firma de feeds. Sólo se enumeran los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -612,7 +612,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que funcione la integración de escritorios en toda la máquina, es necesario desplegarla en un directorio al que puedan acceder todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración del escritorio en toda la máquina funcione, debe desplegarse en un directorio al que puedan acceder todos los usuarios.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -656,7 +656,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Ocultar la interface gráfica de usuario y utilizar algo como un icono de bandeja en su lugar.</value>
+    <value>Oculta la interface gráfica de usuario y utiliza algo como un icono de bandeja en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
@@ -701,7 +701,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluya la propia Zero Install en la exportación junto con la aplicación.</value>
+    <value>Incluir la propia Zero Install en la exportación junto con la aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -709,7 +709,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Realice la actualización incluso si la versión actualmente instalada es la misma o más reciente.</value>
+    <value>Realice la actualización aunque la versión actualmente instalada sea la misma o más reciente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -717,7 +717,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Añadir todos los puntos de acceso de una {CATEGORÍA} específica.</value>
+    <value>Añade todos los puntos de acceso de una {CATEGORÍA} específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -808,7 +808,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Más información. Utiliza dos veces para obtener una salida aún más verbosa.</value>
+    <value>Más información. Utilice dos veces para obtener una salida aún más detallada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">

@@ -80,7 +80,7 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Eliminación del directorio {0}</value>
+    <value>Borrar el directorio {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -219,7 +219,7 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Ninguna versión seleccionada</value>
+    <value>No hay versión seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">

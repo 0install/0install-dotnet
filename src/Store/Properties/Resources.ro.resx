@@ -286,7 +286,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>Ultima linie a fișierului nu reprezintă sfârșitul blocului de semnături.</value>
+    <value>Ultima linie a fișierului nu este sfârșitul blocului de semnături.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
@@ -294,7 +294,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este validă în baza 64:</value>
+    <value>Semnătura nu este valabilă în baza 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
