@@ -174,7 +174,7 @@ Nouvelle heure {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Impossible d'analyser les informations clés pour '{0}'.</value>
+    <value>Impossible d'analyser les informations de clé pour '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

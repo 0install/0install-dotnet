@@ -120,7 +120,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>在'{0}'中解锁使用中的文件时失败。</value>
+    <value>在'{0}'解锁使用中的文件时失败了。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -282,7 +282,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>你输入的密码不正确。</value>
+    <value>你输入的口令不正确。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

@@ -268,7 +268,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение параметров конфигурации.
-При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает заданное значение параметра или сбрасывает его на значение по умолчанию, если задано значение "default".</value>
+При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает настройку в заданное значение или возвращает ее к значению по умолчанию, если задано значение "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Перечисляет все локально известные URI кормов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
+    <value>Перечисляет все локально известные URI фидов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -559,7 +559,7 @@
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Эта программа поставляется с АБСОЛЮТНО НИКАКИМИ ГАРАНТИЯМИ, насколько это разрешено законом.
-Вы можете распространять копии этой программы на условиях лицензии GNU Lesser General Public License.</value>
+Вы можете распространять копии этой программы в соответствии с условиями GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -882,7 +882,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Переименовать '{0}' в '{1}' с помощью псевдонима.</value>
+    <value>Изменение '{0}' на '{1}' с помощью псевдонима.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
@@ -968,7 +968,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Доверенные ключи</value>
+    <value>Надежные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
