@@ -67,6 +67,25 @@ public class ImplementationVersionTest
         new ImplementationVersion("1.2-pre").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
     }
 
+    [Theory]
+    [InlineData("2", "1")]
+    [InlineData("1.2-0", "1.2")]
+    [InlineData("1.2-post", "1.2")]
+    public void GreaterThan(string left, string right)
+        => new ImplementationVersion(left).CompareTo(new ImplementationVersion(right)).Should().BePositive();
+
+    [Theory]
+    [InlineData("1", "2")]
+    [InlineData("1.2", "1.2-0")]
+    [InlineData("1.2", "1.2-post")]
+    public void LessThan(string left, string right)
+        => new ImplementationVersion(left).CompareTo(new ImplementationVersion(right)).Should().BeNegative();
+
+    [Theory]
+    [InlineData("1"), InlineData("1.2"), InlineData("1.2-0"), InlineData("1.2-post")]
+    public void Equal(string value)
+        => new ImplementationVersion(value).CompareTo(new ImplementationVersion(value)).Should().Be(0);
+
     /// <summary>
     /// Ensures <see cref="ImplementationVersion"/> objects are sorted correctly.
     /// </summary>

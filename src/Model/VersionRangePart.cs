@@ -11,10 +11,10 @@ namespace ZeroInstall.Model;
 public abstract class VersionRangePart
 {
     /// <summary>
-    /// Parses a string into a <see cref="VersionRange"/> part.
+    /// Parses a string into a version range part.
     /// </summary>
     /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>
-    public static VersionRangePart FromString(string value)
+    public static VersionRangePart Parse(string value)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));

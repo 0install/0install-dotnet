@@ -10,7 +10,7 @@ namespace ZeroInstall.Model;
 /// Represents a version number consisting of dot-separated decimals and optional modifier strings.
 /// </summary>
 /// <remarks>
-/// <para>This class is immutable.</para>
+/// <para>This class is immutable and thread-safe.</para>
 /// <para>
 ///   This is the syntax for valid version strings:
 ///   <code>
@@ -48,6 +48,17 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
     public bool ContainsTemplateVariables => _verbatimString != null;
 
     /// <summary>
+    /// Creates a new implementation version.
+    /// </summary>
+    /// <param name="firstPart">The first part of the version number.</param>
+    /// <param name="additionalParts">All additional parts of the version number.</param>
+    public ImplementationVersion(VersionDottedList firstPart, params VersionPart[] additionalParts)
+    {
+        FirstPart = firstPart;
+        AdditionalParts = additionalParts ?? throw new ArgumentNullException(nameof(additionalParts));
+    }
+
+    /// <summary>
     /// Creates a new implementation version from a a string.
     /// </summary>
     /// <param name="value">The string containing the version information.</param>
@@ -66,12 +77,12 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
 
         // Ensure the first part is a dotted list
         if (!VersionDottedList.IsValid(parts[0])) throw new FormatException(Resources.MustStartWithDottedList);
-        FirstPart = new VersionDottedList(parts[0]);
+        FirstPart = VersionDottedList.Parse(parts[0]);
 
         // Iterate through all additional parts
         var additionalParts = new VersionPart[parts.Length - 1];
         for (int i = 1; i < parts.Length; i++)
-            additionalParts[i - 1] = new VersionPart(parts[i]);
+            additionalParts[i - 1] = VersionPart.Parse(parts[i]);
         AdditionalParts = additionalParts;
     }
 
@@ -85,7 +96,7 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
         if (version == null) throw new ArgumentNullException(nameof(version));
         #endregion
 
-        FirstPart = new VersionDottedList(version.ToString());
+        FirstPart = VersionDottedList.Parse(version.ToString());
     }
 
     /// <summary>
@@ -146,8 +157,8 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
         int leastNumberOfAdditionalParts = Math.Max(AdditionalParts.Count, other.AdditionalParts.Count);
         for (int i = 0; i < leastNumberOfAdditionalParts; ++i)
         {
-            var left = i >= AdditionalParts.Count ? VersionPart.Default : AdditionalParts[i];
-            var right = i >= other.AdditionalParts.Count ? VersionPart.Default : other.AdditionalParts[i];
+            var left = i >= AdditionalParts.Count ? VersionPart.Unset : AdditionalParts[i];
+            var right = i >= other.AdditionalParts.Count ? VersionPart.Unset : other.AdditionalParts[i];
             int comparisonResult = left.CompareTo(right);
             if (comparisonResult != 0)
                 return comparisonResult;

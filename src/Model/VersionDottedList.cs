@@ -15,7 +15,6 @@ namespace ZeroInstall.Model;
 /// DottedList := (Integer ("." Integer)*)
 /// </code>
 /// </remarks>
-/// <remarks>This class is immutable and thread-safe.</remarks>
 [Serializable]
 public readonly struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
 {
@@ -25,13 +24,23 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
     public IReadOnlyList<long>? Decimals { get; }
 
     /// <summary>
-    /// Creates a new dotted-list from a a string.
+    /// Creates a new version dotted-list.
     /// </summary>
-    /// <param name="value">The string containing the dotted-list.</param>
-    /// <exception cref="FormatException"><paramref name="value"/> is not a valid dotted-list.</exception>
-    public VersionDottedList(string value)
+    /// <param name="decimals">The numeric parts of the dotted-list.</param>
+    public VersionDottedList(params long[] decimals)
     {
-        #region Sanity checks
+        Decimals = decimals ?? throw new ArgumentNullException(nameof(decimals));
+    }
+
+    private static readonly Regex _dottedListPattern = new(@"^(\d+(\.\d+)*)$");
+
+    /// <summary>
+    /// Parses a string into a version dotted-list.
+    /// </summary>
+    /// <exception cref="FormatException"><paramref name="value"/> is not a valid version dotted-list.</exception>
+    public static VersionDottedList Parse(string value)
+    {
+        #region Sanity check
         if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
         #endregion
 
@@ -44,15 +53,14 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
                 throw new FormatException(Resources.MustBeDottedList + Environment.NewLine + value);
         }
 
-        Decimals = decimals;
+        return new(decimals);
     }
-
-    private static readonly Regex _dottedListPattern = new(@"^(\d+(\.\d+)*)$");
 
     /// <summary>
     /// Checks whether a string represents a valid dotted-list.
     /// </summary>
-    public static bool IsValid(string value) => _dottedListPattern.IsMatch(value);
+    public static bool IsValid(string value)
+        => _dottedListPattern.IsMatch(value);
 
     #region Conversion
     /// <inheritdoc/>

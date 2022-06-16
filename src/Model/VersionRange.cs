@@ -56,7 +56,7 @@ public sealed partial class VersionRange
     /// <param name="value">The string containing the version ranges.</param>
     /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>
     public VersionRange(string value)
-        : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.FromString(part.Trim())))
+        : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.Parse(part.Trim())))
     {}
 
     /// <summary>
