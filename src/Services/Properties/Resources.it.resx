@@ -146,10 +146,6 @@ Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
     <value>Non è stato trovato alcun manifest digest per l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Non esiste un gestore di pacchetti nativo per questa piattaforma.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Non è stato trovato alcun metodo di recupero per l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>

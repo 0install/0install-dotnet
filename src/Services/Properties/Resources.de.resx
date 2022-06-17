@@ -146,10 +146,6 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <value>Kein Manifest Digest für die Implementierung '{0}' gefunden.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Es gibt keine native Paketmanager-Unterstützung für diese Plattform.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Keine Downloadmethoden für die Implementierung '{0}' gefunden.</value>
     <comment>Manually overriden.</comment>

@@ -146,10 +146,6 @@
     <value>実装 '{0}' のマニフェスト・ダイジェストが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>このプラットフォームには、ネイティブのパッケージマネージャのサポートはありません。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>実装 '{0}' の検索方法は見つかりませんでした。</value>
     <comment>Automatically translated.</comment>

@@ -146,10 +146,6 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
     <value>Não foi encontrada nenhuma compilação de manifesto para implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Não existe suporte de gestor de pacotes nativo para esta plataforma.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nenhum método de recuperação encontrado para implementação '{0}' encontrado.</value>
     <comment>Automatically translated.</comment>

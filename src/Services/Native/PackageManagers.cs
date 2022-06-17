@@ -15,8 +15,11 @@ public static class PackageManagers
     /// </summary>
     public static IPackageManager Default()
     {
-        if (WindowsUtils.IsWindows) return new WindowsPackageManager();
-        //else if (UnixUtils.IsUnix) return new PackageKitPackageManager();
-        else return new StubPackageManager();
+        var packageManagers = new List<IPackageManager>();
+
+        if (WindowsUtils.IsWindows) packageManagers.Add(new WindowsPackageManager());
+        //if (UnixUtils.IsUnix) packageManagers.Add(new PackageKitPackageManager());
+
+        return new CompositePackageManager(packageManagers);
     }
 }

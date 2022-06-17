@@ -146,10 +146,6 @@
     <value>No se ha encontrado el resumen del manifiesto para la implementación '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>No hay soporte nativo del gestor de paquetes para esta plataforma.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>No se ha encontrado ningún método de recuperación para la implementación '{0}'.</value>
     <comment>Automatically translated.</comment>

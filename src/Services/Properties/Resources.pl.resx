@@ -146,10 +146,6 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z "{3}"?
     <value>Nie znaleziono skrótu manifestu dla implementacji "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Nie ma natywnej obsługi menedżera pakietów dla tej platformy.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nie znaleziono metody pobierania dla wdrożenia "{0}".</value>
     <comment>Automatically translated.</comment>

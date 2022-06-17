@@ -146,10 +146,6 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <value>Nenhum resumo de manifesto para implementação de '{0}' encontrado.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Não há suporte para gerenciador de pacotes nativo para esta plataforma.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nenhum método de recuperação encontrado para implementação de '{0}' encontrado.</value>
     <comment>Manually overriden.</comment>

@@ -146,10 +146,6 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <value>Nu a fost găsit niciun manifest digest pentru implementarea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Nu există un suport nativ pentru managerul de pachete pentru această platformă.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nu s-a găsit nicio metodă de recuperare pentru implementarea '{0}'.</value>
     <comment>Automatically translated.</comment>

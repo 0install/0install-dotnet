@@ -146,10 +146,6 @@
     <value>Δεν συντρέχει πρόδηλη αφομοιώση για την εφαρμογή '{0}' που βρέθηκε.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Δεν υπάρχει διαχειριστής πακέτων υποστήριξης για αυτήν την πλατφόρμα.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Καμία μέθοδος ανάκτησης για την εφαρμογή '{0}' δεν βρέθηκε.</value>
     <comment>Manually overriden.</comment>

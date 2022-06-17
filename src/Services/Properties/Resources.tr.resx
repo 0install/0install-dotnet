@@ -146,10 +146,6 @@
     <value>'{0}' uyarlaması için bildirim özeti bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Bu platformu destekleyen doğal bir paket yöneticisi bulunamadı.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>'{0}' uyarlaması için alma yöntemi bulunamadı.</value>
     <comment>Manually overriden.</comment>

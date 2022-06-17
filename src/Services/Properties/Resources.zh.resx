@@ -146,10 +146,6 @@
     <value>没有找到实施的清单摘要 '{0}' 。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>这个平台没有本地软件包管理器的支持。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>没有找到实施的检索方法'{0}'。</value>
     <comment>Automatically translated.</comment>

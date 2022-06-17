@@ -254,15 +254,6 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is no native package manager support for this platform..
-        /// </summary>
-        internal static string NoPackageManagerSupport {
-            get {
-                return ResourceManager.GetString("NoPackageManagerSupport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No retrieval method found for implementation &apos;{0}&apos; found..
         /// </summary>
         internal static string NoRetrievalMethod {

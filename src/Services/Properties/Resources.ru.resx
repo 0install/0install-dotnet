@@ -146,10 +146,6 @@
     <value>Не найден дайджест манифеста для реализации '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Для этой платформы нет встроенной поддержки менеджера пакетов.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Для реализации '{0}' метод извлечения не найден.</value>
     <comment>Automatically translated.</comment>

@@ -146,10 +146,6 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <value>Geen manifest digest voor implementatie '{0}' gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoPackageManagerSupport" xml:space="preserve">
-    <value>Er is geen native pakketbeheerder ondersteuning voor dit platform.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Geen ophaalmethode gevonden voor implementatie '{0}' gevonden.</value>
     <comment>Automatically translated.</comment>
