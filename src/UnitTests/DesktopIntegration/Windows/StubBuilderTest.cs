@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 using ZeroInstall.Store.Icons;
 
@@ -9,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// <summary>
 /// Contains test methods for <see cref="StubBuilder"/>.
 /// </summary>
+[SupportedOSPlatform("windows")]
 public class StubBuilderTest : TestWithRedirect
 {
     private readonly StubBuilder _stubBuilder = new(new Mock<IIconStore>().Object);
@@ -24,12 +26,7 @@ public class StubBuilderTest : TestWithRedirect
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
         target.Feed.EntryPoints[0].NeedsTerminal = true;
         var commandLine = _stubBuilder.GetRunCommandLine(target);
-
-#if NETFRAMEWORK
         commandLine.Should().HaveCount(1);
-#else
-        commandLine.Should().Equal(Path.Combine(Locations.InstallBase, "0install.exe"), "run", "http://example.com/test1.xml");
-#endif
     }
 
     [SkippableFact]
@@ -37,11 +34,6 @@ public class StubBuilderTest : TestWithRedirect
     {
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
         var commandLine = _stubBuilder.GetRunCommandLine(target, "");
-
-#if NETFRAMEWORK
         commandLine.Should().HaveCount(1);
-#else
-        commandLine.Should().Equal(Path.Combine(Locations.InstallBase, "0install-win.exe"), "run", "--no-wait", "http://example.com/test1.xml");
-#endif
     }
 }

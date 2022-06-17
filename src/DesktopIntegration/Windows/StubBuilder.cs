@@ -1,13 +1,13 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using System.CodeDom.Compiler;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
-#endif
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 
@@ -15,13 +15,15 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// Builds stub EXEs that execute "0install" commands.
 /// </summary>
 [PrimaryConstructor]
+[SupportedOSPlatform("windows")]
 public partial class StubBuilder
 {
     // ReSharper disable once NotAccessedField.Local
     private readonly IIconStore _iconStore;
 
     /// <summary>
-    /// Returns a command-line for executing the "0install run" command. Generates and returns a stub EXE if possible, falls back to directly pointing to the "0install" binary otherwise.
+    /// Returns a command-line for executing the "0install run" command.
+    /// Generates and returns a stub EXE if possible, falls back to directly pointing to the "0install" EXE otherwise.
     /// </summary>
     /// <param name="target">The application to be launched.</param>
     /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
@@ -34,39 +36,40 @@ public partial class StubBuilder
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
     public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command = null, bool machineWide = false)
     {
+        string targetKey = target.Uri + "#" + command;
+
         var entryPoint = target.Feed.GetEntryPoint(command);
         bool gui = entryPoint is not {NeedsTerminal: true};
 
-        try
-        {
-#if NETFRAMEWORK
-            string hash = (target.Uri + "#" + command).Hash(SHA256.Create());
-            string exeName = (entryPoint == null)
-                ? FeedUri.Escape(target.Feed.Name)
-                : entryPoint.BinaryName ?? entryPoint.Command;
-            string path = Path.Combine(
-                IntegrationManager.GetDir(machineWide, "stubs", hash),
-                exeName + ".exe");
+        string targetHash = targetKey.Hash(SHA256.Create());
+        string exeName = (entryPoint == null)
+            ? FeedUri.Escape(target.Feed.Name)
+            : entryPoint.BinaryName ?? entryPoint.Command;
+        string path = Path.Combine(
+            IntegrationManager.GetDir(machineWide, "stubs", targetHash),
+            exeName + ".exe");
 
+#if !DEBUG
+        try
+#endif
+        {
             CreateOrUpdateRunStub(path, target, gui, command);
             return new[] {path};
-#else
-                return GetArguments(target.Uri, command, gui)
-                      .Prepend(GetBinary(gui))
-                      .ToList();
-#endif
         }
-        #region Error handling
-        catch (InvalidOperationException ex)
+#if !DEBUG
+        catch (Exception ex)
         {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
+            var exe = GetExe(gui);
+            Log.Error($"Failed to generate stub EXE for {targetKey}. Falling back to using '{exe}' directly.", ex);
+            return GetArguments(target.Uri, command, gui)
+                  .Prepend(Path.Combine(Locations.InstallBase, exe))
+                  .ToList();
         }
-        #endregion
+#endif
     }
 
-    private static string GetBinary(bool gui)
-        => Path.Combine(Locations.InstallBase, gui ? "0install-win.exe" : "0install.exe");
+    private static string GetExe(bool gui)
+        => gui ? "0install-win.exe" : "0install.exe";
 
     private static IEnumerable<string> GetArguments(FeedUri uri, string? command, bool gui)
     {
@@ -80,9 +83,8 @@ public partial class StubBuilder
         yield return uri.ToStringRfc();
     }
 
-#if NETFRAMEWORK
     /// <summary>The point in time when the library file containing this code was installed.</summary>
-    private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+    private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(Assembly.GetExecutingAssembly().Location);
 
     private void CreateOrUpdateRunStub(string path, FeedTarget target, bool gui, string? command)
     {
@@ -106,6 +108,13 @@ public partial class StubBuilder
         }
     }
 
+    private static readonly string _netFxDirectory = WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40);
+
+    private static readonly IEnumerable<PortableExecutableReference> _references =
+        new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
+           .Select(x => MetadataReference.CreateFromFile(Path.Combine(_netFxDirectory, x)))
+           .ToArray();
+
     /// <summary>
     /// Builds a stub EXE that executes the "0install run" command at a specific path.
     /// </summary>
@@ -124,29 +133,52 @@ public partial class StubBuilder
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
+        var compilation = CSharpCompilation.Create(
+            assemblyName: "ZeroInstall.Stub",
+            syntaxTrees: new[]
+            {
+                GetCode(
+                    exe: GetExe(gui),
+                    arguments: GetArguments(target.Uri, command, gui),
+                    title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command))
+            },
+            _references,
+            options: new(
+                gui ? OutputKind.WindowsApplication : OutputKind.ConsoleApplication,
+                optimizationLevel: OptimizationLevel.Release,
+                deterministic: true));
+        var resources = GetResources(compilation, GetIconPath(target, command));
+
         using var atomic = new AtomicWrite(path);
-
-        var compilerParameters = new CompilerParameters
+        using (var stream = File.Create(atomic.WritePath))
         {
-            OutputAssembly = atomic.WritePath,
-            GenerateExecutable = true,
-            TreatWarningsAsErrors = true,
-            ReferencedAssemblies = {"System.dll"},
-            CompilerOptions = gui ? "/target:winexe" : "/target:exe"
-        };
-
-        string? iconPath = GetIconPath(target, command);
-        if (iconPath != null)
-            compilerParameters.CompilerOptions += " /win32icon:" + iconPath.EscapeArgument();
-
-        compilerParameters.CompileCSharp(
-            GetCode(
-                exe: GetBinary(gui),
-                arguments: GetArguments(target.Uri, command, gui),
-                title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command)),
-            Manifest);
-
+            var result = compilation.Emit(stream, win32Resources: resources);
+            if (!result.Success)
+                throw new IOException(result.Diagnostics.FirstOrDefault()?.ToString());
+        }
         atomic.Commit();
+    }
+
+    private static SyntaxTree GetCode(string exe, IEnumerable<string> arguments, string title)
+        => CSharpSyntaxTree.ParseText(
+            typeof(StubBuilder)
+               .GetEmbeddedString("stub.template.cs")
+               .Replace("[EXE]", EscapeForCode(exe))
+               .Replace("[ARGUMENTS]", EscapeForCode(arguments.JoinEscapeArguments()))
+               .Replace("[TITLE]", EscapeForCode(title)));
+
+    private static string EscapeForCode(string value)
+        => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
+
+    private static Stream GetResources(Compilation compilation, string? iconPath)
+    {
+        using var manifestStream = typeof(StubBuilder).GetEmbeddedStream("Stub.manifest");
+        using var iconStream = iconPath?.To(File.OpenRead);
+        return compilation.CreateDefaultWin32Resources(
+            versionResource: true,
+            noManifest: false,
+            manifestStream,
+            iconStream);
     }
 
     private string? GetIconPath(FeedTarget target, string? command)
@@ -157,7 +189,9 @@ public partial class StubBuilder
         try
         {
             string iconPath = _iconStore.GetFresh(icon);
+#if NETFRAMEWORK
             new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
+#endif
             return iconPath;
         }
         #region Error handling
@@ -177,18 +211,4 @@ public partial class StubBuilder
 
         return null;
     }
-
-    private static string GetCode(string exe, IEnumerable<string> arguments, string title)
-        => typeof(StubBuilder)
-          .GetEmbeddedString("stub.template.cs")
-          .Replace("[EXE]", EscapeForCode(exe))
-          .Replace("[ARGUMENTS]", EscapeForCode(arguments.JoinEscapeArguments()))
-          .Replace("[TITLE]", EscapeForCode(title));
-
-    private static string Manifest
-        => typeof(StubBuilder).GetEmbeddedString("Stub.manifest");
-
-    private static string EscapeForCode(string value)
-        => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
-#endif
 }
