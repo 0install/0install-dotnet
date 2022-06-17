@@ -34,7 +34,7 @@ public partial class SelectionsManager : ISelectionsManager
 
             if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
             {
-                if (!File.Exists(implementation.QuickTestFile) && !_packageManager.Lookup(implementation).IsInstalled)
+                if (!File.Exists(implementation.QuickTestFile) && _packageManager.Lookup(implementation) is not {IsInstalled: true})
                     yield return implementation;
             }
             else
@@ -55,7 +55,7 @@ public partial class SelectionsManager : ISelectionsManager
         foreach (var selection in selections)
         {
             yield return selection.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                ? _packageManager.Lookup(selection)
+                ? _packageManager.Lookup(selection) ?? throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, "native"))
                 : _feedManager[selection.FromFeed ?? selection.InterfaceUri][selection.ID].CloneImplementation();
         }
     }

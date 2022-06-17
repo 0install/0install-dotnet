@@ -38,7 +38,7 @@ public abstract class PackageManagerBase : IPackageManager
     }
 
     /// <inheritdoc/>
-    public ExternalImplementation Lookup(ImplementationSelection selection)
+    public ExternalImplementation? Lookup(ImplementationSelection selection)
     {
         #region Sanity checks
         if (selection == null) throw new ArgumentNullException(nameof(selection));
@@ -51,22 +51,17 @@ public abstract class PackageManagerBase : IPackageManager
             // Reference implementation from ID does not contain all required information.
             // Therefore, find the original implementation.
             var implementation = GetImplementations(referenceImpl.Package)
-               .First(x => x.Version == referenceImpl.Version
-                        && x.Architecture == referenceImpl.Architecture);
+               .FirstOrDefault(x => x.Version == referenceImpl.Version
+                                 && x.Architecture == referenceImpl.Architecture);
 
-            CopyValues(from: selection, to: implementation);
+            if (implementation != null) CopyValues(from: selection, to: implementation);
+
             return implementation;
         }
-        #region Error handling
         catch (FormatException)
         {
-            throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, DistributionName));
+            return null;
         }
-        catch (InvalidOperationException)
-        {
-            throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, DistributionName));
-        }
-        #endregion
     }
 
     /// <summary>

@@ -26,6 +26,6 @@ public interface IPackageManager
     /// Looks up the specific <see cref="ExternalImplementation"/> an <see cref="ImplementationSelection"/> was based on.
     /// </summary>
     /// <param name="selection">The implementation selection to look up.</param>
-    /// <exception cref="ImplementationNotFoundException"><paramref name="selection"/> does not refer to a package known to this package manager.</exception>
-    ExternalImplementation Lookup(ImplementationSelection selection);
+    /// <returns>The <see cref="ExternalImplementation"/>; <c>null</c> if <paramref name="selection"/> does not refer to a package known to this package manager.</returns>
+    ExternalImplementation? Lookup(ImplementationSelection selection);
 }
