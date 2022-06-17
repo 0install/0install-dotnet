@@ -196,7 +196,7 @@ public class FeedManager : IFeedManager
         }
         catch (WebException ex) when (_config.FeedMirror != null && ex.ShouldTryMirror(feedUri))
         {
-            Log.Warn(string.Format(Resources.TryingFeedMirror, feedUri));
+            Log.Info(string.Format(Resources.TryingFeedMirror, feedUri));
             try
             {
                 _handler.RunTask(new DownloadFile(
@@ -208,7 +208,7 @@ public class FeedManager : IFeedManager
             }
             catch (WebException ex2)
             {
-                Log.Debug($"Failed to download feed {feedUri} from feed mirror.", ex2);
+                Log.Info($"Failed to download feed {feedUri} from feed mirror.", ex2);
                 throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
