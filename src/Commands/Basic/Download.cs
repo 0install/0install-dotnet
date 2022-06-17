@@ -111,7 +111,7 @@ public class Download : Selection
             UncachedImplementations = SelectionsManager.GetUncachedImplementations(Selections);
         }
         #region Error handling
-        catch (Exception ex) when (ex is KeyNotFoundException or InvalidDataException)
+        catch (KeyNotFoundException ex)
         {
             // Wrap exception since only certain exception types are allowed
             throw new SolverException(ex.Message, ex);

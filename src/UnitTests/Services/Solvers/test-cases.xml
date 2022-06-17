@@ -970,6 +970,7 @@ http://example.com/lib1.xml: 2 to 1
 
   <!-- Network problem -->
   <test name='no-impls'>
+    <interface uri='http://localhost/top.xml'><name>Top</name><summary>Top</summary></interface>
     <requirements interface='http://localhost/top.xml' fails='true'/>
     <problem>
 Can't find all required implementations:

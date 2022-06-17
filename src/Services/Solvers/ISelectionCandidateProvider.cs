@@ -23,6 +23,11 @@ public interface ISelectionCandidateProvider
     Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection);
 
     /// <summary>
+    /// A list of feeds that could not be downloaded along with the exceptions describing the problems.
+    /// </summary>
+    IReadOnlyDictionary<FeedUri, Exception> FailedFeeds { get; }
+
+    /// <summary>
     /// Clears any in-memory caches.
     /// </summary>
     void Clear();

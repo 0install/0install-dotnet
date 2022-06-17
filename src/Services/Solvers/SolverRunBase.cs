@@ -55,7 +55,10 @@ public abstract class SolverRunBase
         try
         {
             if (!TryFulfill(Demand(_requirements)))
+            {
+                CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
                 throw new SolverException("No solution found");
+            }
             return Selections;
         }
         finally

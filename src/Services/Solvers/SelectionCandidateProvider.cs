@@ -8,6 +8,7 @@ using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Services.Solvers;
 
@@ -76,7 +77,10 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     }
 
     /// <summary>Records feeds that failed to download to prevent multiple attempts.</summary>
-    private readonly ConcurrentSet<FeedUri> _failedFeeds = new();
+    private readonly ConcurrentDictionary<FeedUri, Exception> _failedFeeds = new();
+
+    /// <inheritdoc/>
+    public IReadOnlyDictionary<FeedUri, Exception> FailedFeeds => _failedFeeds;
 
     /// <summary>Provides separate locks for each feed URI.</summary>
     private readonly TransparentCache<FeedUri, object> _feedLocks = new(_ => new());
@@ -95,7 +99,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
             {
                 try
                 {
-                    if (dictionary.ContainsKey(feedUri) || _failedFeeds.Contains(feedUri)) return;
+                    if (dictionary.ContainsKey(feedUri) || _failedFeeds.ContainsKey(feedUri)) return;
                     var feed = _feedManager[feedUri];
 
                     dictionary.Add(feedUri, feed);
@@ -104,10 +108,10 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
                                  (x.Languages.Count == 0 || x.Languages.ContainsAny(requirements.Languages, ignoreCountry: true))))
                         AddFeedToDict(reference.Source);
                 }
-                catch (WebException ex)
+                catch (Exception ex) when (ex is NotSupportedException or WebException or InvalidDataException or SignatureException)
                 {
-                    _failedFeeds.Add(feedUri);
-                    Log.Warn(ex.Message, ex);
+                    Log.Info(ex.Message, ex);
+                    _failedFeeds.TryAdd(feedUri, ex);
                 }
             }
         }
@@ -182,5 +186,6 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     {
         _storeContains.Clear();
         _interfacePreferences.Clear();
+        _failedFeeds.Clear();
     }
 }
