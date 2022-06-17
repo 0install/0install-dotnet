@@ -102,13 +102,14 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     }
 
     /// <inheritdoc/>
-    public IEnvironmentBuilder SetEnvironmentVariable(string name, string? value)
+    public IEnvironmentBuilder AddEnvironmentVariable(string name, string? value)
     {
         if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
         if (value == null) throw new ArgumentNullException(nameof(value));
         if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
-        EnvironmentVariables[name] = value;
+        if (!EnvironmentVariables.ContainsKey(name))
+            EnvironmentVariables.Add(name, value);
 
         return this;
     }

@@ -25,12 +25,12 @@ public interface IEnvironmentBuilder
     IEnvironmentBuilder AddArguments(params string[] arguments);
 
     /// <summary>
-    /// Sets an environment variable in the execution environment.
+    /// Adds an environment variable in the execution environment if it is not already set.
     /// </summary>
     /// <param name="name">The name of the environment variable.</param>
     /// <param name="value">The value to set the environment variable to.</param>
     /// <returns>The execution environment. Reference to self for fluent API use.</returns>
-    IEnvironmentBuilder SetEnvironmentVariable(string name, string value);
+    IEnvironmentBuilder AddEnvironmentVariable(string name, string value);
 
     /// <summary>
     /// Builds a <see cref="ProcessStartInfo"/> for starting the program.

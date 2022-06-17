@@ -23,7 +23,7 @@ public static class EnvironmentBuilderExtensions
 
             try
             {
-                builder.SetEnvironmentVariable(envName, startInfo.ToCommandLine());
+                builder.AddEnvironmentVariable(envName, startInfo.ToCommandLine());
             }
             catch (FileNotFoundException)
             {
