@@ -70,8 +70,8 @@ public interface IFeedManager
     /// <param name="path">The path of a local copy of the feed.</param>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
-    /// <exception cref="InvalidDataException"><see cref="Feed.Uri"/> is missing.</exception>
     void ImportFeed(string path);
 
     /// <summary>

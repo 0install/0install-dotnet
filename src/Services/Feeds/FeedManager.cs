@@ -243,6 +243,7 @@ public class FeedManager : IFeedManager
     /// <param name="localPath">The local file path the feed data came from. May be <c>null</c> for in-memory data.</param>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
     /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
     private void ImportFeed(Stream stream, FeedUri feedUri, string? localPath = null)
