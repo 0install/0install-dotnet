@@ -97,12 +97,6 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
                 {
                     if (dictionary.ContainsKey(feedUri) || _failedFeeds.Contains(feedUri)) return;
                     var feed = _feedManager[feedUri];
-                    if (feed.MinInjectorVersion != null && ModelUtils.Version < feed.MinInjectorVersion)
-                    {
-                        _failedFeeds.Add(feedUri);
-                        Log.Warn($"The Zero Install version is too old. The feed '{feedUri}' requires at least version {feed.MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
-                        return;
-                    }
 
                     dictionary.Add(feedUri, feed);
                     foreach (var reference in feed.Feeds.Where(x =>

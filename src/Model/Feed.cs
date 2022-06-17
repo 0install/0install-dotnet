@@ -276,9 +276,13 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// Do not call it if you plan on serializing the feed again since it may loose some of its structure.
     /// </summary>
     /// <param name="feedUri">The feed the data was originally loaded from.</param>
+    /// <exception cref="NotSupportedException">The feed requires a newer version of Zero Install.</exception>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public void Normalize(FeedUri? feedUri = null)
     {
+        if (MinInjectorVersion != null && MinInjectorVersion > ModelUtils.Version)
+            throw new NotSupportedException($"The Zero Install version is too old. The feed '{Uri ?? feedUri}' requires at least version {MinInjectorVersion} but the installed version is {ModelUtils.Version}. Try updating Zero Install.");
+
         if (string.IsNullOrEmpty(Name)) throw new InvalidDataException(string.Format(Resources.MissingXmlTagInsideTag, "<name>", "<interface>"));
 
         // Apply if-0install-version filter
