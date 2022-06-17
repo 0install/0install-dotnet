@@ -22,6 +22,12 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     /// </summary>
     private readonly ProcessStartInfo _startInfo = new() {ErrorDialog = false, UseShellExecute = false};
 
+#if NET
+    private IDictionary<string, string?> EnvironmentVariables => _startInfo.Environment;
+#else
+    private System.Collections.Specialized.StringDictionary EnvironmentVariables => _startInfo.EnvironmentVariables;
+#endif
+
     /// <summary>
     /// Used to hold the command-line of the main implementation while it is being built.
     /// </summary>
@@ -102,7 +108,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         if (value == null) throw new ArgumentNullException(nameof(value));
         if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
-        _startInfo.EnvironmentVariables[name] = value;
+        EnvironmentVariables[name] = value;
 
         return this;
     }
@@ -225,7 +231,6 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
     /// <param name="commandLine">The command-line to expand.</param>
     private List<string> ExpandCommandLine(IEnumerable<ArgBase> commandLine)
     {
-        var envVars = _startInfo.EnvironmentVariables;
         var result = new List<string>();
 
         foreach (var part in commandLine)
@@ -233,18 +238,18 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
             switch (part)
             {
                 case Arg arg:
-                    result.Add(OSUtils.ExpandVariables(arg.Value, envVars));
+                    result.Add(OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables));
                     break;
 
                 case ForEachArgs forEach:
-                    foreach (string value in envVars[forEach.ItemFrom]
+                    foreach (string value in EnvironmentVariables[forEach.ItemFrom]
                                           ?.Split(new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.RemoveEmptyEntries)
                                          ?? Enumerable.Empty<string>())
                     {
-                        envVars["item"] = value;
-                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, envVars)));
+                        EnvironmentVariables["item"] = value;
+                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
                     }
-                    envVars.Remove("item");
+                    EnvironmentVariables.Remove("item");
                     break;
 
                 default:
