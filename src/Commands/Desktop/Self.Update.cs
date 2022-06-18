@@ -66,7 +66,7 @@ partial class Self
             if (!ZeroInstallInstance.IsDeployed) throw new NotSupportedException(Resources.SelfUpdateBlocked);
 
             Solve();
-            if (!UpdateFound()) return ExitCode.OK;
+            if (!UpdateFound()) return ExitCode.NoChanges;
 
             DownloadUncachedImplementations();
 
