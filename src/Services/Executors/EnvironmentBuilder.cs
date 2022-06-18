@@ -239,7 +239,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
             switch (part)
             {
                 case Arg arg:
-                    result.Add(OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables));
+                    result.Add(OSUtils.ExpandVariables(arg.Value, EnvironmentVariables));
                     break;
 
                 case ForEachArgs forEach:
@@ -248,7 +248,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
                                          ?? Enumerable.Empty<string>())
                     {
                         EnvironmentVariables["item"] = value;
-                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, _startInfo.EnvironmentVariables)));
+                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, EnvironmentVariables)));
                     }
                     EnvironmentVariables.Remove("item");
                     break;
