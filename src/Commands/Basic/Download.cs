@@ -50,29 +50,14 @@ public class Download : Selection
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        try
+        Solve();
+        if (FeedManager.ShouldRefresh)
         {
-            Solve();
-            if (FeedManager.ShouldRefresh)
-            {
-                Log.Info("Running Refresh Solve because feeds have become stale");
-                RefreshSolve();
-            }
+            Log.Info("Running Refresh Solve because feeds have become stale");
+            RefreshSolve();
+        }
 
-            DownloadUncachedImplementations();
-        }
-        #region Error handling
-        catch (WebException ex) when (Handler.Background)
-        {
-            Log.Info("Suppressed network-related error due to background mode", ex);
-            return ExitCode.WebError;
-        }
-        catch (SolverException ex) when (Handler.Background)
-        {
-            Log.Info("Suppressed Solver-related error due to background mode", ex);
-            return ExitCode.SolverError;
-        }
-        #endregion
+        DownloadUncachedImplementations();
 
         LibraryModeClean();
         BackgroundSelfUpdate();

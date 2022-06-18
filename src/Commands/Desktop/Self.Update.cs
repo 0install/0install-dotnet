@@ -3,7 +3,6 @@
 
 using NanoByte.Common.Native;
 using ZeroInstall.Commands.Basic;
-using ZeroInstall.Services.Solvers;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -66,40 +65,22 @@ partial class Self
 
             if (!ZeroInstallInstance.IsDeployed) throw new NotSupportedException(Resources.SelfUpdateBlocked);
 
-            try
-            {
-                Solve();
-            }
-            #region Error handling
-            catch (WebException ex) when (Handler.Background)
-            {
-                Log.Info("Suppressed network-related error due to background mode", ex);
-                return ExitCode.WebError;
-            }
-            catch (SolverException ex) when (Handler.Background)
-            {
-                Log.Info("Suppressed Solver-related error due to background mode", ex);
-                return ExitCode.SolverError;
-            }
-            #endregion
+            Solve();
+            if (!UpdateFound()) return ExitCode.OK;
 
-            if (UpdateFound())
-            {
-                DownloadUncachedImplementations();
+            DownloadUncachedImplementations();
 
-                Handler.CancellationToken.ThrowIfCancellationRequested();
-                if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))
-                    throw new OperationCanceledException();
+            Handler.CancellationToken.ThrowIfCancellationRequested();
+            if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))
+                throw new OperationCanceledException();
 
-                var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
-                if (Handler.Background) builder.AddArguments("--background");
-                if (_restartCentral) builder.AddArguments("--restart-central");
-                if (ZeroInstallInstance.IsLibraryMode) builder.AddArguments("--library");
-                builder.Start();
+            var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
+            if (Handler.Background) builder.AddArguments("--background");
+            if (_restartCentral) builder.AddArguments("--restart-central");
+            if (ZeroInstallInstance.IsLibraryMode) builder.AddArguments("--library");
+            builder.Start();
 
-                return ExitCode.OK;
-            }
-            else return ExitCode.OK;
+            return ExitCode.OK;
         }
 
         private bool UpdateFound()
