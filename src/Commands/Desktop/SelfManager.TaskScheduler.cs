@@ -18,7 +18,7 @@ partial class SelfManager
     /// Adds scheduled tasks for automatic maintenance.
     /// </summary>
     /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
-    private static void TaskSchedulerApply(bool libraryMode)
+    private void TaskSchedulerApply(bool libraryMode)
     {
         if (!WindowsUtils.IsWindows) return;
 
@@ -45,17 +45,17 @@ partial class SelfManager
     }
 
     [SupportedOSPlatform("windows")]
-    private static void TaskSchedulerAddTask(string name, string description, DaysOfTheWeek daysOfWeek, params string[] arguments)
+    private void TaskSchedulerAddTask(string name, string description, DaysOfTheWeek daysOfWeek, params string[] arguments)
     {
-        var startInfo = ProgramUtils.GuiStartInfo(arguments);
-        if (startInfo == null) return;
+        string path = Path.Combine(TargetDir, "0install-win.exe");
+        if (!File.Exists(path)) return;
 
         var task = TaskService.Instance.NewTask();
         task.RegistrationInfo.Description = description;
         task.Principal.LogonType = TaskLogonType.ServiceAccount;
         task.Principal.UserId = "SYSTEM";
         task.Triggers.Add(new WeeklyTrigger(daysOfWeek));
-        task.Actions.Add(new ExecAction(startInfo.FileName, startInfo.Arguments));
+        task.Actions.Add(new ExecAction(path, arguments.JoinEscapeArguments()));
         task.Settings.StartWhenAvailable = true;
         task.Settings.RunOnlyIfNetworkAvailable = true;
         task.Settings.RunOnlyIfIdle = true;
