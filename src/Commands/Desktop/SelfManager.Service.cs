@@ -7,7 +7,7 @@ using NanoByte.Common.Native;
 using System.ServiceProcess;
 #endif
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement;
+namespace ZeroInstall.Commands.Desktop;
 
 partial class SelfManager
 {

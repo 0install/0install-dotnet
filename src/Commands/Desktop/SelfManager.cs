@@ -4,7 +4,7 @@
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement;
+namespace ZeroInstall.Commands.Desktop;
 
 /// <summary>
 /// Represents a specific Zero Install instance that is to be deployed, updated or removed.

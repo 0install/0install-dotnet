@@ -3,7 +3,6 @@
 
 using System.Diagnostics;
 using NanoByte.Common.Native;
-using ZeroInstall.Commands.Desktop.SelfManagement;
 
 namespace ZeroInstall.Commands.Desktop;
 

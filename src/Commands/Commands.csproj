@@ -51,6 +51,7 @@
     <EmbeddedResource Update="Properties\Resources.resx" Generator="PublicResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Basic\Exporters\import.*" />
+    <Compile Update="Desktop\SelfManager.*.cs" DependentUpon="SelfManager.cs" />
   </ItemGroup>
 
 </Project>

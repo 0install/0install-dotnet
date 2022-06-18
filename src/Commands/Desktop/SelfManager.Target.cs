@@ -6,7 +6,7 @@ using NanoByte.Common.Native;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement;
+namespace ZeroInstall.Commands.Desktop;
 
 partial class SelfManager
 {

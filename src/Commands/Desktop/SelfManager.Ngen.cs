@@ -6,7 +6,7 @@ using System.Diagnostics;
 using NanoByte.Common.Native;
 #endif
 
-namespace ZeroInstall.Commands.Desktop.SelfManagement;
+namespace ZeroInstall.Commands.Desktop;
 
 partial class SelfManager
 {
