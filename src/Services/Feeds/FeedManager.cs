@@ -158,7 +158,7 @@ public class FeedManager : IFeedManager
         return false;
     }
 
-    private static readonly TimeSpan _checkAttemptDelay = TimeSpan.FromHours(1);
+    private static readonly TimeSpan _checkAttemptDelay = TimeSpan.FromHours(6);
 
     private static void SetLastCheckAttempt(FeedUri feedUri)
         => FileUtils.Touch(GetLastCheckAttemptPath(feedUri));
