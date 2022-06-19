@@ -135,8 +135,8 @@ public abstract class ScopedOperation : ServiceProvider
     {
         if (ZeroInstallInstance.IsDeployed
          && !ZeroInstallInstance.IsMachineWide
+         && Environment.UserInteractive
          && NetUtils.IsInternetConnected
-         && Handler.Verbosity != Verbosity.Batch
          && Config is {NetworkUse: NetworkLevel.Full, SelfUpdateUri: not null}
          && FeedManager.IsStale(Config.SelfUpdateUri)
          && !FeedManager.RateLimit(Config.SelfUpdateUri))
