@@ -15,11 +15,11 @@ internal class ZeroInstallLauncher : ProcessLauncher
         : base(ProcessUtils.FromCommandLine(commandLine))
     {}
 
-    protected override void WaitForExit(Process process)
+    protected override void HandleExitCode(ProcessStartInfo startInfo, int exitCode, string? message = null)
     {
         try
         {
-            base.WaitForExit(process);
+            base.HandleExitCode(startInfo, exitCode, message);
         }
         catch (ExitCodeException ex)
         {

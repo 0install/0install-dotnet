@@ -70,7 +70,7 @@ public class UpdateApps : IntegrationCommand
         }
         catch (AggregateException ex)
         {
-            throw ex.RethrowLastInner();
+            throw ex.RethrowFirstInner();
         }
     }
 

@@ -206,7 +206,7 @@ public abstract partial class CliCommand : ScopedOperation
         }
         catch (AggregateException ex)
         {
-            throw ex.RethrowLastInner();
+            throw ex.RethrowFirstInner();
         }
     }
 

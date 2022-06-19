@@ -27,7 +27,7 @@
     <Version>1.0.0-pre</Version>
 
     <!-- Dependency versions -->
-    <NanoByteCommonVersion>2.12.3</NanoByteCommonVersion>
+    <NanoByteCommonVersion>2.12.4</NanoByteCommonVersion>
   </PropertyGroup>
 
   <!-- NuGet icon -->
