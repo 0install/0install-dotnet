@@ -10,7 +10,7 @@ This is the .NET implementation of Zero Install. It can be used as a [command-li
 
 Zero Install .NET provides the `0install` command-line tool. There are a number of ways you can get it:
 
-- You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://0install.net/injector.html#windows-current). (recommended)
+- You can get a .NET Framework version of the `0install` command by downloading [Zero Install for Windows](https://get.0install.net/#windows). (recommended)
 
 - If you already have some version of Zero Install (.NET-based or otherwise) on your system you can use it to download and run a .NET 6 version of the `0install` command like this:
 
