@@ -17,22 +17,27 @@ internal class ZeroInstallLauncher : ProcessLauncher
 
     protected override void WaitForExit(Process process)
     {
-        int exitCode = process.WaitForExitCode();
-        switch (exitCode)
+        try
         {
-            case 0: // OK
-            case 1: // No changes
-                break;
-            case 10: // Web error
-                throw new WebException();
-            case 11: // Access denied
-                throw new UnauthorizedAccessException();
-            case 12: // IO error
-                throw new IOException();
-            case 100: // User canceled
-                throw new OperationCanceledException();
-            default:
-                throw new ExitCodeException(process.StartInfo.ToCommandLine(), exitCode);
+            base.WaitForExit(process);
+        }
+        catch (ExitCodeException ex)
+        {
+            switch (ex.ExitCode)
+            {
+                case 1: // No changes
+                    break;
+                case 10: // Web error
+                    throw new WebException(ex.Message, ex);
+                case 11: // Access denied
+                    throw new UnauthorizedAccessException(ex.Message, ex);
+                case 12: // IO error
+                    throw new IOException(ex.Message, ex);
+                case 100: // User canceled
+                    throw new OperationCanceledException();
+                default:
+                    throw;
+            }
         }
     }
 }
