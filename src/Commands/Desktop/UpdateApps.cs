@@ -35,7 +35,10 @@ public class UpdateApps : IntegrationCommand
         if (Clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && NonEmptyReadOnlyStores)
             throw new NotAdminException();
 
-        var implementations = SolveAll(GetApps());
+        var apps = GetApps();
+        if (apps.Count == 1) Handler.FeedUri = apps[0].InterfaceUri;
+
+        var implementations = SolveAll(apps);
         DownloadUncachedImplementations(implementations);
         BackgroundSelfUpdate();
 
@@ -52,10 +55,12 @@ public class UpdateApps : IntegrationCommand
         => ImplementationStore is CompositeImplementationStore composite
         && composite.Stores.Any(x => x.Kind == ImplementationStoreKind.ReadOnly && x.ListAll().Any());
 
-    private IEnumerable<Requirements> GetApps()
-        => AppList.LoadSafe(MachineWide).Entries
+    private List<Requirements> GetApps()
+        => AppList.LoadSafe(MachineWide)
+                  .Entries
                   .Where(entry => entry.AutoUpdate && (entry.Hostname == null || Regex.IsMatch(Environment.MachineName, entry.Hostname)))
-                  .Select(entry => entry.Requirements ?? entry.InterfaceUri);
+                  .Select(entry => entry.Requirements ?? entry.InterfaceUri)
+                  .ToList();
 
     private ICollection<ImplementationSelection> SolveAll(IEnumerable<Requirements> apps)
     {
