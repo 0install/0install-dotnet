@@ -120,12 +120,12 @@ public class Run : Download
     /// </summary>
     private void BackgroundUpdate()
     {
-        if (!FeedManager.ShouldRefresh || !NetUtils.IsInternetConnected) return;
-
-        // Prevent multiple concurrent updates
-        if (FeedManager.RateLimit(Requirements.InterfaceUri)) return;
-
-        Log.Info("Starting background update because feeds have become stale");
-        StartCommandBackground(Update.Name, Requirements.ToCommandLineArgs().Prepend("--batch"));
+        if (FeedManager.ShouldRefresh
+         && NetUtils.IsInternetConnected
+         && !FeedManager.RateLimit(Requirements.InterfaceUri))
+        {
+            Log.Info("Starting background update because feeds have become stale");
+            StartCommandBackground(Update.Name, Requirements.ToCommandLineArgs().Prepend("--batch"));
+        }
     }
 }
