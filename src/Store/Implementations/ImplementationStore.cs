@@ -133,12 +133,12 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         handler.RunTask(ForEachTask.Create(
             name: string.Format(Resources.DeletingDirectory, Path),
             target: paths,
-            work: digest => RemoveInner(digest, handler, purge: true)));
+            work: digest => RemoveInner(digest, handler, allowAutoShutdown: true)));
 
         RemoveDeleteInfoFile();
     }
 
-    private bool RemoveInner(string path, ITaskHandler handler, bool purge = false)
+    private bool RemoveInner(string path, ITaskHandler handler, bool allowAutoShutdown = false)
     {
         if (path == Locations.InstallBase && WindowsUtils.IsWindows)
         {
@@ -162,15 +162,10 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
 
                 if (apps.Length != 0)
                 {
-                    if (handler.Verbosity != Verbosity.Batch || !purge)
-                    {
-                        string appsList = string.Join(Environment.NewLine, apps);
-                        if (!handler.Ask(Resources.FilesInUse + @" " + Resources.FilesInUseAskClose + Environment.NewLine + appsList,
-                                defaultAnswer: false, alternateMessage: Resources.FilesInUse + @" " + Resources.FilesInUseInform + Environment.NewLine + appsList))
-                            return false;
-                    }
-
-                    restartManager.ShutdownApps(handler);
+                    string appsList = string.Join(Environment.NewLine, apps);
+                    if (handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
+                        restartManager.ShutdownApps(handler);
+                    else return false;
                 }
             }
             #region Error handling
