@@ -44,8 +44,9 @@ public class Update : Download
         }
 
         DownloadUncachedImplementations();
-        LibraryModeClean();
-        BackgroundSelfUpdate();
+
+        if (!BackgroundSelfUpdate())
+            BackgroundClean();
 
         return ShowOutput();
     }

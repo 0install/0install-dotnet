@@ -130,7 +130,8 @@ public abstract class ScopedOperation : ServiceProvider
     /// <summary>
     /// Automatically updates Zero Install itself in a background process.
     /// </summary>
-    protected void BackgroundSelfUpdate()
+    /// <returns><c>true</c> if a background check was started; <c>false</c> if an update check was not due.</returns>
+    protected bool BackgroundSelfUpdate()
     {
         if (ZeroInstallInstance.IsDeployed
          && !ZeroInstallInstance.IsMachineWide
@@ -142,7 +143,9 @@ public abstract class ScopedOperation : ServiceProvider
         {
             Log.Info("Starting periodic background self-update check");
             StartCommandBackground(Self.Name, Self.Update.Name, "--batch");
+            return true;
         }
+        else return false;
     }
 
     /// <summary>

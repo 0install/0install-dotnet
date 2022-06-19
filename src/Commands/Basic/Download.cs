@@ -59,29 +59,26 @@ public class Download : Selection
 
         DownloadUncachedImplementations();
 
-        LibraryModeClean();
-        BackgroundSelfUpdate();
+        if (!BackgroundSelfUpdate())
+            BackgroundClean();
 
         Handler.CancellationToken.ThrowIfCancellationRequested();
         return ShowOutput();
     }
 
     /// <summary>
-    /// Removes old implementations from the <see cref="Store"/> if <see cref="ZeroInstallInstance.IsLibraryMode"/>.
+    /// Automatically removes outdated implementations in a background process.
     /// </summary>
-    protected void LibraryModeClean()
+    protected void BackgroundClean()
     {
-        if (ZeroInstallInstance.IsLibraryMode && !ZeroInstallInstance.IsMachineWide && UncachedImplementations?.Count == 0)
+        if (ZeroInstallInstance.IsLibraryMode // Only needed in library-mode because it lacks UI for manual clean
+         && !ZeroInstallInstance.IsMachineWide // Machine-wide setups use scheduled task for clean instead
+         && UncachedImplementations is {Count: 0} // Don't clean if we just downloaded new stuff (old versions may still be running)
+         && !ImplementationsInReadOnlyStores // Avoid prompting for admin rights
+         && !FeedManager.RateLimit(new("https://0install.net/background-clean-marker")))
         {
-            Log.Info("Starting library mode implementation cleaning");
-            try
-            {
-                new UpdateApps(Handler) {Clean = true}.Execute();
-            }
-            catch (NotAdminException)
-            {
-                Log.Info("Library mode implementation cleaning cancelled due to missing admin privileges");
-            }
+            Log.Info("Starting background removal of outdated implementations");
+            StartCommandBackground(UpdateApps.Name, "--clean", "--batch");
         }
     }
 
