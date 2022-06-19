@@ -206,11 +206,7 @@ public abstract partial class CliCommand : ScopedOperation
         }
         catch (AggregateException ex)
         {
-            // Suppress any left-over errors if the user canceled anyway
-            Handler.CancellationToken.ThrowIfCancellationRequested();
-
-            ex.InnerExceptions.FirstOrDefault()?.Rethrow();
-            throw;
+            throw ex.RethrowLastInner();
         }
     }
 
