@@ -52,6 +52,8 @@
   <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Include="**\testArchive.*" />
+    <EmbeddedResource Include="..\..\icon.png" Link="Store\Icons\icon.png" />
+    <EmbeddedResource Include="..\..\icon.ico" Link="Store\Icons\icon.ico" />
     <EmbeddedResource Include="Store\Trust\*.gpg" />
     <EmbeddedResource Include="Store\Trust\signature.dat" />
     <EmbeddedResource Include="Services\Solvers\test-cases.xml" />
