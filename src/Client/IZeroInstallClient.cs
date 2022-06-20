@@ -27,8 +27,9 @@ public interface IZeroInstallClient
     /// <returns>The selected implementations.</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<Selections> SelectAsync(Requirements requirements, bool refresh = false, bool offline = false);
 
     /// <summary>
@@ -39,8 +40,9 @@ public interface IZeroInstallClient
     /// <returns>The downloaded implementations.</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<Selections> DownloadAsync(Requirements requirements, bool refresh = false);
 
     /// <summary>
@@ -52,8 +54,9 @@ public interface IZeroInstallClient
     /// <param name="arguments">Additional arguments to pass to the program.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     void Run(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments);
 
     /// <summary>
@@ -74,8 +77,9 @@ public interface IZeroInstallClient
     /// <returns>The access point categories (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
 
@@ -88,8 +92,9 @@ public interface IZeroInstallClient
     /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null, bool machineWide = false);
 
@@ -100,8 +105,9 @@ public interface IZeroInstallClient
     /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task RemoveAsync(FeedUri uri, bool machineWide = false);
 
@@ -111,7 +117,8 @@ public interface IZeroInstallClient
     /// <param name="implementation">The implementations to download.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
+    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned an unexpected error.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task FetchAsync(Implementation implementation);
 }

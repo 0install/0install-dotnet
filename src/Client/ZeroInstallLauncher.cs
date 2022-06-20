@@ -33,6 +33,8 @@ internal class ZeroInstallLauncher : ProcessLauncher
                     throw new UnauthorizedAccessException(ex.Message, ex);
                 case 12: // IO error
                     throw new IOException(ex.Message, ex);
+                case 25: // Invalid data
+                    throw new InvalidDataException(ex.Message, ex);
                 case 100: // User canceled
                     throw new OperationCanceledException();
                 default:
