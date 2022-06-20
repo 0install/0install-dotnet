@@ -177,6 +177,10 @@ Zero Installを使用せずにこのディレクトリ全体を削除したい�
 FATフォーマットされたドライブを使用している場合は、NTFSに変換してください。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>{0} から読み込まれたアイコンは、有効な{1} ではありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>マニフェストファイルに無効な行が含まれています。</value>
     <comment>Automatically translated.</comment>

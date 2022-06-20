@@ -177,6 +177,10 @@
 Εάν χρησιμοποιείτε έναν διαμορφωμένο με FAT σκληρο δίσκο παρακαλουμε να τον μετατρέψετε σε NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>Το εικονίδιο που φορτώθηκε από το {0} δεν είναι έγκυρο {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Το αρχείο δήλωσης περιέχει μη έγκυρες γραμμές.</value>
     <comment>Manually overriden.</comment>
