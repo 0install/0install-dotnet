@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Threading;
 using ZeroInstall.Store.Configuration;
@@ -66,7 +67,7 @@ public sealed partial class IconStore : IIconStore
             }
             catch (OperationCanceledException)
             {}
-            catch (WebException ex)
+            catch (Exception ex) when (ex is WebException or InvalidDataException)
             {
                 Log.Info(ex.Message, ex);
             }
@@ -91,6 +92,7 @@ public sealed partial class IconStore : IIconStore
 
         using var atomic = new AtomicWrite(path);
         _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+        Validate(icon, atomic.WritePath);
         atomic.Commit();
 
         return path;
@@ -112,5 +114,29 @@ public sealed partial class IconStore : IIconStore
         EnsureExtension(Icon.MimeTypeIcns, ".icns");
 
         return path;
+    }
+
+    private static void Validate(Icon icon, string path)
+    {
+        // Icon validation currently uses GDI+ which is only available on Windows
+        if (!WindowsUtils.IsWindows) return;
+
+        try
+        {
+            switch (icon.MimeType)
+            {
+                case Icon.MimeTypePng:
+                    System.Drawing.Image.FromFile(path).Dispose();
+                    break;
+
+                case Icon.MimeTypeIco:
+                    new System.Drawing.Icon(path).Dispose();
+                    break;
+            }
+        }
+        catch (Exception ex) when (ex is OutOfMemoryException or ArgumentException or Win32Exception)
+        {
+            throw new InvalidDataException(string.Format(Resources.InvalidIcon, icon.Href, icon.MimeType));
+        }
     }
 }

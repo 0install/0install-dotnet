@@ -245,8 +245,18 @@ public class IntegrationManager : IntegrationManagerBase
 
         var iconStore = IconStores.DesktopIntegration(Config, Handler, MachineWide);
 
-        // Pre-cache splash screen for later use by GUI
-        feed.SplashScreens.GetIcon(Icon.MimeTypePng)?.To(iconStore.GetFresh);
+        // Load splash screen into icon store if specified, used by GUI for branding
+        try
+        {
+            _ = feed.SplashScreens.GetIcon(Icon.MimeTypePng)
+                   ?.To(iconStore.GetFresh);
+        }
+        #region Error handling
+        catch (InvalidDataException ex)
+        {
+            Log.Warn(ex.Message, ex);
+        }
+        #endregion
 
         accessPoints.ApplyWithRollback(
             accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),

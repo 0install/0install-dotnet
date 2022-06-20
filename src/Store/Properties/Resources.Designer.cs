@@ -315,6 +315,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The icon loaded from {0} is not a valid {1}..
+        /// </summary>
+        internal static string InvalidIcon {
+            get {
+                return ResourceManager.GetString("InvalidIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The manifest file contains invalid lines..
         /// </summary>
         internal static string InvalidLinesInManifest {

@@ -177,6 +177,10 @@ Uruchom '0install config feed_mirror default', aby go włączyć.</value>
 Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>Ikona załadowana ze strony {0} nie jest prawidłową stroną {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Plik manifestu zawiera nieprawidłowe wiersze.</value>
     <comment>Automatically translated.</comment>

@@ -177,6 +177,10 @@
 如果你使用的是FAT格式的驱动器，请将其转换为NTFS。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>从{0} 中加载的图标不是一个有效的{1} 。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>清单文件包含无效的行。</value>
     <comment>Automatically translated.</comment>

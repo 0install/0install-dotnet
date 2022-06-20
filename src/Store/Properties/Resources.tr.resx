@@ -177,6 +177,10 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
 FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen NTFS biçimine dönüştürün.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>{0} adresinden indirilen simge geçerli bir {1} değil.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyasında geçersiz satırlar var.</value>
     <comment>Manually overriden.</comment>
