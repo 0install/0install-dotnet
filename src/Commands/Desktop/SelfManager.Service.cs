@@ -59,7 +59,7 @@ partial class SelfManager
     /// <summary>
     /// Starts the Zero Install Store Service.
     /// </summary>
-    /// <remarks>Must be called after <see cref="TargetMutexRelease"/>.</remarks>
+    /// <remarks>Must be called after <see cref="MutexRelease"/>.</remarks>
     private void ServiceStart()
     {
 #if NETFRAMEWORK

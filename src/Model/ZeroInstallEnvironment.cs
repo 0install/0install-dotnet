@@ -1,6 +1,8 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
+
 namespace ZeroInstall.Model;
 
 /// <summary>
@@ -60,4 +62,20 @@ public static class ZeroInstallEnvironment
             return null;
         }
     }
+
+    /// <summary>
+    /// Name for an <see cref="AppMutex"/> to detect running instances of Zero Install.
+    /// </summary>
+    /// <param name="path">The directory where the Zero Install instance is located. Leave <c>null</c> for the currently running instance.</param>
+    /// <remarks>Usually (but not guaranteed to be) different for multiple instances deployed in different <paramref name="path"/>s.</remarks>
+    public static string MutexName(string? path = null)
+        => "mutex-" + (path ?? Locations.InstallBase).GetHashCode();
+
+    /// <summary>
+    /// Name for an <see cref="AppMutex"/> to block instances of Zero Install from starting during an update.
+    /// </summary>
+    /// <param name="path">The directory where the Zero Install instance is located. Leave <c>null</c> for the currently running instance.</param>
+    /// <remarks>Usually (but not guaranteed to be) different for multiple instances deployed in different <paramref name="path"/>s.</remarks>
+    public static string UpdateMutexName(string? path = null)
+        => MutexName(path) + "-update";
 }

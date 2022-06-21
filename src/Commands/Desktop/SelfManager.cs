@@ -72,15 +72,15 @@ public partial class SelfManager : ManagerBase
         var newManifest = LoadManifest(Locations.InstallBase);
         var oldManifest = LoadManifest(TargetDir);
 
-        if (MachineWide)
-            ServiceStop();
-
         try
         {
-            TargetMutexAcquire();
+            MutexAcquire();
 
             if (TargetDir != Locations.InstallBase)
             {
+                if (MachineWide)
+                    ServiceStop();
+
                 using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
                 using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
                 deployDir.Stage();
@@ -98,7 +98,7 @@ public partial class SelfManager : ManagerBase
                 RemoveOneGetBootstrap();
             }
 
-            TargetMutexRelease();
+            MutexRelease();
 
             if (MachineWide)
             {
@@ -110,7 +110,7 @@ public partial class SelfManager : ManagerBase
         }
         catch
         {
-            TargetMutexRelease();
+            MutexRelease();
             throw;
         }
     }
@@ -128,7 +128,7 @@ public partial class SelfManager : ManagerBase
 
         try
         {
-            TargetMutexAcquire();
+            MutexAcquire();
 
             if (MachineWide)
             {
@@ -153,7 +153,7 @@ public partial class SelfManager : ManagerBase
         }
         finally
         {
-           TargetMutexRelease();
+           MutexRelease();
         }
     }
 }

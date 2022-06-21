@@ -53,10 +53,8 @@ public static class ProgramUtils
     {
         if (WindowsUtils.IsWindows)
         {
-            // Encode installation path into mutex name to allow instance detection during updates
-            string mutexName = "mutex-" + Locations.InstallBase.GetHashCode();
-            if (AppMutex.Probe(mutexName + "-update")) Environment.Exit(999);
-            AppMutex.Create(mutexName);
+            AppMutex.Create(ZeroInstallEnvironment.MutexName());
+            if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName())) Environment.Exit(999);
 
             if (UILanguage != null) Languages.SetUI(UILanguage);
         }

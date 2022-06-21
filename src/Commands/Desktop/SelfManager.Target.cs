@@ -32,13 +32,13 @@ partial class SelfManager
     }
 
     /// <summary>A mutex that prevents Zero Install instances from being launched while an update is in progress.</summary>
-    private AppMutex? _targetMutex;
+    private AppMutex? _updateMutex;
 
     /// <summary>
     /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.
     /// </summary>
     /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
-    private void TargetMutexAcquire()
+    private void MutexAcquire()
     {
         if (TargetDir == Locations.InstallBase)
         {
@@ -46,35 +46,33 @@ partial class SelfManager
             return;
         }
 
-        int hashCode = TargetDir.GetHashCode();
-        if (hashCode == Locations.InstallBase.GetHashCode())
-        { // Very unlikely but possible, since .GetHashCode() is not a cryptographic hash
+        if (ZeroInstallEnvironment.MutexName(TargetDir) == ZeroInstallEnvironment.MutexName(Locations.InstallBase))
+        {
             Log.Warn($"Hash collision between {TargetDir} and {Locations.InstallBase}! Not using Mutex.");
             return;
         }
-        string targetMutex = "mutex-" + hashCode;
 
         if (WindowsUtils.IsWindows)
-            TargetMutexAcquireWindows(targetMutex);
+            MutexAcquireWindows();
     }
 
     [SupportedOSPlatform("windows")]
-    private void TargetMutexAcquireWindows(string targetMutex)
+    private void MutexAcquireWindows()
     {
         Handler.RunTask(new SimpleTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
-            while (AppMutex.Probe(targetMutex))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();
             }
 
-            // Prevent new instances from starting
-            _targetMutex = AppMutex.Create(targetMutex + "-update");
+            // Prevent new instances from starting during the update
+            _updateMutex = AppMutex.Create(ZeroInstallEnvironment.UpdateMutexName(TargetDir));
 
             // Detect any new instances that started in the short time between detecting existing ones and blocking new ones
-            while (AppMutex.Probe(targetMutex))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();
@@ -83,11 +81,11 @@ partial class SelfManager
     }
 
     /// <summary>
-    /// Counterpart to <see cref="TargetMutexAcquire"/>.
+    /// Counterpart to <see cref="MutexAcquire"/>.
     /// </summary>
-    private void TargetMutexRelease()
+    private void MutexRelease()
     {
-        if (WindowsUtils.IsWindows) _targetMutex?.Close();
+        if (WindowsUtils.IsWindows) _updateMutex?.Close();
     }
 
     /// <summary>
