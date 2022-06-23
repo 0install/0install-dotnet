@@ -71,14 +71,24 @@ public static partial class Shortcut
         if (File.Exists(path)) File.Delete(path);
 
         var link = (IShellLink)new ShellLink();
-        link.SetPath(targetPath);
+        link.SetPath(Substitute(Substitute(targetPath, "appdata"), "ProgramFiles"));
         if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
-        if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
+        if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(Substitute(iconLocation, "appdata"), 0);
         if (!string.IsNullOrEmpty(description)) link.SetDescription(description[..Math.Min(description.Length, 256)]);
-
-        if (!string.IsNullOrEmpty(appId))
-            ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
-
+        if (!string.IsNullOrEmpty(appId)) ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
         ((IPersistFile)link).Save(path, fRemember: false);
+    }
+
+    /// <summary>
+    /// Substitutes path prefixes with environment variables.
+    /// </summary>
+    /// <param name="path">The path to check for a substitutable prefix.</param>
+    /// <param name="name">The environment variable name.</param>
+    private static string Substitute(string path, string name)
+    {
+        string? value = Environment.GetEnvironmentVariable(name);
+        return !string.IsNullOrEmpty(value) && path.StartsWithIgnoreCase(value)
+            ? "%" + name + "%" + path[value.Length..]
+            : path;
     }
 }
