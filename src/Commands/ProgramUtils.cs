@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Values;
@@ -24,11 +23,12 @@ public static class ProgramUtils
     /// The current UI language; <c>null</c> to use system default.
     /// </summary>
     /// <remarks>This value is only used on Windows and is stored in the Registry. For non-Windows platforms use the <c>LC_*</c> environment variables instead.</remarks>
-    [SupportedOSPlatform("windows")]
     public static CultureInfo? UILanguage
     {
         get
         {
+            if (!WindowsUtils.IsWindows) return null;
+
             string? language = RegistryUtils.GetSoftwareString("Zero Install", "Language");
             if (!string.IsNullOrEmpty(language))
             {
@@ -43,7 +43,11 @@ public static class ProgramUtils
             }
             return null;
         }
-        set => RegistryUtils.SetSoftwareString("Zero Install", "Language", value?.ToString() ?? "");
+        set
+        {
+            if (WindowsUtils.IsWindows)
+                RegistryUtils.SetSoftwareString("Zero Install", "Language", value?.ToString() ?? "");
+        }
     }
 
     /// <summary>
@@ -55,9 +59,9 @@ public static class ProgramUtils
         {
             AppMutex.Create(ZeroInstallEnvironment.MutexName());
             if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName())) Environment.Exit(999);
-
-            if (UILanguage != null) Languages.SetUI(UILanguage);
         }
+
+        if (UILanguage != null) Languages.SetUI(UILanguage);
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
