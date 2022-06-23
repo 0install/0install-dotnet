@@ -17,6 +17,8 @@ internal class ZeroInstallLauncher : ProcessLauncher
 
     protected override void HandleExitCode(ProcessStartInfo startInfo, int exitCode, string? message = null)
     {
+        if (exitCode is 0 or 1) return;
+
         try
         {
             base.HandleExitCode(startInfo, exitCode, message);
@@ -25,8 +27,6 @@ internal class ZeroInstallLauncher : ProcessLauncher
         {
             switch (ex.ExitCode)
             {
-                case 1: // No changes
-                    break;
                 case 10: // Web error
                     throw new WebException(ex.Message, ex);
                 case 11: // Access denied

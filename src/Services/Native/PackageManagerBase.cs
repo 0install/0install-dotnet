@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Native;
 

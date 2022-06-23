@@ -44,11 +44,7 @@ public sealed partial class FallbackSolver : ISolver
         {
             return _primarySolver.Solve(requirements);
         }
-        catch (SolverException ex)
-        {
-            return Handle(ex);
-        }
-        catch (NotSupportedException ex)
+        catch (Exception ex) when (ex is SolverException or NotSupportedException)
         {
             return Handle(ex);
         }

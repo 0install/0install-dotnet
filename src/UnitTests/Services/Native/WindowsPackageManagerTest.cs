@@ -61,7 +61,7 @@ public class WindowsPackageManagerTest
         implementations.Should().Contain(impl =>
             impl.Package == packageName
          && impl.IsInstalled
-         && impl.Commands.Any(x => x.Name == Command.NameRun && x.Path != null && x.Path.Equals(commandPath, StringComparison.InvariantCultureIgnoreCase))
+         && impl.Commands.Any(x => x.Name == Command.NameRun && x.Path != null && StringUtils.EqualsIgnoreCase(x.Path, commandPath))
          && impl.QuickTestFile != null
          && impl.QuickTestFile.ContainsIgnoreCase(quickTest));
     }

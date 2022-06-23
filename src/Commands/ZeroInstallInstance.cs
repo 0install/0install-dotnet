@@ -44,6 +44,11 @@ public static class ZeroInstallInstance
         }
     }
 
+    private const string
+        RegKeyName = "Zero Install",
+        InstallLocation = "InstallLocation",
+        LibraryMode = "LibraryMode";
+
     /// <summary>
     /// Indicates whether the current Zero Install instance is deployed to a fixed location.
     /// </summary>
@@ -132,10 +137,6 @@ public static class ZeroInstallInstance
         if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
         return installLocation;
     }
-
-    private const string RegKeyName = "Zero Install";
-    private const string InstallLocation = "InstallLocation";
-    private const string LibraryMode = "LibraryMode";
 
     /// <summary>
     /// Silently checks if an update for Zero Install is available.
