@@ -80,7 +80,6 @@ public interface IZeroInstallClient
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
-    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
 
     /// <summary>
