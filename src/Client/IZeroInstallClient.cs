@@ -31,6 +31,7 @@ public interface IZeroInstallClient
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file or an invalid signature.</exception>
     /// <exception cref="InvalidOperationException">0install reported a solver error.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<Selections> SelectAsync(Requirements requirements, bool refresh = false, bool offline = false);
 
@@ -46,6 +47,7 @@ public interface IZeroInstallClient
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file, an invalid signature or digest mismatch.</exception>
     /// <exception cref="InvalidOperationException">0install reported a solver error.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<Selections> DownloadAsync(Requirements requirements, bool refresh = false);
 
@@ -62,6 +64,7 @@ public interface IZeroInstallClient
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file, an invalid signature or digest mismatch.</exception>
     /// <exception cref="InvalidOperationException">0install reported a solver or executor error.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install or the target program returned an error.</exception>
     void Run(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments);
 
@@ -84,6 +87,7 @@ public interface IZeroInstallClient
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
 
@@ -101,6 +105,7 @@ public interface IZeroInstallClient
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file or an invalid signature.</exception>
     /// <exception cref="InvalidOperationException">0install reported a conflict with existing desktop integration.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null, bool machineWide = false);
 
@@ -113,6 +118,7 @@ public interface IZeroInstallClient
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
     /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task RemoveAsync(FeedUri uri, bool machineWide = false);
 
@@ -125,6 +131,7 @@ public interface IZeroInstallClient
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file, an invalid signature or digest mismatch.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task FetchAsync(Implementation implementation);
 }

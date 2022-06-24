@@ -11,9 +11,35 @@ namespace ZeroInstall.Client;
 /// </summary>
 internal class ZeroInstallLauncher : ProcessLauncher
 {
+    private readonly string _mutexName, _updateMutexName;
+
     public ZeroInstallLauncher(string commandLine)
         : base(ProcessUtils.FromCommandLine(commandLine))
-    {}
+    {
+        string? installBase = Path.GetDirectoryName(FileName);
+        _mutexName = ZeroInstallEnvironment.MutexName(installBase);
+        _updateMutexName = ZeroInstallEnvironment.UpdateMutexName(installBase);
+    }
+
+    public override void Run(params string[] arguments)
+    {
+        using (AppMutex.Create(_mutexName))
+            base.Run(arguments);
+    }
+
+    public override string RunAndCapture(Action<StreamWriter>? onStartup, params string[] arguments)
+    {
+        using (AppMutex.Create(_mutexName))
+            return base.RunAndCapture(onStartup, arguments);
+    }
+
+    public override ProcessStartInfo GetStartInfo(params string[] arguments)
+    {
+        if (AppMutex.Probe(_updateMutexName))
+            throw new TemporarilyUnavailableException();
+
+        return base.GetStartInfo(arguments);
+    }
 
     protected override void HandleExitCode(ProcessStartInfo startInfo, int exitCode, string? message = null)
     {
@@ -41,6 +67,8 @@ internal class ZeroInstallLauncher : ProcessLauncher
                     throw new NotSupportedException(ex.Message, ex);
                 case 100 or -1073741510: // User canceled
                     throw new OperationCanceledException();
+                case 999: // Self-update in progress
+                    throw new TemporarilyUnavailableException();
                 default:
                     throw;
             }
