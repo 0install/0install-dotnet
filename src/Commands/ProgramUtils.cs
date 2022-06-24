@@ -55,11 +55,8 @@ public static class ProgramUtils
     /// </summary>
     public static void Init()
     {
-        if (WindowsUtils.IsWindows)
-        {
-            AppMutex.Create(ZeroInstallEnvironment.MutexName());
-            if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName())) Environment.Exit(999);
-        }
+        AppMutex.Create(ZeroInstallEnvironment.MutexName());
+        if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName())) Environment.Exit(999);
 
         if (UILanguage != null) Languages.SetUI(UILanguage);
 

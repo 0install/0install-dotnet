@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
@@ -52,13 +51,6 @@ partial class SelfManager
             return;
         }
 
-        if (WindowsUtils.IsWindows)
-            MutexAcquireWindows();
-    }
-
-    [SupportedOSPlatform("windows")]
-    private void MutexAcquireWindows()
-    {
         Handler.RunTask(new SimpleTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
@@ -84,9 +76,7 @@ partial class SelfManager
     /// Counterpart to <see cref="MutexAcquire"/>.
     /// </summary>
     private void MutexRelease()
-    {
-        if (WindowsUtils.IsWindows) _updateMutex?.Close();
-    }
+        => _updateMutex?.Dispose();
 
     /// <summary>
     /// Try to remove OneGet Bootstrap module to prevent future PowerShell sessions from loading it again.
