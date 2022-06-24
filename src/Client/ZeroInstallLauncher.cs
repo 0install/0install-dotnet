@@ -33,7 +33,7 @@ internal class ZeroInstallLauncher : ProcessLauncher
                     throw new UnauthorizedAccessException(ex.Message, ex);
                 case 12: // IO error
                     throw new IOException(ex.Message, ex);
-                case 25: // Invalid data
+                case 25 or 26 or 27: // Invalid data, digest mismatch or invalid signature
                     throw new InvalidDataException(ex.Message, ex);
                 case 50: // Not supported
                     throw new NotSupportedException(ex.Message, ex);
