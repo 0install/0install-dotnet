@@ -26,6 +26,7 @@ public interface IZeroInstallClient
     /// <param name="offline">Do not refresh feeds even if they are out-of-date and don't select newer versions of programs for downloading even if they are already known.</param>
     /// <returns>The selected implementations.</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
@@ -39,6 +40,7 @@ public interface IZeroInstallClient
     /// <param name="refresh">Fetch fresh copies of all used feeds.</param>
     /// <returns>The downloaded implementations.</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
@@ -53,10 +55,11 @@ public interface IZeroInstallClient
     /// <param name="needsTerminal">Indicates that the program requires a terminal in order to run.</param>
     /// <param name="arguments">Additional arguments to pass to the program.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
-    /// <exception cref="ExitCodeException">0install returned another error.</exception>
+    /// <exception cref="ExitCodeException">0install or the target program returned an error.</exception>
     void Run(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments);
 
     /// <summary>
@@ -76,8 +79,7 @@ public interface IZeroInstallClient
     /// <param name="machineWide">Get machine-wide desktop integration instead of just for the current user.</param>
     /// <returns>The access point categories (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</returns>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
-    /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
-    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
@@ -89,12 +91,13 @@ public interface IZeroInstallClient
     /// <param name="add">The access point categories to add (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
     /// <param name="remove">The access point categories to remove (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
     /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
+    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
-    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task IntegrateAsync(FeedUri uri, IEnumerable<string>? add = null, IEnumerable<string>? remove = null, bool machineWide = false);
 
     /// <summary>
@@ -102,12 +105,11 @@ public interface IZeroInstallClient
     /// </summary>
     /// <param name="uri">The feed URI of the application.</param>
     /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
+    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
-    /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
-    /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
-    /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     Task RemoveAsync(FeedUri uri, bool machineWide = false);
 
     /// <summary>
@@ -115,6 +117,7 @@ public interface IZeroInstallClient
     /// </summary>
     /// <param name="implementation">The implementations to download.</param>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
     /// <exception cref="WebException">0install reported a problem downloading a file.</exception>
     /// <exception cref="InvalidDataException">0install reported a problem parsing a file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
