@@ -6,7 +6,8 @@ uid: file-system
 
 The <xref:ZeroInstall.Store.FileSystem> namespace provides interfaces and methods for building and reading file system structures.
 
-The <xref:ZeroInstall.Store.FileSystem.IBuilder> interface represents a implementation directory being constructed. (<xref:ZeroInstall.Store.FileSystem.IForwardOnlyBuilder> is a more limited subset, that only allows the addition of files but not the modification of files that have already been added.)
+The <xref:ZeroInstall.Store.FileSystem.IBuilder> interface represents a implementation directory being constructed.  
+<xref:ZeroInstall.Store.FileSystem.IForwardOnlyBuilder> is a more limited subset, that only allows the addition of files but not the modification of files that have already been added.
 
 There are various implementations of <xref:ZeroInstall.Store.FileSystem.IBuilder>:
 
