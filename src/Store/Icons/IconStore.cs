@@ -5,6 +5,7 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Threading;
 using ZeroInstall.Store.Configuration;
+using Drawing = System.Drawing;
 
 namespace ZeroInstall.Store.Icons;
 
@@ -126,17 +127,19 @@ public sealed partial class IconStore : IIconStore
             switch (icon.MimeType)
             {
                 case Icon.MimeTypePng:
-                    System.Drawing.Image.FromFile(path).Dispose();
+                    using (var stream = File.OpenRead(path))
+                        Drawing.Image.FromStream(stream).Dispose();
                     break;
 
                 case Icon.MimeTypeIco:
-                    new System.Drawing.Icon(path).Dispose();
+                    new Drawing.Icon(path).Dispose();
                     break;
             }
         }
-        catch (Exception ex) when (ex is OutOfMemoryException or ArgumentException or Win32Exception)
+        catch (Exception ex) when (ex is ArgumentException or Win32Exception)
         {
-            throw new InvalidDataException(string.Format(Resources.InvalidIcon, icon.Href, icon.MimeType));
+            // Wrap exception to add context and since only certain exception types are allowed
+            throw new InvalidDataException(string.Format(Resources.InvalidIcon, icon.Href, icon.MimeType), ex);
         }
     }
 }
