@@ -25,7 +25,7 @@ public class Export : Download
 
     private bool _noImplementations;
     private bool _includeZeroInstall;
-    private BootstrapMode _bootstrapType = BootstrapMode.Run;
+    private BootstrapMode _bootstrapType;
 
     /// <summary>
     /// Creates a new export command.
