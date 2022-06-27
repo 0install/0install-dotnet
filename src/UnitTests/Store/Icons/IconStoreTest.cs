@@ -26,15 +26,15 @@ public class IconStoreTest : IDisposable
     [Fact]
     public void ShouldEnsureCorrectFileExtensionPng()
     {
-        string path = _store.BuildPath(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypePng});
-        Path.GetExtension(path).Should().Be(".png");
+        string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypePng});
+        Path.GetExtension(name).Should().Be(".png");
     }
 
     [Fact]
     public void ShouldEnsureCorrectFileExtensionIco()
     {
-        string path = _store.BuildPath(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypeIco});
-        Path.GetExtension(path).Should().Be(".ico");
+        string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypeIco});
+        Path.GetExtension(name).Should().Be(".ico");
     }
 
     [Fact]
@@ -121,7 +121,7 @@ public class IconStoreTest : IDisposable
 
     private void Inject(Icon icon, byte[] iconBytes, DateTime? timestamp = null)
     {
-        string path = _store.BuildPath(icon);
+        string path = Path.Combine(_tempDir, IconStore.GetFileName(icon));
         File.WriteAllBytes(path, iconBytes);
         if (timestamp.HasValue) File.SetLastWriteTimeUtc(path, timestamp.Value);
     }

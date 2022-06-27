@@ -33,7 +33,7 @@ public sealed partial class IconStore : IIconStore
         if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
         #endregion
 
-        string path = BuildPath(icon);
+        string path = GetPath(icon);
 
         if (File.Exists(path))
         {
@@ -50,7 +50,7 @@ public sealed partial class IconStore : IIconStore
     /// <inheritdoc/>
     public string Get(Icon icon, out bool stale)
     {
-        using (new MutexLock("ZeroInstall.Model.Icon." + BuildPath(icon).GetHashCode()))
+        using (new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode()))
             return GetCached(icon, out stale) ?? Download(icon);
     }
 
@@ -89,7 +89,7 @@ public sealed partial class IconStore : IIconStore
         if (_config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 
-        string path = BuildPath(icon);
+        string path = GetPath(icon);
 
         using var atomic = new AtomicWrite(path);
         _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
@@ -99,14 +99,20 @@ public sealed partial class IconStore : IIconStore
         return path;
     }
 
-    internal string BuildPath(Icon icon)
+    private string GetPath(Icon icon)
+        => Path.Combine(_path, GetFileName(icon));
+
+    /// <summary>
+    /// Gets a file name suitable for storing an <see cref="Icon"/> on the disk.
+    /// </summary>
+    public static string GetFileName(Icon icon)
     {
-        string path = Path.Combine(_path, FeedUri.Escape(icon.Href.AbsoluteUri));
+        string name = FeedUri.Escape(icon.Href.AbsoluteUri);
 
         void EnsureExtension(string mimeType, string extension)
         {
-            if (icon.MimeType == mimeType && !StringUtils.EqualsIgnoreCase(Path.GetExtension(path), extension))
-                path += extension;
+            if (icon.MimeType == mimeType && !StringUtils.EqualsIgnoreCase(Path.GetExtension(name), extension))
+                name += extension;
         }
 
         EnsureExtension(Icon.MimeTypePng, ".png");
@@ -114,7 +120,7 @@ public sealed partial class IconStore : IIconStore
         EnsureExtension(Icon.MimeTypeSvg, ".svg");
         EnsureExtension(Icon.MimeTypeIcns, ".icns");
 
-        return path;
+        return name;
     }
 
     private static void Validate(Icon icon, string path)
