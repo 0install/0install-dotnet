@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
@@ -78,5 +79,22 @@ public class ExporterTest : TestWithMocks
             .BeTrue(because: "Implementation should be exported.");
         File.Exists(Path.Combine(contentDir, "sha256=abc.tbz2")).Should()
             .BeTrue(because: "Implementation should be exported.");
+    }
+
+    [Fact]
+    public void ExportIcons()
+    {
+        var icon = new Icon {Href = new("https://example.com/myicon"), MimeType = Icon.MimeTypePng};
+
+        using var tempFile = new TemporaryFile("0install-unit-tests");
+        var iconStoreMock = new Mock<IIconStore>();
+        iconStoreMock.Setup(x => x.GetFresh(icon))
+                     .Returns(tempFile);
+
+        _target.ExportIcons(new[] {icon}, iconStoreMock.Object);
+
+        string contentDir = Path.Combine(_destination, "content");
+        File.Exists(Path.Combine(contentDir, "https%3a%2f%2fexample.com%2fmyicon.png")).Should()
+            .BeTrue(because: "Icon should be exported.");
     }
 }

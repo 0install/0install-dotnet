@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Commands.Basic.Exporters;
+using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Configuration;
@@ -67,10 +68,19 @@ public class Export : Download
         var exporter = new Exporter(Selections, Requirements.ForCurrentSystem().Architecture, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
 
         exporter.ExportFeeds(FeedCache, OpenPgp);
+
         if (!_noImplementations)
         {
             DownloadUncachedImplementations();
             exporter.ExportImplementations(ImplementationStore, Handler);
+        }
+
+        var feed = FeedCache.GetFeed(Requirements.InterfaceUri);
+        if (feed != null)
+        {
+            exporter.ExportIcons(
+                feed.Icons.Concat(feed.SplashScreens),
+                IconStores.DesktopIntegration(Config, Handler, machineWide: false));
         }
 
         exporter.DeployImportScript();

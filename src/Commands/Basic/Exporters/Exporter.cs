@@ -9,6 +9,7 @@ using ZeroInstall.Archives.Builders;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.FileSystem;
+using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
@@ -104,6 +105,30 @@ public class Exporter
 
             using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tbz2"), Archive.MimeTypeTarBzip);
             handler.RunTask(new ReadDirectory(sourcePath, builder));
+        }
+    }
+
+    /// <summary>
+    /// Exports all specified icons.
+    /// </summary>
+    /// <param name="icons">The icons to export.</param>
+    /// <param name="iconStore">The icon store to export the icons from.</param>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="IOException">A problem occurred while reading or writing a file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read or access to a file is not permitted.</exception>
+    /// <exception cref="WebException">A problem occurred while downloading icons.</exception>
+    public void ExportIcons(IEnumerable<Icon> icons, IIconStore iconStore)
+    {
+        #region Sanity checks
+        if (icons == null) throw new ArgumentNullException(nameof(icons));
+        if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
+        #endregion
+
+        foreach (var icon in icons)
+        {
+            File.Copy(
+                iconStore.GetFresh(icon),
+                Path.Combine(_contentDir, IconStore.GetFileName(icon)));
         }
     }
 
