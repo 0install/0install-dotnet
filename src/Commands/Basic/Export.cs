@@ -64,7 +64,7 @@ public class Export : Download
     {
         Solve();
 
-        var exporter = new Exporter(Selections, Requirements, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
+        var exporter = new Exporter(Selections, Requirements.ForCurrentSystem().Architecture, _outputPath ?? throw new InvalidOperationException($"Must run {nameof(Parse)}() first."));
 
         exporter.ExportFeeds(FeedCache, OpenPgp);
         if (!_noImplementations)
