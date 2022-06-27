@@ -16,7 +16,7 @@ namespace ZeroInstall.Commands.Basic;
 [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
 [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
 #endif
-public class Export : Download
+public sealed class Export : Download
 {
     public new const string Name = "export";
     public override string Description => Resources.DescriptionExport;
@@ -37,7 +37,8 @@ public class Export : Download
     {
         Options.Add("no-implementations", () => Resources.OptionExportNoImplementations, _ => _noImplementations = true);
         Options.Add("include-zero-install", () => Resources.OptionExportIncludeZeroInstall, _ => _includeZeroInstall = true);
-        Options.Add("bootstrap=", () => Resources.OptionExportBootstrap + Environment.NewLine + SupportedValues<BootstrapMode>(), (BootstrapMode x) => _bootstrapType = x);
+        if (Config.SelfUpdateUri == new FeedUri(Config.DefaultSelfUpdateUri))
+            Options.Add("bootstrap=", () => Resources.OptionExportBootstrap + Environment.NewLine + SupportedValues<BootstrapMode>(), (BootstrapMode x) => _bootstrapType = x);
     }
 
     private string? _outputPath;

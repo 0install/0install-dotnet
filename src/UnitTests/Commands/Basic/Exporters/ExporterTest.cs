@@ -65,8 +65,8 @@ public class ExporterTest : TestWithMocks
     public void ExportImplementations()
     {
         using (var implDir1 = new TemporaryDirectory("0install-test-impl"))
+        using (var implDir2 = new TemporaryDirectory("0install-test-impl"))
         {
-            using var implDir2 = new TemporaryDirectory("0install-test-impl");
             var storeMock = CreateMock<IImplementationStore>();
             storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "123", null))).Returns(implDir1);
             storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "abc", null))).Returns(implDir2);
@@ -75,9 +75,9 @@ public class ExporterTest : TestWithMocks
         }
 
         string contentDir = Path.Combine(_destination, "content");
-        File.Exists(Path.Combine(contentDir, "sha256=123.tbz2")).Should()
+        File.Exists(Path.Combine(contentDir, "sha256=123.tgz")).Should()
             .BeTrue(because: "Implementation should be exported.");
-        File.Exists(Path.Combine(contentDir, "sha256=abc.tbz2")).Should()
+        File.Exists(Path.Combine(contentDir, "sha256=abc.tgz")).Should()
             .BeTrue(because: "Implementation should be exported.");
     }
 

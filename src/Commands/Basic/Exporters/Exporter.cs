@@ -103,7 +103,7 @@ public class Exporter
                 continue;
             }
 
-            using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tbz2"), Archive.MimeTypeTarBzip);
+            using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tgz"), Archive.MimeTypeTarGzip);
             handler.RunTask(new ReadDirectory(sourcePath, builder));
         }
     }
