@@ -15,7 +15,7 @@ public static class EnvironmentBuilderExtensions
     /// <summary>
     /// Adds environment variables that allow the program to make calls back to Zero Install.
     /// </summary>
-    public static IEnvironmentBuilder AddCallbackEnvironmentVariables(this IEnvironmentBuilder builder)
+    public static IEnvironmentBuilder SetCallbackEnvironmentVariables(this IEnvironmentBuilder builder)
     {
         void TryAdd(string envName, ProcessStartInfo? startInfo)
         {
@@ -23,7 +23,7 @@ public static class EnvironmentBuilderExtensions
 
             try
             {
-                builder.AddEnvironmentVariable(envName, startInfo.ToCommandLine());
+                builder.SetEnvironmentVariable(envName, startInfo.ToCommandLine());
             }
             catch (FileNotFoundException)
             {
