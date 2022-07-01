@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using ZeroInstall.Store.Configuration;
@@ -69,7 +70,7 @@ public class Run : Download
                               .SetCallbackEnvironmentVariables()
                               .Start();
 
-        Handler.CloseUI();
+        CloseUI(process);
 
         BackgroundUpdate();
         BackgroundSelfUpdate();
@@ -89,6 +90,25 @@ public class Run : Download
             Log.Debug("Waiting for program to exit");
             return (ExitCode)process.WaitForExitCode();
         }
+    }
+
+    private void CloseUI(Process? process)
+    {
+        if (WindowsUtils.IsWindows
+         && process != null
+         && Selections != null
+         && Handler is {IsGui: true, Background: false}
+         && FeedCache.GetFeed(Selections.InterfaceUri) is {NeedsTerminal: false})
+        {
+            try
+            {
+                process.WaitForInputIdle(milliseconds: 5000);
+            }
+            catch (InvalidOperationException)
+            {}
+        }
+
+        Handler.CloseUI();
     }
 
     /// <inheritdoc/>
