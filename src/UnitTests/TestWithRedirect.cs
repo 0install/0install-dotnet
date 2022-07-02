@@ -8,12 +8,12 @@ namespace ZeroInstall;
 /// </summary>
 public class TestWithRedirect : IDisposable
 {
-    private readonly TemporaryDirectory _tempDir = new("0install-test-redirect");
-
+    private readonly TemporaryDirectory _tempDir;
     private readonly IDisposable _redirect;
 
     public TestWithRedirect()
     {
+        _tempDir = new("0install-test-redirect");
         _redirect = Locations.Redirect(_tempDir);
     }
 
