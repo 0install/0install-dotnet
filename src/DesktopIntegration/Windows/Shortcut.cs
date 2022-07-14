@@ -68,14 +68,18 @@ public static partial class Shortcut
     [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global", Justification = "COM interfaces")]
     public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null, string? appId = null)
     {
-        if (File.Exists(path)) File.Delete(path);
+        targetPath = Substitute(Substitute(targetPath, "appdata"), "ProgramFiles");
+
+        Log.Debug($"Creating Windows shortcut file at '{path}' pointing to: {targetPath} {arguments ?? ""}");
 
         var link = (IShellLink)new ShellLink();
-        link.SetPath(Substitute(Substitute(targetPath, "appdata"), "ProgramFiles"));
+        link.SetPath(targetPath);
         if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
         if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(Substitute(iconLocation, "appdata"), 0);
         if (!string.IsNullOrEmpty(description)) link.SetDescription(description[..Math.Min(description.Length, 256)]);
         if (!string.IsNullOrEmpty(appId)) ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
+
+        if (File.Exists(path)) File.Delete(path);
         ((IPersistFile)link).Save(path, fRemember: false);
     }
 
