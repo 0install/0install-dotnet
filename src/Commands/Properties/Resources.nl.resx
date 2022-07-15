@@ -189,7 +189,7 @@ U kunt een backup maken van deze lijst door '0install sync' te gebruiken.</value
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Begin tekst in te voeren op de laatste regel om een nieuwe invoer te creëren.
-Selecteer een hele regel door in de eerste kolom te klikken en druk dan op DEL op het toetsenbord om een regel te verwijderen.</value>
+Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens op DEL op het toetsenbord om een regel te verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -198,7 +198,7 @@ Verwijder een selectievakje om de standaardstatus van een capability te verwijde
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Wilt u het/de {0} gecontroleerde element(en) uit de cache verwijderen?</value>
+    <value>Wilt u het (de) {0} gecontroleerde element(en) uit de cache verwijderen?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -259,7 +259,7 @@ U kunt deze gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Zoekt in geregistreerde catalogi naar toepassingen die overeenkomen met de opgegeven zoekopdracht. Indien geen zoekopdracht wordt gegeven worden alle toepassingen in de catalogi getoond.</value>
+    <value>Zoekt in geregistreerde catalogi naar toepassingen die overeenkomen met de opgegeven zoekopdracht. Als er geen zoekopdracht wordt gegeven, worden alle toepassingen in de catalogi getoond.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -428,7 +428,7 @@ Extra argumenten specificeren aangepaste cache-locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert of er updates voor het programma zijn en downloadt deze indien gevonden.
+    <value>Controleert op updates voor het programma en downloadt deze indien gevonden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -481,7 +481,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Beheer van het voeder</value>
+    <value>Voederbeheer</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -677,7 +677,7 @@ U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>In plaats van het standaard commando uit te voeren, gebruikt u {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
-Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
+Stel in op leeg ("") om het commando tijdens selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -771,7 +771,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Draai in off-line modus, waarbij de standaard instelling wordt overschreven.
+    <value>Uitvoeren in off-line modus, overschrijft de standaard instelling.
 In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd zijn, en nieuwere versies van programma's worden niet gedownload, zelfs niet als de injector ze al kent (bijv. van een eerdere verversing).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -812,7 +812,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
-    <value>Geef versie-informatie weer.</value>
+    <value>Versie-informatie weergeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">

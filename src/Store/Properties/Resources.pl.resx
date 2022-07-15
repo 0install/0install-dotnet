@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Ten katalog to pamięć podręczna implementacji. Znajdujące się w nim pliki są dostępne tylko do odczytu dzięki uprawnieniom systemu plików. Dzięki temu nie można ich normalnie usunąć.
+    <value>Ten katalog to pamięć podręczna implementacji. Pliki w nim zawarte są tylko do odczytu przy użyciu uprawnień systemu plików. Dzięki temu nie można ich normalnie usunąć.
 
-Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tej linii poleceń:
 {0}
 
-Jeśli chcesz usunąć cały katalog, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć cały ten katalog, możesz użyć tego wiersza poleceń:
 {1}
 
-Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć cały ten katalog bez użycia Zero Install możesz użyć tego wiersza poleceń:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -88,11 +88,11 @@ Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Usuwanie nieaktualnych plików</value>
+    <value>Usuwanie przestarzałych plików</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Skrót manifestu implementacji nie jest zgodny z oczekiwaną wartością.</value>
+    <value>Hash manifestu implementacji nie jest zgodny z oczekiwaną wartością.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -108,11 +108,11 @@ Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Oczekiwany manifest {0}</value>
+    <value>Spodziewany manifest {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Błąd ładowania pakietu kluczy OpenPGP z adresu '{0}'.</value>
+    <value>Błąd ładowania wiązki kluczy OpenPGP z '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -120,12 +120,12 @@ Jeśli chcesz usunąć cały ten katalog bez użycia instalacji zerowej, możesz
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Nie udało się odblokować nieużywanych plików w katalogu '{0}'.</value>
+    <value>Failed to unlock in-use files in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Używanie lustra kanału, które jest wymagane do wyszukiwania, jest wyłączone.
-Uruchom '0install config feed_mirror default', aby go włączyć.</value>
+    <value>Używanie feed mirror, które jest wymagane do wyszukiwania, jest wyłączone.
+Uruchom '0install config feed_mirror default' aby go włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -133,7 +133,7 @@ Uruchom '0install config feed_mirror default', aby go włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Pliki, które chcesz usunąć, są obecnie używane.</value>
+    <value>Pliki, które chcesz usunąć, są aktualnie używane.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -153,11 +153,11 @@ Uruchom '0install config feed_mirror default', aby go włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Wdrożenie "{0}" jest już dostępne w sklepie.</value>
+    <value>Wdrożenie '{0}' jest już w sklepie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Uszkodzone jest wdrożenie "{0}".</value>
+    <value>Implementacja '{0}' jest uszkodzona.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -169,7 +169,7 @@ Uruchom '0install config feed_mirror default', aby go włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Nie można odnaleźć implementacji "{0}".</value>
+    <value>Implementacja "{0}" nie mogła zostać zlokalizowana.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -178,19 +178,19 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Ikona załadowana ze strony {0} nie jest prawidłową stroną {1}.</value>
+    <value>Ikona załadowana z {0} nie jest prawidłową {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Plik manifestu zawiera nieprawidłowe wiersze.</value>
+    <value>Plik manifestu zawiera nieprawidłowe linie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nieprawidłowa liczba części w linii.</value>
+    <value>Niewłaściwa liczba części w linii.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Archiwum zawiera nieprawidłową ścieżkę (potencjalne zagrożenie dla bezpieczeństwa) {0}</value>
+    <value>Archiwum zawiera nieprawidłową ścieżkę (potencjalnie zagrożenie bezpieczeństwa) {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -198,7 +198,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Tylko administratorzy mogą optymalizować magazyn współdzielony.</value>
+    <value>Tylko administratorzy mogą optymalizować sklep współdzielony.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -210,7 +210,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Nie można pobrać witryny {0}, ponieważ program Zero Install działa w trybie offline.</value>
+    <value>Nie można pobrać {0}, ponieważ Zero Install jest w trybie offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -218,7 +218,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Ścieżka "{0}" nie jest ścieżką bezwzględną. Ścieżki względne są dozwolone tylko w trybie przenośnym.
+    <value>Ścieżka '{0}' nie jest ścieżką bezwzględną. Względne ścieżki są dozwolone tylko w trybie przenośnym.
 Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -227,34 +227,34 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Instalacja zerowa nie może usunąć się z pamięci podręcznej wdrożenia.</value>
+    <value>Zero Install nie może usunąć się z pamięci podręcznej wdrożenia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Wartość liczbowa jest zbyt duża.</value>
+    <value>Wartość liczby jest zbyt duża.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Ta opcja jest kontrolowana przez zasady grupy i dlatego nie może być modyfikowana.</value>
+    <value>Ta opcja jest kontrolowana przez politykę grupy i dlatego nie może być modyfikowana.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji "{0}".</value>
+    <value>Wystąpił problem z dostępem do sklepu wdrożeniowego '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji "{0}".
-Określono w pliku konfiguracyjnym '{1}'.</value>
+    <value>Wystąpił problem z dostępem do magazynu implementacji '{0}'.
+Określone w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem pliku konfiguracyjnego.
-Aby rozwiązać ten problem, należy usunąć plik '{0}'.</value>
+Możesz usunąć plik '{0}', aby naprawić problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem wartości konfiguracyjnej '{0}'.
-Aby rozwiązać ten problem, można usunąć plik '{1}'. Inne ustawienia mogą również zostać utracone.</value>
+Możesz usunąć plik '{1}', aby naprawić problem. Inne ustawienia mogą również zostać utracone.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
@@ -262,11 +262,11 @@ Aby rozwiązać ten problem, można usunąć plik '{1}'. Inne ustawienia mogą r
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>Plik z podpisem już istnieje.</value>
+    <value>Plik sygnatury już istnieje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Nie można nawiązać połączenia z usługą StoreService.</value>
+    <value>Nie można nawiązać połączenia z StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -274,11 +274,11 @@ Aby rozwiązać ten problem, można usunąć plik '{1}'. Inne ustawienia mogą r
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Nie można znaleźć tajnego klucza o podanej nazwie.</value>
+    <value>Nie udało się znaleźć tajnego klucza o podanej nazwie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Nie udało się włączyć ochrony przed zapisem dla adresu '{0}'.</value>
+    <value>Nie można włączyć ochrony przed zapisem dla '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -294,11 +294,11 @@ Aby rozwiązać ten problem, można usunąć plik '{1}'. Inne ustawienia mogą r
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>Podpis XML nie zaczyna się w nowym wierszu.</value>
+    <value>Podpis XML nie zaczyna się w nowej linii.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Podpis jest nieprawidłowy w bazie 64:</value>
+    <value>Podpis nie jest prawidłową bazą 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

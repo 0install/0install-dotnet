@@ -124,7 +124,7 @@ Zero Installを使用せずにこのディレクトリ全体を削除したい�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>検索に必要なフィードミラーの使用は無効になっています。
+    <value>検索に必要なフィードミラーの利用が無効になっています。
 0install config feed_mirror default'を実行し、有効にしてください。</value>
     <comment>Automatically translated.</comment>
   </data>

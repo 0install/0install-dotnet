@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Wypakowywanie tego typu archiwum jest obsługiwane tylko w systemie Windows.</value>
+    <value>Rozpakowywanie tego typu archiwum jest obsługiwane tylko w systemie Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Typ MIME archiwum "{0}" nie jest obsługiwany.</value>
+    <value>Typ MIME archiwum '{0}' nie jest obsługiwany.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
