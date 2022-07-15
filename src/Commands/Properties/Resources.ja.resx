@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
+    <value>'{0}' という名前の既存のエイリアスが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
@@ -268,7 +268,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -277,7 +277,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>0install select' と同様の動作をしますが、選択したバージョンがまだキャッシュされていない場合は、ダウンロードも行います。
-適切なバージョンのセットを選択し、それらがすべてダウンロードされてキャッシュにある場合は終了ステータス 0 を返し、そうでない場合は 1 を返します。</value>
+適切なバージョンのセットを選択し、それらがすべてダウンロードされてキャッシュにある場合は終了ステータス 0 を返し、そうでない場合はステータス 1 を返します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -302,7 +302,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>現在、アプリケーションリストに登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERNを指定した場合は、その文字列を名前に含むアプリケーションのみを表示します（大文字と小文字は区別されません）。</value>
+    <value>現在アプリケーションリストに登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERNを指定した場合は、その文字列を名前に含むアプリケーションのみを表示します（大文字と小文字は区別されません）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -595,7 +595,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} は、エイリアス名と一緒にのみ指定することができます。</value>
+    <value>{0} は、エイリアス名と一緒にしか指定できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -664,7 +664,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>VERSION}より前のバージョンのメインプログラムを要求する。つまり、古いバージョンのプログラムを強制的に使用する。</value>
+    <value>VERSION}より前のバージョンのメインプログラムを要求する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -750,7 +750,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>指定された実行ファイル {MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
+    <value>指定された実行ファイル {MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -771,8 +771,8 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>オフラインモードで実行し、デフォルトの設定をオーバーライドします。
-オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
+    <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
+オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -951,11 +951,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
-    <value>サポートされている値。{0}</value>
+    <value>サポートされる値。{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>暗号キーは、データをサーバーに送信する前にローカルで暗号化するために使用されます。
+    <value>暗号鍵は、データをサーバーに送信する前に、ローカルで暗号化するために使用されます。
 この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、たとえサーバーが危険にさらされても、誰もあなたのデータにアクセスすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>

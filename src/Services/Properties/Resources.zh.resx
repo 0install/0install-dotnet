@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>产生的命令行是空的。</value>
+    <value>由此产生的命令行是空的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>保存信任数据库出错</value>
+    <value>保存信托数据库出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}'是一个本地文件。它应该是一个HTTP(S)的URL。</value>
+    <value>'{0}' 是一个本地文件。它应该是一个HTTP(S)的URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装订中缺失名字。</value>
+    <value>{0} 装订中缺失姓名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -170,7 +170,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>无法解析'{0}'的密钥信息。</value>
+    <value>无法解析'{0}'的关键信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

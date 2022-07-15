@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Этот каталог является кэшем реализации. Файлы здесь доступны только для чтения с помощью разрешений файловой системы. Это предотвращает их удаление обычным способом.
+    <value>Этот каталог является кэшем реализации. Файлы здесь доступны только для чтения с использованием прав доступа файловой системы. Это предотвращает их удаление обычным способом.
 
 Если вы хотите удалить одну реализацию, вы можете использовать эту командную строку:
 {0}
@@ -178,7 +178,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Значок, загруженный с сайта {0}, не является действительным {1}.</value>
+    <value>Значок, загруженный с {0}, не является действительным {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

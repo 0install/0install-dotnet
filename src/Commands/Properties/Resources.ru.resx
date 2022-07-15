@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Перечисляет все локально известные URI фидов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
+    <value>Перечисляет все локально известные URI кормов. Если задан поисковый запрос, будут показаны только URI, содержащие эту строку (без учета регистра).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Указывает предпочтительный язык для реализации. Используйте короткие коды языков ISO (например, en или en-US).
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
 Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -878,11 +878,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
-    <value>Вы хотите вернуть список в исходное состояние?</value>
+    <value>Хотите ли вы вернуть список в исходное состояние?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Изменение '{0}' на '{1}' с помощью псевдонима.</value>
+    <value>Переименовать '{0}' в '{1}' с помощью псевдонима.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
@@ -968,7 +968,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Надежные ключи</value>
+    <value>Доверенные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

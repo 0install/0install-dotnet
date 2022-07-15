@@ -152,7 +152,7 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Foi detectado um possível ataque de repetição. O tempo de modificação do novo feed é anterior à versão antiga.
-Feed URI {0}
+URI de alimentação {0}
 Tempo antigo {1}
 Novo tempo {2}</value>
     <comment>Automatically translated.</comment>

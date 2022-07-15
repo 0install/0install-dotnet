@@ -554,7 +554,7 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' n'est pas un URI de flux ou un chemin de fichier valide.</value>
+    <value>'{0}' n'est pas une URI de flux ou un chemin de fichier valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -612,7 +612,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se lance à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
+    <value>Zero Install est lancé à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -656,7 +656,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état.</value>
+    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état système.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
@@ -701,7 +701,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Inclure Zero Install lui-même dans l'exportation en même temps que l'application.</value>
+    <value>Incluez Zero Install lui-même dans l'exportation en même temps que l'application.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -823,7 +823,7 @@ Un seul numéro de version peut être utilisé à la place d'une plage pour corr
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pour toute bibliothèque ou sous-composant avec le {0:URI} donné, spécifie la version {1:RANGE} (comme pour --version).</value>
+    <value>Pour toute bibliothèque ou sous-composant avec le {0:URI} donné spécifie la version {1:RANGE} (comme pour --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

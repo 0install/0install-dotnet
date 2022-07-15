@@ -194,7 +194,7 @@ Selectați o întreagă linie făcând clic în prima coloană și apoi apăsaț
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Activați o casetă de selectare pentru a face dintr-o capacitate gestionarul implicit dorit.
-Scoateți o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
+Eliminați o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -277,7 +277,7 @@ Fără argumente, afișează toate setările și valorile lor actuale. Cu un sin
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Se comportă în mod similar cu "0install select", cu excepția faptului că descarcă și versiunile selectate, dacă acestea nu sunt deja stocate în memoria cache.
-Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile au fost descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
+Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile sunt descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -314,7 +314,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Elimină din sistem instanța curentă a programului Zero Install.</value>
+    <value>Îndepărtează din sistem instanța curentă a programului Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -382,7 +382,7 @@ Un argument suplimentar specifică o locație țintă personalizată pentru memo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Listează toate implementările din memoria cache. Dacă este specificat un URI al fluxului, sunt listate numai implementările pentru acel flux anume.</value>
+    <value>Listează toate implementările din memoria cache. Dacă este specificat un URI al fluxului, sunt enumerate numai implementările pentru acel flux anume.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -404,7 +404,7 @@ Argumentele suplimentare specifică locațiile personalizate ale cache-ului.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Elimină un director din lista de cache-uri de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -501,7 +501,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
-    <value>Fluxuri cache</value>
+    <value>Fluxuri în cache</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
@@ -525,7 +525,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Acest furaj nu pare a fi pentru aceeași aplicație. Adăugați-l oricum?
+    <value>Acest furaj nu pare să fie pentru aceeași aplicație. Adăugați-l oricum?
 O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -681,7 +681,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Treceți la o anumită filă din GUI de configurare. {TAB}-urile valide sunt "updates", "storage", "storage", "catalog", "trust", "sync", "language", "language" și "advanced".</value>
+    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates" (actualizări), "storage" (stocare), "catalog" (catalog), "trust" (încredere), "sync" (sincronizare), "language" (limbă), "language" (limbă) și "advanced" (avansat).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -689,7 +689,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci trebuie utilizată.</value>
+    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci să utilizați.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -804,7 +804,7 @@ Nu poate conține argumente de linie de comandă! Nu este necesar să se elimine
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetați datele de sincronizare. Modurile {MODE} valide sunt "none" (fuzionează datele de pe client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <value>Resetați datele de sincronizare. Modurile {MODE} valide sunt "none" (fuzionează în mod normal datele de pe client și server), "client" (înlocuiește toate datele de pe client cu cele de pe server) și "server" (înlocuiește toate datele de pe server cu cele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -858,7 +858,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați din listă cheile bifate {0}?</value>
+    <value>Doriți să eliminați din listă cheile bifate pe {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -874,7 +874,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină efectiv.</value>
+    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină eficient.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -955,7 +955,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
+    <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
 Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>

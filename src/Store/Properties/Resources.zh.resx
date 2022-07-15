@@ -161,7 +161,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>你想删除它吗？需要时将自动再次下载一个新的副本。</value>
+    <value>你想删除它吗？需要时将会自动再次下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">

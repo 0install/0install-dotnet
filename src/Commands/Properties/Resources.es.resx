@@ -193,7 +193,7 @@ Seleccione una línea entera haciendo clic en la primera columna y luego pulse D
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Establecer una casilla de verificación para hacer que una capacidad sea su gestor por defecto deseado.
+    <value>Establecer una casilla de verificación para convertir una capacidad en el gestor por defecto deseado.
 Quitar una casilla de verificación para eliminar el estado por defecto de una capacidad (sigue estando disponible).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -268,7 +268,7 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver o cambiar los ajustes de configuración.
-Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual del ajuste nombrado. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
+Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración nombrada. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -416,7 +416,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Confía en los feeds de un DOMINIO específico cuando se firman con una FINGERPRINT específica.</value>
+    <value>Confía en los feeds de un DOMINIO específico cuando se firman con un FINGERPRINT específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -717,7 +717,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Añade todos los puntos de acceso de una {CATEGORÍA} específica.</value>
+    <value>Añadir todos los puntos de acceso de una {CATEGORÍA} específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -838,7 +838,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -927,7 +927,7 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Inicio del servicio de tienda Zero Install</value>
+    <value>Iniciar el servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StopService" xml:space="preserve">

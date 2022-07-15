@@ -100,7 +100,7 @@ Pode utilizar o script de importação ou o executável Bootstrap em '{1}' para 
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Tem a certeza de que quer instalar uma nova cópia da Zero Install em '{0}'?</value>
+    <value>Tem a certeza de que quer instalar uma nova cópia do Zero Install em '{0}'?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
@@ -378,7 +378,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista todos os directórios de implementação.</value>
+    <value>Lista de todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -742,7 +742,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Implantar Zero Install como uma biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
+    <value>Implementar Zero Install como uma biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -771,8 +771,8 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Executar em modo off-line, anulando a configuração por defeito.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
+    <value>Executar em modo off-line, anulando a configuração padrão.
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

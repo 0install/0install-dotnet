@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>{0}' のインターフェースプリファレンスの読み込みにエラーが発生しました。デフォルト値に戻しています。</value>
+    <value>{0}' のインターフェースプリファレンスの読み込みにエラーが発生しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -127,15 +127,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の場合にのみ設定されることがあります。</value>
+    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の場合にのみ設定されるかもしれません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>バギーな実装</value>
+    <value>バギー実装</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>コマンド '{0}' を提供しません。</value>
+    <value>コマンド '{0}' を提供しない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>バージョン範囲の終わりは排他的でなければなりません。{0}' ではなく、 '...{0}' を使用してください。</value>
+    <value>バージョン範囲の終わりは排他的である必要があります。{0}' ではなく、 '...{0}' を使用してください。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

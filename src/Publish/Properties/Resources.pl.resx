@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiono prawidłową wartość "extract" dla archiwum.</value>
+    <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiłeś prawidłową wartość "extract" dla archiwum.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -72,11 +72,11 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Pobieranie "{0}" przy użyciu programu Zero Install</value>
+    <value>Pobieranie "{0}" przy użyciu Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Nie można odnaleźć pliku '{0}'.</value>
+    <value>Nie można było znaleźć pliku '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -88,15 +88,15 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługuje je wszystkie, ale w niektórych przypadkach pierwszeństwo może mieć ostatni z nich.</value>
+    <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługa ich wszystkich, ale ostatni może mieć pierwszeństwo w niektórych przypadkach.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybierany jest pierwszy.</value>
+    <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybrano pierwszy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>W rejestrze wykryto wiele rejestracji nowych aplikacji. Domyślnie wybierana jest pierwsza.</value>
+    <value>Wykryto wiele rejestracji nowych aplikacji w rejestrze. Wybierając domyślnie pierwszą.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -109,7 +109,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>Klucz tajny nie znajduje się w breloku użytkownika.</value>
+    <value>Tajny klucz nie znajduje się w breloku użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
