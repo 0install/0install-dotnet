@@ -90,6 +90,17 @@ public class UpdateApps : IntegrationCommand
         Handler.RunTask(ForEachTask.Create(
             name: Resources.RemovingOutdated,
             target: digestsToRemove.ToList(),
-            work: digest => ImplementationStore.Remove(digest, Handler)));
+            work: digest =>
+            {
+                try
+                {
+                    ImplementationStore.Remove(digest, Handler);
+                }
+                catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
+                {
+                    Log.Info($"Unable to remove {digest}", ex);
+                }
+            }
+        ));
     }
 }

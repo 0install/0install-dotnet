@@ -66,7 +66,16 @@ partial class Self
                 new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
             if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOther() == null))
-                ImplementationStore.Purge(Handler);
+            {
+                try
+                {
+                    ImplementationStore.Purge(Handler);
+                }
+                catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
+                {
+                    Log.Info("Unable to purge implementation store", ex);
+                }
+            }
 
             if (WindowsUtils.IsWindows) DelegateToTempCopy();
             else PerformRemove();
