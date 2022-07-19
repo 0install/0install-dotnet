@@ -53,10 +53,20 @@ public static class ZeroInstallInstance
     /// Indicates whether the current Zero Install instance is deployed to a fixed location.
     /// </summary>
     public static bool IsDeployed
-        => !Locations.IsPortable
-        && WindowsUtils.IsWindows
-        && (RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: false) == Locations.InstallBase
-         || RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true) == Locations.InstallBase);
+    {
+        get
+        {
+            if (Locations.IsPortable) return false;
+
+            if (WindowsUtils.IsWindows)
+            {
+                return FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: false), Locations.InstallBase)
+                    || FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true), Locations.InstallBase);
+            }
+
+            return false;
+        }
+    }
 
     /// <summary>
     /// Indicates whether Zero Install is running from a machine-wide location.
@@ -70,7 +80,7 @@ public static class ZeroInstallInstance
             if (WindowsUtils.IsWindows)
             {
                 string? path = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true);
-                if (!string.IsNullOrEmpty(path)) return path == Locations.InstallBase;
+                if (!string.IsNullOrEmpty(path)) return FileUtils.PathEquals(path, Locations.InstallBase);
             }
 
             return !Locations.InstallBase.StartsWith(Locations.HomeDir);
@@ -132,7 +142,7 @@ public static class ZeroInstallInstance
 
         string? installLocation = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation);
         if (string.IsNullOrEmpty(installLocation)) return null;
-        if (installLocation == Locations.InstallBase) return null;
+        if (FileUtils.PathEquals(installLocation, Locations.InstallBase)) return null;
         if (needsMachineWide && installLocation.StartsWith(Locations.HomeDir)) return null;
         if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
         return installLocation;

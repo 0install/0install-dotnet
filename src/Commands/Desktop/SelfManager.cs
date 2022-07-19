@@ -76,7 +76,7 @@ public partial class SelfManager : ManagerBase
         {
             MutexAcquire();
 
-            if (TargetDir != Locations.InstallBase)
+            if (!FileUtils.PathEquals(TargetDir, Locations.InstallBase))
             {
                 if (MachineWide)
                     ServiceStop();

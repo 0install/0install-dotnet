@@ -141,7 +141,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
 
     private bool RemoveInner(string path, ITaskHandler handler, bool allowAutoShutdown = false)
     {
-        if (path == Locations.InstallBase && WindowsUtils.IsWindows)
+        if (FileUtils.PathEquals(path, Locations.InstallBase))
         {
             Log.Warn(Resources.NoStoreSelfRemove);
             return false;
