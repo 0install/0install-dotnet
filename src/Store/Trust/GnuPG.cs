@@ -47,8 +47,8 @@ public partial class GnuPG : IOpenPgp
         {
             try
             {
-                var parsedSignature = ParseSignatureLine(line);
-                if (parsedSignature != null) signatures.Add(parsedSignature);
+                if (ParseSignatureLine(line) is {} parsedSignature)
+                    signatures.Add(parsedSignature);
             }
             #region Error handling
             catch (FormatException ex)

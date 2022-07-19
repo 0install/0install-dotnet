@@ -40,16 +40,14 @@ public abstract class ScopedOperation : ServiceProvider
             if (uri.StartsWith("file:", out string? path)) return new(Path.GetFullPath(path));
             if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
-            var result = TryResolveAlias(uri);
-            if (result != null) return result;
+            if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
 
             if (Path.IsPathRooted(uri)) return new(uri);
 
             path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
             if (File.Exists(path)) return new(path);
 
-            result = TryResolveCatalog(uri);
-            if (result != null) return result;
+            if (TryResolveCatalog(uri) is {} resolvedCatalog) return resolvedCatalog;
 
             return new(path);
         }

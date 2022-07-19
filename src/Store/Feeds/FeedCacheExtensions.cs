@@ -26,8 +26,7 @@ public static class FeedCacheExtensions
         {
             try
             {
-                var feed = cache.GetFeed(feedUri);
-                if (feed != null) feeds.Add(feed);
+                if (cache.GetFeed(feedUri) is {} feed) feeds.Add(feed);
             }
             #region Error handling
             catch (InvalidDataException ex)

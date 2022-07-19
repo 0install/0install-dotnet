@@ -136,8 +136,7 @@ public partial class BouncyCastle : IOpenPgp
     {
         var factory = new PgpObjectFactory(stream);
 
-        PgpObject obj;
-        while ((obj = factory.NextPgpObject()) != null)
+        while (factory.NextPgpObject() is {} obj)
         {
             if (obj is T target) yield return target;
 

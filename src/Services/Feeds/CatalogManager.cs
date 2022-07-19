@@ -126,8 +126,7 @@ public partial class CatalogManager : ICatalogManager
         SetSources(sources);
 
         // Remove relevant entries from cache
-        var cached = GetCached();
-        if (cached != null)
+        if (GetCached() is {} cached)
         {
             cached.Feeds.RemoveAll(x => x.CatalogUri == uri);
             SaveCache(cached);

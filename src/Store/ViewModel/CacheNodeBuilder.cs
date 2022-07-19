@@ -45,8 +45,7 @@ public sealed partial class CacheNodeBuilder : TaskBase
 
         foreach (var digest in _implementationStore.ListAll())
         {
-            var node = GetImplementationNode(digest);
-            if (node != null)
+            if (GetImplementationNode(digest) is {} node)
             {
                 TotalSize += node.Size;
                 Add(node);

@@ -42,8 +42,7 @@ public partial class ZipExtractor : ArchiveExtractor
 
     private void ExtractFiles(ZipInputStream zipStream, string? subDir, IBuilder builder)
     {
-        ZipEntry entry;
-        while ((entry = zipStream.GetNextEntry()) != null)
+        while (zipStream.GetNextEntry() is {} entry)
         {
             Handler.CancellationToken.ThrowIfCancellationRequested();
 

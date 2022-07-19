@@ -64,8 +64,7 @@ public class Exporter
             string filePath = Path.Combine(_contentDir, feedUri.PrettyEscape());
             if (!filePath.EndsWith(".xml")) filePath += ".xml";
 
-            string? path = feedCache.GetPath(feedUri);
-            if (path != null)
+            if (feedCache.GetPath(feedUri) is {} path)
             {
                 Log.Info("Exporting feed " + feedUri.ToStringRfc());
                 File.Copy(path, filePath, overwrite: true);

@@ -85,8 +85,7 @@ public class SignedFeed
             FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
             stream.CopyToFile(path);
         }
-        string? directory = Path.GetDirectoryName(path);
-        if (directory != null)
+        if (Path.GetDirectoryName(path) is {} directory)
         {
             _openPgp.DeployPublicKey(SecretKey, directory);
             FeedUtils.DeployStylesheet(directory, "feed");

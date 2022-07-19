@@ -76,8 +76,7 @@ public sealed class Export : Download
             exporter.ExportImplementations(ImplementationStore, Handler);
         }
 
-        var feed = FeedCache.GetFeed(Requirements.InterfaceUri);
-        if (feed != null)
+        if (FeedCache.GetFeed(Requirements.InterfaceUri) is {} feed)
         {
             exporter.ExportIcons(
                 feed.Icons.Concat(feed.SplashScreens),

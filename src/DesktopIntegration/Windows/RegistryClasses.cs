@@ -61,9 +61,7 @@ internal static class RegistryClasses
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        var icon = capability.GetIcon(Icon.MimeTypeIco)
-                ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-        if (icon != null)
+        if ((capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco)) is {} icon)
         {
             using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
             iconKey.SetValue("", iconStore.GetFresh(icon) + ",0");

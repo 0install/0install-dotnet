@@ -53,7 +53,7 @@ public class DetectCandidates : ReadDirectoryBase
         // Ignore uninstallers
         if (file.Name.ContainsIgnoreCase("uninstall") || file.Name.ContainsIgnoreCase("unins0")) return;
 
-        var candidate = _candidateCreators.Select(x => x()).FirstOrDefault(x => x.Analyze(Source, file));
-        if (candidate != null) _candidates.Add(candidate);
+        if (_candidateCreators.Select(x => x()).FirstOrDefault(x => x.Analyze(Source, file)) is {} candidate)
+            _candidates.Add(candidate);
     }
 }

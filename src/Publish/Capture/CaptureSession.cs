@@ -88,8 +88,7 @@ public class CaptureSession
         diff.CollectAutoPlays(commandMapper, capabilities);
         diff.CollectDefaultPrograms(commandMapper, capabilities, ref appName);
 
-        var appRegistration = diff.GetAppRegistration(commandMapper, capabilities, ref appName, ref appDescription);
-        if (appRegistration != null) capabilities.Entries.Add(appRegistration);
+        if (diff.GetAppRegistration(commandMapper, capabilities, ref appName, ref appDescription) is {} appRegistration) capabilities.Entries.Add(appRegistration);
         else
         { // Only collect URL protocols if there wasn't already an application registration that covered them
             diff.CollectProtocolAssocs(commandMapper, capabilities);

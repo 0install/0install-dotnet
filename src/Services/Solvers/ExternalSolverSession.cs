@@ -85,8 +85,7 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
 
     public void HandleStderr()
     {
-        string? message;
-        while ((message = _stderr.ReadLine()) != null)
+        while (_stderr.ReadLine() is {} message)
         {
             if (message.StartsWith("error: ", out string? error)) Log.Error("External solver: " + error);
             else if (message.StartsWith("warning: ", out string? warning)) Log.Warn("External solver: " + warning);

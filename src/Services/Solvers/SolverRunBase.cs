@@ -118,8 +118,7 @@ public abstract class SolverRunBase
         // Ensure the existing selections do not conflict with restrictions of the candidate
         foreach (var restriction in candidate.Implementation.GetEffectiveRestrictions())
         {
-            var selection = Selections.GetImplementation(restriction.InterfaceUri);
-            if (selection != null)
+            if (Selections.GetImplementation(restriction.InterfaceUri) is {} selection)
             {
                 if (restriction.Versions != null && !restriction.Versions.Match(selection.Version)) return false;
                 if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
@@ -156,8 +155,7 @@ public abstract class SolverRunBase
         foreach (var demands in DemandsFor(selection.Bindings, selection.InterfaceUri))
             yield return demands;
 
-        var command = selection[requirements.Command ?? Command.NameRun];
-        if (command != null)
+        if (selection[requirements.Command ?? Command.NameRun] is {} command)
         {
             foreach (var demand in DemandsFor(command, requirements.InterfaceUri))
                 yield return demand;

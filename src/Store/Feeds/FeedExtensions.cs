@@ -22,8 +22,7 @@ public static class FeedExtensions
 
         foreach (var curFeed in feeds)
         {
-            var impl = curFeed.Implementations.FirstOrDefault(implementation => implementation.ManifestDigest.PartialEquals(digest));
-            if (impl != null)
+            if (curFeed.Implementations.FirstOrDefault(implementation => implementation.ManifestDigest.PartialEquals(digest)) is {} impl)
                 return (impl, curFeed);
         }
 

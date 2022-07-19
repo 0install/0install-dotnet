@@ -26,8 +26,7 @@ public partial class TarExtractor : ArchiveExtractor
         {
             using var tarStream = new TarInputStream(stream, Encoding.UTF8) {IsStreamOwner = false};
 
-            TarEntry entry;
-            while ((entry = tarStream.GetNextEntry()) != null)
+            while (tarStream.GetNextEntry() is {} entry)
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
 

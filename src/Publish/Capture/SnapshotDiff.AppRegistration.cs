@@ -144,9 +144,7 @@ partial class SnapshotDiff
         #endregion
 
         // Find the matching existing file type
-        var fileType = capabilities.Entries.OfType<FileType>().FirstOrDefault(type => type.ID == progID);
-
-        if (fileType != null)
+        if (capabilities.Entries.OfType<FileType>().FirstOrDefault(type => type.ID == progID) is {} fileType)
         {
             // Check if the file type already has the extension and add it if not
             if (!fileType.Extensions.Any(element => StringUtils.EqualsIgnoreCase(element.Value, extension)))

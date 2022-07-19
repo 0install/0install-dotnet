@@ -200,14 +200,11 @@ public class WindowsPackageManager : PackageManagerBase
             };
         }
 
-        var impl = Impl(baseVersion: "3", wow6432: false) ?? Impl(baseVersion: "1", wow6432: false);
-        if (impl != null) yield return impl;
+        if ((Impl(baseVersion: "3", wow6432: false) ?? Impl(baseVersion: "1", wow6432: false)) is {} impl)
+            yield return impl;
 
-        if (Environment.Is64BitProcess)
-        {
-            impl = Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true);
-            if (impl != null) yield return impl;
-        }
+        if (Environment.Is64BitProcess && (Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true)) is {} impl64)
+            yield return impl64;
     }
 
     private IEnumerable<ExternalImplementation> FindGitForWindows()
