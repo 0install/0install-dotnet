@@ -105,10 +105,10 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
-        ThrowIfMissingAdminRights();
-
         string? path = GetPath(manifestDigest);
         if (path == null) return false;
+
+        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
         Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
         return RemoveInner(path, handler);
@@ -121,14 +121,15 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
-        ThrowIfMissingAdminRights();
-
         var paths = Directory.GetDirectories(Path).Where(path =>
         {
             var digest = new ManifestDigest();
             digest.ParseID(System.IO.Path.GetFileName(path));
             return digest.Best != null;
         }).ToList();
+        if (paths.Count == 0) return;
+
+        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
         handler.RunTask(ForEachTask.Create(
             name: string.Format(Resources.DeletingDirectory, Path),
@@ -221,7 +222,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         #endregion
 
         if (!Directory.Exists(Path)) return 0;
-        ThrowIfMissingAdminRights();
+        if (MissingAdminRights) throw new NotAdminException();
 
         using var run = new OptimiseRun(Path);
         handler.RunTask(ForEachTask.Create(
@@ -231,11 +232,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         return run.SavedBytes;
     }
 
-    private void ThrowIfMissingAdminRights()
-    {
-        if (ReadOnly && WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator)
-            throw new NotAdminException(Resources.MustBeAdminToRemove);
-    }
+    private bool MissingAdminRights => ReadOnly && WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator;
 
     /// <summary>
     /// Creates string representation suitable for console output.
