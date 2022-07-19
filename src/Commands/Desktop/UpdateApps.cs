@@ -19,19 +19,19 @@ public class UpdateApps : IntegrationCommand
     public override string Usage => "[OPTIONS]";
     protected override int AdditionalArgsMax => 0;
 
-    internal bool Clean;
+    private bool _clean;
 
     /// <inheritdoc/>
     public UpdateApps(ICommandHandler handler)
         : base(handler)
     {
-        Options.Add("c|clean", () => Resources.OptionClean, _ => Clean = true);
+        Options.Add("c|clean", () => Resources.OptionClean, _ => _clean = true);
     }
 
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        if (Clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && ImplementationsInReadOnlyStores)
+        if (_clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && ImplementationsInReadOnlyStores)
             throw new NotAdminException();
 
         var apps = GetApps();
@@ -41,7 +41,7 @@ public class UpdateApps : IntegrationCommand
         DownloadUncachedImplementations(implementations);
         BackgroundSelfUpdate();
 
-        if (Clean)
+        if (_clean)
         {
             Handler.CancellationToken.ThrowIfCancellationRequested();
             CleanImplementations(implementations);
