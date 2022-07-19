@@ -126,20 +126,13 @@ public static class ProgramUtils
         {
             return ExitCode.UserCanceled;
         }
-        catch (NeedsGuiException ex)
+        catch (NeedsGuiException) when (GuiStartInfo(args) is {} startInfo)
         {
-            var gui = GuiStartInfo(args);
-            if (gui == null)
-            {
-                handler.Error(ex);
-                return ExitCode.NotSupported;
-            }
-
             Log.Info("Switching to GUI");
             handler.DisableUI();
             try
             {
-                return (ExitCode)gui.Run();
+                return (ExitCode)startInfo.Run();
             }
             catch (IOException ex2)
             {
@@ -152,20 +145,13 @@ public static class ProgramUtils
                 return ExitCode.AccessDenied;
             }
         }
-        catch (NotAdminException ex)
+        catch (NotAdminException) when (WindowsUtils.HasUac && GuiStartInfo(args) is {} startInfo)
         {
-            var gui = GuiStartInfo(args);
-            if (gui == null || !WindowsUtils.HasUac)
-            {
-                handler.Error(ex);
-                return ExitCode.AccessDenied;
-            }
-
             Log.Info("Elevating to admin");
             handler.DisableUI();
             try
             {
-                return (ExitCode)gui.AsAdmin().Run();
+                return (ExitCode)startInfo.AsAdmin().Run();
             }
             catch (IOException ex2)
             {
@@ -228,10 +214,10 @@ public static class ProgramUtils
             return ExitCode.NotSupported;
         }
         catch (PathTooLongException ex) when (
-            WindowsUtils.IsWindows &&
+            WindowsUtils.IsWindows10Redstone &&
             RegistryUtils.GetDword(RegKeyFSPolicyUser, RegValueNameLongPaths, defaultValue: RegistryUtils.GetDword(RegKeyFSPolicyMachine, RegValueNameLongPaths)) != 1)
         {
-            if (!WindowsUtils.IsWindows10Redstone) throw;
+            Debug.Assert(WindowsUtils.IsWindows);
             string message = ex.Message + @" " + Resources.SuggestLongPath;
             if (handler.Ask(message + @" " + Resources.AskTryNow, defaultAnswer: false, alternateMessage: message))
             {
