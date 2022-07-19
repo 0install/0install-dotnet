@@ -112,13 +112,14 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// Creates a deep copy of this <see cref="InterfacePreferences"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="InterfacePreferences"/>.</returns>
-    public InterfacePreferences Clone()
+    public InterfacePreferences Clone() => new()
     {
-        var feed = new InterfacePreferences {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Uri = Uri, StabilityPolicy = StabilityPolicy};
-        feed.Feeds.AddRange(Feeds.CloneElements());
-
-        return feed;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Uri = Uri,
+        StabilityPolicy = StabilityPolicy,
+        Feeds = {Feeds.CloneElements()}
+    };
     #endregion
 
     #region Conversion

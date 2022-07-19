@@ -138,12 +138,13 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// Creates a deep copy of this <see cref="FeedPreferences"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="FeedPreferences"/>.</returns>
-    public FeedPreferences Clone()
+    public FeedPreferences Clone() => new()
     {
-        var feedPreferences = new FeedPreferences {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, LastChecked = LastChecked};
-        feedPreferences.Implementations.AddRange(Implementations.CloneElements());
-        return feedPreferences;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        LastChecked = LastChecked,
+        Implementations = {Implementations.CloneElements()}
+    };
     #endregion
 
     #region Conversion

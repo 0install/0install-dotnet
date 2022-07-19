@@ -48,17 +48,13 @@ public static class SolverUtils
             License = implementation.License,
             UnknownAttributes = implementation.UnknownAttributes,
             UnknownElements = implementation.UnknownElements,
-            InterfaceUri = requirements.InterfaceUri
+            InterfaceUri = requirements.InterfaceUri,
+            FromFeed = candidate.FeedUri != requirements.InterfaceUri ? candidate.FeedUri : null,
+            QuickTestFile = (implementation is ExternalImplementation externalImplementation) ? externalImplementation.QuickTestFile : null,
+            Bindings = {implementation.Bindings.CloneElements()}
         };
-        if (candidate.FeedUri != requirements.InterfaceUri) selection.FromFeed = candidate.FeedUri;
-
-        if (implementation is ExternalImplementation externalImplementation)
-            selection.QuickTestFile = externalImplementation.QuickTestFile;
-
-        selection.Bindings.AddRange(implementation.Bindings.CloneElements());
         selection.AddDependencies(requirements, from: candidate.Implementation);
         selection.AddCommand(requirements, from: candidate.Implementation);
-
         return selection;
     }
 
@@ -76,8 +72,8 @@ public static class SolverUtils
         if (from == null) throw new ArgumentNullException(nameof(from));
         #endregion
 
-        target.Dependencies.AddRange(from.Dependencies.Where(x => x.IsApplicable(requirements)).CloneElements());
-        target.Restrictions.AddRange(from.Restrictions.Where(x => x.IsApplicable(requirements)).CloneElements());
+        target.Dependencies.Add(from.Dependencies.Where(x => x.IsApplicable(requirements)).CloneElements());
+        target.Restrictions.Add(from.Restrictions.Where(x => x.IsApplicable(requirements)).CloneElements());
     }
 
     /// <summary>
@@ -100,11 +96,15 @@ public static class SolverUtils
         var command = from[requirements.Command];
         if (command == null) return null;
 
-        var newCommand = new Command {Name = command.Name, Path = command.Path};
-        newCommand.Arguments.AddRange(command.Arguments.CloneElements());
-        newCommand.Bindings.AddRange(command.Bindings.CloneElements());
-        if (command.WorkingDir != null) newCommand.WorkingDir = command.WorkingDir.Clone();
-        if (command.Runner != null) newCommand.Runner = command.Runner.CloneRunner();
+        var newCommand = new Command
+        {
+            Name = command.Name,
+            Path = command.Path,
+            Arguments = {command.Arguments.CloneElements()},
+            Bindings = {command.Bindings.CloneElements()},
+            WorkingDir = command.WorkingDir?.Clone(),
+            Runner = command.Runner?.CloneRunner()
+        };
         newCommand.AddDependencies(requirements, from: command);
 
         selection.Commands.Add(newCommand);

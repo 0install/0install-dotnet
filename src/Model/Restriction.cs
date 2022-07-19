@@ -91,7 +91,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
         {
             Distributions.Clear();
             if (string.IsNullOrEmpty(value)) return;
-            Distributions.AddRange(value.Split(' '));
+            Distributions.Add(value.Split(' '));
         }
     }
 
@@ -141,12 +141,13 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// Creates a deep copy of this <see cref="Restriction"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Restriction"/>.</returns>
-    public virtual Restriction Clone()
+    public virtual Restriction Clone() => new()
     {
-        var restriction = new Restriction {InterfaceUri = InterfaceUri, OS = OS, Versions = Versions};
-        restriction.Constraints.AddRange(Constraints.CloneElements());
-        restriction.Distributions.AddRange(Distributions);
-        return restriction;
-    }
+        InterfaceUri = InterfaceUri,
+        OS = OS,
+        Versions = Versions,
+        Constraints = {Constraints.CloneElements()},
+        Distributions = {Distributions}
+    };
     #endregion
 }

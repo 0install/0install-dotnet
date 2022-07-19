@@ -98,13 +98,17 @@ public sealed partial class DefaultProgram : VerbCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone()
+    public override Capability Clone() => new DefaultProgram
     {
-        var capability = new DefaultProgram {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, ExplicitOnly = ExplicitOnly, Service = Service, InstallCommands = InstallCommands};
-        capability.Descriptions.AddRange(Descriptions.CloneElements());
-        capability.Icons.AddRange(Icons);
-        capability.Verbs.AddRange(Verbs.CloneElements());
-        return capability;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        ID = ID,
+        ExplicitOnly = ExplicitOnly,
+        Service = Service,
+        InstallCommands = InstallCommands,
+        Descriptions = {Descriptions.CloneElements()},
+        Icons = {Icons.CloneElements()},
+        Verbs = {Verbs.CloneElements()}
+    };
     #endregion
 }

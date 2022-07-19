@@ -217,11 +217,9 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Creates a deep copy of this <see cref="TrustDB"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="TrustDB"/>.</returns>
-    public TrustDB Clone()
+    public TrustDB Clone() => new()
     {
-        var trust = new TrustDB();
-        trust.Keys.AddRange(Keys.CloneElements());
-        return trust;
-    }
+        Keys = {Keys.CloneElements()}
+    };
     #endregion
 }

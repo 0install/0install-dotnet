@@ -108,7 +108,7 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// </summary>
     public Selections(IEnumerable<ImplementationSelection> implementations)
     {
-        Implementations.AddRange(implementations);
+        Implementations.Add(implementations);
     }
 
     /// <summary>
@@ -180,12 +180,14 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// Creates a deep copy of this <see cref="Selections"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Selections"/>.</returns>
-    public Selections Clone()
+    public Selections Clone() => new()
     {
-        var selections = new Selections {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, InterfaceUri = InterfaceUri, Command = Command};
-        selections.Implementations.AddRange(Implementations.CloneElements());
-        return selections;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        InterfaceUri = InterfaceUri,
+        Command = Command,
+        Implementations = {Implementations.CloneElements()}
+    };
     #endregion
 
     #region Conversion

@@ -142,7 +142,7 @@ public abstract partial class CliCommand : ScopedOperation
         // Automatically show help for missing args
         if (AdditionalArgsMin > 0 && !args.Any()) args = new[] {"--help"};
 
-        AdditionalArgs.AddRange(Options.Parse(args));
+        AdditionalArgs.Add(Options.Parse(args));
 
         if (AdditionalArgs.Count < AdditionalArgsMin) throw new OptionException(Resources.MissingArguments, null);
         if (AdditionalArgsMin == 1 && string.IsNullOrEmpty(AdditionalArgs[0])) throw new OptionException(Resources.MissingArguments, null);

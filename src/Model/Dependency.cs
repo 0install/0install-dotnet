@@ -91,14 +91,17 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
     /// Creates a deep copy of this <see cref="Dependency"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Dependency"/>.</returns>
-    Dependency ICloneable<Dependency>.Clone()
+    Dependency ICloneable<Dependency>.Clone() => new()
     {
-        var dependency = new Dependency {InterfaceUri = InterfaceUri, OS = OS, Versions = Versions, Importance = Importance, Use = Use};
-        dependency.Constraints.AddRange(Constraints.CloneElements());
-        dependency.Distributions.AddRange(Distributions);
-        dependency.Bindings.AddRange(Bindings.CloneElements());
-        return dependency;
-    }
+        InterfaceUri = InterfaceUri,
+        OS = OS,
+        Versions = Versions,
+        Importance = Importance,
+        Use = Use,
+        Constraints = {Constraints.CloneElements()},
+        Distributions = {Distributions},
+        Bindings = {Bindings.CloneElements()}
+    };
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Dependency"/> instance.

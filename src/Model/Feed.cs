@@ -318,13 +318,13 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
             if (element is Group group)
             {
                 // Move implementations out of groups
-                collapsedElements.AddRange(group.Elements);
+                collapsedElements.Add(group.Elements);
             }
             else collapsedElements.Add(element);
         }
 
         Elements.Clear();
-        Elements.AddRange(collapsedElements);
+        Elements.Add(collapsedElements);
     }
 
     private void NormalizeEntryPoints()
@@ -390,21 +390,26 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// Creates a deep copy of this <see cref="Feed"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Feed"/>.</returns>
-    public Feed Clone()
+    public Feed Clone() => new()
     {
-        var feed = new Feed {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, MinInjectorVersion = MinInjectorVersion, Uri = Uri, Name = Name, Homepage = Homepage, NeedsTerminal = NeedsTerminal};
-        feed.Feeds.AddRange(Feeds.CloneElements());
-        feed.FeedFor.AddRange(FeedFor.CloneElements());
-        feed.Summaries.AddRange(Summaries.CloneElements());
-        feed.Descriptions.AddRange(Descriptions.CloneElements());
-        feed.Categories.AddRange(Categories);
-        feed.Icons.AddRange(Icons);
-        feed.SplashScreens.AddRange(SplashScreens);
-        feed.Elements.AddRange(Elements.CloneElements());
-        feed.EntryPoints.AddRange(EntryPoints.CloneElements());
-        feed.CapabilityLists.AddRange(CapabilityLists.CloneElements());
-        return feed;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        MinInjectorVersion = MinInjectorVersion,
+        Uri = Uri,
+        Name = Name,
+        Homepage = Homepage,
+        NeedsTerminal = NeedsTerminal,
+        Feeds = {Feeds.CloneElements()},
+        FeedFor = {FeedFor.CloneElements()},
+        Summaries = {Summaries.CloneElements()},
+        Descriptions = {Descriptions.CloneElements()},
+        Categories = {Categories.CloneElements()},
+        Icons = {Icons.CloneElements()},
+        SplashScreens = {SplashScreens.CloneElements()},
+        Elements = {Elements.CloneElements()},
+        EntryPoints = {EntryPoints.CloneElements()},
+        CapabilityLists = {CapabilityLists.CloneElements()},
+    };
     #endregion
 
     #region Conversion

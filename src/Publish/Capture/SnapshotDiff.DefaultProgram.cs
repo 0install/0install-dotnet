@@ -35,14 +35,13 @@ partial class SnapshotDiff
             if (string.IsNullOrEmpty(appName))
                 appName = (clientKey.GetValue("") ?? clientKey.GetValue(DesktopIntegration.Windows.DefaultProgram.RegValueLocalizedName))?.ToString();
 
-            var defaultProgram = new DefaultProgram
+            capabilities.Entries.Add(new DefaultProgram
             {
                 ID = client,
-                Service = service
-            };
-            defaultProgram.Verbs.AddRange(GetVerbs(clientKey, commandMapper));
-            defaultProgram.InstallCommands = GetInstallCommands(clientKey, commandMapper.InstallationDir);
-            capabilities.Entries.Add(defaultProgram);
+                Service = service,
+                Verbs = {GetVerbs(clientKey, commandMapper)},
+                InstallCommands = GetInstallCommands(clientKey, commandMapper.InstallationDir)
+            });
         }
     }
 

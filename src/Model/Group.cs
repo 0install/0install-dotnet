@@ -40,12 +40,12 @@ public sealed partial class Group : Element, IElementContainer
             if (element is Group group)
             {
                 // Move implementations out of sub-groups
-                collapsedElements.AddRange(group.Elements);
+                collapsedElements.Add(group.Elements);
             }
             else collapsedElements.Add(element);
         }
         Elements.Clear();
-        Elements.AddRange(collapsedElements);
+        Elements.Add(collapsedElements);
     }
     #endregion
 

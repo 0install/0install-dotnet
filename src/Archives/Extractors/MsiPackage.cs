@@ -103,7 +103,7 @@ internal sealed class MsiPackage : IDisposable
     {
         using var mediaView = _database.OpenView("SELECT Cabinet FROM Media");
         mediaView.Execute();
-        _cabinets.AddRange(
+        _cabinets.Add(
             mediaView.Select(row => row["Cabinet"].ToString())
                      .Where(name => name.StartsWith("#"))
                      .Select(name => name[1..]));

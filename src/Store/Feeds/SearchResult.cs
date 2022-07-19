@@ -64,9 +64,13 @@ public partial class SearchResult
     /// <returns>A pseudo-<see cref="Feed"/>; not a complete feed that can be used to launch an implementation.</returns>
     public Feed ToPseudoFeed()
     {
-        var feed = new Feed {Uri = Uri, Name = Name};
+        var feed = new Feed
+        {
+            Uri = Uri,
+            Name = Name,
+            Categories = {Categories.CloneElements()}
+        };
         if (!string.IsNullOrEmpty(Summary)) feed.Summaries.Add(Summary);
-        feed.Categories.AddRange(Categories.CloneElements());
         return feed;
     }
 

@@ -28,7 +28,7 @@ public partial class SnapshotDiff : Snapshot
 
         void FindDiff<T>(Func<Snapshot, List<T>> get, IComparer<T>? comparer = null)
             where T : IComparable<T>
-            => get(this).AddRange(get(after).GetAddedElements(get(before), comparer ?? DefaultComparer<T>.Instance));
+            => get(this).Add(get(after).GetAddedElements(get(before), comparer ?? DefaultComparer<T>.Instance));
 
         FindDiff(x => x.ServiceAssocs);
         FindDiff(x => x.AutoPlayHandlersUser);

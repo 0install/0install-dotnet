@@ -57,7 +57,7 @@ public sealed partial class PackageImplementation : Element
         {
             Distributions.Clear();
             if (string.IsNullOrEmpty(value)) return;
-            Distributions.AddRange(value.Split(' '));
+            Distributions.Add(value.Split(' '));
         }
     }
 
@@ -114,8 +114,12 @@ public sealed partial class PackageImplementation : Element
     /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
     public PackageImplementation CloneImplementation()
     {
-        var implementation = new PackageImplementation {Package = Package, Version = Version};
-        implementation.Distributions.AddRange(Distributions);
+        var implementation = new PackageImplementation
+        {
+            Package = Package,
+            Version = Version,
+            Distributions = {Distributions}
+        };
         CloneFromTo(this, implementation);
         return implementation;
     }

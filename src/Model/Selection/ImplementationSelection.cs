@@ -90,7 +90,12 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// <returns>The cloned <see cref="ImplementationSelection"/>.</returns>
     ImplementationSelection ICloneable<ImplementationSelection>.Clone()
     {
-        var implementation = new ImplementationSelection {InterfaceUri = InterfaceUri, FromFeed = FromFeed, QuickTestFile = QuickTestFile};
+        var implementation = new ImplementationSelection
+        {
+            InterfaceUri = InterfaceUri,
+            FromFeed = FromFeed,
+            QuickTestFile = QuickTestFile
+        };
         CloneFromTo(this, implementation);
         return implementation;
     }

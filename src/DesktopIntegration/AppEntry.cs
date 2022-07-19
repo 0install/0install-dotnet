@@ -138,14 +138,15 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// Creates a deep copy of this <see cref="AppEntry"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AppEntry"/>.</returns>
-    public AppEntry Clone()
+    public AppEntry Clone() => new()
     {
-        var appList = new AppEntry {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, InterfaceUri = InterfaceUri};
-        if (Requirements != null) appList.Requirements = Requirements.Clone();
-        if (AccessPoints != null) appList.AccessPoints = AccessPoints.Clone();
-        appList.CapabilityLists.AddRange(CapabilityLists.CloneElements());
-
-        return appList;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Name = Name,
+        InterfaceUri = InterfaceUri,
+        Requirements = Requirements?.Clone(),
+        AccessPoints = AccessPoints?.Clone(),
+        CapabilityLists = {CapabilityLists.CloneElements()}
+    };
     #endregion
 }

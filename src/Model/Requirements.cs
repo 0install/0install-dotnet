@@ -163,14 +163,12 @@ public partial class Requirements : ICloneable<Requirements>
     /// Creates a deep copy of this <see cref="Requirements"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Requirements"/>.</returns>
-    public Requirements Clone()
+    public Requirements Clone() => new(InterfaceUri, Command, Architecture)
     {
-        var requirements = new Requirements(InterfaceUri, Command, Architecture);
-        requirements.Languages.AddRange(Languages);
-        requirements.ExtraRestrictions.AddRange(ExtraRestrictions);
-        requirements.Distributions.AddRange(Distributions);
-        return requirements;
-    }
+        Languages = {Languages},
+        ExtraRestrictions = {ExtraRestrictions},
+        Distributions = {Distributions}
+    };
     #endregion
 
     #region Conversion
@@ -189,17 +187,17 @@ public partial class Requirements : ICloneable<Requirements>
     {
         var args = new List<string>();
 
-        if (Command != null) args.AddRange(new[] {"--command", Command});
+        if (Command != null) args.Add(new[] {"--command", Command});
         if (Architecture.Cpu == Cpu.Source) args.Add("--source");
         else
         {
-            if (Architecture.OS != OS.All) args.AddRange(new[] {"--os", Architecture.OS.ConvertToString()});
-            if (Architecture.Cpu != Cpu.All) args.AddRange(new[] {"--cpu", Architecture.Cpu.ConvertToString()});
+            if (Architecture.OS != OS.All) args.Add(new[] {"--os", Architecture.OS.ConvertToString()});
+            if (Architecture.Cpu != Cpu.All) args.Add(new[] {"--cpu", Architecture.Cpu.ConvertToString()});
         }
         foreach (var language in Languages)
-            args.AddRange(new[] {"--language", language.ToString()});
+            args.Add(new[] {"--language", language.ToString()});
         foreach (var (uri, range) in ExtraRestrictions)
-            args.AddRange(new[] {"--version-for", uri.ToStringRfc(), range.ToString()});
+            args.Add(new[] {"--version-for", uri.ToStringRfc(), range.ToString()});
         args.Add(InterfaceUri.ToStringRfc());
 
         return args.ToArray();

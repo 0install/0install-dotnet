@@ -133,17 +133,19 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     /// Creates a deep copy of this <see cref="Command"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Command"/>.</returns>
-    public Command Clone()
+    public Command Clone() => new()
     {
-        var newCommand = new Command {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Name = Name, Path = Path};
-        newCommand.Arguments.AddRange(Arguments.CloneElements());
-        newCommand.Bindings.AddRange(Bindings.CloneElements());
-        if (WorkingDir != null) newCommand.WorkingDir = WorkingDir.Clone();
-        if (Runner != null) newCommand.Runner = Runner.CloneRunner();
-        newCommand.Dependencies.AddRange(Dependencies.CloneElements());
-        newCommand.Restrictions.AddRange(Restrictions.CloneElements());
-
-        return newCommand;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        IfZeroInstallVersion = IfZeroInstallVersion,
+        Name = Name,
+        Path = Path,
+        WorkingDir = WorkingDir?.Clone(),
+        Runner = Runner?.CloneRunner(),
+        Arguments = {Arguments.CloneElements()},
+        Bindings = {Bindings.CloneElements()},
+        Dependencies = {Dependencies.CloneElements()},
+        Restrictions = {Restrictions.CloneElements()}
+    };
     #endregion
 }

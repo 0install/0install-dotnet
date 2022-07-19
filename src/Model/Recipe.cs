@@ -31,7 +31,7 @@ public sealed partial class Recipe : RetrievalMethod
         set
         {
             Steps.Clear();
-            if (value is {Length: > 0}) Steps.AddRange(value.OfType<IRecipeStep>());
+            if (value is {Length: > 0}) Steps.Add(value.OfType<IRecipeStep>());
         }
     }
     #endregion
@@ -74,11 +74,11 @@ public sealed partial class Recipe : RetrievalMethod
     /// Creates a deep copy of this <see cref="Recipe"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Recipe"/>.</returns>
-    public override RetrievalMethod Clone()
+    public override RetrievalMethod Clone() => new Recipe
     {
-        var recipe = new Recipe {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
-        recipe.Steps.AddRange(Steps.CloneElements());
-        return recipe;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Steps = {Steps.CloneElements()}
+    };
     #endregion
 }

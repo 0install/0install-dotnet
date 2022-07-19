@@ -190,7 +190,7 @@ public abstract class SolverRunBase
     {
         {
             var requirements = Require(dependency.InterfaceUri, command: "");
-            requirements.Distributions.AddRange(dependency.Distributions);
+            requirements.Distributions.Add(dependency.Distributions);
             requirements.AddRestriction(dependency);
             yield return Demand(requirements, dependency.Importance);
         }
@@ -225,9 +225,11 @@ public abstract class SolverRunBase
     /// <param name="command">The name of the command in the implementation to execute. Will default to <see cref="Command.NameRun"/> or <see cref="Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
     private Requirements Require(FeedUri interfaceUri, string? command)
     {
-        var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _requirements.Architecture);
+        var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _requirements.Architecture)
+        {
+            Languages = {_requirements.Languages}
+        };
         requirements.AddRestrictions(_requirements);
-        requirements.Languages.AddRange(_requirements.Languages);
         return requirements;
     }
 

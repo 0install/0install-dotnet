@@ -71,7 +71,7 @@ public abstract class PackageManagerBase : IPackageManager
 
     private static void CopyValues(Element from, ExternalImplementation to)
     {
-        to.Commands.AddRange(from.Commands);
-        to.Bindings.AddRange(from.Bindings);
+        to.Commands.Add(from.Commands);
+        to.Bindings.Add(from.Bindings);
     }
 }

@@ -43,11 +43,13 @@ public sealed partial class RemoveHook : Capability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone()
+    public override Capability Clone() => new RemoveHook
     {
-        var capability = new RemoveHook {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, Command = Command};
-        capability.Arguments.AddRange(Arguments.CloneElements());
-        return capability;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        ID = ID,
+        Command = Command,
+        Arguments = {Arguments.CloneElements()}
+    };
     #endregion
 }

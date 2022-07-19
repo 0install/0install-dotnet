@@ -44,7 +44,7 @@ public class ClearDirectory : DirectoryOperation
             if (Directory.Exists(fullDirectoryPath))
                 _pendingDirectoryDeletes.Push(fullDirectoryPath);
 
-            filesToDelete.AddRange(
+            filesToDelete.Add(
                 directory.Keys
                          .Select(elementName => System.IO.Path.Combine(fullDirectoryPath, elementName))
                          .Where(File.Exists));

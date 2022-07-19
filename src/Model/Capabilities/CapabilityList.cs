@@ -66,12 +66,13 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
     /// Creates a deep copy of this <see cref="CapabilityList"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="CapabilityList"/>.</returns>
-    public CapabilityList Clone()
+    public CapabilityList Clone() => new()
     {
-        var capabilityList = new CapabilityList {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, OS = OS};
-        capabilityList.Entries.AddRange(Entries.CloneElements());
-        return capabilityList;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        OS = OS,
+        Entries = {Entries.CloneElements()}
+    };
     #endregion
 
     #region Conversion

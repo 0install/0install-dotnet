@@ -22,13 +22,13 @@ partial class SnapshotDiff
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        capabilities.Entries.AddRange(AutoPlayHandlersUser
-                                     .Select(handler => GetAutoPlay(handler, Registry.CurrentUser, AutoPlayAssocsUser, commandMapper))
-                                     .WhereNotNull());
+        capabilities.Entries.Add(AutoPlayHandlersUser
+                                .Select(handler => GetAutoPlay(handler, Registry.CurrentUser, AutoPlayAssocsUser, commandMapper))
+                                .WhereNotNull());
 
-        capabilities.Entries.AddRange(AutoPlayHandlersMachine
-                                     .Select(handler => GetAutoPlay(handler, Registry.LocalMachine, AutoPlayAssocsMachine, commandMapper))
-                                     .WhereNotNull());
+        capabilities.Entries.Add(AutoPlayHandlersMachine
+                                .Select(handler => GetAutoPlay(handler, Registry.LocalMachine, AutoPlayAssocsMachine, commandMapper))
+                                .WhereNotNull());
     }
 
     /// <summary>
@@ -60,19 +60,14 @@ partial class SnapshotDiff
         if (progIDKey == null) throw new IOException(progID + " key not found");
         string? provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString();
         if (string.IsNullOrEmpty(provider)) return null;
-        var autoPlay = new AutoPlay
+
+        return new AutoPlay
         {
             ID = handler,
             Provider = provider,
             Descriptions = {handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
-            Verb = GetVerb(progIDKey, commandMapper, verbName) ?? throw new IOException($"Unable to find verb '{verbName}' for autoplay handler.")
+            Verb = GetVerb(progIDKey, commandMapper, verbName) ?? throw new IOException($"Unable to find verb '{verbName}' for autoplay handler."),
+            Events = {autoPlayAssocs.Where(x => x.handler == handler).Select(x => new AutoPlayEvent {Name = x.name})}
         };
-
-        autoPlay.Events.AddRange(
-            from autoPlayAssoc in autoPlayAssocs
-            where autoPlayAssoc.handler == handler
-            select new AutoPlayEvent {Name = autoPlayAssoc.name});
-
-        return autoPlay;
     }
 }

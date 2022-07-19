@@ -119,8 +119,13 @@ public class IntegrationManager : IntegrationManagerBase
         if (AppList.ContainsEntry(target.Uri)) throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, target.Feed.Name));
 
         // Get basic metadata and copy of capabilities from feed
-        var appEntry = new AppEntry {InterfaceUri = target.Uri, Name = target.Feed.Name, Timestamp = DateTime.UtcNow};
-        appEntry.CapabilityLists.AddRange(target.Feed.CapabilityLists.CloneElements());
+        var appEntry = new AppEntry
+        {
+            InterfaceUri = target.Uri,
+            Name = target.Feed.Name,
+            Timestamp = DateTime.UtcNow,
+            CapabilityLists = {target.Feed.CapabilityLists.CloneElements()}
+        };
 
         AppList.Entries.Add(appEntry);
         WriteAppDir(appEntry);
@@ -143,7 +148,7 @@ public class IntegrationManager : IntegrationManagerBase
 
         // Get basic metadata and copy of capabilities from feed
         var appEntry = new AppEntry {InterfaceUri = petName, Requirements = requirements, Name = feed.Name, Timestamp = DateTime.UtcNow};
-        appEntry.CapabilityLists.AddRange(feed.CapabilityLists.CloneElements());
+        appEntry.CapabilityLists.Add(feed.CapabilityLists.CloneElements());
 
         AppList.Entries.Add(appEntry);
         WriteAppDir(appEntry);
@@ -197,13 +202,13 @@ public class IntegrationManager : IntegrationManagerBase
         // Temporarily remove capability-based access points but remember them for later reapplication
         var toReapply = new List<AccessPoint>();
         if (appEntry.AccessPoints != null)
-            toReapply.AddRange(appEntry.AccessPoints.Entries.Where(accessPoint => accessPoint is DefaultAccessPoint or CapabilityRegistration));
+            toReapply.Add(appEntry.AccessPoints.Entries.Where(accessPoint => accessPoint is DefaultAccessPoint or CapabilityRegistration));
         RemoveAccessPointsInternal(appEntry, toReapply);
 
         // Update metadata and capabilities
         appEntry.Name = feed.Name;
         appEntry.CapabilityLists.Clear();
-        appEntry.CapabilityLists.AddRange(feed.CapabilityLists.CloneElements());
+        appEntry.CapabilityLists.Add(feed.CapabilityLists.CloneElements());
 
         // Reapply removed access points dumping any that have become incompatible
         foreach (var accessPoint in toReapply)
@@ -267,8 +272,8 @@ public class IntegrationManager : IntegrationManagerBase
                     accessPoint.Unapply(appEntry, MachineWide);
             });
 
-        appEntry.AccessPoints.Entries.RemoveRange(accessPoints); // Replace pre-existing entries
-        appEntry.AccessPoints.Entries.AddRange(accessPoints);
+        appEntry.AccessPoints.Entries.Remove(accessPoints); // Replace pre-existing entries
+        appEntry.AccessPoints.Entries.Add(accessPoints);
         appEntry.Timestamp = DateTime.UtcNow;
     }
 
@@ -287,7 +292,7 @@ public class IntegrationManager : IntegrationManagerBase
             accessPoint.Unapply(appEntry, MachineWide);
 
         // Remove the access points from the AppList
-        appEntry.AccessPoints.Entries.RemoveRange(accessPoints);
+        appEntry.AccessPoints.Entries.Remove(accessPoints);
         appEntry.Timestamp = DateTime.UtcNow;
     }
 

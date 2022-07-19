@@ -113,8 +113,8 @@ public sealed class Export : Download
             {
                 var selfSelections = Solver.Solve(new FeedUri(Config.DefaultSelfUpdateUri));
 
-                Selections.Implementations.AddRange(selfSelections.Implementations);
-                UncachedImplementations.AddRange(SelectionsManager.GetUncachedImplementations(selfSelections));
+                Selections.Implementations.Add(selfSelections.Implementations);
+                UncachedImplementations.Add(SelectionsManager.GetUncachedImplementations(selfSelections));
             }
             #region Error handling
             catch

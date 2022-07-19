@@ -126,14 +126,18 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// Creates a deep copy of this <see cref="EntryPoint"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="EntryPoint"/>.</returns>
-    public EntryPoint Clone()
+    public EntryPoint Clone() => new()
     {
-        var newEntryPoint = new EntryPoint {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Command = Command, BinaryName = BinaryName, NeedsTerminal = NeedsTerminal};
-        newEntryPoint.Names.AddRange(Names.CloneElements());
-        newEntryPoint.Summaries.AddRange(Summaries.CloneElements());
-        newEntryPoint.Descriptions.AddRange(Descriptions.CloneElements());
-        newEntryPoint.Icons.AddRange(Icons);
-        return newEntryPoint;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        IfZeroInstallVersion = IfZeroInstallVersion,
+        Command = Command,
+        BinaryName = BinaryName,
+        NeedsTerminal = NeedsTerminal,
+        Names = {Names.CloneElements()},
+        Summaries = {Summaries.CloneElements()},
+        Descriptions = {Descriptions.CloneElements()},
+        Icons = {Icons.CloneElements()}
+    };
     #endregion
 }

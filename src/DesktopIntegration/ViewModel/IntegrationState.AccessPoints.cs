@@ -21,9 +21,9 @@ partial class IntegrationState
     {
         if (AppEntry.AccessPoints == null)
         { // Fill in default values for first integration
-            MenuEntries.AddRange(Suggest.MenuEntries(Feed));
-            SendTo.AddRange(Suggest.SendTo(Feed));
-            Aliases.AddRange(Suggest.Aliases(Feed));
+            MenuEntries.Add(Suggest.MenuEntries(Feed));
+            SendTo.Add(Suggest.SendTo(Feed));
+            Aliases.Add(Suggest.Aliases(Feed));
         }
         else
         { // Distribute existing CommandAccessPoints among type-specific binding lists

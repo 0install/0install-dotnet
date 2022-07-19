@@ -74,7 +74,7 @@ public class ZeroInstallClient : IZeroInstallClient
         var args = new List<string> { "select", "--batch", "--xml" };
         if (refresh) args.Add("--refresh");
         if (offline) args.Add("--offline");
-        args.AddRange(requirements.ToCommandLineArgs());
+        args.Add(requirements.ToCommandLineArgs());
 
         string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
         return XmlStorage.FromXmlString<Selections>(output);
@@ -85,7 +85,7 @@ public class ZeroInstallClient : IZeroInstallClient
     {
         var args = new List<string> { "download", "--batch" };
         if (refresh) args.Add("--refresh");
-        args.AddRange(requirements.ToCommandLineArgs());
+        args.Add(requirements.ToCommandLineArgs());
 
         if (_guiLauncher == null)
         {
@@ -106,8 +106,8 @@ public class ZeroInstallClient : IZeroInstallClient
     {
         var args = new List<string> { "run", "--no-wait" };
         if (refresh) args.Add("--refresh");
-        args.AddRange(requirements.ToCommandLineArgs());
-        args.AddRange(arguments);
+        args.Add(requirements.ToCommandLineArgs());
+        args.Add(arguments);
 
         var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
         launcher.Run(args.ToArray());
@@ -118,8 +118,8 @@ public class ZeroInstallClient : IZeroInstallClient
     {
         var args = new List<string> { "run", "--batch" };
         if (refresh) args.Add("--refresh");
-        args.AddRange(requirements.ToCommandLineArgs());
-        args.AddRange(arguments);
+        args.Add(requirements.ToCommandLineArgs());
+        args.Add(arguments);
 
         var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
         return launcher.GetStartInfo(args.ToArray());

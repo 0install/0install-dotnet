@@ -44,7 +44,7 @@ public partial class Implementation : ImplementationBase
             }
             #endregion
         }
-        RetrievalMethods.RemoveRange(toRemove);
+        RetrievalMethods.Remove(toRemove);
     }
     #endregion
 
@@ -57,7 +57,7 @@ public partial class Implementation : ImplementationBase
     {
         var implementation = new Implementation();
         CloneFromTo(this, implementation);
-        implementation.RetrievalMethods.AddRange(RetrievalMethods.CloneElements());
+        implementation.RetrievalMethods.Add(RetrievalMethods.CloneElements());
         return implementation;
     }
 

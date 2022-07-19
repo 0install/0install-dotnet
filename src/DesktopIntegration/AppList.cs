@@ -234,12 +234,11 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// Creates a deep copy of this <see cref="AppList"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AppList"/>.</returns>
-    public AppList Clone()
+    public AppList Clone() => new()
     {
-        var appList = new AppList {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
-        appList.Entries.AddRange(Entries.CloneElements());
-
-        return appList;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Entries = {Entries.CloneElements()}
+    };
     #endregion
 }

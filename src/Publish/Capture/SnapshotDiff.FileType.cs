@@ -22,7 +22,7 @@ partial class SnapshotDiff
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        capabilities.Entries.AddRange((
+        capabilities.Entries.Add((
             from progID in ProgIDs
             where !string.IsNullOrEmpty(progID)
             select GetFileType(progID, commandMapper)).WhereNotNull());
@@ -77,7 +77,7 @@ partial class SnapshotDiff
         if (!string.IsNullOrEmpty(description))
             capability.Descriptions.Add(description);
 
-        capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
+        capability.Verbs.Add(GetVerbs(progIDKey, commandMapper));
 
         // Only return capabilities that have verbs associated with them
         return capability.Verbs.Count == 0 ? null : capability;

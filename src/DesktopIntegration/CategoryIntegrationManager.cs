@@ -55,15 +55,15 @@ public class CategoryIntegrationManager : IntegrationManager, ICategoryIntegrati
         // Build capability list
         var accessPointsToAdd = new List<AccessPoint>();
         if (capabilities) accessPointsToAdd.Add(new CapabilityRegistration());
-        if (menu) accessPointsToAdd.AddRange(Suggest.MenuEntries(feed));
-        if (desktop) accessPointsToAdd.AddRange(Suggest.DesktopIcons(feed));
-        if (sendTo) accessPointsToAdd.AddRange(Suggest.SendTo(feed));
-        if (alias) accessPointsToAdd.AddRange(Suggest.Aliases(feed));
-        if (autoStart) accessPointsToAdd.AddRange(Suggest.AutoStart(feed));
+        if (menu) accessPointsToAdd.Add(Suggest.MenuEntries(feed));
+        if (desktop) accessPointsToAdd.Add(Suggest.DesktopIcons(feed));
+        if (sendTo) accessPointsToAdd.Add(Suggest.SendTo(feed));
+        if (alias) accessPointsToAdd.Add(Suggest.Aliases(feed));
+        if (autoStart) accessPointsToAdd.Add(Suggest.AutoStart(feed));
         if (defaults)
         {
             // Add AccessPoints for all suitable Capabilities
-            accessPointsToAdd.AddRange((
+            accessPointsToAdd.Add((
                 from capability in appEntry.CapabilityLists.CompatibleCapabilities().OfType<DefaultCapability>()
                 where !capability.WindowsMachineWideOnly || MachineWide || !WindowsUtils.IsWindows
                 where !capability.ExplicitOnly
@@ -109,13 +109,13 @@ public class CategoryIntegrationManager : IntegrationManager, ICategoryIntegrati
 
         // Build capability list
         var accessPointsToRemove = new List<AccessPoint>();
-        if (capabilities) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<CapabilityRegistration>());
-        if (menu) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<MenuEntry>());
-        if (desktop) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<DesktopIcon>());
-        if (sendTo) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<SendTo>());
-        if (alias) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<AppAlias>());
-        if (autoStart) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<AutoStart>());
-        if (defaults) accessPointsToRemove.AddRange(appEntry.AccessPoints.Entries.OfType<DefaultAccessPoint>());
+        if (capabilities) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<CapabilityRegistration>());
+        if (menu) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<MenuEntry>());
+        if (desktop) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<DesktopIcon>());
+        if (sendTo) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<SendTo>());
+        if (alias) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<AppAlias>());
+        if (autoStart) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<AutoStart>());
+        if (defaults) accessPointsToRemove.Add(appEntry.AccessPoints.Entries.OfType<DefaultAccessPoint>());
 
         try
         {

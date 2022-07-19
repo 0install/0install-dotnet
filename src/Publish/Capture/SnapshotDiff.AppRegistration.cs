@@ -90,14 +90,13 @@ partial class SnapshotDiff
             var existing = capabilities.GetCapability<UrlProtocol>(progID);
             if (existing == null)
             {
-                var capability = new UrlProtocol
+                capabilities.Entries.Add(new UrlProtocol
                 {
                     ID = progID,
                     Descriptions = {progIDKey.GetValue("", defaultValue: "")?.ToString() ?? ""},
-                    KnownPrefixes = {prefix}
-                };
-                capability.Verbs.AddRange(GetVerbs(progIDKey, commandMapper));
-                capabilities.Entries.Add(capability);
+                    KnownPrefixes = {prefix},
+                    Verbs = {GetVerbs(progIDKey, commandMapper)}
+                });
             }
             else existing.KnownPrefixes.Add(prefix);
         }

@@ -145,7 +145,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
         {
             void RenameTo(string newPath)
             {
-                Add(newPath).AddRange(dir);
+                Add(newPath).Add(dir);
                 _directories.Remove(path);
                 found = true;
             }

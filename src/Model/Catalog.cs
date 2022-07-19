@@ -166,11 +166,11 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
     /// Creates a deep copy of this <see cref="Catalog"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Catalog"/>.</returns>
-    public Catalog Clone()
+    public Catalog Clone() => new()
     {
-        var catalog = new Catalog {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
-        catalog.Feeds.AddRange(Feeds.CloneElements());
-        return catalog;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Feeds = {Feeds.CloneElements()}
+    };
     #endregion
 }

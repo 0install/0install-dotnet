@@ -23,13 +23,12 @@ public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPoint
     /// Creates a deep copy of this <see cref="AccessPointList"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AccessPointList"/>.</returns>
-    public AccessPointList Clone()
+    public AccessPointList Clone() => new()
     {
-        var accessPointList = new AccessPointList {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
-        accessPointList.Entries.AddRange(Entries.CloneElements());
-
-        return accessPointList;
-    }
+        UnknownAttributes = UnknownAttributes,
+        UnknownElements = UnknownElements,
+        Entries = {Entries.CloneElements()}
+    };
     #endregion
 
     #region Conversion

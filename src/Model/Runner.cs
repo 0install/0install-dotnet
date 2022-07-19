@@ -54,14 +54,16 @@ public partial class Runner : Dependency, IArgBaseContainer
     /// Creates a deep copy of this <see cref="Runner"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Runner"/>.</returns>
-    public Runner CloneRunner()
+    public Runner CloneRunner() => new()
     {
-        var runner = new Runner {InterfaceUri = InterfaceUri, Use = Use, Command = Command, Versions = Versions};
-        runner.Bindings.AddRange(Bindings.CloneElements());
-        runner.Constraints.AddRange(Constraints.CloneElements());
-        runner.Arguments.AddRange(Arguments.CloneElements());
-        return runner;
-    }
+        InterfaceUri = InterfaceUri,
+        Use = Use,
+        Command = Command,
+        Versions = Versions,
+        Bindings = {Bindings.CloneElements()},
+        Constraints = {Constraints.CloneElements()},
+        Arguments = {Arguments.CloneElements()}
+    };
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Runner"/> instance.

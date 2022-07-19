@@ -52,12 +52,12 @@ public partial class ForEachArgs : ArgBase
     /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="ForEachArgs"/>.</returns>
-    private ForEachArgs CloneForEachArgs()
+    private ForEachArgs CloneForEachArgs() => new()
     {
-        var forEachArgs = new ForEachArgs {ItemFrom = ItemFrom, Separator = Separator};
-        forEachArgs.Arguments.AddRange(Arguments.CloneElements());
-        return forEachArgs;
-    }
+        ItemFrom = ItemFrom,
+        Separator = Separator,
+        Arguments = {Arguments.CloneElements()}
+    };
 
     /// <summary>
     /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.

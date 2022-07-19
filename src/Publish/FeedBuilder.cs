@@ -77,7 +77,7 @@ public class FeedBuilder : IDisposable
         handler.RunTask(detect);
 
         _candidates.Clear();
-        _candidates.AddRange(detect.Candidates);
+        _candidates.Add(detect.Candidates);
         MainCandidate = _candidates.FirstOrDefault();
     }
     #endregion
@@ -204,9 +204,9 @@ public class FeedBuilder : IDisposable
             ID = ID ?? throw new InvalidOperationException($"{nameof(GenerateDigest)}() has not been called yet."),
             ManifestDigest = ManifestDigest,
             Version = MainCandidate.Version ?? new ImplementationVersion("1"),
-            Architecture = MainCandidate.Architecture
+            Architecture = MainCandidate.Architecture,
+            Commands = {Commands}
         };
-        implementation.Commands.AddRange(Commands);
         if (RetrievalMethod != null) implementation.RetrievalMethods.Add(RetrievalMethod);
 
         var feed = new Feed
@@ -214,13 +214,13 @@ public class FeedBuilder : IDisposable
             Name = MainCandidate.Name ?? throw new InvalidOperationException("Name is not set."),
             Summaries = {MainCandidate.Summary ?? throw new InvalidOperationException("Summary is not set.")},
             NeedsTerminal = MainCandidate.NeedsTerminal,
-            Elements = {implementation}
+            Elements = {implementation},
+            Uri = Uri,
+            Icons = {_icons},
+            EntryPoints = {EntryPoints}
         };
-        if (Uri != null) feed.Uri = Uri;
-        feed.Icons.AddRange(_icons);
         if (!string.IsNullOrEmpty(MainCandidate.Category)) feed.Categories.Add(new Category {Name = MainCandidate.Category});
-        feed.EntryPoints.AddRange(EntryPoints);
-        if (CapabilityList is {Entries.Count: > 0 }) feed.CapabilityLists.Add(CapabilityList);
+        if (CapabilityList is {Entries.Count: > 0}) feed.CapabilityLists.Add(CapabilityList);
 
         return new SignedFeed(feed, SecretKey);
     }

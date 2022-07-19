@@ -329,10 +329,10 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         if (Architecture == default) Architecture = parent.Architecture;
 
         // Accumulate list entries
-        Commands.AddRange(parent.Commands);
-        Dependencies.AddRange(parent.Dependencies);
-        Restrictions.AddRange(parent.Restrictions);
-        Bindings.AddRange(parent.Bindings);
+        Commands.Add(parent.Commands);
+        Dependencies.Add(parent.Dependencies);
+        Restrictions.Add(parent.Restrictions);
+        Bindings.Add(parent.Bindings);
 
         // Inherit unknown XML attributes and elements
         UnknownAttributes = EnumerableExtensions.DistinctBy((UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()), x => x.Name).ToArray();
@@ -368,10 +368,10 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         to.Main = from.Main;
         to.SelfTest = from.SelfTest;
         to.DocDir = from.DocDir;
-        to.Commands.AddRange(from.Commands.CloneElements());
-        to.Dependencies.AddRange(from.Dependencies.CloneElements());
-        to.Restrictions.AddRange(from.Restrictions.CloneElements());
-        to.Bindings.AddRange(from.Bindings.CloneElements());
+        to.Commands.Add(from.Commands.CloneElements());
+        to.Dependencies.Add(from.Dependencies.CloneElements());
+        to.Restrictions.Add(from.Restrictions.CloneElements());
+        to.Bindings.Add(from.Bindings.CloneElements());
     }
     #endregion
 }

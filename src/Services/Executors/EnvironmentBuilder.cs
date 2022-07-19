@@ -96,7 +96,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         if (arguments == null) throw new ArgumentNullException(nameof(arguments));
         if (_selections == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
 
-        _userArguments.AddRange(arguments);
+        _userArguments.Add(arguments);
 
         return this;
     }
@@ -122,7 +122,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
             ProcessRunEnvBindings();
 
             var args = ExpandCommandLine(_mainCommandLine);
-            args.AddRange(_userArguments);
+            args.Add(_userArguments);
 
             if (string.IsNullOrEmpty(_startInfo.FileName))
             {
@@ -209,7 +209,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         else
         {
             commandLine = GetCommandLine(_selections[runner.InterfaceUri], runner.Command ?? Command.NameRun);
-            commandLine.AddRange(runner.Arguments);
+            commandLine.Add(runner.Arguments);
         }
 
         if (!string.IsNullOrEmpty(command.Path))
@@ -219,7 +219,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
             // Fully qualified paths are used by package/native implementations, usually relative to the implementation
             commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(_implementationStore.GetPath(implementation), path));
         }
-        commandLine.AddRange(command.Arguments);
+        commandLine.Add(command.Arguments);
 
         return commandLine;
     }
@@ -246,7 +246,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
                                          ?? Enumerable.Empty<string>())
                     {
                         EnvironmentVariables["item"] = value;
-                        result.AddRange(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, EnvironmentVariables)));
+                        result.Add(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, EnvironmentVariables)));
                     }
                     EnvironmentVariables.Remove("item");
                     break;

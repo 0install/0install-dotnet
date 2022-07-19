@@ -85,24 +85,24 @@ public class Snapshot
     /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
     private void TakeRegistry()
     {
-        ServiceAssocs.AddRange(GetServiceAssocs());
-        AutoPlayHandlersUser.AddRange(RegUtils.GetSubKeyNames(Registry.CurrentUser, AutoPlay.RegKeyHandlers));
-        AutoPlayHandlersMachine.AddRange(RegUtils.GetSubKeyNames(Registry.LocalMachine, AutoPlay.RegKeyHandlers));
-        AutoPlayAssocsUser.AddRange(GetAutoPlayAssocs(Registry.CurrentUser));
-        AutoPlayAssocsMachine.AddRange(GetAutoPlayAssocs(Registry.LocalMachine));
+        ServiceAssocs.Add(GetServiceAssocs());
+        AutoPlayHandlersUser.Add(RegUtils.GetSubKeyNames(Registry.CurrentUser, AutoPlay.RegKeyHandlers));
+        AutoPlayHandlersMachine.Add(RegUtils.GetSubKeyNames(Registry.LocalMachine, AutoPlay.RegKeyHandlers));
+        AutoPlayAssocsUser.Add(GetAutoPlayAssocs(Registry.CurrentUser));
+        AutoPlayAssocsMachine.Add(GetAutoPlayAssocs(Registry.LocalMachine));
 
         var (fileAssocs, progIDs) = GetFileAssocData();
-        FileAssocs.AddRange(fileAssocs);
-        ProgIDs.AddRange(progIDs);
+        FileAssocs.Add(fileAssocs);
+        ProgIDs.Add(progIDs);
 
-        ProtocolAssocs.AddRange(GetProtocolAssoc());
-        ClassIDs.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs));
-        RegisteredApplications.AddRange(RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications));
+        ProtocolAssocs.Add(GetProtocolAssoc());
+        ClassIDs.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs));
+        RegisteredApplications.Add(RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications));
 
-        ContextMenuFiles.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesFiles + @"\shell"));
-        ContextMenuExecutableFiles.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesExecutableFiles + @"\shell"));
-        ContextMenuDirectories.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesDirectories + @"\shell"));
-        ContextMenuAll.AddRange(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesAll + @"\shell"));
+        ContextMenuFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesFiles + @"\shell"));
+        ContextMenuExecutableFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesExecutableFiles + @"\shell"));
+        ContextMenuDirectories.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesDirectories + @"\shell"));
+        ContextMenuAll.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesAll + @"\shell"));
     }
 
     /// <summary>
@@ -143,7 +143,7 @@ public class Snapshot
                 fileAssocsList.Add((keyName, assocValue));
 
                 // Get additional ProgIDs
-                fileAssocsList.AddRange(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => (keyName, progID)));
+                fileAssocsList.Add(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => (keyName, progID)));
             }
             else progIDsList.Add(keyName);
         }
@@ -201,9 +201,9 @@ public class Snapshot
 
         // Build a list of all installation directories
         if (string.IsNullOrEmpty(programFiles32Bit)) Log.Warn(Resources.MissingProgramFiles32Bit);
-        else ProgramsDirs.AddRange(Directory.GetDirectories(programFiles32Bit));
+        else ProgramsDirs.Add(Directory.GetDirectories(programFiles32Bit));
         if (!string.IsNullOrEmpty(programFiles64Bit))
-            ProgramsDirs.AddRange(Directory.GetDirectories(programFiles64Bit));
+            ProgramsDirs.Add(Directory.GetDirectories(programFiles64Bit));
     }
     #endregion
 }

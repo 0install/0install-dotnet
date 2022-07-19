@@ -177,7 +177,7 @@ public class FetcherTest : TestWithMocks
     {
         var digest = new ManifestDigest(expected.CalculateDigest());
         var testImplementation = new Implementation {ID = "test", ManifestDigest = digest};
-        testImplementation.RetrievalMethods.AddRange(retrievalMethod);
+        testImplementation.RetrievalMethods.Add(retrievalMethod);
 
         _storeMock.Setup(x => x.Add(It.IsAny<ManifestDigest>(), It.IsAny<Action<IBuilder>>()))
                   .Callback((ManifestDigest manifestDigest, Action<IBuilder> build) =>
