@@ -145,12 +145,13 @@ public static class ProgramUtils
                 return ExitCode.AccessDenied;
             }
         }
-        catch (NotAdminException) when (WindowsUtils.HasUac && GuiStartInfo(args) is {} startInfo)
+        catch (NotAdminException) when (Environment.GetEnvironmentVariable("AS_ADMIN") != "1" && WindowsUtils.HasUac && GuiStartInfo(args) is {} startInfo)
         {
             Log.Info("Elevating to admin");
             handler.DisableUI();
             try
             {
+                startInfo.EnvironmentVariables["AS_ADMIN"] = "1"; // Prevent infinite loop
                 return (ExitCode)startInfo.AsAdmin().Run();
             }
             catch (IOException ex2)
