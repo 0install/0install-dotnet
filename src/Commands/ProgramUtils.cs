@@ -56,7 +56,8 @@ public static class ProgramUtils
     public static void Init()
     {
         AppMutex.Create(ZeroInstallEnvironment.MutexName());
-        if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName())) Environment.Exit(999);
+        AppMutex.Create(ZeroInstallEnvironment.LegacyMutexName());
+        if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName()) || AppMutex.Probe(ZeroInstallEnvironment.LegacyUpdateMutexName())) Environment.Exit(999);
 
         if (UILanguage != null) Languages.SetUI(UILanguage);
 

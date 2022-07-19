@@ -31,7 +31,7 @@ partial class SelfManager
     }
 
     /// <summary>A mutex that prevents Zero Install instances from being launched while an update is in progress.</summary>
-    private AppMutex? _updateMutex;
+    private AppMutex? _updateMutex, _legacyUpdateMutex;
 
     /// <summary>
     /// Waits for any Zero Install instances running in <see cref="TargetDir"/> to terminate and then prevents new ones from starting.
@@ -54,7 +54,7 @@ partial class SelfManager
         Handler.RunTask(new SimpleTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
-            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(TargetDir)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();
@@ -62,9 +62,10 @@ partial class SelfManager
 
             // Prevent new instances from starting during the update
             _updateMutex = AppMutex.Create(ZeroInstallEnvironment.UpdateMutexName(TargetDir));
+            _legacyUpdateMutex = AppMutex.Create(ZeroInstallEnvironment.LegacyUpdateMutexName(TargetDir));
 
             // Detect any new instances that started in the short time between detecting existing ones and blocking new ones
-            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(TargetDir)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();
@@ -76,7 +77,10 @@ partial class SelfManager
     /// Counterpart to <see cref="MutexAcquire"/>.
     /// </summary>
     private void MutexRelease()
-        => _updateMutex?.Dispose();
+    {
+        _updateMutex?.Dispose();
+        _legacyUpdateMutex?.Dispose();
+    }
 
     /// <summary>
     /// Try to remove OneGet Bootstrap module to prevent future PowerShell sessions from loading it again.

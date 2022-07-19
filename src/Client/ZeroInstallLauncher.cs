@@ -12,6 +12,7 @@ namespace ZeroInstall.Client;
 internal class ZeroInstallLauncher : ProcessLauncher
 {
     private readonly string _mutexName, _updateMutexName;
+    private readonly string _legacyMutexName, _legacyUpdateMutexName;
 
     public ZeroInstallLauncher(string commandLine)
         : base(ProcessUtils.FromCommandLine(commandLine))
@@ -19,23 +20,27 @@ internal class ZeroInstallLauncher : ProcessLauncher
         string? installBase = Path.GetDirectoryName(FileName);
         _mutexName = ZeroInstallEnvironment.MutexName(installBase);
         _updateMutexName = ZeroInstallEnvironment.UpdateMutexName(installBase);
+        _legacyMutexName = ZeroInstallEnvironment.LegacyMutexName(installBase);
+        _legacyUpdateMutexName = ZeroInstallEnvironment.LegacyUpdateMutexName(installBase);
     }
 
     public override void Run(params string[] arguments)
     {
         using (AppMutex.Create(_mutexName))
+        using (AppMutex.Create(_legacyMutexName))
             base.Run(arguments);
     }
 
     public override string RunAndCapture(Action<StreamWriter>? onStartup, params string[] arguments)
     {
         using (AppMutex.Create(_mutexName))
+        using (AppMutex.Create(_legacyMutexName))
             return base.RunAndCapture(onStartup, arguments);
     }
 
     public override ProcessStartInfo GetStartInfo(params string[] arguments)
     {
-        if (AppMutex.Probe(_updateMutexName))
+        if (AppMutex.Probe(_updateMutexName) || AppMutex.Probe(_legacyUpdateMutexName))
             throw new TemporarilyUnavailableException();
 
         return base.GetStartInfo(arguments);
