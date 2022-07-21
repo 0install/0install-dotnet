@@ -31,7 +31,7 @@ public class UpdateApps : IntegrationCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        if (_clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && ImplementationsInReadOnlyStores)
+        if (_clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && ImplementationsInReadOnlyStores && !ZeroInstallInstance.IsLibraryMode)
             throw new NotAdminException();
 
         var apps = GetApps();
