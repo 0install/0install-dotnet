@@ -102,6 +102,9 @@ public static class ProgramUtils
         RegKeyFSPolicyUser = @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy Objects\{B0D05113-7B6B-4D69-81E2-8E8836775C9C}Machine\System\CurrentControlSet\Control\FileSystem",
         RegValueNameLongPaths = "LongPathsEnabled";
 
+    /// <summary>A command-line argument used to indicate that the program was relaunched with admin rights.</summary>
+    private const string AsAdminIndicatorArg = "--as-admin";
+
     /// <summary>
     /// Parses command-line arguments and performs the indicated action. Performs error handling.
     /// </summary>
@@ -119,7 +122,11 @@ public static class ProgramUtils
 
         try
         {
-            var command = CliCommand.CreateAndParse(args, handler);
+            var command = CliCommand.CreateAndParse(
+                args.FirstOrDefault() == AsAdminIndicatorArg
+                    ? args.Skip(1).ToList()
+                    : args,
+                handler);
             return command.Execute();
         }
         #region Error handling
@@ -146,13 +153,14 @@ public static class ProgramUtils
                 return ExitCode.AccessDenied;
             }
         }
-        catch (NotAdminException) when (Environment.GetEnvironmentVariable("AS_ADMIN") != "1" && WindowsUtils.HasUac && GuiStartInfo(args) is {} startInfo)
+        catch (NotAdminException) when (WindowsUtils.HasUac
+                                     && args.FirstOrDefault() != AsAdminIndicatorArg
+                                     && GuiStartInfo(args.Prepend(AsAdminIndicatorArg)) is {} startInfo)
         {
             Log.Info("Elevating to admin");
             handler.DisableUI();
             try
             {
-                startInfo.EnvironmentVariables["AS_ADMIN"] = "1"; // Prevent infinite loop
                 return (ExitCode)startInfo.AsAdmin().Run();
             }
             catch (IOException ex2)
