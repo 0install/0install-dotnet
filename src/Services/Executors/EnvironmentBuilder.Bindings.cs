@@ -72,9 +72,6 @@ public partial class EnvironmentBuilder
         // Do not apply bindings more than once
         if (!_appliedBindingContainers.Add(bindingContainer)) return;
 
-        // Don't use bindings for PackageImplementations
-        if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return;
-
         foreach (var binding in bindingContainer.Bindings)
         {
             switch (binding)
@@ -101,6 +98,12 @@ public partial class EnvironmentBuilder
     /// <exception cref="ExecutorException"><see cref="EnvironmentBinding.Name"/> or other data is invalid.</exception>
     private void ApplyEnvironmentBinding(EnvironmentBinding binding, ImplementationSelection implementation)
     {
+        if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
+        {
+            Log.Debug($"Skipping {binding} for {implementation}");
+            return;
+        }
+
         Log.Debug($"Applying {binding} for {implementation}");
 
         if (string.IsNullOrEmpty(binding.Name)) throw new ExecutorException(string.Format(Resources.MissingBindingName, @"<environment>"));

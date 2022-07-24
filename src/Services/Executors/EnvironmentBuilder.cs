@@ -4,6 +4,7 @@
 using System.Diagnostics;
 using NanoByte.Common.Native;
 using ZeroInstall.Model.Selection;
+using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Services.Executors;
@@ -215,9 +216,9 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         if (!string.IsNullOrEmpty(command.Path))
         {
             string path = command.Path.ToNativePath();
-
-            // Fully qualified paths are used by package/native implementations, usually relative to the implementation
-            commandLine.Add(Path.IsPathRooted(path) ? path : Path.Combine(_implementationStore.GetPath(implementation), path));
+            if (!implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
+                path = Path.Combine(_implementationStore.GetPath(implementation), path);
+            commandLine.Add(path);
         }
         commandLine.Add(command.Arguments);
 
