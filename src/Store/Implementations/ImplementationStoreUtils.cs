@@ -27,13 +27,9 @@ public static class ImplementationStoreUtils
         if (implementation == null) throw new ArgumentNullException(nameof(implementation));
         #endregion
 
-        if (string.IsNullOrEmpty(implementation.LocalPath))
-        {
-            string? path = store.GetPath(implementation.ManifestDigest);
-            if (path == null) throw new ImplementationNotFoundException(implementation.ManifestDigest);
-            return path;
-        }
-        else return implementation.LocalPath;
+        if (!string.IsNullOrEmpty(implementation.LocalPath)) return implementation.LocalPath;
+
+        return store.GetPath(implementation.ManifestDigest) ?? throw new ImplementationNotFoundException(implementation.ManifestDigest);
     }
 
     /// <summary>

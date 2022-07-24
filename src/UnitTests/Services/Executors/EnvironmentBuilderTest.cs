@@ -26,22 +26,35 @@ public class EnvironmentBuilderTest : TestWithRedirect
     }
 
     [Fact]
-    public void ExceptionMultipleInvalidBindings()
+    public void ExceptionConflictingEnvironmentInsertAndValue()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding()); // Missing name
+        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding { Name = "test", Insert = "test1", Value = "test2" });
         ExpectCommandException(selections);
+    }
 
-        selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding {Name = "test", Insert = "test1", Value = "test2"}); // Conflicting insert and value
+    [Fact]
+    public void ExceptionMissingEnvironmentBindingName()
+    {
+        var selections = SelectionsTest.CreateTestSelections();
+        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding());
         ExpectCommandException(selections);
+    }
 
-        selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInVar()); // Missing name
+    [Fact]
+    public void ExceptionMissingExecutableInVarBindingName()
+    {
+        var selections = SelectionsTest.CreateTestSelections();
+        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInVar());
         ExpectCommandException(selections);
+    }
 
-        selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInPath()); // Missing name
+
+    [Fact]
+    public void ExceptionMissingExecutableInPathBindingName()
+    {
+        var selections = SelectionsTest.CreateTestSelections();
+        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInPath());
         ExpectCommandException(selections);
     }
 

@@ -205,7 +205,7 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
 
         List<ArgBase> commandLine;
         var runner = command.Runner;
-        if (runner == null) commandLine = new List<ArgBase>();
+        if (runner == null) commandLine = new();
         else
         {
             commandLine = GetCommandLine(_selections[runner.InterfaceUri], runner.Command ?? Command.NameRun);

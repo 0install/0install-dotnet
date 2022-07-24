@@ -72,8 +72,6 @@ public partial class EnvironmentBuilder
         // Do not apply bindings more than once
         if (!_appliedBindingContainers.Add(bindingContainer)) return;
 
-        if (bindingContainer.Bindings.Count == 0) return;
-
         // Don't use bindings for PackageImplementations
         if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return;
 
@@ -103,7 +101,7 @@ public partial class EnvironmentBuilder
     /// <exception cref="ExecutorException"><see cref="EnvironmentBinding.Name"/> or other data is invalid.</exception>
     private void ApplyEnvironmentBinding(EnvironmentBinding binding, ImplementationSelection implementation)
     {
-        Log.Debug("Applying " + binding + " for " + implementation);
+        Log.Debug($"Applying {binding} for {implementation}");
 
         if (string.IsNullOrEmpty(binding.Name)) throw new ExecutorException(string.Format(Resources.MissingBindingName, @"<environment>"));
 
@@ -150,7 +148,7 @@ public partial class EnvironmentBuilder
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     private void ApplyExecutableInVar(ExecutableInVar binding, ImplementationSelection implementation)
     {
-        Log.Debug("Applying " + binding + " for " + implementation);
+        Log.Debug($"Applying {binding} for {implementation}");
 
         if (string.IsNullOrEmpty(binding.Name)) throw new ExecutorException(string.Format(Resources.MissingBindingName, @"<executable-in-var>"));
         if (Path.GetInvalidFileNameChars().Any(invalidChar => binding.Name.Contains(invalidChar.ToString(CultureInfo.InvariantCulture))))
@@ -159,7 +157,7 @@ public partial class EnvironmentBuilder
         string exePath = DeployRunEnvExecutable(binding.Name);
 
         // Point variable directly to executable
-        if (EnvironmentVariables.ContainsKey(binding.Name)) Log.Warn("Overwriting existing environment variable with <executable-in-var>: " + binding.Name);
+        if (EnvironmentVariables.ContainsKey(binding.Name)) Log.Warn($"Overwriting existing environment variable with <executable-in-var>: {binding.Name}");
         EnvironmentVariables[binding.Name] = exePath;
 
         // Tell the executable what command-line to run
@@ -178,7 +176,7 @@ public partial class EnvironmentBuilder
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     private void ApplyExecutableInPath(ExecutableInPath binding, ImplementationSelection implementation)
     {
-        Log.Debug("Applying " + binding + " for " + implementation);
+        Log.Debug($"Applying {binding} for {implementation}");
 
         if (string.IsNullOrEmpty(binding.Name)) throw new ExecutorException(string.Format(Resources.MissingBindingName, @"<executable-in-path>"));
         if (Path.GetInvalidFileNameChars().Any(invalidChar => binding.Name.Contains(invalidChar.ToString(CultureInfo.InvariantCulture))))
@@ -209,7 +207,7 @@ public partial class EnvironmentBuilder
         string deployedPath = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
         if (WindowsUtils.IsWindows) deployedPath += ".exe";
 
-        Log.Info("Deploying run-environment executable to: " + deployedPath);
+        Log.Info($"Deploying run-environment executable to: {deployedPath}");
         try
         {
             if (File.Exists(deployedPath)) File.Delete(deployedPath);
@@ -247,7 +245,7 @@ public partial class EnvironmentBuilder
             : "runenv.sh.template";
 
         string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), templateName);
-        Log.Info("Writing run-environment template to: " + path);
+        Log.Info($"Writing run-environment template to: {path}");
         try
         {
             typeof(Executor).CopyEmbeddedToFile(templateName, path);
@@ -291,7 +289,7 @@ public partial class EnvironmentBuilder
     /// <exception cref="ExecutorException">The <paramref name="binding"/> has an invalid path or another working directory has already been set.</exception>
     private void ApplyWorkingDir(WorkingDir binding, ImplementationSelection implementation)
     {
-        Log.Debug("Applying " + binding + " for " + implementation);
+        Log.Debug($"Applying {binding} for {implementation}");
 
         string source = binding.Source.ToNativePath() ?? "";
         if (Path.IsPathRooted(source) || source.Contains(".." + Path.DirectorySeparatorChar)) throw new ExecutorException(Resources.WorkingDirInvalidPath);
