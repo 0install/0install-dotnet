@@ -243,9 +243,7 @@ public partial class EnvironmentBuilder
     private static string GetRunEnvTemplate()
     {
         string templateName = WindowsUtils.IsWindows
-            ? (Environment.Version.Major == 4)
-                ? "runenv.clr4.template"
-                : "runenv.clr2.template"
+            ? "runenv.exe.template"
             : "runenv.sh.template";
 
         string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), templateName);
