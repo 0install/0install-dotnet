@@ -61,7 +61,7 @@ public partial class TarExtractor : ArchiveExtractor
                 builder.AddHardlink(path, existingPath, executable);
         }
         #region Error handling
-        catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException or {Message: "Data Error"})
+        catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException or IndexOutOfRangeException or {Message: "Data Error"})
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
