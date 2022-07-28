@@ -73,15 +73,28 @@ public static partial class Shortcut
     {
         Log.Debug($"Creating Windows shortcut file at '{path}' pointing to: {targetPath} {arguments ?? ""}");
 
-        var link = (IShellLink)new ShellLink();
-        link.SetPath(targetPath);
-        if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
-        if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
-        if (!string.IsNullOrEmpty(description)) link.SetDescription(description[..Math.Min(description.Length, 256)]);
-        if (!string.IsNullOrEmpty(appId)) ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
+        ExceptionUtils.Retry<ArgumentException>(finalAttempt =>
+        {
+            var link = (IShellLink)new ShellLink();
+            try
+            {
+                link.SetPath(targetPath);
+                if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
+                if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
+                if (!finalAttempt)
+                {
+                    if (!string.IsNullOrEmpty(description)) link.SetDescription(description.TrimOverflow(250));
+                    if (!string.IsNullOrEmpty(appId)) ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
+                }
 
-        if (File.Exists(path)) File.Delete(path);
-        ((IPersistFile)link).Save(path, fRemember: false);
+                if (File.Exists(path)) File.Delete(path);
+                ((IPersistFile)link).Save(path, fRemember: false);
+            }
+            finally
+            {
+                System.Runtime.InteropServices.Marshal.FinalReleaseComObject(link);
+            }
+        });
     }
 
     private static string GetFolderPath(Environment.SpecialFolder folder)
