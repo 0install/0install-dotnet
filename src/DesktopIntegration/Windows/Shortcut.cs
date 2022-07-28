@@ -36,6 +36,9 @@ public static partial class Shortcut
 
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
 
+        string dirPath = Path.GetDirectoryName(path)!;
+        if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
+
         Create(path, targetPath, arguments,
             iconLocation: icon?.To(iconStore.GetFresh),
             description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command),
@@ -79,5 +82,24 @@ public static partial class Shortcut
 
         if (File.Exists(path)) File.Delete(path);
         ((IPersistFile)link).Save(path, fRemember: false);
+    }
+
+    private static string GetFolderPath(Environment.SpecialFolder folder)
+    {
+        string result = Environment.GetFolderPath(folder, Environment.SpecialFolderOption.Create);
+        if (!string.IsNullOrEmpty(result)) return result;
+
+        // Fallback paths in case Environment.GetFolderPath() does not work
+        return folder switch
+        {
+            Environment.SpecialFolder.CommonDesktopDirectory => @"C:\Users\Public\Desktop",
+            Environment.SpecialFolder.CommonPrograms => Path.Combine(Locations.SystemConfigDirs, "Microsoft", "Windows", "Start Menu", "Programs"),
+            Environment.SpecialFolder.CommonStartup => Path.Combine(Locations.SystemConfigDirs, "Microsoft", "Windows", "Start Menu", "Programs", "Startup"),
+            Environment.SpecialFolder.DesktopDirectory => Path.Combine(Locations.HomeDir, "Desktop"),
+            Environment.SpecialFolder.Programs => Path.Combine(Locations.UserConfigDir, "Microsoft", "Windows", "Start Menu", "Programs"),
+            Environment.SpecialFolder.Startup => Path.Combine(Locations.UserConfigDir, "Microsoft", "Windows", "Start Menu", "Programs", "Startup"),
+            Environment.SpecialFolder.SendTo => Path.Combine(Locations.UserConfigDir, "Microsoft", "SendTo"),
+            _ => Locations.HomeDir
+        };
     }
 }

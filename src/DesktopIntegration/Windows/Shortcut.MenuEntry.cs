@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -21,9 +20,6 @@ public static partial class Shortcut
         if (menuEntry == null) throw new ArgumentNullException(nameof(menuEntry));
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
-
-        string dirPath = GetStartMenuCategoryPath(menuEntry.Category, machineWide);
-        if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
 
         string filePath = GetStartMenuPath(menuEntry.Category, menuEntry.Name, machineWide);
         Create(filePath, target, menuEntry.Command, iconStore);
@@ -67,9 +63,7 @@ public static partial class Shortcut
     /// <exception cref="IOException"><paramref name="category"/> contains invalid characters.</exception>
     private static string GetStartMenuCategoryPath(string? category, bool machineWide)
     {
-        string menuDir = machineWide
-            ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Programs", @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs")
-            : Environment.GetFolderPath(Environment.SpecialFolder.Programs);
+        string menuDir = GetFolderPath(machineWide ? Environment.SpecialFolder.CommonPrograms : Environment.SpecialFolder.Programs);
 
         if (string.IsNullOrEmpty(category)) return menuDir;
         else

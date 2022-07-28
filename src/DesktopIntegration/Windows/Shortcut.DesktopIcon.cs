@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -47,8 +46,8 @@ public static partial class Shortcut
     /// <param name="name">The name of the shortcut (without the .lnk ending).</param>
     /// <param name="machineWide"><c>true</c> to use the machine-wide desktop; <c>false</c> for the per-user variant.</param>
     /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
-    public static string GetDesktopPath(string? name, bool machineWide)
-        => Path.Combine(machineWide
-            ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Desktop", @"C:\Users\Public\Desktop")
-            : Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), name + ".lnk");
+    private static string GetDesktopPath(string? name, bool machineWide)
+        => Path.Combine(
+            GetFolderPath(machineWide ? Environment.SpecialFolder.CommonDesktopDirectory : Environment.SpecialFolder.DesktopDirectory),
+            name + ".lnk");
 }

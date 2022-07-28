@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -43,7 +42,7 @@ public static partial class Shortcut
     }
 
     private static string GetStartupPath(string? name, bool machineWide)
-        => Path.Combine(machineWide
-            ? RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "Common Startup", @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup")
-            : Environment.GetFolderPath(Environment.SpecialFolder.Startup), name + ".lnk");
+        => Path.Combine(
+            GetFolderPath(machineWide ? Environment.SpecialFolder.CommonStartup : Environment.SpecialFolder.Startup),
+            name + ".lnk");
 }
