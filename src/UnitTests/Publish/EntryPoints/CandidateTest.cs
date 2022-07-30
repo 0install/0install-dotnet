@@ -38,7 +38,6 @@ public abstract class CandidateTest : IDisposable
     /// </summary>
     /// <param name="reference">Uses <see cref="Candidate.RelativePath"/> as the resource name.</param>
     /// <param name="xbit">Set to <c>true</c> to mark the file as Unix executable.</param>
-    /// <returns></returns>
     protected FileInfo Deploy(Candidate reference, bool xbit = false)
         => Deploy(reference.RelativePath!, xbit);
 
@@ -47,7 +46,6 @@ public abstract class CandidateTest : IDisposable
     /// </summary>
     /// <param name="path">The relative path of the resource.</param>
     /// <param name="xbit">Set to <c>true</c> to mark the file as Unix executable.</param>
-    /// <returns></returns>
     protected FileInfo Deploy(string path, bool xbit = false)
     {
         var file = new FileInfo(Path.Combine(Directory.FullName, path));

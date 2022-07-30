@@ -28,7 +28,6 @@ public partial class StubBuilder
     /// <param name="target">The application to be launched.</param>
     /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
     /// <param name="machineWide"><c>true</c> place the generated stub in a machine-wide location; <c>false</c> to place it in the current user profile.</param>
-    /// <returns></returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>

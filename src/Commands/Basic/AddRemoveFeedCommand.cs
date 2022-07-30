@@ -58,6 +58,5 @@ public abstract class AddRemoveFeedCommand : CliCommand
     /// <param name="interfaces">The set of interface URIs to register the feed <paramref name="source"/> for.</param>
     /// <param name="source">The feed reference to register for the <paramref name="interfaces"/>.</param>
     /// <param name="suggestedStabilityPolicy">The suggested value for <see cref="InterfacePreferences.StabilityPolicy"/>. Will be <see cref="Stability.Unset"/> unless there is exactly one <see cref="Implementation"/> in the <see cref="Feed"/>.</param>
-    /// <returns></returns>
     protected abstract ExitCode ExecuteHelper(IEnumerable<FeedUri> interfaces, FeedReference source, Stability suggestedStabilityPolicy);
 }
