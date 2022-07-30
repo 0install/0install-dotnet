@@ -6,15 +6,9 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// <summary>
 /// Contains test methods for <see cref="Shortcut"/>.
 /// </summary>
-[SupportedOSPlatform("windows")]
 public class ShortcutTest
 {
-    public ShortcutTest()
-    {
-        Skip.IfNot(WindowsUtils.IsWindows, "Shortcut files (.lnk) are only used on Windows");
-    }
-
-    [SkippableFact]
+    [Fact]
     public void TestCreate()
     {
         using var tempDir = new TemporaryDirectory("0install-unit-test");

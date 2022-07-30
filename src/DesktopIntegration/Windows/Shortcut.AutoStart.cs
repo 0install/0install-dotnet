@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -22,8 +23,12 @@ public static partial class Shortcut
         #endregion
 
         string filePath = GetStartupPath(autoStart.Name, machineWide);
-        var commandLine = new StubBuilder(iconStore).GetRunCommandLine(target, autoStart.Command, machineWide);
-        Create(filePath, commandLine.First(), commandLine.Skip(1).JoinEscapeArguments());
+        if (WindowsUtils.IsWindows)
+        {
+            var commandLine = new StubBuilder(iconStore).GetRunCommandLine(target, autoStart.Command, machineWide);
+            Create(filePath, commandLine.First(), commandLine.Skip(1).JoinEscapeArguments());
+        }
+        else Create(filePath, target, autoStart.Command, iconStore);
     }
 
     /// <summary>
