@@ -1,8 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Versioning;
+using System.Text;
+using PropertyStore.Flags;
+using PropertyStore.Structures;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -68,33 +70,34 @@ public static partial class Shortcut
     /// <param name="iconLocation">The path of the icon to use for the shortcut; leave <c>null</c> ot get the icon from <paramref name="targetPath"/>.</param>
     /// <param name="description">A short human-readable description; can be <c>null</c>.</param>
     /// <param name="appId">The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.</param>
-    [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global", Justification = "COM interfaces")]
     public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null, string? appId = null)
     {
         Log.Debug($"Creating Windows shortcut file at '{path}' pointing to: {targetPath} {arguments ?? ""}");
 
-        ExceptionUtils.Retry<ArgumentException>(finalAttempt =>
+        var link = ShellLink.Shortcut.CreateShortcut(targetPath, arguments, iconLocation ?? targetPath, iconindex: 0);
+        if (!string.IsNullOrEmpty(appId))
         {
-            var link = (IShellLink)new ShellLink();
-            try
+            link.ExtraData.PropertyStoreDataBlock = new()
             {
-                link.SetPath(targetPath);
-                if (!string.IsNullOrEmpty(arguments)) link.SetArguments(arguments);
-                if (!string.IsNullOrEmpty(iconLocation)) link.SetIconLocation(iconLocation, 0);
-                if (!finalAttempt)
+                PropertyStore =
                 {
-                    if (!string.IsNullOrEmpty(description)) link.SetDescription(description.TrimOverflow(250));
-                    if (!string.IsNullOrEmpty(appId)) ((IPropertyStore)link).SetValue(PropertyKey.AppUserModelID, appId);
+                    new()
+                    {
+                        FormatID = Guid.Parse("9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3"),
+                        PropertyStorage = {new IntegerName(5, new(PropertyType.VT_BSTR, ToBstr(appId)))}
+                    }
                 }
+            };
+        }
+        if (!string.IsNullOrEmpty(description))
+            link.StringData.NameString = description;
+        link.WriteToFile(path);
+    }
 
-                if (File.Exists(path)) File.Delete(path);
-                ((IPersistFile)link).Save(path, fRemember: false);
-            }
-            finally
-            {
-                System.Runtime.InteropServices.Marshal.FinalReleaseComObject(link);
-            }
-        });
+    private static byte[] ToBstr(string value)
+    {
+        byte[] bytes = Encoding.Unicode.GetBytes(value + '\0');
+        return BitConverter.GetBytes(bytes.Length).Concat(bytes).Concat(new byte[] {0, 0}).ToArray();
     }
 
     private static string GetFolderPath(Environment.SpecialFolder folder)
