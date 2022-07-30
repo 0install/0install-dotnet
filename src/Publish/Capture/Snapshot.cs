@@ -155,14 +155,10 @@ public class Snapshot
     /// Retrieves a list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).
     /// </summary>
     private static IEnumerable<(string protocol, string command)> GetProtocolAssoc()
-    {
-        foreach (string protocol in new[] { "ftp", "gopher", "http", "https" })
-        {
-            string? command = RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol + @"\shell\open\command", valueName: null);
-            if (!string.IsNullOrEmpty(command))
-                yield return (protocol, command);
-        }
-    }
+        => from protocol in new[] {"ftp", "gopher", "http", "https"}
+           let command = RegistryUtils.GetString($@"HKEY_CLASSES_ROOT\{protocol}\shell\open\command", valueName: null)
+           where !string.IsNullOrEmpty(command)
+           select (protocol, command);
 
     /// <summary>
     /// Retrieves a list of AutoPlay associations from the registry.
