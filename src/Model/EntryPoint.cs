@@ -32,8 +32,9 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
 
     /// <summary>
     /// The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.
+    /// May not be longer than 128 characters and may not contain whitespace.
     /// </summary>
-    [Description("The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.")]
+    [Description("The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes. May not be longer than 128 characters and may not contain whitespace.")]
     [XmlAttribute("app-id")]
     public string? AppId { get; set; }
 
@@ -109,7 +110,14 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// </summary>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public void Normalize()
-        => EnsureAttribute(Command, "command");
+    {
+        EnsureAttribute(Command, "command");
+        if (AppId != null)
+        {
+            if (AppId.Length > 128) throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "app-id", ToShortXml()) + " Should not be longer than 128 characters.");
+            if (AppId.ContainsWhitespace()) throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "app-id", ToShortXml()) + " Should not contain whitespace.");
+        }
+    }
     #endregion
 
     #region Conversion
