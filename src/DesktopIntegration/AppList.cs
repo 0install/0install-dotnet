@@ -190,7 +190,10 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
         #endregion
 
         using var zipFile = new ZipFile(stream) {IsStreamOwner = false, Password = password};
-        var zipEntry = zipFile.Cast<ZipEntry>().First(x => StringUtils.EqualsIgnoreCase(x.Name, "data.xml"));
+        var zipEntry = zipFile
+                      .Cast<ZipEntry>()
+                      .FirstOrDefault(x => StringUtils.EqualsIgnoreCase(x.Name, "data.xml"))
+                    ?? throw new InvalidDataException("Missing data.xml in ZIP file.");
 
         try
         {
