@@ -151,7 +151,7 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Une possible attaque par rejeu a été détectée. L'heure de modification du nouveau flux est antérieure à l'ancienne version.
+    <value>Le flux téléchargé est plus ancien que la version déjà présente dans le cache. Nous continuerons à utiliser la version la plus récente.
 URI du flux {0}
 Ancienne heure {1}
 Nouvelle heure {2}</value>
@@ -170,7 +170,7 @@ Nouvelle heure {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Impossible d'analyser les informations clés pour '{0}'.</value>
+    <value>Impossible d'analyser les informations de clé pour '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

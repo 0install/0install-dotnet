@@ -124,7 +124,7 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>El uso del feed mirror, que es necesario para la búsqueda, está desactivado.
+    <value>El uso del feed mirror, necesario para la búsqueda, está desactivado.
 Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>

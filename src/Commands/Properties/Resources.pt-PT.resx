@@ -378,7 +378,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista de todos os directórios de implementação.</value>
+    <value>Lista todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -750,7 +750,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Executar o executável especificado {MAIN} em vez do executável por defeito. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
+    <value>Executar o executável especificado {MAIN} em vez do executável padrão. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
 Não pode conter argumentos de linha de comando! Os espaços em branco não precisam de ser fugidos.</value>
     <comment>Automatically translated.</comment>
   </data>

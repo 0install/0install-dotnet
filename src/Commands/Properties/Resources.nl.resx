@@ -189,7 +189,7 @@ U kunt een backup maken van deze lijst door '0install sync' te gebruiken.</value
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Begin tekst in te voeren op de laatste regel om een nieuwe invoer te creëren.
-Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens op DEL op het toetsenbord om een regel te verwijderen.</value>
+Selecteer een hele regel door in de eerste kolom te klikken en druk dan op DEL op het toetsenbord om een regel te verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -198,7 +198,7 @@ Verwijder een selectievakje om de standaardstatus van een capability te verwijde
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Wilt u het (de) {0} gecontroleerde element(en) uit de cache verwijderen?</value>
+    <value>Wilt u het/de {0} gecontroleerde element(en) uit de cache verwijderen?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -352,7 +352,7 @@ Geeft een exit status van 0 als het een set versies heeft geselecteerd, en een s
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Voegt de inhoud van een directory of archief toe aan de cache.</value>
+    <value>Voegt de inhoud van een map of archief toe aan de cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -481,7 +481,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Voederbeheer</value>
+    <value>Beheer van het voeder</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -771,7 +771,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Uitvoeren in off-line modus, overschrijft de standaard instelling.
+    <value>Draai in off-line modus, waarbij de standaard instelling wordt overschreven.
 In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd zijn, en nieuwere versies van programma's worden niet gedownload, zelfs niet als de injector ze al kent (bijv. van een eerdere verversing).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -780,7 +780,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Maak een draagbare installatie die kan worden verplaatst (b.v. op een thumb drive).</value>
+    <value>Maak een draagbare installatie die kan worden verplaatst (bv. op een thumbdrive).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">

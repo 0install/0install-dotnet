@@ -151,7 +151,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Um possível ataque de repetição foi detectado. O tempo de modificação do novo feed é anterior à versão antiga.
+    <value>O feed baixado é mais antigo do que a versão já existente no cache. Continuaremos usando a versão mais recente.
 URI do feed: {0}
 Tempo antigo: {1}
 Novo tempo: {2}</value>

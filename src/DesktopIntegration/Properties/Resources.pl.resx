@@ -121,7 +121,7 @@ Możesz zmienić klucz kryptograficzny używany na serwerze, uruchamiając kreat
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Dane przechowywane obecnie na serwerze Sync są uszkodzone.
-Dane przechowywane na serwerze można zastąpić, uruchamiając kreatora rozwiązywania problemów (aby go uruchomić, kliknij prawym przyciskiem myszy przycisk "Sync") lub wykonując polecenie "0install sync --reset=server".</value>
+Możesz zastąpić dane przechowywane na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy przycisk "Sync", aby się tam dostać) lub wykonując polecenie "0install sync --reset=server".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

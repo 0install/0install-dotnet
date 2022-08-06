@@ -151,9 +151,9 @@ Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>È stato rilevato un possibile attacco di replay. L'ora di modifica del nuovo feed è precedente alla vecchia versione.
+    <value>Il feed scaricato è più vecchio della versione già presente nella cache. Continueremo a utilizzare la versione più recente.
 URI del feed {0}
-Ora vecchia {1}
+Vecchia ora {1}
 Nuova ora {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -182,7 +182,7 @@ Nuova ora {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Il feed è firmato con chiavi non attendibili!</value>
+    <value>Il feed è firmato con chiavi non affidabili!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

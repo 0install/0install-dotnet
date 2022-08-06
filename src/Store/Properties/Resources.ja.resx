@@ -100,7 +100,7 @@ Zero Installを使用せずにこのディレクトリ全体を削除したい�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>実際のマニフェスト{0}</value>
+    <value>実際のマニフェスト。{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">

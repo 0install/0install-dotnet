@@ -151,10 +151,10 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>リプレイ攻撃の可能性が検出されました。新しいフィードの更新時刻は古いバージョンより前です。
+    <value>ダウンロードされたフィードは、すでにキャッシュにあるバージョンより古いものです。新しいバージョンを使い続けることになります。
 フィードのURI{0}
-古い時刻{1}
-新しい時刻{2}</value>
+古い時間{1}
+新しい時間{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">

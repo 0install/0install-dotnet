@@ -151,7 +151,7 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Een mogelijke replay aanval werd gedetecteerd. De modificatietijd van de nieuwe feed ligt vóór de oude versie.
+    <value>De gedownloade feed is ouder dan de versie die al in de cache zit. We zullen de nieuwere versie blijven gebruiken.
 Feed URI {0}
 Oude tijd {1}
 Nieuwe tijd {2}</value>
