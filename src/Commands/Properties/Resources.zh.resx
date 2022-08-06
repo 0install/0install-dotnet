@@ -395,7 +395,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>移除缓存中的所有实现。在删除 "零安装 "之前，使用此命令清理系统。由于采用NTFS ACL来保护实现不被修改，手动删除缓存目录可能很困难。
+    <value>移除缓存中的所有实现。在删除 "零安装 "之前，使用这个命令清理系统。由于采用了NTFS ACL来保护实现不被修改，手动删除缓存目录可能很困难。
 附加参数指定自定义缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -591,7 +591,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>请使用Zero Install的GUI版本来实现这一功能。</value>
+    <value>请使用GUI版本的Zero Install来实现这一功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实施的首选语言。使用ISO简短的语言代码（例如，en或en-US）。
+    <value>指定实施的首选语言。使用ISO简短的语言代码（如en或en-US）。
 你可以多次使用这个选项来指定多种可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -784,7 +784,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>获取所有使用过的饲料的新副本。</value>
+    <value>取出所有使用过的饲料的新副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -1008,7 +1008,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>核实</value>
+    <value>验证</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">

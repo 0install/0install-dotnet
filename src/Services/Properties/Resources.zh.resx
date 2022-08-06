@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>由此产生的命令行是空的。</value>
+    <value>产生的命令行是空的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>加载目录错误</value>
+    <value>加载目录时出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>检测到一个可能的重放攻击。新饲料的修改时间在旧版本之前。
+    <value>下载的饲料比已经在缓存中的版本要老。我们将继续使用较新的版本。
 饲料URI。{0}
 旧时间。{1}
 新时间。{2}</value>

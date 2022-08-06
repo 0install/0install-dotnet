@@ -153,7 +153,7 @@ Uruchom '0install config feed_mirror default' aby go włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Wdrożenie '{0}' jest już w sklepie.</value>
+    <value>Wdrożenie "{0}" jest już w sklepie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">

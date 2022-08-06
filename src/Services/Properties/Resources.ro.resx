@@ -115,7 +115,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problemă în obținerea '{0}'.</value>
+    <value>Problemă la obținerea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -151,9 +151,9 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>A fost detectat un posibil atac de reluare. Timpul de modificare al noului feed este anterior versiunii vechi.
+    <value>Fluxul descărcat este mai vechi decât versiunea care se află deja în memoria cache. Vom continua să folosim versiunea mai nouă.
 URI al fluxului {0}
-Ora veche {1}
+Timp vechi {1}
 Ora nouă {2}</value>
     <comment>Automatically translated.</comment>
   </data>

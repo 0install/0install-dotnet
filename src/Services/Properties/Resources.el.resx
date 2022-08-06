@@ -151,14 +151,14 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Μια πιθανή επίθεση αναπαραγωγής ανιχνεύθηκε. Χρόνος τροποποίησης της νέας τροφοδοσίας είναι πριν από την παλιά έκδοση.
+    <value>Η ληφθείσα τροφοδοσία είναι παλαιότερη από την έκδοση που υπάρχει ήδη στην προσωρινή μνήμη. Θα συνεχίσουμε να χρησιμοποιούμε τη νεότερη έκδοση.
 Τροφοδοσία URI: {0}
 Παλιός χρόνος: {1}
 Νέος χρόνος: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Απέτυχε η λήψη του {0}. Προσπαθούμε να πάρουμε από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Απέτυχε η λήψη του {0}. Προσπαθώ να πάρω από τον καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

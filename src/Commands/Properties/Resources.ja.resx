@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' という名前の既存のエイリアスが見つかりませんでした。</value>
+    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
@@ -219,7 +219,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>指定されたターゲットディレクトリ({0})がホームディレクトリ外にある。</value>
+    <value>指定されたターゲットディレクトリ({0})がホームディレクトリの外にある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -268,7 +268,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -595,7 +595,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} は、エイリアス名と一緒にしか指定できません。</value>
+    <value>{0} は、エイリアス名と一緒にのみ指定することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">

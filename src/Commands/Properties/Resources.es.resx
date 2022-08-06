@@ -193,7 +193,7 @@ Seleccione una línea entera haciendo clic en la primera columna y luego pulse D
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Establecer una casilla de verificación para convertir una capacidad en el gestor por defecto deseado.
+    <value>Establezca una casilla de verificación para que una capacidad sea su gestor por defecto.
 Quitar una casilla de verificación para eliminar el estado por defecto de una capacidad (sigue estando disponible).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -298,7 +298,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Enumera todos los URIs de feed conocidos localmente. Si se indica un término de búsqueda, sólo se muestran las URI que contienen esa cadena (no se distinguen las mayúsculas de las minúsculas).</value>
+    <value>Enumera todos los URIs de feed conocidos localmente. Si se indica un término de búsqueda, sólo se muestran los URI que contienen esa cadena (sin distinguir mayúsculas de minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -416,7 +416,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Confía en los feeds de un DOMINIO específico cuando se firman con un FINGERPRINT específico.</value>
+    <value>Confía en los feeds de un DOMINIO específico cuando se firman con una FINGERPRINT específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -656,7 +656,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Oculta la interface gráfica de usuario y utiliza algo como un icono de bandeja en su lugar.</value>
+    <value>Ocultar la interface gráfica de usuario y utilizar algo como un icono de bandeja en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
@@ -701,7 +701,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluir la propia Zero Install en la exportación junto con la aplicación.</value>
+    <value>Incluya la propia Zero Install en la exportación junto con la aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -808,7 +808,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Más información. Utilice dos veces para obtener una salida aún más detallada.</value>
+    <value>Más información. Utiliza dos veces para obtener una salida aún más verbosa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -818,7 +818,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Requiere una versión del programa principal dentro del {RANGE} dado.
 Los rangos están separados por tubos (|).
-Cada rango tiene la forma "START...END". El rango coincide con versiones en las que START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
+Cada rango tiene la forma "START...END". El rango coincide con las versiones en las que START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
 Se puede utilizar un único número de versión en lugar de un rango para que coincida sólo con esa versión, o !VERSION para que coincida con todo excepto con esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -838,7 +838,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -927,7 +927,7 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Iniciar el servicio de tienda Zero Install</value>
+    <value>Inicio del servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StopService" xml:space="preserve">

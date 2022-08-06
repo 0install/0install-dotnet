@@ -395,7 +395,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów cache może być trudne ze względu na listy kontrolne NTFS, które chronią implementacje przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem instalacji zerowej. Ręczne usunięcie katalogów cache może być trudne ze względu na listy kontrolne NTFS, które chronią implementacje przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -429,7 +429,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Sprawdza aktualizacje programu i pobiera je, jeśli zostały znalezione.
-Jest to podobne do '0install download --refresh', z tym że wypisuje informacje o tym, czy znaleziono jakieś zmiany.</value>
+Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje o tym, czy znaleziono jakieś zmiany.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -441,7 +441,7 @@ Jest to podobne do '0install download --refresh', z tym że wypisuje informacje 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Zastosowanie integracji z pulpitem</value>
+    <value>Zastosowanie integracji pulpitu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
@@ -915,7 +915,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Ustawić politykę stabilności na {0}, żeby się zgadzało?</value>
+    <value>Ustawić politykę stabilności dla {0}, żeby się zgadzało?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
@@ -947,7 +947,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Włączenie obsługi systemu Windows dla Długich ścieżek może rozwiązać ten problem.</value>
+    <value>Włączenie obsługi Windows dla Długich ścieżek może rozwiązać ten problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -956,7 +956,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Klucz kryptograficzny służy do lokalnego szyfrowania Twoich danych przed przesłaniem ich na serwer.
-Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten sposób nikt nie może uzyskać dostępu do twoich danych, nawet jeśli serwer zostałby skompromitowany.</value>
+Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten sposób nikt nie może uzyskać dostępu do Twoich danych, nawet jeśli serwer zostałby skompromitowany.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

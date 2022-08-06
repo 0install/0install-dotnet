@@ -151,10 +151,10 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Se ha detectado un posible ataque de repetición. La hora de modificación del nuevo feed es anterior a la versión antigua.
+    <value>El feed descargado es más antiguo que la versión que ya está en la caché. Seguiremos utilizando la versión más reciente.
 URI del feed {0}
 Hora antigua {1}
-Nueva hora {2}</value>
+Hora nueva {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">

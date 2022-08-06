@@ -178,7 +178,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Значок, загруженный с {0}, не является действительным {1}.</value>
+    <value>Значок, загруженный с сайта {0}, не является действительным {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

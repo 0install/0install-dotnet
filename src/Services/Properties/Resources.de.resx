@@ -151,7 +151,7 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Ein möglicher Replay-Angriff wurde erkannt. Änderungszeit des neuen Feeds liegt vor der der alten Version.
+    <value>Der heruntergeladene Feed ist älter als die bereits im Cache gespeicherte Version. Wir werden weiterhin die neuere Version verwenden.
 Feed URI: {0}
 Alte Zeit: {1}
 Neue Zeit: {2}</value>
