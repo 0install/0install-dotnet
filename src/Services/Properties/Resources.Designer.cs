@@ -263,7 +263,7 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A possible replay attack was detected. The new feed&apos;s modification time is before old version.
+        ///   Looks up a localized string similar to The downloaded feed is older than the version already in the cache. We will keep using the newer version.
         ///Feed URI: {0}
         ///Old time: {1}
         ///New time: {2}.
