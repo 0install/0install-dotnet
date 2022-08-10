@@ -26,7 +26,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 
 								<xsl:variable name="icon-href" select="(zi:icon[@type='image/png'][1])/@href"/>
 								<xsl:if test="$icon-href != ''">
-									<img src="{$icon-href}" class="alpha icon"/>
+									<img class="alpha icon" src="{$icon-href}" referrerpolicy="no-referrer"/>
 								</xsl:if>
 
 								<h1><xsl:value-of select="zi:name"/></h1>
