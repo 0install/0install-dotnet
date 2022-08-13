@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Net.Cache;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Dispatch;
 using NanoByte.Common.Net;
@@ -68,22 +67,23 @@ public class SyncIntegrationManager : IntegrationManager
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public void Sync(SyncResetMode resetMode = SyncResetMode.None)
     {
-        using var webClient = new WebClientTimeout
-        {
-            Credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword),
-            CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore)
-        };
         var uri = new Uri(_syncServer, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
+        var credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword);
 
         ExceptionUtils.Retry<SyncRaceException>(delegate
         {
             Handler.CancellationToken.ThrowIfCancellationRequested();
 
-            // ReSharper disable AccessToDisposedClosure
-            var data = DownloadAppList(webClient, uri, resetMode);
-            HandleDownloadedAppList(data, resetMode);
-            UploadAppList(webClient, uri, resetMode);
-            // ReSharper restore AccessToDisposedClosure
+            var (data, etag) = resetMode switch
+            {
+                SyncResetMode.Server => default,
+                _ => DownloadAppList(uri, credentials)
+            };
+
+            HandleDownloadedAppList(data ?? Array.Empty<byte>(), resetClient: resetMode == SyncResetMode.Client);
+
+            if (resetMode != SyncResetMode.Client)
+                UploadAppList(uri, credentials, etag);
         }, maxRetries: 3);
 
         // Save reference point for future syncs
@@ -92,81 +92,76 @@ public class SyncIntegrationManager : IntegrationManager
         Handler.CancellationToken.ThrowIfCancellationRequested();
     }
 
-    private byte[] DownloadAppList(WebClient webClient, Uri uri, SyncResetMode resetMode)
+    private (byte[]?, string? etag) DownloadAppList(Uri uri, NetworkCredential? credentials)
     {
-        if (resetMode == SyncResetMode.Server) return Array.Empty<byte>();
-
         if (uri.IsFile)
         {
             try
             {
-                return File.ReadAllBytes(uri.LocalPath);
+                return (File.ReadAllBytes(uri.LocalPath), null);
             }
-            #region Error handling
             catch (FileNotFoundException)
             {
-                return Array.Empty<byte>();
+                return default;
             }
-            #endregion
         }
-        else
+
+        try
         {
-            try
+            byte[]? data = null;
+            string? etag = null;
+            Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () =>
             {
-                byte[] data = null!;
-                Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () => { data = webClient.DownloadData(uri); }));
-                return data;
-            }
-            #region Error handling
-            catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.Unauthorized})
-            {
-                Handler.CancellationToken.ThrowIfCancellationRequested();
-                throw new WebException(Resources.SyncCredentialsInvalid, ex, ex.Status, ex.Response);
-            }
-            #endregion
+                using var client = new WebClientTimeout
+                {
+                    Credentials = credentials,
+                    Headers = {[HttpRequestHeader.CacheControl] = "no-cache"}
+                };
+                data = client.DownloadData(uri);
+                etag = client.ResponseHeaders?[HttpResponseHeader.ETag];
+            }));
+            return (data, etag);
         }
+        #region Error handling
+        catch (WebException ex) when (ex.Response is HttpWebResponse { StatusCode: HttpStatusCode.Unauthorized })
+        {
+            Handler.CancellationToken.ThrowIfCancellationRequested();
+            throw new WebException(Resources.SyncCredentialsInvalid, ex, ex.Status, ex.Response);
+        }
+        #endregion
     }
 
     /// <summary>
     /// Upload the encrypted AppList back to the server (unless the client was reset)
     /// </summary>
-    private void UploadAppList(WebClient webClient, Uri uri, SyncResetMode resetMode)
+    private void UploadAppList(Uri uri, NetworkCredential? credentials, string? lastEtag)
     {
-        if (resetMode == SyncResetMode.Client) return;
-
         var memoryStream = new MemoryStream();
         AppList.SaveXmlZip(memoryStream, Config.SyncCryptoKey);
 
         if (uri.IsFile)
         {
             memoryStream.CopyToFile(uri.LocalPath);
+            return;
         }
-        else
-        {
-            // Prevent "lost updates" (race conditions) with HTTP ETags
-            if (resetMode == SyncResetMode.None && uri.Scheme is "http" or "https")
-            {
-                if (!string.IsNullOrEmpty(webClient.ResponseHeaders?[HttpResponseHeader.ETag]))
-                    webClient.Headers[HttpRequestHeader.IfMatch] = webClient.ResponseHeaders[HttpResponseHeader.ETag];
-            }
 
-            try
+        try
+        {
+            Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
             {
-                Handler.RunTask(new SimpleTask(Resources.SyncUploading, () => webClient.UploadData(uri, "PUT", memoryStream.ToArray())));
-            }
-            catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})
-            {
-                Handler.CancellationToken.ThrowIfCancellationRequested();
-                throw new SyncRaceException(ex);
-            }
-            finally
-            {
-                webClient.Headers.Remove(HttpRequestHeader.IfMatch);
-            }
+                using var client = new WebClientTimeout {Credentials = credentials};
+                if (!string.IsNullOrEmpty(lastEtag)) client.Headers[HttpRequestHeader.IfMatch] = lastEtag;
+                client.UploadData(uri, "PUT", memoryStream.ToArray());
+            }));
+        }
+        catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})
+        {
+            Handler.CancellationToken.ThrowIfCancellationRequested();
+            throw new SyncRaceException(ex);
         }
     }
 
-    private void HandleDownloadedAppList(byte[] appListData, SyncResetMode resetMode)
+    private void HandleDownloadedAppList(byte[] appListData, bool resetClient)
     {
         if (appListData.Length == 0) return;
 
@@ -187,7 +182,7 @@ public class SyncIntegrationManager : IntegrationManager
         Handler.CancellationToken.ThrowIfCancellationRequested();
         try
         {
-            MergeData(serverList, resetClient: resetMode == SyncResetMode.Client);
+            MergeData(serverList, resetClient);
         }
         catch (KeyNotFoundException ex)
         {
