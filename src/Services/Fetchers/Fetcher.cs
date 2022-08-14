@@ -207,9 +207,17 @@ public partial class Fetcher : IFetcher
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
     protected virtual void Download(IBuilder builder, DownloadRetrievalMethod download, string tag)
     {
+        void Callback(Stream stream) => builder.Add(download, stream, Handler, tag);
+
+        if (download.Href.IsFile)
+        {
+            Handler.RunTask(new ReadFile(download.Href.LocalPath, Callback) {Tag = tag});
+            return;
+        }
+
         try
         {
-            Handler.RunTask(new DownloadFile(download.Href, stream => builder.Add(download, stream, Handler, tag), download.DownloadSize) {Tag = tag});
+            Handler.RunTask(new DownloadFile(download.Href, Callback, download.DownloadSize) {Tag = tag});
         }
         catch (WebException ex) when (Config.FeedMirror != null && ex.ShouldTryMirror(download.Href))
         {
@@ -217,10 +225,8 @@ public partial class Fetcher : IFetcher
             try
             {
                 Handler.RunTask(new DownloadFile(
-                        new($"{Config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
-                        stream => builder.Add(download, stream, Handler, tag),
-                        download.DownloadSize)
-                    {Tag = tag});
+                    new($"{Config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
+                    Callback, download.DownloadSize) {Tag = tag});
             }
             catch (WebException ex2)
             {
