@@ -612,7 +612,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install est lancé à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
+    <value>Zero Install se lance à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -656,7 +656,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état.</value>
+    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état système.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">

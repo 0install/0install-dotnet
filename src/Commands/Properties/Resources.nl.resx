@@ -437,7 +437,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Desktop integratie</value>
+    <value>Desktop-integratie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
@@ -677,7 +677,7 @@ U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>In plaats van het standaard commando uit te voeren, gebruikt u {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
-Stel in op leeg ("") om het commando tijdens selectie te negeren.</value>
+Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -763,7 +763,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Vereist een versie van het hoofdprogramma die niet eerder is dan {VERSIE}. Bijv. als u versie 2.0 of later wilt draaien, gebruik dan --not-before=2.0.</value>
+    <value>Vereist een versie van het hoofdprogramma die niet eerder is dan {VERSION}. Bijv. als u versie 2.0 of later wilt draaien, gebruik dan --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -771,7 +771,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Draai in off-line modus, waarbij de standaard instelling wordt overschreven.
+    <value>Uitvoeren in off-line modus, overschrijft de standaard instelling.
 In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd zijn, en nieuwere versies van programma's worden niet gedownload, zelfs niet als de injector ze al kent (bijv. van een eerdere verversing).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -833,7 +833,7 @@ Nieuwe downloads zullen echter niet naar deze map worden geschreven.</value>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>In plaats van het gekozen programma rechtstreeks uit te voeren, voert u {COMMAND} PROGRAM ARGS. Dit is handig om debuggers en tracing-tools op het programma uit te voeren (in plaats van op Zero Install!).
-Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; dit mechanisme kan dus niet worden gebruikt voor sandboxing.
+Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; vandaar dat dit mechanisme niet kan worden gebruikt voor sandboxing.
 Kan command-line argumenten bevatten. Whitespaces moeten worden ge-escaped!</value>
     <comment>Automatically translated.</comment>
   </data>

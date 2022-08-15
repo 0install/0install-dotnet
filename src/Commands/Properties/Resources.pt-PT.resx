@@ -457,7 +457,7 @@ Isto é semelhante a '0install download --refresh', excepto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação para adicionar:</value>
+    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação a adicionar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">

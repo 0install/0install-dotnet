@@ -249,7 +249,7 @@ Specificată în fișierul de configurare '{1}'.</value>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>A existat o problemă la încărcarea unui fișier de configurare.
-Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
+Puteți șterge fișierul '{0}' pentru a remedia problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
@@ -298,7 +298,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este validă în baza 64:</value>
+    <value>Semnătura nu este valabilă în baza 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
