@@ -158,7 +158,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Απέτυχε η λήψη του {0}. Προσπαθώ να πάρω από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Απέτυχε η λήψη του {0}. Προσπαθούμε να πάρουμε από τον καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

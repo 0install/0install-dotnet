@@ -151,7 +151,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>İndirilen besleme, önbellekte bulunan sürümden daha eski. Daha yeni sürümü kullanmaya devam edeceğiz.
+    <value>İndirilen akış, ön bellekte bulunan sürümden daha eski. Daha yeni sürümü kullanmayı sürdüreceğiz.
 Akış adresi: {0}
 Eski zaman: {1}
 Yeni zaman: {2}</value>
