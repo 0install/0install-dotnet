@@ -825,6 +825,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Serves implementations from the cache as archives via HTTP..
+        /// </summary>
+        public static string DescriptionStoreServe {
+            get {
+                return ResourceManager.GetString("DescriptionStoreServe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Makes sure an implementation has not been damaged (i.e. it manifest digest has not changed)..
         /// </summary>
         public static string DescriptionStoreVerify {
@@ -1943,6 +1952,15 @@ namespace ZeroInstall.Commands.Properties {
         public static string SelfUpdateDisabled {
             get {
                 return ResourceManager.GetString("SelfUpdateDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Serving implementations at the address {0}.
+        /// </summary>
+        public static string ServingImplementations {
+            get {
+                return ResourceManager.GetString("ServingImplementations", resourceCulture);
             }
         }
         

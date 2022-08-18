@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Archives;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic;
@@ -119,6 +120,28 @@ partial class StoreMan
                 return ExitCode.OK;
             }
             else return ExitCode.NoChanges;
+        }
+    }
+
+    public class Serve : StoreSubCommand
+    {
+        public const string Name = "serve";
+        public override string Description => Resources.DescriptionStoreServe;
+        public override string Usage => "[PORT]";
+        protected override int AdditionalArgsMax => 1;
+
+        public Serve(ICommandHandler handler)
+            : base(handler)
+        {}
+
+        public override ExitCode Execute()
+        {
+            int port = AdditionalArgs.Count == 1 ? int.Parse(AdditionalArgs[0]) : 17350;
+
+            var server = new ImplementationServer(ImplementationStore);
+            Handler.RunTask(new SimpleTask(string.Format(Resources.ServingImplementations, $"http://localhost:{port}/"), () => server.Serve(port, Handler.CancellationToken)));
+
+            return ExitCode.OK;
         }
     }
 }

@@ -18,7 +18,7 @@ public sealed partial class StoreMan : CliMultiCommand
     {}
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, AddDir.Name, RemoveDir.Name};
+    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name};
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)
@@ -37,6 +37,7 @@ public sealed partial class StoreMan : CliMultiCommand
             Purge.Name => new Purge(Handler),
             Remove.Name => new Remove(Handler),
             Verify.Name => new Verify(Handler),
+            Serve.Name => new Serve(Handler),
             AddDir.Name => new AddDir(Handler),
             RemoveDir.Name => new RemoveDir(Handler),
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)

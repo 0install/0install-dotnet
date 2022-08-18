@@ -380,6 +380,9 @@ Additional arguments specify custom cache locations.</value>
   <data name="DescriptionStoreRemove" xml:space="preserve">
     <value>Removes an implementation from the cache.</value>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Serves implementations from the cache as archives via HTTP.</value>
+  </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
     <value>Removes a directory from the list of custom implementation caches.</value>
   </data>
@@ -766,6 +769,9 @@ Run '0install config self_update_uri default' to enable it.</value>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
     <value>This instance of Zero Install is not deployed. There is nothing to remove.</value>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Serving implementations at the address {0}</value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Set stability policy for {0} to match?</value>
