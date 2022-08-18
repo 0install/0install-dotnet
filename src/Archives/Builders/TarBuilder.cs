@@ -25,7 +25,16 @@ public class TarBuilder : IArchiveBuilder
     }
 
     public void Dispose()
-        => _tarStream.Dispose();
+    {
+        try
+        {
+            _tarStream.Dispose();
+        }
+        catch (TarException ex)
+        {
+            Log.Info($"Failed to dispose {nameof(TarOutputStream)}", ex);
+        }
+    }
 
     /// <inheritdoc/>
     public void AddDirectory(string path)
