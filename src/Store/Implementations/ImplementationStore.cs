@@ -49,8 +49,8 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         foreach (string path in Directory.GetDirectories(Path))
         {
             var digest = new ManifestDigest();
-            digest.ParseID(System.IO.Path.GetFileName(path));
-            if (digest.Best != null) result.Add(new ManifestDigest(System.IO.Path.GetFileName(path)));
+            digest.TryParse(System.IO.Path.GetFileName(path));
+            if (digest.AvailableDigests.Any()) result.Add(digest);
         }
         return result;
     }
@@ -124,8 +124,8 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         var paths = Directory.GetDirectories(Path).Where(path =>
         {
             var digest = new ManifestDigest();
-            digest.ParseID(System.IO.Path.GetFileName(path));
-            return digest.Best != null;
+            digest.TryParse(System.IO.Path.GetFileName(path));
+            return digest.AvailableDigests.Any();
         }).ToList();
         if (paths.Count == 0) return;
 
@@ -134,7 +134,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         handler.RunTask(ForEachTask.Create(
             name: string.Format(Resources.DeletingDirectory, Path),
             target: paths,
-            work: digest => RemoveInner(digest, handler, allowAutoShutdown: true)));
+            work: path => RemoveInner(path, handler, allowAutoShutdown: true)));
 
         RemoveDeleteInfoFile();
     }

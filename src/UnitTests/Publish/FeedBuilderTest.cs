@@ -72,7 +72,7 @@ public class FeedBuilderTest : IDisposable
             new Implementation
             {
                 ID = ManifestDigest.Empty.Best,
-                ManifestDigest = new ManifestDigest(sha256New: ManifestDigest.Empty.Sha256New),
+                ManifestDigest = new ManifestDigest(Sha256New: ManifestDigest.Empty.Sha256New),
                 Version = _builder.MainCandidate.Version,
                 Architecture = _builder.MainCandidate.Architecture,
                 Commands = {new Command {Name = Command.NameRun, Path = "test"}},

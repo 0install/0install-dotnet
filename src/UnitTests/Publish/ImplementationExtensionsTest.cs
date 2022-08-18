@@ -12,7 +12,7 @@ namespace ZeroInstall.Publish;
 
 public class ImplementationExtensionsTest
 {
-    private static readonly ManifestDigest _archiveDigest = new(sha256New: "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ");
+    private static readonly ManifestDigest _archiveDigest = new(Sha256New: "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ");
 
     private const string SingleFileData = "data";
     private const string SingleFileName = "file.dat";
@@ -92,7 +92,7 @@ public class ImplementationExtensionsTest
     {
         using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
         using var microServer = new MicroServer("archive.zip", stream);
-        var implementation = new Implementation {ManifestDigest = new ManifestDigest(sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+        var implementation = new Implementation {ManifestDigest = new ManifestDigest(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         Assert.Throws<DigestMismatchException>(() => implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler()));
     }
 }

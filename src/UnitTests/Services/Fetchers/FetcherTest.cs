@@ -196,7 +196,7 @@ public class FetcherTest : TestWithMocks
     [Fact]
     public void SkipExisting()
     {
-        var digest = new ManifestDigest(sha256New: "test123");
+        var digest = new ManifestDigest(Sha256New: "test123");
         var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {new Recipe()}};
         _storeMock.Setup(x => x.GetPath(digest)).Returns("dummy");
 
@@ -206,7 +206,7 @@ public class FetcherTest : TestWithMocks
     [Fact]
     public void NoSuitableMethod()
     {
-        var implementation = new Implementation {ID = "test", ManifestDigest = new(sha256New: "test123")};
+        var implementation = new Implementation {ID = "test", ManifestDigest = new(Sha256New: "test123")};
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
         Assert.Throws<NotSupportedException>(() => _fetcher.Fetch(implementation));
@@ -218,7 +218,7 @@ public class FetcherTest : TestWithMocks
         var implementation = new Implementation
         {
             ID = "test",
-            ManifestDigest = new(sha256New: "test123"),
+            ManifestDigest = new(Sha256New: "test123"),
             RetrievalMethods = {new Archive {MimeType = "test/format"}}
         };
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
@@ -232,7 +232,7 @@ public class FetcherTest : TestWithMocks
         var implementation = new Implementation
         {
             ID = "test",
-            ManifestDigest = new(sha256New: "test123"),
+            ManifestDigest = new(Sha256New: "test123"),
             RetrievalMethods = {new Recipe {Steps = {new Archive {MimeType = Archive.MimeTypeZip}, new Archive {MimeType = "test/format"}}}}
         };
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);

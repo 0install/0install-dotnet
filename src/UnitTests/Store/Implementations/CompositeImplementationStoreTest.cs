@@ -12,8 +12,8 @@ namespace ZeroInstall.Store.Implementations;
 public class CompositeImplementationStoreTest : TestWithMocks
 {
     #region Constants
-    private static readonly ManifestDigest _digest1 = new(sha1New: "abc");
-    private static readonly ManifestDigest _digest2 = new(sha1New: "123");
+    private static readonly ManifestDigest _digest1 = new(Sha1New: "abc");
+    private static readonly ManifestDigest _digest2 = new(Sha1New: "123");
     #endregion
 
     private readonly MockTaskHandler _handler;

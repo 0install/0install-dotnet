@@ -24,7 +24,7 @@ public static class Fake
             new Implementation
             {
                 ID = "id1",
-                ManifestDigest = new ManifestDigest(sha256: "123"),
+                ManifestDigest = new ManifestDigest(Sha256: "123"),
                 Version = new("1.0")
             }
         }
@@ -41,7 +41,7 @@ public static class Fake
                 InterfaceUri = Feed1Uri,
                 FromFeed = SubFeed1Uri,
                 ID = "id1",
-                ManifestDigest = new ManifestDigest(sha256: "123"),
+                ManifestDigest = new ManifestDigest(Sha256: "123"),
                 Version = new("1.0")
             },
             new ImplementationSelection
@@ -49,7 +49,7 @@ public static class Fake
                 InterfaceUri = Feed2Uri,
                 FromFeed = SubFeed2Uri,
                 ID = "id2",
-                ManifestDigest = new ManifestDigest(sha256: "abc"),
+                ManifestDigest = new ManifestDigest(Sha256: "abc"),
                 Version = new("1.0")
             }
         }

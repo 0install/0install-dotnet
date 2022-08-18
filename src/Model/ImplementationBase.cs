@@ -82,8 +82,8 @@ public abstract partial class ImplementationBase : Element
         }
         #endregion
 
-        // Parse manifest digest from ID if missing
-        if (!string.IsNullOrEmpty(ID)) _manifestDigest.ParseID(ID);
+        // Parse manifest digest from ID
+        if (!string.IsNullOrEmpty(ID)) _manifestDigest.TryParse(ID);
 
         EnsureAttribute(ID, "id");
         EnsureAttribute(Version, "version");

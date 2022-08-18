@@ -14,7 +14,7 @@ namespace ZeroInstall.Commands.Basic;
 /// </summary>
 public class StoreManTest
 {
-    private static readonly ManifestDigest _dummyDigest = new(sha256New: "abc");
+    private static readonly ManifestDigest _dummyDigest = new(Sha256New: "abc");
 
     public abstract class StoreSubCommand<T> : CliCommandTestBase<T>
         where T : StoreMan.StoreSubCommand
@@ -118,7 +118,7 @@ public class StoreManTest
             var testFeed = Fake.Feed;
             var testImplementation = (Implementation)testFeed.Elements[0];
             var digest1 = testImplementation.ManifestDigest;
-            var digest2 = new ManifestDigest(sha256New: "2");
+            var digest2 = new ManifestDigest(Sha256New: "2");
 
             using var tempDir = new TemporaryDirectory("0install-test-impl");
             GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
@@ -198,8 +198,8 @@ public class StoreManTest
         [Fact]
         public void TestAudit()
         {
-            var digest1 = new ManifestDigest(sha256New: "abc");
-            var digest2 = new ManifestDigest(sha256New: "xyz");
+            var digest1 = new ManifestDigest(Sha256New: "abc");
+            var digest2 = new ManifestDigest(Sha256New: "xyz");
 
             var storeMock = StoreMock;
             storeMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});

@@ -35,8 +35,8 @@ public class ImplementationStoreTest : IDisposable
     public void Contains()
     {
         Directory.CreateDirectory(Path.Combine(_tempDir, "sha256new_123ABC"));
-        _store.Contains(new ManifestDigest(sha256New: "123ABC")).Should().BeTrue();
-        _store.Contains(new ManifestDigest(sha256New: "456XYZ")).Should().BeFalse();
+        _store.Contains(new ManifestDigest(Sha256New: "123ABC")).Should().BeTrue();
+        _store.Contains(new ManifestDigest(Sha256New: "456XYZ")).Should().BeFalse();
     }
 
     [Fact]
@@ -49,10 +49,10 @@ public class ImplementationStoreTest : IDisposable
         Directory.CreateDirectory(Path.Combine(_tempDir, "temp=stuff"));
         _store.ListAll().Should().BeEquivalentTo(new ManifestDigest[]
         {
-            new(sha1: "test1"),
-            new(sha1New: "test2"),
-            new(sha256: "test3"),
-            new(sha256New: "test4")
+            new(Sha1: "test1"),
+            new(Sha1New: "test2"),
+            new(Sha256: "test3"),
+            new(Sha256New: "test4")
         });
     }
 
@@ -86,7 +86,7 @@ public class ImplementationStoreTest : IDisposable
         string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
         Directory.CreateDirectory(implPath);
 
-        _store.Remove(new ManifestDigest(sha256New: "123ABC"), _handler);
+        _store.Remove(new ManifestDigest(Sha256New: "123ABC"), _handler);
         Directory.Exists(implPath).Should().BeFalse();
     }
 
@@ -108,16 +108,16 @@ public class ImplementationStoreTest : IDisposable
     {
         string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
         Directory.CreateDirectory(implPath);
-        _store.GetPath(new ManifestDigest(sha256New: "123ABC"))
+        _store.GetPath(new ManifestDigest(Sha256New: "123ABC"))
               .Should().Be(implPath, because: "Store must return the correct path for Implementations it contains");
     }
 
     [Fact]
     public void GetPathMissingImplementation()
-        => _store.GetPath(new ManifestDigest(sha256: "123"))
+        => _store.GetPath(new ManifestDigest(Sha256: "123"))
                  .Should().BeNull();
 
-    private static readonly ManifestDigest _referenceDigest = new(sha256New: "DIXH3X4A5UJ537O2B36IYYVNRO2MYJVJYX74GBF4EOY5CDCCWGQA");
+    private static readonly ManifestDigest _referenceDigest = new(Sha256New: "DIXH3X4A5UJ537O2B36IYYVNRO2MYJVJYX74GBF4EOY5CDCCWGQA");
 
     [Fact]
     public void Verify()
@@ -141,15 +141,15 @@ public class ImplementationStoreTest : IDisposable
     public void VerifyReject()
     {
         Directory.CreateDirectory(Path.Combine(_tempDir, "sha1new=abc"));
-        _store.Contains(new ManifestDigest(sha1New: "abc")).Should().BeTrue();
+        _store.Contains(new ManifestDigest(Sha1New: "abc")).Should().BeTrue();
 
         _handler.AnswerQuestionWith = true;
-        _store.Verify(new ManifestDigest(sha1New: "abc"), _handler);
+        _store.Verify(new ManifestDigest(Sha1New: "abc"), _handler);
         // TODO
         // _handler.LastQuestion.Should().Be(
         //     string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha1new=abc"));
 
-        _store.Contains(new ManifestDigest(sha1New: "abc")).Should().BeFalse();
+        _store.Contains(new ManifestDigest(Sha1New: "abc")).Should().BeFalse();
     }
 
     [Fact]

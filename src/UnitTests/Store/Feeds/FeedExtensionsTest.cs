@@ -14,16 +14,16 @@ public class FeedExtensionsTest
     [Fact]
     public void FindImplementation()
     {
-        var digest1 = new ManifestDigest(sha256: "123");
+        var digest1 = new ManifestDigest(Sha256: "123");
         var implementation1 = new Implementation {ManifestDigest = digest1};
         var feed1 = new Feed {Elements = {implementation1}};
-        var digest2 = new ManifestDigest(sha256: "abc");
+        var digest2 = new ManifestDigest(Sha256: "abc");
         var implementation2 = new Implementation {ManifestDigest = digest2};
         var feed2 = new Feed {Elements = {implementation2}};
         var feeds = new[] {feed1, feed2};
 
         feeds.FindImplementation(digest1).Should().Be((implementation1, feed1));
         feeds.FindImplementation(digest2).Should().Be((implementation2, feed2));
-        feeds.FindImplementation(new ManifestDigest(sha256: "invalid")).Should().BeNull(because: "No implementation should have been found");
+        feeds.FindImplementation(new ManifestDigest(Sha256: "invalid")).Should().BeNull(because: "No implementation should have been found");
     }
 }

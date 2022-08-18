@@ -53,7 +53,7 @@ public class FeedTest
     public static Implementation CreateTestImplementation() => new()
     {
         ID = "id1",
-        ManifestDigest = new ManifestDigest(sha256: "123"),
+        ManifestDigest = new ManifestDigest(Sha256: "123"),
         Version = new("1.0"),
         Architecture = new(OS.Windows, Cpu.I586),
         Languages = {"en-US"},

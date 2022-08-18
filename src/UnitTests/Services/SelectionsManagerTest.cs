@@ -96,8 +96,8 @@ public class SelectionsManagerTest : TestWithMocks
     [Fact]
     public void GetTree()
     {
-        var digest1 = new ManifestDigest(sha256New: "a");
-        var digest2 = new ManifestDigest(sha256New: "b");
+        var digest1 = new ManifestDigest(Sha256New: "a");
+        var digest2 = new ManifestDigest(Sha256New: "b");
 
         _storeMock.Setup(x => x.GetPath(digest1)).Returns("fake/path");
         _storeMock.Setup(x => x.GetPath(digest2)).Returns(() => null);
