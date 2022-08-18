@@ -127,7 +127,8 @@ public class Exporter
         {
             File.Copy(
                 iconStore.GetFresh(icon),
-                Path.Combine(_contentDir, IconStore.GetFileName(icon)));
+                Path.Combine(_contentDir, IconStore.GetFileName(icon)),
+                overwrite: true);
         }
     }
 
