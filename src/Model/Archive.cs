@@ -56,7 +56,7 @@ public sealed partial class Archive : DownloadRetrievalMethod
         if (fileName.EndsWithIgnoreCase(".tar.gz") || fileName.EndsWithIgnoreCase(".tgz")) return MimeTypeTarGzip;
         if (fileName.EndsWithIgnoreCase(".tar.bz2") || fileName.EndsWithIgnoreCase(".tbz2") || fileName.EndsWithIgnoreCase(".tbz")) return MimeTypeTarBzip;
         if (fileName.EndsWithIgnoreCase(".tar.lzma") || fileName.EndsWithIgnoreCase(".tlzma")) return MimeTypeTarLzma;
-        if (fileName.EndsWithIgnoreCase(".tar.lz") || fileName.EndsWithIgnoreCase(".tlz")) return MimeTypeTarLzma;
+        if (fileName.EndsWithIgnoreCase(".tar.lz") || fileName.EndsWithIgnoreCase(".tlz")) return MimeTypeTarLzip;
         if (fileName.EndsWithIgnoreCase(".tar.xz") || fileName.EndsWithIgnoreCase(".txz")) return MimeTypeTarXz;
         if (fileName.EndsWithIgnoreCase(".tar.zst")) return MimeTypeTarZstandard;
         if (fileName.EndsWithIgnoreCase(".gem")) return MimeTypeRubyGem;
