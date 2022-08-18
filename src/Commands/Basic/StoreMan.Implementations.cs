@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Net;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Archives.Extractors;
 using ZeroInstall.Store.FileSystem;
@@ -24,21 +25,18 @@ partial class StoreMan
         public override ExitCode Execute()
         {
             var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
-            string path = AdditionalArgs[1];
             try
             {
-                if (File.Exists(path))
-                { // One or more archives (combined/overlay)
-                    ImplementationStore.Add(manifestDigest, BuildImplementation);
-                    return ExitCode.OK;
-                }
-                else if (Directory.Exists(path))
-                { // A single directory
+                string path = AdditionalArgs[1];
+                if (Directory.Exists(path))
+                {
                     if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
                     ImplementationStore.Add(manifestDigest, builder => Handler.RunTask(new ReadDirectory(Path.GetFullPath(path), builder)));
                     return ExitCode.OK;
                 }
-                else throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, path), path);
+
+                ImplementationStore.Add(manifestDigest, BuildImplementation);
+                return ExitCode.OK;
             }
             catch (ImplementationAlreadyInStoreException ex)
             {
@@ -57,8 +55,14 @@ partial class StoreMan
                     : Archive.GuessMimeType(AdditionalArgs[i * 3 + 1]);
                 string? subDir = (AdditionalArgs.Count > i * 3 + 2) ? AdditionalArgs[i * 3 + 2] : null;
 
-                var extractor = ArchiveExtractor.For(mimeType, Handler);
-                Handler.RunTask(new ReadFile(path, stream => extractor.Extract(builder, stream, subDir)));
+                void Callback(Stream stream)
+                    => ArchiveExtractor.For(mimeType, Handler)
+                                       .Extract(builder, stream, subDir);
+
+                Handler.RunTask(
+                    Uri.TryCreate(path, UriKind.Absolute, out var uri) && !uri.IsFile
+                        ? new DownloadFile(uri, Callback)
+                        : new ReadFile(path, Callback));
             }
         }
     }
