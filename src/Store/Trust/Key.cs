@@ -39,7 +39,7 @@ public sealed partial class Key : ICloneable<Key>
     public Key Clone() => new()
     {
         Fingerprint = Fingerprint,
-        Domains = {Domains.CloneElements()}
+        Domains = {Domains}
     };
     #endregion
 }

@@ -6,52 +6,10 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// A specific domain with feeds a <see cref="Key"/> is trusted to sign.
 /// </summary>
+/// <param name="Value">A valid domain name (not a full <see cref="Uri"/>!).</param>
 [XmlType("domain", Namespace = TrustDB.XmlNamespace)]
-public struct Domain : ICloneable<Domain>, IEquatable<Domain>
+public record struct Domain([property: XmlAttribute("value")] string? Value = null)
 {
-    /// <summary>
-    /// A valid domain name (not a full <see cref="Uri"/>!).
-    /// </summary>
-    [XmlAttribute("value")]
-    public string? Value { get; set; }
-
-    /// <summary>
-    /// Creates a new domain entry.
-    /// </summary>
-    /// <param name="value">A valid domain name (not a full <see cref="Uri"/>!).</param>
-    public Domain(string? value)
-        : this()
-    {
-        Value = value;
-    }
-
-    #region Conversion
     /// <inheritdoc/>
     public override string? ToString() => Value;
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Domain"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Domain"/>.</returns>
-    public Domain Clone() => new(Value);
-    #endregion
-
-    #region Equatable
-    /// <inheritdoc/>
-    public bool Equals(Domain other)
-        => string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
-
-    public static bool operator ==(Domain left, Domain right) => left.Equals(right);
-    public static bool operator !=(Domain left, Domain right) => !left.Equals(right);
-
-    /// <inheritdoc/>
-    public override bool Equals(object? obj)
-        => obj is Domain domain && Equals(domain);
-
-    /// <inheritdoc/>
-    public override int GetHashCode()
-        => (Value ?? "").GetHashCode();
-    #endregion
 }
