@@ -14,7 +14,7 @@ public sealed class WindowsBatch : NativeExecutable
         if (!base.Analyze(baseDirectory, file)) return false;
         if (!StringUtils.EqualsIgnoreCase(file.Extension, @".bat") && !StringUtils.EqualsIgnoreCase(file.Extension, @".cmd")) return false;
 
-        Architecture = new(OS.Windows, Cpu.All);
+        Architecture = new(OS.Windows);
         Name = file.Name[..^file.Extension.Length];
         NeedsTerminal = true;
         return true;

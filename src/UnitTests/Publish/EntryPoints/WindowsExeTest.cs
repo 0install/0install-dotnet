@@ -13,7 +13,7 @@ public class WindowsExeTest : CandidateTest
     public static readonly WindowsExe Reference32 = new()
     {
         RelativePath = "windows32.exe",
-        Architecture = new(OS.Windows, Cpu.All),
+        Architecture = new(OS.Windows),
         Name = "Hello",
         Summary = "a Hello World application",
         Version = new("1.2.3.0")
@@ -31,7 +31,7 @@ public class WindowsExeTest : CandidateTest
     public static readonly WindowsExe ReferenceTerminal = new()
     {
         RelativePath = "windows32_terminal.exe",
-        Architecture = new(OS.Windows, Cpu.All),
+        Architecture = new(OS.Windows),
         Name = "Hello",
         Summary = "a Hello World application",
         Version = new("1.2.3.0"),

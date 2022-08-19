@@ -11,7 +11,7 @@ public class PosixScriptTest : CandidateTest
     public static readonly PosixScript Reference = new()
     {
         RelativePath = "sh",
-        Architecture = new(OS.Posix, Cpu.All),
+        Architecture = new(OS.Posix),
         Name = "sh",
         NeedsTerminal = true
     };

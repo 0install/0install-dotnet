@@ -45,8 +45,8 @@ public class SelectionCandidateComparerTest
     [Fact]
     public void PreferSpecificOS() => TestSort(
         new SelectionCandidateComparer(Stability.Testing, NetworkLevel.Full, new LanguageSet(), isCached: _ => true),
-        better: new Implementation {ID = "1a", Version = new("1"), Architecture = new(OS.Linux, Cpu.All)},
-        worse: new Implementation {ID = "1b", Version = new("1"), Architecture = new(OS.Posix, Cpu.All)});
+        better: new Implementation {ID = "1a", Version = new("1"), Architecture = new(OS.Linux)},
+        worse: new Implementation {ID = "1b", Version = new("1"), Architecture = new(OS.Posix)});
 
     [Fact]
     public void PreferSpecificCpu() => TestSort(

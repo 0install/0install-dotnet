@@ -18,7 +18,7 @@ public sealed class PosixScript : PosixExecutable
         string? firstLine = file.ReadFirstLine(Encoding.ASCII);
         if (string.IsNullOrEmpty(firstLine) || !firstLine.StartsWith(@"#!")) return false;
 
-        Architecture = new(OS.Posix, Cpu.All);
+        Architecture = new(OS.Posix);
         Name = file.Name;
         NeedsTerminal = true;
         return true;

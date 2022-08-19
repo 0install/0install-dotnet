@@ -18,7 +18,7 @@ public sealed class PosixBinary : PosixExecutable
         if (!HasMagicBytes(file)) return false;
 
         Name = file.Name;
-        Architecture = new(OS.Linux, Cpu.All);
+        Architecture = new(OS.Linux);
 
         IELF? elfData = null;
         try

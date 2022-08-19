@@ -45,7 +45,7 @@ public class FeedBuilderTest : IDisposable
             Name = "TestApp",
             Summary = "a test app",
             Version = new("1.0"),
-            Architecture = new(OS.Windows, Cpu.All)
+            Architecture = new(OS.Windows)
         };
         _builder.GenerateCommands();
     }

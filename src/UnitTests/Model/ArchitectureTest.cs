@@ -11,8 +11,8 @@ public class ArchitectureTest
     [Fact]
     public void Constructor()
     {
-        new Architecture("*-*").Should().Be(new Architecture(OS.All, Cpu.All));
-        new Architecture("Linux-*").Should().Be(new Architecture(OS.Linux, Cpu.All));
+        new Architecture("*-*").Should().Be(new Architecture(OS.All));
+        new Architecture("Linux-*").Should().Be(new Architecture(OS.Linux));
         new Architecture("*-i686").Should().Be(new Architecture(OS.All, Cpu.I686));
         new Architecture("Linux-i686").Should().Be(new Architecture(OS.Linux, Cpu.I686));
     }

@@ -20,7 +20,7 @@ public sealed class MacOSApp : PosixExecutable
 
         // TODO: Parse MacOS plist
         Name = file.Name[..^file.Extension.Length];
-        Architecture = new(OS.MacOSX, Cpu.All);
+        Architecture = new(OS.MacOSX);
         return true;
     }
 }

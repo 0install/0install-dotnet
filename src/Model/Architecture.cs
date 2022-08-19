@@ -12,51 +12,31 @@ namespace ZeroInstall.Model;
 /// <summary>
 /// Describes a combination of an operating system and a CPU architecture.
 /// </summary>
+/// <param name="OS">Determines which operating systems are supported.</param>
+/// <param name="Cpu">Determines which CPU-architectures are supported.</param>
 [Description("Describes a combination of an operating system and a CPU architecture.")]
 [TypeConverter(typeof(ArchitectureConverter))]
 [Serializable]
-public struct Architecture : IEquatable<Architecture>
+public record struct Architecture(
+    [property: Description("Determines which operating systems are supported.")]
+    OS OS = OS.All,
+    [property: Description("Determines which CPU-architectures are supported.")]
+    Cpu Cpu = Cpu.All)
 {
-    /// <summary>
-    /// Determines which operating systems are supported.
-    /// </summary>
-    [Description("Determines which operating systems are supported.")]
-    public OS OS { get; set; }
-
-    /// <summary>
-    /// Determines which CPU-architectures are supported.
-    /// </summary>
-    [Description("Determines which CPU-architectures are supported.")]
-    public Cpu Cpu { get; set; }
-
-    /// <summary>
-    /// Creates a new architecture structure with pre-set values.
-    /// </summary>
-    /// <param name="os">Determines which operating systems are supported.</param>
-    /// <param name="cpu">Determines which CPU-architectures are supported.</param>
-    public Architecture(OS os, Cpu cpu)
-        : this()
-    {
-        OS = os;
-        Cpu = cpu;
-    }
-
     /// <summary>
     /// Creates a new architecture structure from a string in the form "os-cpu".
     /// </summary>
     /// <exception cref="FormatException"><paramref name="architecture"/> is not in the form "os-cpu"</exception>
     public Architecture(string architecture)
-        : this()
+        : this(ToOS(SplitString(architecture)[0]), ToCpu(SplitString(architecture)[1]))
+    {}
+
+    private static string[] SplitString(string architecture)
     {
-        #region Sanity checks
         if (string.IsNullOrEmpty(architecture)) throw new ArgumentNullException(nameof(architecture));
-        #endregion
-
-        var architectureArray = architecture.Split('-');
+        string[] architectureArray = architecture.Split('-');
         if (architectureArray.Length != 2) throw new FormatException(Resources.ArchitectureStringFormat);
-
-        OS = ToOS(architectureArray[0]);
-        Cpu = ToCpu(architectureArray[1]);
+        return architectureArray;
     }
 
     /// <summary>
@@ -132,19 +112,4 @@ public struct Architecture : IEquatable<Architecture>
     /// </summary>
     public override string ToString()
         => OS.ConvertToString() + "-" + Cpu.ConvertToString();
-
-    /// <inheritdoc/>
-    public bool Equals(Architecture other)
-        => other.OS == OS && other.Cpu == Cpu;
-
-    public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
-    public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
-
-    /// <inheritdoc/>
-    public override bool Equals(object? obj)
-        => obj is Architecture architecture && Equals(architecture);
-
-    /// <inheritdoc/>
-    public override int GetHashCode()
-        => HashCode.Combine(OS, Cpu);
 }
