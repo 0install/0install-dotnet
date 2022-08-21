@@ -63,6 +63,7 @@ public static class ProgramUtils
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
+        ServicePointManager.DefaultConnectionLimit = 16;
     }
 
     /// <summary>
