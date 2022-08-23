@@ -130,19 +130,9 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             FileUtils.EnableWriteProtection(path);
         }
         #region Error handling
-        catch (IOException)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
         {
-            Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
-        }
-        catch (UnauthorizedAccessException)
-        {
-            // Only warn if even an Admin is unable to set ACLs
-            if (WindowsUtils.IsWindowsNT && WindowsUtils.IsAdministrator) Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
-            else Log.Info(string.Format(Resources.UnableToWriteProtect, path));
-        }
-        catch (InvalidOperationException)
-        {
-            Log.Warn(string.Format(Resources.UnableToWriteProtect, path));
+            Log.Warn(string.Format(Resources.UnableToWriteProtect, path), ex);
         }
         #endregion
     }
@@ -169,8 +159,12 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
                 Encoding.UTF8);
             FileUtils.EnableWriteProtection(deleteInfoDirPath);
         }
+        #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-        {}
+        {
+            Log.Info("Failed to deploy info file: " + deleteInfoDirPath, ex);
+        }
+        #endregion
     }
 
     /// <summary>
@@ -185,8 +179,12 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
                 FileUtils.DisableWriteProtection(path);
                 Directory.Delete(path, recursive: true);
             }
+            #region Error handling
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-            {}
+            {
+                Log.Info("Failed to remove info file: " + path, ex);
+            }
+            #endregion
         }
     }
 }

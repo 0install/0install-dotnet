@@ -209,7 +209,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
         {
-            Log.Error("Failed to disable write protection for: " + path, ex);
+            Log.Warn("Failed to disable write protection for: " + path, ex);
         }
         #endregion
     }
