@@ -207,7 +207,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             FileUtils.DisableWriteProtection(path);
         }
         #region Error handling
-        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
             Log.Warn("Failed to disable write protection for: " + path, ex);
         }

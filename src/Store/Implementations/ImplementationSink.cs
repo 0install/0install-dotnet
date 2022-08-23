@@ -130,7 +130,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             FileUtils.EnableWriteProtection(path);
         }
         #region Error handling
-        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
             Log.Warn(string.Format(Resources.UnableToWriteProtect, path), ex);
         }
