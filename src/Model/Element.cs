@@ -336,7 +336,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
 
         // Inherit unknown XML attributes and elements
         UnknownAttributes = EnumerableExtensions.DistinctBy((UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()), x => x.Name).ToArray();
-        UnknownElements = (UnknownElements ?? Array.Empty<XmlElement>()).Concat(parent.UnknownElements ?? Array.Empty<XmlElement>()).ToArray();
+        UnknownElements = UnknownElements ?? Array.Empty<XmlElement>().Concat(parent.UnknownElements ?? Array.Empty<XmlElement>());
     }
     #endregion
 

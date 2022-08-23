@@ -95,7 +95,7 @@ public static partial class Shortcut
     private static byte[] ToBstr(string value)
     {
         byte[] bytes = Encoding.Unicode.GetBytes(value + '\0');
-        return BitConverter.GetBytes(bytes.Length).Concat(bytes).Concat(new byte[] {0, 0}).ToArray();
+        return ArrayUtils.Concat(BitConverter.GetBytes(bytes.Length), bytes, new byte[] {0, 0});
     }
 
     private static string GetFolderPath(Environment.SpecialFolder folder)

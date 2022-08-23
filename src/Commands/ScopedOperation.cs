@@ -157,7 +157,7 @@ public abstract class ScopedOperation : ServiceProvider
         if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
         #endregion
 
-        var startInfo = ProgramUtils.GuiStartInfo(new[] {command, "--background"}.Concat(args).ToArray());
+        var startInfo = ProgramUtils.GuiStartInfo(new[] {command, "--background"}.Concat(args));
         if (startInfo == null)
         {
             Log.Info("Skipping background command because there is no GUI subsystem available");
