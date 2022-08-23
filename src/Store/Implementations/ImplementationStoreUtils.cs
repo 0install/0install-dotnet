@@ -118,39 +118,4 @@ public static class ImplementationStoreUtils
 
         return null;
     }
-
-    /// <summary>
-    /// Tries to temporarily remove the write protection of an implementation.
-    /// </summary>
-    /// <param name="path">A path inside an implementation store.</param>
-    /// <returns>A token that can be <see cref="IDisposable.Dispose"/>d to restore the write protection. <c>null</c> if the write protection could not be removed.</returns>
-    internal static IDisposable? TryUnseal(string path)
-    {
-        if (!IsImplementation(path, out string? implementationPath)) return null;
-
-        try
-        {
-            FileUtils.DisableWriteProtection(implementationPath);
-            return new Disposable(() =>
-            {
-                try
-                {
-                    FileUtils.EnableWriteProtection(path);
-                }
-                #region Error handling
-                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
-                {
-                    Log.Error("Unable to restore write protection after creating hardlinks", ex);
-                }
-                #endregion
-            });
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidOperationException)
-        {
-            Log.Info("Unable to remove write protection for creating hardlinks", ex);
-            return null;
-        }
-        #endregion
-    }
 }
