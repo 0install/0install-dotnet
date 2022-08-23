@@ -169,8 +169,12 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
                 Encoding.UTF8);
             FileUtils.EnableWriteProtection(deleteInfoDirPath);
         }
+        #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-        {}
+        {
+            Log.Info("Failed to deploy info file: " + deleteInfoDirPath, ex);
+        }
+        #endregion
     }
 
     /// <summary>
@@ -185,8 +189,12 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
                 FileUtils.DisableWriteProtection(path);
                 Directory.Delete(path, recursive: true);
             }
+            #region Error handling
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-            {}
+            {
+                Log.Info("Failed to remove info file: " + path, ex);
+            }
+            #endregion
         }
     }
 }

@@ -74,7 +74,7 @@ public sealed partial class IconStore : IIconStore
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
-                Log.Warn($"Error storing {icon}", ex);
+                Log.Warn($"Problem storing new version of {icon}", ex);
             }
             catch (Exception ex)
             {
