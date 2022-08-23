@@ -87,7 +87,18 @@ partial class ImplementationStore
         public void Dispose()
         {
             foreach (string path in _unsealedImplementations)
-                FileUtils.EnableWriteProtection(path);
+            {
+                try
+                {
+                    FileUtils.EnableWriteProtection(path);
+                }
+                #region Error handling
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+                {
+                    Log.Warn(string.Format(Resources.UnableToWriteProtect, path), ex);
+                }
+                #endregion
+            }
         }
     }
 }
