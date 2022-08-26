@@ -408,6 +408,10 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <value>Supprime un répertoire de la liste des caches d'implémentation personnalisée.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Serve les implémentations du cache sous forme d'archives via HTTP.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>S'assure qu'une implémentation n'a pas été endommagée (c'est-à-dire que son digest manifeste n'a pas changé).</value>
     <comment>Automatically translated.</comment>
@@ -554,7 +558,7 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' n'est pas un URI de flux ou un chemin de fichier valide.</value>
+    <value>'{0}' n'est pas une URI de flux ou un chemin de fichier valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -612,7 +616,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se lance à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
+    <value>Zero Install est lancé à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -701,7 +705,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluez Zero Install lui-même dans l'exportation en même temps que l'application.</value>
+    <value>Inclure Zero Install lui-même dans l'exportation en même temps que l'application.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -912,6 +916,10 @@ Peut contenir des arguments de ligne de commande. Les espaces blancs doivent êt
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>L'auto-mise à jour est désactivée.
 Lancez '0install config self_update_uri default' pour l'activer.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Les implémentations de service à l'adresse {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

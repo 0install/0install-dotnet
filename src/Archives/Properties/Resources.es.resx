@@ -66,6 +66,10 @@
     <value>Extraer el archivo</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>La extracción de este tipo de archivo sólo es compatible con macOS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>La extracción de este tipo de archivo sólo es compatible con Windows.</value>
     <comment>Automatically translated.</comment>

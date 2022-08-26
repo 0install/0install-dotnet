@@ -189,7 +189,7 @@ U kunt een backup maken van deze lijst door '0install sync' te gebruiken.</value
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Begin tekst in te voeren op de laatste regel om een nieuwe invoer te creëren.
-Selecteer een hele regel door in de eerste kolom te klikken en druk dan op DEL op het toetsenbord om een regel te verwijderen.</value>
+Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens op DEL op het toetsenbord om een regel te verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -352,7 +352,7 @@ Geeft een exit status van 0 als het een set versies heeft geselecteerd, en een s
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Voegt de inhoud van een map of archief toe aan de cache.</value>
+    <value>Voegt de inhoud van een directory of archief toe aan de cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -405,6 +405,10 @@ Extra argumenten specificeren aangepaste cache-locaties.</value>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
     <value>Verwijdert een map uit de lijst van aangepaste implementatiecaches.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Serveert implementaties uit de cache als archieven via HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -481,7 +485,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat het informat
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Beheer van het voeder</value>
+    <value>Voederbeheer</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -677,7 +681,7 @@ U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>In plaats van het standaard commando uit te voeren, gebruikt u {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
-Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
+Stel in op leeg ("") om het commando tijdens selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -763,7 +767,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Vereist een versie van het hoofdprogramma die niet eerder is dan {VERSION}. Bijv. als u versie 2.0 of later wilt draaien, gebruik dan --not-before=2.0.</value>
+    <value>Vereist een versie van het hoofdprogramma die niet eerder is dan {VERSIE}. Bijv. als u versie 2.0 of later wilt draaien, gebruik dan --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -771,7 +775,7 @@ Mag geen command-line argumenten bevatten! Spaties hoeven niet ge-escaped te wor
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Uitvoeren in off-line modus, overschrijft de standaard instelling.
+    <value>Draai in off-line modus, waarbij de standaard instelling wordt overschreven.
 In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd zijn, en nieuwere versies van programma's worden niet gedownload, zelfs niet als de injector ze al kent (bijv. van een eerdere verversing).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -780,7 +784,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Maak een draagbare installatie die kan worden verplaatst (bv. op een thumbdrive).</value>
+    <value>Maak een draagbare installatie die kan worden verplaatst (b.v. op een thumb drive).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -812,7 +816,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
-    <value>Versie-informatie weergeven.</value>
+    <value>Geef versie-informatie weer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
@@ -833,7 +837,7 @@ Nieuwe downloads zullen echter niet naar deze map worden geschreven.</value>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>In plaats van het gekozen programma rechtstreeks uit te voeren, voert u {COMMAND} PROGRAM ARGS. Dit is handig om debuggers en tracing-tools op het programma uit te voeren (in plaats van op Zero Install!).
-Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; vandaar dat dit mechanisme niet kan worden gebruikt voor sandboxing.
+Merk op dat de wrapper wordt uitgevoerd in de omgeving die door het programma is gekozen; dit mechanisme kan dus niet worden gebruikt voor sandboxing.
 Kan command-line argumenten bevatten. Whitespaces moeten worden ge-escaped!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -914,6 +918,10 @@ Kan command-line argumenten bevatten. Whitespaces moeten worden ge-escaped!</val
 Voer '0install config self_update_uri default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Dienende implementaties op het adres {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Stabiliteitspolitiek instellen voor {0} om te evenaren?</value>
     <comment>Automatically translated.</comment>
@@ -956,7 +964,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>De crypto sleutel wordt gebruikt om uw gegevens lokaal te versleutelen alvorens ze naar de server te zenden.
-Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manier kan niemand bij uw gegevens, zelfs niet als de server gecompromitteerd zou zijn.</value>
+Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Op die manier kan niemand bij uw gegevens, zelfs niet als de server gecompromitteerd zou worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

@@ -66,6 +66,10 @@
     <value>Extraindo arquivo</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Extrair este tipo de arquivo somente é suportado no macOS.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Extrair este tipo de arquivo somente é suportado no Windows.</value>
     <comment>Manually overriden.</comment>

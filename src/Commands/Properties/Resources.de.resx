@@ -407,6 +407,10 @@ Zusätzliche Argumente geben benutzerdefinierte Cache-Speicherorte an.</value>
     <value>Entfernt ein Verzeichnis aus der Liste der benutzerdefinierten Implementierungs-Caches.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Stellt Implementierungen aus dem Cache als Archive über HTTP bereit.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>Stellt sicher, dass eine Implementierung nicht beschädigt wurde (d. h., dass der Manifest-Digest unverändert ist).</value>
     <comment>Manually overriden.</comment>
@@ -912,6 +916,10 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Die Selbstaktualisierung ist deaktiviert.
 Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Stelle Implementierungen unter der Adresse {0} bereit</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

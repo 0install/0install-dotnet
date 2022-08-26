@@ -66,6 +66,10 @@
     <value>アーカイブを展開する</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>このアーカイブタイプの解凍は、macOSでのみサポートされています。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>このアーカイブタイプの解凍は、Windowsでのみサポートされています。</value>
     <comment>Automatically translated.</comment>

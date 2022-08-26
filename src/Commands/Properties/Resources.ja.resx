@@ -219,7 +219,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>指定されたターゲットディレクトリ({0})がホームディレクトリ外にある。</value>
+    <value>指定されたターゲットディレクトリ({0})がホームディレクトリの外にある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -268,7 +268,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -407,8 +407,12 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <value>カスタム実装キャッシュの一覧からディレクトリを削除します。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>キャッシュにある実装をアーカイブとしてHTTP経由で提供します。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>実装が破損していないこと（マニフェストダイジェストが変更されていないこと）を確認します。</value>
+    <value>実装が破損していないこと（つまり、マニフェストダイジェストが変更されていないこと）を確認します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -595,7 +599,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} は、エイリアス名と一緒にのみ指定することができます。</value>
+    <value>{0} は、エイリアス名と一緒にしか指定できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -771,7 +775,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
+    <value>オフラインモードで実行し、デフォルトの設定をオーバーライドします。
 オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -912,6 +916,10 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>セルフアップデートが無効になっています。
 0install config self_update_uri default'を実行すると有効になります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>アドレスで実装をサーヴィスする{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

@@ -66,6 +66,10 @@
     <value>Εξαγόμενο αρχείο</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Η εξαγωγή αυτού του είδους αρχείων υποστηρίζεται μόνο στο macOS.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Η εξαγωγή αυτού του είδους αρχείων υποστηρίζεται μόνο στο Windows.</value>
     <comment>Manually overriden.</comment>

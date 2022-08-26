@@ -66,6 +66,10 @@
     <value>Arşiv ayıklanıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Bu arşiv türü yalnızca macOS üzerinde ayıklanabilir.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Bu arşiv türü yalnızca Windows üzerinde ayıklanabilir.</value>
     <comment>Manually overriden.</comment>

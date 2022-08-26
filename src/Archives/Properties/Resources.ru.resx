@@ -66,6 +66,10 @@
     <value>Распаковка архива</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Извлечение этого типа архива поддерживается только на macOS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Распаковка этого типа архива поддерживается только в Windows.</value>
     <comment>Automatically translated.</comment>

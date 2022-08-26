@@ -301,7 +301,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
+    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται αυτή τη στιγμή στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -309,7 +309,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Αναπτύσσει το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για προγράμματα και το ενσωματώνει στο σύστημα.</value>
+    <value>Αναπτύσσει το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για τα προγράμματα και το ενσωματώνει στο σύστημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -406,6 +406,10 @@
     <value>Αφαιρεί έναν κατάλογο από τη λίστα με τις προσωρινές μνήμες προσαρμοσμένης υλοποίησης.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Εξυπηρετεί υλοποιήσεις από την κρυφή μνήμη ως αρχεία μέσω HTTP.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>Καθιστά βέβαιο ότι μια εφαρμογή δεν έχει καταστραφεί (δηλαδή το δηλωτικό δεν έχει αλλάξει).</value>
     <comment>Manually overriden.</comment>
@@ -415,7 +419,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Εμπιστεύεται τις τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
+    <value>Εμπιστεύεται τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -911,6 +915,10 @@
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Η αυτοενημέρωση είναι απενεργοποιημένη.
 Εκτελέστε το '0install config self_update_uri default' για να το ενεργοποιήσετε.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Εξυπηρέτηση υλοποιήσεων στη διεύθυνση {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

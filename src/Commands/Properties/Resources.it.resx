@@ -116,7 +116,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Si desidera aggiornare qualsiasi integrazione desktop esistente per riflettere questo?
+    <value>Desiderate aggiornare le integrazioni desktop esistenti in modo da rifletterle?
 Se si seleziona "Sì", le integrazioni potenzialmente incompatibili saranno rimosse.
 Se si seleziona "No", Zero Install continuerà a utilizzare le vecchie funzionalità.</value>
     <comment>Automatically translated.</comment>
@@ -210,7 +210,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Una versione portatile di Zero Install è stata distribuita a '{0}'.
+    <value>Una versione portatile di Zero Install è stata distribuita su '{0}'.
 È possibile utilizzarla eseguendo il file ZeroInstall.exe nella directory.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -277,7 +277,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e se queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -405,6 +405,10 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
     <value>Rimuove una directory dall'elenco delle cache delle implementazioni personalizzate.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Serve le implementazioni dalla cache come archivi via HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -784,7 +788,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Recuperare copie fresche di tutti i feed usati.</value>
+    <value>Recuperare copie fresche di tutti i feed utilizzati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -832,7 +836,7 @@ Tuttavia, i nuovi download non verranno scritti in questa directory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Invece di eseguire direttamente il programma scelto, eseguire {COMANDO} PROGRAM ARGS. Questo è utile per eseguire debugger e strumenti di tracciamento sul programma (piuttosto che su Zero Install!).
+    <value>Invece di eseguire direttamente il programma scelto, eseguire {COMMANDO} PROGRAM ARGS. Questo è utile per eseguire debugger e strumenti di tracciamento sul programma (piuttosto che su Zero Install!).
 Si noti che il wrapper viene eseguito nell'ambiente selezionato dal programma; pertanto, questo meccanismo non può essere usato per il sandboxing.
 Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere evasi!</value>
     <comment>Automatically translated.</comment>
@@ -912,6 +916,10 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>L'autoaggiornamento è disabilitato.
 Eseguire '0install config self_update_uri default' per abilitarlo.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Implementazioni di servizio all'indirizzo {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

@@ -66,6 +66,10 @@
     <value>Extraction d'archive</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>L'extraction de ce type d'archive n'est pris en charge que sous macOS.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>L'extraction de ce type d'archive n'est pris en charge que sous Windows.</value>
     <comment>Manually overriden.</comment>
