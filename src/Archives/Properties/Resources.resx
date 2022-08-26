@@ -123,6 +123,9 @@
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Extracting archive</value>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Extracting this archive type is only supported on macOS.</value>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Extracting this archive type is only supported on Windows.</value>
   </data>

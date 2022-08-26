@@ -39,6 +39,7 @@ public abstract partial class ArchiveExtractor : IArchiveExtractor
         Register(Archive.MimeTypeMsi, handler => new MsiExtractor(handler));
 #endif
         Register(Archive.MimeTypeRubyGem, handler => new RubyGemExtractor(handler));
+        Register(Archive.MimeTypeDmg, handler => new DmgExtractor(handler));
     }
 
     /// <summary>

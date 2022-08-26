@@ -79,6 +79,15 @@ namespace ZeroInstall.Archives.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Extracting this archive type is only supported on macOS..
+        /// </summary>
+        internal static string ExtractionOnlyOnMacOS {
+            get {
+                return ResourceManager.GetString("ExtractionOnlyOnMacOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extracting this archive type is only supported on Windows..
         /// </summary>
         internal static string ExtractionOnlyOnWindows {
