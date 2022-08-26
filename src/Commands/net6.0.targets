@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ConfigFiles Include="$(MSBuildThisFileDirectory)*.config" />
+    <!-- Deploy runtime config so this library can also be used as an executable -->
+    <ConfigFiles Include="$(MSBuildThisFileDirectory)..\..\lib\net6.0\0install.runtimeconfig.json" />
     <None Include="@(ConfigFiles)">
       <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

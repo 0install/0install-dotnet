@@ -19,6 +19,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Deploy runtime config so this library can also be used as an executable -->
+  <ItemGroup>
+    <None Include="App.config" PackagePath="lib\net472\0install.exe.config" Pack="True" />
+    <None Include="net472.targets" PackagePath="build\net472\ZeroInstall.Commands.targets" Pack="True" />
+    <None Include="net6.0.targets" PackagePath="build\net6.0\ZeroInstall.Commands.targets" Pack="True" />
+  </ItemGroup>
+
   <!-- Global usings -->
   <ItemGroup>
     <Using Include="NDesk.Options" />
@@ -38,12 +45,6 @@
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web" Pack="False" />
     <Reference Include="System.ServiceProcess" Pack="False" />
-  </ItemGroup>
-
-  <!-- Include app config when .NET Framework EXE is referenced from NuGet package -->
-  <ItemGroup>
-    <None Include="*.targets" PackagePath="build\net472" Pack="True" />
-    <None Include="App.config" PackagePath="build\net472\$(AssemblyName).exe.config" Pack="True" />
   </ItemGroup>
 
   <!-- Embedded resources -->

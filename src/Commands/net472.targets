@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <!-- Deploy runtime config so this library can also be used as an executable -->
+    <ConfigFiles Include="$(MSBuildThisFileDirectory)..\..\lib\net472\0install.exe.config" />
+    <None Include="@(ConfigFiles)">
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
