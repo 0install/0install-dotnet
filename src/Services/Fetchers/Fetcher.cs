@@ -165,7 +165,7 @@ public partial class Fetcher : IFetcher
             catch (NotSupportedException ex)
             {
                 // Wrap exception to add context information
-                throw new NotSupportedException(string.Format(Resources.FetcherProblem, archive), ex);
+                throw new NotSupportedException(string.Format(Resources.FetcherProblem, archive) + Environment.NewLine + ex.Message, ex);
             }
         }
     }
