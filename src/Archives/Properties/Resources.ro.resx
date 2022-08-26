@@ -66,6 +66,10 @@
     <value>Extragerea arhivei</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Extragerea acestui tip de arhivă este acceptată numai pe macOS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Extragerea acestui tip de arhivă este acceptată numai pe Windows.</value>
     <comment>Automatically translated.</comment>

@@ -80,7 +80,7 @@
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Все компоненты, необходимые для работы {0}, были экспортированы в '{1}'.
-Вы можете использовать сценарий импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
+Вы можете использовать скрипт импорта или исполняемый файл Bootstrap в '{1}' для импорта этих файлов на другой компьютер.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -268,7 +268,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение параметров конфигурации.
-При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает настройку в заданное значение или возвращает ее к значению по умолчанию, если задано значение "default".</value>
+При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает заданное значение параметра или сбрасывает его на значение по умолчанию, если задано значение "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -366,7 +366,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
+Дополнительный аргумент задает пользовательское расположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -405,6 +405,10 @@
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
     <value>Удаляет каталог из списка пользовательских кэшей реализации.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Предоставляет реализации из кэша в виде архивов через HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -737,7 +741,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Указывает предпочтительный язык для реализации. Используйте короткие коды языков ISO (например, en или en-US).
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
 Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -832,7 +836,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Вместо прямого выполнения выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
+    <value>Вместо прямого выполнения выбранной программы выполните {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
 Обратите внимание, что обертка выполняется в окружении, выбранном программой; следовательно, этот механизм нельзя использовать для создания "песочницы".
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
@@ -912,6 +916,10 @@
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Самообновление отключено.
 Выполните '0install config self_update_uri default', чтобы включить его.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Обслуживание реализаций по адресу {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

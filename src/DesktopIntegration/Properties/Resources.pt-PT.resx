@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>O nome de utilizador e/ou palavra-chave que introduziu para o servidor Sync estão incorrectos. Por favor, verifique as suas opções de sincronização.</value>
+    <value>O nome de utilizador e/ou senha que introduziu para o servidor Sync estão incorrectos. Por favor, verifique as suas opções de sincronização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">

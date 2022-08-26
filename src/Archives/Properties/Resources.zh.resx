@@ -66,6 +66,10 @@
     <value>提取档案</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>仅在macOS上支持提取这种存档类型。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>仅在Windows上支持提取这种存档类型。</value>
     <comment>Automatically translated.</comment>

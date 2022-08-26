@@ -66,6 +66,10 @@
     <value>Uitpakken archief</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Het uitpakken van dit archieftype wordt alleen ondersteund op macOS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Het uitpakken van dit archieftype wordt alleen onder Windows ondersteund.</value>
     <comment>Automatically translated.</comment>

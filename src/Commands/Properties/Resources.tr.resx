@@ -407,6 +407,10 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <value>Özel uyarlama ön bellekleri listesinden bir klasörü kaldırır.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>HTTP üzerinden arşivler olarak ön bellekten sunucu uygulamaları.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>Bir uyarlamanın sağlamlığını denetler (Örneğin öge listesi dosyasının değişmemiş olması).</value>
     <comment>Manually overriden.</comment>
@@ -912,6 +916,10 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Self-update devre dışı bırakılmış.
 Etkinleştirmek için '0install config self_update_uri default' komutunu kullanın.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>{0} adresindeki uygulamalar sunuluyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

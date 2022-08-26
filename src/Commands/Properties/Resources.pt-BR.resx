@@ -407,6 +407,10 @@ Argumentos adicionais especificam locais de cache personalizados.</value>
     <value>Remove uma pasta da lista de caches de implementação personalizados.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DescriptionStoreServe" xml:space="preserve">
+    <value>Serve implementações a partir do cache como arquivos via HTTP.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
     <value>Garante que uma implementação não foi danificada (ou seja, o resumo do manifesto não foi alterado).</value>
     <comment>Manually overriden.</comment>
@@ -912,6 +916,10 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser igno
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>A atualização automática está desativada.
 Execute '0install config self_update_uri default' para ativar.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ServingImplementations" xml:space="preserve">
+    <value>Servindo implementações no endereço {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

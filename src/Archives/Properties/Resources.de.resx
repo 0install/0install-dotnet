@@ -66,6 +66,10 @@
     <value>Archiv entpacken</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
+    <value>Das Entpacken dieses Archivtyps wird nur unter macOS unterstützt.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Das Entpacken dieses Archivtyps wird nur unter Windows unterstützt.</value>
     <comment>Manually overriden.</comment>
