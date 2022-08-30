@@ -196,7 +196,7 @@ public partial class StubBuilder
         #region Error handling
         catch (Exception ex) when (ex is UriFormatException or WebException)
         {
-            Log.Warn(ex.Message, ex);
+            Log.Warn(ex);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {

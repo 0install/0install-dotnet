@@ -173,7 +173,7 @@ public static class ZeroInstallInstance
         }
         catch (WebException ex)
         {
-            Log.Debug(ex.Message, ex);
+            Log.Debug(ex);
             return null;
         }
         catch (Exception ex) when (ex is UriFormatException or IOException or UnauthorizedAccessException or SignatureException or SolverException or InvalidDataException)

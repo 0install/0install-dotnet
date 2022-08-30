@@ -259,7 +259,7 @@ public class IntegrationManager : IntegrationManagerBase
         #region Error handling
         catch (InvalidDataException ex)
         {
-            Log.Warn(ex.Message, ex);
+            Log.Warn(ex);
         }
         #endregion
 

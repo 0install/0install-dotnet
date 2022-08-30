@@ -70,7 +70,7 @@ public sealed partial class IconStore : IIconStore
             {}
             catch (Exception ex) when (ex is WebException or InvalidDataException)
             {
-                Log.Info(ex.Message, ex);
+                Log.Info(ex);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {

@@ -110,7 +110,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
                 }
                 catch (Exception ex) when (ex is NotSupportedException or WebException or InvalidDataException or SignatureException)
                 {
-                    Log.Info(ex.Message, ex);
+                    Log.Info(ex);
                     _failedFeeds.TryAdd(feedUri, ex);
                 }
             }

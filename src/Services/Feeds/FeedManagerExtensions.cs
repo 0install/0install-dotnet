@@ -44,7 +44,7 @@ public static class FeedManagerExtensions
             }
             catch (WebException ex)
             {
-                Log.Warn(ex.Message, ex);
+                Log.Warn(ex);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {

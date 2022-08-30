@@ -31,7 +31,7 @@ public static class FeedCacheExtensions
             #region Error handling
             catch (InvalidDataException ex)
             {
-                Log.Error(ex.Message, ex);
+                Log.Error(ex);
             }
             #endregion
         }
