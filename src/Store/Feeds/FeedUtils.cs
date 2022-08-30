@@ -117,7 +117,7 @@ public static class FeedUtils
         #region Error handling
         catch (FormatException ex)
         {
-            throw new SignatureException(Resources.XmlSignatureNotBase64 + " " + ex.Message, ex);
+            throw new SignatureException(Resources.XmlSignatureNotBase64, ex);
         }
         #endregion
     }

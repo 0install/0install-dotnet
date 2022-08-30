@@ -267,7 +267,7 @@ public class FeedManager : IFeedManager
         catch (InvalidDataException ex)
         {
             // Change exception message to add context information
-            throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, feedUri) + Environment.NewLine + ex.GetMessageWithInner(), ex.InnerException);
+            throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, feedUri), ex.InnerException);
         }
         #endregion
 

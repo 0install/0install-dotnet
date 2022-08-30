@@ -56,12 +56,12 @@ public partial class ImplementationServer
 
     private void HandleRequest(HttpListenerContext context, CancellationToken cancellationToken)
     {
-        void ReturnError(HttpStatusCode statusCode, string message)
+        void ReturnError(HttpStatusCode statusCode, Exception exception)
         {
             context.Response.StatusCode = (int)statusCode;
             context.Response.ContentType = "text/plain";
             context.Response.ContentEncoding = Encoding.UTF8;
-            context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(message));
+            context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(exception.GetMessageWithInner()));
         }
 
         try
@@ -88,15 +88,15 @@ public partial class ImplementationServer
         }
         catch (NotSupportedException ex)
         {
-            ReturnError(HttpStatusCode.BadRequest, ex.Message);
+            ReturnError(HttpStatusCode.BadRequest, ex);
         }
         catch (ImplementationNotFoundException ex)
         {
-            ReturnError(HttpStatusCode.NotFound, ex.Message);
+            ReturnError(HttpStatusCode.NotFound, ex);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            ReturnError(HttpStatusCode.Unauthorized, ex.Message);
+            ReturnError(HttpStatusCode.Unauthorized, ex);
         }
         context.Response.Close();
     }

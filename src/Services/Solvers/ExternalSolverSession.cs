@@ -115,7 +115,7 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
                 }
                 catch (Exception ex)
                 {
-                    ReplyFail(ticket, ex.Message);
+                    ReplyFail(ticket, ex.GetMessageWithInner());
                     throw;
                 }
                 break;
