@@ -89,37 +89,36 @@ partial class SelfManager
     {
         if (!WindowsUtils.IsWindows) return;
 
-        RemoveOneGetBootstrap(Path.Combine(
-            Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
-            "PackageManagement", "ProviderAssemblies", "0install"));
-        RemoveOneGetBootstrap(Path.Combine(
-            Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
-            "WindowsPowerShell", "Modules", "0install"));
+        try
+        {
+            RemoveOneGetBootstrap(Path.Combine(
+                Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
+                "PackageManagement", "ProviderAssemblies", "0install"));
+            RemoveOneGetBootstrap(Path.Combine(
+                Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
+                "WindowsPowerShell", "Modules", "0install"));
+        }
+        catch (Exception ex)
+        {
+            Log.Warn("Failed to remove OneGet Bootstrap module", ex);
+        }
     }
 
     private static void RemoveOneGetBootstrap(string dirPath)
     {
-        if (!WindowsUtils.IsWindows || !Directory.Exists(dirPath)) return;
+        if (!Directory.Exists(dirPath)) return;
 
-        try
+        foreach (string subDirPath in Directory.GetDirectories(dirPath))
         {
-            foreach (string subDirPath in Directory.GetDirectories(dirPath))
+            foreach (string filePath in Directory.GetFiles(subDirPath))
             {
-                foreach (string filePath in Directory.GetFiles(subDirPath))
-                {
-                    string tempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-                    Log.Debug($"Trying to move '{filePath}' to '{tempPath}' to prevent future PowerShell sessions from loading it again");
-                    File.Move(filePath, tempPath);
-                }
-                Directory.Delete(subDirPath);
+                string tempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+                Log.Debug($"Trying to move '{filePath}' to '{tempPath}' to prevent future PowerShell sessions from loading it again");
+                File.Move(filePath, tempPath);
             }
-            Directory.Delete(dirPath);
+            Directory.Delete(subDirPath);
         }
-        #region Error handling
-        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-        {
-            Log.Debug("Failed to remove OneGet bootstrap directory: " + dirPath, ex);
-        }
-        #endregion
+
+        Directory.Delete(dirPath);
     }
 }
