@@ -57,7 +57,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         try
         {
             if (FileUtils.DetermineTimeAccuracy(Path) > 0)
-                throw new NotSupportedException(Resources.InsufficientFSTimeAccuracy);
+                throw new PlatformNotSupportedException(Resources.InsufficientFSTimeAccuracy);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {

@@ -9,14 +9,21 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts Apple Disk images (.dmg).
 /// </summary>
-[PrimaryConstructor]
-public partial class DmgExtractor : ArchiveExtractor
+public class DmgExtractor : ArchiveExtractor
 {
+    /// <summary>
+    /// Creates a new .dmg extractor.
+    /// </summary>
+    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
+    /// <exception cref="PlatformNotSupportedException">The current platform is not macOS.</exception>
+    public DmgExtractor(ITaskHandler handler) : base(handler)
+    {
+        if (!UnixUtils.IsMacOSX) throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnMacOS);
+    }
+
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {
-        if (!UnixUtils.IsMacOSX) throw new NotSupportedException(Resources.ExtractionOnlyOnMacOS);
-
         EnsureFile(stream, archivePath =>
         {
             var launcher = new ProcessLauncher("hdiutil");
