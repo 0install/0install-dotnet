@@ -50,7 +50,7 @@ public static class SolverUtils
             UnknownElements = implementation.UnknownElements,
             InterfaceUri = requirements.InterfaceUri,
             FromFeed = candidate.FeedUri != requirements.InterfaceUri ? candidate.FeedUri : null,
-            QuickTestFile = (implementation is ExternalImplementation externalImplementation) ? externalImplementation.QuickTestFile : null,
+            QuickTestFile = (implementation as ExternalImplementation)?.QuickTestFile,
             Bindings = {implementation.Bindings.CloneElements()}
         };
         selection.AddDependencies(requirements, from: candidate.Implementation);

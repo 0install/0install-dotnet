@@ -55,8 +55,8 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
 
         // Prefer more stable versions, but treat everything over the stability policy the same
         // (so we prefer stable over testing if the policy is to prefer "stable", otherwise we don't care)
-        var xStability = ApplyPolicy(x.EffectiveStability);
-        var yStability = ApplyPolicy(y.EffectiveStability);
+        var xStability = CapToPolicy(x.EffectiveStability);
+        var yStability = CapToPolicy(y.EffectiveStability);
         if (xStability < yStability) return -1;
         if (xStability > yStability) return 1;
 
@@ -65,8 +65,8 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
         if (x.Version.FirstPart < y.Version.FirstPart) return 1;
 
         // Prefer native packages if the main part of the versions are the same
-        if (x.EffectiveStability == Stability.Packaged && y.EffectiveStability != Stability.Packaged) return -1;
-        if (y.EffectiveStability == Stability.Packaged && x.EffectiveStability != Stability.Packaged) return 1;
+        if (x.Stability == Stability.Packaged && y.Stability != Stability.Packaged) return -1;
+        if (y.Stability == Stability.Packaged && x.Stability != Stability.Packaged) return 1;
 
         // Full version compare (after package check, since comparing modifiers between native and non-native packages doesn't make sense)
         if (x.Version > y.Version) return -1;
@@ -99,7 +99,7 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
         return string.CompareOrdinal(x.Implementation.ID, y.Implementation.ID);
     }
 
-    private Stability ApplyPolicy(Stability stability)
+    private Stability CapToPolicy(Stability stability)
         => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
 
     private static readonly LanguageSet _englishSet = new() {"en", "en_US"};
