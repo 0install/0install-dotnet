@@ -19,11 +19,11 @@ public class MsiExtractor : ArchiveExtractor
     /// Creates an MSI extractor.
     /// </summary>
     /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-    /// <exception cref="NotSupportedException">Extracting this archive type is only supported on Windows.</exception>
+    /// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
     public MsiExtractor(ITaskHandler handler)
         : base(handler)
     {
-        if (!WindowsUtils.IsWindows) throw new NotSupportedException(Resources.ExtractionOnlyOnWindows);
+        if (!WindowsUtils.IsWindows) throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnWindows);
     }
 
     /// <inheritdoc/>

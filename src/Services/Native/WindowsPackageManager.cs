@@ -18,7 +18,7 @@ public class WindowsPackageManager : PackageManagerBase
 {
     public WindowsPackageManager()
     {
-        if (!WindowsUtils.IsWindows) throw new NotSupportedException("Windows Package Manager can only be used on the Windows platform.");
+        if (!WindowsUtils.IsWindows) throw new PlatformNotSupportedException("Windows Package Manager can only be used on the Windows platform.");
     }
 
     /// <inheritdoc/>
