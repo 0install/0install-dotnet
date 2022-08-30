@@ -95,7 +95,7 @@ partial class ImplementationStore
                 #region Error handling
                 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                 {
-                    Log.Warn(string.Format(Resources.UnableToWriteProtect, path), ex);
+                    Log.Error(string.Format(Resources.UnableToWriteProtect, path), ex);
                 }
                 #endregion
             }

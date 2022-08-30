@@ -81,18 +81,8 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            ManifestDigest digest;
             string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            string id = Path.GetFileName(path);
-            try
-            {
-                digest = new ManifestDigest(id);
-            }
-            catch (NotSupportedException ex)
-            {
-                Log.Error(ex.Message, ex);
-                return ExitCode.NotSupported;
-            }
+            var digest = new ManifestDigest(Path.GetFileName(path));
 
             var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1]) : ImplementationStore;
             try
