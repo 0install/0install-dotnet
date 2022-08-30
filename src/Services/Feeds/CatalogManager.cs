@@ -102,7 +102,7 @@ public partial class CatalogManager : ICatalogManager
             catch (InvalidDataException ex)
             {
                 // Change exception message to add context information
-                throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, source) + Environment.NewLine + ex.GetMessageWithInner(), ex.InnerException);
+                throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, source), ex.InnerException);
             }
             #endregion
         }));

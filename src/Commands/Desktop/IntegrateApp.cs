@@ -80,15 +80,15 @@ public class IntegrateApp : AppCommand
                 catch (ConflictException ex)
                 {
                     if (Handler.Ask(
-                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
+                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Resources.IntegrateAppRetry,
                             defaultAnswer: false, alternateMessage: ex.Message))
                         goto Retry;
                 }
                 catch (InvalidDataException ex)
                 {
                     if (Handler.Ask(
-                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.Message + Environment.NewLine + Environment.NewLine + Resources.IntegrateAppRetry,
-                            defaultAnswer: false, alternateMessage: ex.Message))
+                            Resources.IntegrateAppInvalid + Environment.NewLine + ex.GetMessageWithInner() + Environment.NewLine + Resources.IntegrateAppRetry,
+                            defaultAnswer: false, alternateMessage: ex.GetMessageWithInner()))
                         goto Retry;
                 }
                 #endregion

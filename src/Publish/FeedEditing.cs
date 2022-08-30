@@ -64,7 +64,7 @@ public class FeedEditing : CommandManager<Feed>
         }
         catch (InvalidDataException ex)
         {
-            problem = ex.Message;
+            problem = ex.GetMessageWithInner();
             return false;
         }
     }
