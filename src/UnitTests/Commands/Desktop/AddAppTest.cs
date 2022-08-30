@@ -21,6 +21,6 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         if (WindowsUtils.IsWindows)
             GetMock<ICatalogManager>().Setup(x => x.GetCached()).Returns(new Catalog());
 
-        RunAndAssert(new string[] {}, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
+        RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
 }

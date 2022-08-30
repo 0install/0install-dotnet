@@ -8,23 +8,32 @@ namespace ZeroInstall.Services;
 /// <summary>
 /// A minimalistic <see cref="ITaskHandler"/> that allows you to pre-record answers and retrieve output.
 /// </summary>
-public class MockTaskHandler : TaskHandlerBase
+public class MockTaskHandler : ITaskHandler
 {
+    /// <inheritdoc/>
+    public void Dispose() {}
+
+    /// <inheritdoc/>
+    public CancellationToken CancellationToken => CancellationToken.None;
+
+    /// <inheritdoc/>
+    public void RunTask(ITask task) => task.Run(CancellationToken);
+
+    /// <inheritdoc/>
+    public Verbosity Verbosity { get; set; }
+
     /// <summary>
-    /// The prerecorded result for <see cref="AskInteractive"/>.
+    /// The prerecorded result for <see cref="Ask"/>.
     /// </summary>
     public bool AnswerQuestionWith { get; set; }
 
     /// <summary>
-    /// Last question passed to <see cref="AskInteractive"/>.
+    /// Last question passed to <see cref="Ask"/>.
     /// </summary>
     public string? LastQuestion { get; private set; }
 
     /// <inheritdoc/>
-    public override void RunTask(ITask task) => task.Run(CancellationToken, CredentialProvider);
-
-    /// <inheritdoc/>
-    protected override bool AskInteractive(string question, bool defaultAnswer)
+    public bool Ask(string question, bool? defaultAnswer = null, string? alternateMessage = null)
     {
         LastQuestion = question;
         return AnswerQuestionWith;
@@ -38,17 +47,25 @@ public class MockTaskHandler : TaskHandlerBase
     /// <summary>
     /// Fakes showing an information string output to the user.
     /// </summary>
-    public override void Output(string title, string message) => LastOutput = message;
+    public void Output(string title, string message) => LastOutput = message;
 
     /// <summary>
-    /// Last data objects passed to <see cref="Output{T}"/>.
+    /// Last data objects passed to <see cref="Output"/>.
     /// </summary>
     public IEnumerable? LastOutputObjects { get; private set; }
 
     /// <summary>
     /// Fakes showing tabular data to the user.
     /// </summary>
-    public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data;
+    public void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data;
 
-    public override void Error(Exception exception) {}
+    /// <summary>
+    /// Fakes showing tree-like data to the user.
+    /// </summary>
+    public void Output<T>(string title, NamedCollection<T> data) where T : INamed => LastOutputObjects = data;
+
+    /// <summary>
+    /// Does nothing.
+    /// </summary>
+    public void Error(Exception exception) {}
 }

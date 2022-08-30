@@ -3,6 +3,7 @@
 
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
+using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Implementations;
@@ -12,7 +13,7 @@ namespace ZeroInstall.Commands;
 /// <summary>
 /// A minimalistic <see cref="ICommandHandler"/> that allows you to pre-record answers and retrieve output.
 /// </summary>
-public class MockCommandHandler : TaskHandlerBase, ICommandHandler
+public class MockCommandHandler : MockTaskHandler, ICommandHandler
 {
     /// <summary>
     /// Always returns <c>false</c>.
@@ -27,37 +28,15 @@ public class MockCommandHandler : TaskHandlerBase, ICommandHandler
     /// <inheritdoc/>
     public FeedUri? FeedUri { get; set; }
 
-    /// <inheritdoc/>
-    public void DisableUI()
-    {
-        // No UI, so nothing to do
-    }
-
-    /// <inheritdoc/>
-    public void CloseUI()
-    {
-        // No UI, so nothing to do
-    }
+    /// <summary>
+    /// Does nothing.
+    /// </summary>
+    public void DisableUI() {}
 
     /// <summary>
-    /// The prerecorded result for <see cref="AskInteractive"/>.
+    /// Does nothing.
     /// </summary>
-    public bool AnswerQuestionWith { get; set; }
-
-    /// <summary>
-    /// Last question passed to <see cref="AskInteractive"/>.
-    /// </summary>
-    public string? LastQuestion { get; private set; }
-
-    /// <summary>
-    /// Fakes asking the user a question.
-    /// </summary>
-    /// <returns>The current value of <see cref="AnswerQuestionWith"/>.</returns>
-    protected override bool AskInteractive(string question, bool defaultAnswer)
-    {
-        LastQuestion = question;
-        return AnswerQuestionWith;
-    }
+    public void CloseUI() {}
 
     /// <summary>
     /// Last <see cref="Selections"/> passed to <see cref="ShowSelections"/>.
@@ -70,42 +49,15 @@ public class MockCommandHandler : TaskHandlerBase, ICommandHandler
     public void ShowSelections(Selections selections, IFeedManager feedManager) => LastSelections = selections;
 
     /// <inheritdoc/>
-    public void CustomizeSelections(Func<Selections> solveCallback)
-    {
-        // No UI, so nothing to do
-    }
-
-    /// <inheritdoc/>
-    public void ShowIntegrateApp(IntegrationState state)
-    {
-        // No UI, so nothing to do
-    }
-
-    /// <inheritdoc/>
-    public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache)
-    {
-        // No UI, so nothing to do
-    }
+    public void CustomizeSelections(Func<Selections> solveCallback) {}
 
     /// <summary>
-    /// Last information string passed to <see cref="Output"/>.
+    /// Does nothing.
     /// </summary>
-    public string? LastOutput { get; private set; }
+    public void ShowIntegrateApp(IntegrationState state) {}
 
     /// <summary>
-    /// Fakes showing an information string output to the user.
+    /// Does nothing.
     /// </summary>
-    public override void Output(string title, string message) => LastOutput = message;
-
-    /// <summary>
-    /// Last data objects passed to <see cref="Output{T}"/>.
-    /// </summary>
-    public IEnumerable<object> LastOutputObjects { get; private set; } = Enumerable.Empty<object>();
-
-    /// <summary>
-    /// Fakes showing tabular data to the user.
-    /// </summary>
-    public override void Output<T>(string title, IEnumerable<T> data) => LastOutputObjects = data.Cast<object>().ToArray();
-
-    public override void Error(Exception exception) {}
+    public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache) {}
 }
