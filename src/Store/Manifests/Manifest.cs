@@ -118,7 +118,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
 
         string[] parts = key.Split('/');
         for (int i = 1; i < parts.Length; i++)
-            _directories.GetOrAdd(StringUtils.Join("/", parts.Take(i)), NewDict);
+            _directories.GetOrAdd(string.Join("/", parts.Take(i)), NewDict);
 
         return _directories.GetOrAdd(key, NewDict);
     }

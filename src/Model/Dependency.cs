@@ -77,7 +77,7 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
     /// Returns the dependency in the form "Interface (Use)". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => StringUtils.Join(", ", new object?[]
+        => string.Join(", ", new object?[]
             {
                 InterfaceUri,
                 Use

@@ -144,7 +144,7 @@ public partial class Fetcher : IFetcher
         }
         catch (DigestMismatchException)
         {
-            Log.Error(string.Format(Resources.FetcherProblem, StringUtils.Join(", ", steps.Select(x => x.ToString()).WhereNotNull())));
+            Log.Error(string.Format(Resources.FetcherProblem, string.Join(", ", steps.Select(x => x.ToString()).WhereNotNull())));
             throw;
         }
     }

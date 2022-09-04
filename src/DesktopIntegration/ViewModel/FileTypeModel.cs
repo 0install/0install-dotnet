@@ -13,7 +13,7 @@ public class FileTypeModel : IconCapabilityModel
     /// <summary>
     /// All <see cref="FileType.Extensions" /> concatenated with ", ".
     /// </summary>
-    public string Extensions => StringUtils.Join(", ", _fileType.Extensions.Select(extension => extension.Value));
+    public string Extensions => string.Join(", ", _fileType.Extensions.Select(extension => extension.Value));
 
     /// <inheritdoc/>
     public FileTypeModel(FileType fileType, bool used)

@@ -54,7 +54,7 @@ public sealed partial class FeedNode : CacheNode
     /// A comma-separated list of categories the applications fits into.
     /// </summary>
     [Description("A comma-separated list of categories the applications fits into.")]
-    public string Categories => StringUtils.Join(",", _feed.Categories.Select(x => x.Name).WhereNotNull());
+    public string Categories => string.Join(",", _feed.Categories.Select(x => x.Name).WhereNotNull());
 
     /// <summary>
     /// Deletes this <see cref="Feed"/> from the <see cref="IFeedCache"/> it is located in.

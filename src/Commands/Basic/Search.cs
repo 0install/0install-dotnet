@@ -23,7 +23,7 @@ public class Search : CliCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        string keywords = StringUtils.Join(" ", AdditionalArgs);
+        string keywords = string.Join(" ", AdditionalArgs);
         Handler.Output(keywords, SearchResults.Query(Config, keywords));
         return ExitCode.OK;
     }

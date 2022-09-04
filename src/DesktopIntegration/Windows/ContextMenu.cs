@@ -67,7 +67,7 @@ public static class ContextMenu
         void AppliesTo(RegistryKey key)
         {
             if (contextMenu.Target == ContextMenuTarget.Files)
-                key.SetOrDelete("AppliesTo", StringUtils.Join(" OR ", contextMenu.Extensions.Select(x => x.Value)));
+                key.SetOrDelete("AppliesTo", string.Join(" OR ", contextMenu.Extensions.Select(x => x.Value)));
         }
 
         if (contextMenu.Verbs.Count == 1)

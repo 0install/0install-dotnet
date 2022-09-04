@@ -173,5 +173,5 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
     /// Creates string representation suitable for console output.
     /// </summary>
     public override string ToString()
-        => "CompositeStore: " + StringUtils.Join(", ", _innerStores.Select(x => x.ToString()).WhereNotNull());
+        => "CompositeStore: " + string.Join(", ", _innerStores.Select(x => x.ToString()).WhereNotNull());
 }

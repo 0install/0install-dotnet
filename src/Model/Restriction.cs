@@ -86,7 +86,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     [IgnoreEquality]
     public string DistributionsString
     {
-        get => StringUtils.Join(" ", Distributions);
+        get => string.Join(" ", Distributions);
         set
         {
             Distributions.Clear();

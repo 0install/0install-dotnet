@@ -109,7 +109,7 @@ public record struct ManifestDigest(
         if (!string.IsNullOrEmpty(Sha1New)) parts.Add("sha1new=" + Sha1New);
         if (!string.IsNullOrEmpty(Sha256)) parts.Add("sha256=" + Sha256);
         if (!string.IsNullOrEmpty(Sha256New)) parts.Add("sha256new_" + Sha256New);
-        return StringUtils.Join(",", parts);
+        return string.Join(",", parts);
     }
 
     /// <summary>

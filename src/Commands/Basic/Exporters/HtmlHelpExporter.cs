@@ -34,7 +34,7 @@ public class HtmlHelpExporter : HelpExporterBase
 </tr>";
 
     protected override string OptionListEntry(IEnumerable<string> prototypes, string description) => $@"<tr>
-  <td>{StringUtils.Join("<br/>", prototypes.Select(x => $"<nobr><code>{HtmlEncode(x)}</code></nobr>"))}</td>
+  <td>{string.Join("<br/>", prototypes.Select(x => $"<nobr><code>{HtmlEncode(x)}</code></nobr>"))}</td>
   <td>{HtmlEncode(description)}</td>
 </tr>";
 

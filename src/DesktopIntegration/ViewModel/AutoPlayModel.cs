@@ -13,7 +13,7 @@ public class AutoPlayModel : IconCapabilityModel
     /// <summary>
     /// All <see cref="AutoPlay.Events"/> concatenated with ", ".
     /// </summary>
-    public string Events => StringUtils.Join(", ", _autoPlay.Events.Select(x => x.Name));
+    public string Events => string.Join(", ", _autoPlay.Events.Select(x => x.Name));
 
     /// <inheritdoc/>
     public AutoPlayModel(AutoPlay capability, bool used)

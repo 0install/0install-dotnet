@@ -52,7 +52,7 @@ public sealed partial class PackageImplementation : Element
     [IgnoreEquality]
     public string DistributionsString
     {
-        get => StringUtils.Join(" ", Distributions);
+        get => string.Join(" ", Distributions);
         set
         {
             Distributions.Clear();

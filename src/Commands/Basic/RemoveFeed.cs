@@ -51,7 +51,7 @@ public class RemoveFeed : AddRemoveFeedCommand
         {
             Handler.OutputLow(Resources.FeedManagement,
                 Resources.FeedUnregistered + Environment.NewLine +
-                StringUtils.Join(Environment.NewLine, modifiedInterfaces.Select(x => x.ToStringRfc())));
+                string.Join(Environment.NewLine, modifiedInterfaces.Select(x => x.ToStringRfc())));
             return ExitCode.OK;
         }
     }

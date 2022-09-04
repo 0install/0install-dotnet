@@ -39,7 +39,7 @@ public sealed class ConflictException : InvalidOperationException
     public static ConflictException InnerConflict(params ConflictData[] entries)
         => new(
             string.Format(Resources.AccessPointInnerConflict, entries[0].AppEntry) + Environment.NewLine +
-            StringUtils.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()).WhereNotNull()))
+            string.Join(Environment.NewLine, entries.Select(x => x.AccessPoint.ToString()).WhereNotNull()))
         {
             Entries = entries
         };
@@ -50,7 +50,7 @@ public sealed class ConflictException : InvalidOperationException
     /// <param name="entries">The entries that are in conflict with each other.</param>
     public static ConflictException ExistingConflict(params ConflictData[] entries)
         => new(Resources.AccessPointExistingConflict + Environment.NewLine +
-               StringUtils.Join(Environment.NewLine, entries.Select(x => x.ToString())))
+               string.Join(Environment.NewLine, entries.Select(x => x.ToString())))
         {
             Entries = entries
         };

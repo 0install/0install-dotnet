@@ -31,6 +31,6 @@ public class DomainSet : SortedSet<Domain>
     /// <summary>
     /// Returns the list of domains in the form "Domain1, Domain2, ...". Safe for parsing!
     /// </summary>
-    public override string ToString() => StringUtils.Join(", ", this.Select(x => x.ToString()!));
+    public override string ToString() => string.Join(", ", this.Select(x => x.ToString()!));
     #endregion
 }

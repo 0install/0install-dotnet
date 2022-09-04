@@ -175,7 +175,7 @@ public abstract partial class CliCommand : ScopedOperation
     /// </summary>
     /// <param name="values">The values to list.</param>
     protected static string SupportedValues<T>(params T[] values)
-        => string.Format(Resources.SupportedValues, StringUtils.Join(", ", values.Select(ConversionUtils.ConvertToString)));
+        => string.Format(Resources.SupportedValues, string.Join(", ", values.Select(ConversionUtils.ConvertToString)));
 
     /// <summary>
     /// Generates a localized instruction string describing multiple selectable enum values.

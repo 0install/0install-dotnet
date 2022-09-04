@@ -56,7 +56,7 @@ public partial class SearchResult
     [DisplayName("Categories"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     [XmlIgnore, IgnoreEquality]
     public string CategoriesString
-        => StringUtils.Join(", ", Categories.Select(x => x.Name).WhereNotNull());
+        => string.Join(", ", Categories.Select(x => x.Name).WhereNotNull());
 
     /// <summary>
     /// Generates a pseudo-<see cref="Feed"/> using the information from this result.

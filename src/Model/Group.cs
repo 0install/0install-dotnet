@@ -73,7 +73,7 @@ public sealed partial class Group : Element, IElementContainer
     /// Returns the group in the form "Comma-separated list of set values". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => StringUtils.Join(", ", new object?[]
+        => string.Join(", ", new object?[]
             {
                 Architecture,
                 Version,

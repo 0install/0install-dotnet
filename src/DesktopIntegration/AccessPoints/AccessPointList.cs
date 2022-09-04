@@ -36,6 +36,6 @@ public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPoint
     /// Returns the access point list in the form "Entry; Entry; ...". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => StringUtils.Join("; ", Entries.Select(x => x.ToString()).WhereNotNull());
+        => string.Join("; ", Entries.Select(x => x.ToString()).WhereNotNull());
     #endregion
 }

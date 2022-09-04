@@ -108,7 +108,7 @@ public abstract partial class ImplementationBase : Element
     /// Returns the implementation in the form "Comma-separated list of set values". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => StringUtils.Join(", ", new object?[]
+        => string.Join(", ", new object?[]
             {
                 ID,
                 Architecture,

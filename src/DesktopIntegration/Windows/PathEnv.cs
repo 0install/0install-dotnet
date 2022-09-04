@@ -66,7 +66,7 @@ public static class PathEnv
 
         Environment.SetEnvironmentVariable(
             variable: "Path",
-            value: StringUtils.Join(Path.PathSeparator.ToString(), directories),
+            value: string.Join(Path.PathSeparator.ToString(), directories),
             target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
         if (WindowsUtils.IsWindows) WindowsUtils.NotifyEnvironmentChanged();
     }
