@@ -100,8 +100,16 @@ public static partial class Shortcut
 
     private static string GetFolderPath(Environment.SpecialFolder folder)
     {
-        string result = Environment.GetFolderPath(folder, Environment.SpecialFolderOption.Create);
-        if (!string.IsNullOrEmpty(result)) return result;
+        try
+        {
+            string result = Environment.GetFolderPath(folder, Environment.SpecialFolderOption.Create);
+            if (string.IsNullOrEmpty(result)) Log.Info($"Got empty path for {folder}, falling back to hardcoded default");
+            else return result;
+        }
+        catch (ArgumentException ex)
+        {
+            Log.Info($"Error getting path for {folder}, falling back to hardcoded default", ex);
+        }
 
         // Fallback paths in case Environment.GetFolderPath() does not work
         return folder switch
