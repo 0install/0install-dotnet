@@ -27,8 +27,8 @@ public static class FeedUtils
     /// </summary>
     /// <param name="openPgp">The OpenPGP-compatible system used to validate the signatures.</param>
     /// <param name="feedData">The feed data containing an embedded signature.</param>
-    /// <returns>A list of signatures found, both valid and invalid.</returns>
-    /// <exception cref="SignatureException">There is no valid signature data embedded in the <paramref name="feedData"/>.</exception>
+    /// <returns>A list of signatures found, both valid and invalid. Empty list if no signature block is found.</returns>
+    /// <exception cref="SignatureException">A signature block was found but it could not be parsed.</exception>
     public static IEnumerable<OpenPgpSignature> GetSignatures(IOpenPgp openPgp, byte[] feedData)
     {
         #region Sanity checks

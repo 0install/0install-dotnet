@@ -50,7 +50,7 @@ public interface IFeedCache
     /// <returns>A list of signatures found, both valid and invalid. Returns an empty list if the feed was not found in the cache.</returns>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-    /// <exception cref="SignatureException">There is no valid signature data embedded in the feed data.</exception>
+    /// <exception cref="SignatureException">A signature block was found but it could not be parsed.</exception>
     IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri);
 
     /// <summary>
