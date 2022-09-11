@@ -67,12 +67,15 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         _feedManager.IsStale(feed.Uri).Should().BeTrue(because: "Non-cached feeds should be reported as stale");
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
+        var sequence =
+            _feedCacheMock.SetupSequence(x => x.GetFeed(feed.Uri))
+                          .Returns((Feed?)null);
+        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri))
+                      .Returns(Enumerable.Empty<OpenPgpSignature>());
 
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
-        _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
+        sequence.Returns(feed);
         _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         _feedManager[feed.Uri].Should().Be(feed);
@@ -90,7 +93,8 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         var feedUri = new FeedUri(server.FileUri);
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.Contains(feedUri)).Returns(false);
+        _feedCacheMock.Setup(x => x.GetFeed(feedUri))
+                      .Returns((Feed?)null);
 
         Assert.Throws<InvalidDataException>(() => _feedManager[feedUri]);
     }
@@ -103,12 +107,16 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         var data = feed.ToXmlString().ToStream().ToArray();
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
+        var sequence =
+            _feedCacheMock.SetupSequence(x => x.GetFeed(feed.Uri))
+                          .Returns((Feed?)null);
+        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri))
+                      .Returns(Enumerable.Empty<OpenPgpSignature>());
+
 
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
-        _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
+        sequence.Returns(feed);
         _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         using var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data));
@@ -119,7 +127,6 @@ public class FeedManagerTest : TestWithMocksAndRedirect
     [Fact]
     public void DetectFreshCached()
     {
-        _feedCacheMock.Setup(x => x.Contains(FeedTest.Test1Uri)).Returns(true);
         _feedCacheMock.Setup(x => x.GetFeed(FeedTest.Test1Uri)).Returns(_feedPreNormalize);
         new FeedPreferences {LastChecked = DateTime.UtcNow}.SaveFor(FeedTest.Test1Uri);
 
@@ -166,7 +173,6 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         feedStream.Position = 0;
 
         // Cause feed to become in-memory cached
-        _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(true);
         _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
         _feedManager[feed.Uri].Should().Be(feed);
 
@@ -190,7 +196,6 @@ public class FeedManagerTest : TestWithMocksAndRedirect
     public void DetectStaleCached()
     {
         var feed = new Feed {Name = "Mock feed"};
-        _feedCacheMock.Setup(x => x.Contains(FeedTest.Test1Uri)).Returns(true);
         _feedCacheMock.Setup(x => x.GetFeed(FeedTest.Test1Uri)).Returns(feed);
         new FeedPreferences {LastChecked = DateTime.UtcNow - _config.Freshness}.SaveFor(FeedTest.Test1Uri);
 
@@ -213,7 +218,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         var data = SignFeed(feed);
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
+        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns(Enumerable.Empty<OpenPgpSignature>());
 
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));

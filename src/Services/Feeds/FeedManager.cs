@@ -99,42 +99,17 @@ public class FeedManager : IFeedManager
         if (feedUri.IsFile)
             return XmlStorage.LoadXml<Feed>(feedUri.LocalPath);
 
-        if (Refresh) Download(feedUri);
-        else if (!_feedCache.Contains(feedUri))
+        if (Refresh)
+            return Download(feedUri);
+        else if (_feedCache.GetFeed(feedUri) is {} feed)
         {
-            if (_config.NetworkUse == NetworkLevel.Offline)
-                throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, feedUri));
-
-            // Try to download missing feed
-            Download(feedUri);
-        }
-
-        return LoadCached(feedUri);
-    }
-
-    /// <summary>
-    /// Loads a <see cref="Feed"/> from the <see cref="_feedCache"/>.
-    /// </summary>
-    /// <param name="feedUri">The ID used to identify the feed. Must be an HTTP(S) URL.</param>
-    /// <returns>The parsed <see cref="Feed"/> object.</returns>
-    /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
-    /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
-    private Feed LoadCached(FeedUri feedUri)
-    {
-        try
-        {
-            var feed = _feedCache.GetFeed(feedUri)
-                    ?? throw new FileNotFoundException(string.Format(Resources.FeedNotInCache, feedUri));
             if (IsStale(feedUri)) Stale = true;
             return feed;
         }
-        #region Error handling
-        catch (Exception ex) when (ex is InvalidDataException or KeyNotFoundException)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
-        }
-        #endregion
+        else if (_config.NetworkUse == NetworkLevel.Offline)
+            throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, feedUri));
+        else
+            return Download(feedUri);
     }
 
     /// <inheritdoc/>
@@ -178,13 +153,14 @@ public class FeedManager : IFeedManager
     /// Downloads a <see cref="Feed"/> into the <see cref="_feedCache"/> validating its signatures. Automatically falls back to the mirror server.
     /// </summary>
     /// <param name="feedUri">The URL of the feed to download.</param>
+    /// <returns>The downloaded and parsed <see cref="Feed"/> object.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="WebException">A problem occurred while fetching the feed file.</exception>
     /// <exception cref="IOException">A problem occurred while writing the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the cache is not permitted.</exception>
     /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
     /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
-    private void Download(FeedUri feedUri)
+    private Feed Download(FeedUri feedUri)
     {
         SetLastCheckAttempt(feedUri);
 
@@ -212,6 +188,9 @@ public class FeedManager : IFeedManager
                 throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
+
+        return _feedCache.GetFeed(feedUri)
+            ?? throw new FileNotFoundException(string.Format(Resources.FeedNotInCache, feedUri));
     }
 
     /// <inheritdoc/>
@@ -277,18 +256,11 @@ public class FeedManager : IFeedManager
 
     private void CheckTrust(byte[] data, FeedUri feedUri, string? localPath)
     {
-        // Detect replay attacks
         var newSignature = _trustManager.CheckTrust(data, feedUri, localPath);
-        try
-        {
-            var oldSignature = _feedCache.GetSignatures(feedUri).OfType<ValidSignature>().FirstOrDefault();
-            if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp)
-                throw new ReplayAttackException(feedUri, oldSignature.Timestamp, newSignature.Timestamp);
-        }
-        catch (KeyNotFoundException)
-        {
-            // No existing feed to be replaced
-        }
+
+        var oldSignature = _feedCache.GetSignatures(feedUri).OfType<ValidSignature>().FirstOrDefault();
+        if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp)
+            throw new ReplayAttackException(feedUri, oldSignature.Timestamp, newSignature.Timestamp);
     }
 
     private void AddToCache(byte[] data, FeedUri feedUri)
