@@ -10,13 +10,13 @@ namespace ZeroInstall.Store.Feeds;
 /// <summary>
 /// Contains test methods for <see cref="FeedCache"/>.
 /// </summary>
-public class DiskFeedCacheTest : TestWithMocks
+public class FeedCacheTest : TestWithMocks
 {
     private readonly TemporaryDirectory _tempDir;
     private readonly FeedCache _cache;
     private readonly Feed _feed1;
 
-    public DiskFeedCacheTest()
+    public FeedCacheTest()
     {
         // Create a temporary cache
         _tempDir = new TemporaryDirectory("0install-test-feeds");
@@ -40,29 +40,35 @@ public class DiskFeedCacheTest : TestWithMocks
     }
 
     [Fact]
-    public void Contains()
+    public void ContainsPositive()
     {
         _cache.Contains(FeedTest.Test1Uri).Should().BeTrue();
         _cache.Contains(FeedTest.Test2Uri).Should().BeTrue();
         _cache.Contains(FeedTest.Test3Uri).Should().BeFalse();
+    }
 
-        using (var localFeed = new TemporaryFile("0install-test-feed"))
-        {
-            _feed1.SaveXml(localFeed);
-            _cache.Contains(new(localFeed))
-                  .Should().BeTrue(because: "Should detect local feed files without them actually being in the cache");
-        }
-
+    [Fact]
+    public void ContainsNegative()
+    {
         using var tempDir = new TemporaryDirectory("0install-test-feeds");
-        _cache.Contains(new(Path.Combine(tempDir, "feed.xml")))
-              .Should().BeFalse(because: "Should not detect phantom local feed files");
+        _cache.Contains(new(Path.Combine(tempDir, "feed.xml"))).Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsLocalFilesOutsideOfActualCache()
+    {
+        using var localFeed = new TemporaryFile("0install-test-feed");
+        _feed1.SaveXml(localFeed);
+        _cache.Contains(new(localFeed)).Should().BeTrue();
     }
 
     [Fact]
     public void ContainsCaseSensitive()
     {
-        _cache.Contains(new("http://example.com/test1.xml")).Should().BeTrue();
-        _cache.Contains(new("http://example.com/Test1.xml")).Should().BeFalse(because: "Should not be case-sensitive");
+        _cache.Contains(FeedTest.Test1Uri)
+              .Should().BeTrue();
+        _cache.Contains(new(FeedTest.Test1Uri.OriginalString.ToUpperInvariant()))
+              .Should().BeFalse(because: "Should be case-sensitive on all platforms");
     }
 
     [Fact]
@@ -78,8 +84,10 @@ public class DiskFeedCacheTest : TestWithMocks
     [Fact]
     public void GetFeedCaseSensitive()
     {
-        _cache.GetFeed(new("http://example.com/test1.xml")).Should().NotBeNull();
-        _cache.GetFeed(new("http://example.com/Test1.xml")).Should().BeNull();
+        _cache.GetFeed(FeedTest.Test1Uri)
+              .Should().NotBeNull();
+        _cache.GetFeed(new(FeedTest.Test1Uri.OriginalString.ToUpperInvariant()))
+              .Should().BeNull(because: "Should be case-sensitive on all platforms");
     }
 
     [Fact]
@@ -120,7 +128,7 @@ public class DiskFeedCacheTest : TestWithMocks
             longHttpUrlBuilder.Append("x");
 
         var feed = FeedTest.CreateTestFeed();
-        feed.Uri = new("http://example.com-" + longHttpUrlBuilder);
+        feed.Uri = new("http://example.com/-" + longHttpUrlBuilder);
 
         _cache.Add(feed.Uri, ToArray(feed));
 

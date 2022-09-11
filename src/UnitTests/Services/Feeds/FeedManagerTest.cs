@@ -70,9 +70,9 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
+        // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
         _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
-
         _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         _feedManager[feed.Uri].Should().Be(feed);
@@ -106,12 +106,12 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         _feedCacheMock.Setup(x => x.Contains(feed.Uri)).Returns(false);
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
+        // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
         _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
-        using var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data));
-        // ReSharper disable once AccessToDisposedClosure
         _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
 
+        using var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data));
         _config.FeedMirror = new(mirrorServer.ServerUri);
         _feedManager[feed.Uri].Should().Be(feed);
     }
@@ -215,7 +215,9 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         // No previous feed
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Throws<KeyNotFoundException>();
 
+        // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
+
         using var feedFile = new TemporaryFile("0install-test-feed");
         File.WriteAllBytes(feedFile, data);
         _feedManager.ImportFeed(feedFile);
