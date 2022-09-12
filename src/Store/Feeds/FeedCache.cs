@@ -66,7 +66,15 @@ public sealed class FeedCache : IFeedCache
         if (path == null) return null;
 
         Log.Debug($"Loading feed {feedUri.ToStringRfc()} from disk cache: {path}");
-        return XmlStorage.LoadXml<Feed>(path);
+        try
+        {
+            return XmlStorage.LoadXml<Feed>(path);
+        }
+        catch (InvalidDataException ex)
+        {
+            Log.Warn($"Cached copy of feed {feedUri.ToStringRfc()} is corrupt: {path}", ex);
+            return null;
+        }
     }
 
     /// <inheritdoc/>

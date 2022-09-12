@@ -37,10 +37,9 @@ public interface IFeedCache
     /// Tries to get a specific <see cref="Feed"/> from this cache.
     /// </summary>
     /// <param name="feedUri">The canonical ID used to identify the feed.</param>
-    /// <returns>The un-normalized <see cref="Feed"/>; <c>null</c> if the feed was not found in the cache.</returns>
+    /// <returns>The un-normalized <see cref="Feed"/>; <c>null</c> if the feed was not found in the cache or could not be parsed.</returns>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
-    /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
     Feed? GetFeed(FeedUri feedUri);
 
     /// <summary>

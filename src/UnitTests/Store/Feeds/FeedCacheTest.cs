@@ -91,8 +91,30 @@ public class FeedCacheTest : TestWithMocks
     }
 
     [Fact]
+    public void GetFeedMissing()
+        => _cache.GetFeed(FeedTest.Test3Uri)
+                 .Should().BeNull();
+
+    [Fact]
+    public void GetFeedCorrupt()
+    {
+        File.WriteAllText(Path.Combine(_tempDir, FeedTest.Test3Uri.Escape()), "corrupt");
+        _cache.GetFeed(FeedTest.Test3Uri)
+              .Should().BeNull();
+    }
+
+    [Fact]
     public void GetSignatures()
-        => _cache.GetSignatures(FeedTest.Test1Uri).Should().BeEmpty();
+        => _cache.GetSignatures(FeedTest.Test1Uri)
+                 .Should().BeEmpty();
+
+    [Fact]
+    public void GetSignaturesCorrupt()
+    {
+        File.WriteAllText(Path.Combine(_tempDir, FeedTest.Test3Uri.Escape()), "corrupt");
+        _cache.GetSignatures(FeedTest.Test3Uri)
+              .Should().BeEmpty();
+    }
 
     [Fact]
     public void Add()
