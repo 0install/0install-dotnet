@@ -63,24 +63,27 @@ public class Run : Download
         Handler.CancellationToken.ThrowIfCancellationRequested();
         Handler.DisableUI();
 
-        var process = Executor.Inject(Selections, _overrideMain)
+        var builder = Executor.Inject(Selections, _overrideMain)
                               .AddWrapper(_wrapper)
                               .AddArguments(AdditionalArgs.ToArray())
                               .SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, Requirements.InterfaceUri.ToStringRfc())
-                              .SetCallbackEnvironmentVariables()
-                              .Start();
+                              .SetCallbackEnvironmentVariables();
 
-        CloseUI(process);
-
-        BackgroundUpdate();
-        BackgroundSelfUpdate();
-
+        using var process = builder.Start();
         if (process == null)
         {
             Log.Warn("No process launched");
             return ExitCode.OK;
         }
-        else if (_noWait)
+
+        // Wait for launched program to become visible before closing 0install window (for a smoother visual transition)
+        WaitForGui(process);
+        Handler.CloseUI();
+
+        BackgroundUpdate();
+        BackgroundSelfUpdate();
+
+        if (_noWait)
         {
             Log.Debug("Not waiting for program to exit");
             return WindowsUtils.IsWindows ? (ExitCode)process.Id : ExitCode.OK;
@@ -92,12 +95,11 @@ public class Run : Download
         }
     }
 
-    private void CloseUI(Process? process)
+    private void WaitForGui(Process process)
     {
         if (WindowsUtils.IsWindows
-         && process != null
-         && Selections != null
          && Handler is {IsGui: true, Background: false}
+         && Selections != null
          && FeedCache.GetFeed(Selections.InterfaceUri) is {NeedsTerminal: false})
         {
             try
@@ -107,8 +109,6 @@ public class Run : Download
             catch (InvalidOperationException)
             {}
         }
-
-        Handler.CloseUI();
     }
 
     /// <inheritdoc/>
