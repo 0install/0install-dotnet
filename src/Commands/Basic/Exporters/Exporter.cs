@@ -61,7 +61,7 @@ public class Exporter
 
         foreach (var feedUri in feedUris)
         {
-            string filePath = Path.Combine(_contentDir, feedUri.PrettyEscape());
+            string filePath = Path.Combine(_contentDir, feedUri.Escape());
             if (!filePath.EndsWith(".xml")) filePath += ".xml";
 
             if (feedCache.GetPath(feedUri) is {} path)

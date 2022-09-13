@@ -52,10 +52,10 @@ public class ExporterTest : TestWithMocks
         _target.ExportFeeds(feedCacheMock.Object, openPgpMock.Object);
 
         string contentDir = Path.Combine(_destination, "content");
-        File.Exists(Path.Combine(contentDir, Fake.Feed1Uri.PrettyEscape())).Should().BeTrue();
-        File.Exists(Path.Combine(contentDir, Fake.SubFeed1Uri.PrettyEscape())).Should().BeTrue();
-        File.Exists(Path.Combine(contentDir, Fake.Feed2Uri.PrettyEscape())).Should().BeTrue();
-        File.Exists(Path.Combine(contentDir, Fake.SubFeed2Uri.PrettyEscape())).Should().BeTrue();
+        File.Exists(Path.Combine(contentDir, Fake.Feed1Uri.Escape())).Should().BeTrue();
+        File.Exists(Path.Combine(contentDir, Fake.SubFeed1Uri.Escape())).Should().BeTrue();
+        File.Exists(Path.Combine(contentDir, Fake.Feed2Uri.Escape())).Should().BeTrue();
+        File.Exists(Path.Combine(contentDir, Fake.SubFeed2Uri.Escape())).Should().BeTrue();
 
         File.ReadAllText(Path.Combine(contentDir, "000000000000007B.gpg")).Should()
             .Be("abc", because: "GPG keys should be exported.");
