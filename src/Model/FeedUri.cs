@@ -169,33 +169,14 @@ public sealed partial class FeedUri : Uri, ISerializable
         var builder = new StringBuilder();
         foreach (char t in value)
         {
-            switch (t)
+            builder.Append(t switch
             {
-                case '/':
-                    builder.Append('#');
-                    break;
-
-                case ':':
-                    if (UnixUtils.IsUnix) builder.Append(':');
-                    else builder.Append("%3a");
-                    break;
-
-                case '-':
-                case '_':
-                case '.':
-                    builder.Append(t);
-                    break;
-
-                default:
-                    if (char.IsLetterOrDigit(t))
-                        builder.Append(t);
-                    else
-                    {
-                        builder.Append('%');
-                        builder.Append(((int)t).ToString("x"));
-                    }
-                    break;
-            }
+                '/' => '#',
+                ':' when !UnixUtils.IsUnix => "%3a",
+                '-' or '_' or '.' or ':' => t,
+                {} when char.IsLetterOrDigit(t) => t,
+                _ => "%" + ((int)t).ToString("x")
+            });
         }
         return builder.ToString();
     }
@@ -251,31 +232,14 @@ public sealed partial class FeedUri : Uri, ISerializable
         var builder = new StringBuilder();
         for (int i = 0; i < value.Length; i++)
         {
-            switch (value[i])
+            builder.Append(value[i] switch
             {
-                case '/':
-                case '\\':
-                    builder.Append("__");
-                    break;
-
-                case '.':
-
-                    //Avoid creating hidden files, or specials (. and ..)
-                    builder.Append(i == 0 ? "_2e_" : ".");
-                    break;
-
-                default:
-                    // Top-bit-set chars don't cause any trouble
-                    if (value[i] > 127 || char.IsLetterOrDigit(value[i]))
-                        builder.Append(value[i]);
-                    else
-                    {
-                        builder.Append('_');
-                        builder.Append(((int)value[i]).ToString("x"));
-                        builder.Append('_');
-                    }
-                    break;
-            }
+                '/' or '\\' => "__",
+                '-' => "-",
+                '.' when i != 0 => ".", // Avoid creating hidden files, or specials (. and ..)
+                {} when value[i] < 128 && !char.IsLetterOrDigit(value[i]) => "_" + ((int)value[i]).ToString("x") + "_",
+                _ => value[i]
+            });
         }
         return builder.ToString();
     }
