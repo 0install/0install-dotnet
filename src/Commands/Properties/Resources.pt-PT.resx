@@ -339,7 +339,7 @@ Retorna um estado de saída de 1 se a etapa de descarga falhar. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; é preciso decidir se se deve confiar nos programas antes de os executar.</value>
+    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; deve decidir se deve confiar nos programas antes de os executar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -776,7 +776,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

@@ -119,7 +119,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Nieprawidłowy znak w nazwie wiązania {0}.</value>
+    <value>Niedozwolony znak w nazwie wiązania {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">

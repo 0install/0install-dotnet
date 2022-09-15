@@ -107,11 +107,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>O nome de utilizador e/ou senha que introduziu para o servidor Sync estão incorrectos. Por favor, verifique as suas opções de sincronização.</value>
+    <value>O nome de utilizador e/ou palavra-chave que introduziu para o servidor Sync estão incorrectos. Por favor, verifique as suas opções de sincronização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>A chave criptográfica que introduziu para Sync está incorrecta. Por favor, verifique as suas Opções de Sincronização.
+    <value>A chave criptográfica que introduziu para Sync está incorrecta. Por favor verifique as suas Opções de Sincronização.
 Pode alterar a chave criptográfica utilizada no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no Botão "Sync" para lá chegar) ou executando "0install sync --reset=server".</value>
     <comment>Automatically translated.</comment>
   </data>

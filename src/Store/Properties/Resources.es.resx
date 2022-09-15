@@ -80,7 +80,7 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Borrar el directorio {0}</value>
+    <value>Eliminación del directorio {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -141,7 +141,7 @@ Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Es necesario cerrar las siguientes solicitudes:</value>
+    <value>Hay que cerrar las siguientes solicitudes:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -223,7 +223,7 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>No hay versión seleccionada</value>
+    <value>Ninguna versión seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">

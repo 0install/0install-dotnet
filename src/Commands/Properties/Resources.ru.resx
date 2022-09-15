@@ -366,7 +366,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское расположение целевого кэша.</value>
+Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -374,7 +374,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Определяет локальный путь кэшированной реализации.</value>
+    <value>Определяет локальный путь к кэшированной реализации.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
@@ -741,7 +741,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Указывает предпочтительный язык для реализации. Используйте короткие языковые коды ISO (например, en или en-US).
+    <value>Указывает предпочтительный язык для реализации. Используйте короткие коды языков ISO (например, en или en-US).
 Вы можете использовать этот параметр несколько раз, чтобы указать несколько допустимых языков.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -964,7 +964,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Криптографический ключ используется для локального шифрования ваших данных перед передачей их на сервер.
-Храните этот ключ в секрете и используйте для пароля что-то другое. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
+Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -976,7 +976,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Доверенные ключи</value>
+    <value>Надежные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

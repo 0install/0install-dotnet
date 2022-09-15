@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の場合にのみ設定されるかもしれません。</value>
+    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の場合にのみ設定されることがあります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

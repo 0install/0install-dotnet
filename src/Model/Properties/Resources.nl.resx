@@ -67,19 +67,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Fout bij het laden van de voervoorkeuren voor '{0}'. Terugzetten naar standaard waarden.</value>
+    <value>Fout bij het laden van de voervoorkeuren voor '{0}'. Terug naar de standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Fout bij het laden van de interfacevoorkeuren voor '{0}'. Terugzetten naar standaard waarden.</value>
+    <value>Fout bij het laden van interface voorkeuren voor '{0}'. Terugkeren naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Kan feed '{0}' niet vinden in catalogus.</value>
+    <value>Kan voer '{0}' niet vinden in catalogus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>In plaats daarvan gevonden:</value>
+    <value>Gevonden:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' is geen geldige 'http(s):' URI en is ook geen geldig lokaal pad.</value>
+    <value>'{0}' is geen geldige 'http(s):' URI en ook geen geldig lokaal pad.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -103,11 +103,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>De lijst, door punten gescheiden, mag alleen decimale getallen bevatten.</value>
+    <value>De door punten gescheiden lijst mag alleen decimale getallen bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Het versienummer mag alleen door punten gescheiden decimalen en modificatiereeksen bevatten.</value>
+    <value>Het versienummer mag alleen puntgescheiden decimalen en modificatiereeksen bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -115,31 +115,31 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Er is geen bekende verteringsmethode opgegeven.</value>
+    <value>Er is geen bekende digest-methode gespecificeerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Het relatieve pad '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve paden bevatten.</value>
+    <value>Het relatieve pad '{0}' kon niet worden opgelost. Alleen feeds die zijn opgeslagen als lokale bestanden kunnen relatieve paden bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen mogen relatieve URI's bevatten.</value>
+    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die zijn opgeslagen als lokale bestanden kunnen relatieve URI's bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>het kenmerk "uitrolpercentage" op {0} mag alleen worden ingesteld als "stabiliteit" op "testen" staat of niet is ingesteld.</value>
+    <value>het "uitrolpercentage"-attribuut op {0} mag alleen worden ingesteld wanneer "stabiliteit" op "testen" staat of niet is ingesteld.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Buggy uitvoering</value>
+    <value>Slechte uitvoering</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Geeft niet het commando '{0}'.</value>
+    <value>Geeft geen commando '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Onverenigbaar besturingssysteem of CPU</value>
+    <value>Incompatibel besturingssysteem of CPU</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -147,19 +147,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Uitvoering niet in cache (momenteel in off-line modus)</value>
+    <value>Implementatie niet in cache (momenteel in off-line modus)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Niet-uitvoerbare bron-implementatie</value>
+    <value>Niet-uitvoerbare bronimplementatie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Uitvoeringsversie te oud of te nieuw</value>
+    <value>Implementatieversie te oud of te nieuw</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Moet een geldig MIME type zijn.</value>
+    <value>Moet een geldig MIME-type zijn.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..!{0}', niet '..{0}'.</value>
+    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..!{0}', niet '.{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

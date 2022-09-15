@@ -412,7 +412,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>実装が破損していないこと（つまり、マニフェストダイジェストが変更されていないこと）を確認します。</value>
+    <value>実装が破損していないこと（マニフェストダイジェストが変更されていないこと）を確認します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -775,8 +775,8 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>オフラインモードで実行し、デフォルトの設定をオーバーライドします。
-オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
+    <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
+オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
