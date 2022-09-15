@@ -193,7 +193,7 @@ Seleccione una línea entera haciendo clic en la primera columna y luego pulse D
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Establecer una casilla de verificación para hacer que una capacidad sea su gestor por defecto deseado.
+    <value>Establecer una casilla de verificación para convertir una capacidad en el gestor por defecto deseado.
 Quitar una casilla de verificación para eliminar el estado por defecto de una capacidad (sigue estando disponible).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -681,11 +681,11 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND} en su lugar. Los nombres de comandos válidos se especifican en el feed del programa.
-Establecer en vacío ("") para ignorar el comando durante la selección.</value>
+Establezca el valor vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambiar a una pestaña específica en la GUI de configuración. Las {TAB}s válidas son 'actualizaciones', 'almacenamiento', 'catálogo', 'confianza', 'sincronización', 'idioma', 'lenguaje' y 'avanzado'.</value>
+    <value>Cambia a una pestaña específica en la GUI de configuración. Las {TAB}s válidas son 'actualizaciones', 'almacenamiento', 'catálogo', 'confianza', 'sincronización', 'idioma', 'lenguaje' y 'avanzado'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -693,7 +693,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Mostrar el editor gráfico de políticas. Permite personalizar la versión de un programa o biblioteca que se va a utilizar.</value>
+    <value>Mostrar el editor gráfico de políticas. Esto le permite personalizar qué versión de un programa o biblioteca se va a utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -812,7 +812,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Más información. Utilice dos veces para obtener una salida aún más detallada.</value>
+    <value>Más información. Utiliza dos veces para obtener una salida aún más verbosa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -842,7 +842,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">

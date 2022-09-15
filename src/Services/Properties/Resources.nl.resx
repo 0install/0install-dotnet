@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Voer {0}
+    <value>Feed {0}
 - Geldige handtekening van {1}
 - {2}
 Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
@@ -75,11 +75,11 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; bindings moeten ofwel een "value" of een "insert" attribuut bevatten.</value>
+    <value>&lt;omgeving&gt;-bindingen moeten een "waarde"- of een "invoeg"-attribuut bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Fout bij laden catalogus</value>
+    <value>Fout bij het laden van de catalogus</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -91,15 +91,15 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>De feed '{0}' is niet gecached en Zero Install is momenteel in off-line modus.</value>
+    <value>De feed '{0}' is niet in de cache geplaatst en Zero Install staat momenteel in off-line modus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>{0}' kon niet worden gelokaliseerd in de feed cache.</value>
+    <value>{0}' kon niet gevonden worden in de feed cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>De feed '{0}' is niet ondertekend met een vertrouwde sleutel.</value>
+    <value>De feed '{0}' was niet ondertekend met vertrouwde sleutels.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -107,11 +107,11 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Het &lt;interface&gt; uri-attribuut ('{0}') komt niet overeen met de URL waar de feed van is gedownload ('{1}').</value>
+    <value>Het &lt;interface&gt; uri-attribuut ('{0}') komt niet overeen met de URL waarvan de feed is gedownload ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Het &lt;interface&gt; uri attribuut ontbreekt. Moet zijn '{0}'.</value>
+    <value>Het &lt;interface&gt; uri-attribuut ontbreekt. Moet zijn '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -119,11 +119,11 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Onwettig karakter in {0} bindingsnaam.</value>
+    <value>Ongeldig karakter in {0} bindingsnaam.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feeds moeten de URI waar ze vandaan komen specificeren om te kunnen worden geïmporteerd.</value>
+    <value>Feeds moeten de URI vermelden waarvan ze afkomstig zijn om geïmporteerd te kunnen worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -147,7 +147,7 @@ Wilt u deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Geen ophaalmethode gevonden voor implementatie '{0}' gevonden.</value>
+    <value>Geen ophaalmethode voor implementatie '{0}' gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -158,39 +158,39 @@ Nieuwe tijd {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Het lukt niet om {0} te downloaden. Ik probeer het van de feed mirror te halen.</value>
+    <value>Gefaald om {0} te downloaden. In plaats daarvan probeer ik van de feed mirror te komen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Kan de gedownloade applicatiecatalogus niet in de cache opslaan.</value>
+    <value>Kan de gedownloade toepassingscatalogus niet in de cache plaatsen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Kan feed gedownload van {0} niet parsen.</value>
+    <value>Kan de feed die is gedownload van {0} niet verwerken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Kan sleutelinformatie voor '{0}' niet ontleden.</value>
+    <value>Kan sleutelinformatie voor '{0}' niet parsen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Kan sleutelinformatie voor '{0}' niet ophalen.</value>
+    <value>Kan geen sleutelinformatie ophalen voor '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' is geen bekende ID in de {1} pakketbeheerder.</value>
+    <value>'{0}' is geen bekende ID in de {1} package manager.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>De feed is ondertekend met onvertrouwde sleutels!</value>
+    <value>Het voer is ondertekend met niet-vertrouwde sleutels!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>Wachten tot download voltooid is</value>
+    <value>Wachten op download</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>De werkdirectory is al gewijzigd door een eerdere opdracht.</value>
+    <value>De werkdirectory is al gewijzigd door een vorig commando.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

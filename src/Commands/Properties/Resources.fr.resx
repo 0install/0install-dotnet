@@ -243,7 +243,7 @@ Vous pouvez l'utiliser en lançant le fichier ZeroInstall.exe dans le répertoir
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
-    <value>Liste tous les catalogues enregistrés.</value>
+    <value>Répertorie tous les catalogues enregistrés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
@@ -599,7 +599,7 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} ne peut être spécifié que conjointement avec un nom d'alias.</value>
+    <value>{0} ne peut être spécifié qu'avec un nom d'alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -660,7 +660,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état système.</value>
+    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
@@ -705,7 +705,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Inclure Zero Install lui-même dans l'exportation en même temps que l'application.</value>
+    <value>Incluez Zero Install lui-même dans l'exportation en même temps que l'application.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">

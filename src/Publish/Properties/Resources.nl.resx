@@ -63,16 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "extract" waarde hebt ingesteld voor het archief.</value>
+    <value>Er is een manifest digest berekend voor een lege map. Controleer of u de juiste "extract"-waarde hebt ingesteld voor het archief.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>Het toegangspunt van de toepassing werd niet gevonden.
+    <value>Het ingangspunt van de toepassing is niet gevonden.
 Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Downloaden van '{0}' met Zero Install</value>
+    <value>Downloaden '{0}' met Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -80,7 +80,7 @@ Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Gedetecteerd '{0}' als installatiemap.</value>
+    <value>Gedetecteerd '{0}' als installatiedirectory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -88,28 +88,28 @@ Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Meerdere nieuwe standaard programma's werden gedetecteerd in het register. Behandel ze allemaal, maar de laatste kan in sommige gevallen voorrang krijgen.</value>
+    <value>Er zijn meerdere nieuwe standaardprogramma's gedetecteerd in het register. Ze worden allemaal behandeld, maar de laatste kan in sommige gevallen voorrang krijgen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Meerdere installatie directories werden gedetecteerd. Standaard als eerste gekozen.</value>
+    <value>Er zijn meerdere installatiemappen gedetecteerd. Standaard de eerste kiezen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Meerdere nieuwe applicatie registraties werden gedetecteerd in het register. Standaard als eerste kiezen.</value>
+    <value>Meerdere nieuwe toepassingsregistraties werden gedetecteerd in het register. Standaard de eerste kiezen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Er is geen installatiemap gevonden.
-Probeer deze handmatig op te geven.</value>
+    <value>Er is geen installatiedirectory gedetecteerd.
+Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Deze methode is momenteel alleen beschikbaar onder Windows.</value>
+    <value>Deze methode is momenteel alleen beschikbaar op Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>De geheime sleutel bevindt zich niet in de sleutelring van de gebruiker.</value>
+    <value>De geheime sleutel bevindt zich niet in de sleutelbos van de gebruiker.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

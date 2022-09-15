@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Kopiëren van bestanden</value>
+    <value>Bestanden kopiëren</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Deze map is een implementatie cache. De bestanden hier zijn read-only gemaakt met bestandssysteem permissies. Dit voorkomt dat ze normaal verwijderd kunnen worden.
+    <value>Deze directory is een implementatiecache. De bestanden hier zijn read-only gemaakt met behulp van bestandssysteempermissies. Dit voorkomt dat ze normaal verwijderd kunnen worden.
 
 Als u een enkele implementatie wilt verwijderen, kunt u deze opdrachtregel gebruiken:
 {0}
@@ -84,7 +84,7 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Uitvoering verwijderen {0}</value>
+    <value>Verwijderen van uitvoering {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
@@ -92,7 +92,7 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>De manifest hash van een implementatie komt niet overeen met de verwachte waarde.</value>
+    <value>De hash van het manifest van een implementatie komt niet overeen met de verwachte waarde.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -100,7 +100,7 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Het eigenlijke manifest {0}</value>
+    <value>Werkelijk manifest {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -112,19 +112,19 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Fout bij het laden van de OpenPGP-sleutelbundel van '{0}'</value>
+    <value>Fout bij het laden van de OpenPGP-sleutelbundel van '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Fout bij het laden van de vertrouwensdatabase. Terugkeren naar standaard waarden.</value>
+    <value>Fout bij het laden van de vertrouwensdatabase. Terugkeren naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Mislukt ontgrendelen van in-use bestanden in '{0}'</value>
+    <value>Faalde om in gebruik zijnde bestanden te ontgrendelen in '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Het gebruik van de feed mirror, die nodig is voor het zoeken, is uitgeschakeld.
+    <value>Gebruik van de feed mirror, die nodig is voor zoeken, is uitgeschakeld.
 Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -133,11 +133,11 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>De bestanden die u wilt wissen zijn momenteel in gebruik.</value>
+    <value>De bestanden die u wilt verwijderen zijn momenteel in gebruik.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Wilt u deze toepassingen sluiten en verder gaan?</value>
+    <value>Wilt u deze toepassingen sluiten en doorgaan?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
@@ -145,11 +145,11 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Dubbele bestanden zoeken in '{0}'</value>
+    <value>Dubbele bestanden vinden in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Het bestand '{0}' is noch een symbolische link, noch een gewoon bestand.</value>
+    <value>Het bestand '{0}' is noch een symbolische link noch een gewoon bestand.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
@@ -157,28 +157,28 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>De implementatie '{0}' is beschadigd.</value>
+    <value>De uitvoering '{0}' is beschadigd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wilt u het verwijderen? Een nieuwe kopie zal automatisch opnieuw worden gedownload wanneer nodig.</value>
+    <value>Wilt u het verwijderen? Een nieuwe kopie wordt automatisch opnieuw gedownload wanneer nodig.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Voer '0install store remove {0}' uit om het te verwijderen. Een nieuwe kopie zal automatisch opnieuw worden gedownload wanneer nodig.</value>
+    <value>Voer '0install store remove {0}' uit om het te verwijderen. Een nieuwe kopie wordt automatisch opnieuw gedownload wanneer nodig.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>De implementatie '{0}' kon niet worden gelokaliseerd.</value>
+    <value>De implementatie '{0}' kon niet gevonden worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Het onderliggende bestandssysteem slaat de tijden van bestandswijzigingen niet voldoende nauwkeurig op.
-Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</value>
+    <value>Het onderliggende bestandssysteem slaat de tijden van bestandswijziging niet nauwkeurig genoeg op.
+Als u een FAT-geformateerde schijf gebruikt, converteer deze dan naar NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Het pictogram dat van {0} is geladen, is geen geldig {1}.</value>
+    <value>Het van {0} geladen pictogram is geen geldig {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -186,7 +186,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Ongeldig aantal onderdelen in lijn.</value>
+    <value>Ongeldig aantal onderdelen in de lijn.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,11 +202,11 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Alleen beheerders kunnen elementen uit een gedeelde opslag verwijderen.</value>
+    <value>Alleen beheerders kunnen elementen uit een gedeelde winkel verwijderen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>De naam van het bestand of de map mag geen teken voor een nieuwe regel bevatten.</value>
+    <value>De bestands- of mapnaam mag geen newline bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -214,12 +214,12 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Er is geen bekende verteringsmethode opgegeven.</value>
+    <value>Er is geen bekende digest-methode gespecificeerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable modus.
-Gespecificeerd in het configuratiebestand '{1}'.</value>
+    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in draagbare modus.
+Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -227,24 +227,24 @@ Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install kan zichzelf niet uit een implementatie-cache verwijderen.</value>
+    <value>Zero Install kan zichzelf niet verwijderen uit een implementatiecache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>De getalswaarde is te groot.</value>
+    <value>De getalwaarde is te groot.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Deze optie wordt gecontroleerd door een groepsbeleid en kan daarom niet worden gewijzigd.</value>
+    <value>Deze optie wordt gecontroleerd door een groepsbeleid en kan dus niet worden gewijzigd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Er was een probleem met de toegang tot de implementatie winkel '{0}'.</value>
+    <value>Er was een probleem met de toegang tot de implementatiewinkel '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>Er was een probleem met de toegang tot de implementatiewinkel '{0}'.
-Gespecificeerd in het configuratiebestand '{1}'.</value>
+Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -258,11 +258,11 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
-    <value>Verwerking van bestanden</value>
+    <value>Bestanden verwerken</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>Handtekening bestand bestaat al.</value>
+    <value>Het handtekeningenbestand bestaat al.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
@@ -274,11 +274,11 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Kan geen geheime sleutel vinden met de opgegeven naam.</value>
+    <value>Kan geen geheime sleutel met de opgegeven naam vinden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Kan schrijfbeveiliging niet inschakelen voor '{0}'.</value>
+    <value>Kan geen schrijfbeveiliging inschakelen voor '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -286,7 +286,7 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>De door u ingevoerde passphrase is onjuist.</value>
+    <value>De wachtwoordzin die u heeft ingevoerd is onjuist.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

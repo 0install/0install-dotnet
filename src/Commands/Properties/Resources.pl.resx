@@ -227,7 +227,7 @@ Można z niej skorzystać uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności każdorazowego wprowadzania pełnego URI.</value>
+    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności ciągłego wpisywania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -335,7 +335,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Zachowuje się podobnie do '0install download', z tą różnicą, że uruchamia program po upewnieniu się, że jest w pamięci podręcznej.
-Zwraca kod zakończenia równy 1, jeśli etap pobierania zakończył się niepowodzeniem. W przeciwnym razie, statusem zakończenia będzie status zakończenia uruchamianego programu.</value>
+Zwraca kod zakończenia równy 1, jeśli etap pobierania nie powiódł się. W przeciwnym razie, statusem zakończenia będzie status zakończenia uruchamianego programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -356,7 +356,7 @@ Zwraca kod zakończenia równy 0, jeśli wybrał zestaw wersji, oraz status 1, j
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Dodaje katalog do listy niestandardowych pamięci podręcznych implementacji.</value>
+    <value>Dodaje katalog do listy pamięci podręcznej implementacji niestandardowej.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -395,7 +395,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy ACL NTFS stosowane do ochrony implementacji przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem instalacji zerowej. Ręczne usunięcie katalogów cache może być trudne ze względu na listy ACL NTFS stosowane do ochrony implementacji przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -433,7 +433,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Sprawdza aktualizacje programu i pobiera je, jeśli zostały znalezione.
-Jest to podobne do '0install download --refresh', z tym że wypisuje informacje o tym, czy znaleziono jakieś zmiany.</value>
+Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje o tym, czy znaleziono jakieś zmiany.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -746,7 +746,7 @@ Możesz użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Wdrażanie Zero Install jako biblioteki do wykorzystania przez inne aplikacje bez własnej integracji z pulpitem.</value>
+    <value>Wdrażanie Zero Install jako biblioteki do użytku przez inne aplikacje bez własnej integracji z pulpitem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -923,7 +923,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Ustawić politykę stabilności na {0}, żeby się zgadzało?</value>
+    <value>Ustawić politykę stabilności dla {0}, żeby się zgadzało?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
@@ -1012,7 +1012,7 @@ Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten 
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Użyj języka systemowego</value>
+    <value>Używaj języka systemowego</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">

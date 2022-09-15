@@ -63,27 +63,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>De volgende toegangspunten voor de toepassing {0} zijn met elkaar in strijd:</value>
+    <value>De volgende toegangspunten voor de toepassing {0} zijn in strijd met elkaar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>Het bestaande toegangspunt {0} is in strijd met het nieuwe toegangspunt {1}.</value>
+    <value>Het bestaande toegangspunt {0} is in conflict met het nieuwe toegangspunt {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>De toepassing '{0}' staat al in de lijst met toepassingen.</value>
+    <value>De toepassing '{0}' staat al in de toepassingslijst.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Wijzigingen aanbrengen</value>
+    <value>Wijzigingen toepassen</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>Kan applicatie '{0}' niet vinden in de applicatie lijst.</value>
+    <value>Kan toepassing '{0}' niet vinden in de toepassingslijst.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>U kunt slechts één desktopintegratieoperatie tegelijk uitvoeren.</value>
+    <value>U kunt slechts één desktopintegratiebewerking tegelijk uitvoeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Desktop integratie herstellen</value>
+    <value>De integratie van het bureaublad herstellen</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -107,12 +107,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>De gebruikersnaam en/of het wachtwoord dat u heeft opgegeven voor de Sync server zijn onjuist. Controleer uw synchronisatie opties.</value>
+    <value>De gebruikersnaam en/of het wachtwoord dat u hebt ingevoerd voor de Sync-server zijn onjuist. Controleer uw synchronisatie-opties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>De crypto sleutel die u heeft ingevoerd voor Sync is onjuist. Controleer uw Synchronisatie Opties.
-U kunt de gebruikte crypto sleutel op de server wijzigen door de probleemoplossings wizard uit te voeren (klik met de rechtermuisknop op de "Sync" knop om daar te komen) of door '0install sync --reset=server' uit te voeren.</value>
+    <value>De cryptosleutel die u hebt ingevoerd voor Synchronisatie is onjuist. Controleer uw synchronisatie-opties.
+U kunt de op de server gebruikte cryptosleutel wijzigen door de probleemoplossingswizard uit te voeren (rechtsklik op de "Sync"-knop om er te komen) of door '0install sync --reset=server' uit te voeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -120,8 +120,8 @@ U kunt de gebruikte crypto sleutel op de server wijzigen door de probleemoplossi
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>De gegevens die momenteel op de Sync-server zijn opgeslagen, zijn beschadigd.
-U kunt de gegevens die op de server zijn opgeslagen vervangen door de wizard voor probleemoplossing uit te voeren (klik met de rechtermuisknop op de knop "Sync" om daar te komen) of door "0install sync --reset=server" uit te voeren.</value>
+    <value>De gegevens die momenteel zijn opgeslagen op de Sync-server zijn beschadigd.
+U kunt de op de server opgeslagen gegevens vervangen door de probleemoplossingswizard uit te voeren (rechtsklik op de knop "Sync" om er te komen) of door "0install sync --reset=server" uit te voeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -129,11 +129,11 @@ U kunt de gegevens die op de server zijn opgeslagen vervangen door de wizard voo
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value> {0} met de ID '{1}' niet kunnen vinden.</value>
+    <value>Kan {0} niet vinden met de ID '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Kan oude stub executable '{0}' niet vervangen.</value>
+    <value>Kan oudbakken stub executable '{0}' niet vervangen.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

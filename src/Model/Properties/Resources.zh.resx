@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>版本号只能包含点分隔的小数和修饰符串。</value>
+    <value>版本号只能包含以点分隔的小数和修饰符串。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">

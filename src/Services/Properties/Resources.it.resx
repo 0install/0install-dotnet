@@ -182,7 +182,7 @@ Nuova ora {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Il feed è firmato con chiavi non affidabili!</value>
+    <value>Il feed è firmato con chiavi non attendibili!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
