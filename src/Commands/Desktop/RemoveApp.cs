@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Diagnostics;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model.Capabilities;
 using ZeroInstall.Model.Selection;
@@ -41,20 +40,7 @@ public class RemoveApp : AppCommand
             CheckInstallBase();
 
         foreach (var hook in appEntry.CapabilityLists.CompatibleCapabilities().OfType<RemoveHook>())
-        {
-            var process = StartRemoveHook(hook);
-            if (process == null) continue;
-
-            try
-            {
-                process.WaitForSuccess();
-            }
-            catch (ExitCodeException ex)
-            {
-                Log.Info($"Remove process for {InterfaceUri} cancelled by remove hook {hook.ID} with exit code {ex.ExitCode}");
-                return (ExitCode)ex.ExitCode;
-            }
-        }
+            RunRemoveHook(hook);
 
         IntegrationManager.RemoveApp(appEntry);
 
@@ -70,15 +56,14 @@ public class RemoveApp : AppCommand
     }
 
     /// <summary>
-    /// Starts a remove <paramref name="hook"/> if the app is already cached.
+    /// Runs a remove <paramref name="hook"/> if the app is already cached.
     /// </summary>
-    /// <returns>The running hook; <c>null</c> if the app was not cached.</returns>
-    private Process? StartRemoveHook(RemoveHook hook)
+    private void RunRemoveHook(RemoveHook hook)
     {
         if (Handler.Verbosity == Verbosity.Batch)
         {
             Log.Info($"Skipped remove hook {hook.ID} for {InterfaceUri} because running in batch mode");
-            return null;
+            return;
         }
 
         Log.Debug($"Solving remove hook {hook.ID} for {InterfaceUri}");
@@ -86,12 +71,13 @@ public class RemoveApp : AppCommand
         if (selections == null)
         {
             Log.Info($"Skipped remove hook {hook.ID} for {InterfaceUri} because the app is not cached");
-            return null;
+            return;
         }
 
-        return Executor.Inject(selections)
-                       .AddArguments(hook.Arguments.Select(x => x.Value).ToArray())
-                       .Start();
+        Executor.Inject(selections)
+                .AddArguments(hook.Arguments.Select(x => x.Value).ToArray())
+                .Start()
+               ?.WaitForExitCode(); // Log the exit code but continue regardless of its value
     }
 
     /// <summary>
