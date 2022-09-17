@@ -127,14 +127,16 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             digest.TryParse(System.IO.Path.GetFileName(path));
             return digest.AvailableDigests.Any();
         }).ToList();
-        if (paths.Count == 0) return;
 
-        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
+        if (paths.Count != 0)
+        {
+            if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
-        handler.RunTask(ForEachTask.Create(
-            name: string.Format(Resources.DeletingDirectory, Path),
-            target: paths,
-            work: path => RemoveInner(path, handler, allowAutoShutdown: true)));
+            handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.DeletingDirectory, Path),
+                target: paths,
+                work: path => RemoveInner(path, handler, allowAutoShutdown: true)));
+        }
 
         RemoveDeleteInfoFile();
     }
