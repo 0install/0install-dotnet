@@ -174,7 +174,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
                 Log.Warn(string.Format(Resources.FailedToUnlockFiles, path), ex);
                 return false;
             }
-            catch (Win32Exception ex)
+            catch (Exception ex) when (ex is Win32Exception or DllNotFoundException)
             {
                 Log.Error("Problem using Windows Restart Manager", ex);
                 return false;
