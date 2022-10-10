@@ -3,10 +3,6 @@
 
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model.Capabilities;
-using ZeroInstall.Model.Selection;
-using ZeroInstall.Services;
-using ZeroInstall.Services.Solvers;
-using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -67,34 +63,13 @@ public class RemoveApp : AppCommand
         }
 
         Log.Debug($"Solving remove hook {hook.ID} for {InterfaceUri}");
-        var selections = SolveOffline(hook.Command);
-        if (selections == null)
+        if (TrySolveOffline(new(InterfaceUri, hook.Command)) is {} selections)
         {
-            Log.Info($"Skipped remove hook {hook.ID} for {InterfaceUri} because the app is not cached");
-            return;
+            Executor.Inject(selections)
+                    .AddArguments(hook.Arguments.Select(x => x.Value).ToArray())
+                    .Start()
+                   ?.WaitForExitCode(); // Log the exit code but continue regardless of its value
         }
-
-        Executor.Inject(selections)
-                .AddArguments(hook.Arguments.Select(x => x.Value).ToArray())
-                .Start()
-               ?.WaitForExitCode(); // Log the exit code but continue regardless of its value
-    }
-
-    /// <summary>
-    /// Trys to generate <see cref="Selections"/> for running the specified <paramref name="command"/> without downloading anything.
-    /// </summary>
-    private Selections? SolveOffline(string? command)
-    {
-        Config.NetworkUse = NetworkLevel.Offline;
-        try
-        {
-            var selections = Solver.Solve(new(InterfaceUri, command));
-            return SelectionsManager.GetUncachedImplementations(selections).Any() ? null : selections;
-        }
-        catch (Exception ex) when (ex is SolverException or WebException)
-        {
-            Log.Debug("Failed to solve dependencies without downloading anything", ex);
-            return null;
-        }
+        else Log.Info($"Skipped remove hook {hook.ID} for {InterfaceUri} because the app is not cached");
     }
 }
