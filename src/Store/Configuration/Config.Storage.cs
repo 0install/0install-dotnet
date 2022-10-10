@@ -334,5 +334,5 @@ partial class Config
     /// <inheritdoc/>
     public override int GetHashCode()
         => _metaData.GetUnsequencedHashCode(
-            new KeyEqualityComparer<PropertyPointer<string>, string>(x => x.Value));
+            new KeyEqualityComparer<ConfigProperty, string>(x => x.Value));
 }

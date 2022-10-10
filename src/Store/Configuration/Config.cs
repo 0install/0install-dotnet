@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections;
-using System.Linq.Expressions;
 
 namespace ZeroInstall.Store.Configuration;
 
@@ -32,7 +31,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     [DefaultValue(false), Category("Policy"), DisplayName(@"Help with testing"), Description("Always prefer the newest versions, even if they have not been marked as stable yet.")]
     public bool HelpWithTesting { get; set; }
 
-    private NetworkLevel _networkLevel = NetworkLevel.Full;
+    private NetworkLevel _networkUse = NetworkLevel.Full;
 
     /// <summary>
     /// Controls how liberally network access is attempted.
@@ -40,11 +39,11 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     [DefaultValue(typeof(NetworkLevel), "Full"), Category("Policy"), DisplayName(@"Network use"), Description("Controls how liberally network access is attempted.")]
     public NetworkLevel NetworkUse
     {
-        get => _networkLevel;
+        get => _networkUse;
         set
         {
             if (!Enum.IsDefined(typeof(NetworkLevel), value)) throw new ArgumentOutOfRangeException(nameof(value));
-            _networkLevel = value;
+            _networkUse = value;
         }
     }
 
@@ -159,7 +158,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
         && (SyncServer.IsFile || (!string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword) && !string.IsNullOrEmpty(SyncCryptoKey)));
 
     /// <summary>Provides meta-data for loading and saving settings properties.</summary>
-    private readonly Dictionary<string, PropertyPointer<string>> _metaData;
+    private readonly Dictionary<string, ConfigProperty> _metaData;
 
     /// <summary>
     /// Creates a new configuration with default values set.
@@ -169,19 +168,19 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     {
         _metaData = new()
         {
-            {"freshness", PropertyPointer.For(() => Freshness, defaultValue: _defaultFreshness).ToStringPointer()},
-            {"help_with_testing", PropertyPointer.For(() => HelpWithTesting, value => HelpWithTesting = value, defaultValue: false).ToStringPointer()},
-            {"network_use", NetworkUsePropertyPointer},
-            {"auto_approve_keys", PropertyPointer.For(() => AutoApproveKeys, defaultValue: true).ToStringPointer()},
-            {"max_parallel_downloads", PropertyPointer.For(() => MaxParallelDownloads, DefaultMaxParallelDownloads).ToStringPointer()},
-            {"feed_mirror", FeedUriPropertyPointer(() => FeedMirror, DefaultFeedMirror)},
-            {"key_info_server", FeedUriPropertyPointer(() => KeyInfoServer, DefaultKeyInfoServer)},
-            {"self_update_uri", FeedUriPropertyPointer(() => SelfUpdateUri, DefaultSelfUpdateUri)},
-            {"external_solver_uri", FeedUriPropertyPointer(() => ExternalSolverUri, DefaultExternalSolverUri)},
-            {"sync_server", FeedUriPropertyPointer(() => SyncServer, DefaultSyncServer)},
-            {"sync_server_user", PropertyPointer.For(() => SyncServerUsername, defaultValue: "")},
-            {"sync_server_pw", PropertyPointer.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true)},
-            {"sync_crypto_key", PropertyPointer.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true)},
+            ["freshness"] = ConfigProperty.For(() => Freshness, _defaultFreshness),
+            ["help_with_testing"] = ConfigProperty.For(() => HelpWithTesting),
+            ["network_use"] = ConfigProperty.For(() => NetworkUse, defaultValue: NetworkLevel.Full),
+            ["auto_approve_keys"] = ConfigProperty.For(() => AutoApproveKeys, defaultValue: true),
+            ["max_parallel_downloads"] = ConfigProperty.For(() => MaxParallelDownloads, DefaultMaxParallelDownloads),
+            ["feed_mirror"] = ConfigProperty.For(() => FeedMirror, DefaultFeedMirror),
+            ["key_info_server"] = ConfigProperty.For(() => KeyInfoServer, DefaultKeyInfoServer),
+            ["self_update_uri"] = ConfigProperty.For(() => SelfUpdateUri, DefaultSelfUpdateUri),
+            ["external_solver_uri"] = ConfigProperty.For(() => ExternalSolverUri, DefaultExternalSolverUri),
+            ["sync_server"] = ConfigProperty.For(() => SyncServer, DefaultSyncServer),
+            ["sync_server_user"] = ConfigProperty.For(() => SyncServerUsername, defaultValue: ""),
+            ["sync_server_pw"] = ConfigProperty.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true),
+            ["sync_crypto_key"] = ConfigProperty.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true),
         };
     }
 
@@ -194,40 +193,4 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
         foreach ((string key, var property) in _metaData)
             yield return new KeyValuePair<string, string>(key, property.NeedsEncoding ? "***" : property.Value);
     }
-
-    /// <summary>
-    /// Wraps a <see cref="FeedUri"/> pointer in a <see cref="string"/> pointer. Maps empty strings to <c>null</c> URIs.
-    /// </summary>
-    private static PropertyPointer<string> FeedUriPropertyPointer(Expression<Func<FeedUri?>> expression, string defaultValue)
-    {
-        var property = PropertyPointer.For(expression, null);
-        return PropertyPointer.For(
-            () => property.Value?.ToStringRfc() ?? "",
-            value => property.Value = string.IsNullOrEmpty(value) ? null : new(value),
-            defaultValue);
-    }
-
-    /// <summary>
-    /// Creates a <see cref="string"/> pointer referencing <see cref="NetworkUse"/>. Uses hardcoded string lookup tables.
-    /// </summary>
-    private PropertyPointer<string> NetworkUsePropertyPointer
-        => PropertyPointer.For(
-            getValue: () => NetworkUse switch
-            {
-                NetworkLevel.Full => "full",
-                NetworkLevel.Minimal => "minimal",
-                NetworkLevel.Offline => "off-line",
-                _ => throw new InvalidEnumArgumentException() // Will never be reached
-            },
-            setValue: value =>
-            {
-                NetworkUse = value switch
-                {
-                    "full" => NetworkLevel.Full,
-                    "minimal" => NetworkLevel.Minimal,
-                    "off-line" => NetworkLevel.Offline,
-                    _ => throw new FormatException("Must be 'full', 'minimal' or 'off-line'")
-                };
-            },
-            defaultValue: "full");
 }
