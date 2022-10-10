@@ -235,7 +235,7 @@ public class Selection : CliCommand
         SelectionCandidateProvider.Clear();
         FeedManager.Clear();
 
-        using (FeedManager.PauseRefresh())
+        using (PropertyPointer.For(() => FeedManager.Refresh).SetTemp(false))
             Solve();
 
         Handler.ShowSelections(Selections, FeedManager);
