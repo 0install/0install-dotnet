@@ -100,7 +100,7 @@ public static class ImplementationExtensions
         else if (!digest.PartialEquals(implementation.ManifestDigest))
             throw new DigestMismatchException(expectedDigest: implementation.ManifestDigest.ToString(), actualDigest: digest.ToString());
 
-        if (string.IsNullOrEmpty(implementation.ID))
+        if (string.IsNullOrEmpty(implementation.ID) && !string.IsNullOrEmpty(digest.Best))
             executor.Execute(SetValueCommand.For(() => implementation.ID, newValue: digest.Best));
     }
 }
