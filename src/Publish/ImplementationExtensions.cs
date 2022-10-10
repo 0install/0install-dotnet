@@ -86,7 +86,7 @@ public static class ImplementationExtensions
 
         executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
         // ReSharper disable once RedundantTypeArgumentsOfMethod
-        executor.Execute(SetValueCommand.For<string?>(() => implementation.LocalPath, newValue: null));
+        executor.Execute(SetValueCommand.ForNullable(() => implementation.LocalPath, newValue: null));
     }
 
     private static void SetDigest(this Implementation implementation, Action<IBuilder> build, ICommandExecutor executor)

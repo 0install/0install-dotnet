@@ -29,7 +29,7 @@ public static class RetrievalMethodExtensions
         switch (retrievalMethod)
         {
             case Archive archive when string.IsNullOrEmpty(archive.MimeType):
-                executor.Execute(SetValueCommand.For(() => archive.MimeType,
+                executor.Execute(SetValueCommand.ForNullable(() => archive.MimeType,
                     Archive.GuessMimeType(localPath ?? archive.Href.OriginalString)));
                 break;
 
