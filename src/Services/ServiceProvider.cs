@@ -139,4 +139,28 @@ public class ServiceProvider
     /// Provides methods for filtering <see cref="Selections"/>.
     /// </summary>
     public virtual ISelectionsManager SelectionsManager => _selectionsManager.Value;
+
+    /// <summary>
+    /// Tries to provide <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/> without downloading any files.
+    /// </summary>
+    /// <param name="requirements">The requirements to satisfy.</param>
+    /// <returns>The selected <see cref="ImplementationSelection"/>s or <c>null</c> if no solution was found.</returns>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
+    public Selections? TrySolveOffline(Requirements requirements)
+    {
+        Selections selections;
+        try
+        {
+            using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Offline))
+                selections = Solver.Solve(requirements);
+        }
+        catch (Exception ex) when (ex is IOException or WebException or UnauthorizedAccessException or SolverException)
+        {
+            Log.Debug($"Failed to solve {requirements} in offline mode", ex);
+            return null;
+        }
+
+        return selections;
+    }
 }
