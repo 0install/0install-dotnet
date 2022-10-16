@@ -219,7 +219,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>指定されたターゲットディレクトリ({0})がホームディレクトリの外にある。</value>
+    <value>指定されたターゲットディレクトリ({0})がホームディレクトリ外にある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -268,7 +268,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -302,7 +302,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>現在アプリケーションリストに登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERNを指定した場合は、その文字列を名前に含むアプリケーションのみを表示します（大文字と小文字は区別されません）。</value>
+    <value>現在、アプリケーションリストに登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERNを指定した場合は、その文字列を名前に含むアプリケーションのみを表示します（大文字と小文字は区別されません）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -775,8 +775,8 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
-オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
+    <value>オフラインモードで実行し、デフォルトの設定をオーバーライドします。
+オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

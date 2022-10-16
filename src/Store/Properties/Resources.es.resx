@@ -141,7 +141,7 @@ Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Hay que cerrar las siguientes solicitudes:</value>
+    <value>Es necesario cerrar las siguientes solicitudes:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -223,7 +223,7 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Ninguna versión seleccionada</value>
+    <value>No hay versión seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">

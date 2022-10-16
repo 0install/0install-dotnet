@@ -395,7 +395,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>移除缓存中的所有实现。在删除 "零安装 "之前，使用此命令清理系统。由于采用了NTFS ACL来保护实现不被修改，手动删除缓存目录可能很困难。
+    <value>移除缓存中的所有实现。在删除 "零安装 "之前，使用这个命令清理系统。由于采用了NTFS ACL来保护实现不被修改，手动删除缓存目录可能很困难。
 附加参数指定自定义缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -501,7 +501,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料代替吗？</value>
+    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料来代替吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -538,11 +538,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>融合{0}</value>
+    <value>整合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择无法应用。</value>
+    <value>你的桌面整合选择不能被应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
@@ -612,7 +612,7 @@
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -660,11 +660,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>隐藏图形用户界面，使用类似托盘图标的东西代替。</value>
+    <value>隐藏图形用户界面，使用类似托盘图标的东西来代替。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>尽可能用默认值自动回答问题，并简化控制台输出（没有表格或进度条）。</value>
+    <value>尽可能用默认值自动回答问题，简化控制台输出（没有表格或进度条）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -705,7 +705,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>将 "零点安装 "本身与应用程序一起包括在出口中。</value>
+    <value>将 "零安装 "本身与应用程序一起包括在出口中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -741,7 +741,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实施的首选语言。使用ISO简短的语言代码（如en或en-US）。
+    <value>指定实施的首选语言。使用ISO简短的语言代码（例如，en或en-US）。
 你可以多次使用这个选项来指定多种可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -754,7 +754,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行程序{MAIN}，而不是默认的。如果它以'/'或'/'开头，那么路径是相对于实现的顶层目录的，而否则是相对于包含默认主程序的目录。
+    <value>运行指定的可执行程序{MAIN}，而不是默认的。如果它以'/'或'/'开头，那么该路径是相对于实现的顶层目录的，而否则是相对于包含默认主程序的目录。
 不可以包含命令行参数!白色空格不需要被转义。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -822,7 +822,7 @@
   <data name="OptionVersionRange" xml:space="preserve">
     <value>要求在给定的{RANGE}范围内的主程序的版本。
 范围由管道（|）分隔。
-每个范围的形式是 "START...！END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以被省略。
+每个范围的形式为 "START...！END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以被省略。
 可以用一个版本号来代替范围，以便只匹配该版本，或者用!!VERSION来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -836,7 +836,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>不直接执行所选择的程序，而是运行{COMMAND}的程序。PROGRAM ARGS。这对于在程序上运行调试器和跟踪工具很有用（而不是在Zero Install上！）。
+    <value>不直接执行所选择的程序，而是运行{COMMAND}程序。PROGRAM ARGS。这对于在程序上运行调试器和跟踪工具很有用（而不是在Zero Install上！）。
 注意，包装器是在程序选择的环境中执行的；因此，这种机制不能用于沙箱。
 可能包含命令行参数。白色的空格必须被转义!</value>
     <comment>Automatically translated.</comment>
@@ -968,7 +968,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
-    <value>太多的争论或未知的选择。</value>
+    <value>太多的争论或未知的选项。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
