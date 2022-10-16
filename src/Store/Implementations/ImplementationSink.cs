@@ -172,7 +172,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     protected void RemoveDeleteInfoFile()
     {
-        foreach (string path in Directory.GetDirectories(Path, "_*"))
+        foreach (string path in Directory.GetDirectories(Path, "_" + Resources.DeleteInfoFileName))
         {
             try
             {
