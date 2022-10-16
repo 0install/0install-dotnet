@@ -117,7 +117,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Yes" (Da), integrările potențial incompatibile vor fi eliminate.
+Dacă selectați "Yes" (Da), eventualele integrări incompatibile vor fi eliminate.
 Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -318,7 +318,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>Îndepărtează toate aplicațiile din lista de aplicații și anulează orice integrare a mediului de birou. Utilizați această comandă pentru a curăța sistemul înainte de a elimina Zero Install.</value>
+    <value>Îndepărtează toate aplicațiile din lista de aplicații și anulează orice integrare a mediului de lucru. Utilizați această comandă pentru a curăța sistemul înainte de a elimina Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -461,7 +461,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -685,7 +685,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Treceți la o anumită filă din GUI de configurare. {TAB}-urile valide sunt "updates", "storage", "storage", "catalog", "trust", "sync", "language", "language" și "advanced".</value>
+    <value>Treceți la o anumită filă din GUI de configurare. Tab-urile {TAB} valide sunt "updates" (actualizări), "storage" (stocare), "catalog" (catalog), "trust" (încredere), "sync" (sincronizare), "language" (limbă), "language" (limbă) și "advanced" (avansat).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

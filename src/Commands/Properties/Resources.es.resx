@@ -382,7 +382,7 @@ Un argumento adicional especifica una ubicación de caché de destino personaliz
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Enumera todas las implementaciones en caché. Si se especifica un URI de feed sólo se listan las implementaciones de ese feed en particular.</value>
+    <value>Enumera todas las implementaciones en caché. Si se especifica un URI de feed, sólo se listan las implementaciones de ese feed en particular.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -616,7 +616,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración del escritorio en toda la máquina funcione, debe desplegarse en un directorio al que puedan acceder todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que funcione la integración de escritorios en toda la máquina, es necesario desplegarla en un directorio al que puedan acceder todos los usuarios.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -681,7 +681,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND} en su lugar. Los nombres de comandos válidos se especifican en el feed del programa.
-Establezca el valor vacío ("") para ignorar el comando durante la selección.</value>
+Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -705,7 +705,7 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluir la propia Zero Install en la exportación junto con la aplicación.</value>
+    <value>Incluya la propia Zero Install en la exportación junto con la aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -1008,7 +1008,7 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilice '{0}' en su lugar.</value>
+    <value>Utiliza '{0}' en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

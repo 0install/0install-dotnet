@@ -259,7 +259,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as aplicações nos catálogos são listadas.</value>
+    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as candidaturas nos catálogos são listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver ou alterar definições de configuração.
-Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, exibe o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
+Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, mostra o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -281,7 +281,7 @@ Retorna um estado de saída de 0 se seleccionou um conjunto adequado de versões
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporta todas as alimentações e implementações necessárias para lançar o programa especificado por um URI para um DIRECTÓRIO.</value>
+    <value>Exporta todos os alimentos e implementações necessárias para lançar o programa especificado por um URI para um DIRECTÓRIO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -339,7 +339,7 @@ Retorna um estado de saída de 1 se a etapa de descarga falhar. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; deve decidir se deve confiar nos programas antes de os executar.</value>
+    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; é preciso decidir se se deve confiar nos programas antes de os executar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -754,7 +754,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Executar o executável especificado {MAIN} em vez do executável por defeito. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
+    <value>Executar o executável especificado {MAIN} em vez do executável padrão. Se começar com '/' ou '\' então o caminho é relativo ao directório de nível superior da implementação, enquanto que de outra forma é relativo ao directório que contém o programa principal por defeito.
 Não pode conter argumentos de linha de comando! Os espaços em branco não precisam de ser fugidos.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -776,7 +776,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
