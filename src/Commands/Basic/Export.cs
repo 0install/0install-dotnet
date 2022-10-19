@@ -111,7 +111,7 @@ public sealed class Export : Download
         {
             try
             {
-                var selfSelections = Solver.Solve(new FeedUri(Config.DefaultSelfUpdateUri));
+                var selfSelections = Solver.Solve(Config.SelfUpdateUri ?? new(Config.DefaultSelfUpdateUri));
 
                 Selections.Implementations.Add(selfSelections.Implementations);
                 UncachedImplementations.Add(SelectionsManager.GetUncachedImplementations(selfSelections));
