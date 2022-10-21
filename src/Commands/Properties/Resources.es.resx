@@ -382,7 +382,7 @@ Un argumento adicional especifica una ubicación de caché de destino personaliz
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Enumera todas las implementaciones en caché. Si se especifica un URI de feed, sólo se listan las implementaciones de ese feed en particular.</value>
+    <value>Enumera todas las implementaciones en caché. Si se especifica un URI de feed sólo se listan las implementaciones de ese feed en particular.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -616,7 +616,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que funcione la integración de escritorios en toda la máquina, es necesario desplegarla en un directorio al que puedan acceder todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración del escritorio en toda la máquina funcione, debe desplegarse en un directorio al que puedan acceder todos los usuarios.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -668,7 +668,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Requerir una versión del programa principal anterior a {VERSION}. Es decir, forzar el uso de una versión antigua el programa.</value>
+    <value>Requerir una versión del programa principal anterior a {VERSION}. es decir, forzar el uso de una versión antigua el programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -680,16 +680,16 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND} en su lugar. Los nombres de comandos válidos se especifican en el feed del programa.
-Establecer en vacío ("") para ignorar el comando durante la selección.</value>
+    <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND}. Los nombres de comandos válidos se especifican en el feed del programa.
+Establezca el valor vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambia a una pestaña específica en la GUI de configuración. Las {TAB}s válidas son 'actualizaciones', 'almacenamiento', 'catálogo', 'confianza', 'sincronización', 'idioma', 'lenguaje' y 'avanzado'.</value>
+    <value>Cambia a una pestaña específica en la GUI de configuración. Las opciones válidas de {TAB}son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Obliga al solucionador a dirigirse a una {CPU} específica.</value>
+    <value>Obliga al solucionador a dirigirse a una dirección específica {CPU}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -721,7 +721,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Añadir todos los puntos de acceso de una {CATEGORÍA} específica.</value>
+    <value>Añade todos los puntos de acceso de un determinado {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -733,7 +733,7 @@ Establecer en vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Eliminar todos los puntos de acceso de una {CATEGORÍA} específica.</value>
+    <value>Eliminar todos los puntos de acceso de un determinado {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -754,7 +754,7 @@ Puede utilizar esta opción varias veces para especificar varios idiomas aceptab
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Ejecuta el ejecutable {MAIN} especificado en lugar del predeterminado. Si comienza con '/' o '\' entonces la ruta es relativa al directorio de nivel superior de la implementación, mientras que en caso contrario es relativa al directorio que contiene el programa principal por defecto.
+    <value>Ejecuta el ejecutable especificado {MAIN} en lugar del predeterminado. Si comienza con '/' o '\' entonces la ruta es relativa al directorio de nivel superior de la implementación, mientras que en caso contrario es relativa al directorio que contiene el programa principal por defecto.
 No puede contener argumentos de línea de comandos Los espacios en blanco no necesitan ser escapados.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -808,7 +808,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Restablece los datos de sincronización. Los {MODE}s válidos son 'ninguno' (fusiona los datos del cliente y del servidor normalmente), 'cliente' (sustituye todos los datos del cliente por los del servidor) y 'servidor' (sustituye todos los datos del servidor por los del cliente).</value>
+    <value>Restablece los datos de sincronización. Las opciones válidas de {MODE}son "ninguno" (fusiona los datos del cliente y del servidor normalmente), "cliente" (sustituye todos los datos del cliente por los del servidor) y "servidor" (sustituye todos los datos del servidor por los del cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,7 +820,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requiere una versión del programa principal dentro del {RANGE} dado.
+    <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos están separados por tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones en las que START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
 Se puede utilizar un único número de versión en lugar de un rango para que coincida sólo con esa versión, o !VERSION para que coincida con todo excepto con esa versión.</value>
@@ -831,18 +831,18 @@ Se puede utilizar un único número de versión en lugar de un rango para que co
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Añade {DIR} a la lista de cachés de implementación a buscar.
+    <value>Añade {DIR} a la lista de cachés de implementación en los que buscar.
 Sin embargo, las nuevas descargas no se escribirán en este directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>En lugar de ejecutar directamente el programa elegido, ejecute {COMMAND} PROGRAM ARGS. Esto es útil para ejecutar depuradores y herramientas de rastreo en el programa (en lugar de en Zero Install).
-Tenga en cuenta que la envoltura se ejecuta en el entorno seleccionado por el programa; por lo tanto, este mecanismo no puede utilizarse para el sandboxing.
+    <value>En lugar de ejecutar el programa elegido directamente, ejecute {COMMAND} PROGRAM ARGS. Esto es útil para ejecutar depuradores y herramientas de rastreo en el programa (en lugar de en Zero Install).
+Tenga en cuenta que el wrapper se ejecuta en el entorno seleccionado por el programa; por lo tanto, este mecanismo no puede utilizarse para el sandboxing.
 Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben ser escapados!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida en la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">

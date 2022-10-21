@@ -109,7 +109,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>秘钥不在用户的钥匙圈中。</value>
+    <value>密匙不在用户的钥匙圈里。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
