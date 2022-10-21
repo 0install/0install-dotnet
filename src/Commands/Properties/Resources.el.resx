@@ -84,7 +84,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' βρίσκεται ήδη στη λίστα των προσωρινών αποθηκεύσεων προσαρμοσμένης υλοποίησης.</value>
+    <value>'{0}' βρίσκεται ήδη στη λίστα των προσωρινών αποθηκευτικών χώρων προσαρμοσμένης υλοποίησης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -301,7 +301,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Αν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
+    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -419,7 +419,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Εμπιστεύεται τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
+    <value>Εμπιστεύεται τις τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -444,7 +444,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Εφαρμογή της ενσωμάτωσης επιφάνειας εργασίας</value>
+    <value>Εφαρμογή ενσωμάτωσης επιφάνειας εργασίας</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
