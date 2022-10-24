@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
+    <value>'{0}' という名前の既存のエイリアスが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
@@ -648,7 +648,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>ダイジェストに使用する{HASH} アルゴリズム。</value>
+    <value>ダイジェストに使用する{HASH}アルゴリズム。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -668,7 +668,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>{VERSION} よりも前のバージョンのメインプログラムを要求する。つまり、古いバージョンのプログラムを強制的に使用する。</value>
+    <value>VERSION}より前のバージョンのメインプログラムを要求する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -680,16 +680,16 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>デフォルトのコマンドを実行する代わりに、{COMMAND} を使用します。有効なコマンド名は、プログラムのフィードで指定されます。
+    <value>デフォルトのコマンドを実行する代わりに、{COMMAND}を使用します。有効なコマンド名は、プログラムのフィードで指定されます。
 空（""）に設定すると、選択中のコマンドを無視します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced'です。</value>
+    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'advanced'です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>ソルバーが特定の{CPU} をターゲットにするように強制します。</value>
+    <value>ソルバーが特定の{CPU}をターゲットにするように強制します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -721,7 +721,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>特定の{CATEGORY} のすべてのアクセスポイントを追加します。</value>
+    <value>特定の{CATEGORY}のすべてのアクセスポイントを追加します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -733,7 +733,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>特定の{CATEGORY} のすべてのアクセスポイントを削除します。</value>
+    <value>特定の{CATEGORY}のアクセスポイントをすべて削除します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -754,7 +754,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>指定された実行ファイル{MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合は、デフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
+    <value>指定された実行ファイル {MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合はデフォルトのメイン プログラムが含まれるディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -767,7 +767,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>メインプログラムのバージョンが{VERSION} よりも前のものであることを要求します。 例えば、バージョン 2.0 以降を実行したい場合は、--not-before=2.0 を使用します。</value>
+    <value>メインプログラムのバージョンが {VERSION} よりも前のものであることを要求します。例：バージョン2.0以降を実行したい場合は、--not-before=2.0を使用する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -775,12 +775,12 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
+    <value>オフラインモードで実行し、デフォルトの設定をオーバーライドします。
 オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>ソルバーがオペレーティングシステムをターゲットにすることを強制します{OS}.</value>
+    <value>ソルバーがオペレーティングシステム{OS}をターゲットにするように強制します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
@@ -808,7 +808,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>同期データをリセットします。有効な{MODE}は、「none」（クライアントとサーバーのデータを正常にマージする）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
+    <value>同期データをリセットします。有効な{MODE}は「none」（クライアントとサーバーのデータを正常にマージする）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,9 +820,9 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>与えられた{RANGE} 以内のメインプログラムのバージョンを要求する。
+    <value>与えられた {RANGE} 内にあるメインプログラムのバージョンを要求する。
 範囲はパイプ(|)で区切られる。
-各範囲は、"START...！END" という形式です。範囲は、START &lt;= VERSION &lt; END のバージョンにマッチします。開始や終了を省略することもできます。
+各範囲は「START...！END」という形式をとります。範囲は、START &lt;= VERSION &lt; ENDのバージョンにマッチします。開始や終了を省略することもできます。
 範囲の代わりに一つのバージョン番号を使うとそのバージョンのみに、 !VERSIONを使うとそのバージョン以外の全てにマッチします。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -831,13 +831,13 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>検索する実装キャッシュのリストに、{DIR} を追加します。
+    <value>検索する実装キャッシュのリストに{DIR}を追加します。
 ただし、このディレクトリに新しいダウンロードが書き込まれることはありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGS を実行します。これは、デバッガやトレースツールをプログラム上で実行するのに便利です (ゼロインストール上ではなく!)。
-ラッパーは、プログラムによって選択された環境で実行されることに注意してください。したがって、このメカニズムはサンドボックスには使用できません。
+    <value>選択したプログラムを直接実行するのではなく、{COMMAND}を実行します。PROGRAM ARGS を実行します。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（むしろ、ゼロ・インストール上で！）。
+ラッパーはプログラムによって選択された環境で実行されるため、このメカニズムはサンドボックスには使用できません。
 コマンドライン引数を含むことができます。ホワイトスペースは必ずエスケープしてください</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -963,7 +963,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>暗号キーは、データをサーバーに送信する前にローカルで暗号化するために使用されます。
+    <value>暗号鍵は、データをサーバーに送信する前に、ローカルで暗号化するために使用されます。
 この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、たとえサーバーが危険にさらされても、誰もあなたのデータにアクセスすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>

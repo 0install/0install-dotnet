@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>ダウンロードされたフィードは、すでにキャッシュにあるバージョンより古いものです。新しいバージョンを使い続けることになります。
+    <value>ダウンロードされたフィードは、すでにキャッシュにあるバージョンより古いものです。新しいほうを使い続けることになります。
 フィードのURI{0}
 古い時間{1}
 新しい時間{2}</value>

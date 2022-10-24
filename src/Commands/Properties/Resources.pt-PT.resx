@@ -259,7 +259,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as aplicações nos catálogos são listadas.</value>
+    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as candidaturas nos catálogos são listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -281,7 +281,7 @@ Retorna um estado de saída de 0 se seleccionou um conjunto adequado de versões
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporta todas as alimentações e implementações necessárias para lançar o programa especificado por um URI para um DIRECTÓRIO.</value>
+    <value>Exporta todos os alimentos e implementações necessárias para lançar o programa especificado por um URI para um DIRECTÓRIO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -339,7 +339,7 @@ Retorna um estado de saída de 1 se a etapa de descarga falhar. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; deve decidir se deve confiar nos programas antes de os executar.</value>
+    <value>Pesquisas de feeds indexados pelo servidor espelho que correspondam a palavras-chave especificadas. Note que o servidor espelho padrão indexa todos os feeds conhecidos, independentemente da qualidade; é preciso decidir se se deve confiar nos programas antes de os executar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -668,7 +668,7 @@ Pode fazer isto usando '{0}'. Isto será completamente independente da sua cópi
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Exigir uma versão do programa principal anterior a {VERSION}. ou seja, forçar a utilização de uma versão antiga do programa.</value>
+    <value>Exigir uma versão do programa principal antes de {VERSÃO}. ou seja, forçar a utilização de uma versão antiga do programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -680,12 +680,12 @@ Pode fazer isto usando '{0}'. Isto será completamente independente da sua cópi
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Em vez de executar o comando por defeito, utilize {COMMAND} em vez disso. Os nomes válidos dos comandos são especificados na alimentação do programa.
+    <value>Em vez de executar o comando padrão, utilize {COMMAND} em vez disso. Os nomes válidos dos comandos são especificados na alimentação do programa.
 Definir para vazio ("") para ignorar o comando durante a selecção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Mudar para um separador específico na GUI de configuração. Válidos {TAB}s são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
+    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -721,7 +721,7 @@ Definir para vazio ("") para ignorar o comando durante a selecção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Adicionar todos os pontos de acesso de um {CATEGORY} específico.</value>
+    <value>Acrescentar todos os pontos de acesso de um {CATEGORY} específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -746,7 +746,7 @@ Pode usar esta opção várias vezes para especificar várias línguas aceitáve
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Implantar Zero Install como biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
+    <value>Implementar Zero Install como uma biblioteca para utilização por outras aplicações sem a sua própria integração no ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -767,7 +767,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Exigir uma versão do programa principal não anterior a {VERSION}. Por exemplo, se quiser executar a versão 2.0 ou posterior, utilize --não antes=2.0.</value>
+    <value>Exigir uma versão do programa principal não anterior a {VERSÃO}. Por exemplo, se quiser executar a versão 2.0 ou mais recente, utilize --não antes=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -808,7 +808,7 @@ No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualiza
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Reinicializar os dados de sincronização. Válidos {MODE}s são 'nenhum' (fundir dados do cliente e do servidor normalmente), 'cliente' (substituir todos os dados do cliente por dados do servidor) e 'servidor' (substituir todos os dados do servidor por dados do cliente).</value>
+    <value>Reinicializar os dados de sincronização. Os {MODE}s válidos são 'nenhum' (fundir os dados do cliente e do servidor normalmente), 'cliente' (substituir todos os dados do cliente por dados do servidor) e 'servidor' (substituir todos os dados do servidor por dados do cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,7 +820,7 @@ No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualiza
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Exigir uma versão do programa principal no âmbito do dado {RANGE}.
+    <value>Exigir uma versão do programa principal dentro da {RANGE} dada.
 Os intervalos são separados por tubos (|).
 Cada gama tem a forma "START...!END". A gama corresponde a versões onde START &lt;= VERSION &lt; END. O início ou fim pode ser omitido.
 Pode ser usado um único número de versão em vez de um intervalo para corresponder apenas a essa versão, ou !VERSÃO para corresponder a tudo excepto a essa versão.</value>
@@ -836,8 +836,8 @@ No entanto, os novos descarregamentos não serão escritos neste directório.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Em vez de executar directamente o programa escolhido, correr {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (em vez de instalar no Zero!).
-Note que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
+    <value>Em vez de executar directamente o programa escolhido, execute {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (e não na instalação zero!).
+Note-se que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
 Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
     <comment>Automatically translated.</comment>
   </data>

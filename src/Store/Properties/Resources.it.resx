@@ -145,7 +145,7 @@ Eseguire '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Trovare file duplicati in '{0}'</value>
+    <value>Trovare i file duplicati in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -239,7 +239,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

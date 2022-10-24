@@ -95,7 +95,7 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>{0}" não pôde ser localizado na cache de alimentação.</value>
+    <value>{0}' não pôde ser localizado na cache de alimentação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">

@@ -685,7 +685,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Passez à un onglet spécifique dans l'interface graphique de configuration. {TAB}Les options valides sont les suivantes : "updates", "storage", "catalog", "trust", "sync", "language", "language" et "advanced".</value>
+    <value>Passe à un onglet spécifique dans l'interface graphique de configuration. Les {TAB} valides sont 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' et 'advanced'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -808,7 +808,7 @@ En mode hors ligne, aucune interface n'est rafraîchie, même si elle n'est plus
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Réinitialise les données de synchronisation. Les valeurs valides de {MODE}sont 'none' (fusionne normalement les données du client et du serveur), 'client' (remplace toutes les données du client par celles du serveur) et 'server' (remplace toutes les données du serveur par celles du client).</value>
+    <value>Réinitialise les données de synchronisation. Les {MODE} valides sont 'none' (fusionne normalement les données du client et du serveur), 'client' (remplace toutes les données du client par celles du serveur) et 'server' (remplace toutes les données du serveur par celles du client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,9 +820,9 @@ En mode hors ligne, aucune interface n'est rafraîchie, même si elle n'est plus
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Exige une version du programme principal dans la fourchette donnée {RANGE}.
-Les intervalles sont séparés par des tuyaux (|).
-Chaque plage se présente sous la forme "START...!END". La plage correspond aux versions où START &lt;= VERSION &lt; END. Le début ou la fin peuvent être omis.
+    <value>Exige une version du programme principal dans la {RANGE} donnée.
+Les plages sont séparées par des tuyaux (|).
+Chaque plage se présente sous la forme "START...!END". La plage correspond aux versions pour lesquelles START &lt;= VERSION &lt; END. Le début ou la fin peuvent être omis.
 Un seul numéro de version peut être utilisé à la place d'une plage pour correspondre uniquement à cette version, ou !VERSION pour correspondre à tout sauf à cette version.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -836,7 +836,7 @@ Cependant, les nouveaux téléchargements ne seront pas écrits dans ce réperto
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Au lieu d'exécuter directement le programme choisi, lancez {COMMAND} PROGRAM ARGS. Ceci est utile pour lancer des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
+    <value>Au lieu d'exécuter directement le programme choisi, lancez {COMMAND} ARGS PROGRAMME. Ceci est utile pour lancer des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
 Notez que le wrapper est exécuté dans l'environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
 Peut contenir des arguments de ligne de commande. Les espaces blancs doivent être échappés !</value>
     <comment>Automatically translated.</comment>

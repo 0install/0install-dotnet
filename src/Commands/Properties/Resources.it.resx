@@ -607,7 +607,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Affinché l'integrazione desktop funzioni, è necessario che Zero Install sia distribuito sul sistema.</value>
+    <value>Per far funzionare l'integrazione desktop, Zero Install deve essere distribuito sul sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -668,7 +668,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Richiede una versione del programma principale precedente a {VERSION}. cioè, forza l'uso di una vecchia versione del programma.</value>
+    <value>Richiede una versione del programma principale precedente a {VERSION}, cioè forza l'uso di una versione vecchia del programma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -685,11 +685,11 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Passa a una scheda specifica della GUI di configurazione. {TAB} validi sono "aggiornamenti", "archiviazione", "catalogo", "fiducia", "sincronizzazione", "lingua", "lingua" e "avanzato".</value>
+    <value>Passa a una scheda specifica della GUI di configurazione. Le schede valide sono "aggiornamenti", "archiviazione", "catalogo", "fiducia", "sincronizzazione", "lingua", "lingua" e "avanzate".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Forza il risolutore a puntare su uno specifico {CPU}.</value>
+    <value>Forza il solutore a puntare su una {CPU} specifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -721,7 +721,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Aggiungere tutti i punti di accesso di uno specifico {CATEGORY}.</value>
+    <value>Aggiungere tutti i punti di accesso di una specifica {CATEGORIA}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -733,7 +733,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Rimuovere tutti i punti di accesso di uno specifico {CATEGORY}.</value>
+    <value>Rimuove tutti i punti di accesso di una specifica {CATEGORIA}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -746,7 +746,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'uso da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -754,7 +754,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Esegue l'eseguibile specificato {MAIN} invece di quello predefinito. Se inizia con '/' o '\', il percorso è relativo alla directory di primo livello dell'implementazione, altrimenti è relativo alla directory contenente il programma principale predefinito.
+    <value>Esegue l'eseguibile {MAIN} specificato al posto di quello predefinito. Se inizia con '/' o '\', il percorso è relativo alla directory di primo livello dell'implementazione, altrimenti è relativo alla directory contenente il programma principale predefinito.
 Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono essere eliminati.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -767,11 +767,11 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, usare --not-before=2.0.</value>
+    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, utilizzare --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che finisca l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
+    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che termini l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -804,11 +804,11 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Seleziona il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
+    <value>Selezionare il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Azzera i dati di sincronizzazione. {MODE} validi sono "nessuno" (unire normalmente i dati del client e del server), "client" (sostituire tutti i dati del client con quelli del server) e "server" (sostituire tutti i dati del server con quelli del client).</value>
+    <value>Ripristina i dati di sincronizzazione. I {MODE} validi sono 'none' (unire normalmente i dati del client e del server), 'client' (sostituire tutti i dati del client con quelli del server) e 'server' (sostituire tutti i dati del server con quelli del client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,10 +820,10 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Richiede una versione del programma principale all'interno dell'intervallo indicato {RANGE}.
-Gli intervalli sono separati da pipe (|).
+    <value>Richiede una versione del programma principale all'interno del {RANGE} dato.
+Gli intervalli sono separati da tubi (|).
 Ogni intervallo ha la forma "START... END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. L'inizio o la fine possono essere omessi.
-Si può usare un singolo numero di versione al posto di un intervallo, per trovare solo quella versione, oppure !VERSION per trovare tutto tranne quella versione.</value>
+È possibile utilizzare un singolo numero di versione al posto di un intervallo, per corrispondere solo a quella versione, oppure !VERSION per corrispondere a tutto tranne che a quella versione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -831,12 +831,12 @@ Si può usare un singolo numero di versione al posto di un intervallo, per trova
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Aggiungere {DIR} all'elenco delle cache di implementazione da cercare.
+    <value>Aggiunge {DIR} all'elenco delle cache di implementazione da cercare.
 Tuttavia, i nuovi download non verranno scritti in questa directory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Invece di eseguire direttamente il programma scelto, eseguire {COMMAND} PROGRAM ARGS. Questo è utile per eseguire debugger e strumenti di tracciamento sul programma (piuttosto che su Zero Install!).
+    <value>Invece di eseguire direttamente il programma scelto, eseguire {COMMANDO} PROGRAM ARGS. Questo è utile per eseguire debugger e strumenti di tracciamento sul programma (piuttosto che su Zero Install!).
 Si noti che il wrapper viene eseguito nell'ambiente selezionato dal programma; pertanto, questo meccanismo non può essere usato per il sandboxing.
 Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere evasi!</value>
     <comment>Automatically translated.</comment>
@@ -955,7 +955,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
