@@ -4,6 +4,7 @@
 using System.Text;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
+using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Services.Feeds;
 
@@ -22,6 +23,7 @@ public partial class CatalogManager : ICatalogManager
     private static readonly FeedUri _oldDefaultSource = new("http://0install.de/catalog/");
     #endregion
 
+    private readonly Config _config;
     private readonly ITrustManager _trustManager;
     private readonly ITaskHandler _handler;
 
@@ -88,6 +90,9 @@ public partial class CatalogManager : ICatalogManager
         #endregion
 
         if (source.IsFile) return XmlStorage.LoadXml<Catalog>(source.LocalPath);
+
+        if (_config.NetworkUse == NetworkLevel.Offline)
+            throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, source));
 
         Catalog result = default!;
         _handler.RunTask(new DownloadFile(source, stream =>

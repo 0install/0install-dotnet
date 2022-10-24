@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Net;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Services.Feeds;
@@ -11,13 +12,14 @@ namespace ZeroInstall.Services.Feeds;
 /// </summary>
 public class CatalogManagerTest : TestWithMocksAndRedirect
 {
+    private readonly Config _config = new();
     private readonly Mock<ITrustManager> _trustManagerMock;
     private readonly ICatalogManager _sut;
 
     public CatalogManagerTest()
     {
         _trustManagerMock = CreateMock<ITrustManager>();
-        _sut = new CatalogManager(_trustManagerMock.Object, new SilentTaskHandler());
+        _sut = new CatalogManager(_config, _trustManagerMock.Object, new SilentTaskHandler());
     }
 
     [Fact]
@@ -37,6 +39,13 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
         _trustManagerMock.Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
 
         _sut.GetOnline().Should().Be(catalog);
+    }
+
+    [Fact]
+    public void RejectDownloadInOfflineMode()
+    {
+        _config.NetworkUse = NetworkLevel.Offline;
+        _sut.Invoking(x => x.GetOnline()).Should().Throw<WebException>();
     }
 
     [Fact]

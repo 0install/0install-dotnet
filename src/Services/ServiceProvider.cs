@@ -31,7 +31,7 @@ public class ServiceProvider
         _feedCache = new(() => FeedCaches.Default(OpenPgp));
         _trustManager = new(() => new(TrustDB.LoadSafe(), Config, OpenPgp, FeedCache, Handler));
         _feedManager = new(() => new(Config, FeedCache, TrustManager, Handler));
-        _catalogManager = new(() => new(TrustManager, Handler));
+        _catalogManager = new(() => new(Config, TrustManager, Handler));
         _selectionCandidateProvider = new(() => new(Config, FeedManager, ImplementationStore, PackageManager));
         _solver = new(() =>
         {
