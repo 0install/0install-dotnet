@@ -987,10 +987,6 @@ Păstrați secretă această cheie și folosiți o altă parolă. În acest fel,
     <value>Încercați {0} cu una dintre acestea:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Nu se poate descărca catalogul de software.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Dezinstalarea serviciului Zero Install Store Service</value>
     <comment>Automatically translated.</comment>

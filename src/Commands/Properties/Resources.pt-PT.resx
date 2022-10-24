@@ -987,10 +987,6 @@ Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe
     <value>Experimente {0} com um destes:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Incapaz de descarregar o catálogo de software.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Desinstalar o serviço de loja de instalação zero</value>
     <comment>Automatically translated.</comment>

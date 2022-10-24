@@ -987,10 +987,6 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <value>Intenta {0} con uno de estos:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>No se puede descargar el catálogo de software.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Desinstalación del servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>

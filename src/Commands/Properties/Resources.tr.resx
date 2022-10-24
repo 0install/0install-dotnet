@@ -987,10 +987,6 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <value>Şunlardan biriyle {0} deneyin:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Uygulama kataloğu indirilemedi.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Zero Install depo hizmeti kaldırılıyor</value>
     <comment>Manually overriden.</comment>

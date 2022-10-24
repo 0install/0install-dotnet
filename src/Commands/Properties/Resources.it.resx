@@ -987,10 +987,6 @@ Mantenete questa chiave segreta e utilizzate una password diversa. In questo mod
     <value>Provate {0} con uno di questi:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Impossibile scaricare il catalogo del software.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Disinstallazione del servizio Zero Install Store</value>
     <comment>Automatically translated.</comment>

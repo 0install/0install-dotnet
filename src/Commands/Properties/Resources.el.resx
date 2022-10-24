@@ -986,10 +986,6 @@
     <value>Δοκιμάστε {0} με ένα από αυτά:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη του καταλόγου λογισμικού.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Απεγκατάσταση της υπηρεσίας Zero Install Store Service</value>
     <comment>Automatically translated.</comment>

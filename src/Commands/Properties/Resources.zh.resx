@@ -987,10 +987,6 @@
     <value>试试{0} ，用这些东西中的一个。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>无法下载软件目录。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>卸载 "零安装 "商店服务</value>
     <comment>Automatically translated.</comment>

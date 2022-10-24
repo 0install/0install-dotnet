@@ -987,10 +987,6 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <value>{0} のいずれかを試してみてください。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>ソフトウェアカタログのダウンロードができません。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Zero Install Store Serviceのアンインストール</value>
     <comment>Automatically translated.</comment>

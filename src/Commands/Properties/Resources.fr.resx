@@ -987,10 +987,6 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <value>Essayez {0} avec l'un d'entre eux :</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Impossible de télécharger le catalogue d'applications.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Suppression de Zero Install Store Service</value>
     <comment>Manually overriden.</comment>

@@ -99,13 +99,8 @@ public abstract class ScopedOperation : ServiceProvider
     /// <exception cref="WebException">Attempted to download catalog and failed.</exception>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO")]
     protected Catalog GetCatalog()
-    {
-        Catalog? result = null;
-        if (!FeedManager.Refresh) result = CatalogManager.GetCached();
-        if (result == null && Config.NetworkUse != NetworkLevel.Offline) result = CatalogManager.GetOnlineSafe();
-        if (result == null) throw new WebException(Resources.UnableToLoadCatalog);
-        return result;
-    }
+        => (FeedManager.Refresh ? null : CatalogManager.GetCached())
+        ?? CatalogManager.GetOnlineSafe();
 
     /// <summary>
     /// Uses <see cref="Catalog.FindByShortName"/> to find a <see cref="Feed"/> matching a specific short name.
@@ -119,9 +114,9 @@ public abstract class ScopedOperation : ServiceProvider
         if (string.IsNullOrEmpty(shortName)) throw new ArgumentNullException(nameof(shortName));
         #endregion
 
-        Feed? result = null;
-        if (!FeedManager.Refresh) result = CatalogManager.GetCachedSafe().FindByShortName(shortName);
-        if (result == null && Config.NetworkUse != NetworkLevel.Offline) result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
+        var result = FeedManager.Refresh ? null : CatalogManager.GetCachedSafe().FindByShortName(shortName);
+        if (result == null && Config.NetworkUse != NetworkLevel.Offline)
+            result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
         return result;
     }
 

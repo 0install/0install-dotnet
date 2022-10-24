@@ -987,10 +987,6 @@ Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft nie
     <value>Probeer {0} met een van deze:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Kan de software catalogus niet downloaden.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Zero Install Store Service verwijderen</value>
     <comment>Automatically translated.</comment>

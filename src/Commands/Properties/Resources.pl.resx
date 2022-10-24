@@ -987,10 +987,6 @@ Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten 
     <value>Spróbuj {0} z jednym z nich:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Nie można pobrać katalogu z oprogramowaniem.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Dezinstalacja usługi Sklepu Zero Install</value>
     <comment>Automatically translated.</comment>

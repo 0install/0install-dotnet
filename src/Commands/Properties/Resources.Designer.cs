@@ -2110,15 +2110,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to download the software catalog..
-        /// </summary>
-        public static string UnableToLoadCatalog {
-            get {
-                return ResourceManager.GetString("UnableToLoadCatalog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Uninstalling Zero Install Store Service.
         /// </summary>
         public static string UninstallService {

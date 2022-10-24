@@ -822,9 +822,6 @@ Keep this key secret and use something different for your password. This way nob
   <data name="TryHelpWith" xml:space="preserve">
     <value>Try {0} with one of these:</value>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Unable to download the software catalog.</value>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Uninstalling Zero Install Store Service</value>
   </data>

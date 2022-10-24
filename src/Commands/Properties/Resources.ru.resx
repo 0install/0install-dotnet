@@ -987,10 +987,6 @@
     <value>Попробуйте {0} с одним из них:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Невозможно загрузить каталог программного обеспечения.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Деинсталляция службы Zero Install Store</value>
     <comment>Automatically translated.</comment>

@@ -987,10 +987,6 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
     <value>Tente {0} com um destes:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="UnableToLoadCatalog" xml:space="preserve">
-    <value>Não foi possível baixar o catálogo de softwares.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Desinstalando serviço do Zero Install Store</value>
     <comment>Manually overriden.</comment>
