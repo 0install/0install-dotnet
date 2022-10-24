@@ -33,9 +33,9 @@ public class Update : Download
         try
         {
             OldSolve();
+
             Log.Info("Running Refresh Solve to find updates");
             RefreshSolve();
-            Debug.Assert(UncachedImplementations != null);
         }
         catch (SolverException ex) when (Handler.Background)
         {
@@ -52,12 +52,12 @@ public class Update : Download
     }
 
     /// <summary>
-    /// Run solver with refresh forced off to get the old values
+    /// Run solver with refresh forced off to get the old values.
     /// </summary>
     private void OldSolve()
     {
-        FeedManager.Refresh = false;
-        _oldSelections = Solver.Solve(Requirements);
+        using (PropertyPointer.For(() => FeedManager.Refresh).SetTemp(false))
+            _oldSelections = Solver.Solve(Requirements);
     }
 
     /// <summary>

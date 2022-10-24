@@ -120,17 +120,8 @@ public class Run : Download
         if (Config.NetworkUse == NetworkLevel.Full && !FeedManager.Refresh)
         {
             Log.Info("Minimal-network Solve for faster startup");
-            Config.NetworkUse = NetworkLevel.Minimal;
-
-            try
-            {
+            using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Minimal))
                 base.Solve();
-            }
-            finally
-            {
-                // Restore original configuration
-                Config.NetworkUse = NetworkLevel.Full;
-            }
         }
         else base.Solve();
     }
