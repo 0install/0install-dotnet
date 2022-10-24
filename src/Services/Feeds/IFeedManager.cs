@@ -25,7 +25,7 @@ public interface IFeedManager
     bool Stale { get; set; }
 
     /// <summary>
-    /// Indicates whether <see cref="Stale"/> is <c>true</c> and <see cref="Config.NetworkUse"/> is <see cref="NetworkLevel.Full"/>.
+    /// Indicates whether <see cref="Stale"/> is <c>true</c> and <see cref="Config.EffectiveNetworkUse"/> is <see cref="NetworkLevel.Full"/>.
     /// </summary>
     bool ShouldRefresh { get; }
 

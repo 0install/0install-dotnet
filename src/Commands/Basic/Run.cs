@@ -3,7 +3,6 @@
 
 using System.Diagnostics;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic;
@@ -117,7 +116,7 @@ public class Run : Download
 #pragma warning restore 8776
     protected override void Solve()
     {
-        if (Config.NetworkUse == NetworkLevel.Full && !FeedManager.Refresh)
+        if (Config.EffectiveNetworkUse == NetworkLevel.Full && !FeedManager.Refresh)
         {
             Log.Info("Minimal-network Solve for faster startup");
             using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Minimal))
@@ -132,7 +131,7 @@ public class Run : Download
     private void BackgroundUpdate()
     {
         if (FeedManager.ShouldRefresh
-         && NetUtils.IsInternetConnected
+         && Config.EffectiveNetworkUse == NetworkLevel.Full
          && !FeedManager.RateLimit(Requirements.InterfaceUri))
         {
             Log.Info("Starting background update because feeds have become stale");

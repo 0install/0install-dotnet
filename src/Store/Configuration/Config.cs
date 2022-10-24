@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Collections;
+using NanoByte.Common.Net;
 
 namespace ZeroInstall.Store.Configuration;
 
@@ -46,6 +47,13 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             _networkUse = value;
         }
     }
+
+    /// <summary>
+    /// <see cref="NetworkLevel.Offline"/> if there is no internet connection; <see cref="NetworkUse"/> otherwise.
+    /// </summary>
+    [Browsable(false)]
+    public NetworkLevel EffectiveNetworkUse
+        => NetUtils.IsInternetConnected ? NetworkUse : NetworkLevel.Offline;
 
     /// <summary>
     /// Automatically approve keys known by the <see cref="KeyInfoServer"/> and seen the first time a feed is fetched.

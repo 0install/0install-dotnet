@@ -66,7 +66,7 @@ public class FeedManager : IFeedManager
 
     /// <inheritdoc/>
     public bool ShouldRefresh
-        => Stale && _config.NetworkUse == NetworkLevel.Full;
+        => Stale && _config.EffectiveNetworkUse == NetworkLevel.Full;
 
     private readonly TransparentCache<FeedUri, Feed> _feeds;
 

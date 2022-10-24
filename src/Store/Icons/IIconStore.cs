@@ -15,7 +15,7 @@ public interface IIconStore
     /// Tries to get an icon that is already cached.
     /// </summary>
     /// <param name="icon">The icon to get.</param>
-    /// <param name="shouldRefresh">Indicates whether the returned file is outdated and <see cref="Config.NetworkUse"/> is <see cref="NetworkLevel.Full"/>.</param>
+    /// <param name="shouldRefresh">Indicates whether the returned file is outdated and <see cref="Config.EffectiveNetworkUse"/> is <see cref="NetworkLevel.Full"/>.</param>
     /// <returns>The file path of the icon in the cache; <c>null</c> if the icon is not cached yet.</returns>
     string? GetCached(Icon icon, out bool shouldRefresh);
 
@@ -23,7 +23,7 @@ public interface IIconStore
     /// Gets an icon from the cache or downloads it if not yet cached.
     /// </summary>
     /// <param name="icon">The icon to get.</param>
-    /// <param name="shouldRefresh">Indicates whether the returned file is outdated and <see cref="Config.NetworkUse"/> is <see cref="NetworkLevel.Full"/>.</param>
+    /// <param name="shouldRefresh">Indicates whether the returned file is outdated and <see cref="Config.EffectiveNetworkUse"/> is <see cref="NetworkLevel.Full"/>.</param>
     /// <returns>The file path of the icon in the cache.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">A problem occurred while adding the icon to the cache.</exception>

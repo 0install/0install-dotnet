@@ -121,7 +121,7 @@ public abstract class IntegrationCommand : CliCommand
     /// </summary>
     private void BackgroundDownload(FeedUri interfaceUri)
     {
-        if (!NoDownload && Config.NetworkUse == NetworkLevel.Full)
+        if (!NoDownload && Config.EffectiveNetworkUse == NetworkLevel.Full)
         {
             Log.Info("Starting background download for later use");
             StartCommandBackground(Download.Name, "--batch", interfaceUri.ToStringRfc());

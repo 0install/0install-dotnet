@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services;
@@ -115,7 +114,7 @@ public abstract class ScopedOperation : ServiceProvider
         #endregion
 
         var result = FeedManager.Refresh ? null : CatalogManager.GetCachedSafe().FindByShortName(shortName);
-        if (result == null && Config.NetworkUse != NetworkLevel.Offline)
+        if (result == null && Config.EffectiveNetworkUse != NetworkLevel.Offline)
             result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
         return result;
     }
@@ -129,8 +128,7 @@ public abstract class ScopedOperation : ServiceProvider
         if (ZeroInstallInstance.IsDeployed
          && !ZeroInstallInstance.IsMachineWide
          && Environment.UserInteractive
-         && NetUtils.IsInternetConnected
-         && Config is {NetworkUse: NetworkLevel.Full, SelfUpdateUri: not null}
+         && Config is {EffectiveNetworkUse: NetworkLevel.Full, SelfUpdateUri: not null}
          && FeedManager.IsStale(Config.SelfUpdateUri)
          && !FeedManager.RateLimit(Config.SelfUpdateUri))
         {

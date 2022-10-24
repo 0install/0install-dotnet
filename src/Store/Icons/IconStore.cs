@@ -37,7 +37,7 @@ public sealed partial class IconStore : IIconStore
 
         if (File.Exists(path))
         {
-            shouldRefresh = _config.NetworkUse == NetworkLevel.Full
+            shouldRefresh = _config.EffectiveNetworkUse == NetworkLevel.Full
                          && DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
             return path;
         }

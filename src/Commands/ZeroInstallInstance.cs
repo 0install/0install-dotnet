@@ -3,7 +3,6 @@
 
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Configuration;
@@ -154,11 +153,11 @@ public static class ZeroInstallInstance
     /// <returns>The version number of the newest available update; <c>null</c> if no update is available.</returns>
     public static ImplementationVersion? SilentUpdateCheck()
     {
-        if (!IsDeployed || !NetUtils.IsInternetConnected) return null;
+        if (!IsDeployed) return null;
 
         using var handler = new SilentTaskHandler();
         var services = new ServiceProvider(handler) {FeedManager = {Refresh = true}};
-        if (services.Config is {NetworkUse: NetworkLevel.Offline} or {SelfUpdateUri: null}) return null;
+        if (services.Config is {EffectiveNetworkUse: NetworkLevel.Offline} or {SelfUpdateUri: null}) return null;
 
         try
         {
