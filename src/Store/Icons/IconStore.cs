@@ -26,7 +26,7 @@ public sealed partial class IconStore : IIconStore
     private const long MaximumIconSize = 2 * 1024 * 1024; // 2MiB
 
     /// <inheritdoc/>
-    public string? GetCached(Icon icon, out bool stale)
+    public string? GetCached(Icon icon, out bool shouldRefresh)
     {
         #region Sanity checks
         if (icon == null) throw new ArgumentNullException(nameof(icon));
@@ -37,21 +37,22 @@ public sealed partial class IconStore : IIconStore
 
         if (File.Exists(path))
         {
-            stale = DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
+            shouldRefresh = _config.NetworkUse == NetworkLevel.Full
+                         && DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
             return path;
         }
         else
         {
-            stale = false;
+            shouldRefresh = false;
             return null;
         }
     }
 
     /// <inheritdoc/>
-    public string Get(Icon icon, out bool stale)
+    public string Get(Icon icon, out bool shouldRefresh)
     {
         using (new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode()))
-            return GetCached(icon, out stale) ?? Download(icon);
+            return GetCached(icon, out shouldRefresh) ?? Download(icon);
     }
 
     private readonly ConcurrentSet<Uri> _updatedIcons = new();
@@ -59,8 +60,8 @@ public sealed partial class IconStore : IIconStore
     /// <inheritdoc/>
     public string GetFresh(Icon icon)
     {
-        string path = Get(icon, out bool stale);
-        if (stale && _updatedIcons.AddIfNew(icon.Href))
+        string path = Get(icon, out bool shouldRefresh);
+        if (shouldRefresh && _updatedIcons.AddIfNew(icon.Href))
         {
             try
             {
