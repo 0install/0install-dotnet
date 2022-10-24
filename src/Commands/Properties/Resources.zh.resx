@@ -281,7 +281,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>将启动由URI指定的程序所需的所有馈送和实现导出到一个DIRECTORY。</value>
+    <value>将启动URI指定的程序所需的所有资料和实现导出到一个DIRECTORY。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -339,7 +339,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>搜索由镜像服务器索引的、符合指定关键词的饲料。注意，默认的镜像服务器索引所有已知的饲料，无论质量如何；你必须在运行这些程序之前决定是否信任这些程序。</value>
+    <value>搜索由镜像服务器索引的、符合指定关键词的饲料。注意，默认的镜像服务器会索引所有已知的饲料，无论质量如何；你必须在运行程序之前决定是否信任这些程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -501,7 +501,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料代替吗？</value>
+    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料来代替吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -538,7 +538,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>融合{0}</value>
+    <value>整合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -612,7 +612,7 @@
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -648,7 +648,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>要用于摘要的{HASH} 算法。</value>
+    <value>要用于摘要的{HASH}算法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -660,15 +660,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>隐藏图形用户界面，使用类似托盘图标的东西代替。</value>
+    <value>隐藏图形用户界面，使用类似托盘图标的东西来代替。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>尽可能用默认值自动回答问题，并简化控制台输出（没有表格或进度条）。</value>
+    <value>尽可能用默认值自动回答问题，简化控制台输出（没有表格或进度条）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>要求主程序的版本早于{VERSION} 。也就是说，强制使用旧版本的程序。</value>
+    <value>要求主程序的版本早于{VERSION}，即强制使用旧版本的程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -680,16 +680,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>不执行默认命令，而是使用{COMMAND} 。有效的命令名称在程序的馈送中被指定。
-设置为空（""），在选择过程中忽略该命令。</value>
+    <value>不执行默认命令，而是使用{COMMAND}。有效的命令名称在程序的进位中被指定。
+设置为空（""）可以在选择过程中忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>切换到配置GUI中的一个特定标签。有效的{TAB}，包括 "更新"、"存储"、"目录"、"信任"、"同步"、"语言 "和 "高级"。</value>
+    <value>在配置GUI中切换到一个特定的标签。有效的{TAB}是'更新'、'存储'、'目录'、'信任'、'同步'、'语言'、'语言'和'高级'。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>强制求解器针对一个特定的{CPU} 。</value>
+    <value>强制求解器以特定的{CPU}为目标。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -721,7 +721,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>添加特定的所有接入点{CATEGORY}.</value>
+    <value>添加特定{CATEGORY}的所有接入点。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -733,7 +733,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>移除一个特定的{CATEGORY} 的所有接入点。</value>
+    <value>移除特定{CATEGORY}的所有接入点。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -754,7 +754,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行{MAIN} ，而不是默认的。如果它以'/'或'/'开头，那么路径是相对于实现的顶层目录的，否则就是相对于包含默认主程序的目录。
+    <value>运行指定的可执行程序{MAIN}，而不是默认的。如果它以'/'或'/'开头，那么该路径是相对于实现的顶层目录的，而否则是相对于包含默认主程序的目录。
 不可以包含命令行参数!白色空格不需要被转义。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -767,7 +767,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>要求主程序的版本不早于{VERSION} 。例如，如果你想运行2.0或更高版本，使用--not-before=2.0。</value>
+    <value>要求主程序的版本不早于{VERSION}。例如，如果你想运行2.0或更高的版本，使用--not-before=2.0。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -780,11 +780,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>强制求解器以操作系统为目标{OS} 。</value>
+    <value>强制求解器以操作系统{OS}为目标。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个可以移动的便携式安装（例如，在优盘上）。</value>
+    <value>创建一个可以移动的便携式安装（例如，在拇指驱动器上）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -808,7 +808,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}是'无'（正常合并客户端和服务器的数据），'客户端'（用服务器的数据替换客户端的所有数据）和'服务器'（用客户端的数据替换服务器的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -820,9 +820,9 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>要求主程序的版本在给定的{RANGE} 。
+    <value>要求在给定的{RANGE}范围内的主程序的版本。
 范围由管道（|）分隔。
-每个范围的形式是 "START...!END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以省略。
+每个范围的形式为 "START...！END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以被省略。
 可以用一个版本号来代替范围，以便只匹配该版本，或者用!!VERSION来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -831,12 +831,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>将{DIR} 加入到要搜索的实现缓存列表中。
+    <value>将{DIR}添加到要搜索的实现缓存列表中。
 然而，新的下载将不会被写入这个目录。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>不直接执行所选的程序，而是运行{COMMAND} PROGRAM ARGS。这对于在程序上运行调试器和跟踪工具很有用（而不是在Zero Install上！）。
+    <value>不直接执行所选择的程序，而是运行{COMMAND}程序。PROGRAM ARGS。这对于在程序上运行调试器和跟踪工具很有用（而不是在Zero Install上！）。
 注意，包装器是在程序选择的环境中执行的；因此，这种机制不能用于沙箱。
 可能包含命令行参数。白色的空格必须被转义!</value>
     <comment>Automatically translated.</comment>
@@ -902,7 +902,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个 "零安装 "实例没有被部署。没有任何东西可以删除。</value>
+    <value>这个 "零安装 "的实例没有被部署。没有任何东西可以删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
