@@ -35,7 +35,7 @@ public sealed partial class FallbackSolver : ISolver
             }
             catch (WebException ex2)
             {
-                Log.Warn("Unable to download secondary solver", ex2);
+                Log.Info("Unable to download secondary solver", ex2);
                 throw ex.Rethrow(); // Report the original problem instead of inability to launch secondary solver
             }
         }
