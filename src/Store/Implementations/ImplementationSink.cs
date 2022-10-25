@@ -93,21 +93,21 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         }
         manifest.Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
 
+        // Move directory to final destination
+        string source = tempDir;
         string target = System.IO.Path.Combine(Path, expectedDigest);
-        lock (_renameLock) // Prevent race-conditions when adding the same digest twice
+        if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
+        ExceptionUtils.Retry<IOException>(_ =>
         {
-            if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-
-            // Move directory to final destination
             try
             {
-                Directory.Move(tempDir, target);
+                Directory.Move(source, target);
             }
-            catch (IOException ex) when (ex.Message.Contains("already exists") || Directory.Exists(target))
+            catch (IOException) when (Directory.Exists(target))
             {
                 throw new ImplementationAlreadyInStoreException(manifestDigest);
             }
-        }
+        });
 
         if (UseWriteProtection)
         {
@@ -115,8 +115,6 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             DeployDeleteInfoFile();
         }
     }
-
-    private readonly object _renameLock = new();
 
     /// <summary>
     /// Makes a directory read-only using platform-specific mechanisms. Logs any errors and continues.
