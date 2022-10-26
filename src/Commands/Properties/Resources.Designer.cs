@@ -280,15 +280,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checking feed.
-        /// </summary>
-        public static string CheckingFeed {
-            get {
-                return ResourceManager.GetString("CheckingFeed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Click here to choose..
         /// </summary>
         public static string ClickToChoose {

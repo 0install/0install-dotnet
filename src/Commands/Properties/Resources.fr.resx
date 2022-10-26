@@ -157,10 +157,6 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
     <value>Des modifications ont été trouvées</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Vérification du flux</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Cliquez ici pour choisir.</value>
     <comment>Manually overriden.</comment>

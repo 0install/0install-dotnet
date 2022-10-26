@@ -157,10 +157,6 @@
     <value>Αλλαγές βρέθηκαν</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Έλεγχος τροφοδοσίας</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>κάντε κλικ εδώ για να επιλέξετε.</value>
     <comment>Manually overriden.</comment>

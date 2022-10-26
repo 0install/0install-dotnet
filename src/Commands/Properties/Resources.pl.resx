@@ -157,10 +157,6 @@ Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych możli
     <value>Stwierdzone zmiany</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Kontrola paszy</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Kliknij tutaj, aby wybrać.</value>
     <comment>Automatically translated.</comment>

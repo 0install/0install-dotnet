@@ -157,10 +157,6 @@ Si selecciona "No", Zero Install seguirá utilizando las antiguas funciones.</va
     <value>Cambios encontrados</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Comprobación del feed</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Haga clic aquí para elegir.</value>
     <comment>Automatically translated.</comment>

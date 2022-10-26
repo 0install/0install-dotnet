@@ -157,10 +157,6 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <value>変更点発見</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>フィードの確認</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>こちらからお選びください。</value>
     <comment>Automatically translated.</comment>

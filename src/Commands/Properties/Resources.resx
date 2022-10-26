@@ -192,9 +192,6 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
   <data name="ChangesFound" xml:space="preserve">
     <value>Changes found</value>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Checking feed</value>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Click here to choose.</value>
   </data>

@@ -157,10 +157,6 @@
     <value>Bulunan değişiklikler</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Akış denetleniyor</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Seçmek için buraya tıklayın.</value>
     <comment>Manually overriden.</comment>

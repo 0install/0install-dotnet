@@ -157,10 +157,6 @@ Wenn Sie "Nein" wählen, verwendet Zero Install weiterhin die alten Fähigkeiten
     <value>Gefundene Änderungen</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Prüfe Feed</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Klicken Sie hier, um zu wählen.</value>
     <comment>Manually overriden.</comment>

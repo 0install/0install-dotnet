@@ -157,10 +157,6 @@ Se você selecionar 'Não', o Zero Install irá continuar usando os recursos ant
     <value>Alterações encontradas</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CheckingFeed" xml:space="preserve">
-    <value>Verificando o feed</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Clique aqui para escolher.</value>
     <comment>Manually overriden.</comment>
