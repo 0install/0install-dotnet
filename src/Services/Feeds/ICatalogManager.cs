@@ -27,6 +27,7 @@ public interface ICatalogManager
     /// <exception cref="IOException">A problem occurred while reading a local catalog file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a local catalog file was not permitted.</exception>
     /// <exception cref="WebException">A problem occurred while fetching a remote catalog file.</exception>
+    /// <exception cref="NotSupportedException">The catalog requires a newer version of Zero Install.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
@@ -34,12 +35,13 @@ public interface ICatalogManager
     Catalog GetOnline();
 
     /// <summary>
-    /// Downloads and parses a remote catalog file. Mainly for internal use.
+    /// Downloads and normalizes a remote catalog file. Mainly for internal use.
     /// </summary>
     /// <param name="source">The URL to download the catalog file from.</param>
     /// <returns>The parsed <see cref="Catalog"/>.</returns>
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
     /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
+    /// <exception cref="NotSupportedException">The catalog requires a newer version of Zero Install.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     Catalog DownloadCatalog(FeedUri source);
 

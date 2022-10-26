@@ -65,21 +65,26 @@ public partial class CatalogManager : ICatalogManager
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO and has side-effects")]
     public Catalog GetOnline()
     {
-        // Download + merge
-        var mergedCatalog = new Catalog();
-        foreach (var source in GetSources())
+        try
         {
-            foreach (var feed in DownloadCatalog(source).Feeds)
+            var mergedCatalog = new Catalog
             {
-                feed.CatalogUri = source;
-                mergedCatalog.Feeds.Add(feed);
-            }
+                Feeds =
+                {
+                    GetSources().AsParallel()
+                                .WithDegreeOfParallelism(_config.MaxParallelDownloads)
+                                .WithCancellation(_handler.CancellationToken)
+                                .Select(DownloadCatalog)
+                                .SelectMany(x => x.Feeds)
+                }
+            };
+            SaveCache(mergedCatalog);
+            return mergedCatalog;
         }
-        mergedCatalog.Normalize();
-
-        SaveCache(mergedCatalog);
-
-        return mergedCatalog;
+        catch (AggregateException ex)
+        {
+            throw ex.RethrowFirstInner();
+        }
     }
 
     /// <inheritdoc/>
@@ -89,29 +94,34 @@ public partial class CatalogManager : ICatalogManager
         if (source == null) throw new ArgumentNullException(nameof(source));
         #endregion
 
-        if (source.IsFile) return XmlStorage.LoadXml<Catalog>(source.LocalPath);
-
-        if (_config.NetworkUse == NetworkLevel.Offline)
-            throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, source));
-
-        Catalog result = default!;
-        _handler.RunTask(new DownloadFile(source, stream =>
+        Catalog catalog = default!;
+        if (source.IsFile)
+            catalog = XmlStorage.LoadXml<Catalog>(source.LocalPath);
+        else
         {
-            var memory = stream.ToMemory();
-            _trustManager.CheckTrust(memory.AsArray(), source);
-            try
+            if (_config.NetworkUse == NetworkLevel.Offline)
+                throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, source));
+
+            _handler.RunTask(new DownloadFile(source, stream =>
             {
-                result = XmlStorage.LoadXml<Catalog>(memory);
-            }
-            #region Error handling
-            catch (InvalidDataException ex)
-            {
-                // Change exception message to add context information
-                throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, source), ex.InnerException);
-            }
-            #endregion
-        }));
-        return result;
+                byte[] data = stream.AsArray();
+                _trustManager.CheckTrust(data, source);
+                try
+                {
+                    catalog = XmlStorage.LoadXml<Catalog>(data.ToStream());
+                }
+                #region Error handling
+                catch (InvalidDataException ex)
+                {
+                    // Change exception message to add context information
+                    throw new InvalidDataException(string.Format(Resources.UnableToParseFeed, source), ex.InnerException);
+                }
+                #endregion
+            }));
+        }
+
+        catalog.Normalize(source);
+        return catalog;
     }
 
     /// <inheritdoc/>
