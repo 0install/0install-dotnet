@@ -53,7 +53,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     public FeedUri? Uri { get; set; }
 
     /// <summary>
-    /// The URI of the <see cref="Catalog"/> this feed was stored within. Used as an implementation detail; not part of the official feed format!
+    /// The URI of the <see cref="Catalog"/> this feed was stored within. Used as an implementation detail; not part of the regular feed format!
     /// </summary>
     [Browsable(false), XmlIgnore, IgnoreEquality]
     public FeedUri? CatalogUri { get; set; }
@@ -272,10 +272,10 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     #region Normalize
     /// <summary>
     /// Prepares the feed for solver processing.
-    /// Flattens inheritance structures, Converts legacy elements, sets default values, etc..
+    /// Flattens inheritance structures, converts legacy elements, sets default values, etc..
     /// Do not call it if you plan on serializing the feed again since it may loose some of its structure.
     /// </summary>
-    /// <param name="feedUri">The feed the data was originally loaded from.</param>
+    /// <param name="feedUri">The URI the feed was originally loaded from.</param>
     /// <exception cref="NotSupportedException">The feed requires a newer version of Zero Install.</exception>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public void Normalize(FeedUri? feedUri = null)

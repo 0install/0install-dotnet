@@ -151,13 +151,19 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
 
     #region Normalize
     /// <summary>
-    /// Runs <see cref="Feed.Normalize"/> on all contained <see cref="Feeds"/>.
+    /// Normalizes the catalog and all feeds it contains.
+    /// Flattens inheritance structures, converts legacy elements, sets default values, etc..
     /// </summary>
-    /// <remarks>This method should be called to prepare a <see cref="Catalog"/> for solver processing. Do not call it if you plan on serializing the catalog again since it may loose some of its structure.</remarks>
-    public void Normalize()
+    /// <param name="catalogUri">The URI the catalog was originally loaded from.</param>
+    /// <exception cref="NotSupportedException">The catalog requires a newer version of Zero Install.</exception>
+    /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
+    public void Normalize(FeedUri? catalogUri = null)
     {
         foreach (var feed in Feeds)
+        {
             feed.Normalize(feed.Uri);
+            feed.CatalogUri = catalogUri;
+        }
     }
     #endregion
 
