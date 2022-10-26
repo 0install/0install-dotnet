@@ -14,110 +14,117 @@ namespace ZeroInstall.Store.Icons;
 public class IconStoreTest : IDisposable
 {
     private readonly TemporaryDirectory _tempDir = new("0install-test-icons");
+    private readonly Config _config = new();
     private readonly IconStore _store;
 
     public IconStoreTest()
     {
-        _store = new(_tempDir, new Config(), new SilentTaskHandler());
+        _store = new(_tempDir, _config, new SilentTaskHandler());
     }
 
     public void Dispose() => _tempDir.Dispose();
 
-    [Fact]
-    public void ShouldEnsureCorrectFileExtensionPng()
+    [Theory, InlineData(Icon.MimeTypePng, ".png"), InlineData(Icon.MimeTypeIco, ".ico")]
+    public void EnsureCorrectFileExtensionPng(string mimeType, string extension)
     {
-        string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypePng});
-        Path.GetExtension(name).Should().Be(".png");
+        string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = mimeType});
+        Path.GetExtension(name).Should().Be(extension);
     }
 
     [Fact]
-    public void ShouldEnsureCorrectFileExtensionIco()
+    public void DownloadMissingPng() => DownloadMissing(_pngBytes, Icon.MimeTypePng);
+
+    [Fact]
+    public void DownloadMissingIco() => DownloadMissing(_icoBytes, Icon.MimeTypeIco);
+
+    private void DownloadMissing(byte[] bytes, string mimeType)
     {
-        string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = Icon.MimeTypeIco});
-        Path.GetExtension(name).Should().Be(".ico");
+        using var server = new MicroServer("file", bytes.ToStream());
+        File.ReadAllBytes(_store.GetFresh(new Icon {Href = server.FileUri, MimeType = mimeType}))
+            .Should().BeEquivalentTo(bytes);
     }
 
     [Fact]
-    public void ShouldReturnCached()
+    public void DontDownloadInOfflineMode()
     {
-        var iconBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.png");
-        var icon = new Icon {Href = new("http://example.com/test1.png"), MimeType = Icon.MimeTypePng};
-        Inject(icon, iconBytes);
-
-        File.ReadAllBytes(_store.GetFresh(icon))
-            .Should().BeEquivalentTo(iconBytes);
-    }
-
-    [Fact]
-    public void ShouldDownloadMissingPng()
-    {
-        using var iconStream = typeof(IconStoreTest).GetEmbeddedStream("icon.png");
-        using var server = new MicroServer("icon.png", iconStream);
+        _config.NetworkUse = NetworkLevel.Offline;
+        using var server = new MicroServer("file", _dummyBytes.ToStream());
         var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
-
-        File.ReadAllBytes(_store.GetFresh(icon))
-            .Should().BeEquivalentTo(iconStream.AsArray());
+        _store.Invoking(x => x.GetFresh(icon))
+              .Should().Throw<WebException>();
     }
 
-    [Fact]
-    public void ShouldDownloadMissingIco()
-    {
-        using var iconStream = typeof(IconStoreTest).GetEmbeddedStream("icon.ico");
-        using var server = new MicroServer("icon.ico", iconStream);
-        var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypeIco};
-
-        File.ReadAllBytes(_store.GetFresh(icon))
-            .Should().BeEquivalentTo(iconStream.AsArray());
-    }
-
-    [SkippableFact]
-    public void ShouldRejectDamagedPng()
+    [SkippableTheory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
+    public void RejectDamaged(string mimeType)
     {
         Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
 
-        using var server = new MicroServer("icon.png", new byte[] {1, 2, 3}.ToStream());
-        var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
-
-        _store.Invoking(x => x.Get(icon, out _))
-              .Should().Throw<InvalidDataException>();
-    }
-
-    [SkippableFact]
-    public void ShouldRejectDamagedIco()
-    {
-        Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
-
-        using var server = new MicroServer("icon.ico", new byte[] {1, 2, 3}.ToStream());
-        var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypeIco};
-
+        using var server = new MicroServer("file", _dummyBytes.ToStream());
+        var icon = new Icon {Href = server.FileUri, MimeType = mimeType};
         _store.Invoking(x => x.Get(icon, out _))
               .Should().Throw<InvalidDataException>();
     }
 
     [Fact]
-    public void ShouldRefreshStale()
+    public void ReturnCachedWhenFresh()
     {
-        using var iconStream = typeof(IconStoreTest).GetEmbeddedStream("icon.png");
-        using var server = new MicroServer("icon.png", iconStream);
-        var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
-        Inject(icon, new byte[] {1, 2, 3}, timestamp: new DateTime(1980, 1, 1));
-
-        File.ReadAllBytes(_store.GetFresh(icon))
-            .Should().BeEquivalentTo(iconStream.AsArray());
+        Inject(_dummyPngIcon, _pngBytes);
+        File.ReadAllBytes(_store.GetFresh(_dummyPngIcon))
+            .Should().BeEquivalentTo(_pngBytes);
     }
 
     [Fact]
-    public void ShouldReturnStaleOnRefreshFailure()
+    public void DontSuggestRefreshWhenFresh()
+    {
+        Inject(_dummyPngIcon, _pngBytes);
+        _store.Get(_dummyPngIcon, out bool shouldRefresh);
+        shouldRefresh.Should().BeFalse();
+    }
+
+    [Fact]
+    public void SuggestRefreshWhenStale()
+    {
+        Inject(_dummyPngIcon, _pngBytes, _oldTimestamp);
+        _store.Get(_dummyPngIcon, out bool shouldRefresh);
+        shouldRefresh.Should().BeTrue();
+    }
+
+    [Fact]
+    public void DontSuggestRefreshInOfflineMode()
+    {
+        _config.NetworkUse = NetworkLevel.Offline;
+        Inject(_dummyPngIcon, _pngBytes, _oldTimestamp);
+        _store.Get(_dummyPngIcon, out bool shouldRefresh);
+        shouldRefresh.Should().BeFalse();
+    }
+
+    [Fact]
+    public void RefreshWhenStale()
+    {
+        using var server = new MicroServer("icon.png", _pngBytes.ToStream());
+        var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
+        Inject(icon, _dummyBytes, _oldTimestamp);
+        File.ReadAllBytes(_store.GetFresh(icon))
+            .Should().BeEquivalentTo(_pngBytes);
+    }
+
+    [Fact]
+    public void ReturnStaleOnRefreshFailure()
     {
         using var server = new MicroServer("_", new MemoryStream());
         var icon = new Icon {Href = new(server.FileUri + "-invalid"), MimeType = Icon.MimeTypePng};
-
-        var iconBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.png");
-        Inject(icon, iconBytes, timestamp: new DateTime(1980, 1, 1));
-
+        Inject(icon, _pngBytes, _oldTimestamp);
         File.ReadAllBytes(_store.GetFresh(icon))
-            .Should().BeEquivalentTo(iconBytes);
+            .Should().BeEquivalentTo(_pngBytes);
     }
+
+    private static readonly byte[]
+        _dummyBytes = {1, 2, 3},
+        _pngBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.png"),
+        _icoBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.ico");
+
+    private static readonly Icon _dummyPngIcon = new() {Href = new("http://example.com/test1.png"), MimeType = Icon.MimeTypePng};
+    private static readonly DateTime _oldTimestamp = new(1980, 1, 1);
 
     private void Inject(Icon icon, byte[] iconBytes, DateTime? timestamp = null)
     {
