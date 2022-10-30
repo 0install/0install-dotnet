@@ -116,7 +116,7 @@ public class Run : Download
 #pragma warning restore 8776
     protected override void Solve()
     {
-        if (Config.EffectiveNetworkUse == NetworkLevel.Full && !FeedManager.Refresh)
+        if (Config.NetworkUse > NetworkLevel.Minimal && !FeedManager.Refresh)
         {
             Log.Info("Minimal-network Solve for faster startup");
             using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Minimal))

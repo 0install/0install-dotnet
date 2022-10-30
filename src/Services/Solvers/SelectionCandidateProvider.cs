@@ -56,7 +56,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
         if (stabilityPolicy == Stability.Unset) stabilityPolicy = _config.HelpWithTesting ? Stability.Testing : Stability.Stable;
 
         var candidates = GetFeeds(requirements).SelectMany(x => GetCandidates(x.Key, x.Value, requirements)).ToList();
-        candidates.Sort(new SelectionCandidateComparer(stabilityPolicy, _config.EffectiveNetworkUse, requirements.Languages, IsCached));
+        candidates.Sort(new SelectionCandidateComparer(stabilityPolicy, _config.NetworkUse, requirements.Languages, IsCached));
         return candidates;
     }
 
