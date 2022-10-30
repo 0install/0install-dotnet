@@ -43,7 +43,7 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
         if (xLanguageRank < yLanguageRank) return 1;
 
         // Cached implementations come next if we have limited network access
-        if (_networkUse != NetworkLevel.Full)
+        if (_networkUse < NetworkLevel.Full)
         {
             bool xCached = _isCached(x.Implementation);
             bool yCached = _isCached(y.Implementation);

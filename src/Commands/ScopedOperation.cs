@@ -114,7 +114,7 @@ public abstract class ScopedOperation : ServiceProvider
         #endregion
 
         var result = FeedManager.Refresh ? null : CatalogManager.GetCachedSafe().FindByShortName(shortName);
-        if (result == null && Config.EffectiveNetworkUse != NetworkLevel.Offline)
+        if (result == null && Config.EffectiveNetworkUse > NetworkLevel.Offline)
             result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
         return result;
     }
