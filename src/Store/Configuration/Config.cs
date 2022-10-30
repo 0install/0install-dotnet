@@ -48,12 +48,20 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
         }
     }
 
+    // Only query once to avoid flapping during execution
+    private readonly Lazy<Connectivity> _internetConnectivity = new(NetUtils.GetInternetConnectivity);
+
     /// <summary>
-    /// <see cref="NetworkLevel.Offline"/> if there is no internet connection; <see cref="NetworkUse"/> otherwise.
+    /// Same as <see cref="NetworkUse"/>, except when there the internet connection is metered (capped at <see cref="NetworkLevel.Minimal"/>) or unavailable (capped at <see cref="NetworkLevel.Offline"/>).
     /// </summary>
     [Browsable(false)]
     public NetworkLevel EffectiveNetworkUse
-        => NetUtils.IsInternetConnected ? NetworkUse : NetworkLevel.Offline;
+        => _internetConnectivity.Value switch
+        {
+            Connectivity.None => NetworkLevel.Offline,
+            Connectivity.Metered when NetworkUse == NetworkLevel.Full => NetworkLevel.Minimal,
+            _ => NetworkUse
+        };
 
     /// <summary>
     /// Automatically approve keys known by the <see cref="KeyInfoServer"/> and seen the first time a feed is fetched.
