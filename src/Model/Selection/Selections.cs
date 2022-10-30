@@ -126,25 +126,8 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// <returns>The first matching implementation.</returns>
     /// <exception cref="KeyNotFoundException">No matching implementation was found.</exception>
     public ImplementationSelection this[FeedUri interfaceUri]
-    {
-        get
-        {
-            #region Sanity checks
-            if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
-            #endregion
-
-            try
-            {
-                return Implementations.First(implementation => implementation.InterfaceUri == interfaceUri);
-            }
-            #region Error handling
-            catch (InvalidOperationException)
-            {
-                throw new KeyNotFoundException(string.Format(Resources.ImplementationNotInSelection, interfaceUri));
-            }
-            #endregion
-        }
-    }
+        => Implementations.FirstOrDefault(implementation => implementation.InterfaceUri == interfaceUri)
+        ?? throw new KeyNotFoundException(string.Format(Resources.ImplementationNotInSelection, interfaceUri));
 
     /// <summary>
     /// Returns the <see cref="ImplementationSelection"/> for a specific interface. Safe for missing elements.

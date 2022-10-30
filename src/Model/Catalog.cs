@@ -68,25 +68,8 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
     /// <returns>The identified <see cref="Feed"/>.</returns>
     /// <exception cref="KeyNotFoundException">No <see cref="Feed"/> matching <paramref name="uri"/> was found in <see cref="Feeds"/>.</exception>
     public Feed this[FeedUri uri]
-    {
-        get
-        {
-            #region Sanity checks
-            if (uri == null) throw new ArgumentNullException(nameof(uri));
-            #endregion
-
-            try
-            {
-                return Feeds.First(feed => feed.Uri == uri);
-            }
-            #region Error handling
-            catch (InvalidOperationException)
-            {
-                throw new KeyNotFoundException(string.Format(Resources.FeedNotInCatalog, uri));
-            }
-            #endregion
-        }
-    }
+        => Feeds.FirstOrDefault(feed => feed.Uri == uri)
+        ?? throw new KeyNotFoundException(string.Format(Resources.FeedNotInCatalog, uri));
 
     /// <summary>
     /// Returns the <see cref="Feed"/> with a specific URI. Safe for missing elements.

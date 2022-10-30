@@ -106,24 +106,10 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// <returns>The first matching <see cref="Capability"/>.</returns>
     /// <exception cref="KeyNotFoundException">No capability matching <paramref name="id"/> and <typeparamref name="T"/> was found.</exception>
     public T LookupCapability<T>(string id) where T : Capability
-    {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
-        #endregion
-
-        try
-        {
-            return CapabilityLists.CompatibleCapabilities()
-                                  .OfType<T>()
-                                  .First(specificCapability => specificCapability.ID == id);
-        }
-        #region Error handling
-        catch (InvalidOperationException)
-        {
-            throw new KeyNotFoundException(string.Format(Resources.UnableToFindTypeID, typeof(T).Name, id));
-        }
-        #endregion
-    }
+        => CapabilityLists.CompatibleCapabilities()
+                          .OfType<T>()
+                          .FirstOrDefault(specificCapability => specificCapability.ID == id)
+        ?? throw new KeyNotFoundException(string.Format(Resources.UnableToFindTypeID, typeof(T).Name, id));
 
     #region Conversion
     /// <summary>

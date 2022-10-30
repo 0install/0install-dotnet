@@ -242,16 +242,8 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
             #endregion
 
             if (name.Length == 0) return null;
-            try
-            {
-                return Commands.First(command => command.Name == name);
-            }
-            #region Error handling
-            catch (InvalidOperationException)
-            {
-                throw new KeyNotFoundException(string.Format(Resources.CommandNotFound, name));
-            }
-            #endregion
+            return Commands.FirstOrDefault(command => command.Name == name)
+                ?? throw new KeyNotFoundException(string.Format(Resources.CommandNotFound, name));
         }
     }
 

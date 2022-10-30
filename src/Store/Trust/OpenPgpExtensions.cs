@@ -17,25 +17,9 @@ public static class OpenPgpExtensions
     /// <seealso cref="IOpenPgp.Sign"/>
     /// <seealso cref="IOpenPgp.ExportKey"/>
     public static OpenPgpSecretKey GetSecretKey(this IOpenPgp openPgp, IKeyIDContainer keyIDContainer)
-    {
-        #region Sanity checks
-        if (openPgp == null) throw new ArgumentNullException(nameof(openPgp));
-        if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
-        #endregion
-
-        var secretKeys = openPgp.ListSecretKeys().ToList();
-        if (secretKeys.Count == 0)
-            throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
-
-        try
-        {
-            return secretKeys.First(x => x.KeyID == keyIDContainer.KeyID);
-        }
-        catch (InvalidOperationException)
-        {
-            throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
-        }
-    }
+        => openPgp.ListSecretKeys()
+                  .FirstOrDefault(x => x.KeyID == keyIDContainer.KeyID)
+        ?? throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
 
     /// <summary>
     /// Returns a specific secret key in the keyring.
@@ -61,30 +45,22 @@ public static class OpenPgpExtensions
         try
         {
             long keyID = OpenPgpUtils.ParseKeyID(keySpecifier);
-            return secretKeys.First(x => x.KeyID == keyID);
+            if (secretKeys.FirstOrDefault(x => x.KeyID == keyID) is {} key)
+                return key;
         }
         catch (FormatException)
-        {}
-        catch (InvalidOperationException)
         {}
 
         try
         {
-            var fingerprint = OpenPgpUtils.ParseFingerprint(keySpecifier);
-            return secretKeys.First(x => x.Fingerprint.SequenceEqual(fingerprint));
+            byte[] fingerprint = OpenPgpUtils.ParseFingerprint(keySpecifier);
+            if (secretKeys.FirstOrDefault(x => x.Fingerprint.SequenceEqual(fingerprint)) is {} key)
+                return key;
         }
         catch (FormatException)
         {}
-        catch (InvalidOperationException)
-        {}
 
-        try
-        {
-            return secretKeys.First(x => x.UserID.ContainsIgnoreCase(keySpecifier));
-        }
-        catch
-        {
-            throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
-        }
+        return secretKeys.FirstOrDefault(x => x.UserID.ContainsIgnoreCase(keySpecifier))
+            ?? throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
     }
 }
