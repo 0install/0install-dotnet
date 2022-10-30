@@ -107,21 +107,15 @@ public sealed partial class VersionRange
         if (Parts.Count == 0) return other;
 
         var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToArray();
-        return parts.Length == 0 ? None : new VersionRange(parts);
+        return parts.Length == 0 ? None : new(parts);
     }
 
     /// <summary>
     /// Determines whether a specific version lies within this range set.
     /// </summary>
     public bool Match(ImplementationVersion version)
-    {
-        #region Sanity checks
-        if (version == null) throw new ArgumentNullException(nameof(version));
-        #endregion
-
-        if (Parts.Count == 0) return true;
-        return Parts.Any(part => part.Match(version));
-    }
+        => Parts.Count == 0
+        || Parts.Any(part => part.Match(version));
 
     /// <summary>
     /// Returns a string representation of the version range set. Safe for parsing!

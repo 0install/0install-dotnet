@@ -199,10 +199,13 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
         {
             return XmlStorage.LoadXml<AppList>(zipFile.GetInputStream(zipEntry));
         }
+        #region Error handling
         catch (InvalidOperationException)
         {
+            // Wrap exception since only certain exception types are allowed
             throw new InvalidDataException(Resources.SyncServerDataDamaged);
         }
+        #endregion
     }
 
     /// <summary>

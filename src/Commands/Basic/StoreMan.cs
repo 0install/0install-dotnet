@@ -57,17 +57,15 @@ public sealed partial class StoreMan : CliMultiCommand
         protected IImplementationStore GetEffectiveStore()
         {
             if (AdditionalArgs.Count == 0) return ImplementationStore;
-            else
-            {
-                foreach (string path in AdditionalArgs)
-                {
-                    if (!Directory.Exists(path))
-                        throw new DirectoryNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
-                }
 
-                return new CompositeImplementationStore(
-                    AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, useWriteProtection: false)));
+            foreach (string path in AdditionalArgs)
+            {
+                if (!Directory.Exists(path))
+                    throw new DirectoryNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
             }
+
+            return new CompositeImplementationStore(
+                AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, useWriteProtection: false)));
         }
     }
 }

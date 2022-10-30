@@ -24,8 +24,9 @@ public class FeedEditing : CommandManager<Feed>
     /// <summary>
     /// Indicates whether there are changes to the feed that have not yet been saved to a file.
     /// </summary>
-    public bool UnsavedChanges => UndoEnabled
-                               || (string.IsNullOrEmpty(Path) && Target?.Elements.Count != 0); // Generated programmatically
+    public bool UnsavedChanges => UndoEnabled || GeneratedProgrammatically;
+
+    private bool GeneratedProgrammatically => string.IsNullOrEmpty(Path) && Target?.Elements.Count != 0;
 
     /// <summary>
     /// Starts with an existing feed.

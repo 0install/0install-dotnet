@@ -325,7 +325,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         License ??= parent.License;
         if (Stability == Stability.Unset) Stability = parent.Stability;
         if (RolloutPercentage == 0) RolloutPercentage = parent.RolloutPercentage;
-        if (Languages.Count == 0) Languages = new LanguageSet(parent.Languages);
+        if (Languages.Count == 0) Languages = new(parent.Languages);
         if (Architecture == default) Architecture = parent.Architecture;
 
         // Accumulate list entries

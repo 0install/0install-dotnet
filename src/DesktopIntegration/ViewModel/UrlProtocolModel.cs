@@ -13,7 +13,10 @@ public class UrlProtocolModel : IconCapabilityModel
     /// <summary>
     /// All <see cref="UrlProtocol.KnownPrefixes"/> concatenated with ", ". If no <see cref="UrlProtocol.KnownPrefixes"/> is available <see cref="Capability.ID"/> will be returned.
     /// </summary>
-    public string KnownPrefixes => _urlProtocol.KnownPrefixes.Count == 0 ? Capability.ID : string.Join(", ", _urlProtocol.KnownPrefixes.Select(extension => extension.Value));
+    public string KnownPrefixes
+        => _urlProtocol.KnownPrefixes.Count == 0
+            ? Capability.ID
+            : string.Join(", ", _urlProtocol.KnownPrefixes.Select(extension => extension.Value));
 
     /// <inheritdoc/>
     public UrlProtocolModel(UrlProtocol capability, bool used)

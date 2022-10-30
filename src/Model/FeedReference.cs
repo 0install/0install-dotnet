@@ -40,7 +40,7 @@ public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference
     /// <summary>
     /// Returns the feed reference in the form "Source (Architecture, Languages)". Not safe for parsing!
     /// </summary>
-    public override string ToString() => (Languages.Count == 0)
+    public override string ToString() => Languages.Count == 0
         ? $"{Source} ({Architecture})"
         : $"{Source} ({Architecture}, {Languages})";
     #endregion

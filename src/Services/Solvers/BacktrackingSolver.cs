@@ -22,8 +22,9 @@ public partial class BacktrackingSolver : ISolver
     /// <inheritdoc/>
     public Selections Solve(Requirements requirements)
     {
+        requirements = requirements.ForCurrentSystem();
         Log.Info($"Running Backtracking Solver for {requirements}");
-        return new SolverRun(requirements.ForCurrentSystem(), _candidateProvider).Solve();
+        return new SolverRun(requirements, _candidateProvider).Solve();
     }
 
     private class SolverRun : SolverRunBase
