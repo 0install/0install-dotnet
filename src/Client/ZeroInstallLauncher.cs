@@ -46,13 +46,13 @@ internal class ZeroInstallLauncher : ProcessLauncher
         return base.GetStartInfo(arguments);
     }
 
-    protected override void HandleExitCode(ProcessStartInfo startInfo, int exitCode, string? message = null)
+    protected override void HandleExitCode(Process process, string? message = null)
     {
-        if (exitCode == 0) return;
+        if (process.ExitCode == 0) return;
 
         try
         {
-            base.HandleExitCode(startInfo, exitCode, message);
+            base.HandleExitCode(process, message);
         }
         catch (ExitCodeException ex)
         {

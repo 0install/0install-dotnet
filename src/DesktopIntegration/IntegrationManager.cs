@@ -317,7 +317,7 @@ public class IntegrationManager : IntegrationManagerBase
     {
         Log.Debug("Saving AppList to: " + AppListPath);
         // Retry to handle race conditions with read-only access to the file
-        ExceptionUtils.Retry<IOException>(delegate { AppList.SaveXml(AppListPath); });
+        ExceptionUtils.Retry<IOException>(() => AppList.SaveXml(AppListPath));
 
         if (WindowsUtils.IsWindows)
         {

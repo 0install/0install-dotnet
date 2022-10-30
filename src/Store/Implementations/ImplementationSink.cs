@@ -97,7 +97,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         string source = tempDir;
         string target = System.IO.Path.Combine(Path, expectedDigest);
         if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
-        ExceptionUtils.Retry<IOException>(_ =>
+        ExceptionUtils.Retry<IOException>(() =>
         {
             try
             {

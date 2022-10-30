@@ -70,7 +70,7 @@ public class SyncIntegrationManager : IntegrationManager
         var uri = new Uri(_syncServer, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
         var credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword);
 
-        ExceptionUtils.Retry<SyncRaceException>(delegate
+        ExceptionUtils.Retry<SyncRaceException>(() =>
         {
             Handler.CancellationToken.ThrowIfCancellationRequested();
 
