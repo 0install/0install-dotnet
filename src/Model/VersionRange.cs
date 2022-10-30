@@ -98,12 +98,8 @@ public sealed partial class VersionRange
     /// <summary>
     /// Intersects another version range set with this one and returns a new set as the result.
     /// </summary>
-    public VersionRange Intersect(VersionRange? other)
+    public VersionRange Intersect(VersionRange other)
     {
-        #region Sanity checks
-        if (other == null) throw new ArgumentNullException(nameof(other));
-        #endregion
-
         if (Parts.Count == 0) return other;
 
         var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToArray();
