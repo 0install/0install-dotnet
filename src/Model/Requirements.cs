@@ -145,18 +145,17 @@ public partial class Requirements : ICloneable<Requirements>
     /// <summary>
     /// Substitutes blank values with default values appropriate for the current system.
     /// </summary>
-    public Requirements ForCurrentSystem()
-    {
-        var cloned = Clone();
-
-        cloned.Command ??= Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun;
-        cloned.Architecture = new(
+    public Requirements ForCurrentSystem() => new(
+        InterfaceUri,
+        Command ?? (Architecture.Cpu == Cpu.Source ? Model.Command.NameCompile : Model.Command.NameRun),
+        architecture: new(
             Architecture.OS == OS.All ? Architecture.CurrentSystem.OS : Architecture.OS,
-            Architecture.Cpu == Cpu.All ? Architecture.CurrentSystem.Cpu : Architecture.Cpu);
-        if (Languages.Count == 0) cloned.Languages.Add(CultureInfo.CurrentUICulture);
-
-        return cloned;
-    }
+            Architecture.Cpu == Cpu.All ? Architecture.CurrentSystem.Cpu : Architecture.Cpu))
+    {
+        Languages = {Languages.DefaultIfEmpty(CultureInfo.CurrentUICulture)},
+        ExtraRestrictions = {ExtraRestrictions},
+        Distributions = {Distributions}
+    };
 
     #region Clone
     /// <summary>
