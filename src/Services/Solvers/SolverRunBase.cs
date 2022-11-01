@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Dispatch;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Native;
 
@@ -231,15 +230,5 @@ public abstract class SolverRunBase
         };
         requirements.AddRestrictions(_requirements);
         return requirements;
-    }
-
-    protected static (List<SolverDemand> essential, List<SolverDemand> recommended) Bucketize(IEnumerable<SolverDemand> demands)
-    {
-        List<SolverDemand> essential = new(), recommended = new();
-        demands.Bucketize(x => x.Importance)
-               .Add(Importance.Essential, essential)
-               .Add(Importance.Recommended, recommended)
-               .Run();
-        return (essential, recommended);
     }
 }

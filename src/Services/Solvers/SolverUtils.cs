@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using NanoByte.Common.Dispatch;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Native;
 
@@ -155,5 +156,18 @@ public static class SolverUtils
             foreach (var command in implementation.Commands)
                 command.Restrictions.Clear();
         }
+    }
+
+    /// <summary>
+    /// Separates solver demands into buckets by importance.
+    /// </summary>
+    public static (List<SolverDemand> essential, List<SolverDemand> recommended) BucketizeImportance(this IEnumerable<SolverDemand> demands)
+    {
+        List<SolverDemand> essential = new(), recommended = new();
+        demands.Bucketize(x => x.Importance)
+               .Add(Importance.Essential, essential)
+               .Add(Importance.Recommended, recommended)
+               .Run();
+        return (essential, recommended);
     }
 }

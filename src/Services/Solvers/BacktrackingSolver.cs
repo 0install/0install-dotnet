@@ -50,7 +50,7 @@ public partial class BacktrackingSolver : ISolver
 
         protected override bool TryFulfill(IEnumerable<SolverDemand> demands)
         {
-            var (essential, recommended) = Bucketize(demands);
+            var (essential, recommended) = demands.BucketizeImportance();
 
             // Quickly reject impossible sets of demands
             if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
