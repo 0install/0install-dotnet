@@ -35,12 +35,27 @@ public partial class BacktrackingSolver : ISolver
             : base(requirements, candidateProvider)
         {}
 
-        protected override bool TryFulfill(SolverDemand demand, IEnumerable<SelectionCandidate> candidates)
+        protected override bool TryFulfill(SolverDemand demand)
         {
+            var candidates = GetCompatibleCandidates(demand);
+
+            if (Selections.GetImplementation(demand.Requirements.InterfaceUri) is {} existingSelection)
+            {
+                // Ensure existing selection is one of the compatible candidates
+                if (candidates.All(x => x.Implementation.ID != existingSelection.ID)) return false;
+
+                if (!existingSelection.ContainsCommand(demand.Requirements.Command ?? Command.NameRun))
+                { // Add additional command to selection if needed
+                    var command = existingSelection.AddCommand(demand.Requirements, @from: CandidateProvider.LookupOriginalImplementation(existingSelection));
+                    return command == null || TryFulfillAll(DemandsFor(command, demand.Requirements.InterfaceUri));
+                }
+                return true;
+            }
+
             foreach (var selection in candidates.ToSelections(demand))
             {
                 Selections.Implementations.Add(selection);
-                if (TryFulfill(DemandsFor(selection, demand.Requirements))) return true;
+                if (TryFulfillAll(DemandsFor(selection, demand.Requirements))) return true;
                 else Selections.Implementations.RemoveLast();
             }
 
@@ -48,7 +63,7 @@ public partial class BacktrackingSolver : ISolver
             return false;
         }
 
-        protected override bool TryFulfill(IEnumerable<SolverDemand> demands)
+        private bool TryFulfillAll(IEnumerable<SolverDemand> demands)
         {
             var (essential, recommended) = demands.BucketizeImportance();
 

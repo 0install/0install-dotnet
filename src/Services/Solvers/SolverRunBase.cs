@@ -68,36 +68,16 @@ public abstract class SolverRunBase
     }
 
     /// <summary>
-    /// Tries to fulfill the specified <paramref name="demand"/>. Adds the result to <see cref="Selections"/> if successful.
+    /// Tries to fulfill the specified solver demand. Adds the result to <see cref="Selections"/> if successful.
     /// </summary>
+    /// <param name="demand">The demand to fulfill.</param>
     /// <returns><c>true</c> if the demand could be met, <c>false</c> if not.</returns>
-    protected bool TryFulfill(SolverDemand demand)
-    {
-        var candidates = GetCompatibleCandidates(demand);
-
-        var existingSelection = Selections.GetImplementation(demand.Requirements.InterfaceUri);
-        if (existingSelection == null)
-        { // Try to make new selection
-            return TryFulfill(demand, candidates);
-        }
-        else
-        { // Try to use existing selection
-            // Ensure existing selection is one of the compatible candidates
-            if (candidates.All(x => x.Implementation.ID != existingSelection.ID)) return false;
-
-            if (!existingSelection.ContainsCommand(demand.Requirements.Command ?? Command.NameRun))
-            { // Add additional command to selection if needed
-                var command = existingSelection.AddCommand(demand.Requirements, from: CandidateProvider.LookupOriginalImplementation(existingSelection));
-                return (command == null) || TryFulfill(DemandsFor(command, demand.Requirements.InterfaceUri));
-            }
-            return true;
-        }
-    }
+    protected abstract bool TryFulfill(SolverDemand demand);
 
     /// <summary>
     /// Gets all <see cref="SelectionCandidate"/>s for the <paramref name="demand"/> that are compatible with the current <see cref="Selections"/> state.
     /// </summary>
-    private IEnumerable<SelectionCandidate> GetCompatibleCandidates(SolverDemand demand) => demand.Candidates.Where(candidate =>
+    protected IEnumerable<SelectionCandidate> GetCompatibleCandidates(SolverDemand demand) => demand.Candidates.Where(candidate =>
     {
         if (!candidate.IsSuitable) return false;
 
@@ -128,20 +108,6 @@ public abstract class SolverRunBase
     });
 
     /// <summary>
-    /// Tries to fulfill the specified solver demand. Adds the result to <see cref="Selections"/> if successful.
-    /// </summary>
-    /// <param name="demand">The demand to fulfill.</param>
-    /// <param name="candidates">The candidates to consider for fulfilling the demand.</param>
-    /// <returns><c>true</c> if the demand could be met, <c>false</c> if not.</returns>
-    protected abstract bool TryFulfill(SolverDemand demand, IEnumerable<SelectionCandidate> candidates);
-
-    /// <summary>
-    /// Tries to fulfill the specified <paramref name="demands"/>. Adds the results to <see cref="Selections"/> if successful.
-    /// </summary>
-    /// <returns><c>true</c> if all <see cref="Importance.Essential"/> demands could be met, <c>false</c> if not.</returns>
-    protected abstract bool TryFulfill(IEnumerable<SolverDemand> demands);
-
-    /// <summary>
     /// Generates <see cref="SolverDemand"/>s for the dependencies specified by an <see cref="ImplementationSelection"/>.
     /// </summary>
     /// <param name="selection">The selection to scan for dependencies.</param>
@@ -166,7 +132,7 @@ public abstract class SolverRunBase
     /// </summary>
     /// <param name="command">The command to scan for dependencies.</param>
     /// <param name="interfaceUri">The interface URI of the feed providing the command.</param>
-    private IEnumerable<SolverDemand> DemandsFor(Command command, FeedUri interfaceUri)
+    protected IEnumerable<SolverDemand> DemandsFor(Command command, FeedUri interfaceUri)
     {
         if (command.Runner != null)
         {
