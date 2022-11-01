@@ -52,8 +52,8 @@ public partial class BacktrackingSolver : ISolver
         {
             var (essential, recommended) = demands.BucketizeImportance();
 
-            // Quickly reject impossible sets of demands
-            if (essential.Any(demand => !demand.Candidates.Any(candidate => candidate.IsSuitable))) return false;
+            // Quickly reject if there are impossible essential demands
+            if (essential.Any(demand => !GetCompatibleCandidates(demand).Any())) return false;
 
             var selectionsSnapshot = Selections.Clone(); // Create snapshot
             foreach (var essentialPermutation in essential.Permutate())
@@ -63,7 +63,7 @@ public partial class BacktrackingSolver : ISolver
                     recommended.ForEach(demand => TryFulfill(demand));
                     return true;
                 }
-                else Selections = selectionsSnapshot.Clone(); // Revert to snapshot
+                else Selections = selectionsSnapshot.Clone(); // Restore snapshot when backtracking
             }
             return false;
         }
