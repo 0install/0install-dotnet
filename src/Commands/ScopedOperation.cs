@@ -113,10 +113,15 @@ public abstract class ScopedOperation : ServiceProvider
         if (string.IsNullOrEmpty(shortName)) throw new ArgumentNullException(nameof(shortName));
         #endregion
 
-        var result = FeedManager.Refresh ? null : CatalogManager.GetCachedSafe().FindByShortName(shortName);
-        if (result == null && Config.EffectiveNetworkUse > NetworkLevel.Offline)
-            result = CatalogManager.GetOnlineSafe().FindByShortName(shortName);
-        return result;
+        Feed? GetCached() => CatalogManager.GetCachedSafe().FindByShortName(shortName);
+        Feed? GetOnline() => CatalogManager.GetOnlineSafe().FindByShortName(shortName);
+
+        if (FeedManager.Refresh)
+            return GetOnline();
+        else if (Config.EffectiveNetworkUse == NetworkLevel.Full)
+            return GetCached() ?? GetOnline();
+        else
+            return GetCached();
     }
 
     /// <summary>

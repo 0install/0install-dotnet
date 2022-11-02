@@ -95,7 +95,7 @@ public class RunTest : SelectionTestBase<Run>
     [Fact]
     public void GetCanonicalUriFileRelative()
     {
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        Sut.FeedManager.Refresh = true;
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
 
         Sut.GetCanonicalUri(Path.Combine("test", "file")).ToString().Should().Be(
@@ -140,7 +140,7 @@ public class RunTest : SelectionTestBase<Run>
     [Fact]
     public void GetCanonicalUriCatalogOnline()
     {
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        Sut.FeedManager.Refresh = true;
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
         Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
     }
