@@ -81,9 +81,11 @@ public class IconStoreTest : IDisposable
         shouldRefresh.Should().BeFalse();
     }
 
-    [Fact]
+    [SkippableFact]
     public void SuggestRefreshWhenStale()
     {
+        Skip.IfNot(NetUtils.IsInternetConnected);
+
         Inject(_dummyPngIcon, _pngBytes, _oldTimestamp);
         _store.Get(_dummyPngIcon, out bool shouldRefresh);
         shouldRefresh.Should().BeTrue();
@@ -98,9 +100,11 @@ public class IconStoreTest : IDisposable
         shouldRefresh.Should().BeFalse();
     }
 
-    [Fact]
+    [SkippableFact]
     public void RefreshWhenStale()
     {
+        Skip.IfNot(NetUtils.IsInternetConnected);
+
         using var server = new MicroServer("icon.png", _pngBytes.ToStream());
         var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
         Inject(icon, _dummyBytes, _oldTimestamp);
