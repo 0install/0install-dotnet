@@ -27,7 +27,7 @@ public static class SolverUtils
     /// <param name="candidate">The selection candidate.</param>
     /// <param name="requirements">The requirements the candidate was chosen for.</param>
     /// <param name="allCandidates">All candidates that were considered for selection (including <paramref name="candidate"/>). These are used to present the user with possible alternatives.</param>
-    public static ImplementationSelection ToSelection(this SelectionCandidate candidate, Requirements requirements, [InstantHandle] IEnumerable<SelectionCandidate> allCandidates)
+    public static ImplementationSelection ToSelection(this SelectionCandidate candidate, Requirements requirements, IReadOnlyList<SelectionCandidate> allCandidates)
     {
         #region Sanity checks
         if (candidate == null) throw new ArgumentNullException(nameof(candidate));
