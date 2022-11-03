@@ -26,33 +26,52 @@ public class PrefixBuilder : MarshalNoTimeout, IBuilder
 
     /// <inheritdoc/>
     public void AddDirectory(string path)
-        => _underlyingBuilder.AddDirectory(Path.Combine(_prefix, path));
+        => _underlyingBuilder.AddDirectory(GetPath(path));
 
     /// <inheritdoc/>
     public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
-        => _underlyingBuilder.AddFile(Path.Combine(_prefix, path), stream, modifiedTime, executable);
+        => _underlyingBuilder.AddFile(GetPath(path), stream, modifiedTime, executable);
 
     /// <inheritdoc/>
     public void AddHardlink(string path, string target, bool executable = false)
-        => _underlyingBuilder.AddHardlink(Path.Combine(_prefix, path), Path.Combine(_prefix, target), executable);
+        => _underlyingBuilder.AddHardlink(GetPath(path), Path.Combine(_prefix, target), executable);
 
     /// <inheritdoc/>
     public void AddSymlink(string path, string target)
-        => _underlyingBuilder.AddSymlink(Path.Combine(_prefix, path), target);
+        => _underlyingBuilder.AddSymlink(GetPath(path), target);
 
     /// <inheritdoc/>
     public void Rename(string path, string target)
-        => _underlyingBuilder.Rename(Path.Combine(_prefix, path), Path.Combine(_prefix, target));
+        => _underlyingBuilder.Rename(GetPath(path), Path.Combine(_prefix, target));
 
     /// <inheritdoc/>
     public void Remove(string path)
-        => _underlyingBuilder.Remove(Path.Combine(_prefix, path));
+        => _underlyingBuilder.Remove(GetPath(path));
 
     /// <inheritdoc />
     public void MarkAsExecutable(string path)
-        => _underlyingBuilder.MarkAsExecutable(Path.Combine(_prefix, path));
+        => _underlyingBuilder.MarkAsExecutable(GetPath(path));
 
     /// <inheritdoc />
     public void TurnIntoSymlink(string path)
-        => _underlyingBuilder.TurnIntoSymlink(Path.Combine(_prefix, path));
+        => _underlyingBuilder.TurnIntoSymlink(GetPath(path));
+
+    /// <summary>
+    /// Prepends the <see cref="_prefix"/> to a <paramref name="path"/>.
+    /// </summary>
+    /// <exception cref="IOException">The <see cref="_prefix"/> or the <paramref name="path"/> contain invalid characters.</exception>
+    private string GetPath(string path)
+    {
+        try
+        {
+            return Path.Combine(_prefix, path);
+        }
+        #region Error handling
+        catch (ArgumentException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new IOException(ex.Message, ex);
+        }
+        #endregion
+    }
 }

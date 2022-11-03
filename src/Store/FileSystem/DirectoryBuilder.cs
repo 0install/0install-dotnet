@@ -164,6 +164,7 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
         #region Error handling
         catch (ArgumentException ex)
         {
+            // Wrap exception since only certain exception types are allowed
             throw new IOException(ex.Message, ex);
         }
         #endregion
