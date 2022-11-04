@@ -25,8 +25,7 @@ public class RemoveApp : AppCommand
     /// <inheritdoc/>
     protected override ExitCode ExecuteHelper()
     {
-        var appEntry = IntegrationManager.AppList.GetEntry(InterfaceUri);
-        if (appEntry == null)
+        if (IntegrationManager.AppList.GetEntry(InterfaceUri) is not {} appEntry)
         {
             Log.Warn(string.Format(Resources.AliasNotFound, InterfaceUri));
             return ExitCode.NoChanges;

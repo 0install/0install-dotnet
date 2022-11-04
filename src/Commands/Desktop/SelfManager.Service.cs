@@ -33,26 +33,27 @@ partial class SelfManager
         var service = GetServiceController();
         if (service?.Status != ServiceControllerStatus.Running) return;
 
-        // Determine whether the service is installed in the target directory we are updating
-        string? imagePath = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"');
-        if (imagePath == null || !imagePath.StartsWith(TargetDir)) return;
-
-        Handler.RunTask(new SimpleTask(Resources.StopService, () =>
+        // Stop existing service if it is installed in the target directory we are updating
+        if (RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"') is {} imagePath
+         && imagePath.StartsWith(TargetDir))
         {
-            try
+            Handler.RunTask(new SimpleTask(Resources.StopService, () =>
             {
-                service.Stop();
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException("Failed to stop service.", ex);
-            }
-            #endregion
+                try
+                {
+                    service.Stop();
+                }
+                #region Error handling
+                catch (Exception ex) when (ex is InvalidOperationException or Win32Exception)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException("Failed to stop service.", ex);
+                }
+                #endregion
 
-            Thread.Sleep(2000);
-        }));
+                Thread.Sleep(2000);
+            }));
+        }
 #endif
     }
 

@@ -65,30 +65,28 @@ public abstract class ScopedOperation : ServiceProvider
         const string aliasPrefix = "alias:";
         if (uri.StartsWith(aliasPrefix, out string? aliasName))
         {
-            var result = appList.ResolveAlias(aliasName);
-
-            if (result == null)
-                throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
-            return result;
+            return appList.ResolveAlias(aliasName)
+                ?? throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
         }
         else
         {
-            aliasName = uri;
-            var result = appList.ResolveAlias(aliasName);
-
-            if (result != null)
-                Log.Info(string.Format(Resources.ResolvedUsingAlias, aliasName, result));
-            return result;
+            if (appList.ResolveAlias(uri) is {} result)
+            {
+                Log.Info(string.Format(Resources.ResolvedUsingAlias, uri, result));
+                return result;
+            }
+            return null;
         }
     }
 
     private FeedUri? TryResolveCatalog(string shortName)
     {
-        var feed = FindByShortName(shortName);
-        if (feed == null) return null;
-
-        Log.Info(string.Format(Resources.ResolvedUsingCatalog, shortName, feed.Uri));
-        return feed.Uri;
+        if (FindByShortName(shortName) is {} feed)
+        {
+            Log.Info(string.Format(Resources.ResolvedUsingCatalog, shortName, feed.Uri));
+            return feed.Uri;
+        }
+        else return null;
     }
 
     /// <summary>
@@ -155,21 +153,18 @@ public abstract class ScopedOperation : ServiceProvider
         if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
         #endregion
 
-        var startInfo = ProgramUtils.GuiStartInfo(new[] {command, "--background"}.Concat(args));
-        if (startInfo == null)
+        if (ProgramUtils.GuiStartInfo(new[] { command, "--background" }.Concat(args)) is {} startInfo)
         {
-            Log.Info("Skipping background command because there is no GUI subsystem available");
-            return;
+            try
+            {
+                startInfo.WorkingDirectory = Locations.InstallBase; // Avoid locking the user's working directory
+                startInfo.Start();
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is OperationCanceledException or IOException)
+            {}
+            #endregion
         }
-
-        try
-        {
-            startInfo.WorkingDirectory = Locations.InstallBase; // Avoid locking the user's working directory
-            startInfo.Start();
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is OperationCanceledException or IOException)
-        {}
-        #endregion
+        else Log.Info("Skipping background command because there is no GUI subsystem available");
     }
 }

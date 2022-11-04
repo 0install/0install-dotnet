@@ -83,14 +83,10 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
 
         var builder = new ManifestBuilder(format);
         build(new DirectoryBuilder(tempDir, builder));
-        var manifest = ImplementationStoreUtils.Verify(builder.Manifest, expectedDigest);
-
-        if (manifest == null)
-        {
-            throw new DigestMismatchException(
-                expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
-                actualManifest: builder.Manifest);
-        }
+        var manifest = ImplementationStoreUtils.Verify(builder.Manifest, expectedDigest)
+                    ?? throw new DigestMismatchException(
+                           expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
+                           actualManifest: builder.Manifest);
         manifest.Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
 
         // Move directory to final destination

@@ -126,9 +126,7 @@ partial class StoreMan
             string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : Archive.GuessMimeType(outputArchive);
 
             var digest = new ManifestDigest(AdditionalArgs[0]);
-            string? sourceDirectory = ImplementationStore.GetPath(digest);
-            if (sourceDirectory == null)
-                throw new ImplementationNotFoundException(digest);
+            string sourceDirectory = ImplementationStore.GetPath(digest) ?? throw new ImplementationNotFoundException(digest);
 
             using var builder = ArchiveBuilder.Create(outputArchive, mimeType);
             Handler.RunTask(new ReadDirectory(sourceDirectory, builder));
@@ -153,8 +151,7 @@ partial class StoreMan
         {
             var digest = new ManifestDigest(AdditionalArgs[0]);
 
-            string? path = ImplementationStore.GetPath(digest);
-            if (path == null) throw new ImplementationNotFoundException(digest);
+            string path = ImplementationStore.GetPath(digest) ?? throw new ImplementationNotFoundException(digest);
             Handler.Output(string.Format(Resources.LocalPathOf, AdditionalArgs[0]), path);
             return ExitCode.OK;
         }

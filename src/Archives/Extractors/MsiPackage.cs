@@ -119,8 +119,8 @@ internal sealed class MsiPackage : IDisposable
             using var streamsView = _database.OpenView("SELECT Data FROM _Streams WHERE Name = '{0}'", cabinet);
             streamsView.Execute();
 
-            using var record = streamsView.Fetch();
-            if (record == null) throw new IOException(Resources.ArchiveInvalid + Environment.NewLine + $"Cabinet stream '{cabinet}' missing");
+            using var record = streamsView.Fetch()
+                             ?? throw new IOException(Resources.ArchiveInvalid + Environment.NewLine + $"Cabinet stream '{cabinet}' missing");
 
             using var stream = record.GetStream("Data");
             callback(stream);

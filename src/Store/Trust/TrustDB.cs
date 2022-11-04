@@ -66,12 +66,8 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
 
         Log.Debug($"Trusting {fingerprint} for {domain}");
 
-        var targetKey = Keys.FirstOrDefault(key => key.Fingerprint == fingerprint);
-        if (targetKey == null)
-        {
-            targetKey = new Key {Fingerprint = fingerprint};
-            Keys.Add(targetKey);
-        }
+        if (Keys.FirstOrDefault(key => key.Fingerprint == fingerprint) is not {} targetKey)
+            Keys.Add(targetKey = new Key {Fingerprint = fingerprint});
 
         targetKey.Domains.Add(domain);
 

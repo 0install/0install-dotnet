@@ -26,11 +26,7 @@ public partial class BouncyCastle : IOpenPgp
 
     private OpenPgpSignature Verify(ArraySegment<byte> data, PgpSignature signature)
     {
-        var key = PublicBundle.GetPublicKey(signature.KeyId);
-
-        if (key == null)
-            return new MissingKeySignature(signature.KeyId);
-        else
+        if (PublicBundle.GetPublicKey(signature.KeyId) is {} key)
         {
             signature.InitVerify(key);
             signature.Update(data.Array, data.Offset, data.Count);
@@ -44,6 +40,7 @@ public partial class BouncyCastle : IOpenPgp
                 return badSig;
             }
         }
+        else return new MissingKeySignature(signature.KeyId);
     }
 
     /// <inheritdoc/>
@@ -53,8 +50,8 @@ public partial class BouncyCastle : IOpenPgp
         if (secretKey == null) throw new ArgumentNullException(nameof(secretKey));
         #endregion
 
-        var pgpSecretKey = SecretBundle.GetSecretKey(secretKey.KeyID);
-        if (pgpSecretKey == null) throw new KeyNotFoundException("Specified OpenPGP key not found on system");
+        var pgpSecretKey = SecretBundle.GetSecretKey(secretKey.KeyID)
+                        ?? throw new KeyNotFoundException("Specified OpenPGP key not found on system");
         var pgpPrivateKey = GetPrivateKey(pgpSecretKey, passphrase);
 
         var signatureGenerator = new PgpSignatureGenerator(pgpSecretKey.PublicKey.Algorithm, HashAlgorithmTag.Sha1);
@@ -96,8 +93,9 @@ public partial class BouncyCastle : IOpenPgp
         if (keyIDContainer == null) throw new ArgumentNullException(nameof(keyIDContainer));
         #endregion
 
-        var publicKey = SecretBundle.GetSecretKey(keyIDContainer.KeyID)?.PublicKey ?? PublicBundle.GetPublicKey(keyIDContainer.KeyID);
-        if (publicKey == null) throw new KeyNotFoundException("Specified OpenPGP key not found on system");
+        var publicKey = SecretBundle.GetSecretKey(keyIDContainer.KeyID)?.PublicKey
+                     ?? PublicBundle.GetPublicKey(keyIDContainer.KeyID)
+                     ?? throw new KeyNotFoundException("Specified OpenPGP key not found on system");
 
         var output = new MemoryStream();
         using (var armored = new ArmoredOutputStream(output))

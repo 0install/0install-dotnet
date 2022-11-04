@@ -29,14 +29,14 @@ public partial class SevenZipExtractor : ArchiveExtractor
 
                     var entry = reader.Entry;
 
-                    string? relativePath = NormalizePath(entry.Key, subDir);
-                    if (relativePath == null) continue;
-
-                    if (entry.IsDirectory) builder.AddDirectory(relativePath);
-                    else
+                    if (NormalizePath(entry.Key, subDir) is {} relativePath)
                     {
-                        using var elementStream = reader.OpenEntryStream().WithLength(entry.Size);
-                        builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? new UnixTime());
+                        if (entry.IsDirectory) builder.AddDirectory(relativePath);
+                        else
+                        {
+                            using var elementStream = reader.OpenEntryStream().WithLength(entry.Size);
+                            builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? new UnixTime());
+                        }
                     }
                 }
             }

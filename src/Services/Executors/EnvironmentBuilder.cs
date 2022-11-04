@@ -205,13 +205,13 @@ public partial class EnvironmentBuilder : IEnvironmentBuilder
         ApplyDependencyBindings(command);
 
         List<ArgBase> commandLine;
-        var runner = command.Runner;
-        if (runner == null) commandLine = new();
-        else
+        if (command.Runner is {} runner)
         {
             commandLine = GetCommandLine(_selections[runner.InterfaceUri], runner.Command ?? Command.NameRun);
             commandLine.Add(runner.Arguments);
         }
+        else
+            commandLine = new();
 
         if (!string.IsNullOrEmpty(command.Path))
         {

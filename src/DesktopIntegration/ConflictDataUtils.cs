@@ -90,24 +90,17 @@ public static class ConflictDataUtils
 
         var conflictIDs = new Dictionary<string, ConflictData>();
         foreach (var appEntry in appEntries)
+        foreach (var accessPoint in appEntry.AccessPoints?.Entries ?? Enumerable.Empty<AccessPoint>())
+        foreach (string conflictID in accessPoint.GetConflictIDs(appEntry))
         {
-            if (appEntry.AccessPoints == null) continue;
-            foreach (var accessPoint in appEntry.AccessPoints.Entries)
+            var conflictData = new ConflictData(accessPoint, appEntry);
+            try
             {
-                foreach (string conflictID in accessPoint.GetConflictIDs(appEntry))
-                {
-                    var conflictData = new ConflictData(accessPoint, appEntry);
-                    try
-                    {
-                        conflictIDs.Add(conflictID, conflictData);
-                    }
-                    #region Error handling
-                    catch (ArgumentException)
-                    {
-                        throw ConflictException.ExistingConflict(conflictIDs[conflictID], conflictData);
-                    }
-                    #endregion
-                }
+                conflictIDs.Add(conflictID, conflictData);
+            }
+            catch (ArgumentException)
+            {
+                throw ConflictException.ExistingConflict(conflictIDs[conflictID], conflictData);
             }
         }
         return conflictIDs;

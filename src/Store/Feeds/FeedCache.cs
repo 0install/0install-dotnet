@@ -62,33 +62,27 @@ public sealed class FeedCache : IFeedCache
         if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
         #endregion
 
-        string? path = GetPath(feedUri);
-        if (path == null) return null;
+        if (GetPath(feedUri) is {} path)
+        {
+            Log.Debug($"Loading feed {feedUri.ToStringRfc()} from disk cache: {path}");
+            try
+            {
+                return XmlStorage.LoadXml<Feed>(path);
+            }
+            catch (InvalidDataException ex)
+            {
+                Log.Warn($"Cached copy of feed {feedUri.ToStringRfc()} is corrupt: {path}", ex);
+            }
+        }
 
-        Log.Debug($"Loading feed {feedUri.ToStringRfc()} from disk cache: {path}");
-        try
-        {
-            return XmlStorage.LoadXml<Feed>(path);
-        }
-        catch (InvalidDataException ex)
-        {
-            Log.Warn($"Cached copy of feed {feedUri.ToStringRfc()} is corrupt: {path}", ex);
-            return null;
-        }
+        return null;
     }
 
     /// <inheritdoc/>
     public IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri)
-    {
-        #region Sanity checks
-        if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
-        #endregion
-
-        string? path = GetPath(feedUri);
-        return path == null
-            ? Enumerable.Empty<OpenPgpSignature>()
-            : FeedUtils.GetSignatures(_openPgp, ReadFromFile(path));
-    }
+        => GetPath(feedUri ?? throw new ArgumentNullException(nameof(feedUri))) is {} path
+            ? FeedUtils.GetSignatures(_openPgp, ReadFromFile(path))
+            : Enumerable.Empty<OpenPgpSignature>();
 
     /// <inheritdoc/>
     public string? GetPath(FeedUri feedUri)
@@ -155,10 +149,10 @@ public sealed class FeedCache : IFeedCache
         if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
         #endregion
 
-        string? path = GetPath(feedUri);
-        if (path == null) return;
-
-        Log.Debug($"Removing feed {feedUri.ToStringRfc()} from disk cache: {path}");
-        File.Delete(path);
+        if (GetPath(feedUri) is {} path)
+        {
+            Log.Debug($"Removing feed {feedUri.ToStringRfc()} from disk cache: {path}");
+            File.Delete(path);
+        }
     }
 }

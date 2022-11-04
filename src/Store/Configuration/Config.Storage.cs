@@ -270,20 +270,20 @@ partial class Config
 
         foreach ((string key, var property) in _metaData)
         {
-            string? value = registryKey.GetValue(key)?.ToString();
-            if (value == null) continue;
-
-            try
+            if (registryKey.GetValue(key)?.ToString() is {} value)
             {
-                property.Value = value;
+                try
+                {
+                    property.Value = value;
+                }
+                #region Error handling
+                catch (FormatException ex)
+                {
+                    // Wrap exception to add context information
+                    throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, key, registryKey.Name), ex);
+                }
+                #endregion
             }
-            #region Error handling
-            catch (FormatException ex)
-            {
-                // Wrap exception to add context information
-                throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigValue, key, registryKey.Name), ex);
-            }
-            #endregion
         }
     }
 

@@ -25,8 +25,7 @@ public partial class RubyGemExtractor : TarGzExtractor
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
 
-                var entry = tarStream.GetNextEntry();
-                if (entry == null) throw new IOException(Resources.ArchiveInvalid);
+                var entry = tarStream.GetNextEntry() ?? throw new IOException(Resources.ArchiveInvalid);
                 if (entry.Name == "data.tar.gz")
                 {
                     base.Extract(builder, tarStream, subDir);

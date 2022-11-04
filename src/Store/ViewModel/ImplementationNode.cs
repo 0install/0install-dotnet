@@ -29,10 +29,11 @@ public abstract class ImplementationNode : StoreNode
         _digest = digest;
 
         // Determine the total size of an implementation via its manifest file
-        string? path = implementationStore.GetPath(digest);
-        if (path == null) return;
-        string manifestPath = System.IO.Path.Combine(path, Manifest.ManifestFile);
-        Size = Manifest.Load(manifestPath, ManifestFormat.FromPrefix(digest.AvailableDigests.First())).TotalSize;
+        if (implementationStore.GetPath(digest) is {} path)
+        {
+            string manifestPath = System.IO.Path.Combine(path, Manifest.ManifestFile);
+            Size = Manifest.Load(manifestPath, ManifestFormat.FromPrefix(digest.AvailableDigests.First())).TotalSize;
+        }
     }
 
     private readonly ManifestDigest _digest;

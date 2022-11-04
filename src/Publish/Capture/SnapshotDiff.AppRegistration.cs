@@ -87,8 +87,9 @@ partial class SnapshotDiff
             if (progIDKey == null) continue;
 
             var prefix = new KnownProtocolPrefix {Value = protocol};
-            var existing = capabilities.GetCapability<UrlProtocol>(progID);
-            if (existing == null)
+            if (capabilities.GetCapability<UrlProtocol>(progID) is {} existing)
+                existing.KnownPrefixes.Add(prefix);
+            else
             {
                 capabilities.Entries.Add(new UrlProtocol
                 {
@@ -98,7 +99,6 @@ partial class SnapshotDiff
                     Verbs = {GetVerbs(progIDKey, commandMapper)}
                 });
             }
-            else existing.KnownPrefixes.Add(prefix);
         }
     }
     #endregion

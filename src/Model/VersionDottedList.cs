@@ -88,7 +88,7 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
         if (Decimals == null || other.Decimals == null)
         {
             // ReSharper disable once PossibleUnintendedReferenceComparison
-            return (Decimals == other.Decimals);
+            return Decimals == other.Decimals;
         }
 
         return Decimals.SequencedEquals(other.Decimals);

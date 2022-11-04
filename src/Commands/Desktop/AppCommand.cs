@@ -88,10 +88,8 @@ public abstract class AppCommand : IntegrationCommand
         // Non-windows terminals may require rehashing to find new aliases
         if (!WindowsUtils.IsWindows) return true;
 
-        // If the default alias directory is already in the PATH terminals will find new aliases right away
+        string pathVar = Environment.GetEnvironmentVariable("PATH", machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User) ?? "";
         string stubDirPath = DesktopIntegration.Windows.AppAlias.GetStubDir(machineWide);
-        var variableTarget = machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User;
-        string? existingValue = Environment.GetEnvironmentVariable("Path", variableTarget);
-        return existingValue == null || !existingValue.Contains(stubDirPath);
+        return !pathVar.Split(Path.PathSeparator).Any(x => StringUtils.EqualsIgnoreCase(x, stubDirPath));
     }
 }

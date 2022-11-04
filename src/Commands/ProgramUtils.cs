@@ -325,12 +325,13 @@ public static class ProgramUtils
     /// <exception cref="NotAdminException">The target process requires elevation.</exception>
     private static ExitCode? TryRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool needsMachineWide)
     {
-        string? installLocation = ZeroInstallInstance.FindOther(needsMachineWide);
-        if (installLocation == null) return null;
-
-        Log.Info("Redirecting to Zero Install instance at: " + installLocation);
-        handler.DisableUI();
-        return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
+        if (ZeroInstallInstance.FindOther(needsMachineWide) is {} installLocation)
+        {
+            Log.Info("Redirecting to Zero Install instance at: " + installLocation);
+            handler.DisableUI();
+            return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
+        }
+        else return null;
     }
 
     /// <summary>

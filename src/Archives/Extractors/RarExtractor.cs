@@ -26,14 +26,14 @@ public partial class RarExtractor : ArchiveExtractor
 
                 var entry = reader.Entry;
 
-                string? relativePath = NormalizePath(entry.Key, subDir);
-                if (relativePath == null) continue;
-
-                if (entry.IsDirectory) builder.AddDirectory(relativePath);
-                else
+                if (NormalizePath(entry.Key, subDir) is {} relativePath)
                 {
-                    using var elementStream = reader.OpenEntryStream();
-                    builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? default);
+                    if (entry.IsDirectory) builder.AddDirectory(relativePath);
+                    else
+                    {
+                        using var elementStream = reader.OpenEntryStream();
+                        builder.AddFile(relativePath, elementStream, entry.LastModifiedTime ?? default);
+                    }
                 }
             }
         }

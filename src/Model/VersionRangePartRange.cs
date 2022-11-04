@@ -74,7 +74,7 @@ public sealed class VersionRangePartRange : VersionRangePart
 
     /// <inheritdoc/>
     public override string ToString()
-        => LowerInclusive + ".." + (UpperExclusive == null ? "" : ("!" + UpperExclusive));
+        => LowerInclusive + ".." + (UpperExclusive == null ? "" : "!" + UpperExclusive);
 
     #region Equatable
     public override bool Equals(object? obj)

@@ -40,8 +40,7 @@ internal sealed partial class CabExtractorContext : IUnpackStreamContext
     {
         _cancellationToken.ThrowIfCancellationRequested();
 
-        string relativePath = _normalizePath(path);
-        if (relativePath == null) return null;
+        if (_normalizePath(path) is not {} relativePath) return null;
 
         _pipe = new();
 

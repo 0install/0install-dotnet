@@ -56,8 +56,7 @@ partial class SnapshotDiff
         string? verbName = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
         if (string.IsNullOrEmpty(verbName)) return null;
 
-        using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
-        if (progIDKey == null) throw new IOException(progID + " key not found");
+        using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID) ?? throw new IOException(progID + " key not found");
         string? provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString();
         if (string.IsNullOrEmpty(provider)) return null;
 

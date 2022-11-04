@@ -105,13 +105,13 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
-        string? path = GetPath(manifestDigest);
-        if (path == null) return false;
-
-        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
-
-        Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
-        return RemoveInner(path, handler);
+        if (GetPath(manifestDigest) is {} path)
+        {
+            if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
+            Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
+            return RemoveInner(path, handler);
+        }
+        else return false;
     }
 
     /// <inheritdoc />

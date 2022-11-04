@@ -95,15 +95,12 @@ public class Exporter
 
         foreach (var digest in _selections.Implementations.Select(x => x.ManifestDigest).Where(x => x.Best != null).Distinct())
         {
-            string? sourcePath = implementationStore.GetPath(digest);
-            if (sourcePath == null)
+            if (implementationStore.GetPath(digest) is {} sourcePath)
             {
-                Log.Warn($"Implementation {digest} missing from cache");
-                continue;
+                using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tgz"), Archive.MimeTypeTarGzip);
+                handler.RunTask(new ReadDirectory(sourcePath, builder));
             }
-
-            using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tgz"), Archive.MimeTypeTarGzip);
-            handler.RunTask(new ReadDirectory(sourcePath, builder));
+            else Log.Warn($"Implementation {digest} missing from cache");
         }
     }
 

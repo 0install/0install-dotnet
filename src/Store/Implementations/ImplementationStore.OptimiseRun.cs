@@ -33,8 +33,7 @@ partial class ImplementationStore
         /// </summary>
         public void Work(ManifestDigest manifestDigest)
         {
-            string? digestString = manifestDigest.Best;
-            if (digestString == null) return;
+            if (manifestDigest.Best is not {} digestString) return;
             string implementationPath = System.IO.Path.Combine(StorePath, digestString);
             var manifest = Manifest.Load(System.IO.Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
 

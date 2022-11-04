@@ -32,8 +32,9 @@ public static class Suggest
         if (entryPoints.Count > 1)
         {
             string name = feed.Name.SafeFileName();
-            if (category == null) category = name;
-            else category += "/" + name;
+            category = category == null
+                ? name
+                : category + "/" + name;
         }
 
         return EnumerableExtensions.DistinctBy(

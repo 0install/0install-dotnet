@@ -64,14 +64,12 @@ public static class ImplementationExtensions
     {
         if (string.IsNullOrEmpty(implementation.LocalPath)) return;
 
-        var archive = implementation
-                     .RetrievalMethods
-                     .OfType<Archive>()
-                     .FirstOrDefault(x => string.IsNullOrEmpty(x.Destination)
-                                       && string.IsNullOrEmpty(x.Extract)
-                                          // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
-                                       && x.Href != null);
-        if (archive == null) return;
+        if (implementation
+           .RetrievalMethods
+           .OfType<Archive>()
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+           .FirstOrDefault(x => string.IsNullOrEmpty(x.Destination) && string.IsNullOrEmpty(x.Extract) && x.Href != null)
+            is not {} archive) return;
 
         string directoryPath = ModelUtils.GetAbsolutePath(implementation.LocalPath, executor.Path);
 
