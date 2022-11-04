@@ -63,6 +63,13 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     public IReadOnlyList<SelectionCandidate>? Candidates { get; }
 
     /// <summary>
+    /// The name of the distribution (e.g. Debian, RPM) where this implementation comes from, if any.
+    /// </summary>
+    [Browsable(false), XmlIgnore, IgnoreEquality]
+    public string? Distribution
+        => FromFeed is {IsFromDistribution: true} ? FromFeed.LocalPath : null;
+
+    /// <summary>
     /// Creates a new implementation selection.
     /// </summary>
     /// <param name="candidates">All candidates that were considered for selection (including the selected one). These are used to present the user with possible alternatives.</param>

@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Services.Native;
 
 namespace ZeroInstall.Services.Solvers;
 
@@ -73,39 +72,6 @@ public abstract class SolverRunBase
     /// <param name="demand">The demand to fulfill.</param>
     /// <returns><c>true</c> if the demand could be met, <c>false</c> if not.</returns>
     protected abstract bool TryFulfill(SolverDemand demand);
-
-    /// <summary>
-    /// Gets all <see cref="SelectionCandidate"/>s for the <paramref name="demand"/> that are compatible with the current <see cref="Selections"/> state.
-    /// </summary>
-    protected IEnumerable<SelectionCandidate> GetCompatibleCandidates(SolverDemand demand) => demand.Candidates.Where(candidate =>
-    {
-        if (!candidate.IsSuitable) return false;
-
-        var nativeImplementation = candidate.Implementation as ExternalImplementation;
-
-        // Ensure the candidate does not conflict with restrictions of existing selections
-        foreach (var restriction in Selections.RestrictionsFor(demand.Requirements.InterfaceUri))
-        {
-            // Prevent mixing of 32-bit and 64-bit binaries
-            if (candidate.Implementation.Architecture.Cpu.Is32Bit() && Selections.Is64Bit) return false;
-            if (candidate.Implementation.Architecture.Cpu.Is64Bit() && Selections.Is32Bit) return false;
-
-            if (restriction.Versions != null && !restriction.Versions.Match(candidate.Version)) return false;
-            if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
-        }
-
-        // Ensure the existing selections do not conflict with restrictions of the candidate
-        foreach (var restriction in candidate.Implementation.GetEffectiveRestrictions())
-        {
-            if (Selections.GetImplementation(restriction.InterfaceUri) is {} selection)
-            {
-                if (restriction.Versions != null && !restriction.Versions.Match(selection.Version)) return false;
-                if (nativeImplementation != null && !restriction.Distributions.ContainsOrEmpty(nativeImplementation.Distribution)) return false;
-            }
-        }
-
-        return true;
-    });
 
     /// <summary>
     /// Generates <see cref="SolverDemand"/>s for the dependencies specified by an <see cref="ImplementationSelection"/>.

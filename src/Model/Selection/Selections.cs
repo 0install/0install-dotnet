@@ -89,16 +89,6 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     }
 
     /// <summary>
-    /// Indicates whether the CPU architecture of one or more <see cref="Implementations"/> is 32-bit.
-    /// </summary>
-    public bool Is32Bit => Implementations.Any(x => x.Architecture.Cpu.Is32Bit());
-
-    /// <summary>
-    /// Indicates whether the CPU architecture of one or more <see cref="Implementations"/> is 64-bit.
-    /// </summary>
-    public bool Is64Bit => Implementations.Any(x => x.Architecture.Cpu.Is64Bit());
-
-    /// <summary>
     /// Creates an empty selections document.
     /// </summary>
     public Selections() {}

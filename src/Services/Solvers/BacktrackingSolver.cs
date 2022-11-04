@@ -37,7 +37,7 @@ public partial class BacktrackingSolver : ISolver
 
         protected override bool TryFulfill(SolverDemand demand)
         {
-            var candidates = GetCompatibleCandidates(demand);
+            var candidates = demand.CandidatesCompatibleWith(Selections);
 
             if (Selections.GetImplementation(demand.Requirements.InterfaceUri) is {} existingSelection)
             {
@@ -68,7 +68,7 @@ public partial class BacktrackingSolver : ISolver
             var (essential, recommended) = demands.BucketizeImportance();
 
             // Quickly reject if there are impossible essential demands
-            if (essential.Any(demand => !GetCompatibleCandidates(demand).Any())) return false;
+            if (essential.Any(demand => !demand.CandidatesCompatibleWith(Selections).Any())) return false;
 
             var selectionsSnapshot = Selections.Clone(); // Create snapshot
             foreach (var essentialPermutation in essential.Permutate())
