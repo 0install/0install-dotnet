@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Dispatch;
 using NanoByte.Common.Native;
 
 namespace ZeroInstall.Store.Implementations;
@@ -149,38 +150,8 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             return false;
         }
 
-        if (WindowsUtils.IsWindowsVista)
-        {
-            try
-            {
-                using var restartManager = new WindowsRestartManager();
-
-                // Look for binaries in top-level directory (handling other file types or subdirectories would be too slow)
-                restartManager.RegisterResources(Directory.GetFiles(path, "*.exe").Concat(Directory.GetFiles(path, "*.dll")));
-
-                string[] apps = restartManager.ListApps(handler.CancellationToken);
-
-                if (apps.Length != 0)
-                {
-                    string appsList = string.Join(Environment.NewLine, apps);
-                    if (handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
-                        restartManager.ShutdownApps(handler);
-                    else return false;
-                }
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
-            {
-                Log.Warn(string.Format(Resources.FailedToUnlockFiles, path), ex);
-                return false;
-            }
-            catch (Exception ex) when (ex is Win32Exception or DllNotFoundException)
-            {
-                Log.Error("Problem using Windows Restart Manager", ex);
-                return false;
-            }
-            #endregion
-        }
+        if (BlockedByOpenFileHandles(path, handler, allowAutoShutdown))
+            return false;
 
         DisableWriteProtection(path);
         string tempDir = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
@@ -188,6 +159,43 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         Directory.Delete(tempDir, recursive: true);
 
         return true;
+    }
+
+    private static bool BlockedByOpenFileHandles(string path, ITaskHandler handler, bool allowAutoShutdown)
+    {
+        if (!WindowsUtils.IsWindowsVista) return false;
+
+        // Prioritize EXEs over DLLs, limit total number of files to avoid slow scan
+        List<string> exe = new(), dll = new();
+        FileUtils.GetFilesRecursive(path).Bucketize(System.IO.Path.GetExtension).Add("exe", exe).Add("dll", dll);
+        var filesToScanFor = exe.Concat(dll).Take(16).ToArray();
+
+        try
+        {
+            using var restartManager = new WindowsRestartManager();
+            restartManager.RegisterResources(filesToScanFor);
+            if (restartManager.ListApps(handler.CancellationToken) is {Length: > 0} apps)
+            {
+                string appsList = string.Join(Environment.NewLine, apps);
+                if (handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
+                    restartManager.ShutdownApps(handler);
+                else return true;
+            }
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or TimeoutException)
+        {
+            Log.Warn(string.Format(Resources.FailedToUnlockFiles, path), ex);
+            return true;
+        }
+        catch (Exception ex) when (ex is Win32Exception or DllNotFoundException)
+        {
+            Log.Error("Problem using Windows Restart Manager", ex);
+            return true;
+        }
+        #endregion
+
+        return false;
     }
 
     /// <summary>
