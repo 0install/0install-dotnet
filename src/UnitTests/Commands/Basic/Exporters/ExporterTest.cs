@@ -33,7 +33,7 @@ public class ExporterTest : TestWithMocks
         using var subFeedFile1 = new TemporaryFile("0install-test-feed");
         using var feedFile2 = new TemporaryFile("0install-test-feed");
         using var subFeedFile2 = new TemporaryFile("0install-test-feed");
-        var feedCacheMock = CreateMock<IFeedCache>();
+        var feedCacheMock = GetMock<IFeedCache>();
 
         feedCacheMock.Setup(x => x.GetPath(Fake.Feed1Uri)).Returns(feedFile1);
         feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed1Uri)).Returns(subFeedFile1);
@@ -46,7 +46,7 @@ public class ExporterTest : TestWithMocks
         feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed2Uri)).Returns(new OpenPgpSignature[] {signature});
         feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed2Uri)).Returns(new OpenPgpSignature[] {signature});
 
-        var openPgpMock = CreateMock<IOpenPgp>();
+        var openPgpMock = GetMock<IOpenPgp>();
         openPgpMock.Setup(x => x.ExportKey(signature)).Returns("abc");
 
         _target.ExportFeeds(feedCacheMock.Object, openPgpMock.Object);
@@ -67,7 +67,7 @@ public class ExporterTest : TestWithMocks
         using (var implDir1 = new TemporaryDirectory("0install-test-impl"))
         using (var implDir2 = new TemporaryDirectory("0install-test-impl"))
         {
-            var storeMock = CreateMock<IImplementationStore>();
+            var storeMock = GetMock<IImplementationStore>();
             storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "123", null))).Returns(implDir1);
             storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "abc", null))).Returns(implDir2);
 

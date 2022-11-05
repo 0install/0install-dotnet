@@ -8,13 +8,18 @@ namespace ZeroInstall;
 /// </summary>
 public abstract class TestWithMocks : IDisposable
 {
-    protected readonly MockRepository MockRepository = new(MockBehavior.Strict);
+    private readonly Dictionary<Type, Mock> _mocks = new();
 
     /// <summary>
-    /// Creates a new <see cref="Mock"/> for a specific type. Multiple requests for the same type return new mock instances each time.
+    /// Retrieves a <see cref="Mock"/> for a specific type. Multiple requests for the same type return the same mock instance.
     /// </summary>
-    /// <remarks>All created <see cref="Mock"/>s are automatically <see cref="Mock.Verify(Moq.Mock[])"/>d after the test completes.</remarks>
-    protected Mock<T> CreateMock<T>() where T : class => MockRepository.Create<T>();
+    /// <remarks>All created <see cref="Mock"/>s are automatically verified after the test completes.</remarks>
+    protected Mock<T> GetMock<T>() where T : class
+        => (Mock<T>)_mocks.GetOrAdd(typeof(T), () => new Mock<T>(MockBehavior.Strict));
 
-    public virtual void Dispose() => MockRepository.VerifyAll();
+    public virtual void Dispose()
+    {
+        foreach (var mock in _mocks.Values)
+            mock.VerifyAll();
+    }
 }

@@ -21,7 +21,7 @@ public class FeedCacheExtensionsTest : TestWithMocks
         var feed3 = FeedTest.CreateTestFeed();
         feed3.Uri = FeedTest.Test3Uri;
 
-        var cacheMock = CreateMock<IFeedCache>();
+        var cacheMock = GetMock<IFeedCache>();
         cacheMock.Setup(x => x.ListAll()).Returns(new[] {FeedTest.Test1Uri, FeedTest.Test2Uri, FeedTest.Test3Uri});
         cacheMock.Setup(x => x.GetFeed(FeedTest.Test1Uri)).Returns(feed1);
         cacheMock.Setup(x => x.GetFeed(FeedTest.Test2Uri)).Throws(new InvalidDataException("Fake exception for testing"));
@@ -41,7 +41,7 @@ public class FeedCacheExtensionsTest : TestWithMocks
     [Fact]
     public void GetSignatures()
     {
-        var openPgpMock = CreateMock<IOpenPgp>();
+        var openPgpMock = GetMock<IOpenPgp>();
         var result = new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature};
         openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(result);
 

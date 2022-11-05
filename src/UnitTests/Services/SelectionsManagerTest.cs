@@ -21,9 +21,9 @@ public class SelectionsManagerTest : TestWithMocks
 
     public SelectionsManagerTest()
     {
-        _feedManagerMock = CreateMock<IFeedManager>();
-        _storeMock = CreateMock<IImplementationStore>();
-        _packageManagerMock = CreateMock<IPackageManager>();
+        _feedManagerMock = GetMock<IFeedManager>();
+        _storeMock = GetMock<IImplementationStore>();
+        _packageManagerMock = GetMock<IPackageManager>();
         _selectionsManager = new SelectionsManager(_feedManagerMock.Object, _storeMock.Object, _packageManagerMock.Object);
     }
 

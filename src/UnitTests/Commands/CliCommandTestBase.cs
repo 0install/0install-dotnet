@@ -21,41 +21,23 @@ public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
     /// </summary>
     protected readonly TCommand Sut;
 
-    private readonly Dictionary<Type, Mock> _mocks = new();
-
-    /// <summary>
-    /// Retrieves a <see cref="Mock"/> for a specific type. Multiple requests for the same type return the same mock instance.
-    /// These are the same mocks that are injected into the <see cref="Sut"/>.
-    /// </summary>
-    /// <remarks>All created <see cref="Mock"/>s are automatically verified after the test completes.</remarks>
-    protected Mock<T> GetMock<T>() where T : class => (Mock<T>)_mocks[typeof(T)];
-
     protected CliCommandTestBase()
     {
         var commandMock = new Mock<TCommand>(Handler) {CallBase = true};
 
-        void SetupGet<TProperty>(Expression<Func<TCommand, TProperty>> expression, TProperty? value = null)
-            where TProperty : class
-        {
-            if (value == null)
-            {
-                var mock = MockRepository.Create<TProperty>();
-                _mocks[typeof(TProperty)] = mock;
-                value = mock.Object;
-            }
-            commandMock.SetupGet(expression).Returns(value);
-        }
+        void SetMock<TProperty>(Expression<Func<TCommand, TProperty>> expression)
+            where TProperty : class => commandMock.SetupGet(expression).Returns(GetMock<TProperty>().Object);
 
-        SetupGet(x => x.Config, new Config {SelfUpdateUri = null});
-        SetupGet(x => x.FeedCache);
-        SetupGet(x => x.CatalogManager);
-        SetupGet(x => x.OpenPgp);
-        SetupGet(x => x.ImplementationStore);
-        SetupGet(x => x.PackageManager);
-        SetupGet(x => x.Solver);
-        SetupGet(x => x.Fetcher);
-        SetupGet(x => x.Executor);
-        SetupGet(x => x.SelectionsManager);
+        commandMock.SetupGet(x => x.Config).Returns(new Config {SelfUpdateUri = null});
+        SetMock(x => x.FeedCache);
+        SetMock(x => x.CatalogManager);
+        SetMock(x => x.OpenPgp);
+        SetMock(x => x.ImplementationStore);
+        SetMock(x => x.PackageManager);
+        SetMock(x => x.Solver);
+        SetMock(x => x.Fetcher);
+        SetMock(x => x.Executor);
+        SetMock(x => x.SelectionsManager);
 
         Sut = commandMock.Object;
     }

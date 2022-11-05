@@ -21,11 +21,11 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
 
     public SelectionCandidateProviderTest()
     {
-        _feedManagerMock = CreateMock<IFeedManager>();
+        _feedManagerMock = GetMock<IFeedManager>();
         _feedManagerMock.Setup(x => x.GetPreferences(It.IsAny<FeedUri>()))
                         .Returns(new FeedPreferences());
 
-        _packageManagerMock = CreateMock<IPackageManager>();
+        _packageManagerMock = GetMock<IPackageManager>();
 
         _provider = new SelectionCandidateProvider(
             new Config(),

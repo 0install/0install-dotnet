@@ -26,7 +26,7 @@ public class RunTest : SelectionTestBase<Run>
             new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(Sha256: "abc"), Version = new("1.0")},
             new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(Sha256: "xyz"), Version = new("1.0")});
 
-        var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
+        var envBuilderMock = GetMock<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper("Wrapper"))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))
@@ -49,7 +49,7 @@ public class RunTest : SelectionTestBase<Run>
             new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(Sha256: "abc"), Version = new("1.0")},
             new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(Sha256: "xyz"), Version = new("1.0")});
 
-        var envBuilderMock = MockRepository.Create<IEnvironmentBuilder>();
+        var envBuilderMock = GetMock<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);
         envBuilderMock.SetupFluent(x => x.AddWrapper(null))
                       .SetupFluent(x => x.AddArguments("--arg1", "--arg2"))

@@ -37,7 +37,7 @@ public class FetcherTest : TestWithMocks
 
     public FetcherTest()
     {
-        _storeMock = CreateMock<IImplementationStore>();
+        _storeMock = GetMock<IImplementationStore>();
         _fetcher = new Fetcher(_config, _storeMock.Object, _handler);
     }
 

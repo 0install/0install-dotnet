@@ -17,8 +17,8 @@ public class ZeroInstallClientGuiTest : TestWithMocks
 
     public ZeroInstallClientGuiTest()
     {
-        _launcherMock = CreateMock<IProcessLauncher>();
-        _guiLauncherMock = CreateMock<IProcessLauncher>();
+        _launcherMock = GetMock<IProcessLauncher>();
+        _guiLauncherMock = GetMock<IProcessLauncher>();
         _client = new(_launcherMock.Object, _guiLauncherMock.Object);
     }
 

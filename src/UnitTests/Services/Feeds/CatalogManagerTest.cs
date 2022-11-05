@@ -18,7 +18,7 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
 
     public CatalogManagerTest()
     {
-        _trustManagerMock = CreateMock<ITrustManager>();
+        _trustManagerMock = GetMock<ITrustManager>();
         _sut = new CatalogManager(_config, _trustManagerMock.Object, new SilentTaskHandler());
     }
 

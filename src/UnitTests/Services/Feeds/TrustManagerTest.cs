@@ -42,8 +42,8 @@ public class TrustManagerTest : TestWithMocks
 
     public TrustManagerTest()
     {
-        _feedCacheMock = CreateMock<IFeedCache>();
-        _openPgpMock = CreateMock<IOpenPgp>();
+        _feedCacheMock = GetMock<IFeedCache>();
+        _openPgpMock = GetMock<IOpenPgp>();
         _trustManager = new TrustManager(_trustDB, _config, _openPgpMock.Object, _feedCacheMock.Object, _handler);
     }
 

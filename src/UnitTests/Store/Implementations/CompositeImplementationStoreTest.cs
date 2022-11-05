@@ -9,25 +9,26 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Uses mocking to ensure <see cref="CompositeImplementationStore"/> correctly delegates work to its child <see cref="IImplementationStore"/>s.
 /// </summary>
-public class CompositeImplementationStoreTest : TestWithMocks
+public class CompositeImplementationStoreTest : IDisposable
 {
     #region Constants
     private static readonly ManifestDigest _digest1 = new(Sha1New: "abc");
     private static readonly ManifestDigest _digest2 = new(Sha1New: "123");
     #endregion
 
-    private readonly MockTaskHandler _handler;
-    private readonly Mock<IImplementationStore> _mockStore1, _mockStore2;
+    private readonly MockTaskHandler _handler = new();
+    private readonly Mock<IImplementationStore> _mockStore1 = new(), _mockStore2 = new();
     private readonly CompositeImplementationStore _testStore;
 
     public CompositeImplementationStoreTest()
     {
-        _handler = new MockTaskHandler();
-
-        _mockStore1 = CreateMock<IImplementationStore>();
-        _mockStore2 = CreateMock<IImplementationStore>();
-
         _testStore = new CompositeImplementationStore(new[] {_mockStore1.Object, _mockStore2.Object});
+    }
+
+    public void Dispose()
+    {
+        _mockStore1.VerifyAll();
+        _mockStore2.VerifyAll();
     }
 
     #region List all

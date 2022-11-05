@@ -25,8 +25,8 @@ public class FeedManagerTest : TestWithMocksAndRedirect
 
     public FeedManagerTest()
     {
-        _feedCacheMock = CreateMock<IFeedCache>();
-        _trustManagerMock = CreateMock<ITrustManager>();
+        _feedCacheMock = GetMock<IFeedCache>();
+        _trustManagerMock = GetMock<ITrustManager>();
         _feedManager = new FeedManager(_config, _feedCacheMock.Object, _trustManagerMock.Object, new SilentTaskHandler());
 
         _feedPreNormalize = FeedTest.CreateTestFeed();

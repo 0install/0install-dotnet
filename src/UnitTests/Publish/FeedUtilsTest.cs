@@ -22,7 +22,7 @@ public class FeedUtilsTest : TestWithMocks
         var signature = new byte[] {1, 2, 3};
         var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
 
-        var openPgpMock = CreateMock<IOpenPgp>();
+        var openPgpMock = GetMock<IOpenPgp>();
         openPgpMock.Setup(x => x.Sign(It.IsAny<ArraySegment<byte>>(), secretKey, passphrase))
                    .Returns(signature);
 
