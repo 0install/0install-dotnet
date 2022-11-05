@@ -94,7 +94,7 @@ public class UpdateApps : IntegrationCommand
             {
                 try
                 {
-                    ImplementationStore.Remove(digest, Handler);
+                    ImplementationStore.Remove(digest);
                 }
                 catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
                 {

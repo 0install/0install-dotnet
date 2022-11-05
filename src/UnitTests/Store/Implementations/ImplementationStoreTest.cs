@@ -14,20 +14,19 @@ namespace ZeroInstall.Store.Implementations;
 /// </summary>
 public class ImplementationStoreTest : IDisposable
 {
-    private readonly MockTaskHandler _handler;
+    private readonly MockTaskHandler _handler = new();
     private readonly TemporaryDirectory _tempDir;
     private readonly ImplementationStore _store;
 
     public ImplementationStoreTest()
     {
-        _handler = new MockTaskHandler();
         _tempDir = new TemporaryDirectory("0install-test-store");
-        _store = new ImplementationStore(_tempDir);
+        _store = new ImplementationStore(_tempDir, _handler);
     }
 
     public void Dispose()
     {
-        _store.Purge(_handler);
+        _store.Purge();
         _tempDir.Dispose();
     }
 
@@ -86,7 +85,7 @@ public class ImplementationStoreTest : IDisposable
         string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
         Directory.CreateDirectory(implPath);
 
-        _store.Remove(new ManifestDigest(Sha256New: "123ABC"), _handler);
+        _store.Remove(new ManifestDigest(Sha256New: "123ABC"));
         Directory.Exists(implPath).Should().BeFalse();
     }
 
@@ -98,7 +97,7 @@ public class ImplementationStoreTest : IDisposable
         Directory.CreateDirectory(implPath1);
         Directory.CreateDirectory(implPath2);
 
-        _store.Purge(_handler);
+        _store.Purge();
         Directory.Exists(implPath1).Should().BeFalse();
         Directory.Exists(implPath2).Should().BeFalse();
     }
@@ -124,7 +123,7 @@ public class ImplementationStoreTest : IDisposable
     {
         _store.Add(_referenceDigest, builder => builder.AddFile("file", "AAA".ToStream(), 0));
 
-        _store.Verify(_referenceDigest, _handler);
+        _store.Verify(_referenceDigest);
         _handler.LastQuestion.Should().BeNull();
     }
 
@@ -133,7 +132,7 @@ public class ImplementationStoreTest : IDisposable
     {
         _store.Add(_referenceDigest, builder => builder.AddFile("file", "AAA".ToStream(), 3600));
 
-        _store.Verify(_referenceDigest, _handler);
+        _store.Verify(_referenceDigest);
         _handler.LastQuestion.Should().BeNull();
     }
 
@@ -144,7 +143,7 @@ public class ImplementationStoreTest : IDisposable
         _store.Contains(new ManifestDigest(Sha1New: "abc")).Should().BeTrue();
 
         _handler.AnswerQuestionWith = true;
-        _store.Verify(new ManifestDigest(Sha1New: "abc"), _handler);
+        _store.Verify(new ManifestDigest(Sha1New: "abc"));
         // TODO
         // _handler.LastQuestion.Should().Be(
         //     string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha1new=abc"));
@@ -160,7 +159,7 @@ public class ImplementationStoreTest : IDisposable
             try
             {
                 _store.Add(_referenceDigest, builder => builder.AddFile("file", "AAA".ToStream(), 3600));
-                _store.Remove(_referenceDigest, _handler);
+                _store.Remove(_referenceDigest);
             }
             catch (ImplementationAlreadyInStoreException)
             {}
@@ -180,8 +179,8 @@ public class ImplementationStoreTest : IDisposable
             new TestDirectory("dir") {new TestFile("fileB") {Contents = "abc"}}
         });
 
-        _store.Optimise(_handler).Should().Be(3);
-        _store.Optimise(_handler).Should().Be(0);
+        _store.Optimise().Should().Be(3);
+        _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl1Path, "dir", "fileB")).Should().BeTrue();
@@ -193,8 +192,8 @@ public class ImplementationStoreTest : IDisposable
         string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
         string impl2Path = DeployImplementation("sha256=2", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
 
-        _store.Optimise(_handler).Should().Be(3);
-        _store.Optimise(_handler).Should().Be(0);
+        _store.Optimise().Should().Be(3);
+        _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl2Path, "fileA")).Should().BeTrue();
@@ -209,7 +208,7 @@ public class ImplementationStoreTest : IDisposable
             new TestFile("fileX") {Contents = "abc", LastWrite = new DateTime(2000, 2, 2, 0, 0, 0, DateTimeKind.Utc)},
         });
 
-        _store.Optimise(_handler).Should().Be(0);
+        _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl1Path, "fileX")).Should().BeFalse();
@@ -221,7 +220,7 @@ public class ImplementationStoreTest : IDisposable
         string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
         string impl2Path = DeployImplementation("sha256=2", new TestRoot {new TestFile("fileA") {Contents = "def"}});
 
-        _store.Optimise(_handler).Should().Be(0);
+        _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl2Path, "fileA")).Should().BeFalse();
@@ -233,7 +232,7 @@ public class ImplementationStoreTest : IDisposable
         string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
         string impl2Path = DeployImplementation("sha256new_2", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
 
-        _store.Optimise(_handler).Should().Be(0);
+        _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl2Path, "fileA")).Should().BeFalse();

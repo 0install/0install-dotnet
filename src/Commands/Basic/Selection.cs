@@ -96,7 +96,7 @@ public class Selection : CliCommand
         Options.Add("with-store=", () => Resources.OptionWithStore, delegate(string path)
         {
             if (string.IsNullOrEmpty(path)) throw new OptionException(string.Format(Resources.MissingOptionValue, "--with-store"), "with-store");
-            ImplementationStore = new CompositeImplementationStore(new[] {new ImplementationStore(path), ImplementationStore});
+            ImplementationStore = new CompositeImplementationStore(new[] {new ImplementationStore(path, Handler), ImplementationStore});
         });
     }
 

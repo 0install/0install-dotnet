@@ -141,7 +141,7 @@ public class StoreManTest
         [Fact]
         public void Test()
         {
-            StoreMock.Setup(x => x.Optimise(Handler)).Returns(123);
+            StoreMock.Setup(x => x.Optimise()).Returns(123);
 
             RunAndAssert(string.Format(Resources.StorageReclaimed, 123L.FormatBytes()), ExitCode.OK);
         }
@@ -152,7 +152,7 @@ public class StoreManTest
         [Fact]
         public void Test()
         {
-            StoreMock.Setup(x => x.Purge(Handler));
+            StoreMock.Setup(x => x.Purge());
 
             Handler.AnswerQuestionWith = true;
             RunAndAssert(null, ExitCode.OK);
@@ -164,7 +164,7 @@ public class StoreManTest
         [Fact]
         public void Test()
         {
-            StoreMock.Setup(x => x.Remove(_dummyDigest, Handler)).Returns(true);
+            StoreMock.Setup(x => x.Remove(_dummyDigest)).Returns(true);
 
             RunAndAssert(null, ExitCode.OK,
                 _dummyDigest.Best!);
@@ -176,7 +176,7 @@ public class StoreManTest
         [Fact]
         public void Pass()
         {
-            StoreMock.Setup(x => x.Verify(_dummyDigest, Handler));
+            StoreMock.Setup(x => x.Verify(_dummyDigest));
 
             RunAndAssert(null, ExitCode.OK,
                 _dummyDigest.Best!);
@@ -185,7 +185,7 @@ public class StoreManTest
         [Fact]
         public void Fail()
         {
-            StoreMock.Setup(x => x.Verify(_dummyDigest, Handler)).Throws<DigestMismatchException>();
+            StoreMock.Setup(x => x.Verify(_dummyDigest)).Throws<DigestMismatchException>();
 
             RunAndAssert(new DigestMismatchException().Message, ExitCode.DigestMismatch,
                 _dummyDigest.Best!);
@@ -203,8 +203,8 @@ public class StoreManTest
 
             var storeMock = StoreMock;
             storeMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
-            storeMock.Setup(x => x.Verify(digest1, Handler));
-            storeMock.Setup(x => x.Verify(digest2, Handler));
+            storeMock.Setup(x => x.Verify(digest1));
+            storeMock.Setup(x => x.Verify(digest2));
 
             RunAndAssert(null, ExitCode.OK);
         }

@@ -72,7 +72,7 @@ public abstract class ImplementationNode : StoreNode
         {
             handler.RunTask(new SimpleTask(
                 string.Format(Resources.DeletingImplementation, _digest),
-                () => ImplementationStore.Remove(_digest, handler)));
+                () => ImplementationStore.Remove(_digest)));
         }
         #region Error handling
         catch (ImplementationNotFoundException ex)
@@ -85,11 +85,10 @@ public abstract class ImplementationNode : StoreNode
     /// <summary>
     /// Verify this implementation is undamaged.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">The entry's directory could not be processed.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the entry's directory is not permitted.</exception>
-    public void Verify(ITaskHandler handler) => ImplementationStore.Verify(_digest, handler);
+    public void Verify() => ImplementationStore.Verify(_digest);
 
     /// <summary>
     /// Creates string representation suitable for console output.

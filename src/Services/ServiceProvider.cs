@@ -28,6 +28,7 @@ public class ServiceProvider
     public ServiceProvider(ITaskHandler handler)
     {
         Handler = handler ?? throw new ArgumentNullException(nameof(handler));
+        ImplementationStore = ImplementationStores.Default(Handler);
         _feedCache = new(() => FeedCaches.Default(OpenPgp));
         _trustManager = new(() => new(TrustDB.LoadSafe(), Config, OpenPgp, FeedCache, Handler));
         _feedManager = new(() => new(Config, FeedCache, TrustManager, Handler));
@@ -63,7 +64,7 @@ public class ServiceProvider
     /// <summary>
     /// Describes an object that allows the storage and retrieval of <see cref="Implementation"/> directories.
     /// </summary>
-    public virtual IImplementationStore ImplementationStore { get; set; } = ImplementationStores.Default();
+    public IImplementationStore ImplementationStore { get; set; }
 
     /// <summary>
     /// Provides access to an encryption/signature system compatible with the OpenPGP standard.

@@ -11,6 +11,8 @@ namespace ZeroInstall.Store.Implementations;
 /// </summary>
 public partial class ImplementationStore : ImplementationSink, IImplementationStore, IEquatable<ImplementationStore>
 {
+    private readonly ITaskHandler _handler;
+
     /// <inheritdoc/>
     public ImplementationStoreKind Kind => ReadOnly ? ImplementationStoreKind.ReadOnly : ImplementationStoreKind.ReadWrite;
 
@@ -18,12 +20,15 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     /// Creates a new implementation store using a specific path to a directory.
     /// </summary>
     /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
+    /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
     /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
     /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
     /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
-    public ImplementationStore(string path, bool useWriteProtection = true)
+    public ImplementationStore(string path, ITaskHandler handler, bool useWriteProtection = true)
         : base(path, useWriteProtection)
-    {}
+    {
+        _handler = handler ?? throw new ArgumentNullException(nameof(handler));
+    }
 
     /// <summary>
     /// Determines whether the store contains a local copy of an implementation identified by a specific <see cref="ManifestDigest"/>.
@@ -79,49 +84,37 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     }
 
     /// <inheritdoc/>
-    public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
+    public void Verify(ManifestDigest manifestDigest)
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         try
         {
-            ImplementationStoreUtils.Verify(GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, handler);
+            ImplementationStoreUtils.Verify(GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, _handler);
         }
         catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
         {
             Log.Info(ex.LongMessage);
-            if (handler.Ask(
+            if (_handler.Ask(
                     question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
                     defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
-                Remove(new ManifestDigest(ex.ExpectedDigest), handler);
+                Remove(new ManifestDigest(ex.ExpectedDigest));
         }
     }
 
     /// <inheritdoc/>
-    public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
+    public bool Remove(ManifestDigest manifestDigest)
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         if (GetPath(manifestDigest) is {} path)
         {
             if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
             Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
-            return RemoveInner(path, handler);
+            return RemoveInner(path);
         }
         else return false;
     }
 
     /// <inheritdoc />
-    public void Purge(ITaskHandler handler)
+    public void Purge()
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         var paths = Directory.GetDirectories(Path).Where(path =>
         {
             var digest = new ManifestDigest();
@@ -133,16 +126,16 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         {
             if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
-            handler.RunTask(ForEachTask.Create(
+            _handler.RunTask(ForEachTask.Create(
                 name: string.Format(Resources.DeletingDirectory, Path),
                 target: paths,
-                work: path => RemoveInner(path, handler, allowAutoShutdown: true)));
+                work: path => RemoveInner(path, allowAutoShutdown: true)));
         }
 
         RemoveDeleteInfoFile();
     }
 
-    private bool RemoveInner(string path, ITaskHandler handler, bool allowAutoShutdown = false)
+    private bool RemoveInner(string path, bool allowAutoShutdown = false)
     {
         if (FileUtils.PathEquals(path, Locations.InstallBase))
         {
@@ -150,7 +143,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             return false;
         }
 
-        if (BlockedByOpenFileHandles(path, handler, allowAutoShutdown))
+        if (BlockedByOpenFileHandles(path, allowAutoShutdown))
             return false;
 
         DisableWriteProtection(path);
@@ -161,7 +154,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         return true;
     }
 
-    private static bool BlockedByOpenFileHandles(string path, ITaskHandler handler, bool allowAutoShutdown)
+    private bool BlockedByOpenFileHandles(string path, bool allowAutoShutdown)
     {
         if (!WindowsUtils.IsWindowsVista) return false;
 
@@ -174,11 +167,11 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         {
             using var restartManager = new WindowsRestartManager();
             restartManager.RegisterResources(filesToScanFor);
-            if (restartManager.ListApps(handler.CancellationToken) is {Length: > 0} apps)
+            if (restartManager.ListApps(_handler.CancellationToken) is {Length: > 0} apps)
             {
                 string appsList = string.Join(Environment.NewLine, apps);
-                if (handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
-                    restartManager.ShutdownApps(handler);
+                if (_handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
+                    restartManager.ShutdownApps(_handler);
                 else return true;
             }
         }
@@ -222,17 +215,13 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     }
 
     /// <inheritdoc/>
-    public long Optimise(ITaskHandler handler)
+    public long Optimise()
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         if (!Directory.Exists(Path)) return 0;
         if (MissingAdminRights) throw new NotAdminException();
 
         using var run = new OptimiseRun(Path);
-        handler.RunTask(ForEachTask.Create(
+        _handler.RunTask(ForEachTask.Create(
             name: string.Format(Resources.FindingDuplicateFiles, Path),
             target: ListAll(),
             work: run.Work));

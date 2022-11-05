@@ -134,7 +134,7 @@ public static class BuilderExtensions
         handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID),
             () => ZeroInstallClient.Detect.FetchAsync(metadata.Implementation).Wait()));
 
-        string path = ImplementationStores.Default().GetPath(metadata.Implementation);
+        string path = ImplementationStores.Default(handler).GetPath(metadata.Implementation);
         builder.CopyFrom(metadata, path, handler);
     }
 }

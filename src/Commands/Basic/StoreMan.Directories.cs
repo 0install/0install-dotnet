@@ -50,7 +50,7 @@ partial class StoreMan
             string path = GetPath();
 
             // Init new store to ensure the target is suitable
-            ImplementationStore = new ImplementationStore(path);
+            ImplementationStore = new ImplementationStore(path, Handler);
 
             var dirs = GetImplementationDirs().ToList();
             if (dirs.AddIfNew(path))

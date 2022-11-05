@@ -63,22 +63,22 @@ public partial class ServiceImplementationStore : IImplementationStore
     public IEnumerable<string> ListAllTemp() => Enumerable.Empty<string>();
 
     /// <inheritdoc/>
-    public void Verify(ManifestDigest manifestDigest, ITaskHandler handler) => throw new NotSupportedException();
+    public void Verify(ManifestDigest manifestDigest) => throw new NotSupportedException();
 
     /// <summary>
     /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
     /// </summary>
-    public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler) => false;
+    public bool Remove(ManifestDigest manifestDigest) => false;
 
     /// <summary>
     /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
     /// </summary>
-    public void Purge(ITaskHandler handler) {}
+    public void Purge() {}
 
     /// <summary>
     /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
     /// </summary>
-    public long Optimise(ITaskHandler handler) => 0;
+    public long Optimise() => 0;
 
     /// <summary>
     /// Returns a fixed string.

@@ -56,43 +56,39 @@ public interface IImplementationStore : IImplementationSink
     /// Asks the user whether to delete the implementation if it does not match.
     /// </summary>
     /// <param name="manifestDigest">The digest of the implementation to be verified.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="NotSupportedException"><paramref name="manifestDigest"/> does not list any supported digests.</exception>
     /// <exception cref="IOException">The implementation's directory could not be processed.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the implementation's directory is not permitted.</exception>
     /// <exception cref="ImplementationNotFoundException">No implementation matching <paramref name="manifestDigest"/> could be found in the store.</exception>
-    void Verify(ManifestDigest manifestDigest, ITaskHandler handler);
+    void Verify(ManifestDigest manifestDigest);
 
     /// <summary>
     /// Removes a specific implementation from the store.
     /// </summary>
     /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
     /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if it could not be removed, e.g. because no implementation matching <paramref name="manifestDigest"/> was found.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">Thrown if the implementation could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
-    bool Remove(ManifestDigest manifestDigest, ITaskHandler handler);
+    bool Remove(ManifestDigest manifestDigest);
 
     /// <summary>
     /// Removes all implementations from a store.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">An implementation could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-    void Purge(ITaskHandler handler);
+    void Purge();
 
     /// <summary>
     /// Reads in all the manifest files in the store and looks for duplicates (files with the same permissions, modification time and digest). When it finds a pair, it deletes one and replaces it with a hard-link to the other.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
     /// <returns>The number of bytes saved by deduplication.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">Two files could not be hard-linked together.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
     /// <exception cref="DigestMismatchException">A damaged implementation is encountered while optimizing.</exception>
     /// <remarks>If the store does not support optimising this method call may be silently ignored.</remarks>
-    long Optimise(ITaskHandler handler);
+    long Optimise();
 }

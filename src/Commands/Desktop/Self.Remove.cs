@@ -69,7 +69,7 @@ partial class Self
             {
                 try
                 {
-                    ImplementationStore.Purge(Handler);
+                    ImplementationStore.Purge();
                 }
                 catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
                 {

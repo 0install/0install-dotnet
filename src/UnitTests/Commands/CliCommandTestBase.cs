@@ -4,6 +4,7 @@
 using System.Linq.Expressions;
 using FluentAssertions.Execution;
 using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands;
 
@@ -28,11 +29,11 @@ public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
         void SetMock<TProperty>(Expression<Func<TCommand, TProperty>> expression)
             where TProperty : class => commandMock.SetupGet(expression).Returns(GetMock<TProperty>().Object);
 
+        commandMock.Object.ImplementationStore = GetMock<IImplementationStore>().Object;
         commandMock.SetupGet(x => x.Config).Returns(new Config {SelfUpdateUri = null});
         SetMock(x => x.FeedCache);
         SetMock(x => x.CatalogManager);
         SetMock(x => x.OpenPgp);
-        SetMock(x => x.ImplementationStore);
         SetMock(x => x.PackageManager);
         SetMock(x => x.Solver);
         SetMock(x => x.Fetcher);

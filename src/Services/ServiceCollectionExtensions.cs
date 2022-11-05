@@ -33,7 +33,7 @@ public static class ServiceCollectionExtensions
         where TTaskHandler : class, ITaskHandler
         => services.AddScoped<ITaskHandler, TTaskHandler>()
                    .AddScoped(_ => configuration?.Get<Config>() ?? Config.Load())
-                   .AddScoped(_ => ImplementationStores.Default())
+                   .AddScoped(provider => ImplementationStores.Default(provider.GetRequiredService<ITaskHandler>()))
                    .AddScoped(_ => OpenPgp.Verifying())
                    .AddScoped(provider => FeedCaches.Default(provider.GetRequiredService<IOpenPgp>()))
                    .AddScoped(_ => TrustDB.LoadSafe())

@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Services;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations;
@@ -16,7 +15,6 @@ public class CompositeImplementationStoreTest : IDisposable
     private static readonly ManifestDigest _digest2 = new(Sha1New: "123");
     #endregion
 
-    private readonly MockTaskHandler _handler = new();
     private readonly Mock<IImplementationStore> _mockStore1 = new(), _mockStore2 = new();
     private readonly CompositeImplementationStore _testStore;
 
@@ -148,25 +146,25 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void RemoveTwo()
     {
-        _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
-        _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
-        _testStore.Remove(_digest1, _handler).Should().BeTrue();
+        _mockStore1.Setup(x => x.Remove(_digest1)).Returns(true);
+        _mockStore2.Setup(x => x.Remove(_digest1)).Returns(true);
+        _testStore.Remove(_digest1).Should().BeTrue();
     }
 
     [Fact]
     public void RemoveOne()
     {
-        _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
-        _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(true);
-        _testStore.Remove(_digest1, _handler).Should().BeTrue();
+        _mockStore1.Setup(x => x.Remove(_digest1)).Returns(false);
+        _mockStore2.Setup(x => x.Remove(_digest1)).Returns(true);
+        _testStore.Remove(_digest1).Should().BeTrue();
     }
 
     [Fact]
     public void RemoveNone()
     {
-        _mockStore1.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
-        _mockStore2.Setup(x => x.Remove(_digest1, _handler)).Returns(false);
-        _testStore.Remove(_digest1, _handler).Should().BeFalse();
+        _mockStore1.Setup(x => x.Remove(_digest1)).Returns(false);
+        _mockStore2.Setup(x => x.Remove(_digest1)).Returns(false);
+        _testStore.Remove(_digest1).Should().BeFalse();
     }
     #endregion
 
@@ -175,9 +173,9 @@ public class CompositeImplementationStoreTest : IDisposable
     public void VerifyExitsAfterFirstSuccess()
     {
         _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore1.Setup(x => x.Verify(_digest1, _handler));
+        _mockStore1.Setup(x => x.Verify(_digest1));
 
-        _testStore.Verify(_digest1, _handler);
+        _testStore.Verify(_digest1);
     }
 
     [Fact]
@@ -186,36 +184,36 @@ public class CompositeImplementationStoreTest : IDisposable
         _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.Service);
 
         _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore2.Setup(x => x.Verify(_digest1, _handler));
+        _mockStore2.Setup(x => x.Verify(_digest1));
 
-        _testStore.Verify(_digest1, _handler);
+        _testStore.Verify(_digest1);
     }
 
     [Fact]
     public void VerifyContinuesOnNotFound()
     {
         _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+        _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
         _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore2.Setup(x => x.Verify(_digest1, _handler));
+        _mockStore2.Setup(x => x.Verify(_digest1));
 
-        _testStore.Verify(_digest1, _handler);
+        _testStore.Verify(_digest1);
     }
 
     [Fact]
     public void VerifyReportsIfAllNotFound()
     {
         _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+        _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
         _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore2.Setup(x => x.Verify(_digest1, _handler))
+        _mockStore2.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
-        _testStore.Invoking(x => x.Verify(_digest1, _handler))
+        _testStore.Invoking(x => x.Verify(_digest1))
                   .Should().Throw<ImplementationNotFoundException>();
     }
 
@@ -223,10 +221,10 @@ public class CompositeImplementationStoreTest : IDisposable
     public void VerifyReportsFailsFast()
     {
         _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore1.Setup(x => x.Verify(_digest1, _handler))
+        _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<IOException>();
 
-        _testStore.Invoking(x => x.Verify(_digest1, _handler))
+        _testStore.Invoking(x => x.Verify(_digest1))
                   .Should().Throw<IOException>();
     }
     #endregion

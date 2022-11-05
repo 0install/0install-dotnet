@@ -94,7 +94,7 @@ partial class StoreMan
                 return ExitCode.NotSupported;
             }
 
-            var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1]) : ImplementationStore;
+            var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1], Handler) : ImplementationStore;
             try
             {
                 store.Add(digest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
@@ -172,7 +172,7 @@ partial class StoreMan
         {
             bool removed = false;
             foreach (var digest in AdditionalArgs.Select(x => new ManifestDigest(x)))
-                removed |= ImplementationStore.Remove(digest, Handler);
+                removed |= ImplementationStore.Remove(digest);
             return removed ? ExitCode.OK : ExitCode.NoChanges;
         }
     }
@@ -197,7 +197,7 @@ partial class StoreMan
                 {
                     case 1:
                         // Verify a directory inside the store
-                        ImplementationStore.Verify(new ManifestDigest(AdditionalArgs[0]), Handler);
+                        ImplementationStore.Verify(new ManifestDigest(AdditionalArgs[0]));
                         break;
 
                     case 2:

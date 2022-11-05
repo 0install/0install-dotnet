@@ -114,14 +114,14 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
                        .Distinct(StringComparer.Ordinal);
 
     /// <inheritdoc />
-    public void Verify(ManifestDigest manifestDigest, ITaskHandler handler)
+    public void Verify(ManifestDigest manifestDigest)
     {
         Exception? lastException = null;
         foreach (var store in _innerStores.Where(x => x.Kind != ImplementationStoreKind.Service))
         {
             try
             {
-                store.Verify(manifestDigest, handler);
+                store.Verify(manifestDigest);
                 return;
             }
             catch (ImplementationNotFoundException ex)
@@ -133,40 +133,28 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
     }
 
     /// <inheritdoc/>
-    public bool Remove(ManifestDigest manifestDigest, ITaskHandler handler)
+    public bool Remove(ManifestDigest manifestDigest)
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         // Remove from _every_ store that contains the implementation
         bool removed = false;
         foreach (var store in _innerStores.Reverse())
-            removed |= store.Remove(manifestDigest, handler);
+            removed |= store.Remove(manifestDigest);
 
         return removed;
     }
 
     /// <inheritdoc />
-    public void Purge(ITaskHandler handler)
+    public void Purge()
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         foreach (var store in _innerStores.Reverse())
-            store.Purge(handler);
+            store.Purge();
     }
 
     /// <inheritdoc/>
-    public long Optimise(ITaskHandler handler)
+    public long Optimise()
     {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
         // Try to optimize all contained stores
-        return _innerStores.Reverse().Sum(x => x.Optimise(handler));
+        return _innerStores.Reverse().Sum(x => x.Optimise());
     }
 
     /// <summary>

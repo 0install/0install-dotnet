@@ -65,7 +65,7 @@ public sealed partial class StoreMan : CliMultiCommand
             }
 
             return new CompositeImplementationStore(
-                AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, useWriteProtection: false)));
+                AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, Handler, useWriteProtection: false)));
         }
     }
 }
