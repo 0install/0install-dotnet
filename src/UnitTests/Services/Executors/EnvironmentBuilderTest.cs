@@ -18,7 +18,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     [Fact]
     public void Exceptions()
     {
-        var executor = new EnvironmentBuilder(new Mock<IImplementationStore>(MockBehavior.Loose).Object);
+        var executor = new EnvironmentBuilder(Mock.Of<IImplementationStore>());
         executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
                 .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
         executor.Invoking(x => x.Inject(new Selections {Implementations = {new ImplementationSelection()}}))

@@ -39,5 +39,5 @@ public class RegistryClassesTest : TestWithRedirect
     }
 
     private static string GetLaunchCommandLine(Verb verb)
-        => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, new Mock<IIconStore>().Object, machineWide: false);
+        => RegistryClasses.GetLaunchCommandLine(new FeedTarget(Fake.Feed1Uri, Fake.Feed), verb, Mock.Of<IIconStore>(), machineWide: false);
 }

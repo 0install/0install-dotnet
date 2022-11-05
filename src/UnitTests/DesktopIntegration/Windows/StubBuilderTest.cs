@@ -14,7 +14,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 [SupportedOSPlatform("windows")]
 public class StubBuilderTest : TestWithRedirect
 {
-    private readonly StubBuilder _stubBuilder = new(new Mock<IIconStore>().Object);
+    private readonly StubBuilder _stubBuilder = new(Mock.Of<IIconStore>());
 
     public StubBuilderTest()
     {

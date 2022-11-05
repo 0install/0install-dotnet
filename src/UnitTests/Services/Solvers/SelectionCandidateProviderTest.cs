@@ -30,7 +30,7 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         _provider = new SelectionCandidateProvider(
             new Config(),
             _feedManagerMock.Object,
-            new Mock<IImplementationStore>(MockBehavior.Loose).Object,
+            Mock.Of<IImplementationStore>(),
             _packageManagerMock.Object);
     }
 

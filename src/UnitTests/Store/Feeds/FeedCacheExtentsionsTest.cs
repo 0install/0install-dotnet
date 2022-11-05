@@ -56,7 +56,7 @@ public class FeedCacheExtensionsTest : TestWithMocks
     public void GetSignaturesMissingNewLine()
     {
         string input = "Feed without newline" + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd;
-        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
+        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ public class FeedCacheExtensionsTest : TestWithMocks
     public void GetSignaturesInvalidChars()
     {
         const string input = FeedText + FeedUtils.SignatureBlockStart + "*!?#" + FeedUtils.SignatureBlockEnd;
-        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
+        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class FeedCacheExtensionsTest : TestWithMocks
     public void GetSignaturesMissingEnd()
     {
         string input = FeedText + FeedUtils.SignatureBlockStart + _signatureBase64;
-        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
+        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 
     /// <summary>
@@ -86,6 +86,6 @@ public class FeedCacheExtensionsTest : TestWithMocks
     public void GetSignaturesDataAfterSignature()
     {
         string input = FeedText + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd + "more data";
-        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(new Mock<IOpenPgp>().Object, Encoding.UTF8.GetBytes(input)));
+        Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 }

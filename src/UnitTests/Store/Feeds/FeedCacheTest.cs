@@ -20,7 +20,7 @@ public class FeedCacheTest : TestWithMocks
     {
         // Create a temporary cache
         _tempDir = new TemporaryDirectory("0install-test-feeds");
-        _cache = new FeedCache(_tempDir, new Mock<IOpenPgp>().Object);
+        _cache = new FeedCache(_tempDir, Mock.Of<IOpenPgp>());
 
         // Add some dummy feeds to the cache
         _feed1 = FeedTest.CreateTestFeed();
