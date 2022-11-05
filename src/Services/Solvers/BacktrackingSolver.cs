@@ -58,6 +58,7 @@ public partial class BacktrackingSolver : ISolver
                 if (TryFulfillAll(DemandsFor(selection, demand.Requirements))) return true;
                 else Selections.Implementations.RemoveLast();
             }
+            if (demand.Importance == Importance.Recommended) return true; // Don't fail on unfulfillable non-essential dependencies, as long as they don't conflict with existing selections
 
             if (_backtrackCounter++ >= MaxBacktrackingSteps) throw new SolverException("Too much backtracking; dependency graph too complex.");
             return false;
@@ -73,11 +74,7 @@ public partial class BacktrackingSolver : ISolver
             var selectionsSnapshot = Selections.Clone(); // Create snapshot
             foreach (var essentialPermutation in essential.Permutate())
             {
-                if (essentialPermutation.All(TryFulfill))
-                {
-                    recommended.ForEach(demand => TryFulfill(demand));
-                    return true;
-                }
+                if (essentialPermutation.All(TryFulfill) && recommended.All(TryFulfill)) return true;
                 else Selections = selectionsSnapshot.Clone(); // Restore snapshot when backtracking
             }
             return false;
