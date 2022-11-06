@@ -41,22 +41,8 @@ public sealed class TempDirectoryNode : StoreNode
     /// <summary>
     /// Deletes this temporary directory from the <see cref="IImplementationStore"/> it is located in.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
     /// <exception cref="DirectoryNotFoundException">The directory could be found in the store.</exception>
     /// <exception cref="IOException">The directory could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-    public override void Delete(ITaskHandler handler)
-    {
-        #region Sanity checks
-        if (handler == null) throw new ArgumentNullException(nameof(handler));
-        #endregion
-
-        handler.RunTask(new SimpleTask(
-            string.Format(Resources.DeletingDirectory, Path),
-            () =>
-            {
-                Implementations.ImplementationStore.DisableWriteProtection(Path);
-                Directory.Delete(Path, recursive: true);
-            }));
-    }
+    public override void Delete() => ImplementationStore.RemoveTemp(Path);
 }

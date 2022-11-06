@@ -124,7 +124,7 @@ public class StoreManTest
             GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
             GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
             StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
-            StoreMock.Setup(x => x.ListAllTemp()).Returns(Array.Empty<string>());
+            StoreMock.Setup(x => x.ListTemp()).Returns(Array.Empty<string>());
             StoreMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(tempDir);
             FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
 

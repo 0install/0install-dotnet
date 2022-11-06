@@ -37,14 +37,6 @@ public class CompositeImplementationStoreTest : IDisposable
         _mockStore2.Setup(x => x.ListAll()).Returns(new[] {_digest2});
         _testStore.ListAll().Should().BeEquivalentTo(new[] {_digest1, _digest2}, because: "Should combine results from all stores");
     }
-
-    [Fact]
-    public void ListAllTemp()
-    {
-        _mockStore1.Setup(x => x.ListAllTemp()).Returns(new[] {"abc"});
-        _mockStore2.Setup(x => x.ListAllTemp()).Returns(new[] {"def"});
-        _testStore.ListAllTemp().Should().BeEquivalentTo(new[] {"abc", "def"}, because: "Should combine results from all stores");
-    }
     #endregion
 
     #region Contains
@@ -226,6 +218,39 @@ public class CompositeImplementationStoreTest : IDisposable
 
         _testStore.Invoking(x => x.Verify(_digest1))
                   .Should().Throw<IOException>();
+    }
+    #endregion
+
+    #region Temp
+    [Fact]
+    public void ListTemp()
+    {
+        _mockStore1.Setup(x => x.ListTemp()).Returns(new[] {"abc"});
+        _mockStore2.Setup(x => x.ListTemp()).Returns(new[] {"def"});
+        _testStore.ListTemp().Should().BeEquivalentTo(new[] {"abc", "def"}, because: "Should combine results from all stores");
+    }
+
+    [Fact]
+    public void TryToRemoveTempFromLastStoreFirst()
+    {
+        _mockStore2.Setup(x => x.RemoveTemp("abc")).Returns(true);
+        _testStore.RemoveTemp("abc").Should().BeTrue();
+    }
+
+    [Fact]
+    public void TryToRemoveTempFromAllStores()
+    {
+        _mockStore2.Setup(x => x.RemoveTemp("abc")).Returns(false);
+        _mockStore1.Setup(x => x.RemoveTemp("abc")).Returns(true);
+        _testStore.RemoveTemp("abc").Should().BeTrue();
+    }
+
+    [Fact]
+    public void ReportFailureRemovingFromAllStores()
+    {
+        _mockStore2.Setup(x => x.RemoveTemp("abc")).Returns(false);
+        _mockStore1.Setup(x => x.RemoveTemp("abc")).Returns(false);
+        _testStore.RemoveTemp("abc").Should().BeFalse();
     }
     #endregion
 }

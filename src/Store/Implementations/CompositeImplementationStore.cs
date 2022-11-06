@@ -107,11 +107,10 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
                        .Distinct();
 
     /// <inheritdoc/>
-    public IEnumerable<string> ListAllTemp()
+    public IEnumerable<string> ListTemp()
         // Merge the lists from all contained stores, eliminating duplicates
-        => _innerStores.TrySelect(x => x.ListAllTemp(), (UnauthorizedAccessException _) => {})
-                       .SelectMany(x => x)
-                       .Distinct(StringComparer.Ordinal);
+        => _innerStores.TrySelect(x => x.ListTemp(), (UnauthorizedAccessException _) => {})
+                       .SelectMany(x => x);
 
     /// <inheritdoc />
     public void Verify(ManifestDigest manifestDigest)
@@ -142,6 +141,10 @@ public class CompositeImplementationStore : MarshalByRefObject, IImplementationS
 
         return removed;
     }
+
+    /// <inheritdoc/>
+    public bool RemoveTemp(string path)
+        => _innerStores.Reverse().Any(x => x.RemoveTemp(path));
 
     /// <inheritdoc />
     public void Purge()

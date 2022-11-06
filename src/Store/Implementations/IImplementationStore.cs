@@ -49,7 +49,7 @@ public interface IImplementationStore : IImplementationSink
     /// </summary>
     /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
     /// <returns>A list of fully qualified paths.</returns>
-    IEnumerable<string> ListAllTemp();
+    IEnumerable<string> ListTemp();
 
     /// <summary>
     /// Checks whether an implementation in the store still matches the expected digest.
@@ -74,7 +74,17 @@ public interface IImplementationStore : IImplementationSink
     bool Remove(ManifestDigest manifestDigest);
 
     /// <summary>
-    /// Removes all implementations from a store.
+    /// Removes a specific temporary directory from the store.
+    /// </summary>
+    /// <param name="path">The fully qualified path of the directory.</param>
+    /// <returns><c>true</c> if the directory was successfully removed; <c>false</c> if it could not be removed, e.g. because it does not exist inside the store.</returns>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="IOException">Thrown if the directory could not be deleted.</exception>
+    /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
+    bool RemoveTemp(string path);
+
+    /// <summary>
+    /// Removes all implementations and temporary directories from a store.
     /// </summary>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">An implementation could not be deleted.</exception>

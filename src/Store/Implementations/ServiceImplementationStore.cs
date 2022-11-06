@@ -60,7 +60,7 @@ public partial class ServiceImplementationStore : IImplementationStore
     /// Always returns empty list. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
     /// </summary>
     /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-    public IEnumerable<string> ListAllTemp() => Enumerable.Empty<string>();
+    public IEnumerable<string> ListTemp() => Enumerable.Empty<string>();
 
     /// <inheritdoc/>
     public void Verify(ManifestDigest manifestDigest) => throw new NotSupportedException();
@@ -69,6 +69,11 @@ public partial class ServiceImplementationStore : IImplementationStore
     /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
     /// </summary>
     public bool Remove(ManifestDigest manifestDigest) => false;
+
+    /// <summary>
+    /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.
+    /// </summary>
+    public bool RemoveTemp(string path) => false;
 
     /// <summary>
     /// Does nothing. Should be handled by an <see cref="ImplementationStore"/> directly instead of using the service.

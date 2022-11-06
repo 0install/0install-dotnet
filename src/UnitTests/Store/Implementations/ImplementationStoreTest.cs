@@ -15,12 +15,11 @@ namespace ZeroInstall.Store.Implementations;
 public class ImplementationStoreTest : IDisposable
 {
     private readonly MockTaskHandler _handler = new();
-    private readonly TemporaryDirectory _tempDir;
+    private readonly TemporaryDirectory _tempDir = new("0install-test-store");
     private readonly ImplementationStore _store;
 
     public ImplementationStoreTest()
     {
-        _tempDir = new TemporaryDirectory("0install-test-store");
         _store = new ImplementationStore(_tempDir, _handler);
     }
 
@@ -56,14 +55,6 @@ public class ImplementationStoreTest : IDisposable
     }
 
     [Fact]
-    public void ListAllTemp()
-    {
-        Directory.CreateDirectory(Path.Combine(_tempDir, "sha1=test"));
-        Directory.CreateDirectory(Path.Combine(_tempDir, "temp=stuff"));
-        _store.ListAllTemp().Should().Equal(Path.Combine(_tempDir, "temp=stuff"));
-    }
-
-    [Fact]
     public void AddEmptyDirectory()
     {
         _store.Add(ManifestDigest.Empty, _ => {});
@@ -85,7 +76,7 @@ public class ImplementationStoreTest : IDisposable
         string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
         Directory.CreateDirectory(implPath);
 
-        _store.Remove(new ManifestDigest(Sha256New: "123ABC"));
+        _store.Remove(new ManifestDigest(Sha256New: "123ABC")).Should().BeTrue();
         Directory.Exists(implPath).Should().BeFalse();
     }
 
@@ -94,12 +85,18 @@ public class ImplementationStoreTest : IDisposable
     {
         string implPath1 = Path.Combine(_tempDir, "sha256new_123ABC");
         string implPath2 = Path.Combine(_tempDir, "sha256new_456XYZ");
+        string extractPath = Path.Combine(_tempDir, "0install-extract-abc");
+        using var otherPath = new TemporaryDirectory("other", _tempDir);
         Directory.CreateDirectory(implPath1);
         Directory.CreateDirectory(implPath2);
+        Directory.CreateDirectory(extractPath);
+        Directory.CreateDirectory(otherPath);
 
         _store.Purge();
         Directory.Exists(implPath1).Should().BeFalse();
         Directory.Exists(implPath2).Should().BeFalse();
+        Directory.Exists(extractPath).Should().BeFalse();
+        Directory.Exists(otherPath).Should().BeTrue();
     }
 
     [Fact]
@@ -236,6 +233,39 @@ public class ImplementationStoreTest : IDisposable
         FileUtils.AreHardlinked(
             Path.Combine(impl1Path, "fileA"),
             Path.Combine(impl2Path, "fileA")).Should().BeFalse();
+    }
+
+    [Fact]
+    public void ListTemp()
+    {
+        Directory.CreateDirectory(Path.Combine(_tempDir, "_How to delete"));
+        Directory.CreateDirectory(Path.Combine(_tempDir, "sha256new=test"));
+        Directory.CreateDirectory(Path.Combine(_tempDir, "other-file"));
+        Directory.CreateDirectory(Path.Combine(_tempDir, "0install-extract-abc"));
+        Directory.CreateDirectory(Path.Combine(_tempDir, "0install-remove-def"));
+
+        _store.ListTemp().Should().BeEquivalentTo(
+            Path.Combine(_tempDir, "0install-extract-abc"),
+            Path.Combine(_tempDir, "0install-remove-def"));
+    }
+
+    [Fact]
+    public void RemoveTemp()
+    {
+        string tempDir = Path.Combine(_tempDir, "0install-extract-test");
+        Directory.CreateDirectory(tempDir);
+
+        _store.RemoveTemp(tempDir).Should().BeTrue();
+        Directory.Exists(tempDir).Should().BeFalse();
+    }
+
+    [Fact]
+    public void RemoveTempRejectOutsideStore()
+    {
+        using var tempDir = new TemporaryDirectory("0install-test");
+
+        _store.RemoveTemp(tempDir).Should().BeFalse();
+        Directory.Exists(tempDir).Should().BeTrue();
     }
 
     private string DeployImplementation(string id, TestRoot root)

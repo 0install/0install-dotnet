@@ -30,15 +30,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
     }
 
-    /// <summary>
-    /// Determines whether the store contains a local copy of an implementation identified by a specific <see cref="ManifestDigest"/>.
-    /// </summary>
-    /// <param name="manifestDigest">The digest of the implementation to check for.</param>
-    /// <returns>
-    ///   <c>true</c> if the specified implementation is available in the store;
-    ///   <c>false</c> if the specified implementation is not available in the store or if read access to the store is not permitted.
-    /// </returns>
-    /// <remarks>If read access to the store is not permitted, no exception is thrown.</remarks>
+    /// <inheritdoc/>
     public bool Contains(ManifestDigest manifestDigest)
         => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
 
@@ -49,39 +41,21 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     /// <inheritdoc/>
     public IEnumerable<ManifestDigest> ListAll()
     {
-        if (!Directory.Exists(Path)) return Enumerable.Empty<ManifestDigest>();
+        if (!Directory.Exists(Path)) yield break;
 
-        var result = new List<ManifestDigest>();
         foreach (string path in Directory.GetDirectories(Path))
         {
             var digest = new ManifestDigest();
             digest.TryParse(System.IO.Path.GetFileName(path));
-            if (digest.AvailableDigests.Any()) result.Add(digest);
+            if (digest.AvailableDigests.Any()) yield return digest;
         }
-        return result;
     }
 
     /// <inheritdoc/>
-    public IEnumerable<string> ListAllTemp()
-    {
-        if (!Directory.Exists(Path)) return Enumerable.Empty<string>();
-
-        var result = new List<string>();
-        foreach (string path in Directory.GetDirectories(Path))
-        {
-            try
-            {
-                // ReSharper disable once ObjectCreationAsStatement
-                new ManifestDigest(System.IO.Path.GetFileName(path));
-            }
-            catch (NotSupportedException)
-            {
-                // Anything that is not a valid digest is considered a temp directory
-                result.Add(path);
-            }
-        }
-        return result;
-    }
+    public IEnumerable<string> ListTemp()
+        => Directory.Exists(Path)
+            ? Directory.GetDirectories(Path, "0install-*")
+            : Enumerable.Empty<string>();
 
     /// <inheritdoc/>
     public void Verify(ManifestDigest manifestDigest)
@@ -103,58 +77,31 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     /// <inheritdoc/>
     public bool Remove(ManifestDigest manifestDigest)
     {
-        if (GetPath(manifestDigest) is {} path)
-        {
-            if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
-            Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
-            return RemoveInner(path);
-        }
-        else return false;
-    }
+        if (GetPath(manifestDigest) is not {} path) return false;
+        Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
 
-    /// <inheritdoc />
-    public void Purge()
-    {
-        var paths = Directory.GetDirectories(Path).Where(path =>
-        {
-            var digest = new ManifestDigest();
-            digest.TryParse(System.IO.Path.GetFileName(path));
-            return digest.AvailableDigests.Any();
-        }).ToList();
-
-        if (paths.Count != 0)
-        {
-            if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
-
-            _handler.RunTask(ForEachTask.Create(
-                name: string.Format(Resources.DeletingDirectory, Path),
-                target: paths,
-                work: path => RemoveInner(path, allowAutoShutdown: true)));
-        }
-
-        RemoveDeleteInfoFile();
-    }
-
-    private bool RemoveInner(string path, bool allowAutoShutdown = false)
-    {
         if (FileUtils.PathEquals(path, Locations.InstallBase))
         {
             Log.Warn(Resources.NoStoreSelfRemove);
             return false;
         }
+        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
+        if (BlockedByOpenFileHandles(path)) return false;
 
-        if (BlockedByOpenFileHandles(path, allowAutoShutdown))
-            return false;
-
-        DisableWriteProtection(path);
-        string tempDir = System.IO.Path.Combine(Path, System.IO.Path.GetRandomFileName());
-        Directory.Move(path, tempDir);
-        Directory.Delete(tempDir, recursive: true);
+        _handler.RunTask(new SimpleTask(
+            string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
+            () =>
+            {
+                string tempDir = System.IO.Path.Combine(Path, "0install-remove-" + System.IO.Path.GetRandomFileName());
+                DisableWriteProtection(path);
+                Directory.Move(path, tempDir);
+                Directory.Delete(tempDir, recursive: true);
+            }));
 
         return true;
     }
 
-    private bool BlockedByOpenFileHandles(string path, bool allowAutoShutdown)
+    private bool BlockedByOpenFileHandles(string path)
     {
         if (!WindowsUtils.IsWindowsVista) return false;
 
@@ -170,7 +117,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             if (restartManager.ListApps(_handler.CancellationToken) is {Length: > 0} apps)
             {
                 string appsList = string.Join(Environment.NewLine, apps);
-                if (_handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: allowAutoShutdown))
+                if (_handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: _purging.Value))
                     restartManager.ShutdownApps(_handler);
                 else return true;
             }
@@ -191,16 +138,8 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         return false;
     }
 
-    /// <summary>
-    /// Removes write-protection from a directory read-only using platform-specific mechanisms. Logs any errors and continues.
-    /// </summary>
-    /// <param name="path">The directory to unprotect.</param>
-    internal static void DisableWriteProtection(string path)
+    private static void DisableWriteProtection(string path)
     {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-        #endregion
-
         try
         {
             Log.Debug("Disabling write protection for: " + path);
@@ -212,6 +151,50 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             Log.Warn("Failed to disable write protection for: " + path, ex);
         }
         #endregion
+    }
+
+    /// <inheritdoc/>
+    public bool RemoveTemp(string path)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        #endregion
+
+        if (!path.StartsWith(Path + System.IO.Path.DirectorySeparatorChar) || !Directory.Exists(path)) return false;
+        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
+
+        _handler.RunTask(new SimpleTask(
+            string.Format(Resources.DeletingDirectory, path),
+            () => Directory.Delete(path, recursive: true)));
+        return true;
+    }
+
+    private readonly ThreadLocal<bool> _purging = new();
+
+    /// <inheritdoc />
+    public void Purge()
+    {
+        var removeTempActions = ListTemp().Select(path => new Action(() => RemoveTemp(path)));
+        var removeActions = ListAll().Select(digest => new Action(() => Remove(digest)));
+        var actions = removeTempActions.Concat(removeActions).ToList();
+
+        if (actions.Count != 0)
+        {
+            _purging.Value = true;
+            try
+            {
+                _handler.RunTask(ForEachTask.Create(
+                    name: string.Format(Resources.DeletingDirectory, Path),
+                    target: actions,
+                    work: action => action()));
+            }
+            finally
+            {
+                _purging.Value = false;
+            }
+        }
+
+        RemoveDeleteInfoFile();
     }
 
     /// <inheritdoc/>

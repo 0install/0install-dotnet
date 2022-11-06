@@ -59,11 +59,10 @@ public sealed partial class FeedNode : CacheNode
     /// <summary>
     /// Deletes this <see cref="Feed"/> from the <see cref="IFeedCache"/> it is located in.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
     /// <exception cref="KeyNotFoundException">No matching feed could be found in the <see cref="IFeedCache"/>.</exception>
     /// <exception cref="IOException">The feed could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-    public override void Delete(ITaskHandler handler)
+    public override void Delete()
     {
         if (_feed.Uri != null) _cache.Remove(_feed.Uri);
     }

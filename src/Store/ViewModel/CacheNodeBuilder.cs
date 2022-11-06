@@ -52,7 +52,7 @@ public sealed partial class CacheNodeBuilder : TaskBase
             }
         }
 
-        foreach (string path in _implementationStore.ListAllTemp())
+        foreach (string path in _implementationStore.ListTemp())
             Add(GetTempNode(path));
     }
 

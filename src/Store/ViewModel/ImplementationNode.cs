@@ -62,25 +62,10 @@ public abstract class ImplementationNode : StoreNode
     /// <summary>
     /// Deletes this implementation from the <see cref="IImplementationStore"/> it is located in.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
     /// <exception cref="KeyNotFoundException">No matching implementation could be found in the <see cref="IImplementationStore"/>.</exception>
     /// <exception cref="IOException">The implementation could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
-    public override void Delete(ITaskHandler handler)
-    {
-        try
-        {
-            handler.RunTask(new SimpleTask(
-                string.Format(Resources.DeletingImplementation, _digest),
-                () => ImplementationStore.Remove(_digest)));
-        }
-        #region Error handling
-        catch (ImplementationNotFoundException ex)
-        {
-            throw new KeyNotFoundException(ex.Message, ex);
-        }
-        #endregion
-    }
+    public override void Delete() => ImplementationStore.Remove(_digest);
 
     /// <summary>
     /// Verify this implementation is undamaged.
