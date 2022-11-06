@@ -10,7 +10,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// </summary>
 internal class OldUnixExtraData : ITaggedData
 {
-    public short TagID => 0x5855;
+    public ushort TagID => 0x5855;
 
     public UnixTime ModificationTime { get; set; }
 
