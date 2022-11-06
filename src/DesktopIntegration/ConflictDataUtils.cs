@@ -60,16 +60,8 @@ public static class ConflictDataUtils
             foreach (string conflictID in accessPoint.GetConflictIDs(appEntry))
             {
                 var conflictData = new ConflictData(accessPoint, appEntry);
-                try
-                {
-                    newConflictIDs.Add(conflictID, conflictData);
-                }
-                #region Error handling
-                catch (ArgumentException)
-                {
+                if (!newConflictIDs.TryAdd(conflictID, conflictData))
                     throw ConflictException.InnerConflict(conflictData, newConflictIDs[conflictID]);
-                }
-                #endregion
             }
         }
         return newConflictIDs;
@@ -94,14 +86,8 @@ public static class ConflictDataUtils
         foreach (string conflictID in accessPoint.GetConflictIDs(appEntry))
         {
             var conflictData = new ConflictData(accessPoint, appEntry);
-            try
-            {
-                conflictIDs.Add(conflictID, conflictData);
-            }
-            catch (ArgumentException)
-            {
+            if (!conflictIDs.TryAdd(conflictID, conflictData))
                 throw ConflictException.ExistingConflict(conflictIDs[conflictID], conflictData);
-            }
         }
         return conflictIDs;
     }
