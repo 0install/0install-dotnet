@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ICSharpCode.SharpZipLib.GZip;
+using System.IO.Compression;
 
 namespace ZeroInstall.Archives.Builders;
 
@@ -15,6 +15,6 @@ public class TarGzBuilder : TarBuilder
     /// </summary>
     /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
     public TarGzBuilder(Stream stream)
-        : base(new GZipOutputStream(stream))
+        : base(new GZipStream(stream, CompressionMode.Compress))
     {}
 }

@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ICSharpCode.SharpZipLib.GZip;
+using System.IO.Compression;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -15,17 +15,5 @@ public partial class TarGzExtractor : TarExtractor
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
-    {
-        try
-        {
-            base.Extract(builder, new GZipInputStream(stream) {IsStreamOwner = false}, subDir);
-        }
-        #region Error handling
-        catch (GZipException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(Resources.ArchiveInvalid, ex);
-        }
-        #endregion
-    }
+        => base.Extract(builder, new GZipStream(stream, CompressionMode.Decompress), subDir);
 }
