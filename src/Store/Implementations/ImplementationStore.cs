@@ -31,10 +31,6 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     }
 
     /// <inheritdoc/>
-    public bool Contains(ManifestDigest manifestDigest)
-        => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
-
-    /// <inheritdoc/>
     public string? GetPath(ManifestDigest manifestDigest)
         => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 

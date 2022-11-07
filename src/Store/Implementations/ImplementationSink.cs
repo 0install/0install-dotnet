@@ -66,6 +66,10 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     }
 
     /// <inheritdoc/>
+    public bool Contains(ManifestDigest manifestDigest)
+        => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
+
+    /// <inheritdoc/>
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
     {
         #region Sanity checks

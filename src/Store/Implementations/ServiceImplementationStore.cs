@@ -18,6 +18,12 @@ public partial class ServiceImplementationStore : IImplementationStore
     /// <inheritdoc/>
     public ImplementationStoreKind Kind => ImplementationStoreKind.Service;
 
+    /// <summary>
+    /// Always returns <c>false</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
+    /// </summary>
+    /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
+    public bool Contains(ManifestDigest manifestDigest) => false;
+
     /// <inheritdoc/>
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
     {
@@ -37,12 +43,6 @@ public partial class ServiceImplementationStore : IImplementationStore
 
     /// <inheritdoc/>
     public string Path => "-";
-
-    /// <summary>
-    /// Always returns <c>false</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
-    /// </summary>
-    /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-    public bool Contains(ManifestDigest manifestDigest) => false;
 
     /// <summary>
     /// Always returns <c>null</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
