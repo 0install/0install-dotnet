@@ -64,8 +64,7 @@ public sealed partial class StoreMan : CliMultiCommand
                     throw new DirectoryNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
             }
 
-            return new CompositeImplementationStore(
-                AdditionalArgs.Select(x => (IImplementationStore)new ImplementationStore(x, Handler, useWriteProtection: false)));
+            return new CompositeImplementationStore(AdditionalArgs.Select(x => new ImplementationStore(x, Handler, useWriteProtection: false)).ToList());
         }
     }
 }

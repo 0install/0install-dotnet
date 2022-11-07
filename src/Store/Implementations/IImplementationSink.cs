@@ -11,7 +11,7 @@ namespace ZeroInstall.Store.Implementations;
 public interface IImplementationSink
 {
     /// <summary>
-    /// Determines whether the store contains a local copy of an implementation identified by a specific <see cref="ManifestDigest"/>.
+    /// Determines whether the sink/store contains an implementation identified by a specific <see cref="ManifestDigest"/>.
     /// </summary>
     /// <param name="manifestDigest">The digest of the implementation to check for.</param>
     /// <returns>
