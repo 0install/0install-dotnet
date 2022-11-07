@@ -8,9 +8,6 @@
     <PackageProjectUrl>https://dotnet.0install.net/md_publish.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
-  </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -23,7 +20,7 @@
   <!-- Dependencies -->
   <ItemGroup>
     <ProjectReference Include="..\Client\Client.csproj" />
-    <ProjectReference Include="..\Archives\Archives.csproj" PrivateAssets="None" /><!-- Flow native libs from assets -->
+    <ProjectReference Include="..\Archives\Archives.csproj" />
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
   <ItemGroup>

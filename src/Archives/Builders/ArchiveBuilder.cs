@@ -33,6 +33,7 @@ public static class ArchiveBuilder
             Archive.MimeTypeTarGzip => new TarGzBuilder(stream),
             Archive.MimeTypeTarBzip => new TarBz2Builder(stream),
             Archive.MimeTypeTarLzip => new TarLzipBuilder(stream),
+            Archive.MimeTypeTarZstandard => new TarZstandardBuilder(stream),
             _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
         };
     }

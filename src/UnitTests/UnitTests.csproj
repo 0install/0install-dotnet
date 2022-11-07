@@ -9,9 +9,6 @@
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
     <NoWarn>$(NoWarn);xUnit1013</NoWarn><!-- Dispose() not marked as [Fact] -->
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
-  </PropertyGroup>
 
   <!-- Mark as unit test project -->
   <ItemGroup>

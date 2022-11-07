@@ -1,8 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ImpromptuNinjas.ZStd;
 using ZeroInstall.Store.FileSystem;
+using ZstdSharp;
 
 namespace ZeroInstall.Archives.Extractors;
 
@@ -17,10 +17,11 @@ public partial class TarZstandardExtractor : TarExtractor
     {
         try
         {
-            base.Extract(builder, new ZStdDecompressStream(stream), subDir);
+            using var decompressionStream = new DecompressionStream(stream);
+            base.Extract(builder, decompressionStream, subDir);
         }
         #region Error handling
-        catch (ZStdException ex)
+        catch (ZstdException ex)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);

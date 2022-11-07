@@ -8,9 +8,6 @@
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_desktop_integration.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
-    <RuntimeIdentifier>win</RuntimeIdentifier><!-- Deploy native libs to output -->
-  </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -36,7 +33,7 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" />
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" PrivateAssets="All" />
-    <None Include="..\..\artifacts\$(Configuration)\net472\win\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
+    <None Include="..\..\artifacts\$(Configuration)\net472\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
     <None Include="..\..\artifacts\$(Configuration)\net6.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net6.0" Pack="True" />
   </ItemGroup>
 
