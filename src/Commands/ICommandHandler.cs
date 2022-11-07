@@ -4,8 +4,6 @@
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands;
 
@@ -64,12 +62,4 @@ public interface ICommandHandler : ITaskHandler
     /// <exception cref="OperationCanceledException">The user does not want any changes to be applied.</exception>
     /// <remarks>The caller is responsible for saving any changes.</remarks>
     void ShowIntegrateApp(IntegrationState state);
-
-    /// <summary>
-    /// Displays a user interface for managing <see cref="IImplementationStore"/>s.
-    /// Returns once the user is finished.
-    /// </summary>
-    /// <param name="implementationStore">The <see cref="IImplementationStore"/> to manage.</param>
-    /// <param name="feedCache">Information about implementations found in the <paramref name="implementationStore"/> are extracted from here.</param>
-    void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache);
 }

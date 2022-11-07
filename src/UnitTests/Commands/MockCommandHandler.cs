@@ -5,8 +5,6 @@ using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands;
 
@@ -55,9 +53,4 @@ public class MockCommandHandler : MockTaskHandler, ICommandHandler
     /// Does nothing.
     /// </summary>
     public void ShowIntegrateApp(IntegrationState state) {}
-
-    /// <summary>
-    /// Does nothing.
-    /// </summary>
-    public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache) {}
 }

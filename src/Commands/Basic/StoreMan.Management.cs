@@ -8,28 +8,11 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class StoreMan
 {
-    public class Manage : StoreSubCommand
-    {
-        public const string Name = "manage";
-        public override string Description => Resources.DescriptionStoreManage;
-        public override string Usage => "";
-        protected override int AdditionalArgsMax => 0;
-
-        public Manage(ICommandHandler handler)
-            : base(handler)
-        {}
-
-        public override ExitCode Execute()
-        {
-            Handler.ManageStore(ImplementationStore, FeedCache);
-            return ExitCode.OK;
-        }
-    }
-
     public class ListImplementations : StoreSubCommand
     {
         public const string Name = "list-implementations";
-        public override string Description => Resources.DescriptionStoreListImplementations;
+        public const string AltName = "manage";
+        public override string Description => Handler.IsGui ? Resources.DescriptionStoreManage : Resources.DescriptionStoreListImplementations;
         public override string Usage => "[FEED-URI]";
         protected override int AdditionalArgsMax => 1;
 
@@ -39,25 +22,30 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            var nodeBuilder = new CacheNodeBuilder(ImplementationStore, FeedCache);
-            nodeBuilder.Run();
-
             if (AdditionalArgs.Count == 1)
             {
                 var uri = GetCanonicalUri(AdditionalArgs[0]);
                 if (uri.IsFile && !File.Exists(uri.LocalPath))
                     throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, uri.LocalPath), uri.LocalPath);
 
-                var nodes = nodeBuilder.Nodes!.OfType<OwnedImplementationNode>().Where(x => x.FeedUri == uri);
-                Handler.Output(Resources.CachedImplementations, nodes);
+                Handler.Output(Resources.CachedImplementations, GetNodes().OfType<ImplementationNode>().Where(x => x.FeedUri == uri));
             }
             else
             {
-                var nodes = nodeBuilder.Nodes!.OfType<ImplementationNode>();
-                Handler.Output(Resources.CachedImplementations, nodes);
+                if (Handler.IsGui)
+                    Handler.Output(Resources.CachedImplementations, GetNodes()); // Tree view
+                else
+                    Handler.Output(Resources.CachedImplementations, GetNodes().OfType<ImplementationNode>()); // Table view
             }
 
             return ExitCode.OK;
+        }
+
+        private NamedCollection<CacheNode> GetNodes()
+        {
+            var nodeBuilder = new CacheNodeBuilder(ImplementationStore, FeedCache);
+            Handler.RunTask(nodeBuilder);
+            return nodeBuilder.Nodes!;
         }
     }
 

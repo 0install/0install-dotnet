@@ -4,8 +4,6 @@
 using ZeroInstall.DesktopIntegration.ViewModel;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
-using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands;
 
@@ -49,7 +47,4 @@ public sealed class CliCommandHandler : AnsiCliTaskHandler, ICommandHandler
 
     /// <inheritdoc/>
     public void ShowIntegrateApp(IntegrationState state) => throw new NeedsGuiException(Resources.IntegrateAppUseGui);
-
-    /// <inheritdoc/>
-    public void ManageStore(IImplementationStore implementationStore, IFeedCache feedCache) => throw new NeedsGuiException();
 }
