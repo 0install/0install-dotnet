@@ -60,6 +60,12 @@ public abstract class ImplementationNode : StoreNode
     public override string? Path => ImplementationStore.GetPath(_digest);
 
     /// <summary>
+    /// The URI of the feed describing the implementation.
+    /// </summary>
+    [DisplayName("Feed URI"), Description("The URI of the feed describing the implementation.")]
+    public virtual FeedUri? FeedUri => null;
+
+    /// <summary>
     /// Deletes this implementation from the <see cref="IImplementationStore"/> it is located in.
     /// </summary>
     /// <exception cref="KeyNotFoundException">No matching implementation could be found in the <see cref="IImplementationStore"/>.</exception>

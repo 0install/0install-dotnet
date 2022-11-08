@@ -35,11 +35,8 @@ public sealed class OwnedImplementationNode : ImplementationNode
     /// <inheritdoc/>
     public override string Name { get => _parent.Name + Named.TreeSeparator + Version + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
 
-    /// <summary>
-    /// The URI of the feed describing the implementation.
-    /// </summary>
-    [DisplayName("Feed URI"), Description("The URI of the feed describing the implementation.")]
-    public FeedUri? FeedUri => _parent.Uri;
+    /// <inheritdoc/>
+    public override FeedUri? FeedUri => _parent.Uri;
 
     /// <summary>
     /// The version number of the implementation.

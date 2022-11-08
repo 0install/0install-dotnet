@@ -27,30 +27,20 @@ public sealed partial class CacheNodeBuilder : TaskBase
     /// </summary>
     public NamedCollection<CacheNode>? Nodes { get; private set; }
 
-    /// <summary>
-    /// The total size of all <see cref="Implementation"/>s in bytes.
-    /// </summary>
-    public long TotalSize { get; private set; }
-
     private IEnumerable<Feed>? _feeds;
 
     /// <inheritdoc/>
     protected override void Execute()
     {
-        Nodes = new NamedCollection<CacheNode>();
+        Nodes = new();
         _feeds = _feedCache.GetAll();
 
         foreach (var feed in _feeds)
             Add(GetFeedNode(feed));
 
         foreach (var digest in _implementationStore.ListAll())
-        {
             if (GetImplementationNode(digest) is {} node)
-            {
-                TotalSize += node.Size;
                 Add(node);
-            }
-        }
 
         foreach (string path in _implementationStore.ListTemp())
             Add(GetTempNode(path));
