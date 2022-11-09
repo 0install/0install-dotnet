@@ -171,24 +171,22 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     /// <inheritdoc/>
     public void Purge()
     {
-        var removeTempActions = ListTemp().Select(path => new Action(() => RemoveTemp(path)));
-        var removeActions = ListAll().Select(digest => new Action(() => Remove(digest)));
-        var actions = removeTempActions.Concat(removeActions).ToList();
-
-        if (actions.Count != 0)
+        _purging.Value = true;
+        try
         {
-            _purging.Value = true;
-            try
-            {
-                _handler.RunTask(ForEachTask.Create(
-                    name: string.Format(Resources.DeletingDirectory, Path),
-                    target: actions,
-                    work: action => action()));
-            }
-            finally
-            {
-                _purging.Value = false;
-            }
+            _handler.RunTask(ForEachTask.Create(
+                name: string.Format(Resources.DeletingDirectory, Path),
+                target: ListTemp().Concat(ListAll().Cast<object>()).ToList(),
+                work: toRemove => _ = toRemove switch
+                {
+                    string path => RemoveTemp(path),
+                    ManifestDigest digest => Remove(digest),
+                    _ => false
+                }));
+        }
+        finally
+        {
+            _purging.Value = false;
         }
 
         RemoveDeleteInfoFile();
@@ -198,7 +196,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     public long Optimise()
     {
         if (!Directory.Exists(Path)) return 0;
-        if (MissingAdminRights) throw new NotAdminException();
+        if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
         using var run = new OptimiseRun(Path);
         _handler.RunTask(ForEachTask.Create(
