@@ -7,7 +7,7 @@ using ZeroInstall.Store.Implementations;
 namespace ZeroInstall.Store.ViewModel;
 
 /// <summary>
-/// Builds a list of <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
+/// Builds <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
 /// </summary>
 public sealed class CacheNodeBuilder
 {
@@ -29,7 +29,7 @@ public sealed class CacheNodeBuilder
     }
 
     /// <summary>
-    /// TODO
+    /// Builds a list of <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while reading from a cache.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to a cache is not permitted.</exception>

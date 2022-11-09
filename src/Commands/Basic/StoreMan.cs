@@ -18,7 +18,7 @@ public sealed partial class StoreMan : CliMultiCommand
     {}
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Manage.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name};
+    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name};
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)
@@ -30,8 +30,7 @@ public sealed partial class StoreMan : CliMultiCommand
             Export.Name => new Export(Handler),
             Find.Name => new Find(Handler),
             List.Name => new List(Handler),
-            ListImplementations.Name => new ListImplementations(Handler),
-            Manage.Name => new Manage(Handler),
+            ListImplementations.Name or ListImplementations.AltName => new ListImplementations(Handler),
             "manifest" => throw new NotSupportedException(string.Format(Resources.UseInstead, "0install digest --manifest")),
             Optimise.Name or Optimise.AltName => new Optimise(Handler),
             Purge.Name => new Purge(Handler),

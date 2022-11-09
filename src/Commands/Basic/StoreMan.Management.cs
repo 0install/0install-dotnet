@@ -8,28 +8,11 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class StoreMan
 {
-    public class Manage : StoreSubCommand
-    {
-        public const string Name = "manage";
-        public override string Description => Resources.DescriptionStoreManage;
-        public override string Usage => "";
-        protected override int AdditionalArgsMax => 0;
-
-        public Manage(ICommandHandler handler)
-            : base(handler)
-        {}
-
-        public override ExitCode Execute()
-        {
-            Handler.ManageStore(ImplementationStore, FeedCache);
-            return ExitCode.OK;
-        }
-    }
-
     public class ListImplementations : StoreSubCommand
     {
         public const string Name = "list-implementations";
-        public override string Description => Resources.DescriptionStoreListImplementations;
+        public const string AltName = "manage";
+        public override string Description => Handler.IsGui ? Resources.DescriptionStoreManage : Resources.DescriptionStoreListImplementations;
         public override string Usage => "[FEED-URI]";
         protected override int AdditionalArgsMax => 1;
 
