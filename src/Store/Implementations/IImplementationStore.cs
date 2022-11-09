@@ -29,6 +29,7 @@ public interface IImplementationStore : IImplementationSink
     /// <summary>
     /// Returns a list of all implementations currently in the store.
     /// </summary>
+    /// <exception cref="IOException">A problem occurred while reading from the store.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
     /// <returns>A list of implementations formatted as "algorithm=digest" (e.g. "sha256=123abc").</returns>
     IEnumerable<ManifestDigest> ListAll();
@@ -36,6 +37,7 @@ public interface IImplementationStore : IImplementationSink
     /// <summary>
     /// Returns a list of temporary directories currently in the store.
     /// </summary>
+    /// <exception cref="IOException">A problem occurred while reading from the store.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
     /// <returns>A list of fully qualified paths.</returns>
     IEnumerable<string> ListTemp();

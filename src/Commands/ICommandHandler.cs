@@ -62,7 +62,7 @@ public interface ICommandHandler : ITaskHandler
     /// </summary>
     /// <param name="state">A View-Model for modifying the current desktop integration state.</param>
     /// <exception cref="OperationCanceledException">The user does not want any changes to be applied.</exception>
-    /// <remarks>The caller is responsible for saving any changes.</remarks>
+    /// <remarks>The caller is responsible for applying changes.</remarks>
     void ShowIntegrateApp(IntegrationState state);
 
     /// <summary>

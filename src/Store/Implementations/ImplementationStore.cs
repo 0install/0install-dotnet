@@ -165,9 +165,10 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         return true;
     }
 
+    /// <summary>Used to indicate if a <see cref="Purge"/> operation is currently running.</summary>
     private readonly ThreadLocal<bool> _purging = new();
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     public void Purge()
     {
         var removeTempActions = ListTemp().Select(path => new Action(() => RemoveTemp(path)));
