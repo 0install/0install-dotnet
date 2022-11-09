@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic;
 
@@ -10,19 +11,44 @@ namespace ZeroInstall.Commands.Basic;
 /// </summary>
 public class ListTest : CliCommandTestBase<List>
 {
-    private Mock<IFeedCache> FeedCacheMock => GetMock<IFeedCache>();
+    private readonly Feed _feed1 = Fake.Feed, _feed2 = Fake.Feed;
+    private readonly TemporaryFile _feedFile1 = new("0install-test-feed"), _feedFile2 = new("0install-test-feed");
 
-    [Fact] // Ensures calling with no arguments returns all feeds in the cache.
-    public void TestNoArgs()
+    public ListTest()
     {
-        FeedCacheMock.Setup(x => x.ListAll()).Returns(new[] {Fake.Feed1Uri, Fake.Feed2Uri});
-        RunAndAssert(new[] {Fake.Feed1Uri.ToStringRfc(), Fake.Feed2Uri.ToStringRfc()}, ExitCode.OK);
+        _feed1.Uri = Fake.Feed1Uri;
+        _feed2.Uri = Fake.Feed2Uri;
+
+        var feedCacheMock = GetMock<IFeedCache>();
+        feedCacheMock.Setup(x => x.ListAll()).Returns(new[] {_feed1.Uri, _feed2.Uri});
+        feedCacheMock.Setup(x => x.GetPath(_feed1.Uri)).Returns(_feedFile1);
+        feedCacheMock.Setup(x => x.GetFeed(_feed1.Uri)).Returns(_feed1);
+        feedCacheMock.Setup(x => x.GetPath(_feed2.Uri)).Returns(_feedFile2);
+        feedCacheMock.Setup(x => x.GetFeed(_feed2.Uri)).Returns(_feed2);
     }
 
-    [Fact] // Ensures calling with a single argument returns a filtered list of feeds in the cache.
-    public void TestPattern()
+    public override void Dispose()
     {
-        FeedCacheMock.Setup(x => x.ListAll()).Returns(new[] {Fake.Feed1Uri, Fake.Feed2Uri});
-        RunAndAssert(new[] {Fake.Feed2Uri.ToStringRfc()}, ExitCode.OK, "test2");
+        _feedFile1.Dispose();
+        _feedFile2.Dispose();
+        base.Dispose();
+    }
+
+    [Fact]
+    public void TestAll()
+    {
+        RunAndAssert(new[]
+        {
+            new FeedNode(_feedFile1, _feed1),
+            new FeedNode(_feedFile2, _feed2)
+        }, ExitCode.OK);
+    }
+
+    [Fact]
+    public void TestFiltered()
+    {
+        RunAndAssert(new[] {
+            new FeedNode(_feedFile2, _feed2)
+        }, ExitCode.OK, "test2");
     }
 }

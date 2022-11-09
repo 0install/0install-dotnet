@@ -12,21 +12,19 @@ namespace ZeroInstall.Store.ViewModel;
 public sealed class OwnedImplementationNode : ImplementationNode
 {
     private readonly Implementation _implementation;
-
     private readonly FeedNode _parent;
 
     /// <summary>
     /// Creates a new owned implementation node.
     /// </summary>
-    /// <param name="digest">The digest identifying the implementation.</param>
+    /// <param name="path">The path of the directory.</param>
     /// <param name="implementation">Information about the implementation from a <see cref="Feed"/> file.</param>
     /// <param name="parent">The node of the feed owning the implementation.</param>
-    /// <param name="implementationStore">The <see cref="IImplementationStore"/> the implementation is located in.</param>
-    /// <exception cref="FormatException">The manifest file is not valid.</exception>
     /// <exception cref="IOException">The manifest file could not be read.</exception>
-    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
-    public OwnedImplementationNode(ManifestDigest digest, Implementation implementation, FeedNode parent, IImplementationStore implementationStore)
-        : base(digest, implementationStore)
+    /// <exception cref="UnauthorizedAccessException">Read access to the manifest file is not permitted.</exception>
+    /// <exception cref="FormatException">The manifest file is not valid.</exception>
+    public OwnedImplementationNode(string path, Implementation implementation, FeedNode parent)
+        : base(path, implementation.ManifestDigest)
     {
         _parent = parent ?? throw new ArgumentNullException(nameof(parent));
         _implementation = implementation ?? throw new ArgumentNullException(nameof(implementation));
@@ -35,11 +33,8 @@ public sealed class OwnedImplementationNode : ImplementationNode
     /// <inheritdoc/>
     public override string Name { get => _parent.Name + Named.TreeSeparator + Version + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
 
-    /// <summary>
-    /// The URI of the feed describing the implementation.
-    /// </summary>
-    [DisplayName("Feed URI"), Description("The URI of the feed describing the implementation.")]
-    public FeedUri? FeedUri => _parent.Uri;
+    /// <inheritdoc/>
+    public override FeedUri FeedUri => _parent.Uri;
 
     /// <summary>
     /// The version number of the implementation.
@@ -64,5 +59,5 @@ public sealed class OwnedImplementationNode : ImplementationNode
     /// Creates string representation suitable for console output.
     /// </summary>
     public override string ToString()
-        => $"{_parent.Uri?.ToStringRfc()} [{Version}, {Architecture}] - {Digest}: {Path}";
+        => $"{FeedUri.ToStringRfc()} [{Version}, {Architecture}] - {base.ToString()}";
 }

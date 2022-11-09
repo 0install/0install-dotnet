@@ -3,25 +3,41 @@
 
 using System.Text;
 using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Store.ViewModel;
 
 /// <summary>
 /// Models information about a <see cref="Feed"/> in the <see cref="IFeedCache"/> for display in a UI.
 /// </summary>
-[PrimaryConstructor]
-public sealed partial class FeedNode : CacheNode
+public sealed class FeedNode : CacheNode
 {
-    private readonly Feed _feed;
-    private readonly IFeedCache _cache;
+    /// <summary>
+    /// Creates a new feed node.
+    /// </summary>
+    /// <param name="path">The path of the directory.</param>
+    /// <param name="feed">The parsed feed.</param>
+    /// <exception cref="IOException">The feed file could not be read.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the feed file is not permitted.</exception>
+    public FeedNode(string path, Feed feed)
+        : base(path, new FileInfo(path).Length)
+    {
+        Feed = feed;
+    }
+
+    /// <summary>
+    /// The parsed feed.
+    /// </summary>
+    [Browsable(false)]
+    public Feed Feed { get; }
 
     /// <inheritdoc/>
     public override string Name
     {
         get
         {
-            var builder = new StringBuilder(_feed.Name);
-            if (_feed.FeedFor.Count != 0) builder.Append(" (feed-for)");
+            var builder = new StringBuilder(Feed.Name);
+            if (Feed.FeedFor.Count != 0) builder.Append(" (feed-for)");
             if (SuffixCounter != 0)
             {
                 builder.Append(' ');
@@ -36,34 +52,45 @@ public sealed partial class FeedNode : CacheNode
     /// The URI identifying this feed.
     /// </summary>
     [Description("The URI identifying this feed.")]
-    public FeedUri? Uri => _feed.Uri;
+    public FeedUri Uri => Feed.Uri ?? new("http://missing");
 
     /// <summary>
     /// The main website of the application.
     /// </summary>
     [Description("The main website of the application.")]
-    public Uri? Homepage => _feed.Homepage;
+    public Uri? Homepage => Feed.Homepage;
 
     /// <summary>
     /// A short one-line description of the application.
     /// </summary>
     [Description("A short one-line description of the application.")]
-    public string? Summary => _feed.Summaries.GetBestLanguage(CultureInfo.CurrentUICulture);
+    public string? Summary => Feed.Summaries.GetBestLanguage(CultureInfo.CurrentUICulture);
 
     /// <summary>
     /// A comma-separated list of categories the applications fits into.
     /// </summary>
     [Description("A comma-separated list of categories the applications fits into.")]
-    public string Categories => string.Join(",", _feed.Categories.Select(x => x.Name).WhereNotNull());
+    public string Categories => string.Join(",", Feed.Categories.Select(x => x.Name).WhereNotNull());
 
     /// <summary>
-    /// Deletes this <see cref="Feed"/> from the <see cref="IFeedCache"/> it is located in.
+    /// Removes this <see cref="Feed"/> from the <paramref name="feedCache"/> if provided.
     /// </summary>
     /// <exception cref="KeyNotFoundException">No matching feed could be found in the <see cref="IFeedCache"/>.</exception>
     /// <exception cref="IOException">The feed could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-    public override void Delete()
-    {
-        if (_feed.Uri != null) _cache.Remove(_feed.Uri);
-    }
+    public override void Remove(IFeedCache? feedCache = null, IImplementationStore? implementationStore = null)
+        => feedCache?.Remove(Uri);
+
+    /// <inheritdoc/>
+    public override bool Equals(CacheNode? other)
+        => other is FeedNode feedNode && feedNode.Uri == Uri;
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => Uri.GetHashCode();
+
+    /// <summary>
+    /// Creates string representation suitable for console output.
+    /// </summary>
+    public override string ToString()
+        => Uri.ToStringRfc();
 }

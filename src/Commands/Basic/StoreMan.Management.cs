@@ -39,8 +39,7 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            var nodeBuilder = new CacheNodeBuilder(ImplementationStore, FeedCache);
-            nodeBuilder.Run();
+            NamedCollection<CacheNode> GetNodes() => new CacheNodeBuilder(Handler, FeedCache, ImplementationStore).Build();
 
             if (AdditionalArgs.Count == 1)
             {
@@ -48,13 +47,14 @@ partial class StoreMan
                 if (uri.IsFile && !File.Exists(uri.LocalPath))
                     throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, uri.LocalPath), uri.LocalPath);
 
-                var nodes = nodeBuilder.Nodes!.OfType<OwnedImplementationNode>().Where(x => x.FeedUri == uri);
-                Handler.Output(Resources.CachedImplementations, nodes);
+                Handler.Output(Resources.CachedImplementations, GetNodes().OfType<ImplementationNode>().Where(x => x.FeedUri == uri));
             }
             else
             {
-                var nodes = nodeBuilder.Nodes!.OfType<ImplementationNode>();
-                Handler.Output(Resources.CachedImplementations, nodes);
+                if (Handler.IsGui)
+                    Handler.Output(Resources.CachedImplementations, GetNodes()); // Tree view
+                else
+                    Handler.Output(Resources.CachedImplementations, GetNodes().OfType<ImplementationNode>()); // Table view
             }
 
             return ExitCode.OK;

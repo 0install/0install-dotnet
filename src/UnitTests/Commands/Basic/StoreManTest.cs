@@ -112,27 +112,71 @@ public class StoreManTest
 
     public class ListImplementations : StoreSubCommand<StoreMan.ListImplementations>
     {
-        [Fact]
-        public void ListAll()
+        private readonly Feed _feed1 = Fake.Feed, _feed2 = Fake.Feed;
+        private readonly TemporaryFile _feedFile1 = new("0install-test-feed"), _feedFile2 = new("0install-test-feed");
+        private readonly Implementation _impl1, _impl2;
+        private readonly TemporaryDirectory _implDir1 = new("0install-test-impl"), _implDir2 = new("0install-test-impl"), _implDir3 = new("0install-test-impl");
+        private readonly ManifestDigest _digest3 = new(Sha256New: "3");
+
+        public ListImplementations()
         {
-            var testFeed = Fake.Feed;
-            var testImplementation = (Implementation)testFeed.Elements[0];
-            var digest1 = testImplementation.ManifestDigest;
-            var digest2 = new ManifestDigest(Sha256New: "2");
+            _feed1.Uri = Fake.Feed1Uri;
+            _impl1 = _feed1.Implementations.First();
 
-            using var tempDir = new TemporaryDirectory("0install-test-impl");
-            GetMock<IFeedCache>().Setup(x => x.ListAll()).Returns(new[] {testFeed.Uri});
-            GetMock<IFeedCache>().Setup(x => x.GetFeed(testFeed.Uri)).Returns(testFeed);
-            StoreMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
-            StoreMock.Setup(x => x.ListTemp()).Returns(Array.Empty<string>());
-            StoreMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(tempDir);
-            FileUtils.Touch(Path.Combine(tempDir, ".manifest"));
+            _feed2.Uri = Fake.Feed2Uri;
+            _impl2 = _feed2.Implementations.First();
+            _impl2.ManifestDigest = new ManifestDigest(Sha256: "2");
 
-            RunAndAssert(new ImplementationNode[]
+            var feedCacheMock = GetMock<IFeedCache>();
+            feedCacheMock.Setup(x => x.ListAll()).Returns(new[] {_feed1.Uri, _feed2.Uri});
+            void SetupFeed(Feed feed, string path)
             {
-                new OwnedImplementationNode(digest1, testImplementation, new FeedNode(testFeed, Sut.FeedCache), Sut.ImplementationStore),
-                new OrphanedImplementationNode(digest2, Sut.ImplementationStore)
+                feedCacheMock.Setup(x => x.GetPath(feed.Uri)).Returns(path);
+                feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
+            }
+            SetupFeed(_feed1, _feedFile1);
+            SetupFeed(_feed2, _feedFile2);
+
+            StoreMock.Setup(x => x.ListAll()).Returns(new[] {_impl1.ManifestDigest, _impl2.ManifestDigest, _digest3});
+            void SetupImpl(ManifestDigest digest, string path)
+            {
+                StoreMock.Setup(x => x.GetPath(digest)).Returns(path);
+                FileUtils.Touch(Path.Combine(path, ".manifest"));
+            }
+            SetupImpl(_impl1.ManifestDigest, _implDir1);
+            SetupImpl(_impl2.ManifestDigest, _implDir2);
+            SetupImpl(_digest3, _implDir3);
+            StoreMock.Setup(x => x.ListTemp()).Returns(Enumerable.Empty<string>());
+        }
+
+        public override void Dispose()
+        {
+            _feedFile1.Dispose();
+            _feedFile2.Dispose();
+            _implDir1.Dispose();
+            _implDir2.Dispose();
+            _implDir3.Dispose();
+            base.Dispose();
+        }
+
+        [Fact]
+        public void TestAll()
+        {
+            RunAndAssert(new[]
+            {
+                new OwnedImplementationNode(_implDir1, _impl1, new FeedNode(_feedFile1, _feed1)),
+                new OwnedImplementationNode(_implDir2, _impl2, new FeedNode(_feedFile2, _feed2)),
+                new ImplementationNode(_implDir3, _digest3)
             }, ExitCode.OK);
+        }
+
+        [Fact]
+        public void TestFiltered()
+        {
+            RunAndAssert(new[]
+            {
+                new OwnedImplementationNode(_implDir2, _impl2, new FeedNode(_feedFile2, _feed2))
+            }, ExitCode.OK, _feed2.Uri!.ToStringRfc());
         }
     }
 

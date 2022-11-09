@@ -1,13 +1,17 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.Implementations;
+
 namespace ZeroInstall.Store.ViewModel;
 
 /// <summary>
 /// Models information about elements in a cache for display in a UI.
 /// </summary>
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
-public abstract class CacheNode : INamed, IEquatable<CacheNode>
+[PrimaryConstructor]
+public abstract partial class CacheNode : INamed, IEquatable<CacheNode>
 {
     /// <summary>
     /// The full name of the node used for tree hierarchies.
@@ -19,24 +23,38 @@ public abstract class CacheNode : INamed, IEquatable<CacheNode>
     /// A counter that can be used to prevent naming collisions.
     /// </summary>
     /// <remarks>If this value is not zero it is appended to the <see cref="Name"/>.</remarks>
-    public int SuffixCounter;
+    [Browsable(false)]
+    public int SuffixCounter { get; internal set; }
 
     /// <summary>
-    /// Deletes this element from the cache it is stored in.
+    /// The path of the directory.
+    /// </summary>
+    [Description("The path of the directory.")]
+    public string Path { get; }
+
+    /// <summary>
+    /// The total size of the directory in bytes.
+    /// </summary>
+    [Browsable(false)]
+    public long Size { get; }
+
+    /// <summary>
+    /// The total size of the directory in human-readable form.
+    /// </summary>
+    [DisplayName("Size"), Description("The total size of the directory.")]
+    public string SizeHuman => Size.FormatBytes();
+
+    /// <summary>
+    /// Removes this element from the cache it is stored in.
     /// </summary>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="KeyNotFoundException">No matching element could be found in the cache.</exception>
     /// <exception cref="IOException">The element could not be deleted.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
-    public abstract void Delete();
+    public abstract void Remove(IFeedCache? feedCache = null, IImplementationStore? implementationStore = null);
 
     /// <inheritdoc/>
-    public bool Equals(CacheNode? other)
-    {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
-        return Name == other.Name;
-    }
+    public abstract bool Equals(CacheNode? other);
 
     /// <inheritdoc/>
     public override bool Equals(object? obj)
@@ -48,5 +66,11 @@ public abstract class CacheNode : INamed, IEquatable<CacheNode>
     }
 
     /// <inheritdoc/>
-    public override int GetHashCode() => Name.GetHashCode();
+    public override int GetHashCode() => 0;
+
+    /// <summary>
+    /// Creates string representation suitable for console output.
+    /// </summary>
+    public override string ToString()
+        => Path;
 }
