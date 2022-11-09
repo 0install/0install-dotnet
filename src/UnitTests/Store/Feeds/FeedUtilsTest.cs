@@ -7,29 +7,10 @@ using ZeroInstall.Store.Trust;
 namespace ZeroInstall.Store.Feeds;
 
 /// <summary>
-/// Contains test methods for <see cref="FeedCacheExtensions"/>.
+/// Contains test methods for <see cref="FeedUtils"/>.
 /// </summary>
-public class FeedCacheExtensionsTest : TestWithMocks
+public class FeedUtilsTest : TestWithMocks
 {
-    /// <summary>
-    /// Ensures <see cref="FeedCacheExtensions.GetAll"/> correctly loads <see cref="Feed"/>s from an <see cref="IFeedCache"/>, skipping any exceptions.
-    /// </summary>
-    [Fact]
-    public void GetFeeds()
-    {
-        var feed1 = FeedTest.CreateTestFeed();
-        var feed3 = FeedTest.CreateTestFeed();
-        feed3.Uri = FeedTest.Test3Uri;
-
-        var cacheMock = GetMock<IFeedCache>();
-        cacheMock.Setup(x => x.ListAll()).Returns(new[] {FeedTest.Test1Uri, FeedTest.Test2Uri, FeedTest.Test3Uri});
-        cacheMock.Setup(x => x.GetFeed(FeedTest.Test1Uri)).Returns(feed1);
-        cacheMock.Setup(x => x.GetFeed(FeedTest.Test2Uri)).Throws(new InvalidDataException("Fake exception for testing"));
-        cacheMock.Setup(x => x.GetFeed(FeedTest.Test3Uri)).Returns(feed3);
-
-        cacheMock.Object.GetAll().Should().Equal(feed1, feed3);
-    }
-
     private const string FeedText = "Feed data\n";
     private readonly ArraySegment<byte> _feedBytes = new(Encoding.UTF8.GetBytes(FeedText));
     private static readonly byte[] _signatureBytes = Encoding.UTF8.GetBytes("Signature data");
