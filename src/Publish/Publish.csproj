@@ -24,7 +24,7 @@
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ELFSharp" Version="2.15.1" />
+    <PackageReference Include="ELFSharp" Version="2.15.2" />
   </ItemGroup>
 
   <!-- Embedded resources -->
