@@ -496,6 +496,9 @@ A &lt;feed-for&gt; tag indicates feed compatibility.</value>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' is not a valid feed URI or file path.</value>
   </data>
+  <data name="LaterVersionNotSelected" xml:space="preserve">
+    <value>A later version ({0}) exists but was not selected. Using {1} instead.</value>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>This program comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law.
 You may redistribute copies of this program under the terms of the GNU Lesser General Public License.</value>

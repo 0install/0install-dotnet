@@ -1160,6 +1160,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A later version ({0}) exists but was not selected. Using {1} instead..
+        /// </summary>
+        public static string LaterVersionNotSelected {
+            get {
+                return ResourceManager.GetString("LaterVersionNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This program comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law.
         ///You may redistribute copies of this program under the terms of the GNU Lesser General Public License..
         /// </summary>

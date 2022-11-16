@@ -67,17 +67,17 @@ public class Update : Download
     {
         Debug.Assert(_oldSelections != null && Selections != null);
 
-        var diff = SelectionsManager.GetDiff(_oldSelections, Selections).ToList();
-
-        if (diff.Count == 0)
-        {
-            Handler.OutputLow(Resources.NoUpdatesFound, Resources.NoUpdatesFound);
-            return ExitCode.NoChanges;
-        }
-        else
+        if (SelectionsManager.GetDiff(_oldSelections, Selections).ToList() is {Count: > 0} diff)
         {
             Handler.Output(Resources.ChangesFound, diff);
             return ExitCode.OK;
         }
+
+        var selection = Selections.MainImplementation;
+        if (selection.Candidates?.Max(x => x.Version) is {} maxVersion && maxVersion > selection.Version)
+            Handler.OutputLow(Resources.NoUpdatesFound, string.Format(Resources.LaterVersionNotSelected, maxVersion, selection.Version));
+        else
+            Handler.OutputLow(Resources.NoUpdatesFound, Resources.NoUpdatesFound);
+        return ExitCode.NoChanges;
     }
 }
