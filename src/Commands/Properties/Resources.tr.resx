@@ -557,6 +557,10 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <value>'{0}' geçerli bir akış adresi ya da dosya yolu değil.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="LaterVersionNotSelected" xml:space="preserve">
+    <value>Daha sonraki bir sürüm ({0}) mevcut, ancak seçilmedi. Bunun yerine {1} kullanılıyor.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Bu yazılım yasaların izin verdiği ölçüde KESİNLİKLE HERHANGİ BİR GARANTİ OLMADAN sunulur.
 Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağlı kalınarak dağıtılabilir.</value>

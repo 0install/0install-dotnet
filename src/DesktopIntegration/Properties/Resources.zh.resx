@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>以下应用程序的访问点{0} ，相互之间存在冲突。</value>
+    <value>以下应用程序的接入点{0} ，相互之间存在冲突。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">

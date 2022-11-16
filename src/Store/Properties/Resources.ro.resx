@@ -254,7 +254,7 @@ Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>A existat o problemă la încărcarea valorii de configurare '{0}'.
-Puteți șterge fișierul '{1}' pentru a remedia problema. Este posibil să se piardă și alte setări.</value>
+Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se piardă și alte setări.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProcessingFiles" xml:space="preserve">
@@ -290,7 +290,7 @@ Puteți șterge fișierul '{1}' pentru a remedia problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>Ultima linie a fișierului nu este sfârșitul blocului de semnături.</value>
+    <value>Ultima linie a fișierului nu reprezintă sfârșitul blocului de semnături.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">

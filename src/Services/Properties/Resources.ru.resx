@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Команда для '{0}' не указана.</value>
+    <value>Не указана команда для '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">

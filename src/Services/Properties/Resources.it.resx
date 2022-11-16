@@ -139,7 +139,7 @@ Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Il server di informazioni sulle chiavi non è stato in grado di fornire ulteriori informazioni su questa chiave.</value>
+    <value>Il server delle informazioni sulle chiavi non è stato in grado di fornire ulteriori informazioni su questa chiave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">

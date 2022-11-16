@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>保存信托数据库出错</value>
+    <value>保存信任数据库出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' 是一个本地文件。它应该是一个HTTP(S)的URL。</value>
+    <value>'{0}'是一个本地文件。它应该是一个HTTP(S)的URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -170,7 +170,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>无法解析 "{0}"的关键信息。</value>
+    <value>无法解析'{0}'的关键信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
