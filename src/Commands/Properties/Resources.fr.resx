@@ -277,7 +277,7 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
+    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI vers un REPERTOIRE.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -557,6 +557,10 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <value>'{0}' n'est pas une URI de flux ou un chemin de fichier valide.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="LaterVersionNotSelected" xml:space="preserve">
+    <value>Une version ultérieure ({0}) existe mais n'a pas été sélectionnée. Utiliser {1} à la place.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Ce programme est fourni SANS AUCUNE GARANTIE, dans les limites prévues par la loi applicable.
 Vous pouvez redistribuer des copies de ce programme suivant les termes de la “GNU Lesser General Public License”.</value>
@@ -595,7 +599,7 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} ne peut être spécifié que conjointement avec un nom d'alias.</value>
+    <value>{0} ne peut être spécifié qu'avec un nom d'alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -660,7 +664,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Répondre automatiquement aux questions avec des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
+    <value>Répondre automatiquement aux questions par des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -681,7 +685,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Passe à un onglet spécifique dans l'interface graphique de configuration. Les {TAB} valides sont 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' et 'advanced'.</value>
+    <value>Passez à un onglet spécifique dans l'interface graphique de configuration. {TAB}Les options valides sont les suivantes : "updates", "storage", "catalog", "trust", "sync", "language", "language" et "advanced".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -804,7 +808,7 @@ En mode hors ligne, aucune interface n'est rafraîchie, même si elle n'est plus
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Réinitialise les données de synchronisation. Les {MODE} valides sont 'none' (fusionne normalement les données du client et du serveur), 'client' (remplace toutes les données du client par celles du serveur) et 'server' (remplace toutes les données du serveur par celles du client).</value>
+    <value>Réinitialise les données de synchronisation. Les valeurs valides de {MODE}sont 'none' (fusionne normalement les données du client et du serveur), 'client' (remplace toutes les données du client par celles du serveur) et 'server' (remplace toutes les données du serveur par celles du client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -816,9 +820,9 @@ En mode hors ligne, aucune interface n'est rafraîchie, même si elle n'est plus
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Exige une version du programme principal dans la {RANGE} donnée.
+    <value>Exige une version du programme principal dans la fourchette donnée {RANGE}.
 Les plages sont séparées par des tuyaux (|).
-Chaque plage se présente sous la forme "START...!END". La plage correspond aux versions pour lesquelles START &lt;= VERSION &lt; END. Le début ou la fin peuvent être omis.
+Chaque plage se présente sous la forme "START...!END". La plage correspond aux versions où START &lt;= VERSION &lt; END. Le début ou la fin peuvent être omis.
 Un seul numéro de version peut être utilisé à la place d'une plage pour correspondre uniquement à cette version, ou !VERSION pour correspondre à tout sauf à cette version.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -832,7 +836,7 @@ Cependant, les nouveaux téléchargements ne seront pas écrits dans ce réperto
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Au lieu d'exécuter directement le programme choisi, lancez {COMMAND} ARGS PROGRAMME. Ceci est utile pour lancer des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
+    <value>Au lieu d'exécuter directement le programme choisi, lancez {COMMAND} PROGRAM ARGS. Ceci est utile pour lancer des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
 Notez que le wrapper est exécuté dans l'environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
 Peut contenir des arguments de ligne de commande. Les espaces blancs doivent être échappés !</value>
     <comment>Automatically translated.</comment>

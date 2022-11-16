@@ -91,7 +91,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Feed '{0}' nie jest buforowany, a Zero Install jest obecnie w trybie off-line.</value>
+    <value>Feed "{0}" nie jest buforowany, a Zero Install jest obecnie w trybie off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -119,7 +119,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Nieprawidłowy znak w nazwie wiązania {0}.</value>
+    <value>Niedozwolony znak w nazwie wiązania {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -162,7 +162,7 @@ Nowy czas {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nie można zbuforować pobranego katalogu aplikacji.</value>
+    <value>Nie udało się zbuforować pobranego katalogu aplikacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

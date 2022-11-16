@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Système d'exploitation ou processeur non compatible</value>
+    <value>Système d'exploitation ou CPU incompatible</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">

@@ -239,7 +239,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
