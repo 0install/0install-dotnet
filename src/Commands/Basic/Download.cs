@@ -107,16 +107,16 @@ public class Download : Selection
     /// <remarks>Makes sure <see cref="ISolver"/> ran with up-to-date feeds before downloading any implementations.</remarks>
     protected void DownloadUncachedImplementations()
     {
-        if (UncachedImplementations?.Count > 0 && !FeedManager.Refresh)
+        if (UncachedImplementations is {Count: > 0} && !FeedManager.Refresh)
         {
             Log.Info("Running Refresh Solve because there are un-cached implementations");
             RefreshSolve();
         }
 
-        if (CustomizeSelections || UncachedImplementations?.Count > 0)
+        if (CustomizeSelections || UncachedImplementations is {Count: > 0})
             ShowSelections();
 
-        if (UncachedImplementations?.Count > 0)
+        if (UncachedImplementations is {Count: > 0})
             FetchAll(UncachedImplementations);
     }
 
