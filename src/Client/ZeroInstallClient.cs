@@ -64,7 +64,7 @@ public class ZeroInstallClient : IZeroInstallClient
         {
             _launcher.Run("trust", "add", fingerprint, domain);
         }
-        catch (ExitCodeException ex) when (ex.ExitCode == 1) // NoChanges
+        catch (NoChangesException)
         {}
     }
 
