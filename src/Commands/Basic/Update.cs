@@ -73,6 +73,12 @@ public class Update : Download
             return ExitCode.OK;
         }
 
+        if (UncachedImplementations is {Count: > 0})
+        {
+            Handler.OutputLow(Resources.DownloadComplete, Resources.AllComponentsDownloaded);
+            return ExitCode.OK;
+        }
+
         var selection = Selections.MainImplementation;
         if (selection.Candidates?.Max(x => x.Version) is {} maxVersion && maxVersion > selection.Version)
             Handler.OutputLow(Resources.NoUpdatesFound, string.Format(Resources.LaterVersionNotSelected, maxVersion, selection.Version));
