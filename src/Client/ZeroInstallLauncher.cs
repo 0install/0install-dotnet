@@ -50,6 +50,8 @@ internal class ZeroInstallLauncher : ProcessLauncher
     {
         if (process.ExitCode == 0) return;
 
+        message ??= Log.ReadLastErrorFrom(Path.GetFileNameWithoutExtension(process.StartInfo.FileName), process.Id);
+
         try
         {
             base.HandleExitCode(process, message);
