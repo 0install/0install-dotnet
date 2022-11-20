@@ -7,9 +7,9 @@
     <Description>Client for invoking Zero Install commands from within other applications</Description>
     <PackageProjectUrl>https://dotnet.0install.net/md_client.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <TargetFrameworks>net461;net472;netstandard2.1;net6.0</TargetFrameworks>
+    <TargetFrameworks>net461;net472;net6.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1' Or '$(TargetFramework)'=='net6.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
