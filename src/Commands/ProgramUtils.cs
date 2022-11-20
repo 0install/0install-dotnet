@@ -216,8 +216,7 @@ public static class ProgramUtils
         }
         catch (WebException ex)
         {
-            if (handler.Background) Log.Info("Suppressed network error due to background mode", ex);
-            else handler.Error(ex);
+            handler.Error(ex);
             return ExitCode.WebError;
         }
         catch (NotSupportedException ex)

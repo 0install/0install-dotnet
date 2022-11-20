@@ -3,7 +3,6 @@
 
 using System.Diagnostics;
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Services.Solvers;
 
 namespace ZeroInstall.Commands.Basic;
 
@@ -30,18 +29,10 @@ public class Update : Download
     {
         if (SelectionsDocument) throw new NotSupportedException(Resources.NoSelectionsDocumentUpdate);
 
-        try
-        {
-            OldSolve();
+        OldSolve();
 
-            Log.Info("Running Refresh Solve to find updates");
-            RefreshSolve();
-        }
-        catch (SolverException ex) when (Handler.Background)
-        {
-            Log.Info("Suppressed Solver-related error due to background mode", ex);
-            return ExitCode.SolverError;
-        }
+        Log.Info("Running Refresh Solve to find updates");
+        RefreshSolve();
 
         DownloadUncachedImplementations();
 
