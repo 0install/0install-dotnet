@@ -131,7 +131,6 @@ public class Run : Download
     private void BackgroundUpdate()
     {
         if (FeedManager.ShouldRefresh
-         && Config.EffectiveNetworkUse == NetworkLevel.Full
          && !FeedManager.RateLimit(Requirements.InterfaceUri))
         {
             Log.Info("Starting background update because feeds have become stale");
