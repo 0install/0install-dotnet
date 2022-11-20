@@ -20,8 +20,7 @@ var feedUri = ZeroInstallEnvironment.FeedUri ?? new FeedUri("https://example.com
 Download updates if available:
 
 ```csharp
-var selections = await zeroInstall.DownloadAsync(feedUri, refresh: true);
-if (selections.MainImplementation.Version > new ImplementationVersion(AppInfo.Current.Version ?? "0"))
+if (await zeroInstall.UpdateAsync(feedUri))
     NotifyUpdateAvailable();
 ```
 

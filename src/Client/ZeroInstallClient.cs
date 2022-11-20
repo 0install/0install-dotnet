@@ -102,6 +102,23 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
+    public async Task<bool> UpdateAsync(Requirements requirements)
+    {
+        var args = new List<string> { "update", "--batch", requirements.ToCommandLineArgs() };
+        if (_guiLauncher != null) args.Add("--background");
+
+        try
+        {
+            await Task.Run(() => (_guiLauncher ?? _launcher).Run(args.ToArray()));
+        }
+        catch (NoChangesException)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    /// <inheritdoc/>
     public void Run(Requirements requirements, bool refresh = false, bool needsTerminal = false, params string[] arguments)
     {
         var args = new List<string> { "run", "--no-wait" };
