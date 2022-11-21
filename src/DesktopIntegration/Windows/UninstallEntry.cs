@@ -58,22 +58,19 @@ public static class UninstallEntry
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public static void Register(string id, string[] uninstallCommand, string name, Uri? homepage = null, string? iconPath = null, string? version = null, long? size = null, bool machineWide = false)
     {
-        ExceptionUtils.Retry<IOException>(_ =>
-        {
-            using var uninstallKey = OpenUninstallKey(machineWide);
-            using var appKey = uninstallKey.CreateSubKeyChecked(id);
+        using var uninstallKey = OpenUninstallKey(machineWide);
+        using var appKey = uninstallKey.CreateSubKeyChecked(id);
 
-            appKey.SetValue("UninstallString", uninstallCommand.JoinEscapeArguments());
-            appKey.SetValue("QuietUninstallString", uninstallCommand.Concat(new[] {"--batch", "--background"}).JoinEscapeArguments());
-            appKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
-            appKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
-            appKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
-            appKey.SetValue("DisplayName", name);
-            appKey.SetOrDelete("DisplayIcon", iconPath);
-            appKey.SetOrDelete("URLInfoAbout", homepage?.ToString());
-            appKey.SetOrDelete("DisplayVersion", version);
-            if (size.HasValue) appKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
-        });
+        appKey.SetValue("UninstallString", uninstallCommand.JoinEscapeArguments());
+        appKey.SetValue("QuietUninstallString", uninstallCommand.Concat(new[] {"--batch", "--background"}).JoinEscapeArguments());
+        appKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
+        appKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+        appKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+        appKey.SetValue("DisplayName", name);
+        appKey.SetOrDelete("DisplayIcon", iconPath);
+        appKey.SetOrDelete("URLInfoAbout", homepage?.ToString());
+        appKey.SetOrDelete("DisplayVersion", version);
+        if (size.HasValue) appKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
     }
 
     /// <summary>
@@ -99,11 +96,8 @@ public static class UninstallEntry
         if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
         #endregion
 
-        ExceptionUtils.Retry<IOException>(_ =>
-        {
-            using var key = OpenUninstallKey(machineWide);
-            key.DeleteSubKey(id, throwOnMissingSubKey: false);
-        });
+        using var key = OpenUninstallKey(machineWide);
+        key.DeleteSubKeyTree(id, throwOnMissingSubKey: false);
     }
 
     private static RegistryKey OpenUninstallKey(bool machineWide)
