@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using Microsoft.Win32;
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture;
@@ -29,7 +30,7 @@ partial class SnapshotDiff
 
         foreach ((string service, string client) in ServiceAssocs)
         {
-            using var clientKey = Registry.LocalMachine.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client);
+            using var clientKey = Registry.LocalMachine.TryOpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client);
             if (clientKey == null) continue;
 
             if (string.IsNullOrEmpty(appName))
@@ -60,7 +61,7 @@ partial class SnapshotDiff
         if (string.IsNullOrEmpty(installationDir)) throw new ArgumentNullException(nameof(installationDir));
         #endregion
 
-        using var installInfoKey = clientKey.OpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo);
+        using var installInfoKey = clientKey.TryOpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegSubKeyInstallInfo);
         if (installInfoKey == null) return default;
 
         (string? commandLine, string? arguments) IsolateCommand(string regValueName)

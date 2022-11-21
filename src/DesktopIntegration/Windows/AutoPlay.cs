@@ -121,7 +121,7 @@ public static class AutoPlay
 
         // Remove appropriate purpose flag and check if there are others
         bool otherFlags;
-        using (var handlerKey = hive.OpenSubKey($@"{RegKeyHandlers}\{handlerName}", writable: true))
+        using (var handlerKey = hive.TryOpenSubKey($@"{RegKeyHandlers}\{handlerName}", writable: true))
         {
             if (handlerKey == null) otherFlags = false;
             else
@@ -136,7 +136,7 @@ public static class AutoPlay
         {
             foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))
             {
-                using var eventKey = hive.OpenSubKey($@"{RegKeyAssocs}\{autoPlayEvent.Name}", writable: true);
+                using var eventKey = hive.TryOpenSubKey($@"{RegKeyAssocs}\{autoPlayEvent.Name}", writable: true);
                 eventKey?.DeleteValue(handlerName, throwOnMissingValue: false);
             }
 

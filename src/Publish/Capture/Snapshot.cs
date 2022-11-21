@@ -112,7 +112,7 @@ public class Snapshot
     /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
     private static IReadOnlyCollection<(string serviceName, string clientName)> GetServiceAssocs()
     {
-        using var clientsKey = Registry.LocalMachine.OpenSubKey(DefaultProgram.RegKeyMachineClients);
+        using var clientsKey = Registry.LocalMachine.TryOpenSubKey(DefaultProgram.RegKeyMachineClients);
         if (clientsKey == null) return Array.Empty<(string, string)>();
 
         return (
@@ -134,7 +134,7 @@ public class Snapshot
         {
             if (keyName.StartsWith("."))
             {
-                using var assocKey = Registry.ClassesRoot.OpenSubKey(keyName);
+                using var assocKey = Registry.ClassesRoot.TryOpenSubKey(keyName);
                 if (assocKey == null) continue;
 
                 // Get the main ProgID
@@ -168,7 +168,7 @@ public class Snapshot
     /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>
     private static IReadOnlyCollection<(string eventName, string handlerName)> GetAutoPlayAssocs(RegistryKey hive)
     {
-        using var eventsKey = hive.OpenSubKey(AutoPlay.RegKeyAssocs);
+        using var eventsKey = hive.TryOpenSubKey(AutoPlay.RegKeyAssocs);
         if (eventsKey == null) return Array.Empty<(string, string)>();
 
         return (

@@ -76,14 +76,14 @@ partial class SnapshotDiff
         if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));
         #endregion
 
-        using var urlAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyUrlAssocs);
+        using var urlAssocKey = capsKey.TryOpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyUrlAssocs);
         if (urlAssocKey == null) return;
 
         foreach (string protocol in urlAssocKey.GetValueNames())
         {
             string? progID = urlAssocKey.GetValue(protocol)?.ToString();
             if (string.IsNullOrEmpty(progID)) continue;
-            using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
+            using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID);
             if (progIDKey == null) continue;
 
             var prefix = new KnownProtocolPrefix {Value = protocol};
@@ -118,7 +118,7 @@ partial class SnapshotDiff
         if (capabilities == null) throw new ArgumentNullException(nameof(capabilities));
         #endregion
 
-        using var fileAssocKey = capsKey.OpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyFileAssocs);
+        using var fileAssocKey = capsKey.TryOpenSubKey(DesktopIntegration.Windows.AppRegistration.RegSubKeyFileAssocs);
         if (fileAssocKey == null) return;
 
         foreach (string extension in fileAssocKey.GetValueNames())

@@ -89,7 +89,7 @@ public static class FileType
                         using var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value);
                         // Only mess with this part of the registry when necessary
                         bool alreadySet;
-                        using (var userChoiceKey = extensionOverrideKey.OpenSubKey("UserChoice", writable: false))
+                        using (var userChoiceKey = extensionOverrideKey.TryOpenSubKey("UserChoice", writable: false))
                         {
                             if (userChoiceKey == null) alreadySet = false;
                             else alreadySet = ((userChoiceKey.GetValue("Progid") ?? "").ToString() == RegistryClasses.Prefix + fileType.ID);
@@ -155,7 +155,7 @@ public static class FileType
             //     if (!machineWide && WindowsUtils.IsWindowsVista && !WindowsUtils.IsWindows8)
             //     {
             //         // Windows Vista and later store per-user file extension overrides, Windows 8 blocks programmatic modification with hash values
-            //         using (var overridesKey = hive.OpenSubKey(RegKeyOverrides, true))
+            //         using (var overridesKey = hive.TryOpenSubKey(RegKeyOverrides, true))
             //         using (var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value))
             //         {
             //             // Must delete and recreate instead of direct modification due to wicked ACLs
@@ -167,10 +167,10 @@ public static class FileType
             // }
 
             // Unregister extensions
-            using var extensionKey = classesKey.OpenSubKey(extension.Value, writable: true);
+            using var extensionKey = classesKey.TryOpenSubKey(extension.Value, writable: true);
             if (extensionKey != null)
             {
-                using var openWithKey = extensionKey.OpenSubKey(RegSubKeyOpenWith, writable: true);
+                using var openWithKey = extensionKey.TryOpenSubKey(RegSubKeyOpenWith, writable: true);
                 openWithKey?.DeleteValue(RegistryClasses.Prefix + fileType.ID, throwOnMissingValue: false);
             }
 
@@ -182,7 +182,7 @@ public static class FileType
 
         // Remove appropriate purpose flag and check if there are others
         bool otherFlags;
-        using (var progIDKey = classesKey.OpenSubKey(RegistryClasses.Prefix + fileType.ID, writable: true))
+        using (var progIDKey = classesKey.TryOpenSubKey(RegistryClasses.Prefix + fileType.ID, writable: true))
         {
             if (progIDKey == null) otherFlags = false;
             else

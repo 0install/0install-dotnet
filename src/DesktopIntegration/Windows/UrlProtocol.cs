@@ -119,7 +119,7 @@ public static class UrlProtocol
 
             // Remove appropriate purpose flag and check if there are others
             bool otherFlags;
-            using (var progIDKey = classesKey.OpenSubKey(RegistryClasses.Prefix + urlProtocol.ID, writable: true))
+            using (var progIDKey = classesKey.TryOpenSubKey(RegistryClasses.Prefix + urlProtocol.ID, writable: true))
             {
                 if (progIDKey == null) otherFlags = false;
                 else

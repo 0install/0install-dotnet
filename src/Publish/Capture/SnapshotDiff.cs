@@ -3,6 +3,7 @@
 
 using System.Runtime.Versioning;
 using Microsoft.Win32;
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture;
@@ -99,12 +100,12 @@ public partial class SnapshotDiff : Snapshot
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        using var verbKey = typeKey.OpenSubKey(@"shell\" + verbName);
+        using var verbKey = typeKey.TryOpenSubKey(@"shell\" + verbName);
         if (verbKey == null) return null;
 
         string? description = verbKey.GetValue("")?.ToString();
         string? commandLine;
-        using (var commandKey = verbKey.OpenSubKey("command"))
+        using (var commandKey = verbKey.TryOpenSubKey("command"))
         {
             if (commandKey == null) return null;
             commandLine = commandKey.GetValue("")?.ToString();

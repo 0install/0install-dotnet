@@ -118,7 +118,7 @@ public static class AppRegistration
 
         var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 
-        using (var regAppsKey = hive.OpenSubKey(RegKeyMachineRegisteredApplications, writable: true))
+        using (var regAppsKey = hive.TryOpenSubKey(RegKeyMachineRegisteredApplications, writable: true))
             regAppsKey?.DeleteValue(appRegistration.ID, throwOnMissingValue: false);
 
         // TODO: Handle appRegistration.X64

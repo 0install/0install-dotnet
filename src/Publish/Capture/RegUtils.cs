@@ -3,6 +3,7 @@
 
 using System.Runtime.Versioning;
 using Microsoft.Win32;
+using NanoByte.Common.Native;
 
 namespace ZeroInstall.Publish.Capture;
 
@@ -25,7 +26,7 @@ internal static class RegUtils
         if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
         #endregion
 
-        using var contextMenuExtendedKey = root.OpenSubKey(key);
+        using var contextMenuExtendedKey = root.TryOpenSubKey(key);
         return contextMenuExtendedKey?.GetValueNames() ?? Array.Empty<string>();
     }
 
@@ -42,7 +43,7 @@ internal static class RegUtils
         if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
         #endregion
 
-        using var contextMenuExtendedKey = root.OpenSubKey(key);
+        using var contextMenuExtendedKey = root.TryOpenSubKey(key);
         return contextMenuExtendedKey?.GetSubKeyNames() ?? Array.Empty<string>();
     }
 }

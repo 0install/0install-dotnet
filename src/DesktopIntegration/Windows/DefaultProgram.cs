@@ -118,7 +118,7 @@ public static class DefaultProgram
 
         // Remove appropriate purpose flag and check if there are others
         bool otherFlags;
-        using (var appKey = serviceKey.OpenSubKey(defaultProgram.ID, writable: true))
+        using (var appKey = serviceKey.TryOpenSubKey(defaultProgram.ID, writable: true))
         {
             if (appKey == null) otherFlags = false;
             else

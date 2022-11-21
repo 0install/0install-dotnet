@@ -53,7 +53,7 @@ partial class Config
         {
             try
             {
-                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
+                using var registryKey = root.TryOpenSubKey(RegistryPolicyPath, writable: false);
                 return registryKey?.GetValue(key) != null;
             }
             catch (Exception ex)
@@ -264,7 +264,7 @@ partial class Config
         {
             try
             {
-                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
+                using var registryKey = root.TryOpenSubKey(RegistryPolicyPath, writable: false);
                 if (registryKey != null)
                     ReadFromRegistry(registryKey);
             }

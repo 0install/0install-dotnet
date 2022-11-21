@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using Microsoft.Win32;
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture;
@@ -43,7 +44,7 @@ partial class SnapshotDiff
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        using var progIDKey = Registry.ClassesRoot.OpenSubKey(progID);
+        using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID);
         if (progIDKey == null) return null;
 
         VerbCapability capability;
@@ -55,7 +56,7 @@ partial class SnapshotDiff
             {
                 if (id != progID || string.IsNullOrEmpty(extension)) continue;
 
-                using var assocKey = Registry.ClassesRoot.OpenSubKey(extension);
+                using var assocKey = Registry.ClassesRoot.TryOpenSubKey(extension);
                 if (assocKey == null) continue;
 
                 fileType.Extensions.Add(new FileTypeExtension

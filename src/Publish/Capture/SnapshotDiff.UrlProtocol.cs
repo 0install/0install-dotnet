@@ -25,7 +25,7 @@ partial class SnapshotDiff
 
         foreach ((string protocol, _) in ProtocolAssocs)
         {
-            using var protocolKey = Registry.ClassesRoot.OpenSubKey(protocol);
+            using var protocolKey = Registry.ClassesRoot.TryOpenSubKey(protocol);
             if (protocolKey == null) throw new IOException(protocol + " not found");
             capabilities.Entries.Add(new UrlProtocol
             {

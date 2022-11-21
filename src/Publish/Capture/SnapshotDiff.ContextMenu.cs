@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using Microsoft.Win32;
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Publish.Capture;
@@ -22,7 +23,7 @@ partial class SnapshotDiff
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        using (var progIDKey = Registry.ClassesRoot.OpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesFiles) ?? throw new IOException("Registry key not found"))
+        using (var progIDKey = Registry.ClassesRoot.TryOpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesFiles) ?? throw new IOException("Registry key not found"))
         {
             foreach (string entry in ContextMenuFiles)
             {
@@ -35,7 +36,7 @@ partial class SnapshotDiff
             }
         }
 
-        using (var progIDKey = Registry.ClassesRoot.OpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesExecutableFiles[0]) ?? throw new IOException("Registry key not found"))
+        using (var progIDKey = Registry.ClassesRoot.TryOpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesExecutableFiles[0]) ?? throw new IOException("Registry key not found"))
         {
             foreach (string entry in ContextMenuExecutableFiles)
             {
@@ -48,7 +49,7 @@ partial class SnapshotDiff
             }
         }
 
-        using (var progIDKey = Registry.ClassesRoot.OpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesDirectories) ?? throw new IOException("Registry key not found"))
+        using (var progIDKey = Registry.ClassesRoot.TryOpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesDirectories) ?? throw new IOException("Registry key not found"))
         {
             foreach (string entry in ContextMenuDirectories)
             {
@@ -61,7 +62,7 @@ partial class SnapshotDiff
             }
         }
 
-        using (var progIDKey = Registry.ClassesRoot.OpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesAll) ??  throw new IOException("Registry key not found"))
+        using (var progIDKey = Registry.ClassesRoot.TryOpenSubKey(DesktopIntegration.Windows.ContextMenu.RegKeyClassesAll) ??  throw new IOException("Registry key not found"))
         {
             foreach (string entry in ContextMenuAll)
             {
