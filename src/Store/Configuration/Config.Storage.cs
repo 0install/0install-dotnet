@@ -51,8 +51,16 @@ partial class Config
     {
         bool HasPolicyIn(RegistryKey root)
         {
-            using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
-            return registryKey?.GetValue(key) != null;
+            try
+            {
+                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
+                return registryKey?.GetValue(key) != null;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn("Failed to read config from registry", ex);
+                return false;
+            }
         }
 
         // Extracted to separate function to prevent type load error on non-Windows OSes
@@ -254,9 +262,16 @@ partial class Config
 
         void ReadFrom(RegistryKey root)
         {
-            using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
-            if (registryKey != null)
-                ReadFromRegistry(registryKey);
+            try
+            {
+                using var registryKey = root.OpenSubKey(RegistryPolicyPath, writable: false);
+                if (registryKey != null)
+                    ReadFromRegistry(registryKey);
+            }
+            catch (Exception ex)
+            {
+                Log.Warn("Failed to read config from registry", ex);
+            }
         }
     }
 
