@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Runtime.Versioning;
+using System.Security;
 using Microsoft.Win32;
 using NanoByte.Common.Native;
 
@@ -104,7 +105,7 @@ public static class FileType
                                 using var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice");
                                 userChoiceKey.SetValue("Progid", RegistryClasses.Prefix + fileType.ID);
                             }
-                            catch (UnauthorizedAccessException ex)
+                            catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
                             {
                                 Log.Debug("Windows blocked modification to file type association user choice", ex);
                             }
