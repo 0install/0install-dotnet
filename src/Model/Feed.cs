@@ -67,9 +67,9 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     public ImplementationVersion? MinInjectorVersion { get; set; }
 
     /// <summary>
-    /// A short name to identify the interface (e.g. "Foo").
+    /// A short name to identify the feed or program (e.g. "Foo").
     /// </summary>
-    [Category("Interface"), Description("A short name to identify the interface (e.g. \"Foo\").")]
+    [Category("Interface"), Description("A short name to identify the feed or program (e.g. \"Foo\").")]
     [XmlElement("name")]
     public string Name { get; set; } = default!;
 
@@ -86,7 +86,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     public LocalizableStringCollection Descriptions { get; } = new();
 
     /// <summary>
-    /// The main website of the application.
+    /// The URL of a web-page describing feed or program in more detail.
     /// </summary>
     [Browsable(false)]
     [XmlIgnore]

@@ -49,7 +49,7 @@ public static class UninstallEntry
     /// <param name="id">The ID of the entry to create.</param>
     /// <param name="uninstallCommand">The command-line to invoke for uninstalling the application.</param>
     /// <param name="name">The name of the application.</param>
-    /// <param name="homepage">The homepage of the application.</param>
+    /// <param name="homepage">The URL of a web-page describing application in more detail.</param>
     /// <param name="iconPath">The path of an icon file.</param>
     /// <param name="version">The application's current version.</param>
     /// <param name="size">The application's size in bytes.</param>
