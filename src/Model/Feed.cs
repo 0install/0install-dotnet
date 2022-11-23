@@ -86,6 +86,13 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     public LocalizableStringCollection Descriptions { get; } = new();
 
     /// <summary>
+    /// The publisher (company or organization) of the program.
+    /// </summary>
+    [Category("Interface"), Description("The publisher (company or organization) of the program.")]
+    [XmlElement("publisher")]
+    public string? Publisher { get; set; }
+
+    /// <summary>
     /// The URL of a web-page describing feed or program in more detail.
     /// </summary>
     [Browsable(false)]

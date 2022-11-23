@@ -30,6 +30,7 @@ partial class SelfManager
                 UninstallID,
                 new[] { Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name },
                 "Zero Install",
+                "0install.net",
                 new("https://0install.net/"),
                 iconPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
                 AppInfo.Current.Version,
