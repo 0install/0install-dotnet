@@ -58,18 +58,19 @@ public class Download : Selection
         }
 
         DownloadUncachedImplementations();
-
-        if (!BackgroundSelfUpdate())
-            BackgroundClean();
+        BackgroundSelfUpdateAndClean();
 
         return ShowOutput();
     }
 
     /// <summary>
-    /// Automatically removes outdated implementations in a background process.
+    /// Automatically updates Zero Install itself in a background process.
+    /// If no update check is due and we are in <see cref="ZeroInstallInstance.IsLibraryMode"/> instead removes outdated implementations in a background process.
     /// </summary>
-    protected void BackgroundClean()
+    protected void BackgroundSelfUpdateAndClean()
     {
+        if (BackgroundSelfUpdate()) return; // If a self-update check was started we shouldn't start any other cleanup tasks
+
         if (ZeroInstallInstance.IsLibraryMode // Only needed in library-mode because it lacks UI for manual clean
          && !ZeroInstallInstance.IsMachineWide // Machine-wide setups use scheduled task for clean instead
          && UncachedImplementations is {Count: 0} // Don't clean if we just downloaded new stuff (old versions may still be running)

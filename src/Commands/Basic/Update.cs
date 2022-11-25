@@ -35,9 +35,7 @@ public class Update : Download
         RefreshSolve();
 
         DownloadUncachedImplementations();
-
-        if (!BackgroundSelfUpdate())
-            BackgroundClean();
+        BackgroundSelfUpdateAndClean();
 
         return ShowOutput();
     }
