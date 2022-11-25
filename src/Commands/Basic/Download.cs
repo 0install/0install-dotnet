@@ -62,7 +62,6 @@ public class Download : Selection
         if (!BackgroundSelfUpdate())
             BackgroundClean();
 
-        Handler.CancellationToken.ThrowIfCancellationRequested();
         return ShowOutput();
     }
 

@@ -138,8 +138,6 @@ public class Selection : CliCommand
         BackgroundSelfUpdate();
 
         ShowSelections();
-
-        Handler.CancellationToken.ThrowIfCancellationRequested();
         return ShowOutput();
     }
 
@@ -244,6 +242,7 @@ public class Selection : CliCommand
 
     protected virtual ExitCode ShowOutput()
     {
+        Handler.CancellationToken.ThrowIfCancellationRequested();
         Debug.Assert(Selections != null);
 
         if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections.ToXmlString());
