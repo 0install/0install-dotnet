@@ -4,6 +4,7 @@
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;
@@ -62,6 +63,12 @@ public class Download : Selection
 
         return ShowOutput();
     }
+
+    /// <inheritdoc/>
+    protected override NetworkLevel MinimumNetworkUseForBackgroundSelfUpdate
+        => UncachedImplementations is {Count: > 0}
+            ? NetworkLevel.Minimal // If we already downloaded other files already, we may as well do a self-update  too
+            : NetworkLevel.Full;
 
     /// <summary>
     /// Automatically updates Zero Install itself in a background process.

@@ -131,9 +131,10 @@ public abstract class ScopedOperation : ServiceProvider
         if (ZeroInstallInstance.IsDeployed
          && !ZeroInstallInstance.IsMachineWide
          && Environment.UserInteractive
-         && Config is {EffectiveNetworkUse: NetworkLevel.Full, SelfUpdateUri: not null}
-         && FeedManager.IsStale(Config.SelfUpdateUri)
-         && !FeedManager.RateLimit(Config.SelfUpdateUri))
+         && Config.EffectiveNetworkUse >= MinimumNetworkUseForBackgroundSelfUpdate
+         && Config.SelfUpdateUri is {} uri
+         && FeedManager.IsStale(uri)
+         && !FeedManager.RateLimit(uri))
         {
             Log.Info("Starting periodic background self-update check");
             StartCommandBackground(Self.Name, Self.Update.Name, "--batch");
@@ -141,6 +142,11 @@ public abstract class ScopedOperation : ServiceProvider
         }
         else return false;
     }
+
+    /// <summary>
+    /// The minimum <see cref="Config.EffectiveNetworkUse"/> at which <see cref="BackgroundSelfUpdate"/> will consider an update check.
+    /// </summary>
+    protected virtual NetworkLevel MinimumNetworkUseForBackgroundSelfUpdate => NetworkLevel.Full;
 
     /// <summary>
     /// Starts executing a command in a background process. Returns immediately.
