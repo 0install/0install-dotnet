@@ -287,6 +287,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     /// <returns>The parsed content of the file.</returns>
     /// <exception cref="FormatException">The file specified is not a valid manifest file.</exception>
     /// <exception cref="IOException">The manifest file could not be read.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     public static Manifest Load(string path, ManifestFormat format)
     {
         #region Sanity checks
@@ -296,6 +297,31 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
 
         using var stream = File.OpenRead(path);
         return Load(stream, format);
+    }
+
+    /// <summary>
+    /// Tries to parse a manifest file.
+    /// </summary>
+    /// <param name="path">The path of the file to load.</param>
+    /// <param name="format">The format of the file and the format of the created <see cref="Manifest"/>. Comprises the digest method used and the file's format.</param>
+    /// <returns>The parsed content of the file; <c>null</c> if the file does not exits or has invalid content.</returns>
+    /// <exception cref="IOException">The manifest file could not be read.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
+    public static Manifest? TryLoad(string path, ManifestFormat format)
+    {
+        try
+        {
+            if (File.Exists(path))
+                return Load(path, format);
+        }
+        #region Error handling
+        catch (FormatException ex)
+        {
+            Log.Warn($"Problem loading manifest file '{path}'.", ex);
+        }
+        #endregion
+
+        return null;
     }
 
     /// <summary>

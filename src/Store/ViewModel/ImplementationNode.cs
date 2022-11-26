@@ -27,10 +27,10 @@ public class ImplementationNode : CacheNode
     }
 
     private static long GetSize(string path, ManifestDigest digest)
-    {
-        string manifestPath = System.IO.Path.Combine(path, Manifest.ManifestFile);
-        return Manifest.Load(manifestPath, ManifestFormat.FromPrefix(digest.AvailableDigests.First())).TotalSize;
-    }
+        => Manifest.TryLoad(
+               System.IO.Path.Combine(path, Manifest.ManifestFile),
+               ManifestFormat.FromPrefix(digest.AvailableDigests.First()))?.TotalSize
+        ?? 0;
 
     /// <inheritdoc/>
     public override string Name { get => Resources.UnknownInterface + Named.TreeSeparator + Digest + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }

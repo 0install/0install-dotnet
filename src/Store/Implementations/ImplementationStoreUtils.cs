@@ -86,11 +86,11 @@ public static class ImplementationStoreUtils
         handler.RunTask(new ReadDirectory(path, builder));
         if (Verify(builder.Manifest, expectedDigest) == null)
         {
-            string manifestFilePath = Path.Combine(path, Manifest.ManifestFile);
-            var expectedManifest = File.Exists(manifestFilePath) ? Manifest.Load(manifestFilePath, format) : null;
             throw new DigestMismatchException(
-                expectedDigest, actualDigest: builder.Manifest.CalculateDigest(),
-                expectedManifest, actualManifest: builder.Manifest);
+                expectedDigest,
+                actualDigest: builder.Manifest.CalculateDigest(),
+                expectedManifest: Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile), format),
+                actualManifest: builder.Manifest);
         }
     }
 

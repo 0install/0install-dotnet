@@ -23,23 +23,23 @@ public class ReadDirectory : ReadDirectoryBase
     {
         _builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
-        string manifestPath = Path.Combine(path, Manifest.ManifestFile);
-
-        bool ShouldReadManifest()
+        bool shouldReadManifest;
+        try
         {
-            try
-            {
-                // Symlinks and executable bits may be lost on non-Unix filesystems and can be reconstructed from a manifest file
-                return !FileUtils.IsUnixFS(Path.Combine(path, ".."));
-            }
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-            {
-                return true;
-            }
+            // Symlinks and executable bits may be lost on non-Unix filesystems and can be reconstructed from a manifest file
+            shouldReadManifest = !FileUtils.IsUnixFS(Path.Combine(path, ".."));
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            shouldReadManifest = true;
         }
 
-        if (File.Exists(manifestPath) && ShouldReadManifest())
-            _manifest = Manifest.Load(manifestPath, ManifestFormat.Sha1New);
+        if (shouldReadManifest)
+        {
+            _manifest = Manifest.TryLoad(
+                Path.Combine(path, Manifest.ManifestFile),
+                ManifestFormat.Sha1New); // Actual digest format does not matter because we are only interested in symlinks and executable bits
+        }
     }
 
     /// <inheritdoc/>
