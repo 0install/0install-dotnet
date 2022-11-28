@@ -22,7 +22,6 @@ public interface IImplementationStore : IImplementationSink
     /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>.
     /// </summary>
     /// <param name="manifestDigest">The digest the implementation to look for.</param>
-    /// <exception cref="UnauthorizedAccessException">Read access to the store is not permitted.</exception>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
     string? GetPath(ManifestDigest manifestDigest);
 
@@ -60,8 +59,8 @@ public interface IImplementationStore : IImplementationSink
     /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
     /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if it could not be removed, e.g. because no implementation matching <paramref name="manifestDigest"/> was found.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="IOException">Thrown if the implementation could not be deleted.</exception>
-    /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
+    /// <exception cref="IOException">The implementation could not be deleted.</exception>
+    /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
     bool Remove(ManifestDigest manifestDigest);
 
     /// <summary>
@@ -70,8 +69,8 @@ public interface IImplementationStore : IImplementationSink
     /// <param name="path">The fully qualified path of the directory.</param>
     /// <returns><c>true</c> if the directory was successfully removed; <c>false</c> if it could not be removed, e.g. because it does not exist inside the store.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="IOException">Thrown if the directory could not be deleted.</exception>
-    /// <exception cref="UnauthorizedAccessException">Thrown if write access to the store is not permitted.</exception>
+    /// <exception cref="IOException">The directory could not be deleted.</exception>
+    /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
     bool RemoveTemp(string path);
 
     /// <summary>
