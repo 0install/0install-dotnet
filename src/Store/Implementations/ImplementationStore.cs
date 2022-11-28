@@ -31,10 +31,6 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     }
 
     /// <inheritdoc/>
-    public string? GetPath(ManifestDigest manifestDigest)
-        => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
-
-    /// <inheritdoc/>
     public IEnumerable<ManifestDigest> ListAll()
     {
         if (!Directory.Exists(Path)) yield break;

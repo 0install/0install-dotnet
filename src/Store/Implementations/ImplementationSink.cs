@@ -67,7 +67,15 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
 
     /// <inheritdoc/>
     public bool Contains(ManifestDigest manifestDigest)
-        => manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)));
+        => GetPath(manifestDigest) != null;
+
+    /// <summary>
+    /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>. Automatically deletes empty directory.
+    /// </summary>
+    /// <param name="manifestDigest">The digest the implementation to look for.</param>
+    /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
+    public string? GetPath(ManifestDigest manifestDigest)
+        => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 
     /// <inheritdoc/>
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
