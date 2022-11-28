@@ -23,6 +23,8 @@ public interface IImplementationStore : IImplementationSink
     /// </summary>
     /// <param name="manifestDigest">The digest the implementation to look for.</param>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
+    /// <exception cref="IOException">The implementation directory is missing content and could not be deleted.</exception>
+    /// <exception cref="UnauthorizedAccessException">The implementation directory is missing content and write access to the store is not permitted.</exception>
     string? GetPath(ManifestDigest manifestDigest);
 
     /// <summary>

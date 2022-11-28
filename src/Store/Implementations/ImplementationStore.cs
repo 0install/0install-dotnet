@@ -30,6 +30,21 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         _handler = handler ?? throw new ArgumentNullException(nameof(handler));
     }
 
+    /// <inheritdoc cref="IImplementationStore.GetPath" />
+    public override string? GetPath(ManifestDigest manifestDigest)
+    {
+        if (base.GetPath(manifestDigest) is not {} path) return null;
+
+        if (!manifestDigest.PartialEquals(ManifestDigest.Empty) && Directory.GetFiles(path).Length == 0)
+        {
+            Log.Info($"Directory for {manifestDigest} has no .manifest file or any other files. Almost certainly damaged. Deleting.");
+            Remove(manifestDigest);
+            return null;
+        }
+
+        return path;
+    }
+
     /// <inheritdoc/>
     public IEnumerable<ManifestDigest> ListAll()
     {
@@ -54,7 +69,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     {
         try
         {
-            ImplementationStoreUtils.Verify(GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, _handler);
+            ImplementationStoreUtils.Verify(base.GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, _handler);
         }
         catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
         {
@@ -69,7 +84,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     /// <inheritdoc/>
     public bool Remove(ManifestDigest manifestDigest)
     {
-        if (GetPath(manifestDigest) is not {} path) return false;
+        if (base.GetPath(manifestDigest) is not {} path) return false;
         Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
 
         if (FileUtils.PathEquals(path, Locations.InstallBase))

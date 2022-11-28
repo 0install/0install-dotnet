@@ -125,6 +125,17 @@ public class ImplementationStoreTest : IDisposable
         => _store.GetPath(new(Sha256: "123"))
                  .Should().BeNull();
 
+    [Fact]
+    public void GetPathAutoDeleteEmptyDir()
+    {
+        string? path = Path.Combine(_tempDir, "sha256new_123ABC");
+        Directory.CreateDirectory(path);
+
+        Directory.Exists(path).Should().BeTrue();
+        _store.GetPath(new(Sha256New: "123ABC")).Should().BeNull();
+        Directory.Exists(path).Should().BeFalse();
+    }
+
     private static readonly ManifestDigest _referenceDigest = new(Sha256New: "DIXH3X4A5UJ537O2B36IYYVNRO2MYJVJYX74GBF4EOY5CDCCWGQA");
 
     [Fact]
@@ -149,6 +160,20 @@ public class ImplementationStoreTest : IDisposable
     public void VerifyReject()
     {
         string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+
+        _handler.AnswerQuestionWith = true;
+        _store.Verify(new(Sha256New: "123ABC"));
+        _handler.LastQuestion.Should().Be(
+            string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha256new_123ABC"));
+
+        Directory.Exists(implPath).Should().BeFalse();
+    }
+
+    [Fact]
+    public void VerifyRejectEmptyDir()
+    {
+        string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
+        Directory.CreateDirectory(implPath);
 
         _handler.AnswerQuestionWith = true;
         _store.Verify(new(Sha256New: "123ABC"));

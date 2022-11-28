@@ -70,11 +70,11 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         => GetPath(manifestDigest) != null;
 
     /// <summary>
-    /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>. Automatically deletes empty directory.
+    /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>.
     /// </summary>
     /// <param name="manifestDigest">The digest the implementation to look for.</param>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
-    public string? GetPath(ManifestDigest manifestDigest)
+    public virtual string? GetPath(ManifestDigest manifestDigest)
         => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 
     /// <inheritdoc/>

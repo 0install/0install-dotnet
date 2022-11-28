@@ -6,7 +6,6 @@ using System.Security;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using NanoByte.Common.Values;
-using ZeroInstall.Commands.Basic;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Executors;
@@ -262,13 +261,6 @@ public static class ProgramUtils
             }
 
             handler.Error(ex);
-            return ExitCode.IOError;
-        }
-        catch (FileNotFoundException ex) when (ZeroInstallInstance.IsLibraryMode)
-        {
-            handler.Error(ex);
-            if (GuiStartInfo(StoreMan.Name, StoreMan.Audit.Name) is {} audit)
-                audit.Start();
             return ExitCode.IOError;
         }
         catch (IOException ex)
