@@ -58,7 +58,7 @@ public class Update : Download
 
         if (SelectionsManager.GetDiff(_oldSelections, Selections).ToList() is {Count: > 0} diff)
         {
-            Handler.Output(Resources.ChangesFound, diff);
+            Handler.OutputLow(Resources.ChangesFound, diff);
             return ExitCode.OK;
         }
 
