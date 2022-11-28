@@ -1,4 +1,4 @@
-# ![Logo](logo.svg) Zero Install .NET
+# Zero Install .NET
 
 [![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](https://dotnet.0install.net/)
 [![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)  

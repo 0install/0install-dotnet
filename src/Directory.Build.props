@@ -15,14 +15,6 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <NoWarn>$(NoWarn);1591</NoWarn><!-- Missing XML comments -->
 
-    <!-- Metadata -->
-    <Product>Zero Install</Product>
-    <Authors>Bastian Eicher</Authors>
-    <Copyright>Copyright Bastian Eicher et al.</Copyright>
-    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
-
     <!-- Dummy version number, overridden by GitVersion -->
     <Version>1.0.0-pre</Version>
 
@@ -30,9 +22,19 @@
     <NanoByteCommonVersion>2.14.1</NanoByteCommonVersion>
   </PropertyGroup>
 
-  <!-- NuGet icon -->
+  <!-- NuGet metadata -->
+  <PropertyGroup>
+    <Product>Zero Install</Product>
+    <Authors>Bastian Eicher</Authors>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
+    <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\icon.png" PackagePath="\" Pack="True" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <!-- Make internals visible to unit tests -->
