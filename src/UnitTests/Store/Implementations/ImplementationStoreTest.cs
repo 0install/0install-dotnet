@@ -6,6 +6,7 @@ using ZeroInstall.FileSystem;
 using ZeroInstall.Services;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
+using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations;
 
@@ -32,9 +33,21 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void Contains()
     {
-        Directory.CreateDirectory(Path.Combine(_tempDir, "sha256new_123ABC"));
-        _store.Contains(new ManifestDigest(Sha256New: "123ABC")).Should().BeTrue();
-        _store.Contains(new ManifestDigest(Sha256New: "456XYZ")).Should().BeFalse();
+        DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+
+        _store.Contains(new(Sha256New: "123ABC")).Should().BeTrue();
+        _store.Contains(new(Sha256New: "456XYZ")).Should().BeFalse();
+    }
+
+    [Fact]
+    public void ContainsMissingContent()
+    {
+        string? path = Path.Combine(_tempDir, "sha256new_123ABC");
+        Directory.CreateDirectory(path);
+
+        Directory.Exists(path).Should().BeTrue();
+        _store.Contains(new(Sha256New: "123ABC")).Should().BeFalse();
+        Directory.Exists(path).Should().BeFalse();
     }
 
     [Fact]
@@ -59,7 +72,7 @@ public class ImplementationStoreTest : IDisposable
     {
         _store.Add(ManifestDigest.Empty, _ => {});
         _store.Contains(ManifestDigest.Empty).Should().BeTrue();
-        _store.ListAll().Should().Equal(new ManifestDigest(ManifestDigest.Empty.Best!));
+        _store.ListAll().Should().Contain(x => x.PartialEquals(ManifestDigest.Empty));
     }
 
     [Fact]
@@ -73,10 +86,9 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void ShouldAllowToRemove()
     {
-        string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
-        Directory.CreateDirectory(implPath);
+        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
 
-        _store.Remove(new ManifestDigest(Sha256New: "123ABC")).Should().BeTrue();
+        _store.Remove(new(Sha256New: "123ABC")).Should().BeTrue();
         Directory.Exists(implPath).Should().BeFalse();
     }
 
@@ -102,15 +114,15 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void GetPath()
     {
-        string implPath = Path.Combine(_tempDir, "sha256new_123ABC");
-        Directory.CreateDirectory(implPath);
-        _store.GetPath(new ManifestDigest(Sha256New: "123ABC"))
+        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+
+        _store.GetPath(new(Sha256New: "123ABC"))
               .Should().Be(implPath, because: "Store must return the correct path for Implementations it contains");
     }
 
     [Fact]
     public void GetPathMissingImplementation()
-        => _store.GetPath(new ManifestDigest(Sha256: "123"))
+        => _store.GetPath(new(Sha256: "123"))
                  .Should().BeNull();
 
     private static readonly ManifestDigest _referenceDigest = new(Sha256New: "DIXH3X4A5UJ537O2B36IYYVNRO2MYJVJYX74GBF4EOY5CDCCWGQA");
@@ -136,16 +148,14 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyReject()
     {
-        Directory.CreateDirectory(Path.Combine(_tempDir, "sha1new=abc"));
-        _store.Contains(new ManifestDigest(Sha1New: "abc")).Should().BeTrue();
+        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
 
         _handler.AnswerQuestionWith = true;
-        _store.Verify(new ManifestDigest(Sha1New: "abc"));
-        // TODO
-        // _handler.LastQuestion.Should().Be(
-        //     string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha1new=abc"));
+        _store.Verify(new(Sha256New: "123ABC"));
+        _handler.LastQuestion.Should().Be(
+            string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha256new_123ABC"));
 
-        _store.Contains(new ManifestDigest(Sha1New: "abc")).Should().BeFalse();
+        Directory.Exists(implPath).Should().BeFalse();
     }
 
     [Fact]
@@ -170,7 +180,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesInSameImplementation()
     {
-        string impl1Path = DeployImplementation("sha256=1", new TestRoot
+        string impl1Path = DeployImplementation("sha256=1", new()
         {
             new TestFile("fileA") {Contents = "abc"},
             new TestDirectory("dir") {new TestFile("fileB") {Contents = "abc"}}
@@ -186,8 +196,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesInDifferentImplementations()
     {
-        string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256=2", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
+        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = DeployImplementation("sha256=2", new() {new TestFile("fileA") {Contents = "abc"}});
 
         _store.Optimise().Should().Be(3);
         _store.Optimise().Should().Be(0);
@@ -199,7 +209,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesWithDifferentTimestamps()
     {
-        string impl1Path = DeployImplementation("sha256=1", new TestRoot
+        string impl1Path = DeployImplementation("sha256=1", new()
         {
             new TestFile("fileA") {Contents = "abc", LastWrite = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc)},
             new TestFile("fileX") {Contents = "abc", LastWrite = new DateTime(2000, 2, 2, 0, 0, 0, DateTimeKind.Utc)},
@@ -214,8 +224,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesWithDifferentContent()
     {
-        string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256=2", new TestRoot {new TestFile("fileA") {Contents = "def"}});
+        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = DeployImplementation("sha256=2", new() {new TestFile("fileA") {Contents = "def"}});
 
         _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
@@ -226,8 +236,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void ShouldNotHardlinkAcrossManifestFormatBorders()
     {
-        string impl1Path = DeployImplementation("sha256=1", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256new_2", new TestRoot {new TestFile("fileA") {Contents = "abc"}});
+        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = DeployImplementation("sha256new_2", new() {new TestFile("fileA") {Contents = "abc"}});
 
         _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
