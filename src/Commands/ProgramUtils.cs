@@ -108,6 +108,9 @@ public static class ProgramUtils
     /// <summary>A command-line argument used to indicate that the program was relaunched with admin rights.</summary>
     private const string AsAdminIndicatorArg = "--as-admin";
 
+    /// <summary>A command-line argument used to indicate that the program was relaunched as a freshly deployed instance.</summary>
+    private const string DeployedIndicatorArg = "--deployed";
+
     /// <summary>
     /// Parses command-line arguments and performs the indicated action. Performs error handling.
     /// </summary>
@@ -123,13 +126,12 @@ public static class ProgramUtils
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
+        if (args.FirstOrDefault() is AsAdminIndicatorArg or DeployedIndicatorArg)
+            args = args.Skip(1).ToArray();
+
         try
         {
-            var command = CliCommand.CreateAndParse(
-                args.FirstOrDefault() == AsAdminIndicatorArg
-                    ? args.Skip(1).ToList()
-                    : args,
-                handler);
+            var command = CliCommand.CreateAndParse(args, handler);
             return command.Execute();
         }
         #region Error handling
@@ -181,7 +183,7 @@ public static class ProgramUtils
             handler.Error(ex);
             return ExitCode.Conflict;
         }
-        catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows)
+        catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows && args.FirstOrDefault() != DeployedIndicatorArg)
         {
             Log.Info(ex.Message, ex);
 
@@ -355,7 +357,7 @@ public static class ProgramUtils
             handler);
         if (deployResult != ExitCode.OK) return deployResult;
 
-        return TryRunOtherInstance(exeName, args, handler, machineWide)
+        return TryRunOtherInstance(exeName, args.Prepend(DeployedIndicatorArg), handler, machineWide)
             ?? throw new IOException("Unable to find newly deployed Zero Install instance.");
     }
 }
