@@ -62,8 +62,12 @@ public static class ZeroInstallInstance
                 return FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: false), Locations.InstallBase)
                     || FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true), Locations.InstallBase);
             }
-
-            return false;
+            else if (UnixUtils.IsUnix)
+            {
+                return !Locations.InstallBase.Contains("/tmp")
+                    && !Locations.InstallBase.Contains("/.cache");
+            }
+            else return true;
         }
     }
 
