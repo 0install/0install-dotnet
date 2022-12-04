@@ -53,52 +53,48 @@ public class ImplementationVersionTest
         version.ToString().Should().Be("{var}");
     }
 
-    /// <summary>
-    /// Ensures <see cref="ImplementationVersion"/> objects are correctly compared.
-    /// </summary>
-    [Fact]
-    public void Equality()
+    [Theory]
+    [InlineData("1"), InlineData("1.2"), InlineData("1.2-0"), InlineData("1.2-post")]
+    public void Equal(string value)
     {
-        new ImplementationVersion("1.2-pre-3").Should().Be(new ImplementationVersion("1.2-pre-3"));
-        new ImplementationVersion("1-pre-3").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
-        new ImplementationVersion("1.2-post-3").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
-        new ImplementationVersion("1.2-pre-4").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
-        new ImplementationVersion("1.2-pre--3").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
-        new ImplementationVersion("1.2-pre").Should().NotBe(new ImplementationVersion("1.2-pre-3"));
+        var version = new ImplementationVersion(value);
+        version.Should().Be(version);
+        version.CompareTo(version).Should().Be(0);
     }
 
     [Theory]
-    [InlineData("2", "1")]
-    [InlineData("1.2-0", "1.2")]
-    [InlineData("1.2-post", "1.2")]
-    public void GreaterThan(string left, string right)
-        => new ImplementationVersion(left).CompareTo(new ImplementationVersion(right)).Should().BePositive();
+    [InlineData("1.2-post-3", "1.2-pre-3")]
+    [InlineData("1.2-pre-4", "1.2-pre-3")]
+    [InlineData("1.2-pre--3", "1.2-pre-3")]
+    [InlineData("1.2-pre", "1.2-pre-3")]
+    public void NotEqual(string left, string right)
+    {
+        var leftVersion = new ImplementationVersion(left);
+        var rightVersion = new ImplementationVersion(right);
+        leftVersion.Should().NotBe(rightVersion);
+        leftVersion.CompareTo(rightVersion).Should().NotBe(0);
+    }
 
     [Theory]
     [InlineData("1", "2")]
     [InlineData("1.2", "1.2-0")]
     [InlineData("1.2", "1.2-post")]
-    public void LessThan(string left, string right)
-        => new ImplementationVersion(left).CompareTo(new ImplementationVersion(right)).Should().BeNegative();
-
-    [Theory]
-    [InlineData("1"), InlineData("1.2"), InlineData("1.2-0"), InlineData("1.2-post")]
-    public void Equal(string value)
-        => new ImplementationVersion(value).CompareTo(new ImplementationVersion(value)).Should().Be(0);
-
-    /// <summary>
-    /// Ensures <see cref="ImplementationVersion"/> objects are sorted correctly.
-    /// </summary>
-    [Fact]
-    public void Sort()
+    public void CompareTo(string smaller, string larger)
     {
-        var sortedVersions = new[] {"0.1", "1", "1.0", "1.1", "1.2-pre", "1.2-pre1", "1.2-rc1", "1.2", "1.2-0", "1.2-post", "1.2-post1-pre", "1.2-post1", "1.2.1-pre", "1.2.1.4", "1.2.3", "1.2.10", "3"};
-        for (int i = 0; i < sortedVersions.Length - 1; i++)
-        {
-            var v1 = new ImplementationVersion(sortedVersions[i]);
-            var v2 = new ImplementationVersion(sortedVersions[i + 1]);
-            v1.Should().BeLessThan(v2);
-            v2.Should().BeGreaterThan(v1);
-        }
+        var smallerVersion = new ImplementationVersion(smaller);
+        var largerVersion = new ImplementationVersion(larger);
+
+        smallerVersion.Should().BeLessThan(largerVersion);
+        smallerVersion.CompareTo(largerVersion).Should().BeNegative();
+
+        largerVersion.Should().BeGreaterThan(smallerVersion);
+        largerVersion.CompareTo(smallerVersion).Should().BePositive();
+    }
+
+    [Fact]
+    public void CompareToNull()
+    {
+        new ImplementationVersion("1").Should().BeGreaterThan(null);
+        new ImplementationVersion("1").CompareTo(null).Should().BePositive();
     }
 }

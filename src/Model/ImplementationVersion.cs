@@ -145,30 +145,32 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
 
     #region Comparison
     /// <inheritdoc/>
-    public int CompareTo(ImplementationVersion? other)
-    {
-        #region Sanity checks
-        if (ReferenceEquals(null, other)) throw new ArgumentNullException(nameof(other));
-        #endregion
+    public int CompareTo(ImplementationVersion? other) => Compare(this, other);
 
-        int firstPartCompared = FirstPart.CompareTo(other.FirstPart);
+    public static bool operator <(ImplementationVersion? left, ImplementationVersion? right) => Compare(left, right) < 0;
+    public static bool operator >(ImplementationVersion? left, ImplementationVersion? right) => Compare(left, right) > 0;
+    public static bool operator <=(ImplementationVersion? left, ImplementationVersion? right) => Compare(left, right) <= 0;
+    public static bool operator >=(ImplementationVersion? left, ImplementationVersion? right) => Compare(left, right) >= 0;
+
+    private static int Compare(ImplementationVersion? left, ImplementationVersion? right)
+    {
+        if (left == right) return 0;
+        if (left == null) return int.MinValue;
+        if (right == null) return int.MaxValue;
+
+        int firstPartCompared = left.FirstPart.CompareTo(right.FirstPart);
         if (firstPartCompared != 0) return firstPartCompared;
 
-        int leastNumberOfAdditionalParts = Math.Max(AdditionalParts.Count, other.AdditionalParts.Count);
+        int leastNumberOfAdditionalParts = Math.Max(left.AdditionalParts.Count, right.AdditionalParts.Count);
         for (int i = 0; i < leastNumberOfAdditionalParts; ++i)
         {
-            var left = i >= AdditionalParts.Count ? VersionPart.Unset : AdditionalParts[i];
-            var right = i >= other.AdditionalParts.Count ? VersionPart.Unset : other.AdditionalParts[i];
-            int comparisonResult = left.CompareTo(right);
-            if (comparisonResult != 0)
+            VersionPart GetPart(ImplementationVersion version)
+                => i >= version.AdditionalParts.Count ? VersionPart.Unset : version.AdditionalParts[i];
+
+            if (GetPart(left).CompareTo(GetPart(right)) is not 0 and var comparisonResult)
                 return comparisonResult;
         }
         return 0;
     }
-
-    public static bool operator <(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) < 0;
-    public static bool operator >(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) > 0;
-    public static bool operator <=(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) <= 0;
-    public static bool operator >=(ImplementationVersion left, ImplementationVersion right) => (left ?? throw new ArgumentNullException(nameof(left))).CompareTo(right ?? throw new ArgumentNullException(nameof(right))) >= 0;
     #endregion
 }
