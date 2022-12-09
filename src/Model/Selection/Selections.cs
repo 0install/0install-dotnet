@@ -89,19 +89,6 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     }
 
     /// <summary>
-    /// Creates an empty selections document.
-    /// </summary>
-    public Selections() {}
-
-    /// <summary>
-    /// Creates a selections document pre-filled with <see cref="ImplementationSelection"/>s.
-    /// </summary>
-    public Selections(IEnumerable<ImplementationSelection> implementations)
-    {
-        Implementations.Add(implementations);
-    }
-
-    /// <summary>
     /// Determines whether an <see cref="ImplementationSelection"/> for a specific interface is listed in the selection.
     /// </summary>
     /// <param name="interfaceUri">The <see cref="ImplementationSelection.InterfaceUri"/> to look for.</param>

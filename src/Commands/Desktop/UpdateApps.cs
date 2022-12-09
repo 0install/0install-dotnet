@@ -79,7 +79,7 @@ public class UpdateApps : IntegrationCommand
         var uncachedImplementations = SelectionsManager.GetUncachedSelections(new Selections(implementations)).ToList();
         if (uncachedImplementations.Count == 0) return;
 
-        Handler.ShowSelections(new Selections(uncachedImplementations), FeedManager);
+        Handler.ShowSelections(new() {Implementations = {uncachedImplementations}}, FeedManager);
         FetchAll(SelectionsManager.GetImplementations(uncachedImplementations));
     }
 
