@@ -11,7 +11,7 @@ namespace ZeroInstall.Services;
 public static class SelectionsManagerExtensions
 {
     /// <summary>
-    /// Combines <see cref="ISelectionsManager.GetUncachedSelections"/> and <see cref="ISelectionsManager.GetImplementations"/>.
+    /// Combines <see cref="ISelectionsManager.GetUncached"/> and <see cref="ISelectionsManager.GetImplementations"/>.
     /// </summary>
     /// <param name="selectionsManager">The <see cref="ISelectionsManager"/>.</param>
     /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
@@ -22,6 +22,6 @@ public static class SelectionsManagerExtensions
         if (selections == null) throw new ArgumentNullException(nameof(selections));
         #endregion
 
-        return selectionsManager.GetImplementations(selectionsManager.GetUncachedSelections(selections)).ToList();
+        return selectionsManager.GetImplementations(selectionsManager.GetUncached(selections.Implementations)).ToList();
     }
 }

@@ -46,7 +46,7 @@ public abstract class SelectionTestBase<TCommand> : CliCommandTestBase<TCommand>
     /// <param name="implementations">The implementations to treat as uncached.</param>
     protected void ExpectListUncached(Selections selections, params Implementation[] implementations)
     {
-        GetMock<ISelectionsManager>().Setup(x => x.GetUncachedSelections(selections)).Returns(selections.Implementations);
+        GetMock<ISelectionsManager>().Setup(x => x.GetUncached(selections.Implementations)).Returns(selections.Implementations);
         GetMock<ISelectionsManager>().Setup(x => x.GetImplementations(selections.Implementations)).Returns(implementations);
     }
 

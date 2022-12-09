@@ -76,7 +76,7 @@ public class UpdateApps : IntegrationCommand
 
     private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> implementations)
     {
-        var uncachedImplementations = SelectionsManager.GetUncachedSelections(new Selections(implementations)).ToList();
+        var uncachedImplementations = SelectionsManager.GetUncached(implementations).ToList();
         if (uncachedImplementations.Count == 0) return;
 
         Handler.ShowSelections(new() {Implementations = {uncachedImplementations}}, FeedManager);

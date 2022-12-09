@@ -21,13 +21,13 @@ public partial class SelectionsManager : ISelectionsManager
     private readonly IPackageManager _packageManager;
 
     /// <inheritdoc/>
-    public IEnumerable<ImplementationSelection> GetUncachedSelections(Selections selections)
+    public IEnumerable<ImplementationSelection> GetUncached(IEnumerable<ImplementationSelection> selections)
     {
         #region Sanity checks
         if (selections == null) throw new ArgumentNullException(nameof(selections));
         #endregion
 
-        foreach (var implementation in selections.Implementations)
+        foreach (var implementation in selections)
         {
             // Local paths are considered to be always cached
             if (!string.IsNullOrEmpty(implementation.LocalPath)) continue;

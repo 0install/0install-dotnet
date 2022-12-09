@@ -22,7 +22,7 @@ public interface ISelectionsManager
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
     /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
-    IEnumerable<ImplementationSelection> GetUncachedSelections(Selections selections);
+    IEnumerable<ImplementationSelection> GetUncached(IEnumerable<ImplementationSelection> selections);
 
     /// <summary>
     /// Retrieves the original <see cref="Implementation"/>s these selections were based on.
