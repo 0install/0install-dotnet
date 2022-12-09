@@ -2,6 +2,7 @@
 
   <!-- Project properties -->
   <PropertyGroup>
+    <TargetFrameworks>net48;net7.0</TargetFrameworks>
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -34,9 +35,9 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net6.0'">
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net7.0'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <!-- Global usings -->
