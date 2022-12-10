@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\XmlSerializer.Generator.targets" />
 
   <!-- Global usings -->
   <ItemGroup>
@@ -27,14 +28,6 @@
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" />
-  </ItemGroup>
-
-  <!-- Generate XML serialization assembly -->
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" />
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" PrivateAssets="All" />
-    <None Include="..\..\artifacts\$(Configuration)\net472\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
-    <None Include="..\..\artifacts\$(Configuration)\net6.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net6.0" Pack="True" />
   </ItemGroup>
 
   <!-- Embedded resources -->

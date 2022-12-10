@@ -12,6 +12,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\XmlSerializer.Generator.targets" />
 
   <!-- Global usings -->
   <ItemGroup>
@@ -21,15 +22,6 @@
   <!-- Dependencies -->
   <ItemGroup>
     <PackageReference Include="NanoByte.Common" Version="$(NanoByteCommonVersion)" />
-  </ItemGroup>
-
-  <!-- Generate XML serialization assembly -->
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" />
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="6.0.0" PrivateAssets="All" />
-    <None Include="..\..\artifacts\$(Configuration)\net461\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net461" Pack="True" />
-    <None Include="..\..\artifacts\$(Configuration)\net472\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net472" Pack="True" />
-    <None Include="..\..\artifacts\$(Configuration)\net6.0\$(AssemblyName).XmlSerializers.dll" PackagePath="lib\net6.0" Pack="True" />
   </ItemGroup>
 
   <!-- Embedded resources -->
