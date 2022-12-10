@@ -142,11 +142,10 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
         => Locations.GetLoadDataPaths("0install.net", true, "native_feeds", interfaceUri.PrettyEscape());
 
     private static IEnumerable<string> GetSitePackagePaths(FeedUri interfaceUri)
-    {
-        var sitePackageDirs = Locations.GetLoadDataPaths("0install.net", isFile: false, resource: interfaceUri.EscapeComponent().Prepend("site-packages"));
-        var subDirectories = sitePackageDirs.SelectMany(x => new DirectoryInfo(x).GetDirectories());
-        return subDirectories.Select(dir => Path.Combine(dir.FullName, "0install" + Path.DirectorySeparatorChar + "feed.xml")).Where(File.Exists);
-    }
+        => Locations.GetLoadDataPaths("0install.net", isFile: false, resource: interfaceUri.EscapeComponent().Prepend("site-packages"))
+                    .SelectMany(Directory.GetDirectories)
+                    .Select(dir => Path.Combine(dir, "0install", "feed.xml"))
+                    .Where(File.Exists);
 
     private IEnumerable<SelectionCandidate> GetCandidates(FeedUri feedUri, Feed feed, Requirements requirements)
     {
