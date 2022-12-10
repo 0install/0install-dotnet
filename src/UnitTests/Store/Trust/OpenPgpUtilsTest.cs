@@ -32,7 +32,7 @@ public class OpenPgpUtilsTest : TestWithMocks
                        .Should().Be(TestKeyID);
 
     [Fact]
-    public void ParseFingerpint()
+    public void ParseFingerprint()
         => OpenPgpUtils.ParseFingerprint(TestFingerprintString)
                        .Should().Equal(TestFingerprint);
 
@@ -52,7 +52,7 @@ public class OpenPgpUtilsTest : TestWithMocks
         openPgpMock.Setup(x => x.ExportKey(secretKey)).Returns(publicKey);
         openPgpMock.Object.DeployPublicKey(secretKey, tempDir.Path);
 
-        File.ReadAllText(tempDir + Path.DirectorySeparatorChar + secretKey.FormatKeyID() + ".gpg")
+        File.ReadAllText(Path.Combine(tempDir, $"{secretKey.FormatKeyID()}.gpg"))
             .Should().Be(publicKey, because: "Public key should be written to parallel file in directory");
     }
 }

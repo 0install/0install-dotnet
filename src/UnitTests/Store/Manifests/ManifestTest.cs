@@ -208,7 +208,7 @@ public class ManifestTest
             }
         };
 
-        manifest.ToString().Replace(Environment.NewLine, "\n")
+        manifest.ToString()
                 .Should().Be("D /subdir1\nF abc123 1337 1 fileA\nF abc123 1337 2 fileB\nD /subdir2\nF abc123 1337 3 fileX\nF abc123 1337 4 fileY\n");
     }
 }
