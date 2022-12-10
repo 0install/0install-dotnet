@@ -60,39 +60,39 @@ public abstract partial class Candidate
     /// The application's name.
     /// </summary>
     /// <remarks>A suggestion for <see cref="Feed.Name"/>.</remarks>
-    [Category("Basic (required)"), Description("The application's name.")]
+    [Category("Basic (required)"), Description("""The application's name.""")]
     public string? Name { get; set; }
 
     /// <summary>
     /// Short one-line description; the first word should not be upper-case unless it is a proper noun (e.g. "cures all ills").
     /// </summary>
     /// <remarks>A suggestion for <see cref="Feed.Summaries"/>.</remarks>
-    [Category("Basic (required)"), Description("Short one-line description; the first word should not be upper-case unless it is a proper noun (e.g. \"cures all ills\").")]
+    [Category("Basic (required)"), Description("""Short one-line description; the first word should not be upper-case unless it is a proper noun (e.g. "cures all ills").""")]
     public string? Summary { get; set; }
 
     /// <summary>
     /// Indicates whether the application is a command-line application (<c>true</c>) or a GUI application (<c>false</c>).
     /// </summary>
-    [Category("Basic (required)"), DisplayName("Needs Terminal"), Description("Indicates whether the application is a command-line application (true) or a GUI application (false).")]
+    [Category("Basic (required)"), DisplayName("Needs Terminal"), Description("""Indicates whether the application is a command-line application (true) or a GUI application (false).""")]
     [DefaultValue(true)]
     public bool NeedsTerminal { get; set; }
 
     /// <summary>
     /// The application's target architecture.
     /// </summary>
-    [Category("Basic (required)"), Description("The application's target architecture.")]
+    [Category("Basic (required)"), Description("""The application's target architecture.""")]
     public Architecture Architecture { get; set; }
 
     /// <summary>
     /// The application's current version.
     /// </summary>
-    [Category("Basic (required)"), Description("The application's current version.")]
+    [Category("Basic (required)"), Description("""The application's current version.""")]
     public ImplementationVersion? Version { get; set; }
 
     /// <summary>
     /// The main category of the application. May influence the placement in the start menu.
     /// </summary>
-    [Category("Details"), Description("The main category of the application. May influence the placement in the start menu.")]
+    [Category("Details"), Description("""The main category of the application. May influence the placement in the start menu.""")]
     [TypeConverter(typeof(CategoryNameConverter))]
     public string? Category { get; set; }
 

@@ -67,7 +67,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <summary>
     /// A short name to identify the feed or program (e.g. "Foo").
     /// </summary>
-    [Category("Interface"), Description("A short name to identify the feed or program (e.g. \"Foo\").")]
+    [Category("Interface"), Description("""A short name to identify the feed or program (e.g. "Foo").""")]
     [XmlElement("name")]
     public string Name { get; set; } = default!;
 
@@ -86,7 +86,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <summary>
     /// The publisher (company or organization) of the program.
     /// </summary>
-    [Category("Interface"), Description("The publisher (company or organization) of the program.")]
+    [Category("Interface"), Description("""The publisher (company or organization) of the program.""")]
     [XmlElement("publisher")]
     public string? Publisher { get; set; }
 

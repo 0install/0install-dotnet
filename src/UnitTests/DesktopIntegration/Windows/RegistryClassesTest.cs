@@ -14,7 +14,9 @@ public class RegistryClassesTest : TestWithRedirect
     public void CommandLineEscaping()
     {
         GetLaunchCommandLine(new Verb {Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
-           .Should().EndWith("--opt \"some val\" \"%V\" --opt=\"%V\"");
+           .Should().EndWith("""
+               --opt "some val" "%V" --opt="%V"
+               """);
     }
 
     [Fact]

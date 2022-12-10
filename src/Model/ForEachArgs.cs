@@ -7,7 +7,10 @@ namespace ZeroInstall.Model;
 /// Expands an environment variable to multiple arguments.
 /// The variable specified in <see cref="ItemFrom"/> is split using <see cref="Separator"/> and the <see cref="Arguments"/> are added once for each item.
 /// </summary>
-[Description("Expands an environment variable to multiple arguments.\r\nThe variable specified in ItemFrom is split using Separator and the arguments are added once for each item.")]
+[Description("""
+Expands an environment variable to multiple arguments.
+The variable specified in ItemFrom is split using Separator and the arguments are added once for each item.
+""")]
 [Serializable, XmlRoot("for-each", Namespace = Feed.XmlNamespace), XmlType("for-each", Namespace = Feed.XmlNamespace)]
 [Equatable]
 public partial class ForEachArgs : ArgBase
@@ -15,14 +18,14 @@ public partial class ForEachArgs : ArgBase
     /// <summary>
     /// The name of the environment variable to be expanded.
     /// </summary>
-    [Description("The name of the environment variable to be expanded.")]
+    [Description("""The name of the environment variable to be expanded.""")]
     [XmlAttribute("item-from")]
     public string ItemFrom { get; set; } = default!;
 
     /// <summary>
     /// Overrides the default separator character (":" on POSIX and ";" on Windows).
     /// </summary>
-    [Description("Overrides the default separator character (\":\" on POSIX and \";\" on Windows).")]
+    [Description(@"Overrides the default separator character ("":"" on POSIX and "";"" on Windows).")]
     [XmlAttribute("separator"), DefaultValue("")]
     public string? Separator { get; set; }
 

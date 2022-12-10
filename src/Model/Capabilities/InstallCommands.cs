@@ -15,7 +15,10 @@ namespace ZeroInstall.Model.Capabilities;
 /// <param name="ShowIconsArgs"> Additional arguments for the executable specified in <see cref="ShowIcons"/>.</param>
 /// <param name="HideIcons">The path (relative to the installation directory) to the executable used to remove icons/shortcuts to the application without any arguments.</param>
 /// <param name="HideIconsArgs">Additional arguments for the executable specified in <see cref="HideIcons"/>.</param>
-[Description("Lists the commands the application normally registers for use by Windows' \"Set Program Access and Defaults\".\r\nUsed by registry virtualization to stand in for the actual Zero Install commands at runtime.")]
+[Description("""
+Lists the commands the application normally registers for use by Windows' "Set Program Access and Defaults".
+Used by registry virtualization to stand in for the actual Zero Install commands at runtime.
+""")]
 [TypeConverter(typeof(InstallCommandsConverter))]
 [Serializable, XmlType("install-commands", Namespace = CapabilityList.XmlNamespace)]
 public record struct InstallCommands(

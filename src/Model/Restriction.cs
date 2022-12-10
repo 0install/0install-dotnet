@@ -31,7 +31,10 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// A more flexible alternative to <see cref="Constraints"/>.
     /// Each range is in the form "START..!END". The range matches versions where START &lt;= VERSION &lt; END. The start or end may be omitted. A single version number may be used instead of a range to match only that version, or !VERSION to match everything except that version.
     /// </summary>
-    [Description("A more flexible alternative to Constraints.\r\nEach range is in the form \"START..!END\". The range matches versions where START < VERSION < END. The start or end may be omitted. A single version number may be used instead of a range to match only that version, or !VERSION to match everything except that version.")]
+    [Description("""
+    A more flexible alternative to Constraints.
+    Each range is in the form "START..!END". The range matches versions where START < VERSION < END. The start or end may be omitted. A single version number may be used instead of a range to match only that version, or !VERSION to match everything except that version.
+    """)]
     [XmlIgnore]
     public VersionRange? Versions { get; set; }
 
@@ -80,7 +83,10 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// The special value '0install' may be used to require an implementation provided by Zero Install (i.e. one not provided by a <see cref="PackageImplementation"/>).
     /// </summary>
     /// <seealso cref="Distributions"/>
-    [DisplayName(@"Distributions"), Description("Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).\r\nThe special value '0install' may be used to require an implementation provided by Zero Install (i.e. one not provided by a <package-implementation>).")]
+    [DisplayName(@"Distributions"), Description("""
+    Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).
+    The special value '0install' may be used to require an implementation provided by Zero Install (i.e. one not provided by a <package-implementation>).
+    """)]
     [TypeConverter(typeof(DistributionNameConverter))]
     [XmlAttribute("distribution"), DefaultValue("")]
     [IgnoreEquality]

@@ -25,7 +25,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// <see cref="FeedUri.FromDistributionPrefix"/> is prepended if data is pulled from a native package manager.
     /// If <c>null</c> or <see cref="string.Empty"/> use <see cref="InterfaceUri"/> instead.
     /// </summary>
-    [Description("The URL or local path of the feed that contains this implementation. \"distribution:\" is prepended if data is pulled from a native package manager. If null or empty use InterfaceUri instead.")]
+    [Description("""The URL or local path of the feed that contains this implementation. "distribution:" is prepended if data is pulled from a native package manager. If null or empty use InterfaceUri instead.""")]
     [XmlIgnore]
     public FeedUri? FromFeed { get; set; }
 
@@ -51,7 +51,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// <summary>
     /// A file which, if present, indicates that the selection is still valid. This is sometimes used with distribution-provided selections. If not present and the ID starts with "package:", you'll need to query the distribution's package manager to check that this version is still installed.
     /// </summary>
-    [Description("A file which, if present, indicates that the selection is still valid. This is sometimes used with distribution-provided selections. If not present and the ID starts with \"package:\", you'll need to query the distribution's package manager to check that this version is still installed.")]
+    [Description("""A file which, if present, indicates that the selection is still valid. This is sometimes used with distribution-provided selections. If not present and the ID starts with "package:", you'll need to query the distribution's package manager to check that this version is still installed.""")]
     [XmlAttribute("quick-test-file")]
     public string? QuickTestFile { get; set; }
 

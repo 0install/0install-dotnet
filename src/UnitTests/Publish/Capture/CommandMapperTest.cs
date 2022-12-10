@@ -19,24 +19,33 @@ public class CommandMapperTest
         var commandArgs2 = new Command {Name = "args2", Path = "entry.exe", Arguments = {"--arg2", "long argument"}};
         var provider = new CommandMapper("installation directory", new[] {commandNoArgs, commandArgs1, commandArgs2});
 
-
-        provider.GetCommand("installation directory" + Path.DirectorySeparatorChar + "entry.exe", out string additionalArgs)
+        provider.GetCommand($"""
+            installation directory{Path.DirectorySeparatorChar}entry.exe
+            """, out string additionalArgs)
                 .Should().BeSameAs(commandNoArgs);
         additionalArgs.Should().Be("");
 
-        provider.GetCommand("\"installation directory" + Path.DirectorySeparatorChar + "entry.exe\" --arg1", out additionalArgs)
+        provider.GetCommand($"""
+            "installation directory{Path.DirectorySeparatorChar}entry.exe" --arg1
+            """, out additionalArgs)
                 .Should().BeSameAs(commandNoArgs);
         additionalArgs.Should().Be("--arg1");
 
-        provider.GetCommand("\"installation directory" + Path.DirectorySeparatorChar + "entry.exe\" --arg1 \"long argument\" bla", out additionalArgs)
+        provider.GetCommand($"""
+            "installation directory{Path.DirectorySeparatorChar}entry.exe" --arg1 "long argument" bla
+            """, out additionalArgs)
                 .Should().BeSameAs(commandArgs1);
         additionalArgs.Should().Be("bla");
 
-        provider.GetCommand("\"installation directory" + Path.DirectorySeparatorChar + "entry.exe\" --arg2 \"long argument\" bla", out additionalArgs)
+        provider.GetCommand($"""
+            "installation directory{Path.DirectorySeparatorChar}entry.exe" --arg2 "long argument" bla
+            """, out additionalArgs)
                 .Should().BeSameAs(commandArgs2);
         additionalArgs.Should().Be("bla");
 
-        provider.GetCommand("Something" + Path.DirectorySeparatorChar + "else.exe", out additionalArgs)
+        provider.GetCommand($"""
+            Something{Path.DirectorySeparatorChar}else.exe
+            """, out additionalArgs)
                 .Should().BeNull();
     }
 }
