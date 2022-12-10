@@ -61,7 +61,7 @@ public sealed partial class DefaultProgram : VerbCapability
     /// The name of the service the application provides.
     /// Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call
     /// </summary>
-    [Description("The name of the service the application provides. Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call")]
+    [Description("""The name of the service the application provides. Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call""")]
     [XmlAttribute("service")]
     public string Service { get; set; } = default!;
 
@@ -69,7 +69,7 @@ public sealed partial class DefaultProgram : VerbCapability
     /// Lists the commands the application registers for use by Windows' "Set Program Access and Defaults". Will be transparently replaced with Zero Install commands at runtime.
     /// </summary>
     /// <remarks>These strings are used for registry filtering. They are never actually executed.</remarks>
-    [Description("Lists the commands the application registers for use by Windows' \"Set Program Access and Defaults\". Will be transparently replaced with Zero Install commandss at runtime.")]
+    [Description("""Lists the commands the application registers for use by Windows' "Set Program Access and Defaults". Will be transparently replaced with Zero Install commandss at runtime.""")]
     [XmlElement("install-commands")]
     public InstallCommands InstallCommands { get; set; }
 

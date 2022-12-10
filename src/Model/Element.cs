@@ -79,14 +79,14 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// <summary>
     /// A string to be appended to the version. The purpose of this is to allow complex version numbers (such as "1.0-rc2") in older versions of the injector.
     /// </summary>
-    [Category("Release"), Description("A string to be appended to the version. The purpose of this is to allow complex version numbers (such as \"1.0-rc2\") in older versions of the injector.")]
+    [Category("Release"), Description("""A string to be appended to the version. The purpose of this is to allow complex version numbers (such as "1.0-rc2") in older versions of the injector.""")]
     [XmlAttribute("version-modifier"), DefaultValue("")]
     public virtual string? VersionModifier { get; set; }
 
     /// <summary>
     /// The date this implementation was made available. For development versions checked out from version control this attribute should not be present.
     /// </summary>
-    [Category("Release"), Description("The date this implementation was made available. For development versions checked out from version control this attribute should not be present.")]
+    [Category("Release"), Description("""The date this implementation was made available. For development versions checked out from version control this attribute should not be present.""")]
     [XmlIgnore]
     public virtual DateTime Released { get; set; }
 
@@ -99,7 +99,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// The string form of <see cref="Released"/>. Only use this if the string <see cref="ModelUtils.ContainsTemplateVariables"/>.
     /// </summary>
     /// <seealso cref="Released"/>
-    [Category("Release"), Description("The string form of Released. Only use this if the string contains template variables.")]
+    [Category("Release"), Description("""The string form of Released. Only use this if the string contains template variables.""")]
     [XmlAttribute("released")]
     public virtual string? ReleasedString
     {

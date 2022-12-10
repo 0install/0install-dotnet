@@ -23,14 +23,14 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     /// <summary>
     /// The file extension including the leading dot (e.g., ".jpg").
     /// </summary>
-    [Description("The file extension including the leading dot (e.g., \".jpg\").")]
+    [Description("""The file extension including the leading dot (e.g., ".jpg").""")]
     [XmlAttribute("value")]
     public string Value { get; set; } = default!;
 
     /// <summary>
     /// The MIME type associated with the file extension.
     /// </summary>
-    [Description("The MIME type associated with the file extension.")]
+    [Description("""The MIME type associated with the file extension.""")]
     [XmlAttribute("mime-type"), DefaultValue("")]
     public string? MimeType { get; set; }
 
@@ -38,7 +38,7 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     /// Defines the broad category of file types this extension falls into.
     /// Well-known values on Windows are: folder, text, image, audio, video, compressed, document, system, application
     /// </summary>
-    [Description("Defines the broad category of file types this extension falls into. Well-known values on Windows are: folder, text, image, audio, video, compressed, document, system, application")]
+    [Description("""Defines the broad category of file types this extension falls into. Well-known values on Windows are: folder, text, image, audio, video, compressed, document, system, application""")]
     [XmlAttribute("perceived-type"), DefaultValue("")]
     public string? PerceivedType { get; set; }
 

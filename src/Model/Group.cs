@@ -8,7 +8,10 @@ namespace ZeroInstall.Model;
 /// All <see cref="Dependency"/>s and <see cref="Binding"/>s are inherited (sub-groups may add more <see cref="Dependency"/>s and <see cref="Binding"/>s to the list, but cannot remove any).
 /// </summary>
 /// <seealso cref="Feed.Elements"/>
-[Description("All attributes of a group are inherited by any child Groups and Implementations as defaults, but can be overridden there.\r\nAll Dependencies and Bindings are inherited (sub-groups may add more Dependencies and Bindings to the list, but cannot remove any).")]
+[Description("""
+All attributes of a group are inherited by any child Groups and Implementations as defaults, but can be overridden there.
+All Dependencies and Bindings are inherited (sub-groups may add more Dependencies and Bindings to the list, but cannot remove any).
+""")]
 [Serializable, XmlRoot("group", Namespace = Feed.XmlNamespace), XmlType("group", Namespace = Feed.XmlNamespace)]
 [Equatable]
 public sealed partial class Group : Element, IElementContainer

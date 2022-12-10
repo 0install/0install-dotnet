@@ -34,7 +34,7 @@ public sealed partial class EnvironmentBinding : Binding
     /// <summary>
     /// The name of the environment variable.
     /// </summary>
-    [Description("The name of the environment variable.")]
+    [Description("""The name of the environment variable.""")]
     [XmlAttribute("name")]
     [Localizable(false)]
     public string Name { get; set; } = default!;
@@ -43,7 +43,7 @@ public sealed partial class EnvironmentBinding : Binding
     /// A static value to set the variable to.
     /// </summary>
     /// <remarks>If this is set <see cref="Insert"/> must be <c>null</c>.</remarks>
-    [Description("A static value to set the variable to. If this is set 'Insert' must be empty.")]
+    [Description("""A static value to set the variable to. If this is set 'Insert' must be empty.""")]
     [XmlAttribute("value")]
     public string? Value { get; set; }
 
@@ -51,28 +51,28 @@ public sealed partial class EnvironmentBinding : Binding
     /// The relative path of the item within the implementation to insert into the variable value. Use <c>.</c> to publish the root directory.
     /// </summary>
     /// <remarks>If this is set <see cref="Value"/> must be <c>null</c>.</remarks>
-    [Description("The relative path of the item within the implementation to insert into the variable value. Use \".\" to publish the root directory. If this is set 'Value' must be empty.")]
+    [Description("""The relative path of the item within the implementation to insert into the variable value. Use "." to publish the root directory. If this is set 'Value' must be empty.""")]
     [XmlAttribute("insert")]
     public string? Insert { get; set; }
 
     /// <summary>
     /// Controls how the <see cref="Insert"/> or <see cref="Value"/> is added to the variable.
     /// </summary>
-    [Description("Controls how 'Insert' or 'Value' is added to the variable.")]
+    [Description("""Controls how 'Insert' or 'Value' is added to the variable.""")]
     [XmlAttribute("mode"), DefaultValue(typeof(EnvironmentMode), "Prepend")]
     public EnvironmentMode Mode { get; set; }
 
     /// <summary>
     /// Overrides the default separator character (":" on POSIX and ";" on Windows).
     /// </summary>
-    [Description("Overrides the default separator character (\":\" on POSIX and \";\" on Windows).")]
+    [Description("""Overrides the default separator character (":" on POSIX and ";" on Windows).""")]
     [XmlAttribute("separator"), DefaultValue("")]
     public string? Separator { get; set; }
 
     /// <summary>
     /// If the environment variable is not currently set then this value is used for prepending or appending.
     /// </summary>
-    [Description("If the environment variable is not currently set then this value is used for prepending or appending.")]
+    [Description("""If the environment variable is not currently set then this value is used for prepending or appending.""")]
     [XmlAttribute("default"), DefaultValue("")]
     public string? Default { get; set; }
 

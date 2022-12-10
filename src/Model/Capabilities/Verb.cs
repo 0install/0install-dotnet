@@ -81,7 +81,9 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     /// Command-line arguments to be passed to the command in escaped form. "%V" gets replaced with the path of the file being opened.
     /// This is ignored if <see cref="Arguments"/> has elements.
     /// </summary>
-    [DisplayName("Arguments"), Description("Command-line arguments to be passed to the command in escaped form. \"%V\" gets replaced with the path of the file being opened. This is ignored if Arguments has elements.")]
+    [DisplayName("Arguments"), Description("""
+    Command-line arguments to be passed to the command in escaped form. "%V" gets replaced with the path of the file being opened. This is ignored if Arguments has elements.
+    """)]
     [XmlAttribute("args"), DefaultValue("")]
     public string? ArgumentsLiteral { get; set; }
 

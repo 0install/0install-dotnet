@@ -6,7 +6,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// <summary>
 /// A specific <see cref="AutoPlay"/> event such as "Audio CD inserted".
 /// </summary>
-[Description("A specific AutoPlay event such as \"Audio CD inserted\".")]
+[Description("""A specific AutoPlay event such as "Audio CD inserted".""")]
 [Serializable, XmlRoot("event", Namespace = CapabilityList.XmlNamespace), XmlType("event", Namespace = CapabilityList.XmlNamespace)]
 [Equatable]
 public partial class AutoPlayEvent : XmlUnknown, ICloneable<AutoPlayEvent>

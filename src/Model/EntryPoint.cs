@@ -17,7 +17,7 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// <summary>
     /// The name of the <see cref="Command"/> this entry point represents.
     /// </summary>
-    [Description("The name of the command this entry point represents.")]
+    [Description(@"The name of the command this entry point represents.")]
     [TypeConverter(typeof(CommandNameConverter))]
     [XmlAttribute("command")]
     public string Command { get; set; } = default!;
@@ -26,7 +26,7 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.
     /// </summary>
     /// <remarks>Will default to <see cref="Command"/> when left <c>null</c>.</remarks>
-    [Description("The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.")]
+    [Description("""The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.""")]
     [XmlAttribute("binary-name"), DefaultValue("")]
     public string? BinaryName { get; set; }
 
@@ -34,28 +34,28 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes.
     /// May not be longer than 128 characters and may not contain whitespace.
     /// </summary>
-    [Description("The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes. May not be longer than 128 characters and may not contain whitespace.")]
+    [Description("""The Application User Model ID; used by Windows to associate shortcuts and pinned taskbar entries with running processes. May not be longer than 128 characters and may not contain whitespace.""")]
     [XmlAttribute("app-id")]
     public string? AppId { get; set; }
 
     /// <summary>
     /// If <c>true</c>, indicates that the <see cref="Command"/> represented by this entry point requires a terminal in order to run.
     /// </summary>
-    [Description("If true, indicates that the Command represented by this entry point requires a terminal in order to run.")]
+    [Description("""If true, indicates that the Command represented by this entry point requires a terminal in order to run.""")]
     [XmlIgnore, DefaultValue(false)]
     public bool NeedsTerminal { get; set; }
 
     /// <summary>
     /// If <c>true</c>, indicates that this entry point should be offered as an auto-start candidate to the user.
     /// </summary>
-    [Description("If true, indicates that this entry point should be offered as an auto-start candidate to the user.")]
+    [Description("""If true, indicates that this entry point should be offered as an auto-start candidate to the user.""")]
     [XmlIgnore, DefaultValue(false)]
     public bool SuggestAutoStart { get; set; }
 
     /// <summary>
     /// If <c>true</c>, indicates that this entry point should be offered as a candidate for the "Send To" context menu to the user.
     /// </summary>
-    [Description("If true, indicates that this entry point should be offered as a candidate for the \"Send To\" context menu to the user.")]
+    [Description("""If true, indicates that this entry point should be offered as a candidate for the "Send To" context menu to the user.""")]
     [XmlIgnore, DefaultValue(false)]
     public bool SuggestSendTo { get; set; }
 
