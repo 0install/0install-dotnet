@@ -85,7 +85,7 @@ public partial class SelectionsManager : ISelectionsManager
         string? GetPath(ImplementationBase implementation)
             => implementation.LocalPath
             ?? (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                   ? "(" + implementation.ID + ")"
+                   ? $"({implementation.ID})"
                    : _implementationStore.GetPath(implementation.ManifestDigest));
 
         void AddNodes(IInterfaceUri target, SelectionsTreeNode? parent)

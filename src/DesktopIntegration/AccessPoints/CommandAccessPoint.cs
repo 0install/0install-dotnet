@@ -42,8 +42,8 @@ public abstract partial class CommandAccessPoint : AccessPoint
     /// </summary>
     public override string ToString()
     {
-        string result = GetType().Name + ": " + Name;
-        if (!string.IsNullOrEmpty(Command)) result += " (" + Command + ")";
+        string result = $"{GetType().Name}: {Name}";
+        if (!string.IsNullOrEmpty(Command)) result += $" ({Command})";
         return result;
     }
     #endregion

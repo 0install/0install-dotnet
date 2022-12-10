@@ -85,10 +85,10 @@ public record struct ManifestDigest(
         get
         {
             var result = new List<string>(4);
-            if (Sha256New != null) result.Add("sha256new_" + Sha256New);
-            if (Sha256 != null) result.Add("sha256=" + Sha256);
-            if (Sha1New != null) result.Add("sha1new=" + Sha1New);
-            if (Sha1 != null) result.Add("sha1=" + Sha1);
+            if (Sha256New != null) result.Add($"sha256new_{Sha256New}");
+            if (Sha256 != null) result.Add($"sha256={Sha256}");
+            if (Sha1New != null) result.Add($"sha1new={Sha1New}");
+            if (Sha1 != null) result.Add($"sha1={Sha1}");
             return result;
         }
     }
@@ -105,10 +105,10 @@ public record struct ManifestDigest(
     public override string ToString()
     {
         var parts = new List<string>();
-        if (!string.IsNullOrEmpty(Sha1)) parts.Add("sha1=" + Sha1);
-        if (!string.IsNullOrEmpty(Sha1New)) parts.Add("sha1new=" + Sha1New);
-        if (!string.IsNullOrEmpty(Sha256)) parts.Add("sha256=" + Sha256);
-        if (!string.IsNullOrEmpty(Sha256New)) parts.Add("sha256new_" + Sha256New);
+        if (!string.IsNullOrEmpty(Sha1)) parts.Add($"sha1={Sha1}");
+        if (!string.IsNullOrEmpty(Sha1New)) parts.Add($"sha1new={Sha1New}");
+        if (!string.IsNullOrEmpty(Sha256)) parts.Add($"sha256={Sha256}");
+        if (!string.IsNullOrEmpty(Sha256New)) parts.Add($"sha256new_{Sha256New}");
         return string.Join(",", parts);
     }
 

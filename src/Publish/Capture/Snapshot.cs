@@ -99,10 +99,10 @@ public class Snapshot
         ClassIDs.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ComServer.RegKeyClassesIDs));
         RegisteredApplications.Add(RegUtils.GetValueNames(Registry.LocalMachine, AppRegistration.RegKeyMachineRegisteredApplications));
 
-        ContextMenuFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesFiles + @"\shell"));
-        ContextMenuExecutableFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesExecutableFiles[0] + @"\shell"));
-        ContextMenuDirectories.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesDirectories + @"\shell"));
-        ContextMenuAll.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, ContextMenu.RegKeyClassesAll + @"\shell"));
+        ContextMenuFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, $@"{ContextMenu.RegKeyClassesFiles}\shell"));
+        ContextMenuExecutableFiles.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, $@"{ContextMenu.RegKeyClassesExecutableFiles[0]}\shell"));
+        ContextMenuDirectories.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, $@"{ContextMenu.RegKeyClassesDirectories}\shell"));
+        ContextMenuAll.Add(RegUtils.GetSubKeyNames(Registry.ClassesRoot, $@"{ContextMenu.RegKeyClassesAll}\shell"));
     }
 
     /// <summary>

@@ -15,7 +15,7 @@ partial class SelfManager
     private const string ServiceName = "0store-service";
     private static readonly string _installUtilExe = Path.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "InstallUtil.exe");
 
-    private string ServiceExe => Path.Combine(TargetDir, ServiceName + ".exe");
+    private string ServiceExe => Path.Combine(TargetDir, $"{ServiceName}.exe");
 
     private static ServiceController? GetServiceController()
         => ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
@@ -34,7 +34,7 @@ partial class SelfManager
         if (service?.Status != ServiceControllerStatus.Running) return;
 
         // Stop existing service if it is installed in the target directory we are updating
-        if (RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\" + ServiceName, "ImagePath")?.Trim('"') is {} imagePath
+        if (RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\{ServiceName}", "ImagePath")?.Trim('"') is {} imagePath
          && imagePath.StartsWith(TargetDir))
         {
             Handler.RunTask(new SimpleTask(Resources.StopService, () =>

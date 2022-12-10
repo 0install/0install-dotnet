@@ -51,7 +51,7 @@ public sealed partial class VersionRangePartExclude : VersionRangePart
     public override bool Match(ImplementationVersion version) => !Version.Equals(version ?? throw new ArgumentNullException(nameof(version)));
 
     /// <inheritdoc/>
-    public override string ToString() => "!" + Version;
+    public override string ToString() => $"!{Version}";
 
     #region Equatable
     public override bool Equals(object? obj)

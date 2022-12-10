@@ -31,7 +31,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// Provides XML Editors with location hints for XSD files.
     /// </summary>
     [XmlAttribute("schemaLocation", Namespace = XmlStorage.XsiNamespace)]
-    public string XsiSchemaLocation = XmlNamespace + " " + XsdLocation;
+    public string XsiSchemaLocation = $"{XmlNamespace} {XsdLocation}";
     #endregion
 
     /// <summary>

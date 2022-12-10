@@ -26,11 +26,11 @@ partial class SnapshotDiff
         foreach ((string protocol, _) in ProtocolAssocs)
         {
             using var protocolKey = Registry.ClassesRoot.TryOpenSubKey(protocol);
-            if (protocolKey == null) throw new IOException(protocol + " not found");
+            if (protocolKey == null) throw new IOException($"{protocol} not found");
             capabilities.Entries.Add(new UrlProtocol
             {
                 ID = protocol,
-                Descriptions = {RegistryUtils.GetString(@"HKEY_CLASSES_ROOT\" + protocol, valueName: null, defaultValue: protocol)},
+                Descriptions = {RegistryUtils.GetString($@"HKEY_CLASSES_ROOT\{protocol}", valueName: null, defaultValue: protocol)},
                 Verbs = {GetVerb(protocolKey, commandMapper, "open") ?? throw new IOException("Verb open not found.")}
             });
         }

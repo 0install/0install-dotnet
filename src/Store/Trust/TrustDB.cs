@@ -26,7 +26,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Provides XML Editors with location hints for XSD files.
     /// </summary>
     [XmlAttribute("schemaLocation", Namespace = XmlStorage.XsiNamespace)]
-    public string XsiSchemaLocation = XmlNamespace + " " + XsdLocation;
+    public string XsiSchemaLocation = $"{XmlNamespace} {XsdLocation}";
     #endregion
 
     // Order is preserved, but ignore it when comparing
@@ -131,7 +131,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        Log.Debug("Loading trust database from: " + path);
+        Log.Debug($"Loading trust database from: {path}");
         var trustDB = XmlStorage.LoadXml<TrustDB>(path);
         trustDB._filePath = path;
         return trustDB;
@@ -203,7 +203,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        Log.Debug("Saving trust database to: " + path);
+        Log.Debug($"Saving trust database to: {path}");
         this.SaveXml(path);
     }
     #endregion

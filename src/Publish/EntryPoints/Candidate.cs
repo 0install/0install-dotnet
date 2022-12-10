@@ -107,5 +107,5 @@ public abstract partial class Candidate
     /// <summary>The <see cref="Command.Name"/> used by <see cref="CreateCommand"/>.</summary>
     protected string CommandName => (Path.GetFileNameWithoutExtension(RelativePath) ?? "unknown").Replace(" ", "-");
 
-    public override string ToString() => RelativePath + " (" + GetType().Name + ")";
+    public override string ToString() => $"{RelativePath} ({GetType().Name})";
 }

@@ -44,7 +44,7 @@ public abstract partial class ManagerBase : IDisposable
         {
             var mutexSecurity = new MutexSecurity();
             mutexSecurity.AddAccessRule(new(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
-            _mutex = new(false, @"Global\" + MutexName, out _, mutexSecurity);
+            _mutex = new(false, $@"Global\{MutexName}", out _, mutexSecurity);
         }
         else
 #endif

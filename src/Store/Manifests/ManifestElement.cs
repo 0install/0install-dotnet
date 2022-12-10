@@ -28,7 +28,7 @@ public sealed record ManifestSymlink(string Digest, long Size)
     : ManifestElement(Digest, Size)
 {
     /// <inheritdoc/>
-    public override string ToLine(string name) => "S " + Digest + " " + Size + " " + name;
+    public override string ToLine(string name) => $"S {Digest} {Size} {name}";
 }
 
 /// <summary>
@@ -52,7 +52,7 @@ public sealed record ManifestNormalFile(string Digest, UnixTime ModifiedTime, lo
     : ManifestFile(Digest, ModifiedTime, Size)
 {
     /// <inheritdoc/>
-    public override string ToLine(string name) => "F " + Digest + " " + ModifiedTime + " " + Size + " " + name;
+    public override string ToLine(string name) => $"F {Digest} {ModifiedTime} {Size} {name}";
 }
 
 /// <summary>
@@ -66,5 +66,5 @@ public sealed record ManifestExecutableFile(string Digest, UnixTime ModifiedTime
     : ManifestFile(Digest, ModifiedTime, Size)
 {
     /// <inheritdoc/>
-    public override string ToLine(string name) => "X " + Digest + " " + ModifiedTime + " " + Size + " " + name;
+    public override string ToLine(string name) => $"X {Digest} {ModifiedTime} {Size} {name}";
 }

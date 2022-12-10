@@ -49,8 +49,8 @@ public sealed class DigestMismatchException : Exception
             if (ExpectedManifest != null && ActualManifest != null)
             {
                 Merge.TwoWay(ActualManifest.Lines, ExpectedManifest.Lines,
-                    added: node => builder.Append(Environment.NewLine + "unexpected: " + node),
-                    removed: node => builder.Append(Environment.NewLine + "missing: " + node));
+                    added: node => builder.Append($"{Environment.NewLine}unexpected: {node}"),
+                    removed: node => builder.Append($"{Environment.NewLine}missing: {node}"));
             }
             else
             {

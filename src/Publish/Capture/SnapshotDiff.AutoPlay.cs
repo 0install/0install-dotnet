@@ -50,14 +50,14 @@ partial class SnapshotDiff
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        using var handlerKey = hive.TryOpenSubKey(DesktopIntegration.Windows.AutoPlay.RegKeyHandlers + @"\" + handler);
+        using var handlerKey = hive.TryOpenSubKey($@"{DesktopIntegration.Windows.AutoPlay.RegKeyHandlers}\{handler}");
         string? progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
         if (string.IsNullOrEmpty(progID)) return null;
 
         string? verbName = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
         if (string.IsNullOrEmpty(verbName)) return null;
 
-        using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID) ?? throw new IOException(progID + " key not found");
+        using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID) ?? throw new IOException($"{progID} key not found");
         string? provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString();
         if (string.IsNullOrEmpty(provider)) return null;
 

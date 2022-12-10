@@ -53,7 +53,7 @@ public static partial class Shortcut
     /// <param name="machineWide"><c>true</c> to use the machine-wide start menu; <c>false</c> for the per-user variant.</param>
     /// <exception cref="IOException"><paramref name="name"/> or <paramref name="category"/> contains invalid characters.</exception>
     public static string GetStartMenuPath(string? category, string? name, bool machineWide)
-        => Path.Combine(GetStartMenuCategoryPath(category, machineWide), name + ".lnk");
+        => Path.Combine(GetStartMenuCategoryPath(category, machineWide), $"{name}.lnk");
 
     /// <summary>
     /// Returns the start menu programs folder path, optionally appending a category.

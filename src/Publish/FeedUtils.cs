@@ -25,14 +25,14 @@ public static class FeedUtils
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        if (!File.Exists(Path.Combine(path, name + ".xsl")))
+        if (!File.Exists(Path.Combine(path, $"{name}.xsl")))
         {
-            DeployEmbeddedFile(name + ".xsl", path);
-            DeployEmbeddedFile(name + ".css", path);
+            DeployEmbeddedFile($"{name}.xsl", path);
+            DeployEmbeddedFile($"{name}.css", path);
             switch (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName)
             {
                 case "de":
-                    DeployEmbeddedFile(name + ".xsl.de", path);
+                    DeployEmbeddedFile($"{name}.xsl.de", path);
                     break;
             }
         }

@@ -34,7 +34,7 @@ public static class Suggest
             string name = feed.Name.SafeFileName();
             category = category == null
                 ? name
-                : category + "/" + name;
+                : $"{category}/{name}";
         }
 
         return EnumerableExtensions.DistinctBy(

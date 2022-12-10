@@ -88,7 +88,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
 
     #region Conversion
     /// <inheritdoc/>
-    public override string ToString() => base.ToString() + " (" + InterfaceUri + ")";
+    public override string ToString() => $"{base.ToString()} ({InterfaceUri})";
     #endregion
 
     #region Clone

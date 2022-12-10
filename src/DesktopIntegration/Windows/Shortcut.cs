@@ -31,7 +31,7 @@ public static partial class Shortcut
 
         string arguments = "run ";
         if (!needsTerminal) arguments += "--no-wait ";
-        if (command != Command.NameRun) arguments += "--command " + command.EscapeArgument() + " ";
+        if (command != Command.NameRun) arguments += $"--command {command.EscapeArgument()} ";
         arguments += target.Uri.ToStringRfc().EscapeArgument();
 
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
@@ -56,7 +56,7 @@ public static partial class Shortcut
                ?.ManifestDigest.Best;
         if (referenceDigest == null) return null;
 
-        return Path.Combine(ImplementationStores.GetDirectories().Last(), referenceDigest, entryPoint.BinaryName + ".exe");
+        return Path.Combine(ImplementationStores.GetDirectories().Last(), referenceDigest, $"{entryPoint.BinaryName}.exe");
     }
 
     /// <summary>

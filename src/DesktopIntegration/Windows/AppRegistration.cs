@@ -70,7 +70,7 @@ public static class AppRegistration
 
             // Set icon if available
             var icon = target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
-            capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => iconStore.GetFresh(x) + ",0"));
+            capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => $"{iconStore.GetFresh(x)},0"));
 
             verbCapabilities = verbCapabilities.ToArray();
 

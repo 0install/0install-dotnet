@@ -37,9 +37,9 @@ public class SearchResults
 
         var url = new Uri(
             config.FeedMirror.EnsureTrailingSlash(),
-            new Uri("search/?q=" + Uri.EscapeDataString(keywords), UriKind.Relative));
+            new Uri($"search/?q={Uri.EscapeDataString(keywords)}", UriKind.Relative));
 
-        Log.Info("Performing search query: " + url.ToStringRfc());
+        Log.Info($"Performing search query: {url.ToStringRfc()}");
 #if NET
         using var httpClient = new HttpClient {Timeout = TimeSpan.FromSeconds(20)};
         var response = httpClient.SendEnsureSuccess(new(HttpMethod.Get, url));

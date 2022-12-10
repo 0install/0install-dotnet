@@ -146,7 +146,7 @@ partial class Self
     /// Use cmd.exe to delete own installation directory after 8s delay
     /// </summary>
     private static void WindowsSelfDelete()
-        => new ProcessStartInfo("cmd.exe", "/c (ping 127.0.0.1 -n 8 || ping ::1 -n 8) & rd /s /q " + Locations.InstallBase.EscapeArgument())
+        => new ProcessStartInfo("cmd.exe", $"/c (ping 127.0.0.1 -n 8 || ping ::1 -n 8) & rd /s /q {Locations.InstallBase.EscapeArgument()}")
         {
             UseShellExecute = false,
             CreateNoWindow = true

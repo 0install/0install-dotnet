@@ -23,7 +23,7 @@ public class Fetch : CliCommand
     {
         string? input = Console.ReadLine();
         if (string.IsNullOrEmpty(input)) return ExitCode.InvalidData;
-        Log.Debug("Fetch input:\n" + input);
+        Log.Debug($"Fetch input:\n{input}");
 
         var feedFragment = XmlStorage.FromXmlString<Feed>(input);
         feedFragment.Name = "dummy";

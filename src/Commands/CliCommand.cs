@@ -70,7 +70,7 @@ public abstract partial class CliCommand : ScopedOperation
         {
             using var buffer = new MemoryStream();
             var writer = new StreamWriter(buffer);
-            writer.WriteLine(Resources.Usage + " 0install " + FullName + " " + Usage);
+            writer.WriteLine($"{Resources.Usage} 0install {FullName} {Usage}");
             writer.WriteLine();
             writer.WriteLine(Description);
             if (Options.Count != 0)

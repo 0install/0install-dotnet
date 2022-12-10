@@ -333,7 +333,7 @@ public class FeedTest
         var feed = CreateTestFeed();
 
         feed.GetBestName(CultureInfo.InvariantCulture, null).Should().Be("Entry name");
-        feed.GetBestName(CultureInfo.InvariantCulture, "unknown").Should().Be(feed.Name + " unknown");
+        feed.GetBestName(CultureInfo.InvariantCulture, "unknown").Should().Be($"{feed.Name} unknown");
     }
 
     /// <summary>

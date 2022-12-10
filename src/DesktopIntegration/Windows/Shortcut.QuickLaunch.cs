@@ -39,5 +39,5 @@ public static partial class Shortcut
     }
 
     private static string GetQuickLaunchPath(string? name)
-        => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch", name + ".lnk");
+        => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch", $"{name}.lnk");
 }

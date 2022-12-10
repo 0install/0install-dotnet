@@ -45,14 +45,14 @@ public static class AppAlias
         string stubDirPath = GetStubDir(machineWide);
         PathEnv.AddDir(stubDirPath, machineWide);
 
-        string stubFilePath = Path.Combine(stubDirPath, aliasName + ".exe");
+        string stubFilePath = Path.Combine(stubDirPath, $"{aliasName}.exe");
         new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command);
 
         if (machineWide || WindowsUtils.IsWindows7)
         {
             var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
             using var appPathsKey = hive.CreateSubKeyChecked(RegKeyAppPaths);
-            using var exeKey = appPathsKey.CreateSubKeyChecked(aliasName + ".exe");
+            using var exeKey = appPathsKey.CreateSubKeyChecked($"{aliasName}.exe");
             exeKey.SetValue("", stubFilePath);
         }
 #else
@@ -75,9 +75,9 @@ public static class AppAlias
         if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
         #endregion
 
-        RemoveFromAppPaths(aliasName + ".exe", machineWide);
+        RemoveFromAppPaths($"{aliasName}.exe", machineWide);
 
-        string stubFilePath = Path.Combine(GetStubDir(machineWide), aliasName + ".exe");
+        string stubFilePath = Path.Combine(GetStubDir(machineWide), $"{aliasName}.exe");
         if (File.Exists(stubFilePath)) File.Delete(stubFilePath);
     }
 

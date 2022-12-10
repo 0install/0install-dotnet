@@ -60,7 +60,7 @@ public static class AutoPlay
         #endregion
 
         string handlerName = RegistryClasses.Prefix + autoPlay.ID;
-        string progId = RegistryClasses.Prefix + "AutoPlay." + autoPlay.ID;
+        string progId = $"{RegistryClasses.Prefix}AutoPlay.{autoPlay.ID}";
 
         using (var classesKey = RegistryClasses.OpenHive(machineWide))
         using (var verbKey = classesKey.CreateSubKeyChecked($@"{progId}\shell\{autoPlay.Verb.Name}"))
@@ -78,7 +78,7 @@ public static class AutoPlay
 
             var icon = autoPlay.GetIcon(Icon.MimeTypeIco)
                     ?? target.Feed.GetBestIcon(Icon.MimeTypeIco, autoPlay.Verb.Command);
-            handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => iconStore.GetFresh(x) + ",0"));
+            handlerKey.SetOrDelete(RegValueIcon, icon?.To(x => $"{iconStore.GetFresh(x)},0"));
         }
 
         foreach (var autoPlayEvent in autoPlay.Events.Except(x => string.IsNullOrEmpty(x.Name)))
@@ -112,7 +112,7 @@ public static class AutoPlay
 
         var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
         string handlerName = RegistryClasses.Prefix + autoPlay.ID;
-        string progId = RegistryClasses.Prefix + "AutoPlay." + autoPlay.ID;
+        string progId = $"{RegistryClasses.Prefix}AutoPlay.{autoPlay.ID}";
 
         if (accessPoint)
         {

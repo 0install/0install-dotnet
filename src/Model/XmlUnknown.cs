@@ -45,7 +45,7 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     protected void EnsureAttributeSafeID(string? value, string attributeName)
     {
         if (string.IsNullOrEmpty(value) || !value.All(x => char.IsLetterOrDigit(x) || x is ' ' or '.' or '_' or '-' or '+'))
-            throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, ToShortXml()) + " " + Resources.ShouldBeSafeID + " " + Resources.FoundInstead + " " + value);
+            throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, ToShortXml())} {Resources.ShouldBeSafeID} {Resources.FoundInstead} {value}");
     }
 
     /// <summary>

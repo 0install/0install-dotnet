@@ -50,7 +50,7 @@ public partial class CatalogManager : ICatalogManager
     {
         try
         {
-            Log.Debug("Caching Catalog in: " + _cacheFilePath);
+            Log.Debug($"Caching Catalog in: {_cacheFilePath}");
             catalog.SaveXml(_cacheFilePath);
         }
         #region Error handling

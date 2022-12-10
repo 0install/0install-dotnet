@@ -91,7 +91,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
 
         // Place files in temp directory until digest is verified
         using var tempDir = new TemporaryDirectory("0install-extract", Path);
-        Log.Debug("Temp directory for extracting: " + tempDir);
+        Log.Debug($"Temp directory for extracting: {tempDir}");
 
         var builder = new ManifestBuilder(format);
         build(new DirectoryBuilder(tempDir, builder));
@@ -132,7 +132,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     {
         try
         {
-            Log.Debug("Enabling write protection for: " + path);
+            Log.Debug($"Enabling write protection for: {path}");
             FileUtils.EnableWriteProtection(path);
         }
         #region Error handling
@@ -148,14 +148,14 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     private void DeployDeleteInfoFile()
     {
-        string deleteInfoDirPath = System.IO.Path.Combine(Path, "_" + Resources.DeleteInfoFileName);
+        string deleteInfoDirPath = System.IO.Path.Combine(Path, $"_{Resources.DeleteInfoFileName}");
         if (Directory.Exists(deleteInfoDirPath)) return;
 
         string escapedPath = Path.EscapeArgument();
         try
         {
             Directory.CreateDirectory(deleteInfoDirPath);
-            File.WriteAllText(System.IO.Path.Combine(deleteInfoDirPath, Resources.DeleteInfoFileName + ".txt"),
+            File.WriteAllText(System.IO.Path.Combine(deleteInfoDirPath, $"{Resources.DeleteInfoFileName}.txt"),
                 string.Format(Resources.DeleteInfoFileContent,
                     "0install store remove IMPLEMENTATION-ID",
                     $"0install store purge {escapedPath}",
@@ -168,7 +168,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Info("Failed to deploy info file: " + deleteInfoDirPath, ex);
+            Log.Info($"Failed to deploy info file: {deleteInfoDirPath}", ex);
         }
         #endregion
     }
@@ -178,7 +178,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     protected void RemoveDeleteInfoFile()
     {
-        foreach (string path in Directory.GetDirectories(Path, "_" + Resources.DeleteInfoFileName))
+        foreach (string path in Directory.GetDirectories(Path, $"_{Resources.DeleteInfoFileName}"))
         {
             try
             {
@@ -188,7 +188,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
             #region Error handling
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
-                Log.Info("Failed to remove info file: " + path, ex);
+                Log.Info($"Failed to remove info file: {path}", ex);
             }
             #endregion
         }

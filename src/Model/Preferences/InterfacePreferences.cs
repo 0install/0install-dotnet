@@ -60,7 +60,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
         if (string.IsNullOrEmpty(path)) return new();
 
-        Log.Debug("Loading interface preferences for " + interfaceUri.ToStringRfc() + " from: " + path);
+        Log.Debug($"Loading interface preferences for {interfaceUri.ToStringRfc()} from: {path}");
         return XmlStorage.LoadXml<InterfacePreferences>(path);
     }
 
@@ -102,7 +102,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
 
         string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape());
 
-        Log.Debug("Saving interface preferences for " + interfaceUri.ToStringRfc() + " to: " + path);
+        Log.Debug($"Saving interface preferences for {interfaceUri.ToStringRfc()} to: {path}");
         this.SaveXml(path);
     }
     #endregion

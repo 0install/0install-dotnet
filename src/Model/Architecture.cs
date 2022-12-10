@@ -111,5 +111,5 @@ public record struct Architecture(
     /// Returns the architecture in the form "os-cpu". Safe for parsing!
     /// </summary>
     public override string ToString()
-        => OS.ConvertToString() + "-" + Cpu.ConvertToString();
+        => $"{OS.ConvertToString()}-{Cpu.ConvertToString()}";
 }

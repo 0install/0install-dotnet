@@ -38,10 +38,7 @@ public class FeedUtilsTest : TestWithMocks
         using (var stream = new MemoryStream())
         {
             feed.SaveXml(stream);
-            expectedFeed = stream.ReadToString()
-                         + Store.Feeds.FeedUtils.SignatureBlockStart
-                         + Convert.ToBase64String(signature) + "\n"
-                         + Store.Feeds.FeedUtils.SignatureBlockEnd;
+            expectedFeed = $"{stream.ReadToString()}{Store.Feeds.FeedUtils.SignatureBlockStart}{Convert.ToBase64String(signature)}\n{Store.Feeds.FeedUtils.SignatureBlockEnd}";
         }
 
         signedFeed.Should().Be(expectedFeed, because: "Feed should remain unchanged except for appended XML signatre");

@@ -72,7 +72,7 @@ internal sealed class MsiPackage : IDisposable
                 ResolveDirectory(parent);
                 directory.FullPath = (directory.Name == ".")
                     ? parent.FullPath
-                    : parent.FullPath + "/" + directory.Name;
+                    : $"{parent.FullPath}/{directory.Name}";
             }
         }
     }
@@ -88,7 +88,7 @@ internal sealed class MsiPackage : IDisposable
         {
             string? directory = _directories[row["Directory_"].ToString()].FullPath;
             string fileName = row["FileName"].ToString().Split(':').Last().Split('|').Last();
-            _files.Add(row["File"].ToString(), directory + "/" + fileName);
+            _files.Add(row["File"].ToString(), $"{directory}/{fileName}");
         }
     }
 
@@ -120,7 +120,7 @@ internal sealed class MsiPackage : IDisposable
             streamsView.Execute();
 
             using var record = streamsView.Fetch()
-                             ?? throw new IOException(Resources.ArchiveInvalid + Environment.NewLine + $"Cabinet stream '{cabinet}' missing");
+                             ?? throw new IOException($"{Resources.ArchiveInvalid}{Environment.NewLine}Cabinet stream '{cabinet}' missing");
 
             using var stream = record.GetStream("Data");
             callback(stream);

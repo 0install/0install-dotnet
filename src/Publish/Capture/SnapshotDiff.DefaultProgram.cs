@@ -30,7 +30,7 @@ partial class SnapshotDiff
 
         foreach ((string service, string client) in ServiceAssocs)
         {
-            using var clientKey = Registry.LocalMachine.TryOpenSubKey(DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients + @"\" + service + @"\" + client);
+            using var clientKey = Registry.LocalMachine.TryOpenSubKey($@"{DesktopIntegration.Windows.DefaultProgram.RegKeyMachineClients}\{service}\{client}");
             if (clientKey == null) continue;
 
             if (string.IsNullOrEmpty(appName))
@@ -67,7 +67,7 @@ partial class SnapshotDiff
         (string? commandLine, string? arguments) IsolateCommand(string regValueName)
         {
             string? commandLine = installInfoKey.GetValue(regValueName)?.ToString();
-            if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase("\"" + installationDir + "\\"))
+            if (string.IsNullOrEmpty(commandLine) || !commandLine.StartsWithIgnoreCase($"\"{installationDir}\\"))
                 return (null, null);
 
             commandLine = commandLine[(installationDir.Length + 2)..];

@@ -41,5 +41,5 @@ public static partial class Shortcut
     private static string GetSendToPath(string? name)
         => Path.Combine(
             GetFolderPath(Environment.SpecialFolder.SendTo),
-            name + ".lnk");
+            $"{name}.lnk");
 }

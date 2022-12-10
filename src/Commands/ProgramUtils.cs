@@ -208,7 +208,7 @@ public static class ProgramUtils
         }
         catch (OptionException ex)
         {
-            handler.Error(new OptionException(ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, exeName + " --help"), ex.OptionName));
+            handler.Error(new OptionException(ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, $"{exeName} --help"), ex.OptionName));
             return ExitCode.InvalidArguments;
         }
         catch (FormatException ex)
@@ -321,7 +321,7 @@ public static class ProgramUtils
     {
         if (ZeroInstallInstance.FindOther(needsMachineWide) is {} installLocation)
         {
-            Log.Info("Redirecting to Zero Install instance at: " + installLocation);
+            Log.Info($"Redirecting to Zero Install instance at: {installLocation}");
             handler.DisableUI();
             return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
         }

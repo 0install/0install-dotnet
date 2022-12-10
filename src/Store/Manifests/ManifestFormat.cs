@@ -52,8 +52,8 @@ public abstract class ManifestFormat
         if (id.StartsWith(Sha256New.Prefix)) return Sha256New;
         if (id.StartsWith(Sha256.Prefix)) return Sha256;
         if (id.StartsWith(Sha1New.Prefix)) return Sha1New;
-        if (id.StartsWith("sha1=")) throw new NotSupportedException(id + ": The sha1 manifest digest format is no longer supported. Please upgrade to sha1new or sha256new.");
-        throw new NotSupportedException(id + ": " + Resources.NoKnownDigestMethod);
+        if (id.StartsWith("sha1=")) throw new NotSupportedException($"{id}: The sha1 manifest digest format is no longer supported. Please upgrade to sha1new or sha256new.");
+        throw new NotSupportedException($"{id}: {Resources.NoKnownDigestMethod}");
     }
     #endregion
 

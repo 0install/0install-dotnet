@@ -17,7 +17,7 @@ public class DefaultCommand : CliCommand
         {
             var builder = new StringBuilder(string.Format(Resources.TryHelpWith, "--help") + Environment.NewLine);
             foreach (string possibleCommand in Names)
-                builder.AppendLine("0install " + possibleCommand);
+                builder.AppendLine($"0install {possibleCommand}");
             return builder.ToString();
         }
     }

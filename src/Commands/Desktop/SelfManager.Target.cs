@@ -41,7 +41,7 @@ partial class SelfManager
     {
         if (FileUtils.PathEquals(TargetDir, Locations.InstallBase))
         {
-            Log.Info("Cannot use Mutex because source and target directory are the same: " + TargetDir);
+            Log.Info($"Cannot use Mutex because source and target directory are the same: {TargetDir}");
             return;
         }
 

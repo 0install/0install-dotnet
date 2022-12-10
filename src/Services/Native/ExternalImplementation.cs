@@ -58,7 +58,7 @@ public sealed partial class ExternalImplementation : Implementation
         if (version == null) throw new ArgumentNullException(nameof(version));
         #endregion
 
-        ID = PackagePrefix + distribution.ToLowerInvariant() + ":" + package + ":" + version;
+        ID = $"{PackagePrefix}{distribution.ToLowerInvariant()}:{package}:{version}";
 
         Version = version;
         Stability = Stability.Packaged;
@@ -67,7 +67,7 @@ public sealed partial class ExternalImplementation : Implementation
 
         if (cpu != Cpu.All)
         {
-            ID += ":" + cpu.ConvertToString();
+            ID += $":{cpu.ConvertToString()}";
             Architecture = new(OS.All, cpu);
         }
     }
@@ -84,7 +84,7 @@ public sealed partial class ExternalImplementation : Implementation
         #endregion
 
         var parts = id.Split(':');
-        if (parts.Length < 4 || parts[0] + ":" != PackagePrefix)
+        if (parts.Length < 4 || $"{parts[0]}:" != PackagePrefix)
             throw new FormatException();
 
         var implementation = new ExternalImplementation(distribution: parts[1], package: parts[2], version: new(parts[3])) {ID = id};

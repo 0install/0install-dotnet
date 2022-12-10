@@ -104,7 +104,7 @@ public class TrustManagerTest : TestWithMocks
         _feedCacheMock.Setup(x => x.Contains(new("http://localhost/test.xml"))).Returns(true);
         _handler.AnswerQuestionWith = false;
 
-        using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
+        using (var keyInfoServer = new MicroServer($"key/{OpenPgpUtilsTest.TestSignature.FormatFingerprint()}", KeyInfoResponse.ToStream()))
         {
             UseKeyInfoServer(keyInfoServer);
             Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
@@ -118,7 +118,7 @@ public class TrustManagerTest : TestWithMocks
         RegisterKey();
         _feedCacheMock.Setup(x => x.Contains(new("http://localhost/test.xml"))).Returns(false);
 
-        using (var keyInfoServer = new MicroServer("key/" + OpenPgpUtilsTest.TestSignature.FormatFingerprint(), KeyInfoResponse.ToStream()))
+        using (var keyInfoServer = new MicroServer($"key/{OpenPgpUtilsTest.TestSignature.FormatFingerprint()}", KeyInfoResponse.ToStream()))
         {
             UseKeyInfoServer(keyInfoServer);
             _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
@@ -133,8 +133,8 @@ public class TrustManagerTest : TestWithMocks
         ExpectKeyImport();
         _handler.AnswerQuestionWith = false;
 
-        using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
-            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml")));
+        using (var server = new MicroServer($"{OpenPgpUtilsTest.TestKeyIDString}.gpg", KeyStream))
+            Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new FeedUri($"{server.ServerUri}test.xml")));
         IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
     }
 
@@ -144,9 +144,9 @@ public class TrustManagerTest : TestWithMocks
         ExpectKeyImport();
         _handler.AnswerQuestionWith = true;
 
-        using (var server = new MicroServer(OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
+        using (var server = new MicroServer($"{OpenPgpUtilsTest.TestKeyIDString}.gpg", KeyStream))
         {
-            _trustManager.CheckTrust(_combinedBytes, new FeedUri(server.ServerUri + "test.xml"))
+            _trustManager.CheckTrust(_combinedBytes, new FeedUri($"{server.ServerUri}test.xml"))
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
         IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");
@@ -159,7 +159,7 @@ public class TrustManagerTest : TestWithMocks
         _handler.AnswerQuestionWith = true;
 
         const string exampleDomain = "example"; // Can't use "localhost" because mirror is not used for loopback URIs
-        using (var server = new MicroServer("keys/" + OpenPgpUtilsTest.TestKeyIDString + ".gpg", KeyStream))
+        using (var server = new MicroServer($"keys/{OpenPgpUtilsTest.TestKeyIDString}.gpg", KeyStream))
         {
             _config.FeedMirror = new(server.ServerUri);
             _trustManager.CheckTrust(_combinedBytes, new($"http://{exampleDomain}:9999/test/feed.xml"))
@@ -178,7 +178,7 @@ public class TrustManagerTest : TestWithMocks
         {
             var feedUri = new FeedUri("http://localhost/test.xml");
             string feedPath = Path.Combine(tempDir, feedUri.PrettyEscape());
-            string keyPath = Path.Combine(tempDir, OpenPgpUtilsTest.TestKeyIDString + ".gpg");
+            string keyPath = Path.Combine(tempDir, $"{OpenPgpUtilsTest.TestKeyIDString}.gpg");
             KeyStream.CopyToFile(keyPath);
 
             _trustManager.CheckTrust(_combinedBytes, feedUri, feedPath)

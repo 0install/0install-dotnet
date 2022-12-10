@@ -75,7 +75,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault();
         if (string.IsNullOrEmpty(path)) return new();
 
-        Log.Debug("Loading feed preferences for " + feedUri.ToStringRfc() + " from: " + path);
+        Log.Debug($"Loading feed preferences for {feedUri.ToStringRfc()} from: {path}");
         return XmlStorage.LoadXml<FeedPreferences>(path);
     }
 
@@ -123,7 +123,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
 
             string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "feeds", feedUri.PrettyEscape());
 
-            Log.Debug("Saving feed preferences for " + feedUri.ToStringRfc() + " to: " + path);
+            Log.Debug($"Saving feed preferences for {feedUri.ToStringRfc()} to: {path}");
             this.SaveXml(path);
         }
     }

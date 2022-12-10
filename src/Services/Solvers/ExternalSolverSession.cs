@@ -37,8 +37,8 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
 
         var apiVersion = new ImplementationVersion(apiNotification[3].ReparseAsJson<string[]>()[0]);
         if (apiVersion >= new ImplementationVersion(ApiVersion))
-            Log.Debug("Agreed on 0install slave API version " + apiVersion);
-        else throw new IOException("Failed to agree on slave API version. External solver insisted on: " + apiVersion);
+            Log.Debug($"Agreed on 0install slave API version {apiVersion}");
+        else throw new IOException($"Failed to agree on slave API version. External solver insisted on: {apiVersion}");
     }
 
     private object[]? GetJsonChunk()
@@ -87,11 +87,11 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
     {
         while (_stderr.ReadLine() is {} message)
         {
-            if (message.StartsWith("error: ", out string? error)) Log.Error("External solver: " + error);
-            else if (message.StartsWith("warning: ", out string? warning)) Log.Warn("External solver: " + warning);
-            else if (message.StartsWith("info: ", out string? info)) Log.Info("External solver: " + info);
-            else if (message.StartsWith("debug: ", out string? debug)) Log.Debug("External solver: " + debug);
-            else Log.Debug("External solver: " + message);
+            if (message.StartsWith("error: ", out string? error)) Log.Error($"External solver: {error}");
+            else if (message.StartsWith("warning: ", out string? warning)) Log.Warn($"External solver: {warning}");
+            else if (message.StartsWith("info: ", out string? info)) Log.Info($"External solver: {info}");
+            else if (message.StartsWith("debug: ", out string? debug)) Log.Debug($"External solver: {debug}");
+            else Log.Debug($"External solver: {message}");
         }
     }
 
@@ -129,7 +129,7 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
                     case "ok+xml":
                         // ReSharper disable once AssignNullToNotNullAttribute
                         string xml = Encoding.UTF8.GetString(GetChunk() ?? throw new IOException("Error parsing external solver response."));
-                        Log.Debug("XML from external solver: " + xml);
+                        Log.Debug($"XML from external solver: {xml}");
                         _callbacks[ticket](args.ReparseAsJson<object[]>().Append(xml));
                         break;
                     case "fail":

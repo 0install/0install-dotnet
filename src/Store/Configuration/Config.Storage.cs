@@ -125,7 +125,7 @@ partial class Config
     /// <exception cref="InvalidDataException">A problem occurred while deserializing the config data.</exception>
     public static Config Load(string path)
     {
-        Log.Debug("Loading Config from: " + path);
+        Log.Debug($"Loading Config from: {path}");
 
         var config = new Config();
         config.ReadFromIniFile(path);
@@ -150,7 +150,7 @@ partial class Config
     {
         TransferToIni();
 
-        Log.Debug("Saving Config to: " + path);
+        Log.Debug($"Saving Config to: {path}");
 
         using var atomic = new AtomicWrite(path);
         using (var writer = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8))
@@ -281,7 +281,7 @@ partial class Config
     [SupportedOSPlatform("windows")]
     private void ReadFromRegistry(RegistryKey registryKey)
     {
-        Log.Debug("Loading config from: " + registryKey);
+        Log.Debug($"Loading config from: {registryKey}");
 
         foreach ((string key, var property) in _metaData)
         {

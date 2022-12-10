@@ -33,7 +33,7 @@ public class ImplementationNode : CacheNode
         ?? 0;
 
     /// <inheritdoc/>
-    public override string Name { get => Resources.UnknownInterface + Named.TreeSeparator + Digest + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
+    public override string Name { get => Resources.UnknownInterface + Named.TreeSeparator + Digest + (SuffixCounter == 0 ? "" : $" {SuffixCounter}"); set => throw new NotSupportedException(); }
 
     private readonly ManifestDigest _digest;
 

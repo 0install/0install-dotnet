@@ -117,7 +117,7 @@ public partial class BouncyCastle : IOpenPgp
         try
         {
             return ParseObjects<T>(stream).FirstOrDefault()
-                ?? throw new InvalidDataException("Unable to find instance of " + typeof(T).Name + " in stream");
+                ?? throw new InvalidDataException($"Unable to find instance of {typeof(T).Name} in stream");
         }
         #region Error handling
         catch (IOException ex)

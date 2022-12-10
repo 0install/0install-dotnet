@@ -30,7 +30,7 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
     /// <summary>
     /// Provides XML Editors with location hints for XSD files.
     /// </summary>
-    public const string XsiSchemaLocation = XmlNamespace + " " + XsdLocation;
+    public const string XsiSchemaLocation = $"{XmlNamespace} {XsdLocation}";
 
     /// <summary>
     /// Provides XML Editors with location hints for XSD files.

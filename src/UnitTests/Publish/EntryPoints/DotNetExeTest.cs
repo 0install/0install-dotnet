@@ -48,7 +48,7 @@ public class DotNetExeTest : CandidateTest
     [SkippableFact]
     public void CommandLine()
     {
-        Deploy(Reference.RelativePath![..^4] + ".runtimeconfig.json");
+        Deploy($"{Reference.RelativePath![..^4]}.runtimeconfig.json");
         Deploy(DotNetDllTest.Reference);
         TestAnalyze(Reference);
     }
@@ -56,7 +56,7 @@ public class DotNetExeTest : CandidateTest
     [SkippableFact]
     public void AspNetCore()
     {
-        Deploy(ReferenceAspNetCore.RelativePath![..^4] + ".runtimeconfig.json");
+        Deploy($"{ReferenceAspNetCore.RelativePath![..^4]}.runtimeconfig.json");
         Deploy(DotNetDllTest.ReferenceAspNetCore);
         TestAnalyze(ReferenceAspNetCore);
     }
@@ -64,7 +64,7 @@ public class DotNetExeTest : CandidateTest
     [SkippableFact]
     public void WindowsDesktop()
     {
-        Deploy(ReferenceWindowsDesktop.RelativePath![..^4] + ".runtimeconfig.json");
+        Deploy($"{ReferenceWindowsDesktop.RelativePath![..^4]}.runtimeconfig.json");
         Deploy(ReferenceWindowsDesktop.RelativePath.Replace(".exe", ".dll"));
         Deploy(ReferenceWindowsDesktop);
         TestAnalyze(ReferenceWindowsDesktop);

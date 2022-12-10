@@ -227,7 +227,7 @@ public class FeedManager : IFeedManager
     /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
     private void ImportFeed(Stream stream, FeedUri feedUri, string? localPath = null)
     {
-        Log.Debug("Importing feed " + feedUri.ToStringRfc() + " from " + (localPath ?? "web"));
+        Log.Debug($"Importing feed {feedUri.ToStringRfc()} from {(localPath ?? "web")}");
 
         var data = stream.AsArray();
         CheckFeed(data, feedUri);

@@ -31,7 +31,7 @@ public sealed class TempDirectoryNode : CacheNode
     /// <inheritdoc/>
     public override string Name
     {
-        get => Resources.TemporaryDirectories + Named.TreeSeparator + System.IO.Path.GetFileName(Path) + (SuffixCounter == 0 ? "" : " " + SuffixCounter);
+        get => Resources.TemporaryDirectories + Named.TreeSeparator + System.IO.Path.GetFileName(Path) + (SuffixCounter == 0 ? "" : $" {SuffixCounter}");
         set => throw new NotSupportedException();
     }
 

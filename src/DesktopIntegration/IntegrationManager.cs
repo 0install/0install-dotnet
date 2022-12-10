@@ -88,12 +88,12 @@ public class IntegrationManager : IntegrationManagerBase
             AppListPath = AppList.GetDefaultPath(machineWide);
             if (File.Exists(AppListPath))
             {
-                Log.Debug("Loading AppList for IntegrationManager from: " + AppListPath);
+                Log.Debug($"Loading AppList for IntegrationManager from: {AppListPath}");
                 AppList = XmlStorage.LoadXml<AppList>(AppListPath);
             }
             else
             {
-                Log.Debug("Creating new AppList for IntegrationManager: " + AppListPath);
+                Log.Debug($"Creating new AppList for IntegrationManager: {AppListPath}");
                 AppList = new AppList();
                 AppList.SaveXml(AppListPath);
             }
@@ -315,7 +315,7 @@ public class IntegrationManager : IntegrationManagerBase
     /// <inheritdoc/>
     protected override void Finish()
     {
-        Log.Debug("Saving AppList to: " + AppListPath);
+        Log.Debug($"Saving AppList to: {AppListPath}");
         // Retry to handle race conditions with read-only access to the file
         ExceptionUtils.Retry<IOException>(() => AppList.SaveXml(AppListPath));
 

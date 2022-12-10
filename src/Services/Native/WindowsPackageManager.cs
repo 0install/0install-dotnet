@@ -82,11 +82,11 @@ public class WindowsPackageManager : PackageManagerBase
         secondaryExe: "java");
 
     private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
-        => from javaHome in GetRegisteredPaths(@"JavaSoft\" + typeLong + @"\1." + version, "JavaHome")
-           let mainPath = Path.Combine(javaHome.path, @"bin\" + mainExe + ".exe")
-           let secondaryPath = Path.Combine(javaHome.path, @"bin\" + secondaryExe + ".exe")
+        => from javaHome in GetRegisteredPaths($@"JavaSoft\{typeLong}\1.{version}", "JavaHome")
+           let mainPath = Path.Combine(javaHome.path, $@"bin\{mainExe}.exe")
+           let secondaryPath = Path.Combine(javaHome.path, $@"bin\{secondaryExe}.exe")
            where File.Exists(mainPath) && File.Exists(secondaryPath)
-           select new ExternalImplementation(DistributionName, "openjdk-" + version + "-" + typeShort,
+           select new ExternalImplementation(DistributionName, $"openjdk-{version}-{typeShort}",
                new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
                javaHome.cpu)
            {
@@ -102,14 +102,14 @@ public class WindowsPackageManager : PackageManagerBase
     private static IEnumerable<(Cpu cpu, string path)> GetRegisteredPaths(string registrySuffix, string valueName)
     {
         // Check for system native architecture (may be 32-bit or 64-bit)
-        string? path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\" + registrySuffix, valueName);
+        string? path = RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SOFTWARE\{registrySuffix}", valueName);
         if (!string.IsNullOrEmpty(path))
             yield return (Architecture.CurrentSystem.Cpu, path);
 
         // Check for 32-bit on a 64-bit system
         if (Environment.Is64BitProcess)
         {
-            path = RegistryUtils.GetString(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\" + registrySuffix, valueName);
+            path = RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\{registrySuffix}", valueName);
             if (!string.IsNullOrEmpty(path))
                 yield return (Cpu.I486, path);
         }
@@ -127,16 +127,16 @@ public class WindowsPackageManager : PackageManagerBase
         };
 
         // Check for system native architecture (may be 32-bit or 64-bit)
-        int install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
-        int release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
+        int install = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Install");
+        int release = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Release");
         if (install == 1 && release >= releaseNumber)
             yield return Impl(Architecture.CurrentSystem.Cpu);
 
         // Check for 32-bit on a 64-bit system
         if (Environment.Is64BitProcess)
         {
-            install = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Install");
-            release = RegistryUtils.GetDword(@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\" + registryVersion, "Release");
+            install = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Install");
+            release = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Release");
             if (install == 1 && release >= releaseNumber)
                 yield return Impl(Cpu.I486);
         }

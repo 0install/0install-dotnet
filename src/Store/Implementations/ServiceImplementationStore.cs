@@ -30,7 +30,7 @@ public partial class ServiceImplementationStore : IImplementationStore
         try
         {
             GetProxy().Add(manifestDigest, build.ToMarshalByRef());
-            Log.Info("Sent implementation to Store Service: " + manifestDigest.Best);
+            Log.Info($"Sent implementation to Store Service: {manifestDigest.Best}");
         }
         #region Error handling
         catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException)

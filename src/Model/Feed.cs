@@ -34,9 +34,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <summary>
     /// Provides XML Editors with location hints for XSD files.
     /// </summary>
-    public const string XsiSchemaLocation = XmlNamespace + " " + XsdLocation + " " +
-                                            // Advertise the complementary capabilities namespace
-                                            CapabilityList.XmlNamespace + " " + CapabilityList.XsdLocation;
+    public const string XsiSchemaLocation = $"{XmlNamespace} {XsdLocation} {CapabilityList.XmlNamespace} {CapabilityList.XsdLocation}";
 
     /// <summary>
     /// Provides XML Editors with location hints for XSD files.
@@ -254,7 +252,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <returns>The best matching name that was found.</returns>
     public string GetBestName(CultureInfo language, string? command)
         => GetEntryPoint(command)?.Names.GetBestLanguage(language)
-        ?? (string.IsNullOrEmpty(command) || command == Command.NameRun ? Name : Name + " " + command);
+        ?? (string.IsNullOrEmpty(command) || command == Command.NameRun ? Name : $"{Name} {command}");
 
     /// <summary>
     /// Returns the best matching summary for a specific <see cref="Command"/>/<see cref="EntryPoint"/>. Will fall back to <see cref="Summaries"/>.

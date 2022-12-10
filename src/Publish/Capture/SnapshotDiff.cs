@@ -100,7 +100,7 @@ public partial class SnapshotDiff : Snapshot
         if (commandMapper == null) throw new ArgumentNullException(nameof(commandMapper));
         #endregion
 
-        using var verbKey = typeKey.TryOpenSubKey(@"shell\" + verbName);
+        using var verbKey = typeKey.TryOpenSubKey($@"shell\{verbName}");
         if (verbKey == null) return null;
 
         string? description = verbKey.GetValue("")?.ToString();

@@ -11,7 +11,7 @@ public class DetectionTest : CandidateTest
     [Fact]
     public void ListCandidates()
     {
-        Deploy(DotNetExeTest.Reference.RelativePath![..^4] + ".runtimeconfig.json");
+        Deploy($"{DotNetExeTest.Reference.RelativePath![..^4]}.runtimeconfig.json");
         Deploy(DotNetDllTest.Reference);
         Deploy(DotNetFrameworkExeTest.Reference);
         Deploy(PythonScriptTest.Reference, xbit: true);

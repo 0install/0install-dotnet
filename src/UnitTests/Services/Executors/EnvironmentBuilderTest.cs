@@ -85,12 +85,12 @@ public class EnvironmentBuilderTest : TestWithRedirect
 
     private static void VerifyEnvironment(ProcessStartInfo startInfo, Selections selections)
     {
-        startInfo.EnvironmentVariables["TEST1_PATH_SELF"].Should().Be("default" + Path.PathSeparator + Test1Path, because: "Should append implementation path");
+        startInfo.EnvironmentVariables["TEST1_PATH_SELF"].Should().Be($"default{Path.PathSeparator}{Test1Path}", because: "Should append implementation path");
         startInfo.EnvironmentVariables["TEST1_VALUE"].Should().Be("test1", because: "Should directly set value");
         startInfo.EnvironmentVariables["TEST1_EMPTY"].Should().Be("", because: "Should set empty environment variables");
-        startInfo.EnvironmentVariables["TEST2_PATH_SELF"].Should().Be(Test2Path + Path.PathSeparator + "default", because: "Should prepend implementation path");
+        startInfo.EnvironmentVariables["TEST2_PATH_SELF"].Should().Be($"{Test2Path}{Path.PathSeparator}default", because: "Should prepend implementation path");
         startInfo.EnvironmentVariables["TEST2_VALUE"].Should().Be("test2", because: "Should directly set value");
-        startInfo.EnvironmentVariables["TEST2_PATH_SUB_DEP"].Should().Be("default" + Path.PathSeparator + Path.Combine(Test2Path, "sub"), because: "Should append implementation sub-path");
+        startInfo.EnvironmentVariables["TEST2_PATH_SUB_DEP"].Should().Be($"default{Path.PathSeparator}{Path.Combine(Test2Path, "sub")}", because: "Should append implementation sub-path");
         startInfo.EnvironmentVariables["TEST1_PATH_COMMAND"].Should().Be(Test1Path, because: "Should set implementation path");
         startInfo.EnvironmentVariables["TEST1_PATH_COMMAND_DEP"].Should().Be(Test1Path + Path.PathSeparator + Test1Path, because: "Should set implementation path for command dependency for each reference");
         startInfo.WorkingDirectory.Should().Be(Path.Combine(Test1Path, "bin"), because: "Should set implementation path");
@@ -281,7 +281,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
             ItemFrom = "SPLIT_ARG",
             Arguments = {"pre1 $item post1", "pre2 $item post2"}
         });
-        selections.Implementations[2].Bindings.Add(new EnvironmentBinding {Name = "SPLIT_ARG", Value = "split1" + Path.PathSeparator + "split2"});
+        selections.Implementations[2].Bindings.Add(new EnvironmentBinding {Name = "SPLIT_ARG", Value = $"split1{Path.PathSeparator}split2" });
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                        .Inject(selections)

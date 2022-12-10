@@ -31,7 +31,7 @@ public sealed class OwnedImplementationNode : ImplementationNode
     }
 
     /// <inheritdoc/>
-    public override string Name { get => _parent.Name + Named.TreeSeparator + Version + (SuffixCounter == 0 ? "" : " " + SuffixCounter); set => throw new NotSupportedException(); }
+    public override string Name { get => _parent.Name + Named.TreeSeparator + Version + (SuffixCounter == 0 ? "" : $" {SuffixCounter}"); set => throw new NotSupportedException(); }
 
     /// <inheritdoc/>
     public override FeedUri FeedUri => _parent.Uri;

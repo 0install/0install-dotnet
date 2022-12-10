@@ -26,7 +26,7 @@ public sealed partial class AppRegistration : Capability
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {"registered-apps:" + ID, "hklm:" + CapabilityRegPath};
+    public override IEnumerable<string> ConflictIDs => new[] {$"registered-apps:{ID}", $"hklm:{CapabilityRegPath}"};
 
     #region Normalize
     /// <inheritdoc/>

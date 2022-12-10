@@ -59,8 +59,8 @@ public abstract partial class InterpretedScript : Candidate
         string? firstLine = file.ReadFirstLine(Encoding.ASCII);
         if (string.IsNullOrEmpty(firstLine)) return false;
         return
-            firstLine.StartsWith(@"#!/usr/bin/" + interpreter) ||
-            firstLine.StartsWith(@"#!/usr/bin/env " + interpreter);
+            firstLine.StartsWith($@"#!/usr/bin/{interpreter}") ||
+            firstLine.StartsWith($@"#!/usr/bin/env {interpreter}");
     }
     #endregion
 }

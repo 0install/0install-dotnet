@@ -53,7 +53,7 @@ public partial class TrustManager : ITrustManager
 
             foreach (var signature in signatures.OfType<MissingKeySignature>())
             {
-                Log.Info("Missing key for " + signature.FormatKeyID());
+                Log.Info($"Missing key for {signature.FormatKeyID()}");
                 AcquireMissingKey(signature, uri, localPath);
                 goto KeyImported;
             }
@@ -105,7 +105,7 @@ public partial class TrustManager : ITrustManager
         // Automatically trust key for _new_ feeds if voted good by key server
         if (_config.AutoApproveKeys && goodVote && !_feedCache.Contains(uri))
         {
-            Log.Info("Auto-approving key for " + uri.ToStringRfc());
+            Log.Info($"Auto-approving key for {uri.ToStringRfc()}");
             return true;
         }
 
@@ -127,8 +127,8 @@ public partial class TrustManager : ITrustManager
 
         try
         {
-            var keyInfoUri = new Uri(_config.KeyInfoServer, "key/" + fingerprint);
-            Log.Info("Getting key information for " + fingerprint + " from: " + keyInfoUri);
+            var keyInfoUri = new Uri(_config.KeyInfoServer, $"key/{fingerprint}");
+            Log.Info($"Getting key information for {fingerprint} from: {keyInfoUri}");
             var xmlReader = XmlReader.Create(keyInfoUri.AbsoluteUri);
             _handler.CancellationToken.ThrowIfCancellationRequested();
             if (!xmlReader.ReadToFollowing("item"))
@@ -167,16 +167,16 @@ public partial class TrustManager : ITrustManager
     {
         if (!string.IsNullOrEmpty(localPath))
         {
-            string keyFile = Path.Combine(Path.GetDirectoryName(localPath) ?? "", signature.FormatKeyID() + ".gpg");
+            string keyFile = Path.Combine(Path.GetDirectoryName(localPath) ?? "", $"{signature.FormatKeyID()}.gpg");
             if (File.Exists(keyFile))
             {
-                Log.Info("Importing key file: " + keyFile);
+                Log.Info($"Importing key file: {keyFile}");
                 _openPgp.ImportKey(new(File.ReadAllBytes(keyFile)));
                 return;
             }
         }
 
-        var keyUri = new Uri(uri, signature.FormatKeyID() + ".gpg");
+        var keyUri = new Uri(uri, $"{signature.FormatKeyID()}.gpg");
 
         if (_config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, keyUri));
@@ -190,7 +190,7 @@ public partial class TrustManager : ITrustManager
             Log.Warn(string.Format(Resources.TryingFeedMirror, keyUri));
             try
             {
-                DownloadKey(new(_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri + "keys/" + signature.FormatKeyID() + ".gpg"));
+                DownloadKey(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}keys/{signature.FormatKeyID()}.gpg"));
             }
             catch (WebException ex2)
             {

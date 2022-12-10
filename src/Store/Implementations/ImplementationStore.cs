@@ -99,7 +99,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
             () =>
             {
-                string tempDir = System.IO.Path.Combine(Path, "0install-remove-" + System.IO.Path.GetRandomFileName());
+                string tempDir = System.IO.Path.Combine(Path, $"0install-remove-{System.IO.Path.GetRandomFileName()}");
                 DisableWriteProtection(path);
                 Directory.Move(path, tempDir);
                 Directory.Delete(tempDir, recursive: true);
@@ -124,7 +124,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             if (restartManager.ListApps(_handler.CancellationToken) is {Length: > 0} apps)
             {
                 string appsList = string.Join(Environment.NewLine, apps);
-                if (_handler.Ask(Resources.FilesInUse + " " + Resources.FilesInUseAskClose + Environment.NewLine + appsList, defaultAnswer: _purging.Value))
+                if (_handler.Ask($"{Resources.FilesInUse} {Resources.FilesInUseAskClose}{Environment.NewLine}{appsList}", defaultAnswer: _purging.Value))
                     restartManager.ShutdownApps(_handler);
                 else return true;
             }
@@ -149,13 +149,13 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     {
         try
         {
-            Log.Debug("Disabling write protection for: " + path);
+            Log.Debug($"Disabling write protection for: {path}");
             FileUtils.DisableWriteProtection(path);
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Warn("Failed to disable write protection for: " + path, ex);
+            Log.Warn($"Failed to disable write protection for: {path}", ex);
         }
         #endregion
     }

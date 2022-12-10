@@ -13,7 +13,7 @@ public sealed partial class ComServer : Capability
 {
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {"classes:" + ID};
+    public override IEnumerable<string> ConflictIDs => new[] {$"classes:{ID}"};
 
     #region Conversion
     /// <summary>

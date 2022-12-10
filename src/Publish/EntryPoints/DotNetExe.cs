@@ -14,11 +14,11 @@ public partial class DotNetExe : WindowsExe
         if (!base.Analyze(baseDirectory, file)) return false;
 
         // Actual app is the .dll, not the .exe
-        if (!File.Exists(file.FullName[..^4] + ".dll")) return false;
+        if (!File.Exists($"{file.FullName[..^4]}.dll")) return false;
 
         try
         {
-            var runtimeOptions = JsonStorage.LoadJson<RuntimeConfig>(file.FullName[..^4] + ".runtimeconfig.json").RuntimeOptions;
+            var runtimeOptions = JsonStorage.LoadJson<RuntimeConfig>($"{file.FullName[..^4]}.runtimeconfig.json").RuntimeOptions;
             var frameworks = runtimeOptions?.Frameworks ?? new() {runtimeOptions?.Framework ?? new Framework(null, null)};
 
             RuntimeVersion = new(frameworks.FirstOrDefault(x => x.Name != null && x.Name.EndsWith(".App"))?.Version ?? "1.0.0");
@@ -60,7 +60,7 @@ public partial class DotNetExe : WindowsExe
             ? new()
             {
                 Name = CommandName,
-                Path = RelativePath![..^4] + ".dll",
+                Path = $"{RelativePath![..^4]}.dll",
                 Runner = new()
                 {
                     InterfaceUri = new(NeedsAspNetCore ? "https://apps.0install.net/dotnet/apsnetcore-runtime.xml" : "https://apps.0install.net/dotnet/runtime.xml"),

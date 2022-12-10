@@ -49,5 +49,5 @@ public static partial class Shortcut
     private static string GetDesktopPath(string? name, bool machineWide)
         => Path.Combine(
             GetFolderPath(machineWide ? Environment.SpecialFolder.CommonDesktopDirectory : Environment.SpecialFolder.DesktopDirectory),
-            name + ".lnk");
+            $"{name}.lnk");
 }

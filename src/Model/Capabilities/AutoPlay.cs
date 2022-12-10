@@ -35,7 +35,7 @@ public sealed partial class AutoPlay : IconCapability
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {"auto-play:" + ID};
+    public override IEnumerable<string> ConflictIDs => new[] {$"auto-play:{ID}"};
 
     #region Normalize
     /// <inheritdoc/>

@@ -17,7 +17,7 @@ public class Run : Download
 {
     public new const string Name = "run";
     public override string Description => Resources.DescriptionRun;
-    public override string Usage => base.Usage + " [ARGS]";
+    public override string Usage => $"{base.Usage} [ARGS]";
     protected override int AdditionalArgsMax => int.MaxValue;
 
     /// <summary>>An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>.</summary>

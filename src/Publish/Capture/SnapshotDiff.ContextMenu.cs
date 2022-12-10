@@ -29,7 +29,7 @@ partial class SnapshotDiff
             {
                 capabilities.Entries.Add(new ContextMenu
                 {
-                    ID = "files-" + entry,
+                    ID = $"files-{entry}",
                     Target = ContextMenuTarget.Files,
                     Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                 });
@@ -42,7 +42,7 @@ partial class SnapshotDiff
             {
                 capabilities.Entries.Add(new ContextMenu
                 {
-                    ID = "executable-files-" + entry,
+                    ID = $"executable-files-{entry}",
                     Target = ContextMenuTarget.ExecutableFiles,
                     Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                 });
@@ -55,7 +55,7 @@ partial class SnapshotDiff
             {
                 capabilities.Entries.Add(new ContextMenu
                 {
-                    ID = "directories-" + entry,
+                    ID = $"directories-{entry}",
                     Target = ContextMenuTarget.Directories,
                     Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                 });
@@ -68,7 +68,7 @@ partial class SnapshotDiff
             {
                 capabilities.Entries.Add(new ContextMenu
                 {
-                    ID = "all-" + entry,
+                    ID = $"all-{entry}",
                     Target = ContextMenuTarget.Directories,
                     Verbs = {GetVerb(progIDKey, commandMapper, entry) ?? throw new IOException($"Verb '{entry}' not found.")}
                 });

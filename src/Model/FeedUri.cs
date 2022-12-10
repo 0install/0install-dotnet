@@ -114,7 +114,7 @@ public sealed partial class FeedUri : Uri, ISerializable
                 '_' => '_',
                 '.' => '.',
                 _ when char.IsLetterOrDigit(t) => t,
-                _ => "%" + ((int)t).ToString("x")
+                _ => $"%{(int)t:x}"
             });
         }
         return builder.ToString();
@@ -175,7 +175,7 @@ public sealed partial class FeedUri : Uri, ISerializable
                 ':' when !UnixUtils.IsUnix => "%3a",
                 '-' or '_' or '.' or ':' => t,
                 {} when char.IsLetterOrDigit(t) => t,
-                _ => "%" + ((int)t).ToString("x")
+                _ => $"%{(int)t:x}"
             });
         }
         return builder.ToString();
@@ -237,7 +237,7 @@ public sealed partial class FeedUri : Uri, ISerializable
                 '/' or '\\' => "__",
                 '-' => "-",
                 '.' when i != 0 => ".", // Avoid creating hidden files, or specials (. and ..)
-                {} when value[i] < 128 && !char.IsLetterOrDigit(value[i]) => "_" + ((int)value[i]).ToString("x") + "_",
+                {} when value[i] < 128 && !char.IsLetterOrDigit(value[i]) => $"_{(int)value[i]:x}_",
                 _ => value[i]
             });
         }

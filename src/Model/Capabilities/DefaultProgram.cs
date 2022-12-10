@@ -75,7 +75,7 @@ public sealed partial class DefaultProgram : VerbCapability
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {"clients:" + Service + @"\" + ID};
+    public override IEnumerable<string> ConflictIDs => new[] {$"clients:{Service}\\{ID}"};
 
     #region Normalize
     /// <inheritdoc/>

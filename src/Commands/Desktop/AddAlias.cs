@@ -50,7 +50,7 @@ public class AddAlias : AppCommand
             if (_resolve)
             {
                 string result = appEntry.InterfaceUri.ToStringRfc();
-                if (!string.IsNullOrEmpty(alias.Command)) result += Environment.NewLine + "Command: " + alias.Command;
+                if (!string.IsNullOrEmpty(alias.Command)) result += $"{Environment.NewLine}Command: {alias.Command}";
                 Handler.OutputLow(Resources.AppAlias, result);
             }
             if (_remove)

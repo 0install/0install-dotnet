@@ -116,7 +116,7 @@ public class IconStoreTest : IDisposable
     public void ReturnStaleOnRefreshFailure()
     {
         using var server = new MicroServer("_", new MemoryStream());
-        var icon = new Icon {Href = new(server.FileUri + "-invalid"), MimeType = Icon.MimeTypePng};
+        var icon = new Icon {Href = new($"{server.FileUri}-invalid"), MimeType = Icon.MimeTypePng};
         Inject(icon, _pngBytes, _oldTimestamp);
         File.ReadAllBytes(_store.GetFresh(icon))
             .Should().BeEquivalentTo(_pngBytes);

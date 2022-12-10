@@ -35,7 +35,7 @@ public partial class StubBuilder
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
     public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command = null, bool machineWide = false)
     {
-        string targetKey = target.Uri + "#" + command;
+        string targetKey = $"{target.Uri}#{command}";
 
         var entryPoint = target.Feed.GetEntryPoint(command);
         bool gui = entryPoint is not {NeedsTerminal: true};
@@ -46,7 +46,7 @@ public partial class StubBuilder
             : entryPoint.BinaryName ?? entryPoint.Command;
         string path = Path.Combine(
             IntegrationManager.GetDir(machineWide, "stubs", targetHash),
-            exeName + ".exe");
+            $"{exeName}.exe");
 
 #if !DEBUG
         try
@@ -200,11 +200,11 @@ public partial class StubBuilder
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
-            Log.Warn("Failed to store " + icon, ex);
+            Log.Warn($"Failed to store {icon}", ex);
         }
         catch (ArgumentException ex)
         {
-            Log.Warn("Failed to parse " + icon, ex);
+            Log.Warn($"Failed to parse {icon}", ex);
         }
         #endregion
 

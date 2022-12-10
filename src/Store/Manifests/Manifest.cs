@@ -129,7 +129,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
     /// <returns><c>true</c> if the directory is successfully found and removed; <c>false</c> otherwise. </returns>
     public bool Remove(string key)
-        => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWith(key + '/'));
+        => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWith($"{key}/"));
 
     /// <summary>
     /// Moves a directory and all its subdirectories to a new path.
@@ -152,8 +152,8 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
 
             if (path == key)
                 RenameTo(newKey);
-            else if (path.StartsWith(key + '/', out string? rest))
-                RenameTo(newKey + '/' + rest);
+            else if (path.StartsWith($"{key}/", out string? rest))
+                RenameTo($"{newKey}/{rest}");
         }
 
         return found;
@@ -196,7 +196,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
             foreach ((string directoryPath, var directory) in _directories)
             {
                 if (directoryPath != "")
-                    yield return "D /" + directoryPath;
+                    yield return $"D /{directoryPath}";
                 foreach ((string name, var element) in directory)
                     yield return element.ToLine(name);
             }
@@ -210,7 +210,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     {
         var builder = new StringBuilder();
         foreach (string line in Lines)
-            builder.Append(line + "\n");
+            builder.Append($"{line}\n");
         return builder.ToString();
     }
 

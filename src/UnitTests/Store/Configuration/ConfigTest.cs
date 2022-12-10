@@ -81,7 +81,7 @@ public class ConfigTest : TestWithRedirect
     [Fact]
     public void RetainUnknownProperties()
     {
-        string testIniData = "[global]" + Environment.NewLine + "test = test" + Environment.NewLine;
+        string testIniData = $"[global]{Environment.NewLine}test = test{Environment.NewLine}";
 
         using var tempFile = new TemporaryFile("0install-test-config");
         File.WriteAllText(tempFile, testIniData);

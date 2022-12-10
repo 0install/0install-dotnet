@@ -275,10 +275,10 @@ public partial class EnvironmentBuilder
             if (WindowsUtils.IsWindows)
             {
                 var (fileName, arguments) = SplitCommandLine(commandLine);
-                EnvironmentVariables["ZEROINSTALL_RUNENV_FILE_" + exeName] = fileName;
-                EnvironmentVariables["ZEROINSTALL_RUNENV_ARGS_" + exeName] = arguments;
+                EnvironmentVariables[$"ZEROINSTALL_RUNENV_FILE_{exeName}"] = fileName;
+                EnvironmentVariables[$"ZEROINSTALL_RUNENV_ARGS_{exeName}"] = arguments;
             }
-            else EnvironmentVariables["ZEROINSTALL_RUNENV_" + exeName] = commandLine.JoinEscapeArguments();
+            else EnvironmentVariables[$"ZEROINSTALL_RUNENV_{exeName}"] = commandLine.JoinEscapeArguments();
         }
         _pendingRunEnvs.Clear();
     }
@@ -295,7 +295,7 @@ public partial class EnvironmentBuilder
         Log.Debug($"Applying {binding} for {implementation}");
 
         string source = binding.Source.ToNativePath() ?? "";
-        if (Path.IsPathRooted(source) || source.Contains(".." + Path.DirectorySeparatorChar)) throw new ExecutorException(Resources.WorkingDirInvalidPath);
+        if (Path.IsPathRooted(source) || source.Contains($"..{Path.DirectorySeparatorChar}")) throw new ExecutorException(Resources.WorkingDirInvalidPath);
 
         // Only allow working directory to be changed once
         if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);

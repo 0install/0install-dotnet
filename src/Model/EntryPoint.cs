@@ -126,7 +126,7 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     /// </summary>
     public override string ToString() => string.IsNullOrEmpty(BinaryName)
         ? Command
-        : Command + " (" + BinaryName + ")";
+        : $"{Command} ({BinaryName})";
     #endregion
 
     #region Clone

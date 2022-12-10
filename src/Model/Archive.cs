@@ -143,7 +143,7 @@ public sealed partial class Archive : DownloadRetrievalMethod
     public override string ToString()
     {
         string result = $"{Href} ({MimeType}, {Size} + {StartOffset}, {Extract})";
-        if (!string.IsNullOrEmpty(Destination)) result += " => " + Destination;
+        if (!string.IsNullOrEmpty(Destination)) result += $" => {Destination}";
         return result;
     }
     #endregion

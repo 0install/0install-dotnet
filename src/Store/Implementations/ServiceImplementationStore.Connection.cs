@@ -22,7 +22,7 @@ public partial class ServiceImplementationStore
     /// <summary>
     /// The IPC port to use to contact the store service.
     /// </summary>
-    public const string IpcCallbackPort = IpcPort + ".Callback";
+    public const string IpcCallbackPort = $"{IpcPort}.Callback";
 
     /// <summary>
     /// ACL for IPC named pipes. Allows object owners, normal users and the system write access.
@@ -86,7 +86,7 @@ public partial class ServiceImplementationStore
             new Hashtable
             {
                 {"name", IpcCallbackPort},
-                {"portName", IpcCallbackPort + "." + System.IO.Path.GetRandomFileName()} // Random port to allow multiple instances
+                {"portName", $"{IpcCallbackPort}.{System.IO.Path.GetRandomFileName()}" } // Random port to allow multiple instances
             },
             new BinaryServerFormatterSinkProvider {TypeFilterLevel = TypeFilterLevel.Full}, // Allow deserialization of custom types
             IpcAcl), ensureSecurity: false);

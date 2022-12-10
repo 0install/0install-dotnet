@@ -106,12 +106,12 @@ public abstract class IntegrationCommand : CliCommand
 
         try
         {
-            Log.Info("Creating app entry for " + target.Uri.ToStringRfc());
+            Log.Info($"Creating app entry for {target.Uri.ToStringRfc()}");
             return integrationManager.AddApp(target);
         }
         catch (InvalidOperationException ex) when (ex.GetType() == typeof(InvalidOperationException))
         {
-            Log.Warn("Attempting to handle race condition while creating app entry for " + target.Uri.ToStringRfc());
+            Log.Warn($"Attempting to handle race condition while creating app entry for {target.Uri.ToStringRfc()}");
             return integrationManager.AppList[target.Uri];
         }
     }

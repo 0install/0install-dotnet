@@ -66,14 +66,14 @@ public class Exporter
 
             if (feedCache.GetPath(feedUri) is {} path)
             {
-                Log.Info("Exporting feed " + feedUri.ToStringRfc());
+                Log.Info($"Exporting feed {feedUri.ToStringRfc()}");
                 File.Copy(path, filePath, overwrite: true);
             }
         }
 
         foreach (var signature in feedUris.SelectMany(feedCache.GetSignatures).OfType<ValidSignature>().Distinct())
         {
-            Log.Info("Exporting GPG key " + signature.FormatKeyID());
+            Log.Info($"Exporting GPG key {signature.FormatKeyID()}");
             openPgp.DeployPublicKey(signature, _contentDir);
         }
     }
@@ -97,7 +97,7 @@ public class Exporter
         {
             if (implementationStore.GetPath(digest) is {} sourcePath)
             {
-                using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, digest.Best + ".tgz"), Archive.MimeTypeTarGzip);
+                using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, $"{digest.Best}.tgz"), Archive.MimeTypeTarGzip);
                 handler.RunTask(new ReadDirectory(sourcePath, builder));
             }
             else Log.Warn($"Implementation {digest} missing from cache");
@@ -166,14 +166,10 @@ public class Exporter
     {
         string appName = _selections.Name;
         string fileName = (_architecture.OS == OS.Windows)
-            ? mode + " " + appName + ".exe"
-            : mode + "-" + appName.ToLowerInvariant().Replace(" ", "-") + ".sh";
+            ? $"{mode} {appName}.exe"
+            : $"{mode}-{appName.ToLowerInvariant().Replace(" ", "-")}.sh";
 
-        var source = new Uri("https://get.0install.net/bootstrap/" +
-                             "?platform=" + (_architecture.OS == OS.Windows ? "windows" : "linux") +
-                             "&mode=" + mode +
-                             "&name=" + HttpUtility.UrlEncode(appName) +
-                             "&uri=" + HttpUtility.UrlEncode(_selections.InterfaceUri.ToStringRfc()));
+        var source = new Uri($"https://get.0install.net/bootstrap/?platform={(_architecture.OS == OS.Windows ? "windows" : "linux")}&mode={mode}&name={HttpUtility.UrlEncode(appName)}&uri={HttpUtility.UrlEncode(_selections.InterfaceUri.ToStringRfc())}");
         string target = Path.Combine(_destination, fileName);
 
         handler.RunTask(new DownloadFile(source, target));

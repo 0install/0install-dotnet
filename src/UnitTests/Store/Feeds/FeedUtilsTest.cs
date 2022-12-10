@@ -36,7 +36,7 @@ public class FeedUtilsTest : TestWithMocks
     [Fact]
     public void GetSignaturesMissingNewLine()
     {
-        string input = "Feed without newline" + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd;
+        string input = $"Feed without newline{FeedUtils.SignatureBlockStart}{_signatureBase64}{FeedUtils.SignatureBlockEnd}";
         Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 
@@ -46,7 +46,7 @@ public class FeedUtilsTest : TestWithMocks
     [Fact]
     public void GetSignaturesInvalidChars()
     {
-        const string input = FeedText + FeedUtils.SignatureBlockStart + "*!?#" + FeedUtils.SignatureBlockEnd;
+        const string input = $"{FeedText}{FeedUtils.SignatureBlockStart}*!?#{FeedUtils.SignatureBlockEnd}";
         Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 
@@ -66,7 +66,7 @@ public class FeedUtilsTest : TestWithMocks
     [Fact]
     public void GetSignaturesDataAfterSignature()
     {
-        string input = FeedText + FeedUtils.SignatureBlockStart + _signatureBase64 + FeedUtils.SignatureBlockEnd + "more data";
+        string input = $"{FeedText}{FeedUtils.SignatureBlockStart}{_signatureBase64}{FeedUtils.SignatureBlockEnd}more data";
         Assert.Throws<SignatureException>(() => FeedUtils.GetSignatures(Mock.Of<IOpenPgp>(), Encoding.UTF8.GetBytes(input)));
     }
 }

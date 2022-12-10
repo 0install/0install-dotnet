@@ -21,7 +21,7 @@ public sealed partial class FileType : VerbCapability
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {"progid:" + ID};
+    public override IEnumerable<string> ConflictIDs => new[] {$"progid:{ID}"};
 
     #region Normalize
     /// <inheritdoc/>

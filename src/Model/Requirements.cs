@@ -177,7 +177,7 @@ public partial class Requirements : ICloneable<Requirements>
     public override string ToString()
         => string.IsNullOrEmpty(Command)
             ? InterfaceUriString
-            : InterfaceUriString + " (" + Command + ")";
+            : $"{InterfaceUriString} ({Command})";
 
     /// <summary>
     /// Transforms the requirements into a command-line arguments.

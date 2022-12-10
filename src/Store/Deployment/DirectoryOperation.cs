@@ -30,7 +30,7 @@ public abstract partial class DirectoryOperation : StagedOperation
     /// <summary>
     /// Appends a random string to a file path.
     /// </summary>
-    protected static string Randomize(string path) => path + "." + System.IO.Path.GetRandomFileName() + ".tmp";
+    protected static string Randomize(string path) => $"{path}.{System.IO.Path.GetRandomFileName()}.tmp";
 
     /// <summary>
     /// Indicates that applications shut down by the <see cref="WindowsRestartManager"/> shall not be restarted on <see cref="Dispose"/>.

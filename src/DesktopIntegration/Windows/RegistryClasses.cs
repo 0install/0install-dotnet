@@ -64,7 +64,7 @@ internal static class RegistryClasses
         if ((capability.GetIcon(Icon.MimeTypeIco) ?? target.Feed.Icons.GetIcon(Icon.MimeTypeIco)) is {} icon)
         {
             using var iconKey = registryKey.CreateSubKeyChecked("DefaultIcon");
-            iconKey.SetValue("", iconStore.GetFresh(icon) + ",0");
+            iconKey.SetValue("", $"{iconStore.GetFresh(icon)},0");
         }
 
         foreach (var verb in capability.Verbs)
