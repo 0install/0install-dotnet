@@ -16,6 +16,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
 
   <!-- Deploy runtime config so this library can also be used as an executable -->
   <ItemGroup>
@@ -48,7 +49,6 @@
   <!-- Embedded resources -->
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx" Generator="PublicResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Basic\Exporters\import.*" />
     <Compile Update="Desktop\SelfManager.*.cs" DependentUpon="SelfManager.cs" />
   </ItemGroup>

@@ -12,6 +12,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
   <Import Project="..\XmlSerializer.Generator.targets" />
   <Sdk Name="Microsoft.DotNet.PackageValidation" Version="1.0.0-preview.7.21379.12" />
 
@@ -23,12 +24,6 @@
   <!-- Dependencies -->
   <ItemGroup>
     <PackageReference Include="NanoByte.Common" Version="$(NanoByteCommonVersion)" />
-  </ItemGroup>
-
-  <!-- Embedded resources -->
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
   </ItemGroup>
 
 </Project>

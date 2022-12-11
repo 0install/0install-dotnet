@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
 
   <!-- Global usings -->
   <ItemGroup>
@@ -32,12 +33,6 @@
   <ItemGroup Condition="'$(TargetFramework)'!='net472'">
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-  </ItemGroup>
-
-  <!-- Embedded resources -->
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
   </ItemGroup>
 
 </Project>

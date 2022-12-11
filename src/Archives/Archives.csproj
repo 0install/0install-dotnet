@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
 
   <!-- Global usings -->
   <ItemGroup>
@@ -29,12 +30,6 @@
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
     <PackageReference Include="wix-libs" Version="3.11.1" />
-  </ItemGroup>
-
-  <!-- Embedded resources -->
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
   </ItemGroup>
 
 </Project>

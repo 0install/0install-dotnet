@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6EE63B66-9CAC-43DF-B79A-C7A9083CE717}"
 ProjectSection(SolutionItems) = preProject
 	Directory.Build.props = Directory.Build.props
+	Resources.Designer.targets = Resources.Designer.targets
 	XmlSerializer.Generator.targets = XmlSerializer.Generator.targets
 EndProjectSection
 EndProject

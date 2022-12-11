@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
   <Import Project="..\XmlSerializer.Generator.targets" />
 
   <!-- Global usings -->
@@ -32,8 +33,6 @@
 
   <!-- Embedded resources -->
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Windows\stub.template.cs" />
     <EmbeddedResource Include="Windows\Stub.manifest" />
     <Compile Remove="Windows\stub.template.cs" />

@@ -11,6 +11,7 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <Import Project="..\Resources.Designer.targets" />
 
   <!-- Global usings -->
   <ItemGroup>
@@ -30,8 +31,6 @@
 
   <!-- Embedded resources -->
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
     <EmbeddedResource Include="Executors\runenv.exe.template" />
     <Compile Remove="Executors\runenv.cs" />
   </ItemGroup>
