@@ -32,7 +32,6 @@
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" DesignTime="True" AutoGen="True" DependentUpon="Resources.resx" />
-    <EmbeddedResource Include="Executors\runenv.sh.template" />
     <EmbeddedResource Include="Executors\runenv.exe.template" />
     <Compile Remove="Executors\runenv.cs" />
   </ItemGroup>

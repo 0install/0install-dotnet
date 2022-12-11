@@ -207,34 +207,30 @@ public partial class EnvironmentBuilder
     private static string DeployRunEnvExecutable(string name)
     {
         string templatePath = GetRunEnvTemplate();
-        string deployedPath = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
-        if (WindowsUtils.IsWindows) deployedPath += ".exe";
+        string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
+        if (WindowsUtils.IsWindows) path += ".exe";
 
-        Log.Info($"Deploying run-environment executable to: {deployedPath}");
+        Log.Info($"Deploying run-environment executable to: {path}");
         try
         {
-            if (File.Exists(deployedPath)) File.Delete(deployedPath);
-            FileUtils.CreateHardlink(deployedPath, templatePath);
+            if (File.Exists(path)) File.Delete(path);
+            FileUtils.CreateHardlink(path, templatePath);
         }
         #region Error handling
-        catch (IOException) when (File.Exists(deployedPath))
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException && File.Exists(path))
         {
-            // File already exists and was probably locked because it was in use
-        }
-        catch (UnauthorizedAccessException) when (File.Exists(deployedPath))
-        {
-            // File already exists and was probably locked because it was in use
+            Log.Debug($"Unable to update already existing '{path}'. Probably locked because it is in use.", ex);
         }
         catch (PlatformNotSupportedException)
         {
             // Unable to hardlink, fallback to simple copy
-            File.Copy(templatePath, deployedPath);
+            File.Copy(templatePath, path);
         }
         #endregion
 
-        if (UnixUtils.IsUnix) FileUtils.SetExecutable(deployedPath, true);
+        if (UnixUtils.IsUnix) FileUtils.SetExecutable(path, true);
 
-        return deployedPath;
+        return path;
     }
 
     /// <summary>
@@ -243,20 +239,22 @@ public partial class EnvironmentBuilder
     /// <returns>The path to the deployed executable file.</returns>
     private static string GetRunEnvTemplate()
     {
-        string templateName = WindowsUtils.IsWindows
+        string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), WindowsUtils.IsWindows
             ? "runenv.exe.template"
-            : "runenv.sh.template";
+            : "runenv.sh.template");
 
-        string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), templateName);
         Log.Info($"Writing run-environment template to: {path}");
         try
         {
-            typeof(Executor).CopyEmbeddedToFile(templateName, path);
+            if (WindowsUtils.IsWindows)
+                typeof(Executor).CopyEmbeddedToFile("runenv.exe.template", path);
+            else
+                File.WriteAllLines(path, new [] {"#!/bin/bash", "env_var_name=ZEROINSTALL_RUNENV_$(basename $0)", "${!env_var_name} \"$@\""});
         }
         #region Error handling
-        catch (IOException ex)
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException && File.Exists(path))
         {
-            Log.Info("Unable to write run-environment template", ex);
+            Log.Debug($"Unable to update already existing '{path}'. Probably locked because it is in use.", ex);
         }
         #endregion
 
