@@ -401,6 +401,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
         MinInjectorVersion = MinInjectorVersion,
         Uri = Uri,
         Name = Name,
+        Publisher = Publisher,
         Homepage = Homepage,
         NeedsTerminal = NeedsTerminal,
         Feeds = {Feeds.CloneElements()},
