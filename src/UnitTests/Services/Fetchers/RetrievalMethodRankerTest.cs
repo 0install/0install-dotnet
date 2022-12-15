@@ -8,24 +8,29 @@ namespace ZeroInstall.Services.Fetchers;
 /// </summary>
 public class RetrievalMethodRankerTest
 {
-    [Fact]
-    public void ArchiveOverRecipe() => AssertOver(new Archive(), new Recipe());
+    private readonly Archive _archive = new() {Href = new("http://example.com/archive.zip")};
+    private readonly SingleFile _singleFile = new() {Href = new("http://example.com/file.jar"), Destination = "file.jar"};
 
     [Fact]
-    public void SingleFileOverRecipe() => AssertOver(new SingleFile(), new Recipe());
+    public void ArchiveOverRecipe() => AssertOver(_archive, new Recipe());
 
     [Fact]
-    public void SmallOverLarge() => AssertOver(new Archive {Size = 10}, new SingleFile {Size = 20});
+    public void SingleFileOverRecipe() => AssertOver(_singleFile, new Recipe());
+
+    [Fact]
+    public void SmallOverLarge() => AssertOver(
+        new Archive {Href = new("http://example.com/archive.zip"), Size = 10},
+        new SingleFile {Href = new("http://example.com/file.jar"), Destination = "file.jar", Size = 20});
 
     [Fact]
     public void ArchiveAndSingleFileEqual()
     {
-        RetrievalMethodRanker.Instance.Compare(new Archive(), new SingleFile()).Should().Be(0);
-        RetrievalMethodRanker.Instance.Compare(new SingleFile(), new Archive()).Should().Be(0);
+        RetrievalMethodRanker.Instance.Compare(_archive, _singleFile).Should().Be(0);
+        RetrievalMethodRanker.Instance.Compare(_singleFile, _archive).Should().Be(0);
     }
 
     [Fact]
-    public void ShortRecipeOverLong() => AssertOver(new Recipe {Steps = {new Archive()}}, new Recipe {Steps = {new Archive(), new Archive()}});
+    public void ShortRecipeOverLong() => AssertOver(new Recipe {Steps = {_archive}}, new Recipe {Steps = {_archive, _archive}});
 
     /// <summary>
     /// Asserts that <paramref name="x"/> is ranked over <paramref name="y"/>.

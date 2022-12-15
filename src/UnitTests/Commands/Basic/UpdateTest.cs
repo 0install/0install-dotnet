@@ -30,9 +30,9 @@ public class UpdateTest : SelectionTestBase<Update>
 
         // Download uncached implementations
         ExpectFetchUncached(selectionsNew,
-            new Implementation {ID = "id1"},
-            new Implementation {ID = "id2"},
-            new Implementation {ID = "id3"});
+            new Implementation {ID = "id1", Version = new("1.0")},
+            new Implementation {ID = "id2", Version = new("1.0")},
+            new Implementation {ID = "id3", Version = new("1.0")});
 
         var diffNodes = new[] {new SelectionsDiffNode(Fake.Feed2Uri)};
         GetMock<ISelectionsManager>().Setup(x => x.GetDiff(selectionsOld, selectionsNew)).Returns(diffNodes);

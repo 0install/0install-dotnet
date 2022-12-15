@@ -57,7 +57,7 @@ public class FeedBuilderTest : IDisposable
         DetectCandidates();
         GenerateCommands();
 
-        _builder.RetrievalMethod = new Archive();
+        _builder.RetrievalMethod = new Archive {Href = new("http://example.com/archive.zip")};
         _builder.Uri = new("http://example.com/test1.xml");
         _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new("http://example.com/test.png")});
         _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new("http://example.com/test.ico")});

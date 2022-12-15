@@ -20,7 +20,7 @@ public partial class ForEachArgs : ArgBase
     /// </summary>
     [Description("""The name of the environment variable to be expanded.""")]
     [XmlAttribute("item-from")]
-    public string ItemFrom { get; set; } = default!;
+    public required string ItemFrom { get; set; }
 
     /// <summary>
     /// Overrides the default separator character (":" on POSIX and ";" on Windows).

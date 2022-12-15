@@ -20,7 +20,7 @@ public partial class Arg : ArgBase, ICloneable<Arg>
     Will be automatically escaped to allow proper concatenation of multiple arguments containing spaces.
     """)]
     [XmlText]
-    public string Value { get; set; } = default!;
+    public required string Value { get; set; }
 
     #region Normalize
     /// <inheritdoc/>

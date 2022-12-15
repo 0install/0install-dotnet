@@ -45,7 +45,7 @@ public class FeedEditing : CommandManager<Feed>
     /// Starts with an empty feed.
     /// </summary>
     public FeedEditing()
-        : this(new SignedFeed(new Feed()))
+        : this(new SignedFeed(new Feed {Name = "My App"}))
     {}
 
     /// <summary>

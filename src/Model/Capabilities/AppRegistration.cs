@@ -22,7 +22,7 @@ public sealed partial class AppRegistration : Capability
     /// </summary>
     [Description("The registry path relative to HKEY_CURRENT_USER or HKEY_LOCAL_MACHINE which should be used to store the application's capability registration information.")]
     [XmlAttribute("capability-reg-path")]
-    public string CapabilityRegPath { get; set; } = default!;
+    public required string CapabilityRegPath { get; set; }
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]

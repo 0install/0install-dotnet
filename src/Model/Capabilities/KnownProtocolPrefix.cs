@@ -17,7 +17,7 @@ public partial class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolP
     /// </summary>
     [Description("""The value of the prefix (e.g. "http").""")]
     [XmlAttribute("value")]
-    public string Value { get; set; } = default!;
+    public required string Value { get; set; }
 
     #region Normalize
     /// <summary>

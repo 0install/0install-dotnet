@@ -16,14 +16,14 @@ public sealed partial class AutoPlay : IconCapability
     /// </summary>
     [Description("The name of the application as shown in the AutoPlay selection list.")]
     [XmlAttribute("provider")]
-    public string Provider { get; set; } = default!;
+    public required string Provider { get; set; }
 
     /// <summary>
     /// The command to execute when the handler gets called.
     /// </summary>
     [Browsable(false)]
     [XmlElement("verb")]
-    public Verb Verb { get; set; } = default!;
+    public required Verb Verb { get; set; }
 
     /// <summary>
     /// The IDs of the events this action can handle.

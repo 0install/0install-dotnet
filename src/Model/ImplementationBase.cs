@@ -18,7 +18,7 @@ public abstract partial class ImplementationBase : Element
     /// </summary>
     [Category("Identity"), Description("A unique identifier for this implementation. Used when storing implementation-specific user preferences.")]
     [XmlAttribute("id"), DefaultValue("")]
-    public string ID { get; set; } = default!;
+    public required string ID { get; set; }
 
     /// <summary>
     /// If the feed file is a local file (the interface 'uri' starts with /) then the local-path attribute may contain the pathname of a local directory (either an absolute path or a path relative to the directory containing the feed file).
@@ -30,7 +30,7 @@ public abstract partial class ImplementationBase : Element
     /// <inheritdoc/>
 #pragma warning disable 8765
     [XmlIgnore]
-    public override ImplementationVersion Version { get; set; } = default!;
+    public override required ImplementationVersion Version { get; set; }
 #pragma warning restore 8765
 
     private ManifestDigest _manifestDigest;
@@ -97,7 +97,6 @@ public abstract partial class ImplementationBase : Element
     protected static void CloneFromTo(ImplementationBase from, ImplementationBase to)
     {
         Element.CloneFromTo(from ?? throw new ArgumentNullException(nameof(from)), to ?? throw new ArgumentNullException(nameof(to)));
-        to.ID = from.ID;
         to.LocalPath = from.LocalPath;
         to.ManifestDigest = from.ManifestDigest;
     }

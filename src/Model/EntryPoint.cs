@@ -20,7 +20,7 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     [Description(@"The name of the command this entry point represents.")]
     [TypeConverter(typeof(CommandNameConverter))]
     [XmlAttribute("command")]
-    public string Command { get; set; } = default!;
+    public required string Command { get; set; }
 
     /// <summary>
     /// The canonical name of the binary supplying the command (without file extensions). This is used to suggest suitable alias names.

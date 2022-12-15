@@ -10,6 +10,12 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 [Equatable]
 public partial class MockAccessPoint : DefaultAccessPoint
 {
+    [SetsRequiredMembers]
+    public MockAccessPoint()
+    {
+        Capability = "mock";
+    }
+
     /// <inheritdoc/>
     public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => string.IsNullOrEmpty(ID)
         ? Enumerable.Empty<string>()

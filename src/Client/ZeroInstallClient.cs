@@ -193,6 +193,6 @@ public class ZeroInstallClient : IZeroInstallClient
     /// <inheritdoc/>
     public async Task FetchAsync(Implementation implementation)
         => await Task.Run(() => _launcher.RunAndCapture(
-            writer => writer.WriteLineAsync(new Feed { Elements = { implementation } }.ToXmlString().Replace("\n", "")),
+            writer => writer.WriteLineAsync(new Feed { Name = "Fetch", Elements = { implementation } }.ToXmlString().Replace("\n", "")),
             "fetch"));
 }

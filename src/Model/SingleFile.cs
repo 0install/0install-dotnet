@@ -16,7 +16,7 @@ public sealed partial class SingleFile : DownloadRetrievalMethod
     /// </summary>
     [Description("The file's target path relative to the implementation root as a Unix-style path.")]
     [XmlAttribute("dest")]
-    public string Destination { get; set; } = default!;
+    public required string Destination { get; set; }
 
     /// <summary>
     /// Set this to <c>true</c> to mark the file as executable.

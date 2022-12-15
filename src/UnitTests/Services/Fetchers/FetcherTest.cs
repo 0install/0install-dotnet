@@ -176,7 +176,7 @@ public class FetcherTest : TestWithMocks
     private void TestDownload(Manifest expected, params RetrievalMethod[] retrievalMethod)
     {
         var digest = new ManifestDigest(expected.CalculateDigest());
-        var testImplementation = new Implementation {ID = "test", ManifestDigest = digest};
+        var testImplementation = new Implementation {ID = "test", Version = new("1.0"), ManifestDigest = digest};
         testImplementation.RetrievalMethods.Add(retrievalMethod);
 
         _storeMock.Setup(x => x.Add(It.IsAny<ManifestDigest>(), It.IsAny<Action<IBuilder>>()))
@@ -197,7 +197,7 @@ public class FetcherTest : TestWithMocks
     public void SkipExisting()
     {
         var digest = new ManifestDigest(Sha256New: "test123");
-        var testImplementation = new Implementation {ID = "test", ManifestDigest = digest, RetrievalMethods = {new Recipe()}};
+        var testImplementation = new Implementation {ID = "test", Version = new("1.0"), ManifestDigest = digest, RetrievalMethods = {new Recipe()}};
         _storeMock.Setup(x => x.GetPath(digest)).Returns("dummy");
 
         _fetcher.Fetch(testImplementation);
@@ -206,7 +206,7 @@ public class FetcherTest : TestWithMocks
     [Fact]
     public void NoSuitableMethod()
     {
-        var implementation = new Implementation {ID = "test", ManifestDigest = new(Sha256New: "test123")};
+        var implementation = new Implementation {ID = "test", Version = new("1.0"), ManifestDigest = new(Sha256New: "test123")};
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
         Assert.Throws<NotSupportedException>(() => _fetcher.Fetch(implementation));
@@ -218,8 +218,9 @@ public class FetcherTest : TestWithMocks
         var implementation = new Implementation
         {
             ID = "test",
+            Version = new("1.0"),
             ManifestDigest = new(Sha256New: "test123"),
-            RetrievalMethods = {new Archive {MimeType = "test/format"}}
+            RetrievalMethods = {new Archive {Href = new("http://example.com/archive.dat"), MimeType = "test/format"}}
         };
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
@@ -232,8 +233,13 @@ public class FetcherTest : TestWithMocks
         var implementation = new Implementation
         {
             ID = "test",
+            Version = new("1.0"),
             ManifestDigest = new(Sha256New: "test123"),
-            RetrievalMethods = {new Recipe {Steps = {new Archive {MimeType = Archive.MimeTypeZip}, new Archive {MimeType = "test/format"}}}}
+            RetrievalMethods = {new Recipe {Steps =
+            {
+                new Archive {Href = new("http://example.com/archive.zip"), MimeType = Archive.MimeTypeZip},
+                new Archive {Href = new("http://example.com/archive.dat"), MimeType = "test/format"}
+            }}}
         };
         _storeMock.Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(() => null);
 
@@ -248,6 +254,7 @@ public class FetcherTest : TestWithMocks
         _fetcher.Fetch(new Implementation
         {
             ID = ExternalImplementation.PackagePrefix + "123",
+            Version = new("1.0"),
             RetrievalMethods =
             {
                 new ExternalRetrievalMethod
@@ -268,6 +275,7 @@ public class FetcherTest : TestWithMocks
         Assert.Throws<OperationCanceledException>(() => _fetcher.Fetch(new Implementation
         {
             ID = ExternalImplementation.PackagePrefix + "123",
+            Version = new("1.0"),
             RetrievalMethods =
             {
                 new ExternalRetrievalMethod

@@ -17,7 +17,7 @@ public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipe
     /// </summary>
     [Browsable(false)]
     [XmlIgnore]
-    public Uri Href { get; set; } = default!;
+    public required Uri Href { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization and PropertyGrid.</summary>

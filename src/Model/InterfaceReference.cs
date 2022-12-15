@@ -17,7 +17,7 @@ public sealed partial class InterfaceReference : FeedElement, ICloneable<Interfa
     /// The URI used to locate the interface.
     /// </summary>
     [XmlIgnore, Browsable(false)]
-    public FeedUri Target { get; set; } = default!;
+    public required FeedUri Target { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization and PropertyGrid.</summary>

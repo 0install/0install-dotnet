@@ -16,14 +16,14 @@ public sealed partial class RenameStep : FeedElement, IRecipeStep
     /// </summary>
     [Description("The source file or directory relative to the implementation root as a Unix-style path.")]
     [XmlAttribute("source"), DefaultValue("")]
-    public string Source { get; set; } = default!;
+    public required string Source { get; set; }
 
     /// <summary>
     /// The destination file or directory relative to the implementation root as a Unix-style path.
     /// </summary>
     [Description("The destination file or directory relative to the implementation root as a Unix-style path.")]
     [XmlAttribute("dest"), DefaultValue("")]
-    public string Destination { get; set; } = default!;
+    public required string Destination { get; set; }
 
     #region Normalize
     /// <inheritdoc/>

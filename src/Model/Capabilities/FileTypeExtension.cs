@@ -25,7 +25,7 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     /// </summary>
     [Description("""The file extension including the leading dot (e.g., ".jpg").""")]
     [XmlAttribute("value")]
-    public string Value { get; set; } = default!;
+    public required string Value { get; set; }
 
     /// <summary>
     /// The MIME type associated with the file extension.

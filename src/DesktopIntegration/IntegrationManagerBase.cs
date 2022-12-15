@@ -14,7 +14,7 @@ public abstract class IntegrationManagerBase : ManagerBase, IIntegrationManager
     /// <summary>
     /// Stores a list of applications and their desktop integrations. Only use for read-access externally! Use this class' methods for any modifications.
     /// </summary>
-    public AppList AppList { get; protected init; } = default!;
+    public AppList AppList { get; protected init; } = null!;
 
     /// <summary>
     /// Creates a new integration manager.

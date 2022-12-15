@@ -11,8 +11,8 @@ public class FeedElementTest
     [Fact]
     public void FilterMismatch()
     {
-        FeedElement.FilterMismatch(new EntryPoint()).Should().BeFalse();
-        FeedElement.FilterMismatch(new EntryPoint {IfZeroInstallVersion = new VersionRange("0..")}).Should().BeFalse();
-        FeedElement.FilterMismatch(new EntryPoint {IfZeroInstallVersion = new VersionRange("..!0")}).Should().BeTrue();
+        FeedElement.FilterMismatch(new EntryPoint {Command = Command.NameRun}).Should().BeFalse();
+        FeedElement.FilterMismatch(new EntryPoint {Command = Command.NameRun, IfZeroInstallVersion = new VersionRange("0..")}).Should().BeFalse();
+        FeedElement.FilterMismatch(new EntryPoint {Command = Command.NameRun, IfZeroInstallVersion = new VersionRange("..!0")}).Should().BeTrue();
     }
 }

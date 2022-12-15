@@ -16,7 +16,7 @@ public sealed partial class ExecutableInVar : ExecutableInBinding
     /// </summary>
     [Description("The name of the environment variable.")]
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     #region Normalize
     /// <inheritdoc/>

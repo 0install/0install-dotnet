@@ -121,6 +121,7 @@ public class RunTest : SelectionTestBase<Run>
                 new AppEntry
                 {
                     InterfaceUri = Fake.Feed1Uri,
+                    Name = "Test",
                     AccessPoints = new AccessPointList {Entries = {new AppAlias {Name = "test"}}}
                 }
             }

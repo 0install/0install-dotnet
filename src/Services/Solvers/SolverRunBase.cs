@@ -30,13 +30,11 @@ public abstract class SolverRunBase
     /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose from.</param>
     protected SolverRunBase(Requirements requirements, ISelectionCandidateProvider candidateProvider)
     {
-        if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-        if (requirements.InterfaceUri == null) throw new ArgumentException(Resources.MissingInterfaceUri, nameof(requirements));
         _requirements = requirements.ForCurrentSystem();
 
         CandidateProvider = candidateProvider;
 
-        Selections = new Selections
+        Selections = new()
         {
             InterfaceUri = requirements.InterfaceUri,
             Command = requirements.Command

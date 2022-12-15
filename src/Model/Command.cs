@@ -42,7 +42,7 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     [Description("The name of the command.")]
     [TypeConverter(typeof(CommandNameConverter))]
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// The relative path of an executable inside the implementation that should be executed to run this command.

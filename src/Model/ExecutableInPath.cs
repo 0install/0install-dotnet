@@ -16,7 +16,7 @@ public sealed partial class ExecutableInPath : ExecutableInBinding
     /// </summary>
     [Description("The name of the executable (without file extensions).")]
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     #region Normalize
     /// <inheritdoc/>

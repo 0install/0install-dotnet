@@ -183,7 +183,7 @@ public class FeedTest
         feed2.GetHashCode().Should().Be(feed1.GetHashCode(), because: "Cloned objects' hashes should be equal.");
         feed2.Should().NotBeSameAs(feed1, because: "Cloning should not return the same reference.");
 
-        feed2.Elements.Add(new Implementation {ID = "dummy"});
+        feed2.Elements.Add(new Implementation {ID = "dummy", Version = new("1.0")});
         feed2.Should().NotBe(feed1, because: "Modified objects should no longer be equal");
     }
 
@@ -259,10 +259,11 @@ public class FeedTest
             Name = "MyApp",
             Elements =
             {
-                new Implementation {ID = "1"},
+                new Implementation {ID = "1", Version = new("1.0")},
                 new Implementation
                 {
                     ID = "2",
+                    Version = new("1.0"),
                     RetrievalMethods = {new Recipe {Steps = {step}}}
                 }
             }
@@ -270,7 +271,7 @@ public class FeedTest
 
         feed.ResolveInternalReferences();
 
-        step.Implementation.Should().Be(new Implementation {ID = "1"});
+        step.Implementation.Should().Be(new Implementation {ID = "1", Version = new("1.0")});
     }
 
     /// <summary>

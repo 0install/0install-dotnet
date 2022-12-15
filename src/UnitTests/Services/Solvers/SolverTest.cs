@@ -47,14 +47,19 @@ public abstract class SolverTest : TestWithRedirect
     [Fact]
     public void CustomFeedReference()
     {
-        new InterfacePreferences {Feeds = {new() {Source = new("http://example.com/prog2.xml")}}}.SaveFor(new("http://example.com/prog1.xml"));
+        var interfaceUri = new FeedUri("http://example.com/prog1.xml");
+        new InterfacePreferences
+        {
+            Uri = interfaceUri,
+            Feeds = {new() {Source = new("http://example.com/prog2.xml")}}
+        }.SaveFor(interfaceUri);
 
         var actual = Solve(
             feeds: new[]
             {
                 new Feed
                 {
-                    Uri = new("http://example.com/prog1.xml"),
+                    Uri = interfaceUri,
                     Name = "prog1",
                     Elements = {new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}}
                 },
@@ -65,17 +70,17 @@ public abstract class SolverTest : TestWithRedirect
                     Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
                 }
             },
-            requirements: new Requirements(new("http://example.com/prog1.xml"), Command.NameRun));
+            requirements: new Requirements(interfaceUri, Command.NameRun));
 
         actual.Should().Be(new Selections
         {
-            InterfaceUri = new("http://example.com/prog1.xml"),
+            InterfaceUri = interfaceUri,
             Command = Command.NameRun,
             Implementations =
             {
-                new ImplementationSelection
+                new()
                 {
-                    InterfaceUri = new("http://example.com/prog1.xml"),
+                    InterfaceUri = interfaceUri,
                     FromFeed = new("http://example.com/prog2.xml"),
                     Version = new("2.0"),
                     Stability = Stability.Testing,

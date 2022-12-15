@@ -147,7 +147,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
         using var applyFlag = new TemporaryFlagFile("0install-test-flag");
         // Inject access point into AppEntry (without running integration)
         appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
-        _integrationManager.Repair(_ => new Feed());
+        _integrationManager.Repair(_ => new Feed {Name = "Test"});
 
         applyFlag.Set.Should().BeTrue(because: "Access points should be reapplied");
     }

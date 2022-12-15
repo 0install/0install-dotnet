@@ -79,7 +79,11 @@ public class UpdateApps : IntegrationCommand
         var uncachedImplementations = SelectionsManager.GetUncached(implementations).ToList();
         if (uncachedImplementations.Count == 0) return;
 
-        Handler.ShowSelections(new() {Implementations = {uncachedImplementations}}, FeedManager);
+        Handler.ShowSelections(new()
+        {
+            InterfaceUri = new(FeedUri.FakePrefix + "https://0install.net/update-all"),
+            Implementations = {uncachedImplementations}
+        }, FeedManager);
         FetchAll(SelectionsManager.GetImplementations(uncachedImplementations));
     }
 

@@ -13,6 +13,7 @@ public class RestrictionTest
     /// </summary>
     public static Restriction CreateTestRestriction() => new()
     {
+        InterfaceUri = FeedTest.Test1Uri,
         Versions = new VersionRange("1.0..!2.0"),
         OS = OS.Windows,
         Distributions = {Restriction.DistributionZeroInstall},

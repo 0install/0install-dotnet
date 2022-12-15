@@ -10,7 +10,7 @@ namespace ZeroInstall.Model.Selection;
 public class TestCase
 {
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     [DefaultValue(false), XmlAttribute("add-downloads")]
     public bool AddDownloads { get; set; }
@@ -25,7 +25,7 @@ public class TestCase
     /// The input requirements for the solver.
     /// </summary>
     [XmlElement("requirements")]
-    public Requirements Requirements { get; set; } = default!;
+    public required Requirements Requirements { get; set; }
 
     /// <summary>
     /// The expected output of the solver.

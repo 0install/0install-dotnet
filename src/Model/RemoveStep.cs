@@ -16,7 +16,7 @@ public sealed partial class RemoveStep : FeedElement, IRecipeStep
     /// </summary>
     [Description("The file or directory to be removed relative to the implementation root as a Unix-style path.")]
     [XmlAttribute("path"), DefaultValue("")]
-    public string Path { get; set; } = default!;
+    public required string Path { get; set; }
 
     #region Normalize
     /// <inheritdoc/>

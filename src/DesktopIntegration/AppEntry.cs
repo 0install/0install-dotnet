@@ -18,7 +18,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// </summary>
     [DisplayName("URI"), Description("The URI or local path of the interface defining the application or the pet-name if Requirements is set.")]
     [XmlIgnore]
-    public FeedUri InterfaceUri { get; set; } = default!;
+    public required FeedUri InterfaceUri { get; set; }
 
     [IgnoreEquality]
     string IMergeable<AppEntry>.MergeID => InterfaceUri.ToStringRfc();
@@ -28,7 +28,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// </summary>
     [Description("The name of the application. Usually equal to the Name specified in the Feed.")]
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// A set of requirements/restrictions imposed by the user on the implementation selection process.

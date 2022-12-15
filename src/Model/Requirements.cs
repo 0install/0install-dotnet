@@ -19,7 +19,7 @@ public partial class Requirements : ICloneable<Requirements>
     /// </summary>
     [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
     [XmlIgnore, JsonProperty("interface")]
-    public FeedUri InterfaceUri { get; set; } = default!;
+    public required FeedUri InterfaceUri { get; set; }
 
     /// <summary>
     /// The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.
@@ -130,6 +130,7 @@ public partial class Requirements : ICloneable<Requirements>
     /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for.</param>
     /// <param name="command">The name of the command in the implementation to execute. Will default to <see cref="Model.Command.NameRun"/> or <see cref="Model.Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
     /// <param name="architecture">The architecture to find executables for. Find for the current system if left at default value.</param>
+    [SetsRequiredMembers]
     public Requirements(FeedUri interfaceUri, string? command = null, Architecture architecture = default)
     {
         InterfaceUri = interfaceUri;

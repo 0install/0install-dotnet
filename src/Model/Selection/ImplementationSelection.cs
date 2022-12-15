@@ -18,7 +18,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// </summary>
     [Description("The URI or local path of the interface this implementation is for.")]
     [XmlIgnore]
-    public FeedUri InterfaceUri { get; set; } = default!;
+    public required FeedUri InterfaceUri { get; set; }
 
     /// <summary>
     /// The URL or local path of the feed that contains this implementation.
@@ -102,6 +102,8 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
         {
             InterfaceUri = InterfaceUri,
             FromFeed = FromFeed,
+            ID = ID,
+            Version = Version,
             QuickTestFile = QuickTestFile
         };
         CloneFromTo(this, implementation);

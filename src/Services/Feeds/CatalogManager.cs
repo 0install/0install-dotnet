@@ -94,7 +94,7 @@ public partial class CatalogManager : ICatalogManager
         if (source == null) throw new ArgumentNullException(nameof(source));
         #endregion
 
-        Catalog catalog = default!;
+        Catalog catalog = null!;
         if (source.IsFile)
             catalog = XmlStorage.LoadXml<Catalog>(source.LocalPath);
         else

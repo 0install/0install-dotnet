@@ -50,6 +50,7 @@ public sealed partial class ExternalImplementation : Implementation
     /// <param name="package">The name of the package in the <paramref name="distribution"/>.</param>
     /// <param name="version">The version number of the implementation.</param>
     /// <param name="cpu">For platform-specific binaries, the CPU architecture for which the implementation was compiled.</param>
+    [SetsRequiredMembers]
     public ExternalImplementation(string distribution, string package, ImplementationVersion version, Cpu cpu = Cpu.All)
     {
         #region Sanity checks

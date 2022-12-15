@@ -58,7 +58,7 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     [Description("The name of the verb. Use canonical names to get automatic localization; specify Descriptions otherwise.")]
     [TypeConverter(typeof(VerbNameConverter))]
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// The name of the command in the <see cref="Feed"/> to use when launching via this capability; leave <c>null</c> for <see cref="Model.Command.NameRun"/>.

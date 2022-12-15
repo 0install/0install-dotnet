@@ -15,7 +15,7 @@ public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<I
     /// </summary>
     [Description("A unique identifier for the implementation.")]
     [XmlAttribute("id")]
-    public string ID { get; set; } = default!;
+    public required string ID { get; set; }
 
     /// <summary>
     /// A user-specified override for <see cref="Element.Stability"/> specified in the feed.

@@ -16,7 +16,7 @@ public class RetrievalMethodExtensionsTest
         string localFile = Path.Combine(sourceDir, "archive.zip");
         typeof(RetrievalMethodExtensionsTest).CopyEmbeddedToFile("testArchive.zip", localFile);
 
-        var archive = new Archive();
+        var archive = new Archive {Href = null!};
         using (var tempDir = archive.ToTempDir(_handler, localFile))
             File.Exists(Path.Combine(tempDir, "symlink")).Should().BeTrue();
 
@@ -31,7 +31,7 @@ public class RetrievalMethodExtensionsTest
         string localFile = Path.Combine(sourceDir, "file");
         File.WriteAllText(localFile, @"abc");
 
-        var file = new SingleFile();
+        var file = new SingleFile {Href = null!, Destination = null!};
         using (var tempDir = file.ToTempDir(_handler, localFile))
             File.Exists(Path.Combine(tempDir, "file")).Should().BeTrue();
 

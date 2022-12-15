@@ -54,9 +54,9 @@ public class SelectionsManagerTest : TestWithMocks
             Command = Command.NameRun,
             Implementations =
             {
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, QuickTestFile = impl1.QuickTestFile},
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, QuickTestFile = impl2.QuickTestFile},
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, QuickTestFile = impl3.QuickTestFile}
+                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, Version = new("1.0"), QuickTestFile = impl1.QuickTestFile},
+                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, Version = new("1.0"), QuickTestFile = impl2.QuickTestFile},
+                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, Version = new("1.0"), QuickTestFile = impl3.QuickTestFile}
             }
         };
 
@@ -72,21 +72,21 @@ public class SelectionsManagerTest : TestWithMocks
     [Fact]
     public void GetImplementations()
     {
-        var impl1 = new Implementation {ID = "test123"};
-        var impl2 = new Implementation {ID = "test456"};
+        var impl1 = new Implementation {ID = "test123", Version = new("1.0")};
+        var impl2 = new Implementation {ID = "test456", Version = new("1.0")};
         var impl3 = new ExternalImplementation("RPM", "firefox", new("1.0"))
         {
             RetrievalMethods = {new ExternalRetrievalMethod {PackageID = "test"}}
         };
         var implementationSelections = new[]
         {
-            new ImplementationSelection {ID = impl1.ID, InterfaceUri = FeedTest.Test1Uri},
-            new ImplementationSelection {ID = impl2.ID, InterfaceUri = FeedTest.Test2Uri, FromFeed = FeedTest.Sub2Uri},
-            new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
+            new ImplementationSelection {ID = impl1.ID, InterfaceUri = FeedTest.Test1Uri, Version = new("1.0")},
+            new ImplementationSelection {ID = impl2.ID, InterfaceUri = FeedTest.Test2Uri, Version = new("1.0"), FromFeed = FeedTest.Sub2Uri},
+            new ImplementationSelection {ID = impl3.ID, InterfaceUri = FeedTest.Test1Uri, Version = new("1.0"), FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri)}
         };
 
-        _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Elements = {impl1}});
-        _feedManagerMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Elements = {impl2}});
+        _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(new Feed {Name = "Test", Elements = {impl1}});
+        _feedManagerMock.Setup(x => x[FeedTest.Sub2Uri]).Returns(new Feed {Name = "Test", Elements = {impl2}});
         _packageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
 
         _selectionsManager.GetImplementations(implementationSelections)
@@ -140,18 +140,20 @@ public class SelectionsManagerTest : TestWithMocks
     public void GetDiff() => _selectionsManager.GetDiff(
         oldSelections: new Selections
         {
+            InterfaceUri = FeedTest.Test1Uri,
             Implementations =
             {
-                new ImplementationSelection {InterfaceUri = new("http://feed1"), Version = new("1.0")},
-                new ImplementationSelection {InterfaceUri = new("http://feed2"), Version = new("1.0")}
+                new() {InterfaceUri = new("http://feed1"), ID = "1-1", Version = new("1.0")},
+                new() {InterfaceUri = new("http://feed2"), ID = "2-1", Version = new("1.0")}
             }
         },
         newSelections: new Selections
         {
+            InterfaceUri = FeedTest.Test1Uri,
             Implementations =
             {
-                new ImplementationSelection {InterfaceUri = new("http://feed1"), Version = new("2.0")},
-                new ImplementationSelection {InterfaceUri = new("http://feed3"), Version = new("2.0")}
+                new() {InterfaceUri = new("http://feed1"), ID = "1-2", Version = new("2.0")},
+                new() {InterfaceUri = new("http://feed3"), ID = "3-2", Version = new("2.0")}
             }
         }).Should().BeEquivalentTo(
         new SelectionsDiffNode[]

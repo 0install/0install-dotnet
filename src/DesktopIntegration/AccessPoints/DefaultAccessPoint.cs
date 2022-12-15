@@ -18,5 +18,5 @@ public abstract partial class DefaultAccessPoint : AccessPoint
     /// </summary>
     [Description("The ID of the Capability to be made the default handler.")]
     [XmlAttribute("capability")]
-    public string Capability { get; set; } = default!;
+    public required string Capability { get; set; }
 }

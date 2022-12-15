@@ -55,7 +55,7 @@ public partial class Implementation : ImplementationBase
     /// <returns>The new copy of the <see cref="Implementation"/>.</returns>
     public Implementation CloneImplementation()
     {
-        var implementation = new Implementation();
+        var implementation = new Implementation {ID = ID, Version = Version};
         CloneFromTo(this, implementation);
         implementation.RetrievalMethods.Add(RetrievalMethods.CloneElements());
         return implementation;

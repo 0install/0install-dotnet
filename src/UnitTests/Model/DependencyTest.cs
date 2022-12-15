@@ -13,6 +13,7 @@ public class DependencyTest
     /// </summary>
     public static Dependency CreateTestDependency() => new()
     {
+        InterfaceUri = FeedTest.Test1Uri,
         Versions = new VersionRange("1.0..!2.0"),
         OS = OS.Windows,
         Distributions = {Restriction.DistributionZeroInstall},
@@ -35,7 +36,7 @@ public class DependencyTest
         dependency2.GetHashCode().Should().Be(dependency1.GetHashCode(), because: "Cloned objects' hashes should be equal.");
         ReferenceEquals(dependency1, dependency2).Should().BeFalse(because: "Cloning should not return the same reference.");
 
-        dependency2.Bindings.Add(new EnvironmentBinding());
+        dependency2.Bindings.Add(new EnvironmentBinding {Name = "dummy"});
         dependency2.Should().NotBe(dependency1, because: "Modified objects should no longer be equal");
     }
 }

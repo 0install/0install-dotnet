@@ -18,7 +18,7 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// </summary>
     [Description("The URI or local path of the interface this selection is based on.")]
     [XmlIgnore]
-    public FeedUri InterfaceUri { get; set; } = default!;
+    public required FeedUri InterfaceUri { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>

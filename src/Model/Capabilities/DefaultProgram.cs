@@ -63,7 +63,7 @@ public sealed partial class DefaultProgram : VerbCapability
     /// </summary>
     [Description("""The name of the service the application provides. Well-known values on Windows are: Mail, Media, IM, JVM, Calender, Contacts, Internet Call""")]
     [XmlAttribute("service")]
-    public string Service { get; set; } = default!;
+    public required string Service { get; set; }
 
     /// <summary>
     /// Lists the commands the application registers for use by Windows' "Set Program Access and Defaults". Will be transparently replaced with Zero Install commands at runtime.

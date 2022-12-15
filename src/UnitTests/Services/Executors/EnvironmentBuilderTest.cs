@@ -19,9 +19,27 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void Exceptions()
     {
         var executor = new EnvironmentBuilder(Mock.Of<IImplementationStore>());
-        executor.Invoking(x => x.Inject(new Selections {Command = Command.NameRun}))
+
+        executor.Invoking(x => x.Inject(new Selections
+                 {
+                     InterfaceUri = FeedTest.Test1Uri,
+                     Command = Command.NameRun
+                 }))
                 .Should().Throw<ExecutorException>(because: "Selections with no implementations should be rejected");
-        executor.Invoking(x => x.Inject(new Selections {Implementations = {new ImplementationSelection()}}))
+
+        executor.Invoking(x => x.Inject(new Selections
+                 {
+                     InterfaceUri = FeedTest.Test1Uri,
+                     Implementations =
+                     {
+                         new ImplementationSelection
+                         {
+                             InterfaceUri = FeedTest.Test1Uri,
+                             ID = "test",
+                             Version = new("1.0")
+                         }
+                     },
+                 }))
                 .Should().Throw<ExecutorException>(because: "Selections with no start command should be rejected");
     }
 
@@ -37,7 +55,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void ExceptionMissingEnvironmentBindingName()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding());
+        selections.Implementations[1].Commands[0].Bindings.Add(new EnvironmentBinding {Name = null!});
         ExpectCommandException(selections);
     }
 
@@ -45,7 +63,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void ExceptionMissingExecutableInVarBindingName()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInVar());
+        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInVar {Name = null!});
         ExpectCommandException(selections);
     }
 
@@ -54,7 +72,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void ExceptionMissingExecutableInPathBindingName()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInPath());
+        selections.Implementations[1].Commands[0].Bindings.Add(new ExecutableInPath {Name = null!});
         ExpectCommandException(selections);
     }
 
@@ -125,7 +143,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void Baseline()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                        .Inject(selections)
@@ -148,6 +166,14 @@ public class EnvironmentBuilderTest : TestWithRedirect
         VerifyEnvironment(startInfo, selections);
     }
 
+    private static void AddDummyImplementation(Selections selections)
+        => selections.Implementations.Insert(0, new()
+        {
+            InterfaceUri = new("http://example.com/dummy.xml"),
+            ID = "dummy",
+            Version = new("1.0")
+        });
+
     /// <summary>
     /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles complex <see cref="Selections"/>.
     /// </summary>
@@ -157,7 +183,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
         Skip.IfNot(WindowsUtils.IsWindows, "Wrapper command-line parsing relies on a Win32 API and therefore will not work on non-Windows platforms");
 
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                        .Inject(selections)
@@ -188,7 +214,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void MainRelative()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                        .Inject(selections, overrideMain: "main")
@@ -217,7 +243,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void MainAbsolute()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
                        .Inject(selections, overrideMain: "/main")
@@ -246,7 +272,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void PathlessCommand()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
         selections.Implementations[1].Commands[0].Path = null;
 
         var startInfo = new EnvironmentBuilder(GetMockStore(selections))
@@ -274,7 +300,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
     public void ForEachArgs()
     {
         var selections = SelectionsTest.CreateTestSelections();
-        selections.Implementations.Insert(0, new ImplementationSelection {InterfaceUri = new("http://example.com/dummy.xml")}); // Should be ignored by Executor
+        AddDummyImplementation(selections);
 
         selections.Implementations[1].Commands[0].Arguments.Add(new ForEachArgs
         {

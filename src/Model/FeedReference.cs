@@ -17,7 +17,7 @@ public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference
     /// </summary>
     [Description("The URL or local path used to locate the feed.")]
     [XmlIgnore]
-    public FeedUri Source { get; set; } = default!;
+    public required FeedUri Source { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>

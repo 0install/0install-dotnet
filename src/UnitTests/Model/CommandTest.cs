@@ -84,7 +84,7 @@ public class CommandTest
         command2.GetHashCode().Should().Be(command1.GetHashCode(), because: "Cloned objects' hashes should be equal.");
         command2.Should().NotBeSameAs(command1, because: "Cloning should not return the same reference.");
 
-        command2.Bindings.Add(new EnvironmentBinding());
+        command2.Bindings.Add(new EnvironmentBinding {Name = "dummy"});
         command2.Should().NotBe(command1, because: "Modified objects should no longer be equal");
     }
 }

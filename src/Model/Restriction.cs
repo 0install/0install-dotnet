@@ -18,7 +18,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// </summary>
     [Description("The URI or local path used to identify the interface.")]
     [XmlIgnore]
-    public FeedUri InterfaceUri { get; set; } = default!;
+    public required FeedUri InterfaceUri { get; set; }
 
     /// <summary>
     /// Determines for which operating systems this dependency is required.

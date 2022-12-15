@@ -73,7 +73,11 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         mainFeed.Feeds.Clear();
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
-        new InterfacePreferences {Feeds = {new() {Source = FeedTest.Sub1Uri}}}.SaveFor(mainFeed.Uri!);
+        new InterfacePreferences
+        {
+            Uri = mainFeed.Uri!,
+            Feeds = {new() {Source = FeedTest.Sub1Uri}}
+        }.SaveFor(mainFeed.Uri!);
 
         var subFeed = mainFeed.Clone();
         subFeed.Uri = FeedTest.Sub1Uri;

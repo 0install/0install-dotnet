@@ -30,7 +30,7 @@ public class ImplementationExtensionsTest
     {
         using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
         using var microServer = new MicroServer("archive.zip", stream);
-        var implementation = new Implementation {RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
         implementation.ManifestDigest.Should().Be(_archiveDigest);
 
@@ -44,7 +44,7 @@ public class ImplementationExtensionsTest
     {
         using var originalStream = SingleFileData.ToStream();
         using var microServer = new MicroServer(SingleFileName, originalStream);
-        var implementation = new Implementation {RetrievalMethods = {new SingleFile {Href = microServer.FileUri, Destination = SingleFileName}}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), RetrievalMethods = {new SingleFile {Href = microServer.FileUri, Destination = SingleFileName}}};
         implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
         ("sha256new_" + implementation.ManifestDigest.Sha256New).Should().Be(_singleFileSha256Digest);
 
@@ -59,7 +59,7 @@ public class ImplementationExtensionsTest
         using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
         using var microServer = new MicroServer("archive.zip", stream);
         var archive = new Archive {Href = microServer.FileUri};
-        var implementation = new Implementation {RetrievalMethods = {new Recipe {Steps = {archive}}}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), RetrievalMethods = {new Recipe {Steps = {archive}}}};
         implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
         implementation.ManifestDigest.Should().Be(_archiveDigest);
 
@@ -76,7 +76,7 @@ public class ImplementationExtensionsTest
         FileUtils.Touch(Path.Combine(tempDir, "impl", "file"));
 
         var archive = new Archive {Href = new("archive.zip", UriKind.Relative)};
-        var implementation = new Implementation {LocalPath = "impl", RetrievalMethods = {archive}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), LocalPath = "impl", RetrievalMethods = {archive}};
 
         implementation.SetMissing(new SimpleCommandExecutor {Path = feedPath}, new SilentTaskHandler());
 
@@ -92,7 +92,7 @@ public class ImplementationExtensionsTest
     {
         using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
         using var microServer = new MicroServer("archive.zip", stream);
-        var implementation = new Implementation {ManifestDigest = new ManifestDigest(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), ManifestDigest = new ManifestDigest(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         Assert.Throws<DigestMismatchException>(() => implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler()));
     }
 }

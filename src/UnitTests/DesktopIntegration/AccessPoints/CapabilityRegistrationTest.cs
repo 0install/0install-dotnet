@@ -16,6 +16,8 @@ public class CapabilityRegistrationTest
         var capabilityRegistration = new CapabilityRegistration();
         var appEntry = new AppEntry
         {
+            InterfaceUri = FeedTest.Test1Uri,
+            Name = "Test",
             CapabilityLists =
             {
                 new CapabilityList {Entries = {new Model.Capabilities.FileType {ID = "test1"}}},

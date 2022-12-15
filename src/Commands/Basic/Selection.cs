@@ -27,7 +27,10 @@ public class Selection : CliCommand
     /// <summary>
     /// A set of requirements/restrictions imposed by the user on the implementation selection process as parsed from the command-line arguments.
     /// </summary>
-    protected Requirements Requirements { get; } = new();
+    protected Requirements Requirements { get; } = new()
+    {
+        InterfaceUri = null! // Will be set by SetInterfaceUri()
+    };
 
     // Intermediate variables, transferred to Requirements after parsing
     private VersionRange? _version;

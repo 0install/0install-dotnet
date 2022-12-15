@@ -23,7 +23,7 @@ public abstract partial class Capability : XmlUnknown, ICloneable<Capability>
     /// <remarks>Also serves as a programmatic identifier within the desktop environment. In case of conflicts, the first capability listed with a specific ID will take precedence.</remarks>
     [Description("An ID that differentiates this capability from other capabilities of the same type within the feed. May only contain alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+). Also serves as a programmatic identifier within the desktop environment.")]
     [XmlAttribute("id")]
-    public string ID { get; set; } = default!;
+    public required string ID { get; set; }
 
     /// <summary>
     /// Identifiers from a namespace global to all <see cref="Capability"/>s.

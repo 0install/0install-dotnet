@@ -15,7 +15,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// </summary>
     [Browsable(false)]
     [XmlIgnore]
-    public FeedUri Uri { get; set; } = default!;
+    public required FeedUri Uri { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization and PropertyGrid.</summary>
@@ -58,7 +58,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         #endregion
 
         string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
-        if (string.IsNullOrEmpty(path)) return new();
+        if (string.IsNullOrEmpty(path)) return new() {Uri = interfaceUri};
 
         Log.Debug($"Loading interface preferences for {interfaceUri.ToStringRfc()} from: {path}");
         return XmlStorage.LoadXml<InterfacePreferences>(path);
@@ -83,7 +83,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
             Log.Warn(string.Format(Resources.ErrorLoadingInterfacePrefs, interfaceUri), ex);
-            return new();
+            return new() {Uri = interfaceUri};
         }
         #endregion
     }

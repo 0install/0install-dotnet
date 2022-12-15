@@ -37,7 +37,7 @@ public sealed partial class EnvironmentBinding : Binding
     [Description("""The name of the environment variable.""")]
     [XmlAttribute("name")]
     [Localizable(false)]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// A static value to set the variable to.

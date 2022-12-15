@@ -62,7 +62,7 @@ public sealed class ConflictDataUtilsTest
     public void AccessPointCandidates()
     {
         var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "b"}};
-        var appEntry = new AppEntry {Name = "App"};
+        var appEntry = AppEntry();
 
         accessPoints.GetConflictData(appEntry).Should().Equal(new Dictionary<string, ConflictData>
         {
@@ -75,7 +75,7 @@ public sealed class ConflictDataUtilsTest
     public void AccessPointCandidatesInternalConflict()
     {
         var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "a"}};
-        var appEntry = new AppEntry {Name = "App"};
+        var appEntry = AppEntry();
 
         Assert.Throws<ConflictException>(() => accessPoints.GetConflictData(appEntry));
     }
@@ -85,8 +85,8 @@ public sealed class ConflictDataUtilsTest
     {
         var appList = new[]
         {
-            new AppEntry {Name = "App1", AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ID = "a"}}}},
-            new AppEntry {Name = "App2", AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ID = "b"}}}}
+            AppEntry(new MockAccessPoint {ID = "a"}),
+            AppEntry(new MockAccessPoint {ID = "b"})
         };
 
         appList.GetConflictData().Should().Equal(new Dictionary<string, ConflictData>
@@ -101,10 +101,13 @@ public sealed class ConflictDataUtilsTest
     {
         var appList = new[]
         {
-            new AppEntry {Name = "App1", AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ID = "a"}}}},
-            new AppEntry {Name = "App2", AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ID = "a"}}}}
+            AppEntry(new MockAccessPoint { ID = "a" }),
+            AppEntry(new MockAccessPoint { ID = "a" })
         };
 
         Assert.Throws<ConflictException>(() => appList.GetConflictData());
     }
+
+    private static AppEntry AppEntry(params AccessPoint[] accessPoints)
+        => new() {InterfaceUri = FeedTest.Test1Uri, Name = "Test", AccessPoints = new() {Entries = {accessPoints}}};
 }

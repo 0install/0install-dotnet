@@ -15,7 +15,7 @@ public partial class SearchResult
     /// </summary>
     [DisplayName("URI")]
     [XmlIgnore]
-    public FeedUri Uri { get; set; } = default!;
+    public required FeedUri Uri { get; set; }
 
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>
@@ -30,7 +30,7 @@ public partial class SearchResult
     /// A short name to identify the interface (e.g. "Foo").
     /// </summary>
     [XmlAttribute("name")]
-    public string Name { get; set; } = default!;
+    public required string Name { get; set; }
 
     /// <summary>
     /// A value between 0 and 100 indicating how good this result matches the query.

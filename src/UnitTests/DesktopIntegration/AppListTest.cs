@@ -21,6 +21,7 @@ public sealed class AppListTest
             new AppEntry
             {
                 InterfaceUri = FeedTest.Test1Uri,
+                Name = "Test",
                 AutoUpdate = true,
                 CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()}
             }
@@ -37,6 +38,7 @@ public sealed class AppListTest
             new AppEntry
             {
                 InterfaceUri = FeedTest.Test1Uri,
+                Name = "Test",
                 AutoUpdate = true,
                 CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()},
                 AccessPoints = CreateTestAccessPointList()
@@ -143,7 +145,12 @@ public sealed class AppListTest
     public void FindAppAlias()
     {
         var appAlias = new AppAlias {Name = "foobar"};
-        var appEntry = new AppEntry {AccessPoints = new AccessPointList {Entries = {appAlias}}};
+        var appEntry = new AppEntry
+        {
+            InterfaceUri = FeedTest.Test1Uri,
+            Name = "Test",
+            AccessPoints = new AccessPointList {Entries = {appAlias}}
+        };
         var appList = new AppList {Entries = {appEntry}};
 
         appList.FindAppAlias("foobar").Should().Be((appAlias, appEntry));
@@ -161,11 +168,12 @@ public sealed class AppListTest
             {
                 new AppEntry
                 {
+                    Name = "Test",
+                    InterfaceUri = uri,
                     AccessPoints = new AccessPointList {Entries =
                     {
                         new AppAlias {Name = "foobar", Command = Command.NameTest}
-                    }},
-                    InterfaceUri = uri
+                    }}
                 }
             }
         };
