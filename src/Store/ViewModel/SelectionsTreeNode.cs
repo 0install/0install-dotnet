@@ -25,13 +25,7 @@ public sealed record SelectionsTreeNode(
     [Browsable(false)]
     public string Name
     {
-        get
-        {
-            string name = $"{Uri.ToStringRfc()} ({(Version?.ToString() ?? Resources.NoSelectedVersion)})";
-            return Parent == null
-                ? name
-                : Parent.Name + Named.TreeSeparator + name;
-        }
+        get => Parent == null ? ToString() : Parent.Name + Named.TreeSeparator + ToString();
         set => throw new NotSupportedException();
     }
 
