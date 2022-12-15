@@ -202,7 +202,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Seuls les administrateurs peuvent supprimer des éléments d'un magasin partagé.</value>
+    <value>Seuls les administrateurs peuvent retirer des éléments d'un magasin partagé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">

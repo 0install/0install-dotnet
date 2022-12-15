@@ -67,15 +67,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de feed para '{0}'. Volviendo a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de feed para '{0}'. Volver a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de interface para '{0}'. Volviendo a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de interface para '{0}'. Volver a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>No se puede encontrar el feed '{0}' en el catálogo.</value>
+    <value>No se encuentra el feed '{0}' en el catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' no es un URI 'http(s):' válido y tampoco es una ruta local válida.</value>
+    <value>'{0}' no es una URI 'http(s):' válida y tampoco es una ruta local válida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Atributo '{0}' inválido en {1}.</value>
+    <value>Atributo '{0}' no válido en {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>El URI relativo '{0}' no ha podido ser resuelto. Sólo los feeds guardados como archivos locales pueden contener URIs relativas.</value>
+    <value>No se ha podido resolver el URI relativo '{0}'. Sólo los feeds guardados como archivos locales pueden contener URI relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementación con errores</value>
+    <value>Aplicación defectuosa</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Sistema operativo o CPU incompatible</value>
+    <value>Sistema operativo o CPU incompatibles</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementación no en la caché (actualmente en modo off-line)</value>
+    <value>Aplicación no en caché (actualmente en modo off-line)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Debe ser una identificación segura. Sólo puede contener caracteres alfanuméricos, espacios (), puntos (.), guiones bajos (_), guiones (-) y signos de suma (+).</value>
+    <value>Debe ser un ID seguro. Sólo puede contener caracteres alfanuméricos, espacios (), puntos (.), guiones bajos (_), guiones (-) y signos más (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>El paso de la receta '{0}' en la implementación '{1}' tiene una referencia de implementación no válida.</value>
+    <value>El paso de receta '{0}' en la implementación '{1}' tiene una referencia de implementación no válida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>El final del rango de la versión debe ser exclusivo. Utilice '.!{0}', no '..{0}'.</value>
+    <value>El final del intervalo de versiones debe ser exclusivo. Utilice '..!{0}', no '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

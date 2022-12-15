@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>Se ha añadido el comando '0install' a su PATH de la línea de comandos.</value>
+    <value>El comando '0install' ha sido añadido a tu PATH de la línea de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -79,8 +79,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Todos los componentes necesarios para ejecutar {0} han sido exportados a '{1}'.
-Puede utilizar el script de importación o el ejecutable de Bootstrap en '{1}' para importar estos archivos en otro ordenador.</value>
+    <value>Todos los componentes necesarios para ejecutar {0} se han exportado a '{1}'.
+Puede utilizar el script de importación o el ejecutable Bootstrap en '{1}' para importar estos archivos en otro ordenador.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -88,7 +88,7 @@ Puede utilizar el script de importación o el ejecutable de Bootstrap en '{1}' p
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
-    <value>Alias de la aplicación</value>
+    <value>Alias de aplicación</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
@@ -100,7 +100,7 @@ Puede utilizar el script de importación o el ejecutable de Bootstrap en '{1}' p
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>¿Está seguro de que quiere desplegar una nueva copia de Zero Install en '{0}'?</value>
+    <value>¿Está seguro de que desea desplegar una nueva copia de Zero Install a '{0}'?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
@@ -118,7 +118,7 @@ Puede utilizar el script de importación o el ejecutable de Bootstrap en '{1}' p
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>¿Desea actualizar cualquier integración de escritorio existente para reflejar esto?
 Si selecciona "Sí", se eliminarán las integraciones potencialmente incompatibles.
-Si selecciona "No", Zero Install seguirá utilizando las antiguas funciones.</value>
+Si selecciona "No", Zero Install seguirá utilizando las funciones anteriores.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -138,19 +138,19 @@ Si selecciona "No", Zero Install seguirá utilizando las antiguas funciones.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
-    <value>El URI del catálogo {0} ya está registrado.</value>
+    <value>El URI de catálogo {0} ya está registrado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogNotRegistered" xml:space="preserve">
-    <value>El URI del catálogo {0} no está registrado.</value>
+    <value>El URI de catálogo {0} no está registrado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
-    <value>Fuentes del catálogo</value>
+    <value>Catálogo de fuentes</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Cambiar</value>
+    <value>Cambia</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
@@ -179,22 +179,22 @@ Estos archivos pueden descargarse de nuevo si es necesario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>¿Desea eliminar todas las aplicaciones de la lista "Mis aplicaciones"? Esto evita que queden entradas en el menú después de eliminar la Zero Install.
+    <value>¿Desea eliminar todas las aplicaciones de la lista "Mis aplicaciones"? Esto evita que queden entradas en el menú después de eliminar Zero Install.
 Puede crear una copia de seguridad de esta lista utilizando '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Comience a introducir texto en la última línea para crear una nueva entrada.
-Seleccione una línea entera haciendo clic en la primera columna y luego pulse DEL en el teclado para eliminar una entrada.</value>
+    <value>Empieza a introducir texto en la última línea para crear una nueva entrada.
+Seleccione una línea entera haciendo clic en la primera columna y, a continuación, pulse DEL en el teclado para eliminar una entrada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Establecer una casilla de verificación para convertir una capacidad en el gestor por defecto deseado.
-Quitar una casilla de verificación para eliminar el estado por defecto de una capacidad (sigue estando disponible).</value>
+    <value>Marque una casilla para convertir una capacidad en su gestor por defecto.
+Quitar una casilla de verificación para eliminar el estado predeterminado de una capacidad (sigue estando disponible).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>¿Desea eliminar de la caché los elementos marcados en {0}?</value>
+    <value>¿Desea eliminar de la caché el/los elemento(s) marcado(s) en {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -202,16 +202,16 @@ Quitar una casilla de verificación para eliminar el estado por defecto de una c
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementations" xml:space="preserve">
-    <value>Borrar la aplicación</value>
+    <value>Eliminación de la aplicación</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Una versión portable de Zero Install ha sido desplegada en '{0}'.
-Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
+Puede utilizarlo ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Cuando se utiliza la opción {0} se debe especificar explícitamente el directorio de destino.</value>
+    <value>Si utiliza la opción {0}, debe especificar explícitamente el directorio de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -223,11 +223,11 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Crear un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
+    <value>Crea un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
-    <value>Añadir una aplicación a la lista de aplicaciones.</value>
+    <value>Añade una aplicación a la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddFeed" xml:space="preserve">
@@ -239,11 +239,11 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
-    <value>Enumera todos los catálogos registrados.</value>
+    <value>Lista todos los catálogos registrados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
-    <value>Refresca (descarga) todos los catálogos registrados.</value>
+    <value>Actualiza (descarga) todos los catálogos registrados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
@@ -255,16 +255,16 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Busca en los catálogos registrados las aplicaciones que coinciden con la consulta especificada. Si no se indica ninguna consulta, se enumeran todas las aplicaciones de los catálogos.</value>
+    <value>Busca en los catálogos registrados las aplicaciones que coinciden con la consulta especificada. Si no se especifica ninguna consulta, se mostrarán todas las aplicaciones de los catálogos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Abre la interface gráfica central de usuario para lanzar y gestionar aplicaciones.</value>
+    <value>Abre la interface gráfica de usuario central para lanzar y gestionar aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
-    <value>Ver o cambiar los ajustes de configuración.
-Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual del ajuste nombrado. Con dos argumentos, establece el ajuste al valor dado o lo restablece al valor por defecto si se da el valor "por defecto".</value>
+    <value>Visualiza o modifica los ajustes de configuración.
+Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración indicada. Con dos argumentos, ajusta la configuración al valor indicado o la restablece al valor por defecto si se indica el valor "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -273,7 +273,7 @@ Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumen
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Se comporta de forma similar a '0install select', excepto que también descarga las versiones seleccionadas si no están ya en la caché.
-Devuelve un estado de salida de 0 si ha seleccionado un conjunto adecuado de versiones y ahora están todas descargadas y en la caché; devuelve un estado de 1 en caso contrario.</value>
+Devuelve un estado de salida 0 si ha seleccionado un conjunto adecuado de versiones y ya están todas descargadas y en la caché; devuelve un estado 1 en caso contrario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -286,27 +286,27 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importa un conjunto de aplicaciones e integraciones de escritorio desde un archivo app-list.xml existente.</value>
+    <value>Importa un conjunto de apps e integraciones de escritorio desde un archivo app-list.xml existente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Añade una aplicación a la lista de aplicaciones (si falta) y la integra en el entorno del escritorio.</value>
+    <value>Añade una aplicación a la lista de aplicaciones (si falta) y la integra en el entorno de escritorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Enumera todos los URIs de feed conocidos localmente. Si se indica un término de búsqueda, sólo se muestran las URI que contienen esa cadena (no se distinguen las mayúsculas de las minúsculas).</value>
+    <value>Lista todos los URI de feed conocidos localmente. Si se indica un término de búsqueda, sólo se mostrarán los URI que contengan esa cadena (sin distinguir mayúsculas de minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Enumera todas las aplicaciones que se encuentran actualmente en su lista de aplicaciones. Si se da un URI, sólo se muestra la aplicación con ese URI de feed. Si se da un PATRÓN, sólo se muestran las aplicaciones que contengan esa cadena en su nombre (no se distingue entre mayúsculas y minúsculas).</value>
+    <value>Enumera todas las aplicaciones actualmente en su lista de aplicaciones. Si se indica un URI, sólo se muestra la aplicación con ese URI de feed. Si se indica un PATRÓN, sólo se mostrarán las aplicaciones que contengan esa cadena en su nombre (sin distinguir mayúsculas de minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Enumera todos los feeds adicionales añadidos al URI mediante '0install add-feed'.</value>
+    <value>Lista todos los feeds adicionales añadidos al URI mediante '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Despliega Zero Install en el directorio TARGET especificado o en el directorio por defecto de los programas y lo integra en el sistema.</value>
+    <value>Despliega Zero Install en el directorio TARGET especificado o en el directorio por defecto para programas y lo integra en el sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -318,7 +318,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Elimina una aplicación de la lista de aplicaciones y deshace cualquier integración del entorno de escritorio.</value>
+    <value>Elimina una aplicación de la lista de aplicaciones y deshace cualquier integración con el entorno de escritorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -326,12 +326,12 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>Vuelve a aplicar todas las integraciones de escritorio de las aplicaciones en la lista de aplicaciones.</value>
+    <value>Vuelve a aplicar todas las integraciones de escritorio de las aplicaciones de la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Se comporta de forma similar a '0install download', excepto que también ejecuta el programa después de asegurarse de que está en la caché.
-Devuelve un estado de salida de 1 si el paso de descarga falló. En caso contrario, el estado de salida será el del programa que se está ejecutando.</value>
+Devuelve un estado de salida de 1 si el paso de descarga falló. De lo contrario, el estado de salida será el estado de salida del programa que se está ejecutando.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -340,7 +340,7 @@ Devuelve un estado de salida de 1 si el paso de descarga falló. En caso contrar
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Selecciona una versión del programa identificado por URI, y versiones compatibles de todas sus dependencias.
-Devuelve un estado de salida de 0 si seleccionó un conjunto de versiones, y un estado de 1 si no pudo encontrar un conjunto consistente.</value>
+Devuelve un estado de salida 0 si seleccionó un conjunto de versiones, y un estado 1 si no pudo encontrar un conjunto coherente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -356,42 +356,42 @@ Devuelve un estado de salida de 0 si seleccionó un conjunto de versiones, y un 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
-    <value>Comprueba que todas las implementaciones de la caché no están dañadas.
+    <value>Comprueba que todas las implementaciones de la caché están intactas.
 Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Copia una implementación en la caché. Es similar a '0install store add', pero el resumen se extrae del nombre del directorio.
+    <value>Copia una implementación en la caché. Similar a '0install store add', pero el resumen se extrae del nombre del directorio.
 Un argumento adicional especifica una ubicación de caché de destino personalizada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Exporta una implementación en caché como un archivo (ZIP, TAR, etc.). El resultado puede ser importado en otra máquina usando '0install store add'.</value>
+    <value>Exporta una implementación almacenada en caché como un archivo (ZIP, TAR, etc.). El resultado se puede importar en otra máquina utilizando '0install store add'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Determina la ruta local de una implementación en caché.</value>
+    <value>Determina la ruta local de una implementación almacenada en caché.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Enumera todos los directorios de la caché de implementación.</value>
+    <value>Lista todos los directorios de la caché de implementación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Enumera todas las implementaciones en caché. Si se especifica un URI de feed, sólo se listan las implementaciones de ese feed en particular.</value>
+    <value>Lista todas las implementaciones almacenadas en caché. Si se especifica un URI de feed, solo se enumeran las implementaciones de ese feed en particular.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Muestra una interface gráfica de usuario para gestionar las implementaciones en la caché. Muestra las asociaciones con los feeds almacenados en la caché.</value>
+    <value>Muestra una interface gráfica de usuario para gestionar las implementaciones en la caché. Muestra las asociaciones con los feeds almacenados en caché.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Ahorra espacio en el disco al fusionar archivos idénticos con enlaces duros.
+    <value>Ahorra espacio en disco fusionando archivos idénticos con hardlinks.
 Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar la Zero Install. Eliminar manualmente los directorios de la caché puede ser difícil debido a las ACLs de NTFS empleadas para proteger las implementaciones contra modificaciones.
+    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar Zero Install. Eliminar manualmente los directorios de la caché puede resultar difícil debido a las ACL NTFS empleadas para proteger las implantaciones contra modificaciones.
 Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -416,15 +416,15 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Confía en los feeds de un DOMINIO específico cuando se firman con una FINGERPRINT específica.</value>
+    <value>Confía en los feeds de un DOMINIO específico cuando están firmados con una HUELLA específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista de claves de confianza para la firma de feeds. Sólo se enumeran los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
+    <value>Lista de claves de confianza para la firma de feeds. Enumera solo los dominios para los que se confía en una FINGERPRINT específica, si se especifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Deja de confiar en los feeds firmados con una FINGERPRINT específica. Sólo deja de confiar en un DOMINIO específico, si se especifica.</value>
+    <value>Deja de confiar en feeds firmados con una FINGERPRINT específica. Sólo deja de confiar en un DOMINIO específico, si se especifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -433,19 +433,19 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
-    <value>Actualiza todas las aplicaciones en la lista de aplicaciones.</value>
+    <value>Actualiza todas las aplicaciones de la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Integración en el escritorio</value>
+    <value>Integración de escritorio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Aplicar la integración del escritorio</value>
+    <value>Aplicar la integración de escritorio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Eliminación de la integración del escritorio</value>
+    <value>Eliminación de la integración de escritorio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -457,11 +457,11 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor, introduzca la URL o la ruta del archivo local del catálogo de feeds a añadir:</value>
+    <value>Introduzca la URL o la ruta del archivo local del catálogo de feeds que desea añadir:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
-    <value>Por favor, introduzca la URL de la nueva fuente de implementaciones para esta interface:</value>
+    <value>Introduzca la URL de la nueva fuente de implementaciones para esta interface:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
@@ -473,11 +473,11 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Exportación completa.</value>
+    <value>Exportación completada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
-    <value>El feed ya estaba registrado para todas las interfaces apropiadas.</value>
+    <value>El feed ya estaba registrado para todas las interfaces correspondientes.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
@@ -489,11 +489,11 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>El feed se ha registrado con éxito para las siguientes interfaces:</value>
+    <value>El feed se ha registrado correctamente para las siguientes interfaces:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>'{0}' ha sido sustituido por '{1}'. Considere la posibilidad de actualizar.</value>
+    <value>{0} ha sido sustituido por{1}. Considere la posibilidad de actualizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -509,15 +509,15 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>El feed se ha desregistrado con éxito para las siguientes interfaces:</value>
+    <value>El feed se ha desregistrado correctamente para las siguientes interfaces:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>No se puede encontrar el archivo o directorio '{0}'.</value>
+    <value>No se pudo encontrar el archivo o directorio '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>Utilice file:///path para las rutas absolutas, no file:/path.</value>
+    <value>Utilice file:///path para rutas absolutas, no file:/path.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -525,7 +525,7 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Este feed no parece ser para la misma aplicación. ¿Añadirlo de todas formas?
+    <value>Este feed no parece ser para la misma aplicación. ¿Añadirlo de todos modos?
 Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -534,7 +534,7 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Integrar {0}</value>
+    <value>Integre {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -546,11 +546,11 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Utilice la versión de la interfaz gráfica de usuario de Zero Install o especifique las opciones de integración explícitas mediante argumentos de la línea de comandos.</value>
+    <value>Utilice la versión GUI de Zero Install o especifique opciones de integración explícitas utilizando argumentos de línea de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
-    <value>Argumento inválido '{0}'.</value>
+    <value>Argumento no válido '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -558,11 +558,11 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Existe una versión posterior ({0}) pero no fue seleccionada. En su lugar se utiliza {1}.</value>
+    <value>Existe una versión posterior ({0}) pero no ha sido seleccionada. En su lugar se utiliza {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Este programa no incluye ABSOLUTAMENTE NINGUNA GARANTÍA, en la medida en que lo permita la ley.
+    <value>Este programa no incluye ABSOLUTAMENTE NINGUNA GARANTÍA, en la medida permitida por la ley.
 Puede redistribuir copias de este programa bajo los términos de la Licencia Pública General Reducida GNU.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -583,11 +583,11 @@ Puede redistribuir copias de este programa bajo los términos de la Licencia Pú
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>Debe ser un administrador para realizar operaciones en toda la máquina.</value>
+    <value>Debe ser administrador para realizar operaciones en toda la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
-    <value>Esperando a que terminen todas las instancias de Zero Install</value>
+    <value>Esperando a que finalicen todas las instancias de Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
@@ -595,7 +595,7 @@ Puede redistribuir copias de este programa bajo los términos de la Licencia Pú
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>Por favor, utilice la versión GUI de Zero Install para esta función.</value>
+    <value>Utilice la versión GUI de Zero Install para esta función.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -607,20 +607,20 @@ Puede redistribuir copias de este programa bajo los términos de la Licencia Pú
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Para que la integración del escritorio funcione, es necesario que Zero Install se instale en el sistema.</value>
+    <value>Para que la integración de escritorio funcione, Zero Install debe instalarse en el sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install se ejecuta en modo portable. Es necesario desplegarla en una ubicación permanente para que la integración en el escritorio funcione.
+    <value>Zero Install se ejecuta en modo portable. Necesita ser desplegado en una ubicación permanente para la integración de escritorio para trabajar.
 Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su copia portable.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que funcione la integración de escritorios en toda la máquina, es necesario desplegarla en un directorio al que puedan acceder todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico de usuario. Debe desplegarse en un directorio al que puedan acceder todos los usuarios para que funcione la integración de escritorios en toda la máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>Cuando se ejecuta una aplicación el comando puede no estar vacío.</value>
+    <value>Al ejecutar una aplicación, es posible que el comando no esté vacío.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -660,11 +660,11 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Ocultar la interface gráfica de usuario y utilizar algo como un icono de bandeja en su lugar.</value>
+    <value>Oculta la interfaz gráfica de usuario y utiliza en su lugar un icono de bandeja.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Responder automáticamente a las preguntas con valores predeterminados cuando sea posible y simplificar la salida de la consola (sin tablas ni barras de progreso).</value>
+    <value>Responder automáticamente a las preguntas con valores por defecto cuando sea posible y simplificar la salida de la consola (sin tablas ni barras de progreso).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -672,20 +672,20 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omita la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
+    <value>Omita la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Eliminar las implementaciones que ya no son necesarias después de la actualización.</value>
+    <value>Elimine las implementaciones que ya no sean necesarias tras la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>En lugar de ejecutar el comando por defecto, utilice {COMMAND}. Los nombres de comandos válidos se especifican en el feed del programa.
-Establezca el valor vacío ("") para ignorar el comando durante la selección.</value>
+    <value>En lugar de ejecutar el comando predeterminado, utilice {COMMAND}. Los nombres de comandos válidos se especifican en el feed del programa.
+Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambia a una pestaña específica en la GUI de configuración. Las opciones válidas de {TAB}son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
+    <value>Cambia a una pestaña específica de la GUI de configuración. Las {TAB}válidas son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -693,11 +693,11 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Mostrar el editor gráfico de políticas. Permite personalizar la versión de un programa o biblioteca que se va a utilizar.</value>
+    <value>Mostrar el editor gráfico de políticas. Esto le permite personalizar qué versión de un programa o biblioteca utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Mostrar el resumen del manifiesto (activado por defecto si --manifest no está establecido).</value>
+    <value>Muestra el resumen del manifiesto (activado por defecto si --manifest no está definido).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -705,11 +705,11 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Incluir la propia Zero Install en la exportación junto con la aplicación.</value>
+    <value>Incluya la propia Zero Install en la exportación junto con la aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>No incluya los archivos de implementación en la exportación. Exporte sólo los feeds.</value>
+    <value>No incluya archivos de implementación en la exportación. Exporte únicamente feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -717,11 +717,11 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>Mostrar el texto de ayuda incorporado.</value>
+    <value>Mostrar el texto de ayuda integrado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Añade todos los puntos de acceso de un determinado {CATEGORY}.</value>
+    <value>Añadir todos los puntos de acceso de un {CATEGORY} específico .</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -733,7 +733,7 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Eliminar todos los puntos de acceso de un determinado {CATEGORY}.</value>
+    <value>Eliminar todos los puntos de acceso de un {CATEGORY} específico .</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -741,12 +741,12 @@ Establezca el valor vacío ("") para ignorar el comando durante la selección.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Especifica el idioma preferido para la aplicación. Utilice los códigos de idioma cortos de la ISO (por ejemplo, en o en-US).
+    <value>Especifica el idioma preferido para la aplicación. Utilice los códigos de idioma abreviados ISO (por ejemplo, en o en-US).
 Puede utilizar esta opción varias veces para especificar varios idiomas aceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Despliegue de Zero Install como una biblioteca para su uso por otras aplicaciones sin su propia integración en el escritorio.</value>
+    <value>Implemente Zero Install como una biblioteca para su uso por otras aplicaciones sin su propia integración en el escritorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -754,16 +754,16 @@ Puede utilizar esta opción varias veces para especificar varios idiomas aceptab
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Ejecuta el ejecutable especificado {MAIN} en lugar del predeterminado. Si comienza con '/' o '\' entonces la ruta es relativa al directorio de nivel superior de la implementación, mientras que en caso contrario es relativa al directorio que contiene el programa principal por defecto.
+    <value>Ejecuta el ejecutable especificado {MAIN} en lugar del predeterminado. Si empieza por '/' o '\' entonces la ruta es relativa al directorio de nivel superior de la implementación, mientras que en caso contrario es relativa al directorio que contiene el programa principal por defecto.
 No puede contener argumentos de línea de comandos Los espacios en blanco no necesitan ser escapados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>Mostrar el manifiesto mismo (una línea por cada archivo o directorio).</value>
+    <value>Mostrar el manifiesto propiamente dicho (una línea por cada fichero o directorio).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>No descargue todavía la aplicación en sí. Se descargará automáticamente en el primer uso.</value>
+    <value>No descargue aún la aplicación en sí. Se descargará automáticamente en el primer uso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -771,24 +771,24 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez que el programa elegido se ha lanzado en lugar de esperar a que termine de ejecutarse. En Windows el código de salida es el ID del proceso del programa lanzado.</value>
+    <value>Vuelve inmediatamente una vez que el programa elegido ha sido lanzado en lugar de esperar a que termine de ejecutarse. En Windows el código de salida es el ID de proceso del programa lanzado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Ejecutar en modo off-line, anulando la configuración por defecto.
-En el modo fuera de línea, no se actualizan las interfaces aunque estén desactualizadas, y las versiones más nuevas de los programas no se descargarán aunque el inyector ya las conozca (por ejemplo, por una actualización anterior).</value>
+En modo fuera de línea, no se actualizan las interfaces aunque estén desactualizadas, y las versiones más recientes de los programas no se descargarán aunque el inyector ya las conozca (por ejemplo, de una actualización anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Obliga al solucionador a dirigirse al sistema operativo {OS}.</value>
+    <value>Obliga al solucionador a centrarse en el sistema operativo {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Cree una instalación portable que pueda ser trasladada (por ejemplo, en una unidad de memoria).</value>
+    <value>Cree una instalación portable que pueda desplazarse (por ejemplo, en una memoria USB).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Obtenga copias frescas de todos los feeds utilizados.</value>
+    <value>Obtenga copias actualizadas de todos los feeds utilizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -800,7 +800,7 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Muestra dónde están almacenados los componentes seleccionados en el disco.</value>
+    <value>Muestra dónde están almacenados en el disco los componentes seleccionados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
@@ -808,45 +808,45 @@ En el modo fuera de línea, no se actualizan las interfaces aunque estén desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Restablece los datos de sincronización. Las opciones válidas de {MODE}son "ninguno" (fusiona los datos del cliente y del servidor normalmente), "cliente" (sustituye todos los datos del cliente por los del servidor) y "servidor" (sustituye todos los datos del servidor por los del cliente).</value>
+    <value>Restablece los datos de sincronización. {MODE} s válidos son 'none' (fusiona los datos del cliente y del servidor normalmente), 'client' (sustituye todos los datos del cliente por los del servidor) y 'server' (sustituye todos los datos del servidor por los del cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Más información. Utiliza dos veces para obtener una salida aún más verbosa.</value>
+    <value>Más información. Utilícelo dos veces para obtener una salida aún más detallada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
-    <value>Muestra la información de la versión.</value>
+    <value>Muestra información sobre la versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requiere una versión del programa principal dentro de la {RANGE} dada.
-Los rangos están separados por tubos (|).
-Cada rango tiene la forma "START...END". El rango coincide con versiones en las que START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un rango para que coincida sólo con esa versión, o !VERSION para que coincida con todo excepto con esa versión.</value>
+    <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
+Los rangos se separan mediante tubos (|).
+Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
+Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Para cualquier biblioteca o subcomponente con el {0:URI} dado especifica la versión {1:RANGE} (como para --version).</value>
+    <value>Para cualquier biblioteca o subcomponente con el {0:URI} dado especifica la versión {1:RANGO} (como para --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Añade {DIR} a la lista de cachés de implementación en los que buscar.
+    <value>Añade {DIR} a la lista de cachés de implementación en las que buscar.
 Sin embargo, las nuevas descargas no se escribirán en este directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>En lugar de ejecutar el programa elegido directamente, ejecute {COMMAND} PROGRAM ARGS. Esto es útil para ejecutar depuradores y herramientas de rastreo en el programa (en lugar de en Zero Install).
-Tenga en cuenta que el wrapper se ejecuta en el entorno seleccionado por el programa; por lo tanto, este mecanismo no puede utilizarse para el sandboxing.
+    <value>En lugar de ejecutar directamente el programa elegido, ejecute {COMMAND} PROGRAM ARGS. Esto es útil para ejecutar depuradores y herramientas de rastreo en el programa (¡en lugar de en Zero Install!).
+Tenga en cuenta que la envoltura se ejecuta en el entorno seleccionado por el programa; por lo tanto, este mecanismo no se puede utilizar para sandboxing.
 Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben ser escapados!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Escribe la salida a la consola como XML legible por la máquina.</value>
+    <value>Escribe la salida en la consola como XML legible por máquina.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
-    <value>Modo portátil</value>
+    <value>Modo portable</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PropertiesFor" xml:space="preserve">
@@ -870,11 +870,11 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
-    <value>Eliminación de aplicaciones</value>
+    <value>Eliminar aplicaciones</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>Eliminación de implementaciones obsoletas</value>
+    <value>Eliminación de aplicaciones obsoletas</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
@@ -894,7 +894,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Precompilación de conjuntos .NET para acelerar el inicio de la aplicación</value>
+    <value>Precompilación de ensamblados .NET para acelerar el inicio de la aplicación</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
@@ -906,32 +906,32 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>La actualización de Zero Install v{0} está disponible. ¿Instalar ahora?</value>
+    <value>Ya está disponible la actualización de Zero Install v{0}. ¿Instalar ahora?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Esta instancia de Zero Install no se ha desplegado. Por lo tanto, no puede actualizarse.</value>
+    <value>Esta instancia Zero Install no se ha desplegado. Por lo tanto, no puede actualizarse.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>La auto-actualización está deshabilitada.
+    <value>La autoactualización está desactivada.
 Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Servir a las implementaciones en la dirección {0}</value>
+    <value>Servir implementaciones en la dirección {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>¿Preparar la política de estabilidad para que {0} coincida?</value>
+    <value>¿Establecer una política de estabilidad para que {0} coincida?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>¿Restablecer la política de estabilidad de {0} por defecto?</value>
+    <value>¿Restablecer la política de estabilidad por defecto en {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>La política de estabilidad necesaria para seleccionar las implementaciones de {0} es '{1}'.</value>
+    <value>La política de estabilidad necesaria para seleccionar implementaciones de {0} es '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
@@ -939,7 +939,7 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Detención del servicio de tienda Zero Install</value>
+    <value>Detención del servicio Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
@@ -951,11 +951,11 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Se ha eliminado con éxito {0}.</value>
+    <value>Eliminado con éxito {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Activar la compatibilidad de Windows con las rutas largas puede resolver este problema.</value>
+    <value>Activar la compatibilidad de Windows con rutas largas puede resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -963,8 +963,8 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>La clave criptográfica se utiliza para cifrar sus datos localmente antes de transmitirlos al servidor.
-Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De este modo, nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
+    <value>La clave criptográfica se utiliza para cifrar tus datos localmente antes de transmitirlos al servidor.
+Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. Así nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -972,7 +972,7 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} de confianza para los dominios</value>
+    <value>{0} de confianza para dominios</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
@@ -980,15 +980,15 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Prueba con {0}</value>
+    <value>Pruebe {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Intenta {0} con uno de estos:</value>
+    <value>Prueba {0} con uno de estos:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Desinstalación del servicio de tienda Zero Install</value>
+    <value>Desinstalación de Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
@@ -1004,7 +1004,7 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utiliza '{0}' en su lugar.</value>
+    <value>Utilice '{0}' en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
@@ -1012,7 +1012,7 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>Verificar</value>
+    <value>Verifique</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
@@ -1024,7 +1024,7 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
     <comment>Automatically translated.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Trabajando</value>
+    <value>Trabajar en</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

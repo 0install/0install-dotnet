@@ -107,7 +107,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atributul uri al interfeței &lt;interface&gt; ('{0}') nu se potrivește cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
+    <value>Atributul uri &lt;interface&gt; ('{0}') nu corespunde cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -170,7 +170,7 @@ Ora nouă {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Nu se poate analiza informația cheie pentru '{0}'.</value>
+    <value>Nu s-a putut analiza informațiile despre cheia '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

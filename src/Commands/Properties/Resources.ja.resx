@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
+    <value>'{0}' という名前の既存のエイリアスが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
@@ -264,7 +264,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -272,8 +272,8 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>0install select' と同様の動作をしますが、選択したバージョンがまだキャッシュされていない場合は、ダウンロードも行います。
-適切なバージョンのセットを選択し、それらがすべてダウンロードされてキャッシュにある場合は終了ステータス 0 を返し、そうでない場合は 1 を返します。</value>
+    <value>0install select' と同様の動作をしますが、選択されたバージョンがまだキャッシュされていない場合は、ダウンロードも行います。
+適切なバージョンのセットを選択し、それらがすべてダウンロードされてキャッシュにある場合、終了ステータスとして 0 を返し、そうでない場合、ステータスとして 1 を返します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -344,7 +344,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
-    <value>Zero Install自体を最新のバージョンに更新します。</value>
+    <value>Zero Install自体を最新バージョンに更新します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
@@ -366,7 +366,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>キャッシュされた実装をアーカイブ(ZIP, TARなど)としてエクスポートします。この結果は、別のマシンで '0install store add' を使ってインポートすることができます。</value>
+    <value>キャッシュされた実装をアーカイブ(ZIP, TARなど)として出力します。この結果は、別のマシンで '0install store add' を使ってインポートすることができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -465,7 +465,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
-    <value>オプション{0} と{1} は同時に使用できません。</value>
+    <value>{0} と{1} のオプションは一緒に使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
@@ -685,7 +685,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced'です。</value>
+    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced' である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -776,7 +776,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
-オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクタがすでに知っていても（例えば、以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -822,7 +822,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   <data name="OptionVersionRange" xml:space="preserve">
     <value>与えられた{RANGE} 以内のメインプログラムのバージョンを要求する。
 範囲はパイプ(|)で区切られる。
-各範囲は「START...！END」という形式です。範囲は、START &lt;= VERSION &lt; END のバージョンにマッチします。開始や終了を省略することもできます。
+各範囲は、"START...！END" という形式です。範囲は、START &lt;= VERSION &lt; END のバージョンにマッチします。開始や終了を省略することもできます。
 範囲の代わりに一つのバージョン番号を使うとそのバージョンのみに、 !VERSIONを使うとそのバージョン以外の全てにマッチします。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -963,7 +963,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>暗号鍵は、データをサーバーに送信する前に、ローカルで暗号化するために使用されます。
+    <value>暗号キーは、データをサーバーに送信する前にローカルで暗号化するために使用されます。
 この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、たとえサーバーが危険にさらされても、誰もあなたのデータにアクセスすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>

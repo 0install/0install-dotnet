@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>No se puede encontrar la aplicación '{0}' en la lista de aplicaciones.</value>
+    <value>No se encuentra la aplicación '{0}' en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Sólo se puede realizar una operación de integración de escritorio a la vez.</value>
+    <value>Sólo puede realizar una operación de integración de escritorio a la vez.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -91,11 +91,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Por favor, utilice '0install central' o '0install config' para configurar Sync.</value>
+    <value>Utilice '0install central' o '0install config' para configurar Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Hubo un problema al cargar '{0}'.</value>
+    <value>Ha habido un problema al cargar '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>El nombre del acceso directo '{0}' contiene caracteres no válidos.</value>
+    <value>El nombre de acceso directo '{0}' contiene caracteres no válidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
@@ -111,8 +111,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>La clave criptográfica que ha introducido para la sincronización es incorrecta. Por favor, compruebe sus opciones de sincronización.
-Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sincronización" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
+    <value>La clave criptográfica que ha introducido para la sincronización es incorrecta. Compruebe sus opciones de sincronización.
+Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sincronizar" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -120,7 +120,7 @@ Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asi
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Los datos almacenados actualmente en el servidor de Sync están dañados.
+    <value>Los datos almacenados actualmente en el servidor Sync están dañados.
 Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sync" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -129,11 +129,11 @@ Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>No se puede encontrar {0} con el ID '{1}'.</value>
+    <value>No se ha podido encontrar {0} con el ID '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>No se ha podido reemplazar el ejecutable antiguo '{0}'.</value>
+    <value>No se ha podido reemplazar el ejecutable '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

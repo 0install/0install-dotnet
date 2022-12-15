@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}'是一个本地文件。它应该是一个HTTP(S)的URL。</value>
+    <value>'{0}' 是一个本地文件。它应该是一个HTTP(S)的URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -158,7 +158,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>下载{0} 失败。试图从Feed镜像中获取。</value>
+    <value>下载{0} 失败。试图从feed镜像中获取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
