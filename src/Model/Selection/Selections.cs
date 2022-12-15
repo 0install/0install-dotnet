@@ -145,6 +145,7 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
         UnknownAttributes = UnknownAttributes,
         UnknownElements = UnknownElements,
         InterfaceUri = InterfaceUri,
+        Name = Name,
         Command = Command,
         Implementations = {Implementations.CloneElements()}
     };
