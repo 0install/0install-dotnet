@@ -206,7 +206,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Una versione portatile di Zero Install è stata distribuita su '{0}'.
+    <value>Una versione portatile di Zero Install è stata distribuita a '{0}'.
 È possibile utilizzarla eseguendo il file ZeroInstall.exe nella directory.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -273,7 +273,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e se queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -281,7 +281,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato d
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Ciò è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
+    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Questo è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
 Il file deve avere una firma digitale attendibile, come quando si preleva dalla rete.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -428,7 +428,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
+    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -746,7 +746,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'uso da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -955,7 +955,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

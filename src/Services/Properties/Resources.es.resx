@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>los enlaces de &lt;entorno&gt; deben contener un atributo &lt;valor&gt; o &lt;inserción&gt;.</value>
+    <value>los enlaces &lt;entorno&gt; deben contener un atributo &lt;valor&gt; o &lt;insertar&gt;.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -87,15 +87,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Ejecutar el solucionador externo</value>
+    <value>Ejecutar solver externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>El feed '{0}' no está en la caché y Zero Install está actualmente en modo off-line.</value>
+    <value>El feed '{0}' no está en caché y Zero Install está actualmente en modo off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' no ha podido ser localizado en la caché del feed.</value>
+    <value>'{0}' no ha podido ser localizado en la caché de feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -107,19 +107,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo uri de &lt;interface&gt; ('{0}') no coincide con la URL de la que se descargó el feed ('{1}').</value>
+    <value>El atributo uri &lt;interface&gt; ('{0}') no coincide con la URL desde la que se descargó el feed ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Falta el atributo uri de &lt;interface&gt;. Debería ser '{0}'.</value>
+    <value>Falta el atributo uri &lt;interface&gt;. Debería ser '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema con la búsqueda de '{0}'.</value>
+    <value>Problema con '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Carácter ilegal en el nombre del enlace {0}.</value>
+    <value>Carácter ilegal en el nombre de enlace {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Falta el nombre en la encuadernación de {0}.</value>
+    <value>Falta el nombre en la encuadernación {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>El servidor de información de claves no pudo proporcionar ninguna información adicional sobre esta clave.</value>
+    <value>El servidor de información de claves no ha podido proporcionar información adicional sobre esta clave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -158,7 +158,7 @@ Hora nueva {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>No se ha podido descargar {0}. Intentando obtener desde el feed mirror en su lugar.</value>
+    <value>No se ha podido descargar {0}. Intentando descargar desde feed mirror.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -170,11 +170,11 @@ Hora nueva {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>No se ha podido analizar la información de la clave de '{0}'.</value>
+    <value>No se ha podido analizar la información clave de '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>No se ha podido recuperar la información de la clave de '{0}'.</value>
+    <value>No se ha podido recuperar la información clave de '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
@@ -182,11 +182,11 @@ Hora nueva {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>El feed está firmado con claves no fiables</value>
+    <value>El feed está firmado con claves que no son de confianza</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>A la espera de que se complete la descarga</value>
+    <value>A la espera de que finalice la descarga</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">

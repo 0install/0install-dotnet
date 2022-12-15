@@ -116,7 +116,7 @@ U kunt het importscript of de Bootstrap executable in '{1}' gebruiken om deze be
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Wilt u een bestaande desktopintegratie aanpassen om dit te weerspiegelen?
+    <value>Wilt u eventuele bestaande desktopintegraties aanpassen?
 Als u 'Ja' selecteert, worden mogelijk incompatibele integraties verwijderd.
 Als u 'Nee' selecteert, blijft Zero Install de oude mogelijkheden gebruiken.</value>
     <comment>Automatically translated.</comment>
@@ -281,12 +281,12 @@ Geeft een exit-status van 0 als het een geschikte set versies heeft geselecteerd
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importeert een feed uit een lokaal bestand, alsof het van het netwerk is gedownload. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het opnieuw te downloaden.
+    <value>Importeert een feed uit een lokaal bestand, alsof het is gedownload van het netwerk. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het opnieuw te downloaden.
 Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het ophalen vanaf het netwerk.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importeert een reeks toepassingen en desktop-integraties uit een bestaand app-list.xml-bestand.</value>
+    <value>Importeert een reeks toepassingen en desktopintegraties uit een bestaand app-list.xml bestand.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -713,7 +713,7 @@ Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Voer de update ook uit als de huidige geïnstalleerde versie dezelfde of een nieuwere is.</value>
+    <value>Voer de update ook uit als de momenteel geïnstalleerde versie dezelfde of een nieuwere is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -742,7 +742,7 @@ Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Specificeert de voorkeurstaal voor de implementatie. Gebruik ISO korte taalcodes (bijv. en of en-US).
-U kunt deze optie meerdere keren gebruiken om meerdere aanvaardbare talen op te geven.</value>
+U kunt deze optie meerdere malen gebruiken om meerdere aanvaardbare talen op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
@@ -862,7 +862,7 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Wilt u de {0} aangevinkte sleutels uit de lijst verwijderen?</value>
+    <value>Wilt u de {0} aangevinkte toetsen uit de lijst verwijderen?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -964,7 +964,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>De cryptosleutel wordt gebruikt om uw gegevens lokaal te versleutelen voordat ze naar de server worden verzonden.
-Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server gecompromitteerd zou worden.</value>
+Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server wordt gecompromitteerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

@@ -253,7 +253,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>設定値 '{0}' を読み込む際に問題が発生しました。
+    <value>設定値 '{0}' の読み込みに問題が発生しました。
 ファイル '{1}' を削除することで問題を解決できます。他の設定値も失われる可能性があります。</value>
     <comment>Automatically translated.</comment>
   </data>

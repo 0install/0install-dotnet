@@ -277,7 +277,7 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI vers un REPERTOIRE.</value>
+    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -664,7 +664,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Répondre automatiquement aux questions par des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
+    <value>Répondre automatiquement aux questions avec des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">

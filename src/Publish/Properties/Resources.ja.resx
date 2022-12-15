@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブに正しい "extract" 値が設定されていることを確認してください。</value>
+    <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブの "extract" 値が正しく設定されていることを確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

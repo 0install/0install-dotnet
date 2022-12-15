@@ -117,7 +117,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Yes" (Da), integrările potențial incompatibile vor fi eliminate.
+Dacă selectați "Yes" (Da), eventualele integrări incompatibile vor fi eliminate.
 Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -190,7 +190,7 @@ Selectați o întreagă linie făcând clic în prima coloană și apoi apăsaț
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Activați o casetă de selectare pentru a face dintr-o capacitate gestionarul implicit dorit.
-Eliminați o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
+Scoateți o casetă de selectare pentru a elimina statutul implicit al unei capacități (aceasta rămâne în continuare disponibilă).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -445,7 +445,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Eliminarea integrării desktop-ului</value>
+    <value>Îndepărtarea integrării desktop</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -509,7 +509,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>Alimentarea a fost dezinregistrată cu succes pentru următoarele interfețe:</value>
+    <value>Alimentarea a fost debranșată cu succes pentru următoarele interfețe:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -546,7 +546,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Vă rugăm să utilizați versiunea GUI a programului Zero Install sau să specificați opțiunile de integrare explicite utilizând argumente de linie de comandă.</value>
+    <value>Vă rugăm să utilizați versiunea GUI a programului Zero Install sau să specificați opțiunile de integrare explicite folosind argumente de linie de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -558,7 +558,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>O versiune ulterioară ({0}) există, dar nu a fost selectată. Se utilizează în schimb {1}.</value>
+    <value>O versiune ulterioară ({0}) există, dar nu a fost selectată. În schimb, se utilizează {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -822,7 +822,7 @@ Nu poate conține argumente de linie de comandă! Nu este necesar să se elimine
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Solicită o versiune a programului principal în limita {RANGE}.
 Rândurile sunt separate prin țevi (|).
-Fiecare interval are forma "START...!END". Intervalul corespunde versiunilor în care START &lt;= VERSION &lt; END. Începutul sau sfârșitul pot fi omise.
+Fiecare interval are forma "START...!END". Intervalul se potrivește cu versiunile în care START &lt;= VERSION &lt; END. Începutul sau sfârșitul pot fi omise.
 Se poate utiliza un singur număr de versiune în loc de un interval pentru a se potrivi numai cu versiunea respectivă sau !VERSION pentru a se potrivi cu totul, cu excepția versiunii respective.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -964,7 +964,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
-Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
+Păstrați secretă această cheie și folosiți o parolă diferită. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

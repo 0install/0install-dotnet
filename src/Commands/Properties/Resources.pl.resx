@@ -206,7 +206,7 @@ Usuń pole wyboru, aby usunąć domyślny status właściwości (nadal pozostaje
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Przenośna wersja Zero Install została wdrożona do katalogu '{0}'.
+    <value>Przenośna wersja Zero Install została wdrożona do '{0}'.
 Można z niej skorzystać uruchamiając plik ZeroInstall.exe znajdujący się w katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -223,7 +223,7 @@ Można z niej skorzystać uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności każdorazowego wprowadzania pełnego URI.</value>
+    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności ciągłego wpisywania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -391,7 +391,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontrolne NTFS stosowane do ochrony implementacji przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem instalacji zerowej. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontrolne NTFS stosowane do ochrony implementacji przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -441,7 +441,7 @@ Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Zastosowanie integracji pulpitu</value>
+    <value>Zastosowanie integracji z pulpitem</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
@@ -648,7 +648,7 @@ Możesz to zrobić używając '{0}'. Będzie to całkowicie niezależne od twoje
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algorytm {HASH}, który ma być użyty do wykonania skrótu.</value>
+    <value>Algorytm {HASH}, który ma być użyty dla skrótu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -822,7 +822,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Wymagaj wersji programu głównego w podanym {RANGE}.
 Zakresy są oddzielone rurkami (|).
-Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= VERSION &lt; END. Początek lub koniec może być pominięty.
+Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= WERSJA &lt; END. Początek lub koniec może być pominięty.
 Zamiast zakresu można użyć pojedynczego numeru wersji, by dopasować tylko tę wersję, lub !VERSION, by dopasować wszystko oprócz tej wersji.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -831,13 +831,13 @@ Zamiast zakresu można użyć pojedynczego numeru wersji, by dopasować tylko t�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Dodaj {DIR} do listy katalogów podręcznych implementacji do przeszukania.
+    <value>Dodaj {DIR} do listy pamięci podręcznej implementacji do przeszukania.
 Jednak nowe pobrania nie będą zapisywane do tego katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Zamiast wykonywać wybrany program bezpośrednio, uruchom {COMMAND} PROGRAM ARGS. Jest to przydatne do uruchamiania debugerów i narzędzi śledzących na programie (a nie na Zero Install!).
-Zwróć uwagę, że wrapper jest wykonywany w środowisku wybranym przez program; stąd mechanizm ten nie może być użyty do sandboxingu.
+Zwróć uwagę, że wrapper jest wykonywany w środowisku wybranym przez program; stąd też mechanizm ten nie może być użyty do sandboxingu.
 Może zawierać argumenty wiersza poleceń. Białe spacje muszą być unikane!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -955,7 +955,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Włączenie obsługi systemu Windows dla Długich ścieżek może rozwiązać ten problem.</value>
+    <value>Włączenie obsługi Windows dla Długich ścieżek może rozwiązać ten problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

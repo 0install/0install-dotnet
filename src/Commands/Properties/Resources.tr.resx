@@ -558,7 +558,7 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Daha sonraki bir sürüm ({0}) mevcut, ancak seçilmedi. Bunun yerine {1} kullanılıyor.</value>
+    <value>Daha sonra yayınlanmış bir sürüm ({0}) var, ancak seçilmemiş. Bunun yerine {1} kullanılıyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">

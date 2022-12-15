@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>实施中的配方步骤'{0}' '{1}' 有一个无效的实施参考。</value>
+    <value>{1}实施中的配方步骤'{0}'有一个无效的实施参考。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Se ha calculado un resumen del manifiesto para un directorio vacío. Compruebe que ha establecido el valor de "extracción" correcto para el archivo.</value>
+    <value>Se ha calculado un resumen del manifiesto para un directorio vacío. Compruebe que ha establecido el valor "extract" correcto para el archivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -72,7 +72,7 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descargando '{0}' usando Zero Install</value>
+    <value>Descargar '{0}' con Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -88,7 +88,7 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas nuevos por defecto en el registro. Manejarlos todos, pero el último puede tener prioridad en algunos casos.</value>
+    <value>Se han detectado varios programas predeterminados nuevos en el registro. Manejarlos todos, pero el último puede tener prioridad en algunos casos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -96,7 +96,7 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado múltiples registros de aplicaciones nuevas en el registro. Eligiendo la primera por defecto.</value>
+    <value>Se han detectado varios registros de nuevas aplicaciones en el registro. Eligiendo la primera por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -105,7 +105,7 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Este método sólo está disponible actualmente en Windows.</value>
+    <value>Actualmente, este método sólo está disponible en Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
@@ -113,7 +113,7 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>El tamaño del archivo aún no está determinado.</value>
+    <value>El tamaño del archivo aún no se ha determinado.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
