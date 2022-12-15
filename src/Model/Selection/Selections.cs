@@ -34,7 +34,7 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// </summary>
     [Description("The name specified by the feed at InterfaceUri.")]
     [XmlElement("name")]
-    public string Name { get; set; } = default!;
+    public string? Name { get; set; }
 
     /// <summary>
     /// Indicates whether the selection was generated for <see cref="Cpu.Source"/>.

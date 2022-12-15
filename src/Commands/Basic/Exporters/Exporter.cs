@@ -164,7 +164,7 @@ public class Exporter
 
     private void DeployBootstrap(ITaskHandler handler, string mode)
     {
-        string appName = _selections.Name;
+        string appName = _selections.Name ?? "App";
         string fileName = (_architecture.OS == OS.Windows)
             ? $"{mode} {appName}.exe"
             : $"{mode}-{appName.ToLowerInvariant().Replace(" ", "-")}.sh";
