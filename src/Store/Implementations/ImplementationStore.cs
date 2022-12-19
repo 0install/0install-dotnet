@@ -77,7 +77,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             if (_handler.Ask(
                     question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
                     defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
-                Remove(new ManifestDigest(ex.ExpectedDigest));
+                Remove(new(ex.ExpectedDigest));
         }
     }
 

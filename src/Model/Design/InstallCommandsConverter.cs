@@ -51,7 +51,7 @@ internal class InstallCommandsConverter : ValueTypeConverter<InstallCommands>
         if (propertyValues == null) throw new ArgumentNullException(nameof(propertyValues));
         #endregion
 
-        return new InstallCommands
+        return new()
         {
             Reinstall = (string?)propertyValues["Reinstall"],
             ReinstallArgs = (string?)propertyValues["ReinstallArgs"],

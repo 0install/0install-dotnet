@@ -34,12 +34,12 @@ public sealed partial class PowerShellScript : InterpretedScript
 
     /// <inheritdoc/>
     protected override FeedUri InterpreterInterface
-        => PowerShellType switch
+        => new(PowerShellType switch
         {
-            PowerShellType.WindowsOnly => new FeedUri("https://apps.0install.net/powershell/windows.xml"),
-            PowerShellType.CoreOnly => new FeedUri("https://apps.0install.net/powershell/core.xml"),
-            _ => new FeedUri("https://apps.0install.net/powershell/powershell.xml"),
-        };
+            PowerShellType.WindowsOnly => "https://apps.0install.net/powershell/windows.xml",
+            PowerShellType.CoreOnly => "https://apps.0install.net/powershell/core.xml",
+            _ => "https://apps.0install.net/powershell/powershell.xml",
+        });
 
     /// <summary>
     /// The types of PowerShell supported by the script.

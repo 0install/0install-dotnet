@@ -59,7 +59,7 @@ partial class SnapshotDiff
                 using var assocKey = Registry.ClassesRoot.TryOpenSubKey(extension);
                 if (assocKey == null) continue;
 
-                fileType.Extensions.Add(new FileTypeExtension
+                fileType.Extensions.Add(new()
                 {
                     Value = extension,
                     MimeType = assocKey.GetValue(DesktopIntegration.Windows.FileType.RegValueContentType)?.ToString(),

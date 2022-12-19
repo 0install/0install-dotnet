@@ -55,7 +55,7 @@ public static class ZeroInstallEnvironment
             string? uri = Environment.GetEnvironmentVariable(FeedUriName);
             try
             {
-                if (!string.IsNullOrEmpty(uri)) return new FeedUri(uri);
+                if (!string.IsNullOrEmpty(uri)) return new(uri);
             }
             catch (UriFormatException)
             {}

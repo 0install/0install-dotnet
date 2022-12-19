@@ -16,7 +16,7 @@ public sealed class CapabilityListTest
     {
         var testIcon = new Icon {Href = new("http://example.com/icons/test.ico"), MimeType = "image/vnd.microsoft.icon"};
         var testVerb = new Verb {Name = Verb.NameOpen, Descriptions = {"Verb description"}, Command = Command.NameRun, Arguments = {"--open"}};
-        return new CapabilityList
+        return new()
         {
             OS = Architecture.CurrentSystem.OS,
             Entries =
@@ -25,10 +25,10 @@ public sealed class CapabilityListTest
                 new AutoPlay {ID = "autoplay", Descriptions = {"Do something"}, Icons = {testIcon}, Provider = "MyApp", Verb = testVerb, Events = {new AutoPlayEvent {Name = AutoPlayEvent.NameBurnCD}}},
                 new ComServer {ID = "com-server"},
                 new ContextMenu {ID = "context-menu", Verbs = {testVerb}},
-                new DefaultProgram {ID = "default-program", Descriptions = {"My mail client"}, Icons = {testIcon}, Verbs = {testVerb}, Service = "Mail", InstallCommands = new InstallCommands {ShowIcons = "helper.exe --show", HideIcons = "helper.exe --hide", Reinstall = "helper.exe --reinstall.exe"}},
-                new FileType {ID = "my_ext1", Descriptions = {"Text file"}, Icons = {testIcon}, Extensions = {new FileTypeExtension {Value = "txt", MimeType = "text/plain"}}, Verbs = {testVerb}},
-                new FileType {ID = "my_ext2", Descriptions = {"JPG image"}, Icons = {testIcon}, Extensions = {new FileTypeExtension {Value = "jpg", MimeType = "image/jpg"}}, Verbs = {testVerb}},
-                new UrlProtocol {ID = "my_protocol", Descriptions = {"My protocol"}, Icons = {testIcon}, Verbs = {testVerb}, KnownPrefixes = {new KnownProtocolPrefix {Value = "my-protocol"}}}
+                new DefaultProgram {ID = "default-program", Descriptions = {"My mail client"}, Icons = {testIcon}, Verbs = {testVerb}, Service = "Mail", InstallCommands = new() {ShowIcons = "helper.exe --show", HideIcons = "helper.exe --hide", Reinstall = "helper.exe --reinstall.exe"}},
+                new FileType {ID = "my_ext1", Descriptions = {"Text file"}, Icons = {testIcon}, Extensions = {new() {Value = "txt", MimeType = "text/plain"}}, Verbs = {testVerb}},
+                new FileType {ID = "my_ext2", Descriptions = {"JPG image"}, Icons = {testIcon}, Extensions = {new() {Value = "jpg", MimeType = "image/jpg"}}, Verbs = {testVerb}},
+                new UrlProtocol {ID = "my_protocol", Descriptions = {"My protocol"}, Icons = {testIcon}, Verbs = {testVerb}, KnownPrefixes = {new() {Value = "my-protocol"}}}
             }
         };
     }

@@ -53,7 +53,7 @@ public class FeedTest
     public static Implementation CreateTestImplementation() => new()
     {
         ID = "id1",
-        ManifestDigest = new ManifestDigest(Sha256: "123"),
+        ManifestDigest = new(Sha256: "123"),
         Version = new("1.0"),
         Architecture = new(OS.Windows, Cpu.I586),
         Languages = {"en-US"},
@@ -130,7 +130,7 @@ public class FeedTest
             {
                 ID = "a",
                 Version = new("1.0"),
-                Commands = {new Command {Name = "run", Path = "main1"}}
+                Commands = {new() {Name = "run", Path = "main1"}}
             },
             new Group
             {
@@ -140,7 +140,7 @@ public class FeedTest
                     {
                         ID = "b",
                         Version = new("1.0"),
-                        Commands = {new Command {Name = "run", Path = "main2"}}
+                        Commands = {new() {Name = "run", Path = "main2"}}
                     }
                 }
             }

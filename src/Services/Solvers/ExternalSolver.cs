@@ -39,7 +39,7 @@ public partial class ExternalSolver : ISolver
         using var control = new ExternalSolverSession(GetStartInfo())
         {
             {"confirm", args => DoConfirm((string)args[0])},
-            {"confirm-keys", args => DoConfirmKeys(new FeedUri((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
+            {"confirm-keys", args => DoConfirmKeys(new((string)args[0]), args[1].ReparseAsJson<Dictionary<string, string[][]>>())},
             {"update-key-info", _ => null}
         };
 

@@ -125,7 +125,7 @@ public class StoreManTest
 
             _feed2.Uri = Fake.Feed2Uri;
             _impl2 = _feed2.Implementations.First();
-            _impl2.ManifestDigest = new ManifestDigest(Sha256: "2");
+            _impl2.ManifestDigest = new(Sha256: "2");
 
             var feedCacheMock = GetMock<IFeedCache>();
             feedCacheMock.Setup(x => x.ListAll()).Returns(new[] {_feed1.Uri, _feed2.Uri});

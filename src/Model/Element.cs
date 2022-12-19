@@ -277,8 +277,8 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         Bindings.RemoveAll(FilterMismatch);
 
         // Convert legacy launch commands
-        if (Main != null) Commands.Add(new Command {Name = Command.NameRun, Path = Main});
-        if (SelfTest != null) Commands.Add(new Command {Name = Command.NameTest, Path = SelfTest});
+        if (Main != null) Commands.Add(new() {Name = Command.NameRun, Path = Main});
+        if (SelfTest != null) Commands.Add(new() {Name = Command.NameTest, Path = SelfTest});
 
         foreach (var binding in Bindings) binding.Normalize();
         foreach (var command in Commands) command.Normalize();

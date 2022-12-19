@@ -92,8 +92,8 @@ public class WindowsPackageManager : PackageManagerBase
            {
                Commands =
                {
-                   new Command {Name = Command.NameRun, Path = mainPath},
-                   new Command {Name = secondaryCommand, Path = secondaryPath}
+                   new() {Name = Command.NameRun, Path = mainPath},
+                   new() {Name = secondaryCommand, Path = secondaryPath}
                },
                IsInstalled = true,
                QuickTestFile = mainPath
@@ -121,7 +121,7 @@ public class WindowsPackageManager : PackageManagerBase
         ExternalImplementation Impl(Cpu cpu) => new(DistributionName, registryVersion.EndsWith("Client") ? "netfx-client" : "netfx", new(version), cpu)
         {
             // .NET executables do not need a runner on Windows
-            Commands = {new Command {Name = Command.NameRun, Path = ""}},
+            Commands = {new() {Name = Command.NameRun, Path = ""}},
             IsInstalled = true,
             QuickTestFile = Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion).Replace("Framework64", cpu == Cpu.I486 ? "Framework" : "Framework64"), "mscorlib.dll")
         };
@@ -175,7 +175,7 @@ public class WindowsPackageManager : PackageManagerBase
             {
                 yield return new(DistributionName, packageName, version, cpu)
                 {
-                    Commands = {new Command {Name = Command.NameRun, Path = Path.Combine(rootPath, "dotnet.exe")}},
+                    Commands = {new() {Name = Command.NameRun, Path = Path.Combine(rootPath, "dotnet.exe")}},
                     IsInstalled = true,
                     QuickTestFile = Path.Combine(path, ".version")
                 };
@@ -198,14 +198,7 @@ public class WindowsPackageManager : PackageManagerBase
                 new ImplementationVersion(version),
                 wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
             {
-                Commands =
-                {
-                    new Command
-                    {
-                        Name = Command.NameRun,
-                        Path = Path.Combine(path, "powershell.exe")
-                    }
-                },
+                Commands = {new() {Name = Command.NameRun, Path = Path.Combine(path, "powershell.exe")}},
                 QuickTestFile = Path.Combine(path, "powershell.exe"),
                 IsInstalled = true
             };

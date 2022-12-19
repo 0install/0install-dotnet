@@ -16,7 +16,7 @@ public class ImplementationTest
     public static Implementation CreateTestImplementation() => new()
     {
         ID = "id",
-        ManifestDigest = new ManifestDigest(Sha256: "123"),
+        ManifestDigest = new(Sha256: "123"),
         Version = new("1.0"),
         Architecture = new(OS.Windows, Cpu.I586),
         Languages = {"en-US"},
@@ -68,7 +68,7 @@ public class ImplementationTest
         implementation.Normalize(FeedTest.Test1Uri);
         implementation.ManifestDigest.Sha256.Should().Be("123");
 
-        implementation = new Implementation {ID = "sha256=wrong", Version = new("1.0"), ManifestDigest = new ManifestDigest(Sha256: "correct")};
+        implementation = new Implementation {ID = "sha256=wrong", Version = new("1.0"), ManifestDigest = new(Sha256: "correct")};
         implementation.Normalize(FeedTest.Test1Uri);
         implementation.ManifestDigest.Sha256.Should().Be("correct");
 

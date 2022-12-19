@@ -14,9 +14,10 @@ public class CommandMapperTest
     [Fact]
     public void GetCommand()
     {
-        var commandNoArgs = new Command {Name = "no-args", Path = "entry.exe"};
-        var commandArgs1 = new Command {Name = "args1", Path = "entry.exe", Arguments = {"--arg1", "long argument"}};
-        var commandArgs2 = new Command {Name = "args2", Path = "entry.exe", Arguments = {"--arg2", "long argument"}};
+        Command
+            commandNoArgs = new() {Name = "no-args", Path = "entry.exe"},
+            commandArgs1 = new() {Name = "args1", Path = "entry.exe", Arguments = {"--arg1", "long argument"}},
+            commandArgs2 = new() {Name = "args2", Path = "entry.exe", Arguments = {"--arg2", "long argument"}};
         var provider = new CommandMapper("installation directory", new[] {commandNoArgs, commandArgs1, commandArgs2});
 
         provider.GetCommand($"""

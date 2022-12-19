@@ -43,7 +43,7 @@ public class TarBuilder : IArchiveBuilder
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        _tarStream.PutNextEntry(new TarEntry(new TarHeader
+        _tarStream.PutNextEntry(new(new TarHeader
         {
             Name = path.ToUnixPath(),
             TypeFlag = TarHeader.LF_DIR,
@@ -62,7 +62,7 @@ public class TarBuilder : IArchiveBuilder
         if (stream == null) throw new ArgumentNullException(nameof(stream));
         #endregion
 
-        _tarStream.PutNextEntry(new TarEntry(new TarHeader
+        _tarStream.PutNextEntry(new(new TarHeader
         {
             Name = path.ToUnixPath(),
             ModTime = modifiedTime,
@@ -84,7 +84,7 @@ public class TarBuilder : IArchiveBuilder
         #endregion
 
         var data = target.ToUnixPath().ToStream();
-        _tarStream.PutNextEntry(new TarEntry(new TarHeader
+        _tarStream.PutNextEntry(new(new TarHeader
         {
             Name = path.ToUnixPath(),
             TypeFlag = TarHeader.LF_SYMLINK,
@@ -102,7 +102,7 @@ public class TarBuilder : IArchiveBuilder
         if (string.IsNullOrEmpty(target)) throw new ArgumentNullException(nameof(target));
         #endregion
 
-        _tarStream.PutNextEntry(new TarEntry(new TarHeader
+        _tarStream.PutNextEntry(new(new TarHeader
         {
             Name = path.ToUnixPath(),
             ModTime = _modifiedTimes[target],

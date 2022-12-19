@@ -61,13 +61,13 @@ public abstract class SolverTest : TestWithRedirect
                 {
                     Uri = interfaceUri,
                     Name = "prog1",
-                    Elements = {new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}}}
+                    Elements = {new Implementation {Version = new("1.0"), ID = "app1", Commands = {new() {Name = Command.NameRun, Path = "test-app1"}}}}
                 },
                 new Feed
                 {
                     Uri = new("http://example.com/prog2.xml"),
                     Name = "prog2",
-                    Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}}
+                    Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new() {Name = Command.NameRun, Path = "test-app2"}}}}
                 }
             },
             requirements: new Requirements(interfaceUri, Command.NameRun));
@@ -85,7 +85,7 @@ public abstract class SolverTest : TestWithRedirect
                     Version = new("2.0"),
                     Stability = Stability.Testing,
                     ID = "app2",
-                    Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}
+                    Commands = {new() {Name = Command.NameRun, Path = "test-app2"}}
                 }
             }
         });
@@ -103,8 +103,8 @@ public abstract class SolverTest : TestWithRedirect
                     Name = "prog1",
                     Elements =
                     {
-                        new Implementation {Version = new("1.0"), ID = "app1", Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}},
-                        new Implementation {Version = new("2.0"), ID = "app2", Commands = {new Command {Name = Command.NameRun, Path = "test-app2"}}}
+                        new Implementation {Version = new("1.0"), ID = "app1", Commands = {new() {Name = Command.NameRun, Path = "test-app1"}}},
+                        new Implementation {Version = new("2.0"), ID = "app2", Commands = {new() {Name = Command.NameRun, Path = "test-app2"}}}
                     }
                 }
             },
@@ -119,13 +119,13 @@ public abstract class SolverTest : TestWithRedirect
             Command = Command.NameRun,
             Implementations =
             {
-                new ImplementationSelection
+                new()
                 {
                     InterfaceUri = new("http://example.com/prog.xml"),
                     Version = new("1.0"),
                     Stability = Stability.Testing,
                     ID = "app1",
-                    Commands = {new Command {Name = Command.NameRun, Path = "test-app1"}}
+                    Commands = {new() {Name = Command.NameRun, Path = "test-app1"}}
                 }
             }
         });

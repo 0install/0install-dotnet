@@ -75,7 +75,7 @@ public static class DefaultProgram
 
             if (defaultProgram.Service == Model.Capabilities.DefaultProgram.ServiceMail)
             {
-                var mailToProtocol = new Model.Capabilities.UrlProtocol {ID = "dummy", Verbs = {new Verb {Name = Verb.NameOpen}}};
+                var mailToProtocol = new Model.Capabilities.UrlProtocol {ID = "dummy", Verbs = {new() {Name = Verb.NameOpen}}};
                 using var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto");
                 RegistryClasses.Register(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
             }

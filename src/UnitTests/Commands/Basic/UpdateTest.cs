@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Model.Selection;
 using ZeroInstall.Services;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Feeds;
@@ -21,7 +20,7 @@ public class UpdateTest : SelectionTestBase<Update>
         var selectionsOld = Fake.Selections;
         var selectionsNew = Fake.Selections;
         selectionsNew.Implementations[1].Version = new("2.0");
-        selectionsNew.Implementations.Add(new ImplementationSelection {InterfaceUri = Fake.SubFeed3Uri, ID = "id3", Version = new("0.1")});
+        selectionsNew.Implementations.Add(new() {InterfaceUri = Fake.SubFeed3Uri, ID = "id3", Version = new("0.1")});
 
         GetMock<ISolver>().SetupSequence(x => x.Solve(requirements))
                           .Returns(selectionsOld)
@@ -30,9 +29,9 @@ public class UpdateTest : SelectionTestBase<Update>
 
         // Download uncached implementations
         ExpectFetchUncached(selectionsNew,
-            new Implementation {ID = "id1", Version = new("1.0")},
-            new Implementation {ID = "id2", Version = new("1.0")},
-            new Implementation {ID = "id3", Version = new("1.0")});
+            new() {ID = "id1", Version = new("1.0")},
+            new() {ID = "id2", Version = new("1.0")},
+            new() {ID = "id3", Version = new("1.0")});
 
         var diffNodes = new[] {new SelectionsDiffNode(Fake.Feed2Uri)};
         GetMock<ISelectionsManager>().Setup(x => x.GetDiff(selectionsOld, selectionsNew)).Returns(diffNodes);

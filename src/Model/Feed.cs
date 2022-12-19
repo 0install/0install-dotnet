@@ -339,7 +339,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
 
         // Ensure an entry point for the "run" command exists
         if (GetEntryPoint(Command.NameRun) is not {} mainEntryPoint)
-            EntryPoints.Add(mainEntryPoint = new EntryPoint {Names = {Name}, Command = Command.NameRun});
+            EntryPoints.Add(mainEntryPoint = new() {Names = {Name}, Command = Command.NameRun});
 
         // Copy the needs-terminal flag from the feed to the main entry point if present
         if (NeedsTerminal) mainEntryPoint.NeedsTerminal = true;

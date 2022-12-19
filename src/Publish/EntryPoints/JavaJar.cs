@@ -22,7 +22,7 @@ public sealed class JavaJar : Java
 
     /// <inheritdoc/>
     public override Command CreateCommand() => ExternalDependencies
-        ? new Command
+        ? new()
         {
             Name = CommandName,
             Bindings = {new EnvironmentBinding {Name = "CLASSPATH", Insert = RelativePath}},
@@ -33,7 +33,7 @@ public sealed class JavaJar : Java
                 Versions = ToVersionRange(MinimumRuntimeVersion)
             }
         }
-        : new Command
+        : new()
         {
             Name = CommandName,
             Path = RelativePath,

@@ -73,7 +73,7 @@ public class SelectionsTest
         selections2.GetHashCode().Should().Be(selections1.GetHashCode(), because: "Cloned objects' hashes should be equal.");
         selections2.Should().NotBeSameAs(selections1, because: "Cloning should not return the same reference.");
 
-        selections2.Implementations.Add(new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, ID = "dummy", Version = new("1.0")});
+        selections2.Implementations.Add(new() {InterfaceUri = FeedTest.Test1Uri, ID = "dummy", Version = new("1.0")});
         selections2.Should().NotBe(selections1, because: "Modified objects should no longer be equal");
     }
 }

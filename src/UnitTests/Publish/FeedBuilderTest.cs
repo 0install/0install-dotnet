@@ -72,10 +72,10 @@ public class FeedBuilderTest : IDisposable
             new Implementation
             {
                 ID = ManifestDigest.Empty.Best,
-                ManifestDigest = new ManifestDigest(Sha256New: ManifestDigest.Empty.Sha256New),
+                ManifestDigest = new(Sha256New: ManifestDigest.Empty.Sha256New),
                 Version = _builder.MainCandidate.Version,
                 Architecture = _builder.MainCandidate.Architecture,
-                Commands = {new Command {Name = Command.NameRun, Path = "test"}},
+                Commands = {new() {Name = Command.NameRun, Path = "test"}},
                 RetrievalMethods = {_builder.RetrievalMethod}
             });
         signedFeed.Feed.Icons.Should().Equal(_builder.Icons);

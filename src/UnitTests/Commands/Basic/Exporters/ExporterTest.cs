@@ -15,9 +15,9 @@ public class ExporterTest : TestWithMocks
 
     public ExporterTest()
     {
-        _destination = new TemporaryDirectory("0install-unit-test");
+        _destination = new("0install-unit-test");
         var selections = Fake.Selections;
-        _target = new Exporter(selections, new Architecture(), _destination);
+        _target = new(selections, new Architecture(), _destination);
     }
 
     public override void Dispose()
@@ -68,8 +68,8 @@ public class ExporterTest : TestWithMocks
         using (var implDir2 = new TemporaryDirectory("0install-test-impl"))
         {
             var storeMock = GetMock<IImplementationStore>();
-            storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "123", null))).Returns(implDir1);
-            storeMock.Setup(x => x.GetPath(new ManifestDigest(null, null, "abc", null))).Returns(implDir2);
+            storeMock.Setup(x => x.GetPath(new(null, null, "123", null))).Returns(implDir1);
+            storeMock.Setup(x => x.GetPath(new(null, null, "abc", null))).Returns(implDir2);
 
             _target.ExportImplementations(storeMock.Object, new SilentTaskHandler());
         }

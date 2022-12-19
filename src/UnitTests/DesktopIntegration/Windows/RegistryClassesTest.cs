@@ -13,7 +13,7 @@ public class RegistryClassesTest : TestWithRedirect
     [Fact]
     public void CommandLineEscaping()
     {
-        GetLaunchCommandLine(new Verb {Name = Verb.NameOpen, Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
+        GetLaunchCommandLine(new() {Name = Verb.NameOpen, Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
            .Should().EndWith("""
                --opt "some val" "%V" --opt="%V"
                """);
@@ -22,21 +22,21 @@ public class RegistryClassesTest : TestWithRedirect
     [Fact]
     public void CommandLinePrecedence()
     {
-        GetLaunchCommandLine(new Verb {Name = Verb.NameOpen, Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
+        GetLaunchCommandLine(new() {Name = Verb.NameOpen, Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
            .Should().EndWith("a b");
     }
 
     [Fact]
     public void CommandLineLiteral()
     {
-        GetLaunchCommandLine(new Verb {Name = Verb.NameOpen, ArgumentsLiteral = "x"})
+        GetLaunchCommandLine(new() {Name = Verb.NameOpen, ArgumentsLiteral = "x"})
            .Should().EndWith("x");
     }
 
     [Fact]
     public void CommandLineDefaultValue()
     {
-        GetLaunchCommandLine(new Verb {Name = Verb.NameOpen})
+        GetLaunchCommandLine(new() {Name = Verb.NameOpen})
            .Should().EndWith("\"%V\"");
     }
 

@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Model.Capabilities;
-
 namespace ZeroInstall.DesktopIntegration.AccessPoints;
 
 /// <summary>
@@ -20,8 +18,8 @@ public class CapabilityRegistrationTest
             Name = "Test",
             CapabilityLists =
             {
-                new CapabilityList {Entries = {new Model.Capabilities.FileType {ID = "test1"}}},
-                new CapabilityList {Entries = {new Model.Capabilities.FileType {ID = "test2"}}}
+                new() {Entries = {new Model.Capabilities.FileType {ID = "test1"}}},
+                new() {Entries = {new Model.Capabilities.FileType {ID = "test2"}}}
             }
         };
 

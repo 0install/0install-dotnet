@@ -24,7 +24,7 @@ public static class Fake
             new Implementation
             {
                 ID = "id1",
-                ManifestDigest = new ManifestDigest(Sha256: "123"),
+                ManifestDigest = new(Sha256: "123"),
                 Version = new("1.0")
             }
         }
@@ -36,20 +36,20 @@ public static class Fake
         Command = Command.NameRun,
         Implementations =
         {
-            new ImplementationSelection
+            new()
             {
                 InterfaceUri = Feed1Uri,
                 FromFeed = SubFeed1Uri,
                 ID = "id1",
-                ManifestDigest = new ManifestDigest(Sha256: "123"),
+                ManifestDigest = new(Sha256: "123"),
                 Version = new("1.0")
             },
-            new ImplementationSelection
+            new()
             {
                 InterfaceUri = Feed2Uri,
                 FromFeed = SubFeed2Uri,
                 ID = "id2",
-                ManifestDigest = new ManifestDigest(Sha256: "abc"),
+                ManifestDigest = new(Sha256: "abc"),
                 Version = new("1.0")
             }
         }

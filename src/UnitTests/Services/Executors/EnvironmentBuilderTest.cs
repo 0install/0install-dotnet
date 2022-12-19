@@ -32,7 +32,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
                      InterfaceUri = FeedTest.Test1Uri,
                      Implementations =
                      {
-                         new ImplementationSelection
+                         new()
                          {
                              InterfaceUri = FeedTest.Test1Uri,
                              ID = "test",

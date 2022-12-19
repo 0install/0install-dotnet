@@ -33,7 +33,7 @@ public class ZipBuilder : IArchiveBuilder
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        _zipStream.PutNextEntry(new ZipEntry(path.ToUnixPath() + '/'));
+        _zipStream.PutNextEntry(new(path.ToUnixPath() + '/'));
     }
 
     /// <inheritdoc/>
@@ -82,7 +82,7 @@ public class ZipBuilder : IArchiveBuilder
         #endregion
 
         var data = target.ToUnixPath().ToStream();
-        _zipStream.PutNextEntry(new ZipEntry(path.ToUnixPath())
+        _zipStream.PutNextEntry(new(path.ToUnixPath())
         {
             Size = data.Length,
             HostSystem = (int)HostSystemID.Unix,

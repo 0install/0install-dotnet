@@ -23,8 +23,8 @@ public class RunTest : SelectionTestBase<Run>
         var selections = ExpectSolve();
 
         ExpectFetchUncached(selections,
-            new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(Sha256: "abc"), Version = new("1.0")},
-            new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(Sha256: "xyz"), Version = new("1.0")});
+            new() {ID = "id1", ManifestDigest = new(Sha256: "abc"), Version = new("1.0")},
+            new() {ID = "id2", ManifestDigest = new(Sha256: "xyz"), Version = new("1.0")});
 
         var envBuilderMock = GetMock<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, "Main")).Returns(envBuilderMock.Object);
@@ -46,8 +46,8 @@ public class RunTest : SelectionTestBase<Run>
         var selections = Fake.Selections;
 
         ExpectFetchUncached(selections,
-            new Implementation {ID = "id1", ManifestDigest = new ManifestDigest(Sha256: "abc"), Version = new("1.0")},
-            new Implementation {ID = "id2", ManifestDigest = new ManifestDigest(Sha256: "xyz"), Version = new("1.0")});
+            new() {ID = "id1", ManifestDigest = new(Sha256: "abc"), Version = new("1.0")},
+            new() {ID = "id2", ManifestDigest = new(Sha256: "xyz"), Version = new("1.0")});
 
         var envBuilderMock = GetMock<IEnvironmentBuilder>();
         GetMock<IExecutor>().Setup(x => x.Inject(selections, null)).Returns(envBuilderMock.Object);

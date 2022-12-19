@@ -92,7 +92,7 @@ public class ImplementationExtensionsTest
     {
         using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
         using var microServer = new MicroServer("archive.zip", stream);
-        var implementation = new Implementation {ID = "1", Version = new("1.0"), ManifestDigest = new ManifestDigest(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
+        var implementation = new Implementation {ID = "1", Version = new("1.0"), ManifestDigest = new(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         Assert.Throws<DigestMismatchException>(() => implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler()));
     }
 }

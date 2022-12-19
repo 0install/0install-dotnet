@@ -25,7 +25,7 @@ public static class TrustNodeExtensions
             foreach (var domain in key.Domains)
             {
                 if (key.Fingerprint != null)
-                    nodes.Add(new TrustNode(key.Fingerprint, domain));
+                    nodes.Add(new(key.Fingerprint, domain));
             }
         }
         return nodes;

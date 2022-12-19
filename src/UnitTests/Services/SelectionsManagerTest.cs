@@ -54,9 +54,9 @@ public class SelectionsManagerTest : TestWithMocks
             Command = Command.NameRun,
             Implementations =
             {
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, Version = new("1.0"), QuickTestFile = impl1.QuickTestFile},
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, Version = new("1.0"), QuickTestFile = impl2.QuickTestFile},
-                new ImplementationSelection {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, Version = new("1.0"), QuickTestFile = impl3.QuickTestFile}
+                new() {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl1.ID, Version = new("1.0"), QuickTestFile = impl1.QuickTestFile},
+                new() {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl2.ID, Version = new("1.0"), QuickTestFile = impl2.QuickTestFile},
+                new() {InterfaceUri = FeedTest.Test1Uri, FromFeed = new(FeedUri.FromDistributionPrefix + FeedTest.Test1Uri), ID = impl3.ID, Version = new("1.0"), QuickTestFile = impl3.QuickTestFile}
             }
         };
 
@@ -107,7 +107,7 @@ public class SelectionsManagerTest : TestWithMocks
             InterfaceUri = new("http://root/"),
             Implementations =
             {
-                new ImplementationSelection
+                new()
                 {
                     InterfaceUri = new("http://root/"),
                     ID = "a",
@@ -119,7 +119,7 @@ public class SelectionsManagerTest : TestWithMocks
                         new() {InterfaceUri = new("http://missing/")}
                     }
                 },
-                new ImplementationSelection
+                new()
                 {
                     InterfaceUri = new("http://dependency/"),
                     ID = "b",

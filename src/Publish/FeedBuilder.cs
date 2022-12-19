@@ -159,7 +159,7 @@ public class FeedBuilder : IDisposable
         var builder = new ManifestBuilder(ManifestFormat.Sha256New);
         handler.RunTask(new ReadDirectory(ImplementationDirectory, builder));
         ID = builder.Manifest.CalculateDigest();
-        ManifestDigest = new ManifestDigest(ID);
+        ManifestDigest = new(ID);
     }
     #endregion
 
