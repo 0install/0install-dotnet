@@ -144,6 +144,19 @@ public class WindowsPackageManager : PackageManagerBase
 
     private IEnumerable<ExternalImplementation> FindDotNet(string packageName, Environment.SpecialFolder folder, Cpu cpu)
     {
+        string rootPath;
+        try
+        {
+            rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
+        }
+        #region Error handling
+        catch (ArgumentException ex)
+        {
+            Log.Warn($"Unable to find {folder}", ex);
+            yield break;
+        }
+        #endregion
+
         string? packageDir = packageName switch
         {
             "dotnet-runtime" => Path.Combine("shared", "Microsoft.NETCore.App"),
@@ -154,10 +167,8 @@ public class WindowsPackageManager : PackageManagerBase
         };
         if (packageDir == null) yield break;
 
-        string rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
         string componentPath = Path.Combine(rootPath, packageDir);
         if (!Directory.Exists(componentPath)) yield break;
-
         foreach (string path in Directory.GetDirectories(componentPath))
         {
             if (ImplementationVersion.TryCreate(Path.GetFileName(path), out var version))
