@@ -114,7 +114,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
 
         // Prioritize EXEs over DLLs, limit total number of files to avoid slow scan
         List<string> exe = new(), dll = new();
-        FileUtils.GetFilesRecursive(path).Bucketize(System.IO.Path.GetExtension).Add("exe", exe).Add("dll", dll);
+        FileUtils.GetFilesRecursive(path).Bucketize(System.IO.Path.GetExtension).Add(".exe", exe).Add(".dll", dll).Run();
         var filesToScanFor = exe.Concat(dll).Take(16).ToArray();
 
         try
