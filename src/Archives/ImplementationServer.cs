@@ -74,7 +74,7 @@ public partial class ImplementationServer
             {
                 case "GET":
                     context.Response.ContentType = mimeType;
-                    using (var builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType))
+                    using (var builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType, fast: true))
                         new ReadDirectory(path, builder).Run(cancellationToken);
                     break;
 
@@ -102,13 +102,5 @@ public partial class ImplementationServer
     }
 
     private static (ManifestDigest manifestDigest, string mimeType) ParseFileName(string fileName)
-    {
-        var manifestDigest = new ManifestDigest(fileName.GetLeftPartAtFirstOccurrence('.'));
-
-        string mimeType = Archive.GuessMimeType(fileName);
-        if (mimeType is Archive.MimeTypeTarBzip or Archive.MimeTypeTarLzip)
-            throw new NotSupportedException($"Serving as {mimeType} is not supported because the compression is too slow.");
-
-        return (manifestDigest, mimeType);
-    }
+        => (manifestDigest: new ManifestDigest(fileName.GetLeftPartAtFirstOccurrence('.')), mimeType: Archive.GuessMimeType(fileName));
 }

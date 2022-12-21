@@ -14,7 +14,8 @@ public class TarBz2Builder : TarBuilder
     /// Creates a TAR BZip2 archive builder.
     /// </summary>
     /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    public TarBz2Builder(Stream stream)
-        : base(new BZip2OutputStream(stream))
+    /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
+    public TarBz2Builder(Stream stream, bool fast = false)
+        : base(new BZip2OutputStream(stream, blockSize: fast ? 1 : 9))
     {}
 }

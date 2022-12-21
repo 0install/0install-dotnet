@@ -14,7 +14,15 @@ public class TarGzBuilder : TarBuilder
     /// Creates a TAR GZip archive builder.
     /// </summary>
     /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    public TarGzBuilder(Stream stream)
-        : base(new GZipStream(stream, CompressionMode.Compress))
+    /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
+    public TarGzBuilder(Stream stream, bool fast = false)
+        : base(new GZipStream(stream, fast
+            ? CompressionLevel.Fastest
+#if NET
+            : CompressionLevel.SmallestSize
+#else
+            : CompressionLevel.Optimal
+#endif
+            ))
     {}
 }

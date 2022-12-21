@@ -14,7 +14,8 @@ public class TarZstandardBuilder : TarBuilder
     /// Creates a TAR Zstandard archive builder.
     /// </summary>
     /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    public TarZstandardBuilder(Stream stream)
-        : base(new CompressionStream(stream))
+    /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
+    public TarZstandardBuilder(Stream stream, bool fast = false)
+        : base(new CompressionStream(stream, level: fast ? 3 : 19))
     {}
 }
