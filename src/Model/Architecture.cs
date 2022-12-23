@@ -45,22 +45,15 @@ public record struct Architecture(
     public static readonly Architecture CurrentSystem = new(CurrentOS, CurrentCpu);
 
     private static OS CurrentOS
-    {
-        get
-        {
-            if (WindowsUtils.IsWindows) return OS.Windows;
-            if (UnixUtils.IsMacOSX) return OS.MacOSX;
-            if (UnixUtils.IsUnix) return ToOS(UnixUtils.OSName);
-            return OS.Unknown;
-        }
-    }
+        => WindowsUtils.IsWindows ? OS.Windows
+            : UnixUtils.IsMacOSX ? OS.MacOSX
+            : UnixUtils.IsUnix ? ToOS(UnixUtils.OSName)
+            : OS.Unknown;
 
     private static Cpu CurrentCpu
-    {
-        get
-        {
-            if (UnixUtils.IsUnix) return ToCpu(UnixUtils.CpuType);
-            return OSArchitecture switch
+        => UnixUtils.IsUnix
+            ? ToCpu(UnixUtils.CpuType)
+            : OSArchitecture switch
             {
                 X86 => Cpu.I686,
                 X64 => Cpu.X64,
@@ -68,8 +61,6 @@ public record struct Architecture(
                 Arm64 => Cpu.AArch64,
                 _ => Cpu.Unknown
             };
-        }
-    }
 
     private static OS ToOS(string value) => value switch
     {

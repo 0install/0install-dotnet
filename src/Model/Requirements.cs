@@ -69,24 +69,21 @@ public partial class Requirements : ICloneable<Requirements>
     [DefaultValue(false), XmlAttribute("source"), JsonProperty("source")]
     public bool Source
     {
-        get => Architecture.Cpu == Cpu.Source;
-        set
-        {
-            if (value) Architecture = new(Architecture.OS, Cpu.Source);
-        }
+        get => Architecture is {Cpu: Cpu.Source};
+        set => Architecture = Architecture with {Cpu = value ? Cpu.Source : Architecture.Cpu};
     }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     [DefaultValue("*"), XmlAttribute("os"), JsonProperty("os", DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = new(value.ConvertFromString<OS>(), Architecture.Cpu); }
+    public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = Architecture with {OS = value.ConvertFromString<OS>()}; }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     [DefaultValue("*"), XmlAttribute("machine"), JsonProperty("cpu", DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = new(Architecture.OS, value.ConvertFromString<Cpu>()); }
+    public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = Architecture with {Cpu = value.ConvertFromString<Cpu>()}; }
     #endregion
 
     /// <summary>
