@@ -48,6 +48,13 @@ public partial class Requirements : ICloneable<Requirements>
     [XmlIgnore, JsonIgnore]
     public Architecture Architecture { get; set; }
 
+    /// <summary>
+    /// Message to display when interacting with user.
+    /// </summary>
+    [Description("Message to display when interacting with user.")]
+    [XmlElement("message"), JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    public string? Message { get; set; }
+
     #region XML/JSON serialization
     /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="InterfaceUri"/>
@@ -164,7 +171,8 @@ public partial class Requirements : ICloneable<Requirements>
     {
         Languages = {Languages},
         ExtraRestrictions = {ExtraRestrictions},
-        Distributions = {Distributions}
+        Distributions = {Distributions},
+        Message = Message
     };
     #endregion
 
@@ -191,6 +199,7 @@ public partial class Requirements : ICloneable<Requirements>
             if (Architecture.OS != OS.All) args.Add(new[] {"--os", Architecture.OS.ConvertToString()});
             if (Architecture.Cpu != Cpu.All) args.Add(new[] {"--cpu", Architecture.Cpu.ConvertToString()});
         }
+        if (Message != null) args.Add(new[] {"--message", Message});
         foreach (var language in Languages)
             args.Add(new[] {"--language", language.ToString()});
         foreach (var (uri, range) in ExtraRestrictions)

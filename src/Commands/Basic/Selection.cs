@@ -84,6 +84,8 @@ public class Selection : CliCommand
                 (OS os) => Requirements.Architecture = Requirements.Architecture with {OS = os});
             Options.Add("cpu=", () => Resources.OptionCpu + Environment.NewLine + SupportedValues<Cpu>(),
                 (Cpu cpu) => Requirements.Architecture = Requirements.Architecture with {Cpu = cpu});
+            Options.Add("message=", () => Resources.OptionMessage,
+                message => Requirements.Message = message);
             Options.Add("customize", () => Resources.OptionCustomize, _ => CustomizeSelections = true);
         }
 

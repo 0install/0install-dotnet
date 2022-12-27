@@ -1615,6 +1615,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Message to display when interacting with user..
+        /// </summary>
+        public static string OptionMessage {
+            get {
+                return ResourceManager.GetString("OptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do not download the application itself yet. Will be automatically downloaded on first use instead..
         /// </summary>
         public static string OptionNoDownload {

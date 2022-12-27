@@ -40,7 +40,7 @@ public class ServiceProvider
             if (Config.ExternalSolverUri == null) return backtrackingSolver;
             else
             {
-                var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, FeedManager, Handler, Config.ExternalSolverUri);
+                var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, FeedManager, Handler, new(Config.ExternalSolverUri) {Message = "External solver"});
                 return new FallbackSolver(backtrackingSolver, externalSolver);
             }
         });
