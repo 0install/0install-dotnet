@@ -110,7 +110,7 @@ public partial class BouncyCastle : IOpenPgp
            select new OpenPgpSecretKey(
                key.KeyId,
                key.PublicKey.GetFingerprint(),
-               key.UserIds.Cast<string>().First());
+               key.UserIds.First());
 
     private static T ParseObject<T>(Stream stream) where T : PgpObject
     {
