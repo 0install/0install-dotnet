@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将在开始菜单和命令行中添加Zero Install。继续吗？</value>
+    <value>这将把Zero Install添加到开始菜单和命令行中。继续吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -223,7 +223,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>创建一个别名，通过0install启动一个应用程序，而不需要总是输入完整的URI。</value>
+    <value>创建一个别名，通过0install启动一个应用程序，而不必总是输入完整的URI。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -272,8 +272,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它也会下载所选的版本，如果它们还没有被缓存的话。
-如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
+    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
+如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态0；否则返回状态1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -335,11 +335,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>搜索由镜像服务器索引的、符合指定关键词的饲料。注意，默认的镜像服务器索引所有已知的饲料，无论质量如何；你必须在运行这些程序之前决定是否信任这些程序。</value>
+    <value>搜索由镜像服务器索引的、符合指定关键词的饲料。注意，默认的镜像服务器会索引所有已知的饲料，无论质量如何；你必须在运行程序之前决定是否信任这些程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>选择一个由URI识别的程序的版本，以及其所有依赖的兼容版本。
+    <value>选择一个由URI识别的程序版本，以及其所有依赖关系的兼容版本。
 如果它选择了一个版本集，则返回0的退出状态，如果它不能找到一个一致的版本集，则返回1的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -497,7 +497,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料代替吗？</value>
+    <value>'{0}' ({1})的饲料已被'{2}'所取代。你想使用新的饲料来代替吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -538,7 +538,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择无法应用。</value>
+    <value>你的桌面整合选择不能被应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
@@ -567,7 +567,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>本地的路径{0}</value>
+    <value>当地的路径{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
@@ -612,7 +612,7 @@
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -681,7 +681,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>不执行默认命令，而是使用{COMMAND} 。有效的命令名称在程序的馈送中被指定。
-设置为空（""），在选择过程中忽略该命令。</value>
+设置为空（""）可以在选择时忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -762,6 +762,10 @@
     <value>显示清单本身（每个文件或目录都有一行）。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>与用户互动时要显示的信息。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>先不要下载应用程序本身。第一次使用时将会自动下载。</value>
     <comment>Automatically translated.</comment>
@@ -784,7 +788,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个可以移动的便携式安装（例如，在拇指驱动器上）。</value>
+    <value>创建一个可以移动的便携式安装（例如，在优盘上）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -902,7 +906,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个 "零安装 "的实例没有被部署。没有任何东西可以删除。</value>
+    <value>这个 "零安装 "实例没有被部署。没有任何东西可以删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -1012,7 +1016,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>核实</value>
+    <value>验证</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">

@@ -103,7 +103,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' to plik lokalny. Powinien to być adres URL HTTP(S).</value>
+    <value>'{0}' to plik lokalny. Powinien to być URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">

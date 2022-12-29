@@ -383,7 +383,7 @@ Un argument supplémentaire spécifie un emplacement de cache cible personnalis�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Affiche une interface utilisateur graphique pour la gestion des implémentations dans le cache. Affiche les associations avec les flux mis en cache.</value>
+    <value>Affiche une interface utilisateur graphique pour gérer les implémentations dans le cache. Affiche les associations avec les flux mis en cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -616,7 +616,7 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install est lancé à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
+    <value>Zero Install se lance à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible par tous les utilisateurs pour que l'intégration du bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -660,11 +660,11 @@ Vous pouvez le faire en utilisant '{0}'. Cette copie sera totalement indépendan
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état système.</value>
+    <value>Cachez l'interface utilisateur graphique et remplacez-la par une icône de la barre d'état.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Répondre automatiquement aux questions avec des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
+    <value>Répondre automatiquement aux questions par des valeurs par défaut lorsque cela est possible et simplifier la sortie de la console (pas de tableaux ni de barres de progression).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -761,6 +761,10 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
   <data name="OptionManifest" xml:space="preserve">
     <value>Affiche le manifeste (une ligne pour chaque fichier ou répertoire).</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Message à afficher lors de l'interaction avec l'utilisateur.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Ne téléchargez pas encore l'application elle-même. Elle sera automatiquement téléchargée lors de la première utilisation.</value>

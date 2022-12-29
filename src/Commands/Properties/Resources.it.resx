@@ -273,7 +273,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e se queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -428,7 +428,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
+    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -750,7 +750,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Applicare la configurazione a livello di macchina (per l'intero computer) invece che solo per l'utente corrente.</value>
+    <value>Applicare la configurazione a livello di macchina (per l'intero computer) anziché solo per l'utente corrente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -762,16 +762,20 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <value>Visualizza il manifest stesso (una riga per ogni file o directory).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Messaggio da visualizzare quando si interagisce con l'utente.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Non scaricare ancora l'applicazione stessa. Verrà invece scaricata automaticamente al primo utilizzo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, utilizzare --not-before=2.0.</value>
+    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, usare --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che finisca l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
+    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che termini l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">

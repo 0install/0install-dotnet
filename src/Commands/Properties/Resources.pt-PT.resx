@@ -762,6 +762,10 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <value>Mostrar o manifesto em si (uma linha para cada ficheiro ou directório).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Mensagem a exibir quando interagir com o utilizador.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Não descarregar ainda a aplicação propriamente dita. Será descarregada automaticamente na primeira utilização.</value>
     <comment>Automatically translated.</comment>
@@ -776,7 +780,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

@@ -762,6 +762,10 @@ Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.
     <value>Öge listesini görüntüler (her bir dosya ya da klasör bir satırda).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Kullanıcı ile etkileşim sırasında görüntülenecek mesaj.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Uygulama hemen indirilmez. İndirmek için ilk kez kullanılması beklenir.</value>
     <comment>Manually overriden.</comment>

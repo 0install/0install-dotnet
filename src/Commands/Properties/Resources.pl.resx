@@ -223,7 +223,7 @@ Można z niej skorzystać uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności ciągłego wpisywania pełnego URI.</value>
+    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności każdorazowego wprowadzania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -391,7 +391,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem instalacji zerowej. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontrolne NTFS stosowane do ochrony implementacji przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów cache może być trudne ze względu na listy kontrolne NTFS, które chronią implementacje przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -441,7 +441,7 @@ Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Zastosowanie integracji z pulpitem</value>
+    <value>Zastosowanie integracji pulpitu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
@@ -517,7 +517,7 @@ Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>Użyj file:///path dla ścieżek absolutnych, a nie file:/path.</value>
+    <value>Użyj file:///path dla ścieżek bezwzględnych, a nie file:/path.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -607,7 +607,7 @@ Możesz rozprowadzać kopie tego programu zgodnie z warunkami licencji GNU Lesse
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Aby integracja z pulpitem działała, w systemie musi być wdrożona aplikacja Zero Install.</value>
+    <value>Aby integracja z pulpitem działała, w systemie musi zostać wdrożona aplikacja Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -762,6 +762,10 @@ Nie może zawierać argumentów wiersza poleceń! Białe spacje nie muszą być 
     <value>Wyświetl sam manifest (jedna linia dla każdego pliku lub katalogu).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Komunikat do wyświetlenia podczas interakcji z użytkownikiem.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Nie pobieraj jeszcze samej aplikacji. Zostanie ona automatycznie pobrana przy pierwszym użyciu.</value>
     <comment>Automatically translated.</comment>
@@ -812,7 +816,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Bardziej zwięzłe wyjście. Użyj dwukrotnie, aby uzyskać jeszcze bardziej zwięzłe dane wyjściowe.</value>
+    <value>Bardziej zwięzłe wyjście. Użyj dwa razy, aby uzyskać jeszcze bardziej zwięzłe dane wyjściowe.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -822,7 +826,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Wymagaj wersji programu głównego w podanym {RANGE}.
 Zakresy są oddzielone rurkami (|).
-Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= WERSJA &lt; END. Początek lub koniec może być pominięty.
+Każdy zakres ma postać "START...!END". Zakres pasuje do wersji, gdzie START &lt;= VERSION &lt; END. Początek lub koniec może być pominięty.
 Zamiast zakresu można użyć pojedynczego numeru wersji, by dopasować tylko tę wersję, lub !VERSION, by dopasować wszystko oprócz tej wersji.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -955,7 +959,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Włączenie obsługi Windows dla Długich ścieżek może rozwiązać ten problem.</value>
+    <value>Włączenie obsługi systemu Windows dla Długich ścieżek może rozwiązać ten problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -1008,7 +1012,7 @@ Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten 
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Używaj języka systemowego</value>
+    <value>Użyj języka systemowego</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
