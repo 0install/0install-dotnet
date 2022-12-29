@@ -7,11 +7,13 @@
     <Description>Zero Install management of implementation caches, digital signatures, etc.</Description>
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_store.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <SGenTypes>ZeroInstall.Store.Trust.TrustDB;ZeroInstall.Store.Feeds.SearchResults</SGenTypes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />
+  <Import Project="..\XmlSerializer.Generator.targets" />
 
   <!-- Global usings -->
   <ItemGroup>

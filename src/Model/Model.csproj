@@ -8,6 +8,7 @@
     <PackageProjectUrl>https://dotnet.0install.net/md_model.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <TargetFrameworks>net461;net472;net6.0</TargetFrameworks>
+    <SGenTypes>ZeroInstall.Model.Feed;ZeroInstall.Model.Catalog;ZeroInstall.Model.Selection.Selections;ZeroInstall.Model.Preferences.InterfacePreferences;ZeroInstall.Model.Preferences.FeedPreferences</SGenTypes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
