@@ -9,6 +9,6 @@ from ZeroInstall.Services import ServiceProvider
 services = ServiceProvider(CliTaskHandler())
 requirements = Requirements(FeedUri(sys.argv[1]))
 selections = services.Solver.Solve(requirements)
-for implementation in services.SelectionsManager.GetUncachedImplementations(selections):
+for implementation in services.SelectionsManager.GetUncached(selections.Implementations):
     services.Fetcher.Fetch(implementation)
 services.Executor.Start(selections)

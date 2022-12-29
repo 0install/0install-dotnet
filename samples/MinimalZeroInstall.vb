@@ -8,7 +8,7 @@ Module MinimalZeroInstall
         Dim services = New ServiceProvider(New CliTaskHandler())
         With services
             Dim selections = .Solver.Solve(requirements)
-            For Each implementation In .SelectionsManager.GetUncachedImplementations(selections)
+            For Each implementation In .SelectionsManager.GetUncached(selections.Implementations)
                 .Fetcher.Fetch(implementation)
             Next
             .Executor.Start(selections)
