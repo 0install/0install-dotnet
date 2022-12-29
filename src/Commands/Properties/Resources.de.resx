@@ -762,6 +762,10 @@ Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped w
     <value>Zeigt das Manifest selbst an (eine Zeile für jede Datei und jedes Verzeichnis).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Nachricht, die bei Interaktionen mit dem Benutzer angezeigt werden soll.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Lade die Anwendung selbst noch nicht herunter. Wird stattdessen bei der ersten Verwendung automatisch heruntergeladen.</value>
     <comment>Manually overriden.</comment>

@@ -116,7 +116,7 @@ U kunt het importscript of de Bootstrap executable in '{1}' gebruiken om deze be
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Wilt u eventuele bestaande desktopintegraties aanpassen?
+    <value>Wilt u een bestaande desktopintegratie aanpassen om dit te weerspiegelen?
 Als u 'Ja' selecteert, worden mogelijk incompatibele integraties verwijderd.
 Als u 'Nee' selecteert, blijft Zero Install de oude mogelijkheden gebruiken.</value>
     <comment>Automatically translated.</comment>
@@ -264,7 +264,7 @@ U kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te voe
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Configuratie-instellingen bekijken of wijzigen.
-Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten wordt de instelling ingesteld op de opgegeven waarde of teruggezet naar de standaardwaarde als de waarde "default" is opgegeven.</value>
+Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten stelt het de instelling in op de opgegeven waarde of zet het deze terug op de standaardwaarde als de waarde "default" is opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -277,16 +277,16 @@ Geeft een exit-status van 0 als het een geschikte set versies heeft geselecteerd
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporteert alle feeds en implementaties die nodig zijn om het door een URI gespecificeerde programma te starten naar een DIRECTORY.</value>
+    <value>Exporteert alle feeds en implementaties die nodig zijn om het door een URI opgegeven programma te starten naar een DIRECTORY.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importeert een feed uit een lokaal bestand, alsof het is gedownload van het netwerk. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het opnieuw te downloaden.
+    <value>Importeert een feed uit een lokaal bestand, alsof het van het netwerk is gedownload. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het opnieuw te downloaden.
 Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het ophalen vanaf het netwerk.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importeert een reeks toepassingen en desktopintegraties uit een bestaand app-list.xml bestand.</value>
+    <value>Importeert een reeks toepassingen en desktop-integraties uit een bestaand app-list.xml bestand.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -612,11 +612,11 @@ U mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Les
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install draait in draagbare modus. Het moet worden ingezet op een permanente locatie om desktop integratie te laten werken.
-U kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare kopie.</value>
+U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden geïmplementeerd in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
+    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden ingezet in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -680,7 +680,7 @@ U kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van uw
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
+    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige commandonamen worden gespecificeerd in de invoer van het programma.
 Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -713,7 +713,7 @@ Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Voer de update ook uit als de momenteel geïnstalleerde versie dezelfde of een nieuwere is.</value>
+    <value>Voer de update ook uit als de huidige geïnstalleerde versie dezelfde of een nieuwere is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -760,6 +760,10 @@ Mag geen commandoregel argumenten bevatten! Whitespaces hoeven niet geëscaped t
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Het manifest zelf weergeven (één regel voor elk bestand of elke map).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Bericht dat moet worden weergegeven bij interactie met de gebruiker.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -862,7 +866,7 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Wilt u de {0} aangevinkte toetsen uit de lijst verwijderen?</value>
+    <value>Wilt u de {0} aangevinkte sleutels uit de lijst verwijderen?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -964,7 +968,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>De cryptosleutel wordt gebruikt om uw gegevens lokaal te versleutelen voordat ze naar de server worden verzonden.
-Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server wordt gecompromitteerd.</value>
+Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server gecompromitteerd zou worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

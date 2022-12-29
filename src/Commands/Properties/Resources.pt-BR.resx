@@ -762,6 +762,10 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não pode
     <value>Exiba o próprio manifesto (uma linha para cada arquivo ou pasta).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionMessage" xml:space="preserve">
+    <value>Mensagem a ser exibida durante as interações com o usuário.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Não baixa o aplicativo em si ainda. Será baixado automaticamente no primeiro uso.</value>
     <comment>Manually overriden.</comment>

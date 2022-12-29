@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Относительный путь '{0}' не может быть разрешен. Только фиды, сохраненные как локальные файлы, могут содержать относительные пути.</value>
+    <value>Не удалось определить относительный путь '{0}'. Только фиды, сохраненные как локальные файлы, могут содержать относительные пути.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
