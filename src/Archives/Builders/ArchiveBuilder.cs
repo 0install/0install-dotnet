@@ -56,6 +56,6 @@ public static class ArchiveBuilder
         if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
         #endregion
 
-        return Create(File.Create(path), mimeType, false);
+        return Create(File.Create(path), mimeType, fast);
     }
 }
