@@ -105,5 +105,5 @@ public static class UninstallEntry
 
     private static RegistryKey OpenUninstallKey(bool machineWide)
         => (machineWide ? Registry.LocalMachine : Registry.CurrentUser)
-           .OpenSubKeyChecked(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall", writable: true);
+           .CreateSubKeyChecked(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
 }
