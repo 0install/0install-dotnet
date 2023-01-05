@@ -49,7 +49,7 @@
 
   <!-- Build-time dependencies -->
   <ItemGroup>
-    <PackageReference Include="Generator.Equals" Version="2.7.1" PrivateAssets="All" />
+    <PackageReference Include="Generator.Equals" Version="2.7.6" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="PrimaryConstructor" Version="1.4.0" PrivateAssets="All" />
   </ItemGroup>
