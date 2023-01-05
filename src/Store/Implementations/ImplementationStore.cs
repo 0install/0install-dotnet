@@ -35,7 +35,21 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     {
         if (base.GetPath(manifestDigest) is not {} path) return null;
 
-        if (!manifestDigest.PartialEquals(ManifestDigest.Empty) && Directory.GetFiles(path).Length == 0)
+        static bool HasNoFiles(string path)
+        {
+            try
+            {
+                return Directory.GetFiles(path).Length == 0;
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                return false;
+            }
+            #endregion
+        }
+
+        if (!manifestDigest.PartialEquals(ManifestDigest.Empty) && HasNoFiles(path))
         {
             Log.Info($"Directory for {manifestDigest} has no .manifest file or any other files. Almost certainly damaged. Deleting.");
             Remove(manifestDigest);
