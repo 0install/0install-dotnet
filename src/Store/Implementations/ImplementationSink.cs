@@ -30,7 +30,6 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
     /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to prevent unintentional modification (which would invalidate the manifest digests).</param>
-    /// <exception cref="NotSupportedException">The underlying filesystem can not store file-changed times accurate to the second. Probably using FAT32 instead of NTFS.</exception>
     /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
     /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
     public ImplementationSink(string path, bool useWriteProtection = true)
@@ -57,7 +56,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         try
         {
             if (FileUtils.DetermineTimeAccuracy(Path) > 0)
-                throw new PlatformNotSupportedException(Resources.InsufficientFSTimeAccuracy);
+                throw new IOException(Resources.InsufficientFSTimeAccuracy);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
