@@ -25,6 +25,8 @@ public class ServiceProvider
     /// Creates a new service provider.
     /// </summary>
     /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <exception cref="IOException">There was a problem accessing a configuration file or one of the implementation stores.</exception>
+    /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the implementation stores was not permitted.</exception>
     public ServiceProvider(ITaskHandler handler)
     {
         Handler = handler ?? throw new ArgumentNullException(nameof(handler));
