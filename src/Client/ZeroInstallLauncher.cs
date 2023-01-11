@@ -83,4 +83,8 @@ internal class ZeroInstallLauncher : ProcessLauncher
             }
         }
     }
+
+    /// <inheritdoc/>
+    protected override void OnStderr(string line, StreamWriter stdin)
+        => Log.Info($"{FileName}: {line}");
 }
