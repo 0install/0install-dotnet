@@ -57,8 +57,8 @@ public abstract partial class TargetBase : FeedElement
         to.UnknownElements = from.UnknownElements;
         to.UnknownAttributes = from.UnknownAttributes;
         to.Languages.Clear();
-        to.Languages = new LanguageSet(from.Languages);
-        to.ArchitectureString = from.ArchitectureString;
+        to.Languages = new(from.Languages);
+        to.Architecture = from.Architecture;
     }
     #endregion
 }
