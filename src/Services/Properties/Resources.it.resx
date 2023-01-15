@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Alimentazione {0}
+    <value>Alimentazione: {0}
 - Firma valida da {1}
 - {2}
 Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
@@ -152,9 +152,9 @@ Ci si vuole fidare di questa chiave per firmare i feed di '{3}'?
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Il feed scaricato è più vecchio della versione già presente nella cache. Continueremo a utilizzare la versione più recente.
-URI del feed {0}
-Vecchia ora {1}
-Nuova ora {2}</value>
+URI del feed: {0}
+Vecchia ora: {1}
+Nuova ora: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">

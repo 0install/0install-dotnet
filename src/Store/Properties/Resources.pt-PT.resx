@@ -96,19 +96,19 @@ Se desejar apagar todo este directório sem utilizar a instalação Zero, pode u
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valor real {0}</value>
+    <value>Valor real: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifesto real {0}</value>
+    <value>Manifesto real: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valor esperado {0}</value>
+    <value>Valor esperado: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifesto esperado {0}</value>
+    <value>Manifesto esperado: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -190,7 +190,7 @@ Se estiver a utilizar uma unidade em formato FAT, por favor converta-a para NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>O arquivo contém um caminho inválido (potencialmente um risco de segurança) {0}</value>
+    <value>O arquivo contém um caminho inválido (potencialmente um risco de segurança): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">

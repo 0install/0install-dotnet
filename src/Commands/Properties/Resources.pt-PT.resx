@@ -374,7 +374,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista todos os directórios de implementação.</value>
+    <value>Lista de todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -676,7 +676,7 @@ Pode fazer isto usando '{0}'. Isto será completamente independente da sua cópi
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Remover implementações já não necessárias após a actualização.</value>
+    <value>Retirar implementações já não necessárias após a actualização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -841,7 +841,7 @@ No entanto, os novos descarregamentos não serão escritos neste directório.</v
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar directamente o programa escolhido, correr {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (em vez de instalar no Zero!).
-Note-se que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
+Note que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
 Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -963,7 +963,7 @@ Execute '0install config self_update_uri default' para o activar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
-    <value>Valores suportados {0}</value>
+    <value>Valores suportados: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">

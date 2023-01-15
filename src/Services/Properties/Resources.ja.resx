@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>フィード '{0}' はキャッシュされておらず、Zero Install は現在オフラインモードになっています。</value>
+    <value>フィード '{0}' はキャッシュされていないため、Zero Install は現在オフラインモードになっています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">

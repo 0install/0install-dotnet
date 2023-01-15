@@ -71,7 +71,7 @@
 このディレクトリ全体を削除する場合は、このコマンドラインを使用します。
 {1}
 
-Zero Installを使用せずにこのディレクトリ全体を削除したい場合は、このコマンドラインを使用します。
+Zero Installを使用せずにこのディレクトリ全体を削除する場合は、このコマンドラインを使用します。
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -124,7 +124,7 @@ Zero Installを使用せずにこのディレクトリ全体を削除したい�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>検索に必要なフィードミラーの使用は無効になっています。
+    <value>検索に必要なフィードミラーの利用が無効になっています。
 0install config feed_mirror default'を実行し、有効にしてください。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -253,7 +253,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>設定値 '{0}' を読み込む際に問題が発生しました。
+    <value>設定値 '{0}' の読み込みに問題が発生しました。
 ファイル '{1}' を削除することで問題を解決できます。他の設定値も失われる可能性があります。</value>
     <comment>Automatically translated.</comment>
   </data>

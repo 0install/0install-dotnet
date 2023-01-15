@@ -763,7 +763,7 @@ Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Kullanıcı ile etkileşim sırasında görüntülenecek mesaj.</value>
+    <value>Kullanıcı ile etkileşim sırasında görüntülenecek ileti.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
