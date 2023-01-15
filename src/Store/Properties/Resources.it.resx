@@ -96,19 +96,19 @@ Se si desidera eliminare l'intera directory senza utilizzare Zero Install, è po
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valore effettivo {0}</value>
+    <value>Valore effettivo: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifesto effettivo {0}</value>
+    <value>Manifesto effettivo: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valore atteso {0}</value>
+    <value>Valore atteso: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifesto previsto {0}</value>
+    <value>Manifesto previsto: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -190,7 +190,7 @@ Se si utilizza un'unità formattata in FAT, convertirla in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>L'archivio contiene un percorso non valido (potenzialmente un rischio per la sicurezza) {0}</value>
+    <value>L'archivio contiene un percorso non valido (potenzialmente un rischio per la sicurezza): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -239,7 +239,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

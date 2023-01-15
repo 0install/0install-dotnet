@@ -190,7 +190,7 @@
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>设置一个复选框，使一项能力成为你想要的默认处理程序。
-移除一个复选框来移除一个能力的默认状态（它仍然是可用的）。</value>
+移除一个复选框，以移除一个能力的默认状态（它仍然是可用的）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -223,7 +223,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>创建一个别名，通过0install启动一个应用程序，而不必总是输入完整的URI。</value>
+    <value>创建一个别名，通过0install启动一个应用程序，而不需要总是输入完整的URI。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -272,12 +272,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
-如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态0；否则返回状态1。</value>
+    <value>行为类似于'0install select'，除了它还会下载所选择的版本，如果它们还没有被缓存。
+如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>将启动URI指定的程序所需的所有馈送和实现导出到一个DIRECTORY。</value>
+    <value>将启动由URI指定的程序所需的所有馈送和实现导出到一个DIRECTORY。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -534,11 +534,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>整合{0}</value>
+    <value>融合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择不能被应用。</value>
+    <value>你的桌面整合选择无法应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
@@ -567,7 +567,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>当地的路径{0}</value>
+    <value>本地的路径{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
@@ -575,7 +575,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>在'{0}'中缺少&lt;feed-for&gt;元素；它不能作为任何其他接口的feed。</value>
+    <value>在'{0}'中缺少&lt;feed-for&gt;元素；它不能被用作任何其他接口的feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -607,12 +607,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install需要部署在你的系统上，以使桌面集成工作。</value>
+    <value>零安装 "需要部署在你的系统上，以使桌面集成发挥作用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -812,7 +812,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器上的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

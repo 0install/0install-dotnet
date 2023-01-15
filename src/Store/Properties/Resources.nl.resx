@@ -96,19 +96,19 @@ Als u deze hele directory wilt verwijderen zonder Zero Install te gebruiken, kun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Werkelijke waarde {0}</value>
+    <value>Werkelijke waarde: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Werkelijk manifest {0}</value>
+    <value>Werkelijk manifest: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Verwachte waarde {0}</value>
+    <value>Verwachte waarde: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Verwacht manifest {0}</value>
+    <value>Verwacht manifest: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -190,7 +190,7 @@ Als u een FAT-geformateerde schijf gebruikt, converteer deze dan naar NTFS.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Het archief bevat een ongeldig pad (mogelijk een veiligheidsrisico) {0}</value>
+    <value>Het archief bevat een ongeldig pad (mogelijk een veiligheidsrisico): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -278,7 +278,7 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Kan geen schrijfbeveiliging inschakelen voor '{0}'.</value>
+    <value>Kan schrijfbeveiliging voor '{0}' niet inschakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">

@@ -100,7 +100,7 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifeste réel {0}</value>
+    <value>Manifeste réel : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -108,7 +108,7 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifestation attendue {0}</value>
+    <value>Manifestation attendue : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -190,7 +190,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>L'archive contient un chemin non valide (potentiellement un risque de sécurité) {0}</value>
+    <value>L'archive contient un chemin non valide (potentiellement un risque de sécurité) : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">

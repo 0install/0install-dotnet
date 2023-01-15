@@ -96,19 +96,19 @@ Jeśli chcesz usunąć cały ten katalog bez użycia Zero Install możesz użyć
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Wartość rzeczywista {0}</value>
+    <value>Wartość rzeczywista: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Faktyczny manifest {0}</value>
+    <value>Faktyczny manifest: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Wartość oczekiwana {0}</value>
+    <value>Wartość oczekiwana: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Spodziewany manifest {0}</value>
+    <value>Spodziewany manifest: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -190,7 +190,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Archiwum zawiera nieprawidłową ścieżkę (potencjalnie zagrożenie bezpieczeństwa) {0}</value>
+    <value>Archiwum zawiera nieprawidłową ścieżkę (potencjalnie zagrożenie bezpieczeństwa): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">

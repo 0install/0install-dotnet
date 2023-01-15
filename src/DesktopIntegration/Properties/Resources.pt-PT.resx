@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>A chave criptográfica que introduziu para Sync está incorrecta. Por favor verifique as suas Opções de Sincronização.
+    <value>A chave criptográfica que introduziu para Sync está incorrecta. Por favor, verifique as suas Opções de Sincronização.
 Pode alterar a chave criptográfica utilizada no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no Botão "Sync" para lá chegar) ou executando "0install sync --reset=server".</value>
     <comment>Automatically translated.</comment>
   </data>

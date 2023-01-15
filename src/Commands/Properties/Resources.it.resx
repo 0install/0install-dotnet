@@ -273,7 +273,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -322,7 +322,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disregistra un mangime, invertendo l'effetto di '0install add-feed'.</value>
+    <value>Disregistra un mangime, invertendo l'effetto di "0install add-feed".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -607,7 +607,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Affinché l'integrazione desktop funzioni, è necessario che Zero Install sia distribuito sul sistema.</value>
+    <value>Per far funzionare l'integrazione desktop, Zero Install deve essere distribuito sul sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -750,7 +750,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Applicare la configurazione a livello di macchina (per l'intero computer) anziché solo per l'utente corrente.</value>
+    <value>Applicare la configurazione a livello di macchina (per l'intero computer) invece che solo per l'utente corrente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -771,7 +771,7 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, usare --not-before=2.0.</value>
+    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, utilizzare --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -959,11 +959,11 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
-    <value>Valori supportati {0}</value>
+    <value>Valori supportati: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">

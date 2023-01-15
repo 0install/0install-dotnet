@@ -445,7 +445,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Îndepărtarea integrării desktop</value>
+    <value>Eliminarea integrării desktop-ului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -546,7 +546,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Vă rugăm să utilizați versiunea GUI a programului Zero Install sau să specificați opțiunile de integrare explicite folosind argumente de linie de comandă.</value>
+    <value>Vă rugăm să utilizați versiunea GUI a programului Zero Install sau să specificați opțiunile de integrare explicite utilizând argumente de linie de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -693,7 +693,7 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci trebuie utilizată.</value>
+    <value>Afișați editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci să utilizați.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -812,7 +812,7 @@ Nu poate conține argumente de linie de comandă! Nu este necesar să se elimine
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină datele de pe client și server în mod normal), "client" (înlocuiește toate datele de pe client cu cele de pe server) și "server" (înlocuiește toate datele de pe server cu cele de pe client).</value>
+    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină în mod normal datele de pe client și de pe server), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -866,7 +866,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați din listă cheile bifate {0}?</value>
+    <value>Doriți să eliminați din listă cheile bifate pe {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -882,7 +882,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină eficient.</value>
+    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină efectiv.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -963,12 +963,12 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
-    <value>Valori acceptate {0}</value>
+    <value>Valori acceptate: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
-Păstrați secretă această cheie și folosiți ceva diferit pentru parola dumneavoastră. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
+Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

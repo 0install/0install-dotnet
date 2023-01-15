@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Pasza {0}
+    <value>Pasza: {0}
 - Ważny podpis z {1}
 - {2}
 Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
@@ -91,7 +91,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Feed "{0}" nie jest buforowany, a Zero Install jest obecnie w trybie off-line.</value>
+    <value>Feed '{0}' nie jest buforowany, a Zero Install jest obecnie w trybie off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -103,7 +103,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' to plik lokalny. Powinien to być URL HTTP(S).</value>
+    <value>'{0}' to plik lokalny. Powinien to być adres URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -152,9 +152,9 @@ Czy chcesz zaufać temu kluczowi do podpisywania feedów z '{3}'?
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Pobrany feed jest starszy niż wersja znajdująca się już w pamięci podręcznej. Będziemy nadal używać nowszej wersji.
-Feed URI {0}
-Stary czas {1}
-Nowy czas {2}</value>
+Feed URI: {0}
+Stary czas: {1}
+Nowy czas: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">

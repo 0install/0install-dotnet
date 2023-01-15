@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Flux {0}
+    <value>Flux : {0}
 - Signature valide de {1}
 - {2}
 Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}' ?
@@ -135,7 +135,7 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Impossible de télécharger {0} car Zero Install est en mode hors connexion.</value>
+    <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -152,9 +152,9 @@ Voulez-vous faire confiance à cette clé pour signer les flux provenant de '{3}
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Le flux téléchargé est plus ancien que la version déjà présente dans le cache. Nous continuerons à utiliser la version la plus récente.
-URI du flux {0}
-Ancienne heure {1}
-Nouvelle heure {2}</value>
+URI du flux : {0}
+Ancienne heure : {1}
+Nouvelle heure : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
