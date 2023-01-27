@@ -191,14 +191,17 @@ public class Selection : CliCommand
         {
             Selections = Solver.Solve(Requirements);
         }
-        #region Error handling
+        catch (SolverException ex) when (_version != null && Config.NetworkUse == NetworkLevel.Full)
+        {
+            Log.Info($"Solving for version {_version} failed, possibly because feed is outdated; trying refresh", ex);
+            RefreshSolve();
+        }
         catch
         {
             // Suppress any left-over errors if the user canceled anyway
             Handler.CancellationToken.ThrowIfCancellationRequested();
             throw;
         }
-        #endregion
 
         Selections.Name = FeedCache.GetFeed(Selections.InterfaceUri)?.Name
                        ?? Selections.InterfaceUri.ToString().GetRightPartAtLastOccurrence('/');
