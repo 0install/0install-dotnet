@@ -152,18 +152,7 @@ public class ServiceProvider
     /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
     public Selections? TrySolveOffline(Requirements requirements)
     {
-        Selections selections;
-        try
-        {
-            using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Offline))
-                selections = Solver.Solve(requirements);
-        }
-        catch (Exception ex) when (ex is IOException or WebException or UnauthorizedAccessException or SolverException)
-        {
-            Log.Debug($"Failed to solve {requirements} in offline mode", ex);
-            return null;
-        }
-
-        return selections;
+        using (PropertyPointer.For(() => Config.NetworkUse).SetTemp(NetworkLevel.Offline))
+            return Solver.TrySolve(requirements);
     }
 }
