@@ -10,6 +10,8 @@ namespace ZeroInstall.Archives.Builders;
 /// </summary>
 public class TarZstandardBuilder : TarBuilder
 {
+    private readonly Stream _innerStream;
+
     /// <summary>
     /// Creates a TAR Zstandard archive builder.
     /// </summary>
@@ -17,5 +19,20 @@ public class TarZstandardBuilder : TarBuilder
     /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
     public TarZstandardBuilder(Stream stream, bool fast = false)
         : base(new CompressionStream(stream, level: fast ? 3 : 19))
-    {}
+    {
+        // Need to keep separate reference to inner stream for disposal, because CompressionStream does not handle that
+        _innerStream = stream;
+    }
+
+    public override void Dispose()
+    {
+        try
+        {
+            base.Dispose();
+        }
+        finally
+        {
+            _innerStream.Dispose();
+        }
+    }
 }

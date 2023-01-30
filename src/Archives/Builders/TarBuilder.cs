@@ -24,7 +24,7 @@ public class TarBuilder : IArchiveBuilder
         _tarStream = new(stream, Encoding.UTF8);
     }
 
-    public void Dispose()
+    public virtual void Dispose()
     {
         try
         {
