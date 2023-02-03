@@ -72,11 +72,12 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
         #endregion
 
-        string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault();
-        if (string.IsNullOrEmpty(path)) return new();
-
-        Log.Debug($"Loading feed preferences for {feedUri.ToStringRfc()} from: {path}");
-        return XmlStorage.LoadXml<FeedPreferences>(path);
+        if (Locations.GetLoadConfigPaths("0install.net", true, "injector", "feeds", feedUri.PrettyEscape()).FirstOrDefault() is {Length: > 0} path)
+        {
+            Log.Debug($"Loading feed preferences for {feedUri.ToStringRfc()} from: {path}");
+            return XmlStorage.LoadXml<FeedPreferences>(path);
+        }
+        else return new();
     }
 
     /// <summary>

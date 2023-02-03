@@ -13,14 +13,16 @@ public sealed class PosixScript : PosixExecutable
     /// <inheritdoc/>
     internal override bool Analyze(DirectoryInfo baseDirectory, FileInfo file)
     {
-        if (!base.Analyze(baseDirectory, file)) return false;
+        if (base.Analyze(baseDirectory, file)
+         && file.ReadFirstLine(Encoding.ASCII) is {} firstLine
+         && firstLine.StartsWith(@"#!"))
+        {
+            Architecture = new(OS.Posix);
+            Name = file.Name;
+            NeedsTerminal = true;
+            return true;
+        }
 
-        string? firstLine = file.ReadFirstLine(Encoding.ASCII);
-        if (string.IsNullOrEmpty(firstLine) || !firstLine.StartsWith(@"#!")) return false;
-
-        Architecture = new(OS.Posix);
-        Name = file.Name;
-        NeedsTerminal = true;
-        return true;
+        return false;
     }
 }

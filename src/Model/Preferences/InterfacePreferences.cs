@@ -57,11 +57,12 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
-        string? path = Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault();
-        if (string.IsNullOrEmpty(path)) return new() {Uri = interfaceUri};
-
-        Log.Debug($"Loading interface preferences for {interfaceUri.ToStringRfc()} from: {path}");
-        return XmlStorage.LoadXml<InterfacePreferences>(path);
+        if (Locations.GetLoadConfigPaths("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape()).FirstOrDefault() is {Length: > 0} path)
+        {
+            Log.Debug($"Loading interface preferences for {interfaceUri.ToStringRfc()} from: {path}");
+            return XmlStorage.LoadXml<InterfacePreferences>(path);
+        }
+        else return new() {Uri = interfaceUri};
     }
 
     /// <summary>

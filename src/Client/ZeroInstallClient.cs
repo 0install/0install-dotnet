@@ -50,8 +50,7 @@ public class ZeroInstallClient : IZeroInstallClient
     {
         if (!WindowsUtils.IsWindows) return null;
 
-        string? installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation");
-        if (string.IsNullOrEmpty(installLocation)) return null;
+        if (RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation") is not {Length: >0} installLocation) return null;
 
         string path = Path.Combine(installLocation, $"{executableName}.exe");
         return File.Exists(path) ? path.EscapeArgument() : null;

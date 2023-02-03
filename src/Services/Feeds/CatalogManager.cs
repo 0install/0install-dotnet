@@ -160,8 +160,8 @@ public partial class CatalogManager : ICatalogManager
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
     public static FeedUri[] GetSources()
     {
-        string? path = Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault();
-        if (string.IsNullOrEmpty(path)) return new[] {DefaultSource};
+        if (Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault() is not {Length: >0} path)
+            return new[] {DefaultSource};
 
         string[] ReadAllLines()
         {
@@ -169,11 +169,12 @@ public partial class CatalogManager : ICatalogManager
                 return File.ReadAllLines(path, Encoding.UTF8);
         }
 
-        return ReadAllLines().Except(string.IsNullOrEmpty)
-                             .Except(line => line.StartsWith("#"))
-                             .Select(line => new FeedUri(line))
-                             .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
-                             .ToArray();
+        return ReadAllLines()
+              .Except(string.IsNullOrEmpty)
+              .Except(line => line.StartsWith("#"))
+              .Select(line => new FeedUri(line))
+              .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
+              .ToArray();
     }
 
     /// <summary>

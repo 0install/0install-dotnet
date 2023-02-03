@@ -54,13 +54,9 @@ public abstract partial class InterpretedScript : Candidate
         if (string.IsNullOrEmpty(interpreter)) throw new ArgumentNullException(nameof(interpreter));
         #endregion
 
-        if (!IsExecutable(file.FullName)) return false;
-
-        string? firstLine = file.ReadFirstLine(Encoding.ASCII);
-        if (string.IsNullOrEmpty(firstLine)) return false;
-        return
-            firstLine.StartsWith($@"#!/usr/bin/{interpreter}") ||
-            firstLine.StartsWith($@"#!/usr/bin/env {interpreter}");
+        return IsExecutable(file.FullName)
+            && file.ReadFirstLine(Encoding.ASCII) is {} firstLine
+            && (firstLine.StartsWith($@"#!/usr/bin/{interpreter}") || firstLine.StartsWith($@"#!/usr/bin/env {interpreter}"));
     }
     #endregion
 }

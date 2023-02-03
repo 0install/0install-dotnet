@@ -33,9 +33,8 @@ partial class SnapshotDiff
 
         // Get registry path pointer
         string appRegName = RegisteredApplications[0];
-        string? capabilitiesRegPath = RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\{DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications}", appRegName);
-        if (string.IsNullOrEmpty(capabilitiesRegPath))
-            return null;
+        if (RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\{DesktopIntegration.Windows.AppRegistration.RegKeyMachineRegisteredApplications}", appRegName)
+            is not {} capabilitiesRegPath) return null;
 
         try
         {

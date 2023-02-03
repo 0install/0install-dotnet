@@ -140,16 +140,13 @@ public static class ZeroInstallInstance
     /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
     /// <returns>The deployment directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
     public static string? FindOther(bool needsMachineWide = false)
-    {
-        if (!WindowsUtils.IsWindows) return null;
-
-        string? installLocation = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation);
-        if (string.IsNullOrEmpty(installLocation)) return null;
-        if (FileUtils.PathEquals(installLocation, Locations.InstallBase)) return null;
-        if (needsMachineWide && installLocation.StartsWith(Locations.HomeDir)) return null;
-        if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
-        return installLocation;
-    }
+        => WindowsUtils.IsWindows
+        && RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation") is {Length: > 0} installLocation
+        && !FileUtils.PathEquals(installLocation, Locations.InstallBase)
+        && (!needsMachineWide || !installLocation.StartsWith(Locations.HomeDir))
+        && File.Exists(Path.Combine(installLocation, "0install.exe"))
+            ? installLocation
+            : null;
 
     /// <summary>
     /// Silently checks if an update for Zero Install is available.

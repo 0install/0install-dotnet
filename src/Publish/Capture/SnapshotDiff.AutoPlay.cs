@@ -51,23 +51,21 @@ partial class SnapshotDiff
         #endregion
 
         using var handlerKey = hive.TryOpenSubKey($@"{DesktopIntegration.Windows.AutoPlay.RegKeyHandlers}\{handler}");
-        string? progID = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString();
-        if (string.IsNullOrEmpty(progID)) return null;
-
-        string? verbName = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString();
-        if (string.IsNullOrEmpty(verbName)) return null;
-
-        using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID) ?? throw new IOException($"{progID} key not found");
-        string? provider = handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString();
-        if (string.IsNullOrEmpty(provider)) return null;
-
-        return new AutoPlay
+        if (handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProgID)?.ToString() is {} progID
+         && handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueVerb)?.ToString() is {} verbName
+         && handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueProvider)?.ToString() is {} provider)
         {
-            ID = handler,
-            Provider = provider,
-            Descriptions = {handlerKey?.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
-            Verb = GetVerb(progIDKey, commandMapper, verbName) ?? throw new IOException($"Unable to find verb '{verbName}' for autoplay handler."),
-            Events = {autoPlayAssocs.Where(x => x.handler == handler).Select(x => new AutoPlayEvent {Name = x.name})}
-        };
+            using var progIDKey = Registry.ClassesRoot.TryOpenSubKey(progID) ?? throw new IOException($"{progID} key not found");
+            return new AutoPlay
+            {
+                ID = handler,
+                Provider = provider,
+                Descriptions = {handlerKey.GetValue(DesktopIntegration.Windows.AutoPlay.RegValueDescription)?.ToString() ?? throw new IOException("Missing description for AutoPlay handler.")},
+                Verb = GetVerb(progIDKey, commandMapper, verbName) ?? throw new IOException($"Unable to find verb '{verbName}' for autoplay handler."),
+                Events = {autoPlayAssocs.Where(x => x.handler == handler).Select(x => new AutoPlayEvent {Name = x.name})}
+            };
+        }
+
+        return null;
     }
 }

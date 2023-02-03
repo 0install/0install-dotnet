@@ -21,8 +21,7 @@ public class Fetch : CliCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        string? input = Console.ReadLine();
-        if (string.IsNullOrEmpty(input)) return ExitCode.InvalidData;
+        if (Console.ReadLine() is not {Length: > 0} input) return ExitCode.InvalidData;
         Log.Debug($"Fetch input:\n{input}");
 
         var feedFragment = XmlStorage.FromXmlString<Feed>(input);
