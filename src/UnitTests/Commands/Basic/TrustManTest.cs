@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands.Basic;
@@ -11,13 +10,7 @@ namespace ZeroInstall.Commands.Basic;
 /// </summary>
 public class TrustManTest
 {
-    public abstract class TrustSubCommand<T> : CliCommandTestBase<T>
-        where T : TrustMan.TrustSubCommand
-    {
-        protected Mock<IImplementationStore> StoreMock => GetMock<IImplementationStore>();
-    }
-
-    public class Add : TrustSubCommand<TrustMan.Add>
+    public class Add : CliCommandTestBase<TrustMan.Add>
     {
         [Fact]
         public void AddKeyForDomain()
@@ -30,7 +23,7 @@ public class TrustManTest
         }
     }
 
-    public class Remove : TrustSubCommand<TrustMan.Remove>
+    public class Remove : CliCommandTestBase<TrustMan.Remove>
     {
         [Fact]
         public void RemoveKey()
@@ -63,7 +56,7 @@ public class TrustManTest
         }
     }
 
-    public class List : TrustSubCommand<TrustMan.List>
+    public class List : CliCommandTestBase<TrustMan.List>
     {
         [Fact]
         public void ListAll()
