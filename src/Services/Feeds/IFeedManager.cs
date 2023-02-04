@@ -67,12 +67,13 @@ public interface IFeedManager
     /// <summary>
     /// Imports a remote <see cref="Feed"/> into the <see cref="IFeedCache"/> after verifying its signature.
     /// </summary>
-    /// <param name="path">The path of a local copy of the feed.</param>
+    /// <param name="stream">The content of the feed file.</param>
+    /// <param name="keyCallback">Callback for reading a specific OpenPGP public key file.</param>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
-    void ImportFeed(string path);
+    void ImportFeed(Stream stream, OpenPgpKeyCallback? keyCallback = null);
 
     /// <summary>
     /// Clears any in-memory caches.

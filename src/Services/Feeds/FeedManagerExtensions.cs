@@ -58,4 +58,29 @@ public static class FeedManagerExtensions
 
         return feed;
     }
+
+    /// <summary>
+    /// Imports a local copy of a remote <see cref="Feed"/> into the <see cref="IFeedCache"/> after verifying its signature.
+    /// </summary>
+    /// <param name="feedManager">The <see cref="IFeedManager"/> implementation.</param>
+    /// <param name="path">The path of a local copy of the feed.</param>
+    /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
+    public static void ImportFeed(this IFeedManager feedManager, string path)
+    {
+        #region Sanity checks
+        if (feedManager == null) throw new ArgumentNullException(nameof(feedManager));
+        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        #endregion
+
+        using var stream = File.OpenRead(path);
+        feedManager.ImportFeed(stream, keyCallback: id =>
+        {
+            // Find .gpg files places next to the feed file
+            string keyPath = Path.Combine(Path.GetDirectoryName(path) ?? "", id + ".gpg");
+            return File.Exists(keyPath) ? new(File.ReadAllBytes(keyPath)) : null;
+        });
+    }
 }

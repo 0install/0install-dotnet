@@ -194,17 +194,16 @@ public class FeedManager : IFeedManager
     }
 
     /// <inheritdoc/>
-    public void ImportFeed(string path)
+    public void ImportFeed(Stream stream, OpenPgpKeyCallback? keyCallback = null)
     {
         #region Sanity checks
-        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
+        if (stream == null) throw new ArgumentNullException(nameof(stream));
         #endregion
 
-        var feed = XmlStorage.LoadXml<Feed>(path);
+        var feed = XmlStorage.LoadXml<Feed>(stream);
         if (feed.Uri == null) throw new InvalidDataException(Resources.ImportNoSource);
 
-        using var stream = File.OpenRead(path);
-        ImportFeed(stream, feed.Uri, path);
+        ImportFeed(stream, feed.Uri, keyCallback);
     }
 
     /// <inheritdoc/>
@@ -219,19 +218,19 @@ public class FeedManager : IFeedManager
     /// </summary>
     /// <param name="stream">The content of the feed.</param>
     /// <param name="feedUri">The URI the feed originally came from.</param>
-    /// <param name="localPath">The local file path the feed data came from. May be <c>null</c> for in-memory data.</param>
+    /// <param name="keyCallback">Callback for reading a specific OpenPGP public key file.</param>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to the feed file or the cache is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of the feed file could not be handled or no signatures were trusted.</exception>
     /// <exception cref="UriFormatException"><see cref="Feed.Uri"/> is missing or does not match <paramref name="feedUri"/> or <paramref name="feedUri"/> is a local file.</exception>
-    private void ImportFeed(Stream stream, FeedUri feedUri, string? localPath = null)
+    private void ImportFeed(Stream stream, FeedUri feedUri, OpenPgpKeyCallback? keyCallback = null)
     {
-        Log.Debug($"Importing feed {feedUri.ToStringRfc()} from {(localPath ?? "web")}");
+        Log.Debug($"Importing feed {feedUri.ToStringRfc()}");
 
         var data = stream.AsArray();
         CheckFeed(data, feedUri);
-        CheckTrust(data, feedUri, localPath);
+        CheckTrust(data, feedUri, keyCallback);
         AddToCache(data, feedUri);
     }
 
@@ -254,17 +253,9 @@ public class FeedManager : IFeedManager
         if (feed.Uri != feedUri) throw new InvalidDataException(string.Format(Resources.FeedUriMismatch, feed.Uri, feedUri));
     }
 
-    private void CheckTrust(byte[] data, FeedUri feedUri, string? localPath)
+    private void CheckTrust(byte[] data, FeedUri feedUri, OpenPgpKeyCallback? keyCallback = null)
     {
-        var newSignature = _trustManager.CheckTrust(data, feedUri,
-            keyCallback: localPath == null
-                ? null
-                : id =>
-                {
-                    // Find .gpg files places next to the feed file
-                    string keyPath = Path.Combine(Path.GetDirectoryName(localPath) ?? "", id + ".gpg");
-                    return File.Exists(keyPath) ? new(File.ReadAllBytes(keyPath)) : null;
-                });
+        var newSignature = _trustManager.CheckTrust(data, feedUri, keyCallback);
 
         var oldSignature = _feedCache.GetSignatures(feedUri).OfType<ValidSignature>().FirstOrDefault();
         if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp)

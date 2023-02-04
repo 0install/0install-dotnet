@@ -189,7 +189,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         _trustManagerMock.Setup(x => x.CheckTrust(feedData, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         _feedManager.Refresh = true;
-        _feedManager[feed.Uri].Should().Be(feed);
+        _feedManager[feed.Uri!].Should().Be(feed);
     }
 
     [Fact]
@@ -214,46 +214,36 @@ public class FeedManagerTest : TestWithMocksAndRedirect
     [Fact] // Ensures valid feeds are correctly imported.
     public void Import()
     {
-        var feed = FeedTest.CreateTestFeed();
-        var data = SignFeed(feed);
+        var (uri, data) = FakeSignedFeed();
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns(Enumerable.Empty<OpenPgpSignature>());
+        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns(Enumerable.Empty<OpenPgpSignature>());
 
         // Adding new feed
-        _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
+        _feedCacheMock.Setup(x => x.Add(uri, data));
 
-        using var feedFile = new TemporaryFile("0install-test-feed");
-        File.WriteAllBytes(feedFile, data);
-        _feedManager.ImportFeed(feedFile);
+        _feedManager.ImportFeed(data.ToStream());
     }
 
     [Fact] // Ensures replay attacks are detected.
     public void ImportReplayAttack()
     {
-        var feed = FeedTest.CreateTestFeed();
-        var data = SignFeed(feed);
+        var (uri, data) = FakeSignedFeed();
 
         // Newer signature present => replay attack
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns(new[]
+        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns(new[]
         {
             new ValidSignature(OpenPgpUtilsTest.TestKeyID, OpenPgpUtilsTest.TestFingerprint, new DateTime(2002, 1, 1, 0, 0, 0, DateTimeKind.Utc))
         });
 
-        using var feedFile = new TemporaryFile("0install-test-feed");
-        File.WriteAllBytes(feedFile, data);
-        Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(feedFile));
+        Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(data.ToStream()));
     }
 
-    /// <summary>
-    /// Generates a byte array containing a feed and a mock signature. Configures <see cref="IOpenPgp"/> to validate this signature.
-    /// </summary>
-    /// <param name="feed">The feed to "sign".</param>
-    /// <returns>A byte array containing the serialized <paramref name="feed"/> and its mock signature.</returns>
-    private byte[] SignFeed(Feed feed)
+    private (FeedUri uri, byte[] data) FakeSignedFeed()
     {
+        var feed = FeedTest.CreateTestFeed();
         var data = feed.ToXmlString().ToStream().ToArray();
         _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
-        return data;
+        return (feed.Uri, data);
     }
 }
