@@ -55,7 +55,7 @@ public class IconStoreTest : IDisposable
     }
 
     [SkippableTheory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
-    public void RejectDamaged(string mimeType)
+    public void RejectDamagedDownload(string mimeType)
     {
         Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
 
@@ -120,6 +120,31 @@ public class IconStoreTest : IDisposable
         Inject(icon, _pngBytes, _oldTimestamp);
         File.ReadAllBytes(_store.GetFresh(icon))
             .Should().BeEquivalentTo(_pngBytes);
+    }
+
+
+    [Fact]
+    public void ImportPng() => Import(_pngBytes, Icon.MimeTypePng);
+
+    [Fact]
+    public void ImportIco() => Import(_icoBytes, Icon.MimeTypeIco);
+
+    private void Import(byte[] bytes, string mimeType)
+    {
+        var icon = new Icon {Href = new("https://example.com/file"), MimeType = mimeType};
+        _store.Import(icon, bytes.ToStream());
+        File.ReadAllBytes(_store.GetCached(icon)!)
+            .Should().BeEquivalentTo(bytes);
+    }
+
+    [SkippableTheory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
+    public void RejectDamagedImport(string mimeType)
+    {
+        Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
+
+        var icon = new Icon {Href = new("https://example.com/file"), MimeType = mimeType};
+        _store.Invoking(x => x.Import(icon, _dummyBytes.ToStream()))
+              .Should().Throw<InvalidDataException>();
     }
 
     private static readonly byte[]

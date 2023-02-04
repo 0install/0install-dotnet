@@ -3,6 +3,7 @@
 
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
+using NanoByte.Common.Streams;
 using NanoByte.Common.Threading;
 using ZeroInstall.Store.Configuration;
 using Drawing = System.Drawing;
@@ -98,6 +99,17 @@ public sealed partial class IconStore : IIconStore
         atomic.Commit();
 
         return path;
+    }
+
+    /// <inheritdoc/>
+    public void Import(Icon icon, Stream stream)
+    {
+        string path = GetPath(icon);
+
+        using var atomic = new AtomicWrite(path);
+        stream.CopyToFile(atomic.WritePath);
+        Validate(icon, atomic.WritePath);
+        atomic.Commit();
     }
 
     private string GetPath(Icon icon)
