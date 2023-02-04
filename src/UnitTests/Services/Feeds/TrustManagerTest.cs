@@ -169,7 +169,7 @@ public class TrustManagerTest : TestWithMocks
     }
 
     [Fact]
-    public void LoadKeyFromFileAndApprove()
+    public void LoadKeyFromCallbackAndApprove()
     {
         ExpectKeyImport();
         _handler.AnswerQuestionWith = true;
@@ -177,11 +177,11 @@ public class TrustManagerTest : TestWithMocks
         using (var tempDir = new TemporaryDirectory("0install-test-trust"))
         {
             var feedUri = new FeedUri("http://localhost/test.xml");
-            string feedPath = Path.Combine(tempDir, feedUri.PrettyEscape());
             string keyPath = Path.Combine(tempDir, $"{OpenPgpUtilsTest.TestKeyIDString}.gpg");
             KeyStream.CopyToFile(keyPath);
 
-            _trustManager.CheckTrust(_combinedBytes, feedUri, feedPath)
+            _trustManager.CheckTrust(_combinedBytes, feedUri,
+                              keyCallback: id => id == OpenPgpUtilsTest.TestKeyIDString ? new(_keyBytes) : null)
                          .Should().Be(OpenPgpUtilsTest.TestSignature);
         }
         IsKeyTrusted().Should().BeTrue(because: "Key should be trusted");

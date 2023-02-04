@@ -16,7 +16,7 @@ public interface ITrustManager
     /// </summary>
     /// <param name="data">The data of the file.</param>
     /// <param name="uri">The URI the <paramref name="data"/> originally came from.</param>
-    /// <param name="localPath">The local file path the <paramref name="data"/> came from. Used to locate key files. May be <c>null</c> for in-memory data.</param>
+    /// <param name="keyCallback">Callback for reading a specific OpenPGP public key file.</param>
     /// <returns>The first valid and trusted signature found on the feed.</returns>
     /// <exception cref="UriFormatException"><paramref name="uri"/> is a local file.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
@@ -24,5 +24,5 @@ public interface ITrustManager
     /// <exception cref="SignatureException">No trusted signature was found.</exception>
     /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-    ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null);
+    ValidSignature CheckTrust(byte[] data, FeedUri uri, OpenPgpKeyCallback? keyCallback = null);
 }

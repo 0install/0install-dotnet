@@ -256,7 +256,15 @@ public class FeedManager : IFeedManager
 
     private void CheckTrust(byte[] data, FeedUri feedUri, string? localPath)
     {
-        var newSignature = _trustManager.CheckTrust(data, feedUri, localPath);
+        var newSignature = _trustManager.CheckTrust(data, feedUri,
+            keyCallback: localPath == null
+                ? null
+                : id =>
+                {
+                    // Find .gpg files places next to the feed file
+                    string keyPath = Path.Combine(Path.GetDirectoryName(localPath) ?? "", id + ".gpg");
+                    return File.Exists(keyPath) ? new(File.ReadAllBytes(keyPath)) : null;
+                });
 
         var oldSignature = _feedCache.GetSignatures(feedUri).OfType<ValidSignature>().FirstOrDefault();
         if (oldSignature != null && newSignature.Timestamp < oldSignature.Timestamp)

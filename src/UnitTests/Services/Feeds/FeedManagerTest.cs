@@ -76,7 +76,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
         sequence.Returns(feed);
-        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         _feedManager[feed.Uri].Should().Be(feed);
     }
@@ -117,7 +117,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
         sequence.Returns(feed);
-        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         using var mirrorServer = new MicroServer("feeds/http/invalid/directory%23feed.xml/latest.xml", new MemoryStream(data));
         _config.FeedMirror = new(mirrorServer.ServerUri);
@@ -186,7 +186,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns(new[] {OpenPgpUtilsTest.TestSignature});
 
         // ReSharper disable once AccessToDisposedClosure
-        _trustManagerMock.Setup(x => x.CheckTrust(feedData, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+        _trustManagerMock.Setup(x => x.CheckTrust(feedData, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
 
         _feedManager.Refresh = true;
         _feedManager[feed.Uri].Should().Be(feed);
@@ -253,7 +253,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
     private byte[] SignFeed(Feed feed)
     {
         var data = feed.ToXmlString().ToStream().ToArray();
-        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<string>())).Returns(OpenPgpUtilsTest.TestSignature);
+        _trustManagerMock.Setup(x => x.CheckTrust(data, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
         return data;
     }
 }

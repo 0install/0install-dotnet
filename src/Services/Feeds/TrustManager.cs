@@ -26,8 +26,7 @@ public partial class TrustManager : ITrustManager
     private readonly object _lock = new();
 
     /// <inheritdoc/>
-    [SuppressMessage("Microsoft.Usage", "CA2234:PassSystemUriObjectsInsteadOfStrings")]
-    public ValidSignature CheckTrust(byte[] data, FeedUri uri, string? localPath = null)
+    public ValidSignature CheckTrust(byte[] data, FeedUri uri, OpenPgpKeyCallback? keyCallback = null)
     {
         if (uri == null) throw new ArgumentNullException(nameof(uri));
         if (data == null) throw new ArgumentNullException(nameof(data));
@@ -56,12 +55,9 @@ public partial class TrustManager : ITrustManager
                 Log.Info($"Missing key for {signature.FormatKeyID()}");
                 string id = signature.FormatKeyID();
 
-                string keyPath = Path.Combine(Path.GetDirectoryName(localPath) ?? "", id + ".gpg");
                 try
                 {
-                    _openPgp.ImportKey(File.Exists(keyPath)
-                        ? new(File.ReadAllBytes(keyPath))
-                        : DownloadKey(id, uri));
+                    _openPgp.ImportKey(keyCallback?.Invoke(id) ?? DownloadKey(id, uri));
                 }
                 #region Error handling
                 catch (InvalidDataException ex)
