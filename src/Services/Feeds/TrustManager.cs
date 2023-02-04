@@ -54,7 +54,22 @@ public partial class TrustManager : ITrustManager
             foreach (var signature in signatures.OfType<MissingKeySignature>())
             {
                 Log.Info($"Missing key for {signature.FormatKeyID()}");
-                AcquireMissingKey(signature, uri, localPath);
+                string id = signature.FormatKeyID();
+
+                string keyPath = Path.Combine(Path.GetDirectoryName(localPath) ?? "", id + ".gpg");
+                try
+                {
+                    _openPgp.ImportKey(File.Exists(keyPath)
+                        ? new(File.ReadAllBytes(keyPath))
+                        : DownloadKey(id, uri));
+                }
+                #region Error handling
+                catch (InvalidDataException ex)
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new SignatureException(ex.Message, ex);
+                }
+                #endregion
                 goto KeyImported;
             }
         }
@@ -154,71 +169,41 @@ public partial class TrustManager : ITrustManager
     }
 
     /// <summary>
-    /// Acquires the OpenPGP key file required to verify the given signature.
+    /// Downloads an OpenPGP key file from a location relative to a feed.
     /// </summary>
-    /// <param name="signature">The signature that could not be verified yet.</param>
-    /// <param name="uri">The URI the signed data originally came from.</param>
-    /// <param name="localPath">The local file path the signed data came from. May be <c>null</c> for in-memory data.</param>
-    /// <exception cref="WebException">A key file could not be downloaded from the internet.</exception>
-    /// <exception cref="SignatureException">A downloaded key file is damaged.</exception>
-    /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-    private void AcquireMissingKey(MissingKeySignature signature, Uri uri, string? localPath = null)
+    /// <param name="id">The ID of the key to download.</param>
+    /// <param name="feedUri">The URI of the feed next to which the key file is located.</param>
+    /// <exception cref="WebException">The key file could not be downloaded from the internet.</exception>
+    private ArraySegment<byte> DownloadKey(string id, Uri feedUri)
     {
-        if (!string.IsNullOrEmpty(localPath))
-        {
-            string keyFile = Path.Combine(Path.GetDirectoryName(localPath) ?? "", $"{signature.FormatKeyID()}.gpg");
-            if (File.Exists(keyFile))
-            {
-                Log.Info($"Importing key file: {keyFile}");
-                _openPgp.ImportKey(new(File.ReadAllBytes(keyFile)));
-                return;
-            }
-        }
-
-        var keyUri = new Uri(uri, $"{signature.FormatKeyID()}.gpg");
+        var keyUri = new Uri(feedUri, $"{id}.gpg");
 
         if (_config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, keyUri));
 
+        ArraySegment<byte> Download(Uri uri)
+        {
+            ArraySegment<byte> data = default;
+            _handler.RunTask(new DownloadFile(uri, stream => data = stream.ReadAll()));
+            return data;
+        }
+
         try
         {
-            DownloadKey(keyUri);
+            return Download(keyUri);
         }
         catch (WebException ex) when (_config.FeedMirror != null && ex.ShouldTryMirror(keyUri))
         {
             Log.Warn(string.Format(Resources.TryingFeedMirror, keyUri));
             try
             {
-                DownloadKey(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}keys/{signature.FormatKeyID()}.gpg"));
+                return Download(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}keys/{id}.gpg"));
             }
             catch (WebException ex2)
             {
-                Log.Debug($"Failed to download GnuPG key {signature.FormatKeyID()} from feed mirror.", ex2);
+                Log.Debug($"Failed to download GnuPG key {id} from feed mirror.", ex2);
                 throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
-    }
-
-    /// <summary>
-    /// Downloads and imports a remote key file.
-    /// </summary>
-    /// <exception cref="WebException">The key file could not be downloaded from the internet.</exception>
-    /// <exception cref="SignatureException">The downloaded key file is damaged.</exception>
-    /// <exception cref="IOException">A problem occurred while writing trust configuration.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to the trust configuration is not permitted.</exception>
-    private void DownloadKey(Uri keyUri)
-    {
-        try
-        {
-            _handler.RunTask(new DownloadFile(keyUri, stream => _openPgp.ImportKey(stream.ReadAll())));
-        }
-        #region Error handling
-        catch (InvalidDataException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new SignatureException(ex.Message, ex);
-        }
-        #endregion
     }
 }
