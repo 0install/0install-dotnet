@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.FileSystem;
+
 namespace ZeroInstall.Archives.Builders;
 
 /// <summary>
@@ -14,7 +16,7 @@ public static class ArchiveBuilder
     public static readonly string[] SupportedMimeTypes = {Archive.MimeTypeZip, Archive.MimeTypeTar, Archive.MimeTypeTarGzip, Archive.MimeTypeTarBzip};
 
     /// <summary>
-    /// Creates a new <see cref="ArchiveBuilder"/> for creating an archive from a directory and writing it to a stream.
+    /// Creates a new <see cref="ArchiveBuilder"/> for creating an archive and writing it to a stream.
     /// </summary>
     /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
     /// <param name="mimeType">The MIME type of archive format to create.</param>
@@ -41,7 +43,7 @@ public static class ArchiveBuilder
     }
 
     /// <summary>
-    /// Creates a new <see cref="ArchiveBuilder"/> for creating an archive from a directory and writing it to a file.
+    /// Creates a new <see cref="ArchiveBuilder"/> for creating an archive and writing it to a file.
     /// </summary>
     /// <param name="path">The path of the archive file to create.</param>
     /// <param name="mimeType">The MIME type of archive format to create.</param>
@@ -57,5 +59,21 @@ public static class ArchiveBuilder
         #endregion
 
         return Create(File.Create(path), mimeType, fast);
+    }
+
+    /// <summary>
+    /// Create an an archive from a directory and writes it to a file.
+    /// </summary>
+    /// <param name="sourcePath">The path of the directory to read.</param>
+    /// <param name="archivePath">The path of the archive file to create.</param>
+    /// <param name="mimeType">The MIME type of archive format to create.</param>
+    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
+    /// <exception cref="IOException">Failed to read the directory or create the archive file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the directory or write access to the archive file was denied.</exception>
+    public static void RunForDirectory(string sourcePath, string archivePath, string mimeType, ITaskHandler handler)
+    {
+        using var builder = Create(archivePath, mimeType);
+        handler.RunTask(new ReadDirectory(sourcePath, builder));
     }
 }

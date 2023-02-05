@@ -8,7 +8,6 @@ using NanoByte.Common.Streams;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Feeds;
-using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Icons;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
@@ -96,11 +95,9 @@ public class Exporter
         foreach (var digest in _selections.Implementations.Select(x => x.ManifestDigest).Where(x => x.Best != null).Distinct())
         {
             if (implementationStore.GetPath(digest) is {} sourcePath)
-            {
-                using var builder = ArchiveBuilder.Create(Path.Combine(_contentDir, $"{digest.Best}.tgz"), Archive.MimeTypeTarGzip);
-                handler.RunTask(new ReadDirectory(sourcePath, builder));
-            }
-            else Log.Warn($"Implementation {digest} missing from cache");
+                ArchiveBuilder.RunForDirectory(sourcePath, Path.Combine(_contentDir, $"{digest.Best}.tgz"), Archive.MimeTypeTarGzip, handler);
+            else
+                Log.Warn($"Implementation {digest} missing from cache");
         }
     }
 

@@ -79,8 +79,7 @@ public static class ImplementationExtensions
         implementation.SetDigest(builder => handler.RunTask(new ReadDirectory(directoryPath, builder)), executor);
 
         archive.SetMissing(executor, archiveHref.LocalPath);
-        using (var builder = ArchiveBuilder.Create(archiveHref.LocalPath, archive.MimeType!))
-            handler.RunTask(new ReadDirectory(directoryPath, builder));
+        ArchiveBuilder.RunForDirectory(directoryPath, archiveHref.LocalPath, archive.MimeType!, handler);
 
         executor.Execute(SetValueCommand.For(() => archive.Size, newValue: new FileInfo(archiveHref.LocalPath).Length));
         // ReSharper disable once RedundantTypeArgumentsOfMethod

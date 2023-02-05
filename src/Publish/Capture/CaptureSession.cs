@@ -4,7 +4,6 @@
 using System.Runtime.Versioning;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Model.Capabilities;
-using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Publish.Capture;
 
@@ -123,8 +122,7 @@ public class CaptureSession
         _feedBuilder.GenerateDigest(handler);
 
         string mimeType = Archive.GuessMimeType(archivePath);
-        using (var builder = ArchiveBuilder.Create(archivePath, mimeType))
-            handler.RunTask(new ReadDirectory(InstallationDir, builder));
+        ArchiveBuilder.RunForDirectory(InstallationDir, archivePath, mimeType, handler);
         _feedBuilder.RetrievalMethod = new Archive {Href = archiveUrl, MimeType = mimeType, Size = new FileInfo(archivePath).Length};
     }
 

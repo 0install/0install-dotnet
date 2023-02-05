@@ -122,14 +122,12 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            string outputArchive = AdditionalArgs[1];
-            string mimeType = (AdditionalArgs.Count == 3) ? AdditionalArgs[3] : Archive.GuessMimeType(outputArchive);
-
             var digest = new ManifestDigest(AdditionalArgs[0]);
-            string sourceDirectory = ImplementationStore.GetPath(digest) ?? throw new ImplementationNotFoundException(digest);
-
-            using var builder = ArchiveBuilder.Create(outputArchive, mimeType);
-            Handler.RunTask(new ReadDirectory(sourceDirectory, builder));
+            ArchiveBuilder.RunForDirectory(
+                sourcePath: ImplementationStore.GetPath(digest) ?? throw new ImplementationNotFoundException(digest),
+                archivePath: AdditionalArgs[1],
+                mimeType: AdditionalArgs.Count == 3 ? AdditionalArgs[3] : Archive.GuessMimeType(AdditionalArgs[1]),
+                Handler);
 
             return ExitCode.OK;
         }
