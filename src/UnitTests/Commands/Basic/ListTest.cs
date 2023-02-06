@@ -20,6 +20,7 @@ public class ListTest : CliCommandTestBase<List>
         _feed2.Uri = Fake.Feed2Uri;
 
         var feedCacheMock = GetMock<IFeedCache>();
+        feedCacheMock.SetupGet(x => x.Path).Returns("dummy");
         feedCacheMock.Setup(x => x.ListAll()).Returns(new[] {_feed1.Uri, _feed2.Uri});
         feedCacheMock.Setup(x => x.GetPath(_feed1.Uri)).Returns(_feedFile1);
         feedCacheMock.Setup(x => x.GetFeed(_feed1.Uri)).Returns(_feed1);

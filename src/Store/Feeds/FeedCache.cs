@@ -26,9 +26,7 @@ public sealed class FeedCache : IFeedCache
         _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
     }
 
-    /// <summary>
-    /// The directory containing the cached <see cref="Feed"/>s.
-    /// </summary>
+    /// <inheritdoc/>
     public string Path { get; }
 
     /// <inheritdoc/>

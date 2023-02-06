@@ -13,6 +13,11 @@ namespace ZeroInstall.Store.Feeds;
 public interface IFeedCache
 {
     /// <summary>
+    /// The path to the underlying directory in the file system.
+    /// </summary>
+    string Path { get; }
+
+    /// <summary>
     /// Determines whether this cache contains a local copy of a <see cref="Feed"/> identified by a specific URL.
     /// </summary>
     /// <param name="feedUri">The canonical ID used to identify the feed.</param>
