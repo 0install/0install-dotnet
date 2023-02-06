@@ -16,7 +16,7 @@ public interface IImplementationStore : IImplementationSink
     /// <summary>
     /// The path to the underlying directory in the file system.
     /// </summary>
-    string Path { get; }
+    string? Path { get; }
 
     /// <summary>
     /// Determines the local path of an implementation with a given <see cref="ManifestDigest"/>.

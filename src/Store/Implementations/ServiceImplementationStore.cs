@@ -42,7 +42,7 @@ public partial class ServiceImplementationStore : IImplementationStore
     }
 
     /// <inheritdoc/>
-    public string Path => "-";
+    public string? Path => null;
 
     /// <summary>
     /// Always returns <c>null</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
@@ -89,6 +89,6 @@ public partial class ServiceImplementationStore : IImplementationStore
     /// Returns a fixed string.
     /// </summary>
     public override string ToString()
-        => "Connection to Store Service (if available)";
+        => "Store Service";
 }
 #endif
