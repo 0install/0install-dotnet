@@ -35,7 +35,7 @@ public class CompositeImplementationStore : CompositeImplementationSink, IImplem
 
     /// <inheritdoc/>
     public string Path
-        => string.Join(System.IO.Path.PathSeparator.ToString(), Stores.Select(x => x.Path));
+        => string.Join(", ", Stores.Select(x => x.Path).WhereNotNull());
 
     /// <inheritdoc/>
     public string? GetPath(ManifestDigest manifestDigest)

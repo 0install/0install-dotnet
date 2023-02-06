@@ -137,6 +137,7 @@ public class StoreManTest
             SetupFeed(_feed1, _feedFile1);
             SetupFeed(_feed2, _feedFile2);
 
+            StoreMock.SetupGet(x => x.Path).Returns("dummy");
             StoreMock.Setup(x => x.ListAll()).Returns(new[] {_impl1.ManifestDigest, _impl2.ManifestDigest, _digest3});
             void SetupImpl(ManifestDigest digest, string path)
             {
