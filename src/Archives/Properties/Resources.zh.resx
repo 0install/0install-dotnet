@@ -62,6 +62,10 @@
     <value>档案文件无效或损坏。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>建筑档案 '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>提取档案</value>
     <comment>Automatically translated.</comment>

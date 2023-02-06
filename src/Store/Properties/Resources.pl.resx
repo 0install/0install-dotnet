@@ -68,7 +68,7 @@
 Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tej linii poleceń:
 {0}
 
-Jeśli chcesz usunąć cały ten katalog, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć cały katalog, możesz użyć tego wiersza poleceń:
 {1}
 
 Jeśli chcesz usunąć cały ten katalog bez użycia Zero Install możesz użyć tego wiersza poleceń:
@@ -255,6 +255,10 @@ Możesz usunąć plik '{0}', aby naprawić problem.</value>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem wartości konfiguracyjnej '{0}'.
 Możesz usunąć plik '{1}', aby naprawić problem. Inne ustawienia mogą również zostać utracone.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Katalog czytelniczy '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">

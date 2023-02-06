@@ -62,6 +62,10 @@
     <value>Arhiva este invalidă sau coruptă.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Arhiva clădirii '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Extragerea arhivei</value>
     <comment>Automatically translated.</comment>

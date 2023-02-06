@@ -771,7 +771,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Требуйте версию основной программы не ранее {VERSION}. Например, если вы хотите запустить версию 2.0 или более позднюю, используйте --not-before=2.0.</value>
+    <value>Требуйте версию основной программы не ранее, чем {VERSION}. Например, если вы хотите запустить версию 2.0 или более позднюю, используйте --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -980,7 +980,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Надежные ключи</value>
+    <value>Доверенные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

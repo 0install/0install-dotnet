@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>命令'0install'已被添加到你的命令行PATH中。</value>
+    <value>命令'0install'已经被添加到你的命令行PATH中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将把Zero Install添加到开始菜单和命令行中。继续吗？</value>
+    <value>这将在开始菜单和命令行中添加Zero Install。继续吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -272,8 +272,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它还会下载所选择的版本，如果它们还没有被缓存。
-如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
+    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
+如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态0；否则返回状态1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -310,7 +310,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>从系统中删除 "零点安装 "的当前实例。</value>
+    <value>从系统中删除当前的 "零安装 "实例。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -538,11 +538,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择无法应用。</value>
+    <value>你的桌面整合选择不能被应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>你想改变你的选择并重新尝试吗？</value>
+    <value>你想改变你的选择并再次尝试吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -612,7 +612,7 @@
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -681,7 +681,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>不执行默认命令，而是使用{COMMAND} 。有效的命令名称在程序的馈送中被指定。
-设置为空（""）可以在选择时忽略该命令。</value>
+设置为空（""），在选择过程中忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -788,7 +788,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个可以移动的便携式安装（例如，在优盘上）。</value>
+    <value>创建一个可以到处移动的便携式安装（例如，在优盘上）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -812,7 +812,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器上的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}是 "无"（正常合并客户端和服务器的数据），"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -826,7 +826,7 @@
   <data name="OptionVersionRange" xml:space="preserve">
     <value>要求主程序的版本在给定的{RANGE} 。
 范围由管道（|）分隔。
-每个范围的形式是 "START...!END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以省略。
+每个范围的形式是 "START...！END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以省略。
 可以用一个版本号来代替范围，以便只匹配该版本，或者用!!VERSION来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -906,7 +906,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个 "零安装 "实例没有被部署。没有任何东西可以删除。</value>
+    <value>这个 "零安装 "的实例没有被部署。没有任何东西可以删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">

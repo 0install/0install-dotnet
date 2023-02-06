@@ -206,7 +206,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Una versione portatile di Zero Install è stata distribuita a '{0}'.
+    <value>Una versione portatile di Zero Install è stata distribuita su '{0}'.
 È possibile utilizzarla eseguendo il file ZeroInstall.exe nella directory.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -273,7 +273,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -322,7 +322,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disregistra un mangime, invertendo l'effetto di "0install add-feed".</value>
+    <value>Disregistra un mangime, invertendo l'effetto di '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -330,7 +330,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Si comporta in modo simile a '0install download', ma esegue il programma dopo essersi assicurato che sia nella cache.
+    <value>Si comporta in modo simile a '0install download', tranne per il fatto che esegue il programma dopo essersi assicurato che sia nella cache.
 Restituisce uno stato di uscita pari a 1 se la fase di download non è riuscita. Altrimenti, lo stato di uscita sarà quello del programma in esecuzione.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -428,7 +428,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
+    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -607,7 +607,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Per far funzionare l'integrazione desktop, Zero Install deve essere distribuito sul sistema.</value>
+    <value>Affinché l'integrazione desktop funzioni, è necessario che Zero Install sia distribuito sul sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -775,7 +775,7 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che termini l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
+    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che finisca l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -959,7 +959,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

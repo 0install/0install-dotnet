@@ -255,7 +255,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as aplicações nos catálogos são listadas.</value>
+    <value>Procura catálogos registados para aplicações que correspondam à consulta especificada. Se não for dada qualquer consulta, todas as candidaturas nos catálogos são listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista de todos os directórios de implementação.</value>
+    <value>Lista todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -457,7 +457,7 @@ Isto é semelhante a '0install download --refresh', excepto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação para adicionar:</value>
+    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação a adicionar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -676,7 +676,7 @@ Pode fazer isto usando '{0}'. Isto será completamente independente da sua cópi
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Retirar implementações já não necessárias após a actualização.</value>
+    <value>Remover implementações já não necessárias após a actualização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -780,7 +780,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, anulando a configuração padrão.
-No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, a partir de uma actualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada mesmo que esteja desactualizada, e novas versões de programas não serão descarregadas mesmo que o injector já as conheça (por exemplo, de uma actualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -841,7 +841,7 @@ No entanto, os novos descarregamentos não serão escritos neste directório.</v
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar directamente o programa escolhido, correr {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (em vez de instalar no Zero!).
-Note que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
+Note-se que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
 Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
     <comment>Automatically translated.</comment>
   </data>

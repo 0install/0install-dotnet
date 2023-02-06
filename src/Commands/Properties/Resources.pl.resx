@@ -223,7 +223,7 @@ Można z niej skorzystać uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności każdorazowego wprowadzania pełnego URI.</value>
+    <value>Utwórz alias do uruchamiania aplikacji poprzez 0install bez konieczności ciągłego wpisywania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -331,7 +331,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Zachowuje się podobnie do '0install download', z tą różnicą, że uruchamia program po upewnieniu się, że jest w pamięci podręcznej.
-Zwraca kod zakończenia równy 1, jeśli krok pobierania nie powiódł się. W przeciwnym razie, statusem zakończenia będzie status zakończenia uruchamianego programu.</value>
+Zwraca kod zakończenia równy 1, jeśli etap pobierania zakończył się niepowodzeniem. W przeciwnym razie, statusem zakończenia będzie status zakończenia uruchamianego programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -391,7 +391,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby oczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów cache może być trudne ze względu na listy kontrolne NTFS, które chronią implementacje przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontrolne NTFS stosowane do ochrony implementacji przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -441,7 +441,7 @@ Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Zastosowanie integracji pulpitu</value>
+    <value>Zastosowanie integracji z pulpitem</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
@@ -648,7 +648,7 @@ Możesz to zrobić używając '{0}'. Będzie to całkowicie niezależne od twoje
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algorytm {HASH}, który ma być użyty do wykonania skrótu.</value>
+    <value>Algorytm {HASH}, który ma być użyty dla skrótu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -816,7 +816,7 @@ W trybie off-line nie są odświeżane żadne interfejsy, nawet jeśli są nieak
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Bardziej zwięzłe wyjście. Użyj dwa razy, aby uzyskać jeszcze bardziej zwięzłe dane wyjściowe.</value>
+    <value>Bardziej zwięzłe wyjście. Użyj dwukrotnie, aby uzyskać jeszcze bardziej zwięzłe dane wyjściowe.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -835,7 +835,7 @@ Zamiast zakresu można użyć pojedynczego numeru wersji, by dopasować tylko t�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Dodaj {DIR} do listy katalogów podręcznych implementacji do przeszukania.
+    <value>Dodaj {DIR} do listy pamięci podręcznej implementacji do przeszukania.
 Jednak nowe pobrania nie będą zapisywane do tego katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -1012,7 +1012,7 @@ Zachowaj ten klucz w tajemnicy i użyj czegoś innego dla swojego hasła. W ten 
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Używaj języka systemowego</value>
+    <value>Użyj języka systemowego</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">

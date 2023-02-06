@@ -62,6 +62,10 @@
     <value>Arşiv dosyası geçersiz ya da bozuk.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Arşiv oluşturma '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Arşiv ayıklanıyor</value>
     <comment>Manually overriden.</comment>

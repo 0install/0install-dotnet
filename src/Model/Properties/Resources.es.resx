@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Debe ser un ID seguro. Sólo puede contener caracteres alfanuméricos, espacios (), puntos (.), guiones bajos (_), guiones (-) y signos más (+).</value>
+    <value>Debe ser un ID seguro. Solo puede contener caracteres alfanuméricos, espacios (), puntos (.), guiones bajos (_), guiones (-) y signos más (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

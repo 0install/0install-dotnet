@@ -257,6 +257,10 @@ Pode apagar o ficheiro '{0}' para resolver o problema.</value>
 Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações podem também ser perdidas.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Directório de Leitura '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>O ficheiro da assinatura já existe.</value>
     <comment>Automatically translated.</comment>

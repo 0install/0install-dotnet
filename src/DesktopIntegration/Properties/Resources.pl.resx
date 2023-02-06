@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Aplikacja "{0}" znajduje się już na liście aplikacji.</value>
+    <value>Aplikacja "{0}" jest już na liście aplikacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
