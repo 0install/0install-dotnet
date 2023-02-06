@@ -257,10 +257,6 @@ Vous pouvez supprimer le fichier '{0}' pour résoudre le problème.</value>
 Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres paramètres peuvent également être perdus.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Traitement des dossiers</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Le fichier de signature existe déjà.</value>
     <comment>Automatically translated.</comment>

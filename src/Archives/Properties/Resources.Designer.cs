@@ -70,6 +70,15 @@ namespace ZeroInstall.Archives.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Building archive &apos;{0}&apos;.
+        /// </summary>
+        internal static string BuildingArchive {
+            get {
+                return ResourceManager.GetString("BuildingArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extracting archive.
         /// </summary>
         internal static string ExtractingArchive {

@@ -257,10 +257,6 @@
 你可以删除文件 '{1}' 来解决这个问题。其他设置也可能丢失。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>处理文件</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>签名文件已经存在。</value>
     <comment>Automatically translated.</comment>

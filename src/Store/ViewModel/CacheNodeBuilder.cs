@@ -46,7 +46,7 @@ public sealed class CacheNodeBuilder
         var nodes = new NamedCollection<CacheNode>();
 
         _handler.RunTask(ForEachTask.Create(
-            name: Resources.ProcessingFiles,
+            name: string.Format(Resources.ReadDirectory, _implementationStore?.Path ?? _feedCache.Path),
             target: input,
             work: item =>
             {

@@ -257,10 +257,6 @@ Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
 Puteți șterge fișierul '{1}' pentru a remedia problema. Este posibil să se piardă și alte setări.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Procesarea fișierelor</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Fișierul de semnătură există deja.</value>
     <comment>Automatically translated.</comment>

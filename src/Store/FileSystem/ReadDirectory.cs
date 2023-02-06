@@ -18,10 +18,12 @@ public class ReadDirectory : ReadDirectoryBase
     /// </summary>
     /// <param name="path">The path of the directory to read.</param>
     /// <param name="builder">The builder to read to.</param>
-    public ReadDirectory(string path, IForwardOnlyBuilder builder)
+    /// <param name="name">A name describing the task in human-readable form.</param>
+    public ReadDirectory(string path, IForwardOnlyBuilder builder, [Localizable(true)] string? name = null)
         : base(path)
     {
         _builder = builder ?? throw new ArgumentNullException(nameof(builder));
+        Name = name ?? string.Format(Resources.ReadDirectory, path);
 
         bool shouldReadManifest;
         try
@@ -43,7 +45,7 @@ public class ReadDirectory : ReadDirectoryBase
     }
 
     /// <inheritdoc/>
-    public override string Name => Resources.ProcessingFiles;
+    public override string Name { get; }
 
     /// <inheritdoc/>
     protected override void HandleDirectory(DirectoryInfo entry)
