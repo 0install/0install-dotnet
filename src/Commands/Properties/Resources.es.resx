@@ -211,7 +211,7 @@ Puede utilizarlo ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Si utiliza la opción {0}, deberá especificar explícitamente el directorio de destino.</value>
+    <value>Si utiliza la opción {0}, debe especificar explícitamente el directorio de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -391,7 +391,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar Zero Install. Eliminar manualmente los directorios de la caché puede resultar difícil debido a las ACL NTFS empleadas para proteger las implantaciones contra modificaciones.
+    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar Zero Install. Eliminar manualmente los directorios de la caché puede ser difícil debido a las ACL NTFS empleadas para proteger las implantaciones contra modificaciones.
 Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -558,7 +558,7 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Existe una versión posterior ({0}) pero no fue seleccionada. En su lugar se utiliza {1}.</value>
+    <value>Existe una versión posterior ({0}) pero no ha sido seleccionada. En su lugar se utiliza {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -685,7 +685,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambia a una pestaña específica de la GUI de configuración. Las opciones válidas de {TAB}son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
+    <value>Cambia a una pestaña específica de la GUI de configuración. Las {TAB}válidas son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -827,7 +827,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos se separan mediante tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">

@@ -257,6 +257,10 @@ U kunt het bestand '{0}' verwijderen om het probleem op te lossen.</value>
 U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instellingen kunnen ook verloren gaan.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Leesmap '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Het handtekeningenbestand bestaat al.</value>
     <comment>Automatically translated.</comment>
@@ -274,7 +278,7 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Kan schrijfbeveiliging voor '{0}' niet inschakelen.</value>
+    <value>Kan geen schrijfbeveiliging inschakelen voor '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">

@@ -62,6 +62,10 @@
     <value>Il file di archivio non è valido o è danneggiato.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Archivio edifici '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Estrazione dell'archivio</value>
     <comment>Automatically translated.</comment>

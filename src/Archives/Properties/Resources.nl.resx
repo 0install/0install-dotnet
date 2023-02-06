@@ -62,6 +62,10 @@
     <value>Het archiefbestand is ongeldig of beschadigd.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Bouwarchief '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Archief uitpakken</value>
     <comment>Automatically translated.</comment>

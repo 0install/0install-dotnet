@@ -62,6 +62,10 @@
     <value>Архивный файл недействителен или поврежден.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Строительный архив '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Распаковка архива</value>
     <comment>Automatically translated.</comment>

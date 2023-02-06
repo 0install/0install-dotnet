@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' という名前の既存のエイリアスは見つかりませんでした。</value>
+    <value>'{0}' という名前の既存のエイリアスが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
@@ -130,7 +130,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>オプション{0} と{1} は同時に使用できません。</value>
+    <value>{0} と{1} のオプションは一緒に使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
@@ -362,7 +362,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>実装をキャッシュにコピーする。0install store add' と似ていますが、ディレクトリ名からダイジェストを抽出します。
-追加の引数で、カスタムターゲットのキャッシュの場所を指定します。</value>
+追加の引数は、カスタムターゲットのキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -391,7 +391,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用された NTFS ACL のために困難な場合があります。
+    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用されている NTFS ACL のために困難な場合があります。
 追加の引数でカスタムキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -408,7 +408,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>実装が破損していないこと（マニフェストダイジェストが変更されていないこと）を確認します。</value>
+    <value>実装が破損していないこと（つまり、マニフェストダイジェストが変更されていないこと）を確認します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -685,7 +685,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced' である。</value>
+    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced'です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -754,12 +754,12 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>指定された実行ファイル{MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルのディレクトリからの相対パスとなり、それ以外の場合は、デフォルトのメイン プログラムを含むディレクトリからの相対パスとなります。
+    <value>指定された実行ファイル{MAIN} をデフォルトではなく、実行します。パスが '/' または '\' で始まる場合は、実装のトップレベルディレクトリからの相対パスとなり、それ以外の場合は、デフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含んではいけません。ホワイトスペースはエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>マニフェストそのものを表示する（ファイルまたはディレクトリごとに1行）。</value>
+    <value>マニフェストそのものを表示します（ファイルまたはディレクトリごとに1行）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
@@ -780,7 +780,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>オフラインモードで実行し、デフォルト設定をオーバーライドします。
-オフラインモードでは、インターフェースが古くても更新されず、インジェクターがすでに知っていても（例えば、以前の更新から）プログラムの新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェースが古くてもリフレッシュされず、インジェクタがすでに知っていても（例えば、以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -923,11 +923,11 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>アドレスで実装をサーヴィスする{0}</value>
+    <value>アドレスで実装を提供する{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>{0} に合わせて安定性ポリシーを設定する？</value>
+    <value>安定性ポリシーを設定する{0} に合わせる？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">

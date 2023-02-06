@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Questa directory è una cache di implementazione. I file qui presenti sono resi di sola lettura utilizzando i permessi del file system. Ciò impedisce di cancellarli normalmente.
+    <value>Questa directory è una cache di implementazione. I file qui presenti sono resi di sola lettura utilizzando i permessi del file system. Ciò impedisce che vengano cancellati normalmente.
 
 Se si desidera cancellare una singola implementazione, si può usare questa riga di comando:
 {0}
@@ -239,7 +239,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
@@ -255,6 +255,10 @@ Specificato nel file di configurazione '{1}'.</value>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Si è verificato un problema nel caricamento del valore di configurazione '{0}'.
 È possibile eliminare il file '{1}' per risolvere il problema. Anche altre impostazioni potrebbero andare perse.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Elenco delle letture '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
