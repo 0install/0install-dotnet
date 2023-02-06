@@ -120,6 +120,9 @@
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>The archive file is invalid or damaged.</value>
   </data>
+  <data name="BuildingArchive" xml:space="preserve">
+    <value>Building archive '{0}'</value>
+  </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Extracting archive</value>
   </data>

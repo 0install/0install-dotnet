@@ -257,10 +257,6 @@ Możesz usunąć plik '{0}', aby naprawić problem.</value>
 Możesz usunąć plik '{1}', aby naprawić problem. Inne ustawienia mogą również zostać utracone.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Pliki do przetwarzania</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Plik sygnatury już istnieje.</value>
     <comment>Automatically translated.</comment>

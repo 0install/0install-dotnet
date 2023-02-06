@@ -257,10 +257,6 @@ Você pode excluir o arquivo '{0}' para corrigir o problema.</value>
 Você pode excluir o arquivo '{1}' para corrigir o problema. Outras configurações também podem ser perdidas.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Processando arquivos</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>O arquivo de assinatura já existe.</value>
     <comment>Manually overriden.</comment>

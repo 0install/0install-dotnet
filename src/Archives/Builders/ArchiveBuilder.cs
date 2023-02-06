@@ -74,6 +74,6 @@ public static class ArchiveBuilder
     public static void RunForDirectory(string sourcePath, string archivePath, string mimeType, ITaskHandler handler)
     {
         using var builder = Create(archivePath, mimeType);
-        handler.RunTask(new ReadDirectory(sourcePath, builder));
+        handler.RunTask(new ReadDirectory(sourcePath, builder, string.Format(Resources.BuildingArchive, archivePath)));
     }
 }

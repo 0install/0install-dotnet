@@ -257,10 +257,6 @@ Pode apagar o ficheiro '{0}' para resolver o problema.</value>
 Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações podem também ser perdidas.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Processamento de ficheiros</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>O ficheiro da assinatura já existe.</value>
     <comment>Automatically translated.</comment>

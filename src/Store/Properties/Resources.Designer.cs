@@ -490,11 +490,11 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Processing files.
+        ///   Looks up a localized string similar to Reading directory &apos;{0}&apos;.
         /// </summary>
-        internal static string ProcessingFiles {
+        internal static string ReadDirectory {
             get {
-                return ResourceManager.GetString("ProcessingFiles", resourceCulture);
+                return ResourceManager.GetString("ReadDirectory", resourceCulture);
             }
         }
         

@@ -257,8 +257,8 @@ Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
 Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstellungen können ebenfalls verloren gehen.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Verarbeitung von Dateien</value>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Lese Verzeichnis '{0}'</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">

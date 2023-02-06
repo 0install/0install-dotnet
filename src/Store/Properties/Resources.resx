@@ -270,8 +270,8 @@ You can delete the file '{0}' to fix the problem.</value>
     <value>There was a problem loading the configuration value '{0}'.
 You can delete the file '{1}' to fix the problem. Other settings may also be lost.</value>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Processing files</value>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Reading directory '{0}'</value>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Signature file already exists.</value>

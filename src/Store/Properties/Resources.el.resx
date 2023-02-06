@@ -257,10 +257,6 @@
 Μπορείτε να διαγράψετε το αρχείο '{1}' για να διορθώσετε το πρόβλημα. Άλλες ρυθμίσεις μπορούν επίσης να χαθούν.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Επεξεργασία αρχείων</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
     <comment>Manually overriden.</comment>

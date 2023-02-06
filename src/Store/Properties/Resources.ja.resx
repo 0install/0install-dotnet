@@ -257,10 +257,6 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
 ファイル '{1}' を削除することで問題を解決できます。他の設定値も失われる可能性があります。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>処理ファイル</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>署名ファイルはすでに存在しています。</value>
     <comment>Automatically translated.</comment>

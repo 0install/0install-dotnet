@@ -257,10 +257,6 @@
 Вы можете удалить файл '{1}', чтобы устранить проблему. Другие настройки также могут быть потеряны.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Обработка файлов</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Файл подписи уже существует.</value>
     <comment>Automatically translated.</comment>

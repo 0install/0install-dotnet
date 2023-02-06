@@ -257,10 +257,6 @@ U kunt het bestand '{0}' verwijderen om het probleem op te lossen.</value>
 U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instellingen kunnen ook verloren gaan.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Bestanden verwerken</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Het handtekeningenbestand bestaat al.</value>
     <comment>Automatically translated.</comment>

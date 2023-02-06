@@ -257,10 +257,6 @@ Sorunu gidermek için '{0}' dosyasını silebilirsiniz.</value>
 Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Başka ayarlar da kaybolabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProcessingFiles" xml:space="preserve">
-    <value>Dosyalar işleniyor</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>İmza dosyası zaten var.</value>
     <comment>Manually overriden.</comment>
