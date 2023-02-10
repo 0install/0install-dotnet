@@ -1,0 +1,30 @@
+# Trigger additional actions after a GitHub Release has been created
+name: Release
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download documentation
+        run: |
+          curl -sSfLO https://github.com/${{github.repository}}/releases/download/${{github.ref_name}}/docs.zip
+          unzip -q docs.zip -d docs
+
+      - name: Publish documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{github.token}}
+          force_orphan: true
+          publish_dir: docs
+          cname: dotnet.0install.net
+
+      - name: Publish feed
+        env:
+          GH_TOKEN: ${{secrets.PERSONAL_TOKEN}}
+        run: >
+          gh workflow run --repo=0install/apps Incoming
+          -f feed_url=https://github.com/${{github.repository}}/releases/download/${{github.ref_name}}/0install-dotnet-${{github.ref_name}}.xml
+          -f archive_url=https://github.com/${{github.repository}}/releases/download/${{github.ref_name}}/0install-dotnet-${{github.ref_name}}.tar.gz

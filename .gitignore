@@ -14,5 +14,5 @@
 
 # Output
 /artifacts/
-/feed/*.xml
-/feed/*.tar.gz
+/0install-dotnet-*.xml
+/0install-dotnet-*.tar.gz

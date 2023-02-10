@@ -14,19 +14,25 @@ for:
       - powershell .\0install.ps1 run --batch https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
 
     build_script:
-      - powershell src\build.ps1 %GitVersion_NuGetVersion%
-      - powershell doc\build.ps1
+      - powershell .\build.ps1 %GitVersion_NuGetVersion% -SkipTest
 
     test_script:
       - powershell src\test.ps1
 
     artifacts:
-      - path: artifacts
+      # nuget.org
       - path: artifacts\Release\*.*nupkg
-      - path: artifacts\0install-dotnet-*.tar.gz
-        name: bin
+      # SignPath
+      - path: artifacts\Release
+        name: artifacts
+      # docs.0install.net
       - path: artifacts\Documentation
         name: docs
+      # apps.0install.net
+      - path: 0install-dotnet-*.tar.gz
+        name: bin
+      - path: 0install-dotnet-*.xml
+        name: feed
 
     deploy:
       - provider: Environment
@@ -54,8 +60,11 @@ for:
     cache:
       - '$HOME/.nuget/packages -> **/*.csproj,**/*.targets,**/*.props'
 
+    before_build:
+      - ./0install.sh run https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
+
     build_script:
-      - sh: src/build.sh
+      - sh: ./build.sh $GitVersion_NuGetVersion --skip-test
 
     test_script:
       - sh: src/test.sh
