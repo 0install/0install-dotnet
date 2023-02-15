@@ -68,7 +68,7 @@
 Si desea eliminar una sola implementación, puede utilizar esta línea de comandos:
 {0}
 
-Si desea eliminar todo el directorio, puede utilizar esta línea de comandos:
+Si desea borrar todo el directorio, utilice esta línea de comandos:
 {1}
 
 Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar esta línea de comandos:
@@ -84,7 +84,7 @@ Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Supresión de la aplicación {0}</value>
+    <value>Eliminación de la aplicación {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">

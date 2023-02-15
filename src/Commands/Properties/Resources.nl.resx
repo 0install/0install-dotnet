@@ -277,7 +277,7 @@ Geeft een exit-status van 0 als het een geschikte set versies heeft geselecteerd
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporteert alle feeds en implementaties die nodig zijn om het door een URI opgegeven programma te starten naar een DIRECTORY.</value>
+    <value>Exporteert alle feeds en implementaties die nodig zijn om het door een URI gespecificeerde programma te starten naar een DIRECTORY.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -286,7 +286,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importeert een reeks toepassingen en desktopintegraties uit een bestaand app-list.xml bestand.</value>
+    <value>Importeert een reeks toepassingen en desktop-integraties uit een bestaand app-list.xml bestand.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -616,7 +616,7 @@ U kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van uw
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden geïmplementeerd in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
+    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden ingezet in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -842,7 +842,7 @@ Nieuwe downloads worden echter niet naar deze directory geschreven.</value>
   <data name="OptionWrapper" xml:space="preserve">
     <value>In plaats van het gekozen programma direct uit te voeren, voer je {COMMAND} PROGRAM ARGS uit. Dit is handig om debuggers en tracing tools op het programma uit te voeren (in plaats van op Zero Install!).
 Merk op dat de wrapper wordt uitgevoerd in de door het programma gekozen omgeving; dit mechanisme kan dus niet worden gebruikt voor sandboxing.
-Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</value>
+Kan commandoregel argumenten bevatten. Whitespaces moeten worden geëscaped!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
@@ -968,7 +968,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>De cryptosleutel wordt gebruikt om uw gegevens lokaal te versleutelen voordat ze naar de server worden verzonden.
-Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server gecompromitteerd zou worden.</value>
+Houd deze sleutel geheim en gebruik iets anders voor uw wachtwoord. Zo heeft niemand toegang tot uw gegevens, zelfs niet als de server wordt gecompromitteerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 内に{0} タグがありません。</value>
+    <value>{1} の中に{0} タグがありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -127,11 +127,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の場合にのみ設定されるかもしれません。</value>
+    <value>{0} の 'rollout-percentage' 属性は 'stability' が 'testing' か未設定の時にのみ設定されるかもしれません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>バギー実装</value>
+    <value>バギーな実装</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">

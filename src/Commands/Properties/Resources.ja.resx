@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>これでスタートメニューとコマンドラインにZero Installが追加されます。続ける？</value>
+    <value>これにより、スタートメニューとコマンドラインにZero Installが追加されます。続ける？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -130,7 +130,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>{0} と{1} のオプションは一緒に使用できません。</value>
+    <value>オプション{0} と{1} は同時に使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
@@ -264,7 +264,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、設定値を指定された値に設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。1つの引数を指定すると、指定した設定の現在の値が表示されます。2つの引数を指定すると、指定された値を設定し、"default "という値が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -391,7 +391,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用されている NTFS ACL のために困難な場合があります。
+    <value>キャッシュからすべてのインプリメンテーションを削除します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。キャッシュディレクトリを手動で削除することは、実装を変更から保護するために採用された NTFS ACL のために困難な場合があります。
 追加の引数でカスタムキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -493,7 +493,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>'{0}' は、'{1}' に変更されました。更新をご検討ください。</value>
+    <value>'{0}' は、'{1}' に変更されました。更新を検討してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -685,7 +685,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced'です。</value>
+    <value>設定 GUI の特定のタブに切り替えます。有効な{TAB}は 'updates'、'storage'、'catalog'、'trust'、'sync'、'language' および 'advanced' である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -759,7 +759,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>マニフェストそのものを表示します（ファイルまたはディレクトリごとに1行）。</value>
+    <value>マニフェストそのものを表示する（ファイルまたはディレクトリごとに1行）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
@@ -927,7 +927,7 @@ No」を選択した場合、Zero Installは古い機能を使用し続けます
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>安定性ポリシーを設定する{0} に合わせる？</value>
+    <value>{0} に合わせて安定性ポリシーを設定する？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">

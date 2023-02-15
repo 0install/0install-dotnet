@@ -264,7 +264,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver ou alterar definições de configuração.
-Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, mostra o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
+Sem argumentos, exibe todas as definições e os seus valores actuais. Com um argumento, exibe o valor actual da configuração nomeada. Com dois argumentos, define a configuração para o valor dado ou redefine-o para o valor por defeito se o valor "por defeito" for dado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica um local de destino personalizado da cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista todos os directórios de implementação.</value>
+    <value>Lista de todos os directórios de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -457,7 +457,7 @@ Isto é semelhante a '0install download --refresh', excepto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação a adicionar:</value>
+    <value>Por favor introduza o URL ou o caminho do ficheiro local do catálogo de alimentação para adicionar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -841,7 +841,7 @@ No entanto, os novos descarregamentos não serão escritos neste directório.</v
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar directamente o programa escolhido, correr {COMMAND} PROGRAMA ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (em vez de instalar no Zero!).
-Note-se que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
+Note que o invólucro é executado no ambiente seleccionado pelo programa; por conseguinte, este mecanismo não pode ser utilizado para o sandboxing.
 Pode conter argumentos de linha de comando. Os espaços em branco devem ser evitados!</value>
     <comment>Automatically translated.</comment>
   </data>
