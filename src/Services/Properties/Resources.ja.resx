@@ -166,7 +166,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>{0} からダウンロードしたフィードをパースできない。</value>
+    <value>{0} からダウンロードしたフィードをパースできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

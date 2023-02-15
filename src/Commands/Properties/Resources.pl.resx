@@ -391,7 +391,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontrolne NTFS stosowane do ochrony implementacji przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem instalacji zerowej. Ręczne usunięcie katalogów cache może być trudne ze względu na listy kontrolne NTFS, które chronią implementacje przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -441,7 +441,7 @@ Jest to podobne do '0install download --refresh', z tym, że wypisuje informacje
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Zastosowanie integracji z pulpitem</value>
+    <value>Zastosowanie integracji pulpitu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
@@ -648,7 +648,7 @@ Możesz to zrobić używając '{0}'. Będzie to całkowicie niezależne od twoje
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algorytm {HASH}, który ma być użyty dla skrótu.</value>
+    <value>Algorytm {HASH}, który ma być użyty do wykonania skrótu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -771,7 +771,7 @@ Nie może zawierać argumentów wiersza poleceń! Białe spacje nie muszą być 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Wymagaj wersji programu głównego nie wcześniejszej niż {VERSION}. Np. jeśli chcesz uruchomić wersję 2.0 lub nowszą, użyj --not-before=2.0.</value>
+    <value>Wymagaj wersji programu głównego nie wcześniejszej niż {VERSION}. Np. jeśli chcesz uruchomić wersję 2.0 lub późniejszą, użyj --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -841,7 +841,7 @@ Jednak nowe pobrania nie będą zapisywane do tego katalogu.</value>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Zamiast wykonywać wybrany program bezpośrednio, uruchom {COMMAND} PROGRAM ARGS. Jest to przydatne do uruchamiania debugerów i narzędzi śledzących na programie (a nie na Zero Install!).
-Zwróć uwagę, że wrapper jest wykonywany w środowisku wybranym przez program; stąd też mechanizm ten nie może być użyty do sandboxingu.
+Zwróć uwagę, że wrapper jest wykonywany w środowisku wybranym przez program; stąd też mechanizm ten nie może być używany do sandboxingu.
 Może zawierać argumenty wiersza poleceń. Białe spacje muszą być unikane!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -959,7 +959,7 @@ Uruchom '0install config self_update_uri default' aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Włączenie obsługi systemu Windows dla Długich ścieżek może rozwiązać ten problem.</value>
+    <value>Włączenie obsługi Windows dla Długich ścieżek może rozwiązać ten problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

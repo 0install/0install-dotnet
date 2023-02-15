@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Όλα τα συστατικά που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
+    <value>Όλα τα στοιχεία που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
 Μπορείτε να χρησιμοποιήσετε το σενάριο εισαγωγής ή το εκτελέσιμο αρχείο Bootstrap στο '{1}' για να εισαγάγετε αυτά τα αρχεία σε έναν άλλο υπολογιστή.</value>
     <comment>Automatically translated.</comment>
   </data>

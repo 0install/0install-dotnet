@@ -278,7 +278,7 @@ U kunt het bestand '{1}' verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Kan geen schrijfbeveiliging inschakelen voor '{0}'.</value>
+    <value>Kan schrijfbeveiliging voor '{0}' niet inschakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">

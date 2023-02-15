@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Aplikacja "{0}" jest już na liście aplikacji.</value>
+    <value>Aplikacja "{0}" znajduje się już na liście aplikacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
@@ -112,7 +112,7 @@
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Klucz kryptograficzny wprowadzony do synchronizacji jest nieprawidłowy. Proszę sprawdzić swoje opcje synchronizacji.
-Możesz zmienić klucz kryptograficzny używany na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy na przycisk "Sync", aby się tam dostać) lub wykonując polecenie "0install sync --reset=server".</value>
+Możesz zmienić klucz kryptograficzny używany na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy na przycisk "Sync", aby się tam dostać) lub wykonując polecenie '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@ Dane przechowywane na serwerze można zastąpić, uruchamiając kreatora rozwią
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Przesyłanie danych synchronizacji</value>
+    <value>Przesyłanie danych synchronizacyjnych</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">

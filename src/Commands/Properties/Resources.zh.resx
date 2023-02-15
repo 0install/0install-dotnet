@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将在开始菜单和命令行中添加Zero Install。继续吗？</value>
+    <value>这将把Zero Install添加到开始菜单和命令行中。继续吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -272,8 +272,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
-如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态0；否则返回状态1。</value>
+    <value>行为类似于'0install select'，除了它还会下载所选择的版本，如果它们还没有被缓存。
+如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -310,7 +310,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>从系统中删除当前的 "零安装 "实例。</value>
+    <value>从系统中删除 "零点安装 "的当前实例。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -534,15 +534,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>融合{0}</value>
+    <value>整合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择不能被应用。</value>
+    <value>你的桌面整合选择无法应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>你想改变你的选择并再次尝试吗？</value>
+    <value>你想改变你的选择并重新尝试吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -575,7 +575,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>在'{0}'中缺少&lt;feed-for&gt;元素；它不能被用作任何其他接口的feed。</value>
+    <value>在'{0}'中缺少&lt;feed-for&gt;元素；它不能作为任何其他接口的feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -681,7 +681,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>不执行默认命令，而是使用{COMMAND} 。有效的命令名称在程序的馈送中被指定。
-设置为空（""），在选择过程中忽略该命令。</value>
+设置为空（""）可以在选择时忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -705,7 +705,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>将 "零点安装 "本身与应用程序一起包括在出口中。</value>
+    <value>将 "零安装 "本身与应用程序一起包括在出口中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -788,7 +788,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个可以到处移动的便携式安装（例如，在优盘上）。</value>
+    <value>创建一个可以移动的便携式安装（例如，在优盘上）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">

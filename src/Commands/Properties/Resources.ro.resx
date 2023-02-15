@@ -445,7 +445,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Îndepărtarea integrării desktop-ului</value>
+    <value>Eliminarea integrării desktop-ului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -525,7 +525,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Acest furaj nu pare a fi pentru aceeași aplicație. Adăugați-l oricum?
+    <value>Acest furaj nu pare să fie pentru aceeași aplicație. Adăugați-l oricum?
 O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -575,7 +575,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Lipsă elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
+    <value>Lipsește elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -812,7 +812,7 @@ Nu poate conține argumente de linie de comandă! Nu este necesar să se elimine
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină datele de pe client și server în mod normal), "client" (înlocuiește toate datele de pe client cu cele de pe server) și "server" (înlocuiește toate datele de pe server cu cele de pe client).</value>
+    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină în mod normal datele de pe client și de pe server), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
