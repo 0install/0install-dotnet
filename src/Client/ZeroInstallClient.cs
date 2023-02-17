@@ -75,8 +75,8 @@ public class ZeroInstallClient : IZeroInstallClient
         if (offline) args.Add("--offline");
         args.Add(requirements.ToCommandLineArgs());
 
-        string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
-        return XmlStorage.FromXmlString<Selections>(output);
+        return XmlStorage.FromXmlString<Selections>(
+            await Task.Run(() => _launcher.RunAndCapture(args.ToArray())));
     }
 
     /// <inheritdoc/>
@@ -89,8 +89,8 @@ public class ZeroInstallClient : IZeroInstallClient
         if (_guiLauncher == null)
         {
             args.Add("--xml");
-            string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
-            return XmlStorage.FromXmlString<Selections>(output);
+            return XmlStorage.FromXmlString<Selections>(
+                await Task.Run(() => _launcher.RunAndCapture(args.ToArray())));
         }
         else
         {
@@ -125,8 +125,8 @@ public class ZeroInstallClient : IZeroInstallClient
         args.Add(requirements.ToCommandLineArgs());
         args.Add(arguments);
 
-        var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
-        launcher.Run(args.ToArray());
+        GetLauncher(needsTerminal)
+           .Run(args.ToArray());
     }
 
     /// <inheritdoc/>
@@ -137,25 +137,27 @@ public class ZeroInstallClient : IZeroInstallClient
         args.Add(requirements.ToCommandLineArgs());
         args.Add(arguments);
 
-        var launcher = needsTerminal ? _launcher : _guiLauncher ?? _launcher;
-        return launcher.GetStartInfo(args.ToArray());
+        return GetLauncher(needsTerminal)
+           .GetStartInfo(args.ToArray());
     }
 
+    private IProcessLauncher GetLauncher(bool needsTerminal)
+        => needsTerminal ? _launcher : _guiLauncher ?? _launcher;
+
     /// <inheritdoc/>
-    public async Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false)
+    public ISet<string> GetIntegration(FeedUri uri, bool machineWide = false)
     {
         var args = new List<string> { "list-apps", "--batch", "--xml", uri.ToStringRfc() };
         if (machineWide) args.Add("--machine");
-        string output = await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
 
         const string xmlNamespace = "http://0install.de/schema/desktop-integration/app-list";
         return new HashSet<string>(
-            XElement.Parse(output)
-                    .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
-                   ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
-                   ?.Descendants()
-                    .Select(x => x.Name.LocalName)
-         ?? Enumerable.Empty<string>());
+            XElement.Parse(_launcher.RunAndCapture(args.ToArray()))
+                                    .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
+                                   ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
+                                   ?.Descendants()
+                                    .Select(x => x.Name.LocalName)
+                        ?? Enumerable.Empty<string>());
     }
 
     /// <inheritdoc/>
@@ -181,12 +183,12 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     /// <inheritdoc/>
-    public async Task RemoveAsync(FeedUri uri, bool machineWide = false)
+    public void Remove(FeedUri uri, bool machineWide = false)
     {
         var args = new List<string> { "remove", "--batch", uri.ToStringRfc() };
         if (machineWide) args.Add("--machine");
 
-        await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
+        _launcher.RunAndCapture(args.ToArray());
     }
 
     /// <inheritdoc/>

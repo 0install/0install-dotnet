@@ -75,14 +75,14 @@ public class ZeroInstallClientTest : TestWithMocks
     }
 
     [Fact]
-    public async Task GetIntegrationAsync()
+    public void GetIntegration()
     {
         var appList = AppListTest.CreateTestAppListWithAPs();
 
         _launcherMock.Setup(x => x.RunAndCapture(null, "list-apps", "--batch", "--xml", FeedTest.Test1Uri.ToStringRfc()))
                      .Returns(appList.ToXmlString());
 
-        var result = await _client.GetIntegrationAsync(FeedTest.Test1Uri);
+        var result = _client.GetIntegration(FeedTest.Test1Uri);
         result.Should().Contain("alias", "auto-start", "capability-registration");
     }
 
@@ -100,12 +100,12 @@ public class ZeroInstallClientTest : TestWithMocks
     }
 
     [Fact]
-    public async Task Remove()
+    public void Remove()
     {
         _launcherMock.Setup(x => x.RunAndCapture(null, "remove", "--batch", FeedTest.Test1Uri.ToStringRfc()))
                      .Returns("");
 
-        await _client.RemoveAsync(FeedTest.Test1Uri);
+        _client.Remove(FeedTest.Test1Uri);
     }
 
     [Fact]

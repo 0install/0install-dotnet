@@ -104,7 +104,7 @@ public interface IZeroInstallClient
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
-    Task<ISet<string>> GetIntegrationAsync(FeedUri uri, bool machineWide = false);
+    ISet<string> GetIntegration(FeedUri uri, bool machineWide = false);
 
     /// <summary>
     /// Adds an application to the application list (if missing) and integrates it into the desktop environment.
@@ -135,7 +135,7 @@ public interface IZeroInstallClient
     /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
     /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
-    Task RemoveAsync(FeedUri uri, bool machineWide = false);
+    void Remove(FeedUri uri, bool machineWide = false);
 
     /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s.
