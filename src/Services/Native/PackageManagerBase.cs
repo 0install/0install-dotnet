@@ -49,18 +49,18 @@ public abstract class PackageManagerBase : IPackageManager
 
             // Reference implementation from ID does not contain all required information.
             // Therefore, find the original implementation.
-            var implementation = GetImplementations(referenceImpl.Package)
-               .FirstOrDefault(x => x.Version == referenceImpl.Version
-                                 && x.Architecture == referenceImpl.Architecture);
-
-            if (implementation != null) CopyValues(from: selection, to: implementation);
-
-            return implementation;
+            if (GetImplementations(referenceImpl.Package)
+                   .FirstOrDefault(x => x.Version == referenceImpl.Version && x.Architecture == referenceImpl.Architecture)
+                is {} implementation)
+            {
+                CopyValues(from: selection, to: implementation);
+                return implementation;
+            }
         }
         catch (FormatException)
-        {
-            return null;
-        }
+        {}
+
+        return null;
     }
 
     /// <summary>

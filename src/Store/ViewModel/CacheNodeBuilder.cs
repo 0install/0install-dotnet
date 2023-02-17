@@ -70,9 +70,10 @@ public sealed class CacheNodeBuilder
     {
         try
         {
-            string? path = _feedCache.GetPath(uri);
-            var feed = _feedCache.GetFeed(uri);
-            return path != null && feed != null ? new FeedNode(path, feed) : null;
+            return _feedCache.GetPath(uri) is {} path
+                && _feedCache.GetFeed(uri) is {} feed
+                ? new FeedNode(path, feed)
+                : null;
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
