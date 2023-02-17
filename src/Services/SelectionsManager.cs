@@ -82,12 +82,6 @@ public partial class SelectionsManager : ISelectionsManager
             }
         }
 
-        string? GetPath(ImplementationBase implementation)
-            => implementation.LocalPath
-            ?? (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                   ? $"({implementation.ID})"
-                   : _implementationStore.GetPath(implementation.ManifestDigest));
-
         void AddNodes(IInterfaceUri target, SelectionsTreeNode? parent)
         {
             // Prevent infinite recursion
@@ -99,7 +93,7 @@ public partial class SelectionsManager : ISelectionsManager
             var node = new SelectionsTreeNode(
                 target.InterfaceUri,
                 implementation?.Version,
-                (implementation == null) ? null : GetPath(implementation),
+                implementation?.To(TryGetPath),
                 parent);
             result.Add(node);
             if (implementation == null) return;
@@ -122,6 +116,24 @@ public partial class SelectionsManager : ISelectionsManager
 
         AddNodes(selections, parent: null);
         return result;
+    }
+
+    private string? TryGetPath(ImplementationBase implementation)
+    {
+        if (implementation.LocalPath != null) return implementation.LocalPath;
+        if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return $"({implementation.ID})";
+
+        try
+        {
+            return _implementationStore.GetPath(implementation.ManifestDigest);
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            Log.Warn(ex);
+            return null;
+        }
+        #endregion
     }
 
     /// <inheritdoc/>
