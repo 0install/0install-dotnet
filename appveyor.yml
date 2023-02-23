@@ -23,8 +23,7 @@ for:
       # nuget.org
       - path: artifacts\Release\*.*nupkg
       # SignPath
-      - path: artifacts\Release
-        name: artifacts
+      - path: artifacts
       # docs.0install.net
       - path: artifacts\Documentation
         name: docs
@@ -64,7 +63,7 @@ for:
       - ./0install.sh run https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
 
     build_script:
-      - sh: ./build.sh $GitVersion_NuGetVersion --skip-test
+      - DOTNET_NOLOGO=true ./build.sh $GitVersion_NuGetVersion --skip-test
 
     test_script:
-      - sh: src/test.sh
+      - DOTNET_NOLOGO=true src/test.sh
