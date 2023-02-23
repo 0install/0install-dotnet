@@ -41,18 +41,9 @@ public static class FeedUtils
         int signatureStartIndex = GetSignatureStartIndex(feedData);
         if (signatureStartIndex == -1) return Enumerable.Empty<OpenPgpSignature>();
 
-        var data = IsolateFeed(feedData, signatureStartIndex);
-        var signature = IsolateAndDecodeSignature(feedData, signatureStartIndex);
-        try
-        {
-            return openPgp.Verify(data, signature);
-        }
-        #region Error handling
-        catch (InvalidDataException ex)
-        {
-            throw new SignatureException(Resources.InvalidSignature, ex);
-        }
-        #endregion
+        return openPgp.Verify(
+            data: IsolateFeed(feedData, signatureStartIndex),
+            signature: IsolateAndDecodeSignature(feedData, signatureStartIndex));
     }
 
     /// <summary>

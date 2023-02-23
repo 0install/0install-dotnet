@@ -20,7 +20,19 @@ public partial class BouncyCastle : IOpenPgp
 
         var result = new OpenPgpSignature[signatureList.Count];
         for (int i = 0; i < result.Length; i++)
-            result[i] = Verify(data, signatureList[i]);
+        {
+            try
+            {
+                result[i] = Verify(data, signatureList[i]);
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is PgpException or InvalidDataException)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new SignatureException(Resources.InvalidSignature, ex);
+            }
+            #endregion
+        }
         return result;
     }
 
