@@ -24,7 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
-    <PackageReference Include="ZstdSharp.Port" Version="0.6.7" />
+    <PackageReference Include="ZstdSharp.Port" Version="0.7.0" />
     <PackageReference Include="SharpCompress" Version="0.32.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
