@@ -33,7 +33,7 @@ public partial class ServiceImplementationStore : IImplementationStore
             Log.Info($"Sent implementation to Store Service: {manifestDigest.Best}");
         }
         #region Error handling
-        catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException)
+        catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException or ArgumentNullException or NullReferenceException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.StoreServiceCommunicationProblem, ex);
