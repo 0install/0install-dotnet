@@ -112,7 +112,6 @@ public class SyncIntegrationManager : IntegrationManager
             string? etag = null;
             Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () =>
             {
-#if NET
                 using var client = new HttpClient();
                 using var response = client.SendEnsureSuccess(new(HttpMethod.Get, uri)
                 {
@@ -125,15 +124,6 @@ public class SyncIntegrationManager : IntegrationManager
                 using var stream = response.Content.ReadAsStream();
                 data = stream.ReadAll().AsArray();
                 etag = response.Headers.ETag?.Tag;
-#else
-                using var client = new WebClientTimeout
-                {
-                    Credentials = credentials,
-                    Headers = {[HttpRequestHeader.CacheControl] = "no-cache"}
-                };
-                data = client.DownloadData(uri);
-                etag = client.ResponseHeaders?[HttpResponseHeader.ETag];
-#endif
             }));
             return (data, etag);
         }
@@ -164,7 +154,6 @@ public class SyncIntegrationManager : IntegrationManager
         {
             Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
             {
-#if NET
                 using var client = new HttpClient();
                 memoryStream.Position = 0;
                 var request = new HttpRequestMessage(HttpMethod.Put, uri)
@@ -174,11 +163,6 @@ public class SyncIntegrationManager : IntegrationManager
                 };
                 if (!string.IsNullOrEmpty(lastEtag)) request.Headers.IfMatch.Add(new(lastEtag));
                 client.SendEnsureSuccess(request, Handler.CancellationToken).Dispose();
-#else
-                using var client = new WebClientTimeout {Credentials = credentials};
-                if (!string.IsNullOrEmpty(lastEtag)) client.Headers[HttpRequestHeader.IfMatch] = lastEtag;
-                client.UploadData(uri, "PUT", memoryStream.ToArray());
-#endif
             }));
         }
         catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})

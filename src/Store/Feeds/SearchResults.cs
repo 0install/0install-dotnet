@@ -40,14 +40,9 @@ public class SearchResults
             new Uri($"search/?q={Uri.EscapeDataString(keywords)}", UriKind.Relative));
 
         Log.Info($"Performing search query: {url.ToStringRfc()}");
-#if NET
         using var httpClient = new HttpClient {Timeout = TimeSpan.FromSeconds(20)};
-        var response = httpClient.SendEnsureSuccess(new(HttpMethod.Get, url));
+        using var response = httpClient.SendEnsureSuccess(new(HttpMethod.Get, url));
         using var stream = response.Content.ReadAsStream();
         return XmlStorage.LoadXml<SearchResults>(stream).Results;
-#else
-        using var webClient = new WebClientTimeout();
-        return XmlStorage.FromXmlString<SearchResults>(webClient.DownloadString(url)).Results;
-#endif
     }
 }
