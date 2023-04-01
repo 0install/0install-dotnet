@@ -27,6 +27,7 @@ public class SyncIntegrationManager : IntegrationManager
     private readonly Uri _syncServer;
     private readonly Converter<FeedUri, Feed> _feedRetriever;
     private readonly AppList _appListLastSync;
+    private readonly HttpClient _httpClient;
 
     /// <summary>
     /// Creates a new sync manager. Performs Mutex-based locking!
@@ -52,6 +53,28 @@ public class SyncIntegrationManager : IntegrationManager
             _appListLastSync = new AppList();
             _appListLastSync.SaveXml(AppListPath + AppListLastSyncSuffix);
         }
+
+        _httpClient = new()
+        {
+            DefaultRequestHeaders =
+            {
+                Authorization = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword).ToBasicAuth(),
+                CacheControl = new() {NoCache = true}
+            }
+        };
+    }
+
+    /// <inheritdoc/>
+    public override void Dispose()
+    {
+        try
+        {
+            _httpClient.Dispose();
+        }
+        finally
+        {
+            base.Dispose();
+        }
     }
 
     /// <summary>
@@ -68,7 +91,6 @@ public class SyncIntegrationManager : IntegrationManager
     public void Sync(SyncResetMode resetMode = SyncResetMode.None)
     {
         var uri = new Uri(_syncServer, new Uri(MachineWide ? "app-list-machine" : "app-list", UriKind.Relative));
-        var credentials = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword);
 
         ExceptionUtils.Retry<SyncRaceException>(() =>
         {
@@ -77,13 +99,13 @@ public class SyncIntegrationManager : IntegrationManager
             var (data, etag) = resetMode switch
             {
                 SyncResetMode.Server => default,
-                _ => DownloadAppList(uri, credentials)
+                _ => DownloadAppList(uri)
             };
 
             HandleDownloadedAppList(data ?? Array.Empty<byte>(), resetClient: resetMode == SyncResetMode.Client);
 
             if (resetMode != SyncResetMode.Client)
-                UploadAppList(uri, credentials, etag);
+                UploadAppList(uri, etag);
         }, maxRetries: 3);
 
         // Save reference point for future syncs
@@ -92,7 +114,7 @@ public class SyncIntegrationManager : IntegrationManager
         Handler.CancellationToken.ThrowIfCancellationRequested();
     }
 
-    private (byte[]?, string? etag) DownloadAppList(Uri uri, NetworkCredential? credentials)
+    private (byte[]?, string? etag) DownloadAppList(Uri uri)
     {
         if (uri.IsFile)
         {
@@ -112,16 +134,8 @@ public class SyncIntegrationManager : IntegrationManager
             string? etag = null;
             Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () =>
             {
-                using var client = new HttpClient();
-                using var response = client.SendEnsureSuccess(new(HttpMethod.Get, uri)
-                {
-                    Headers =
-                    {
-                        Authorization = credentials?.ToBasicAuth(),
-                        CacheControl = new() {NoCache = true}
-                    }
-                }, Handler.CancellationToken);
-                using var stream = response.Content.ReadAsStream();
+                using var response = _httpClient.SendEnsureSuccess(new(HttpMethod.Get, uri), Handler.CancellationToken);
+                using var stream = response.Content.ReadAsStream(Handler.CancellationToken);
                 data = stream.ReadAll().AsArray();
                 etag = response.Headers.ETag?.Tag;
             }));
@@ -139,7 +153,7 @@ public class SyncIntegrationManager : IntegrationManager
     /// <summary>
     /// Upload the encrypted AppList back to the server (unless the client was reset)
     /// </summary>
-    private void UploadAppList(Uri uri, NetworkCredential? credentials, string? lastEtag)
+    private void UploadAppList(Uri uri, string? lastEtag)
     {
         var memoryStream = new MemoryStream();
         AppList.SaveXmlZip(memoryStream, Config.SyncCryptoKey);
@@ -154,15 +168,10 @@ public class SyncIntegrationManager : IntegrationManager
         {
             Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
             {
-                using var client = new HttpClient();
                 memoryStream.Position = 0;
-                var request = new HttpRequestMessage(HttpMethod.Put, uri)
-                {
-                    Headers = {Authorization = credentials?.ToBasicAuth()},
-                    Content = new StreamContent(memoryStream)
-                };
+                var request = new HttpRequestMessage(HttpMethod.Put, uri) {Content = new StreamContent(memoryStream)};
                 if (!string.IsNullOrEmpty(lastEtag)) request.Headers.IfMatch.Add(new(lastEtag));
-                client.SendEnsureSuccess(request, Handler.CancellationToken).Dispose();
+                _httpClient.SendEnsureSuccess(request, Handler.CancellationToken).Dispose();
             }));
         }
         catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})

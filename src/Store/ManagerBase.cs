@@ -58,7 +58,7 @@ public abstract partial class ManagerBase : IDisposable
     /// <summary>
     /// Releases the mutex.
     /// </summary>
-    public void Dispose()
+    public virtual void Dispose()
     {
         _mutex?.ReleaseMutex();
         _mutex?.Close();
