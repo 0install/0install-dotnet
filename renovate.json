@@ -23,7 +23,7 @@
     },
     {
       "matchPackagePatterns": ["SourceLink"],
-      "matchPackageNames": ["SharpZipLib", "SharpCompress", "ZstdSharp.Port"],
+      "matchPackageNames": ["SharpZipLib", "SharpCompress", "ZstdSharp.Port", "ELFSharp"],
       "automerge": true,
       "automergeType": "branch"
     },
