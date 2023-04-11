@@ -23,4 +23,18 @@ This website documents the Zero Install .NET API. You can use this to integrate 
 
 ### Dependencies
 
-![NuGet dependency graph](img/nuget-dependencies.svg)
+
+```mermaid
+flowchart TD
+    commands[ZeroInstall.Commands] --> services
+    commands --> desktop_integration
+    publish[ZeroInstall.Publish] --> client
+    publish --> archives
+    publish --> desktop_integration
+    services[ZeroInstall.Services] --> archives
+    archives[ZeroInstall.Archives] --> store
+    desktop_integration[ZeroInstall.DesktopIntegration] --> store
+    client[ZeroInstall.Client] --> model
+    store[ZeroInstall.Store] --> model
+    model[ZeroInstall.Model]
+```

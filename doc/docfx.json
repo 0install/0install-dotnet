@@ -34,14 +34,7 @@
     "resource": [
       {
         "src": "..",
-        "files": [
-          "logo.svg"
-        ]
-      },
-      {
-        "files": [
-          "img/*.svg"
-        ]
+        "files": ["logo.svg"]
       }
     ],
     "overwrite": [
