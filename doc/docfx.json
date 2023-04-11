@@ -3,16 +3,14 @@
     {
       "src": [
         {
-          "src": "../artifacts/Release/net6.0",
-          "files": [
-            "ZeroInstall.*.dll",
-            "0install.dll"
-          ],
-          "exclude": [
-            "*.XmlSerializers.dll"
-          ]
+          "src": "../src",
+          "files": ["*/*.csproj"],
+          "exclude": ["UnitTests/*"]
         }
       ],
+      "properties": {
+        "TargetFramework": "net6.0"
+      },
       "dest": "api"
     }
   ],
@@ -49,9 +47,7 @@
     "overwrite": [
       {
         "src": "../src/",
-        "files": [
-          "**/*.md"
-        ]
+        "files": ["**/*.md"]
       }
     ],
     "xref": [
