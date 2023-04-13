@@ -102,7 +102,7 @@ public class IntegrationManager : IntegrationManagerBase
         catch
         {
             // Avoid abandoned mutexes
-            Dispose();
+            base.Dispose();
             throw;
         }
         #endregion
