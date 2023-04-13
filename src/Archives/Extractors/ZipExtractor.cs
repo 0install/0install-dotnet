@@ -24,11 +24,13 @@ public partial class ZipExtractor : ArchiveExtractor
         {
             ExtractFiles(new ZipInputStream(stream) { IsStreamOwner = false }, subDir, builder);
         }
+        #region Error handling
         catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
         }
+        #endregion
 
         try
         {
@@ -52,7 +54,19 @@ public partial class ZipExtractor : ArchiveExtractor
             if (entry.IsDirectory)
                 builder.AddDirectory(relativePath);
             else if (entry.IsFile)
-                builder.AddFile(relativePath, zipStream.WithLength(entry.Size), GetTimestamp(entry));
+            {
+                try
+                {
+                    builder.AddFile(relativePath, zipStream.WithLength(entry.Size), GetTimestamp(entry));
+                }
+                #region Error handling
+                catch (NullReferenceException ex) when (ex.Source == "ICSharpCode.SharpZipLib")
+                {
+                    // Wrap exception since only certain exception types are allowed
+                    throw new IOException(Resources.ArchiveInvalid, ex);
+                }
+                #endregion
+            }
         }
     }
 
