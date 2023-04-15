@@ -90,7 +90,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
 
         // Place files in temp directory until digest is verified
         using var tempDir = new TemporaryDirectory("0install-extract", Path);
-        Log.Debug($"Temp directory for extracting: {tempDir}");
+        Log.Debug($"Temp directory for extracting: {tempDir.Path}");
 
         var builder = new ManifestBuilder(format);
         build(new DirectoryBuilder(tempDir, builder));
