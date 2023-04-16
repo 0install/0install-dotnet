@@ -49,6 +49,7 @@
     "xrefService": [
       "https://xref.docs.microsoft.com/query?uid={uid}"
     ],
+    "postProcessors": ["ExtractSearchIndex"],
     "template": [
       "default",
       "modern",
