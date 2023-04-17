@@ -36,9 +36,6 @@ public static partial class Shortcut
 
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
 
-        string dirPath = Path.GetDirectoryName(path)!;
-        if (!Directory.Exists(dirPath)) Directory.CreateDirectory(dirPath);
-
         Create(path, targetPath, arguments,
             iconLocation: icon?.To(iconStore.GetFresh),
             description: target.Feed.GetBestSummary(CultureInfo.CurrentUICulture, command),
@@ -71,6 +68,12 @@ public static partial class Shortcut
     public static void Create(string path, string targetPath, string? arguments = null, string? iconLocation = null, string? description = null, string? appId = null)
     {
         Log.Debug($"Creating Windows shortcut file at '{path}' pointing to: {targetPath} {arguments ?? ""}");
+
+        if (Path.GetDirectoryName(path) is { } dirPath && !Directory.Exists(dirPath))
+        {
+            Log.Info($"Creating missing directory '{dirPath} for shortcut");
+            Directory.CreateDirectory(dirPath);
+        }
 
         var link = ShellLink.Shortcut.CreateShortcut(targetPath, arguments, iconLocation ?? targetPath, iconindex: 0);
         if (!string.IsNullOrEmpty(appId))
