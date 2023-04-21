@@ -29,7 +29,6 @@
     <PackageReference Include="BouncyCastle.OpenPgp" Version="2.0.0.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
-    <Reference Include="System.Configuration" Pack="False" />
     <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="System.Net.Http" Pack="False" />
   </ItemGroup>

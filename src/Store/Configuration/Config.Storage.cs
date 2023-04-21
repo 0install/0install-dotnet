@@ -10,10 +10,6 @@ using Microsoft.Win32;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values;
 
-#if NETFRAMEWORK
-using System.Configuration;
-#endif
-
 namespace ZeroInstall.Store.Configuration;
 
 partial class Config
@@ -301,25 +297,6 @@ partial class Config
             }
         }
     }
-
-#if NETFRAMEWORK
-    /// <summary>
-    /// Reads settings from <see cref="ConfigurationManager.AppSettings"/>, if they have not already been set to non-default values.
-    /// </summary>
-    public void ReadFromAppSettings()
-    {
-        var appSettings = ConfigurationManager.AppSettings;
-        foreach ((string key, var property) in _metaData)
-        {
-            if (property.IsDefaultValue)
-            {
-                string value = appSettings[key];
-                if (!string.IsNullOrEmpty(value))
-                    property.Value = value;
-            }
-        }
-    }
-#endif
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Config"/> instance.
