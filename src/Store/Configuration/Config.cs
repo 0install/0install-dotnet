@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Collections;
 using NanoByte.Common.Net;
 
 namespace ZeroInstall.Store.Configuration;
@@ -198,15 +197,5 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             ["sync_server_pw"] = ConfigProperty.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true),
             ["sync_crypto_key"] = ConfigProperty.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true),
         };
-    }
-
-    /// <inheritdoc/>
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-    /// <inheritdoc/>
-    public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
-    {
-        foreach ((string key, var property) in _metaData)
-            yield return new KeyValuePair<string, string>(key, property.NeedsEncoding ? "***" : property.Value);
     }
 }
