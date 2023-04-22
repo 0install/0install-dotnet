@@ -181,15 +181,20 @@ public partial class CatalogManager : ICatalogManager
     /// Sets the list of catalog sources in a configuration file.
     /// </summary>
     /// <param name="uris">The list of catalog sources to use from now on.</param>
+    /// <param name="machineWide"><c>true</c> to save in a machine-wide location; <c>false</c> to save in the user profile.</param>
     /// <exception cref="IOException">There was a problem writing a configuration file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
-    public static void SetSources(IEnumerable<FeedUri> uris)
+    public static void SetSources(IEnumerable<FeedUri> uris, bool machineWide = false)
     {
         #region Sanity checks
         if (uris == null) throw new ArgumentNullException(nameof(uris));
         #endregion
 
-        using var atomic = new AtomicWrite(Locations.GetSaveConfigPath("0install.net", true, "catalog-sources"));
+        string path = machineWide
+            ? Locations.GetSaveSystemConfigPath("0install.net", isFile: true, "catalog-sources")
+            : Locations.GetSaveConfigPath("0install.net", isFile: true, "catalog-sources");
+
+        using var atomic = new AtomicWrite(path);
         using (var configFile = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8) {NewLine = "\n"})
         {
             foreach (var uri in uris)

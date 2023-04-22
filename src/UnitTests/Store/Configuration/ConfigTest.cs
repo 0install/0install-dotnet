@@ -24,10 +24,10 @@ public class ConfigTest : TestWithRedirect
     public void TestClone()
     {
         var config1 = CreateTestConfig();
-        object config2 = config1.Clone();
+        var config2 = config1.Clone();
 
         // Ensure data stayed the same
-        config2.Should().Be(config1, because: "Cloned objects should be equal.");
+        config2.Should().Equal(config1, because: "Cloned objects should be equal.");
         config2.GetHashCode().Should().Be(config1.GetHashCode(), because: "Cloned objects' hashes should be equal.");
         config2.Should().NotBeSameAs(config1, because: "Cloning should not return the same reference.");
     }
@@ -38,18 +38,17 @@ public class ConfigTest : TestWithRedirect
     [Fact]
     public void SaveLoad()
     {
-        Config config1;
-        object config2;
+        var config1 = CreateTestConfig();
+        var config2 = new Config();
         using (var tempFile = new TemporaryFile("0install-test-config"))
         {
             // Write and read file
-            config1 = CreateTestConfig();
             config1.Save(tempFile);
-            config2 = Config.Load(tempFile);
+            config2.ReadFromFile(tempFile);
         }
 
         // Ensure data stayed the same
-        config2.Should().Be(config1, because: "Serialized objects should be equal.");
+        config2.Should().Equal(config1, because: "Serialized objects should be equal.");
         config2.GetHashCode().Should().Be(config1.GetHashCode(), because: "Serialized objects' hashes should be equal.");
         config2.Should().NotBeSameAs(config1, because: "Serialized objects should not return the same reference.");
     }
@@ -76,7 +75,7 @@ public class ConfigTest : TestWithRedirect
     }
 
     /// <summary>
-    /// Ensures <see cref="Config.Save(string)"/> preserves unknown properties loaded in <see cref="Config.Load(string)"/>.
+    /// Ensures <see cref="Config.Save(string)"/> preserves unknown properties loaded in <see cref="Config.ReadFromFile(string)"/>.
     /// </summary>
     [Fact]
     public void RetainUnknownProperties()
@@ -85,7 +84,11 @@ public class ConfigTest : TestWithRedirect
 
         using var tempFile = new TemporaryFile("0install-test-config");
         File.WriteAllText(tempFile, testIniData);
-        Config.Load(tempFile).Save(tempFile);
+
+        var config = new Config();
+        config.ReadFromFile(tempFile);
+        config.Save(tempFile);
+
         File.ReadAllText(tempFile).Should().Be(testIniData);
     }
 
