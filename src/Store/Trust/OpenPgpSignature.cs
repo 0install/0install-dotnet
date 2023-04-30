@@ -6,7 +6,6 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Represents a signature checked by an <see cref="IOpenPgp"/> implementation.
 /// </summary>
-/// <seealso cref="IOpenPgp.Verify"/>
 [PrimaryConstructor, Equatable]
 public abstract partial class OpenPgpSignature : IKeyIDContainer
 {
@@ -17,7 +16,6 @@ public abstract partial class OpenPgpSignature : IKeyIDContainer
 /// <summary>
 /// Represents a valid signature.
 /// </summary>
-/// <seealso cref="IOpenPgp.Verify"/>
 [Equatable]
 public sealed partial class ValidSignature : OpenPgpSignature, IFingerprintContainer
 {
@@ -52,7 +50,6 @@ public sealed partial class ValidSignature : OpenPgpSignature, IFingerprintConta
 /// <summary>
 /// Represents a signature that could not be validated for some reason.
 /// </summary>
-/// <seealso cref="IOpenPgp.Verify"/>
 [PrimaryConstructor, Equatable]
 public partial class ErrorSignature : OpenPgpSignature
 {
@@ -65,7 +62,6 @@ public partial class ErrorSignature : OpenPgpSignature
 /// <summary>
 /// Represents a bad signature (i.e., the message has been tampered with).
 /// </summary>
-/// <seealso cref="IOpenPgp.Verify"/>
 [PrimaryConstructor, Equatable]
 public sealed partial class BadSignature : ErrorSignature
 {
@@ -77,9 +73,7 @@ public sealed partial class BadSignature : ErrorSignature
 
 /// <summary>
 /// Represents a signature that could not yet be verified because the key is missing.
-/// Use <see cref="IOpenPgp.ImportKey"/> to import the key and then retry.
 /// </summary>
-/// <seealso cref="IOpenPgp.Verify"/>
 [PrimaryConstructor, Equatable]
 public sealed partial class MissingKeySignature : ErrorSignature
 {

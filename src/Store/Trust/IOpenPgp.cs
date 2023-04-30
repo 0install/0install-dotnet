@@ -26,7 +26,6 @@ public interface IOpenPgp
     /// <returns>The signature in binary format.</returns>
     /// <exception cref="KeyNotFoundException">The specified <paramref name="secretKey"/> could not be found in the keyring.</exception>
     /// <exception cref="WrongPassphraseException"><paramref name="passphrase"/> was incorrect.</exception>
-    /// <seealso cref="Verify"/>
     byte[] Sign(ArraySegment<byte> data, OpenPgpSecretKey secretKey, string? passphrase = null);
 
     /// <summary>
@@ -34,7 +33,6 @@ public interface IOpenPgp
     /// </summary>
     /// <param name="data">The public key in binary or ASCII Armored format.</param>
     /// <exception cref="InvalidDataException"><paramref name="data"/> does not contain a valid public key.</exception>
-    /// <seealso cref="ExportKey"/>
     void ImportKey(ArraySegment<byte> data);
 
     /// <summary>
@@ -43,13 +41,10 @@ public interface IOpenPgp
     /// <param name="keyIDContainer">An object containing the key ID of the public key to export.</param>
     /// <returns>The public key in ASCII Armored format. Always uses Unix-style linebreaks.</returns>
     /// <exception cref="KeyNotFoundException">The specified <paramref name="keyIDContainer"/> could not be found in the keyring.</exception>
-    /// <seealso cref="ImportKey"/>
     string ExportKey(IKeyIDContainer keyIDContainer);
 
     /// <summary>
     /// Returns a list of secret keys in the keyring.
     /// </summary>
-    /// <seealso cref="Sign"/>
-    /// <seealso cref="ExportKey"/>
     IEnumerable<OpenPgpSecretKey> ListSecretKeys();
 }

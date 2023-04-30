@@ -14,8 +14,6 @@ public static class OpenPgpExtensions
     /// <param name="openPgp">The <see cref="IOpenPgp"/> implementation.</param>
     /// <param name="keyIDContainer">An object containing the key ID that identifies the keypair.</param>
     /// <exception cref="KeyNotFoundException">The specified key could not be found on the system.</exception>
-    /// <seealso cref="IOpenPgp.Sign"/>
-    /// <seealso cref="IOpenPgp.ExportKey"/>
     public static OpenPgpSecretKey GetSecretKey(this IOpenPgp openPgp, IKeyIDContainer keyIDContainer)
         => openPgp.ListSecretKeys()
                   .FirstOrDefault(x => x.KeyID == keyIDContainer.KeyID)
@@ -27,8 +25,6 @@ public static class OpenPgpExtensions
     /// <param name="openPgp">The <see cref="IOpenPgp"/> implementation.</param>
     /// <param name="keySpecifier">The key ID, fingerprint or any part of a user ID that identifies the keypair; <c>null</c> to use the default key.</param>
     /// <exception cref="KeyNotFoundException">The specified key could not be found on the system.</exception>
-    /// <seealso cref="IOpenPgp.Sign"/>
-    /// <seealso cref="IOpenPgp.ExportKey"/>
     public static OpenPgpSecretKey GetSecretKey(this IOpenPgp openPgp, string? keySpecifier = null)
     {
         #region Sanity checks

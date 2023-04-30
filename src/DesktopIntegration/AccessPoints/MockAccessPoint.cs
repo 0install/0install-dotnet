@@ -22,7 +22,7 @@ public partial class MockAccessPoint : DefaultAccessPoint
         : new[] {$"mock:{ID}"};
 
     /// <summary>
-    /// An identifier that controls the result of <see cref="GetConflictIDs"/>.
+    /// A unique identifier. Determines the conflict ID.
     /// </summary>
     [XmlAttribute("id")]
     public string? ID { get; set; }

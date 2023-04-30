@@ -4,9 +4,8 @@
 namespace ZeroInstall.DesktopIntegration;
 
 /// <summary>
-/// Controls how synchronization data is reset.
+/// Controls how synchronization data is reset by <see cref="SyncIntegrationManager.Sync"/>
 /// </summary>
-/// <seealso cref="SyncIntegrationManager.Sync"/>
 public enum SyncResetMode
 {
     /// <summary>Merge data from client and server normally.</summary>

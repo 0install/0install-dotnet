@@ -6,7 +6,6 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Represents a secret key stored in a local <see cref="IOpenPgp"/> profile.
 /// </summary>
-/// <seealso cref="IOpenPgp.ListSecretKeys"/>
 [PrimaryConstructor, Equatable]
 public sealed partial class OpenPgpSecretKey : IFingerprintContainer
 {

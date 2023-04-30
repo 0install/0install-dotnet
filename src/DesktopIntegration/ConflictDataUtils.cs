@@ -44,9 +44,8 @@ public static class ConflictDataUtils
     /// </summary>
     /// <param name="accessPoints">The set of <see cref="AccessPoint"/>s candidates to build the list for.</param>
     /// <param name="appEntry">The <see cref="AppEntry"/> the <paramref name="accessPoints"/> are intended for.</param>
-    /// <returns>A dictionary of <see cref="AccessPoint.GetConflictIDs"/> mapping to the according <see cref="ConflictData"/>.</returns>
+    /// <returns>A dictionary of conflict IDs mapping to the according <see cref="ConflictData"/>.</returns>
     /// <exception cref="ConflictException">There are inner conflicts within <paramref name="accessPoints"/>.</exception>
-    /// <seealso cref="AccessPoint.GetConflictIDs"/>
     public static IDictionary<string, ConflictData> GetConflictData(this IEnumerable<AccessPoint> accessPoints, AppEntry appEntry)
     {
         #region Sanity checks
@@ -71,9 +70,8 @@ public static class ConflictDataUtils
     /// Returns all <see cref="ConflictData"/>s for a set of existing <see cref="AppEntry"/>s.
     /// </summary>
     /// <param name="appEntries">The <see cref="AppEntry"/>s to build the list for.</param>
-    /// <returns>A dictionary of <see cref="AccessPoint.GetConflictIDs"/> mapping to the according <see cref="ConflictData"/>.</returns>
+    /// <returns>A dictionary of conflict IDs mapping to the according <see cref="ConflictData"/>.</returns>
     /// <exception cref="ConflictException">There are preexisting conflicts within <paramref name="appEntries"/>.</exception>
-    /// <seealso cref="AccessPoint.GetConflictIDs"/>
     public static IDictionary<string, ConflictData> GetConflictData(this IEnumerable<AppEntry> appEntries)
     {
         #region Sanity checks
