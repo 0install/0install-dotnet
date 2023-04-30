@@ -101,22 +101,16 @@ public static class BuilderExtensions
                 executor.Execute(SetValueCommand.For(() => retrievalMethod.Size, newValue: size));
         }
 
-        if (localPath == null)
+        if (localPath != null)
         {
-            try
-            {
-                handler.RunTask(new DownloadFile(ModelUtils.GetAbsoluteHref(retrievalMethod.Href, executor.Path), Process));
-            }
-            #region Error handling
-            catch (UriFormatException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new WebException(ex.Message, ex);
-            }
-            #endregion
-        }
-        else
             handler.RunTask(new ReadFile(localPath, Process));
+            return;
+        }
+
+        var href = ModelUtils.GetAbsoluteHref(retrievalMethod.Href, executor.Path);
+        handler.RunTask(href.IsFile
+            ? new ReadFile(href.LocalPath, Process)
+            : new DownloadFile(href, Process));
     }
 
     /// <summary>
