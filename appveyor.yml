@@ -11,7 +11,7 @@ for:
       - '%USERPROFILE%\.nuget\packages -> **\*.csproj,**\*.targets,**\*.props'
 
     before_build:
-      - powershell .\0install.ps1 run --batch https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
+      - powershell .\0install.ps1 run --batch https://apps.0install.net/devel/gitversion.xml /verbosity quiet /output buildserver
 
     build_script:
       - powershell .\build.ps1 %GitVersion_NuGetVersion% -SkipTest
@@ -60,7 +60,7 @@ for:
       - '$HOME/.nuget/packages -> **/*.csproj,**/*.targets,**/*.props'
 
     before_build:
-      - ./0install.sh run https://apps.0install.net/devel/gitversion.xml /l console /output buildserver
+      - ./0install.sh run https://apps.0install.net/devel/gitversion.xml /verbosity quiet /output buildserver
 
     build_script:
       - DOTNET_NOLOGO=true ./build.sh $GitVersion_NuGetVersion --skip-test
