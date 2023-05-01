@@ -1,5 +1,6 @@
 // Embedded source template used by StubBuilder class
 
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -10,57 +11,85 @@ using Microsoft.Win32;
 
 [assembly: AssemblyTitle("[TITLE]")]
 
-static int RunInner(string fileName, string arguments, bool useShellExecute = false)
+static class Program
 {
-    var startInfo = new ProcessStartInfo(fileName, arguments) {UseShellExecute = useShellExecute};
-    var process = Process.Start(startInfo);
-    process?.WaitForExit();
-    return process?.ExitCode ?? 0;
-}
+    public static int Main(string[] args)
+        => Run(
+            fileName: Path.Combine(GetInstallLocation(), "[EXE]"),
+            arguments: "[ARGUMENTS] " + string.Join(" ", args.Select(Escape)));
 
-static int Run(string fileName, string arguments)
-{
-    const int Win32RequestedOperationRequiresElevation = 740, Win32Cancelled = 1223;
-
-    try
+    private static string Escape(string value)
     {
-        return RunInner(fileName, arguments);
+        value = value.Replace("\"", "\\\"");
+        if (value.Any(char.IsWhiteSpace)) value = "\"" + value + "\"";
+        return value;
     }
-    catch (Win32Exception ex) when (ex.NativeErrorCode == Win32RequestedOperationRequiresElevation)
+
+    private static string GetInstallLocation()
     {
         try
         {
-            // UAC handling requires ShellExecute
-            return RunInner(fileName, arguments, useShellExecute: true);
+            return Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zero Install", "InstallLocation", defaultValue: null)?.ToString()
+                ?? Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Zero Install", "InstallLocation", defaultValue: null)?.ToString()
+                ?? "";
         }
-        // UAC cancellation should not be treated as a crash
-        catch (Win32Exception ex2) when (ex2.NativeErrorCode == Win32Cancelled)
+        catch (Exception ex)
         {
-            return 100;
+            // Log error but try to continue without location from registry, just relying on PATH
+            LogError(ex);
+            return "";
+        }
+    }
+
+    private static int Run(string fileName, string arguments)
+    {
+        const int Win32RequestedOperationRequiresElevation = 740, Win32Cancelled = 1223;
+
+        try
+        {
+            return RunInner(fileName, arguments);
+        }
+        catch (Win32Exception ex) when (ex.NativeErrorCode == Win32RequestedOperationRequiresElevation)
+        {
+            try
+            {
+                // UAC elevation requires ShellExecute
+                return RunInner(fileName, arguments, useShellExecute: true);
+            }
+            catch (Win32Exception innerEx)
+            {
+                // UAC cancellation should not be logged as an error
+                if (innerEx.NativeErrorCode != Win32Cancelled) LogError(innerEx);
+
+                return innerEx.NativeErrorCode;
+            }
+        }
+        catch (Win32Exception ex)
+        {
+            LogError(ex);
+            return ex.NativeErrorCode;
+        }
+    }
+
+    private static int RunInner(string fileName, string arguments, bool useShellExecute = false)
+    {
+        var startInfo = new ProcessStartInfo(fileName, arguments) {UseShellExecute = useShellExecute};
+        var process = Process.Start(startInfo);
+        process?.WaitForExit();
+        return process?.ExitCode ?? 0;
+    }
+
+    private static void LogError(Exception ex)
+    {
+        try
+        {
+            File.AppendAllText(
+                path: Path.Combine(Path.GetTempPath(), "[TITLE] 0install Stub Error Log.txt"),
+                contents: ex.ToString() + Environment.NewLine);
+        }
+        catch (Exception)
+        {
+            // Avoid hiding the original exception
         }
     }
 }
-
-static string GetInstallLocation()
-{
-    try
-    {
-        return Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zero Install", "InstallLocation",
-            Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Zero Install", "InstallLocation", "")).ToString();
-    }
-    catch
-    {
-        return "";
-    }
-}
-
-static string Escape(string value)
-{
-    value = value.Replace("\"", "\\\"");
-    if (value.Any(char.IsWhiteSpace)) value = "\"" + value + "\"";
-    return value;
-}
-
-Run(
-    Path.Combine(GetInstallLocation(), "[EXE]"),
-    "[ARGUMENTS] " + string.Join(" ", args.Select(Escape)));
