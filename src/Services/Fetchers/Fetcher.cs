@@ -208,33 +208,36 @@ public partial class Fetcher : IFetcher
     protected virtual void Download(IBuilder builder, DownloadRetrievalMethod download, string tag)
     {
         void Callback(Stream stream) => builder.Add(download, stream, Handler, tag);
+        void DownloadFile(Uri uri) => Handler.RunTask(new DownloadFile(uri, Callback, download.DownloadSize) {Tag = tag});
 
-        if (download.Href.IsFile)
+        var uri = download.Href;
+        if (uri.IsFile)
         {
-            Handler.RunTask(new ReadFile(download.Href.LocalPath, Callback) {Tag = tag});
+            Handler.RunTask(new ReadFile(uri.LocalPath, Callback) {Tag = tag});
             return;
         }
 
         try
         {
-            Handler.RunTask(new DownloadFile(download.Href, Callback, download.DownloadSize) {Tag = tag});
+            DownloadFile(uri);
         }
-        catch (WebException ex) when (Config.FeedMirror != null && ex.ShouldTryMirror(download.Href))
+        catch (WebException ex) when (Config.FeedMirror is {} mirror && ex.ShouldTryMirror(uri))
         {
-            Log.Warn(string.Format(Resources.TryingFeedMirror, download.Href), ex);
+            Log.Warn(string.Format(Resources.TryingFeedMirror, uri), ex);
             try
             {
-                Handler.RunTask(new DownloadFile(
-                    new($"{Config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}archive/{download.Href.Scheme}/{download.Href.Host}/{string.Concat(download.Href.Segments).TrimStart('/').Replace("/", "%23")}"),
-                    Callback, download.DownloadSize) {Tag = tag});
+                DownloadFile(GetMirrorUri(mirror, uri));
             }
-            catch (WebException ex2)
+            catch (WebException exMirror)
             {
-                Log.Debug($"Failed to download archive {download.Href} from feed mirror.", ex2);
+                Log.Debug($"Failed to download archive {uri} from feed mirror.", exMirror);
                 throw ex.Rethrow(); // Report the original problem instead of mirror errors
             }
         }
     }
+
+    private static Uri GetMirrorUri(Uri mirrorRoot, Uri originalUri)
+        => new($"{mirrorRoot.EnsureTrailingSlash().AbsoluteUri}archive/{originalUri.Scheme}/{originalUri.Host}/{string.Concat(originalUri.Segments).TrimStart('/').Replace("/", "%23")}");
 
     /// <summary>
     /// Determines the local path of an implementation.
