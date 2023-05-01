@@ -191,7 +191,7 @@ public class Selection : CliCommand
         {
             Selections = Solver.Solve(Requirements);
         }
-        catch (SolverException ex) when (_version != null && Config.NetworkUse == NetworkLevel.Full)
+        catch (SolverException ex) when (_version != null && !FeedManager.Refresh && Config.NetworkUse != NetworkLevel.Offline)
         {
             Log.Info($"Solving for version {_version} failed, possibly because feed is outdated; trying refresh", ex);
             RefreshSolve();
