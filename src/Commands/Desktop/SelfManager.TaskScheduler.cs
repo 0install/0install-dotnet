@@ -20,7 +20,7 @@ partial class SelfManager
     /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
     private void TaskSchedulerApply(bool libraryMode)
     {
-        if (!WindowsUtils.IsWindows) return;
+        if (!WindowsUtils.IsWindowsNT) return;
 
         TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate, DaysOfTheWeek.Wednesday,
             Self.Name, Self.Update.Name, "--batch");
@@ -37,7 +37,7 @@ partial class SelfManager
     /// </summary>
     private static void TaskSchedulerRemove()
     {
-        if (!WindowsUtils.IsWindows) return;
+        if (!WindowsUtils.IsWindowsNT) return;
 
         TaskSchedulerRemoveTask(TaskSchedulerSelfUpdate);
         TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);

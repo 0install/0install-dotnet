@@ -27,7 +27,7 @@ partial class SelfManager
     private void ServiceStop()
     {
 #if NETFRAMEWORK
-        if (!WindowsUtils.IsWindows) return;
+        if (!WindowsUtils.IsWindowsNT) return;
 
         // Determine whether the service is installed and running
         var service = GetServiceController();
@@ -87,7 +87,7 @@ partial class SelfManager
     private bool ServiceInstall()
     {
 #if NETFRAMEWORK
-        if (!WindowsUtils.IsWindows) return false;
+        if (!WindowsUtils.IsWindowsNT) return false;
         if (!File.Exists(ServiceExe))
         {
             Log.Warn(string.Format(Resources.FileOrDirNotFound, ServiceExe));
@@ -113,7 +113,7 @@ partial class SelfManager
     private void ServiceUninstall()
     {
 #if NETFRAMEWORK
-        if (!WindowsUtils.IsWindows) return;
+        if (!WindowsUtils.IsWindowsNT) return;
 
         Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
             new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
