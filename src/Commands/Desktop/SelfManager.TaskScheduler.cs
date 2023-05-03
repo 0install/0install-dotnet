@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Versioning;
 using Microsoft.Win32.TaskScheduler;
 using NanoByte.Common.Native;
 
@@ -22,29 +21,34 @@ partial class SelfManager
     {
         if (!WindowsUtils.IsWindowsNT) return;
 
-        TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate, DaysOfTheWeek.Wednesday,
-            Self.Name, Self.Update.Name, "--batch");
+        Handler.RunTask(new SimpleTask("Configuring Windows Task Scheduler", () =>
+        {
+            TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate, DaysOfTheWeek.Wednesday,
+                Self.Name, Self.Update.Name, "--batch");
 
-        if (libraryMode)
-            TaskSchedulerAddTask(TaskSchedulerUpdateApps, Resources.DescriptionUpdateApps, DaysOfTheWeek.Thursday,
-                UpdateApps.Name, "--batch", "--machine", "--clean");
-        else
-            TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);
+            if (libraryMode)
+                TaskSchedulerAddTask(TaskSchedulerUpdateApps, Resources.DescriptionUpdateApps, DaysOfTheWeek.Thursday,
+                    UpdateApps.Name, "--batch", "--machine", "--clean");
+            else
+                TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);
+        }));
     }
 
     /// <summary>
     /// Removes scheduled tasks for automatic maintenance.
     /// </summary>
-    private static void TaskSchedulerRemove()
+    private void TaskSchedulerRemove()
     {
         if (!WindowsUtils.IsWindowsNT) return;
 
-        TaskSchedulerRemoveTask(TaskSchedulerSelfUpdate);
-        TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);
-        TaskSchedulerRemoveFolder();
+        Handler.RunTask(new SimpleTask("Configuring Windows Task Scheduler", () =>
+        {
+            TaskSchedulerRemoveTask(TaskSchedulerSelfUpdate);
+            TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);
+            TaskSchedulerRemoveFolder();
+        }));
     }
 
-    [SupportedOSPlatform("windows")]
     private void TaskSchedulerAddTask(string name, string description, DaysOfTheWeek daysOfWeek, params string[] arguments)
     {
         string path = Path.Combine(TargetDir, "0install-win.exe");
@@ -79,7 +83,6 @@ partial class SelfManager
         #endregion
     }
 
-    [SupportedOSPlatform("windows")]
     private static void TaskSchedulerRemoveTask(string name)
     {
         try
@@ -99,7 +102,6 @@ partial class SelfManager
         #endregion
     }
 
-    [SupportedOSPlatform("windows")]
     private static void TaskSchedulerRemoveFolder()
     {
         try
