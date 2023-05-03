@@ -102,6 +102,7 @@ public partial class SelfManager : ManagerBase
 
             if (MachineWide)
             {
+                FirewallRulesApply();
                 NgenApply();
                 if (ServiceInstall())
                     ServiceStart();
@@ -135,6 +136,7 @@ public partial class SelfManager : ManagerBase
                 TaskSchedulerRemove();
                 ServiceUninstall();
                 NgenRemove();
+                FirewallRulesRemove();
             }
 
             using (var clearDir = new ClearDirectory(TargetDir, targetManifest, Handler) {NoRestart = true})
