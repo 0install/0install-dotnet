@@ -199,14 +199,12 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         _purging.Value = true;
         try
         {
-            _handler.RunTask(ForEachTask.Create(
-                name: string.Format(Resources.DeletingDirectory, Path),
-                target: ListTemp().Concat(ListAll().Cast<object>()).ToList(),
-                work: toRemove => _ = toRemove switch
+            _handler.RunTask(ForEachTask.Create(string.Format(Resources.DeletingDirectory, Path),
+                ListTemp().Concat(ListAll().Cast<object>()).ToList(),
+                toRemove =>
                 {
-                    string path => RemoveTemp(path),
-                    ManifestDigest digest => Remove(digest),
-                    _ => false
+                    if (toRemove is string path) RemoveTemp(path);
+                    else if (toRemove is ManifestDigest digest) Remove(digest);
                 }));
         }
         finally
@@ -224,10 +222,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
         using var run = new OptimiseRun(Path);
-        _handler.RunTask(ForEachTask.Create(
-            name: string.Format(Resources.FindingDuplicateFiles, Path),
-            target: ListAll(),
-            work: run.Work));
+        _handler.RunTask(ForEachTask.Create(string.Format(Resources.FindingDuplicateFiles, Path), ListAll(), run.Work));
         return run.SavedBytes;
     }
 

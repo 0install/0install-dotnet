@@ -28,7 +28,8 @@ public class RemoveAllApps : IntegrationCommand
             return ExitCode.NoChanges;
 
         using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
-        Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications, integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
+        Handler.RunTask(ForEachTask.Create(Resources.RemovingApplications,
+            integrationManager.AppList.Entries.ToList(), integrationManager.RemoveApp));
 
         // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
         File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);

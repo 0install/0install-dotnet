@@ -91,20 +91,16 @@ public class UpdateApps : IntegrationCommand
     {
         var digestsToKeep = implementations.Select(x => x.ManifestDigest);
         var digestsToRemove = ImplementationStore.ListAll().Except(digestsToKeep, ManifestDigestPartialEqualityComparer.Instance);
-        Handler.RunTask(ForEachTask.Create(
-            name: Resources.RemovingOutdated,
-            target: digestsToRemove.ToList(),
-            work: digest =>
+        Handler.RunTask(ForEachTask.Create(Resources.RemovingOutdated, digestsToRemove.ToList(), digest =>
+        {
+            try
             {
-                try
-                {
-                    ImplementationStore.Remove(digest);
-                }
-                catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
-                {
-                    Log.Info($"Unable to remove {digest}", ex);
-                }
+                ImplementationStore.Remove(digest);
             }
-        ));
+            catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
+            {
+                Log.Info($"Unable to remove {digest}", ex);
+            }
+        }));
     }
 }

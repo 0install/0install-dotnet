@@ -58,10 +58,8 @@ partial class StoreMan
         {
             SetStorePaths(AdditionalArgs);
 
-            Handler.RunTask(ForEachTask.Create(
-                name: Resources.StoreAudit,
-                target: ImplementationStore.ListAll().ToList(),
-                work: digest => ImplementationStore.Verify(digest)));
+            Handler.RunTask(ForEachTask.Create(Resources.StoreAudit,
+                ImplementationStore.ListAll().ToList(), digest => ImplementationStore.Verify(digest)));
             return ExitCode.OK;
         }
     }

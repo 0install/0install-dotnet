@@ -177,10 +177,8 @@ public abstract class IntegrationManagerBase : ManagerBase, IIntegrationManager
 
         try
         {
-            Handler.RunTask(ForEachTask.Create(
-                name: Resources.RepairingIntegration,
-                target: AppList.Entries,
-                work: app => RepairAppInternal(app, feedRetriever(app.InterfaceUri))));
+            Handler.RunTask(ForEachTask.Create(Resources.RepairingIntegration,
+                AppList.Entries, app => RepairAppInternal(app, feedRetriever(app.InterfaceUri))));
         }
         catch (KeyNotFoundException ex)
         {

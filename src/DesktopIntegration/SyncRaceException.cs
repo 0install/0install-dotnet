@@ -11,8 +11,8 @@ namespace ZeroInstall.DesktopIntegration;
 [Serializable]
 public class SyncRaceException : WebException
 {
-    public SyncRaceException(WebException ex)
-        : base("Multiple computers are trying to sync with the same account at the same time.", ex, ex.Status, ex.Response)
+    public SyncRaceException()
+        : base("Multiple computers are trying to sync with the same account at the same time.")
     {}
 
     protected SyncRaceException(SerializationInfo serializationInfo, StreamingContext streamingContext)

@@ -134,7 +134,10 @@ public class SyncIntegrationManager : IntegrationManager
             string? etag = null;
             Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () =>
             {
-                using var response = _httpClient.SendEnsureSuccess(new(HttpMethod.Get, uri), Handler.CancellationToken);
+                using var response = _httpClient.Send(new(HttpMethod.Get, uri), Handler.CancellationToken);
+                if (response.StatusCode == HttpStatusCode.Unauthorized) throw new WebException(Resources.SyncCredentialsInvalid);
+                response.EnsureSuccessStatusCode();
+
                 using var stream = response.Content.ReadAsStream(Handler.CancellationToken);
                 data = stream.ReadAll().AsArray();
                 etag = response.Headers.ETag?.Tag;
@@ -142,10 +145,10 @@ public class SyncIntegrationManager : IntegrationManager
             return (data, etag);
         }
         #region Error handling
-        catch (WebException ex) when (ex.Response is HttpWebResponse { StatusCode: HttpStatusCode.Unauthorized })
+        catch (HttpRequestException ex)
         {
-            Handler.CancellationToken.ThrowIfCancellationRequested();
-            throw new WebException(Resources.SyncCredentialsInvalid, ex, ex.Status, ex.Response);
+            // Wrap exception since only certain exception types are allowed
+            throw ex.AsWebException();
         }
         #endregion
     }
@@ -164,21 +167,26 @@ public class SyncIntegrationManager : IntegrationManager
             return;
         }
 
-        try
+        Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
         {
-            Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
+            try
             {
                 memoryStream.Position = 0;
                 var request = new HttpRequestMessage(HttpMethod.Put, uri) {Content = new StreamContent(memoryStream)};
                 if (!string.IsNullOrEmpty(lastEtag)) request.Headers.IfMatch.Add(new(lastEtag));
-                _httpClient.SendEnsureSuccess(request, Handler.CancellationToken).Dispose();
-            }));
-        }
-        catch (WebException ex) when (ex.Response is HttpWebResponse {StatusCode: HttpStatusCode.PreconditionFailed})
-        {
-            Handler.CancellationToken.ThrowIfCancellationRequested();
-            throw new SyncRaceException(ex);
-        }
+
+                using var response = _httpClient.Send(request, Handler.CancellationToken);
+                if (response.StatusCode == HttpStatusCode.PreconditionFailed) throw new SyncRaceException();
+                response.EnsureSuccessStatusCode();
+            }
+            #region Error handling
+            catch (HttpRequestException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw ex.AsWebException();
+            }
+            #endregion
+        }));
     }
 
     private void HandleDownloadedAppList(byte[] appListData, bool resetClient)
@@ -204,11 +212,13 @@ public class SyncIntegrationManager : IntegrationManager
         {
             MergeData(serverList, resetClient);
         }
+        #region Error handling
         catch (KeyNotFoundException ex)
         {
             // Wrap exception since only certain exception types are allowed
             throw new InvalidDataException(ex.Message, ex);
         }
+        #endregion
         finally
         {
             Finish();
@@ -245,10 +255,7 @@ public class SyncIntegrationManager : IntegrationManager
 
         void AddAppHelper(AppEntry prototype) => AddAppInternal(prototype, _feedRetriever);
 
-        Handler.RunTask(new SimpleTask(Resources.ApplyingChanges, () =>
-        {
-            toRemove.ApplyWithRollback(RemoveAppInternal, AddAppHelper);
-            toAdd.ApplyWithRollback(AddAppHelper, RemoveAppInternal);
-        }));
+        Handler.RunTask(ForEachTask.Create(Resources.ApplyingChanges, toRemove, RemoveAppInternal, AddAppHelper));
+        Handler.RunTask(ForEachTask.Create(Resources.ApplyingChanges, toAdd, AddAppHelper, RemoveAppInternal));
     }
 }

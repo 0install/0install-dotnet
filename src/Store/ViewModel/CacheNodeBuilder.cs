@@ -45,23 +45,20 @@ public sealed class CacheNodeBuilder
 
         var nodes = new NamedCollection<CacheNode>();
 
-        _handler.RunTask(ForEachTask.Create(
-            name: string.Format(Resources.ReadDirectory, _implementationStore?.Path ?? _feedCache.Path),
-            target: input,
-            work: item =>
-            {
-                if (item switch
-                    {
-                        FeedUri uri => GetFeedNode(uri),
-                        ManifestDigest digest => GetImplementationNode(digest, nodes.OfType<FeedNode>()),
-                        string path => GetTempNode(path),
-                        _ => null
-                    } is {} node)
+        _handler.RunTask(ForEachTask.Create(string.Format(Resources.ReadDirectory, _implementationStore?.Path ?? _feedCache.Path), input, item =>
+        {
+            if (item switch
                 {
-                    while (nodes.Contains(node.Name)) node.SuffixCounter++; // Avoid name collisions by incrementing suffix
-                    nodes.Add(node);
-                }
-            }));
+                    FeedUri uri => GetFeedNode(uri),
+                    ManifestDigest digest => GetImplementationNode(digest, nodes.OfType<FeedNode>()),
+                    string path => GetTempNode(path),
+                    _ => null
+                } is {} node)
+            {
+                while (nodes.Contains(node.Name)) node.SuffixCounter++; // Avoid name collisions by incrementing suffix
+                nodes.Add(node);
+            }
+        }));
 
         return nodes;
     }
