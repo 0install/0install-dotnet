@@ -774,7 +774,7 @@ Run '0install config self_update_uri default' to enable it.</value>
     <value>This instance of Zero Install is not deployed. There is nothing to remove.</value>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Serving implementations at the address {0}</value>
+    <value>Serving implementations</value>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Set stability policy for {0} to match?</value>

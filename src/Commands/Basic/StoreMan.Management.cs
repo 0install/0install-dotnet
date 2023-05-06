@@ -124,10 +124,14 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            int port = AdditionalArgs.Count == 1 ? int.Parse(AdditionalArgs[0]) : 17350;
-
-            var server = new ImplementationServer(ImplementationStore);
-            Handler.RunTask(new SimpleTask(string.Format(Resources.ServingImplementations, $"http://localhost:{port}/"), () => server.Serve(port, Handler.CancellationToken)));
+            Handler.RunTask(new SimpleTask(Resources.ServingImplementations, () =>
+            {
+                var server = new ImplementationServer(ImplementationStore);
+                if (AdditionalArgs.Count == 1)
+                    server.Serve(port: ushort.Parse(AdditionalArgs[0]), Handler.CancellationToken);
+                else
+                    server.Serve(Handler.CancellationToken);
+            }));
 
             return ExitCode.OK;
         }
