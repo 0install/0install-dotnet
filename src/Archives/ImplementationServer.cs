@@ -2,6 +2,7 @@
 // Licensed under the MIT License
 
 using System.Text;
+using NanoByte.Common.Native;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
@@ -32,50 +33,61 @@ public partial class ImplementationServer
         using var listener = new HttpListener {Prefixes = {$"http://+:{port}/"}};
         using var _ = cancellationToken.Register(listener.Stop);
 
-        try
+        try { listener.Start(); }
+        #region Error handling
+        catch (HttpListenerException ex)
         {
-            listener.Start();
-        }
-        catch (HttpListenerException ex) when (ex.NativeErrorCode == 5)
-        {
-            throw new NotAdminException(ex.Message, ex);
-        }
-        catch (Exception ex) when (ex is HttpListenerException or ArgumentException)
-        {
+            if (WindowsUtils.IsWindowsNT && ex.NativeErrorCode == 5) throw new NotAdminException(ex.Message, ex);
             throw new WebException(ex.Message, ex);
         }
+        #endregion
 
         try
         {
             while (listener.IsListening && !cancellationToken.IsCancellationRequested)
                 HandleRequest(listener.GetContext(), cancellationToken);
         }
+        #region Error handling
         catch (Exception ex) when (ex is HttpListenerException or InvalidOperationException or OperationCanceledException)
-        {}
+        {} // Shutdown
+        #endregion
     }
 
     private void HandleRequest(HttpListenerContext context, CancellationToken cancellationToken)
     {
+        if (context.Request.Url is not {} url) return;
+
         void ReturnError(HttpStatusCode statusCode, Exception exception)
         {
-            context.Response.StatusCode = (int)statusCode;
-            context.Response.ContentType = "text/plain";
-            context.Response.ContentEncoding = Encoding.UTF8;
-            context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(exception.GetMessageWithInner()));
+            Log.Warn($"Returning {statusCode} for request: {context.Request.HttpMethod} {url.PathAndQuery}", exception);
+            try
+            {
+                context.Response.StatusCode = (int)statusCode;
+                context.Response.ContentType = "text/plain";
+                context.Response.ContentEncoding = Encoding.UTF8;
+                context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(exception.GetMessageWithInner()));
+            }
+            #region Error handling
+            catch (HttpListenerException)
+            {} // Connection may already be gone
+            #endregion
         }
 
+        Log.Debug($"Incoming request: {context.Request.HttpMethod} {url.PathAndQuery}");
         try
         {
-            (var manifestDigest, string mimeType) = ParseFileName(context.Request.Url!.LocalPath[1..]);
+            (var manifestDigest, string mimeType) = ParseFileName(url.LocalPath[1..]);
             string path = _implementationStore.GetPath(manifestDigest)
                        ?? throw new ImplementationNotFoundException(manifestDigest);
 
             switch (context.Request.HttpMethod)
             {
                 case "GET":
+                    Log.Info($"Serving implementation {manifestDigest} as {mimeType}");
                     context.Response.ContentType = mimeType;
                     using (var builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType, fast: true))
                         new ReadDirectory(path, builder).Run(cancellationToken);
+                    Log.Info($"Finished serving implementation {manifestDigest}");
                     break;
 
                 case "HEAD":
@@ -86,18 +98,15 @@ public partial class ImplementationServer
                     break;
             }
         }
-        catch (NotSupportedException ex)
-        {
-            ReturnError(HttpStatusCode.BadRequest, ex);
-        }
-        catch (ImplementationNotFoundException ex)
-        {
-            ReturnError(HttpStatusCode.NotFound, ex);
-        }
-        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-        {
-            ReturnError(HttpStatusCode.Unauthorized, ex);
-        }
+        #region Error handling
+        catch (HttpListenerException ex) { Log.Info($"Request cancelled: {context.Request.HttpMethod} {url.PathAndQuery}", ex); }
+        catch (NotSupportedException ex) { ReturnError(HttpStatusCode.BadRequest, ex); }
+        catch (ImplementationNotFoundException ex) { ReturnError(HttpStatusCode.NotFound, ex); }
+        catch (UnauthorizedAccessException ex) { ReturnError(HttpStatusCode.Unauthorized, ex); }
+        catch (IOException ex) { ReturnError(HttpStatusCode.ServiceUnavailable, ex); }
+        catch (Exception ex) { ReturnError(HttpStatusCode.InternalServerError, ex); }
+        #endregion
+
         context.Response.Close();
     }
 
