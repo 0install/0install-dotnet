@@ -51,19 +51,21 @@ public sealed partial class StoreMan : CliMultiCommand
         {}
 
         /// <summary>
-        /// Returns the default <see cref="IImplementationStore"/> or a <see cref="CompositeImplementationStore"/> as specified by the <see cref="CliCommand.AdditionalArgs"/>.
+        /// Sets the paths of the directories to use as <see cref="ImplementationStore"/>s.
+        /// Keeps using the defaults if the list is empty.
         /// </summary>
-        protected IImplementationStore GetEffectiveStore()
+        /// <exception cref="DirectoryNotFoundException">A specified directory does not exist.</exception>
+        protected void SetStorePaths(IReadOnlyList<string> paths)
         {
-            if (AdditionalArgs.Count == 0) return ImplementationStore;
+            if (paths.Count == 0) return;
 
-            foreach (string path in AdditionalArgs)
+            foreach (string path in paths)
             {
                 if (!Directory.Exists(path))
                     throw new DirectoryNotFoundException(string.Format(Resources.FileOrDirNotFound, path));
             }
 
-            return new CompositeImplementationStore(AdditionalArgs.Select(x => new ImplementationStore(x, Handler, useWriteProtection: false)).ToList());
+            ImplementationStore = new CompositeImplementationStore(paths.Select(x => new ImplementationStore(x, Handler, useWriteProtection: false)).ToList());
         }
     }
 }

@@ -81,9 +81,11 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            ManifestDigest digest;
+            SetStorePaths(AdditionalArgs.Skip(1).ToList());
+
             string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
             string id = Path.GetFileName(path);
+            ManifestDigest digest;
             try
             {
                 digest = new ManifestDigest(id);
@@ -94,10 +96,9 @@ partial class StoreMan
                 return ExitCode.NotSupported;
             }
 
-            var store = (AdditionalArgs.Count == 2) ? new ImplementationStore(AdditionalArgs[1], Handler) : ImplementationStore;
             try
             {
-                store.Add(digest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
+                ImplementationStore.Add(digest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
                 return ExitCode.OK;
             }
             catch (ImplementationAlreadyInStoreException ex)

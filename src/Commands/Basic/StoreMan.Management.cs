@@ -56,11 +56,12 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            var store = GetEffectiveStore();
+            SetStorePaths(AdditionalArgs);
+
             Handler.RunTask(ForEachTask.Create(
                 name: Resources.StoreAudit,
-                target: store.ListAll().ToList(),
-                work: digest => store.Verify(digest)));
+                target: ImplementationStore.ListAll().ToList(),
+                work: digest => ImplementationStore.Verify(digest)));
             return ExitCode.OK;
         }
     }
@@ -79,7 +80,9 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            long savedBytes = GetEffectiveStore().Optimise();
+            SetStorePaths(AdditionalArgs);
+
+            long savedBytes = ImplementationStore.Optimise();
             Handler.OutputLow(Resources.OptimiseComplete, string.Format(Resources.StorageReclaimed, savedBytes.FormatBytes()));
             return ExitCode.OK;
         }
@@ -97,9 +100,11 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
+            SetStorePaths(AdditionalArgs);
+
             if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: true))
             {
-                GetEffectiveStore().Purge();
+                ImplementationStore.Purge();
                 return ExitCode.OK;
             }
             else return ExitCode.NoChanges;
