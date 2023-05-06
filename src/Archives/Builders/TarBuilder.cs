@@ -32,7 +32,7 @@ public class TarBuilder : IArchiveBuilder
         }
         catch (TarException ex)
         {
-            Log.Info($"Failed to dispose {nameof(TarOutputStream)}", ex);
+            Log.Debug($"Failed to dispose {nameof(TarOutputStream)}", ex);
         }
     }
 
