@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;
@@ -66,6 +67,31 @@ public sealed partial class StoreMan : CliMultiCommand
             }
 
             ImplementationStore = new CompositeImplementationStore(paths.Select(x => new ImplementationStore(x, Handler, useWriteProtection: false)).ToList());
+        }
+
+        /// <summary>
+        /// Adds a new implementation to the <see cref="ImplementationStore"/>.
+        /// </summary>
+        /// <param name="manifestDigest">The digest the implementation is supposed to match.</param>
+        /// <param name="build">Callback for building the implementation.</param>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
+        /// <exception cref="IOException">An IO operation failed.</exception>
+        /// <exception cref="DigestMismatchException">The implementation's content doesn't match the <paramref name="manifestDigest"/>.</exception>
+        protected ExitCode AddToStore(ManifestDigest manifestDigest, Action<IBuilder> build)
+        {
+            try
+            {
+                ImplementationStore.Add(manifestDigest, build);
+                return ExitCode.OK;
+            }
+            #region Error handling
+            catch (ImplementationAlreadyInStoreException ex)
+            {
+                Log.Warn(ex.Message, ex);
+                return ExitCode.NoChanges;
+            }
+            #endregion
         }
     }
 }
