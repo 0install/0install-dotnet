@@ -62,7 +62,7 @@
     <value>Alimentação: {0}
 - Assinatura válida de {1}
 - {2}
-Quer confiar nesta chave para assinar feeds de '{3}'?
+Pretende confiar nesta chave para assinar os feeds de '{3}'?
 </value>
     <comment>Automatically translated.</comment>
   </data>
@@ -75,27 +75,27 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;ambiente&gt; as ligações devem conter um atributo "valor" ou um atributo "inserir".</value>
+    <value>as ligações &lt;environment&gt; devem conter um atributo 'value' ou 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Catálogo de erros de carregamento</value>
+    <value>Erro ao carregar o catálogo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Erro ao salvar a base de dados de confiança</value>
+    <value>Erro ao guardar a base de dados de confiança</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Solvente externo de funcionamento</value>
+    <value>Executar o solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>A alimentação '{0}' não está em cache e a Instalação Zero está actualmente em modo off-line.</value>
+    <value>O feed '{0}' não está armazenado em cache e o Zero Install está actualmente em modo off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>{0}" não pôde ser localizado na cache de alimentação.</value>
+    <value>'{0}' não pôde ser localizado na cache do feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -103,31 +103,31 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' é um ficheiro local. Deve ser um URL(S) HTTP(S).</value>
+    <value>'{0}' é um ficheiro local. Deveria ser um URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde ao URL de onde o feed foi descarregado ('{1}').</value>
+    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde ao URL a partir do qual o feed foi descarregado ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Falta o atributo &lt;interface&gt; uri. Deve ser '{0}'.</value>
+    <value>Falta o atributo &lt;interface&gt; uri. Deveria ser '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Busca de problemas '{0}'.</value>
+    <value>Problema ao obter '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Carácter ilegal em {0} nome vinculativo.</value>
+    <value>Carácter ilegal no nome da ligação {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>As rações devem especificar o URI de onde são originárias para serem importáveis.</value>
+    <value>Os feeds devem especificar o URI de onde foram originados para poderem ser importados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nome em falta em {0} binding.</value>
+    <value>Nome ausente na encadernação {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -135,58 +135,58 @@ Quer confiar nesta chave para assinar feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível descarregar {0} porque a Instalação Zero está em modo offline.</value>
+    <value>Não é possível transferir {0} porque a Instalação Zero está em modo offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>O servidor de informação chave não foi capaz de fornecer qualquer informação adicional sobre esta chave.</value>
+    <value>O servidor de informações da chave não conseguiu fornecer quaisquer informações adicionais sobre esta chave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Não foi encontrada nenhuma compilação de manifesto para implementação '{0}'.</value>
+    <value>Não foi encontrado nenhum resumo do manifesto para a implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Nenhum método de recuperação encontrado para implementação '{0}' encontrado.</value>
+    <value>Não foi encontrado nenhum método de recuperação para a implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>O feed descarregado é mais antigo do que a versão já na cache. Vamos continuar a utilizar a versão mais recente.
-Feed URI: {0}
-Antigo tempo: {1}
+    <value>O feed descarregado é mais antigo do que a versão já existente na cache. Continuaremos a utilizar a versão mais recente.
+URI do feed: {0}
+Hora antiga: {1}
 Novo tempo: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Falha em descarregar {0}. Tentando, em vez disso, obter do espelho de alimentação.</value>
+    <value>Falha ao descarregar {0}. Tentando obter a partir do espelho do feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Incapaz de guardar o catálogo da aplicação descarregada.</value>
+    <value>Não é possível colocar em cache o catálogo de aplicações descarregado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Incapaz de analisar a alimentação descarregada a partir de {0}.</value>
+    <value>Não é possível analisar o feed descarregado de {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Incapaz de analisar a informação chave para '{0}'.</value>
+    <value>Não foi possível analisar as informações da chave para '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Incapaz de recuperar informação chave para '{0}'.</value>
+    <value>Não foi possível recuperar as informações da chave para '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>{0}' não é uma identificação conhecida no gestor de pacotes {1}.</value>
+    <value>'{0}' não é um ID conhecido no gestor de pacotes {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>A alimentação é assinada com chaves não fidedignas!</value>
+    <value>O feed é assinado com chaves não fiáveis!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>À espera de download para completar</value>
+    <value>A aguardar a conclusão da transferência</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">

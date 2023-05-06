@@ -254,7 +254,7 @@ Puede eliminar el archivo '{0}' para solucionar el problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Se ha producido un problema al cargar el valor de configuración '{0}'.
-Puede eliminar el archivo '{1}' para solucionar el problema. Otros valores de configuración también pueden perderse.</value>
+Puede eliminar el archivo '{1}' para solucionar el problema. Es posible que también se pierdan otros valores de configuración.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">

@@ -116,7 +116,7 @@ U kunt het importscript of de Bootstrap executable in '{1}' gebruiken om deze be
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Wilt u eventuele bestaande desktopintegraties aanpassen?
+    <value>Wilt u een bestaande desktopintegratie aanpassen om dit te weerspiegelen?
 Als u 'Ja' selecteert, worden mogelijk incompatibele integraties verwijderd.
 Als u 'Nee' selecteert, blijft Zero Install de oude mogelijkheden gebruiken.</value>
     <comment>Automatically translated.</comment>
@@ -264,7 +264,7 @@ U kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te voe
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Configuratie-instellingen bekijken of wijzigen.
-Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten stelt het de instelling in op de opgegeven waarde of zet het deze terug op de standaardwaarde als de waarde "default" is opgegeven.</value>
+Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten wordt de instelling ingesteld op de opgegeven waarde of teruggezet naar de standaardwaarde als de waarde "default" is opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -616,7 +616,7 @@ U kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van uw
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden ingezet in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
+    <value>Zero Install draait vanuit een gebruikersspecifieke directory. Het moet worden geïmplementeerd in een directory die toegankelijk is voor alle gebruikers om de desktopintegratie in de hele machine te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -664,7 +664,7 @@ U kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van uw
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Vragen automatisch beantwoorden met defaults waar mogelijk en de console-uitvoer vereenvoudigen (geen tabellen of voortgangsbalken).</value>
+    <value>Vragen waar mogelijk automatisch beantwoorden met defaults en de console-uitvoer vereenvoudigen (geen tabellen of voortgangsbalken).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -713,7 +713,7 @@ Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Voer de update ook uit als de huidige geïnstalleerde versie dezelfde of een nieuwere is.</value>
+    <value>Voer de update ook uit als de momenteel geïnstalleerde versie dezelfde of een nieuwere is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -742,7 +742,7 @@ Zet op leeg ("") om het commando tijdens de selectie te negeren.</value>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
     <value>Specificeert de voorkeurstaal voor de implementatie. Gebruik ISO korte taalcodes (bijv. en of en-US).
-U kunt deze optie meerdere malen gebruiken om meerdere aanvaardbare talen op te geven.</value>
+U kunt deze optie meerdere keren gebruiken om meerdere aanvaardbare talen op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
@@ -816,7 +816,7 @@ In off-line modus worden geen interfaces ververst, zelfs niet als ze verouderd z
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Meer uitgebreide uitvoer. Twee keer gebruiken voor nog uitgebreidere uitvoer.</value>
+    <value>Meer uitgebreide uitvoer. Gebruik twee keer voor nog uitgebreidere uitvoer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -923,7 +923,7 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Het bedienen van implementaties op het adres {0}</value>
+    <value>Dienstverlenende implementaties</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>アーカイブファイルが無効か破損しています。</value>
+    <value>アーカイブファイルが無効または破損しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>このアーカイブタイプの解凍は、macOSでのみサポートされています。</value>
+    <value>このアーカイブタイプの抽出は、macOSでのみサポートされています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">

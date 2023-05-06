@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>O ficheiro do arquivo é inválido ou danificado.</value>
+    <value>O ficheiro de arquivo é inválido ou está danificado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
@@ -67,19 +67,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extracção de arquivo</value>
+    <value>Extração de arquivo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>A extracção deste tipo de arquivo só é suportada em macOS.</value>
+    <value>A extracção deste tipo de arquivo só é suportada no macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>A extracção deste tipo de arquivo só é suportada em Windows.</value>
+    <value>A extracção deste tipo de arquivo só é suportada no Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>O arquivo MIME tipo '{0}' não é suportado.</value>
+    <value>O tipo de ficheiro MIME '{0}' não é suportado.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

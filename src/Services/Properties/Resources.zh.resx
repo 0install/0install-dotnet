@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>饲料。{0}
+    <value>饲料：{0}
 - 有效的签名来自{1}
 -{2}
 你想信任这个密钥来签署来自'{3}'的饲料吗？
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>保存信托数据库出错</value>
+    <value>保存信任数据库出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -99,11 +99,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>饲料'{0}'没有用任何受信任的密钥签名。</value>
+    <value>饲料'{0}'没有用任何可信的密钥签名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' 是一个本地文件。它应该是一个HTTP(S)的URL。</value>
+    <value>'{0}'是一个本地文件。它应该是一个HTTP(S)的URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>密钥信息服务器无法提供有关此密钥的任何其他信息。</value>
+    <value>密钥信息服务器无法提供有关该密钥的任何其他信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -147,14 +147,14 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>没有找到实施的检索方法'{0}'。</value>
+    <value>没有找到实施的检索方法 '{0}' 发现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>下载的饲料比已经在缓存中的版本要老。我们将继续使用较新的版本。
-饲料URI。{0}
-旧时间。{1}
-新时间。{2}</value>
+饲料URI：{0}
+旧时间：{1}
+新时间：{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>饲料是用不受信任的钥匙签署的！这是不可能的。</value>
+    <value>饲料是用不受信任的钥匙签署的！这是不可能的！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Questa directory è una cache di implementazione. I file qui presenti sono resi di sola lettura utilizzando i permessi del file system. Ciò impedisce di cancellarli normalmente.
+    <value>Questa directory è una cache di implementazione. I file qui presenti sono resi di sola lettura utilizzando i permessi del file system. Ciò impedisce che vengano cancellati normalmente.
 
 Se si desidera cancellare una singola implementazione, si può usare questa riga di comando:
 {0}
@@ -116,7 +116,7 @@ Se si desidera eliminare l'intera directory senza utilizzare Zero Install, è po
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ritorno ai valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -239,7 +239,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Si è verificato un problema nell'accesso al negozio di implementazioni '{0}'.</value>
+    <value>Si è verificato un problema nell'accesso al negozio di implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">

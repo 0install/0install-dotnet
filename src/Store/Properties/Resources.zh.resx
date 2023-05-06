@@ -65,13 +65,13 @@
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>这个目录是一个执行缓存。这里的文件用文件系统的权限做成只读的。这可以防止它们被正常删除。
 
-如果你想删除一个单一的实现，你可以使用这个命令行。
+如果你想删除一个单一的实现，你可以使用这个命令行：
 {0}
 
-如果你希望删除整个目录，你可以使用这个命令行。
+如果你想删除这整个目录，你可以使用这个命令行：
 {1}
 
-如果你希望删除整个目录而不使用 "零安装"，你可以使用这个命令行。
+如果你希望删除整个目录而不使用 "零安装"，你可以使用这个命令行：
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -96,19 +96,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>实际价值。{0}</value>
+    <value>实际价值：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>实际清单。{0}</value>
+    <value>实际清单：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>期望值。{0}</value>
+    <value>期望值：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>预期的表现。{0}</value>
+    <value>预期的表现：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -141,7 +141,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>以下申请需要关闭。</value>
+    <value>以下申请需要关闭：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -190,7 +190,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>归档文件包含一个无效的路径（有潜在的安全风险）。{0}</value>
+    <value>归档文件包含一个无效的路径（有潜在的安全风险）：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>你输入的口令不正确。</value>
+    <value>你输入的密码不正确。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>签名不是有效的64进制。</value>
+    <value>签名不是有效的64进制：</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将把Zero Install添加到开始菜单和命令行中。继续吗？</value>
+    <value>这将在开始菜单和命令行中添加Zero Install。继续吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -190,7 +190,7 @@
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>设置一个复选框，使一项能力成为你想要的默认处理程序。
-移除一个复选框，以移除一个能力的默认状态（它仍然是可用的）。</value>
+移除一个复选框来移除一个能力的默认状态（它仍然是可用的）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -457,11 +457,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>请输入要添加的饲料目录的URL或本地文件路径。</value>
+    <value>请输入要添加的饲料目录的URL或本地文件路径：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
-    <value>请输入该接口的新实现源的URL。</value>
+    <value>请输入该接口的新实现源的URL：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
@@ -489,7 +489,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>为以下接口成功注册了饲料。</value>
+    <value>为以下接口成功注册了饲料：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
@@ -509,7 +509,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>饲料成功地取消了以下接口的注册。</value>
+    <value>饲料成功地取消了以下接口的注册：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -534,15 +534,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>整合{0}</value>
+    <value>融合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>你的桌面整合选择无法应用。</value>
+    <value>你的桌面整合选择不能被应用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>你想改变你的选择并重新尝试吗？</value>
+    <value>你想改变你的选择并再次尝试吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -607,12 +607,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>零安装 "需要部署在你的系统上，以使桌面集成发挥作用。</value>
+    <value>Zero Install需要部署在你的系统上，以使桌面集成工作。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install是以便携式模式运行的。它需要被部署到一个永久的位置，以使桌面集成工作。
-你可以用'{0}'来做。这将完全独立于你的便携式副本。</value>
+你可以用'{0}'来做。这将完全独立于你的便携式拷贝。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -681,7 +681,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>不执行默认命令，而是使用{COMMAND} 。有效的命令名称在程序的馈送中被指定。
-设置为空（""）可以在选择时忽略该命令。</value>
+设置为空（""），在选择过程中忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -705,7 +705,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>将 "零安装 "本身与应用程序一起包括在出口中。</value>
+    <value>将 "零点安装 "本身与应用程序一起包括在出口中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -788,7 +788,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个可以移动的便携式安装（例如，在优盘上）。</value>
+    <value>创建一个可以移动的便携式安装（例如，在拇指驱动器上）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -800,7 +800,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
-    <value>选项。</value>
+    <value>选项：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
@@ -826,7 +826,7 @@
   <data name="OptionVersionRange" xml:space="preserve">
     <value>要求主程序的版本在给定的{RANGE} 。
 范围由管道（|）分隔。
-每个范围的形式是 "START...！END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以省略。
+每个范围的形式是 "START...!END"。该范围匹配START &lt;= VERSION &lt; END的版本。开始或结束可以省略。
 可以用一个版本号来代替范围，以便只匹配该版本，或者用!!VERSION来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -906,7 +906,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个 "零安装 "的实例没有被部署。没有任何东西可以删除。</value>
+    <value>这个 "零安装 "实例没有被部署。没有任何东西可以删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -923,7 +923,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>在地址上提供服务的实施方案{0}</value>
+    <value>服务的实施</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -963,7 +963,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
-    <value>支持的值。{0}</value>
+    <value>支持的值：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
@@ -972,7 +972,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
-    <value>太多的争论或未知的选项。</value>
+    <value>太多的争论或未知的选择。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
@@ -988,7 +988,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>试试{0} ，用这些东西中的一个。</value>
+    <value>试试{0} ，用这些东西中的一个：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
@@ -1000,7 +1000,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
-    <value>使用方法。</value>
+    <value>使用方法：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseDefaultSetting" xml:space="preserve">
