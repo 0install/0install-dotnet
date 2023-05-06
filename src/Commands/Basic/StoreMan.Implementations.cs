@@ -25,27 +25,18 @@ partial class StoreMan
         public override ExitCode Execute()
         {
             var manifestDigest = new ManifestDigest(AdditionalArgs[0]);
-            try
+            if (Directory.Exists(AdditionalArgs[1]))
             {
-                string path = AdditionalArgs[1];
-                if (Directory.Exists(path))
-                {
-                    if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
-                    ImplementationStore.Add(manifestDigest, builder => Handler.RunTask(new ReadDirectory(Path.GetFullPath(path), builder)));
-                    return ExitCode.OK;
-                }
-
-                ImplementationStore.Add(manifestDigest, BuildImplementation);
-                return ExitCode.OK;
+                if (AdditionalArgs.Count > 2) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.Skip(2).JoinEscapeArguments(), null);
+                return AddToStore(manifestDigest, FromDirectory);
             }
-            catch (ImplementationAlreadyInStoreException ex)
-            {
-                Log.Warn(ex.Message, ex);
-                return ExitCode.NoChanges;
-            }
+            return AddToStore(manifestDigest, FromArchives);
         }
 
-        private void BuildImplementation(IBuilder builder)
+        private void FromDirectory(IBuilder builder)
+            => Handler.RunTask(new ReadDirectory(Path.GetFullPath(AdditionalArgs[1]), builder));
+
+        private void FromArchives(IBuilder builder)
         {
             for (int i = 0; i < (AdditionalArgs.Count + 1) / 3; i++)
             {
@@ -85,16 +76,7 @@ partial class StoreMan
 
             string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
             var manifestDigest = new ManifestDigest(Path.GetFileName(path));
-            try
-            {
-                ImplementationStore.Add(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
-                return ExitCode.OK;
-            }
-            catch (ImplementationAlreadyInStoreException ex)
-            {
-                Log.Warn(ex.Message, ex);
-                return ExitCode.NoChanges;
-            }
+            return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
         }
     }
 
