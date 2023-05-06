@@ -84,21 +84,10 @@ partial class StoreMan
             SetStorePaths(AdditionalArgs.Skip(1).ToList());
 
             string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            string id = Path.GetFileName(path);
-            ManifestDigest digest;
+            var manifestDigest = new ManifestDigest(Path.GetFileName(path));
             try
             {
-                digest = new ManifestDigest(id);
-            }
-            catch (NotSupportedException ex)
-            {
-                Log.Error(ex.Message, ex);
-                return ExitCode.NotSupported;
-            }
-
-            try
-            {
-                ImplementationStore.Add(digest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
+                ImplementationStore.Add(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
                 return ExitCode.OK;
             }
             catch (ImplementationAlreadyInStoreException ex)

@@ -81,15 +81,6 @@ public class StoreManTest
             RunAndAssert(null, ExitCode.OK,
                 Path.Combine(tempDir, _dummyDigest.Best!));
         }
-
-        [Fact]
-        public void RejectUnknownDigestFormat()
-        {
-            using var tempDir = new TemporaryDirectory("0install-test-impl");
-
-            RunAndAssert(null, ExitCode.NotSupported,
-                Path.Combine(tempDir, "unknown_digest"));
-        }
     }
 
     public class Find : StoreSubCommand<StoreMan.Find>
