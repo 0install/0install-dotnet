@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.ComponentModel.DataAnnotations;
 using NanoByte.Common.Net;
 
 namespace ZeroInstall.Store.Configuration;
@@ -73,11 +74,17 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     /// </summary>
     public const int DefaultMaxParallelDownloads = 4;
 
+    private int _maxParallelDownloads = DefaultMaxParallelDownloads;
+
     /// <summary>
     /// Maximum number of <see cref="Implementation"/>s to download in parallel.
     /// </summary>
-    [DefaultValue(DefaultMaxParallelDownloads), Category("Fetcher"), DisplayName(@"Maximum parallel downloads"), Description("Maximum number of implementations to download in parallel.")]
-    public int MaxParallelDownloads { get; set; } = DefaultMaxParallelDownloads;
+    [DefaultValue(DefaultMaxParallelDownloads), Range(1, 128), Category("Fetcher"), DisplayName(@"Maximum parallel downloads"), Description("Maximum number of implementations to download in parallel.")]
+    public int MaxParallelDownloads
+    {
+        get => _maxParallelDownloads;
+        set => _maxParallelDownloads = Math.Max(1, Math.Min(128, value));
+    }
 
     /// <summary>
     /// The default value for <see cref="FeedMirror"/>.
