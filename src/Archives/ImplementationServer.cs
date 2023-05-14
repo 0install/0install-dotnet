@@ -3,6 +3,7 @@
 
 using System.Net.Sockets;
 using System.Text;
+using Makaretu.Dns;
 using NanoByte.Common.Native;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Store.FileSystem;
@@ -19,6 +20,11 @@ namespace ZeroInstall.Archives;
 /// </summary>
 public class ImplementationServer : IDisposable
 {
+    /// <summary>
+    /// DNS name for discovering Zero Install implementation stores.
+    /// </summary>
+    public const string DnsServiceName = "_0install-store._tcp";
+
     private readonly IImplementationStore _implementationStore;
     private readonly HttpListener _listener;
 
@@ -91,6 +97,9 @@ public class ImplementationServer : IDisposable
     {
         Log.Info($"Serving implementations on port {Port}");
 
+        using var serviceDiscovery = TryCreateServiceDiscovery();
+        serviceDiscovery?.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
+
         try
         {
             while (_listener.IsListening)
@@ -102,6 +111,25 @@ public class ImplementationServer : IDisposable
         #region Error handling
         catch (HttpListenerException)
         {} // Shutdown
+        #endregion
+        finally
+        {
+            serviceDiscovery?.Unadvertise();
+        }
+    }
+
+    private static ServiceDiscovery? TryCreateServiceDiscovery()
+    {
+        try
+        {
+            return new ServiceDiscovery();
+        }
+        #region Error handling
+        catch (Exception ex)
+        {
+            Log.Warn("Failed to initialize service discovery", ex);
+            return null;
+        }
         #endregion
     }
 
