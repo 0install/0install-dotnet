@@ -106,6 +106,15 @@ namespace ZeroInstall.DesktopIntegration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Applying desktop integration for {0}.
+        /// </summary>
+        internal static string ApplyingIntegration {
+            get {
+                return ResourceManager.GetString("ApplyingIntegration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find application &apos;{0}&apos; in the application list..
         /// </summary>
         internal static string AppNotInList {

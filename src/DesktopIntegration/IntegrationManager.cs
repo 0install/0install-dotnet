@@ -263,14 +263,15 @@ public class IntegrationManager : IntegrationManagerBase
         }
         #endregion
 
-        accessPoints.ApplyWithRollback(
-            accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
-            accessPoint =>
+        Handler.RunTask(ForEachTask.Create(string.Format(Resources.ApplyingIntegration, appEntry.Name),
+            accessPoints,
+            action: accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
+            rollback: accessPoint =>
             {
                 // Don't perform rollback if the access point was already applied previously and this was only a refresh
                 if (!appEntry.AccessPoints.Entries.Contains(accessPoint))
                     accessPoint.Unapply(appEntry, MachineWide);
-            });
+            }));
 
         appEntry.AccessPoints.Entries.Remove(accessPoints); // Replace pre-existing entries
         appEntry.AccessPoints.Entries.Add(accessPoints);

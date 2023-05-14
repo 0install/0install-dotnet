@@ -132,6 +132,9 @@
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Applying changes</value>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Applying desktop integration for {0}</value>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Unable to find application '{0}' in the application list.</value>
   </data>
