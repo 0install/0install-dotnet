@@ -923,7 +923,7 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Stelle Implementierungen unter der Adresse {0} bereit</value>
+    <value>Stelle Implementierungen bereit</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

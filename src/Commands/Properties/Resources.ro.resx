@@ -546,7 +546,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Vă rugăm să folosiți versiunea GUI a Zero Install sau să specificați opțiuni de integrare explicite folosind argumente de linie de comandă.</value>
+    <value>Vă rugăm să folosiți versiunea GUI a programului Zero Install sau să specificați opțiuni de integrare explicite folosind argumente de linie de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -575,7 +575,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Lipsește elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
+    <value>Lipsă elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -812,7 +812,7 @@ Nu poate conține argumente de linie de comandă! Nu este necesar să se elimine
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină în mod normal datele de pe client și de pe server), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <value>Resetați datele de sincronizare. Datele valide {MODE}sunt "none" (nu există) (combină datele de pe client și server în mod normal), "client" (înlocuiește toate datele de pe client cu cele de pe server) și "server" (înlocuiește toate datele de pe server cu cele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -882,7 +882,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină eficient.</value>
+    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină efectiv.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -923,7 +923,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementare de servicii la adresa {0}</value>
+    <value>Implementări de servire</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -967,7 +967,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
+    <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
 Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>

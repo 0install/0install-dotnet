@@ -78,6 +78,10 @@
     <value>Application des modifications</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Application de l'intégration des postes de travail pour {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>L'application '{0}' n'a pas été trouvée dans la liste des applications.</value>
     <comment>Manually overriden.</comment>

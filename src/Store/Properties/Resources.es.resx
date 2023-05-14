@@ -68,7 +68,7 @@
 Si desea eliminar una sola implementación, puede utilizar esta línea de comandos:
 {0}
 
-Si desea borrar todo el directorio, utilice esta línea de comandos:
+Si desea eliminar todo el directorio, utilice esta línea de comandos:
 {1}
 
 Si desea eliminar todo este directorio sin utilizar Zero Install puede utilizar esta línea de comandos:
@@ -254,7 +254,7 @@ Puede eliminar el archivo '{0}' para solucionar el problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Se ha producido un problema al cargar el valor de configuración '{0}'.
-Puede eliminar el archivo '{1}' para solucionar el problema. Otros valores de configuración también pueden perderse.</value>
+Puede eliminar el archivo '{1}' para solucionar el problema. Es posible que también se pierdan otros valores de configuración.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">

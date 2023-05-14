@@ -78,6 +78,10 @@
     <value>Wijzigingen toepassen</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Toepassing van desktopintegratie voor {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Kan toepassing '{0}' niet vinden in de toepassingslijst.</value>
     <comment>Automatically translated.</comment>

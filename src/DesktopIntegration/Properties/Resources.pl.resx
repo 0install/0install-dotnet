@@ -71,11 +71,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Aplikacja "{0}" znajduje się już na liście aplikacji.</value>
+    <value>Aplikacja "{0}" jest już na liście aplikacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Zastosowanie zmian</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Zastosowanie integracji pulpitu dla {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
@@ -125,7 +129,7 @@ Dane przechowywane na serwerze można zastąpić, uruchamiając kreatora rozwią
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Przesyłanie danych synchronizacyjnych</value>
+    <value>Przesyłanie danych synchronizacji</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">

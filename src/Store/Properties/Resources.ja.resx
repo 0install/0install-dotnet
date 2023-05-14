@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>このディレクトリは、実装キャッシュです。ここにあるファイルは、ファイルシステムのパーミッションを使用して読み取り専用にされています。このため、普通に削除することはできません。
+    <value>このディレクトリは、実装キャッシュです。ここにあるファイルは、ファイルシステムのパーミッションを使って読み取り専用にされています。これにより、通常の削除ができなくなります。
 
-もし、一つの実装を削除したい場合は、このコマンドラインを使用することができます。
+単一の実装を削除したい場合は、このコマンドラインを使用することができます：
 {0}
 
-このディレクトリ全体を削除する場合は、このコマンドラインを使用します。
+このディレクトリ全体を削除したい場合は、このコマンドラインを使用します：
 {1}
 
-Zero Installを使用せずにこのディレクトリ全体を削除する場合は、このコマンドラインを使用します。
+Zero Installを使用せずに、このディレクトリ全体を削除したい場合は、このコマンドラインを使用します：
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -80,31 +80,31 @@ Zero Installを使用せずにこのディレクトリ全体を削除する場�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>ディレクトリの削除{0}</value>
+    <value>ディレクトリを削除する{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>実装の削除{0}</value>
+    <value>インプリメンテーションの削除{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>古くなったファイルの削除</value>
+    <value>廃止されたファイルを削除する</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>実装のマニフェスト・ハッシュが期待される値と一致しない。</value>
+    <value>実装のマニフェストハッシュが期待値と一致しない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>実測値です。{0}</value>
+    <value>実測値です：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>実際のマニフェスト{0}</value>
+    <value>実際のマニフェストです：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>期待値です。{0}</value>
+    <value>期待値です：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
@@ -112,11 +112,11 @@ Zero Installを使用せずにこのディレクトリ全体を削除する場�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>OpenPGPキーバンドルの読み込みエラー '{0}' から</value>
+    <value>{0}' からのOpenPGPキーバンドルの読み込みにエラーが発生しました。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>トラストデータベースの読み込みに失敗しました。デフォルト値に戻す。</value>
+    <value>信託データベースの読み込みに失敗しました。デフォルト値に戻す。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -125,7 +125,7 @@ Zero Installを使用せずにこのディレクトリ全体を削除する場�
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>検索に必要なフィードミラーの利用が無効になっています。
-0install config feed_mirror default'を実行し、有効にしてください。</value>
+0install config feed_mirror default」を実行し、有効にしてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -137,11 +137,11 @@ Zero Installを使用せずにこのディレクトリ全体を削除する場�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>これらのアプリケーションを終了して、続けますか？</value>
+    <value>これらのアプリケーションを終了して、続行しますか？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>以下のアプリケーションは、終了する必要があります。</value>
+    <value>以下のアプリケーションは、終了する必要があります：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -153,23 +153,23 @@ Zero Installを使用せずにこのディレクトリ全体を削除する場�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>実装の「{0} 」は、すでに店頭に並んでいます。</value>
+    <value>実装の '{0}' は既に店頭に並んでいます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>実装「{0} 」が破損しています。</value>
+    <value>実装 '{0}' が破損しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>削除しますか？必要なときに新しいコピーが自動的に再ダウンロードされます。</value>
+    <value>削除しますか？必要なときに、新しいコピーが自動的に再ダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>0install store remove{0}' を実行して削除してください。必要なときに新しいコピーが自動的に再ダウンロードされます。</value>
+    <value>0install store remove{0}' を実行し、削除してください。新しいコピーは、必要なときに再び自動的にダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>{0} という実装が見つかりませんでした。</value>
+    <value>{0} という実装は見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -178,7 +178,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>{0} から読み込まれたアイコンは、有効な{1} ではありません。</value>
+    <value>{0} から読み込んだアイコンは、有効な{1} ではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -186,19 +186,19 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>並んでいる部品の数が無効です。</value>
+    <value>並んでいるパーツ数が無効です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>アーカイブに無効なパスが含まれています（セキュリティ上のリスクがある可能性があります）。{0}</value>
+    <value>アーカイブに無効なパスが含まれている（セキュリティ上のリスクがある可能性がある）：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>署名が無効であるか、破損している。</value>
+    <value>署名が無効または破損している。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>共有ストアの最適化は管理者のみ可能です。</value>
+    <value>共有ストアの最適化は管理者しかできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -206,7 +206,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>ファイル名またはディレクトリ名に改行文字を含んではならない。</value>
+    <value>ファイル名またはディレクトリ名には、改行文字を含めてはならない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -214,20 +214,20 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>既知のダイジェスト方式が指定されていない。</value>
+    <value>既知のダイジェスト方式は指定されていない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>パス '{0}' は絶対パスではありません。相対パスはポータブルモードでのみ許可されます。
+    <value>パス '{0}' は、絶対パスではありません。相対パスはポータブルモードでのみ許可されます。
 設定ファイル '{1}' で指定されています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>選択されたバージョンなし</value>
+    <value>選択されたバージョンはありません</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Installは、実装キャッシュから自身を削除することはできません。</value>
+    <value>Zero Installは、インプリメンテーションキャッシュから自身を削除することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -235,7 +235,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>このオプションは、グループポリシーによって制御されるため、変更することはできません。</value>
+    <value>このオプションはグループポリシーで制御されているため、変更することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -249,16 +249,16 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>設定ファイルの読み込みに問題がありました。
-ファイル '{0}' を削除することで問題を解決できます。</value>
+ファイル '{0}' を削除することで、問題を解決することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>設定値 '{0}' の読み込みに問題が発生しました。
-ファイル '{1}' を削除することで問題を解決できます。他の設定値も失われる可能性があります。</value>
+    <value>設定値 '{0}' を読み込む際に問題が発生しました。
+ファイル '{1}' を削除することで、問題を解決することができます。他の設定値も失われる可能性があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>読書ディレクトリ '{0}'</value>
+    <value>リーディングディレクトリ '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
@@ -274,11 +274,11 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>指定された名前の秘密鍵が見つかりません。</value>
+    <value>指定された名前の秘密鍵を見つけることができません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>{0}' の書き込み保護機能を有効にできません。</value>
+    <value>{0}' の書き込み保護を有効にすることができません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -286,7 +286,7 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>入力されたパスフレーズが正しくありません。</value>
+    <value>入力したパスフレーズが不正確です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
@@ -294,11 +294,11 @@ FATフォーマットされたドライブを使用している場合は、NTFS�
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>XML 署名が改行されていない。</value>
+    <value>XML署名が改行されない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>署名は有効なベース64ではありません。</value>
+    <value>署名は有効なベース64ではありません：</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -493,7 +493,7 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0} ha sido sustituido por{1}. Considere la posibilidad de actualizar.</value>
+    <value>'{0}' ha sido sustituido por '{1}'. Considere la posibilidad de actualizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -542,7 +542,7 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>¿Quiere cambiar su selección y volver a intentarlo?</value>
+    <value>¿Quieres cambiar tu selección e intentarlo de nuevo?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -685,7 +685,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambia a una pestaña específica de la GUI de configuración. Las {TAB}válidas son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
+    <value>Cambia a una pestaña específica de la GUI de configuración. Las opciones válidas de {TAB}son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -693,7 +693,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Mostrar el editor gráfico de políticas. Esto le permite personalizar qué versión de un programa o biblioteca utilizar.</value>
+    <value>Mostrar el editor gráfico de políticas. Permite personalizar la versión de un programa o biblioteca que se va a utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -767,7 +767,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>No descargue aún la aplicación en sí. Se descargará automáticamente en el primer uso.</value>
+    <value>No descargue todavía la aplicación en sí. Se descargará automáticamente en el primer uso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -826,8 +826,8 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos se separan mediante tubos (|).
-Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Cada rango tiene la forma "INICIO...FIN". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
+Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -923,7 +923,7 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Servir implementaciones en la dirección {0}</value>
+    <value>Implantación de servicios</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

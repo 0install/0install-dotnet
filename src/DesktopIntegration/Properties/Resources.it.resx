@@ -78,6 +78,10 @@
     <value>Applicazione delle modifiche</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Applicazione dell'integrazione desktop per {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Impossibile trovare l'applicazione '{0}' nell'elenco delle applicazioni.</value>
     <comment>Automatically translated.</comment>

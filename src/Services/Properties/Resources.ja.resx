@@ -60,22 +60,22 @@
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
     <value>フィード{0}
-- 有効な署名は以下から{1}
+- からの有効な署名{1}
 -{2}
-{3}' からのフィードに署名するために、この鍵を信頼しますか?
+{3}' からのフィードに署名するために、この鍵を信頼しますか？
 </value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>結果のコマンドラインは空です。</value>
+    <value>その結果、コマンドラインは空になります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>{0}' のコマンドが指定されていません。</value>
+    <value>'{0}' のコマンドが指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; バインディングは 'value' または 'insert' 属性のいずれかを含む必要があります。</value>
+    <value>&lt;environment&gt;バインディングには、'value'または'insert'属性のいずれかを含める必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>信頼関係データベースの保存エラー</value>
+    <value>トラストデータベースの保存エラー</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -91,15 +91,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>フィード '{0}' はキャッシュされていないため、Zero Install は現在オフラインモードになっています。</value>
+    <value>フィード '{0}' はキャッシュされておらず、Zero Install は現在オフラインモードになっています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' がフィードキャッシュに見つかりませんでした。</value>
+    <value>'{0}' は、フィードキャッシュに位置することができませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>フィード '{0}' は、信頼できる鍵で署名されていません。</value>
+    <value>フィード '{0}' は、信頼できる鍵で署名されていませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; の uri 属性がありません。{0}' であるべきです。</value>
+    <value>&lt;interface&gt; の uri 属性がありません。'{0}' とする必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -123,15 +123,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>フィードをインポートするには、そのURIを指定する必要があります。</value>
+    <value>フィードは、インポート可能なように、その元となるURIを指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装丁に名前欠落。</value>
+    <value>{0} の装丁で欠品名がある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>インターフェースが指定されていない。</value>
+    <value>インターフェイスが指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -151,14 +151,14 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>ダウンロードされたフィードは、すでにキャッシュにあるバージョンより古いものです。新しいバージョンを使い続けることになります。
-フィードのURI{0}
+    <value>ダウンロードされたフィードは、すでにキャッシュにあるバージョンよりも古いものです。新しいバージョンを使い続けることになります。
+フィードのURIです：{0}
 古い時間{1}
 新しい時間{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>ダウンロードに失敗しました{0}.代わりにフィードミラーからの取得を試みています。</value>
+    <value>{0} のダウンロードに失敗しました。代わりにフィードミラーからの取得を試みています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -166,35 +166,35 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>{0} からダウンロードしたフィードをパースできません。</value>
+    <value>{0} からダウンロードしたフィードを解析することができません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>{0}' のキー情報をパースできません。</value>
+    <value>{0}' のキー情報を解析することができません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>{0}' のキー情報を取得できません。</value>
+    <value>{0}' のキー情報を取得することができません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' は{1} パッケージマネージャで既知の ID ではありません。</value>
+    <value>'{0}' は、{1} パッケージマネージャで既知のIDではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>フィードは信頼できないキーで署名されている!</value>
+    <value>フィードは信頼できない鍵で署名されています！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>ダウンロードの完了を待っています</value>
+    <value>ダウンロードの完了を待つ</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>作業ディレクトリは以前のコマンドで既に変更されています。</value>
+    <value>作業ディレクトリは、前のコマンドですでに変更されています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>作業ディレクトリに無効なパスが含まれている（セキュリティ上のリスクがある可能性がある）。</value>
+    <value>作業ディレクトリに不正なパスが含まれている（セキュリティリスクの可能性がある）。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
