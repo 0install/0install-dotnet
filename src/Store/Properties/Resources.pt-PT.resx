@@ -59,40 +59,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Cópia de ficheiros</value>
+    <value>Copiar ficheiros</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Este directório é uma cache de implementação. Os ficheiros aqui são feitos apenas leitura usando permissões de sistema de ficheiros. Isto impede que eles sejam apagados normalmente.
+    <value>Este directório é uma cache de implementação. Os ficheiros aqui são tornados apenas de leitura utilizando as permissões do sistema de ficheiros. Isto impede que sejam apagados normalmente.
 
-Se desejar apagar uma única implementação, pode utilizar esta linha de comando:
+Se quiser apagar uma única implementação, pode usar esta linha de comando:
 {0}
 
-Se desejar apagar todo este directório, pode utilizar esta linha de comando:
+Se pretender eliminar todo este directório, pode utilizar esta linha de comandos:
 {1}
 
-Se desejar apagar todo este directório sem utilizar a instalação Zero, pode utilizar esta linha de comando:
+Se desejar apagar todo este directório sem utilizar a Instalação Zero, pode utilizar esta linha de comandos:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Como apagar</value>
+    <value>Como eliminar</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Eliminação de directório {0}</value>
+    <value>Eliminar o directório {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Eliminação da implementação {0}</value>
+    <value>Eliminar a implementação {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Eliminação de ficheiros obsoletos</value>
+    <value>Eliminar ficheiros obsoletos</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>O hash manifesto de uma implementação não corresponde ao valor esperado.</value>
+    <value>O hash do manifesto de uma implementação não corresponde ao valor esperado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -112,40 +112,40 @@ Se desejar apagar todo este directório sem utilizar a instalação Zero, pode u
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erro ao carregar o pacote de chaves OpenPGP a partir de '{0}'</value>
+    <value>Erro ao carregar o pacote de chaves OpenPGP de '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erro ao carregar a base de dados de confiança. Regresso aos valores por defeito.</value>
+    <value>Erro ao carregar a base de dados de confiança. Reverter para os valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Falha em desbloquear ficheiros em uso em '{0}'</value>
+    <value>Falha ao desbloquear ficheiros em utilização em '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>O uso do espelho de alimentação, que é necessário para a pesquisa, está desactivado.
+    <value>A utilização do espelho de feeds, que é necessário para a pesquisa, está desactivada.
 Execute '0install config feed_mirror default' para o activar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Incapaz de encontrar ficheiro ou directório '{0}'.</value>
+    <value>Não foi possível encontrar o ficheiro ou directório '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Os ficheiros que pretende apagar estão actualmente em uso.</value>
+    <value>Os ficheiros que pretende eliminar estão actualmente a ser utilizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Quer encerrar estas candidaturas e continuar?</value>
+    <value>Pretende fechar estas aplicações e continuar?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>As seguintes candidaturas têm de ser encerradas:</value>
+    <value>As seguintes candidaturas devem ser encerradas:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Encontrar ficheiros duplicados em '{0}'</value>
+    <value>Procurar ficheiros duplicados em '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -153,40 +153,40 @@ Execute '0install config feed_mirror default' para o activar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>A implementação '{0}' já se encontra na loja.</value>
+    <value>A aplicação '{0}' já se encontra na loja.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>A implementação '{0}' é danificada.</value>
+    <value>A aplicação '{0}' está danificada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Quer removê-lo? Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
+    <value>Pretende removê-lo? Quando necessário, será automaticamente descarregada uma nova cópia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Executar '0install store remove {0}' para o remover. Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
+    <value>Execute '0install store remove {0}' para o remover. Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>A implementação '{0}' não pôde ser localizada.</value>
+    <value>Não foi possível localizar a implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>O sistema de arquivo subjacente não armazena os tempos de mudança de arquivo com precisão suficiente.
-Se estiver a utilizar uma unidade em formato FAT, por favor converta-a para NTFS.</value>
+    <value>O sistema de ficheiros subjacente não armazena os tempos de alteração dos ficheiros com precisão suficiente.
+Se estiver a utilizar uma unidade formatada em FAT, converta-a para NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>O ícone carregado a partir de {0} não é um ícone válido {1}.</value>
+    <value>O ícone carregado a partir de {0} não é um {1} válido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>O ficheiro do manifesto contém linhas inválidas.</value>
+    <value>O ficheiro de manifesto contém linhas inválidas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número inválido de peças em linha.</value>
+    <value>Número inválido de peças na linha.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -194,15 +194,15 @@ Se estiver a utilizar uma unidade em formato FAT, por favor converta-a para NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>A assinatura é inválida ou danificada.</value>
+    <value>A assinatura não é válida ou está danificada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Só os administradores podem optimizar uma loja partilhada.</value>
+    <value>Apenas os administradores podem optimizar um armazenamento partilhado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Apenas os administradores podem remover elementos de uma loja partilhada.</value>
+    <value>Apenas os administradores podem remover elementos de um arquivo partilhado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -210,7 +210,7 @@ Se estiver a utilizar uma unidade em formato FAT, por favor converta-a para NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível descarregar {0} porque a Instalação Zero está em modo offline.</value>
+    <value>Não é possível transferir {0} porque a Instalação Zero está no modo offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -218,7 +218,7 @@ Se estiver a utilizar uma unidade em formato FAT, por favor converta-a para NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>O caminho '{0}' não é um caminho absoluto. Os percursos relativos só são permitidos no modo portátil.
+    <value>O caminho '{0}' não é um caminho absoluto. Os caminhos relativos só são permitidos no modo portátil.
 Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -227,7 +227,7 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install não se pode remover de uma cache de implementação.</value>
+    <value>A Instalação Zero não pode remover-se de uma cache de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -235,38 +235,38 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Esta opção é controlada por uma política de grupo e não pode, portanto, ser modificada.</value>
+    <value>Esta opção é controlada por uma política de grupo, pelo que não pode ser modificada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Houve um problema de acesso à loja de implementação '{0}'.</value>
+    <value>Houve um problema ao aceder à loja de implementação '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Houve um problema de acesso à loja de implementação '{0}'.
+    <value>Houve um problema ao aceder à loja de implementação '{0}'.
 Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Houve um problema ao carregar um ficheiro de configuração.
-Pode apagar o ficheiro '{0}' para resolver o problema.</value>
+Pode eliminar o ficheiro '{0}' para resolver o problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Houve um problema ao carregar o valor de configuração '{0}'.
-Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações podem também ser perdidas.</value>
+Pode eliminar o ficheiro '{1}' para resolver o problema. Podem também perder-se outras definições.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Directório de Leitura '{0}'</value>
+    <value>Anuário de leitura '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>O ficheiro da assinatura já existe.</value>
+    <value>O ficheiro de assinatura já existe.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Incapaz de estabelecer ligação com o StoreService.</value>
+    <value>Não foi possível estabelecer ligação com o StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -274,11 +274,11 @@ Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações po
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Incapaz de encontrar uma chave secreta com o nome especificado.</value>
+    <value>Não foi possível encontrar uma chave secreta com o nome especificado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Incapaz de permitir a protecção escrita para '{0}'.</value>
+    <value>Não foi possível activar a protecção contra escrita para '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -286,7 +286,7 @@ Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações po
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>A frase-senha que introduziu está incorrecta.</value>
+    <value>A frase-chave que introduziu está incorrecta.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
@@ -298,7 +298,7 @@ Pode apagar o ficheiro '{1}' para corrigir o problema. Outras configurações po
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>A assinatura não é válida base 64:</value>
+    <value>A assinatura não é válida na base 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Os seguintes pontos de acesso existentes estão em conflito uns com os outros:</value>
+    <value>Os seguintes pontos de acesso existentes estão em conflito entre si:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Os seguintes pontos de acesso para a candidatura {0} estão em conflito entre si:</value>
+    <value>Os seguintes pontos de acesso para a aplicação {0} estão em conflito entre si:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -71,19 +71,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>A candidatura '{0}' já se encontra na lista de candidaturas.</value>
+    <value>A aplicação '{0}' já se encontra na lista de aplicações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Aplicação de alterações</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Aplicar a integração do ambiente de trabalho para {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>Não foi possível encontrar a candidatura '{0}' na lista de candidaturas.</value>
+    <value>Não foi possível encontrar a aplicação '{0}' na lista de aplicações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Só se pode realizar uma operação de integração de desktop de cada vez.</value>
+    <value>Só é possível efectuar uma operação de integração do ambiente de trabalho de cada vez.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -91,11 +95,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Por favor, use '0install central' ou '0install config' para configurar o Sync.</value>
+    <value>Utilize '0install central' ou '0install config' para configurar o Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Houve um problema de carregamento '{0}'.</value>
+    <value>Houve um problema ao carregar '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
@@ -107,12 +111,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>O nome de utilizador e/ou senha que introduziu para o servidor Sync estão incorrectos. Por favor, verifique as suas opções de sincronização.</value>
+    <value>O nome de utilizador e/ou a palavra-passe que introduziu para o servidor Sync estão incorrectos. Verifique as suas opções de sincronização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>A chave criptográfica que introduziu para Sync está incorrecta. Por favor, verifique as suas Opções de Sincronização.
-Pode alterar a chave criptográfica utilizada no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no Botão "Sync" para lá chegar) ou executando "0install sync --reset=server".</value>
+    <value>A chave criptográfica que introduziu para a Sincronização está incorrecta. Verifique as suas Opções de sincronização.
+Pode alterar a chave criptográfica utilizada no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no botão "Sync" para aceder ao mesmo) ou executando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -121,7 +125,7 @@ Pode alterar a chave criptográfica utilizada no servidor executando o assistent
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Os dados actualmente armazenados no servidor Sync estão danificados.
-Pode substituir os dados armazenados no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no Botão "Sync" para lá chegar) ou executando "0install sync - reset=server".</value>
+Pode substituir os dados armazenados no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no botão "Sync" para aceder ao mesmo) ou executando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -129,11 +133,11 @@ Pode substituir os dados armazenados no servidor executando o assistente de reso
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Incapaz de encontrar {0} com o ID '{1}'.</value>
+    <value>Não foi possível encontrar {0} com o ID '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Incapaz de substituir o executável de toco velho '{0}'.</value>
+    <value>Não é possível substituir o executável de stub obsoleto '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

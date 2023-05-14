@@ -78,6 +78,10 @@
     <value>Aplicarea modificărilor</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Aplicarea integrării desktop pentru {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Nu se poate găsi aplicația '{0}' în lista de aplicații.</value>
     <comment>Automatically translated.</comment>

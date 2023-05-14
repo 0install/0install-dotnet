@@ -63,15 +63,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Ce répertoire est un cache d'implémentation. Les fichiers qui s'y trouvent sont en lecture seule grâce aux permissions du système de fichiers. Cela les empêche d'être supprimés normalement.
+    <value>Ce répertoire est un cache de mise en œuvre. Les fichiers qui s'y trouvent sont en lecture seule grâce aux autorisations du système de fichiers. Cela les empêche d'être supprimés normalement.
 
 Si vous souhaitez supprimer une seule implémentation, vous pouvez utiliser cette ligne de commande :
 {0}
 
-Si vous souhaitez supprimer l'ensemble de ce répertoire, vous pouvez utiliser cette ligne de commande :
+Si vous souhaitez supprimer un répertoire entier, vous pouvez utiliser cette ligne de commande :
 {1}
 
-Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero Install, vous pouvez utiliser cette ligne de commande :
+Si vous souhaitez supprimer ce répertoire entier sans utiliser Zero Install, vous pouvez utiliser cette ligne de commande :
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -100,7 +100,7 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifeste réel : {0}</value>
+    <value>Manifeste actuel : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -112,7 +112,7 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erreur lors du chargement du paquet de clés OpenPGP à partir de '{0}'.</value>
+    <value>Erreur lors du chargement du paquet de clés OpenPGP à partir de '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -120,7 +120,7 @@ Si vous souhaitez supprimer l'intégralité de ce répertoire sans utiliser Zero
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Impossible de déverrouiller les fichiers en cours d'utilisation dans '{0}'.</value>
+    <value>Échec du déverrouillage des fichiers en cours d'utilisation dans '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -133,7 +133,7 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Les fichiers que vous voulez supprimer sont actuellement en cours d'utilisation.</value>
+    <value>Les fichiers que vous souhaitez supprimer sont en cours d'utilisation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -145,11 +145,11 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Recherche de fichiers en double dans '{0}'.</value>
+    <value>Recherche de fichiers en double dans '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Le fichier '{0}' n'est ni un lien symbolique ni un fichier ordinaire.</value>
+    <value>Le fichier '{0}' n'est ni un lien symbolique ni un fichier normal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
@@ -173,12 +173,12 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Le système de fichiers sous-jacent ne stocke pas les heures de changement des fichiers avec une précision suffisante.
+    <value>Le système de fichiers sous-jacent ne stocke pas les temps de modification des fichiers avec suffisamment de précision.
 Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>L'icône chargée depuis {0} n'est pas une icône valide {1}.</value>
+    <value>L'icône chargée à partir de {0} n'est pas valide {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -186,11 +186,11 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nombre invalide de pièces dans la ligne.</value>
+    <value>Nombre de pièces non valide dans la ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>L'archive contient un chemin non valide (potentiellement un risque de sécurité) : {0}</value>
+    <value>L'archive contient un chemin d'accès non valide (potentiellement un risque de sécurité) : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -206,11 +206,11 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de nouvelle ligne.</value>
+    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de retour à la ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Impossible de télécharger {0} car Zero Install est en mode hors connexion.</value>
+    <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -223,7 +223,7 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Aucune version sélectionnée</value>
+    <value>Pas de version sélectionnée</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
@@ -231,15 +231,15 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>La valeur du nombre est trop grande.</value>
+    <value>La valeur du nombre est trop importante.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Cette option est contrôlée par une politique de groupe et ne peut donc pas être modifiée.</value>
+    <value>Cette option est contrôlée par une stratégie de groupe et ne peut donc pas être modifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Il y a eu un problème lors de l'accès au magasin d'implémentation '{0}'.</value>
+    <value>Il y a eu un problème d'accès au magasin d'implémentation '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
@@ -253,7 +253,7 @@ Vous pouvez supprimer le fichier '{0}' pour résoudre le problème.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Il y a eu un problème lors du chargement de la valeur de configuration '{0}'.
+    <value>Il y a eu un problème de chargement de la valeur de configuration '{0}'.
 Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres paramètres peuvent également être perdus.</value>
     <comment>Automatically translated.</comment>
   </data>

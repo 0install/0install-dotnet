@@ -78,6 +78,10 @@
     <value>Применение изменений</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Применение интеграции рабочего стола для {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Невозможно найти приложение '{0}' в списке приложений.</value>
     <comment>Automatically translated.</comment>

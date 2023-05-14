@@ -78,6 +78,10 @@
     <value>Değişiklikler uygulanıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>{0} için masaüstü bütünleştirmesi uygulama</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>'{0}' uygulaması uygulama listesinde bulunamadı.</value>
     <comment>Manually overriden.</comment>

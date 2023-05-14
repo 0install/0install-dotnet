@@ -78,6 +78,10 @@
     <value>Aplicar los cambios</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Aplicación de la integración de escritorio para {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>No se encuentra la aplicación '{0}' en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>

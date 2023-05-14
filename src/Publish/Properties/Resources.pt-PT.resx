@@ -63,20 +63,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Foi calculado um manifesto digerido para um directório vazio. Verifique se definiu o valor "extracto" correcto para o arquivo.</value>
+    <value>Foi calculado um manifesto digest para um directório vazio. Verifique se definiu o valor de "extracção" correcto para o arquivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>O ponto de entrada do pedido não foi encontrado.
+    <value>O ponto de entrada da aplicação não foi encontrado.
 Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descarregamento '{0}' utilizando Zero Install</value>
+    <value>Descarregar '{0}' utilizando a Instalação Zero</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>O ficheiro '{0}' não pôde ser encontrado.</value>
+    <value>Não foi possível encontrar o ficheiro '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -84,19 +84,19 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Não foi encontrado nenhum directório 32-bit %ProgramFiles%.</value>
+    <value>Não foi encontrado nenhum directório %ProgramFiles% de 32 bits.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Foram detectados múltiplos novos programas padrão no registo. O tratamento de todos eles, mas o último pode ter precedência em alguns casos.</value>
+    <value>Foram detectados vários novos programas predefinidos no registo. Todos eles são tratados, mas o último pode ter precedência em alguns casos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Foram detectados vários directórios de instalação. Escolhendo primeiro por defeito.</value>
+    <value>Foram detectados vários directórios de instalação. Selecção do primeiro por predefinição.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Foram detectados múltiplos novos registos de candidatura no registo. Escolhendo primeiro por defeito.</value>
+    <value>Foram detectados vários registos de novas aplicações no registo. Selecção do primeiro por predefinição.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -105,15 +105,15 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Este método está actualmente disponível apenas em Windows.</value>
+    <value>Actualmente, este método só está disponível no Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>A chave secreta não se encontra no porta-chaves do utilizador.</value>
+    <value>A chave secreta não se encontra no chaveiro do utilizador.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Tamanho do ficheiro ainda não determinado.</value>
+    <value>O tamanho do ficheiro ainda não foi determinado.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

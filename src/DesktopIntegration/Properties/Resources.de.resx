@@ -78,6 +78,10 @@
     <value>Anwendung von Änderungen</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Anwenden der Desktop-Integration für {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Die Anwendung '{0}' konnte in der Anwendungsliste nicht gefunden werden.</value>
     <comment>Manually overriden.</comment>

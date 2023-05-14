@@ -923,7 +923,7 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>{0} adresindeki uygulamalar sunuluyor</value>
+    <value>Sunulan uygulamalar</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

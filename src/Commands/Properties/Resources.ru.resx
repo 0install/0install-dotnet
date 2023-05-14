@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение параметров конфигурации.
-При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает настройку в заданное значение или возвращает ее к значению по умолчанию, если задано значение "default".</value>
+При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает заданное значение параметра или сбрасывает его на значение по умолчанию, если задано значение "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -362,7 +362,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское целевое расположение кэша.</value>
+Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -571,7 +571,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
-    <value>Отсутствующие аргументы.</value>
+    <value>Недостающие аргументы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
@@ -771,7 +771,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Требуйте версию основной программы не ранее {VERSION}. Например, если вы хотите запустить версию 2.0 или более позднюю, используйте --not-before=2.0.</value>
+    <value>Требуйте версию основной программы не ранее, чем {VERSION}. Например, если вы хотите запустить версию 2.0 или более позднюю, используйте --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -923,7 +923,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Обслуживание реализаций по адресу {0}</value>
+    <value>Обслуживающие реализации</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -968,7 +968,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Криптографический ключ используется для локального шифрования ваших данных перед передачей их на сервер.
-Храните этот ключ в секрете и используйте для пароля что-то другое. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
+Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -980,7 +980,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Доверенные ключи</value>
+    <value>Надежные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

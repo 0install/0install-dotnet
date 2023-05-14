@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>実行ファイルの検索</value>
+    <value>実行ファイルを検索する</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブに正しい "extract" 値が設定されていることを確認してください。</value>
+    <value>空のディレクトリに対してマニフェストダイジェストが計算されました。アーカイブの「extract」値が正しく設定されているか確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -72,7 +72,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Zero Installを使用した'{0}'のダウンロード</value>
+    <value>Zero Installを使用した'{0}' のダウンロードについて</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -80,36 +80,36 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>インストール先ディレクトリとして '{0}' を検出しました。</value>
+    <value>インストール先として '{0}' を検出しました。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>32 ビット %ProgramFiles% ディレクトリが見つかりませんでした。</value>
+    <value>32ビットの%ProgramFiles%ディレクトリが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>レジストリに複数の新しいデフォルトプログラムが検出されました。それらをすべて処理しますが、場合によっては最後のものが優先されることがあります。</value>
+    <value>レジストリに複数の新しいデフォルトプログラムが検出されました。それらすべてを処理しますが、場合によっては最後のものが優先されることがあります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>複数のインストール先ディレクトリが検出されました。デフォルトで最初に選択されます。</value>
+    <value>複数のインストールディレクトリが検出されました。デフォルトで最初に選択されます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>レジストリに複数の新しいアプリケーションの登録が検出されました。デフォルトで最初に選択します。</value>
+    <value>レジストリに複数の新しいアプリケーションの登録が検出されました。デフォルトで最初に選択する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>インストール先ディレクトリが検出されませんでした。
+    <value>インストールディレクトリが検出されませんでした。
 手動で指定してみてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>この方法は、現在Windowsでのみ利用可能です。</value>
+    <value>この方法は、現在、Windowsでのみ利用可能です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>秘密鍵はユーザーのキーホルダーにはありません。</value>
+    <value>秘密鍵は、ユーザーのキーホルダーにはありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

@@ -78,6 +78,10 @@
     <value>Εφαρμογή των αλλαγών</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Εφαρμογή της ενσωμάτωσης επιφάνειας εργασίας για {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Αδυναμία εύρεσης εφαρμογής '{0}' στη λίστα εφαρμογών.</value>
     <comment>Manually overriden.</comment>

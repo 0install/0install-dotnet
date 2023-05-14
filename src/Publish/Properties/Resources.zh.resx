@@ -68,7 +68,7 @@
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>没有找到该应用程序的入口点。
-尝试手动指定它。</value>
+试着手动指定它。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
