@@ -20,7 +20,7 @@
 
   <!-- Deploy runtime config so this library can also be used as an executable -->
   <ItemGroup>
-    <None Include="App.config" PackagePath="lib\net472\0install.exe.config" Pack="True" />
+    <EmbeddedResource Include="App.config" PackagePath="lib\net472\0install.exe.config" Pack="True" />
     <None Include="net472.targets" PackagePath="build\net472\ZeroInstall.Commands.targets" Pack="True" />
     <None Include="net6.0.targets" PackagePath="build\net6.0\ZeroInstall.Commands.targets" Pack="True" />
   </ItemGroup>

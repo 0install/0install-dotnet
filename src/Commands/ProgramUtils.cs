@@ -2,9 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using System.Reflection;
 using System.Security;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
+using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
@@ -60,11 +62,32 @@ public static class ProgramUtils
         AppMutex.Create(ZeroInstallEnvironment.LegacyMutexName());
         if (AppMutex.Probe(ZeroInstallEnvironment.UpdateMutexName()) || AppMutex.Probe(ZeroInstallEnvironment.LegacyUpdateMutexName())) Environment.Exit(999);
 
+        ReplaceMissingRuntimeConfig();
+
         if (UILanguage != null) Languages.SetUI(UILanguage);
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
         ServicePointManager.DefaultConnectionLimit = 16;
+    }
+
+    [Conditional("NETFRAMEWORK")]
+    private static void ReplaceMissingRuntimeConfig()
+    {
+        string path = Assembly.GetEntryAssembly()!.Location + ".config";
+        if (File.Exists(path)) return;
+
+        Log.Info($"Replacing missing runtime config file: {path}");
+        try
+        {
+            typeof(ProgramUtils).CopyEmbeddedToFile("0install.exe.config", path);
+        }
+        #region Error handling
+        catch (Exception ex)
+        {
+            Log.Error("Failed to replace missing runtime config file", ex);
+        }
+        #endregion
     }
 
     /// <summary>
