@@ -23,11 +23,11 @@ partial class SelfManager
 
         Handler.RunTask(new ActionTask("Configuring Windows Task Scheduler", () =>
         {
-            TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate, DaysOfTheWeek.Wednesday,
+            TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate,
                 Self.Name, Self.Update.Name, "--batch");
 
             if (libraryMode)
-                TaskSchedulerAddTask(TaskSchedulerUpdateApps, Resources.DescriptionUpdateApps, DaysOfTheWeek.Thursday,
+                TaskSchedulerAddTask(TaskSchedulerUpdateApps, Resources.DescriptionUpdateApps,
                     UpdateApps.Name, "--batch", "--machine", "--clean");
             else
                 TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);
@@ -49,7 +49,7 @@ partial class SelfManager
         }));
     }
 
-    private void TaskSchedulerAddTask(string name, string description, DaysOfTheWeek daysOfWeek, params string[] arguments)
+    private void TaskSchedulerAddTask(string name, string description, params string[] arguments)
     {
         string path = Path.Combine(TargetDir, "0install-win.exe");
         if (!File.Exists(path)) return;
@@ -59,11 +59,10 @@ partial class SelfManager
             task.RegistrationInfo.Description = description;
             task.Principal.LogonType = TaskLogonType.ServiceAccount;
             task.Principal.UserId = "SYSTEM";
-            task.Triggers.Add(new WeeklyTrigger(daysOfWeek));
             task.Actions.Add(new ExecAction(path, arguments.JoinEscapeArguments()));
-            task.Settings.StartWhenAvailable = true;
+            task.Settings.MaintenanceSettings.Period = TimeSpan.FromDays(7);
+            task.Settings.MaintenanceSettings.Deadline = TimeSpan.FromDays(14);
             task.Settings.RunOnlyIfNetworkAvailable = true;
-            task.Settings.RunOnlyIfIdle = true;
             task.Settings.IdleSettings.StopOnIdleEnd = false;
             task.Settings.DisallowStartIfOnBatteries = true;
             task.Settings.StopIfGoingOnBatteries = false;
