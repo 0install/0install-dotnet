@@ -43,7 +43,7 @@ public class SearchResults
         try
         {
             using var httpClient = new HttpClient {Timeout = TimeSpan.FromSeconds(20)};
-            using var response = httpClient.Send(new(HttpMethod.Get, url));
+            using var response = httpClient.Send(new(HttpMethod.Get, url), HttpCompletionOption.ResponseHeadersRead);
             using var stream = response.EnsureSuccessStatusCode().Content.ReadAsStream();
             return XmlStorage.LoadXml<SearchResults>(stream).Results;
         }
