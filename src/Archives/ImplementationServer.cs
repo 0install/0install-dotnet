@@ -67,7 +67,7 @@ public partial class ImplementationServer
                 HandleRequest(listener.GetContext(), cancellationToken);
         }
         #region Error handling
-        catch (Exception ex) when (ex is HttpListenerException or InvalidOperationException or OperationCanceledException)
+        catch (Exception ex) when (ex is HttpListenerException or OperationCanceledException)
         {} // Shutdown
         #endregion
     }
@@ -78,13 +78,16 @@ public partial class ImplementationServer
 
         void ReturnError(HttpStatusCode statusCode, Exception exception)
         {
-            Log.Warn($"Returning {statusCode} for request: {context.Request.HttpMethod} {url.PathAndQuery}", exception);
+            Log.Info($"Returning {statusCode} for request: {context.Request.HttpMethod} {url.PathAndQuery}", exception);
             try
             {
                 context.Response.StatusCode = (int)statusCode;
-                context.Response.ContentType = "text/plain";
-                context.Response.ContentEncoding = Encoding.UTF8;
-                context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(exception.GetMessageWithInner()));
+                if (context.Request.HttpMethod != "HEAD")
+                {
+                    context.Response.ContentType = "text/plain";
+                    context.Response.ContentEncoding = Encoding.UTF8;
+                    context.Response.OutputStream.Write(Encoding.UTF8.GetBytes(exception.GetMessageWithInner()));
+                }
             }
             #region Error handling
             catch (HttpListenerException)
