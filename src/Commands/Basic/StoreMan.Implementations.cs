@@ -62,7 +62,7 @@ partial class StoreMan
     {
         public const string Name = "copy";
         public override string Description => Resources.DescriptionStoreCopy;
-        public override string Usage => "DIRECTORY [CACHE]";
+        public override string Usage => "(DIRECTORY | URI) [CACHE]";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 2;
 
@@ -74,9 +74,18 @@ partial class StoreMan
         {
             SetStorePaths(AdditionalArgs.Skip(1).ToList());
 
-            string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            var manifestDigest = new ManifestDigest(Path.GetFileName(path));
-            return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
+            if (Uri.TryCreate(AdditionalArgs[0], UriKind.Absolute, out var uri) && !uri.IsFile)
+            {
+                var manifestDigest = new ManifestDigest(Path.GetFileNameWithoutExtension(uri.LocalPath));
+                var extractor = ArchiveExtractor.For(Archive.GuessMimeType(uri.LocalPath), Handler);
+                return AddToStore(manifestDigest, builder => Handler.RunTask(new DownloadFile(uri, stream => extractor.Extract(builder, stream))));
+            }
+            else
+            {
+                string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                var manifestDigest = new ManifestDigest(Path.GetFileName(path));
+                return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
+            }
         }
     }
 

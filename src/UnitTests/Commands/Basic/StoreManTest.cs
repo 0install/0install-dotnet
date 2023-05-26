@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Net;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.FileSystem;
@@ -80,6 +81,16 @@ public class StoreManTest
 
             RunAndAssert(null, ExitCode.OK,
                 Path.Combine(tempDir, _dummyDigest.Best!));
+        }
+
+        [Fact]
+        public void Remote()
+        {
+            using var server = new MicroServer($"{_dummyDigest}.zip", new MemoryStream());
+            StoreMock.Setup(x => x.Add(_dummyDigest, It.IsAny<Action<IBuilder>>()));
+
+            RunAndAssert(null, ExitCode.OK,
+                server.FileUri.ToString());
         }
     }
 
