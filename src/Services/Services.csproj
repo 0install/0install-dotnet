@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Archives\Archives.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
+    <Reference Include="System.Net.Http" Pack="False" />
     <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net6.0'">

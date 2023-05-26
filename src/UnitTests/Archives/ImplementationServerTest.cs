@@ -11,6 +11,7 @@ namespace ZeroInstall.Archives;
 /// <summary>
 /// Contains test methods for <see cref="ImplementationServer"/>.
 /// </summary>
+[Collection(nameof(ImplementationServer))]
 public class ImplementationServerTest : IDisposable
 {
     private readonly TemporaryDirectory _tempDir;
