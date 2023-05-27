@@ -4,6 +4,7 @@
 using NanoByte.Common.Net;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Archives.Extractors;
+using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 
@@ -62,7 +63,7 @@ partial class StoreMan
     {
         public const string Name = "copy";
         public override string Description => Resources.DescriptionStoreCopy;
-        public override string Usage => "(DIRECTORY | URI) [CACHE]";
+        public override string Usage => "(DIRECTORY | URI | discover:DIGEST) [CACHE]";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 2;
 
@@ -77,6 +78,7 @@ partial class StoreMan
             if (Uri.TryCreate(AdditionalArgs[0], UriKind.Absolute, out var uri) && !uri.IsFile)
             {
                 var manifestDigest = new ManifestDigest(Path.GetFileNameWithoutExtension(uri.LocalPath));
+                if (uri.Scheme == "discover") uri = DiscoverImplementation(manifestDigest);
                 var extractor = ArchiveExtractor.For(Archive.GuessMimeType(uri.LocalPath), Handler);
                 return AddToStore(manifestDigest, builder => Handler.RunTask(new DownloadFile(uri, stream => extractor.Extract(builder, stream))));
             }
@@ -87,6 +89,13 @@ partial class StoreMan
                 return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
             }
         }
+
+        private Uri DiscoverImplementation(ManifestDigest manifestDigest)
+            => Handler.RunTaskAndReturn(ResultTask.Create(Resources.DiscoveringImplementation, () =>
+            {
+                using var discovery = new ImplementationDiscovery();
+                return discovery.GetImplementation(manifestDigest, Handler.CancellationToken);
+            }));
     }
 
     public class Export : StoreSubCommand

@@ -414,6 +414,9 @@ This is similar to '0install download --refresh', except that it prints informat
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Removing desktop integration</value>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Searching in local network</value>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Done</value>
   </data>
