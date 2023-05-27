@@ -22,7 +22,8 @@ public partial class ImplementationServer
     private readonly IImplementationStore _implementationStore;
 
     /// <summary>
-    /// Serves implementations as archives via HTTP. Automatically picks a free port. Blocks until <paramref name="cancellationToken"/> is triggered.
+    /// Serves implementations as archives via HTTP. Automatically picks a free port.
+    /// Blocks until <paramref name="cancellationToken"/> is triggered.
     /// </summary>
     /// <param name="cancellationToken">Used to stop serving.</param>
     /// <exception cref="WebException">Unable to find a free port.</exception>
@@ -41,7 +42,8 @@ public partial class ImplementationServer
     }
 
     /// <summary>
-    /// Serves implementations as archives via HTTP. Blocks until <paramref name="cancellationToken"/> is triggered.
+    /// Serves implementations as archives via HTTP.
+    /// Blocks until <paramref name="cancellationToken"/> is triggered.
     /// </summary>
     /// <param name="port">The TCP port to serve on.</param>
     /// <param name="cancellationToken">Used to stop serving.</param>
@@ -52,7 +54,10 @@ public partial class ImplementationServer
         using var listener = new HttpListener {Prefixes = {$"http://+:{port}/"}};
         using var _ = cancellationToken.Register(listener.Stop);
 
-        try { listener.Start(); }
+        try
+        {
+            listener.Start();
+        }
         #region Error handling
         catch (HttpListenerException ex)
         {
