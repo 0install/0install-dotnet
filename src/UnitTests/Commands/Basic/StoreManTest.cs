@@ -1,8 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using NanoByte.Common.Net;
+using ZeroInstall.Archives;
 using ZeroInstall.Commands.Properties;
+using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
@@ -13,6 +16,7 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Contains integration tests for <see cref="StoreMan"/>.
 /// </summary>
+[Collection(nameof(ImplementationServer))]
 public class StoreManTest
 {
     private static readonly ManifestDigest _dummyDigest = new(Sha256New: "abc");
@@ -91,6 +95,22 @@ public class StoreManTest
 
             RunAndAssert(null, ExitCode.OK,
                 server.FileUri.ToString());
+        }
+
+        [SkippableFact]
+        public void Discover()
+        {
+            Skip.If(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
+            ImplementationDiscovery.ExcludeLocalMachine = true;
+
+            var digest = ManifestDigest.Empty;
+            using var tempDir = new TemporaryDirectory("0install-test-store");
+            using var server = new ImplementationServer(new ImplementationStore(tempDir, new SilentTaskHandler()));
+            Directory.CreateDirectory(Path.Combine(tempDir, digest.Best!));
+
+            StoreMock.Setup(x => x.Add(digest, It.IsAny<Action<IBuilder>>()));
+            RunAndAssert(null, ExitCode.OK,
+                $"discover:{digest}");
         }
     }
 

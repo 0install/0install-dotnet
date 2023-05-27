@@ -916,6 +916,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Searching in local network.
+        /// </summary>
+        public static string DiscoveringImplementation {
+            get {
+                return ResourceManager.GetString("DiscoveringImplementation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done.
         /// </summary>
         public static string Done {
