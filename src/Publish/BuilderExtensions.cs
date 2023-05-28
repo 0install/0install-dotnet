@@ -125,7 +125,7 @@ public static class BuilderExtensions
     {
         if (metadata.Implementation == null) throw new ArgumentException($"Must call {nameof(IRecipeStep.Normalize)}() first.", nameof(metadata));
 
-        handler.RunTask(new SimpleTask(string.Format(Resources.FetchingExternal, metadata.ID),
+        handler.RunTask(new ActionTask(string.Format(Resources.FetchingExternal, metadata.ID),
             () => ZeroInstallClient.Detect.FetchAsync(metadata.Implementation).Wait()));
 
         string path = ImplementationStores.Default(handler).GetPath(metadata.Implementation);

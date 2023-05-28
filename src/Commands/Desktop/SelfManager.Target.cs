@@ -51,7 +51,7 @@ partial class SelfManager
             return;
         }
 
-        Handler.RunTask(new SimpleTask(Resources.MutexWait, () =>
+        Handler.RunTask(new ActionTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
             while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(TargetDir)))

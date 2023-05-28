@@ -37,7 +37,7 @@ partial class SelfManager
         if (RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\{ServiceName}", "ImagePath")?.Trim('"') is {} imagePath
          && imagePath.StartsWith(TargetDir))
         {
-            Handler.RunTask(new SimpleTask(Resources.StopService, () =>
+            Handler.RunTask(new ActionTask(Resources.StopService, () =>
             {
                 try
                 {
@@ -64,7 +64,7 @@ partial class SelfManager
     private void ServiceStart()
     {
 #if NETFRAMEWORK
-        Handler.RunTask(new SimpleTask(Resources.StartService, () =>
+        Handler.RunTask(new ActionTask(Resources.StartService, () =>
         {
             try
             {
@@ -94,7 +94,7 @@ partial class SelfManager
             return false;
         }
 
-        Handler.RunTask(new SimpleTask(Resources.InstallService, () =>
+        Handler.RunTask(new ActionTask(Resources.InstallService, () =>
             new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
             {
                 UseShellExecute = false,
@@ -115,7 +115,7 @@ partial class SelfManager
 #if NETFRAMEWORK
         if (!WindowsUtils.IsWindowsNT) return;
 
-        Handler.RunTask(new SimpleTask(Resources.UninstallService, () =>
+        Handler.RunTask(new ActionTask(Resources.UninstallService, () =>
             new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
             {
                 UseShellExecute = false,
