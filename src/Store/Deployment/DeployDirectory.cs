@@ -55,7 +55,7 @@ public class DeployDirectory : DirectoryOperation
         _pendingFileRenames.Push((tempManifestPath, manifestPath));
         Manifest.Save(tempManifestPath);
 
-        Handler.RunTask(new SimpleTask(Resources.CopyFiles, () =>
+        Handler.RunTask(new ActionTask(Resources.CopyFiles, () =>
         {
             foreach ((string directoryPath, var directory) in Manifest)
             {

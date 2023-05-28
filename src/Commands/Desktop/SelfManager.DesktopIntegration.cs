@@ -24,7 +24,7 @@ partial class SelfManager
     [SupportedOSPlatform("windows")]
     private void DesktopIntegrationApplyWindows(long size)
     {
-        Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationApply, () =>
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationApply, () =>
         {
             UninstallEntry.Register(
                 UninstallID,
@@ -59,7 +59,7 @@ partial class SelfManager
     [SupportedOSPlatform("windows")]
     private void DesktopIntegrationRemoveWindows()
     {
-        Handler.RunTask(new SimpleTask(Resources.DesktopIntegrationRemove, () =>
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationRemove, () =>
         {
             string path = Shortcut.GetStartMenuPath("", "Zero Install", MachineWide);
             if (File.Exists(path)) File.Delete(path);

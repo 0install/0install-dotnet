@@ -21,7 +21,7 @@ partial class SelfManager
     {
         if (!WindowsUtils.IsWindowsNT) return;
 
-        Handler.RunTask(new SimpleTask("Configuring Windows Task Scheduler", () =>
+        Handler.RunTask(new ActionTask("Configuring Windows Task Scheduler", () =>
         {
             TaskSchedulerAddTask(TaskSchedulerSelfUpdate, Resources.DescriptionSelfUpdate, DaysOfTheWeek.Wednesday,
                 Self.Name, Self.Update.Name, "--batch");
@@ -41,7 +41,7 @@ partial class SelfManager
     {
         if (!WindowsUtils.IsWindowsNT) return;
 
-        Handler.RunTask(new SimpleTask("Configuring Windows Task Scheduler", () =>
+        Handler.RunTask(new ActionTask("Configuring Windows Task Scheduler", () =>
         {
             TaskSchedulerRemoveTask(TaskSchedulerSelfUpdate);
             TaskSchedulerRemoveTask(TaskSchedulerUpdateApps);

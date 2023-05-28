@@ -126,7 +126,7 @@ partial class StoreMan
             using ImplementationServer server = AdditionalArgs.Count == 1
                 ? new(ImplementationStore, port: ushort.Parse(AdditionalArgs[0]))
                 : new(ImplementationStore);
-            Handler.RunTask(new WaitTask(Resources.ServingImplementations, Handler.CancellationToken.WaitHandle));
+            Handler.RunTask(new WaitTask(Resources.ServingImplementations));
 
             return ExitCode.OK;
         }

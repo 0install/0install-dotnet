@@ -114,7 +114,7 @@ public class SyncIntegrationManager : IntegrationManager
         Handler.CancellationToken.ThrowIfCancellationRequested();
     }
 
-    private (byte[]?, string? etag) DownloadAppList(Uri uri)
+    private (byte[]? data, string? etag) DownloadAppList(Uri uri)
     {
         if (uri.IsFile)
         {
@@ -128,29 +128,25 @@ public class SyncIntegrationManager : IntegrationManager
             }
         }
 
-        try
+        return Handler.RunTaskAndReturn(ResultTask.Create(Resources.SyncDownloading, () =>
         {
-            byte[]? data = null;
-            string? etag = null;
-            Handler.RunTask(new SimpleTask(Resources.SyncDownloading, () =>
+            try
             {
                 using var response = _httpClient.Send(new(HttpMethod.Get, uri), Handler.CancellationToken);
                 if (response.StatusCode == HttpStatusCode.Unauthorized) throw new WebException(Resources.SyncCredentialsInvalid);
                 response.EnsureSuccessStatusCode();
 
                 using var stream = response.Content.ReadAsStream(Handler.CancellationToken);
-                data = stream.ReadAll().AsArray();
-                etag = response.Headers.ETag?.Tag;
-            }));
-            return (data, etag);
-        }
-        #region Error handling
-        catch (HttpRequestException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw ex.AsWebException();
-        }
-        #endregion
+                return (stream.ReadAll().AsArray(), response.Headers.ETag?.Tag);
+            }
+            #region Error handling
+            catch (HttpRequestException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw ex.AsWebException();
+            }
+            #endregion
+        }));
     }
 
     /// <summary>
@@ -167,7 +163,7 @@ public class SyncIntegrationManager : IntegrationManager
             return;
         }
 
-        Handler.RunTask(new SimpleTask(Resources.SyncUploading, () =>
+        Handler.RunTask(new ActionTask(Resources.SyncUploading, () =>
         {
             try
             {

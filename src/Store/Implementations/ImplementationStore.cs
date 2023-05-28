@@ -109,7 +109,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
         if (BlockedByOpenFileHandles(path)) return false;
 
-        _handler.RunTask(new SimpleTask(
+        _handler.RunTask(new ActionTask(
             string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
             () =>
             {
@@ -202,7 +202,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (!path.StartsWith(Path + System.IO.Path.DirectorySeparatorChar) || !Directory.Exists(path)) return false;
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
-        _handler.RunTask(new SimpleTask(
+        _handler.RunTask(new ActionTask(
             string.Format(Resources.DeletingDirectory, path),
             () => Directory.Delete(path, recursive: true)));
         return true;
