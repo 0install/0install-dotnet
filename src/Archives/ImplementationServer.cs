@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher
 // Licensed under the MIT License
 
+using System.Net.Sockets;
 using System.Text;
 using NanoByte.Common.Native;
 using ZeroInstall.Archives.Builders;
@@ -16,68 +17,95 @@ namespace ZeroInstall.Archives;
 /// <summary>
 /// Simple HTTP web server that serves implementations as on-demand generated archives.
 /// </summary>
-[PrimaryConstructor]
-public partial class ImplementationServer
+public class ImplementationServer : IDisposable
 {
     private readonly IImplementationStore _implementationStore;
+    private readonly HttpListener _listener;
 
     /// <summary>
-    /// Serves implementations as archives via HTTP. Automatically picks a free port.
-    /// Blocks until <paramref name="cancellationToken"/> is triggered.
+    /// The TCP port implementations are served on.
     /// </summary>
-    /// <param name="cancellationToken">Used to stop serving.</param>
-    /// <exception cref="WebException">Unable to find a free port.</exception>
-    /// <exception cref="NotAdminException">Needs admin rights to serve HTTP requests.</exception>
-    public void Serve(CancellationToken cancellationToken)
-    {
-        for (ushort port = 49152; port < ushort.MaxValue; port++) // Private ports
-        {
-            try
-            {
-                Serve(port, cancellationToken);
-                return;
-            }
-            catch (WebException) {}
-        }
-    }
+    public ushort Port { get; }
 
     /// <summary>
-    /// Serves implementations as archives via HTTP.
-    /// Blocks until <paramref name="cancellationToken"/> is triggered.
+    /// Starts serving implementations as archives via HTTP.
     /// </summary>
-    /// <param name="port">The TCP port to serve on.</param>
-    /// <param name="cancellationToken">Used to stop serving.</param>
+    /// <param name="implementationStore">The implementation store to serve implementations from.</param>
+    /// <param name="port">The TCP port to serve on; <c>null</c> to automatically pick available port.</param>
     /// <exception cref="WebException">Unable to serve on the specified <paramref name="port"/>.</exception>
     /// <exception cref="NotAdminException">Needs admin rights to serve HTTP requests.</exception>
-    public void Serve(ushort port, CancellationToken cancellationToken)
+    public ImplementationServer(IImplementationStore implementationStore, ushort? port = null)
     {
-        using var listener = new HttpListener {Prefixes = {$"http://+:{port}/"}};
-        using var _ = cancellationToken.Register(listener.Stop);
+        _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
 
+        Port = port ?? FreePort();
+        _listener = new() {Prefixes = {$"http://+:{Port}/"}};
         try
         {
-            listener.Start();
+            _listener.Start();
         }
         #region Error handling
+        catch (HttpListenerException ex) when (WindowsUtils.IsWindowsNT && ex.NativeErrorCode == 5)
+        {
+            throw new NotAdminException(ex.Message, ex);
+        }
         catch (HttpListenerException ex)
         {
-            if (WindowsUtils.IsWindowsNT && ex.NativeErrorCode == 5) throw new NotAdminException(ex.Message, ex);
+            // Wrap exception since only certain exception types are allowed
             throw new WebException(ex.Message, ex);
         }
         #endregion
 
+        _ = ServeAsync();
+    }
+
+    private static ushort FreePort()
+    {
+        var listener = new TcpListener(IPAddress.Loopback, 0);
         try
         {
-            while (listener.IsListening && !cancellationToken.IsCancellationRequested)
-                HandleRequest(listener.GetContext(), cancellationToken);
+            listener.Start();
+            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            listener.Stop();
+            return (ushort)port;
         }
         #region Error handling
-        catch (Exception ex) when (ex is HttpListenerException or OperationCanceledException)
+        catch (SocketException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new WebException(ex.Message, ex);
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// Stops serving implementations.
+    /// </summary>
+    public void Dispose()
+    {
+        _listener.Stop();
+        _listener.Close();
+    }
+
+    private async Task ServeAsync()
+    {
+        Log.Info($"Serving implementations on port {Port}");
+
+        try
+        {
+            while (_listener.IsListening)
+            {
+                var context = await _listener.GetContextAsync().ConfigureAwait(false);
+                _ = Task.Run(() => HandleRequest(context));
+            }
+        }
+        #region Error handling
+        catch (HttpListenerException)
         {} // Shutdown
         #endregion
     }
 
-    private void HandleRequest(HttpListenerContext context, CancellationToken cancellationToken)
+    private void HandleRequest(HttpListenerContext context)
     {
         if (context.Request.Url is not {} url) return;
 
@@ -113,7 +141,7 @@ public partial class ImplementationServer
                     Log.Info($"Serving implementation {manifestDigest} as {mimeType}");
                     context.Response.ContentType = mimeType;
                     using (var builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType, fast: true))
-                        new ReadDirectory(path, builder).Run(cancellationToken);
+                        new ReadDirectory(path, builder).Run();
                     Log.Info($"Finished serving implementation {manifestDigest}");
                     break;
 

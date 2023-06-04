@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Threading;
 using ZeroInstall.Archives;
 using ZeroInstall.Store.ViewModel;
 
@@ -122,14 +123,10 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            Handler.RunTask(new SimpleTask(Resources.ServingImplementations, () =>
-            {
-                var server = new ImplementationServer(ImplementationStore);
-                if (AdditionalArgs.Count == 1)
-                    server.Serve(port: ushort.Parse(AdditionalArgs[0]), Handler.CancellationToken);
-                else
-                    server.Serve(Handler.CancellationToken);
-            }));
+            using ImplementationServer server = AdditionalArgs.Count == 1
+                ? new(ImplementationStore, port: ushort.Parse(AdditionalArgs[0]))
+                : new(ImplementationStore);
+            Handler.RunTask(new WaitTask(Resources.ServingImplementations, Handler.CancellationToken.WaitHandle));
 
             return ExitCode.OK;
         }
