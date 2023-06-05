@@ -44,6 +44,8 @@ public class Download : Selection
     protected Download(ICommandHandler handler, bool outputOptions = true, bool refreshOptions = true, bool customizeOptions = true)
         : base(handler, outputOptions, refreshOptions, customizeOptions)
     {
+        AddDiscoverOptions();
+
         if (outputOptions)
             Options.Add("show", () => Resources.OptionShow, _ => _show = true);
     }

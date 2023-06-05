@@ -25,6 +25,8 @@ public class UpdateApps : IntegrationCommand
     public UpdateApps(ICommandHandler handler)
         : base(handler)
     {
+        AddDiscoverOptions();
+
         Options.Add("c|clean", () => Resources.OptionClean, _ => _clean = true);
     }
 

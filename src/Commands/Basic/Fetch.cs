@@ -16,7 +16,9 @@ public class Fetch : CliCommand
     /// <inheritdoc/>
     public Fetch(ICommandHandler handler)
         : base(handler)
-    {}
+    {
+        AddDiscoverOptions();
+    }
 
     /// <inheritdoc/>
     public override ExitCode Execute()

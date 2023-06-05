@@ -92,6 +92,15 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Searching in local network.
+        /// </summary>
+        internal static string DiscoveringImplementation {
+            get {
+                return ResourceManager.GetString("DiscoveringImplementation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;environment&gt; bindings must contain either a &apos;value&apos; or an &apos;insert&apos; attribute..
         /// </summary>
         internal static string EnvironmentBindingValueInvalid {

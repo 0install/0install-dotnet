@@ -1487,6 +1487,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try to discover implementations on other machines in the local network instead of fetching them from their original source..
+        /// </summary>
+        public static string OptionDiscover {
+            get {
+                return ResourceManager.GetString("OptionDiscover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the type of Bootstrapper to place alongside the export..
         /// </summary>
         public static string OptionExportBootstrap {

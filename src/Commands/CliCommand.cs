@@ -6,6 +6,7 @@ using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
+using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
@@ -124,6 +125,14 @@ public abstract partial class CliCommand : ScopedOperation
             if (Handler.Verbosity == Verbosity.Batch) throw new OptionException(string.Format(Resources.ExclusiveOptions, "--batch", "--verbose"), "batch");
             Handler.Verbosity++;
         });
+    }
+
+    /// <summary>
+    /// Adds command-line options related to <see cref="ImplementationDiscovery"/>.
+    /// </summary>
+    protected void AddDiscoverOptions()
+    {
+        Options.Add("discover", () => Resources.OptionDiscover, _ => Fetcher.Discovery = new ImplementationDiscovery());
     }
 
     /// <summary>
