@@ -12,6 +12,11 @@ namespace ZeroInstall.Services.Fetchers;
 public interface IFetcher
 {
     /// <summary>
+    /// Discovers implementations in implementation stores on other machines in the local network instead of fetching them from their original source.
+    /// </summary>
+    IImplementationDiscovery? Discovery { get; set; }
+
+    /// <summary>
     /// Downloads an <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
     /// </summary>
     /// <param name="implementation">The implementation to download.</param>

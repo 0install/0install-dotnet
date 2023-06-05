@@ -29,6 +29,9 @@ public partial class Fetcher : IFetcher
     protected readonly ITaskHandler Handler;
 
     /// <inheritdoc/>
+    public IImplementationDiscovery? Discovery { get; set; }
+
+    /// <inheritdoc/>
     public void Fetch(Implementation implementation)
         => Fetch(
             implementation ?? throw new ArgumentNullException(nameof(implementation)),
@@ -72,12 +75,25 @@ public partial class Fetcher : IFetcher
 
             var manifestDigest = implementation.ManifestDigest;
             if (manifestDigest.Best == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
+            if (DiscoverImplementation(manifestDigest, tag) is {} retrievalMethod)
+                retrievalMethods = new(retrievalMethods) {retrievalMethod};
             TryRetrieve(retrievalMethods, manifestDigest, tag);
         }
         finally
         {
             mutex.ReleaseMutex();
         }
+    }
+
+    private RetrievalMethod? DiscoverImplementation(ManifestDigest manifestDigest, string tag)
+    {
+        if (Discovery == null) return null;
+
+        var task = ResultTask.Create(Resources.DiscoveringImplementation, () => Discovery.TryGetImplementation(manifestDigest, TimeSpan.FromSeconds(2), Handler.CancellationToken));
+        task.Tag = tag;
+        return Handler.RunTaskAndReturn(task) is {} uri
+            ? new Archive { Href = uri, Size = -1 }
+            : null;
     }
 
     /// <summary>
