@@ -30,13 +30,9 @@ public partial class Fetcher : IFetcher
 
     /// <inheritdoc/>
     public void Fetch(Implementation implementation)
-    {
-        #region Sanity checks
-        if (implementation == null) throw new ArgumentNullException(nameof(implementation));
-        #endregion
-
-        Fetch(implementation, implementation.ManifestDigest.Best ?? implementation.ID);
-    }
+        => Fetch(
+            implementation ?? throw new ArgumentNullException(nameof(implementation)),
+            implementation.ManifestDigest.Best ?? implementation.ID);
 
     /// <summary>
     /// Downloads an <see cref="Implementation"/> to the <see cref="IImplementationStore"/>.
@@ -66,8 +62,17 @@ public partial class Fetcher : IFetcher
             // Check if another process added the implementation in the meantime
             if (GetPath(implementation) != null) return;
 
-            if (implementation.RetrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
-            Retrieve(implementation, tag);
+            var retrievalMethods = implementation.RetrievalMethods;
+            if (retrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
+            if (retrievalMethods.OfType<ExternalRetrievalMethod>().FirstOrDefault() is {} external)
+            {
+                Retrieve(external);
+                return;
+            }
+
+            var manifestDigest = implementation.ManifestDigest;
+            if (manifestDigest.Best == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
+            TryRetrieve(retrievalMethods, manifestDigest, tag);
         }
         finally
         {
@@ -76,24 +81,22 @@ public partial class Fetcher : IFetcher
     }
 
     /// <summary>
-    /// Tries one <see cref="RetrievalMethod"/> after another (sorted by <see cref="RetrievalMethodRanker"/>).
+    /// Tries one or more <see cref="RetrievalMethod"/>s until one succeeds.
     /// </summary>
-    /// <param name="implementation">The implementation to be retrieved.</param>
+    /// <param name="retrievalMethods">The available retrieval method.</param>
+    /// <param name="manifestDigest">The expected manifest digest of the implementation.</param>
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
-    protected virtual void Retrieve(Implementation implementation, string tag)
-        => implementation
-          .RetrievalMethods
-          .OrderBy(x => x, RetrievalMethodRanker.Instance)
-          .TryAny(retrievalMethod =>
-           {
-               Handler.CancellationToken.ThrowIfCancellationRequested();
-
-               var manifestDigest = implementation.ManifestDigest;
-               if (manifestDigest.Best == null && retrievalMethod is not ExternalRetrievalMethod)
-                   throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
-
-               Retrieve(retrievalMethod, manifestDigest, tag);
-           });
+    protected virtual void TryRetrieve(IEnumerable<RetrievalMethod> retrievalMethods, ManifestDigest manifestDigest, string tag)
+    {
+        retrievalMethods
+           .OrderBy(x => x, RetrievalMethodRanker.Instance)
+           .TryAny(retrievalMethod =>
+            {
+                Handler.CancellationToken.ThrowIfCancellationRequested();
+                try { Retrieve(retrievalMethod, manifestDigest, tag); }
+                catch (ImplementationAlreadyInStoreException) {}
+            });
+    }
 
     /// <summary>
     /// Executes a retrieval method to build an implementation.
@@ -103,25 +106,17 @@ public partial class Fetcher : IFetcher
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
     protected virtual void Retrieve(RetrievalMethod retrievalMethod, ManifestDigest manifestDigest, string tag)
     {
-        try
+        switch (retrievalMethod)
         {
-            switch (retrievalMethod)
-            {
-                case DownloadRetrievalMethod download:
-                    Retrieve(new[] { download }, manifestDigest, tag);
-                    break;
-                case Recipe recipe:
-                    Retrieve(recipe.Steps, manifestDigest, tag);
-                    break;
-                case ExternalRetrievalMethod external:
-                    Retrieve(external);
-                    break;
-                default:
-                    throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
-            }
+            case DownloadRetrievalMethod download:
+                Retrieve(new[] {download}, manifestDigest, tag);
+                break;
+            case Recipe recipe:
+                Retrieve(recipe.Steps, manifestDigest, tag);
+                break;
+            default:
+                throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
         }
-        catch (ImplementationAlreadyInStoreException)
-        {}
     }
 
     /// <summary>
@@ -142,11 +137,13 @@ public partial class Fetcher : IFetcher
                     Apply(builder, step, tag);
             });
         }
+        #region Error handling
         catch (DigestMismatchException)
         {
             Log.Error(string.Format(Resources.FetcherProblem, string.Join(", ", steps.Select(x => x.ToString()).WhereNotNull())));
             throw;
         }
+        #endregion
     }
 
     /// <summary>
@@ -162,11 +159,13 @@ public partial class Fetcher : IFetcher
                 archive.MimeType ??= Archive.GuessMimeType(archive.Href.OriginalString);
                 ArchiveExtractor.For(archive.MimeType, Handler);
             }
+            #region Error handling
             catch (NotSupportedException ex)
             {
                 // Wrap exception to add context information
                 throw new NotSupportedException(string.Format(Resources.FetcherProblem, archive), ex);
             }
+            #endregion
         }
     }
 
