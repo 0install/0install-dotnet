@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Reflection;
 using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using Microsoft.CodeAnalysis;
@@ -82,14 +81,14 @@ public partial class StubBuilder
         yield return uri.ToStringRfc();
     }
 
-    /// <summary>The point in time when the library file containing this code was installed.</summary>
-    private static readonly DateTime _libraryInstallTimestamp = File.GetCreationTimeUtc(Assembly.GetExecutingAssembly().Location);
+    /// <summary>The point in time when the stub template was last changed.</summary>
+    private static readonly DateTime _templateLastChanged = new(2023,5, 3, 12, 0, 0, DateTimeKind.Utc);
 
     private void CreateOrUpdateRunStub(string path, FeedTarget target, bool gui, string? command)
     {
         if (File.Exists(path))
         { // Existing stub
-            if (File.GetLastWriteTimeUtc(path) < _libraryInstallTimestamp)
+            if (File.GetLastWriteTimeUtc(path) < _templateLastChanged)
             { // Built by older version of this library, try to rebuild
                 try
                 {
