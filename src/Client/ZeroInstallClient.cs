@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using System.Xml;
 using System.Xml.Linq;
 using NanoByte.Common.Native;
 using ZeroInstall.Model.Selection;
@@ -151,13 +152,23 @@ public class ZeroInstallClient : IZeroInstallClient
         if (machineWide) args.Add("--machine");
 
         const string xmlNamespace = "http://0install.de/schema/desktop-integration/app-list";
-        return new HashSet<string>(
-            XElement.Parse(_launcher.RunAndCapture(args.ToArray()))
-                                    .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
-                                   ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
-                                   ?.Descendants()
-                                    .Select(x => x.Name.LocalName)
-                        ?? Enumerable.Empty<string>());
+        try
+        {
+            return new HashSet<string>(
+                XElement.Parse(_launcher.RunAndCapture(args.ToArray()))
+                        .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
+                       ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
+                       ?.Descendants()
+                        .Select(x => x.Name.LocalName)
+             ?? Enumerable.Empty<string>());
+        }
+        #region Error handling
+        catch (XmlException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new IOException("Failed to parse 0install response", ex);
+        }
+        #endregion
     }
 
     /// <inheritdoc/>
