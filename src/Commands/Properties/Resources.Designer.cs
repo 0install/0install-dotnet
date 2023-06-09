@@ -1965,7 +1965,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Serving implementations.
+        ///   Looks up a localized string similar to Serving implementations on port {0}.
         /// </summary>
         public static string ServingImplementations {
             get {
