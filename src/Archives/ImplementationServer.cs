@@ -95,8 +95,6 @@ public class ImplementationServer : IDisposable
 
     private async Task ServeAsync()
     {
-        Log.Info($"Serving implementations on port {Port}");
-
         using var serviceDiscovery = TryCreateServiceDiscovery();
         serviceDiscovery?.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
 
