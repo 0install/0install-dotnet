@@ -126,15 +126,10 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     {
         if (!WindowsUtils.IsWindowsVista) return false;
 
-        // Prioritize EXEs over DLLs, limit total number of files to avoid slow scan
-        List<string> exe = new(), dll = new();
-        FileUtils.GetFilesRecursive(path).Bucketize(System.IO.Path.GetExtension).Add(".exe", exe).Add(".dll", dll).Run();
-        var filesToScanFor = exe.Concat(dll).Take(16).ToArray();
-
         try
         {
             using var restartManager = new WindowsRestartManager();
-            restartManager.RegisterResources(filesToScanFor);
+            restartManager.RegisterResources(FilesToCheckForOpenFileHandles(path));
             if (restartManager.ListApps(_handler.CancellationToken) is {Length: > 0} apps)
             {
                 string appsList = string.Join(Environment.NewLine, apps);
@@ -149,14 +144,37 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
             Log.Warn(string.Format(Resources.FailedToUnlockFiles, path), ex);
             return true;
         }
-        catch (Exception ex) when (ex is Win32Exception or DllNotFoundException)
+        catch (Exception ex)
         {
             Log.Error("Problem using Windows Restart Manager", ex);
-            return true;
+            return false;
         }
         #endregion
 
         return false;
+    }
+
+    /// <summary>
+    /// Prioritize EXEs over DLLs and limit total number of files to avoid slow scan.
+    /// </summary>
+    private static string[] FilesToCheckForOpenFileHandles(string path)
+    {
+        List<string> exe = new(), dll = new();
+        try
+        {
+            FileUtils.GetFilesRecursive(path)
+                     .Bucketize(System.IO.Path.GetExtension)
+                     .Add(".exe", exe)
+                     .Add(".dll", dll).Run();
+        }
+        #region Error handling
+        catch (Exception ex)
+        {
+            Log.Error($"Problem enumerating files in '{path}'.", ex);
+        }
+        #endregion
+
+        return exe.Concat(dll).Take(16).ToArray();
     }
 
     private static void DisableWriteProtection(string path)
