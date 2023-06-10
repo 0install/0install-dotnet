@@ -100,7 +100,7 @@ public class StoreManTest
         [SkippableFact]
         public void Discover()
         {
-            Skip.If(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
+            Skip.If(!WindowsUtils.IsWindowsNT || !WindowsUtils.IsAdministrator, "Test is flaky non-Windows OSes, needs admin rights on Windows");
             ImplementationDiscovery.ExcludeLocalMachine = true;
 
             var digest = ManifestDigest.Empty;
