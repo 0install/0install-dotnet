@@ -72,11 +72,11 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Pobieranie "{0}" przy użyciu Zero Install</value>
+    <value>Pobieranie '{0}' przy użyciu Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Nie można było znaleźć pliku '{0}'.</value>
+    <value>Nie można znaleźć pliku '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -88,15 +88,15 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługa ich wszystkich, ale ostatni może mieć pierwszeństwo w niektórych przypadkach.</value>
+    <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługuje je wszystkie, ale ostatni może mieć pierwszeństwo w niektórych przypadkach.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybrano pierwszy.</value>
+    <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybierany jest pierwszy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Wykryto wiele rejestracji nowych aplikacji w rejestrze. Wybierając domyślnie pierwszą.</value>
+    <value>W rejestrze wykryto wiele rejestracji nowych aplikacji. Wybór pierwszej domyślnie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

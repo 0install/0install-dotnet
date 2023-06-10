@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável Bootstrap em '{1}' para 
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -174,7 +174,7 @@ Se seleccionar "Não", a Instalação zero continuará a utilizar as capacidades
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>Deseja remover todos os ficheiros de aplicação da cache do Zero Install?
+    <value>Deseja remover todos os ficheiros de aplicações da cache do Zero Install?
 Estes ficheiros podem ser transferidos novamente, se necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -189,7 +189,7 @@ Seleccione uma linha inteira clicando na primeira coluna e, em seguida, prima DE
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Definir uma caixa de verificação para tornar uma capacidade no seu manipulador predefinido pretendido.
+    <value>Defina uma caixa de verificação para tornar uma capacidade no seu manipulador predefinido pretendido.
 Remover uma caixa de verificação para remover o estado predefinido de uma capacidade (continua a estar disponível).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -264,7 +264,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no directório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualizar ou alterar as definições de configuração.
-Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor actual da definição nomeada. Com dois argumentos, define a definição para o valor fornecido ou repõe o valor predefinido se for fornecido o valor "predefinido".</value>
+Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor actual da definição nomeada. Com dois argumentos, define a definição para o valor indicado ou repõe o valor predefinido se for indicado o valor "predefinido".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -339,7 +339,7 @@ Retorna um status de saída de 1 se a etapa de download falhou. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Selecciona uma versão do programa identificado por URI e versões compatíveis de todas as suas dependências.
+    <value>Selecciona uma versão do programa identificado pelo URI e versões compatíveis de todas as suas dependências.
 Devolve um estado de saída de 0 se seleccionou um conjunto de versões, e um estado de 1 se não conseguiu encontrar um conjunto consistente.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -429,7 +429,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifica se existem actualizações para o programa e descarrega-as se forem encontradas.
-Isto é semelhante ao '0install download --refresh', excepto que imprime informação sobre se foram encontradas alterações.</value>
+Isto é semelhante a '0install download --refresh', excepto que imprime informação sobre se foram encontradas alterações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -446,6 +446,10 @@ Isto é semelhante ao '0install download --refresh', excepto que imprime informa
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Remover a integração do ambiente de trabalho</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Pesquisa na rede local</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -611,7 +615,7 @@ Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Pub
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>A Instalação Zero está a ser executada em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
+    <value>O Zero Install está a ser executado em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
 Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua cópia portátil.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -632,7 +636,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' não consta da lista de caches de implementação personalizadas.</value>
+    <value>'{0}' não consta da lista de caches de implementação personalizada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -664,7 +668,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Responde automaticamente a perguntas com predefinições sempre que possível e simplifica a saída da consola (sem tabelas ou barras de progresso).</value>
+    <value>Responde automaticamente a perguntas com predefinições quando possível e simplifica a saída da consola (sem tabelas ou barras de progresso).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -700,6 +704,10 @@ Defina como vazio ("") para ignorar o comando durante a selecção.</value>
     <value>Mostra o resumo do manifesto (activado por predefinição se --manifest não estiver definido).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Tentar descobrir implementações noutras máquinas da rede local em vez de as ir buscar à fonte original.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Escolha o tipo de Bootstrapper a colocar ao lado da exportação.</value>
     <comment>Automatically translated.</comment>
@@ -709,7 +717,7 @@ Defina como vazio ("") para ignorar o comando durante a selecção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Não inclua arquivos de implementação na exportação. Exportar apenas feeds.</value>
+    <value>Não inclua os arquivos de implementação na exportação. Exportar apenas feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -754,7 +762,7 @@ Pode utilizar esta opção várias vezes para especificar vários idiomas aceit�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Executa o executável especificado {MAIN} em vez do padrão. Se começar por '/' ou '\', então o caminho é relativo ao directório de nível superior da implementação, enquanto que, caso contrário, é relativo ao directório que contém o programa principal predefinido.
+    <value>Corre o executável especificado {MAIN} em vez do padrão. Se começar com '/' ou '\', então o caminho é relativo ao directório de nível superior da implementação, enquanto que, caso contrário, é relativo ao directório que contém o programa principal predefinido.
 Não pode conter argumentos de linha de comando! Os espaços em branco não precisam de ser escapados.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -767,7 +775,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Não descarregue ainda a aplicação propriamente dita. Em vez disso, será descarregada automaticamente na primeira utilização.</value>
+    <value>Não descarregue ainda a aplicação propriamente dita. Esta será descarregada automaticamente aquando da primeira utilização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -775,7 +783,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Regressa imediatamente quando o programa escolhido tiver sido iniciado, em vez de esperar que termine a execução. No Windows, o código de saída é o ID do processo do programa iniciado.</value>
+    <value>Regressa imediatamente assim que o programa escolhido tiver sido iniciado, em vez de esperar que termine a execução. No Windows, o código de saída é o ID do processo do programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -841,7 +849,7 @@ No entanto, as novas transferências não serão escritas neste directório.</va
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar o programa escolhido directamente, corra {COMMAND} PROGRAM ARGS. Isto é útil para executar depuradores e ferramentas de rastreio no programa (em vez de na Instalação Zero!).
-Note que o wrapper é executado no ambiente seleccionado pelo programa; assim, este mecanismo não pode ser utilizado para sandboxing.
+Note que o wrapper é executado no ambiente seleccionado pelo programa; por isso, este mecanismo não pode ser utilizado para sandboxing.
 Pode conter argumentos de linha de comando. Espaços em branco devem ser escapados!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -923,7 +931,7 @@ Execute '0install config self_update_uri default' para a activar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementações de serviço</value>
+    <value>Implementações de serviço na porta {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

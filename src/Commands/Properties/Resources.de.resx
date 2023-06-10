@@ -448,6 +448,10 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <value>Entfernen von Desktopintegration</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Suche im lokalen Netwerk</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Fertig</value>
     <comment>Manually overriden.</comment>
@@ -700,6 +704,10 @@ Auf leer ("") setzen, um den Command bei der Auswahl zu ignorieren.</value>
     <value>Zeigt den Digest des Manifests an (standardmäßig aktiviert, wenn --manifest nicht gesetzt ist).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Versuche Implementierungen auf anderen Rechnern im lokalen Netzwerk zu finden, anstatt sie von ihrer ursprünglichen Quelle zu laden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Wählt den Typ des Bootstrappers, der neben dem Export platziert werden soll.</value>
     <comment>Manually overriden.</comment>
@@ -923,7 +931,7 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Stelle Implementierungen bereit</value>
+    <value>Liefere Implementierungen aus auf Port {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

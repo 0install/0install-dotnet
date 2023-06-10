@@ -117,7 +117,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Yes" (Da), eventualele integrări incompatibile vor fi eliminate.
+Dacă selectați "Yes" (Da), integrările potențial incompatibile vor fi eliminate.
 Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -298,7 +298,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Afișează toate aplicațiile aflate în prezent în lista de aplicații. Dacă se indică un URI, este afișată numai aplicația cu acel URI de alimentare. Dacă se indică un PATTERN, sunt afișate numai aplicațiile care conțin acel șir de caractere în numele lor (nu ține cont de majuscule și minuscule).</value>
+    <value>Afișează toate aplicațiile aflate în prezent în lista de aplicații. Dacă se indică un URI, este afișată numai aplicația cu acel URI de alimentare. Dacă se indică un PATTERN, sunt afișate numai aplicațiile care conțin acest șir de caractere în numele lor (nu ține cont de majuscule și minuscule).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -446,6 +446,10 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Eliminarea integrării desktop-ului</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Căutarea în rețeaua locală</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -700,6 +704,10 @@ Se setează la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <value>Afișarea sumarului manifestului (activat în mod implicit dacă --manifest nu este setat).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Încercați să descoperiți implementările de pe alte mașini din rețeaua locală în loc să le preluați de la sursa lor originală.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Alegeți tipul de Bootstrapper pe care să îl plasați alături de export.</value>
     <comment>Automatically translated.</comment>
@@ -866,7 +874,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați din listă cheile bifate pe {0}?</value>
+    <value>Doriți să eliminați din listă cheile bifate {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -882,7 +890,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină efectiv.</value>
+    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină eficient.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -923,7 +931,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementări de servire</value>
+    <value>Implementare de servicii pe portul {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -967,7 +975,7 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
+    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
 Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>

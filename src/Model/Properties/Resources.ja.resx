@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>{0}' のフィード環境設定の読み込みにエラーが発生しました。デフォルト値に戻します。</value>
+    <value>{0}' のフィードプリファレンスの読み込みにエラーが発生しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>有効なMIMEタイプでなければならない。</value>
+    <value>有効なMIMEタイプである必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">

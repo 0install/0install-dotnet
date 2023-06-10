@@ -74,6 +74,10 @@
     <value>'{0}' のコマンドが指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>ローカルネットワークで検索する</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt;バインディングには、'value'または'insert'属性のいずれかを含める必要があります。</value>
     <comment>Automatically translated.</comment>

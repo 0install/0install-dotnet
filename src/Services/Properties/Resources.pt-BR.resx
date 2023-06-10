@@ -74,6 +74,10 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <value>Comando para '{0}' não especificado.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Pesquisa na rede local</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; as ligações devem conter um atributo 'value' ou 'insert'.</value>
     <comment>Manually overriden.</comment>

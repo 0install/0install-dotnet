@@ -63,16 +63,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Er is een manifest digest berekend voor een lege map. Controleer of u de juiste "extract"-waarde hebt ingesteld voor het archief.</value>
+    <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "extract" waarde hebt ingesteld voor het archief.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>Het ingangspunt van de toepassing is niet gevonden.
-Probeer het handmatig te specificeren.</value>
+    <value>Het invoerpunt van de toepassing is niet gevonden.
+Probeer het handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Downloaden '{0}' met Zero Install</value>
+    <value>Downloaden van '{0}' met Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -84,7 +84,7 @@ Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Geen 32-bit %ProgramFiles% map gevonden.</value>
+    <value>Geen 32-bits %ProgramFiles% map gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
@@ -92,16 +92,16 @@ Probeer het handmatig te specificeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Er zijn meerdere installatiemappen gedetecteerd. Standaard de eerste kiezen.</value>
+    <value>Er zijn meerdere installatiedirectory's gedetecteerd. Standaard de eerste kiezen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Meerdere nieuwe toepassingsregistraties werden gedetecteerd in het register. Standaard de eerste kiezen.</value>
+    <value>Er zijn meerdere nieuwe applicatieregistraties gedetecteerd in het register. Standaard de eerste kiezen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Er is geen installatiedirectory gedetecteerd.
-Probeer het handmatig te specificeren.</value>
+Probeer deze handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

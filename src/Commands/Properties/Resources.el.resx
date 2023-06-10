@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Όλα τα στοιχεία που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
+    <value>Όλα τα συστατικά που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
 Μπορείτε να χρησιμοποιήσετε το σενάριο εισαγωγής ή το εκτελέσιμο αρχείο Bootstrap στο '{1}' για να εισαγάγετε αυτά τα αρχεία σε έναν άλλο υπολογιστή.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -255,7 +255,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Αναζητά καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
+    <value>Πραγματοποιεί αναζήτηση στους καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -297,7 +297,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται αυτή τη στιγμή στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
+    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -445,6 +445,10 @@
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Αφαίρεση της ενσωμάτωσης επιφάνειας εργασίας</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Αναζήτηση στο τοπικό δίκτυο</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -699,6 +703,10 @@
     <value>Εμφάνιση του δηλωτικού (ενεργοποιημένο από προεπιλογή αν --manifest δεν έχει οριστεί).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Προσπαθήστε να ανακαλύψετε υλοποιήσεις σε άλλα μηχανήματα στο τοπικό δίκτυο αντί να τις αντλείτε από την αρχική τους πηγή.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Επιλέξτε τον τύπο του Bootstrapper που θα τοποθετηθεί παράλληλα με την εξαγωγή.</value>
     <comment>Automatically translated.</comment>
@@ -922,7 +930,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Εφαρμογές εξυπηρέτησης</value>
+    <value>Εξυπηρέτηση υλοποιήσεων στη θύρα {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

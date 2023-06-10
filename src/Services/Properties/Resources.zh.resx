@@ -74,6 +74,10 @@
     <value>没有指定'{0}'的命令。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>在本地网络中搜索</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt;绑定必须包含一个 "value "或 "insert "属性。</value>
     <comment>Automatically translated.</comment>
@@ -127,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装订中缺失姓名。</value>
+    <value>{0} 装订中缺失名字。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">

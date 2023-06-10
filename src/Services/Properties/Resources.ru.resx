@@ -74,6 +74,10 @@
     <value>Команда для '{0}' не указана.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Поиск в локальной сети</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>связки &lt;environment&gt; должны содержать либо атрибут 'value', либо атрибут 'insert'.</value>
     <comment>Automatically translated.</comment>

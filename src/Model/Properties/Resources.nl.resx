@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>De string moet de vorm "os-cpu" hebben.</value>
+    <value>De tekenreeks moet de vorm "os-cpu" hebben.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -67,19 +67,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Fout bij het laden van de voervoorkeuren voor '{0}'. Terug naar de standaardwaarden.</value>
+    <value>Fout bij het laden van invoervoorkeuren voor '{0}'. Terugzetten naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Fout bij het laden van interface voorkeuren voor '{0}'. Terugkeren naar standaardwaarden.</value>
+    <value>Fout bij het laden van interfacevoorkeuren voor '{0}'. Terugzetten naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Kan voer '{0}' niet vinden in catalogus.</value>
+    <value>Kan feed '{0}' niet vinden in catalogus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Gevonden:</value>
+    <value>In plaats daarvan gevonden:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' is geen geldige 'http(s):' URI en ook geen geldig lokaal pad.</value>
+    <value>{0}' is geen geldige 'http(s):' URI en ook geen geldig lokaal pad.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Er is geen bekende digest-methode gespecificeerd.</value>
+    <value>Er is geen bekende digest-methode opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -127,15 +127,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>het "uitrolpercentage"-attribuut op {0} mag alleen worden ingesteld wanneer "stabiliteit" op "testen" staat of niet is ingesteld.</value>
+    <value>het kenmerk 'uitrolpercentage' op {0} mag alleen worden ingesteld als 'stabiliteit' is ingesteld op 'testen' of niet is ingesteld.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Slechte uitvoering</value>
+    <value>Buggy implementatie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Geeft geen commando '{0}'.</value>
+    <value>Geeft commando '{0}' niet.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -143,11 +143,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Onveilige uitvoering</value>
+    <value>Onveilige implementatie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementatie niet in cache (momenteel in off-line modus)</value>
+    <value>Implementatie niet in cache (momenteel in offline modus)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatieverwijzing.</value>
+    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatiereferentie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>Onbekende modifier.</value>
+    <value>Onbekende modificator.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">

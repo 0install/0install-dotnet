@@ -116,7 +116,7 @@ Se si desidera eliminare l'intera directory senza utilizzare Zero Install, è po
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database fiduciario. Ritorno ai valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">

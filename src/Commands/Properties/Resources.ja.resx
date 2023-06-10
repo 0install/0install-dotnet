@@ -174,7 +174,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>Zero Installのキャッシュから、すべてのアプリケーションファイルを削除したいですか？
+    <value>Zero Installのキャッシュから、すべてのアプリケーションファイルを削除しますか？
 これらのファイルは、必要に応じて再度ダウンロードすることができます。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -194,7 +194,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>{0} チェックした要素をキャッシュから削除しますか？</value>
+    <value>{0} 、チェックした要素をキャッシュから削除しますか？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -255,7 +255,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>登録されているカタログから、指定されたクエリに一致するアプリケーションを検索します。クエリーを指定しない場合は、カタログに登録されているすべてのアプリケーションを表示します。</value>
+    <value>登録されているカタログから、指定されたクエリに一致するアプリケーションを検索します。クエリを指定しない場合は、カタログに登録されているすべてのアプリケーションを表示します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数がない場合は、すべての設定とその現在の値が表示されます。1つの引数を指定すると、指定された設定の現在の値を表示します。2つの引数を指定すると、設定値を指定された値に設定し、値 "default "が指定された場合はデフォルト値にリセットします。</value>
+引数がない場合は、すべての設定とその現在の値が表示されます。1つの引数を指定すると、指定された設定の現在の値を表示します。2つの引数を指定すると、設定値を指定された値に設定し、値 "default "が指定されている場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -277,7 +277,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードと実装をDIRECTORYにエクスポートする。</value>
+    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードと実装をDIRECTORYに出力する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -302,7 +302,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>0install add-feed'を用いて URI に追加されたすべての追加フィードをリストアップする。</value>
+    <value>0install add-feed' を使って URI に追加されたすべての追加フィードをリストアップする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -318,7 +318,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>アプリケーションリストからアプリケーションを削除し、デスクトップ環境との統合を元に戻します。</value>
+    <value>アプリケーションリストからアプリケーションを削除し、デスクトップ環境との統合を取り消します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -446,6 +446,10 @@
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>デスクトップ統合を解除する</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>ローカルネットワークで検索する</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -697,7 +701,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>マニフェストのダイジェストを表示する（--manifestが設定されていない場合、デフォルトで有効になる）。</value>
+    <value>マニフェストのダイジェストを表示する（--manifestが設定されていない場合、デフォルトで有効）。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>元のソースから取得するのではなく、ローカルネットワーク内の他のマシンで実装を発見するようにします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -816,7 +824,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>より冗長な出力。2回使用すると、さらに冗長な出力になります。</value>
+    <value>より冗長な出力。2回使用すると、さらに冗長な出力が得られます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -841,7 +849,7 @@
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGS を実行します。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（むしろ、ゼロ・インストール上で！）。
-ラッパーはプログラムによって選択された環境で実行されるため、このメカニズムはサンドボックス化には使用できないことに注意してください。
+ラッパーはプログラムによって選択された環境で実行されるため、このメカニズムはサンドボックスのために使用できないことに注意してください。
 コマンドライン引数を含むことができます。空白文字はエスケープする必要があります！</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -923,7 +931,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>サーヴィスの実装</value>
+    <value>ポートで実装を提供する{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -968,7 +976,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>暗号キーは、データをサーバーに送信する前に、ローカルで暗号化するために使用されます。
-この鍵は秘密にしておき、パスワードには別のものを使ってください。こうすることで、たとえサーバーが侵害されたとしても、誰もあなたのデータにアクセスすることはできません。</value>
+この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、たとえサーバーが侵害されたとしても、誰もあなたのデータにアクセスすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

@@ -63,19 +63,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Archiwum budowlane '{0}'</value>
+    <value>Archiwum Budowlane '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Wyciąganie archiwum</value>
+    <value>Rozpakowywanie archiwum</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>Wyciąganie tego typu archiwum jest obsługiwane tylko w systemie macOS.</value>
+    <value>Wyodrębnianie tego typu archiwum jest obsługiwane tylko w systemie macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Rozpakowywanie tego typu archiwum jest obsługiwane tylko w systemie Windows.</value>
+    <value>Wyodrębnianie tego typu archiwum jest obsługiwane tylko w systemie Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

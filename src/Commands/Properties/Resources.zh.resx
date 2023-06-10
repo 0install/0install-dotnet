@@ -272,8 +272,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>行为类似于'0install select'，除了它也会下载所选择的版本，如果它们还没有被缓存。
-如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态0；否则返回状态1。</value>
+    <value>行为类似于'0install select'，除了它还会下载所选择的版本，如果它们还没有被缓存。
+如果它选择了一组合适的版本，并且它们现在都被下载并在缓存中，则返回退出状态为0；否则返回状态为1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -448,6 +448,10 @@
     <value>移除桌面整合</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>在本地网络中搜索</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>已完成</value>
     <comment>Automatically translated.</comment>
@@ -534,7 +538,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>融合{0}</value>
+    <value>整合{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -595,7 +599,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>请使用GUI版本的Zero Install来实现这一功能。</value>
+    <value>请使用Zero Install的GUI版本来实现这一功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -676,7 +680,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>移除更新后不再需要的实现。</value>
+    <value>删除更新后不再需要的实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -700,12 +704,16 @@
     <value>显示清单的摘要（如果未设置 --manifest，则默认启用）。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>尝试发现本地网络中其他机器上的实现，而不是从它们的原始来源获取它们。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>选择Bootstrapper的类型，以放置在出口旁边。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>将 "零点安装 "本身与应用程序一起包括在出口中。</value>
+    <value>将 "零安装 "本身与应用程序一起包括在出口中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -816,7 +824,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>更加粗略的输出。使用两次以获得更多的粗略输出。</value>
+    <value>更多粗略的输出。使用两次以获得更多的粗略输出。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -906,7 +914,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个 "零安装 "的实例没有被部署。没有任何东西可以删除。</value>
+    <value>这个 "零安装 "实例没有被部署。没有任何东西可以删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -923,7 +931,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>服务的实施</value>
+    <value>在端口提供服务的实施方案{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -996,7 +1004,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>未知命令'{0}'。</value>
+    <value>未知命令 '{0}'。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
@@ -1016,7 +1024,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>核实</value>
+    <value>验证</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
