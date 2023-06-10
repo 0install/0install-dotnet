@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение параметров конфигурации.
-При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает заданное значение параметра или сбрасывает его на значение по умолчанию, если задано значение "default".</value>
+При отсутствии аргументов отображает все настройки и их текущие значения. При одном аргументе отображает текущее значение именованной настройки. При двух аргументах устанавливает настройку в заданное значение или возвращает ее к значению по умолчанию, если задано значение "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -448,6 +448,10 @@
     <value>Удаление интеграции рабочего стола</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Поиск в локальной сети</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Выполнено</value>
     <comment>Automatically translated.</comment>
@@ -571,7 +575,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
-    <value>Недостающие аргументы.</value>
+    <value>Отсутствующие аргументы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
@@ -698,6 +702,10 @@
   </data>
   <data name="OptionDigest" xml:space="preserve">
     <value>Отображение дайджеста манифеста (включено по умолчанию, если параметр --manifest не установлен).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Попытайтесь обнаружить реализации на других машинах в локальной сети вместо того, чтобы получать их из первоисточника.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -923,7 +931,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Обслуживающие реализации</value>
+    <value>Обслуживание реализаций на порту {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -968,7 +976,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Криптографический ключ используется для локального шифрования ваших данных перед передачей их на сервер.
-Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
+Храните этот ключ в секрете и используйте для пароля что-то другое. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -980,7 +988,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Надежные ключи</value>
+    <value>Доверенные ключи</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

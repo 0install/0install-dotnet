@@ -322,7 +322,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disregistra un mangime, invertendo l'effetto di '0install add-feed'.</value>
+    <value>Disregistra un mangime, invertendo l'effetto di "0install add-feed".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -446,6 +446,10 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>Rimozione dell'integrazione con il desktop</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Ricerca nella rete locale</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -700,6 +704,10 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <value>Visualizza il digest del manifest (abilitato per impostazione predefinita se --manifest non è impostato).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Cerca di scoprire le implementazioni su altri computer della rete locale, invece di recuperarle dalla fonte originale.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Scegliere il tipo di Bootstrapper da affiancare all'esportazione.</value>
     <comment>Automatically translated.</comment>
@@ -746,7 +754,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'uso da parte di altre applicazioni senza la propria integrazione con il desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -771,7 +779,7 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, usare --not-before=2.0.</value>
+    <value>Richiede una versione del programma principale non precedente a {VERSION}. Ad esempio, se si vuole eseguire la versione 2.0 o successiva, utilizzare --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -792,7 +800,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Recuperare copie fresche di tutti i feed usati.</value>
+    <value>Recuperare copie fresche di tutti i feed utilizzati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -808,7 +816,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Seleziona il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
+    <value>Selezionare il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -923,7 +931,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementazioni di servizio</value>
+    <value>Implementazioni di servizio sulla porta {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -959,7 +967,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

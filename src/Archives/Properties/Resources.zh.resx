@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>仅在Windows上支持提取这种存档类型。</value>
+    <value>提取这种存档类型只支持在Windows下进行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

@@ -74,6 +74,10 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <value>Comanda pentru '{0}' nu este specificată.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Căutarea în rețeaua locală</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>legăturile &lt;environment&gt; trebuie să conțină fie un atribut "value", fie un atribut "insert".</value>
     <comment>Automatically translated.</comment>
@@ -107,7 +111,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atributul uri &lt;interface&gt; ('{0}') nu corespunde cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
+    <value>Atributul uri al interfeței &lt;interface&gt; ('{0}') nu se potrivește cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -158,7 +162,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nu a reușit să descarce {0}. Încearcă să descarci din oglinda feed-ului în schimb.</value>
+    <value>Nu a reușit să descarce {0}. Încerc să obțin din oglinda feed în schimb.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

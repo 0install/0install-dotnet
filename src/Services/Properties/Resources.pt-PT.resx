@@ -74,6 +74,10 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <value>Comando para '{0}' não especificado.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Pesquisa na rede local</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>as ligações &lt;environment&gt; devem conter um atributo 'value' ou 'insert'.</value>
     <comment>Automatically translated.</comment>

@@ -74,6 +74,10 @@
     <value>'{0}' için komut belirtilmemiş.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Yerel ağda arama</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; bağlantılarında bir 'value' değer ya da 'insert' ekleme özniteliği bulunmalıdır.</value>
     <comment>Manually overriden.</comment>

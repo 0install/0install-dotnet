@@ -74,6 +74,10 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <value>Command für '{0}' nicht angegeben.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Suche im lokalen Netwerk</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; Bindings müssen entweder ein 'value' oder ein 'insert' Attribut enthalten.</value>
     <comment>Manually overriden.</comment>
