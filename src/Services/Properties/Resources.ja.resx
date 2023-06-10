@@ -162,7 +162,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>ダウンロードに失敗しました{0}.代わりにフィードミラーからの取得を試みています。</value>
+    <value>{0} のダウンロードに失敗しました。代わりにフィードミラーからの取得を試みています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

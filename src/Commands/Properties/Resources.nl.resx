@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Alle onderdelen die nodig zijn om {0} uit te voeren, zijn geëxporteerd naar '{1}'.
+    <value>Alle componenten die nodig zijn om {0} uit te voeren, zijn geëxporteerd naar '{1}'.
 Je kunt het importscript of de Bootstrap executable in '{1}' gebruiken om deze bestanden op een andere computer te importeren.</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -277,7 +277,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードと実装をDIRECTORYにエクスポートする。</value>
+    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードと実装をDIRECTORYに出力する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
