@@ -74,6 +74,10 @@
     <value>'{0}' のコマンドが指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>ローカルネットワークで検索する</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt;バインディングには、'value'または'insert'属性のいずれかを含める必要があります。</value>
     <comment>Automatically translated.</comment>
@@ -158,7 +162,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>{0} のダウンロードに失敗しました。代わりにフィードミラーからの取得を試みています。</value>
+    <value>ダウンロードに失敗しました{0}.代わりにフィードミラーからの取得を試みています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

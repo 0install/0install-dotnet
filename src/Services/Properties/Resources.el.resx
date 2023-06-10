@@ -74,6 +74,10 @@
     <value>Εντολή για '{0}' δεν έχει καθοριστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Αναζήτηση στο τοπικό δίκτυο</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;περιβάλλον&gt; συνδέσεις πρέπει να περιέχουν είτε μια «αξία» ή ένα «ένθετο» χαρακτηριστικό.</value>
     <comment>Manually overriden.</comment>
@@ -158,7 +162,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Απέτυχε η λήψη του {0}. Προσπαθούμε να λάβουμε από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Απέτυχε η λήψη του {0}. Προσπαθούμε να πάρουμε από τον καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

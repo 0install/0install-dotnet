@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atributul "rollout-percentage" de pe {0} poate fi setat numai atunci când "stability" este "testing" sau nu este setat.</value>
+    <value>atributul "rollout-percentage" de pe {0} poate fi setat numai atunci când "stability" este "testing" sau este dezactivat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

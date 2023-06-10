@@ -448,6 +448,10 @@ Isso é semelhante a '0install download --refresh', exceto que imprime informaç
     <value>Removendo integração com a área de trabalho</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Pesquisa na rede local</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Concluído</value>
     <comment>Manually overriden.</comment>
@@ -700,6 +704,10 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <value>Exibe o resumo do manifesto (habilitado por padrão se --manifest não estiver definido).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Tente encontrar implementações em outros computadores da rede local em vez de baixá-las de sua fonte original.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Escolha o tipo de Bootstrapper para colocar ao lado da exportação.</value>
     <comment>Manually overriden.</comment>
@@ -923,7 +931,7 @@ Execute '0install config self_update_uri default' para ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Servindo implementações</value>
+    <value>Implementações de serviço na porta {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">

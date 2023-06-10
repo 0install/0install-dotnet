@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Bouwarchief '{0}'</value>
+    <value>Archief '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">

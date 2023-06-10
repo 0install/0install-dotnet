@@ -448,6 +448,10 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <value>Masaüstü bütünleştirmesi kaldırılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Yerel ağda arama</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Done" xml:space="preserve">
     <value>Tamamlandı</value>
     <comment>Manually overriden.</comment>
@@ -700,6 +704,10 @@ Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
     <value>Öge listesi dosyasını görüntüler (--manifest belirtilmemiş ise varsayılan olarak etkin).</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionDiscover" xml:space="preserve">
+    <value>Uygulamaları orijinal kaynaklarından indirmek yerine yerel ağdaki diğer bilgisayarlarda bulmaya çalışın.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
     <value>Dışa aktarılan dosyalara eklenecek Bootstrapper türünü seçin.</value>
     <comment>Manually overriden.</comment>
@@ -923,7 +931,7 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Sunulan uygulamalar</value>
+    <value>Port {0} üzerinde hizmet veren uygulamalar</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
