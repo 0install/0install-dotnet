@@ -4,8 +4,6 @@
 using NanoByte.Common.Streams;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Services;
-using ZeroInstall.Store.FileSystem;
-using ZeroInstall.Store.Manifests;
 using ZeroInstall.Store.Properties;
 
 namespace ZeroInstall.Store.Implementations;
@@ -33,7 +31,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void Contains()
     {
-        DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+        ImplementationStoreExtensions.Add(_store, new(Sha256New: "123ABC"), new() {new TestFile("fileA")});
 
         _store.Contains(new(Sha256New: "123ABC")).Should().BeTrue();
         _store.Contains(new(Sha256New: "456XYZ")).Should().BeFalse();
@@ -86,7 +84,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void ShouldAllowToRemove()
     {
-        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+        string implPath = ImplementationStoreExtensions.Add(_store, new(Sha256New: "123ABC"), new() {new TestFile("fileA")});
 
         _store.Remove(new(Sha256New: "123ABC")).Should().BeTrue();
         Directory.Exists(implPath).Should().BeFalse();
@@ -114,7 +112,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void GetPath()
     {
-        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+        string implPath =ImplementationStoreExtensions.Add(_store, new(Sha256New: "123ABC"), new() {new TestFile("fileA")});
 
         _store.GetPath(new(Sha256New: "123ABC"))
               .Should().Be(implPath, because: "Store must return the correct path for Implementations it contains");
@@ -159,10 +157,11 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyReject()
     {
-        string implPath = DeployImplementation("sha256new_123ABC", new() {new TestFile("fileA")});
+        var manifestDigest = new ManifestDigest(Sha256New: "123ABC");
+        string implPath =ImplementationStoreExtensions.Add(_store, manifestDigest, new() {new TestFile("fileA")});
 
         _handler.AnswerQuestionWith = true;
-        _store.Verify(new(Sha256New: "123ABC"));
+        _store.Verify(manifestDigest);
         _handler.LastQuestion.Should().Be(
             string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, "sha256new_123ABC"));
 
@@ -205,7 +204,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesInSameImplementation()
     {
-        string impl1Path = DeployImplementation("sha256=1", new()
+        string impl1Path = ImplementationStoreExtensions.Add(_store, new(Sha256: "1"), new()
         {
             new TestFile("fileA") {Contents = "abc"},
             new TestDirectory("dir") {new TestFile("fileB") {Contents = "abc"}}
@@ -221,8 +220,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesInDifferentImplementations()
     {
-        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256=2", new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl1Path = ImplementationStoreExtensions.Add(_store, new(Sha256New: "1"), new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = ImplementationStoreExtensions.Add(_store, new(Sha256New: "2"), new() {new TestFile("fileA") {Contents = "abc"}});
 
         _store.Optimise().Should().Be(3);
         _store.Optimise().Should().Be(0);
@@ -234,7 +233,7 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesWithDifferentTimestamps()
     {
-        string impl1Path = DeployImplementation("sha256=1", new()
+        string impl1Path = ImplementationStoreExtensions.Add(_store, new(Sha256: "1"), new()
         {
             new TestFile("fileA") {Contents = "abc", LastWrite = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc)},
             new TestFile("fileX") {Contents = "abc", LastWrite = new DateTime(2000, 2, 2, 0, 0, 0, DateTimeKind.Utc)},
@@ -249,8 +248,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void OptimiseFilesWithDifferentContent()
     {
-        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256=2", new() {new TestFile("fileA") {Contents = "def"}});
+        string impl1Path = ImplementationStoreExtensions.Add(_store, new(Sha256: "1"), new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = ImplementationStoreExtensions.Add(_store, new(Sha256: "2"), new() {new TestFile("fileA") {Contents = "def"}});
 
         _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
@@ -261,8 +260,8 @@ public class ImplementationStoreTest : IDisposable
     [Fact]
     public void ShouldNotHardlinkAcrossManifestFormatBorders()
     {
-        string impl1Path = DeployImplementation("sha256=1", new() {new TestFile("fileA") {Contents = "abc"}});
-        string impl2Path = DeployImplementation("sha256new_2", new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl1Path = ImplementationStoreExtensions.Add(_store, new(Sha256: "1"), new() {new TestFile("fileA") {Contents = "abc"}});
+        string impl2Path = ImplementationStoreExtensions.Add(_store, new(Sha256New: "1"), new() {new TestFile("fileA") {Contents = "abc"}});
 
         _store.Optimise().Should().Be(0);
         FileUtils.AreHardlinked(
@@ -301,16 +300,5 @@ public class ImplementationStoreTest : IDisposable
 
         _store.RemoveTemp(tempDir).Should().BeFalse();
         Directory.Exists(tempDir).Should().BeTrue();
-    }
-
-    private string DeployImplementation(string id, TestRoot root)
-    {
-        string path = Path.Combine(_tempDir, id);
-        root.Build(path);
-        var builder = new ManifestBuilder(ManifestFormat.FromPrefix(id));
-        new ReadDirectory(path, builder).Run();
-        builder.Manifest.Save(Path.Combine(path, Manifest.ManifestFile));
-        FileUtils.EnableWriteProtection(path);
-        return path;
     }
 }

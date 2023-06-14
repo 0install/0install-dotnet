@@ -2,8 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
+using NanoByte.Common.Streams;
 using ZeroInstall.Archives;
+using ZeroInstall.FileSystem;
 using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Services.Fetchers;
 
@@ -19,11 +22,13 @@ public class ImplementationDiscoveryTest : IDisposable
     }
 
     private readonly TemporaryDirectory _tempDir;
+    private readonly ImplementationStore _implementationStore;
 
     public ImplementationDiscoveryTest()
     {
         Skip.If(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
         _tempDir = new("0install-test-store");
+        _implementationStore = new(_tempDir, new SilentTaskHandler());
     }
 
     public void Dispose() => _tempDir.Dispose();
@@ -56,7 +61,7 @@ public class ImplementationDiscoveryTest : IDisposable
     {
         using var server = StartServer();
         using var discovery = new ImplementationDiscovery();
-        discovery.TryGetImplementation(ManifestDigest.Empty, TimeSpan.FromSeconds(1))
+        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1))
                  .Should().BeNull();
     }
 
@@ -64,17 +69,22 @@ public class ImplementationDiscoveryTest : IDisposable
     public void NoServer()
     {
         using var discovery = new ImplementationDiscovery();
-        discovery.TryGetImplementation(ManifestDigest.Empty, TimeSpan.FromSeconds(1))
+        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1))
                  .Should().BeNull();
     }
 
     private ManifestDigest AddImplementation()
     {
-        var digest = ManifestDigest.Empty;
-        Directory.CreateDirectory(Path.Combine(_tempDir, digest.Best!));
+        // Generate implementation with randomized contents/hash to avoid collisions with concurrent tests
+        var testFile = new TestFile("file") {Contents = StringUtils.GeneratePassword(8)};
+        var manifestBuilder = new ManifestBuilder(ManifestFormat.Sha256);
+        manifestBuilder.AddFile(testFile.Name, testFile.Contents.ToStream(), testFile.LastWrite);
+        var digest = new ManifestDigest(manifestBuilder.Manifest.CalculateDigest());
+
+        _implementationStore.Add(digest, new TestRoot {testFile});
         return digest;
     }
 
     private ImplementationServer StartServer()
-        => new(new ImplementationStore(_tempDir, new SilentTaskHandler()));
+        => new(_implementationStore);
 }
