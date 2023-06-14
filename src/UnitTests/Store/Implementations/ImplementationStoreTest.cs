@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Streams;
+using NanoByte.Common.Threading;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Services;
 using ZeroInstall.Store.Properties;
