@@ -1,10 +1,9 @@
 ﻿// Copyright Bastian Eicher
 // Licensed under the MIT License
 
-using System.Net.Sockets;
 using System.Text;
 using Makaretu.Dns;
-using NanoByte.Common.Native;
+using NanoByte.Common.Net;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
@@ -18,7 +17,7 @@ namespace ZeroInstall.Archives;
 /// <summary>
 /// Simple HTTP web server that serves implementations as on-demand generated archives.
 /// </summary>
-public class ImplementationServer : IDisposable
+public sealed class ImplementationServer : HttpServer
 {
     /// <summary>
     /// DNS name for discovering Zero Install implementation stores.
@@ -26,112 +25,56 @@ public class ImplementationServer : IDisposable
     public const string DnsServiceName = "_0install-store._tcp";
 
     private readonly IImplementationStore _implementationStore;
-    private readonly HttpListener _listener;
-
-    /// <summary>
-    /// The TCP port implementations are served on.
-    /// </summary>
-    public ushort Port { get; }
+    private readonly ServiceDiscovery? _serviceDiscovery;
 
     /// <summary>
     /// Starts serving implementations as archives via HTTP.
     /// </summary>
     /// <param name="implementationStore">The implementation store to serve implementations from.</param>
-    /// <param name="port">The TCP port to serve on; <c>null</c> to automatically pick available port.</param>
+    /// <param name="port">The TCP port to listen on; <c>0</c> to automatically pick free port.</param>
+    /// <param name="localOnly"><c>true</c> to only respond to requests from the local machine instead of the network. Useful for unit tests.</param>
     /// <exception cref="WebException">Unable to serve on the specified <paramref name="port"/>.</exception>
     /// <exception cref="NotAdminException">Needs admin rights to serve HTTP requests.</exception>
-    public ImplementationServer(IImplementationStore implementationStore, ushort? port = null)
+    public ImplementationServer(IImplementationStore implementationStore, ushort port = 0, bool localOnly = false)
+        : base(port, localOnly)
     {
         _implementationStore = implementationStore ?? throw new ArgumentNullException(nameof(implementationStore));
 
-        Port = port ?? FreePort();
-        _listener = new() {Prefixes = {$"http://+:{Port}/"}};
-        try
+        if (!localOnly)
         {
-            _listener.Start();
+            try
+            {
+                _serviceDiscovery = new();
+            }
+            #region Error handling
+            catch (Exception ex)
+            {
+                Log.Warn("Failed to initialize service discovery", ex);
+            }
+            #endregion
+            _serviceDiscovery?.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
         }
-        #region Error handling
-        catch (HttpListenerException ex) when (WindowsUtils.IsWindowsNT && ex.NativeErrorCode == 5)
-        {
-            throw new NotAdminException(ex.Message, ex);
-        }
-        catch (HttpListenerException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new WebException(ex.Message, ex);
-        }
-        #endregion
 
-        _ = ServeAsync();
-    }
-
-    private static ushort FreePort()
-    {
-        var listener = new TcpListener(IPAddress.Loopback, 0);
-        try
-        {
-            listener.Start();
-            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
-            listener.Stop();
-            return (ushort)port;
-        }
-        #region Error handling
-        catch (SocketException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new WebException(ex.Message, ex);
-        }
-        #endregion
+        StartHandlingRequests();
     }
 
     /// <summary>
     /// Stops serving implementations.
     /// </summary>
-    public void Dispose()
+    public override void Dispose()
     {
-        _listener.Stop();
-        _listener.Close();
-    }
-
-    private async Task ServeAsync()
-    {
-        using var serviceDiscovery = TryCreateServiceDiscovery();
-        serviceDiscovery?.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
-
         try
         {
-            while (_listener.IsListening)
-            {
-                var context = await _listener.GetContextAsync().ConfigureAwait(false);
-                _ = Task.Run(() => HandleRequest(context));
-            }
+            base.Dispose();
         }
-        #region Error handling
-        catch (HttpListenerException)
-        {} // Shutdown
-        #endregion
         finally
         {
-            serviceDiscovery?.Unadvertise();
+            _serviceDiscovery?.Unadvertise();
+            _serviceDiscovery?.Dispose();
         }
     }
 
-    private static ServiceDiscovery? TryCreateServiceDiscovery()
-    {
-        try
-        {
-            return new ServiceDiscovery();
-        }
-        #region Error handling
-        catch (Exception ex)
-        {
-            Log.Warn("Failed to initialize service discovery", ex);
-            return null;
-        }
-        #endregion
-    }
-
-    private void HandleRequest(HttpListenerContext context)
+    protected override void HandleRequest(HttpListenerContext context)
     {
         if (context.Request.Url is not {} url) return;
 
@@ -187,8 +130,6 @@ public class ImplementationServer : IDisposable
         catch (IOException ex) { ReturnError(HttpStatusCode.ServiceUnavailable, ex); }
         catch (Exception ex) { ReturnError(HttpStatusCode.InternalServerError, ex); }
         #endregion
-
-        context.Response.Close();
     }
 
     private static (ManifestDigest manifestDigest, string mimeType) ParseFileName(string fileName)

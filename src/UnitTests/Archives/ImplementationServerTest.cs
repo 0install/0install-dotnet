@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.Archives.Extractors;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Store.FileSystem;
@@ -22,11 +21,9 @@ public class ImplementationServerTest : IDisposable
 
     public ImplementationServerTest()
     {
-        Skip.If(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
-
         _tempDir = new("0install-test-store");
         _implementationStore = new ImplementationStore(_tempDir, new SilentTaskHandler());
-        _server = new(_implementationStore);
+        _server = new(_implementationStore, localOnly: true);
         _client = new() {BaseAddress = new($"http://localhost:{_server.Port}/")};
     }
 
@@ -37,7 +34,7 @@ public class ImplementationServerTest : IDisposable
         _tempDir.Dispose();
     }
 
-    [SkippableFact]
+    [Fact]
     public async Task HeadOK()
     {
         var digest = RandomDigest();
@@ -47,14 +44,14 @@ public class ImplementationServerTest : IDisposable
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
-    [SkippableFact]
+    [Fact]
     public async Task HeadNotFound()
     {
         using var response = await _client.SendAsync(new(HttpMethod.Head, "sha256new_dummy.zip"));
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
     }
 
-    [SkippableFact]
+    [Fact]
     public async Task GetOK()
     {
         var digest = RandomDigest();
@@ -64,7 +61,7 @@ public class ImplementationServerTest : IDisposable
         new ZipExtractor(new SilentTaskHandler()).Extract(Mock.Of<IBuilder>(), stream);
     }
 
-    [SkippableFact]
+    [Fact]
     public async Task GetNotFound()
     {
         using var response = await _client.GetAsync("sha256new_dummy.zip");

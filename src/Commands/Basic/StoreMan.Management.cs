@@ -123,12 +123,27 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            using ImplementationServer server = AdditionalArgs.Count == 1
-                ? new(ImplementationStore, port: ushort.Parse(AdditionalArgs[0]))
-                : new(ImplementationStore);
+            using var server = new ImplementationServer(ImplementationStore, GetPort());
             Handler.RunTask(new WaitTask(string.Format(Resources.ServingImplementations, server.Port)));
 
             return ExitCode.OK;
+        }
+
+        private ushort GetPort()
+        {
+            if (AdditionalArgs.Count == 0) return 0;
+
+            try
+            {
+                return ushort.Parse(AdditionalArgs[0]);
+            }
+            #region Error handling
+            catch (OverflowException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new FormatException(ex.Message, ex);
+            }
+            #endregion
         }
     }
 }
