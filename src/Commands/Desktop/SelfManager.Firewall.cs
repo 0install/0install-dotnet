@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Diagnostics;
 using NanoByte.Common.Native;
 
 namespace ZeroInstall.Commands.Desktop;
@@ -10,8 +9,8 @@ partial class SelfManager
 {
     private const string
         FirewallSharing = "Zero Install - Implementation sharing",
-        FirewallDiscoveryCli = "Zero Install - Service discovery (0install)",
-        FirewallDiscoveryGui = "Zero Install - Service discovery (0install-win)";
+        FirewallDiscovery = "Zero Install - Service discovery",
+        FirewallDiscoveryGui = "Zero Install - Service discovery (GUI)";
 
     /// <summary>
     /// Adds Windows Firewall rules for implementation sharing in local network.
@@ -22,12 +21,10 @@ partial class SelfManager
 
         Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
         {
-            var httpSys = ("binary", "system");
-            var ianaPrivatePorts = ("tcp", "49152–65535");
-            FirewallAddRule(FirewallSharing, target: httpSys, protocol: ianaPrivatePorts);
+            FirewallAddRule(FirewallSharing, target: ("service", "any"), protocol: ("tcp", "55000–60000"));
 
             var mDns = ("udp", "5353");
-            FirewallAddRule(FirewallDiscoveryCli, target: ("program", Path.Combine(TargetDir, "0install.exe")), protocol: mDns);
+            FirewallAddRule(FirewallDiscovery, target: ("program", Path.Combine(TargetDir, "0install.exe")), protocol: mDns);
             FirewallAddRule(FirewallDiscoveryGui, target: ("program", Path.Combine(TargetDir, "0install-win.exe")), protocol: mDns);
         }));
     }
@@ -42,7 +39,7 @@ partial class SelfManager
         Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
         {
             FirewallRemoveRule(FirewallSharing);
-            FirewallRemoveRule(FirewallDiscoveryCli);
+            FirewallRemoveRule(FirewallDiscovery);
             FirewallRemoveRule(FirewallDiscoveryGui);
         }));
     }
