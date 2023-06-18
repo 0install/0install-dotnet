@@ -51,11 +51,9 @@ partial class SelfManager
     {
         try
         {
-            new ProcessStartInfo("netsh",
-                    $"advfirewall firewall add rule name={name.EscapeArgument()} " +
-                    $"{target.type}={target.id.EscapeArgument()} profile=private,domain " +
-                    $"action=allow dir=in protocol={protocol.type} localport={protocol.ports}")
-               .Run();
+            RunHidden("netsh", "advfirewall", "firewall", "add", "rule", $"name={name}",
+                $"{target.type}={target.id}", "profile=private,domain",
+                "action=allow", "dir=in", $"protocol={protocol.type}", $"localport={protocol.ports}");
         }
         #region Error handling
         catch (Exception ex)
@@ -70,7 +68,7 @@ partial class SelfManager
     {
         try
         {
-            new ProcessStartInfo("netsh", $"advfirewall firewall delete rule name={name.EscapeArgument()}").Run();
+            RunHidden("netsh", "advfirewall", "firewall", "delete", "rule", $"name={name}");
         }
         #region Error handling
         catch (Exception ex)

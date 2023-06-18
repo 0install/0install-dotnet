@@ -146,7 +146,10 @@ partial class Self
             if (!File.Exists(startInfo.FileName)) return;
 
             if (_machineWide && WindowsUtils.HasUac)
+            {
+                // Use indirection via explorer.exe to de-elevate
                 startInfo = new("explorer.exe", startInfo.FileName.EscapeArgument()) {UseShellExecute = false};
+            }
 
             startInfo.Start();
         }

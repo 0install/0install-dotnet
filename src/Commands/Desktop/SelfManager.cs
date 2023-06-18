@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
@@ -158,4 +159,16 @@ public partial class SelfManager : ManagerBase
            MutexRelease();
         }
     }
+
+    /// <summary>
+    /// Runs a command-line without a visible window.
+    /// </summary>
+    private static void RunHidden(string fileName, params string[] arguments)
+    => new ProcessStartInfo(fileName, arguments.JoinEscapeArguments())
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            WorkingDirectory = Path.GetTempPath() // Avoid locking the current directory
+        }
+       .Run();
 }

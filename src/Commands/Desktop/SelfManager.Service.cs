@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System.Diagnostics;
 using NanoByte.Common.Native;
 using System.ServiceProcess;
 #endif
@@ -94,13 +93,7 @@ partial class SelfManager
             return false;
         }
 
-        Handler.RunTask(new ActionTask(Resources.InstallService, () =>
-            new ProcessStartInfo(_installUtilExe, ServiceExe.EscapeArgument())
-            {
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WorkingDirectory = Path.GetTempPath()
-            }.Run()));
+        Handler.RunTask(new ActionTask(Resources.InstallService, () => RunHidden(_installUtilExe, ServiceExe)));
         return true;
 #else
         return false;
@@ -115,13 +108,8 @@ partial class SelfManager
 #if NETFRAMEWORK
         if (!WindowsUtils.IsWindowsNT) return;
 
-        Handler.RunTask(new ActionTask(Resources.UninstallService, () =>
-            new ProcessStartInfo(_installUtilExe, new[] {"/u", ServiceExe}.JoinEscapeArguments())
-            {
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WorkingDirectory = Path.GetTempPath()
-            }.Run()));
+        Handler.RunTask(new ActionTask(Resources.UninstallService,
+            () => RunHidden(_installUtilExe, "/u", ServiceExe)));
 #endif
     }
 

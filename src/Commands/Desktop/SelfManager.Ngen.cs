@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 #if NETFRAMEWORK
-using System.Diagnostics;
 using NanoByte.Common.Native;
 #endif
 
@@ -36,11 +35,8 @@ partial class SelfManager
         if (!WindowsUtils.IsWindows) return;
         if (!File.Exists(_ngenExe)) return;
 
-        Handler.RunTask(ForEachTask.Create(Resources.RunNgen, _ngenAssemblies, assembly =>
-        {
-            string arguments = new[] {"install", Path.Combine(TargetDir, assembly), "/queue"}.JoinEscapeArguments();
-            new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
-        }));
+        Handler.RunTask(ForEachTask.Create(Resources.RunNgen, _ngenAssemblies,
+            assembly => RunHidden(_ngenExe, "install", Path.Combine(TargetDir, assembly), "/queue")));
 #endif
     }
 
@@ -54,10 +50,7 @@ partial class SelfManager
         if (!File.Exists(_ngenExe)) return;
 
         foreach (string assembly in _ngenAssemblies)
-        {
-            string arguments = new[] {"uninstall", Path.Combine(TargetDir, assembly)}.JoinEscapeArguments();
-            new ProcessStartInfo(_ngenExe, arguments) {WindowStyle = ProcessWindowStyle.Hidden}.Run();
-        }
+            RunHidden(_ngenExe, "uninstall", Path.Combine(TargetDir, assembly));
 #endif
     }
 }
