@@ -8,7 +8,6 @@ namespace ZeroInstall.Commands.Desktop;
 partial class SelfManager
 {
     private const string
-        FirewallSharing = "Zero Install - Implementation sharing",
         FirewallDiscovery = "Zero Install - Service discovery",
         FirewallDiscoveryGui = "Zero Install - Service discovery (GUI)";
 
@@ -21,8 +20,6 @@ partial class SelfManager
 
         Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
         {
-            FirewallAddRule(FirewallSharing, target: ("service", "any"), protocol: ("tcp", "55000–60000"));
-
             var mDns = ("udp", "5353");
             FirewallAddRule(FirewallDiscovery, target: ("program", Path.Combine(TargetDir, "0install.exe")), protocol: mDns);
             FirewallAddRule(FirewallDiscoveryGui, target: ("program", Path.Combine(TargetDir, "0install-win.exe")), protocol: mDns);
@@ -38,7 +35,6 @@ partial class SelfManager
 
         Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
         {
-            FirewallRemoveRule(FirewallSharing);
             FirewallRemoveRule(FirewallDiscovery);
             FirewallRemoveRule(FirewallDiscoveryGui);
         }));

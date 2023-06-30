@@ -5,6 +5,7 @@ using System.Text;
 using Makaretu.Dns;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
+using WindowsFirewallHelper;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
@@ -26,6 +27,7 @@ public sealed class ImplementationServer : HttpServer
     public const string DnsServiceName = "_0install-store._tcp";
 
     private readonly IImplementationStore _implementationStore;
+    private string? _firewallRuleName;
     private ServiceDiscovery? _serviceDiscovery;
 
     /// <summary>
@@ -43,10 +45,36 @@ public sealed class ImplementationServer : HttpServer
 
         if (!localOnly)
         {
+            AddFirewallRule();
             AdvertiseService();
         }
 
         StartHandlingRequests();
+    }
+
+    private void AddFirewallRule()
+    {
+        if (!WindowsUtils.IsWindowsVista || !WindowsUtils.IsAdministrator) return;
+
+        try
+        {
+            var firewall = FirewallWAS.Instance;
+            var rule = firewall.CreatePortRule(
+                FirewallProfiles.Private | FirewallProfiles.Domain,
+                name: $"Zero Install - Implementation sharing (Port {Port})",
+                FirewallAction.Allow, FirewallDirection.Inbound,
+                Port, FirewallProtocol.TCP);
+            rule.Grouping = "Zero Install";
+            firewall.Rules.Remove(rule.Name); // Overwrite existing rule if present
+            firewall.Rules.Add(rule);
+            _firewallRuleName = rule.Name;
+        }
+        #region Error handling
+        catch (Exception ex)
+        {
+            Log.Warn("Failed to create Windows Firewall rule", ex);
+        }
+        #endregion
     }
 
     private void AdvertiseService()
@@ -77,6 +105,9 @@ public sealed class ImplementationServer : HttpServer
         {
             _serviceDiscovery?.Unadvertise();
             _serviceDiscovery?.Dispose();
+
+            if (_firewallRuleName != null)
+                FirewallWAS.Instance.Rules.Remove(_firewallRuleName);
         }
     }
 
