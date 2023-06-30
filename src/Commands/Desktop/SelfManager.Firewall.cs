@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
+using WindowsFirewallHelper;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -16,58 +17,53 @@ partial class SelfManager
     /// </summary>
     private void FirewallRulesApply()
     {
-        if (!WindowsUtils.IsWindowsNT) return;
+        if (!WindowsUtils.IsWindowsVista) return;
 
-        Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
-        {
-            var mDns = ("udp", "5353");
-            FirewallAddRule(FirewallDiscovery, target: ("program", Path.Combine(TargetDir, "0install.exe")), protocol: mDns);
-            FirewallAddRule(FirewallDiscoveryGui, target: ("program", Path.Combine(TargetDir, "0install-win.exe")), protocol: mDns);
-        }));
-    }
-
-    /// <summary>
-    /// Removed Windows Firewall rules for implementation sharing in local network.
-    /// </summary>
-    private void FirewallRulesRemove()
-    {
-        if (!WindowsUtils.IsWindowsNT) return;
-
-        Handler.RunTask(new ActionTask("Configuring Windows Firewall", () =>
-        {
-            FirewallRemoveRule(FirewallDiscovery);
-            FirewallRemoveRule(FirewallDiscoveryGui);
-        }));
-    }
-
-    private static void FirewallAddRule(string name, (string type, string id) target, (string type, string ports) protocol)
-    {
         try
         {
-            RunHidden("netsh", "advfirewall", "firewall", "add", "rule", $"name={name}",
-                $"{target.type}={target.id}", "profile=private,domain",
-                "action=allow", "dir=in", $"protocol={protocol.type}", $"localport={protocol.ports}");
+            var firewall = FirewallWAS.Instance;
+            void AddMDnsRule(string name, string path)
+            {
+                var rule = firewall.CreatePortRule(
+                    FirewallProfiles.Private | FirewallProfiles.Domain,
+                    name,
+                    FirewallAction.Allow, FirewallDirection.Inbound,
+                    portNumber: 5353, FirewallProtocol.UDP);
+                rule.ApplicationName = path;
+                rule.Grouping = "Zero Install";
+                firewall.Rules.Remove(rule.Name); // Overwrite existing rule if present
+                firewall.Rules.Add(rule);
+            }
+            AddMDnsRule(FirewallDiscovery, Path.Combine(TargetDir, "0install.exe"));
+            AddMDnsRule(FirewallDiscoveryGui, Path.Combine(TargetDir, "0install-win.exe"));
         }
         #region Error handling
         catch (Exception ex)
         {
             // Firewall rules are not needed for most 0install features. Failure here should not block entire deployment.
-            Log.Warn("Failed to apply firewall rules", ex);
+            Log.Warn("Failed to apply Windows Firewall rules", ex);
         }
         #endregion
     }
 
-    private static void FirewallRemoveRule(string name)
+    /// <summary>
+    /// Removed Windows Firewall rules for implementation sharing in local network.
+    /// </summary>
+    private static void FirewallRulesRemove()
     {
+        if (!WindowsUtils.IsWindowsVista) return;
+
         try
         {
-            RunHidden("netsh", "advfirewall", "firewall", "delete", "rule", $"name={name}");
+            var firewall = FirewallWAS.Instance;
+            firewall.Rules.Remove(FirewallDiscovery);
+            firewall.Rules.Remove(FirewallDiscoveryGui);
         }
         #region Error handling
         catch (Exception ex)
         {
             // Orphaned firewall rules have no effect. Failure here should not block entire removal.
-            Log.Warn("Failed to remove firewall rules", ex);
+            Log.Warn("Failed to remove Windows Firewall rules", ex);
         }
         #endregion
     }
