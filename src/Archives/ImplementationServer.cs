@@ -3,6 +3,7 @@
 
 using System.Text;
 using Makaretu.Dns;
+using NanoByte.Common.Native;
 using NanoByte.Common.Net;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Store.FileSystem;
@@ -25,7 +26,7 @@ public sealed class ImplementationServer : HttpServer
     public const string DnsServiceName = "_0install-store._tcp";
 
     private readonly IImplementationStore _implementationStore;
-    private readonly ServiceDiscovery? _serviceDiscovery;
+    private ServiceDiscovery? _serviceDiscovery;
 
     /// <summary>
     /// Starts serving implementations as archives via HTTP.
@@ -42,20 +43,25 @@ public sealed class ImplementationServer : HttpServer
 
         if (!localOnly)
         {
-            try
-            {
-                _serviceDiscovery = new();
-            }
-            #region Error handling
-            catch (Exception ex)
-            {
-                Log.Warn("Failed to initialize service discovery", ex);
-            }
-            #endregion
-            _serviceDiscovery?.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
+            AdvertiseService();
         }
 
         StartHandlingRequests();
+    }
+
+    private void AdvertiseService()
+    {
+        try
+        {
+            _serviceDiscovery = new();
+            _serviceDiscovery.Advertise(new(Guid.NewGuid().ToString(), DnsServiceName, Port));
+        }
+        #region Error handling
+        catch (Exception ex)
+        {
+            Log.Warn("Failed to initialize service advertisement", ex);
+        }
+        #endregion
     }
 
     /// <summary>
