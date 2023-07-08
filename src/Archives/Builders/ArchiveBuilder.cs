@@ -73,6 +73,14 @@ public static class ArchiveBuilder
     /// <exception cref="UnauthorizedAccessException">Read access to the directory or write access to the archive file was denied.</exception>
     public static void RunForDirectory(string sourcePath, string archivePath, string mimeType, ITaskHandler handler)
     {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(sourcePath)) throw new ArgumentNullException(nameof(sourcePath));
+        if (string.IsNullOrEmpty(archivePath)) throw new ArgumentNullException(nameof(archivePath));
+        if (string.IsNullOrEmpty(mimeType)) throw new ArgumentNullException(nameof(mimeType));
+        if (handler == null) throw new ArgumentNullException(nameof(handler));
+        #endregion
+
+        Log.Debug($"Creating archive '{archivePath}' from directory '{sourcePath}");
         using var builder = Create(archivePath, mimeType);
         handler.RunTask(new ReadDirectory(sourcePath, builder, string.Format(Resources.BuildingArchive, archivePath)));
     }

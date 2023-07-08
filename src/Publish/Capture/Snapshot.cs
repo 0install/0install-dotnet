@@ -71,6 +71,7 @@ public class Snapshot
     {
         if (!WindowsUtils.IsWindows) throw new PlatformNotSupportedException(Resources.OnlyAvailableOnWindows);
 
+        Log.Debug("Taking snapshot of current system state");
         var snapshot = new Snapshot();
         snapshot.TakeRegistry();
         snapshot.TakeFileSystem();

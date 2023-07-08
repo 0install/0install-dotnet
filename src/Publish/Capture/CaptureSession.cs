@@ -69,7 +69,7 @@ public class CaptureSession
     /// <exception cref="UnauthorizedAccessException">Access to the registry or file system was not permitted.</exception>
     public void Finish()
     {
-        if (_diff == null || InstallationDir == null) throw new InvalidOperationException("Diff() must be called first.");
+        if (_diff == null || InstallationDir == null) throw new InvalidOperationException($"{nameof(Diff)}() must be called first.");
 
         _feedBuilder.GenerateCommands();
 
@@ -116,7 +116,7 @@ public class CaptureSession
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
-        if (InstallationDir == null) throw new InvalidOperationException("Diff() must be called first.");
+        if (InstallationDir == null) throw new InvalidOperationException($"{nameof(Diff)}() must be called first.");
 
         _feedBuilder.ImplementationDirectory = InstallationDir;
         _feedBuilder.GenerateDigest(handler);
