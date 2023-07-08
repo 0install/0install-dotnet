@@ -67,6 +67,7 @@ public static class ImplementationExtensions
         if (implementation
            .RetrievalMethods
            .OfType<Archive>()
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
            .FirstOrDefault(x => string.IsNullOrEmpty(x.Destination) && string.IsNullOrEmpty(x.Extract) && x.Href != null)
             is not {} archive) return;
