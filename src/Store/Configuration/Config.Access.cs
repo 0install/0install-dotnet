@@ -59,7 +59,7 @@ partial class Config
     public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
     {
         foreach ((string key, var property) in _metaData)
-            yield return new KeyValuePair<string, string>(key, property.NeedsEncoding ? "***" : property.Value);
+            yield return new(key, property.NeedsEncoding && !string.IsNullOrEmpty(property.Value) ? "***" : property.Value);
     }
 
     /// <inheritdoc/>
