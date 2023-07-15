@@ -336,7 +336,7 @@ Autrement le code de sortie correspondra au code de sortie du programme exécut�
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider de faire confiance aux programmes avant de les lancer.</value>
+    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider si vous voulez faire confiance aux programmes avant de les lancer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -375,7 +375,7 @@ Un argument supplémentaire permet de spécifier un emplacement de cache cible p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Liste tous les répertoires du cache d'implémentation.</value>
+    <value>Liste tous les répertoires de cache d'implémentation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -664,7 +664,7 @@ Vous pouvez le faire en utilisant "{0}". Celle-ci sera complètement indépendan
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Masquez l'interface graphique et utilisez plutôt une icône dans la barre des tâches.</value>
+    <value>Masquer l'interface graphique et utiliser à la place quelque chose comme une icône dans la barre des tâches.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">

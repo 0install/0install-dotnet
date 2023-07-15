@@ -95,7 +95,7 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>O feed '{0}' não está armazenado em cache e o Zero Install está actualmente em modo off-line.</value>
+    <value>O feed '{0}' não está armazenado em cache e o Zero Install está atualmente em modo off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -194,11 +194,11 @@ Novo tempo: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>O directório de trabalho já foi alterado por um comando anterior.</value>
+    <value>O diretório de trabalho já foi alterado por um comando anterior.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>O directório de trabalho contém um caminho inválido (potencialmente um risco de segurança).</value>
+    <value>O diretório de trabalho contém um caminho inválido (potencialmente um risco de segurança).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

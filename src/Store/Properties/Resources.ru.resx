@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Этот каталог является кэшем реализации. Файлы здесь доступны только для чтения с использованием прав доступа файловой системы. Это предотвращает их удаление обычным способом.
+    <value>Этот каталог является кэшем реализации. Файлы в нем доступны только для чтения с использованием прав доступа файловой системы. Это не позволяет удалять их обычным способом.
 
-Если вы хотите удалить одну реализацию, вы можете использовать эту командную строку:
+Если необходимо удалить одну реализацию, можно воспользоваться этой командной строкой:
 {0}
 
-Если вы хотите удалить весь каталог, вы можете использовать эту командную строку:
+Если необходимо удалить весь каталог, то можно воспользоваться этой командой:
 {1}
 
-Если вы хотите удалить всю эту директорию без использования Zero Install, вы можете использовать эту командную строку:
+Если необходимо удалить весь каталог без использования Zero Install, можно воспользоваться этой командной строкой:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Хеш манифеста реализации не соответствует ожидаемому значению.</value>
+    <value>Хэш манифеста реализации не соответствует ожидаемому значению.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Ожидаемая стоимость: {0}</value>
+    <value>Ожидаемое значение: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Ошибка при загрузке связки ключей OpenPGP с '{0}'</value>
+    <value>Ошибка при загрузке связки ключей OpenPGP из '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -124,8 +124,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Использование зеркала фида, которое необходимо для поиска, отключено.
-Выполните '0install config feed_mirror default', чтобы включить его.</value>
+    <value>Использование зеркала фидов, необходимого для поиска, отключено.
+Выполните команду '0install config feed_mirror default', чтобы включить его.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -133,15 +133,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Файлы, которые вы хотите удалить, используются в настоящее время.</value>
+    <value>Файлы, которые Вы хотите удалить, используются в настоящее время.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Хотите ли вы закрыть эти приложения и продолжить?</value>
+    <value>Хотите ли Вы закрыть эти приложения и продолжить работу?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Следующие заявки должны быть закрыты:</value>
+    <value>Необходимо закрыть следующие заявки:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -165,7 +165,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Выполните команду '0install store remove {0}', чтобы удалить его. При необходимости новая копия будет автоматически загружена снова.</value>
+    <value>Выполните команду '0install store remove {0}' для его удаления. При необходимости новая копия будет автоматически загружена снова.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -173,8 +173,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Базовая файловая система не хранит время изменения файлов с достаточной точностью.
-Если вы используете диск, отформатированный в FAT, преобразуйте его в NTFS.</value>
+    <value>Файловая система, лежащая в ее основе, не хранит время изменения файлов с достаточной точностью.
+Если вы используете диск, отформатированный в FAT, переведите его в NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
@@ -206,7 +206,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Имя файла или каталога не должно содержать символ новой строки.</value>
+    <value>Имя файла или каталога не должно содержать символа новой строки.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -214,11 +214,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не был указан известный метод переваривания.</value>
+    <value>Не было указано ни одного известного метода дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Путь '{0}' не является абсолютным путем. Относительные пути разрешены только в переносном режиме.
+    <value>Путь '{0}' не является абсолютным путем. Относительные пути разрешены только в портативном режиме.
 Указан в конфигурационном файле '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -235,30 +235,30 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Этот параметр контролируется групповой политикой и поэтому не может быть изменен.</value>
+    <value>Эта опция контролируется групповой политикой и поэтому не может быть изменена.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Возникла проблема с доступом к магазину реализации '{0}'.</value>
+    <value>Возникла проблема с доступом к хранилищу реализаций '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Возникла проблема с доступом к магазину реализации '{0}'.
+    <value>Возникла проблема с доступом к хранилищу реализаций '{0}'.
 Указано в конфигурационном файле '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Возникла проблема с загрузкой файла конфигурации.
-Вы можете удалить файл '{0}', чтобы устранить проблему.</value>
+Для устранения проблемы можно удалить файл '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Возникла проблема с загрузкой значения конфигурации '{0}'.
-Вы можете удалить файл '{1}', чтобы устранить проблему. Другие настройки также могут быть потеряны.</value>
+Для устранения проблемы можно удалить файл '{1}'. Другие настройки также могут быть потеряны.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Каталог для чтения '{0}'</value>
+    <value>Каталог чтения '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
@@ -266,7 +266,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Невозможно установить соединение с StoreService.</value>
+    <value>Невозможно установить соединение со службой StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -294,11 +294,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>Подпись XML начинается не с новой строки.</value>
+    <value>XML-подпись не начинается с новой строки.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Подпись не является действительной base 64:</value>
+    <value>Подпись не является действительной базой 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

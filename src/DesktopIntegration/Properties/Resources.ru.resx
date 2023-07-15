@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Следующие существующие точки доступа находятся в конфликте друг с другом:</value>
+    <value>Следующие существующие точки доступа противоречат друг другу:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Приложение '{0}' уже есть в списке приложений.</value>
+    <value>Приложение '{0}' уже находится в списке приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Применение интеграции рабочего стола для {0}</value>
+    <value>Применение интеграции настольных систем для {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Одновременно можно выполнять только одну операцию интеграции рабочего стола.</value>
+    <value>Одновременно можно выполнить только одну операцию интеграции рабочего стола.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Пожалуйста, используйте '0install central' или '0install config' для установки Sync.</value>
+    <value>Для установки Sync используйте '0install central' или '0install config'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
@@ -111,12 +111,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Введенные вами имя пользователя и/или пароль для сервера синхронизации неверны. Проверьте параметры синхронизации.</value>
+    <value>Имя пользователя и/или пароль, введенные для сервера синхронизации, неверны. Проверьте параметры синхронизации.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>Криптографический ключ, введенный вами для синхронизации, неверен. Пожалуйста, проверьте параметры синхронизации.
-Вы можете изменить криптографический ключ, используемый на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Sync") или выполнив команду '0install sync --reset=server'.</value>
+    <value>Криптографический ключ, введенный для синхронизации, неверен. Проверьте, пожалуйста, параметры синхронизации.
+Вы можете изменить криптоключ, используемый на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Синхронизация") или выполнив команду '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -124,7 +124,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Данные, хранящиеся в настоящее время на сервере Sync, повреждены.
+    <value>Данные, хранящиеся на сервере Sync, повреждены.
 Вы можете заменить данные, хранящиеся на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Sync") или выполнив команду '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>

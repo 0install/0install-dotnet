@@ -96,7 +96,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>W rejestrze wykryto wiele rejestracji nowych aplikacji. Wybór pierwszej domyślnie.</value>
+    <value>W rejestrze wykryto wiele rejestracji nowych aplikacji. Domyślnie wybierana jest pierwsza.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

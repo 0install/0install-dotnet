@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Este directório é uma cache de implementação. Os ficheiros aqui são tornados apenas de leitura utilizando as permissões do sistema de ficheiros. Isto impede que sejam apagados normalmente.
+    <value>Este diretório é uma cache de implementação. Os ficheiros aqui são tornados apenas de leitura utilizando as permissões do sistema de ficheiros. Isto impede que sejam apagados normalmente.
 
 Se quiser apagar uma única implementação, pode usar esta linha de comando:
 {0}
 
-Se pretender eliminar todo este directório, pode utilizar esta linha de comandos:
+Se pretender eliminar todo este diretório, pode utilizar esta linha de comandos:
 {1}
 
-Se desejar apagar todo este directório sem utilizar a Instalação Zero, pode utilizar esta linha de comandos:
+Se desejar apagar todo este diretório sem utilizar a Instalação Zero, pode utilizar esta linha de comandos:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -80,7 +80,7 @@ Se desejar apagar todo este directório sem utilizar a Instalação Zero, pode u
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Eliminar o directório {0}</value>
+    <value>Eliminar o diretório {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -125,15 +125,15 @@ Se desejar apagar todo este directório sem utilizar a Instalação Zero, pode u
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>A utilização do espelho de feeds, que é necessário para a pesquisa, está desactivada.
-Execute '0install config feed_mirror default' para o activar.</value>
+Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Não foi possível encontrar o ficheiro ou directório '{0}'.</value>
+    <value>Não foi possível encontrar o ficheiro ou diretório '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Os ficheiros que pretende eliminar estão actualmente a ser utilizados.</value>
+    <value>Os ficheiros que pretende eliminar estão atualmente a ser utilizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -198,7 +198,7 @@ Se estiver a utilizar uma unidade formatada em FAT, converta-a para NTFS.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Apenas os administradores podem optimizar um armazenamento partilhado.</value>
+    <value>Apenas os administradores podem otimizar um armazenamento partilhado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -206,11 +206,11 @@ Se estiver a utilizar uma unidade formatada em FAT, converta-a para NTFS.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>O nome do ficheiro ou directório não deve conter um carácter de nova linha.</value>
+    <value>O nome do ficheiro ou diretório não deve conter um carácter de nova linha.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não é possível transferir {0} porque a Instalação Zero está no modo offline.</value>
+    <value>Não é possível transferir {0} porque a Instalação Zero está em modo offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -223,7 +223,7 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Nenhuma versão seleccionada</value>
+    <value>Nenhuma versão selecionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
@@ -278,7 +278,7 @@ Pode eliminar o ficheiro '{1}' para resolver o problema. Podem também perder-se
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Não foi possível activar a protecção contra escrita para '{0}'.</value>
+    <value>Não foi possível ativar a proteção contra escrita para '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">

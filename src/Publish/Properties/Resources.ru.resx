@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Дайджест манифеста был рассчитан для пустого каталога. Проверьте, что вы установили правильное значение "extract" для архива.</value>
+    <value>Дайджест манифеста был рассчитан для пустого каталога. Проверьте, что для архива задано правильное значение "extract".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -80,7 +80,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Обнаружен '{0}' в качестве каталога установки.</value>
+    <value>В качестве каталога установки обнаружен '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -88,7 +88,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>В реестре было обнаружено несколько новых программ по умолчанию. Обработайте их все, но последняя может иметь приоритет в некоторых случаях.</value>
+    <value>В реестре обнаружено несколько новых программ по умолчанию. Обработайте их все, но в некоторых случаях приоритет может иметь последняя.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>В реестре обнаружено несколько новых регистраций приложений. По умолчанию выбирается первое.</value>
+    <value>В реестре обнаружено несколько регистраций новых приложений. По умолчанию выбирается первое.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -105,7 +105,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>В настоящее время этот метод доступен только в Windows.</value>
+    <value>В настоящее время этот метод доступен только в операционной системе Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

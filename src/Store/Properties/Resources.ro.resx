@@ -249,7 +249,7 @@ Specificată în fișierul de configurare '{1}'.</value>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>A existat o problemă la încărcarea unui fișier de configurare.
-Puteți șterge fișierul '{0}' pentru a remedia problema.</value>
+Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">

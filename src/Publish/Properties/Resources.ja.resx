@@ -59,61 +59,61 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>実行ファイルを検索する</value>
+    <value>実行ファイルの検索</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>空のディレクトリに対してマニフェストダイジェストが計算されました。アーカイブの「extract」値が正しく設定されているか確認してください。</value>
+    <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブに正しい "extract" 値が設定されているか確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>アプリケーションのエントリーポイントが見つかりませんでした。
-手動で指定してみてください。</value>
+    <value>アプリケーションのエントリー・ポイントが見つかりません。
+手動で指定してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Zero Installを使用した'{0}' のダウンロードについて</value>
+    <value>ゼロインストールを使用した '{0}' のダウンロード</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>ファイル '{0}' が見つかりませんでした。</value>
+    <value>ファイル '{0}' が見つかりません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>インストール先として '{0}' を検出しました。</value>
+    <value>インストール・ディレクトリとして '{0}' を検出しました。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>32ビットの%ProgramFiles%ディレクトリが見つかりませんでした。</value>
+    <value>32 ビット %ProgramFiles% ディレクトリが見つかりません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>レジストリに複数の新しいデフォルトプログラムが検出されました。それらすべてを処理しますが、場合によっては最後のものが優先されることがあります。</value>
+    <value>レジストリで複数の新しいデフォルトプログラムが検出されました。これらすべてを処理しますが、場合によっては最後のものが優先されることがあります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>複数のインストールディレクトリが検出されました。デフォルトで最初に選択されます。</value>
+    <value>複数のインストールディレクトリが検出されました。デフォルトで最初を選択。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>レジストリに複数の新しいアプリケーションの登録が検出されました。デフォルトで最初に選択する。</value>
+    <value>レジストリで複数の新しいアプリケーションの登録が検出されました。デフォルトで最初のものを選択します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>インストールディレクトリが検出されませんでした。
-手動で指定してみてください。</value>
+    <value>インストール・ディレクトリが検出されませんでした。
+手動で指定してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>この方法は、現在、Windowsでのみ利用可能です。</value>
+    <value>この方法は現在、ウィンドウズでのみ利用可能である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>秘密鍵は、ユーザーのキーホルダーにはありません。</value>
+    <value>秘密鍵はユーザーのキーホルダーにはない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>ファイルサイズは未定です。</value>
+    <value>ファイルサイズは未定。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

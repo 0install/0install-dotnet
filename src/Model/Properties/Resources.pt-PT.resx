@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Não foi possível encontrar a implementação da interface '{0}' na selecção.</value>
+    <value>Não foi possível encontrar a implementação da interface '{0}' na seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementação que não está na cache (actualmente em modo off-line)</value>
+    <value>Implementação que não está na cache (atualmente em modo off-line)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>O fim do intervalo de versões deve ser exclusivo. Utilize '...!{0}' e não '...{0}'.</value>
+    <value>O fim do intervalo de versões deve ser exclusivo. Utilizar '...!{0}' e não '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

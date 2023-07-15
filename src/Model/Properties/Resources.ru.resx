@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Строка должна быть в форме "os-cpu".</value>
+    <value>Строка должна иметь вид "os-cpu".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -67,27 +67,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Ошибка при загрузке предпочтений корма для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке настроек подачи для '{0}'. Возврат к значениям по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Ошибка загрузки предпочтений интерфейса для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке настроек интерфейса для '{0}'. Возврат к значениям по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Невозможно найти корм '{0}' в каталоге.</value>
+    <value>Невозможно найти в каталоге фид '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Найдено вместо:</value>
+    <value>Вместо этого найдено:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Невозможно найти реализацию для интерфейса '{0}' в выборе.</value>
+    <value>Невозможно найти реализацию для интерфейса '{0}' в выборке.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' не является действительным URI 'http(s):' и также не является действительным локальным путем.</value>
+    <value>'{0}' не является корректным URI 'http(s):' и не является корректным локальным путем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Номер версии может содержать только разделенные точками десятичные числа и строки модификаторов.</value>
+    <value>Номер версии может содержать только десятичные числа, разделенные точками, и строки модификаторов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -115,27 +115,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не был указан известный метод переваривания.</value>
+    <value>Не было указано ни одного известного метода дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Не удалось определить относительный путь '{0}'. Только фиды, сохраненные как локальные файлы, могут содержать относительные пути.</value>
+    <value>Относительный путь '{0}' не может быть разрешен. Относительные пути могут содержаться только в фидах, сохраненных как локальные файлы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Не удалось разрешить относительный URI '{0}'. Только фиды, сохраненные как локальные файлы, могут содержать относительные URI.</value>
+    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержать только ленты, сохраненные в виде локальных файлов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если 'stability' - 'testing' или не установлен.</value>
+    <value>атрибут 'rollout-percentage' на сайте {0} может быть установлен только в том случае, если параметр 'stability' имеет значение 'testing' или не установлен.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Ошибочная реализация</value>
+    <value>Непродуманная реализация</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Не предоставляет команду '{0}'.</value>
+    <value>Не обеспечивает команду '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -147,11 +147,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Реализация отсутствует в кэше (в настоящее время находится в автономном режиме)</value>
+    <value>Реализация отсутствует в кэше (в настоящее время находится в режиме off-line)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Неисполняемая исходная реализация</value>
+    <value>Неисполняемая реализация исходных текстов</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Должен быть действительным типом MIME.</value>
+    <value>Должен быть допустимым типом MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...{0}', а не '...{0}'.</value>
+    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...!{0}', а не '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

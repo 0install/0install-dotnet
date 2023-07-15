@@ -59,64 +59,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>以下是现有的接入点相互冲突的情况：</value>
+    <value>以下现有出入口相互冲突：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>以下应用程序的访问点{0} ，相互之间存在冲突：</value>
+    <value>应用程序{0} 的以下访问点相互冲突：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>现有的接入点{0} ，与新的接入点{1} ，有冲突。</value>
+    <value>现有接入点{0} 与新接入点{1} 冲突。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>应用程序 '{0}' 已经在应用程序列表中。</value>
+    <value>应用程序 "{0}"已在应用程序列表中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>应用变化</value>
+    <value>应用变更</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>应用桌面集成的{0}</value>
+    <value>将桌面集成应用于{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>无法在应用程序列表中找到应用程序 '{0}'。</value>
+    <value>无法在应用程序列表中找到应用程序 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>你一次只能执行一个桌面整合操作。</value>
+    <value>一次只能执行一个桌面集成操作。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>名称'{0}'包含无效的字符。</value>
+    <value>名称 '{0}' 包含无效字符。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>请使用'0install central'或'0install config'来设置Sync。</value>
+    <value>请使用 "0install central "或 "0install config "设置同步。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>加载 "{0}"时出现了问题。</value>
+    <value>在加载 '{0}' 时出现问题。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>修复桌面整合</value>
+    <value>修复桌面集成</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>快捷方式名称'{0}'包含无效的字符。</value>
+    <value>快捷方式名称 '{0}' 包含无效字符。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>你为同步服务器输入的用户名和/或密码不正确。请检查您的同步选项。</value>
+    <value>您输入的同步服务器用户名和/或密码不正确。请检查您的同步选项。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>你为同步输入的加密密钥不正确。请检查你的同步选项。
-你可以通过运行故障排除向导（右击 "同步 "按钮进入）或执行 "0install sync --reset=server "来改变服务器上使用的加密密钥。</value>
+    <value>您为同步输入的加密密钥不正确。请检查您的同步选项。
+您可以通过运行故障排除向导（右键单击 "同步 "按钮进入）或执行 "0install sync --reset=server" 来更改服务器上使用的加密密钥。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -124,8 +124,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>当前存储在同步服务器上的数据已经损坏。
-你可以通过运行故障排除向导（右键点击 "Sync "按钮进入）或执行 "0install sync --reset=server "来替换服务器上存储的数据。</value>
+    <value>当前存储在同步服务器上的数据已损坏。
+您可以通过运行故障排除向导（右键单击 "同步 "按钮进入）或执行 "0install sync --reset=server" 替换服务器上存储的数据。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -137,7 +137,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>无法替换陈旧的存根可执行文件 '{0}'。</value>
+    <value>无法替换陈旧的存根可执行文件'{0}'。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

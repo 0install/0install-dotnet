@@ -71,11 +71,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>A extracção deste tipo de arquivo só é suportada no macOS.</value>
+    <value>A extração deste tipo de arquivo só é suportada no macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>A extracção deste tipo de arquivo só é suportada no Windows.</value>
+    <value>A extração deste tipo de arquivo só é suportada no Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

@@ -63,12 +63,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>计算了一个空目录的清单摘要。检查您是否为存档设置了正确的 "提取 "值。</value>
+    <value>为空目录计算了清单摘要。检查您是否为存档设置了正确的 "extract "值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>没有找到该应用程序的入口点。
-尝试手动指定它。</value>
+    <value>未找到应用程序的入口点。
+请尝试手动指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
@@ -76,19 +76,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>无法找到文件'{0}'。</value>
+    <value>找不到文件 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>检测到'{0}'为安装目录。</value>
+    <value>检测到 "{0}"为安装目录。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>没有找到32位的%ProgramFiles%目录。</value>
+    <value>未找到32位%ProgramFiles%目录。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>在注册表中检测到多个新的默认程序。对它们都进行了处理，但在某些情况下最后一个可能会优先处理。</value>
+    <value>在注册表中检测到多个新的默认程序。处理所有程序，但在某些情况下可能优先处理最后一个程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -96,16 +96,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>在注册表中检测到多个新的应用程序注册。默认选择第一个。</value>
+    <value>在注册表中检测到多个新应用程序注册。默认选择第一个。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>没有检测到安装目录。
-尝试手动指定它。</value>
+    <value>未检测到安装目录。
+请尝试手动指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>这种方法目前只在Windows上可用。</value>
+    <value>该方法目前仅适用于Windows系统。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

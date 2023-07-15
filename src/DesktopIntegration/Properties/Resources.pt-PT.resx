@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Só é possível efectuar uma operação de integração do ambiente de trabalho de cada vez.</value>
+    <value>Só é possível efetuar uma operação de integração do ambiente de trabalho de cada vez.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -124,7 +124,7 @@ Pode alterar a chave criptográfica utilizada no servidor executando o assistent
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Os dados actualmente armazenados no servidor Sync estão danificados.
+    <value>Os dados atualmente armazenados no servidor Sync estão danificados.
 Pode substituir os dados armazenados no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no botão "Sync" para aceder ao mesmo) ou executando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
