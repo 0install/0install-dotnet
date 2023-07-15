@@ -60,7 +60,7 @@
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
     <value>Feed: {0}
-- Ważny podpis od {1}
+- Prawidłowy podpis od {1}
 - {2}
 Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
 </value>

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>档案文件无效或损坏。</value>
+    <value>存档文件无效或损坏。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
@@ -75,11 +75,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>提取这种存档类型只支持在Windows下进行。</value>
+    <value>该压缩包类型仅支持在Windows上解压。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>不支持存档的MIME类型'{0}'。</value>
+    <value>不支持归档 MIME 类型 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -198,7 +198,7 @@ Nouvelle heure : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Le répertoire de travail contient un chemin non valide (potentiellement un risque de sécurité).</value>
+    <value>Le répertoire de travail contient un chemin d'accès non valide (potentiellement un risque de sécurité).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

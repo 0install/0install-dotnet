@@ -259,7 +259,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Otwiera centralny graficzny interfejs użytkownika do uruchamiania i zarządzania aplikacjami.</value>
+    <value>Otwiera centralny graficzny interfejs użytkownika do uruchamiania aplikacji i zarządzania nimi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -322,7 +322,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Wyrejestrowuje feed, odwracając efekt działania '0install add-feed'.</value>
+    <value>Wyrejestrowuje kanał, odwracając efekt działania '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -566,7 +566,7 @@ Znacznik &lt;feed-for&gt; wskazuje kompatybilność kanału.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Niniejszy program nie jest objęty ABSOLUTNIE ŻADNĄ GWARANCJĄ w zakresie dozwolonym przez prawo.
+    <value>Ten program nie jest objęty ABSOLUTNIE ŻADNĄ GWARANCJĄ w zakresie dozwolonym przez prawo.
 Kopie tego programu można rozpowszechniać na warunkach licencji GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -939,7 +939,7 @@ Uruchom "0install config self_update_uri default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Przywrócić domyślną politykę stabilności dla {0}?</value>
+    <value>Przywrócić domyślne ustawienia polityki stabilności dla {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">

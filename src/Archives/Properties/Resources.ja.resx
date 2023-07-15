@@ -63,23 +63,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>ビルディングアーカイブ '{0}'</value>
+    <value>建物アーカイブ '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>アーカイブを展開する</value>
+    <value>アーカイブの展開</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>このアーカイブタイプの抽出は、macOSでのみサポートされています。</value>
+    <value>このアーカイブタイプの解凍はmacOSでのみサポートされています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>このアーカイブタイプの解凍は、Windowsでのみサポートされています。</value>
+    <value>このアーカイブタイプの解凍はWindowsでのみサポートされています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>アーカイブのMIMEタイプ '{0}' はサポートされていません。</value>
+    <value>アーカイブのMIMEタイプ「{0} 」はサポートされていません。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
