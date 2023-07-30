@@ -32,19 +32,19 @@ public static class ProgramUtils
         {
             if (!WindowsUtils.IsWindows) return null;
 
-            string? language = RegistryUtils.GetSoftwareString("Zero Install", "Language");
-            if (!string.IsNullOrEmpty(language))
+            string? language = RegistryUtils.GetSoftwareString("Zero Install", "Language", machineWide: false)
+                            ?? RegistryUtils.GetSoftwareString("Zero Install", "Language", machineWide: true);
+            if (string.IsNullOrEmpty(language)) return null;
+
+            try
             {
-                try
-                {
-                    return Languages.FromString(language);
-                }
-                catch (ArgumentException ex)
-                {
-                    Log.Warn($"Failed to parse '{language}' as an ISO language code", ex);
-                }
+                return Languages.FromString(language);
             }
-            return null;
+            catch (ArgumentException ex)
+            {
+                Log.Warn($"Failed to parse '{language}' as an ISO language code", ex);
+                return null;
+            }
         }
         set
         {
