@@ -20,7 +20,7 @@ partial class Self
         protected bool Portable => File.Exists(Path.Combine(TargetDir, Locations.PortableFlagName));
 
         // Auto-detect machine-wide targets by comparing path with registry entry
-        protected bool MachineWide => !Portable && (TargetDir == FindExistingInstance(machineWide: true));
+        protected bool MachineWide => !Portable && TargetDir == ZeroInstallDeployment.GetPath(machineWide: true);
 
         protected void PerformRemove()
         {
@@ -65,7 +65,7 @@ partial class Self
             if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
                 new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
-            if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOther() == null))
+            if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallDeployment.FindOther() == null))
             {
                 try
                 {

@@ -46,9 +46,7 @@ partial class Self
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
             if (!_portable && !_library)
             {
-                string? existing = FindExistingInstance(_machineWide)
-                                ?? FindExistingInstance(machineWide: true);
-                if (existing != null && existing != targetDir)
+                if (ZeroInstallDeployment.FindOther(_machineWide) is {} existing && existing != targetDir)
                 {
                     string hint = string.Format(Resources.ExistingInstance, existing);
                     if (!Handler.Ask(string.Format(Resources.AskDeployNewTarget, targetDir) + Environment.NewLine + hint, defaultAnswer: true, alternateMessage: hint))
@@ -76,7 +74,7 @@ partial class Self
             if (AdditionalArgs.Count == 0)
             {
                 if (_portable) throw new OptionException(string.Format(Resources.DeployMissingTargetForPortable, "--portable"), "portable");
-                return FindExistingInstance(_machineWide)
+                return ZeroInstallDeployment.GetPath(_machineWide)
                     ?? GetDefaultTargetDir();
             }
             else return GetCustomTargetDir();
@@ -116,7 +114,7 @@ partial class Self
             }
             else if (!_machineWide)
             {
-                if (FindExistingInstance(machineWide: true) == targetDir)
+                if (ZeroInstallDeployment.GetPath(machineWide: true) == targetDir)
                 {
                     Log.Info($"Detected that '{targetDir}' is an existing machine-wide instance of Zero Install.");
                     _machineWide = true;

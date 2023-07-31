@@ -1,8 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
-
 namespace ZeroInstall.Commands.Desktop;
 
 /// <summary>
@@ -39,20 +37,5 @@ public sealed partial class Self : CliMultiCommand
         protected SelfSubCommand(ICommandHandler handler)
             : base(handler)
         {}
-
-        /// <summary>
-        /// Tries to find an existing instance of Zero Install deployed on this system.
-        /// </summary>
-        /// <param name="machineWide"><c>true</c> to look only for machine-wide instances; <c>false</c> to look only for instances in the current user profile.</param>
-        /// <returns>The deployment directory of an instance of Zero Install; <c>null</c> if none was found.</returns>
-        protected static string? FindExistingInstance(bool machineWide)
-        {
-            if (!WindowsUtils.IsWindows) return null;
-
-            string? installLocation = RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation", machineWide);
-            if (string.IsNullOrEmpty(installLocation)) return null;
-            if (!File.Exists(Path.Combine(installLocation, "0install.exe"))) return null;
-            return installLocation;
-        }
     }
 }

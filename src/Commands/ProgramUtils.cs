@@ -342,7 +342,7 @@ public static class ProgramUtils
     /// <exception cref="NotAdminException">The target process requires elevation.</exception>
     private static ExitCode? TryRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool needsMachineWide)
     {
-        if (ZeroInstallInstance.FindOther(needsMachineWide) is {} installLocation)
+        if (ZeroInstallDeployment.FindOther(needsMachineWide) is {} installLocation)
         {
             Log.Info($"Redirecting to Zero Install instance at: {installLocation}");
             handler.DisableUI();

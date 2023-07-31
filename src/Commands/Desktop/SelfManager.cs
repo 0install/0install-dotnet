@@ -94,7 +94,7 @@ public partial class SelfManager : ManagerBase
             {
                 if (!libraryMode)
                     DesktopIntegrationApply(newManifest.TotalSize);
-                ZeroInstallInstance.RegisterLocation(TargetDir, MachineWide, libraryMode);
+                ZeroInstallDeployment.Register(TargetDir, MachineWide, libraryMode);
                 RemoveOneGetBootstrap();
             }
 
@@ -150,7 +150,7 @@ public partial class SelfManager : ManagerBase
             if (!Portable)
             {
                 DesktopIntegrationRemove();
-                ZeroInstallInstance.UnregisterLocation(MachineWide);
+                ZeroInstallDeployment.Unregister(MachineWide);
             }
         }
         finally

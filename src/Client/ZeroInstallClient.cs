@@ -44,18 +44,18 @@ public class ZeroInstallClient : IZeroInstallClient
     /// </summary>
     public static IZeroInstallClient Detect
         => new ZeroInstallClient(
-            commandLine: ZeroInstallEnvironment.Cli ?? GetRegistryPath("0install") ?? "0install",
-            guiCommandLine: ZeroInstallEnvironment.Gui ?? GetRegistryPath("0install-win"));
+            commandLine: ZeroInstallEnvironment.Cli
+                      ?? GetFromRegistry("0install", machineWide: false)
+                      ?? GetFromRegistry("0install", machineWide: true)
+                      ?? "0install",
+            guiCommandLine: ZeroInstallEnvironment.Gui
+                         ?? GetFromRegistry("0install-win", machineWide: false)
+                         ?? GetFromRegistry("0install-win", machineWide: true));
 
-    private static string? GetRegistryPath(string executableName)
-    {
-        if (!WindowsUtils.IsWindows) return null;
-
-        if (RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation") is not {Length: >0} installLocation) return null;
-
-        string path = Path.Combine(installLocation, $"{executableName}.exe");
-        return File.Exists(path) ? path.EscapeArgument() : null;
-    }
+    private static string? GetFromRegistry(string executableName, bool machineWide)
+        => ZeroInstallDeployment.GetPath(machineWide) is {} dirPath
+            ? Path.Combine(dirPath, $"{executableName}.exe").EscapeArgument()
+            : null;
 
     /// <inheritdoc/>
     public void TrustKey(string fingerprint, string domain)

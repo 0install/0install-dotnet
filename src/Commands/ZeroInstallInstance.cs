@@ -43,11 +43,6 @@ public static class ZeroInstallInstance
         }
     }
 
-    private const string
-        RegKeyName = "Zero Install",
-        InstallLocation = "InstallLocation",
-        LibraryMode = "LibraryMode";
-
     /// <summary>
     /// Indicates whether the current Zero Install instance is deployed to a fixed location.
     /// </summary>
@@ -59,8 +54,8 @@ public static class ZeroInstallInstance
 
             if (WindowsUtils.IsWindows)
             {
-                return FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: false), Locations.InstallBase)
-                    || FileUtils.PathEquals(RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true), Locations.InstallBase);
+                return FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: false), Locations.InstallBase)
+                    || FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: true), Locations.InstallBase);
             }
             else if (UnixUtils.IsUnix)
             {
@@ -79,13 +74,8 @@ public static class ZeroInstallInstance
         get
         {
             if (Locations.IsPortable) return false;
-
-            if (WindowsUtils.IsWindows)
-            {
-                string? path = RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide: true);
-                if (!string.IsNullOrEmpty(path)) return FileUtils.PathEquals(path, Locations.InstallBase);
-            }
-
+            if (ZeroInstallDeployment.GetPath(machineWide: true) is {} path)
+                return FileUtils.PathEquals(path, Locations.InstallBase);
             return !Locations.InstallBase.StartsWith(Locations.HomeDir);
         }
     }
@@ -95,9 +85,8 @@ public static class ZeroInstallInstance
     /// </summary>
     public static bool IsLibraryMode
         => !Locations.IsPortable
-        && WindowsUtils.IsWindows
         && IsDeployed
-        && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, IsMachineWide) == "1";
+        && ZeroInstallDeployment.IsLibraryMode(IsMachineWide);
 
     /// <summary>
     /// Indicates whether the current Zero Install instance is integrated into the desktop environment.
@@ -107,46 +96,6 @@ public static class ZeroInstallInstance
         && WindowsUtils.IsWindows
         && IsDeployed
         && !IsLibraryMode;
-
-    /// <summary>
-    /// Registers a Zero Install instance in the Windows registry if possible.
-    /// </summary>
-    /// <param name="path">The deployment directory of the instance of Zero Install.</param>
-    /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
-    /// <param name="libraryMode">Indicates the instance was deployed in library mode.</param>
-    public static void RegisterLocation(string path, bool machineWide, bool libraryMode)
-    {
-        if (!WindowsUtils.IsWindows) return;
-
-        RegistryUtils.SetSoftwareString(RegKeyName, InstallLocation, path, machineWide);
-        RegistryUtils.SetSoftwareString(RegKeyName, LibraryMode, libraryMode ? "1" : "0", machineWide);
-    }
-
-    /// <summary>
-    /// Unregisters a Zero Install instance from the Windows registry if possible.
-    /// </summary>
-    /// <param name="machineWide"><c>true</c> if a machine-wide registration should be removed; <c>false</c> if a user-specific registration should be removed.</param>
-    public static void UnregisterLocation(bool machineWide)
-    {
-        if (!WindowsUtils.IsWindows) return;
-
-        RegistryUtils.DeleteSoftwareValue(RegKeyName, InstallLocation, machineWide);
-        RegistryUtils.DeleteSoftwareValue(RegKeyName, LibraryMode, machineWide);
-    }
-
-    /// <summary>
-    /// Tries to find another instance of Zero Install deployed on this system.
-    /// </summary>
-    /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
-    /// <returns>The deployment directory of another instance of Zero Install; <c>null</c> if none was found.</returns>
-    public static string? FindOther(bool needsMachineWide = false)
-        => WindowsUtils.IsWindows
-        && RegistryUtils.GetSoftwareString("Zero Install", "InstallLocation") is {Length: > 0} installLocation
-        && !FileUtils.PathEquals(installLocation, Locations.InstallBase)
-        && (!needsMachineWide || !installLocation.StartsWith(Locations.HomeDir))
-        && File.Exists(Path.Combine(installLocation, "0install.exe"))
-            ? installLocation
-            : null;
 
     /// <summary>
     /// Silently checks if an update for Zero Install is available.
