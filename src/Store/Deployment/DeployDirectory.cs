@@ -103,12 +103,12 @@ public class DeployDirectory : DirectoryOperation
 
         UnlockFiles(_pendingFileRenames.Select(x => x.destination).Where(File.Exists));
 
-        _pendingFileRenames.PopEach(x =>
-        {
-            if (File.Exists(x.destination))
-                File.Delete(x.destination);
-            File.Move(x.source, x.destination);
-        });
+        Handler.RunTask(new ActionTask(Resources.CopyFiles, () =>
+            _pendingFileRenames.PopEach(x =>
+            {
+                if (File.Exists(x.destination)) File.Delete(x.destination);
+                File.Move(x.source, x.destination);
+            })));
     }
 
     /// <inheritdoc/>
@@ -118,8 +118,7 @@ public class DeployDirectory : DirectoryOperation
 
         _pendingFileRenames.PopEach(x =>
         {
-            if (File.Exists(x.source))
-                File.Delete(x.source);
+            if (File.Exists(x.source)) File.Delete(x.source);
         });
 
         _createdDirectories.PopEach(path =>
