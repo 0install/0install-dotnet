@@ -54,7 +54,7 @@ partial class SnapshotDiff
 
             foreach ((string extension, string id) in FileAssocs)
             {
-                if (id != progID || string.IsNullOrEmpty(extension)) continue;
+                if (id != progID || string.IsNullOrEmpty(extension) || fileType.Extensions.Any(x => x.Value == "extension")) continue;
 
                 using var assocKey = Registry.ClassesRoot.TryOpenSubKey(extension);
                 if (assocKey == null) continue;
