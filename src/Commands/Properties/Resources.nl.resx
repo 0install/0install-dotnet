@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Alle onderdelen die nodig zijn om {0} uit te voeren, zijn geëxporteerd naar '{1}'.
+    <value>Alle componenten die nodig zijn om {0} uit te voeren, zijn geëxporteerd naar '{1}'.
 Je kunt het importscript of de Bootstrap executable in '{1}' gebruiken om deze bestanden op een andere computer te importeren.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -697,7 +697,7 @@ Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Toon de grafische beleidseditor. Hiermee kunt u aanpassen welke versie van een programma of bibliotheek moet worden gebruikt.</value>
+    <value>De grafische beleidseditor weergeven. Hiermee kunt u aanpassen welke versie van een programma of bibliotheek moet worden gebruikt.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -762,7 +762,7 @@ Je kunt deze optie meerdere keren gebruiken om meerdere aanvaardbare talen op te
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Start de opgegeven uitvoerbare {MAIN} in plaats van de standaard. Als het begint met '/' of '\' dan is het pad relatief ten opzichte van de bovenliggende map van de implementatie, anders is het relatief ten opzichte van de map met het standaard hoofdprogramma.
+    <value>Voer het opgegeven uitvoerbare bestand {MAIN} uit in plaats van de standaard. Als het begint met '/' of '\' dan is het pad relatief ten opzichte van de bovenliggende map van de implementatie, anders is het relatief ten opzichte van de map met het standaard hoofdprogramma.
 Mag geen commandoregel argumenten bevatten! Whitespaces hoeven niet geëscaped te worden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -835,7 +835,7 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
     <value>Vereist een versie van het hoofdprogramma binnen de gegeven {RANGE}.
 Bereiken worden gescheiden door pijpen (|).
 Elk bereik heeft de vorm "START..!END". Het bereik komt overeen met versies waarbij START &lt;= VERSIE &lt; EINDE. Het begin of einde kan worden weggelaten.
-Er kan een enkel versienummer worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
+Een enkel versienummer kan worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">

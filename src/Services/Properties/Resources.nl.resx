@@ -156,7 +156,7 @@ Wil je deze sleutel vertrouwen om feeds van '{3}' te ondertekenen?
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>De gedownloade feed is ouder dan de versie die al in de cache zit. We zullen de nieuwere versie blijven gebruiken.
-URI feed: {0}
+Feed URI: {0}
 Oude tijd: {1}
 Nieuwe tijd: {2}</value>
     <comment>Automatically translated.</comment>

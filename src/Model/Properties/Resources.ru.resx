@@ -115,11 +115,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не было указано ни одного известного метода дайджеста.</value>
+    <value>Не был указан известный метод дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Относительный путь '{0}' не может быть разрешен. Относительные пути могут содержаться только в фидах, сохраненных как локальные файлы.</value>
+    <value>Относительный путь '{0}' не может быть разрешен. Относительные пути могут содержаться только в фидах, сохраненных в виде локальных файлов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">

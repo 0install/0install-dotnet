@@ -277,7 +277,7 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
+    <value>Exporte tous les flux et toutes les implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -336,7 +336,7 @@ Autrement le code de sortie correspondra au code de sortie du programme exécut�
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider si vous voulez faire confiance aux programmes avant de les lancer.</value>
+    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider de faire confiance aux programmes avant de les lancer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -375,7 +375,7 @@ Un argument supplémentaire permet de spécifier un emplacement de cache cible p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Liste tous les répertoires de cache d'implémentation.</value>
+    <value>Liste tous les répertoires du cache d'implémentation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -839,7 +839,7 @@ Un numéro de version unique peut être utilisé à la place d'un intervalle pou
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pour toute bibliothèque ou sous-composant avec le {0:URI} donné, spécifie la version {1:RANGE} (comme pour --version).</value>
+    <value>Pour toute bibliothèque ou sous-composant avec le nom {0:URI} spécifie la version {1:RANGE} (comme pour --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

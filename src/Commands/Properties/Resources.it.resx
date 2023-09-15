@@ -298,7 +298,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Elenca tutte le applicazioni attualmente presenti nell'elenco delle applicazioni. Se viene indicato un URI, vengono mostrate solo le applicazioni con quell'URI di alimentazione. Se viene indicato un PATTERN, vengono mostrate solo le applicazioni che contengono quella stringa nel loro nome (senza distinzione tra maiuscole e minuscole).</value>
+    <value>Elenca tutte le applicazioni attualmente presenti nell'elenco delle applicazioni. Se viene indicato un URI, vengono mostrate solo le applicazioni con quell'URI di alimentazione. Se viene indicato un PATTERN, vengono mostrate solo le applicazioni che contengono quella stringa nel nome (senza distinzione tra maiuscole e minuscole).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -428,7 +428,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
+    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -611,7 +611,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Affinché l'integrazione desktop funzioni, è necessario che Zero Install sia distribuito sul sistema.</value>
+    <value>Per far funzionare l'integrazione desktop, Zero Install deve essere distribuito sul sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -758,7 +758,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Applicare la configurazione a livello di macchina (per l'intero computer) anziché solo per l'utente corrente.</value>
+    <value>Applicare la configurazione a livello di macchina (per l'intero computer) invece che solo per l'utente corrente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -816,7 +816,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Selezionare il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
+    <value>Seleziona il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -839,7 +839,7 @@ Si può usare un singolo numero di versione al posto di un intervallo, per trova
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Per qualsiasi libreria o sottocomponente con il dato {0:URI}, specifica la versione {1:RANGE} (come per --version).</value>
+    <value>Per qualsiasi libreria o sottocomponente con il dato {0:URI} specifica la versione {1:RANGE} (come per --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
