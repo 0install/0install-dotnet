@@ -118,7 +118,7 @@
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Хотите ли вы обновить все существующие интеграции с настольными системами, чтобы отразить это?
 Если вы выберете "Да", то потенциально несовместимые интеграции будут удалены.
-При выборе "Нет" Zero Install продолжит использовать старые возможности.</value>
+При выборе "Нет" Zero Install будет продолжать использовать старые возможности.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Импортирует набор приложений и настольных интеграций из существующего файла app-list.xml.</value>
+    <value>Импортирует набор приложений и интеграций с рабочим столом из существующего файла app-list.xml.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -335,7 +335,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Выполняет поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, стоит ли доверять этим программам, прежде чем запускать их.</value>
+    <value>Поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, стоит ли доверять этим программам, прежде чем запускать их.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -465,7 +465,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
-    <value>Укажите URL-адрес нового источника реализаций для данного интерфейса:</value>
+    <value>Укажите URL нового источника реализаций для данного интерфейса:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
@@ -542,7 +542,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>Не удается применить выбранные вами параметры интеграции рабочего стола.</value>
+    <value>Выбранные вами варианты интеграции рабочего стола не могут быть применены.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
@@ -684,7 +684,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Вместо выполнения команды по умолчанию используйте {COMMAND}. Допустимые имена команд указываются в подаче программы.
+    <value>Вместо выполнения команды по умолчанию используйте {COMMAND}. Допустимые имена команд указываются в ленте программы.
 Установите значение empty (""), чтобы игнорировать команду при выборе.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -839,7 +839,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Для любой библиотеки или подкомпонента с заданным {0:URI} указывает версию {1:RANGE} (как для --version).</value>
+    <value>Для любой библиотеки или подкомпонента с заданным {0:URI} указывается версия {1:RANGE} (как для --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -967,7 +967,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Включение в Windows поддержки длинных путей может решить эту проблему.</value>
+    <value>Включение поддержки длинных путей в Windows может решить эту проблему.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -975,7 +975,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Криптографический ключ используется для локального шифрования данных перед передачей их на сервер.
+    <value>Криптоключ используется для локального шифрования данных перед их передачей на сервер.
 Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -996,7 +996,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Попробуйте использовать {0} с одним из этих сайтов:</value>
+    <value>Попробуйте воспользоваться одним из этих сайтов {0}:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

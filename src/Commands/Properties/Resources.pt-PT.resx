@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>O comando '0install' foi adicionado ao seu PATH de linha de comando.</value>
+    <value>O comando '0install' foi adicionado ao PATH da sua linha de comando.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -118,7 +118,7 @@ Pode utilizar o script de importação ou o executável Bootstrap em '{1}' para 
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Deseja atualizar qualquer integração existente no ambiente de trabalho para refletir isto?
 Se selecionar "Sim", as integrações potencialmente incompatíveis serão removidas.
-Se selecionar "Não", a Instalação Zero continuará a utilizar as capacidades antigas.</value>
+Se selecionar "Não", a Instalação zero continuará a utilizar as capacidades antigas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -189,7 +189,7 @@ Seleccione uma linha inteira clicando na primeira coluna e, em seguida, prima DE
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Defina uma caixa de verificação para tornar uma capacidade no seu manipulador predefinido pretendido.
+    <value>Definir uma caixa de verificação para tornar uma capacidade no seu manipulador predefinido pretendido.
 Remover uma caixa de verificação para remover o estado predefinido de uma capacidade (continua a estar disponível).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -255,7 +255,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no diretório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Procura nos catálogos registados as aplicações que correspondem à consulta especificada. Se não for fornecida qualquer consulta, são listadas todas as aplicações nos catálogos.</value>
+    <value>Procura nos catálogos registados as aplicações que correspondem à consulta especificada. Se não for dada nenhuma consulta, todas as aplicações nos catálogos são listadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -286,7 +286,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importa um conjunto de aplicações e integrações de ambiente de trabalho de um ficheiro app-list.xml existente.</value>
+    <value>Importa um conjunto de aplicações e integrações de ambiente de trabalho a partir de um ficheiro app-list.xml existente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -339,7 +339,7 @@ Retorna um status de saída de 1 se a etapa de download falhou. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Selecciona uma versão do programa identificado por URI e versões compatíveis de todas as suas dependências.
+    <value>Selecciona uma versão do programa identificado pelo URI e versões compatíveis de todas as suas dependências.
 Devolve um estado de saída de 0 se seleccionou um conjunto de versões, e um estado de 1 se não conseguiu encontrar um conjunto consistente.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Pub
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>O Zero Install está a ser executado em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
+    <value>A Instalação Zero está a ser executada em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
 Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua cópia portátil.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -628,7 +628,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Só é possível atualizar com URIs de feed, não com documentos de seleção.</value>
+    <value>Só pode ser atualizado com URIs de feed, não com documentos de seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -689,7 +689,7 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são "updates", "storage", "catalog", "trust", "sync", "language", "language" e "advanced".</value>
+    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -717,7 +717,7 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Não inclua os arquivos de implementação na exportação. Exportar apenas feeds.</value>
+    <value>Não inclua arquivos de implementação na exportação. Exportar apenas feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -733,7 +733,7 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
-    <value>Adicionar todos os pontos de acesso disponíveis.</value>
+    <value>Adicione todos os pontos de acesso disponíveis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">

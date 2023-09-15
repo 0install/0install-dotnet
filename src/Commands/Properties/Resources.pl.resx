@@ -116,7 +116,7 @@ Możesz użyć skryptu importu lub pliku wykonywalnego Bootstrap w '{1}', aby za
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlały?
+    <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlić?
 Jeśli wybierzesz "Tak", potencjalnie niekompatybilne integracje zostaną usunięte.
 Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcji.</value>
     <comment>Automatically translated.</comment>
@@ -259,7 +259,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Otwiera centralny graficzny interfejs użytkownika do uruchamiania aplikacji i zarządzania nimi.</value>
+    <value>Otwiera centralny graficzny interfejs użytkownika do uruchamiania i zarządzania aplikacjami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -382,7 +382,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -697,7 +697,7 @@ Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Wyświetla graficzny edytor zasad. Umożliwia to dostosowanie wersji programu lub biblioteki do użycia.</value>
+    <value>Wyświetla graficzny edytor zasad. Umożliwia to dostosowanie używanej wersji programu lub biblioteki.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -839,7 +839,7 @@ Pojedynczy numer wersji może być użyty zamiast zakresu, aby dopasować tylko 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Dla dowolnej biblioteki lub podkomponentu z podanym {0:URI} określa wersję {1:RANGE} (jak dla --version).</value>
+    <value>Dla każdej biblioteki lub podkomponentu z podanym {0:URI} określa wersję {1:RANGE} (jak dla --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -927,11 +927,11 @@ Może zawierać argumenty wiersza poleceń. Białe znaki muszą być pomijane!</
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>Samoaktualizacja jest wyłączona.
-Uruchom "0install config self_update_uri default", aby ją włączyć.</value>
+Uruchom '0install config self_update_uri default', aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Obsługa implementacji na porcie {0}</value>
+    <value>Obsługiwanie implementacji na porcie {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -939,7 +939,7 @@ Uruchom "0install config self_update_uri default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Przywrócić domyślne ustawienia polityki stabilności dla {0}?</value>
+    <value>Przywrócić domyślną politykę stabilności dla {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
@@ -1000,7 +1000,7 @@ Klucz ten powinien być tajny, a hasło powinno być inne. W ten sposób nikt ni
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Odinstalowywanie usługi Zero Install Store</value>
+    <value>Odinstalowywanie usługi Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">

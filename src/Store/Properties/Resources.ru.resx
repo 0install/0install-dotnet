@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Ошибка при загрузке связки ключей OpenPGP из '{0}'</value>
+    <value>Ошибка при загрузке связки ключей OpenPGP с сайта '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -235,7 +235,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Эта опция контролируется групповой политикой и поэтому не может быть изменена.</value>
+    <value>Этот параметр контролируется групповой политикой и поэтому не может быть изменен.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

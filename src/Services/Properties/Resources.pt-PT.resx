@@ -166,7 +166,7 @@ Novo tempo: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Não é possível colocar em cache o catálogo de aplicações descarregado.</value>
+    <value>Não é possível armazenar em cache o catálogo de aplicações descarregado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>该目录是执行缓存。这里的文件使用文件系统权限设置为只读。这将防止它们被正常删除。
+    <value>该目录是执行缓存。这里的文件使用文件系统权限设置为只读。这样就无法正常删除这些文件。
 
-如果您想删除单个实现，可以使用此命令行：
+如果要删除单个实现，可以使用此命令行：
 {0}
 
-如果您想删除整个目录，可以使用此命令行：
+如果要删除整个目录，可以使用此命令行：
 {1}
 
-如果您不使用Zero Install就想删除整个目录，您可以使用这个命令行：
+如果不使用 Zero Install 就想删除整个目录，可以使用此命令行：
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -92,48 +92,48 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>实现的清单哈希值与预期值不匹配。</value>
+    <value>执行清单的哈希值与预期值不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>实际值：{0}</value>
+    <value>实际价值：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>实际舱单：{0}</value>
+    <value>实际清单：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>预期值{0}</value>
+    <value>预期值：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>预期舱单：{0}</value>
+    <value>预期清单：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从'{0}'加载OpenPGP密钥包出错</value>
+    <value>从 "{0}"加载 OpenPGP 密钥包出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>加载信任数据库时出错。恢复到默认值。</value>
+    <value>加载信任数据库时出错。恢复默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>在 '{0}' 中解锁使用中文件失败</value>
+    <value>解锁 '{0}' 中的使用中文件失败</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>已禁用搜索所需的feed镜像。
-运行 "0install config feed_mirror default "启用它。</value>
+    <value>已禁用搜索所需的 feed 镜像。
+运行 "0install config feed_mirror default "可启用它。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>无法找到文件或目录 '{0}'。</value>
+    <value>无法找到文件或目录 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>您要删除的文件当前正在使用中。</value>
+    <value>您要删除的文件目前正在使用中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -141,7 +141,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>下列申请需要关闭</value>
+    <value>下列申请需要关闭：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -149,32 +149,32 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>文件 "{0}"既不是符号链接，也不是常规文件。</value>
+    <value>文件 "{0}"既不是符号链接，也不是普通文件。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>{0}"已经在商店中。</value>
+    <value>应用程序 "{0}"已经出现在商店中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>{0}"已损坏。</value>
+    <value>执行程序 "{0}"已损坏。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>您想删除它吗？当需要时，将自动下载新的副本。</value>
+    <value>要删除吗？需要时，系统会自动下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>运行 "0install store remove{0}"将其删除。需要时，将自动重新下载新的副本。</value>
+    <value>运行 "0install store remove{0}"将其删除。需要时，系统会自动下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>无法找到 "{0}"。</value>
+    <value>无法找到执行程序 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>底层文件系统不能足够准确地存储文件更改时间。
-如果您使用的是FAT格式的硬盘，请将其转换为NTFS格式。</value>
+    <value>底层文件系统无法足够准确地存储文件更改时间。
+如果使用的是 FAT 格式的硬盘，请将其转换为 NTFS 格式。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
@@ -202,7 +202,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>只有管理员可以从共享存储中删除元素。</value>
+    <value>只有管理员才能从共享存储中删除元素。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -210,7 +210,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>由于Zero Install处于离线模式，因此无法下载{0} 。</value>
+    <value>由于 Zero Install 处于脱机模式，因此无法下载{0} 。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -219,7 +219,7 @@
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>路径 "{0}"不是绝对路径。只有在便携模式下才允许使用相对路径。
-在配置文件'{1}'中指定。</value>
+在配置文件 "{1}"中指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -227,7 +227,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>零安装不能从执行缓存中删除。</value>
+    <value>零安装无法从执行缓存中删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -235,7 +235,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>该选项由组策略控制，因此不能修改。</value>
+    <value>该选项由组策略控制，因此无法修改。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -243,13 +243,13 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>访问执行存储'{0}'时出现问题。
-在配置文件'{1}'中指定。</value>
+    <value>访问执行存储 "{0}"时出现问题。
+在配置文件 "{1}"中指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>加载配置文件时出现问题。
-您可以删除 "{0}"文件来解决问题。</value>
+您可以删除文件 "{0}"来解决问题。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
@@ -266,7 +266,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>无法与StoreService建立连接。</value>
+    <value>无法与 StoreService 建立连接。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -294,11 +294,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>XML签名不以新行开始。</value>
+    <value>XML 签名不以新行开始。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>签名不是有效的基64：</value>
+    <value>签名不是有效的基 64：</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

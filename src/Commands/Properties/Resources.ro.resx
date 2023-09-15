@@ -117,7 +117,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Yes" (Da), integrările potențial incompatibile vor fi eliminate.
+Dacă selectați "Yes" (Da), eventualele integrări incompatibile vor fi eliminate.
 Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -273,7 +273,7 @@ Fără argumente, afișează toate setările și valorile lor actuale. Cu un sin
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Se comportă în mod similar cu "0install select", cu excepția faptului că descarcă și versiunile selectate, dacă acestea nu sunt deja stocate în memoria cache.
-Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile sunt descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
+Returnează o stare de ieșire de 0 dacă a selectat un set adecvat de versiuni și dacă toate versiunile au fost descărcate și se află în memoria cache; în caz contrar, returnează o stare de 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -310,7 +310,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Elimină din sistem instanța curentă a programului Zero Install.</value>
+    <value>Îndepărtează din sistem instanța curentă a programului Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -378,7 +378,7 @@ Un argument suplimentar specifică o locație țintă personalizată pentru memo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Listează toate implementările din memoria cache. Dacă este specificat un URI al fluxului, sunt enumerate numai implementările pentru acel flux anume.</value>
+    <value>Listează toate implementările din memoria cache. Dacă este specificat un URI al fluxului, sunt listate numai implementările pentru acel flux anume.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -400,7 +400,7 @@ Argumentele suplimentare specifică locațiile personalizate ale cache-ului.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Elimină un director din lista de cache-uri de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
@@ -445,7 +445,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Îndepărtarea integrării desktop</value>
+    <value>Eliminarea integrării desktop-ului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -562,7 +562,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>O versiune ulterioară ({0}) există, dar nu a fost selectată. În schimb, se utilizează {1}.</value>
+    <value>O versiune ulterioară ({0}) există, dar nu a fost selectată. Se utilizează în schimb {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -839,7 +839,7 @@ Se poate utiliza un singur număr de versiune în loc de un interval pentru a se
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu {0:URI} dat, se specifică versiunea {1:RANGE} (ca și pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu {0:URI} specifică versiunea {1:RANGE} (ca pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -874,7 +874,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați din listă cheile bifate {0}?</value>
+    <value>Doriți să eliminați din listă cheile bifate pe {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -975,8 +975,8 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
-Păstrați secretă această cheie și folosiți o altă parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
+    <value>Cheia de criptare este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
+Păstrați secretă această cheie și folosiți o parolă diferită. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

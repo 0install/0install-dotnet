@@ -62,7 +62,7 @@
     <value>进料：{0}
 - 有效签名来自{1}
 -{2}
-您是否愿意信任此密钥来签署来自 "{3}"的Feed？
+您是否愿意信任此密钥来签署来自{3} 的 Feed？
 </value>
     <comment>Automatically translated.</comment>
   </data>
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>未指定 '{0}' 命令。</value>
+    <value>未指定 "{0}"的命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt;绑定必须包含 "value "或 "insert "属性。</value>
+    <value>&lt;environment&gt; 绑定必须包含 "value "或 "insert "属性。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>目录加载错误</value>
+    <value>加载目录出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -95,23 +95,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>{0}"未缓存，零安装当前处于离线模式。</value>
+    <value>{0}"未缓存，Zero Install 目前处于离线模式。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' 无法在饲料缓存中找到。</value>
+    <value>{0}' 无法在饲料缓存中找到。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>饲料 "{0}"未使用任何可信密钥签名。</value>
+    <value>馈送 "{0}"未使用任何可信密钥签名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' 是本地文件。它应该是一个HTTP(S) URL。</value>
+    <value>{0}' 是一个本地文件。它应该是 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; uri属性（'{0}'）与馈送下载的URL（'{1}'）不匹配。</value>
+    <value>&lt;interface&gt; uri 属性（'{0}'）与下载 feed 的 URL（'{1}'）不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -127,11 +127,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>为了能够导入，Feeds必须指定其来源的URI。</value>
+    <value>馈送必须指定其来源的 URI 才能导入。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装订中缺少名称。</value>
+    <value>{0} 装订中缺少姓名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>由于Zero Install处于离线模式，因此无法下载{0} 。</value>
+    <value>由于 Zero Install 处于脱机模式，因此无法下载{0} 。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -151,18 +151,18 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>未找到实施 "{0}"的检索方法。</value>
+    <value>未找到执行 "{0}"的检索方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>下载的信息比缓存中已有的版本旧。我们将继续使用较新的版本。
-饲料URI：{0}
+馈送 URI：{0}
 旧版本：{1}
-新时间：{2}</value>
+新时间{2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>下载{0} 失败。尝试从Feed镜像获取。</value>
+    <value>下载{0} 失败。尝试从馈镜获取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -170,7 +170,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>无法解析从{0} 下载的饲料。</value>
+    <value>无法解析从{0} 下载的 feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
@@ -182,11 +182,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' 在{1} 包管理器中不是一个已知的 ID。</value>
+    <value>{0} 不是{1} 软件包管理器中的已知 ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>饲料是用不可信的密钥签署的！</value>
+    <value>馈送是用不可靠的密钥签署的！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

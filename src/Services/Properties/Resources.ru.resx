@@ -186,7 +186,7 @@ URI фида: {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Поток подписывается недоверенными ключами!</value>
+    <value>Подача подписывается недоверенными ключами!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

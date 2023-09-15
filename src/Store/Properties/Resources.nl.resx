@@ -206,7 +206,7 @@ Als je een FAT-geformateerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>De bestands- of mapnaam mag geen newline bevatten.</value>
+    <value>De bestands- of mapnaam mag geen newline-teken bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">

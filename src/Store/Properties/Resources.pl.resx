@@ -173,7 +173,7 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Podstawowy system plików nie przechowuje czasów zmiany plików z wystarczającą dokładnością.
+    <value>Podstawowy system plików nie przechowuje czasów zmian plików z wystarczającą dokładnością.
 Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>

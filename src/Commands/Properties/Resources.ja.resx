@@ -180,7 +180,7 @@
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>マイアプリケーション」リストからすべてのアプリケーションを削除しますか？これにより、Zero Installを削除した後にメニューが残るのを防ぐことができます。
-0install sync」を使用して、このリストのバックアップを作成できます。</value>
+0install sync'を使用して、このリストのバックアップを作成することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -272,7 +272,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>0install select' と同様の動作をするが、選択されたバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
+    <value>0install select' と同様の動作をするが、選択したバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
 適切なバージョンのセットを選択し、それらがすべてダウンロードされキャッシュにある場合、終了ステータスに 0 を返し、そうでない場合はステータスに 1 を返す。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>アプリケーションリストに現在登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERN を指定すると、その文字列を名前に含むアプリケーションのみを表示します (大文字小文字は区別しません)。</value>
+    <value>アプリケーションリストに現在登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERN を指定すると、その文字列を名前に含むアプリケーションだけを表示します (大文字小文字は区別しません)。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -314,7 +314,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。</value>
+    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -331,7 +331,7 @@
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>0install download'と同様の動作をするが、キャッシュにあることを確認した後にプログラムを実行する点が異なる。
-ダウンロード・ステップが失敗した場合は、終了ステータスの1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
+ダウンロード・ステップが失敗した場合は、終了ステータスとして1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -420,7 +420,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>フィードに署名するために信頼できる鍵をリストする。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
+    <value>フィードに署名するために信頼されている鍵を一覧表示する。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -501,7 +501,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>{0}' ({1}) のフィードは '{2}' に置き換えられました。代わりに新しいフィードを使用しますか？</value>
+    <value>{0}' ({1}) のフィードは '{2}' に置き換えられました。代わりに新しいフィードを使用しますか?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -562,7 +562,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>それ以降のバージョン({0})が存在するが、選択されなかった。代わりに{1} を使用。</value>
+    <value>それ以降のバージョン ({0}) が存在するが、選択されなかった。代わりに{1} を使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>実装を実行する場合、コマンドは空にならないかもしれない。</value>
+    <value>インプリメンテーションを実行する際、コマンドが空でない場合がある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -689,11 +689,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替える。有効な{TAB}は「updates」、「storage」、「catalog」、「trust」、「sync」、「language」、「language」、「advanced」である。</value>
+    <value>設定GUIで特定のタブに切り替える。有効な{TAB}は'updates'、'storage'、'catalog'、'trust'、'sync'、'language'、'language'、'advanced'である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>ソルバーが特定の{CPU} をターゲットにするように強制する。</value>
+    <value>ソルバーが特定の{CPU} をターゲットにするよう強制する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -839,7 +839,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>与えられた{0:URI}を持つライブラリまたはサブコンポーネントに対して、バージョン{1:RANGE}を指定します。(--versionと同様)。</value>
+    <value>与えられた{0:URI} を持つライブラリまたはサブコンポーネントに対して、バージョン{1:RANGE} を指定する（--version と同様）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -927,7 +927,7 @@
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>セルフアップデートが無効になっています。
-0install config self_update_uri default'を実行して有効にする。</value>
+有効にするには、'0install config self_update_uri default'を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">

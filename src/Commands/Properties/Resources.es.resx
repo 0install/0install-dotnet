@@ -223,7 +223,7 @@ Puede utilizarlo ejecutando el archivo ZeroInstall.exe en el directorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Crea un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
+    <value>Crear un alias para lanzar una aplicación a través de 0install sin tener que introducir siempre la URI completa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -391,7 +391,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar Zero Install. Eliminar manualmente los directorios de la caché puede ser difícil debido a las ACL NTFS empleadas para proteger las implantaciones contra modificaciones.
+    <value>Elimina todas las implementaciones de la caché. Utilice este comando para limpiar el sistema antes de eliminar Zero Install. Eliminar manualmente los directorios de la caché puede resultar difícil debido a las ACL NTFS empleadas para proteger las implantaciones contra modificaciones.
 Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -497,7 +497,7 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0} ha sido sustituido por{1}. Considere la posibilidad de actualizar.</value>
+    <value>'{0}' ha sido sustituido por '{1}'. Considere la posibilidad de actualizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -546,7 +546,7 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>¿Quiere cambiar su selección y volver a intentarlo?</value>
+    <value>¿Quieres cambiar tu selección e intentarlo de nuevo?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -689,7 +689,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Cambia a una pestaña específica de la GUI de configuración. Las {TAB}válidas son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
+    <value>Cambia a una pestaña específica de la GUI de configuración. Las opciones válidas de {TAB}son "actualizaciones", "almacenamiento", "catálogo", "confianza", "sincronización", "idioma", "lenguaje" y "avanzado".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -749,7 +749,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Especifica el idioma preferido para la aplicación. Utilice los códigos de idioma abreviados ISO (por ejemplo, en o en-US).
+    <value>Especifica el idioma preferido para la aplicación. Utilice los códigos cortos de idioma ISO (por ejemplo, en o en-US).
 Puede utilizar esta opción varias veces para especificar varios idiomas aceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -835,11 +835,11 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos se separan mediante tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Para cualquier biblioteca o subcomponente con el {0:URI} dado especifica la versión {1:RANGO} (como para --version).</value>
+    <value>Para cualquier biblioteca o subcomponente con el {0:URI} dado especifica la versión {1:RANGE} (como para --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -926,7 +926,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>La autoactualización está desactivada.
+    <value>La auto-actualización está desactivada.
 Ejecute '0install config self_update_uri default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
