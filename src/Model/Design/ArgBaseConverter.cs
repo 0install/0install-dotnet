@@ -13,6 +13,7 @@ public class ArgBaseConverter : TypeConverter
         => (sourceType == typeof(string)) || base.CanConvertFrom(context, sourceType);
 
     /// <inheritdoc/>
+    // ReSharper disable once NullnessAnnotationConflictWithJetBrainsAnnotations
     public override object? ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object value)
         => (value is string stringValue)
             ? new Arg {Value = stringValue}
