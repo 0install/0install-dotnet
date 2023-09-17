@@ -264,7 +264,7 @@ Puede utilizarlo ejecutando el archivo ZeroInstall.exe en el directorio.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualiza o modifica los ajustes de configuración.
-Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración indicada. Con dos argumentos, ajusta la configuración al valor indicado o la restablece al valor por defecto si se indica el valor "{0}".</value>
+Sin argumentos, muestra todos los ajustes y sus valores actuales. Con un argumento, muestra el valor actual de la configuración indicada. Con dos argumentos, ajusta la configuración al valor indicado o la restablece al valor por defecto si se indica el valor "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

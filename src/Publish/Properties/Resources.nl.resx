@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "{0}" waarde hebt ingesteld voor het archief.</value>
+    <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "extract" waarde hebt ingesteld voor het archief.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

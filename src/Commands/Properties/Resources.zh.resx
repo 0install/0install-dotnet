@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>查看或更改配置设置。
-如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置设置为给定值，如果给定值为 "{0}"，则重置为默认值。</value>
+如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置设置为给定值，如果给定值为 "default"，则重置为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

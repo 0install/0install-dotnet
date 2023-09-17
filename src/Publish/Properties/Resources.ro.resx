@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>A fost calculat un manifest digest pentru un director gol. Verificați dacă ați setat valoarea "{0}" corectă pentru arhivă.</value>
+    <value>A fost calculat un manifest digest pentru un director gol. Verificați dacă ați setat valoarea "extract" corectă pentru arhivă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

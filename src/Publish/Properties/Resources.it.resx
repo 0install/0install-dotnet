@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>È stato calcolato un manifest digest per una directory vuota. Verificare che sia stato impostato il valore "{0}" corretto per l'archivio.</value>
+    <value>È stato calcolato un manifest digest per una directory vuota. Verificare che sia stato impostato il valore "extract" corretto per l'archivio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

@@ -264,7 +264,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualizza o modifica le impostazioni di configurazione.
-Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con un argomento, visualizza il valore corrente dell'impostazione indicata. Con due argomenti, imposta l'impostazione al valore indicato o la reimposta al valore predefinito se viene indicato il valore "{0}".</value>
+Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con un argomento, visualizza il valore corrente dell'impostazione indicata. Con due argomenti, imposta l'impostazione al valore indicato o la reimposta al valore predefinito se viene indicato il valore "default".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

@@ -264,7 +264,7 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Configuratie-instellingen bekijken of wijzigen.
-Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten wordt de instelling ingesteld op de opgegeven waarde of teruggezet naar de standaardwaarde als de waarde "{0}" is opgegeven.</value>
+Zonder argumenten worden alle instellingen en hun huidige waarden weergegeven. Met één argument wordt de huidige waarde van de genoemde instelling weergegeven. Met twee argumenten wordt de instelling ingesteld op de opgegeven waarde of teruggezet naar de standaardwaarde als de waarde "default" is opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
