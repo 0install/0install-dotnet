@@ -264,7 +264,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no diretório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualizar ou alterar as definições de configuração.
-Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor atual da definição nomeada. Com dois argumentos, define a definição para o valor indicado ou repõe o valor predefinido se for indicado o valor "predefinido".</value>
+Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor atual da definição nomeada. Com dois argumentos, define a definição para o valor indicado ou repõe o valor predefinido se for indicado o valor "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

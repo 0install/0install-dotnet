@@ -264,7 +264,7 @@ Sie können sie verwenden, indem Sie die ZeroInstall.exe Datei in dem Verzeichni
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Konfigurationseinstellungen anzeigen oder ändern.
-Ohne Argumente werden alle Einstellungen und ihre aktuellen Werte angezeigt. Mit einem Argument wird der aktuellen Wert der benannten Einstellung angezeigt. Mit zwei Argumenten wird die Einstellung auf den angegebenen Wert gesetzt. Wird sie auf den Standardwert zurückgesetzt, wenn der Wert "default" angegeben wird.</value>
+Ohne Argumente werden alle Einstellungen und ihre aktuellen Werte angezeigt. Mit einem Argument wird der aktuellen Wert der benannten Einstellung angezeigt. Mit zwei Argumenten wird die Einstellung auf den angegebenen Wert gesetzt. Wird sie auf den Standardwert zurückgesetzt, wenn der Wert "{0}" angegeben wird.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

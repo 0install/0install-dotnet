@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Дайджест манифеста был рассчитан для пустого каталога. Проверьте, что для архива задано правильное значение "extract".</value>
+    <value>Дайджест манифеста был рассчитан для пустого каталога. Проверьте, что для архива задано правильное значение "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

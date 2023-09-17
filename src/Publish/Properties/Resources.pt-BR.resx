@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Um resumo de manifesto foi calculado para uma pasta vazia. Verifique se você definiu o valor "extract" correto para o arquivo.</value>
+    <value>Um resumo de manifesto foi calculado para uma pasta vazia. Verifique se você definiu o valor "{0}" correto para o arquivo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

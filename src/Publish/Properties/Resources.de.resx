@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Ein Manifest-Digest wurde für ein leeres Verzeichnis berechnet. Überprüfen Sie, ob Sie den richtigen "extract"-Wert für das Archiv eingestellt haben.</value>
+    <value>Ein Manifest-Digest wurde für ein leeres Verzeichnis berechnet. Überprüfen Sie, ob Sie den richtigen "{0}"-Wert für das Archiv eingestellt haben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

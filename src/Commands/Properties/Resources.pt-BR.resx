@@ -264,7 +264,7 @@ Você pode usá-la executando o arquivo ZeroInstall.exe na pasta.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualize ou altere as definições de configuração.
-Sem argumentos, exibe todas as configurações e seus valores atuais. Com um argumento, ele exibe o valor atual da configuração nomeada. Com dois argumentos, ele define a configuração para o valor fornecido ou redefine para o valor padrão se o valor "default" for fornecido.</value>
+Sem argumentos, exibe todas as configurações e seus valores atuais. Com um argumento, ele exibe o valor atual da configuração nomeada. Com dois argumentos, ele define a configuração para o valor fornecido ou redefine para o valor padrão se o valor "{0}" for fornecido.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

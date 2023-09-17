@@ -63,7 +63,7 @@ public static class RetrievalMethodExtensions
 
         var digest = new ManifestDigest(builder.Manifest.CalculateDigest());
         if (digest.PartialEquals(ManifestDigest.Empty))
-            Log.Warn(Resources.EmptyImplementation);
+            Log.Warn(string.Format(Resources.EmptyImplementation, "extract"));
         return digest;
     }
 

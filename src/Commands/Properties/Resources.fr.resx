@@ -264,7 +264,7 @@ Vous pouvez l'utiliser en lançant le fichier ZeroInstall.exe qui se trouve dans
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Afficher ou modifier les paramètres de configuration.
-Sans arguments, affiche tous les paramètres et leur valeur courante. Avec un argument, affiche la valeur courante du paramètre désigné. Avec deux arguments, modifie le paramètre avec la valeur donnée.</value>
+Sans arguments, affiche tous les paramètres et leur valeur courante. Avec un argument, affiche la valeur courante du paramètre désigné. Avec deux arguments, modifie le paramètre avec la valeur donnée ou réinitialise à la valeur par défaut si la valeur "{0}" est donnée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

@@ -264,7 +264,7 @@ Puteți să o utilizați rulând fișierul ZeroInstall.exe din directorul respec
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Vizualizați sau modificați setările de configurare.
-Fără argumente, afișează toate setările și valorile lor actuale. Cu un singur argument, afișează valoarea curentă a setării menționate. Cu două argumente, setează setarea la valoarea dată sau o resetează la valoarea implicită, dacă este dată valoarea "default".</value>
+Fără argumente, afișează toate setările și valorile lor actuale. Cu un singur argument, afișează valoarea curentă a setării menționate. Cu două argumente, setează setarea la valoarea dată sau o resetează la valoarea implicită, dacă este dată valoarea "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

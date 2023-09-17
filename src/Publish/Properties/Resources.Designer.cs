@@ -70,7 +70,7 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A manifest digest was calculated for an empty directory. Check that you have set the correct &quot;extract&quot; value for the archive..
+        ///   Looks up a localized string similar to A manifest digest was calculated for an empty directory. Check that you have set the correct &quot;{0}&quot; value for the archive..
         /// </summary>
         internal static string EmptyImplementation {
             get {

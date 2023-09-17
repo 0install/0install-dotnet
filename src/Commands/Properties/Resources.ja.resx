@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しないと、すべての設定とその現在の値が表示されます。引数を1つ指定すると、指定された設定の現在の値を表示します。2つの引数を指定すると、その設定を指定された値に設定するか、"default "という値が指定されている場合はデフォルト値にリセットします。</value>
+引数を指定しないと、すべての設定とその現在の値が表示されます。引数を1つ指定すると、指定された設定の現在の値を表示します。2つの引数を指定すると、その設定を指定された値に設定するか、"{0}"という値が指定されている場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

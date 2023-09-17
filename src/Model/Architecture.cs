@@ -35,7 +35,7 @@ public record struct Architecture(
     {
         if (string.IsNullOrEmpty(architecture)) throw new ArgumentNullException(nameof(architecture));
         string[] architectureArray = architecture.Split('-');
-        if (architectureArray.Length != 2) throw new FormatException(Resources.ArchitectureStringFormat);
+        if (architectureArray.Length != 2) throw new FormatException(string.Format(Resources.ArchitectureStringFormat, "os-cpu"));
         return architectureArray;
     }
 

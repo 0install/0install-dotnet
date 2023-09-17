@@ -264,7 +264,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracji.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Z dwoma argumentami, ustawia ustawienie na podaną wartość lub resetuje je do wartości domyślnej, jeśli podano wartość "default".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Z dwoma argumentami, ustawia ustawienie na podaną wartość lub resetuje je do wartości domyślnej, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Se ha calculado un resumen del manifiesto para un directorio vacío. Compruebe que ha establecido el valor "extract" correcto para el archivo.</value>
+    <value>Se ha calculado un resumen del manifiesto para un directorio vacío. Compruebe que ha establecido el valor "{0}" correcto para el archivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

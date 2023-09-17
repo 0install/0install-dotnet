@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Bir bildirim özeti boş bir klasör için tasarlandı. "extract" değerinin arşiv için doğru şekilde ayarlandığından emin olun.</value>
+    <value>Bir bildirim özeti boş bir klasör için tasarlandı. "{0}" değerinin arşiv için doğru şekilde ayarlandığından emin olun.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

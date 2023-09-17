@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>为空目录计算了清单摘要。检查您是否为存档设置了正确的 "提取 "值。</value>
+    <value>为空目录计算了清单摘要。检查您是否为存档设置了正确的 "{0} "值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">

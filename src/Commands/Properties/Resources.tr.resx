@@ -264,7 +264,7 @@ Başlatmak için klasördeki ZeroInstall.exe dosyasını çalıştırın.</value
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Yapılandırma ayarlarını görüntüleyin ya da değiştirin.
-Değişken yoksa, tüm ayarlar ve geçerli olan değerler görüntülenir. Bir değişken varsa, adlandırılmış ayarın geçerli değeri görüntülenir. İki değişken varsa, ayara verilen değer ayarlanabilir ya da "default" değeri verilerek varsayılan ayarlar geri yüklenebilir.</value>
+Değişken yoksa, tüm ayarlar ve geçerli olan değerler görüntülenir. Bir değişken varsa, adlandırılmış ayarın geçerli değeri görüntülenir. İki değişken varsa, ayara verilen değer ayarlanabilir ya da "{0}" değeri verilerek varsayılan ayarlar geri yüklenebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">

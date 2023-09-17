@@ -61,7 +61,7 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The string must be in the form &quot;os-cpu&quot;..
+        ///   Looks up a localized string similar to The string must be in the form &quot;{0}&quot;..
         /// </summary>
         internal static string ArchitectureStringFormat {
             get {

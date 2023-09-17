@@ -121,7 +121,7 @@
     <value>Searching for executable files</value>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>A manifest digest was calculated for an empty directory. Check that you have set the correct "extract" value for the archive.</value>
+    <value>A manifest digest was calculated for an empty directory. Check that you have set the correct "{0}" value for the archive.</value>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>The application's entry point was not found.
