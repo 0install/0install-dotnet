@@ -109,15 +109,25 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
         if (BlockedByOpenFileHandles(path)) return false;
 
-        _handler.RunTask(new ActionTask(
-            string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
-            () =>
-            {
-                string tempDir = System.IO.Path.Combine(Path, $"0install-remove-{System.IO.Path.GetRandomFileName()}");
-                DisableWriteProtection(path);
-                Directory.Move(path, tempDir);
-                Directory.Delete(tempDir, recursive: true);
-            }));
+        try
+        {
+            _handler.RunTask(new ActionTask(
+                string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
+                () =>
+                {
+                    string tempDir = System.IO.Path.Combine(Path, $"0install-remove-{System.IO.Path.GetRandomFileName()}");
+                    DisableWriteProtection(path);
+                    Directory.Move(path, tempDir);
+                    Directory.Delete(tempDir, recursive: true);
+                }));
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            Log.Warn($"Failed to delete: {path}", ex);
+            return false;
+        }
+        #endregion
 
         return true;
     }

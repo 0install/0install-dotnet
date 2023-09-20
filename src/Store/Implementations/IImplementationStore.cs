@@ -59,10 +59,9 @@ public interface IImplementationStore : IImplementationSink
     /// Removes a specific implementation from the store.
     /// </summary>
     /// <param name="manifestDigest">The digest of the implementation to be removed.</param>
-    /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if it could not be removed, e.g. because no implementation matching <paramref name="manifestDigest"/> was found.</returns>
+    /// <returns><c>true</c> if the implementation was successfully removed; <c>false</c> if it could not be removed, e.g., because it does not exist or is locked.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="IOException">The implementation could not be deleted.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to the store is not permitted.</exception>
+    /// <exception cref="NotAdminException">Needs admin rights to delete from this store.</exception>
     bool Remove(ManifestDigest manifestDigest);
 
     /// <summary>
