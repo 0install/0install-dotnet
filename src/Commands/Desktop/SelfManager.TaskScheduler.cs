@@ -53,24 +53,23 @@ partial class SelfManager
     {
         string path = Path.Combine(TargetDir, "0install-win.exe");
         if (!File.Exists(path)) return;
-
-        var task = TaskService.Instance.NewTask();
-        task.RegistrationInfo.Description = description;
-        task.Principal.LogonType = TaskLogonType.ServiceAccount;
-        task.Principal.UserId = "SYSTEM";
-        task.Triggers.Add(new WeeklyTrigger(daysOfWeek));
-        task.Actions.Add(new ExecAction(path, arguments.JoinEscapeArguments()));
-        task.Settings.StartWhenAvailable = true;
-        task.Settings.RunOnlyIfNetworkAvailable = true;
-        task.Settings.RunOnlyIfIdle = true;
-        task.Settings.IdleSettings.StopOnIdleEnd = false;
-        task.Settings.DisallowStartIfOnBatteries = true;
-        task.Settings.StopIfGoingOnBatteries = false;
-        task.Settings.AllowHardTerminate = false;
-
-        Log.Info($"Adding task '{TaskSchedulerFolder}\\{name}' to Windows Task Scheduler");
         try
         {
+            var task = TaskService.Instance.NewTask();
+            task.RegistrationInfo.Description = description;
+            task.Principal.LogonType = TaskLogonType.ServiceAccount;
+            task.Principal.UserId = "SYSTEM";
+            task.Triggers.Add(new WeeklyTrigger(daysOfWeek));
+            task.Actions.Add(new ExecAction(path, arguments.JoinEscapeArguments()));
+            task.Settings.StartWhenAvailable = true;
+            task.Settings.RunOnlyIfNetworkAvailable = true;
+            task.Settings.RunOnlyIfIdle = true;
+            task.Settings.IdleSettings.StopOnIdleEnd = false;
+            task.Settings.DisallowStartIfOnBatteries = true;
+            task.Settings.StopIfGoingOnBatteries = false;
+            task.Settings.AllowHardTerminate = false;
+
+            Log.Info($"Adding task '{TaskSchedulerFolder}\\{name}' to Windows Task Scheduler");
             TaskService.Instance
                        .RootFolder.CreateFolder(TaskSchedulerFolder, exceptionOnExists: false)
                        .RegisterTaskDefinition(name, task);
