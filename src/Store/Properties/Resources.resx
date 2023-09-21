@@ -212,6 +212,9 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   <data name="InvalidIcon" xml:space="preserve">
     <value>The icon loaded from {0} is not a valid {1}.</value>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Unable to download icon from {0} because only HTTP and HTTPS URLs are supported.</value>
+  </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>The archive contains an invalid path (potentially a security risk): {0}</value>
   </data>

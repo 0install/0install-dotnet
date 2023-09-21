@@ -88,6 +88,8 @@ public sealed partial class IconStore : IIconStore
 
     private string Download(Icon icon)
     {
+        if (icon.Href.Scheme.ToLowerInvariant() is not ("http" or "https"))
+            throw new WebException(string.Format(Resources.InvalidIconUrl, icon.Href));
         if (_config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 

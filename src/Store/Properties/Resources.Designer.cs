@@ -324,6 +324,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to download icon from {0} because only HTTP and HTTPS URLs are supported..
+        /// </summary>
+        internal static string InvalidIconUrl {
+            get {
+                return ResourceManager.GetString("InvalidIconUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The manifest file contains invalid lines..
         /// </summary>
         internal static string InvalidLinesInManifest {
