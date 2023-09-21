@@ -92,7 +92,7 @@ partial class Config
                 iniData = new StreamIniDataParser().ReadData(new(stream, Encoding.UTF8));
             }
             #region Error handling
-            catch (ParsingException ex)
+            catch (Exception ex) when (ex is ParsingException or InvalidOperationException)
             {
                 // Wrap exception to add context information
                 throw new InvalidDataException(string.Format(Resources.ProblemLoadingConfigFile, path), ex);
