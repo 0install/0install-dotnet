@@ -181,6 +181,10 @@ FAT dosya sistemi ile biçimlendirilmiş bir sürücü kullanıyorsanız lütfen
     <value>{0} adresinden indirilen simge geçerli bir {1} değil.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Yalnızca HTTP ve HTTPS URL'leri desteklendiğinden {0} adresinden simge indirilemiyor.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Özet dosyasında geçersiz satırlar var.</value>
     <comment>Manually overriden.</comment>

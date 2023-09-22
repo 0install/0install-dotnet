@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将在开始菜单和命令行中添加 Zero Install。继续？</value>
+    <value>这将把 Zero Install 添加到开始菜单和命令行中。继续？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>查看或更改配置设置。
-如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置设置为给定值，如果给定值为 "{0}"，则重置为默认值。</value>
+如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置值设置为给定值，如果给定值为 "{0}"，则将其重置为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -272,8 +272,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>与 "0install select "行为类似，但如果所选版本尚未缓存，则也会下载这些版本。
-如果它选择了合适的版本集，并且这些版本现在都已下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
+    <value>行为类似于 "0install select"，但如果所选版本尚未缓存，则也会下载这些版本。
+如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -408,7 +408,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>确保执行未受损（即清单摘要未更改）。</value>
+    <value>确保执行未受损伤（即清单摘要未变）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -562,7 +562,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>存在较晚的版本 ({0}) 但未被选中。使用{1} 代替。</value>
+    <value>还有一个更新的版本 ({0}) 但没有被选中。使用{1} 代替。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -611,7 +611,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>需要在系统上部署零安装，桌面集成才能正常工作。</value>
+    <value>桌面集成需要在系统上部署零安装才能运行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -713,7 +713,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>将零安装本身与应用程序一起导出。</value>
+    <value>将 Zero Install 本身与应用程序一起导出。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -796,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建可移动的便携式安装（如拇指驱动器）。</value>
+    <value>创建可移动的便携式安装（如优盘）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">

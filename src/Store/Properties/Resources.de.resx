@@ -181,6 +181,10 @@ Wenn Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu N
     <value>Das von {0} geladene Symbol ist kein gültiges {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Das Symbol kann nicht von {0} heruntergeladen werden, da nur HTTP- und HTTPS-URLs unterstützt werden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Die Manifestdatei enthält ungültige Zeilen.</value>
     <comment>Manually overriden.</comment>

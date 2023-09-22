@@ -181,6 +181,10 @@ Se você está usando uma unidade formatada em FAT, por favor, converta ela para
     <value>O ícone carregado a partir de {0} não é um {1} válido.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Não foi possível baixar o ícone de {0} pois somente URLs HTTP e HTTPS são suportados.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>O arquivo de manifesto contém linhas inválidas.</value>
     <comment>Manually overriden.</comment>

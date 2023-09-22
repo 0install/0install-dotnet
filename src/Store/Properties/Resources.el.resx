@@ -181,6 +181,10 @@
     <value>Το εικονίδιο που φορτώθηκε από το {0} δεν είναι έγκυρο {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Δεν είναι δυνατή η λήψη εικονιδίου από το {0} επειδή υποστηρίζονται μόνο οι διευθύνσεις URL HTTP και HTTPS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Το αρχείο δήλωσης περιέχει μη έγκυρες γραμμές.</value>
     <comment>Manually overriden.</comment>

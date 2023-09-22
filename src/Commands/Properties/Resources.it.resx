@@ -264,7 +264,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualizza o modifica le impostazioni di configurazione.
-Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con un argomento, visualizza il valore corrente dell'impostazione indicata. Con due argomenti, imposta l'impostazione al valore indicato o la reimposta al valore predefinito se viene indicato il valore "{0}".</value>
+Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con un argomento, visualizza il valore corrente dell'impostazione indicata. Con due argomenti, imposta l'impostazione al valore indicato o la ripristina al valore predefinito se viene indicato il valore "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -273,7 +273,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -281,7 +281,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato d
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Questo è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
+    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Ciò è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
 Il file deve avere una firma digitale attendibile, come quando si preleva dalla rete.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -428,7 +428,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
+    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -611,7 +611,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Per far funzionare l'integrazione desktop, Zero Install deve essere distribuito sul sistema.</value>
+    <value>Affinché l'integrazione desktop funzioni, è necessario che Zero Install sia distribuito sul sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -800,7 +800,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Recuperare copie fresche di tutti i feed utilizzati.</value>
+    <value>Recuperare copie fresche di tutti i feed usati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -816,7 +816,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Seleziona il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
+    <value>Selezionare il codice sorgente anziché il binario. Questo è usato internamente da '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -824,7 +824,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Output più prolisso. Usare due volte per un output ancora più verboso.</value>
+    <value>Visualizzazione più prolissa. Usare due volte per un output ancora più verboso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">

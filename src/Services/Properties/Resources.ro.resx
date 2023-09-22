@@ -162,7 +162,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nu a reușit să descarce {0}. Încearcă să descarci din oglinda feed-ului în schimb.</value>
+    <value>Nu a reușit să descarce {0}. Încerc să obțin din oglinda feed în schimb.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

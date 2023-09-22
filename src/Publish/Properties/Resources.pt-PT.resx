@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Foi calculado um manifesto digest para um diretório vazio. Verifique se definiu o valor de "{0}" correto para o arquivo.</value>
+    <value>Foi calculado um manifesto digest para um diretório vazio. Verifique se definiu o valor "{0}" correto para o arquivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -72,7 +72,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descarregar '{0}' utilizando a instalação zero</value>
+    <value>Descarregar '{0}' utilizando a Instalação Zero</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -92,7 +92,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Foram detectados vários directórios de instalação. Seleção do primeiro por defeito.</value>
+    <value>Foram detectados vários directórios de instalação. Seleção do primeiro por predefinição.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">

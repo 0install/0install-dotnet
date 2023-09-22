@@ -181,6 +181,10 @@
     <value>从{0} 加载的图标不是有效的{1} 。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>无法从{0} 下载图标，因为只支持 HTTP 和 HTTPS URL。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>清单文件包含无效行。</value>
     <comment>Automatically translated.</comment>
@@ -214,7 +218,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>未指定已知的摘要方法。</value>
+    <value>没有指定已知的摘要方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

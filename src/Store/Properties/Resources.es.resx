@@ -181,6 +181,10 @@ Si utilizas una unidad con formato FAT, conviértela a NTFS.</value>
     <value>El icono cargado desde {0} no es un {1} válido.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>No se puede descargar el icono de {0} porque sólo se admiten URL HTTP y HTTPS.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>El archivo de manifiesto contiene líneas no válidas.</value>
     <comment>Automatically translated.</comment>
@@ -254,7 +258,7 @@ Puede eliminar el archivo '{0}' para solucionar el problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>Se ha producido un problema al cargar el valor de configuración '{0}'.
-Puede eliminar el archivo '{1}' para solucionar el problema. Es posible que también se pierdan otros valores de configuración.</value>
+Puede eliminar el archivo '{1}' para solucionar el problema. Otros valores de configuración también pueden perderse.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">

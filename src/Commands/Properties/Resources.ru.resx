@@ -118,7 +118,7 @@
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Хотите ли вы обновить все существующие интеграции с настольными системами, чтобы отразить это?
 Если вы выберете "Да", то потенциально несовместимые интеграции будут удалены.
-При выборе "Нет" Zero Install будет продолжать использовать старые возможности.</value>
+При выборе "Нет" Zero Install продолжит использовать старые возможности.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение параметров конфигурации.
-При отсутствии аргументов отображаются все настройки и их текущие значения. При одном аргументе отображается текущее значение именованной настройки. При двух аргументах настройка устанавливается в заданное значение или сбрасывается на значение по умолчанию, если задано значение "{0}".</value>
+При отсутствии аргументов отображаются все настройки и их текущие значения. При одном аргументе отображается текущее значение именованной настройки. При двух аргументах установка заданного значения или возврат к значению по умолчанию, если задано значение "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -335,7 +335,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, стоит ли доверять этим программам, прежде чем запускать их.</value>
+    <value>Выполняет поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, доверять ли этим программам, прежде чем запускать их.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -542,11 +542,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>Выбранные вами варианты интеграции рабочего стола не могут быть применены.</value>
+    <value>Не удается применить выбранные вами параметры интеграции рабочего стола.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>Хотите ли Вы изменить свой выбор и попробовать еще раз?</value>
+    <value>Хотите ли Вы изменить свой выбор и попробовать снова?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -668,7 +668,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Автоматически отвечать на вопросы с использованием значений по умолчанию, когда это возможно, и упростить вывод данных на консоль (без таблиц и прогресс-баров).</value>
+    <value>Автоматически отвечать на вопросы по умолчанию, когда это возможно, и упростить вывод на консоль (без таблиц и прогресс-баров).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -820,7 +820,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Сброс данных синхронизации. Допустимые значения {MODE}: "нет" (обычное объединение данных с клиента и сервера), "клиент" (замена всех данных на клиенте данными с сервера) и "сервер" (замена всех данных на сервере данными с клиента).</value>
+    <value>Сброс данных синхронизации. Допустимые значения {MODE}- "нет" (обычное объединение данных с клиента и сервера), "клиент" (замена всех данных на клиенте данными с сервера) и "сервер" (замена всех данных на сервере данными с клиента).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -967,7 +967,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Включение поддержки длинных путей в Windows может решить эту проблему.</value>
+    <value>Включение в Windows поддержки длинных путей может решить эту проблему.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -975,7 +975,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Криптоключ используется для локального шифрования данных перед их передачей на сервер.
+    <value>Криптографический ключ используется для локального шифрования данных перед передачей их на сервер.
 Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -996,7 +996,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Попробуйте воспользоваться одним из этих сайтов {0}:</value>
+    <value>Попробуйте использовать {0} с одним из этих сайтов:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

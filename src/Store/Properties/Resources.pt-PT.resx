@@ -68,7 +68,7 @@
 Se quiser apagar uma única implementação, pode usar esta linha de comando:
 {0}
 
-Se pretender eliminar todo este diretório, pode utilizar esta linha de comandos:
+Se pretender apagar todo este diretório, pode utilizar esta linha de comandos:
 {1}
 
 Se desejar apagar todo este diretório sem utilizar a Instalação Zero, pode utilizar esta linha de comandos:
@@ -179,6 +179,10 @@ Se estiver a utilizar uma unidade formatada em FAT, converta-a para NTFS.</value
   </data>
   <data name="InvalidIcon" xml:space="preserve">
     <value>O ícone carregado a partir de {0} não é um {1} válido.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Não é possível descarregar o ícone de {0} porque só são suportados URLs HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
