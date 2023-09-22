@@ -181,6 +181,10 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <value>{0} から読み込まれたアイコンは、有効な{1} ではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>HTTP および HTTPS URL のみがサポートされているため、{0} からアイコンをダウンロードできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>マニフェストファイルに無効な行があります。</value>
     <comment>Automatically translated.</comment>

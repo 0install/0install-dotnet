@@ -116,7 +116,7 @@ Jeśli chcesz usunąć cały ten katalog bez użycia Zero Install, możesz uży�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Błąd ładowania bazy danych zaufania. Przywrócono wartości domyślne.</value>
+    <value>Błąd ładowania bazy danych zaufania. Przywrócenie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -173,12 +173,16 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Podstawowy system plików nie przechowuje czasów zmian plików z wystarczającą dokładnością.
+    <value>Podstawowy system plików nie przechowuje czasów zmiany plików z wystarczającą dokładnością.
 Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
     <value>Ikona załadowana z {0} nie jest prawidłową ikoną {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Nie można pobrać ikony ze strony {0}, ponieważ obsługiwane są tylko adresy URL HTTP i HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

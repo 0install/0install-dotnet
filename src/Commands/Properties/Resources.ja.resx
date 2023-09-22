@@ -180,7 +180,7 @@
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>マイアプリケーション」リストからすべてのアプリケーションを削除しますか？これにより、Zero Installを削除した後にメニューが残るのを防ぐことができます。
-0install sync'を使用して、このリストのバックアップを作成することができます。</value>
+0install sync」を使用して、このリストのバックアップを作成できます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -264,7 +264,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>コンフィギュレーション設定を表示または変更します。
-引数を指定しないと、すべての設定とその現在の値が表示されます。引数を1つ指定すると、指定された設定の現在の値を表示します。2つの引数を指定すると、その設定を指定された値に設定するか、"{0}"という値が指定されている場合はデフォルト値にリセットします。</value>
+引数を指定しないと、すべての設定とその現在の値が表示されます。引数を1つ指定すると、指定された設定の現在の値を表示します。引数を2つ指定すると、その設定を指定された値に設定し、"{0}" が指定された場合はデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>アプリケーションリストに現在登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERN を指定すると、その文字列を名前に含むアプリケーションだけを表示します (大文字小文字は区別しません)。</value>
+    <value>アプリケーションリストに現在登録されているすべてのアプリケーションを一覧表示します。URI を指定すると、そのフィード URI を持つアプリケーションのみが表示されます。PATTERN を指定すると、その文字列を名前に含むアプリケーションのみを表示します (大文字小文字は区別しません)。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -314,7 +314,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップします。</value>
+    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -331,11 +331,11 @@
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>0install download'と同様の動作をするが、キャッシュにあることを確認した後にプログラムを実行する点が異なる。
-ダウンロード・ステップが失敗した場合は、終了ステータスとして1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
+ダウンロード・ステップが失敗した場合は、終了ステータスの1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードにマッチする、ミラーサーバがインデックスを作成した フィードを検索する。デフォルトのミラーサーバは、品質に関係なく既知のフィードをすべてインデックス化することに注意。</value>
+    <value>指定したキーワードにマッチする、ミラーサーバがインデックスを作成した フィードを検索する。デフォルトのミラーサーバは、品質にかかわらず既知のフィードをすべてインデックス化することに注意。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -420,7 +420,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>フィードに署名するために信頼されている鍵を一覧表示する。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
+    <value>フィードに署名するために信頼できる鍵をリストする。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -562,7 +562,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>それ以降のバージョン ({0}) が存在するが、選択されなかった。代わりに{1} を使用。</value>
+    <value>それ以降のバージョン({0})が存在するが、選択されなかった。代わりに{1} を使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -839,11 +839,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>与えられた{0:URI} を持つライブラリまたはサブコンポーネントに対して、バージョン{1:RANGE} を指定する（--version と同様）。</value>
+    <value>与えられた{0:URI} を持つライブラリまたはサブコンポーネントについて、バージョン{1:RANGE} を指定する（--version と同様）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>検索する実装キャッシュのリストに{DIR} を追加します。
+    <value>検索する実装キャッシュのリストに{DIR} を追加する。
 ただし、新しいダウンロードはこのディレクトリには書き込まれません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -927,7 +927,7 @@
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>セルフアップデートが無効になっています。
-有効にするには、'0install config self_update_uri default'を実行してください。</value>
+0install config self_update_uri default'を実行して有効にする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
@@ -976,7 +976,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>暗号キーは、サーバーにデータを送信する前に、ローカルでデータを暗号化するために使用されます。
-この鍵は秘密にしておき、パスワードには別のものを使用してください。こうすることで、万が一サーバーが危険にさらされても、誰もあなたのデータにアクセスできなくなります。</value>
+この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、万が一サーバーが危険にさらされても、誰もあなたのデータにアクセスできなくなります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

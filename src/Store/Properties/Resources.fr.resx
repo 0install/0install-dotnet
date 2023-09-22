@@ -108,7 +108,7 @@ Si vous souhaitez supprimer ce répertoire entier sans utiliser Zero Install, vo
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifestation attendue : {0}</value>
+    <value>Manifeste attendu : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -179,6 +179,10 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
   </data>
   <data name="InvalidIcon" xml:space="preserve">
     <value>L'icône chargée à partir de {0} n'est pas valide {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Impossible de télécharger l'icône à partir de {0} car seules les URL HTTP et HTTPS sont prises en charge.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

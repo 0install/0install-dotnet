@@ -91,7 +91,7 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Executar o solucionador externo</value>
+    <value>Execução de um solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -139,7 +139,7 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não é possível transferir {0} porque a Instalação Zero está em modo offline.</value>
+    <value>Não é possível transferir {0} porque a Instalação Zero está no modo offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -166,7 +166,7 @@ Novo tempo: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Não é possível armazenar em cache o catálogo de aplicações descarregado.</value>
+    <value>Não é possível colocar em cache o catálogo de aplicações descarregado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

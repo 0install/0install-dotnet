@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>为空目录计算了清单摘要。检查您是否为存档设置了正确的 "{0} "值。</value>
+    <value>为一个空目录计算了清单摘要。检查您是否为存档设置了正确的 "{0}"值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -88,7 +88,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>在注册表中检测到多个新的默认程序。将它们全部处理，但在某些情况下可能优先处理最后一个。</value>
+    <value>在注册表中检测到多个新的默认程序。将它们全部处理，但在某些情况下，最后一个可能会优先处理。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">

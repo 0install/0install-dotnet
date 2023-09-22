@@ -174,7 +174,7 @@ Se selecionar "Não", a Instalação zero continuará a utilizar as capacidades 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>Deseja remover todos os ficheiros de aplicações da cache do Zero Install?
+    <value>Deseja remover todos os ficheiros de aplicação da cache do Zero Install?
 Estes ficheiros podem ser transferidos novamente, se necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -264,7 +264,7 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe no diretório.</value>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Visualizar ou alterar as definições de configuração.
-Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor atual da definição nomeada. Com dois argumentos, define a definição para o valor indicado ou repõe o valor predefinido se for indicado o valor "{0}".</value>
+Sem argumentos, apresenta todas as definições e os respectivos valores actuais. Com um argumento, apresenta o valor atual da definição nomeada. Com dois argumentos, define a definição para o valor fornecido ou repõe o valor predefinido se for fornecido o valor "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -286,7 +286,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importa um conjunto de aplicações e integrações de ambiente de trabalho a partir de um ficheiro app-list.xml existente.</value>
+    <value>Importa um conjunto de aplicações e integrações de ambiente de trabalho de um ficheiro app-list.xml existente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -294,7 +294,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Lista todos os URIs de feed conhecidos localmente. Se for fornecido um termo de pesquisa, apenas os URIs que contêm essa cadeia são mostrados (sem distinção entre maiúsculas e minúsculas).</value>
+    <value>Lista todos os URIs de feed conhecidos localmente. Se for fornecido um termo de pesquisa, apenas os URIs que contêm essa cadeia de caracteres são mostrados (sem distinção entre maiúsculas e minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -408,7 +408,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Garante que uma implementação não foi danificada (ou seja, o seu manifesto digest não foi alterado).</value>
+    <value>Certifica-se de que uma implementação não foi danificada (ou seja, o seu manifesto digest não foi alterado).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -615,7 +615,7 @@ Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Pub
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>A Instalação Zero está a ser executada em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
+    <value>O Zero Install está a ser executado em modo portátil. Precisa de ser implementada numa localização permanente para que a integração no ambiente de trabalho funcione.
 Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua cópia portátil.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -689,7 +689,7 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
+    <value>Mudar para um separador específico na GUI de configuração. Os {TAB}s válidos são "updates", "storage", "catalog", "trust", "sync", "language", "language" e "advanced".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -783,7 +783,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Regressa imediatamente quando o programa escolhido tiver sido iniciado em vez de esperar que termine a execução. No Windows, o código de saída é o ID do processo do programa iniciado.</value>
+    <value>Regressa imediatamente assim que o programa escolhido tiver sido iniciado, em vez de esperar que termine a execução. No Windows, o código de saída é o ID do processo do programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">

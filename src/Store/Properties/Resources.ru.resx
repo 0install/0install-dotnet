@@ -68,7 +68,7 @@
 Если необходимо удалить одну реализацию, можно воспользоваться этой командной строкой:
 {0}
 
-Если необходимо удалить весь каталог, то можно воспользоваться этой командой:
+Если необходимо удалить весь каталог, можно воспользоваться этой командой:
 {1}
 
 Если необходимо удалить весь каталог без использования Zero Install, можно воспользоваться этой командной строкой:
@@ -181,6 +181,10 @@
     <value>Значок, загруженный с сайта {0}, не является действительным {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Невозможно загрузить значок с сайта {0}, поскольку поддерживаются только HTTP и HTTPS URL.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Файл манифеста содержит недопустимые строки.</value>
     <comment>Automatically translated.</comment>
@@ -214,7 +218,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не было указано ни одного известного метода дайджеста.</value>
+    <value>Не был указан известный метод дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

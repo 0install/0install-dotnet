@@ -100,7 +100,7 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifest real: {0}</value>
+    <value>Manifestul real: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -179,6 +179,10 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți la NTFS.
   </data>
   <data name="InvalidIcon" xml:space="preserve">
     <value>Pictograma încărcată de pe {0} nu este o pictogramă validă {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Nu se poate descărca pictograma de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -290,7 +294,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>Ultima linie a fișierului nu reprezintă sfârșitul blocului de semnături.</value>
+    <value>Ultima linie a fișierului nu este sfârșitul blocului de semnături.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
@@ -298,7 +302,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este validă în baza 64:</value>
+    <value>Semnătura nu este valabilă în baza 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
