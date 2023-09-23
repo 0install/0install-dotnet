@@ -54,7 +54,8 @@ public class WindowsPackageManager : PackageManagerBase
                 FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
                 FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308), // also covers 461310
                 FindNetFx("4.7.2", WindowsUtils.NetFx40, @"v4\Full", 461808), // also covers 461814
-                FindNetFx("4.8", WindowsUtils.NetFx40, @"v4\Full", 528040) // also covers 528049
+                FindNetFx("4.8", WindowsUtils.NetFx40, @"v4\Full", 528040), // also covers 528049, 528372 and 528449
+                FindNetFx("4.8.1", WindowsUtils.NetFx40, @"v4\Full", 533320) // also covers 533325
             }.Flatten(),
             "netfx-client" => FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client"),
             "powershell" => FindPowerShell(),
