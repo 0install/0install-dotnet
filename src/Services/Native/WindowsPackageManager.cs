@@ -28,16 +28,12 @@ public class WindowsPackageManager : PackageManagerBase
     protected override IEnumerable<ExternalImplementation> GetImplementations(string packageName)
         => (packageName ?? throw new ArgumentNullException(nameof(packageName))) switch
         {
-            "openjdk-6-jre" => FindJre(6),
-            "openjdk-7-jre" => FindJre(7),
-            "openjdk-8-jre" => FindJre(8),
-            "openjdk-9-jre" => FindJre(9),
-            "openjdk-10-jre" => FindJre(10),
-            "openjdk-6-jdk" => FindJdk(6),
-            "openjdk-7-jdk" => FindJdk(7),
-            "openjdk-8-jdk" => FindJdk(8),
-            "openjdk-9-jdk" => FindJdk(9),
-            "openjdk-10-jdk" => FindJdk(10),
+            _ when packageName.StartsWith("openjdk-", out string? rest)
+                && rest.EndsWith("-jre", out rest)
+                && int.TryParse(rest, out int version) => FindJre(version),
+            _ when packageName.StartsWith("openjdk-", out string? rest)
+                && rest.EndsWith("-jdk", out rest)
+                && int.TryParse(rest, out int version) => FindJdk(version),
             "netfx" => new[]
             {
                 // See: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
