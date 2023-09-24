@@ -4,6 +4,7 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using NanoByte.Common.Native;
+using static System.Environment;
 using static System.Runtime.InteropServices.Architecture;
 using static System.Runtime.InteropServices.RuntimeInformation;
 
@@ -57,8 +58,8 @@ public class WindowsPackageManager : PackageManagerBase
             "powershell" => FindPowerShell(),
             _ when packageName.StartsWith("dotnet-") => new []
             {
-                FindDotNet(packageName, Environment.SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
-                FindDotNet(packageName, Environment.SpecialFolder.ProgramFilesX86, Cpu.I486),
+                FindDotNet(packageName, SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
+                FindDotNet(packageName, SpecialFolder.ProgramFilesX86, Cpu.I486),
             }.Flatten(),
             "git" => FindGitForWindows(),
             _ => Enumerable.Empty<ExternalImplementation>()
@@ -104,7 +105,7 @@ public class WindowsPackageManager : PackageManagerBase
             yield return (Architecture.CurrentSystem.Cpu, path);
 
         // Check for 32-bit on a 64-bit system
-        if (Environment.Is64BitProcess)
+        if (Is64BitProcess)
         {
             path = RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\{registrySuffix}", valueName);
             if (!string.IsNullOrEmpty(path))
@@ -130,7 +131,7 @@ public class WindowsPackageManager : PackageManagerBase
             yield return Impl(Architecture.CurrentSystem.Cpu);
 
         // Check for 32-bit on a 64-bit system
-        if (Environment.Is64BitProcess)
+        if (Is64BitProcess)
         {
             install = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Install");
             release = RegistryUtils.GetDword($@"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\NET Framework Setup\NDP\{registryVersion}", "Release");
@@ -139,12 +140,12 @@ public class WindowsPackageManager : PackageManagerBase
         }
     }
 
-    private IEnumerable<ExternalImplementation> FindDotNet(string packageName, Environment.SpecialFolder folder, Cpu cpu)
+    private IEnumerable<ExternalImplementation> FindDotNet(string packageName, SpecialFolder folder, Cpu cpu)
     {
         string rootPath;
         try
         {
-            rootPath = Path.Combine(Environment.GetFolderPath(folder), "dotnet");
+            rootPath = Path.Combine(GetFolderPath(folder, SpecialFolderOption.DoNotVerify), "dotnet");
         }
         #region Error handling
         catch (ArgumentException ex)
@@ -204,7 +205,7 @@ public class WindowsPackageManager : PackageManagerBase
         if ((Impl(baseVersion: "3", wow6432: false) ?? Impl(baseVersion: "1", wow6432: false)) is {} impl)
             yield return impl;
 
-        if (Environment.Is64BitProcess && (Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true)) is {} impl64)
+        if (Is64BitProcess && (Impl(baseVersion: "3", wow6432: true) ?? Impl(baseVersion: "1", wow6432: true)) is {} impl64)
             yield return impl64;
     }
 
@@ -244,7 +245,7 @@ public class WindowsPackageManager : PackageManagerBase
         var impl = Impl(wow6432: false);
         if (impl != null) yield return impl;
 
-        if (Environment.Is64BitProcess)
+        if (Is64BitProcess)
         {
             impl = Impl(wow6432: true);
             if (impl != null) yield return impl;

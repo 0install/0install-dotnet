@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
+using static System.Environment;
 
 namespace ZeroInstall.Store.Trust;
 
@@ -34,8 +35,8 @@ public static class OpenPgp
     /// </summary>
     /// <remarks>This matches the normal GnuPG home directory.</remarks>
     public static string SigningHomeDir
-        => Environment.GetEnvironmentVariable("GNUPGHOME")
+        => GetEnvironmentVariable("GNUPGHOME")
         ?? (WindowsUtils.IsWindows
-               ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gnupg")
+               ? Path.Combine(GetFolderPath(SpecialFolder.ApplicationData), "gnupg")
                : Path.Combine(Locations.HomeDir, ".gnupg"));
 }
