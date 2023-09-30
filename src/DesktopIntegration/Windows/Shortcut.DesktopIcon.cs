@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -48,6 +49,6 @@ public static partial class Shortcut
     /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
     private static string GetDesktopPath(string? name, bool machineWide)
         => Path.Combine(
-            GetFolderPath(machineWide ? Environment.SpecialFolder.CommonDesktopDirectory : Environment.SpecialFolder.DesktopDirectory),
+            WindowsUtils.GetFolderPath(machineWide ? Environment.SpecialFolder.CommonDesktopDirectory : Environment.SpecialFolder.DesktopDirectory),
             $"{name}.lnk");
 }

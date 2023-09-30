@@ -102,31 +102,4 @@ public static partial class Shortcut
         byte[] bytes = Encoding.Unicode.GetBytes(value + '\0');
         return ArrayUtils.Concat(BitConverter.GetBytes(bytes.Length), bytes, new byte[] {0, 0});
     }
-
-    private static string GetFolderPath(Environment.SpecialFolder folder)
-    {
-        try
-        {
-            string result = Environment.GetFolderPath(folder, Environment.SpecialFolderOption.Create);
-            if (string.IsNullOrEmpty(result)) Log.Info($"Got empty path for {folder}, falling back to hardcoded default");
-            else return result;
-        }
-        catch (ArgumentException ex)
-        {
-            Log.Info($"Error getting path for {folder}, falling back to hardcoded default", ex);
-        }
-
-        // Fallback paths in case Environment.GetFolderPath() does not work
-        return folder switch
-        {
-            Environment.SpecialFolder.CommonDesktopDirectory => @"C:\Users\Public\Desktop",
-            Environment.SpecialFolder.CommonPrograms => Path.Combine(Locations.SystemConfigDirs, "Microsoft", "Windows", "Start Menu", "Programs"),
-            Environment.SpecialFolder.CommonStartup => Path.Combine(Locations.SystemConfigDirs, "Microsoft", "Windows", "Start Menu", "Programs", "Startup"),
-            Environment.SpecialFolder.DesktopDirectory => Path.Combine(Locations.HomeDir, "Desktop"),
-            Environment.SpecialFolder.Programs => Path.Combine(Locations.UserConfigDir, "Microsoft", "Windows", "Start Menu", "Programs"),
-            Environment.SpecialFolder.Startup => Path.Combine(Locations.UserConfigDir, "Microsoft", "Windows", "Start Menu", "Programs", "Startup"),
-            Environment.SpecialFolder.SendTo => Path.Combine(Locations.UserConfigDir, "Microsoft", "SendTo"),
-            _ => Locations.HomeDir
-        };
-    }
 }

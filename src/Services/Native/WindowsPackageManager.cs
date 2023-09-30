@@ -142,18 +142,7 @@ public class WindowsPackageManager : PackageManagerBase
 
     private IEnumerable<ExternalImplementation> FindDotNet(string packageName, SpecialFolder folder, Cpu cpu)
     {
-        string rootPath;
-        try
-        {
-            rootPath = Path.Combine(GetFolderPath(folder, SpecialFolderOption.DoNotVerify), "dotnet");
-        }
-        #region Error handling
-        catch (ArgumentException ex)
-        {
-            Log.Warn($"Unable to find {folder}", ex);
-            yield break;
-        }
-        #endregion
+        string rootPath = Path.Combine(WindowsUtils.GetFolderPath(folder), "dotnet");
 
         string? packageDir = packageName switch
         {

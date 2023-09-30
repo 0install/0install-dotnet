@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -39,5 +40,5 @@ public static partial class Shortcut
     }
 
     private static string GetQuickLaunchPath(string? name)
-        => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch", $"{name}.lnk");
+        => Path.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft", "Internet Explorer", "Quick Launch", $"{name}.lnk");
 }

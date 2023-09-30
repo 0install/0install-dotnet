@@ -84,7 +84,9 @@ partial class Self
         {
             if (WindowsUtils.IsWindows)
             {
-                string programFiles = _machineWide ? Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
+                string programFiles = _machineWide
+                    ? WindowsUtils.GetFolderPath(Environment.SpecialFolder.ProgramFiles)
+                    : Path.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
                 return Path.Combine(programFiles, "Zero Install");
             }
             else if (UnixUtils.IsMacOSX)

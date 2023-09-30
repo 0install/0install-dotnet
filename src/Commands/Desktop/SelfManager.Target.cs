@@ -92,10 +92,10 @@ partial class SelfManager
         try
         {
             RemoveOneGetBootstrap(Path.Combine(
-                Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
+                WindowsUtils.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
                 "PackageManagement", "ProviderAssemblies", "0install"));
             RemoveOneGetBootstrap(Path.Combine(
-                Environment.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
+                WindowsUtils.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
                 "WindowsPowerShell", "Modules", "0install"));
         }
         catch (Exception ex)
