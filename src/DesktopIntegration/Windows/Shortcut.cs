@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
 using System.Text;
 using PropertyStore.Flags;
 using PropertyStore.Structures;
@@ -11,6 +12,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// <summary>
 /// Creates Windows shortcut files (.lnk).
 /// </summary>
+[SupportedOSPlatform("windows")]
 public static partial class Shortcut
 {
     /// <summary>

@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
@@ -8,6 +9,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// <summary>
 /// Manages the PATH environment variable.
 /// </summary>
+[SupportedOSPlatform("windows")]
 public static class PathEnv
 {
     /// <summary>
@@ -68,6 +70,6 @@ public static class PathEnv
             variable: "Path",
             value: string.Join(Path.PathSeparator.ToString(), directories),
             target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
-        if (WindowsUtils.IsWindows) WindowsUtils.NotifyEnvironmentChanged();
+        WindowsUtils.NotifyEnvironmentChanged();
     }
 }

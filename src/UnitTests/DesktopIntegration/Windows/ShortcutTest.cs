@@ -1,14 +1,23 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
+using NanoByte.Common.Native;
+
 namespace ZeroInstall.DesktopIntegration.Windows;
 
 /// <summary>
 /// Contains test methods for <see cref="Shortcut"/>.
 /// </summary>
+[SupportedOSPlatform("windows")]
 public class ShortcutTest
 {
-    [Fact]
+    public ShortcutTest()
+    {
+        Skip.IfNot(WindowsUtils.IsWindows);
+    }
+
+    [SkippableFact]
     public void TestCreate()
     {
         using var tempDir = new TemporaryDirectory("0install-unit-test");

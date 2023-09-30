@@ -1,11 +1,14 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
+
 namespace ZeroInstall.DesktopIntegration.Windows;
 
 /// <summary>
 /// Contains control logic for applying <see cref="Model.Capabilities.ComServer"/> on Windows systems.
 /// </summary>
+[SupportedOSPlatform("windows")]
 public static class ComServer
 {
     #region Constants
