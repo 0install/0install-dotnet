@@ -12,6 +12,7 @@
     <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <RollForward>LatestMajor</RollForward>
+    <SatelliteResourceLanguages>es;el;fr;it;ja;nl;pt-BR;pt-PT;ro;ru;tr;zh;zh-Hant</SatelliteResourceLanguages>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <Nullable>enable</Nullable>
