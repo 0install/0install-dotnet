@@ -1,10 +1,9 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
 using System.IO.Pipelines;
-using Microsoft.Deployment.Compression;
 using NanoByte.Common.Streams;
+using WixToolset.Dtf.Compression;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -59,4 +58,3 @@ internal sealed partial class CabExtractorContext : IUnpackStreamContext
         _pipe?.Reader.Complete();
     }
 }
-#endif

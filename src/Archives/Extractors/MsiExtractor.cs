@@ -1,10 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using Microsoft.Deployment.Compression.Cab;
-using Microsoft.Deployment.WindowsInstaller;
 using NanoByte.Common.Native;
+using WixToolset.Dtf.Compression.Cab;
+using WixToolset.Dtf.WindowsInstaller;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -59,4 +58,3 @@ public class MsiExtractor : ArchiveExtractor
         });
     }
 }
-#endif

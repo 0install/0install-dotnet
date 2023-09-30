@@ -34,10 +34,8 @@ public abstract partial class ArchiveExtractor : IArchiveExtractor
         Register(Archive.MimeTypeTarZstandard, handler => new TarZstandardExtractor(handler));
         Register(Archive.MimeType7Z, handler => new SevenZipExtractor(handler));
         Register(Archive.MimeTypeRar, handler => new RarExtractor(handler));
-#if NETFRAMEWORK
         Register(Archive.MimeTypeCab, handler => new CabExtractor(handler));
         Register(Archive.MimeTypeMsi, handler => new MsiExtractor(handler));
-#endif
         Register(Archive.MimeTypeRubyGem, handler => new RubyGemExtractor(handler));
         Register(Archive.MimeTypeDmg, handler => new DmgExtractor(handler));
     }

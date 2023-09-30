@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
 using NanoByte.Common.Native;
 using ZeroInstall.Store.Manifests;
 
@@ -51,4 +50,3 @@ public class CabExtractorTest : ArchiveExtractorTestBase
             subDir: "folder1");
     }
 }
-#endif

@@ -1,9 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using Microsoft.Deployment.Compression.Cab;
 using NanoByte.Common.Native;
+using WixToolset.Dtf.Compression.Cab;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -48,4 +47,3 @@ public class CabExtractor : ArchiveExtractor
         });
     }
 }
-#endif

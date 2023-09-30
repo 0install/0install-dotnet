@@ -23,15 +23,14 @@
     <ProjectReference Include="..\Store\Store.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="ZstdSharp.Port" Version="0.7.2" />
     <PackageReference Include="SharpCompress" Version="0.33.0" />
     <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
     <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
-    <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
-    <PackageReference Include="wix-libs" Version="3.11.1" />
+    <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="4.0.2" />
+    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="4.0.2" />
   </ItemGroup>
 
 </Project>

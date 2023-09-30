@@ -1,8 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using Microsoft.Deployment.WindowsInstaller;
+using WixToolset.Dtf.WindowsInstaller;
 
 namespace ZeroInstall.Archives.Extractors;
 
@@ -40,10 +39,10 @@ internal sealed class MsiPackage : IDisposable
             foreach (var row in directoryView)
             {
                 _directories.Add(
-                    row["Directory"].ToString(),
+                    row["Directory"].ToString()!,
                     new MsiDirectory(
-                        Name: row["DefaultDir"].ToString().Split(':').Last().Split('|').Last(),
-                        ParentId: row["Directory_Parent"].ToString()
+                        Name: row["DefaultDir"].ToString()!.Split(':').Last().Split('|').Last(),
+                        ParentId: row["Directory_Parent"].ToString()!
                     ));
             }
         }
@@ -86,9 +85,9 @@ internal sealed class MsiPackage : IDisposable
         fileView.Execute();
         foreach (var row in fileView)
         {
-            string? directory = _directories[row["Directory_"].ToString()].FullPath;
-            string fileName = row["FileName"].ToString().Split(':').Last().Split('|').Last();
-            _files.Add(row["File"].ToString(), $"{directory}/{fileName}");
+            string? directory = _directories[row["Directory_"].ToString()!].FullPath;
+            string fileName = row["FileName"].ToString()!.Split(':').Last().Split('|').Last();
+            _files.Add(row["File"].ToString()!, $"{directory}/{fileName}");
         }
     }
 
@@ -104,7 +103,7 @@ internal sealed class MsiPackage : IDisposable
         using var mediaView = _database.OpenView("SELECT Cabinet FROM Media");
         mediaView.Execute();
         _cabinets.Add(
-            mediaView.Select(row => row["Cabinet"].ToString())
+            mediaView.Select(row => row["Cabinet"].ToString()!)
                      .Where(name => name.StartsWith("#"))
                      .Select(name => name[1..]));
     }
@@ -130,4 +129,3 @@ internal sealed class MsiPackage : IDisposable
     /// <inheritdoc/>
     public void Dispose() => _database.Dispose();
 }
-#endif
