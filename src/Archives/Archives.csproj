@@ -26,7 +26,7 @@
     <PackageReference Include="System.IO.Pipelines" Version="7.0.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="ZstdSharp.Port" Version="0.7.2" />
-    <PackageReference Include="SharpCompress" Version="0.33.0" />
+    <PackageReference Include="SharpCompress" Version="0.34.1" />
     <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
     <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
     <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="4.0.2" />
