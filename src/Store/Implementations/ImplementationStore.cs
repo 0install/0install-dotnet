@@ -37,16 +37,9 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
 
         static bool HasNoFiles(string path)
         {
-            try
-            {
-                return Directory.GetFiles(path).Length == 0;
-            }
-            #region Error handling
-            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
-            {
-                return false;
-            }
-            #endregion
+            // Best effort check, but never fail
+            try { return Directory.GetFiles(path).Length == 0; }
+            catch { return false; }
         }
 
         if (!manifestDigest.PartialEquals(ManifestDigest.Empty) && HasNoFiles(path))
