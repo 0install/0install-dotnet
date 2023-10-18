@@ -129,10 +129,6 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <value>Anulare</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Opțiunile {0} și {1} nu pot fi utilizate împreună.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Capacitățile aplicației '{0}' s-au schimbat.</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@ Scoateți o casetă de selectare pentru a elimina statutul implicit al unei capa
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Doriți să ștergeți această intrare din memoria cache?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Eliminarea implementării</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <value>Instalarea serviciului Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integrați {0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Nu se pot aplica selecțiile dvs. de integrare pe desktop.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <value>Proprietăți pentru {0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Memoria cache de citire</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Eliminați</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@ Rulați "0install config self_update_uri default" pentru a-l activa.</value>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Auditul magazinului</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>A fost eliminat cu succes {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

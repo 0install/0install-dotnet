@@ -129,10 +129,6 @@ Si selecciona "No", Zero Install seguirá utilizando las funciones anteriores.</
     <value>Cancelar</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Las opciones {0} y {1} no pueden utilizarse juntas.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Las capacidades de la aplicación '{0}' han cambiado.</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@ Quitar una casilla de verificación para eliminar el estado predeterminado de un
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>¿Desea eliminar esta entrada de la caché?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Eliminación de la aplicación</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <value>Instalación del servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integre {0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Sus selecciones de integración de escritorio no se pueden aplicar.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <value>Propiedades para {0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Caché de lectura</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Eliminar</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@ Ejecute '0install config self_update_uri default' para activarlo.</value>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Auditoría de la tienda</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Eliminado con éxito {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

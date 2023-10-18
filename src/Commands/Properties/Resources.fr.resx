@@ -129,10 +129,6 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
     <value>Annuler</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Les options {0} et {1} ne peuvent pas être utilisées de manière concomitante.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Les capacités de l'application '{0}' ont été modifiées.</value>
     <comment>Manually overriden.</comment>
@@ -199,10 +195,6 @@ Retirer une case à cocher pour supprimer le statut par défaut d'une capacité 
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Voulez-vous supprimer cette entrée du cache ?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Suppression de la mise en œuvre</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <value>Installation du Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Intégrer {0}</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Vos sélections d'intégration de bureau ne peuvent pas être appliquées.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@ Peut contenir des arguments de ligne de commande. Les espaces blancs doivent êt
     <value>Propriétés pour {0}</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Lecture du cache</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Supprimer</value>
     <comment>Manually overriden.</comment>
@@ -961,10 +945,6 @@ Lancez '0install config self_update_uri default' pour l'activer.</value>
   <data name="StoreAudit" xml:space="preserve">
     <value>Audit des magasins</value>
     <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Suppression réussie {0}.</value>
-    <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
     <value>L'activation de la prise en charge des chemins longs par Windows peut résoudre ce problème.</value>

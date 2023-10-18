@@ -129,10 +129,6 @@
     <value>İptal</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>{0} ile {1} seçenekleri birlikte kullanılamaz.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>'{0}' uygulamasının yetenekleri değiştirildi.</value>
     <comment>Manually overriden.</comment>
@@ -199,10 +195,6 @@ Varsayılan olmasını istemediğiniz özelliğin ilgili onay kutusunu işaretle
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Bu kayıtları ön bellekten silmek istiyor musunuz?</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Uyarlama siliniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <value>Zero Install depo hizmeti başlatılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>{0} ile bütünleştir</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Masaüstü bütünleştirme seçenekleriniz uygulanamadı.</value>
     <comment>Manually overriden.</comment>
@@ -865,10 +853,6 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <value>{0} için özellikler</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Ön bellek okunuyor</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Sil</value>
     <comment>Manually overriden.</comment>
@@ -960,10 +944,6 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Depo denetimi</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>{0} kaldırıldı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

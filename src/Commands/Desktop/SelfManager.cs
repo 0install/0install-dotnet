@@ -44,7 +44,7 @@ public partial class SelfManager : ManagerBase
         if (string.IsNullOrEmpty(targetDir)) throw new ArgumentNullException(nameof(targetDir));
         #endregion
 
-        if (portable && machineWide) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--machine"), nameof(machineWide));
+        if (portable && machineWide) throw new ArgumentException(string.Format(Resources.ExclusiveOptions, "--portable", "--machine"), nameof(machineWide));
 
         TargetDir = targetDir;
         Portable = portable;
@@ -67,7 +67,7 @@ public partial class SelfManager : ManagerBase
     /// <exception cref="IOException">An IO operation failed.</exception>
     public void Deploy(bool libraryMode = false)
     {
-        if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.CannotUseOptionsTogether, "--portable", "--library"), nameof(libraryMode));
+        if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.ExclusiveOptions, "--portable", "--library"), nameof(libraryMode));
 
         var newManifest = LoadManifest(Locations.InstallBase);
         var oldManifest = LoadManifest(TargetDir);

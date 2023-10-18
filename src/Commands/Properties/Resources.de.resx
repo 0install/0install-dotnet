@@ -129,10 +129,6 @@ Wenn Sie "Nein" wählen, verwendet Zero Install weiterhin die alten Fähigkeiten
     <value>Abbrechen</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Die Optionen {0} und {1} können nicht zusammen verwendet werden.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Die Fähigkeiten der Anwendung '{0}' haben sich geändert.</value>
     <comment>Manually overriden.</comment>
@@ -199,10 +195,6 @@ Entfernen Sie ein Häkchen, um den Standardstatus einer Fähigkeit aufzuheben (d
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Möchten Sie diesen Eintrag aus dem Cache löschen?</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Löschen von Implementierung</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <value>Installation des Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integrieren von {0}</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Ihre Auswahl für die Desktopintegration konnte nicht übernommen werden.</value>
     <comment>Manually overriden.</comment>
@@ -865,10 +853,6 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <value>Eigenschaften für {0}</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Lese Cache</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Entfernen</value>
     <comment>Manually overriden.</comment>
@@ -960,10 +944,6 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Store Überprüfung</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>{0} wurde erfolgreich entfernt.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

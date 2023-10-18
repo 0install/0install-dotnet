@@ -129,10 +129,6 @@ Als u 'Nee' selecteert, blijft Zero Install de oude mogelijkheden gebruiken.</va
     <value>Annuleren</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>De opties {0} en {1} kunnen niet samen worden gebruikt.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>De mogelijkheden van de applicatie '{0}' zijn veranderd.</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@ Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijde
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Wil je dit item uit de cache verwijderen?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Implementatie verwijderen</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Een &lt;feed-for&gt; tag geeft feedcompatibiliteit aan.</value>
     <value>Zero Install-winkelservice installeren</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integreer {0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Uw selecties voor desktopintegratie kunnen niet worden toegepast.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten ontsnapt worden!</valu
     <value>Eigenschappen voor {0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Lees cache</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Verwijder</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@ Voer '0install config self_update_uri default' uit om het in te schakelen.</valu
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Winkelcontrole</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>{0} is succesvol verwijderd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

@@ -129,10 +129,6 @@
     <value>Отмена</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Опции {0} и {1} не могут использоваться вместе.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Изменились возможности приложения '{0}'.</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Хотите ли Вы удалить эту запись из кэша?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Удаление реализации</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@
     <value>Установка службы Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Интегрировать {0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Не удается применить выбранные вами параметры интеграции рабочего стола.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@
     <value>Свойства для {0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Кэш для чтения</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Удалить</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Аудит магазина</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Успешно удалено {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

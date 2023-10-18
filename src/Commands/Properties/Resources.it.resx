@@ -129,10 +129,6 @@ Se si seleziona "No", Zero Install continuerà a utilizzare le vecchie funzional
     <value>Annulla</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Le opzioni {0} e {1} non possono essere utilizzate insieme.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Le funzionalità dell'applicazione '{0}' sono cambiate.</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Si desidera eliminare questa voce dalla cache?</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Eliminazione dell'implementazione</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <value>Installazione del servizio Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integrare {0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Le selezioni di integrazione del desktop non possono essere applicate.</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <value>Proprietà per {0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Cache di lettura</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Rimuovere</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Audit del negozio</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Rimosso con successo {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

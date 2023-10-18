@@ -217,15 +217,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The options {0} and {1} cannot be used together..
-        /// </summary>
-        public static string CannotUseOptionsTogether {
-            get {
-                return ResourceManager.GetString("CannotUseOptionsTogether", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The capabilities of the application &apos;{0}&apos; have changed..
         /// </summary>
         public static string CapabilitiesChanged {
@@ -370,15 +361,6 @@ namespace ZeroInstall.Commands.Properties {
         public static string DeleteEntry {
             get {
                 return ResourceManager.GetString("DeleteEntry", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deleting implementation.
-        /// </summary>
-        public static string DeletingImplementations {
-            get {
-                return ResourceManager.GetString("DeletingImplementations", resourceCulture);
             }
         }
         
@@ -1115,15 +1097,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Integrate {0}.
-        /// </summary>
-        public static string Integrate {
-            get {
-                return ResourceManager.GetString("Integrate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Your desktop integration selections can not be applied..
         /// </summary>
         public static string IntegrateAppInvalid {
@@ -1838,15 +1811,6 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reading cache.
-        /// </summary>
-        public static string ReadingCache {
-            get {
-                return ResourceManager.GetString("ReadingCache", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string Remove {
@@ -2051,15 +2015,6 @@ namespace ZeroInstall.Commands.Properties {
         public static string StoreAudit {
             get {
                 return ResourceManager.GetString("StoreAudit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Successfully removed {0}..
-        /// </summary>
-        public static string SuccessfullyRemoved {
-            get {
-                return ResourceManager.GetString("SuccessfullyRemoved", resourceCulture);
             }
         }
         

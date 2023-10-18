@@ -129,10 +129,6 @@
     <value>キャンセル</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>オプション{0} と{1} は併用できない。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>アプリケーション「{0} 」の機能が変わった。</value>
     <comment>Automatically translated.</comment>
@@ -199,10 +195,6 @@
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>このエントリーをキャッシュから削除しますか？</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>実装の削除</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -537,10 +529,6 @@
     <value>ゼロインストールストアサービスのインストール</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>統合{0}</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>デスクトップ統合の選択は適用できません。</value>
     <comment>Automatically translated.</comment>
@@ -865,10 +853,6 @@
     <value>プロパティ{0}</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>リーディングキャッシュ</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>削除</value>
     <comment>Automatically translated.</comment>
@@ -960,10 +944,6 @@
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>店舗監査</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>{0} の削除に成功した。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

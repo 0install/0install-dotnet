@@ -129,10 +129,6 @@
     <value>Ακύρωση</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>Οι επιλογές {0} και {1} δεν μπορούν να χρησιμοποιηθούν μαζί.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Οι δυνατότητες της εφαρμογής "{0}" άλλαξαν.</value>
     <comment>Manually overriden.</comment>
@@ -199,10 +195,6 @@
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Θέλετε να διαγράψετε την εγγραφή από τη μνήμη cache;</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Διαγραφή εφαρμογής</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -536,10 +528,6 @@
     <value>Εγκατάσταση της υπηρεσίας Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Ενσωμάτωση {0}</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Οι επιλογές ενσωμάτωσης στην επιφάνεια εργασίας σας δεν μπορούν να εφαρμοστούν.</value>
     <comment>Manually overriden.</comment>
@@ -864,10 +852,6 @@
     <value>Ιδιότητες για {0}</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Ανάγνωση της μνήμης cache</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Αφαίρεση</value>
     <comment>Manually overriden.</comment>
@@ -959,10 +943,6 @@
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Ελεγχος</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Αφαιρέθηκε επιτυχώς {0}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

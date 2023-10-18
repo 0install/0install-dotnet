@@ -180,9 +180,6 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
   <data name="CatalogNotRegistered" xml:space="preserve">
     <value>The catalog URI {0} is not registered.</value>
   </data>
-  <data name="CannotUseOptionsTogether" xml:space="preserve">
-    <value>The options {0} and {1} cannot be used together.</value>
-  </data>
   <data name="CatalogSources" xml:space="preserve">
     <value>Catalog sources</value>
   </data>
@@ -225,9 +222,6 @@ Remove a checkbox to remove a capability's default status (it still remains avai
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Do you want to delete this entry from the cache?</value>
-  </data>
-  <data name="DeletingImplementations" xml:space="preserve">
-    <value>Deleting implementation</value>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>A portable version of Zero Install has been deployed to '{0}'.
@@ -481,9 +475,6 @@ A &lt;feed-for&gt; tag indicates feed compatibility.</value>
   <data name="InstallService" xml:space="preserve">
     <value>Installing Zero Install Store Service</value>
   </data>
-  <data name="Integrate" xml:space="preserve">
-    <value>Integrate {0}</value>
-  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Your desktop integration selections can not be applied.</value>
   </data>
@@ -730,9 +721,6 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
   <data name="PropertiesFor" xml:space="preserve">
     <value>Properties for {0}</value>
   </data>
-  <data name="ReadingCache" xml:space="preserve">
-    <value>Reading cache</value>
-  </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>
@@ -802,9 +790,6 @@ Run '0install config self_update_uri default' to enable it.</value>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Store audit</value>
-  </data>
-  <data name="SuccessfullyRemoved" xml:space="preserve">
-    <value>Successfully removed {0}.</value>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
     <value>Enabling Windows support for Long Paths may solve this problem.</value>
