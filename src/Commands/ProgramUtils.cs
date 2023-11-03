@@ -254,37 +254,39 @@ public static class ProgramUtils
             RegistryUtils.GetDword(RegKeyFSPolicyUser, RegValueNameLongPaths, defaultValue: RegistryUtils.GetDword(RegKeyFSPolicyMachine, RegValueNameLongPaths)) != 1)
         {
             Debug.Assert(WindowsUtils.IsWindows);
-            string message = ex.Message + @" " + Resources.SuggestLongPath;
-            if (handler.Ask(message + @" " + Resources.AskTryNow, defaultAnswer: false, alternateMessage: message))
+            try
             {
-                try
+                string message = ex.Message + @" " + Resources.SuggestLongPath;
+                if (handler.Ask(message + @" " + Resources.AskTryNow, defaultAnswer: false, alternateMessage: message))
                 {
                     RegistryUtils.SetDword(WindowsUtils.IsAdministrator ? RegKeyFSPolicyMachine : RegKeyFSPolicyUser, RegValueNameLongPaths, 1);
                     return (ExitCode)ProcessUtils.Assembly(exeName, args).Run();
                 }
-                catch (PlatformNotSupportedException ex2)
+                else
                 {
-                    handler.Error(ex2);
-                    return ExitCode.NotSupported;
-                }
-                catch (IOException ex2)
-                {
-                    handler.Error(ex2);
+                    handler.Error(ex);
                     return ExitCode.IOError;
                 }
-                catch (NotAdminException ex2)
-                {
-                    handler.Error(ex2);
-                    return ExitCode.AccessDenied;
-                }
-                catch (OperationCanceledException)
-                {
-                    return ExitCode.UserCanceled;
-                }
             }
-
-            handler.Error(ex);
-            return ExitCode.IOError;
+            catch (OperationCanceledException)
+            {
+                return ExitCode.UserCanceled;
+            }
+            catch (PlatformNotSupportedException ex2)
+            {
+                handler.Error(ex2);
+                return ExitCode.NotSupported;
+            }
+            catch (IOException ex2)
+            {
+                handler.Error(ex2);
+                return ExitCode.IOError;
+            }
+            catch (NotAdminException ex2)
+            {
+                handler.Error(ex2);
+                return ExitCode.AccessDenied;
+            }
         }
         catch (IOException ex)
         {
