@@ -49,8 +49,8 @@ public static class OpenPgpExtensions
 
         try
         {
-            byte[] fingerprint = OpenPgpUtils.ParseFingerprint(keySpecifier);
-            if (secretKeys.FirstOrDefault(x => x.Fingerprint.SequenceEqual(fingerprint)) is {} key)
+            var fingerprint = OpenPgpUtils.ParseFingerprint(keySpecifier);
+            if (secretKeys.FirstOrDefault(x => x.Fingerprint.Equals(fingerprint)) is {} key)
                 return key;
         }
         catch (FormatException)

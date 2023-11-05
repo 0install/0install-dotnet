@@ -56,7 +56,7 @@ public abstract class OpenPgpTest
 
         ImportKey();
         var signature = (ValidSignature)OpenPgp.Verify(_referenceData, signatureData).Single();
-        signature.Fingerprint.Should().Equal(_secretKey.Fingerprint);
+        signature.Fingerprint.Should().Be(_secretKey.Fingerprint);
     }
 
     [Fact]

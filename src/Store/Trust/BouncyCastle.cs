@@ -44,7 +44,7 @@ public partial class BouncyCastle : IOpenPgp
             signature.Update(data.Array, data.Offset, data.Count);
 
             if (signature.Verify())
-                return new ValidSignature(key.KeyId, key.GetFingerprint(), signature.CreationTime);
+                return new ValidSignature(key.KeyId, new OpenPgpFingerprint(key.GetFingerprint()), signature.CreationTime);
             else
             {
                 var badSig = new BadSignature(signature.KeyId);
@@ -121,7 +121,7 @@ public partial class BouncyCastle : IOpenPgp
            select ring.GetSecretKey() into key
            select new OpenPgpSecretKey(
                key.KeyId,
-               key.PublicKey.GetFingerprint(),
+               new OpenPgpFingerprint(key.PublicKey.GetFingerprint()),
                key.UserIds.First());
 
     private static T ParseObject<T>(Stream stream) where T : PgpObject

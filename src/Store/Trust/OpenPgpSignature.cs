@@ -20,8 +20,7 @@ public abstract partial class OpenPgpSignature : IKeyIDContainer
 public sealed partial class ValidSignature : OpenPgpSignature, IFingerprintContainer
 {
     /// <inheritdoc/>
-    [OrderedEquality]
-    public byte[] Fingerprint { get; }
+    public OpenPgpFingerprint Fingerprint { get; }
 
     /// <summary>
     /// The point in time when the signature was created in UTC.
@@ -34,7 +33,7 @@ public sealed partial class ValidSignature : OpenPgpSignature, IFingerprintConta
     /// <param name="keyID">The key ID of the key used to create this signature.</param>
     /// <param name="fingerprint">The fingerprint of the key used to create this signature.</param>
     /// <param name="timestamp">The point in time when the signature was created in UTC.</param>
-    public ValidSignature(long keyID, byte[] fingerprint, DateTime timestamp)
+    public ValidSignature(long keyID, OpenPgpFingerprint fingerprint, DateTime timestamp)
         : base(keyID)
     {
         Fingerprint = fingerprint ?? throw new ArgumentNullException(nameof(fingerprint));

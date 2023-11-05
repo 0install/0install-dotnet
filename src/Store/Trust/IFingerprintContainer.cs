@@ -9,8 +9,7 @@ namespace ZeroInstall.Store.Trust;
 public interface IFingerprintContainer : IKeyIDContainer
 {
     /// <summary>
-    /// An OpenPGP key fingerprint. A long identifier for a key. Superset of <see cref="IKeyIDContainer.KeyID"/>.
+    /// An OpenPGP key fingerprint. Superset of <see cref="IKeyIDContainer.KeyID"/>.
     /// </summary>
-    [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-    byte[] Fingerprint { get; }
+    OpenPgpFingerprint Fingerprint { get; }
 }

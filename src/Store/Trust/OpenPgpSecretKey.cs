@@ -13,8 +13,7 @@ public sealed partial class OpenPgpSecretKey : IFingerprintContainer
     public long KeyID { get; }
 
     /// <inheritdoc/>
-    [OrderedEquality]
-    public byte[] Fingerprint { get; }
+    public OpenPgpFingerprint Fingerprint { get; }
 
     /// <summary>
     /// The user's name, e-mail address, etc. of the key owner.

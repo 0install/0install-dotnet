@@ -53,7 +53,7 @@ public static class OpenPgpUtils
     /// Parses a canonical string formatting of a key fingerprint.
     /// </summary>
     /// <exception cref="FormatException">The string format is not valid.</exception>
-    internal static byte[] ParseFingerprint(string fingerprint)
+    internal static OpenPgpFingerprint ParseFingerprint(string fingerprint)
     {
         #region Sanity checks
         if (fingerprint == null) throw new ArgumentNullException(nameof(fingerprint));
@@ -62,7 +62,7 @@ public static class OpenPgpUtils
         var result = new byte[fingerprint.Length / 2];
         for (int i = 0; i < result.Length; i++)
             result[i] = Convert.ToByte(fingerprint.Substring(i * 2, 2), 16);
-        return result;
+        return new(result);
     }
 
     /// <summary>

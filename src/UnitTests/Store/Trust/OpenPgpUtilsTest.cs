@@ -10,7 +10,7 @@ public class OpenPgpUtilsTest : TestWithMocks
 {
     public const string TestKeyIDString = "00000000000000FF";
     public static readonly long TestKeyID = 255;
-    public static readonly byte[] TestFingerprint = {170, 170, 0, 0, 0, 0, 0, 0, 0, 255};
+    public static readonly OpenPgpFingerprint TestFingerprint = new(new byte[] {170, 170, 0, 0, 0, 0, 0, 0, 0, 255});
     public const string TestFingerprintString = "AAAA00000000000000FF";
     public static readonly ValidSignature TestSignature = new(TestKeyID, TestFingerprint, new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc));
 
@@ -34,7 +34,7 @@ public class OpenPgpUtilsTest : TestWithMocks
     [Fact]
     public void ParseFingerprint()
         => OpenPgpUtils.ParseFingerprint(TestFingerprintString)
-                       .Should().Equal(TestFingerprint);
+                       .Should().Be(TestFingerprint);
 
     [Fact]
     public void FingerprintToKeyID()
@@ -46,7 +46,7 @@ public class OpenPgpUtilsTest : TestWithMocks
     {
         using var tempDir = new TemporaryDirectory("0install-test-openpgp");
         const string publicKey = "public";
-        var secretKey = new OpenPgpSecretKey(keyID: 123, fingerprint: new byte[] {1, 2, 3}, userID: "user");
+        var secretKey = new OpenPgpSecretKey(keyID: 123, new OpenPgpFingerprint(new byte[] {1, 2, 3}), userID: "user");
 
         var openPgpMock = GetMock<IOpenPgp>();
         openPgpMock.Setup(x => x.ExportKey(secretKey)).Returns(publicKey);
