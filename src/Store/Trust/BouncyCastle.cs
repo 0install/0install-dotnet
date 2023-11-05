@@ -11,7 +11,8 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Provides access to the OpenPGP signature functions of Bouncy Castle.
 /// </summary>
-public partial class BouncyCastle : IOpenPgp
+/// <param name="homeDir">The GnuPG home dir to use.</param>
+public partial class BouncyCastle(string homeDir) : IOpenPgp
 {
     /// <inheritdoc/>
     public IEnumerable<OpenPgpSignature> Verify(ArraySegment<byte> data, byte[] signature)

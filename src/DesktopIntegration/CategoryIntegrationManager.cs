@@ -14,7 +14,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// To prevent race-conditions there may only be one desktop integration class instance active at any given time.
 /// This class acquires a mutex upon calling its constructor and releases it upon calling <see cref="IDisposable.Dispose"/>.
 /// </remarks>
-public class CategoryIntegrationManager : IntegrationManager, ICategoryIntegrationManager
+public class CategoryIntegrationManager(Config config, ITaskHandler handler, bool machineWide = false) : IntegrationManager(config, handler, machineWide), ICategoryIntegrationManager
 {
     #region Constants
     /// <summary>A list of all known <see cref="AccessPoint"/> categories.</summary>
@@ -22,13 +22,6 @@ public class CategoryIntegrationManager : IntegrationManager, ICategoryIntegrati
 
     /// <summary>A list of recommended standard <see cref="AccessPoint"/> categories.</summary>
     public static readonly string[] StandardCategories = {CapabilityRegistration.TagName, MenuEntry.TagName, SendTo.TagName, AppAlias.TagName};
-    #endregion
-
-    #region Constructor
-    /// <inheritdoc/>
-    public CategoryIntegrationManager(Config config, ITaskHandler handler, bool machineWide = false)
-        : base(config, handler, machineWide)
-    {}
     #endregion
 
     //--------------------//

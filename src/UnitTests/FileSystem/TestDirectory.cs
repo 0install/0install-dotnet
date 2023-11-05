@@ -9,8 +9,9 @@ namespace ZeroInstall.FileSystem;
 /// Represents a directory used for testing file system operations.
 /// It can either be realized on-disk or compared against an existing on-disk directory.
 /// </summary>
+/// <param name="name">The name of the directory.</param>
 /// <seealso cref="TestRoot"/>
-public class TestDirectory : TestElement, IEnumerable<TestElement>
+public class TestDirectory(string name) : TestElement(name), IEnumerable<TestElement>
 {
     /// <summary>
     /// The <see cref="TestElement"/>s contained within the directory.
@@ -26,14 +27,6 @@ public class TestDirectory : TestElement, IEnumerable<TestElement>
     /// Adds an element to <see cref="Children"/>.
     /// </summary>
     public void Add(TestElement element) => Children.Add(element);
-
-    /// <summary>
-    /// Creates a new test directory.
-    /// </summary>
-    /// <param name="name">The name of the directory.</param>
-    public TestDirectory(string name)
-        : base(name)
-    {}
 
     public override void Build(string parentPath)
     {

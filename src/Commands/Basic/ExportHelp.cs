@@ -8,17 +8,12 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Exports all <see cref="CliCommand"/> help texts as HTML.
 /// </summary>
-public class ExportHelp : CliCommand
+public class ExportHelp(ICommandHandler handler) : CliCommand(handler)
 {
     public const string Name = "export-help";
     public override string Description => "Exports all command help texts as HTML.";
     public override string Usage => "";
     protected override int AdditionalArgsMax => 0;
-
-    /// <inheritdoc/>
-    public ExportHelp(ICommandHandler handler)
-        : base(handler)
-    {}
 
     public override ExitCode Execute()
     {

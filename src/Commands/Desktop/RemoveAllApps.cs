@@ -8,18 +8,13 @@ namespace ZeroInstall.Commands.Desktop;
 /// <summary>
 /// Removes all applications from the <see cref="AppList"/> and undoes any desktop environment integration.
 /// </summary>
-public class RemoveAllApps : IntegrationCommand
+public class RemoveAllApps(ICommandHandler handler) : IntegrationCommand(handler)
 {
     public const string Name = "remove-all";
     public const string AltName = "remove-all-apps";
     public override string Description => Resources.DescriptionRemoveAllApps;
     public override string Usage => "[OPTIONS]";
     protected override int AdditionalArgsMax => 0;
-
-    /// <inheritdoc/>
-    public RemoveAllApps(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override ExitCode Execute()

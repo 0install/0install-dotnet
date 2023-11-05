@@ -6,15 +6,10 @@ namespace ZeroInstall.Commands.Desktop;
 /// <summary>
 /// Manages the integration of Zero Install itself in the operating system (deployment and removal).
 /// </summary>
-public sealed partial class Self : CliMultiCommand
+public sealed partial class Self(ICommandHandler handler) : CliMultiCommand(handler)
 {
     public const string Name = "self";
     public const string AltName = "maintenance";
-
-    /// <inheritdoc/>
-    public Self(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name, Update.Name};

@@ -8,15 +8,10 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Register an additional source of implementations (versions) of a program.
 /// </summary>
-public class AddFeed : AddRemoveFeedCommand
+public class AddFeed(ICommandHandler handler) : AddRemoveFeedCommand(handler)
 {
     public const string Name = "add-feed";
     public override string Description => Resources.DescriptionAddFeed;
-
-    /// <inheritdoc/>
-    public AddFeed(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     protected override ExitCode ExecuteHelper(IEnumerable<FeedUri> interfaces, FeedReference source, Stability suggestedStabilityPolicy)

@@ -12,22 +12,10 @@ namespace ZeroInstall.Client;
 /// <summary>
 /// Client for invoking Zero Install commands from within other applications.
 /// </summary>
-public class ZeroInstallClient : IZeroInstallClient
+/// <param name="launcher">Used to launch <c>0install</c> as a child process.</param>
+/// <param name="guiLauncher">Used to launch <c>0install-win</c> as a child process.</param>
+public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiLauncher = null) : IZeroInstallClient
 {
-    private readonly IProcessLauncher _launcher;
-    private readonly IProcessLauncher? _guiLauncher;
-
-    /// <summary>
-    /// Creates a new Zero Install client.
-    /// </summary>
-    /// <param name="launcher">Used to launch <c>0install</c> as a child process.</param>
-    /// <param name="guiLauncher">Used to launch <c>0install-win</c> as a child process.</param>
-    internal ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiLauncher = null)
-    {
-        _launcher = launcher;
-        _guiLauncher = guiLauncher;
-    }
-
     /// <summary>
     /// Creates a new Zero Install client.
     /// </summary>
@@ -62,7 +50,7 @@ public class ZeroInstallClient : IZeroInstallClient
     {
         try
         {
-            _launcher.Run("trust", "add", fingerprint, domain);
+            launcher.Run("trust", "add", fingerprint, domain);
         }
         catch (NoChangesException)
         {}
@@ -77,7 +65,7 @@ public class ZeroInstallClient : IZeroInstallClient
         args.Add(requirements.ToCommandLineArgs());
 
         return XmlStorage.FromXmlString<Selections>(
-            await Task.Run(() => _launcher.RunAndCapture(args.ToArray())));
+            await Task.Run(() => launcher.RunAndCapture(args.ToArray())));
     }
 
     /// <inheritdoc/>
@@ -87,16 +75,16 @@ public class ZeroInstallClient : IZeroInstallClient
         if (refresh) args.Add("--refresh");
         args.Add(requirements.ToCommandLineArgs());
 
-        if (_guiLauncher == null)
+        if (guiLauncher == null)
         {
             args.Add("--xml");
             return XmlStorage.FromXmlString<Selections>(
-                await Task.Run(() => _launcher.RunAndCapture(args.ToArray())));
+                await Task.Run(() => launcher.RunAndCapture(args.ToArray())));
         }
         else
         {
             args.Add("--background");
-            await Task.Run(() => _guiLauncher.Run(args.ToArray()));
+            await Task.Run(() => guiLauncher.Run(args.ToArray()));
             return await SelectAsync(requirements, offline: true);
         }
     }
@@ -105,11 +93,11 @@ public class ZeroInstallClient : IZeroInstallClient
     public async Task<bool> UpdateAsync(Requirements requirements)
     {
         var args = new List<string> { "update", "--batch", requirements.ToCommandLineArgs() };
-        if (_guiLauncher != null) args.Add("--background");
+        if (guiLauncher != null) args.Add("--background");
 
         try
         {
-            await Task.Run(() => (_guiLauncher ?? _launcher).Run(args.ToArray()));
+            await Task.Run(() => (guiLauncher ?? launcher).Run(args.ToArray()));
         }
         catch (NoChangesException)
         {
@@ -143,7 +131,7 @@ public class ZeroInstallClient : IZeroInstallClient
     }
 
     private IProcessLauncher GetLauncher(bool needsTerminal)
-        => needsTerminal ? _launcher : _guiLauncher ?? _launcher;
+        => needsTerminal ? launcher : guiLauncher ?? launcher;
 
     /// <inheritdoc/>
     public ISet<string> GetIntegration(FeedUri uri, bool machineWide = false)
@@ -155,7 +143,7 @@ public class ZeroInstallClient : IZeroInstallClient
         try
         {
             return new HashSet<string>(
-                XElement.Parse(_launcher.RunAndCapture(args.ToArray()))
+                XElement.Parse(launcher.RunAndCapture(args.ToArray()))
                         .Descendants(XName.Get("app", xmlNamespace)).SingleOrDefault()
                        ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
                        ?.Descendants()
@@ -190,7 +178,7 @@ public class ZeroInstallClient : IZeroInstallClient
         AddToArgs("--add", add);
         AddToArgs("--remove", remove);
 
-        await Task.Run(() => _launcher.RunAndCapture(args.ToArray()));
+        await Task.Run(() => launcher.RunAndCapture(args.ToArray()));
     }
 
     /// <inheritdoc/>
@@ -199,12 +187,12 @@ public class ZeroInstallClient : IZeroInstallClient
         var args = new List<string> { "remove", "--batch", uri.ToStringRfc() };
         if (machineWide) args.Add("--machine");
 
-        _launcher.RunAndCapture(args.ToArray());
+        launcher.RunAndCapture(args.ToArray());
     }
 
     /// <inheritdoc/>
     public async Task FetchAsync(Implementation implementation)
-        => await Task.Run(() => _launcher.RunAndCapture(
+        => await Task.Run(() => launcher.RunAndCapture(
             writer => writer.WriteLineAsync(new Feed { Name = "Fetch", Elements = { implementation } }.ToXmlString().Replace("\n", "")),
             "fetch"));
 }

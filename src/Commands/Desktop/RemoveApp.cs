@@ -9,18 +9,13 @@ namespace ZeroInstall.Commands.Desktop;
 /// <summary>
 /// Remove an application from the <see cref="AppList"/> and undoes any desktop environment integration.
 /// </summary>
-public class RemoveApp : AppCommand
+public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
 {
     public const string Name = "remove";
     public const string AltName = "remove-app";
     public const string AltName2 = "destory";
     public override string Description => Resources.DescriptionRemoveApp;
     public override string Usage => "[OPTIONS] (ALIAS|INTERFACE)";
-
-    /// <inheritdoc/>
-    public RemoveApp(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     protected override ExitCode ExecuteHelper()

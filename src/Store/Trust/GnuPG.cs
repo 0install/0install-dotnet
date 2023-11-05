@@ -9,22 +9,10 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Provides access to the signature functions of GnuPG.
 /// </summary>
-public partial class GnuPG : IOpenPgp
+/// <param name="homeDir">The GnuPG home dir to use.</param>
+public partial class GnuPG(string homeDir) : IOpenPgp
 {
-    private readonly GpgLauncher _gpg;
-
-    /// <summary>
-    /// Creates a new GnuPG instance.
-    /// </summary>
-    /// <param name="homeDir">The GnuPG home dir to use.</param>
-    public GnuPG(string homeDir)
-    {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
-        #endregion
-
-        _gpg = new(homeDir);
-    }
+    private readonly GpgLauncher _gpg = new(homeDir ?? throw new ArgumentNullException(nameof(homeDir)));
 
     /// <inheritdoc/>
     public IEnumerable<OpenPgpSignature> Verify(ArraySegment<byte> data, byte[] signature)

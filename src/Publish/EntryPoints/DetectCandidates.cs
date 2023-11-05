@@ -6,7 +6,7 @@ namespace ZeroInstall.Publish.EntryPoints;
 /// <summary>
 /// Detects entry point <see cref="Candidate"/>s in a file system directory.
 /// </summary>
-public class DetectCandidates : ReadDirectoryBase
+public class DetectCandidates(string path) : ReadDirectoryBase(path)
 {
     private static readonly List<Func<Candidate>> _candidateCreators = new()
     {
@@ -27,11 +27,6 @@ public class DetectCandidates : ReadDirectoryBase
         () => new PosixScript(),
         () => new PosixBinary()
     };
-
-    /// <inheritdoc/>
-    public DetectCandidates(string path)
-        : base(path)
-    {}
 
     /// <inheritdoc/>
     public override string Name => Resources.DetectingCandidates;

@@ -9,18 +9,13 @@ namespace ZeroInstall.Commands.Desktop;
 /// <summary>
 /// Reintegrate all applications in the <see cref="AppList"/> into the desktop environment.
 /// </summary>
-public class RepairApps : IntegrationCommand
+public class RepairApps(ICommandHandler handler) : IntegrationCommand(handler)
 {
     public const string Name = "repair-all";
     public const string AltName = "repair-apps";
     public override string Description => Resources.DescriptionRepairApps;
     public override string Usage => "[OPTIONS]";
     protected override int AdditionalArgsMax => 0;
-
-    /// <inheritdoc/>
-    public RepairApps(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override ExitCode Execute()

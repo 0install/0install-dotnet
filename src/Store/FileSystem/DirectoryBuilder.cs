@@ -11,38 +11,27 @@ namespace ZeroInstall.Store.FileSystem;
 /// <summary>
 /// Builds a file system directory on-disk.
 /// </summary>
-public class DirectoryBuilder : MarshalNoTimeout, IBuilder
+/// <param name="path">The path to the directory to build the implementation in.</param>
+/// <param name="innerBuilder">An additional <see cref="IBuilder"/> to pass all calls on to as well. Usually <see cref="ManifestBuilder"/>.</param>
+public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : MarshalNoTimeout, IBuilder
 {
     /// <summary>
     /// The path to the directory to build the implementation in.
     /// </summary>
-    public string Path { get; }
+    public string Path { get; } = path;
 
     /// <summary>
     /// A directory all hardlink targets must be a child of.
     /// Defaults to <see cref="Path"/>.
     /// </summary>
-    public string AllowedHardlinkRoot { get; init; }
-
-    private readonly IBuilder? _innerBuilder;
-
-    /// <summary>
-    /// Creates a new builder.
-    /// </summary>
-    /// <param name="path">The path to the directory to build the implementation in.</param>
-    /// <param name="innerBuilder">An additional <see cref="IBuilder"/> to pass all calls on to as well. Usually <see cref="ManifestBuilder"/>.</param>
-    public DirectoryBuilder(string path, IBuilder? innerBuilder = null)
-    {
-        AllowedHardlinkRoot = Path = path ?? throw new ArgumentNullException(nameof(path));
-        _innerBuilder = innerBuilder;
-    }
+    public string AllowedHardlinkRoot { get; init; } = path;
 
     /// <inheritdoc/>
     public void AddDirectory(string path)
     {
         Directory.CreateDirectory(GetFullPath(path));
 
-        _innerBuilder?.AddDirectory(path);
+        innerBuilder?.AddDirectory(path);
     }
 
     /// <inheritdoc/>
@@ -56,10 +45,10 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
 
         using (var fileStream = FileUtils.Create(fullPath, Math.Max(0, stream.Length)))
         {
-            if (_innerBuilder == null)
+            if (innerBuilder == null)
                 stream.CopyToEx(fileStream);
             else
-                _innerBuilder.AddFile(path, new ShadowingStream(stream, fileStream), modifiedTime, executable);
+                innerBuilder.AddFile(path, new ShadowingStream(stream, fileStream), modifiedTime, executable);
         }
         File.SetLastWriteTimeUtc(fullPath, modifiedTime);
 
@@ -76,7 +65,7 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
         FileUtils.CreateHardlink(sourceAbsolute, targetAbsolute);
         if (executable) ImplFileUtils.SetExecutable(targetAbsolute);
 
-        _innerBuilder?.AddHardlink(path, target, executable);
+        innerBuilder?.AddHardlink(path, target, executable);
     }
 
     /// <inheritdoc/>
@@ -90,7 +79,7 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
 
         ImplFileUtils.CreateSymlink(sourceAbsolute, target);
 
-        _innerBuilder?.AddSymlink(path, target);
+        innerBuilder?.AddSymlink(path, target);
     }
 
     /// <inheritdoc/>
@@ -106,7 +95,7 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
             Directory.Move(fullSourcePath, fullTargetPath);
         else throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
 
-        _innerBuilder?.Rename(path, target);
+        innerBuilder?.Rename(path, target);
     }
 
     /// <inheritdoc/>
@@ -119,14 +108,14 @@ public class DirectoryBuilder : MarshalNoTimeout, IBuilder
             Directory.Delete(fullPath, recursive: true);
         else throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
 
-        _innerBuilder?.Remove(path);
+        innerBuilder?.Remove(path);
     }
 
     /// <inheritdoc/>
     public void MarkAsExecutable(string path)
     {
         ImplFileUtils.SetExecutable(GetFullPath(path));
-        _innerBuilder?.MarkAsExecutable(path);
+        innerBuilder?.MarkAsExecutable(path);
     }
 
     /// <inheritdoc/>

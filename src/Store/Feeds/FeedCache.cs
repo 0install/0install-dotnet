@@ -10,24 +10,13 @@ namespace ZeroInstall.Store.Feeds;
 /// A disk-based cache of <see cref="Feed"/>s that were downloaded via HTTP(S).
 /// Once a feed has been added to this cache it is considered trusted (signatures are not checked again).
 /// </summary>
+/// <param name="path">A fully qualified directory path.</param>
+/// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-public sealed class FeedCache : IFeedCache
+public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
 {
-    private readonly IOpenPgp _openPgp;
-
-    /// <summary>
-    /// Creates a new disk-based cache.
-    /// </summary>
-    /// <param name="path">A fully qualified directory path.</param>
-    /// <param name="openPgp">Provides access to an encryption/signature system compatible with the OpenPGP standard.</param>
-    public FeedCache(string path, IOpenPgp openPgp)
-    {
-        Path = path ?? throw new ArgumentNullException(nameof(path));
-        _openPgp = openPgp ?? throw new ArgumentNullException(nameof(openPgp));
-    }
-
     /// <inheritdoc/>
-    public string Path { get; }
+    public string Path { get; } = path;
 
     /// <inheritdoc/>
     public bool Contains(FeedUri feedUri)
@@ -79,7 +68,7 @@ public sealed class FeedCache : IFeedCache
     /// <inheritdoc/>
     public IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri)
         => GetPath(feedUri ?? throw new ArgumentNullException(nameof(feedUri))) is {} path
-            ? FeedUtils.GetSignatures(_openPgp, ReadFromFile(path))
+            ? FeedUtils.GetSignatures(openPgp, ReadFromFile(path))
             : Enumerable.Empty<OpenPgpSignature>();
 
     /// <inheritdoc/>

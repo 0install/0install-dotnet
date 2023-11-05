@@ -11,18 +11,10 @@ namespace ZeroInstall.Archives.Builders;
 /// <summary>
 /// Builds a TAR archive (.tar).
 /// </summary>
-public class TarBuilder : IArchiveBuilder
+/// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+public class TarBuilder(Stream stream) : IArchiveBuilder
 {
-    private readonly TarOutputStream _tarStream;
-
-    /// <summary>
-    /// Creates a TAR archive builder.
-    /// </summary>
-    /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    public TarBuilder(Stream stream)
-    {
-        _tarStream = new(stream, Encoding.UTF8);
-    }
+    private readonly TarOutputStream _tarStream = new(stream, Encoding.UTF8);
 
     public virtual void Dispose()
     {

@@ -8,21 +8,13 @@ namespace ZeroInstall.Archives.Builders;
 /// <summary>
 /// Builds a GZip-compressed TAR archive (.tar.gz).
 /// </summary>
-public class TarGzBuilder : TarBuilder
-{
-    /// <summary>
-    /// Creates a TAR GZip archive builder.
-    /// </summary>
-    /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
-    public TarGzBuilder(Stream stream, bool fast = false)
-        : base(new GZipStream(stream, fast
-            ? CompressionLevel.Fastest
+/// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+/// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
+public class TarGzBuilder(Stream stream, bool fast = false) : TarBuilder(new GZipStream(stream, fast
+        ? CompressionLevel.Fastest
 #if NET
-            : CompressionLevel.SmallestSize
+        : CompressionLevel.SmallestSize
 #else
-            : CompressionLevel.Optimal
+        : CompressionLevel.Optimal
 #endif
-            ))
-    {}
-}
+));

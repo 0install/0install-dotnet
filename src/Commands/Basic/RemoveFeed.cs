@@ -8,15 +8,10 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Un-register a feed, reversing the effect of <see cref="AddFeed"/>.
 /// </summary>
-public class RemoveFeed : AddRemoveFeedCommand
+public class RemoveFeed(ICommandHandler handler) : AddRemoveFeedCommand(handler)
 {
     public const string Name = "remove-feed";
     public override string Description => Resources.DescriptionRemoveFeed;
-
-    /// <inheritdoc/>
-    public RemoveFeed(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     protected override ExitCode ExecuteHelper(IEnumerable<FeedUri> interfaces, FeedReference source, Stability suggestedStabilityPolicy)

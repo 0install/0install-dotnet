@@ -8,19 +8,13 @@ namespace ZeroInstall.Store.Deployment;
 /// <summary>
 /// Deletes files listed in a <see cref="Manifest"/> file from a directory.
 /// </summary>
-public class ClearDirectory : DirectoryOperation
+/// <param name="path">The path of the directory to clear.</param>
+/// <param name="manifest">The contents of a <see cref="Manifest"/> file describing the directory.</param>
+/// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
+public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
+    : DirectoryOperation(path, manifest, handler)
 {
     private readonly Stack<string> _pendingDirectoryDeletes = new();
-
-    /// <summary>
-    /// Creates a new directory clear task.
-    /// </summary>
-    /// <param name="path">The path of the directory to clear.</param>
-    /// <param name="manifest">The contents of a <see cref="Manifest"/> file describing the directory.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-    public ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
-        : base(path, manifest, handler)
-    {}
 
     private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = new();
 

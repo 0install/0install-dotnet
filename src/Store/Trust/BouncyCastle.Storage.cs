@@ -7,21 +7,7 @@ namespace ZeroInstall.Store.Trust;
 
 partial class BouncyCastle
 {
-    /// <summary>
-    /// Creates a new Bouncy Castle instance.
-    /// </summary>
-    /// <param name="homeDir">The GnuPG home dir to use.</param>
-    public BouncyCastle(string homeDir)
-    {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(homeDir)) throw new ArgumentNullException(nameof(homeDir));
-        #endregion
-
-        _publicBundlePath = Path.Combine(homeDir, "pubring.gpg");
-        _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
-    }
-
-    private readonly string _publicBundlePath;
+    private readonly string _publicBundlePath = Path.Combine(homeDir, "pubring.gpg");
 
     private PgpPublicKeyRingBundle? _publicBundle;
 
@@ -68,7 +54,7 @@ partial class BouncyCastle
         }
     }
 
-    private readonly string _secretBundlePath;
+    private readonly string _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
 
     private PgpSecretKeyRingBundle? _secretBundle;
 

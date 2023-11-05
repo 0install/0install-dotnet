@@ -8,23 +8,11 @@ namespace ZeroInstall.Services.Native;
 /// <summary>
 /// Combines multiple <see cref="IPackageManager"/>s as a composite.
 /// </summary>
+/// <param name="packageManagers">A priority-sorted list of <see cref="IPackageManager"/>s. Queried first-to-last.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-public class CompositePackageManager : IPackageManager
+public class CompositePackageManager(IEnumerable<IPackageManager> packageManagers) : IPackageManager
 {
-    private readonly IPackageManager[] _packageManagers;
-
-    /// <summary>
-    /// Creates a new composite package manager with a set of <see cref="IPackageManager"/>s.
-    /// </summary>
-    /// <param name="packageManagers">A priority-sorted list of <see cref="IPackageManager"/>s. Queried first-to-last.</param>
-    public CompositePackageManager(IEnumerable<IPackageManager> packageManagers)
-    {
-        #region Sanity checks
-        if (packageManagers == null) throw new ArgumentNullException(nameof(packageManagers));
-        #endregion
-
-        _packageManagers = packageManagers.ToArray();
-    }
+    private readonly IPackageManager[] _packageManagers = packageManagers.ToArray();
 
     /// <inheritdoc/>
     public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions)

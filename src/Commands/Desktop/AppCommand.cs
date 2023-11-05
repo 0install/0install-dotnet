@@ -10,15 +10,10 @@ namespace ZeroInstall.Commands.Desktop;
 /// <summary>
 /// Common base class for commands that manage an <see cref="AppList"/>.
 /// </summary>
-public abstract class AppCommand : IntegrationCommand
+public abstract class AppCommand(ICommandHandler handler) : IntegrationCommand(handler)
 {
     protected override int AdditionalArgsMin => 1;
     protected override int AdditionalArgsMax => 1;
-
-    /// <inheritdoc/>
-    protected AppCommand(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <summary>
     /// The interface for the application to perform the operation on.

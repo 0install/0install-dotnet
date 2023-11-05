@@ -8,38 +8,26 @@ namespace ZeroInstall.Services.Solvers;
 /// <summary>
 /// Common base class for representing a single run of a solver.
 /// </summary>
+/// <param name="requirements">The requirements to satisfy.</param>
+/// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose from.</param>
 /// <remarks>This is intended to be used by private classes within <see cref="ISolver"/> implementations to hold state during a run of <see cref="ISolver.Solve"/>.</remarks>
-public abstract class SolverRunBase
+public abstract class SolverRunBase(Requirements requirements, ISelectionCandidateProvider candidateProvider)
 {
-    private readonly Requirements _requirements;
+    private readonly Requirements _requirements = requirements.ForCurrentSystem();
 
     /// <summary>
     /// Generates <see cref="SelectionCandidate"/>s for the solver to choose from.
     /// </summary>
-    protected readonly ISelectionCandidateProvider CandidateProvider;
+    protected readonly ISelectionCandidateProvider CandidateProvider = candidateProvider;
 
     /// <summary>
     /// Used to iteratively construct the selections to be returned.
     /// </summary>
-    protected Selections Selections;
-
-    /// <summary>
-    /// Creates a new solver run.
-    /// </summary>
-    /// <param name="requirements">The requirements to satisfy.</param>
-    /// <param name="candidateProvider">Generates <see cref="SelectionCandidate"/>s for the solver to choose from.</param>
-    protected SolverRunBase(Requirements requirements, ISelectionCandidateProvider candidateProvider)
+    protected Selections Selections = new()
     {
-        _requirements = requirements.ForCurrentSystem();
-
-        CandidateProvider = candidateProvider;
-
-        Selections = new()
-        {
-            InterfaceUri = requirements.InterfaceUri,
-            Command = requirements.Command
-        };
-    }
+        InterfaceUri = requirements.InterfaceUri,
+        Command = requirements.Command
+    };
 
     /// <summary>
     /// Provides <see cref="Selections"/> that satisfy the specified <see cref="Requirements"/>.

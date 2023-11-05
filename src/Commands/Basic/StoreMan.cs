@@ -9,14 +9,9 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Manages the contents of the <see cref="IImplementationStore"/>s.
 /// </summary>
-public sealed partial class StoreMan : CliMultiCommand
+public sealed partial class StoreMan(ICommandHandler handler) : CliMultiCommand(handler)
 {
     public const string Name = "store";
-
-    /// <inheritdoc/>
-    public StoreMan(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name};

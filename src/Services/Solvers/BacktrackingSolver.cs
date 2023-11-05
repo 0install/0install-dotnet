@@ -24,13 +24,9 @@ public class BacktrackingSolver(ISelectionCandidateProvider candidateProvider) :
         return new SolverRun(requirements, candidateProvider).Solve();
     }
 
-    private class SolverRun : SolverRunBase
+    private class SolverRun(Requirements requirements, ISelectionCandidateProvider candidateProvider) : SolverRunBase(requirements, candidateProvider)
     {
         private int _backtrackCounter;
-
-        public SolverRun(Requirements requirements, ISelectionCandidateProvider candidateProvider)
-            : base(requirements, candidateProvider)
-        {}
 
         protected override bool TryFulfill(SolverDemand demand)
         {

@@ -8,14 +8,9 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Manages the <see cref="Catalog"/>s provided by the <see cref="ICatalogManager"/>.
 /// </summary>
-public sealed partial class CatalogMan : CliMultiCommand
+public sealed partial class CatalogMan(ICommandHandler handler) : CliMultiCommand(handler)
 {
     public const string Name = "catalog";
-
-    /// <inheritdoc/>
-    public CatalogMan(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override IEnumerable<string> SubCommandNames => new[] {Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name};

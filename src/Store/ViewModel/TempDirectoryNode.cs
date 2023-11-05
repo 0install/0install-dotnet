@@ -9,18 +9,11 @@ namespace ZeroInstall.Store.ViewModel;
 /// <summary>
 /// Models information about a temporary directory in an <see cref="IImplementationStore"/> for display in a UI.
 /// </summary>
-public sealed class TempDirectoryNode : CacheNode
+/// <param name="path">The path of the directory.</param>
+/// <exception cref="IOException">The directory could not be inspected.</exception>
+/// <exception cref="UnauthorizedAccessException">Read access to the directory is not permitted.</exception>
+public sealed class TempDirectoryNode(string path) : CacheNode(path, GetSize(path))
 {
-    /// <summary>
-    /// Creates a new temporary directory node.
-    /// </summary>
-    /// <param name="path">The path of the directory.</param>
-    /// <exception cref="IOException">The directory could not be inspected.</exception>
-    /// <exception cref="UnauthorizedAccessException">Read access to the directory is not permitted.</exception>
-    public TempDirectoryNode(string path)
-        : base(path, GetSize(path))
-    {}
-
     private static long GetSize(string path)
     {
         long size = 0;

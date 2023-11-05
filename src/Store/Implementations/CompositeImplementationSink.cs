@@ -13,28 +13,18 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Combines multiple <see cref="IImplementationSink"/>s as a composite.
 /// </summary>
+/// <param name="sinks">
+///   A priority-sorted list of <see cref="IImplementationSink"/>s.
+///   Queried last-to-first for adding new <see cref="Implementation"/>.
+/// </param>
 /// <remarks>
 ///   <para>When adding new <see cref="Implementation"/>s the last child <see cref="IImplementationSink"/> that doesn't throw an <see cref="UnauthorizedAccessException"/> is used.</para>
 /// </remarks>
-public class CompositeImplementationSink : MarshalNoTimeout, IImplementationSink
+public class CompositeImplementationSink(IReadOnlyList<IImplementationSink> sinks) : MarshalNoTimeout, IImplementationSink
 {
-    private readonly IReadOnlyList<IImplementationSink> _sinks;
-
-    /// <summary>
-    /// Creates a new composite implementation sink with a set of <see cref="IImplementationSink"/>s.
-    /// </summary>
-    /// <param name="sinks">
-    ///   A priority-sorted list of <see cref="IImplementationSink"/>s.
-    ///   Queried last-to-first for adding new <see cref="Implementation"/>.
-    /// </param>
-    public CompositeImplementationSink(IReadOnlyList<IImplementationSink> sinks)
-    {
-        _sinks = sinks ?? throw new ArgumentNullException(nameof(sinks));
-    }
-
     /// <inheritdoc/>
     public bool Contains(ManifestDigest manifestDigest)
-        => _sinks.Any(x => x.Contains(manifestDigest));
+        => sinks.Any(x => x.Contains(manifestDigest));
 
     /// <inheritdoc />
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
@@ -47,7 +37,7 @@ public class CompositeImplementationSink : MarshalNoTimeout, IImplementationSink
 
         // Find the last sink the implementation can be added to (some might be write-protected)
         Exception? innerException = null;
-        foreach (var sink in _sinks.Reverse())
+        foreach (var sink in sinks.Reverse())
         {
             try
             {

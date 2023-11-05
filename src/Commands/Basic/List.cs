@@ -9,17 +9,12 @@ namespace ZeroInstall.Commands.Basic;
 /// List all known interface (program) URIs.
 /// </summary>
 /// <remarks>If a search term is given, only URIs containing that string are shown (case insensitive).</remarks>
-public class List : CliCommand
+public class List(ICommandHandler handler) : CliCommand(handler)
 {
     public const string Name = "list";
     public override string Description => Resources.DescriptionList;
     public override string Usage => "[PATTERN]";
     protected override int AdditionalArgsMax => 1;
-
-    /// <inheritdoc/>
-    public List(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override ExitCode Execute()

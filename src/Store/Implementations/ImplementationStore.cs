@@ -9,26 +9,16 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Manages a directory that stores implementations. Also known as an implementation cache.
 /// </summary>
-public partial class ImplementationStore : ImplementationSink, IImplementationStore, IEquatable<ImplementationStore>
+/// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
+/// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
+/// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
+/// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
+/// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
+public partial class ImplementationStore(string path, ITaskHandler handler, bool useWriteProtection = true)
+    : ImplementationSink(path, useWriteProtection), IImplementationStore, IEquatable<ImplementationStore>
 {
-    private readonly ITaskHandler _handler;
-
     /// <inheritdoc/>
     public ImplementationStoreKind Kind => ReadOnly ? ImplementationStoreKind.ReadOnly : ImplementationStoreKind.ReadWrite;
-
-    /// <summary>
-    /// Creates a new implementation store using a specific path to a directory.
-    /// </summary>
-    /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
-    /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
-    /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
-    /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>
-    public ImplementationStore(string path, ITaskHandler handler, bool useWriteProtection = true)
-        : base(path, useWriteProtection)
-    {
-        _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-    }
 
     /// <inheritdoc cref="IImplementationStore.GetPath" />
     public override string? GetPath(ManifestDigest manifestDigest)
@@ -76,12 +66,12 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
     {
         try
         {
-            ImplementationStoreUtils.Verify(base.GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, _handler);
+            ImplementationStoreUtils.Verify(base.GetPath(manifestDigest) ?? throw new ImplementationNotFoundException(manifestDigest), manifestDigest, handler);
         }
         catch (DigestMismatchException ex) when (ex.ExpectedDigest != null)
         {
             Log.Info(ex.LongMessage);
-            if (_handler.Ask(
+            if (handler.Ask(
                     question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
                     defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
                 Remove(new(ex.ExpectedDigest));
@@ -104,7 +94,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
 
         try
         {
-            _handler.RunTask(new ActionTask(
+            handler.RunTask(new ActionTask(
                 string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
                 () =>
                 {
@@ -133,11 +123,11 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         {
             using var restartManager = new WindowsRestartManager();
             restartManager.RegisterResources(FilesToCheckForOpenFileHandles(path));
-            if (restartManager.ListApps(_handler.CancellationToken) is {Length: > 0} apps)
+            if (restartManager.ListApps(handler.CancellationToken) is {Length: > 0} apps)
             {
                 string appsList = string.Join(Environment.NewLine, apps);
-                if (_handler.Ask($"{Resources.FilesInUse} {Resources.FilesInUseAskClose}{Environment.NewLine}{appsList}", defaultAnswer: _purging.Value))
-                    restartManager.ShutdownApps(_handler);
+                if (handler.Ask($"{Resources.FilesInUse} {Resources.FilesInUseAskClose}{Environment.NewLine}{appsList}", defaultAnswer: _purging.Value))
+                    restartManager.ShutdownApps(handler);
                 else return true;
             }
         }
@@ -205,7 +195,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (!path.StartsWith(Path + System.IO.Path.DirectorySeparatorChar) || !Directory.Exists(path)) return false;
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
-        _handler.RunTask(new ActionTask(
+        handler.RunTask(new ActionTask(
             string.Format(Resources.DeletingDirectory, path),
             () => Directory.Delete(path, recursive: true)));
         return true;
@@ -220,7 +210,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         _purging.Value = true;
         try
         {
-            _handler.RunTask(ForEachTask.Create(string.Format(Resources.DeletingDirectory, Path),
+            handler.RunTask(ForEachTask.Create(string.Format(Resources.DeletingDirectory, Path),
                 ListTemp().Concat(ListAll().Cast<object>()).ToList(),
                 toRemove =>
                 {
@@ -243,7 +233,7 @@ public partial class ImplementationStore : ImplementationSink, IImplementationSt
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToOptimise);
 
         using var run = new OptimiseRun(Path);
-        _handler.RunTask(ForEachTask.Create(string.Format(Resources.FindingDuplicateFiles, Path), ListAll(), run.Work));
+        handler.RunTask(ForEachTask.Create(string.Format(Resources.FindingDuplicateFiles, Path), ListAll(), run.Work));
         return run.SavedBytes;
     }
 

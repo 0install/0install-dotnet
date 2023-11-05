@@ -10,8 +10,9 @@ namespace ZeroInstall.FileSystem;
 /// Represents a file used for testing file system operations.
 /// It can either be realized on-disk or compared against an existing on-disk file.
 /// </summary>
+/// <param name="name">The name of the directory.</param>
 /// <seealso cref="TestRoot"/>
-public class TestFile : TestElement
+public class TestFile(string name) : TestElement(name)
 {
     /// <summary>
     /// The default value for <see cref="LastWrite"/>.
@@ -37,14 +38,6 @@ public class TestFile : TestElement
     /// Is the file marked as executable.
     /// </summary>
     public bool IsExecutable { get; init; }
-
-    /// <summary>
-    /// Creates a new test file.
-    /// </summary>
-    /// <param name="name">The name of the file.</param>
-    public TestFile(string name)
-        : base(name)
-    {}
 
     public override void Build(string parentPath)
     {

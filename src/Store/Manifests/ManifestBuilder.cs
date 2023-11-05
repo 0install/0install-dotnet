@@ -10,21 +10,13 @@ namespace ZeroInstall.Store.Manifests;
 /// <summary>
 /// Builds a <see cref="Manifest"/> for a file system directory.
 /// </summary>
-public class ManifestBuilder : MarshalNoTimeout, IBuilder
+/// <param name="format">The manifest format.</param>
+public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
 {
     /// <summary>
     /// The manifest.
     /// </summary>
-    public Manifest Manifest { get; }
-
-    /// <summary>
-    /// Creates a new manifest builder.
-    /// </summary>
-    /// <param name="format">The manifest format.</param>
-    public ManifestBuilder(ManifestFormat format)
-    {
-        Manifest = new(format);
-    }
+    public Manifest Manifest { get; } = new(format);
 
     /// <inheritdoc/>
     public void AddDirectory(string path)

@@ -9,29 +9,17 @@ namespace ZeroInstall.Store.Deployment;
 /// <summary>
 /// Deploys/copies files listed in a <see cref="Manifest"/> file to another directory.
 /// </summary>
-public class DeployDirectory : DirectoryOperation
+/// <param name="sourcePath">The path of the source directory to copy from.</param>
+/// <param name="sourceManifest">The contents of a <see cref="Manifest"/> file describing the source directory.</param>
+/// <param name="destinationPath">The path of the destination directory to copy to.</param>
+/// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
+public class DeployDirectory(string sourcePath, Manifest sourceManifest, string destinationPath, ITaskHandler handler)
+    : DirectoryOperation(sourcePath, sourceManifest, handler)
 {
     /// <summary>
     /// The path of the destination directory. May already exist.
     /// </summary>
-    public string DestinationPath { get; }
-
-    /// <summary>
-    /// Creates a new directory deployment task.
-    /// </summary>
-    /// <param name="sourcePath">The path of the source directory to copy from.</param>
-    /// <param name="sourceManifest">The contents of a <see cref="Manifest"/> file describing the source directory.</param>
-    /// <param name="destinationPath">The path of the destination directory to copy to.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
-    public DeployDirectory(string sourcePath, Manifest sourceManifest, string destinationPath, ITaskHandler handler)
-        : base(sourcePath, sourceManifest, handler)
-    {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(destinationPath)) throw new ArgumentNullException(nameof(destinationPath));
-        #endregion
-
-        DestinationPath = destinationPath;
-    }
+    public string DestinationPath { get; } = destinationPath;
 
     private readonly Stack<string> _createdDirectories = new();
     private readonly Stack<(string source, string destination)> _pendingFileRenames = new();

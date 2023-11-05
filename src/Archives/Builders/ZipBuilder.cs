@@ -10,18 +10,10 @@ namespace ZeroInstall.Archives.Builders;
 /// <summary>
 /// Builds a ZIP archive (.zip).
 /// </summary>
-public class ZipBuilder : IArchiveBuilder
+/// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+public class ZipBuilder(Stream stream) : IArchiveBuilder
 {
-    private readonly ZipOutputStream _zipStream;
-
-    /// <summary>
-    /// Creates a ZIP archive builder.
-    /// </summary>
-    /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
-    public ZipBuilder(Stream stream)
-    {
-        _zipStream = new(stream ?? throw new ArgumentNullException(nameof(stream)));
-    }
+    private readonly ZipOutputStream _zipStream = new(stream ?? throw new ArgumentNullException(nameof(stream)));
 
     public void Dispose()
         => _zipStream.Dispose();

@@ -9,24 +9,17 @@ namespace ZeroInstall.DesktopIntegration;
 /// <summary>
 /// Base class for <see cref="IIntegrationManager"/> implementations using template methods.
 /// </summary>
-public abstract class IntegrationManagerBase : ManagerBase, IIntegrationManager
+/// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+/// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
+/// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
+/// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
+/// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+public abstract class IntegrationManagerBase(ITaskHandler handler, bool machineWide = false) : ManagerBase(handler, machineWide), IIntegrationManager
 {
     /// <summary>
     /// Stores a list of applications and their desktop integrations. Only use for read-access externally! Use this class' methods for any modifications.
     /// </summary>
     public AppList AppList { get; protected init; } = null!;
-
-    /// <summary>
-    /// Creates a new integration manager.
-    /// </summary>
-    /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
-    /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
-    /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
-    /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
-    protected IntegrationManagerBase(ITaskHandler handler, bool machineWide = false)
-        : base(handler, machineWide)
-    {}
 
     #region Interface
     /// <inheritdoc/>

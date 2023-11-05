@@ -9,14 +9,9 @@ namespace ZeroInstall.Commands.Basic;
 /// <summary>
 /// Manages the contents of the <see cref="TrustDB"/>.
 /// </summary>
-public sealed class TrustMan : CliMultiCommand
+public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
 {
     public const string Name = "trust";
-
-    /// <inheritdoc/>
-    public TrustMan(ICommandHandler handler)
-        : base(handler)
-    {}
 
     /// <inheritdoc/>
     public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Remove.Name, List.Name};

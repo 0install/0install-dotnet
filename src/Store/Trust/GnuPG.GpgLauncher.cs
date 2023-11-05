@@ -11,16 +11,9 @@ partial class GnuPG
     /// <summary>
     /// Manages the interaction with the command-line interface of the gpg process.
     /// </summary>
-    private class GpgLauncher : ProcessLauncher
+    private class GpgLauncher(string? homeDir = null)
+        : ProcessLauncher(fileName: "gpg", arguments: "--batch --no-secmem-warning")
     {
-        private readonly string? _homeDir;
-
-        public GpgLauncher(string? homeDir = null)
-            : base(fileName: "gpg", arguments: "--batch --no-secmem-warning")
-        {
-            _homeDir = homeDir;
-        }
-
         /// <inheritdoc/>
         public override ProcessStartInfo GetStartInfo(params string[] arguments)
         {
@@ -29,7 +22,7 @@ partial class GnuPG
             // Suppress localization to enable programmatic parsing of output
             startInfo.EnvironmentVariables["LANG"] = "C";
 
-            if (_homeDir != null) startInfo.EnvironmentVariables["GNUPGHOME"] = _homeDir;
+            if (homeDir != null) startInfo.EnvironmentVariables["GNUPGHOME"] = homeDir;
 
             return startInfo;
         }
