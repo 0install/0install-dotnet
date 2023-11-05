@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!-- Build configuration -->
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>preview</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <TargetFrameworks>net472;net6.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
