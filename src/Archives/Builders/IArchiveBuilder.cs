@@ -8,5 +8,4 @@ namespace ZeroInstall.Archives.Builders;
 /// <summary>
 /// Builds an implementation archive file.
 /// </summary>
-public interface IArchiveBuilder : IForwardOnlyBuilder, IDisposable
-{}
+public interface IArchiveBuilder : IForwardOnlyBuilder, IDisposable;

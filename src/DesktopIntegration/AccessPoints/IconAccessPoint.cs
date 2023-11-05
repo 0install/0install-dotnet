@@ -7,5 +7,4 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Creates some form of icon in the desktop environment.
 /// </summary>
 [XmlType("icon-access-point", Namespace = AppList.XmlNamespace)]
-public abstract class IconAccessPoint : CommandAccessPoint
-{}
+public abstract class IconAccessPoint : CommandAccessPoint;

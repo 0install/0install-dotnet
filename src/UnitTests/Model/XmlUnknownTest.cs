@@ -10,8 +10,7 @@ public partial class XmlUnknownTest
 {
     [XmlRoot(ElementName = "root")]
     [Equatable]
-    public sealed partial class XmlUnknownStub : XmlUnknown
-    {}
+    public sealed partial class XmlUnknownStub : XmlUnknown;
 
     [Fact]
     public void Equality()

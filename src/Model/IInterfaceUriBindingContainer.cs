@@ -6,5 +6,4 @@ namespace ZeroInstall.Model;
 /// <summary>
 /// An object that contains an interface URI string.
 /// </summary>
-public interface IInterfaceUriBindingContainer : IInterfaceUri, IBindingContainer
-{}
+public interface IInterfaceUriBindingContainer : IInterfaceUri, IBindingContainer;
