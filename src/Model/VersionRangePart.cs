@@ -6,9 +6,7 @@ namespace ZeroInstall.Model;
 /// <summary>
 /// Represents an individual non-disjoint part of a <see cref="VersionRange"/>.
 /// </summary>
-/// <remarks>This class is immutable and thread-safe.</remarks>
-[Serializable]
-public abstract class VersionRangePart
+public abstract record VersionRangePart
 {
     /// <summary>
     /// Parses a string into a version range part.

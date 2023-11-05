@@ -15,14 +15,14 @@ public class VersionRangeTest
     public void Parse()
     {
         new VersionRange("2.6").Parts.Should().Equal(new VersionRangePartExact(new("2.6")));
-        new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(lowerInclusive: null, upperExclusive: new("3")));
+        new VersionRange("..!3").Parts.Should().Equal(new VersionRangePartRange(LowerInclusive: null, UpperExclusive: new("3")));
         new VersionRange("!3").Parts.Should().Equal(new VersionRangePartExclude(new("3")));
         new VersionRange("2.6..!3 | 3.2.2..").Parts.Should().Equal(
-            new VersionRangePartRange(lowerInclusive: new("2.6"), upperExclusive: new("3")),
-            new VersionRangePartRange(lowerInclusive: new("3.2.2"), upperExclusive: null));
+            new VersionRangePartRange(LowerInclusive: new("2.6"), UpperExclusive: new("3")),
+            new VersionRangePartRange(LowerInclusive: new("3.2.2"), UpperExclusive: null));
         new VersionRange("..!3 | 3.2.2..").Parts.Should().Equal(
-            new VersionRangePartRange(lowerInclusive: null, upperExclusive: new("3")),
-            new VersionRangePartRange(lowerInclusive: new("3.2.2"), upperExclusive: null));
+            new VersionRangePartRange(LowerInclusive: null, UpperExclusive: new("3")),
+            new VersionRangePartRange(LowerInclusive: new("3.2.2"), UpperExclusive: null));
     }
 
     /// <summary>

@@ -6,31 +6,10 @@ namespace ZeroInstall.Model;
 /// <summary>
 /// A version range like <c>1.0..!2.0</c> as a part of a <see cref="VersionRange"/>.
 /// </summary>
-/// <remarks>This class is immutable and thread-safe.</remarks>
-[Serializable]
-public sealed class VersionRangePartRange : VersionRangePart
+/// <param name="LowerInclusive">The lower inclusive bound. May be <c>null</c>.</param>
+/// <param name="UpperExclusive">The upper exclusive bound. May be <c>null</c>.</param>
+public record VersionRangePartRange(ImplementationVersion? LowerInclusive, ImplementationVersion? UpperExclusive) : VersionRangePart
 {
-    /// <summary>
-    /// The lower inclusive bound. May be <c>null</c>.
-    /// </summary>
-    public ImplementationVersion? LowerInclusive { get; }
-
-    /// <summary>
-    /// The upper exclusive bound. May be <c>null</c>.
-    /// </summary>
-    public ImplementationVersion? UpperExclusive { get; }
-
-    /// <summary>
-    /// Creates a new version range.
-    /// </summary>
-    /// <param name="lowerInclusive">The lower inclusive bound. May be <c>null</c>.</param>
-    /// <param name="upperExclusive">The upper exclusive bound. May be <c>null</c>.</param>
-    public VersionRangePartRange(ImplementationVersion? lowerInclusive, ImplementationVersion? upperExclusive)
-    {
-        LowerInclusive = lowerInclusive;
-        UpperExclusive = upperExclusive;
-    }
-
     /// <inheritdoc/>
     public override IEnumerable<VersionRangePart> Intersect(VersionRange versions)
     {
@@ -75,14 +54,4 @@ public sealed class VersionRangePartRange : VersionRangePart
     /// <inheritdoc/>
     public override string ToString()
         => $"{LowerInclusive}..{(UpperExclusive == null ? "" : $"!{UpperExclusive}")}";
-
-    #region Equatable
-    public override bool Equals(object? obj)
-        => obj is VersionRangePartRange other
-        && Equals(LowerInclusive, other.LowerInclusive)
-        && Equals(UpperExclusive, other.UpperExclusive);
-
-    public override int GetHashCode()
-        => HashCode.Combine(LowerInclusive, UpperExclusive);
-    #endregion
 }
