@@ -13,13 +13,8 @@ namespace ZeroInstall.Services;
 /// Provides methods for filtering <see cref="Selections"/>.
 /// </summary>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class SelectionsManager : ISelectionsManager
+public class SelectionsManager(IFeedManager feedManager, IImplementationStore implementationStore, IPackageManager packageManager) : ISelectionsManager
 {
-    private readonly IFeedManager _feedManager;
-    private readonly IImplementationStore _implementationStore;
-    private readonly IPackageManager _packageManager;
-
     /// <inheritdoc/>
     public IEnumerable<ImplementationSelection> GetUncached(IEnumerable<ImplementationSelection> selections)
     {
@@ -34,12 +29,12 @@ public partial class SelectionsManager : ISelectionsManager
 
             if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
             {
-                if (!File.Exists(implementation.QuickTestFile) && _packageManager.Lookup(implementation) is not {IsInstalled: true})
+                if (!File.Exists(implementation.QuickTestFile) && packageManager.Lookup(implementation) is not {IsInstalled: true})
                     yield return implementation;
             }
             else
             {
-                if (!_implementationStore.Contains(implementation.ManifestDigest))
+                if (!implementationStore.Contains(implementation.ManifestDigest))
                     yield return implementation;
             }
         }
@@ -55,8 +50,8 @@ public partial class SelectionsManager : ISelectionsManager
         foreach (var selection in selections)
         {
             yield return selection.ID.StartsWith(ExternalImplementation.PackagePrefix)
-                ? _packageManager.Lookup(selection) ?? throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, "native"))
-                : _feedManager[selection.FromFeed ?? selection.InterfaceUri][selection.ID].CloneImplementation();
+                ? packageManager.Lookup(selection) ?? throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, "native"))
+                : feedManager[selection.FromFeed ?? selection.InterfaceUri][selection.ID].CloneImplementation();
         }
     }
 
@@ -125,7 +120,7 @@ public partial class SelectionsManager : ISelectionsManager
 
         try
         {
-            return _implementationStore.GetPath(implementation.ManifestDigest);
+            return implementationStore.GetPath(implementation.ManifestDigest);
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)

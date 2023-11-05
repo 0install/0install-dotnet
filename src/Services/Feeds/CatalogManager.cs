@@ -11,8 +11,7 @@ namespace ZeroInstall.Services.Feeds;
 /// <summary>
 /// Provides access to remote and local <see cref="Catalog"/>s. Handles downloading, signature verification and caching.
 /// </summary>
-[PrimaryConstructor]
-public partial class CatalogManager : ICatalogManager
+public class CatalogManager(Config config, ITrustManager trustManager, ITaskHandler handler) : ICatalogManager
 {
     #region Constants
     /// <summary>
@@ -22,10 +21,6 @@ public partial class CatalogManager : ICatalogManager
 
     private static readonly FeedUri _oldDefaultSource = new("http://0install.de/catalog/");
     #endregion
-
-    private readonly Config _config;
-    private readonly ITrustManager _trustManager;
-    private readonly ITaskHandler _handler;
 
     private readonly string _cacheFilePath = Path.Combine(Locations.GetCacheDirPath("0install.net", machineWide: false), "catalog.xml");
 
@@ -72,8 +67,8 @@ public partial class CatalogManager : ICatalogManager
                 Feeds =
                 {
                     GetSources().AsParallel()
-                                .WithDegreeOfParallelism(_config.MaxParallelDownloads)
-                                .WithCancellation(_handler.CancellationToken)
+                                .WithDegreeOfParallelism(config.MaxParallelDownloads)
+                                .WithCancellation(handler.CancellationToken)
                                 .Select(DownloadCatalog)
                                 .SelectMany(x => x.Feeds)
                 }
@@ -99,13 +94,13 @@ public partial class CatalogManager : ICatalogManager
             catalog = XmlStorage.LoadXml<Catalog>(source.LocalPath);
         else
         {
-            if (_config.NetworkUse == NetworkLevel.Offline)
+            if (config.NetworkUse == NetworkLevel.Offline)
                 throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, source));
 
-            _handler.RunTask(new DownloadFile(source, stream =>
+            handler.RunTask(new DownloadFile(source, stream =>
             {
                 byte[] data = stream.AsArray();
-                _trustManager.CheckTrust(data, source);
+                trustManager.CheckTrust(data, source);
                 try
                 {
                     catalog = XmlStorage.LoadXml<Catalog>(data.ToStream());

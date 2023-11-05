@@ -11,20 +11,12 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts Windows Installer packages (.msi) with one or more embedded CAB archives.
 /// </summary>
+/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-public class MsiExtractor : ArchiveExtractor
+public class MsiExtractor(ITaskHandler handler)
+    : ArchiveExtractor(WindowsUtils.IsWindows ? handler : throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnWindows))
 {
-    /// <summary>
-    /// Creates an MSI extractor.
-    /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-    /// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
-    public MsiExtractor(ITaskHandler handler)
-        : base(handler)
-    {
-        if (!WindowsUtils.IsWindows) throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnWindows);
-    }
-
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {

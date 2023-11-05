@@ -11,9 +11,9 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts 7-zip archives (.7z).
 /// </summary>
+/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class SevenZipExtractor : ArchiveExtractor
+public class SevenZipExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)

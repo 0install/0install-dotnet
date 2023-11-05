@@ -115,7 +115,7 @@ public partial class EnvironmentBuilder
             // Static value
             {Value: not null} => binding.Value,
             // Path inside the implementation
-            _ => Path.Combine(_implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
+            _ => Path.Combine(implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
         };
 
         // Set the default value if the variable is not already set on the system
@@ -298,6 +298,6 @@ public partial class EnvironmentBuilder
         // Only allow working directory to be changed once
         if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);
 
-        _startInfo.WorkingDirectory = Path.Combine(_implementationStore.GetPath(implementation), source);
+        _startInfo.WorkingDirectory = Path.Combine(implementationStore.GetPath(implementation), source);
     }
 }

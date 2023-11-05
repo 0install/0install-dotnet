@@ -14,15 +14,8 @@ namespace ZeroInstall.Services.Feeds;
 /// Methods for verifying signatures and user trust.
 /// </summary>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class TrustManager : ITrustManager
+public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFeedCache feedCache, ITaskHandler handler) : ITrustManager
 {
-    private readonly TrustDB _trustDB;
-    private readonly Config _config;
-    private readonly IOpenPgp _openPgp;
-    private readonly IFeedCache _feedCache;
-    private readonly ITaskHandler _handler;
-
     private readonly object _lock = new();
 
     /// <inheritdoc/>
@@ -36,11 +29,11 @@ public partial class TrustManager : ITrustManager
         lock (_lock)
         {
             KeyImported:
-            var signatures = FeedUtils.GetSignatures(_openPgp, data).ToList();
+            var signatures = FeedUtils.GetSignatures(openPgp, data).ToList();
 
             foreach (var signature in signatures.OfType<ValidSignature>())
             {
-                if (_trustDB.IsTrusted(signature.FormatFingerprint(), domain))
+                if (trustDB.IsTrusted(signature.FormatFingerprint(), domain))
                     return signature;
             }
 
@@ -57,7 +50,7 @@ public partial class TrustManager : ITrustManager
 
                 try
                 {
-                    _openPgp.ImportKey(keyCallback?.Invoke(id) ?? DownloadKey(id, uri));
+                    openPgp.ImportKey(keyCallback?.Invoke(id) ?? DownloadKey(id, uri));
                 }
                 #region Error handling
                 catch (InvalidDataException ex)
@@ -85,10 +78,10 @@ public partial class TrustManager : ITrustManager
     {
         if (AskKeyApproval(uri, fingerprint, domain))
         {
-            _trustDB.TrustKey(fingerprint, domain);
+            trustDB.TrustKey(fingerprint, domain);
             try
             {
-                _trustDB.Save();
+                trustDB.Save();
             }
             #region Error handling
             catch (Exception ex)
@@ -114,14 +107,14 @@ public partial class TrustManager : ITrustManager
         (bool goodVote, string? keyInformation) = GetKeyInformation(fingerprint);
 
         // Automatically trust key for _new_ feeds if voted good by key server
-        if (_config.AutoApproveKeys && goodVote && !_feedCache.Contains(uri))
+        if (config.AutoApproveKeys && goodVote && !feedCache.Contains(uri))
         {
             Log.Info($"Auto-approving key for {uri.ToStringRfc()}");
             return true;
         }
 
         // Otherwise ask user
-        return _handler.Ask(
+        return handler.Ask(
             string.Format(Resources.AskKeyTrust, uri.ToStringRfc(), fingerprint, keyInformation ?? Resources.NoKeyInfoServerData, domain),
             defaultAnswer: false, alternateMessage: Resources.UntrustedKeys);
     }
@@ -133,15 +126,15 @@ public partial class TrustManager : ITrustManager
     /// <returns>Indication whether server considers the key is trustworthy, plus human-readable information about the key if available.</returns>
     private (bool goodVode, string? keyInformation) GetKeyInformation(string fingerprint)
     {
-        if (_config.KeyInfoServer == null)
+        if (config.KeyInfoServer == null)
             return (false, null);
 
         try
         {
-            var keyInfoUri = new Uri(_config.KeyInfoServer, $"key/{fingerprint}");
+            var keyInfoUri = new Uri(config.KeyInfoServer, $"key/{fingerprint}");
             Log.Info($"Getting key information for {fingerprint} from: {keyInfoUri}");
             var xmlReader = XmlReader.Create(keyInfoUri.AbsoluteUri);
-            _handler.CancellationToken.ThrowIfCancellationRequested();
+            handler.CancellationToken.ThrowIfCancellationRequested();
             if (!xmlReader.ReadToFollowing("item"))
                 return (false, null);
 
@@ -174,13 +167,13 @@ public partial class TrustManager : ITrustManager
     {
         var keyUri = new Uri(feedUri, $"{id}.gpg");
 
-        if (_config.NetworkUse == NetworkLevel.Offline)
+        if (config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, keyUri));
 
         ArraySegment<byte> Download(Uri uri)
         {
             ArraySegment<byte> data = default;
-            _handler.RunTask(new DownloadFile(uri, stream => data = stream.ReadAll()));
+            handler.RunTask(new DownloadFile(uri, stream => data = stream.ReadAll()));
             return data;
         }
 
@@ -188,12 +181,12 @@ public partial class TrustManager : ITrustManager
         {
             return Download(keyUri);
         }
-        catch (WebException ex) when (_config.FeedMirror != null && ex.ShouldTryMirror(keyUri))
+        catch (WebException ex) when (config.FeedMirror != null && ex.ShouldTryMirror(keyUri))
         {
             Log.Warn(string.Format(Resources.TryingFeedMirror, keyUri));
             try
             {
-                return Download(new($"{_config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}keys/{id}.gpg"));
+                return Download(new($"{config.FeedMirror.EnsureTrailingSlash().AbsoluteUri}keys/{id}.gpg"));
             }
             catch (WebException ex2)
             {

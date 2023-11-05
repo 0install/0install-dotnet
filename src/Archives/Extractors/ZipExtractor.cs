@@ -12,8 +12,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts ZIP archives (.zip).
 /// </summary>
-[PrimaryConstructor]
-public partial class ZipExtractor : ArchiveExtractor
+public class ZipExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)

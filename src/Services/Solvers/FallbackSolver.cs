@@ -8,20 +8,11 @@ namespace ZeroInstall.Services.Solvers;
 /// <summary>
 /// Wraps two solvers always passing requests to the primary one initially and falling back to secondary one should the primary one fail.
 /// </summary>
+/// <param name="primarySolver">The solver to run initially.</param>
+/// <param name="secondarySolver">he solver to fall back to should <paramref name="primarySolver"/> fail.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public sealed partial class FallbackSolver : ISolver
+public sealed class FallbackSolver(ISolver primarySolver, ISolver secondarySolver) : ISolver
 {
-    /// <summary>
-    /// The solver to run initially.
-    /// </summary>
-    private readonly ISolver _primarySolver;
-
-    /// <summary>
-    /// The solver to fall back to should <see cref="_primarySolver"/> fail.
-    /// </summary>
-    private readonly ISolver _secondarySolver;
-
     /// <inheritdoc/>
     public Selections Solve(Requirements requirements)
     {
@@ -31,7 +22,7 @@ public sealed partial class FallbackSolver : ISolver
 
             try
             {
-                return _secondarySolver.Solve(requirements);
+                return secondarySolver.Solve(requirements);
             }
             catch (WebException ex2)
             {
@@ -42,7 +33,7 @@ public sealed partial class FallbackSolver : ISolver
 
         try
         {
-            return _primarySolver.Solve(requirements);
+            return primarySolver.Solve(requirements);
         }
         catch (Exception ex) when (ex is SolverException or NotSupportedException)
         {

@@ -10,20 +10,12 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts MS Cabinets (.cab).
 /// </summary>
+/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-public class CabExtractor : ArchiveExtractor
+public class CabExtractor(ITaskHandler handler)
+    : ArchiveExtractor(WindowsUtils.IsWindows ? handler : throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnWindows))
 {
-    /// <summary>
-    /// Creates a CAB extractor.
-    /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
-    /// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
-    public CabExtractor(ITaskHandler handler)
-        : base(handler)
-    {
-        if (!WindowsUtils.IsWindows) throw new PlatformNotSupportedException(Resources.ExtractionOnlyOnWindows);
-    }
-
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {

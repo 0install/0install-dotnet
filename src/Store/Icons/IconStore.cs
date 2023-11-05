@@ -14,13 +14,8 @@ namespace ZeroInstall.Store.Icons;
 /// Stores icon files downloaded from the web as local files.
 /// </summary>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public sealed partial class IconStore : IIconStore
+public sealed class IconStore(string path, Config config, ITaskHandler handler) : IIconStore
 {
-    private readonly string _path;
-    private readonly Config _config;
-    private readonly ITaskHandler _handler;
-
     /// <summary>
     /// The maximum number of bytes to download for a single icon.
     /// </summary>
@@ -38,8 +33,8 @@ public sealed partial class IconStore : IIconStore
 
         if (File.Exists(path))
         {
-            shouldRefresh = _config.EffectiveNetworkUse == NetworkLevel.Full
-                         && DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > _config.Freshness;
+            shouldRefresh = config.EffectiveNetworkUse == NetworkLevel.Full
+                         && DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > config.Freshness;
             return path;
         }
         else
@@ -90,13 +85,13 @@ public sealed partial class IconStore : IIconStore
     {
         if (icon.Href.Scheme.ToLowerInvariant() is not ("http" or "https"))
             throw new WebException(string.Format(Resources.InvalidIconUrl, icon.Href));
-        if (_config.NetworkUse == NetworkLevel.Offline)
+        if (config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 
         string path = GetPath(icon);
 
         using var atomic = new AtomicWrite(path);
-        _handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
+        handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
         Validate(icon, atomic.WritePath);
         atomic.Commit();
 
@@ -115,7 +110,7 @@ public sealed partial class IconStore : IIconStore
     }
 
     private string GetPath(Icon icon)
-        => Path.Combine(_path, GetFileName(icon));
+        => Path.Combine(path, GetFileName(icon));
 
     /// <summary>
     /// Gets a file name suitable for storing an <see cref="Icon"/> on the disk.

@@ -10,21 +10,16 @@ namespace ZeroInstall.Services.Solvers;
 /// <summary>
 /// Ranks <see cref="SelectionCandidate"/>s.
 /// </summary>
-[PrimaryConstructor]
-public sealed partial class SelectionCandidateComparer : IComparer<SelectionCandidate>
+/// <param name="stabilityPolicy">Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</param>
+/// <param name="networkUse">Controls how liberally network access is attempted.</param>
+/// <param name="languages">The preferred languages for the implementation.</param>
+/// <param name="isCached">sed to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</param>
+public sealed class SelectionCandidateComparer(
+    Stability stabilityPolicy,
+    NetworkLevel networkUse,
+    LanguageSet languages,
+    Predicate<Implementation> isCached) : IComparer<SelectionCandidate>
 {
-    /// <summary>Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.</summary>
-    private readonly Stability _stabilityPolicy;
-
-    /// <summary>Controls how liberally network access is attempted.</summary>
-    private readonly NetworkLevel _networkUse;
-
-    /// <summary>The preferred languages for the implementation.</summary>
-    private readonly LanguageSet _languages;
-
-    /// <summary>Used to determine which implementations are already cached in the <see cref="IImplementationStore"/>.</summary>
-    private readonly Predicate<Implementation> _isCached;
-
     /// <inheritdoc/>
     public int Compare(SelectionCandidate? x, SelectionCandidate? y)
     {
@@ -43,10 +38,10 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
         if (xLanguageRank < yLanguageRank) return 1;
 
         // Cached implementations come next if we have limited network access
-        if (_networkUse < NetworkLevel.Full)
+        if (networkUse < NetworkLevel.Full)
         {
-            bool xCached = _isCached(x.Implementation);
-            bool yCached = _isCached(y.Implementation);
+            bool xCached = isCached(x.Implementation);
+            bool yCached = isCached(y.Implementation);
             if (xCached && !yCached) return -1;
             if (!xCached && yCached) return 1;
         }
@@ -87,10 +82,10 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
         if (xCountryRank < yCountryRank) return 1;
 
         // Slightly prefer cached versions
-        if (_networkUse == NetworkLevel.Full)
+        if (networkUse == NetworkLevel.Full)
         {
-            bool xCached = _isCached(x.Implementation);
-            bool yCached = _isCached(y.Implementation);
+            bool xCached = isCached(x.Implementation);
+            bool yCached = isCached(y.Implementation);
             if (xCached && !yCached) return -1;
             if (!xCached && yCached) return 1;
         }
@@ -100,22 +95,22 @@ public sealed partial class SelectionCandidateComparer : IComparer<SelectionCand
     }
 
     private Stability CapToPolicy(Stability stability)
-        => (stability <= _stabilityPolicy) ? Stability.Preferred : stability;
+        => (stability <= stabilityPolicy) ? Stability.Preferred : stability;
 
     private static readonly LanguageSet _englishSet = new() {"en", "en_US"};
 
-    private int GetLanguageRank(LanguageSet languages)
+    private int GetLanguageRank(LanguageSet other)
     {
-        if (languages.Count == 0) return 1;
-        else if (languages.ContainsAny(_languages, ignoreCountry: true)) return 2;
-        else if (languages.ContainsAny(_englishSet)) return 0; // Prefer English over other languages we do not understand
+        if (other.Count == 0) return 1;
+        else if (other.ContainsAny(languages, ignoreCountry: true)) return 2;
+        else if (other.ContainsAny(_englishSet)) return 0; // Prefer English over other languages we do not understand
         else return -1;
     }
 
-    private int GetCountryRank(LanguageSet languages)
+    private int GetCountryRank(LanguageSet other)
     {
-        if (languages.Count == 0) return 0;
-        else if (languages.ContainsAny(_languages)) return 1;
+        if (other.Count == 0) return 0;
+        else if (other.ContainsAny(languages)) return 1;
         else return -1;
     }
 }

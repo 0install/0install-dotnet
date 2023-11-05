@@ -12,9 +12,9 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts TAR archives (.tar).
 /// </summary>
+/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class TarExtractor : ArchiveExtractor
+public class TarExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)

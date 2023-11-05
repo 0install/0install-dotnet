@@ -9,22 +9,19 @@ namespace ZeroInstall.Services.Solvers;
 /// Uses limited backtracking to solve <see cref="Requirements"/>. Does not find all possible solutions!
 /// </summary>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class BacktrackingSolver : ISolver
+public class BacktrackingSolver(ISelectionCandidateProvider candidateProvider) : ISolver
 {
     /// <summary>
     /// The maximum number backtracking steps to perform before giving up.
     /// </summary>
     private const int MaxBacktrackingSteps = 64;
 
-    private readonly ISelectionCandidateProvider _candidateProvider;
-
     /// <inheritdoc/>
     public Selections Solve(Requirements requirements)
     {
         requirements = requirements.ForCurrentSystem();
         Log.Info($"Running Backtracking Solver for {requirements}");
-        return new SolverRun(requirements, _candidateProvider).Solve();
+        return new SolverRun(requirements, candidateProvider).Solve();
     }
 
     private class SolverRun : SolverRunBase

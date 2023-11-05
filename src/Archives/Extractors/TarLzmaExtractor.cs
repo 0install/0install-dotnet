@@ -10,9 +10,9 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts LZMA-compressed TAR archives (.tar.lzma).
 /// </summary>
+/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class TarLzmaExtractor : TarExtractor
+public class TarLzmaExtractor(ITaskHandler handler) : TarExtractor(handler)
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)

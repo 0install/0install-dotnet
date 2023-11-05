@@ -15,17 +15,15 @@ namespace ZeroInstall.Services.Solvers;
 /// The executable for external process is itself provided by another <see cref="ISolver"/>.
 /// </summary>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class ExternalSolver : ISolver
+public class ExternalSolver(
+    ISolver backingSolver,
+    ISelectionsManager selectionsManager,
+    IFetcher fetcher,
+    IExecutor executor,
+    IFeedManager feedManager,
+    ITaskHandler handler,
+    Requirements solverRequirements) : ISolver
 {
-    private readonly ISolver _backingSolver;
-    private readonly ISelectionsManager _selectionsManager;
-    private readonly IFetcher _fetcher;
-    private readonly IExecutor _executor;
-    private readonly IFeedManager _feedManager;
-    private readonly ITaskHandler _handler;
-    private readonly Requirements _solverRequirements;
-
     /// <inheritdoc/>
     public Selections Solve(Requirements requirements)
     {
@@ -48,7 +46,7 @@ public partial class ExternalSolver : ISolver
         {
             if ((string)args[0] == "ok")
             {
-                _feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
+                feedManager.Stale = args[1].ReparseAsJson(new {stale = false}).stale;
                 selections = XmlStorage.FromXmlString<Selections>((string)args[2]);
             }
             else throw new SolverException(((string)args[1]).Replace("\n", Environment.NewLine));
@@ -61,7 +59,7 @@ public partial class ExternalSolver : ISolver
         control.HandleStderr();
 
         // Invalidate in-memory feed cache, because external solver may have modified on-disk feed cache
-        _feedManager.Clear();
+        feedManager.Clear();
 
         return selections!;
     }
@@ -70,14 +68,14 @@ public partial class ExternalSolver : ISolver
 
     private ProcessStartInfo GetStartInfo()
     {
-        _solverSelections ??= _backingSolver.Solve(_solverRequirements);
+        _solverSelections ??= backingSolver.Solve(solverRequirements);
 
-        foreach (var implementation in _selectionsManager.GetUncachedImplementations(_solverSelections))
-            _fetcher.Fetch(implementation);
+        foreach (var implementation in selectionsManager.GetUncachedImplementations(_solverSelections))
+            fetcher.Fetch(implementation);
 
-        var builder = _executor.Inject(_solverSelections)
+        var builder = executor.Inject(_solverSelections)
                                .AddArguments("--console", "slave", ExternalSolverSession.ApiVersion);
-        for (int i = 0; i < (int)_handler.Verbosity; i++)
+        for (int i = 0; i < (int)handler.Verbosity; i++)
             builder.AddArguments("--verbose");
 
         var startInfo = builder.ToStartInfo();
@@ -98,7 +96,7 @@ public partial class ExternalSolver : ISolver
         return effectiveRequirements;
     }
 
-    private string DoConfirm(string message) => _handler.Ask(message) ? "ok" : "cancel";
+    private string DoConfirm(string message) => handler.Ask(message) ? "ok" : "cancel";
 
     private string DoConfirmKeys(FeedUri feedUri, Dictionary<string, string[][]> keys)
     {
@@ -106,6 +104,6 @@ public partial class ExternalSolver : ISolver
         var hint = key.Value[0];
 
         string message = string.Format(Resources.AskKeyTrust, feedUri.ToStringRfc(), key.Key, hint[1], feedUri.Host);
-        return _handler.Ask(message) ? "ok" : "cancel";
+        return handler.Ask(message) ? "ok" : "cancel";
     }
 }

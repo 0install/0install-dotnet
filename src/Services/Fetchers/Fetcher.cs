@@ -15,19 +15,12 @@ namespace ZeroInstall.Services.Fetchers;
 /// <summary>
 /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
 /// </summary>
+/// <param name="config">User settings controlling network behaviour, solving, etc.</param>
+/// <param name="store">The location to store the downloaded and unpacked &lt;see cref="Implementation"/&gt;s in.</param>
+/// <param name="handler">&gt;A callback object used when the the user needs to be informed about progress.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-[PrimaryConstructor]
-public partial class Fetcher : IFetcher
+public class Fetcher(Config config, IImplementationStore store, ITaskHandler handler) : IFetcher
 {
-    /// <summary>User settings controlling network behaviour, solving, etc.</summary>
-    protected readonly Config Config;
-
-    /// <summary>The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</summary>
-    protected readonly IImplementationStore Store;
-
-    /// <summary>A callback object used when the the user needs to be informed about progress.</summary>
-    protected readonly ITaskHandler Handler;
-
     /// <inheritdoc/>
     public IImplementationDiscovery? Discovery { get; set; }
 
@@ -50,7 +43,7 @@ public partial class Fetcher : IFetcher
         try
         {
             while (!mutex.WaitOne(100, exitContext: false)) // NOTE: Might be blocked more than once
-                Handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag});
+                handler.RunTask(new WaitTask(Resources.WaitingForDownload, mutex) {Tag = tag});
         }
         #region Error handling
         catch (AbandonedMutexException)
@@ -89,9 +82,9 @@ public partial class Fetcher : IFetcher
     {
         if (Discovery == null) return null;
 
-        var task = ResultTask.Create(Resources.DiscoveringImplementation, () => Discovery.TryGetImplementation(manifestDigest, TimeSpan.FromSeconds(2), Handler.CancellationToken));
+        var task = ResultTask.Create(Resources.DiscoveringImplementation, () => Discovery.TryGetImplementation(manifestDigest, TimeSpan.FromSeconds(2), handler.CancellationToken));
         task.Tag = tag;
-        return Handler.RunTaskAndReturn(task) is {} uri
+        return handler.RunTaskAndReturn(task) is {} uri
             ? new Archive { Href = uri, Size = -1 }
             : null;
     }
@@ -108,7 +101,7 @@ public partial class Fetcher : IFetcher
            .OrderBy(x => x, RetrievalMethodRanker.Instance)
            .TryAny(retrievalMethod =>
             {
-                Handler.CancellationToken.ThrowIfCancellationRequested();
+                handler.CancellationToken.ThrowIfCancellationRequested();
                 try { Retrieve(retrievalMethod, manifestDigest, tag); }
                 catch (ImplementationAlreadyInStoreException) {}
             });
@@ -147,7 +140,7 @@ public partial class Fetcher : IFetcher
 
         try
         {
-            Store.Add(manifestDigest, builder =>
+            store.Add(manifestDigest, builder =>
             {
                 foreach (var step in steps)
                     Apply(builder, step, tag);
@@ -173,7 +166,7 @@ public partial class Fetcher : IFetcher
             try
             {
                 archive.MimeType ??= Archive.GuessMimeType(archive.Href.OriginalString);
-                ArchiveExtractor.For(archive.MimeType, Handler);
+                ArchiveExtractor.For(archive.MimeType, handler);
             }
             #region Error handling
             catch (NotSupportedException ex)
@@ -207,7 +200,7 @@ public partial class Fetcher : IFetcher
             case CopyFromStep copyFrom:
                 if (copyFrom.Implementation == null) throw new ArgumentException($"Must call {nameof(IRecipeStep.Normalize)}() first.", nameof(step));
                 Fetch(copyFrom.Implementation, tag);
-                builder.CopyFrom(copyFrom, GetPath(copyFrom.Implementation) ?? throw new IOException($"Unable to resolve {copyFrom.ID}."), Handler);
+                builder.CopyFrom(copyFrom, GetPath(copyFrom.Implementation) ?? throw new IOException($"Unable to resolve {copyFrom.ID}."), handler);
                 break;
             default:
                 throw new NotSupportedException($"Unknown recipe step: ${step}");
@@ -222,13 +215,13 @@ public partial class Fetcher : IFetcher
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars.</param>
     protected virtual void Download(IBuilder builder, DownloadRetrievalMethod download, string tag)
     {
-        void Callback(Stream stream) => builder.Add(download, stream, Handler, tag);
-        void DownloadFile(Uri uri) => Handler.RunTask(new DownloadFile(uri, Callback, download.DownloadSize) {Tag = tag});
+        void Callback(Stream stream) => builder.Add(download, stream, handler, tag);
+        void DownloadFile(Uri uri) => handler.RunTask(new DownloadFile(uri, Callback, download.DownloadSize) {Tag = tag});
 
         var uri = download.Href;
         if (uri.IsFile)
         {
-            Handler.RunTask(new ReadFile(uri.LocalPath, Callback) {Tag = tag});
+            handler.RunTask(new ReadFile(uri.LocalPath, Callback) {Tag = tag});
             return;
         }
 
@@ -236,7 +229,7 @@ public partial class Fetcher : IFetcher
         {
             DownloadFile(uri);
         }
-        catch (WebException ex) when (Config.FeedMirror is {} mirror && ex.ShouldTryMirror(uri))
+        catch (WebException ex) when (config.FeedMirror is {} mirror && ex.ShouldTryMirror(uri))
         {
             Log.Warn(string.Format(Resources.TryingFeedMirror, uri), ex);
             try
@@ -261,7 +254,7 @@ public partial class Fetcher : IFetcher
     protected string? GetPath(ImplementationBase implementation)
         => string.IsNullOrEmpty(implementation.ID) || implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
             ? null
-            : Store.GetPath(implementation.ManifestDigest);
+            : store.GetPath(implementation.ManifestDigest);
 
     /// <summary>
     /// Executes an external retrieval method.
@@ -272,7 +265,7 @@ public partial class Fetcher : IFetcher
 
         if (!string.IsNullOrEmpty(retrievalMethod.ConfirmationQuestion))
         {
-            if (!Handler.Ask(retrievalMethod.ConfirmationQuestion,
+            if (!handler.Ask(retrievalMethod.ConfirmationQuestion,
                     defaultAnswer: false, alternateMessage: retrievalMethod.ConfirmationQuestion)) throw new OperationCanceledException();
         }
 

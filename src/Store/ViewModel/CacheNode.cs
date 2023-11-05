@@ -9,9 +9,10 @@ namespace ZeroInstall.Store.ViewModel;
 /// <summary>
 /// Models information about elements in a cache for display in a UI.
 /// </summary>
+/// <param name="path">The path of the directory.</param>
+/// <param name="size">The total size of the directory in bytes.</param>
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
-[PrimaryConstructor]
-public abstract partial class CacheNode : INamed, IEquatable<CacheNode>
+public abstract class CacheNode(string path, long size) : INamed, IEquatable<CacheNode>
 {
     /// <summary>
     /// The full name of the node used for tree hierarchies.
@@ -30,13 +31,13 @@ public abstract partial class CacheNode : INamed, IEquatable<CacheNode>
     /// The path of the directory.
     /// </summary>
     [Description("The path of the directory.")]
-    public string Path { get; }
+    public string Path { get; } = path;
 
     /// <summary>
     /// The total size of the directory in bytes.
     /// </summary>
     [Browsable(false)]
-    public long Size { get; }
+    public long Size { get; } = size;
 
     /// <summary>
     /// The total size of the directory in human-readable form.

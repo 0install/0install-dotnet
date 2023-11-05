@@ -11,23 +11,14 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Used to hold state while extracting a MS Cabinet (.cab).
 /// </summary>
-[PrimaryConstructor]
-internal sealed partial class CabExtractorContext : IUnpackStreamContext
+/// <param name="builder">The builder receiving the extracted files.</param>
+/// <param name="stream">The the archive data to be extracted.</param>
+/// <param name="normalizePath">Callback for normalizing the path of archive entries.</param>
+/// <param name="cancellationToken">Used to signal when the user wishes to cancel the extraction.</param>
+internal sealed class CabExtractorContext(IBuilder builder, Stream stream, Func<string, string?> normalizePath, CancellationToken cancellationToken) : IUnpackStreamContext
 {
-    /// <summary>The builder receiving the extracted files.</summary>
-    private readonly IBuilder _builder;
-
-    /// <summary>The the archive data to be extracted.</summary>
-    private readonly Stream _stream;
-
-    /// <summary>Callback for normalizing the path of archive entries.</summary>
-    private readonly Func<string, string> _normalizePath;
-
-    /// <summary>Used to signal when the user wishes to cancel the extraction.</summary>
-    private readonly CancellationToken _cancellationToken;
-
     public Stream OpenArchiveReadStream(int archiveNumber, string archiveName, CompressionEngine compressionEngine)
-        => new DuplicateStream(_stream);
+        => new DuplicateStream(stream);
 
     public void CloseArchiveReadStream(int archiveNumber, string archiveName, Stream stream)
     {}
@@ -37,14 +28,14 @@ internal sealed partial class CabExtractorContext : IUnpackStreamContext
 
     public Stream? OpenFileWriteStream(string path, long fileSize, DateTime lastWriteTime)
     {
-        _cancellationToken.ThrowIfCancellationRequested();
+        cancellationToken.ThrowIfCancellationRequested();
 
-        if (_normalizePath(path) is not {} relativePath) return null;
+        if (normalizePath(path) is not {} relativePath) return null;
 
         _pipe = new();
 
         var readStream = _pipe.Reader.AsStream().WithLength(fileSize);
-        _task = Task.Run(() => _builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), _cancellationToken);
+        _task = Task.Run(() => builder.AddFile(relativePath, readStream, DateTime.SpecifyKind(lastWriteTime, DateTimeKind.Utc)), cancellationToken);
 
         return _pipe.Writer.AsStream();
     }
@@ -54,7 +45,7 @@ internal sealed partial class CabExtractorContext : IUnpackStreamContext
         _pipe?.Writer.Complete();
         stream.Dispose();
 
-        _task?.Wait(_cancellationToken);
+        _task?.Wait(cancellationToken);
         _pipe?.Reader.Complete();
     }
 }
