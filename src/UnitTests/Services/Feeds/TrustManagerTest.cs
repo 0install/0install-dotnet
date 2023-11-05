@@ -60,7 +60,7 @@ public class TrustManagerTest : TestWithMocks
     [Fact]
     public void BadSignature()
     {
-        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(keyID: 123)});
+        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(KeyID: 123)});
 
         Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
         IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
@@ -69,7 +69,7 @@ public class TrustManagerTest : TestWithMocks
     [Fact]
     public void MultipleSignatures()
     {
-        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(keyID: 123), OpenPgpUtilsTest.TestSignature});
+        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(KeyID: 123), OpenPgpUtilsTest.TestSignature});
         TrustKey();
 
         _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))

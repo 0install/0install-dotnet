@@ -13,9 +13,9 @@ public abstract class OpenPgpTest
     protected abstract IOpenPgp OpenPgp { get; }
 
     private readonly OpenPgpSecretKey _secretKey = new(
-        keyID: OpenPgpUtils.ParseKeyID("DEED44B49BE24661"),
-        fingerprint: OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
-        userID: "Test User <test@0install.de>");
+        OpenPgpUtils.ParseKeyID("DEED44B49BE24661"),
+        OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
+        UserID: "Test User <test@0install.de>");
 
     private readonly ArraySegment<byte> _referenceData = new(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
 

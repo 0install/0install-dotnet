@@ -80,9 +80,9 @@ public partial class GnuPG : IOpenPgp
                 if (signatureParts.Length != 12) throw new FormatException("Incorrect number of columns in VALIDSIG line.");
                 var fingerprint = OpenPgpUtils.ParseFingerprint(signatureParts[fingerprintIndex]);
                 return new ValidSignature(
-                    keyID: OpenPgpUtils.FingerprintToKeyID(fingerprint),
-                    fingerprint: fingerprint,
-                    timestamp: new UnixTime(long.Parse(signatureParts[timestampIndex])));
+                    OpenPgpUtils.FingerprintToKeyID(fingerprint),
+                    fingerprint,
+                    Timestamp: new UnixTime(long.Parse(signatureParts[timestampIndex])));
 
             case "BADSIG":
                 if (signatureParts.Length < 3) throw new FormatException("Incorrect number of columns in BADSIG line.");
@@ -167,9 +167,9 @@ public partial class GnuPG : IOpenPgp
 
     private static OpenPgpSecretKey ParseSecretKey(string[] sec, string[] fpr, string[] uid)
         => new(
-            keyID: OpenPgpUtils.ParseKeyID(sec[4]),
-            fingerprint: OpenPgpUtils.ParseFingerprint(fpr[9]),
-            userID: uid[9]);
+            OpenPgpUtils.ParseKeyID(sec[4]),
+            OpenPgpUtils.ParseFingerprint(fpr[9]),
+            UserID: uid[9]);
 
     /// <summary>
     /// Launches an interactive process for generating a new keypair.
