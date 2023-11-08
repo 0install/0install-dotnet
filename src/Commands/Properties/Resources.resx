@@ -475,6 +475,9 @@ A &lt;feed-for&gt; tag indicates feed compatibility.</value>
   <data name="InstallService" xml:space="preserve">
     <value>Installing Zero Install Store Service</value>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integrate {0}</value>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Your desktop integration selections can not be applied.</value>
   </data>

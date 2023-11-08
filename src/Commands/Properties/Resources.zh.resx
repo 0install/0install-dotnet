@@ -529,6 +529,10 @@
     <value>安装零安装商店服务</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>整合{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>无法应用您的桌面集成选择。</value>
     <comment>Automatically translated.</comment>

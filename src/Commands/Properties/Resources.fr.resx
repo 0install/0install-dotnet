@@ -529,6 +529,10 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <value>Installation du Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Intégrer {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Vos sélections d'intégration de bureau ne peuvent pas être appliquées.</value>
     <comment>Automatically translated.</comment>

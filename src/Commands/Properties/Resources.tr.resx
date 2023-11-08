@@ -529,6 +529,10 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <value>Zero Install depo hizmeti başlatılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>{0} ile bütünleştir</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Masaüstü bütünleştirme seçenekleriniz uygulanamadı.</value>
     <comment>Manually overriden.</comment>

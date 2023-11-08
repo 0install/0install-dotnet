@@ -529,6 +529,10 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <value>Installation des Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integrieren von {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Ihre Auswahl für die Desktopintegration konnte nicht übernommen werden.</value>
     <comment>Manually overriden.</comment>

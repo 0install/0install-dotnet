@@ -529,6 +529,10 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
     <value>Instalación del servicio de tienda Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integre {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Sus selecciones de integración de escritorio no se pueden aplicar.</value>
     <comment>Automatically translated.</comment>

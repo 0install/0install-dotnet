@@ -529,6 +529,10 @@
     <value>Установка службы Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Интегрировать {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Не удается применить выбранные вами параметры интеграции рабочего стола.</value>
     <comment>Automatically translated.</comment>

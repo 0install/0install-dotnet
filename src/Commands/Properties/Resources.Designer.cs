@@ -1097,6 +1097,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Integrate {0}.
+        /// </summary>
+        public static string Integrate {
+            get {
+                return ResourceManager.GetString("Integrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your desktop integration selections can not be applied..
         /// </summary>
         public static string IntegrateAppInvalid {

@@ -529,6 +529,10 @@ Een &lt;feed-for&gt; tag geeft feedcompatibiliteit aan.</value>
     <value>Zero Install-winkelservice installeren</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integreer {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Uw selecties voor desktopintegratie kunnen niet worden toegepast.</value>
     <comment>Automatically translated.</comment>

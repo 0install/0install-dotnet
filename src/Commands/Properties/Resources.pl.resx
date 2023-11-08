@@ -529,6 +529,10 @@ Znacznik &lt;feed-for&gt; wskazuje kompatybilność kanału.</value>
     <value>Instalacja usługi Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integracja {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Nie można zastosować wybranych opcji integracji pulpitu.</value>
     <comment>Automatically translated.</comment>

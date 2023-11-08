@@ -529,6 +529,10 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
     <value>Instalarea serviciului Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Integrați {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Nu se pot aplica selecțiile dvs. de integrare pe desktop.</value>
     <comment>Automatically translated.</comment>

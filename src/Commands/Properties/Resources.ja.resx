@@ -529,6 +529,10 @@
     <value>ゼロインストールストアサービスのインストール</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>統合{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>デスクトップ統合の選択は適用できません。</value>
     <comment>Automatically translated.</comment>

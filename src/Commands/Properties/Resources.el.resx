@@ -528,6 +528,10 @@
     <value>Εγκατάσταση της υπηρεσίας Zero Install Store Service</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="Integrate" xml:space="preserve">
+    <value>Ενσωμάτωση {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Οι επιλογές ενσωμάτωσης στην επιφάνεια εργασίας σας δεν μπορούν να εφαρμοστούν.</value>
     <comment>Manually overriden.</comment>
