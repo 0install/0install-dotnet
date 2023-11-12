@@ -331,7 +331,7 @@
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Επιλογή μιας έκδοσης του προγράμματος που προσδιορίζεται από το URI, και συμβατές εκδόσεις για όλες τις εξαρτήσεις του.
-Επιστροφη στην κατάσταση εξόδου μηδέν αν επιλεγεί μια σειρά από εκδόσεις, και καθεστώς του 1, αν δεν μπορεσε να βρει ένα συνεκτικό σύνολο.</value>
+Επιστροφη στην κατάσταση εξόδου 0 αν επιλεγεί μια σειρά από εκδόσεις, και καθεστώς του 1, αν δεν μπορεσε να βρει ένα συνεκτικό σύνολο.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -424,7 +424,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
-    <value>Ενημερώνει όλες τις εφαρμογές στη λίστα εφαρμογών</value>
+    <value>Ενημερώνει όλες τις εφαρμογές στη λίστα εφαρμογών.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">

@@ -469,7 +469,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Exportation terminée</value>
+    <value>Exportation terminée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">

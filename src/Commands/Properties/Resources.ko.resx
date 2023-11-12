@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>제로 인스톨의 휴대용 버전이 '{0}'에 배포되었습니다.
-해당 디렉터리에서 ZeroInstall.exe 파일을 실행하여 사용할 수 있습니다.</value>
+해당 디렉토리에서 ZeroInstall.exe 파일을 실행하여 사용할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -290,7 +290,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI가 있는 애플리케이션만 표시됩니다. 패턴이 지정된 경우 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
+    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI가 있는 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -306,7 +306,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>애플리케이션 목록에서 모든 애플리케이션을 제거하고 데스크톱 환경 통합을 실행 취소합니다. 제로 설치를 제거하기 전에 시스템을 정리하려면 이 명령을 사용합니다.</value>
+    <value>애플리케이션 목록에서 모든 애플리케이션을 제거하고 데스크톱 환경 통합을 실행 취소합니다. 제로 인스톨을 제거하기 전에 이 명령을 사용하여 시스템을 정리하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -886,7 +886,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>별칭을 사용하여 '{0}'를 '{1}'로 수정했습니다.</value>
+    <value>별칭을 사용하여 '{0}'를 '{1}'로 변경했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">

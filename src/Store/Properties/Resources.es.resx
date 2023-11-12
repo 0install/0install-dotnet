@@ -302,7 +302,7 @@ Para resolver el problema, elimina el archivo «{1}». Es posible que se pierdan
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>La firma no corresponde al formato Base 64.</value>
+    <value>La firma no corresponde al formato Base 64:</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

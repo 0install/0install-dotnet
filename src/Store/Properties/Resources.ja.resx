@@ -120,7 +120,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>「{0}」で使用中のファイルのロック解除に失敗しました。</value>
+    <value>「{0}」で使用中のファイルのロック解除に失敗しました</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -141,7 +141,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>次のアプリケーションを閉じる必要があります。</value>
+    <value>次のアプリケーションを閉じる必要があります：</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">

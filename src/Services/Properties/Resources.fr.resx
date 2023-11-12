@@ -186,7 +186,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Le flux est signé avec des clés inconnues.</value>
+    <value>Le flux est signé avec des clés inconnues!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

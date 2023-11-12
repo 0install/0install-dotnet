@@ -469,7 +469,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>エクスポート完了</value>
+    <value>エクスポート完了。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">

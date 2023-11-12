@@ -120,7 +120,7 @@ Als u de hele map wilt verwijderen zonder Zero Install te gebruiken, kunt u deze
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Momenteel in gebruik zijnde bestanden in "{0}" konden niet worden vrijgegeven.</value>
+    <value>Momenteel in gebruik zijnde bestanden in '{0}' konden niet worden vrijgegeven</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

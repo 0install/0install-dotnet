@@ -420,7 +420,7 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Memeriksa pembaruan program dan mengunduhnya jika ditemukan.
+    <value>Memeriksa pembaruan pada program dan mengunduhnya jika ditemukan.
 Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak informasi tentang apakah ada perubahan yang ditemukan.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -469,7 +469,7 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Pengeksporan selesai</value>
+    <value>Pengeksporan selesai.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
@@ -660,7 +660,7 @@ Anda dapat melakukannya dengan menggunakan '{0}'. Ini akan sepenuhnya independen
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Menjawab pertanyaan secara otomatis dengan default jika memungkinkan dan menyederhanakan output konsol (tanpa tabel atau bilah kemajuan).</value>
+    <value>Menjawab pertanyaan secara otomatis dengan default jika memungkinkan dan menyederhanakan keluaran konsol (tanpa tabel atau bilah kemajuan).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -755,7 +755,7 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Jalankan eksekusi yang ditentukan {MAIN} dan bukan default. Jika dimulai dengan '/' atau '\' maka jalur tersebut relatif terhadap direktori tingkat atas eksekusi, sedangkan jika tidak, jalur tersebut relatif terhadap direktori yang berisi program utama default.
-Tidak boleh mengandung argumen baris perintah! Spasi tidak perlu di-escape.</value>
+Tidak boleh berisi argumen baris perintah! Spasi tidak perlu di-escape.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -910,7 +910,7 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Instance Zero Install ini tidak digunakan. Oleh karena itu, instance ini tidak dapat memperbarui dirinya sendiri.</value>
+    <value>Instance Zero Install ini tidak digunakan. Oleh karena itu, instans ini tidak dapat memperbarui dirinya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
@@ -927,7 +927,7 @@ Jalankan '0install config self_update_uri default' untuk mengaktifkannya.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Mengatur ulang kebijakan stabilitas untuk {0} ke default?</value>
+    <value>Atur ulang kebijakan stabilitas untuk {0} ke default?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">

@@ -72,7 +72,7 @@ Zkuste jej zadat ručně.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Stahování '{0}' pomocí Zero Install</value>
+    <value>Stahování '{0}' pomocí funkce Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">

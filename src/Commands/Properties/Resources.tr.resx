@@ -416,7 +416,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnızca belirli bir ETKİ ALANI için bırakır. </value>
+    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnızca belirli bir ETKİ ALANI için bırakır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -583,7 +583,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
-    <value>Tüm Zero Install aşamalarının tamamlanması bekleniyor...</value>
+    <value>Tüm Zero Install aşamalarının tamamlanması bekleniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">

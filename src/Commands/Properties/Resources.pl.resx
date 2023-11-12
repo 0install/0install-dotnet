@@ -509,7 +509,7 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nie udało się znaleźć pliku ani katalogu „{0}”</value>
+    <value>Nie udało się znaleźć pliku ani katalogu '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">

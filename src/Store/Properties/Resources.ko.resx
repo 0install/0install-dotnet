@@ -120,7 +120,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>'{0}'에서 사용 중인 파일을 잠금 해제하지 못했습니다.</value>
+    <value>'{0}'에서 사용 중인 파일을 잠금 해제하지 못했습니다</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -141,7 +141,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>다음 애플리케이션을 종료해야 합니다.</value>
+    <value>다음 애플리케이션을 종료해야 합니다:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">

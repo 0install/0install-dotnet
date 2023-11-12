@@ -469,7 +469,7 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Export abgeschlossen</value>
+    <value>Export abgeschlossen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">

@@ -120,7 +120,7 @@ Wenn Sie das gesamte Verzeichnis ohne Zero Install löschen möchten, verwenden 
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Aktuell verwendete Dateien in '{0}' konnten nicht entsperrt werden.</value>
+    <value>Aktuell verwendete Dateien in '{0}' konnten nicht entsperrt werden</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">

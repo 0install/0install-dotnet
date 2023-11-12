@@ -92,7 +92,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>Seznam žádostí</value>
+    <value>Seznam aplikací</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
@@ -104,7 +104,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Tím přidáte program Zero Install do nabídky Start a příkazového řádku. Pokračovat?</value>
+    <value>Tím se do nabídky Start a příkazového řádku přidá nástroj Zero Install. Pokračovat?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -286,11 +286,11 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Vypíše všechny lokálně známé URI krmiv. Pokud je zadán hledaný výraz, zobrazí se pouze URI obsahující tento řetězec (nerozlišuje velká a malá písmena).</value>
+    <value>Vypíše všechny lokálně známé URI krmiv. Je-li zadán hledaný výraz, zobrazí se pouze URI obsahující tento řetězec (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI. Pokud je zadán PATTERN, zobrazí se pouze aplikace, které obsahují tento řetězec ve svém názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI. Je-li zadán PATTERN, zobrazí se pouze aplikace, které obsahují tento řetězec ve svém názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -370,7 +370,7 @@ Další argument určuje vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Zobrazí seznam všech implementací uložených v mezipaměti. Pokud je zadán URI kanálu, jsou uvedeny pouze implementace pro tento konkrétní kanál.</value>
+    <value>Zobrazí seznam všech implementací uložených v mezipaměti. Pokud je zadán URI feedu, jsou uvedeny pouze implementace pro tento konkrétní feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -412,7 +412,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Seznam klíčů důvěryhodných pro podepisování kanálů. Vypište pouze domény, pro které je důvěryhodný konkrétní FINGERPRINT, je-li zadán.</value>
+    <value>Seznam klíčů důvěryhodných pro podepisování kanálů. Vypište pouze domény, pro které je důvěryhodný konkrétní FINGERPRINT, pokud je zadán.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -481,7 +481,7 @@ Je to podobné jako '0install download --refresh' s tím rozdílem, že vypíše
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>Kanál nebyl zaregistrován pro žádné rozhraní.</value>
+    <value>Krmivo nebylo zaregistrováno pro žádné rozhraní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
@@ -910,7 +910,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Tato instance nulové instalace nebyla nasazena. Nemůže se proto sama aktualizovat.</value>
+    <value>Tato instance nulové instalace nebyla nasazena. Nemůže se tedy sama aktualizovat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
