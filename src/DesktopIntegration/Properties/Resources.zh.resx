@@ -79,8 +79,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>将桌面集成应用于{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>将桌面集成应用于 {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>无法在应用程序列表中找到应用程序 "{0}"。</value>
@@ -88,19 +88,19 @@
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>一次只能执行一个桌面集成操作。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>名称 "{0}"包含无效字符。</value>
-    <comment>Automatically translated.</comment>
+    <value>名称'{0}'包含无效字符。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>请使用 "0install central "或 "0install config "设置同步。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>加载 '{0}' 时出现问题。</value>
-    <comment>Automatically translated.</comment>
+    <value>加载'{0}'时出现问题。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>修复桌面集成</value>

@@ -60,7 +60,7 @@
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>Архивный файл недействителен или поврежден.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Строительный архив '{0}'</value>
@@ -68,7 +68,7 @@
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Распаковка архива</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>Извлечение данного типа архива поддерживается только на macOS.</value>

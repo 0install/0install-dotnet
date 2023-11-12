@@ -75,13 +75,13 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
-    <value>Tous les composants requis ont été téléchargés.</value>
+    <value>Tous les composants nécessaires ont été téléchargés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Tous les composants nécessaires pour lancer {0} ont été exportés vers '{1}'.
-Vous pouvez utiliser le script d'importation ou l'exécutable Bootstrap dans '{1}' pour importer ces fichiers sur un autre ordinateur.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tous les composants nécessaires à l'exécution de {0} ont été exportés vers '{1}'.
+Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable situé dans '{1}' pour importer ces fichiers sur un autre ordinateur.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>{0}" figure déjà dans la liste des caches d'implémentation personnalisée.</value>
@@ -146,11 +146,11 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
     <comment>Manually overriden.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Modifier</value>
+    <value>Changer</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>Des modifications ont été trouvées</value>
+    <value>Changements trouvés</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
@@ -269,7 +269,7 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
+    <value>Exporte tous les flux et toutes les implémentations nécessaires pour lancer le programme spécifié par un URI dans un REPERTOIRE.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -328,7 +328,7 @@ Autrement le code de sortie correspondra au code de sortie du programme exécut�
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider si vous voulez faire confiance aux programmes avant de les lancer.</value>
+    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; vous devez décider de faire confiance aux programmes avant de les lancer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -367,7 +367,7 @@ Un argument supplémentaire permet de spécifier un emplacement de cache cible p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Liste tous les répertoires de cache d'implémentation.</value>
+    <value>Liste tous les répertoires du cache d'implémentation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
@@ -384,7 +384,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Supprime toutes les implémentations du cache. Utilisez cette commande pour nettoyer le système avant de supprimer Zero Install. La suppression manuelle des répertoires du cache peut s'avérer difficile en raison des listes de contrôle NTFS utilisées pour protéger les implémentations contre les modifications.
+    <value>Supprime toutes les implémentations du cache. Utilisez cette commande pour nettoyer le système avant de supprimer Zero Install. La suppression manuelle des répertoires de cache peut s'avérer difficile en raison des listes de contrôle NTFS utilisées pour protéger les implémentations contre les modifications.
 Des arguments supplémentaires permettent de spécifier des emplacements de cache personnalisés.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -429,15 +429,15 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Intégration du bureau</value>
+    <value>Intégration dans le bureau</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Activation de l'intégration avec le Bureau</value>
+    <value>Création de l'intégration dans le bureau</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Suppression de l'intégration avec le bureau</value>
+    <value>Suppression de l'intégration dans le bureau</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -469,7 +469,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Export réussi.</value>
+    <value>Exportation terminée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
@@ -509,7 +509,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Impossible de trouver le fichier ou répertoire '{0}'.</value>
+    <value>Impossible de trouver le fichier ou le répertoire '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
@@ -517,7 +517,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Manually overriden.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
-    <value>Cacher</value>
+    <value>Masquer</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
@@ -526,7 +526,7 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Installation du Zero Install Store Service</value>
+    <value>Installation de Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
@@ -632,7 +632,7 @@ Vous pouvez le faire en utilisant "{0}". Celle-ci sera complètement indépendan
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
-    <value>Aucune mise à jour trouvé</value>
+    <value>Aucune mise à jour trouvée</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
@@ -875,7 +875,7 @@ Peut contenir des arguments de ligne de commande. Les espaces blancs doivent êt
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
     <value>Suppression des implémentations obsolètes</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>Il se peut que vous deviez fermer et rouvrir votre terminal pour que cette mesure prenne effet.</value>
@@ -894,8 +894,8 @@ Peut contenir des arguments de ligne de commande. Les espaces blancs doivent êt
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Pré-compilation des assemblages .NET pour un démarrage plus rapide de l'application</value>
-    <comment>Automatically translated.</comment>
+    <value>Pré-compilation des assemblages .NET accélérer le démarrage de l'application</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>Quelques exemples de mise en œuvre</value>
@@ -906,7 +906,7 @@ Peut contenir des arguments de ligne de commande. Les espaces blancs doivent êt
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Une mise à jour de Zero Install v{0} est disponible. Souhaitez-vous l'installer maintenant ?</value>
+    <value>Une mise à jour de Zero Install v{0} est disponible. Installer maintenant ?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
@@ -935,11 +935,11 @@ Lancez '0install config self_update_uri default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Démarrage du  Zero Install Store Service</value>
+    <value>Démarrage de l'installation de Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Arrêt du  Zero Install Store Service</value>
+    <value>Arrêt de l'installation de Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
@@ -984,7 +984,7 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Suppression de Zero Install Store Service</value>
+    <value>Désinstallation de Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
@@ -1020,7 +1020,7 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Travail en cours</value>
+    <value>Chargement</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

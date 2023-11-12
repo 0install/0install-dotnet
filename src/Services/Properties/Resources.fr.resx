@@ -62,9 +62,9 @@
     <value>Flux : {0}
 - Signature valide de {1}
 - {2}
-Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
+Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
 </value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>La ligne de commande résultante est vide.</value>
@@ -87,15 +87,15 @@ Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Erreur d'enregistrement de la base de données fiduciaire</value>
-    <comment>Automatically translated.</comment>
+    <value>Erreur d'enregistrement de la signature</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Lancer un solveur externe</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Le flux '{0}' n'est pas dans le cache et Zero Install est actuellement off-line.</value>
+    <value>Le flux '{0}' n'a pas été mis en cache et Zero Install est actuellement en mode hors ligne.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -103,8 +103,8 @@ Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Le flux '{0}' n'a pas été signé avec des clés de confiance.</value>
-    <comment>Automatically translated.</comment>
+    <value>Le flux '{0}' n'a pas été signé avec une clé connue.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' est un fichier local. Il devrait s'agir d'une URL HTTP(S).</value>
@@ -119,8 +119,8 @@ Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problème pour obtenir '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de télécharger '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Caractère illégal dans le nom de la liaison {0}.</value>
@@ -140,7 +140,7 @@ Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>Le serveur d'informations sur les clés n'a pas été en mesure de fournir des informations supplémentaires sur cette clé.</value>
@@ -155,11 +155,11 @@ Voulez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Le flux téléchargé est plus ancien que la version déjà présente dans le cache. Nous continuerons à utiliser la version la plus récente.
-URI du flux : {0}
-Ancienne heure : {1}
-Nouvelle heure : {2}</value>
-    <comment>Automatically translated.</comment>
+    <value>Le flux téléchargé est antérieur à la version déjà présente dans le cache. La version la plus récente continuera d'être utilisée.
+URL du flux : {0}
+Date précédente : {1}
+Nouvelle date : {2}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>Le téléchargement de {0} a échoué. Essayer de récupérer le flux miroir à la place.</value>
@@ -171,26 +171,26 @@ Nouvelle heure : {2}</value>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>Impossible d'analyser le flux téléchargé depuis {0}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
     <value>Impossible d'analyser les informations de la clé pour '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Impossible de récupérer les informations clés pour '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible d'obtenir les informations de la clé pour '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' n'est pas un identifiant connu dans le gestionnaire de paquets {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Le flux est signé avec des clés non fiables !</value>
-    <comment>Automatically translated.</comment>
+    <value>Le flux est signé avec des clés inconnues!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>En attente du fin de téléchargement</value>
+    <value>Attente de la fin du téléchargement</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">

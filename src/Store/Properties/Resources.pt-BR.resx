@@ -63,15 +63,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Esta pasta é um cache de implementação. Os arquivos aqui são somente leitura usando permissões do sistema de arquivos. Isso evita que eles sejam excluídos normalmente.
+    <value>Este diretório é um cache de implementação. Permissões do sistema de arquivos foram usadas para que seus arquivos sejam de somente leitura. Isso impede que eles sejam excluídos pelo procedimento normal. 
 
-Se você deseja excluir uma única implementação, você pode usar esta linha de comando:
+Para excluir uma única implementação, use a seguinte linha de comando:
 {0}
 
-Se você deseja excluir esta pasta inteira, você pode usar esta linha de comando:
+Para excluir o diretório inteiro, use a seguinte linha de comando:
 {1}
 
-Se você deseja excluir esta pasta inteira sem usar o Zero Install, você pode usar esta linha de comando:
+Para excluir o diretório inteiro sem usar o Zero Install, use a seguinte linha de comando:
 {2}</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -80,7 +80,7 @@ Se você deseja excluir esta pasta inteira sem usar o Zero Install, você pode u
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Excluindo pasta {0}</value>
+    <value>Excluindo diretório {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -92,15 +92,15 @@ Se você deseja excluir esta pasta inteira sem usar o Zero Install, você pode u
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>O hash de manifesto de uma implementação não corresponde ao valor esperado.</value>
+    <value>O hash do manifesto de uma implementação não corresponde ao valor esperado.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valor atual: {0}</value>
+    <value>Valor real: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifesto atual: {0}</value>
+    <value>Manifesto real: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -120,7 +120,7 @@ Se você deseja excluir esta pasta inteira sem usar o Zero Install, você pode u
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Falha ao desbloquear arquivos em uso em '{0}'.</value>
+    <value>Falha ao desbloquear os arquivos usados em "{0}"</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -129,19 +129,19 @@ Execute '0install config feed_mirror default' para habilitar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Não foi possível encontrar o arquivo ou pasta '{0}'.</value>
+    <value>Não foi possível encontrar o arquivo ou diretório "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Os arquivos que você deseja excluir estão em uso.</value>
+    <value>Os arquivos que você deseja excluir estão sendo utilizados no momento.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Deseja fechar estes aplicativos e continuar?</value>
+    <value>Deseja encerrar os aplicativos e continuar?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Os seguintes aplicativos precisam ser fechados:</value>
+    <value>Os seguintes aplicativos precisam ser encerrados:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -173,12 +173,12 @@ Execute '0install config feed_mirror default' para habilitar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>O sistema de arquivos subjacente não armazena os tempos de alteração de arquivos com precisão suficiente.
-Se você está usando uma unidade formatada em FAT, por favor, converta ela para NTFS.</value>
+    <value>O sistema de arquivos subjacente não armazena com precisão suficiente os horários de alteração dos arquivos.
+Se você estiver usando uma unidade formatada em FAT, converta-a para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>O ícone carregado a partir de {0} não é um {1} válido.</value>
+    <value>O ícone carregado de {0} não corresponde ao formato {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
@@ -214,7 +214,7 @@ Se você está usando uma unidade formatada em FAT, por favor, converta ela para
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível baixar {0} pois o Zero Install está no modo off-line.</value>
+    <value>Não foi possível fazer o download de {0} porque o Zero Install está no modo offline.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -243,26 +243,26 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Ocorreu um problema ao acessar o repositório de implementação '{0}'.</value>
+    <value>Ocorreu um problema ao acessar a memória de implementação "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Ocorreu um problema ao acessar o repositório de implementação '{0}'.
-Especificado no arquivo de configuração '{1}'.</value>
+    <value>Ocorreu um problema ao acessar a memória de implementação "{0}".
+Especificado no arquivo de configuração "{1}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>Ocorreu um problema ao carregar o arquivo de configuração.
-Você pode excluir o arquivo '{0}' para corrigir o problema.</value>
+    <value>Ocorreu um problema ao carregar um arquivo de configuração.
+Você pode excluir o arquivo "{0}" para corrigir o problema.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Ocorreu um problema ao carregar o valor de configuração '{0}'.
-Você pode excluir o arquivo '{1}' para corrigir o problema. Outras configurações também podem ser perdidas.</value>
+    <value>Ocorreu um problema ao carregar o valor de configuração "{0}".
+Você pode excluir o arquivo "{1}" para corrigir o problema. Outras configurações também podem ser perdidas.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Reading folder '{0}'</value>
+    <value>Lendo diretório "{0}"</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
@@ -282,7 +282,7 @@ Você pode excluir o arquivo '{1}' para corrigir o problema. Outras configuraç�
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Não foi possível habilitar a proteção contra gravação para '{0}'.</value>
+    <value>Não foi possível ativar a proteção contra escrita para "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -294,15 +294,15 @@ Você pode excluir o arquivo '{1}' para corrigir o problema. Outras configuraç�
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>A última linha do arquivo não é o final do bloco de assinatura.</value>
+    <value>A última linha do arquivo não é o fim do bloco de assinatura.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>A assinatura XML não inicia em uma nova linha.</value>
+    <value>A assinatura XML não começa em uma nova linha.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>A assinatura não é válida na base 64:</value>
+    <value>A assinatura não é compatível com o formato Base64:</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

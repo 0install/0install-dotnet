@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>Titik akses yang ada berikut ini saling bertentangan satu sama lain:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>Jalur akses berikut untuk aplikasi {0} saling bertentangan satu sama lain:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>Jalur akses yang ada saat ini {0} bertentangan dengan jalur akses yang baru {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>Aplikasi '{0}' sudah ada dalam daftar aplikasi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>Menerapkan perubahan</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Menerapkan integrasi desktop untuk {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>Tidak dapat menemukan aplikasi '{0}' dalam daftar aplikasi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>Anda hanya dapat melakukan satu operasi integrasi desktop dalam satu waktu.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>Nama '{0}' mengandung karakter yang tidak valid.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>Gunakan '0install central' atau '0install config' untuk mengatur Sinkronisasi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>Ada masalah saat memuat '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>Memperbaiki integrasi desktop</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>Nama pintasan '{0}' mengandung karakter yang tidak valid.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>Nama pengguna dan/atau kata sandi yang Anda masukkan untuk server Sinkronisasi salah. Periksa opsi sinkronisasi Anda.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Silakan periksa Opsi Sinkronisasi Anda.
+Anda dapat mengubah kunci kripto yang digunakan pada server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>Mengunduh data sinkronisasi</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>Data yang saat ini tersimpan di server Sync rusak.
+Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>Mengunggah data sinkronisasi</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>Tidak dapat menemukan {0} dengan ID '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>Tidak dapat mengganti eksekusi stub yang sudah basi '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

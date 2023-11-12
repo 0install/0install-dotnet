@@ -62,7 +62,7 @@
     <value>Feed: {0}
 - Assinatura válida de {1}
 - {2}
-Deseja confiar nesta chave para assinar feeds de '{3}'?
+Você deseja confiar nessa chave para assinar feeds de "{3}"?
 </value>
     <comment>Manually overriden.</comment>
   </data>
@@ -87,7 +87,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Erro ao salvar o banco de dados fiduciários</value>
+    <value>Erro ao salvar o banco de dados confiável</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -95,7 +95,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>O feed '{0}' não está no cache e o Zero Install está no modo off-line no momento.</value>
+    <value>O feed "{0}" não está armazenado em cache e o Zero Install está no modo offline.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -103,7 +103,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>O feed '{0}' não foi assinado com nenhuma chave confiável.</value>
+    <value>O feed "{0}" não foi assinado com uma chave confiável.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -119,7 +119,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema ao buscar '{0}'.</value>
+    <value>Não foi possível encontrar "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -139,7 +139,7 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não foi possível baixar {0} pois o Zero Install está no modo off-line.</value>
+    <value>Não foi possível fazer o download de {0} porque o Zero Install está no modo offline.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -155,10 +155,10 @@ Deseja confiar nesta chave para assinar feeds de '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>O feed baixado é mais antigo do que a versão já existente no cache. Continuaremos usando a versão mais recente.
+    <value>O feed baixado é mais antigo do que a versão armazenada em cache. A versão mais recente continuará sendo utilizada.
 URI do feed: {0}
-Tempo antigo: {1}
-Novo tempo: {2}</value>
+Registro de data/hora anterior: {1}
+Novo registro de data/hora: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
@@ -174,11 +174,11 @@ Novo tempo: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Não foi possível buscar as informações da chave para '{0}'.</value>
+    <value>Não foi possível analisar as informações da chave para "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Não foi possível recuperar as informações da chave para '{0}'.</value>
+    <value>Não foi possível recuperar as informações da chave para "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>Menyalin berkas</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>Direktori ini adalah cache implementasi. Berkas-berkas di sini dibuat hanya untuk dibaca dengan menggunakan izin sistem berkas. Hal ini membuat berkas tidak dapat dihapus secara normal.
+
+Jika Anda ingin menghapus satu implementasi, Anda dapat menggunakan baris perintah ini:
+{0}
+
+Jika Anda ingin menghapus keseluruhan direktori ini, Anda dapat menggunakan baris perintah ini:
+{1}
+
+Jika Anda ingin menghapus keseluruhan direktori ini tanpa menggunakan Zero Install, Anda dapat menggunakan baris perintah ini:
+{2}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>Cara menghapus</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>Menghapus direktori {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>Menghapus implementasi {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>Menghapus berkas yang sudah usang</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>Hash manifest implementasi tidak sesuai dengan nilai yang diharapkan.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>Nilai aktual: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>Manifest aktual: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>Nilai yang diharapkan: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>Manifest yang diharapkan: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>Kesalahan saat memuat bundel kunci OpenPGP dari '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Kesalahan saat memuat basis data kepercayaan. Kembali ke nilai default.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>Gagal membuka kunci berkas yang sedang digunakan di '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>Penggunaan cermin umpan, yang diperlukan untuk pencarian, dinonaktifkan.
+Jalankan '0install config feed_mirror default' untuk mengaktifkannya.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>Tidak dapat menemukan berkas atau direktori '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>Berkas yang ingin Anda hapus sedang digunakan.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>Apakah Anda ingin menutup aplikasi ini dan melanjutkan?</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>Aplikasi-aplikasi berikut ini perlu ditutup:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>Menemukan file duplikat di '{0}'</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>File '{0}' bukan merupakan tautan simbolis atau file biasa.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>Implementasi '{0}' sudah ada di toko.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>Implementasi '{0}' rusak.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>Apakah Anda ingin menghapusnya? Salinan baru akan secara otomatis diunduh lagi bila diperlukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>Jalankan '0install store hapus {0}' untuk menghapusnya. Salinan baru akan secara otomatis diunduh lagi bila diperlukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>Implementasi '{0}' tidak dapat ditemukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>Sistem berkas yang mendasarinya tidak menyimpan waktu perubahan berkas dengan akurasi yang memadai.
+Jika Anda menggunakan drive berformat FAT, harap ubah ke NTFS.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>Ikon yang dimuat dari {0} tidak valid{1}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>Tidak dapat mengunduh ikon dari {0} karena hanya URL HTTP dan HTTPS yang didukung.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>File manifes berisi baris yang tidak valid.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>Jumlah bagian yang tidak valid dalam barisan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>Arsip berisi jalur yang tidak valid (berpotensi menimbulkan risiko keamanan): {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>Tanda tangan tidak valid atau rusak.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>Hanya administrator yang dapat mengoptimalkan penyimpanan bersama.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>Hanya administrator yang dapat menghapus elemen dari toko bersama.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>Nama file atau direktori tidak boleh mengandung karakter baris baru.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Tidak dapat mengunduh {0} karena Zero Install dalam mode offline.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Tidak ada metode pencernaan yang diketahui yang ditentukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>Jalur '{0}' bukanlah jalur absolut. Jalur relatif hanya diperbolehkan dalam mode portabel.
+Ditentukan dalam file konfigurasi '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>Tidak ada versi yang dipilih</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>Zero Install tidak dapat menghapus dirinya sendiri dari cache implementasi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>Nilai angkanya terlalu besar.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>Opsi ini dikendalikan oleh kebijakan grup dan oleh karena itu tidak dapat dimodifikasi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>Ada masalah dalam mengakses implementation store '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>Ada masalah dalam mengakses implementation store '{0}'.
+Ditentukan dalam berkas konfigurasi '{1}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>Ada masalah saat memuat berkas konfigurasi.
+Anda dapat menghapus berkas '{0}' untuk memperbaiki masalah.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>Ada masalah saat memuat nilai konfigurasi ‘{0}'.
+Anda dapat menghapus berkas '{1}' untuk memperbaiki masalah. Pengaturan lainnya mungkin juga hilang.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>Membaca direktori ‘{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>File tanda tangan sudah ada.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>Tidak dapat membuat koneksi dengan StoreService.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>Direktori sementara</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>Tidak dapat menemukan kunci rahasia dengan nama yang ditentukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>Tidak dapat mengaktifkan proteksi tulis untuk '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>Antarmuka yang tidak dikenal.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>Kata sandi yang Anda masukkan salah.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>Baris terakhir dari berkas bukanlah akhir dari blok tanda tangan.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>Tanda tangan XML tidak dimulai pada baris baru.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>Tanda tangan tidak valid basis 64:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+</root>

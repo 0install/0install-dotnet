@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArchitectureStringFormat" xml:space="preserve">
+    <value>Řetězec musí být ve tvaru "{0}".</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandNotFound" xml:space="preserve">
+    <value>Nelze najít příkaz '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
+    <value>Chyba při načítání předvoleb krmiva pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
+    <value>Chyba při načítání předvoleb rozhraní pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotInCatalog" xml:space="preserve">
+    <value>V katalogu nelze najít zdroj '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FoundInstead" xml:space="preserve">
+    <value>Místo toho nalezeno:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotInSelection" xml:space="preserve">
+    <value>Ve výběru nelze najít implementaci pro rozhraní '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidFeedUri" xml:space="preserve">
+    <value>'{0}' není platný URI 'http(s):' a není ani platnou místní cestou.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
+    <value>Neplatný atribut '{0}' na adrese {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingXmlAttributeOnTag" xml:space="preserve">
+    <value>Chybějící atribut '{0}' na adrese {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingXmlTagInsideTag" xml:space="preserve">
+    <value>Chybějící značka {0} uvnitř {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeDottedList" xml:space="preserve">
+    <value>Seznam oddělený tečkami může obsahovat pouze desetinná čísla.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeValidVersionPart" xml:space="preserve">
+    <value>Číslo verze může obsahovat pouze desetinná místa oddělená tečkami a modifikující řetězce.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustStartWithDottedList" xml:space="preserve">
+    <value>Číslo verze musí začínat seznamem desetinných míst oddělených tečkami.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>Nebyla zadána žádná známá metoda zpracování.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RelativePathUnresolvable" xml:space="preserve">
+    <value>Relativní cestu '{0}' se nepodařilo vyřešit. Relativní cesty mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RelativeUriUnresolvable" xml:space="preserve">
+    <value>Relativní URI '{0}' se nepodařilo rozluštit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
+    <value>atribut 'rollout-percentage' na stránce {0} lze nastavit pouze tehdy, když je hodnota 'stability' 'testing' nebo není nastavena.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
+    <value>Chybná implementace</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteCommand" xml:space="preserve">
+    <value>Neposkytuje příkaz '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
+    <value>Nekompatibilní operační systém nebo procesor</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
+    <value>Nezabezpečené provádění</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
+    <value>Implementace není v mezipaměti (v současné době v režimu off-line)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteSource" xml:space="preserve">
+    <value>Nespustitelná zdrojová implementace</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
+    <value>Příliš stará nebo příliš nová verze implementace</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShouldBeMimeType" xml:space="preserve">
+    <value>Měl by to být platný typ MIME.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShouldBeSafeID" xml:space="preserve">
+    <value>Mělo by jít o bezpečnou identifikaci. Může obsahovat pouze alfanumerické znaky, mezery ( ), tečky (.), podtržítka (_), pomlčky (-) a znaménka plus (+).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToResolveRecipeReference" xml:space="preserve">
+    <value>Krok předpisu '{0}' v implementaci '{1}' má neplatný odkaz na implementaci.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownArchiveType" xml:space="preserve">
+    <value>Přípona souboru '{0}' neodpovídá známému typu archivu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnknownModifier" xml:space="preserve">
+    <value>Neznámý modifikátor.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="VersionRangeEndNotExclusive" xml:space="preserve">
+    <value>Konec rozsahu verzí musí být výlučný. Použijte '..!{0}', nikoli '..{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

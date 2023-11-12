@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyFiles" xml:space="preserve">
+    <value>파일 복사 중</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeleteInfoFileContent" xml:space="preserve">
+    <value>이 디렉토리는 구현 캐시입니다. 여기에 위치한 파일은 파일 시스템 권한을 사용하여 읽기 전용으로 설정되어 있습니다. 이에 따라 일반적인 방법으로는 삭제할 수 없습니다.
+
+단일 구현을 삭제하려면 다음 명령줄을 사용합니다.
+{0}
+
+이 디렉토리 전체를 삭제하려면 다음 명령줄을 사용합니다.
+{1}
+
+Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 다음 명령줄을 사용합니다.
+{2}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeleteInfoFileName" xml:space="preserve">
+    <value>삭제하는 방법</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingDirectory" xml:space="preserve">
+    <value>디렉토리 삭제 중 {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingImplementation" xml:space="preserve">
+    <value>구현 삭제 중 {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DeletingObsoleteFiles" xml:space="preserve">
+    <value>사용되지 않는 파일 삭제 중</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatch" xml:space="preserve">
+    <value>구현 매니페스트 해시가 예상 값과 일치하지 않습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchActualDigest" xml:space="preserve">
+    <value>실제 값: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchActualManifest" xml:space="preserve">
+    <value>실제 매니페스트: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchExpectedDigest" xml:space="preserve">
+    <value>예상 값: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DigestMismatchExpectedManifest" xml:space="preserve">
+    <value>예상 매니페스트: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ErrorLoadingKeyBundle" xml:space="preserve">
+    <value>'{0}' 에서 OpenPGP 키 번들을 로드하는 동안 오류가 발생했습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToUnlockFiles" xml:space="preserve">
+    <value>'{0}'에서 사용 중인 파일을 잠금 해제하지 못했습니다</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedMirrorDisabled" xml:space="preserve">
+    <value>검색에 필요한 피드 미러 사용이 비활성화됩니다.
+활성화하려면 '0install config feed_mirror default'를 실행하세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileOrDirNotFound" xml:space="preserve">
+    <value>파일 또는 디렉토리 '{0}'을(를) 찾을 수 없습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUse" xml:space="preserve">
+    <value>삭제하려는 파일이 현재 사용 중입니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUseAskClose" xml:space="preserve">
+    <value>이 애플리케이션을 닫고 계속하시겠습니까?</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FilesInUseInform" xml:space="preserve">
+    <value>다음 애플리케이션을 종료해야 합니다:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FindingDuplicateFiles" xml:space="preserve">
+    <value>'{0}' 에서 중복 파일 찾기</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IllegalFileType" xml:space="preserve">
+    <value>'{0}' 파일은 심볼릭 링크도 아니고 일반 파일도 아닙니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationAlreadyInStore" xml:space="preserve">
+    <value>'{0}' 구현은 이미 스토어에 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamaged" xml:space="preserve">
+    <value>구현 '{0}' 이 손상되었습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedAskRemove" xml:space="preserve">
+    <value>삭제하시겠습니까? 필요할 때 새 사본이 자동으로 다시 다운로드됩니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
+    <value>'0install store remove {0}'를 실행하여 제거합니다. 필요한 경우 새 사본이 자동으로 다시 다운로드됩니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImplementationNotFound" xml:space="preserve">
+    <value>구현 '{0}' 을(를) 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
+    <value>기본 파일 시스템은 각 파일의 정확한 수정 시간을 저장하지 않습니다.
+FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidIcon" xml:space="preserve">
+    <value>{0}에서 로드한 아이콘은 유효한 {1} 형식이 아닙니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidIconUrl" xml:space="preserve">
+    <value>HTTP 및 HTTPS URL만 지원되므로 {0} 에서 아이콘을 다운로드할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidLinesInManifest" xml:space="preserve">
+    <value>매니페스트 파일에 잘못된 줄이 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidNumberOfLineParts" xml:space="preserve">
+    <value>줄에 있는 부품 수가 잘못되었습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidPath" xml:space="preserve">
+    <value>아카이브에 잘못된 경로(잠재적으로 보안 위험)가 포함되어 있습니다: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidSignature" xml:space="preserve">
+    <value>서명이 유효하지 않거나 손상되었습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="MustBeAdminToOptimise" xml:space="preserve">
+    <value>관리자만 공유 스토어를 최적화할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MustBeAdminToRemove" xml:space="preserve">
+    <value>관리자만 공유 스토어에서 요소를 제거할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NewlineInName" xml:space="preserve">
+    <value>파일 또는 디렉터리 이름에 개행 문자가 포함되어서는 안 됩니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Zero Install이 오프라인 모드이므로 {0}을(를) 다운로드할 수 없습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoKnownDigestMethod" xml:space="preserve">
+    <value>알려진 다이제스트 방법이 지정되지 않았습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NonRootedPathInConfig" xml:space="preserve">
+    <value>'{0}' 경로는 절대 경로가 아닙니다. 상대 경로는 휴대용 모드에서만 허용됩니다.
+구성 파일 '{1}' 에 지정됩니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoSelectedVersion" xml:space="preserve">
+    <value>선택한 버전 없음</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoStoreSelfRemove" xml:space="preserve">
+    <value>제로 인스톨은 구현 캐시에서 스스로를 제거할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NumberTooLarge" xml:space="preserve">
+    <value>숫자 값이 너무 큽니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionLockedByPolicy" xml:space="preserve">
+    <value>이 옵션은 그룹 정책에 의해 제어되므로 수정할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemAccessingStore" xml:space="preserve">
+    <value>구현 스토어 '{0}'에 액세스하는 데 문제가 발생했습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemAccessingStoreEx" xml:space="preserve">
+    <value>구현 스토어 '{0}'에 액세스하는 데 문제가 발생했습니다.
+구성 파일 '{1}'에 지정되어 있음.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemLoadingConfigFile" xml:space="preserve">
+    <value>구성 파일 로드 중에 문제가 발생했습니다.
+'{0}' 파일을 삭제하여 문제를 해결할 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ProblemLoadingConfigValue" xml:space="preserve">
+    <value>'{0}' 구성 값 로드 중에 문제가 발생했습니다.
+'{1}' 파일을 삭제하여 문제를 해결할 수 있습니다. 다른 설정도 손실될 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ReadDirectory" xml:space="preserve">
+    <value>디렉토리 ‘{0}' 삭제 중</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="SignatureAlreadyExists" xml:space="preserve">
+    <value>서명 파일이 이미 존재합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="StoreServiceCommunicationProblem" xml:space="preserve">
+    <value>StoreService와 연결할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TemporaryDirectories" xml:space="preserve">
+    <value>임시 디렉토리</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindSecretKey" xml:space="preserve">
+    <value>지정한 이름의 비밀 키를 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToWriteProtect" xml:space="preserve">
+    <value>'{0}'에 대한 기록 보호를 활성화할 수 없습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnknownInterface" xml:space="preserve">
+    <value>알 수 없는 인터페이스.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WrongPassphrase" xml:space="preserve">
+    <value>입력한 비밀번호가 올바르지 않습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="XmlSignatureInvalidEnd" xml:space="preserve">
+    <value>파일의 마지막 줄이 서명 블록의 끝이 아닙니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="XmlSignatureMissingNewLine" xml:space="preserve">
+    <value>XML 서명이 새 줄에서 시작되지 않습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="XmlSignatureNotBase64" xml:space="preserve">
+    <value>서명이 유효한 Base64가 아닙니다:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+</root>

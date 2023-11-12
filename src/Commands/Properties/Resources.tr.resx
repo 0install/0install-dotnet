@@ -75,12 +75,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
-    <value>Gereken tüm bileşenler indirildi.</value>
+    <value>Gerekli olan tüm bileşenler indirildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>{0} çalıştırmak için gerekli tüm bileşenler '{1}' üzerine dışa aktarıldı.
-İçe aktarma betiği ya da '{1}' içindeki Bootstrap dosyası ile bu dosyaları başka bir bilgisayar içine aktarabilirsiniz.</value>
+    <value>{0}'i çalıştırmak için gereken tüm bileşenler '{1}' konumuna aktarıldı.
+Bu dosyaları başka bir bilgisayara aktarmak için '{1}' konumundaki içe aktarma betiğini veya Bootstrap yürütülebilir dosyasını kullanabilirsin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -150,7 +150,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>Bulunan değişiklikler</value>
+    <value>Değişiklikler bulundu</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
@@ -416,7 +416,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnızca belirli bir ETKİ ALANI için bırakır. </value>
+    <value>Belirli bir PARMAK İZİ ile imzalanmış akışlara güvenmeyi bırakır. Belirtilmiş ise güvenmeyi yalnızca belirli bir ETKİ ALANI için bırakır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -429,15 +429,15 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Masaüstü bütünleştirmesi</value>
+    <value>Masaüstü entegrasyonu</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Masaüstü bütünleştirmesi uygulanıyor</value>
+    <value>Masaüstü entegrasyonu uygulanıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Masaüstü bütünleştirmesi kaldırılıyor</value>
+    <value>Masaüstü entegrasyonu kaldırılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -445,7 +445,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
-    <value>Tamamlandı</value>
+    <value>Bitti</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
@@ -469,7 +469,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Dışa aktarma işlemi tamamlandı.</value>
+    <value>Dışa aktarma tamamlandı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
@@ -509,7 +509,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>'{0}' dosya ya da klasörü bulunamadı.</value>
+    <value>Dosya veya '{0}' dizini bulunamıyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
@@ -526,7 +526,7 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Zero Install depo hizmeti başlatılıyor</value>
+    <value>Zero Install Store Hizmeti yükleniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
@@ -583,7 +583,7 @@ Bu yazılımın kopyaları GNU Kısıtlı Genel Kamu Lisansı koşullarına bağ
     <comment>Manually overriden.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
-    <value>Tüm Zero Install aşamalarının tamamlanması bekleniyor...</value>
+    <value>Tüm Zero Install aşamalarının tamamlanması bekleniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
@@ -858,7 +858,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Sil</value>
+    <value>Kaldır</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
@@ -874,7 +874,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>Eski uyarlamalar siliniyor</value>
+    <value>Güncel olmayan uygulamalar kaldırılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
@@ -894,7 +894,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Daha hızlı uygulama başlatımı için .NET ön derlemesi yapılıyor</value>
+    <value>Uygulamalar daha hızlı açılsın diye .NET derlemeleri önceden derleniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
@@ -906,7 +906,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklardan kaçınılmalıdır.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Zero Install v{0} güncellemesi yayınlanmış. Şimdi kurulsun mu?</value>
+    <value>Zero Install v{0} için bir güncelleme mevcut. Şimdi yüklensin mi?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
@@ -935,11 +935,11 @@ Etkinleştirmek için '0install config self_update_uri default' komutunu kullan�
     <comment>Manually overriden.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Zero Install depo hizmeti başlatılıyor</value>
+    <value>Zero Install Store Hizmeti başlatılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Zero Install depo hizmeti durduruluyor</value>
+    <value>Zero Install Store Hizmeti durduruluyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
@@ -984,7 +984,7 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Zero Install depo hizmeti kaldırılıyor</value>
+    <value>Zero Install Store Hizmeti kaldırılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
@@ -1016,7 +1016,7 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">
-    <value>Sürüm bilgileri</value>
+    <value>Sürüm bilgisi</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">

@@ -60,15 +60,15 @@
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>Het archiefbestand is ongeldig of beschadigd.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Archief '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Archief uitpakken</value>
-    <comment>Automatically translated.</comment>
+    <value>Archief wordt geëxtraheerd</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>Het uitpakken van dit archieftype wordt alleen ondersteund op macOS.</value>

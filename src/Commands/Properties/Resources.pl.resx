@@ -76,12 +76,12 @@
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
     <value>Wszystkie wymagane komponenty zostały pobrane.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Wszystkie komponenty wymagane do uruchomienia {0} zostały wyeksportowane do '{1}'.
-Możesz użyć skryptu importu lub pliku wykonywalnego Bootstrap w '{1}', aby zaimportować te pliki na inny komputer.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wszystkie komponenty wymagane do uruchomienia {0} zostały wyeksportowane do „{1}”.
+Aby zaimportować te pliki na inny komputer, możesz użyć skryptu importu albo pliku wykonywalnego Bootstrap znajdującego się w „{1}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' znajduje się już na liście niestandardowych pamięci podręcznych implementacji.</value>
@@ -127,7 +127,7 @@ Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcj
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Możliwości aplikacji '{0}' uległy zmianie.</value>
@@ -146,12 +146,12 @@ Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcj
     <comment>Automatically translated.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Zmiana</value>
-    <comment>Automatically translated.</comment>
+    <value>Zmień</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>Stwierdzone zmiany</value>
-    <comment>Automatically translated.</comment>
+    <value>Znaleziono aktualizacje</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Kliknij tutaj, aby wybrać.</value>
@@ -167,7 +167,7 @@ Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcj
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Konfiguracja</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Czy chcesz usunąć wszystkie pliki aplikacji z pamięci podręcznej Zero Install?
@@ -176,7 +176,7 @@ W razie potrzeby pliki te można pobrać ponownie.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiegnie to pozostaniu wpisów w menu po usunięciu Zero Install.
-Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".</value>
+Możesz utworzyć kopię zapasową tej listy za pomocą "0install sync".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -429,16 +429,16 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Integracja z komputerami stacjonarnymi</value>
-    <comment>Automatically translated.</comment>
+    <value>Skrót na pulpicie</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Stosowanie integracji pulpitu</value>
-    <comment>Automatically translated.</comment>
+    <value>Tworzenie skrótu na pulpicie</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Usuwanie integracji pulpitu</value>
-    <comment>Automatically translated.</comment>
+    <value>Usuwanie skrótu na pulpicie</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Wyszukiwanie w sieci lokalnej</value>
@@ -446,11 +446,11 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
   </data>
   <data name="Done" xml:space="preserve">
     <value>Gotowe</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
-    <value>Pobierz w całości</value>
-    <comment>Automatically translated.</comment>
+    <value>Pobieranie zakończone</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
     <value>Wprowadź adres URL lub lokalną ścieżkę pliku katalogu kanałów do dodania:</value>
@@ -470,7 +470,7 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
   </data>
   <data name="ExportComplete" xml:space="preserve">
     <value>Eksport zakończony.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
     <value>Kanał został już zarejestrowany dla wszystkich odpowiednich interfejsów.</value>
@@ -509,8 +509,8 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nie można znaleźć pliku lub katalogu '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się znaleźć pliku ani katalogu '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
     <value>W przypadku ścieżek bezwzględnych należy używać file:///path, a nie file:/path.</value>
@@ -518,7 +518,7 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że wypisuj
   </data>
   <data name="Hide" xml:space="preserve">
     <value>Ukryj</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>Ten kanał nie wydaje się być przeznaczony dla tej samej aplikacji. Czy mimo to można go dodać?
@@ -526,8 +526,8 @@ Znacznik &lt;feed-for&gt; wskazuje kompatybilność kanału.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Instalacja usługi Zero Install Store Service</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa instalowanie Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>Integracja {0}</value>
@@ -558,7 +558,7 @@ Znacznik &lt;feed-for&gt; wskazuje kompatybilność kanału.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Ten program nie jest objęty ABSOLUTNIE ŻADNĄ GWARANCJĄ w zakresie dozwolonym przez prawo.
+    <value>Niniejszy program nie jest objęty ABSOLUTNIE ŻADNĄ GWARANCJĄ w zakresie dozwolonym przez prawo.
 Kopie tego programu można rozpowszechniać na warunkach licencji GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -632,8 +632,8 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
-    <value>Nie znaleziono żadnych aktualizacji</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie znaleziono aktualizacji</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
     <value>Otwórz w menedżerze plików</value>
@@ -858,8 +858,8 @@ Może zawierać argumenty wiersza poleceń. Białe znaki muszą być pomijane!</
     <comment>Automatically translated.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Usunąć</value>
-    <comment>Automatically translated.</comment>
+    <value>Usuń</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
     <value>Czy chcesz usunąć zaznaczone klucze {0} z listy?</value>
@@ -874,8 +874,8 @@ Może zawierać argumenty wiersza poleceń. Białe znaki muszą być pomijane!</
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>Usuwanie przestarzałych implementacji</value>
-    <comment>Automatically translated.</comment>
+    <value>Usuwanie nieaktualnych implementacji</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>Może być konieczne zamknięcie i ponowne otwarcie terminala, aby to zadziałało.</value>
@@ -894,8 +894,8 @@ Może zawierać argumenty wiersza poleceń. Białe znaki muszą być pomijane!</
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Wstępna kompilacja złożeń .NET w celu szybszego uruchamiania aplikacji</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa wstępna kompilacja zespołów .NET w celu szybszego uruchamiania aplikacji</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>Wybrane implementacje</value>
@@ -906,8 +906,8 @@ Może zawierać argumenty wiersza poleceń. Białe znaki muszą być pomijane!</
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Dostępna jest aktualizacja Zero Install v{0}. Zainstalować teraz?</value>
-    <comment>Automatically translated.</comment>
+    <value>Dostępna jest aktualizacja Zero Install do wersji {0}. Zainstalować teraz?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Ta instancja Zero Install nie została wdrożona. Dlatego nie może się zaktualizować.</value>
@@ -935,12 +935,12 @@ Uruchom "0install config self_update_uri default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Uruchamianie usługi Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa uruchamianie Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Zatrzymywanie usługi Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa zatrzymywanie Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} odzyskana przestrzeń magazynowa.</value>
@@ -984,8 +984,8 @@ Klucz ten powinien być tajny, a hasło powinno być inne. W ten sposób nikt ni
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Odinstalowywanie usługi Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa dezinstalacja Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Nieznane polecenie '{0}'.</value>
@@ -1016,11 +1016,11 @@ Klucz ten powinien być tajny, a hasło powinno być inne. W ten sposób nikt ni
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">
-    <value>Informacje o wersji</value>
-    <comment>Automatically translated.</comment>
+    <value>Informacja o wersji</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Praca</value>
-    <comment>Automatically translated.</comment>
+    <value>W toku</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

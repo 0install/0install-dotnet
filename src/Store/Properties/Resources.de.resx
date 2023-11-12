@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Kopieren von Dateien</value>
+    <value>Dateien werden kopiert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Dieses Verzeichnis ist ein Implementierungscache. Die Dateien hier sind durch Dateisystemberechtigungen schreibgeschützt. Dies verhindert, dass man sie normal löschen kann.
+    <value>Dieses Verzeichnis ist ein Implementierungscache. Die hier befindlichen Dateien sind durch Dateisystemberechtigungen schreibgeschützt. Dadurch können sie nicht auf herkömmliche Weise gelöscht werden.
 
-Wenn Sie eine einzelne Implementierung löschen möchten, können Sie diese Befehlszeile verwenden:
+Wenn Sie eine einzelne Implementierung löschen möchten, geben Sie folgenden Befehl in die Befehlszeile ein:
 {0}
 
-Wenn Sie dieses gesamte Verzeichnis löschen möchten, können Sie diese Befehlszeile verwenden:
+Wenn Sie das gesamte Verzeichnis löschen möchten, verwenden Sie diesen Befehl:
 {1}
 
-Wenn Sie dieses gesamte Verzeichnis löschen möchten, ohne Zero Install zu verwenden, können Sie diese Befehlszeile verwenden:
+Wenn Sie das gesamte Verzeichnis ohne Zero Install löschen möchten, verwenden Sie diesen Befehl:
 {2}</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -80,19 +80,19 @@ Wenn Sie dieses gesamte Verzeichnis löschen möchten, ohne Zero Install zu verw
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Verzeichnis {0} löschen</value>
+    <value>Verzeichnis {0} wird gelöscht</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Löschen der Implementierung {0}</value>
+    <value>Implementierung {0} wird gelöscht</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Löschen veralteter Dateien</value>
+    <value>Nicht mehr benötigte Dateien werden gelöscht</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Der Hash-Wert des Manifests einer Implementierung stimmt nicht mit dem erwarteten Wert überein.</value>
+    <value>Der Manifest-Hash einer Implementierung stimmt nicht mit dem erwarteten Wert überein.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -120,7 +120,7 @@ Wenn Sie dieses gesamte Verzeichnis löschen möchten, ohne Zero Install zu verw
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Entsperrung der verwendeten Dateien in '{0}' fehlgeschlagen</value>
+    <value>Aktuell verwendete Dateien in '{0}' konnten nicht entsperrt werden</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -133,15 +133,15 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Die Dateien, die Sie löschen möchten, sind derzeit in Gebrauch.</value>
+    <value>Die zu löschenden Dateien werden gerade von einem anderen Programm verwendet.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Möchten Sie diese Anwendungen beendet und fortfahren?</value>
+    <value>Möchten Sie die Anwendungen schließen und fortfahren?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Folgende Anwendungen müssen beendet werden:</value>
+    <value>Die folgenden Anwendungen müssen geschlossen werden:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -173,12 +173,12 @@ Führen Sie '0install config feed_mirror default' aus, um ihn zu aktivieren.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Das zugrunde liegende Dateisystem speichert die Datei-Änderungszeiten nicht mit ausreichender Genauigkeit.
-Wenn Sie ein FAT-formatiertes Laufwerk verwenden, konvertieren Sie es bitte zu NTFS.</value>
+    <value>Das zugrunde liegende Dateisystem speichert nicht den genauen Änderungszeitpunkt der jeweiligen Dateien.
+Wenn Sie ein mit FAT formatiertes Laufwerk verwenden, konvertieren Sie es bitte in NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Das von {0} geladene Symbol ist kein gültiges {1}.</value>
+    <value>Das von {0} geladene Symbol entspricht nicht dem Format '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
@@ -243,26 +243,26 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.</value>
+    <value>Auf den Implementierungsspeicher '{0}' konnte nicht zugegriffen werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Es gab ein Problem beim Zugriff auf den Implementierungs-Store '{0}'.
-Festgelegt in der Konfigurationsdatei '{1}'.</value>
+    <value>Auf den Implementierungsspeicher '{0}' konnte nicht zugegriffen werden.
+Mehr Informationen finden Sie in der Konfigurationsdatei '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>Es gab ein Problem beim Laden einer Konfigurationsdatei.
+    <value>Konfigurationsdatei konnte nicht geladen werden.
 Sie können die Datei '{0}' löschen, um das Problem zu beheben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Es gab ein Problem beim Laden des Konfigurationswertes '{0}'.
-Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstellungen können ebenfalls verloren gehen.</value>
+    <value>Der Konfigurationswert '{0}' konnte nicht geladen werden.
+Sie können die Datei '{1}' löschen, um das Problem zu beheben. Auch andere Einstellungen können dabei verloren gehen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Lese Verzeichnis '{0}'</value>
+    <value>Das Verzeichnis '{0}' wird gelesen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
@@ -302,7 +302,7 @@ Sie können die Datei '{1}' löschen, um das Problem zu beheben. Andere Einstell
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Die Signatur ist nicht gültiges Base 64:</value>
+    <value>Die Signatur entspricht nicht dem Base64-Format:</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

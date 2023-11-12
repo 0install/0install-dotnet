@@ -59,57 +59,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>ファイルのコピー</value>
-    <comment>Automatically translated.</comment>
+    <value>複数のファイルをコピー中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>このディレクトリは実装キャッシュである。ここにあるファイルは、ファイルシステムのパーミッションを使って読み取り専用になっています。このため、普通に削除することはできません。
+    <value>このディレクトリは実装されたキャッシュを示しています。ここにあるファイルは読み取り専用で、ファイルパーミッションにより保護されています。したがって、通常の方法では削除できません。
 
-単一の実装を削除したい場合は、このコマンドラインを使用できます：
+単一の実装を削除するには、次のコマンドラインを使用します。
 {0}
 
-このディレクトリ全体を削除したい場合は、このコマンドラインを使ってください：
+このディレクトリ全体を削除するには、次のコマンドラインを使用します。
 {1}
 
-ゼロインストールを使用せずにディレクトリ全体を削除したい場合は、このコマンドラインを使用します：
+このディレクトリ全体をZero Installを使用せず削除するには、次のコマンドラインを使用します。
 {2}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
     <value>削除方法</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>ディレクトリの削除{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>ディレクトリを削除中 {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>実装の削除{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>実装を削除中 {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>廃止されたファイルの削除</value>
-    <comment>Automatically translated.</comment>
+    <value>不要なファイルを削除中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>実装のマニフェスト・ハッシュが期待値と一致しない。</value>
-    <comment>Automatically translated.</comment>
+    <value>実装のマニフェストのハッシュが期待値と一致しません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>実際の値：{0}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>実際のマニフェスト{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>実際のマニフェスト：{0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>期待値：{0}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>期待されるマニフェスト{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>期待のマニフェスト：{0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
     <value>{0}' からのOpenPGPキーバンドルの読み込みエラー</value>
@@ -120,8 +120,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>{0}' の使用中ファイルのロック解除に失敗しました。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」で使用中のファイルのロック解除に失敗しました</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>検索に必要なフィードミラーの使用が無効になっています。
@@ -129,20 +129,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>ファイルまたはディレクトリ '{0}' が見つかりません。</value>
-    <comment>Automatically translated.</comment>
+    <value>ファイルまたはディレクトリ「{0}」が見つかりません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>削除したいファイルは現在使用中です。</value>
-    <comment>Automatically translated.</comment>
+    <value>削除しようとしているファイルは現在使用中です。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>これらのアプリケーションを閉じて続行しますか？</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>以下の申し込みは締め切る必要がある：</value>
-    <comment>Automatically translated.</comment>
+    <value>次のアプリケーションを閉じる必要があります：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>{0}' の重複ファイルの検索</value>
@@ -173,13 +173,13 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>基礎となるファイルシステムは、ファイルの変更時間を十分な精度で保存しません。
-FATフォーマットのドライブを使用している場合は、NTFSに変換してください。</value>
-    <comment>Automatically translated.</comment>
+    <value>基礎となるファイルシステムは、各ファイルの正確な更新時刻を保存しません。
+FAT形式のドライブを使用している場合は、NTFSに変換してください。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>{0} から読み込まれたアイコンは、有効な{1} ではありません。</value>
-    <comment>Automatically translated.</comment>
+    <value>{0}から読み込まれたアイコンは、有効な{1}形式ではありません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
     <value>HTTP および HTTPS URL のみがサポートされているため、{0} からアイコンをダウンロードできません。</value>
@@ -198,8 +198,8 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>署名が無効または破損している。</value>
-    <comment>Automatically translated.</comment>
+    <value>署名が無効であるか破損しています。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>共有ストアを最適化できるのは管理者だけです。</value>
@@ -214,8 +214,8 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Zero Install がオフラインモードになっているため、{0} をダウンロードできません。</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Installがオフラインモードのため、{0}をダウンロードできません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>既知のダイジェスト法は指定されていない。</value>
@@ -243,27 +243,27 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>実装ストア '{0}' へのアクセスに問題が発生しました。</value>
-    <comment>Automatically translated.</comment>
+    <value>実装されたストア「{0}」へのアクセスに問題が発生しました。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>実装ストア '{0}' へのアクセスに問題がありました。
-設定ファイル '{1}' で指定されています。</value>
-    <comment>Automatically translated.</comment>
+    <value>実装されたストア「{0}」へのアクセスに問題が発生しました。
+構成ファイル「{1}」で指定されています。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>設定ファイルの読み込みに問題がありました。
-{0}' ファイルを削除することで問題を解決できます。</value>
-    <comment>Automatically translated.</comment>
+    <value>構成ファイルの読み込み時に問題が発生しました。
+ファイル「{0}」を削除すると問題を解決できます。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>設定値 '{0}' の読み込みに問題がありました。
-{1}' ファイルを削除することで問題を解決できます。他の設定も失われる可能性があります。</value>
-    <comment>Automatically translated.</comment>
+    <value>設定値「{0}」の読み込み時に問題が発生しました。
+ファイル「{1}」を削除すると問題を解決できます。他の設定も失われる可能性があります。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>読書ディレクトリ '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>ディレクトリ「{0}」を読み込み中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>署名ファイルはすでに存在します。</value>
@@ -282,8 +282,8 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>{0}' の書き込み保護を有効にできません。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」の書き込み禁止を有効化できません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>不明なインターフェース。</value>
@@ -294,15 +294,15 @@ FATフォーマットのドライブを使用している場合は、NTFSに変�
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>ファイルの最終行は署名ブロックの終わりではない。</value>
-    <comment>Automatically translated.</comment>
+    <value>ファイルの最終行は署名ブロックの終わりではありません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>XML署名は改行で始まらない。</value>
-    <comment>Automatically translated.</comment>
+    <value>XML署名は改行されません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>署名は有効なベース64ではない：</value>
-    <comment>Automatically translated.</comment>
+    <value>署名が有効なBase64ではありません：</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

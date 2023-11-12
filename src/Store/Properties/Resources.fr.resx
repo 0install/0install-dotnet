@@ -59,33 +59,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Copie des fichiers</value>
+    <value>Copie de fichiers</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Ce répertoire est un cache de mise en œuvre. Les fichiers qui s'y trouvent sont en lecture seule grâce aux autorisations du système de fichiers. Cela les empêche d'être supprimés normalement.
+    <value>Ce répertoire est un cache où sont sauvegardées les implémentations. Les fichiers qu'il contient sont en lecture seule afin d'empêcher qu'ils ne soient supprimés de la manière habituelle.
 
-Si vous souhaitez supprimer une seule implémentation, vous pouvez utiliser cette ligne de commande :
+Pour supprimer une implémentation en particulier, veuillez utiliser cette ligne de commande :
 {0}
 
-Si vous souhaitez supprimer un répertoire entier, vous pouvez utiliser cette ligne de commande :
+Pour supprimer l'intégralité du répertoire, veuillez utiliser cette ligne de commande :
 {1}
 
-Si vous souhaitez supprimer ce répertoire entier sans utiliser Zero Install, vous pouvez utiliser cette ligne de commande :
+Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veuillez utiliser cette ligne de commande :
 {2}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Comment supprimer</value>
-    <comment>Automatically translated.</comment>
+    <value>Suppression</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Suppression du dossier {0}</value>
+    <value>Suppression du répertoire {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Suppression de la mise en œuvre {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Suppression de l'implémentation {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
     <value>Suppression des fichiers obsolètes</value>
@@ -93,23 +93,23 @@ Si vous souhaitez supprimer ce répertoire entier sans utiliser Zero Install, vo
   </data>
   <data name="DigestMismatch" xml:space="preserve">
     <value>Le hachage du manifeste d'une implémentation ne correspond pas à la valeur attendue.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valeur actuelle: {0}</value>
+    <value>Valeur réelle : {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifeste actuel : {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifeste réel : {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valeur attendue: {0}</value>
+    <value>Valeur attendue : {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
     <value>Manifeste attendu : {0}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
     <value>Erreur lors du chargement du paquet de clés OpenPGP à partir de '{0}'</value>
@@ -121,7 +121,7 @@ Si vous souhaitez supprimer ce répertoire entier sans utiliser Zero Install, vo
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Échec du déverrouillage des fichiers en cours d'utilisation dans '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>L'utilisation du miroir de flux, qui est nécessaire pour la recherche, est désactivée.
@@ -129,15 +129,15 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Impossible de trouver le fichier ou répertoire '{0}'.</value>
+    <value>Impossible de trouver le fichier ou le répertoire '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Les fichiers que vous souhaitez supprimer sont en cours d'utilisation.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Vous voulez fermer ces applications et continuer ?</value>
+    <value>Souhaitez-vous fermer ces applications et continuer ?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
@@ -173,13 +173,13 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Le système de fichiers sous-jacent ne stocke pas les temps de modification des fichiers avec suffisamment de précision.
+    <value>Le système de fichiers n'enregistre pas les heures de modification des fichiers avec une précision suffisante.
 Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>L'icône chargée à partir de {0} n'est pas valide {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>L'icône chargée à partir de {0} n'est pas une {1} valide.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
     <value>Impossible de télécharger l'icône à partir de {0} car seules les URL HTTP et HTTPS sont prises en charge.</value>
@@ -198,7 +198,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>La signature est non valable ou endommagée.</value>
+    <value>La signature est invalide ou endommagée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
@@ -215,7 +215,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Impossible de télécharger {0} car Zero Install est en mode hors ligne.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Aucune méthode de digestion connue n'a été spécifiée.</value>
@@ -243,27 +243,27 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Il y a eu un problème d'accès au magasin d'implémentation '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Il y a eu un problème d'accès au magasin d'implémentation '{0}'.
+    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.
 Spécifié dans le fichier de configuration '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>Il y a eu un problème lors du chargement d'un fichier de configuration.
+    <value>Problème lors du chargement d'un fichier de configuration.
 Vous pouvez supprimer le fichier '{0}' pour résoudre le problème.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Il y a eu un problème de chargement de la valeur de configuration '{0}'.
-Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres paramètres peuvent également être perdus.</value>
-    <comment>Automatically translated.</comment>
+    <value>Problème lors du chargement de la valeur de configuration '{0}'.
+Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres paramètres seront peut-être également supprimés.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Répertoire de lecture '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Lecture du répertoire '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Le fichier de signature existe déjà.</value>
@@ -282,8 +282,8 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Impossible d'activer la protection en écriture pour '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible d'activer la lecture seule pour '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Interface inconnue.</value>
@@ -294,15 +294,15 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>La dernière ligne du fichier n'est pas la fin du bloc de signature.</value>
-    <comment>Automatically translated.</comment>
+    <value>La dernière ligne du fichier ne correspond pas à la fin du bloc de signature.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
     <value>La signature XML ne commence pas sur une nouvelle ligne.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>La signature n'est pas valide en base 64 :</value>
-    <comment>Automatically translated.</comment>
+    <value>La signature n'est pas une base 64 valable :</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>
