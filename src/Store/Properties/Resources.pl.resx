@@ -60,68 +60,68 @@
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
     <value>Kopiowanie plików</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Ten katalog jest pamięcią podręczną implementacji. Pliki tutaj są tylko do odczytu przy użyciu uprawnień systemu plików. Zapobiega to ich normalnemu usunięciu.
+    <value>Ten katalog stanowi pamięć podręczną implementacji. Uprawnienia systemu plików zostały zmienione tak, aby znajdujące się tutaj pliki były tylko do odczytu. Uniemożliwia to ich normalne usunięcie.
 
-Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć pojedynczy katalog, możesz użyć tego wiersza poleceń:
 {0}
 
 Jeśli chcesz usunąć cały katalog, możesz użyć tego wiersza poleceń:
 {1}
 
-Jeśli chcesz usunąć cały ten katalog bez użycia Zero Install, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć tego wiersza poleceń:
 {2}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Jak usunąć</value>
-    <comment>Automatically translated.</comment>
+    <value>Instrukcja usunięcia</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Usuwanie katalogu {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa usuwanie katalogu {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Usuwanie implementacji {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa usuwanie implementacji {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
-    <value>Usuwanie przestarzałych plików</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa usuwanie zbędnych plików</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Hash manifestu implementacji nie odpowiada oczekiwanej wartości.</value>
-    <comment>Automatically translated.</comment>
+    <value>Skrót manifestu implementacji nie odpowiada oczekiwanej wartości.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
     <value>Wartość rzeczywista: {0}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Rzeczywista manifestacja: {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifest rzeczywisty: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>Wartość oczekiwana: {0}</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Oczekiwana manifestacja: {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifest oczekiwany: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
     <value>Błąd ładowania pakietu kluczy OpenPGP z '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Błąd ładowania bazy danych zaufania. Przywrócenie wartości domyślnych.</value>
+    <value>Błąd ładowania bazy danych zaufania. Przywrócono wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Nie udało się odblokować używanych plików w '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się odblokować używanych plików w „{0}”</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Korzystanie z feed mirror, który jest wymagany do wyszukiwania, jest wyłączone.
@@ -129,20 +129,20 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nie można znaleźć pliku lub katalogu '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się znaleźć pliku ani katalogu „{0}”</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
     <value>Pliki, które chcesz usunąć, są obecnie używane.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
     <value>Czy chcesz zamknąć te aplikacje i kontynuować?</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Następujące aplikacje muszą zostać zamknięte:</value>
-    <comment>Automatically translated.</comment>
+    <value>Należy zamknąć następujące aplikacje:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
     <value>Znajdowanie duplikatów plików w '{0}'</value>
@@ -173,13 +173,13 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Podstawowy system plików nie przechowuje czasów zmiany plików z wystarczającą dokładnością.
+    <value>Bazowy system plików nie przechowuje czasów modyfikacji plików z wystarczającą dokładnością.
 Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Ikona załadowana z {0} nie jest prawidłową ikoną {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ikona załadowana z {0} nie odpowiada formatowi {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
     <value>Nie można pobrać ikony ze strony {0}, ponieważ obsługiwane są tylko adresy URL HTTP i HTTPS.</value>
@@ -198,8 +198,8 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
-    <value>Podpis jest nieprawidłowy lub uszkodzony.</value>
-    <comment>Automatically translated.</comment>
+    <value>Podpis jest nieważny lub uszkodzony.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Tylko administratorzy mogą optymalizować współdzielony sklep.</value>
@@ -215,7 +215,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Nie można pobrać {0}, ponieważ Zero Install działa w trybie offline.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Nie określono żadnej znanej metody skrótu.</value>
@@ -243,27 +243,27 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił problem z dostępem do magazynu implementacji „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji '{0}'.
-Określony w pliku konfiguracyjnym '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił problem z dostępem do magazynu implementacji „{0}”.
+Więcej informacji znajduje się w pliku konfiguracyjnym „{1}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem pliku konfiguracyjnego.
-Możesz usunąć plik '{0}', aby rozwiązać problem.</value>
-    <comment>Automatically translated.</comment>
+Aby rozwiązać ten problem, usuń plik „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Wystąpił problem z załadowaniem wartości konfiguracyjnej '{0}'.
-Możesz usunąć plik '{1}', aby rozwiązać problem. Inne ustawienia również mogą zostać utracone.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił problem z załadowaniem wartości konfiguracyjnej „{0}”.
+Aby rozwiązać ten problem, usuń plik „{1}”. Inne ustawienia mogą również zostać utracone.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Katalog czytelniczy '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Trwa odczyt katalogu {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Plik podpisu już istnieje.</value>
@@ -282,8 +282,8 @@ Możesz usunąć plik '{1}', aby rozwiązać problem. Inne ustawienia również 
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Nie można włączyć ochrony przed zapisem dla '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie można włączyć zabezpieczenia przed zapisem dla „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
     <value>Nieznany interfejs.</value>
@@ -294,15 +294,15 @@ Możesz usunąć plik '{1}', aby rozwiązać problem. Inne ustawienia również 
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>Ostatnia linia pliku nie jest końcem bloku podpisu.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ostatnia linia pliku nie stanowi końca bloku podpisu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
     <value>Podpis XML nie rozpoczyna się w nowej linii.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Podpis nie jest prawidłowy dla bazy 64:</value>
-    <comment>Automatically translated.</comment>
+    <value>Podpis nie odpowiada formatowi Base64:</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

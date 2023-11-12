@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DetectingCandidates" xml:space="preserve">
+    <value>실행 파일 검색</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EmptyImplementation" xml:space="preserve">
+    <value>빈 디렉터리에 대한 매니페스트 다이제스트가 계산되었습니다. 아카이브에 올바른 "{0}" 값을 설정했는지 확인하세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EntryPointNotFound" xml:space="preserve">
+    <value>애플리케이션의 진입점을 찾을 수 없습니다.
+수동으로 지정해 보세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FetchingExternal" xml:space="preserve">
+    <value>제로 인스톨을 사용하여 '{0}' 다운로드</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>'{0}' 파일을 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InstallationDirDetected" xml:space="preserve">
+    <value>설치 디렉터리로 '{0}'을 감지했습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingProgramFiles32Bit" xml:space="preserve">
+    <value>32비트 %ProgramFiles% 디렉터리를 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
+    <value>레지스트리에서 여러 개의 새로운 기본 프로그램이 감지되었습니다. 모두 처리하지만 경우에 따라 마지막 프로그램이 우선할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleInstallationDirsDetected" xml:space="preserve">
+    <value>여러 설치 디렉터리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
+    <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoInstallationDirDetected" xml:space="preserve">
+    <value>설치 디렉터리를 찾을 수 없습니다.
+수동으로 지정해 보세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OnlyAvailableOnWindows" xml:space="preserve">
+    <value>이 방법은 현재 Windows에서만 사용할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SecretKeyNotInKeyring" xml:space="preserve">
+    <value>비밀 키는 사용자의 키링에 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SizeMissing" xml:space="preserve">
+    <value>파일 크기가 아직 결정되지 않았습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

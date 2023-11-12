@@ -59,12 +59,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>フィード{0}
-- 有効な署名{1}
--{2}
-{3}' からのフィードに署名する際に、この鍵を信用しますか?
+    <value>フィード：{0}
+- {1}の有効な署名
+- {2}
+このキーを信頼して「{3}」からのフィードに署名しますか？
 </value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>結果のコマンドラインは空である。</value>
@@ -87,24 +87,24 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>信託データベースの保存エラー</value>
-    <comment>Automatically translated.</comment>
+    <value>信頼データベース保存時のエラー</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>外部ソルバーの実行</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>フィード '{0}' はキャッシュされておらず、Zero Install は現在オフラインモードです。</value>
-    <comment>Automatically translated.</comment>
+    <value>フィード「{0}」はキャッシュされておらず、Zero Installは現在オフラインモードです。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' がフィードキャッシュに見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>フィード '{0}' は信頼できる鍵で署名されていない。</value>
-    <comment>Automatically translated.</comment>
+    <value>フィード「{0}」は信頼できるキーで署名されていません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' はローカルファイルである。HTTP(S)URLでなければならない。</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>{0}' の取得に問題がある。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」のダウンロードに問題があります。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>{0} バインディング名に不正な文字が含まれています。</value>
@@ -139,8 +139,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Zero Install がオフラインモードになっているため、{0} をダウンロードできません。</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Installがオフラインモードのため、{0}をダウンロードできません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>鍵情報サーバーは、この鍵に関する追加情報を提供できなかった。</value>
@@ -155,11 +155,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>ダウンロードされたフィードは、すでにキャッシュされているバージョンよりも古いものです。新しいバージョンを使い続けます。
-フィードの URI：{0}
-古い時間：{1}
-新しい時間{2}</value>
-    <comment>Automatically translated.</comment>
+    <value>ダウンロードされたフィードより、キャッシュに保存されているものの方が最新です。最新のフィードを引き続き使用します。
+フィードのURI：{0}
+古いフィードのダウンロード日時：{1}
+最新のフィードのダウンロード日時：{2}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>{0} のダウンロードに失敗しました。代わりにフィードミラーから取得しようとしています。</value>
@@ -170,28 +170,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>{0} からダウンロードしたフィードを解析できない。</value>
-    <comment>Automatically translated.</comment>
+    <value>{0}からダウンロードしたフィードをパースできません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>{0}' のキー情報を解析できません。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」のキー情報をパースできません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>{0}' のキー情報を取得できません。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」のキー情報を取得できません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' は、{1} パッケージマネージャで既知の ID ではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>フィードは信頼できない鍵で署名されている！</value>
-    <comment>Automatically translated.</comment>
+    <value>フィードが信頼できないキーで署名されています。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>ダウンロード完了待ち</value>
-    <comment>Automatically translated.</comment>
+    <value>ダウンロードが完了するのを待っています</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>作業ディレクトリは以前のコマンドで既に変更されている。</value>

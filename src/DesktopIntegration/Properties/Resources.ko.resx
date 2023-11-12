@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>다음과 같은 기존 액세스 포인트가 서로 충돌합니다:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>{0} 애플리케이션에 대한 다음 액세스 포인트가 서로 충돌합니다:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>기존 액세스 포인트 {0} 가 새 액세스 포인트 {1} 와 충돌합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>'{0}' 애플리케이션이 이미 애플리케이션 목록에 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>변경 사항 적용</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>{0}의 데스크톱 통합 적용 중</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>애플리케이션 목록에서 '{0}' 애플리케이션을 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>데스크톱 통합 작업은 한 번에 하나만 수행할 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>이름 '{0}'에 유효하지 않은 문자가 포함되어 있습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>동기화를 설정하려면 '0install central' 또는 '0install config'를 사용하세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>'{0}' 로드 중 문제가 발생했습니다.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>데스크톱 통합 복구</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>바로 가기 이름 '{0}' 에 잘못된 문자가 포함되어 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>동기화 서버에 입력한 사용자 이름 및/또는 비밀번호가 올바르지 않습니다. 동기화 옵션을 확인하세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>동기화에 입력한 암호화 키가 올바르지 않습니다. 동기화 옵션을 확인하세요.
+문제 해결 마법사(동기화 버튼을 마우스 오른쪽 버튼으로 클릭하여 실행)를 실행하거나 '0install sync --reset=server'를 실행하여 서버에서 사용되는 암호화 키를 변경할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>동기화 데이터 다운로드</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>현재 동기화 서버에 저장된 데이터가 손상되었습니다.
+문제 해결 마법사를 실행하거나(마우스 오른쪽 버튼으로 '동기화' 버튼을 클릭하여 마법사로 이동) '0install sync --reset=server'를 실행하여 서버에 저장된 데이터를 교체할 수 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>동기화 데이터 업로드</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>아이디 '{1}'로 {0} 을 찾을 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>오래된 스텁 실행 파일 '{0}'을 교체할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

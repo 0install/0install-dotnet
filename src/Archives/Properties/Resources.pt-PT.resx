@@ -60,15 +60,15 @@
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>O ficheiro de arquivo é inválido ou está danificado.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Arquivo do edifício '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extração de arquivo</value>
-    <comment>Automatically translated.</comment>
+    <value>A extrair arquivo</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>A extração deste tipo de arquivo só é suportada no macOS.</value>

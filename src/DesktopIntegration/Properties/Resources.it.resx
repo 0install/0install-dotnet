@@ -79,28 +79,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Applicazione dell'integrazione desktop per {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Applicazione dell'integrazione desktop per {0} in corso</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Impossibile trovare l'applicazione '{0}' nell'elenco delle applicazioni.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>È possibile eseguire una sola operazione di integrazione del desktop alla volta.</value>
-    <comment>Automatically translated.</comment>
+    <value>Puoi eseguire solo un'operazione di integrazione desktop alla volta.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>Il nome '{0}' contiene caratteri non validi.</value>
-    <comment>Automatically translated.</comment>
+    <value>Il nome '{0}' contiene dei caratteri non validi.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Utilizzare "0install central" o "0install config" per impostare Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Si è verificato un problema nel caricamento di '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Problema durante il caricamento di '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Riparazione dell'integrazione del desktop</value>

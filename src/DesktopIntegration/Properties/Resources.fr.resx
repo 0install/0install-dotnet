@@ -79,19 +79,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Application de l'intégration des postes de travail pour {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Création de l'intégration dans le bureau pour {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>L'application '{0}' n'a pas été trouvée dans la liste des applications.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Vous ne pouvez exécuter qu'une opération d'intégration bureau à la fois.</value>
+    <value>Vous ne pouvez effectuer qu'une seule opération d'intégration de bureau à la fois.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>Le nom '{0}' contient des caractères invalides.</value>
+    <value>Le nom '{0}' contient des caractères non valides.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Un problème a été rencontré lors du chargement de '{0}'.</value>
+    <value>Problème lors du chargement de '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">

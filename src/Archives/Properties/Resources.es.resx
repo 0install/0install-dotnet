@@ -59,16 +59,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>El archivo no es válido o está dañado.</value>
-    <comment>Automatically translated.</comment>
+    <value>El archivo de almacenamiento no es válido o está dañado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Archivo de edificios '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Extracción de archivos</value>
-    <comment>Automatically translated.</comment>
+    <value>Extrayendo archivo</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>La extracción de este tipo de archivo sólo es compatible con macOS.</value>

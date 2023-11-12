@@ -159,7 +159,7 @@
   </data>
   <data name="Command" xml:space="preserve">
     <value>Εντολή</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
     <value>Επιχειρήματα της γραμμής εντολών</value>
@@ -212,7 +212,7 @@
   </data>
   <data name="Description" xml:space="preserve">
     <value>Περιγραφή</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
     <value>Δημιουργήστε ένα ψευδώνυμο για την εκκίνηση μιας εφαρμογής μέσω του 0install χωρίς πάντα να χρειάζεται να επιλέξετε το πλήρες URI.</value>
@@ -382,9 +382,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Αφαιρεί όλες τις υλοποιήσεις από την κρυφή μνήμη. Χρησιμοποιήστε αυτή την εντολή για να καθαρίσετε το σύστημα πριν από την αφαίρεση της Zero Install. Η χειροκίνητη διαγραφή των καταλόγων της κρυφής μνήμης μπορεί να είναι δύσκολη λόγω των ACLs NTFS που χρησιμοποιούνται για την προστασία των υλοποιήσεων από τροποποίηση.
-Τα πρόσθετα ορίσματα καθορίζουν προσαρμοσμένες τοποθεσίες της κρυφής μνήμης.</value>
-    <comment>Automatically translated.</comment>
+    <value>Αφαιρεί όλες τις εφαρμογών από την προσωρινή μνήμη. Χρησιμοποιήστε αυτή την εντολή για τον καθαρισμό του συστήματος πριν από την αφαίρεση του Zero Install. Διαγραφή καταλόγων της μνήμης cache χειροκίνητα μπορεί να είναι δύσκολη λόγω των ACL του NTFS που χρησιμοποιείται για την προστασία έναντι τροποποίησης εφαρμογών.
+Πρόσθετα επιχειρήματα καθορισμού θέσεων που προσαρμοσμένη της μνήμης cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
     <value>Αφαιρεί μια εφαρμογή από την προσωρινή μνήμη.</value>

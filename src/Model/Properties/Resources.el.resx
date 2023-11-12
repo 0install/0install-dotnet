@@ -167,8 +167,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Το βήμα της συνταγής '{0}' στην υλοποίηση '{1}' έχει άκυρη αναφορά υλοποίησης.</value>
-    <comment>Automatically translated.</comment>
+    <value>Der Recipe Schritt '{0}' in der Implementierung '{1}' hat eine ungültige Implementierungsreferenz.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
     <value>Άγνωστος τύπος αρχείου '{0}'.</value>

@@ -60,15 +60,15 @@
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
     <value>存档文件无效或损坏。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>建筑档案 '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>提取档案</value>
-    <comment>Automatically translated.</comment>
+    <value>解压存档</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>仅 macOS 支持提取这种存档类型。</value>

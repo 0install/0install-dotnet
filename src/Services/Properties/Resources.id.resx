@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Feed: {0}
+- Tanda tangan yang valid dari {1}
+- {2}
+Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
+</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>Baris perintah yang dihasilkan kosong.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Perintah untuk '{0}' tidak ditentukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Mencari di jaringan lokal</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>binding &lt;environment&gt; harus berisi atribut 'value' atau 'insert'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Kesalahan memuat katalog</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Kesalahan dalam menyimpan trust database</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Menjalankan pemecah eksternal</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Feed '{0}' tidak disimpan dalam cache dan Zero Install saat ini dalam mode offline.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' tidak dapat ditemukan di cache feed.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Feed '{0}' tidak ditandatangani kunci tepercaya apa pun.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' adalah berkas lokal. Seharusnya berupa URL HTTP(S).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>Atribut &lt;interface&gt; uri ('{0}') tidak sesuai dengan URL tempat feed diunduh ('{1}').</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Atribut &lt;interface&gt; uri tidak ada. Seharusnya '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Ada masalah saat mengambil '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Karakter ilegal dalam nama pengikatan {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>Feed harus menentukan URI asalnya agar dapat diimpor.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Nama yang tidak ada dalam pengikatan {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Tidak ada antarmuka yang ditentukan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>Tidak dapat mengunduh {0} karena Zero Install dalam mode offline.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Server informasi kunci tidak dapat memberikan informasi tambahan apa pun tentang kunci ini.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Tidak ditemukan intisari manifes untuk implementasi '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Tidak ditemukan metode pengambilan untuk implementasi '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>Feed diunduh lebih tua dari versi yang sudah ada di cache. Kami akan terus menggunakan versi yang lebih baru.
+Feed URI: {0}
+Tanggal sebelumnya: {1}
+Tanggal baru: {2}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Gagal mengunduh {0}. Mencoba untuk mendapatkan dari feed mirror sebagai gantinya.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Tidak dapat menyimpan cache katalog aplikasi yang diunduh.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Tidak dapat menganalisis feed yang diunduh dari {0}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Tidak dapat menganalisis informasi kunci untuk '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Tidak bisa mendapatkan informasi kunci untuk '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' bukan merupakan ID yang dikenal di pengelola paket {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Feed ditandatangani dengan kunci yang tidak dipercaya!</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>Menunggu pengunduhan selesai</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
+    <value>Direktori kerja telah diubah oleh perintah sebelumnya.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>Direktori kerja berisi jalur yang tidak valid (berpotensi menimbulkan risiko keamanan).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

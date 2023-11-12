@@ -76,12 +76,12 @@
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
     <value>Все необходимые компоненты загружены.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Все компоненты, необходимые для работы {0}, были экспортированы в '{1}'.
 Для импорта этих файлов на другой компьютер можно использовать скрипт импорта или исполняемый файл Bootstrap в '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' уже есть в списке кэшей пользовательских реализаций.</value>
@@ -127,7 +127,7 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>Изменились возможности приложения '{0}'.</value>
@@ -147,11 +147,11 @@
   </data>
   <data name="Change" xml:space="preserve">
     <value>Изменить</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>Обнаруженные изменения</value>
-    <comment>Automatically translated.</comment>
+    <value>Обнаружены изменения</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>Нажмите здесь для выбора.</value>
@@ -167,7 +167,7 @@
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>Конфигурация</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Вы хотите удалить все файлы приложений из кэша Zero Install?
@@ -327,7 +327,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Выполняет поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, доверять ли этим программам, прежде чем запускать их.</value>
+    <value>Выполняет поиск проиндексированных зеркальным сервером каналов, соответствующих заданным ключевым словам. Обратите внимание, что зеркальный сервер по умолчанию индексирует все известные каналы, независимо от их качества; вы должны решить, стоит ли доверять этим программам, прежде чем запускать их.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -429,16 +429,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Интеграция с рабочим столом</value>
-    <comment>Automatically translated.</comment>
+    <value>Ярлык на рабочем столе</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Применение интеграции рабочих станций</value>
-    <comment>Automatically translated.</comment>
+    <value>Создание ярлыка на рабочем столе</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Устранение интеграции с рабочим столом</value>
-    <comment>Automatically translated.</comment>
+    <value>Удаления ярлыка с рабочего стола</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Поиск в локальной сети</value>
@@ -446,11 +446,11 @@
   </data>
   <data name="Done" xml:space="preserve">
     <value>Выполнено</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
-    <value>Скачать полностью</value>
-    <comment>Automatically translated.</comment>
+    <value>Загрузка завершена</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
     <value>Введите URL-адрес или путь к локальному файлу каталога фидов, который необходимо добавить:</value>
@@ -470,7 +470,7 @@
   </data>
   <data name="ExportComplete" xml:space="preserve">
     <value>Экспорт завершен.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
     <value>Подача уже была зарегистрирована для всех соответствующих интерфейсов.</value>
@@ -509,8 +509,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Невозможно найти файл или каталог '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось найти файл или каталог '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
     <value>Для абсолютных путей используйте file:///path, а не file:/path.</value>
@@ -518,7 +518,7 @@
   </data>
   <data name="Hide" xml:space="preserve">
     <value>Скрыть</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>Похоже, что этот фид не предназначен для того же приложения. Добавить его в любом случае?
@@ -526,8 +526,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Установка службы Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Установка Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>Интегрировать {0}</value>
@@ -538,7 +538,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>Хотите ли Вы изменить свой выбор и попробовать снова?</value>
+    <value>Хотите ли Вы изменить свой выбор и попробовать еще раз?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
@@ -633,7 +633,7 @@
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
     <value>Обновления не найдены</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
     <value>Открыть в файловом менеджере</value>
@@ -660,7 +660,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Автоматически отвечать на вопросы по умолчанию, когда это возможно, и упростить вывод на консоль (без таблиц и прогресс-баров).</value>
+    <value>Автоматически отвечать на вопросы с использованием значений по умолчанию, когда это возможно, и упростить вывод на консоль (без таблиц и прогресс-баров).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -676,7 +676,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Вместо выполнения команды по умолчанию используйте {COMMAND}. Допустимые имена команд указываются в ленте программы.
+    <value>Вместо выполнения команды по умолчанию используйте {COMMAND}. Допустимые имена команд указываются в подаче программы.
 Установите значение empty (""), чтобы игнорировать команду при выборе.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -812,7 +812,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Сброс данных синхронизации. Допустимые значения {MODE}- "нет" (обычное объединение данных с клиента и сервера), "клиент" (замена всех данных на клиенте данными с сервера) и "сервер" (замена всех данных на сервере данными с клиента).</value>
+    <value>Сброс данных синхронизации. Допустимые значения {MODE}: "нет" (обычное объединение данных с клиента и сервера), "клиент" (замена всех данных на клиенте данными с сервера) и "сервер" (замена всех данных на сервере данными с клиента).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -841,7 +841,7 @@
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Вместо того чтобы выполнять выбранную программу напрямую, выполните команду {COMMAND} PROGRAM ARGS. Это удобно для запуска отладчиков и средств трассировки на программе (а не на Zero Install!).
-Обратите внимание, что обёртка выполняется в окружении, выбранном программой; следовательно, этот механизм не может быть использован для создания "песочницы".
+Обратите внимание, что обёртка выполняется в окружении, выбранном программой, поэтому данный механизм не может быть использован для создания "песочницы".
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -859,7 +859,7 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Удалить</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
     <value>Хотите ли Вы удалить из списка {0} отмеченные ключи?</value>
@@ -875,7 +875,7 @@
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
     <value>Удаление устаревших реализаций</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>Для этого может потребоваться закрыть и снова открыть терминал.</value>
@@ -895,7 +895,7 @@
   </data>
   <data name="RunNgen" xml:space="preserve">
     <value>Предварительная компиляция сборок .NET для ускорения запуска приложений</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>Отдельные реализации</value>
@@ -907,7 +907,7 @@
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>Доступно обновление Zero Install v{0}. Установить сейчас?</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>Этот экземпляр Zero Install не был развернут. Поэтому он не может обновляться самостоятельно.</value>
@@ -935,12 +935,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Запуск службы Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Запуск Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Остановка службы Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Остановка Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} освободившееся пространство для хранения.</value>
@@ -959,7 +959,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Криптографический ключ используется для локального шифрования данных перед передачей их на сервер.
+    <value>Криптоключ используется для локального шифрования данных перед их передачей на сервер.
 Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -984,8 +984,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Деинсталляция службы Zero Install Store</value>
-    <comment>Automatically translated.</comment>
+    <value>Удаление Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>Неизвестная команда '{0}'.</value>
@@ -1017,10 +1017,10 @@
   </data>
   <data name="VersionInformation" xml:space="preserve">
     <value>Информация о версии</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Работа</value>
-    <comment>Automatically translated.</comment>
+    <value>В процессе</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

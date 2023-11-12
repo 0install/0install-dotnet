@@ -75,12 +75,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
-    <value>Alle erforderlichen Komponenten sind heruntergeladen worden.</value>
+    <value>Alle erforderlichen Komponenten wurden erfolgreich heruntergeladen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Alle Komponenten, die zur Ausführung von {0} erforderlich sind, wurden nach '{1}' exportiert.
-Sie können das Import-Skript oder die ausführbare Bootstrap-Datei in '{1}' verwenden, um diese Dateien auf einem anderen Computer zu importieren.</value>
+    <value>Alle für die Ausführung von {0} erforderlichen Komponenten wurden nach '{1}' exportiert.
+Sie können das Importskript oder die ausführbare Bootstrap-Datei in '{1}' verwenden, um diese Dateien auf einem anderen Computer zu importieren.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -433,11 +433,11 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Anwendung von Desktopintegration</value>
+    <value>Desktopintegration wird angewendet</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Entfernen von Desktopintegration</value>
+    <value>Desktopintegration wird entfernt</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -445,7 +445,7 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
-    <value>Fertig</value>
+    <value>Abgeschlossen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
@@ -469,7 +469,7 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Export abgeschlossen.</value>
+    <value>Export abgeschlossen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
@@ -526,7 +526,7 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Installation des Zero Install Store Service</value>
+    <value>Zero Install Store Service wird installiert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
@@ -632,7 +632,7 @@ Sie können dies mit '{0}' tun. Dies ist dann völlig unabhängig von Ihrer port
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
-    <value>Keine Updates gefunden</value>
+    <value>Es wurden keine Updates gefunden</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
@@ -874,7 +874,7 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>Entfernen veralteter Implementierungen</value>
+    <value>Veraltete Implementierungen werden entfernt</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
@@ -894,7 +894,7 @@ Darf Befehlszeilenargumente enthalten. Leerzeichen müssen escaped werden!</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Vorkompilierung von .NET-Assemblies für einen schnelleren Start der Anwendung</value>
+    <value>.NET-Assemblys werden für einen schnelleren Anwendungsstart vorkompiliert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
@@ -935,11 +935,11 @@ Führen Sie '0install config self_update_uri default' aus, um sie zu aktivieren.
     <comment>Manually overriden.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Start des Zero Install Store-Dienstes</value>
+    <value>Zero Install Store Service wird gestartet</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Beenden des Zero Install Store-Dienstes</value>
+    <value>Zero Install Store Service wird angehalten</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
@@ -984,7 +984,7 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas an
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Deinstallation des Zero Install Store Service</value>
+    <value>Zero Install Store Service wird deinstalliert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
@@ -1020,7 +1020,7 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas an
     <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Arbeite</value>
+    <value>Wird ausgeführt</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>
